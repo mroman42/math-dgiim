@@ -128,3 +128,19 @@ Luego $f=0$.
 En particular $Hom_R(M,R)$ es libre de torsión.
 
 *** 4. Propiedades del anulador
+Suponiendo $p,q \in Ann(R)$, tenemos que para todo $m \in M$ se tendrá
+$pm=0$ y $qm=0$. Por lo tanto $(p+q)m=0$ y $rpm = 0$, haciéndolo ideal.
+
+Si $Ann(M) \neq 0$, existe un elemento de $R$ que anula todo $M$, como
+además $R$ es dominio de integridad, este elemento no será divisor de 0, y $M$
+será torsión. Si $M$ es torsión y finitamente generado, tendrá un elemento
+$r_i$ que anulará cada uno de sus generadores $m_i$. Siendo $R$ conmutativo,
+el elemento producto estará en el anulador
+
+                     \[
+\prod_{i} r_i
+\] 
+
+Nótese que si quitamos la condición de que $M$ sea finitamente generado, existen
+módulos como \[\mathbb{Z}_2 \oplus \mathbb{Z}_4 \oplus \mathbb{Z}_8 \dots\] que son torsión porque todo elemento se anula pero
+tienen anulador vacío porque no existen elementos que anulen todo el módulo.
