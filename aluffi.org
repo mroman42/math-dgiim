@@ -117,3 +117,14 @@ $R$ es conmutativo:
  - $r(pm) = p(rm) = 0$
 
 Usando aquí que es dominio de integridad y por tanto $rq \neq 0$.
+
+*** 2. Hom(M,N) es libre de torsión cuando lo es N.
+Supongamos que no lo fuera, existiría un $f \in Hom_R(M,N)$ tal que 
+$rf = 0$ para algún $r$ no divisor de $0$. Pero entonces, esto haría
+que en el anillo $N$ existiese $rf(m) = 0$ para cualquier $m$, y por 
+ser libre de torsión, se tendría $f(m) = 0$ para todo $m$.
+Luego $f=0$.
+
+En particular $Hom_R(M,R)$ es libre de torsión.
+
+*** 4. Propiedades del anulador
