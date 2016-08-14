@@ -1,2 +1,3 @@
 # exercises
-Soluciones a ejercicios de matemáticas
+
+Soluciones a ejercicios de matemáticas escritas en org-mode.
