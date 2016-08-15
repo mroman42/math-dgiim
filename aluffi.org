@@ -168,3 +168,17 @@ que:
   $(b,-a)$.
 - Que la imagen de $d_1$ es el núcleo de $\pi$ y que la proyección es sobreyectiva
   es trivial.
+
+*** 14. Complejo de Koszul en el caso de 3 elementos
+**** Es un complejo
+Volvemos a comprobar que las composiciones son nulas. Tenemos de hecho que:
+
+\[d_2 \circ d_1 = d_3 \circ d_2 = 0\]
+
+Y que la proyección coincide con el generado por $d_1$.
+
+**** Es un complejo exacto cuando la secuencia es regular
+Otra vez, como $c$ no es divisor de cero módulo $(a,b)$, tenemos que el kernel
+de $d_3$ es nulo. De la misma forma, se tiene que el $ker(d_2)=im(d_3)$, aplicando
+en cada caso el no ser divisor de cero. Vuelve a tenerse una ecuación similar
+que demuestra $ker(d_1) = im(d_2)$. El caso de la proyección es trivial.
