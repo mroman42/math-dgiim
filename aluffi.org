@@ -1,3 +1,7 @@
+#+TITLE: Ejercicios: Algebra Chapter 0
+#+AUTHOR: Mario Román
+#+OPTIONS: num:nil
+
 * III. Rings and modules
 ** 5. Modules over a ring
 *** 4. Simple modules. Lema de Schur
@@ -14,18 +18,18 @@ o bien $\{0\}$, o bien $M$. Dividiendo por casos:
 Tomemos un elemento suyo cualquiera y
 creamos $<m>$. Ocurre que debe ser un submódulo y por ser simple, todo
 el módulo.
-**** Un cociente por ideal es cíclico
+**** Un cociente por ideal es cíclico.
 Sea $M = R/I$, un módulo sobre $R$ podemos generarlo simplemente 
 por $<1>$, luego es cíclico.
 Sea $M=<m>$ un módulo cíclico. Podemos tomar un isomorfismo que lleve
 $r \mapsto rm$ y definir $I = \{r\;|\;rm=0\}$. Por 1er Teorema de isomorfía:
 
-$$ M \cong R/ker(\phi) \cong R/I$$
+\[M \cong R/ker(\phi) \cong R/I\]
 
-**** Todo cociente de cíclico es cíclico
+**** Todo cociente de cíclico es cíclico.
 Usando el tercer teorema de isomorfía:
 
-$$\frac{\frac{R}{I}}{J} = \frac{\frac{R}{I}}{\frac{I+J}{I}} = \frac{R}{I+J}$$ (?)
+\[\frac{\frac{R}{I}}{J} \cong \frac{\frac{R}{I}}{\frac{I+J}{I}} \cong \frac{R}{I+J}\] (?)
 
 
 * VI. Linear Algebra
@@ -142,23 +146,23 @@ el elemento producto estará en el anulador
 \] 
 
 Nótese que si quitamos la condición de que $M$ sea finitamente generado, existen
-módulos como \[\mathbb{Z}_2 \oplus \mathbb{Z}_4 \oplus \mathbb{Z}_8 \dots\] que son torsión porque todo elemento se anula pero
+módulos como \(\mathbb{Z}_2 \oplus \mathbb{Z}_4 \oplus \mathbb{Z}_8 \dots\) que son torsión porque todo elemento se anula pero
 tienen anulador vacío porque no existen elementos que anulen todo el módulo.
 
 *** 13. Complejo de Koszul
 
-**** Es un complejo
+**** Es un complejo.
 Comprobamos que es un complejo viendo que las siguientes composiciones son $0$:
 
- - \[d_1 \circ d_2 (t) = bta - atb = 0\]
- - \[\pi \circ d_1 (r,s) = (ra+sb)\ mod(a,b)) = 0 \]
+ - \(d_1 \circ d_2 (t) = bta - atb = 0\)
+ - \(\pi \circ d_1 (r,s) = (ra+sb)\ mod(a,b)) = 0 \)
 
-**** Es un complejo exacto cuando la secuencia es regular
+**** Es un complejo exacto cuando la secuencia es regular.
 Y comprobamos que es exacto en el caso en el que la secuencia es regular viendo
 que:
 
-- \[ker(d_2) = 0\], ya que $a$ no es divisor de cero.
-- \[ker(d_1) = <(b,-a)>\]. Tenemos que $b$ no es divisor de cero módulo $a$, así, para que
+- \(ker(d_2) = 0\), ya que $a$ no es divisor de cero.
+- \(ker(d_1) = <(b,-a)>\). Tenemos que $b$ no es divisor de cero módulo $a$, así, para que
   sea linealmente dependiente con $a$ necesitamos algo que sea cero módulo $a$. Este
   caso requiere $s$ múltiplo de $a$. Esto requiere estar dentro del ideal generado por
   $(b,-a)$.
