@@ -144,3 +144,23 @@ el elemento producto estará en el anulador
 Nótese que si quitamos la condición de que $M$ sea finitamente generado, existen
 módulos como \[\mathbb{Z}_2 \oplus \mathbb{Z}_4 \oplus \mathbb{Z}_8 \dots\] que son torsión porque todo elemento se anula pero
 tienen anulador vacío porque no existen elementos que anulen todo el módulo.
+
+*** 13. Complejo de Koszul
+
+**** Es un complejo
+Comprobamos que es un complejo viendo que las siguientes composiciones son $0$:
+
+ - \[d_1 \circ d_2 (t) = bta - atb = 0\]
+ - \[\pi \circ d_1 (r,s) = (ra+sb)\ mod(a,b)) = 0 \]
+
+**** Es un complejo exacto cuando la secuencia es regular
+Y comprobamos que es exacto en el caso en el que la secuencia es regular viendo
+que:
+
+- \[ker(d_2) = 0\], ya que $a$ no es divisor de cero.
+- \[ker(d_1) = <(b,-a)>\]. Tenemos que $b$ no es divisor de cero módulo $a$, así, para que
+  sea linealmente dependiente con $a$ necesitamos algo que sea cero módulo $a$. Este
+  caso requiere $s$ múltiplo de $a$. Esto requiere estar dentro del ideal generado por
+  $(b,-a)$.
+- Que la imagen de $d_1$ es el núcleo de $\pi$ y que la proyección es sobreyectiva
+  es trivial.
