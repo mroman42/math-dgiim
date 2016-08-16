@@ -1,0 +1,48 @@
+#+TITLE: Algebra: Chapter 0
+#+SUBTITLE: Apuntes de teoría
+#+AUTHOR: Mario Román
+#+OPTIONS: num:nil toc:nil
+#+LANGUAGE: es
+
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{definition}{Definición}
+
+* IV. Álgebra lineal
+** 4. Presentaciones y resoluciones
+*** 4.1. Torsión
+#+begin_definition
+*Torsión*. Un elemento $m \in M$ módulo de $R$ es de *torsión* si $\{m\}$ es linealmente
+dependiente. Es decir,
+
+  \[ \exists r \in R,\ r \neq 0\ :\ rm = 0 \]
+
+El conjunto de elementos de torsión se llama $Tor(M)$. Un módulo es *libre de torsión*
+si $Tor(M) = 0$ y *de torsión* si $Tor(M)=M$.
+#+end_definition
+
+Un anillo conmutativo es libre de torsión sobre sí mismo si y sólo si es dominio de
+integridad. Cuando esto ocurre, $Tor(M)$ es siempre submódulo de $M$. Submódulos o
+sumas de módulos libres de tensión serán libres de torsión, y por todo esto, los módulos
+libres sobre dominios de integridad serán libres de torsión.
+
+#+begin_definition
+*Cíclico*. Un módulo es *cíclico* cuando es generado por un elemento. Es decir,
+cuando $M \cong R/I$ para algún ideal.
+#+end_definition
+
+La equivalencia se ve en este [[file:aluffi.org::*Un%20cociente%20por%20ideal%20es%20c%C3%ADclico.][ejercicio]]. Cuando en un dominio de integridad todos sus
+módulos cíclicos son libres de torsión, es un cuerpo. Otra forma de pensar sobre un módulo
+cíclico es como aquel que admite un epimorfismo:
+
+\[ R \longrightarrow M \longrightarrow 0 \]
+
+*** 4.2. Módulos finitamente presentados y resoluciones libres
+#+begin_definition
+*Anulador.* El anulador de un módulo $M$ es:
+
+\[Ann_R(M) = \{ r \in R\ |\ \forall m \in M, rm = 0 \}\]
+#+end_definition
+
+Es un ideal de $R$. Cuando $M$ es finitamente generado y $R$ es dominio de integridad,
+$M$ es de torsión si y sólo si $Ann(M) \neq 0$. Puede verse en este [[file:aluffi.org::*M%20de%20torsi%C3%B3n%20si%20y%20s%C3%B3lo%20si%20el%20anulador%20es%20no%20nulo.][ejercicio]].
