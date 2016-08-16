@@ -1,0 +1,69 @@
+% Created 2016-08-16 mar 23:57
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{amsthm}
+\newtheorem{theorem}{Teorema}
+\newtheorem{definition}{Definición}
+\author{Mario Román}
+\date{\today}
+\title{Algebra: Chapter 0\\\medskip
+\large Apuntes de teoría}
+\hypersetup{
+ pdfauthor={Mario Román},
+ pdftitle={Algebra: Chapter 0},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.50.2 (Org mode 8.3.4)}, 
+ pdflang={Spanish}}
+\begin{document}
+
+\maketitle
+
+\section*{IV. Álgebra lineal}
+\label{sec:orgheadline4}
+\subsection*{4. Presentaciones y resoluciones}
+\label{sec:orgheadline3}
+\subsubsection*{4.1. Torsión}
+\label{sec:orgheadline1}
+\begin{definition}
+\textbf{Torsión}. Un elemento \(m \in M\) módulo de \(R\) es de \textbf{torsión} si \(\{m\}\) es linealmente
+dependiente. Es decir,
+
+\[ \exists r \in R,\ r \neq 0\ :\ rm = 0 \]
+
+El conjunto de elementos de torsión se llama \(Tor(M)\). Un módulo es \textbf{libre de torsión}
+si \(Tor(M) = 0\) y \textbf{de torsión} si \(Tor(M)=M\).
+\end{definition}
+
+Un anillo conmutativo es libre de torsión sobre sí mismo si y sólo si es dominio de
+integridad. Cuando esto ocurre, \(Tor(M)\) es siempre submódulo de \(M\). Submódulos o
+sumas de módulos libres de tensión serán libres de torsión, y por todo esto, los módulos
+libres sobre dominios de integridad serán libres de torsión.
+
+\begin{definition}
+\textbf{Cíclico}. Un módulo es \textbf{cíclico} cuando es generado por un elemento. Es decir,
+cuando \(M \cong R/I\) para algún ideal.
+\end{definition}
+
+La equivalencia se ve en este \href{aluffi.org}{ejercicio}. Cuando en un dominio de integridad todos sus
+módulos cíclicos son libres de torsión, es un cuerpo. Otra forma de pensar sobre un módulo
+cíclico es como aquel que admite un epimorfismo:
+
+\[ R \rightarrow M \rightarrow 0 \]
+
+\subsubsection*{4.2.}
+\label{sec:orgheadline2}
+\end{document}
