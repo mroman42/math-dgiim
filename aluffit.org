@@ -46,3 +46,32 @@ cíclico es como aquel que admite un epimorfismo:
 
 Es un ideal de $R$. Cuando $M$ es finitamente generado y $R$ es dominio de integridad,
 $M$ es de torsión si y sólo si $Ann(M) \neq 0$. Puede verse en este [[file:aluffi.org::*M%20de%20torsi%C3%B3n%20si%20y%20s%C3%B3lo%20si%20el%20anulador%20es%20no%20nulo.][ejercicio]].
+
+#+begin_definition
+*Módulos finitamente generados y presentados*. Sabemos que todos los módulos admiten un
+epimorfismo de la forma:
+
+\[ R^{\oplus A} \longrightarrow M \longrightarrow 0\]
+
+Cuando lo admiten con $A$ finito, se tiene $M$ *finitamente generado*. Un módulo se dice
+*finitamente presentado* si hay una secuencia exacta de la forma:
+
+\[R^n \overset{\phi}\longrightarrow R^m \longrightarrow M \longrightarrow 0\]
+#+end_definition
+
+Si $R$ es Noetheriano, todo módulo finitamente generado es finitamente presentado.
+
+#+begin_definition
+*Resolución*. Una resolución de $M$ mediante módulos libres finitamente generados es
+un complejo exacto:
+
+\[ \dots \rightarrow R^{m_3} \rightarrow R^{m_2} \rightarrow R^{m_1} \rightarrow R^{m_0} \rightarrow M \rightarrow 0 \]
+#+end_definition
+
+Aquí podemos entender que $R^{m_0}$ contiene los generadores, $R^{m_1}$ las relaciones
+entre los generadores, $R^{m_2}$ las relaciones entre relaciones, y así sucesivamente.
+
+Un dominio de integridad es cuerpo si y sólo si todos sus módulos son finitamente generados,
+esto es equivalente a tener:
+
+\[ 0 \longrightarrow R^m \longrightarrow M \longrightarrow 0 \]
