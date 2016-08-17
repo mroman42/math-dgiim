@@ -122,3 +122,45 @@ u & 0 \\ \hline 0 & A'
 \end{array}\right)\]
 
 Que no afecta al cokernel.
+
+* VIII. Vuelta al álgebra lineal
+** 1. Preliminares
+*** 1.1. Funtores
+#+begin_definition
+*Funtor*. Un funtor covariante:
+
+\[{\cal F} : C \longrightarrow D\]
+
+Asigna a cada $A \in C$ un ${\cal F}(A) \in D$ y mapea los morfismos entre cada par de objetos:
+
+\[Hom_C(A,B) \rightarrow Hom_D({\cal F}(A),{\cal F}(B))\]
+
+Respetando la identidad y la composición de morfismos. 
+
+Un *funtor contravariante* es un funtor desde la categoría opuesta:
+
+\[{\cal F} : C^{op} \longrightarrow D\]
+#+end_definition
+
+Los funtores preservan los diagramas conmutativos. Llamamos *prehaz* a un funtor
+contravariante $C \longrightarrow \mathtt{Set}$.
+
+#+begin_definition
+*Funtor aditivo*. Llamamos a un funtor 
+${\cal F}: R-\mathtt{Mod} \longrightarrow S-\mathtt{Mod}$ *aditivo* cuando
+la función $Hom_{R}(A,B) \rightarrow Hom_{S}({\cal F}(A),{\cal F}(B))$ es homomorfismo de grupos.
+#+end_definition
+
+*** 1.3. Equivalencia de categorías
+#+begin_definition
+*Funtores plenamente fieles*. Dada la función inducida:
+\[Hom_C(A,B) \rightarrow Hom_D({\cal F}(A),{\cal F}(B))\]
+Un funtor es *fiel* si es inyectiva, *pleno* si es sobreyectiva y *plenamente fiel*
+si es biyectiva.
+#+end_definition
+
+#+begin_definition
+*Equivalencia de categorías*. Un funtor es una equivalencia de categorías si 
+es plenamente fiel y esencialmente sobreyectivo, es decir, para cada $Y \in D$,
+existe un $X \in C$ tal que $F(X) \cong Y$.
+#+end_definition
