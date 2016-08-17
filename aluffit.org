@@ -4,9 +4,11 @@
 #+OPTIONS: num:nil toc:nil
 #+LANGUAGE: es
 
+#+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{amsthm}
 #+latex_header: \newtheorem{theorem}{Teorema}
 #+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
 
 * IV. Álgebra lineal
 ** 4. Presentaciones y resoluciones
@@ -71,7 +73,52 @@ un complejo exacto:
 Aquí podemos entender que $R^{m_0}$ contiene los generadores, $R^{m_1}$ las relaciones
 entre los generadores, $R^{m_2}$ las relaciones entre relaciones, y así sucesivamente.
 
-Un dominio de integridad es cuerpo si y sólo si todos sus módulos son finitamente generados,
+Un dominio de integridad es *cuerpo si y sólo si todos sus módulos son finitamente generados*,
 esto es equivalente a tener:
 
 \[ 0 \longrightarrow R^m \longrightarrow M \longrightarrow 0 \]
+
+para cualquier módulo.
+
+Un dominio de integridad es *PID si todas las resoluciones como finitamente generado 
+extienden a finitamente presentado*, de la forma:
+
+\[0 \longrightarrow R^{m_1} \longrightarrow R^{m_0} \overset{\pi}\longrightarrow M \longrightarrow 0\]
+
+esto equivale a pedir que $\ker(\pi)$ sea libre.
+
+
+*** 4.3. Leyendo una presentación
+Hemos visto que podemos estudiar un módulo finitamente presentado por un
+morfismo $\phi: R^n \longrightarrow R^m$, donde $M = coker(\phi)$. Esto quiere decir que 
+podemos asignarle una matriz explícita.
+
+#+begin_theorem
+*Producto de módulos en matrices*. Sean $M,N$ módulos con matrices $A,B$.
+Tenemos $M \oplus N$ con matriz:
+
+\[\left(\begin{array}{c|c}
+A & 0 \\ \hline 0 & B 
+\end{array}\right)\]
+#+end_theorem
+
+Además nótese que las *matrices equivalentes* representan el mismo 
+homeomorfismo, y por tanto el mismo módulo.
+
+#+begin_theorem
+*Transformaciones de matrices de módulos*. Una matriz representa el mismo módulo
+tras las transformaciones de:
+ - Permutar filas o columnas
+ - Añadir filas o columnas linealmente dependientes
+ - Multiplicar filas o columnas por una unidad
+ - Quitar una fila y columna en la que sólo queda una unidad
+#+end_theorem
+
+Las primeras son consecuencia de la equivalencia. La última puede colocarse como
+una parte de identidad en una matriz de la forma:
+
+\[A = \left(\begin{array}{c|c}
+u & 0 \\ \hline 0 & A' 
+\end{array}\right)\]
+
+Que no afecta al cokernel.
