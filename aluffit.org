@@ -224,3 +224,19 @@ tales que
 - $L$ es inicial en este diagrama.
 #+end_definition
 
+*** 1.5. Comparando funtores
+#+begin_definition
+*Transformación natural*. Una transformación natural entre dos funtores ${\cal F} \Longrightarrow {\cal G}$ 
+consiste en morfismos $\upsilon_X : {\cal F}(X) \longrightarrow {\cal G}(X)$ tales que conmuta el diagrama:
+
+\[ \begin{tikzcd}
+{\cal F}(X) \arrow{r}{{\cal F}(\alpha)} \arrow{d}{\upsilon_X} & {\cal F}(Y) \arrow{d}{\upsilon_Y} \\
+{\cal G}(X) \arrow{r}{{\cal G}(\alpha)} & {\cal G}(Y)
+\end{tikzcd}
+\]
+
+para cualquier morfismo $\alpha$.
+
+Llamamos *isomorfismo natural* a una transformación natural donde cada $\upsilon$
+es un isomorfismo.
+#+end_definition
