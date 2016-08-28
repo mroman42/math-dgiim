@@ -196,3 +196,14 @@ Podemos encontrar una resolución como:
 Donde $\pi$ es un morfismo que cancela $x,y$. $\delta$ es un morfismo que lleva
 cada una de las copias del $1$ a $x$ e $y$. Finalmente, $\phi$ es monomorfismo
 que lleva $1$ a $(y,-x)$ que es generador de $ker(\delta)$.
+
+* VIII. Linear algebra, reprise
+** 1. Preliminaries, reprise
+*** 2. Funtor plenamente fiel respeta isomorfías 
+Sea ${\cal F}(A) \cong {\cal F}(B)$, gracias a dos morfismos inversos $\alpha,\beta$. Como
+el funtor es pleno, existen dos morfismos preimagen de ambos
+llamados $\alpha',\beta'$ y tenemos que:
+
+\[{\cal F}(\alpha' \circ \beta') = \alpha \circ \beta = 1\]
+
+Por ser fiel, debemos tener $\alpha' \circ \beta' = 1$.
