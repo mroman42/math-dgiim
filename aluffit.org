@@ -6,6 +6,7 @@
 
 #+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
 #+latex_header: \newtheorem{theorem}{Teorema}
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \setlength{\parindent}{0pt}
@@ -164,3 +165,62 @@ si es biyectiva.
 es plenamente fiel y esencialmente sobreyectivo, es decir, para cada $Y \in D$,
 existe un $X \in C$ tal que $F(X) \cong Y$.
 #+end_definition
+
+*** 1.4. Límites y colímites
+
+#+begin_definition
+*Límite*. Para un funtor ${\cal F}: {\cal I} \longrightarrow C$, su límite es
+un objeto $L \in C$ con morfismos $\lambda_I: L \longrightarrow {\cal F}(I)$ tales que
+
+- Conmuta el siguiente diagrama para cualquier $\alpha : I \longrightarrow J$:
+
+\[ \begin{tikzcd}[column sep=1.5em]
+ & L \arrow{dr}{\lambda_J} \arrow{dl}[swap]{\lambda_I} \\
+{\cal F}(I) \arrow{rr}{{\cal F}(\alpha)} && {\cal F}(J)
+\end{tikzcd} \]
+
+- $L$ es final en este diagrama.
+#+end_definition
+
+Será esencialmente único y puede notarse por $\varprojlim {\cal F}$.
+
+#+begin_theorem
+*Límites sobre cadenas en R-Mod*. En R-Mod siempre existe un límite llamado \(\varprojlim {\cal A}_i\) sobre una
+cadena de la forma:
+
+\[ \begin{tikzcd}
+& & A 
+\arrow{lld}[swap]{\phi_5}
+\arrow{ld}{\phi_4}
+\arrow{d}{\phi_3}
+\arrow{rd}[swap]{\phi_2}
+\arrow{rrd}{\phi_1} 
+& & \\
+\dots \arrow{r}[swap]{\phi_{45}}  &
+A_4 \arrow{r}[swap]{\phi_{34}} &
+A_3 \arrow{r}[swap]{\phi_{23}} &
+A_2 \arrow{r}[swap]{\phi_{12}} &
+A_1
+\end{tikzcd} \]
+#+end_theorem
+
+Este límite es el submódulo de las /secuencias coherentes/ en $\prod_i A_i$, es decir, de
+aquellas tales que $a_i = \phi_{i,i+1}(a_{i+1})$; teniendo como morfismos $\phi_i$ las proyecciones
+canónicas
+
+
+#+begin_definition
+*Colímite*. La noción dual de límite es el *colímite*, es decir, para
+un funtor ${\cal F} : I \longrightarrow C$, su colímite es un objeto $L \in C$ con morfismos $\gamma_i : {\cal F}(I) \longrightarrow L$
+tales que
+
+- Conmuta el siguiente diagrama para cualquier $\alpha : I \longrightarrow J$:
+
+\[ \begin{tikzcd}[column sep=1.5em]
+ & L  \\
+{\cal F}(I) \arrow{ur}{\gamma_I} \arrow{rr}{{\cal F}(\alpha)} && {\cal F}(J) \arrow{ul}[swap]{\gamma_J}
+\end{tikzcd} \]
+
+- $L$ es inicial en este diagrama.
+#+end_definition
+
