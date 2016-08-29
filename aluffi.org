@@ -207,3 +207,17 @@ llamados $\alpha',\beta'$ y tenemos que:
 \[{\cal F}(\alpha' \circ \beta') = \alpha \circ \beta = 1\]
 
 Por ser fiel, debemos tener $\alpha' \circ \beta' = 1$.
+*** 3. Acción de grupo como funtor
+Sea $G$ un grupo. Su acción sobre un objeto $C$ será un morfismo que
+envíe cada elemento del grupo a un isomorfismo de $C$. Es decir, un
+homomorfismo de grupos:
+
+\[(G,\ast) \longrightarrow (Aut(C),\circ)\]
+
+Pero como podemos ver $G$ como un objeto tal que cada uno de sus elementos
+sea un isomorfismo, tenemos claramente un isomorfismo:
+
+\[(Aut(G),\circ) \cong (G,\ast) \longrightarrow (Aut(C),\circ)\]
+
+Y podemos definir el funtor que lleva $G$ a $C$ y que lleva cada endomorfismo
+de $G$ a uno de $C$.
