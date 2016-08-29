@@ -221,3 +221,38 @@ sea un isomorfismo, tenemos claramente un isomorfismo:
 
 Y podemos definir el funtor que lleva $G$ a $C$ y que lleva cada endomorfismo
 de $G$ a uno de $C$.
+
+*** 17. Compleción de un álgebra
+Tenemos que los $R/I^n$ son módulos en R-Mod, por tanto, la cadena siguiente
+tendrá límite. Donde los morfismos serán las inclusiones naturales:
+
+\[\dots \longrightarrow R/I^3 \longrightarrow R/I^2 \longrightarrow R/I \]
+
+Ese límite lo llamamos $R_I$, y es el submódulo de secuencias coherentes de $\prod_i R/I^i$.
+Es decir, un elemento suyo es una secuencia tal que cada elemento es la proyección
+del siguiente. Este submódulo es conmutativo porque lo es el producto de todos los módulos.
+
+Podemos incluir $R$ en $R_I$ llevando el $1$ a $(1,1,1,\dots)$. Y esto conmutará con las
+proyecciones naturales que nos daba la propiedad universal.
+Para que $x$ se anule al incluirlo en $R_I$ desde $R$, necesitamos que todas las proyecciones
+de su imagen sean $0$, así que necesitamos que pertenezca a $I_n$ para cada $n$.
+
+*** 19. Enteros p-ádicos
+Llamamos enteros p-ádicos al límite $\mathbb{Z}_p = \varprojlim \mathbb{Z}/p^i\mathbb{Z}$, y números p-ádicos a su cuerpo de fracciones
+$\mathbb{Q}_p$. Por definición, un entero p-ádico es una secuencia de enteros $\{a_i\}$ tales que:
+
+\[ a_s \equiv a_r  \mod (p^s)\]
+
+Para cualesquiera $s \leq r$. De otra forma, cada entero tiene una expansión única:
+
+\[ A = b_0 + b_1 p + b_2 p^2 + b_3 p^3 + \dots\]
+
+Donde $b_i < p$. Esto es así porque dada una secuencia $(a_i)$, tenemos la igualdad:
+
+\[b_0 = a_0\]
+\[b_i p^i + a_{i+1} = a_i\]
+
+Y se puede construir una desde la otra usando que $a_i - a_{i+1} \equiv_{p^i} 0$. 
+
+A partir de aquí podemos hacer aritmética como usualmente desde estos desarrollos de los
+números p-ádicos.
