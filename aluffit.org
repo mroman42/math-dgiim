@@ -240,3 +240,44 @@ para cualquier morfismo $\alpha$.
 Llamamos *isomorfismo natural* a una transformación natural donde cada $\upsilon$
 es un isomorfismo.
 #+end_definition
+
+#+begin_definition
+*Funtor adjunto*. Llamamos ${F}$ y ${G}$ adjuntos si tenemos:
+
+\[ Hom_C(X,GY) \cong Hom_D(FX,Y) \]
+
+Isomorfismos naturales.
+#+end_definition
+
+Lo que nos da realmente un isormorfismo natural de $Hom_C(F-,-)$ con $Hom_D(-,G-)$,
+entendidos como funtores. Llamamos aquí adjunto izquierdo a $F$ y adjunto derecho a $G$.
+
+#+begin_theorem
+*Continuidad de adjuntos*. Los funtores adjuntos derechos son continuos, los adjuntos
+izquierdos son cocontinuos. Es decir, para $I : {\cal I}\longrightarrow D$, $J : {\cal J}\longrightarrow C$
+
+\[G(\varprojlim I) = \varprojlim (G \circ I)\]
+\[F(\varinjlim J) = \varinjlim (F \circ J)\]
+#+end_theorem
+
+Siempre que existan los límites. La demostración de esto se puede hacer aplicando los
+funtores en los diagramas conmutativos y usando las propiedades universales de los límites.
+
+#+begin_definition
+*Funtor exacto*. Un funtor exacto respeta la exactitud de las secuencias. Es decir,
+siendo la siguiente secuencia exacta:
+
+\[ 0 \longrightarrow A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C \longrightarrow 0\]
+
+La siguiente secuencia será exacta:
+
+\[ 0 \longrightarrow FA \overset{F\phi}\longrightarrow FB \overset{F\psi}\longrightarrow FC \longrightarrow 0\]
+#+end_definition
+
+En particular, lo llamamos /exacto a la izquierda/ si preserva la exactitud de:
+
+\[ 0 \longrightarrow A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C\]
+
+Y /exacto a la derecha/ si preserva la exactitud de:
+
+\[ A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C \longrightarrow 0\]
