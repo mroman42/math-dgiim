@@ -322,7 +322,7 @@ categoría de funtores, es decir, una [[https://ncatlab.org/nlab/show/natural+is
 
 Tales que tenemos transformaciones naturales $1_C \overset{\eta}\Longrightarrow GF$ y 
 $FG \overset{\epsilon}\Longrightarrow 1_D$ que cumplen las dos identidades triangulares siguientes:
-
+ 
 \[ \begin{tikzcd}
 F \arrow{r}{\eta} \arrow{dr}{id} & FGF \arrow{d}{\epsilon} \\
  & F
@@ -362,5 +362,67 @@ Hom_D(FX,Y') \arrow{r}{\beta_{Y'}}& Hom_C(X,GY')
 
 Esta definición es equivalente intuitivamente a la anterior porque podemos crear $\eta$ y $\epsilon$
 desde las identidades usando las siguientes transformaciones naturales: 
+
 \[Hom_D(FX,FX) \cong Hom_C(X,GFX)\]
+
 \[Hom_D(FGY,Y) \cong Hom_C(GY,GY)\]
+
+*** Adjuntions 3
+
+Podemos presentar ejemplos de adjunciones.
+Los *funtores libres y de olvido* suelen ser adjuntos. Entre $Set$ y $Monoid$ tenemos:
+
+\[ \begin{tikzcd}
+{Set} \arrow[bend left]{r}{Free} & {Monoid} \arrow[bend left]{l}{Forget}
+\end{tikzcd}
+\]
+
+Con la adjunción $Free \dashv Forget$. 
+
+#+begin_theorem
+*Mónada de una adjunción*. Cada adjunción da lugar a una mónada.
+#+end_theorem
+
+Tenemos un funtor $T = GF : {\cal C}  \longrightarrow {\cal C}$. Podemos definir la unidad de
+la mónada como la unidad de la adjunción $\eta : 1_C \Longrightarrow T$ y la
+multiplicación podemos definirla usando $id \ast \epsilon \ast id : GFGF \Longrightarrow GF$.
+
+Ahora debemos comprobar que cumple los axiomas de mónada. El primero
+se obtiene directamente desde los triángulos de la adjunción:
+
+\[ \begin{tikzcd}
+T \arrow{r}{T\eta} \arrow{dr}{id} & T^2 \arrow{d}{\mu} \\
+ & T
+\end{tikzcd}   
+\]   \[ \begin{tikzcd}
+GF \arrow{r}{GF\eta} \arrow{dr}{id} & GFGF \arrow{d}{G \epsilon F} \\
+ & GF
+\end{tikzcd}   
+\]
+
+Donde el segundo es resultado de aplicar el funtor $G$ a uno de los triángulos conmutativos
+de la adjunción. Comprobamos el segundo axioma:
+
+\[ \begin{tikzcd}
+T^2 \arrow{d}{\mu} & T \arrow{dl}{id} \arrow{l}[swap]{\eta T} \\
+T
+\end{tikzcd}   
+\]   \[ \begin{tikzcd}
+GFGF \arrow{d}{G \epsilon F} & GF \arrow{dl}{id} \arrow{l}[swap]{\eta GF} \\
+GF
+\end{tikzcd}   
+\]
+
+Donde tenemos el resultado de aplicar $F$ por la derecha al otro triángulo conmutativo.
+
+Y finalmente el axioma de conmutatividad de la mónada se comprueba como:
+
+\[ \begin{tikzcd}
+T^3 \arrow{d}{T \mu} \arrow{r}{\mu T} & T^2 \arrow{d}{\mu} \\
+T^2 \arrow{r}{\mu} & T
+\end{tikzcd} \]  \[ \begin{tikzcd}
+GFGFGF \arrow{d}{GFG \epsilon F} \arrow{r}{G \epsilon FGF} & GFGF \arrow{d}{G\epsilon F} \\
+GFGF \arrow{r}{G \epsilon F} & GF
+\end{tikzcd} \] 
+
+Donde el segundo diagrama se obtiene desde la naturalidad de $\epsilon$ aplicando funtores.
