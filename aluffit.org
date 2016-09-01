@@ -353,7 +353,9 @@ que nos dan los siguientes cuadrados de naturalidad:
 Hom_D(FX',Y) \arrow{d}[swap]{Hom_D(Ff,Y)} \arrow{r}{\alpha_{X'}} & Hom_C(X',GY) \arrow{d}{Hom_C(f,GY)}\\
 Hom_D(FX, Y) \arrow{r}{\alpha_{X}}& Hom_C(X,GY)
 \end{tikzcd}
-\]   \[ \begin{tikzcd}
+\] 
+
+  \[ \begin{tikzcd}
 Hom_D(FX,Y) \arrow{d}[swap]{Hom_D(FX,g)} \arrow{r}{\beta_{Y}} & Hom_C(X,GY) \arrow{d}{Hom_C(X,Gf)}\\
 Hom_D(FX,Y') \arrow{r}{\beta_{Y'}}& Hom_C(X,GY')
 \end{tikzcd}
@@ -426,3 +428,56 @@ GFGF \arrow{r}{G \epsilon F} & GF
 \end{tikzcd} \] 
 
 Donde el segundo diagrama se obtiene desde la naturalidad de $\epsilon$ aplicando funtores.
+
+    
+*** Adjuntions 4
+
+Vamos a probar la igualdad entre las dos definiciones de adjunción.
+Supongamos primero que tenemos el isomorfismo natural entre los dos 
+conjuntos de morfismos, es decir, tenemos:
+
+\[ \(-\) : Hom_D(FX,Y) \cong Hom_C(X,GY) \]
+
+Si tomamos ahora los dos cuadrados naturales que teníamos por este 
+isomorfismo y tomamos en ellos los casos particulares $Y = FX$ primero,
+y $X = GY$ después:
+
+
+\[ \begin{tikzcd}
+Hom_D(FX,FX) \arrow{d}[swap]{\_ \circ Ff} \arrow{r}{(-)} & Hom_C(X,GFX) \arrow{d}{\_\circ f}\\
+Hom_D(FX', FX) \arrow{r}{(-)}& Hom_C(X',GFX)
+\end{tikzcd}
+\]
+
+Si tomamos la identidad $1_{FX}$ y llamamos $\eta_X = \overline{1_{FX}}$, tenemos que
+\(\eta \circ f = \overline{Ff}\). Ahora, si damos la vuelta al isomorfismo $(-)$ en este 
+diagrama a la vez que hacemos $X = GY$:
+
+\[ \begin{tikzcd}
+Hom_D(FGY,Y) \arrow{d}[swap]{\_ \circ Ff}  & Hom_C(GY,GY) \arrow{l}[swap]{(-)} \arrow{d}{\_\circ f}\\
+Hom_D(FGY',Y) & Hom_C(GY',GY) \arrow{l}[swap]{(-)}
+\end{tikzcd}
+\]
+
+Volviendo a tomar la identidad $1_{GY}$ y llamando $\epsilon_Y = \overline{1_{GY}}$, tenemos
+$\epsilon \circ Ff = \overline{f}$.
+
+Ahora tomamos el segundo cuadrado natural, y repetimos el mismo
+proceso.
+
+\[ \begin{tikzcd}
+Hom_D(FX,FX) \arrow{d}[swap]{g \circ \_} \arrow{r}{(-)} & Hom_C(X,GFX) \arrow{d}{Gg\circ \_}\\
+Hom_D(FX,FX') \arrow{r}{(-)}& Hom_C(X,GFX')
+\end{tikzcd}
+\] 
+
+Obteniendo desde la identidad en $FX$ la ecuación $\overline{g} = Gg \circ \eta$. Y volviendo
+a dar la vuelta a los isomorfimos llegamos a:
+
+\[ \begin{tikzcd}
+Hom_D(FGY,Y) \arrow{d}[swap]{g \circ \_}  & Hom_C(GY,GY) \arrow{l}[swap]{(-)} \arrow{d}{Gg \circ \_}\\
+Hom_D(FGY,Y') & \arrow{l}[swap]{(-)} Hom_C(GY,GY')
+\end{tikzcd}
+\]
+
+Obteniendo finalmente $\overline{Gg} = g \circ \epsilon$.
