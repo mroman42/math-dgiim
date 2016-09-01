@@ -251,6 +251,7 @@ Isomorfismos naturales.
 
 Lo que nos da realmente un isormorfismo natural de $Hom_C(F-,-)$ con $Hom_D(-,G-)$,
 entendidos como funtores. Llamamos aquí adjunto izquierdo a $F$ y adjunto derecho a $G$.
+Tenemos más sobre funtores adjuntos en la lista de reproducción de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][The Catsters]].
 
 #+begin_theorem
 *Continuidad de adjuntos*. Los funtores adjuntos derechos son continuos, los adjuntos
@@ -281,3 +282,85 @@ En particular, lo llamamos /exacto a la izquierda/ si preserva la exactitud de:
 Y /exacto a la derecha/ si preserva la exactitud de:
 
 \[ A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C \longrightarrow 0\]
+
+
+* Extra
+** Adjuntos. The Catsters.
+*** Adjuntions 1
+Tenemos varias nociones de igualdad entre categorías.
+
+#+begin_definition
+*Isomorfismo de categorías*. Ocurre con dos functores:
+
+\[ \begin{tikzcd}
+{\cal C} \arrow[bend left]{r}{F} & {\cal D} \arrow[bend left]{l}{G}
+\end{tikzcd}
+\]
+
+Tales que $1_C = GF$ y $FG = 1_D$.
+#+end_definition
+
+#+begin_definition
+*Equivalencia de categorías*. Ocurre con dos functores:
+
+\[ \begin{tikzcd}
+{\cal C} \arrow[bend left]{r}{F} & {\cal D} \arrow[bend left]{l}{G}
+\end{tikzcd}
+\]
+
+Tales que $1_C \cong GF$ y $FG \cong 1_D$. Entendiendo la isomorfía en la 
+categoría de funtores, es decir, una [[https://ncatlab.org/nlab/show/natural+isomorphism][isomorfía natural]].
+#+end_definition
+
+#+begin_definition
+*Adjunción*. Ocurre con dos functores:
+
+\[ \begin{tikzcd}
+{\cal C} \arrow[bend left]{r}{F} & {\cal D} \arrow[bend left]{l}{G}
+\end{tikzcd}
+\]
+
+Tales que tenemos transformaciones naturales $1_C \overset{\eta}\Longrightarrow GF$ y 
+$FG \overset{\epsilon}\Longrightarrow 1_D$ que cumplen las dos identidades triangulares siguientes:
+
+\[ \begin{tikzcd}
+F \arrow{r}{\eta} \arrow{dr}{id} & FGF \arrow{d}{\epsilon} \\
+ & F
+\end{tikzcd}   
+\]     \[ \begin{tikzcd}
+G \arrow{r}{\eta} \arrow{dr}{id} & GFG \arrow{d}{\epsilon} \\
+ & G
+\end{tikzcd}
+\]
+#+end_definition
+
+En este caso escribimos $F \dashv G$, y $F$ es funtor adjunto de $G$.
+
+*** Adjuntions 2
+Damos una definición equivalente de funtores adjuntos.
+
+#+begin_definition
+*Adjunción*. Una adjunción es un isomorfismo natural:
+
+\[Hom_D(FX,Y) \cong Hom_C(X,GY)\]
+
+Natural sobre $X$ fijado cualquier $Y$ y natural sobre $Y$ fijado 
+cualquier $X$. Entendiendo que usamos los funtores contravariantes $Hom(F-,Y)$,
+$Hom(-,GY)$ por un lado y los funtores covariantes $Hom(FX,-)$ y $Hom(X,G-)$;
+que nos dan los siguientes cuadrados de naturalidad:
+
+\[ \begin{tikzcd}
+Hom_D(FX',Y) \arrow{d}[swap]{Hom_D(Ff,Y)} \arrow{r}{\alpha_{X'}} & Hom_C(X',GY) \arrow{d}{Hom_C(f,GY)}\\
+Hom_D(FX, Y) \arrow{r}{\alpha_{X}}& Hom_C(X,GY)
+\end{tikzcd}
+\]   \[ \begin{tikzcd}
+Hom_D(FX,Y) \arrow{d}[swap]{Hom_D(FX,g)} \arrow{r}{\beta_{Y}} & Hom_C(X,GY) \arrow{d}{Hom_C(X,Gf)}\\
+Hom_D(FX,Y') \arrow{r}{\beta_{Y'}}& Hom_C(X,GY')
+\end{tikzcd}
+\] 
+#+end_definition
+
+Esta definición es equivalente intuitivamente a la anterior porque podemos crear $\eta$ y $\epsilon$
+desde las identidades usando las siguientes transformaciones naturales: 
+\[Hom_D(FX,FX) \cong Hom_C(X,GFX)\]
+\[Hom_D(FGY,Y) \cong Hom_C(GY,GY)\]
