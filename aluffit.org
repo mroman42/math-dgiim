@@ -480,4 +480,49 @@ Hom_D(FGY,Y') & \arrow{l}[swap]{(-)} Hom_C(GY,GY')
 \end{tikzcd}
 \]
 
-Obteniendo finalmente $\overline{Gg} = g \circ \epsilon$.
+Obteniendo finalmente $\overline{Gg} = g \circ \epsilon$. De este proceso hemos obtenido finalmente
+las siguientes ecuaciones:
+
+\[ \begin{align*}
+\eta \circ f &= \overline{Ff} \\
+\epsilon \circ Ff &= \overline{f} \\
+Gg \circ \eta &= \overline{g} \\
+g \circ  \epsilon &= \overline{Gg} 
+\end{align*} \]
+
+Con ellas podemos probar la naturalidad de $\eta$ y la naturalidad de
+$\epsilon$:
+
+\[ \begin{tikzcd}
+GFX  \arrow{r}{GFf} & GFY \\
+X \arrow{u}[swap]{\eta_X} \arrow{r}[swap]{f} & Y \arrow{u}{\eta_Y}
+\end{tikzcd}
+\]   \[ \begin{tikzcd}
+FGX \arrow{d}[swap]{\epsilon_X} \arrow{r}{FGg} & FGY \arrow{d}{\epsilon_Y}\\
+X \arrow{r}[swap]{g} & Y
+\end{tikzcd}
+\]
+
+Ya que $\eta \circ f = \overline{Ff} = GFf \circ \eta$ y $f \circ \epsilon = \overline{Gf} = \epsilon \circ FGf$. Y además podemos probar
+los dos triángulos de naturalidad.
+
+\[ \begin{tikzcd}
+F \arrow{r}{F \eta_X} \arrow{dr}{id} & FGF \arrow{d}{\epsilon_{FX}} \\
+ & F
+\end{tikzcd}   
+\]     \[ \begin{tikzcd}
+G \arrow{r}{\eta_{GX}} \arrow{dr}{id} & GFG \arrow{d}{G\epsilon_X} \\
+ & G
+\end{tikzcd}
+\]
+
+Teniendo finalmente que:
+
+
+\[\begin{align*}
+\epsilon \circ F\eta &= \overline{\eta} = 1 \\
+G\epsilon \circ \eta &= \overline{\epsilon} = 1
+\end{align*}\]
+
+El otro sentido de la demostración se tiene llegando primero a las cuatro ecuaciones,
+y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su naturalidad.
