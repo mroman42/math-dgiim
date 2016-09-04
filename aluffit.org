@@ -284,8 +284,37 @@ Y /exacto a la derecha/ si preserva la exactitud de:
 \[ A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C \longrightarrow 0\]
 
 
+** 2. Producto tensor y el funtor Tor
+*** 2.1. Aplicaciones bilineales
+#+begin_definition
+*Aplicación bilineal*. Una aplicación $\phi:M\times N \longrightarrow P$ es bilineal si
+son lineales $\phi(\_,n)$ y $\phi(m,\_)$ para cualesquiera $m,n$.
+#+end_definition
+
+#+begin_definition
+*Producto tensor*. $M \otimes_R N$ es el producto tensor de $M$ y $N$ como módulos de $R$
+si cualquier aplicación bilineal factoriza de forma única a través de él:
+
+\[ \begin{tikzcd}
+M \times N \arrow{r}{\phi} \arrow{d}{\otimes} & P \\
+M \otimes N \arrow{ru}[swap]{\exists! \overline\phi} &
+\end{tikzcd} \]
+#+end_definition
+
+Usando universalidad podemos ver que $R \otimes N \cong N$ y que $M\otimes N \cong N\otimes M$. La construcción
+explícita del producto tensor se hace sobre el módulo libre sobre $M \times N$ provocando un
+cociente sobre los submódulos generados por:
+
+\[(m,r_1n_1+r_2n_2) - r_1(m,n_1) - r_2(m,n_2)\]
+\[(r_1m_1+r_2m_2,n) - r_1(m_1,n) - r_2(m_2,n)\]
+
+Lo que nos permite actuar con ellos de forma bilineal. La demostración se basa en usar
+la propiedad universal de la proyección sobre ese cociente.
+
 * Extra
 ** Adjuntos. The Catsters.
+Serie de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][vídeos]] sobre funtores adjuntos.
+
 *** Adjuntions 1
 Tenemos varias nociones de igualdad entre categorías.
 
@@ -355,7 +384,7 @@ Hom_D(FX, Y) \arrow{r}{\alpha_{X}}& Hom_C(X,GY)
 \end{tikzcd}
 \] 
 
-  \[ \begin{tikzcd}
+\[ \begin{tikzcd}
 Hom_D(FX,Y) \arrow{d}[swap]{Hom_D(FX,g)} \arrow{r}{\beta_{Y}} & Hom_C(X,GY) \arrow{d}{Hom_C(X,Gf)}\\
 Hom_D(FX,Y') \arrow{r}{\beta_{Y'}}& Hom_C(X,GY')
 \end{tikzcd}
@@ -429,7 +458,6 @@ GFGF \arrow{r}{G \epsilon F} & GF
 
 Donde el segundo diagrama se obtiene desde la naturalidad de $\epsilon$ aplicando funtores.
 
-    
 *** Adjuntions 4
 
 Vamos a probar la igualdad entre las dos definiciones de adjunción.
@@ -526,3 +554,4 @@ G\epsilon \circ \eta &= \overline{\epsilon} = 1
 
 El otro sentido de la demostración se tiene llegando primero a las cuatro ecuaciones,
 y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su naturalidad.
+
