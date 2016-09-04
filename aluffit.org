@@ -8,6 +8,7 @@
 #+latex_header: \usepackage{amsthm}
 #+latex_header: \usepackage{tikz-cd}
 #+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \setlength{\parindent}{0pt}
 
@@ -310,6 +311,31 @@ cociente sobre los submódulos generados por:
 
 Lo que nos permite actuar con ellos de forma bilineal. La demostración se basa en usar
 la propiedad universal de la proyección sobre ese cociente.
+
+*** 2.2. Adjunción con Hom
+Dado un módulo $N$ de $R$, tenemos un funtor covariante $\otimes_R N$, que será *adjunto izquierdo*
+a $Hom_{R-mod}(N,-)$. Podemos observar simplemente que una aplicación bilineal, al currificarse,
+determina una función que va de $M$ a $Hom(N,P)$, y que es lineal. Sabiendo esto, es trivial
+que:
+
+\[ Hom_R(M, Hom_R(N,P)) \cong Hom_R(M \otimes N, P)\]
+
+La naturalidad y el hecho de que es un isomorfismo se comprueban fácilmente. El hecho de
+que exista una adjunción nos dice además que $\otimes_R N$, o $N\otimes_R$ por la isomorfía anterior,
+son cocontinuos.
+
+#+begin_fact
+Para cualesquiera \(R\)-módulos, se tiene:
+
+\[(M_1 \oplus M_2) \otimes N \cong (M_1 \otimes N) \oplus (M_2 \otimes N)\]
+
+\[N \otimes (M_1 \oplus M_2) \cong (N \otimes M_1) \oplus (N \otimes M_2)\]
+
+\[(\oplus_\alpha M_\alpha) \otimes N \cong \oplus_\alpha (M_\alpha \otimes N)\]
+#+end_fact
+
+Por cocontinuidad.
+
 
 * Extra
 ** Adjuntos. The Catsters.
