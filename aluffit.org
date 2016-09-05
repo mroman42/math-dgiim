@@ -1,9 +1,10 @@
 #+TITLE: Algebra: Chapter 0
 #+SUBTITLE: Apuntes de teoría
 #+AUTHOR: Mario Román
-#+OPTIONS: num:nil toc:nil
+#+OPTIONS:
 #+LANGUAGE: es
 
+#+LaTeX: \setcounter{secnumdepth}{0}
 #+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{amsthm}
 #+latex_header: \usepackage{tikz-cd}
@@ -11,6 +12,7 @@
 #+latex_header: \newtheorem{fact}{Proposición}
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \setlength{\parindent}{0pt}
+
 
 * IV. Álgebra lineal
 ** 4. Presentaciones y resoluciones
@@ -336,6 +338,59 @@ Para cualesquiera \(R\)-módulos, se tiene:
 
 Por cocontinuidad.
 
+#+begin_fact
+Para cualesquiera dos conjuntos $A,B$, se tiene:
+
+\[R^{\oplus A} \otimes R^{\oplus B} \cong R^{\oplus A \times B}\]
+#+end_fact
+
+Teniendo \(R^{\oplus n} \otimes R^{\oplus m} \cong R^{\oplus nm}\). De hecho, la base del espacio producto
+tensor la forman los vectores puros que emparejan elementos de las 
+bases de cada uno de los espacios.
+
+#+begin_theorem
+*Producto tensor de cocientes*. Dado un $N$ módulo de $R$, e $I$ ideal,
+tenemos:
+
+\[\frac{R}{I}\otimes N \cong \frac{N}{IN}\]
+
+Y desde ahí, aplicando además el tercer teorema de isomorfía, tenemos:
+
+\[\frac{R}{I} \otimes \frac{R}{J} \cong \frac{R}{I+J}\]
+#+end_theorem
+
+Esto se deduce de aplicar el funtor $\_ \otimes N$ a la secuencia exacta del 
+ideal:
+
+\[I \longrightarrow R \longrightarrow \frac{R}{I} \longrightarrow 0\]
+ 
+\[I \otimes N \longrightarrow N \longrightarrow \frac{R}{I} \otimes N \longrightarrow 0\]
+
+Desde donde se obtiene $IN$ como inclusión de $I\otimes N$ en $N$.
+
+*** 2.3. Exactitud y planitud
+#+begin_definition
+*Módulo plano*. El módulo $N$ es *plano* si el funtor $\_ \otimes N$ es un
+funtor exacto.
+#+end_definition
+
+Un *módulo libre* será siempre plano.
+
+*** 2.4. Los funtores Tor
+#+begin_definition
+*El funtor Tor*. Lo que se aleja de la exactitud el funtor $\_ \otimes N$
+es medido por el funtor $Tor_1(\_,N)$. De hecho, si tenemos una secuencia
+exacta:
+
+\[0\longrightarrow A \longrightarrow B \longrightarrow C \longrightarrow 0\]
+
+Obtenemos aplicando el funtor $\otimes N$ esta otra secuencia:
+
+\[Tor_1(C,N) \longrightarrow A \otimes N \longrightarrow B \otimes N \longrightarrow C \otimes N \longrightarrow 0\]
+#+end_definition
+
+
+
 
 * Extra
 ** Adjuntos. The Catsters.
@@ -490,7 +545,7 @@ Vamos a probar la igualdad entre las dos definiciones de adjunción.
 Supongamos primero que tenemos el isomorfismo natural entre los dos 
 conjuntos de morfismos, es decir, tenemos:
 
-\[ \(-\) : Hom_D(FX,Y) \cong Hom_C(X,GY) \]
+\[ (-) : Hom_D(FX,Y) \cong Hom_C(X,GY) \]
 
 Si tomamos ahora los dos cuadrados naturales que teníamos por este 
 isomorfismo y tomamos en ellos los casos particulares $Y = FX$ primero,
@@ -537,12 +592,12 @@ Hom_D(FGY,Y') & \arrow{l}[swap]{(-)} Hom_C(GY,GY')
 Obteniendo finalmente $\overline{Gg} = g \circ \epsilon$. De este proceso hemos obtenido finalmente
 las siguientes ecuaciones:
 
-\[ \begin{align*}
+\[ \begin{aligned}
 \eta \circ f &= \overline{Ff} \\
 \epsilon \circ Ff &= \overline{f} \\
 Gg \circ \eta &= \overline{g} \\
 g \circ  \epsilon &= \overline{Gg} 
-\end{align*} \]
+\end{aligned} \]
 
 Con ellas podemos probar la naturalidad de $\eta$ y la naturalidad de
 $\epsilon$:
@@ -573,10 +628,10 @@ G \arrow{r}{\eta_{GX}} \arrow{dr}{id} & GFG \arrow{d}{G\epsilon_X} \\
 Teniendo finalmente que:
 
 
-\[\begin{align*}
+\[ \begin{aligned}
 \epsilon \circ F\eta &= \overline{\eta} = 1 \\
 G\epsilon \circ \eta &= \overline{\epsilon} = 1
-\end{align*}\]
+\end{aligned} \]
 
 El otro sentido de la demostración se tiene llegando primero a las cuatro ecuaciones,
 y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su naturalidad.
