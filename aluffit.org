@@ -13,6 +13,43 @@
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \setlength{\parindent}{0pt}
 
+* III. Anillos y módulos
+** 7. Complejos y homología
+*** 7.1. Complejos y secuencias exactas.
+#+begin_definition
+*Complejo*. Un complejo es una serie de morfismos $d_i$ entre R-Módulos:
+
+\[\dots \longrightarrow M_{i+1} \longrightarrow M_i \longrightarrow M_{i-1} \longrightarrow \dots\]
+
+tales que $d_i \circ d_{i+1} = 0$.
+#+end_definition
+
+Además lo llamamos *exacto* cuando $im (d_{i+1}) = ker (d_i)$.
+
+#+begin_proposition
+*Exactitud de monomorfismos y epimorfismos*. Dos complejos de la forma:
+
+\[ \dots \longrightarrow 0 \longrightarrow L \overset{\alpha}\longrightarrow M \longrightarrow \dots \]
+\[ \dots \longrightarrow M \overset{\beta} \longrightarrow N \longrightarrow 0 \longrightarrow \dots \]
+
+Son exactos en $L$ y $N$ ssi $\alpha$ y $\beta$ son monomorfismo y epimorfismo, 
+respectivamente.
+#+end_proposition
+
+#+begin_definition
+*Secuencia exacta corta*. Una secuencia exacta corta es un complejo de la forma:
+
+\[ 0 \longrightarrow L \overset{\alpha}\longrightarrow M \overset{\beta}\longrightarrow N \longrightarrow 0 \]
+#+end_definition
+
+El primer teorema de isomorfía nos dice que $N \cong \frac{M}{ker(\beta)} = \frac{M}{im(\alpha)}$ lo que nos 
+lleva a identificar   $N \cong \frac{M}{L}$. De hecho, cada monomorfismo da lugar a una 
+secuencia exacta corta:
+
+\[ 0 \longrightarrow \ker(\phi) \longrightarrow M \longrightarrow im(\phi) \longrightarrow 0 \]
+
+
+*** 7.2. Secuencias exactas escindidas
 
 * IV. Álgebra lineal
 ** 4. Presentaciones y resoluciones
@@ -90,7 +127,6 @@ extienden a finitamente presentado*, de la forma:
 \[0 \longrightarrow R^{m_1} \longrightarrow R^{m_0} \overset{\pi}\longrightarrow M \longrightarrow 0\]
 
 esto equivale a pedir que $\ker(\pi)$ sea libre.
-
 
 *** 4.3. Leyendo una presentación
 Hemos visto que podemos estudiar un módulo finitamente presentado por un
@@ -391,7 +427,6 @@ Obtenemos aplicando el funtor $\otimes N$ esta otra secuencia:
 
 
 
-
 * Extra
 ** Adjuntos. The Catsters.
 Serie de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][vídeos]] sobre funtores adjuntos.
@@ -635,4 +670,3 @@ G\epsilon \circ \eta &= \overline{\epsilon} = 1
 
 El otro sentido de la demostración se tiene llegando primero a las cuatro ecuaciones,
 y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su naturalidad.
-
