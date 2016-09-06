@@ -48,8 +48,40 @@ secuencia exacta corta:
 
 \[ 0 \longrightarrow \ker(\phi) \longrightarrow M \longrightarrow im(\phi) \longrightarrow 0 \]
 
-
 *** 7.2. Secuencias exactas escindidas
+#+begin_definition
+*Secuencia escindida*. Una secuencia exacta corta:
+
+\[ 0 \longrightarrow M_1 \longrightarrow N \longrightarrow M_2 \longrightarrow 0 \]
+
+es escindida si es isomorfa a una secuencia de la forma siguiente:
+
+\[ \begin{tikzcd}
+0   \arrow{r}{} & 
+M_1 \arrow{d}{\sim}\arrow{r}{} & 
+N   \arrow{d}{\sim}\arrow{r}{} & 
+M_2 \arrow{d}{\sim}\arrow{r}{} & 
+0 \\
+0   \arrow{r}{} & 
+M_1 \arrow{r}{} & 
+M_1 \oplus M_2   \arrow{r}{} & 
+M_2 \arrow{r}{} & 
+0
+\end{tikzcd} \]
+
+Es decir, hay un isomorfismo entre secuencias.
+#+end_definition
+
+#+begin_theorem
+*Relación entre secuencias escindidas e inversas*. Sea $\phi$ un homomorfismo;
+entonces tiene inversa izquierda ssi la secuencia siguiente escinde:
+
+\[ 0 \longrightarrow M \overset{\phi}\longrightarrow N \longrightarrow coker(\phi) \longrightarrow 0 \]
+
+Y tiene inversa derecha si la secuencia siguiente escinde:
+
+\[ 0 \longrightarrow ker(\phi) \longrightarrow M \overset{\phi}\longrightarrow N \longrightarrow 0 \]
+#+end_theorem
 
 * IV. Álgebra lineal
 ** 4. Presentaciones y resoluciones
