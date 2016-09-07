@@ -32,6 +32,44 @@ Usando el tercer teorema de isomorfía:
 
 \[\frac{\frac{R}{I}}{J} \cong \frac{\frac{R}{I}}{\frac{I+J}{I}} \cong \frac{R}{I+J}\] (?)
 
+** 7. Complexes and homology
+*** 1. Exactitud entre ceros.
+\[ \dots \overset{}\longrightarrow 0 \overset{}\longrightarrow M \overset{}\longrightarrow 0 \overset{}\longrightarrow \dots \]
+Tenemos que el núcleo de la segunda debe ser igual a la imagen de la primera y
+por tanto, cero. Eso sólo es posible si $M=0$.
+
+*** 2. Exactitud entre isomorfías
+    \[ \dots \overset{}\longrightarrow 0 \overset{}\longrightarrow M \overset{}\longrightarrow M' \overset{}\longrightarrow 0 \longrightarrow \dots\]
+Tenemos por el primer 0 la función inyectiva y por el segundo la función 
+sobreyectiva. Debe ser por tanto isomorfismo.
+
+*** 3. Kernel y cokernel en secuencia exacta
+    \[ \dots \overset{}\longrightarrow 0 \overset{}\longrightarrow L \overset{}\longrightarrow M 
+    \overset{\phi}\longrightarrow M' \longrightarrow N \longrightarrow 0 \longrightarrow \dots \]
+Por el primer 0 tengo una inyección $i$ de $L$ en $M$, que lo identifica con
+$im(i) = ker(\phi)$. Del segundo 0 tengo que la imagen de la proyección $\pi$ de
+$M'$ en $N$ es todo $N$. Entonces, por teorema de isomorfía y por exactitud:
+
+\[N = im(\pi) \cong \frac{M'}{ker(\pi)} = \frac{M'}{im(\phi)} = coker(\phi)\]
+
+*** 4. Hotel de Hilbert
+Dada una secuencia de enteros, podemos moverla un paso a la derecha:
+
+\[(a_1,a_2,a_3,\dots) \longrightarrow (0,a_1,a_2,\dots)\] 
+
+Para tener el morfismo $\alpha$ que nos da la secuencia exacta:
+
+\[ 0 \overset{}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\alpha}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\pi_1}\longrightarrow \mathbb{Z} \overset{}\longrightarrow 0 \]
+
+Dada una secuencia de enteros, podemos moverla a los sitios pares y hacer
+proyección de los impares luego:
+
+\[(a_1,a_2,a_3,\dots) \longrightarrow (0,a_1,0,a_2,0,a_3,\dots)\]
+
+Para tener los morfismos $\beta$ y $\pi$ que nos dan la secuencia exacta:
+
+\[ 0 \overset{}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\beta}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\pi}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{}\longrightarrow 0 \] 
+
 
 * VI. Linear Algebra
 ** 1. Free modules revisited
