@@ -83,6 +83,59 @@ Y tiene inversa derecha si la secuencia siguiente escinde:
 \[ 0 \longrightarrow ker(\phi) \longrightarrow M \overset{\phi}\longrightarrow N \longrightarrow 0 \]
 #+end_theorem
 
+*** 7.3. Homología, y el lema de la serpiente
+#+begin_definition
+*Homología*. La i-ésima homología de un complejo,
+
+\[ \dots \longrightarrow M_{i+1} \overset{d_{i+1}}\longrightarrow M_i \overset{d_i}\longrightarrow M_{i-1} \longrightarrow \dots \]
+
+es el R-módulo:
+
+\[H_i(M) = \frac{ker(d_i)}{im(d_{i+1})}\]
+#+end_definition
+
+La homología mide lo que se aleja de ser exacto en un punto determinado, y
+es $0$ cuando el complejo es exacto. Puede verse como una generalización de
+kernel y cokernel; que los realiza en este caso extremo:
+
+\[ 0 \longrightarrow M_1 \overset{\phi}\longrightarrow M_0 \longrightarrow 0 \]
+
+En el que $H_1(M) \cong ker(\phi)$ y $H_0(M) \cong coker(\phi)$.
+
+#+begin_theorem
+*Lema de la serpiente*. Teniendo dos secuencias exactas en el diagrama 
+conmutativo siguiente:
+
+\[ \begin{tikzcd}
+0 \rar & L_1 \rar{\alpha_1}\arrow{d}{\lambda} & M_1 \rar{\beta_1}\arrow{d}{\mu} & N_1 \rar\arrow{d}{\eta} & 0 \\
+0 \rar & L_0 \rar{\alpha_0}                   & M_0 \rar{\beta_0}               & N_0 \rar                & 0
+\end{tikzcd} \]
+
+Existe una secuencia exacta de la forma:
+
+\[ 0 \overset{}\longrightarrow 
+ker(\lambda) \overset{}\longrightarrow 
+ker(\mu) \overset{}\longrightarrow 
+ker(\eta) \overset{\delta}\longrightarrow 
+coker(\lambda) \overset{}\longrightarrow 
+coker(\mu) \overset{}\longrightarrow 
+coker(\eta) \overset{}\longrightarrow 
+0\]
+#+end_theorem
+
+El diagrama desde el que se deduce todo esto, con columnas exactas, es
+el siguiente:
+
+\[ \begin{tikzcd}
+       & 0 \dar              & 0 \dar            & 0 \dar           &   \\
+0 \rar & ker(\lambda) \rar \dar  & ker(\mu) \rar \dar    & ker(\eta) \dar \ar[out=355, in=175,looseness=1, overlay, swap]{dddll}{\delta}       &   \\
+0 \rar & L_1 \rar{\alpha_1} \dar{\lambda}  & M_1 \rar{\beta_1} \dar{\mu} & N_1 \rar \dar{\eta}        & 0 \\
+0 \rar & L_0 \rar{\alpha_0} \dar & M_0 \rar{\beta_0} \dar & N_0 \rar \dar        & 0 \\
+       & coker(\lambda) \rar \dar & coker(\mu) \rar \dar  & coker(\eta) \rar \dar & 0 \\
+       & 0                   & 0                 & 0                &
+\end{tikzcd} \]
+
+
 * IV. Álgebra lineal
 ** 4. Presentaciones y resoluciones
 *** 4.1. Torsión
