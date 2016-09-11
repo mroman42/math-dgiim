@@ -111,6 +111,37 @@ Si en el lema de la serpiente son $\lambda$ y $\nu$ isomorfismos, tenemos la suc
 
 Por tanto, el kernel y cokernel de $\mu$ son nulos y es isomorfismo.
 
+*** 11. Todo morfismo de escisión es isomorfismo
+Directamente aplicando el ejercicio anterior, tenemos que $N \cong M_1 \oplus M_2$.
+
+*** 12. Lema de los cuatro (1)
+Lo probamos por caza del diagrama. Primero tomamos un elemento en el núcleo
+de C y aplicamos:
+
+- Inyectividad de $\delta$. 
+- Exactitud de $BCD$.
+- Exactitud de $ABC$.
+- Sobreyectividad de $\alpha$.
+- Exactitud de $ABC$.
+
+Teniendo que el elemento es nulo.
+
+*** 13. Lema de los cuatro (2)
+Volvemos a cazar diagramas. Tomamos un $c'$ en $coker(\gamma)$ y hacemos:
+
+- Exactitud de CDE.
+- Inyectividad en E.
+- Sobreyectividad de D.
+- Exactitud de CDE.
+
+Y así llegamos a un $z \in C$ que tiene como imagen un $z' \in C'$. Tomamos $c'-z'$,
+que tiene imagen nula en $D$ y aplicamos:
+
+- Exactitud de BCD.
+- Sobreyectividad en $B$.
+
+Y obtenemos un $x \in C$ que tiene como imagen a $c'-z'$. Finalmente: $\gamma(x+z) = c'$.
+
 * VI. Linear Algebra
 ** 1. Free modules revisited
 *** 1. R y C son isomorfos como espacios vectoriales de Q
