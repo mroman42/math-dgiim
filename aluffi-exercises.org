@@ -70,6 +70,24 @@ Para tener los morfismos $\beta$ y $\pi$ que nos dan la secuencia exacta:
 
 \[ 0 \overset{}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\beta}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\pi}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{}\longrightarrow 0 \] 
 
+*** 5. Exactitud entre noetherianos
+Tenemos la secuencia exacta:
+
+\[ \dots \overset{}\longrightarrow L \overset{\alpha}\longrightarrow M \overset{\beta}\longrightarrow N \overset{}\longrightarrow \dots \]
+
+Y supongamos $L,N$ noetherianos. Sea entonces una sucesión de ideales \(\{M_i\}\),
+tenemos que las sucesiones de ideales \(\{\alpha^{-1}(M_i)\}\) y \(\{\beta(M_i)\}\) se estabilizarán
+a partir de un cierto $j$. Tomando un $i > j$ tendremos que $M_i = M_{i+1}$ y por tanto,
+se estabilizará la secuencia inicial.
+
+Supongamos que existiera $x \in M_{i+1}$ pero $x \notin M_i$. Dividimos en dos casos:
+
+*Caso 1*. $x \in im(\alpha)$, tendríamos que existiría algún elemento 
+$a \in \alpha^{-1}(x) \subset \alpha^{-1}(M_{i+1}) = \alpha^{-1}(M_{i})$, pero por definición entonces $x = \alpha(a) \in M_i$.
+
+*Caso 2*. $x \notin im(\alpha)$, tendríamos $\beta(x) \in \beta(M_{i+1})$. Existe un $y \in M_i$ tal que 
+$\beta(y) = \beta(x)$, es decir, $x-y \in ker(\beta)$. Pero entonces $x-y \in\im(\alpha)$ y por tanto,
+$x-y \in M_i$, llevando a $x\in M_i$.
 
 * VI. Linear Algebra
 ** 1. Free modules revisited
