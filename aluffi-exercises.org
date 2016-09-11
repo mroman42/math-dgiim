@@ -89,6 +89,20 @@ $a \in \alpha^{-1}(x) \subset \alpha^{-1}(M_{i+1}) = \alpha^{-1}(M_{i})$, pero p
 $\beta(y) = \beta(x)$, es decir, $x-y \in ker(\beta)$. Pero entonces $x-y \in\im(\alpha)$ y por tanto,
 $x-y \in M_i$, llevando a $x\in M_i$.
 
+*** 6. Epimorfismo escindido
+Sea una sucesión:
+
+\[ 0 \overset{}\longrightarrow ker(\phi) \overset{}\longrightarrow M \overset{\phi}\longrightarrow N \overset{}\longrightarrow 0 \]
+
+Supongamos que *escinde*, entonces $\phi$ es la proyección hacia $N$ y tiene
+como inversa derecha a la inclusión.
+
+Supongamos que *tiene inversa* derecha $\psi$, entonces buscamos un isomorfismo
+entre $M \cong ker(\phi) \oplus N$, que tenemos con estos dos morfismos:
+
+\[(k,n) \mapsto \psi n + k\]
+\[m \mapsto (m-\psi \phi m, \phi m)\]
+
 * VI. Linear Algebra
 ** 1. Free modules revisited
 *** 1. R y C son isomorfos como espacios vectoriales de Q
