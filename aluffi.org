@@ -508,9 +508,38 @@ exacta:
 Obtenemos aplicando el funtor $\otimes N$ esta otra secuencia:
 
 \[Tor_1(C,N) \longrightarrow A \otimes N \longrightarrow B \otimes N \longrightarrow C \otimes N \longrightarrow 0\]
+
+Y de hecho, esta secuencia podrá extenderse aún más con /funtores derivados/,
+que se definen como:
+
+\[Tor_i^R(M,N) = H_i(M_{\bullet} \otimes N)\]
 #+end_definition
 
+Aquí entendemos $M_\bullet \otimes N$ como el complejo que se obtiene tomando una resolución
+libre de $M$:
 
+\[\dots \longrightarrow R^{\otimes S_2} \longrightarrow R^{\otimes S_1} 
+\longrightarrow R^{\otimes S_0} \longrightarrow M \longrightarrow 0}\]
+
+Y retirando $M$ y tensando sobre $N$, para tener:
+
+\[\dots \longrightarrow N^{\otimes S_2} \longrightarrow N^{\otimes S_1} 
+\longrightarrow N^{\otimes S_0} \longrightarrow 0}\]
+
+Todo esto se obtendrá de manera natural aplicando el lema de la serpiente a una secuencia
+de resoluciones compatibles, algo que, si los módulos fueran PID y tuvieran una resolución
+de grado 2 sería de la forma:
+
+\[ \begin{tikzcd}
+   & 0 \dar & 0 \dar & 0 \dar &   \\
+0 \rar & R^{\oplus a_1}\rar\dar & R^{\oplus b_1} \rar\dar & R^{\oplus c_1} \rar\dar & 0 \\
+0 \rar & R^{\oplus a_0}\rar\dar & R^{\oplus b_0} \rar\dar & R^{\oplus c_0} \rar\dar & 0 \\
+0 \rar & A\rar\dar & B \rar\dar & C \rar\dar & 0 \\
+ & 0 & 0 & 0 & 
+\end{tikzcd} \]
+
+Tensando las dos filas superiores, que son libres, nos quedarían dos filas sobre las que aplicar
+el lema de la serpiente y obtener los funtores derivados tal y como los hemos definido.
 
 * Extra
 ** Adjuntos. The Catsters.
