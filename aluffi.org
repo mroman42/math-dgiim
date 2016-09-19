@@ -569,6 +569,12 @@ Lleva a:
 Hom(B,N) \overset{}\longrightarrow Hom(A,N)\]
 #+end_proposition
 
+*** 5.2. Módulos duales.
+#+begin_definition
+*Módulo dual*. El dual de un R-módulo $M$ es el módulo $M^{\vee} = Hom_R(M,R)$.
+#+end_definition
+
+Tenemos que $Hom(M,R^n) \cong M^{\vee} \otimes R^n$.
 * Extra
 ** Adjuntos. The Catsters.
 Serie de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][vídeos]] sobre funtores adjuntos.
