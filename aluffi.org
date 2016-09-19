@@ -678,8 +678,8 @@ A \longrightarrow
 *** 3.2. La categoría de los complejos
 #+begin_definition
 *Categoría de complejos de cocadenas*. La categoría $C(A)$ tiene como objetos
-los complejos de cocadenas en $A$ y como morfismos entre dos cocadenas,
-$Hom(M^\bullet,N^\bullet)$, los diagramas conmutativos entre ellas. Por ejemplo:
+los complejos de cocadenas en una categoría $A$; y como morfismos entre dos 
+cocadenas,   $Hom(M^\bullet,N^\bullet)$, los diagramas conmutativos entre ellas. Por ejemplo:
 
 \[ \begin{tikzcd}
 \dots \rar & M^{i-1} \rar\dar{\alpha^{i-1}} & M^{i} \rar\dar{\alpha^{i}} &  M^{i+1} \rar\dar{\alpha^{i+1}} & \dots \\
@@ -689,4 +689,8 @@ $Hom(M^\bullet,N^\bullet)$, los diagramas conmutativos entre ellas. Por ejemplo:
 representa el morfismo $\alpha_\bullet$.
 #+end_definition
 
-Esta es una categoría abeliana.
+Esta es una categoría abeliana. De ella definiremos además dos variantes:
+
+- $C^+(A)$, subcategoría plena de los complejos acotados por debajo.
+- $C^-(A)$, subcategoría plena de los complejos acotados por arriba.
+
