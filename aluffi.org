@@ -658,3 +658,35 @@ Y tomamos la cohomología de este complejo $Hom(M,N_\bullet)$, dejando como defi
 \[Ext^i_R(M,N) = H^i(Hom(M,N_\bullet))\]
 #+end_definition
 
+* IX. Álgebra homológica
+** Complejos y homología, de nuevo
+*** 3.1. Recordatorio de definiciones básicas
+#+begin_definition
+*Resolución*. La /resolución/ de un objeto $A$ es un complejo
+exacto excepto en un punto, donde es isomorfa a $A$.
+#+end_definition
+
+Esto es equivalente a tener un complejo exacto de la forma:
+
+\[ \dots \overset{}\longrightarrow 
+M_2 \overset{}\longrightarrow 
+M_1 \overset{}\longrightarrow 
+M_0 \overset{}\longrightarrow 
+A \longrightarrow
+0\]
+
+*** 3.2. La categoría de los complejos
+#+begin_definition
+*Categoría de complejos de cocadenas*. La categoría $C(A)$ tiene como objetos
+los complejos de cocadenas en $A$ y como morfismos entre dos cocadenas,
+$Hom(M^\bullet,N^\bullet)$, los diagramas conmutativos entre ellas. Por ejemplo:
+
+\[ \begin{tikzcd}
+\dots \rar & M^{i-1} \rar\dar{\alpha^{i-1}} & M^{i} \rar\dar{\alpha^{i}} &  M^{i+1} \rar\dar{\alpha^{i+1}} & \dots \\
+\dots \rar & N^{i-1} \rar & N^{i} \rar & N^{i+1} \rar & \dots
+\end{tikzcd} \]
+
+representa el morfismo $\alpha_\bullet$.
+#+end_definition
+
+Esta es una categoría abeliana.
