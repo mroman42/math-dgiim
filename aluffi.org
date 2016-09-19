@@ -575,6 +575,39 @@ Hom(B,N) \overset{}\longrightarrow Hom(A,N)\]
 #+end_definition
 
 Tenemos que $Hom(M,R^n) \cong M^{\vee} \otimes R^n$.
+
+** 6. Módulos proyectivos e inyectivos, y el funtor Ext
+#+begin_definition
+*Módulos proyectivos e inyectivos*. Un R-módulo es /proyectivo/ si $Hom(P,\_)$
+es exacto; e /inyectivo/ si $Hom(\_,P)$ es exacto.
+#+end_definition
+
+Esto es equivalente a decir que cada epimorfismo $M \longrightarrow N$ lleva un
+morfismo $P \longrightarrow N$ a $P \longrightarrow M$, en el caso de /proyectividad/:
+
+\[ \begin{tikzcd}
+ & P \dlar[swap,dashed]{\exists p'} \dar[swap]{p} \drar{0} & \\
+M \rar & N \rar & 0
+\end{tikzcd} \]
+
+O que cada monomorfismo $L \longrightarrow M$ lleva un morfismo $L \longrightarrow Q$ a
+un monomorfismo $M \longrightarrow Q$, en el de la /inyectividad/:
+
+\[ \begin{tikzcd}
+ & Q & \\
+0 \urar{0} \rar & N \rar \uar[swap]{q} & M \ular[dashed,swap]{\exists q'}
+\end{tikzcd} \]
+
+Además, esto es equivalente a decir que un módulo $P$ es /proyectivo/ si toda secuencia
+
+\[ 0 \overset{}\longrightarrow L \overset{}\longrightarrow M \overset{}\longrightarrow P \overset{}\longrightarrow 0 \]
+
+es escindida, y $Q$ es /inyectivo/ si toda secuencia:
+
+\[ 0 \overset{}\longrightarrow Q \overset{}\longrightarrow M \overset{}\longrightarrow N \overset{}\longrightarrow 0 \]
+
+es escindida.
+
 * Extra
 ** Adjuntos. The Catsters.
 Serie de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][vídeos]] sobre funtores adjuntos.
