@@ -311,7 +311,7 @@ que lleva $1$ a $(y,-x)$ que es generador de $ker(\delta)$.
 
 * VIII. Linear algebra, reprise
 ** 1. Preliminaries, reprise
-*** 2. Funtor plenamente fiel respeta isomorfías 
+*** 1.2. Funtor plenamente fiel respeta isomorfías 
 Sea ${\cal F}(A) \cong {\cal F}(B)$, gracias a dos morfismos inversos $\alpha,\beta$. Como
 el funtor es pleno, existen dos morfismos preimagen de ambos
 llamados $\alpha',\beta'$ y tenemos que:
@@ -319,7 +319,7 @@ llamados $\alpha',\beta'$ y tenemos que:
 \[{\cal F}(\alpha' \circ \beta') = \alpha \circ \beta = 1\]
 
 Por ser fiel, debemos tener $\alpha' \circ \beta' = 1$.
-*** 3. Acción de grupo como funtor
+*** 1.3. Acción de grupo como funtor
 Sea $G$ un grupo. Su acción sobre un objeto $C$ será un morfismo que
 envíe cada elemento del grupo a un isomorfismo de $C$. Es decir, un
 homomorfismo de grupos:
@@ -334,7 +334,7 @@ sea un isomorfismo, tenemos claramente un isomorfismo:
 Y podemos definir el funtor que lleva $G$ a $C$ y que lleva cada endomorfismo
 de $G$ a uno de $C$.
 
-*** 17. Compleción de un álgebra
+*** 1.17. Compleción de un álgebra
 Tenemos que los $R/I^n$ son módulos en R-Mod, por tanto, la cadena siguiente
 tendrá límite. Donde los morfismos serán las inclusiones naturales:
 
@@ -349,7 +349,7 @@ proyecciones naturales que nos daba la propiedad universal.
 Para que $x$ se anule al incluirlo en $R_I$ desde $R$, necesitamos que todas las proyecciones
 de su imagen sean $0$, así que necesitamos que pertenezca a $I_n$ para cada $n$.
 
-*** 19. Enteros p-ádicos
+*** 1.19. Enteros p-ádicos
 Llamamos enteros p-ádicos al límite $\mathbb{Z}_p = \varprojlim \mathbb{Z}/p^i\mathbb{Z}$, y números p-ádicos a su cuerpo de fracciones
 $\mathbb{Q}_p$. Por definición, un entero p-ádico es una secuencia de enteros $\{a_i\}$ tales que:
 
@@ -368,3 +368,30 @@ Y se puede construir una desde la otra usando que $a_i - a_{i+1} \equiv_{p^i} 0$
 
 A partir de aquí podemos hacer aritmética como usualmente desde estos desarrollos de los
 números p-ádicos.
+** 2. Tensor products, and the Tor functors
+*** 2.14. Tor en 0 es el producto tensor
+La definición inicial de Tor es como:
+
+\[Tor^R_i(M,N) = H_i(M_\bullet \otimes N)\]
+
+Y como tenemos que el complejo $M_\bullet \otimes N$ es el siguiente,
+siendo $S_0$ una base de $M$, y $S_1$ base de las relaciones de $M$:
+
+\[ \dots \overset{}\longrightarrow N^{\oplus S_2} 
+\overset{\phi_2}\longrightarrow N^{\oplus S_1} 
+\overset{\phi_1}\longrightarrow N^{\oplus S_0} 
+\overset{}\longrightarrow 0 \]
+
+Que ha salido de tensar el siguiente complejo exacto:
+
+\[ \dots \overset{}\longrightarrow R^{\oplus S_1} \overset{\psi_2}\longrightarrow R^{\oplus S_0} \overset{\psi_1}\longrightarrow M \overset{}\longrightarrow 0 \]
+
+Tenemos que:
+
+\[H_i(M_\bullet \otimes N) \cong \frac{N^{\otimes S_0}}{im(\phi_1)} \cong \frac{R^{\otimes S_0}}{im(\psi_1)} \otimes N \cong M \otimes N \]
+
+Donde usamos la exactitud de la segunda secuencia con el primer teorema de isomorfía
+y el hecho de que el functor $\otimes N$ respeta los colímites y por tanto el cociente, que puede
+verse como coecualizador. TODO: Comprobar que es correcto en StackOverflow.
+
+
