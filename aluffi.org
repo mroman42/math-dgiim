@@ -617,3 +617,44 @@ directo de un módulo libre.
 
 Así, la suma directa de dos módulos proyectivos es proyectiva; el producto tensor
 de dos módulos proyectivos es proyectivo, y todo módulo proyectivo es plano.
+
+*** 6.3. Módulos inyectivos
+#+begin_theorem
+*Caracterización de inyectividad*. Un módulo es *inyectivo* ssi toda aplicación
+$f : I \longrightarrow Q$ extiende a una aplicación $\hat f : R \longrightarrow Q$, donde I es ideal de R.
+#+end_theorem
+
+*** 6.4. El funtor Ext
+Existirían dos formas naturales de definir *Ext*, que coinciden no trivialmente:
+
+#+begin_definition
+*Funtor Ext*. Dado $M$ con una resolución proyectiva:
+
+\[ \dots \overset{}\longrightarrow P_1 \overset{}\longrightarrow P_0 \overset{}\longrightarrow M \overset{}\longrightarrow 0 \]
+
+aplicamos el funtor contravariante $Hom(\_,N)$ eliminando $M$ para obtener:
+
+\[ 0 \overset{}\longrightarrow Hom(P_0,N) \overset{}\longrightarrow Hom(P_1,N) \overset{}\longrightarrow Hom(P_2,N) \overset{}\longrightarrow \dots \]
+
+Y tomamos la cohomología de este complejo $Hom(M_\bullet,N)$, dejando como definición:
+
+\[Ext^i_R(M,N) = H^i(Hom(M_\bullet,N))\]
+#+end_definition
+
+#+begin_definition
+*Funtor Ext*. Dado $N$ con una resolución inyectiva:
+
+\[ 0 \overset{}\longrightarrow N \overset{}\longrightarrow Q_0 \overset{}\longrightarrow Q_1 \overset{}\longrightarrow \dots \]
+
+aplicamos el funtor covariante $Hom(M,\_)$ eliminando $N$ para obtener:
+
+\[ 0 \overset{}\longrightarrow 
+Hom(M,Q_0) \overset{}\longrightarrow 
+Hom(M,Q_1) \overset{}\longrightarrow 
+Hom(M,Q_2) \overset{}\longrightarrow \dots \]
+
+Y tomamos la cohomología de este complejo $Hom(M,N_\bullet)$, dejando como definición:
+
+\[Ext^i_R(M,N) = H^i(Hom(M,N_\bullet))\]
+#+end_definition
+
