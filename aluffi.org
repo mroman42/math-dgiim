@@ -135,7 +135,6 @@ el siguiente:
        & 0                   & 0                 & 0                &
 \end{tikzcd} \]
 
-
 * IV. Álgebra lineal
 ** 4. Presentaciones y resoluciones
 *** 4.1. Torsión
@@ -407,7 +406,6 @@ Y /exacto a la derecha/ si preserva la exactitud de:
 
 \[ A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C \longrightarrow 0\]
 
-
 ** 2. Producto tensor y el funtor Tor
 *** 2.1. Aplicaciones bilineales
 #+begin_definition
@@ -528,7 +526,7 @@ Y retirando $M$ y tensando sobre $N$, para tener:
 
 Todo esto se obtendrá de manera natural aplicando el lema de la serpiente a una secuencia
 de resoluciones compatibles, algo que, si los módulos fueran PID y tuvieran una resolución
-de grado 2 sería de la forma:
+de grado 2, sería de la forma:
 
 \[ \begin{tikzcd}
    & 0 \dar & 0 \dar & 0 \dar &   \\
@@ -540,6 +538,23 @@ de grado 2 sería de la forma:
 
 Tensando las dos filas superiores, que son libres, nos quedarían dos filas sobre las que aplicar
 el lema de la serpiente y obtener los funtores derivados tal y como los hemos definido.
+
+** 5. Funtor Hom y dualidad 
+*** 5.1. Adjunciones, de nuevo
+Ya sabemos que el funtor $Hom(N,\_)$ es adjunto derecho a $\_\otimes N$, ahora
+estudiamos el funtor $Hom(\_,N)$.
+
+#+begin_definition
+*Adjunción de Hom contravariante*. El funtor $Hom(\_,N)$ es adjunto derecho
+de su funtor opuesto, $Hom^{op}(\_,N)$.
+#+end_definition
+
+Aplicando currificación tenemos trivialmente:
+
+\[Hom(L,Hom(M,N)) \cong Hom(M,Hom(L,N))\]
+
+Que, teniendo en cuenta que estamos usando la categoría opuesta, prueba la
+adjunción.
 
 * Extra
 ** Adjuntos. The Catsters.
