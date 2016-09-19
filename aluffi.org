@@ -544,10 +544,10 @@ el lema de la serpiente y obtener los funtores derivados tal y como los hemos de
 Ya sabemos que el funtor $Hom(N,\_)$ es adjunto derecho a $\_\otimes N$, ahora
 estudiamos el funtor $Hom(\_,N)$.
 
-#+begin_definition
+#+begin_theorem
 *Adjunción de Hom contravariante*. El funtor $Hom(\_,N)$ es adjunto derecho
 de su funtor opuesto, $Hom^{op}(\_,N)$.
-#+end_definition
+#+end_theorem
 
 Aplicando currificación tenemos trivialmente:
 
@@ -555,6 +555,19 @@ Aplicando currificación tenemos trivialmente:
 
 Que, teniendo en cuenta que estamos usando la categoría opuesta, prueba la
 adjunción.
+
+#+begin_proposition
+*Exactitud de Hom*. Ambos funtores $Hom$ son adjuntos derechos y por tanto,
+exactos por la izquierda. Teniendo en cuenta que uno es contravariante, quiere
+decir que:
+
+\[ A \overset{}\longrightarrow B \overset{}\longrightarrow C \overset{}\longrightarrow 0\]
+
+Lleva a:
+
+\[ 0 \overset{}\longrightarrow Hom(C,N) \overset{}\longrightarrow 
+Hom(B,N) \overset{}\longrightarrow Hom(A,N)\]
+#+end_proposition
 
 * Extra
 ** Adjuntos. The Catsters.
