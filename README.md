@@ -8,3 +8,4 @@ Estudiando estos apuntes he empezado a escribir también los siguientes artícul
 * [Wikipedia - Lema de la serpiente](https://es.wikipedia.org/wiki/Lema_de_la_serpiente)
 * [Wikipedia - Mónada (teoría de categorías)](https://es.wikipedia.org/wiki/M%C3%B3nada_(teor%C3%ADa_de_categor%C3%ADas))
 * [Wikipedia - Funtor Tor](https://es.wikipedia.org/wiki/Funtor_Tor)
+* [Wikipedia - Módulo simple](https://es.wikipedia.org/wiki/M%C3%B3dulo_simple)
