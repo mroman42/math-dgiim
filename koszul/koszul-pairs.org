@@ -1,0 +1,54 @@
+#+TITLE: Koszul pairs and applications
+#+SUBTITLE: Notes taken reading the paper
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+
+* Introduction
+** Koszul ring
+#+begin_definition
+*Koszul ring*. A graded ring $A$ is *Koszul* if $A^0$ is a semisimple ring and it has a 
+resolution $P_\ast$ by projective graded left A-modules such that each $P_n$ is generated
+by homogeneous elements of degree $n$.
+#+end_definition
+
+*** Graded ring
+#+begin_definition
+*Graded ring*. A ring that is a direct sum of abelian groups:
+
+\[ A = \bigoplus_{n \in \mathbb{N}} A_n\]
+
+such that $A_iA_j \subset A_{i+j}$.
+#+end_definition
+
+A *homogeneous element* is an element of any factor $A_i$ of the decomposition.
+
+*Example:* A polynomial ring $A = \mathbb{K}[x_1,x_2, \dots]$ is graded with $A_i$ being the abelian 
+group of polynomials with only monomials of degree $i$.
+# QUESTION: Do they admit a different gradation?
+# We can take $A_i$ to be the group of polynomials of degree *equal or less* than i!
+
+*** Semisimple group
+#+begin_definition
+*Semisimple group*. A group is semisimple if it has no non-trivial normal abelian
+subgroups.
+#+end_definition
+
+Different uses of this term can be found [[http://planetmath.org/semisimplegroup][here]].
+# QUESTION: Which are we interested in?
+
+*** Semisimple module
+#+begin_definition
+*Semisimple module*. It is a direct sum of simple modules, that is, they have no
+non-zero proper submodules.
+#+end_definition
