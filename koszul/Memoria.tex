@@ -1,0 +1,120 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{txfonts}
+\usepackage[all]{xy}
+%\usepackage{Taugres}
+\usepackage{enumitem}
+%Formato de p\'{a}gina book
+%\parskip .5cm%
+\parindent 0cm%
+\headheight 1cm%
+\setlength{\textwidth}{160mm}%
+\setlength{\textheight}{200mm}%
+\evensidemargin 1.5cm%\evensidemargin -1.75cm%
+\oddsidemargin .15cm%\oddsidemargin -1.75cm%
+\usepackage{color}
+\newcommand\wc{\color{white}}
+\newcommand\bc{\color{blue}}
+\newcommand\rc{\color{red}}
+\newcommand\ec{\color{black}}
+\newcommand\gc{\color{green}}
+\newcommand\mc{\color{magenta}}
+\newcommand{\rojo}[1]{\rc{#1 }\ec}
+\newcommand{\azul}[1]{\bc{#1 }\ec}
+%\input{macros}
+%Formato de cajas de enunciados
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\newenvironment{recuadro}{%
+  \def\FrameCommand{\fboxsep=\FrameSep \fcolorbox{black}{WhiteSmoke}}%{lightgray}%{WhiteSmoke}%{Gainsboro}%
+  \color{black}\MakeFramed {\FrameRestore}}%
+ {\endMakeFramed}
+\newenvironment{encuadro}{%
+  \def\FrameCommand{\fboxsep=\FrameSep \fcolorbox{black}{OldLace}}%{lightgray}%{MintCream}%{Ivory}%{OldLace}%{Seashell}%
+  \color{black}\MakeFramed {\FrameRestore}}%
+ {\endMakeFramed}
+\def\cuadro #1 {\framebox{\begin{minipage}[t]{172.5mm} #1\end{minipage}}}%\def\cuadro #1 {#1}%
+
+\begin{document}
+
+{\LARGE Memoria del Plan de Trabajo}
+\medskip
+
+{\Large Tema de estudio: Pares de Koszul}
+
+\medskip
+
+\underline{Introducci\'{o}n y antecedentes}:
+Un anillo graduado es un anillo Koszul si $A=\oplus_\mathbb{N}A^n$, $A^0$ es un anillo semisimple y tiene una resoluci\'{o}n $P_\bullet$ formada por 
+$A$--m\'{o}dulos izquierda proyectivos graduados, en donde cada $P_n$ est\'{a} generado por elementos de grado $n$. Estos anillos son la generalizaci\'{o}n 
+natural de las \'{a}lgebras de Koszul y son \'{u}tiles en campos tan diversos como la teor\'{\i}a de representaci\'{o}n, la geometr\'{\i}a algebraica, 
+la topolog\'{\i}a algebraica, los grupos cu\'{a}nticos o la combinatoria.
+
+En el trabajo de Jara-L\'{o}pezPe\~{n}a-Stefan este concepto es generalizado al nuevo de par de Koszul. Un par de Koszul est\'{a} construido sobre un anillo 
+semisimple $R$; un $R$--anillo graduado $A=\oplus_\mathbb{N}A^n$ es conexo si $A^0=R$, y un par casi-Koszul es un par formado por un $R$--anillo graduado 
+conexo y un $R$--coanillo graduado conexo $C$, junto con un isomorfismo de $R$--bim\'{o}dulos $\theta_{A,C}:C_1\longrightarrow{A_1}$ que verifica una relaci\'{o}n de compatibilidad.
+\[
+C_2\stackrel{\Delta_{1,1}}{\longrightarrow}C_1\otimes{C_1}
+\stackrel{\theta_{C,A}\otimes\theta_{C,A}}{\longrightarrow}A^1\otimes{A^1}
+\stackrel{\mu^{1,1}}{\longrightarrow}A^2
+\]
+con las estructuras de \'{a}lgebra y co\'{a}lgebra. En ese mismo trabajo los autores asocian a un par casi--Koszul seis complejos, tres de cadenas y tres de cocadenas, 
+probando que si uno de ellos es exacto, lo son todos los dem\'{a}s. en este caso se tiene un par de Koszul. Lo importante es que se prueba que si un $R$--anillo graduado
+conexo es Koszul si, y s\'{o}lo si, existe un $R$--coanillo graduado conexo $C$ tal que $(A,c)$ es un par de Koszul.
+
+\medskip
+
+\underline{Objetivos}:
+El objeto de este trabajo es continuar este estudio a\~{n}adiendo nuevas caracterizaciones en t\'{e}rminos de otras \'{a}lgebras definidas mediante homolog\'{\i}a y cohomolog\'{\i}a. Parte de este trabajo ha sido iniciado en el trabajo de Manea-Stefan, pero nuevas caracterizaciones ayudar\'{a}n en las aplicaciones de la teor\'{\i}a.
+
+Un \'{a}lgebra graduada $A$ es cuadr\'{a}tica si la aplicaci\'{o}n natural es $T(A)\longrightarrow{A}$, donde $T(A)$ es el \'{a}lgebra tensor, es sobreyectiva y su n\'{u}cleo $J_A$, como ideal bil\'{a}tero, est\'{a} generado por $J_A\cap(A^1\otimes{A^1})$, esto es, las relaciones de definici\'{o}n pertenecen a $A^1\otimes{A^1}$. La importancia de las \'{a}lgebra cuadr\'{a}ticas es clara en teor\'{\i}a de representaci\'{o}n y es computacionalmente evidente. Una de las propiedades importantes de los $R$--anillos de Koszul es que son \'{a}lgebras cuadr\'{a}ticas. La misma teor\'{\i}a para coanillos es conveniente desarrollarla para as\'{\i} obtener propiedades estructurales de estos coanillos, y para cerrar el c\'{\i}rculo manteniendo una dualidad estricta entre anillos y coanillos de Koszul.
+
+Es de inter\'{e}s se\~{n}alar que las herramientas a desarrollar, que son base de los resultados que se esperan estudiar, son los coanillos y anillos de $\mathrm{Tor}^A_\bullet(A,A)$ y $\mathrm{Ext}_C^\bullet(R,R)$, tratando de mostrar as\'{\i} la dualidad existente a lo largo de toda esta construcci\'{o}n.
+
+Un segundo aspecto que se considera de inter\'{e}s son las posibles aplicaciones de la computaci\'{o}n, v\'{\i}a bases de Groebner, para el c\'{a}lculo de resoluciones proyectivas, y el estudio efectivo de las dualidad seg\'{u}n se ha desarrollado en Jara-J\'{o}dar.
+
+\medskip
+
+\underline{Metodolog\'{\i}a}:
+Se recopilar\'{a} la bibliograf\'{\i}a b\'{a}sica sobre el tema, y se desarrollar\'{a}n seminarios semanales sobre los contenidos de la misma con objeto de avanzar lo suficientemente r\'{a}pido sobre los rudimentos de la teor\'{\i}a como para que se puedan alcanzar los objetivos propuestos.
+
+\medskip
+
+\underline{Hip\'{o}tesis}:
+Una vez fijados los objetivos, trabajaremos con la homolog\'{\i}a y la cohomolog\'{\i}a, con \'{a}lgebras y co\'{a}lgebras para mejor comprender la teor\'{\i}a. Nos centraremos despu\'{e}s en el estudio de ejemplos y sus propiedades para poder realizar nuevos desarrollos y poder confirmar o refutar posibles conjeturas.
+
+\bigskip
+
+\underline{Referencias}:
+\begin{enumerate}[nosep, label=(\arabic*)]%\sepa
+\item
+A. Beilinson, V. Ginzburg and W. Soergel, Koszul duality patterns in representation theory, J. Amer. Math. Soc. 9 (1996), 473--527.
+\item
+T. Brzezinski and R. Wisbauer, Corings and Comodules, Cambridge University Press, Cambridge, 2003.
+\item
+P. Jara and J. J\'{o}dar, An example of Bernstein duality, Adv. Math. 152 (2000), 1--27.
+\item
+P. Jara and J. J\'{o}dar, Finite dimensional duality on the generalized Lie algebra $sl(2)_q$, J. Phys. A: Math. Gen. 35 (2002), 3683-3696.
+\item
+P. Jara and D. Stefan, Cyclic homology of Hopf Galois extensions and Hopf algebras, Proc. London Math. Soc. 93 (2006), 138-174.
+\item
+P. Jara, J. L\'{o}pez-Pe\~{n}a and D. Stefan, Koszul Pairs. Applications,\newline http://arxiv.org/pdf/1011.4243.pdf. A publicar en J. Noncommutative Geometry.
+\item
+J. P. May, Bialgebras and Hopf algebras, lecture notes.\newline http://www.math.uchicago.edu/~may/TQFT/HopfAll.pdf
+\item
+A. Milinsky and H.J. Schneider, Pointed indecomposable Hopf algebras over Coxeter groups, Contemp. Math. 267 (2000), 215-236.
+\item
+A. Polishchuk and L. Positselski, Quadratic algebras, University lecture series, vol. 37, Amer.Math. Soc., 2005.
+\item
+S. Priddy, Koszul resolutions, T. Am. Math. Soc. 152 (1970), 39--60.
+\item
+C. Weibel, An Introduction to Homological Algebra, Cambridge University Press, Cambridge, 1997.
+\end{enumerate}
+
+
+
+
+\end{document}
