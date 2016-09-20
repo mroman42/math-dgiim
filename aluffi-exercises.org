@@ -85,7 +85,7 @@ Supongamos que existiera $x \in M_{i+1}$ pero $x \notin M_i$. Dividimos en dos c
 $a \in \alpha^{-1}(x) \subset \alpha^{-1}(M_{i+1}) = \alpha^{-1}(M_{i})$, pero por definición entonces $x = \alpha(a) \in M_i$.
 
 *Caso 2*. $x \notin im(\alpha)$, tendríamos $\beta(x) \in \beta(M_{i+1})$. Existe un $y \in M_i$ tal que 
-$\beta(y) = \beta(x)$, es decir, $x-y \in ker(\beta)$. Pero entonces $x-y \in\im(\alpha)$ y por tanto,
+$\beta(y) = \beta(x)$, es decir, $x-y \in ker(\beta)$. Pero entonces $x-y \in im(\alpha)$ y por tanto,
 $x-y \in M_i$, llevando a $x\in M_i$.
 
 *** 6. Epimorfismo escindido
@@ -308,7 +308,6 @@ Donde $\pi$ es un morfismo que cancela $x,y$. $\delta$ es un morfismo que lleva
 cada una de las copias del $1$ a $x$ e $y$. Finalmente, $\phi$ es monomorfismo
 que lleva $1$ a $(y,-x)$ que es generador de $ker(\delta)$.
 
-
 * VIII. Linear algebra, reprise
 ** 1. Preliminaries, reprise
 *** 1.2. Funtor plenamente fiel respeta isomorfías 
@@ -393,6 +392,6 @@ Tenemos que:
 
 Donde usamos la exactitud de la segunda secuencia con el primer teorema de isomorfía
 y el hecho de que el functor $\otimes N$ respeta los colímites y por tanto el cociente, que puede
-verse como coecualizador. TODO: Comprobar que es correcto en StackOverflow.
+verse como coecualizador.
 
 
