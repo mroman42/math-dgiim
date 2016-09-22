@@ -14,6 +14,7 @@
 #+latex_header: \setlength{\parindent}{0pt}
 
 * 1. Espacios normados
+*** Norma
 #+begin_definition
 *Norma*. Función $\|\_\| : X \longrightarrow \mathbb{R}$ verficando:
 
@@ -28,3 +29,46 @@ Desde la norma se puede definir una distancia asociada $d(x,y) = \|x-y\|$, que h
 /espacio métrico/. Además, será /espacio topológico/ desde esa distancia con abiertos:
 
 \[\tau = \{G \subset X \;|\; \forall a \in G: \exists r > : B(x,r) \subset G\}\]
+
+#+begin_theorem
+*Todo espacio vectorial es normado*. Cualquier espacio vectorial sobre $\mathbb{R}$ o
+$\mathbb{C}$ admite una norma.
+#+end_theorem
+
+Dada una base \(\{e_i\}\) del espacio, podemos escribir $x = \sum \alpha_i e_i$ y definirla como:
+
+\[ \|x\| = \sum |\alpha_i|\]
+
+*** Espacios de Banach
+#+begin_definition
+*Espacio de Banach*. Espacio normado completo.
+#+end_definition
+
+#+begin_theorem
+*La norma es continua*. La norma, la suma y el producto por
+escalar son continuas.
+#+end_theorem
+
+Usando la desigualdad triangular vemos que la norma es lispchitziana 
+y por tanto, continua:
+
+\[ |\|x\| -  \|y\|| \leq \|x-y\| \]
+
+Usando que la convergencia en el producto es la convergencia por coordenadas:
+
+\[\|(x_n+y_n) - (x+y)\| \leq \|x-x_n\| + \|y-y_n\| \longrightarrow 0\]
+\[\|ax_n - ax\| = |a| \|x_n - x\| \longrightarrow 0\] 
+
+Como corolario, lo son las homotecias y translaciones, todas las bolas cerradas
+son homeomorfas a la bola unidad.
+
+#+begin_definition
+*Normado es conexo*.
+#+end_definition
+
+La bola unidad es arcoconexa con la curva recta entre dos puntos, que
+queda dentro de la bola:
+
+\[ \|tx - (1-t)y\| \leq t\|x\| + (1-t)\|y\| \leq 1 \]
+
+Así, el espacio es localmente arcoconexo y por tanto conexo.
