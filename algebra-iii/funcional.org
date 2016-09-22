@@ -11,6 +11,7 @@
 #+latex_header: \newtheorem{theorem}{Teorema}
 #+latex_header: \newtheorem{fact}{Proposición}
 #+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \newtheorem{proofs}{Demostración}
 #+latex_header: \setlength{\parindent}{0pt}
 
 * 1. Espacios normados
@@ -34,10 +35,11 @@ Desde la norma se puede definir una distancia asociada $d(x,y) = \|x-y\|$, que h
 *Todo espacio vectorial es normado*. Cualquier espacio vectorial sobre $\mathbb{R}$ o
 $\mathbb{C}$ admite una norma.
 #+end_theorem
-
+#+begin_proofs
 Dada una base \(\{e_i\}\) del espacio, podemos escribir $x = \sum \alpha_i e_i$ y definirla como:
 
 \[ \|x\| = \sum |\alpha_i|\]
+#+end_proofs
 
 *** Espacios de Banach
 #+begin_definition
@@ -48,7 +50,7 @@ Dada una base \(\{e_i\}\) del espacio, podemos escribir $x = \sum \alpha_i e_i$ 
 *La norma es continua*. La norma, la suma y el producto por
 escalar son continuas.
 #+end_theorem
-
+#+begin_proofs
 Usando la desigualdad triangular vemos que la norma es lispchitziana 
 y por tanto, continua:
 
@@ -58,17 +60,19 @@ Usando que la convergencia en el producto es la convergencia por coordenadas:
 
 \[\|(x_n+y_n) - (x+y)\| \leq \|x-x_n\| + \|y-y_n\| \longrightarrow 0\]
 \[\|ax_n - ax\| = |a| \|x_n - x\| \longrightarrow 0\] 
+#+end_proofs
 
 Como corolario, lo son las homotecias y translaciones, todas las bolas cerradas
 son homeomorfas a la bola unidad.
 
-#+begin_definition
+#+begin_theorem
 *Normado es conexo*.
-#+end_definition
-
+#+end_theorem
+#+begin_proofs 
 La bola unidad es arcoconexa con la curva recta entre dos puntos, que
 queda dentro de la bola:
 
 \[ \|tx - (1-t)y\| \leq t\|x\| + (1-t)\|y\| \leq 1 \]
 
 Así, el espacio es localmente arcoconexo y por tanto conexo.
+#+end_proofs
