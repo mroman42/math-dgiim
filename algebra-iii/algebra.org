@@ -1,0 +1,29 @@
+#+TITLE: Álgebra III
+#+SUBTITLE: Apuntes de teoría
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+
+* Extensiones de cuerpos
+** 1.4. La cúbica
+*** Polinomios cúbicos
+Toda ecuación cúbica polinómica puede escribirse en la forma
+\(Y^3 + pY + q\), tomando un cambio de variable desde la original
+\(X \mapsto - \frac{1}{3} b\). Esto se llama una cúbica deprimida.
+
+El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
+
+\[w^3 + q - \frac{p^3}{27w^3} = 0\]
+
+Ahora podemos resolver esa cuadrática y resolver luego la ecuación
+en $w^3$.
