@@ -1,0 +1,44 @@
+#+TITLE: Álgebra conmutativa y computacional
+#+SUBTITLE: Apuntes de teoría
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \newtheorem{proofs}{Demostración}
+#+latex_header: \setlength{\parindent}{0pt}
+
+* 1. Anillos e ideales
+*** La categoría CRing
+Consideramos la categoría de los anillos conmutativos, que consta de los anillos
+conmutativos como objetos y de los homomorfismos de anillos; respetando suma,
+producto y unidad; como morfismos.
+
+#+begin_theorem
+*Z es inicial*. El anillo $\mathbb{Z}$ es inicial en =CRing=.
+#+end_theorem
+#+begin_proofs
+El homomorfismo único queda unívocamente definido con $f(1) = 1$ y $f(n) = nf(1)$.
+#+end_proofs
+
+*** Ideales
+#+begin_definition
+*Subanillo*. Subconjunto cerrado para la suma y el producto conteniendo a 1.
+#+end_definition
+#+begin_definition
+*Ideal*. Subconjunto cerrado para la suma y el producto de cualquier elemento 
+desde   $R$.
+#+end_definition
+
+#+begin_theorem
+*Retículo de ideales*. Los ideales forman un retículo con la suma y la 
+intersección.
+#+end_theorem
+#+begin_proof
+#+end_proof
