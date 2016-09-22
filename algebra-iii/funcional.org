@@ -1,0 +1,30 @@
+#+TITLE: Análisis funcional
+#+SUBTITLE: Apuntes de teoría
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+* 1. Espacios normados
+#+begin_definition
+*Norma*. Función $\|\_\| : X \longrightarrow \mathbb{R}$ verficando:
+
+- $\|x\| = 0 \Leftrightarrow x = 0$
+
+- $\|ax\| = |a| \|x\|$
+
+- $\|x+y\| \leq \|x\|+\|y\|$
+#+end_definition
+
+Desde la norma se puede definir una distancia asociada $d(x,y) = \|x-y\|$, que hace a $X$ un 
+/espacio métrico/. Además, será /espacio topológico/ desde esa distancia con abiertos:
+
+\[\tau = \{G \subset X \;|\; \forall a \in G: \exists r > : B(x,r) \subset G\}\]
