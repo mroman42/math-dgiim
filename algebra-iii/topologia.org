@@ -1,0 +1,70 @@
+#+TITLE: Topología II
+#+SUBTITLE: Apuntes de teoría
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \newtheorem{proofs}{Demostración}
+#+latex_header: \setlength{\parindent}{0pt}
+#+latex_header: \newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right. }
+
+* 1. El grupo fundamental
+*** Arcoconexión
+#+begin_definition
+*Arco*. Aplicación continua $f : [a,b] \longrightarrow X$.
+#+end_definition
+
+#+begin_definition
+*Arcoconexión*. Los arcos definen relación de equivalencia cuando unen dos puntos.
+
+ \[\exists f\ \text{arco}: f(0) = x, f(1) = y \Rightarrow x \sim y\]
+
+Cada componente de esta partición es una *componente arcoconexa*. Un espacio es
+*arcoconexo* cuando tiene una sola componente.
+#+end_definition
+#+begin_proof
+Las propiedades de la relación de equivalencia se cumplen por:
+
+ - 1. *Reflexividad*. Arco constante, $f(t) = x$, lleva a $x \sim x$.
+ - 2. *Simetría*. Arco inverso, $\widetilde f(t) = f(1-t)$, lleva a $x\sim y \Rightarrow y \sim x$.
+ - 3. *Transitividad*. Composición de arcos $f \ast g$.
+
+La composición de arcos se define como:
+
+\[f \ast g = \twopartdef{f(2t)}{t \leq \frac{1}{2}}{g(2t-1)}{t \geq \frac{1}{2}}\]
+#+end_proof
+
+#+begin_theorem
+*Arcoconexión implica conexión*. Pero no en sentido contrario.
+#+end_theorem
+#+begin_proofs
+Dado un punto en un espacio arcoconexo, los caminos a los demás serán conexos y
+compartirán un punto, luego su unión será conexa.
+
+Sin embargo, hay un contraejemplo de espacio conexo no arcoconexo en el
+[[https://es.wikipedia.org/wiki/Seno_del_top%25C3%25B3logo][seno del topólogo]].
+#+end_proofs
+
+
+*** Lazos y homotopía
+#+begin_definition
+*Lazo alrededor de un punto*. Un arco con $f(0) = f(1) = x$ es un lazo alrededor de $x$.
+#+end_definition
+#+begin_definition
+*Lazos homotópicos*. Tenemos $f \sim g$ cuando $\exists H: [0,1] \longrightarrow [0,1] \longrightarrow X$,
+cumpliendo
+
+ - $H$ continua.
+ - $H(0) = f$
+ - $H(1) = g$
+ - $H(s,0) = H(s,1) = x_0$
+
+En ocasiones usaremos =(flip . uncurry) H=.
+#+end_definition
