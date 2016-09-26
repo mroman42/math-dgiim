@@ -1,0 +1,69 @@
+#+TITLE: Álgebra III
+#+SUBTITLE: Relación 1
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+** Ejercicio 1.1
+Los polinomios simétricos en cuatro variables serán de la forma:
+
+\[\sum X_a = X_1+X_2+X_3+X_4\]
+\[\sum X_aX_b = X_1X_2+X_1X_3+X_1X_4+X_2X_3+X_2X_4+X_3X_4\]
+\[\sum X_aX_bX_c = X_1X_2X_3 + X_1X_2X_4 + X_1X_3X_4 + X_2X_3X_4\]
+\[\sum X_aX_bX_cX_d = X_1X_2X_3X_4\]
+
+** Ejercicio 1.2
+
+** Ejercicio 1.3
+
+** Ejercicio 1.5
+Vamos a usar una ecuación general que escribe una suma de potencias con
+otras variables en función de sumas de potencias de grado menor.
+
+\[\sum X_1^nX_2 \dots X_k = e_k\sum X_1^{n-1} - \sum X_1^{n-1}X_2 \dots X_kX_{k+1}\]
+
+para concluir que si la aplicamos repetidamente y llamamos 
+$s_n = \sum X^n$ obtendremos:
+
+\[ s_n = e_1s_{n-1} - e_2s_{n-2} + \dots + e_{n-1}s_1 - ne_n \]
+
+Por tanto, en los casos hasta $5$, tenemo:s
+
+\[s_1 = e_1\]
+
+\[\begin{align*}
+s_2 &= e_1s_1 - 2e_2 \\
+&= e_1^2 - 2e_2
+\end{align*}
+\]
+
+\[\begin{align*}
+s_3 &= e_1s_2 - e_2s_1 + 3e_3 \\
+&= e_1^3 - 3e_1e_2 + 3e_3
+\end{align*}
+\]
+
+\[\begin{align*}
+s_4 &= e_1s_3 - e_2s_2 + e_3s_1 - 4e_4 \\
+&= e_1^4 - 3e_1^2e_2 + 3e_1e_3 - e_1^2e_2 + 2e_2^2 + e_1e_3 - 4e_4 \\
+&= e_1^4 - 4e_1^2e_2 + 4e_1e_3 - 4e_4 + 2e_2^2 
+\end{align*}
+\]
+
+\[\begin{align*}
+s_5 &= e_1s_4 - e_2s_3 + e_3s_2 - e_4s_1 + 5e_5 \\
+&= e_1^5 - 5e_1^3e_2 + 5e_1^2e_3 - 5e_1e_4 + 5e_1e^2_2 - 5e_3e_2 + 5e_5
+\end{align*}
+\]
+
+Nótese que aquí tomamos $e_m = 0$ en el caso de que haya menos de $m$ variables.
+
