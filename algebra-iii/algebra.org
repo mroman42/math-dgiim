@@ -29,7 +29,7 @@ Ahora podemos resolver esa cuadrática y resolver luego la ecuación
 en $w^3$.
 
 * Anillos de polinomios
-** Polinomios simétricos
+*** Polinomios simétricos
 #+begin_definition
 *Polinomio simétrico*. Invariante por $f_\sigma$ para cualquier $\sigma \in S_r$, donde 
 $f_\sigma (X_i) = X_{\sigma i}$. Llamamos $Sim(A[X_1\dots X_n])$ al subanillo de polinomios simétricos.
@@ -38,17 +38,26 @@ $f_\sigma (X_i) = X_{\sigma i}$. Llamamos $Sim(A[X_1\dots X_n])$ al subanillo de
 Llamamos *componente homogénea* a cada sumando homogéneo maximal de un polinomio.
 Un polinomio es simétrico si y sólo si cada una de sus componentes lo es.
 
+*** Polinomios simétricos elementales
 #+begin_definition
 *Polinomios simétricos elementales*. De la forma:
 \[e_i = \sum_{i_1 < \dots < i_i} X_i_1 X_i_2 \dots X_i_i\]
 #+end_definition
 #+begin_theorem
 *Teorema fundamental de los polinomios simétricos*. Los polinomios elementales
-generan $Sim(A[X_1\dots X_n])$.
+generan cada polinomio $Sim(A[X_1\dots X_n])$ de forma única. En particular,
+
+\[\omega : A[X_1,\dots,X_r] \longrightarrow Sim(A[X_1,\dots,X_r])\]
+
+con $\omega(a) = a$ y $\omega(X_i) = e_i$ es un isomorfismo.
 #+end_theorem
 #+begin_proofs
 Damos una relación de orden lexicográfica entre los monomios de un polinomio
 simétrico homogéneo. Al mayor de ellos, llamado $X_1^{k_1} \dots X_r^{k_r}$ le restamos 
 $e^{b1}_1 e^{b2}_2 \dots e^{br}_r$, donde $b_i = k_i - k_{i+1}$. Nos quedará $0$ u otro polinomio simétrico de 
 igual grado pero menor en el orden lexicográfico. Este proceso debe ser finito.
+
+La unicidad se obtiene con $0 = h(e_1\dots e_r) - k(e_1\dots e_r) = l(e_1 \dots e_r)$.
 #+end_proofs
+
+*** Resultante
