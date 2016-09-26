@@ -61,3 +61,30 @@ La unicidad se obtiene con $0 = h(e_1\dots e_r) - k(e_1\dots e_r) = l(e_1 \dots 
 #+end_proofs
 
 *** Resultante
+#+begin_definition
+*Resultante*. Es el determinante solución de $pq' - qp' = 0$ dados $p$ y $q$.
+
+\[R(p,q) = \left| \begin{matrix}
+a_0 & a_1 & \dots & a_n & 0 & \dots &\\
+0   & a_0 & \dots & a_{n-1} & a_n & 0 & \dots \\
+0   &   0 & a_0 & \dots & a_{n-1} & a_n & \dots \\
+    &     &     &\dots & & & \\
+b_0 & b_1 & \dots & b_m & 0 & \dots &\\
+0   & b_0 & \dots & b_{m-1} & b_m & 0 & \dots \\
+0   &   0 & b_0 & \dots & b_{m-1} & b_m & \dots \\
+\end{matrix} \right|
+\]
+
+Y llamamos *matriz resultante* a la matriz de la que es determinante.
+#+end_definition
+
+#+begin_definition
+*Discriminante*. El discriminante de un polinomio con raíces
+$\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
+
+\[\Delta(p) = a^{2n-2} \prod_{i>j}(\alpha_i-\alpha_j)^2\]
+#+end_definition
+
+#+begin_fact
+\[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \Delta(p)\]
+#+end_fact
