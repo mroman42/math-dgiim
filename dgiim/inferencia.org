@@ -89,6 +89,22 @@ la función de verosimilitud o de su logaritmo:
 
 \[\hat l (\hat\theta | x_1,\dots,x_n) = \sum_{i=1}^n \ln f(x_i|\theta)\]
 
-*** TODO Estadístico suficiente
-**** Caraterización de suficiencia de Fisher-Neyman
+*** Estadístico suficiente
+#+begin_definition
+*Estadístico suficiente*. Un estadístico es suficiente para un parámetro $\theta$ 
+cuando una vez conocido no puede obtenerse más información de sobre $\theta$ de
+los datos; esto es:
+
+\[\Pr(\theta| t,x) = \Pr(\theta|t)\]
+#+end_definition
+
+#+begin_theorem
+*Caraterización de suficiencia de Fisher-Neyman*. $T$ es suficiente para $\theta$
+ssi existen funciones no negativas $g$,$h$ tales que:
+
+\[f_\theta(x) = h(x)g_\theta(T(x))\]
+
+Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\theta$.
+#+end_theorem
+
 **** Ejemplo de una distribución binomial
