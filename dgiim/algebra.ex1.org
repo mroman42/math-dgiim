@@ -13,6 +13,7 @@
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \setlength{\parindent}{0pt}
 
+* Relación 1
 ** Ejercicio 1.1
 Los polinomios simétricos en cuatro variables serán de la forma:
 
@@ -22,7 +23,13 @@ Los polinomios simétricos en cuatro variables serán de la forma:
 \[\sum X_aX_bX_cX_d = X_1X_2X_3X_4\]
 
 ** Ejercicio 1.2
+Usamos el polinomio recíproco relacionando $p(x)$ con $p(\frac{1}{x})$ y usamos
+la derivada $p(x)$ para raíces dobles. Sea:
 
+\[\hat p(x) = \frac{1}{x^n}(1+a_nx+\dots+a_0x^n)\]
+
+Usamos entonces $\hat{\hat{p}'}$ para relacionar las raíces.
+   
 ** Ejercicio 1.3
 
 ** Ejercicio 1.5
@@ -36,7 +43,7 @@ $s_n = \sum X^n$ obtendremos:
 
 \[ s_n = e_1s_{n-1} - e_2s_{n-2} + \dots + e_{n-1}s_1 - ne_n \]
 
-Por tanto, en los casos hasta $5$, tenemo:s
+Por tanto, en los casos hasta $5$, tenemos:
 
 \[s_1 = e_1\]
 
@@ -67,3 +74,64 @@ s_5 &= e_1s_4 - e_2s_3 + e_3s_2 - e_4s_1 + 5e_5 \\
 
 Nótese que aquí tomamos $e_m = 0$ en el caso de que haya menos de $m$ variables.
 
+*** Solución por grados
+Cada polinomio simétrico de grado $n$ es combinación lineal de los que surgen
+como productos de elementales de grado $n$.
+
+\[x^3+y^3+z^3 = \alpha e_1^3 + \beta e_1e_2 + \gamma e_3\]
+
+Calculando se llega a $\alpha = 1$, $\beta = -3$, $\gamma = 3$.
+
+** Ejercicio 10
+Necesitamos uno que sea raíz de $p'$ y de $p$.
+Sacamos las raíces de $p'$, que son $1$ y $\frac{5}{3}$.
+
+Tenemos que $1$ es raíz doble cuando $k= -2$. Dividiendo por $(x-1)^2$ tenemos
+
+\[p(x) = (x-1)^2(x-2)\]
+
+Lo mismo se puede hacer con $\frac{5}{3}$, pero saldría $k \notin \mathbb{Z}$.
+
+** Ejercicio 11
+
+
+
+* Semana 1
+** Ejercicio 1.25
+Sea el polinomio $p(x) = x^3-5x-5$ con raíces $\alpha, \beta, \gamma$. Tenemos que el polinomio $p(x-1)$
+tendrá raíces $\alpha+1,\beta+1,\gamma+1$:
+
+\[p(x-1) = (x+1)^3-5(x+1)-5 = x^3 - 3x^2 - 2x - 1\]
+
+Y que el polinomio recíproco a él tendrá raíces  $\frac{1}{\alpha+1}, \frac{1}{\beta+1}, \frac{1}{\gamma+1}$:
+
+\[q(x) = 1 - 3x - 2x^2 - x^3\]
+
+Trabajando con $-q(x)$, que es mónico, y con los polinomios de Cardano-Vieta sobre
+sus raíces tenemos, que si estas fueran $u,v,w$, tendríamos:
+
+\[(x-u)(x-v)(x-w) = x^3 - (u+v+w)x^2 +(uv+vw+wu)x - uvw\]
+
+Y desde aquí obtenemos el valor de los polinomios simétricos elementales sobre
+las raíces
+
+\[\begin{align*}
+e_1 &= u+v+w = -2 \\
+e_2 &= uv+vw+wu = 3 \\
+e_3 &= uvw = 1
+\end{align*}\]
+
+Ahora, expresamos el valor de $u^3+v^3+w^3$ como suma de polinomios elementales
+mediante el algoritmo de orden lexicgráfico de la demostración:
+
+\[\begin{align*}
+\sum X_1^3 &= e_1^3 - (3\sum X_1^2X_2 + 6\sum X_1X_2X_3) \\
+           &= e_1^3 - 3(e_1e_2 - 3\sum X_1X_2X_3 + 6\sum X_1X_2X_3) \\
+           &= e_1^3 - 3e_1e_2 + 3e_1
+\end{align*}\]
+
+Y así, finalmente tenemos:
+
+\[u^3+v^3+w^3 = (-2)^3 - 3(-2)3 + 3 = 13\]
+
+# ¿Existen cuerpos infinitos de característica no nula?

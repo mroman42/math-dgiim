@@ -54,7 +54,8 @@ con $\omega(a) = a$ y $\omega(X_i) = e_i$ es un isomorfismo.
 #+begin_proofs
 Damos una relación de orden lexicográfica entre los monomios de un polinomio
 simétrico homogéneo. Al mayor de ellos, llamado $X_1^{k_1} \dots X_r^{k_r}$ le restamos 
-$e^{b1}_1 e^{b2}_2 \dots e^{br}_r$, donde $b_i = k_i - k_{i+1}$. Nos quedará $0$ u otro polinomio simétrico de 
+$e^{b1}_1 e^{b2}_2 \dots e^{br}_r$, donde $b_i = k_i - k_{i+1}$. 
+Nos quedará $0$ u otro polinomio simétrico de 
 igual grado pero menor en el orden lexicográfico. Este proceso debe ser finito.
 
 La unicidad se obtiene con $0 = h(e_1\dots e_r) - k(e_1\dots e_r) = l(e_1 \dots e_r)$.
@@ -82,9 +83,9 @@ Y llamamos *matriz resultante* a la matriz de la que es determinante.
 *Discriminante*. El discriminante de un polinomio con raíces
 $\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
 
-\[\Delta(p) = a^{2n-2} \prod_{i>j}(\alpha_i-\alpha_j)^2\]
+\[\text{Discr}(p) = a^{2n-2} \prod_{i>j}(\alpha_i-\alpha_j)^2\]
 #+end_definition
 
 #+begin_fact
-\[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \Delta(p)\]
+\[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
 #+end_fact
