@@ -71,3 +71,21 @@ such that multiplicaton $m^{p,q}$ maps $A^p \otimes A^q$ into $A^{p+q}$. It is *
 when $A_0 = R$. It is *strongly graded* when $m^{1,p}$ is surjective. We call $\pi^n_A$ 
 to the projection of $A$ onto $A^n$.
 #+end_definition
+
+** 1.2. R-corings
+#+begin_definition
+*R-coring*. Coassociative and counital coalgebra. It is an R-bimodule with
+a /comultiplication/ $\Delta : C \longrightarrow C \otimes C$ and a /counit/ $\epsilon : C \longrightarrow R$.
+#+end_definition
+#+begin_definition
+*Graded corings*. Decomposition $C = \bigoplus_{n \in \mathbb{N}} C_n$, such that:
+
+\[\Delta(C_n) \subset \bigoplus_{p=0}^n C_p \otimes C_{n-p}\]
+#+end_definition
+
+
+** 1.3. Almost-Koszul pair
+#+begin_definition
+*Almost-Koszul pair*. Connected R-ring and R-coring $(A,C)$ with an isomorphism
+$\theta_{C,A} : C_1 \longrightarrow A^1$.
+#+end_definition
