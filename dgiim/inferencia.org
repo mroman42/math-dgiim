@@ -1,0 +1,51 @@
+#+TITLE: Inferencia estadística
+#+SUBTITLE: Apuntes de teoría
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+** Introducción
+*** Estadísticos
+#+begin_definition
+*Estadístico*. Función medible sobre variables aleatorias $f(X_1,X_2,\dots,X_n)$.
+Se dice que es un *estimador consistente* de un parámetro cuando converge 
+en probabilidad a él.
+#+end_definition
+
+** Distribuciones continuas
+*** Distribución uniforme
+#+begin_definition
+*Distribución uniforme*. Sobre un intervalo $[a,b]$, definida por:
+
+\[f(x|a,b) = \frac{1}{b-a}\]
+#+end_definition
+
+\[EX = \int^b_a \frac{x}{b-a}dx = \frac{b+a}{2}\]
+\[Var X = \int_a^b \frac{(x-\frac{b+a}{2})^2}{b-a} dx = \frac{(b-a)^2}{12}\]
+
+
+*** Distribución gamma
+#+begin_definition
+*Función gamma*. La siguiente integral converge para $\alpha > 0$:
+
+\[\Gamma(\alpha) = \int_0^\infty t^{\alpha-1}e^{-t}dt\]
+#+end_definition
+
+Cumple que: $\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$, de esta forma, generaliza al factorial
+con $\Gamma(n) = (n-1)!$.
+
+#+begin_definition
+*Distribución gamma*. Sobre $[0,\infty)$, dada $\alpha$, se tiene la función de distribución:
+
+\[f(x|\alpha,\beta) = 
+\frac{1}{\Gamma(\alpha)\beta^\alpha} x^{\alpha-1}e^{-x/\beta}\]
+#+end_definition
