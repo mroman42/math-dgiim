@@ -32,7 +32,6 @@ en probabilidad a él.
 \[EX = \int^b_a \frac{x}{b-a}dx = \frac{b+a}{2}\]
 \[Var X = \int_a^b \frac{(x-\frac{b+a}{2})^2}{b-a} dx = \frac{(b-a)^2}{12}\]
 
-
 *** Distribución gamma
 #+begin_definition
 *Función gamma*. La siguiente integral converge para $\alpha > 0$:
@@ -49,3 +48,47 @@ con $\Gamma(n) = (n-1)!$.
 \[f(x|\alpha,\beta) = 
 \frac{1}{\Gamma(\alpha)\beta^\alpha} x^{\alpha-1}e^{-x/\beta}\]
 #+end_definition
+
+*** Distribución de Dirichlet
+#+begin_definition
+*Distribución de Dirichlet*. 
+
+\[f(x_1\dots x_n| \alpha_1, \dots \alpha_k,\alpha_{k+1}) = 
+\frac{\Gamma(\alpha_1+\dots+\alpha_{k+1})}
+{\Gamma(\alpha_1)\dots \Gamma(\alpha_{k+1})}
+x_1^{\alpha_1-1} \dots x_{k}^{\alpha_{k-1}-1}
+\]
+#+end_definition
+
+# Esperanza
+# Integral de dirichlet
+# Subvector
+# Dirichlet ordenada
+
+
+
+** Máxima verosimilitud
+#+begin_definition
+*Máxima verosimilitud*. Sean $X_1,\dots,X_n$ v.as. independientes extraídas de una
+función de probabilidad perteneciente a una familia 
+$\{f(\bullet | \theta), \theta \in \Theta\}$ llamada *modelo*, pero con $\theta$ desconocida
+
+Llamamos *estimador de máxima verosimilitud* de $\theta$ al $\hat\theta$ que maximiza 
+
+\[{\cal L}(\hat\theta | x_1,\dots,x_n) = \prod_{i=1}^n f(x_i|\theta)\]
+
+llamada *función de verosimilitud*.
+#+end_definition
+
+La idea del método es tomar la función de densidad conjunta asumiendo independencia:
+
+\[f(x_1,\dots,x_n | \theta) = f(x_1|\theta) f(x_2|\theta) \dots f(x_n|\theta)\]
+
+Y, suponiendo que los valores fueran fijos, estimar $\theta$ con la función de
+la función de verosimilitud o de su logaritmo:
+
+\[\hat l (\hat\theta | x_1,\dots,x_n) = \sum_{i=1}^n \ln f(x_i|\theta)\]
+
+*** TODO Estadístico suficiente
+**** Caraterización de suficiencia de Fisher-Neyman
+**** Ejemplo de una distribución binomial
