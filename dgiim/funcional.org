@@ -137,4 +137,16 @@ Que además cuenta con subespacios usando la misma norma:
 
 *** Espacios de funciones continuas
 
+
 *** Espacios de funciones derivables
+Consideraremos el espacio de funciones sobre un intervalo que sean $d$ veces
+derivables con derivadas continuas, ${\cal C}^n([a,b],\mathbb{K}^d)$. Y sobre él defimos una norma del
+supremo sobre cada derivada $\|f^{k)}\| = max \{\|f^{k)}_i\|_\infty\}$. La norma del espacio es la suma
+de la de cada una de las derivadas.
+
+\[ \|f\|_\infty = \sum \|f^{k)}\|_\infty\]
+
+Esto, por *Teorema de la convergencia uniforme* nos lleva a que una sucesión de
+Cauchy converja de manera que respete la derivada. Este será un espacio de Banach.
+
+*** Espacios de funciones integrables
