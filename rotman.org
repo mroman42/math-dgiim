@@ -1,0 +1,54 @@
+#+TITLE: An introduction to Homological Algebra
+#+SUBTITLE: Apuntes de teoría
+#+AUTHOR: Mario Román
+#+OPTIONS: num:nil
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+* 5. Setting the stage
+** 5.5. Abelian categories
+
+*** Additive category
+#+begin_definition
+*Additive category*. ${\cal C}$ is additive if:
+
+- $Hom(A,B)$ is an *abelian group*.
+- *Distributivity* holds: $b \circ (f+g) = b\circ f + b \circ g$ and $(f+g)\circ a = f\circ a + g\circ a$.
+- Has a *zero object*.
+- Has finite *products* and *coproducts*.
+
+A functor $T$ between two additive categories is additive if $T(f+g) = Tf+Tg$.
+#+end_definition
+
+#+begin_theorem
+*Sums and products are the same*. Products and coproducts are isomorphic:
+
+\[A \mathbin{\Pi} B \cong A \amalg B\]
+
+So we call them *direct sums*, $A \oplus B$. And there are canonical morphisms:
+
+\[ \begin{tikzcd}
+& A \oplus B \dlar[bend right,swap]{\pi_A} \drar[bend left]{\pi_B} $ \\
+A \urar[bend right,swap]{i_A} & & B \ular[bend left]{i_B}
+\end{tikzcd} \]
+
+Such that: \(i_A \circ \pi_A + i_b \circ \pi_B = id\) and \(\pi_B \circ i_A = \pi_A \circ i_B = 0\).
+#+end_theorem
+
+
+*** Abelian category
+#+begin_definition
+*Abelian category*. ${\cal C}$ is abelian if
+
+- Every morphism has *kernel* and *cokernel*.
+- Every monomorphism is a *kernel*.
+- Every epimorphism is a *cokernel*.
+#+end_definition
