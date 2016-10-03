@@ -14,6 +14,32 @@
 #+latex_header: \setlength{\parindent}{0pt}
 
 * 5. Setting the stage
+** 5.4. Sheaves
+*** Protosheaves
+#+begin_definition
+*Local homeomorphism*. Continuous map $p : E \longrightarrow X$ such that for each $e \in E$ there is
+an open neighboorhood $S$ of $e$ such that $p|_S$ is an isomorphism.
+#+end_definition
+#+begin_definition
+*Protosheaf*. Surjective local homeomorphism.
+#+end_definition
+
+*** Etale-sheaves
+#+begin_definition
+*Etale-sheaf of abelian groups*. A *protosheaf* such that:
+
+- The stalk $E_x$ is an abelian group.
+- Inversion and adition are continuous.
+#+end_definition
+
+#+begin_definition
+*Etale-map*. Given two etale-sheaves $E$ and $E'$, a map $\phi : E \longrightarrow E'$ such
+that $p'\phi = p$, and each $\phi|_{E_x}$ is a homomorphism.
+#+end_definition
+
+Here, etale-sheaves of abelian groups over a topological space X form an
+abelian category $\mathtt{Sh}_{et}(X,\mathtt{Ab})$.
+
 ** 5.5. Abelian categories
 
 *** Additive category
@@ -52,3 +78,6 @@ Such that: \(i_A \circ \pi_A + i_b \circ \pi_B = id\) and \(\pi_B \circ i_A = \p
 - Every monomorphism is a *kernel*.
 - Every epimorphism is a *cokernel*.
 #+end_definition
+
+Abelian categories are /self-dual/, if ${\cal A}$ is an abelian category, then
+${\cal A}^{op}$ is an abelian category.
