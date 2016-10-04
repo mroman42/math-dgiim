@@ -20,6 +20,10 @@ Demostramos que ${\cal P}(X)$ con la suma forma un grupo abeliano. Cada conjunto
 inverso, es conmutativo y tiene al conjunto vacío como neutro. La asociatividad
 se comprueba viendo que pertenecer a $A+B+C$ es pertenecer a uno o a los tres.
 
+Que es conmutativo se tiene por:
+
+\[0 = (A+B)^2 - (A+B) = AB + BA\]
+
 ** Ejercicio 16
 *** Punto 1
 Tenemos que $0 = (2x)^2 - 2x = 4x - 2x= 2x$.
@@ -43,3 +47,76 @@ Luego es unidad. Dada suma de unidad y nilpotente, podemos escribirla como:
 \[(u+x) = u(1+u^{-1}x)\]
 
 Producto de unidades.
+
+** Ejercicio 43
+*** Punto 1
+Tenemos $X \times \mathbb{Z}$ grupo abeliano con la suma por serlo $X$ y $\mathbb{Z}$. La asociatividad se 
+tiene por:
+
+\[(x_1,n_1)(x_2,n_2)(x_3,n_3) 
+= (x_1x_2x_3 + n_1x_2x_3+x_1n_2x_3+x_1x_2n_3+x_1n_2n_3+n_1x_2n_3+n_1n_2x_3, 
+n_1n_2n_3)\]
+
+Y la distributividad:
+
+\[\begin{align*}
+(x,y)((a,b)+(c,d)) &= (x,y)(a+c,b+d) = (x(a+c)+y(a+c)+x(b+d)), y(b+d)) \\
+&= (xa+ya+xb,yb) + (xc+yc+xd,yd)
+\end{align*}\]
+
+*** Punto 2
+Vemos que es trivialmente cerrado para la suma y el producto. Cualquier
+elemento de $X\times \mathbb{Z}$ puede expresarse como $(x,0)+(0,n)$ así que tomamos el isomorfismo
+entre $X\times \mathbb{Z}/ X$ y $\mathbb{Z}$ siguiente:
+
+\[\phi(x,n) = n\]
+
+Bien definido porque tiene a $X$ como núcleo.
+
+*** Punto 3
+El valor de $f'(x,0) = f(x)$ está fijado por la condición, y por ser homomorfismo
+de anillos debe tener $f'(0,1) = 1$; por tanto, para preservar suma, $f'(x,n) = f(x)+n$.
+
+Ahora, para comprobar que es homomorfismo vemos que respeta las sumas, la unidad
+y los productos:
+
+\[\begin{align*}
+f'((a,b)(c,d)) &= f(ac+bc+da) + bd = f(a)f(c)+bf(c)+df(a)+bd \\
+               &= (f(a)+b)(f(c)+d) = f'(a,b)f'(c,d)
+\end{align*}\]
+
+** Ejercicio 44
+$S,T$ son R-Módulos, así que entendemos por $S\times T$ la suma directa como módulos.
+Tomamos como definición de $R \cong S \times T$ el que:
+
+\[\forall r \in R: \exists! s\in S, t\in T:\quad s + t = r\]
+
+*** Descompone con un idempotente
+Primero vemos que $\forall r \in R: re + r(1-e) = r$, y es forma única, porque si existieran
+dos formas de expresar $r$:
+
+\[\begin{align*}
+r &= s + t \\
+r &= s' + t'
+\end{align*}\]
+
+Entonces $(s-s') + (t-t') = 0$, y no es posible salvo que
+sean iguales, porque $s + t = 0$, con $ea + (1-e)b = 0$ conduce a:
+
+\[\begin{align*}
+0 &= eea + e(1-e)b &=& ea \\
+0 &= (1-e)ea + (1-e)(1-e)b &=& (1-e)b
+\end{align*}\]
+
+
+*** Toda descomposición es por idempotente
+Supongamos $R \cong S \times T$. Tenemos la única descomposición de $1$ como $u+v = 1$.
+Hacemos otra descomposición de $1$ como:
+
+\[1 = (u+v)(u+v) = u^2+v^2+2uv\]
+
+Aquí tenemos que $uv \in S$ y $uv \in T$, así que $uv = 0$ (si no, tendría dos 
+descomposiciones); por tanto $1 = u^2 + v^2$, y por unicidad $u=u^2$ y $v=v^2$.
+
+Ahora veamos $S = (u)$, si tengo $s \in S$, entonces $su+sv = s$, y como $sv \in S$ y
+además $sv \in T$, debe ser nulo y tenerse $s = su$.
