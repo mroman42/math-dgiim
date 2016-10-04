@@ -1,5 +1,5 @@
 #+TITLE: An introduction to Homological Algebra
-#+SUBTITLE: Apuntes de teoría
+#+SUBTITLE: Theory
 #+AUTHOR: Mario Román
 #+OPTIONS: num:nil
 #+LANGUAGE: es
@@ -81,3 +81,9 @@ Such that: \(i_A \circ \pi_A + i_b \circ \pi_B = id\) and \(\pi_B \circ i_A = \p
 
 Abelian categories are /self-dual/, if ${\cal A}$ is an abelian category, then
 ${\cal A}^{op}$ is an abelian category.
+
+#+begin_definition
+*Image*. Given $f : A \longrightarrow B$ in an abelian category, its image is:
+
+\[img(f) = ker(coker(f))\]
+#+end_definition

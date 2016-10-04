@@ -29,6 +29,7 @@ such that $p_{U,W} = p_{V,W} \circ p_{U,V}$.
 We can write the restriction of an element $u \in U$ to a set $V \subseteq U$ as
 $u|_V = p_{U,V}(u)$.
 
+*** Sheaf definition
 #+begin_definition
 *Gluability axiom*. Given $U = \bigcup U_i$ with sections $s_i \in {\cal F}(U_i)$, if we have:
 
@@ -43,5 +44,6 @@ then there exists $s \in {\cal F}(U)$ such that $s|_U_\alpha = s_\alpha$.
 
 then $s=t$.
 #+end_definition
-
-# Sheaves!
+#+begin_definition
+*Sheaves*. A presheaf satisfiying gluability and uniqueness.
+#+end_definition
