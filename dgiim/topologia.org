@@ -48,7 +48,6 @@ Sin embargo, hay un contraejemplo de espacio conexo no arcoconexo en el
 [[https://es.wikipedia.org/wiki/Seno_del_top%25C3%25B3logo][seno del topólogo]].
 #+end_proofs
 
-
 *** Lazos y homotopía
 #+begin_definition
 *Lazo alrededor de un punto*. Un arco con $f(0) = f(1) = x$ es un lazo alrededor de $x$.
@@ -64,7 +63,6 @@ cumpliendo
 
 En ocasiones usaremos =(flip . uncurry) H=.
 #+end_definition
-
 ** Aplicaciones
 *** Teorema fundamental del álgebra
 #+begin_theorem
