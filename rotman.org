@@ -69,6 +69,19 @@ A \urar[bend right,swap]{i_A} & & B \ular[bend left]{i_B}
 Such that: \(i_A \circ \pi_A + i_b \circ \pi_B = id\) and \(\pi_B \circ i_A = \pi_A \circ i_B = 0\).
 #+end_theorem
 
+*** Monomorphisms and epimorphisms
+#+begin_definition
+*Monomorphism*. A morphism $u$ such that:
+\[u \circ f = u \circ g \quad \Rightarrow \quad f = g\]
+#+end_definition
+#+begin_definition
+*Epimorphism*. A morphism $u$ such that:
+\[f \circ u = g \circ u \quad \Rightarrow \quad f = g\]
+#+end_definition
+
+We have that $u : B \longrightarrow C$ is *monomorphism* iff the induced 
+$u^\ast : Hom(A,B) \longrightarrow Hom(A,C)$ is injective. And $v : B \longrightarrow C$ is *epimorphism* 
+iff the induced $v^* : Hom(B,D) \longrightarrow Hom(C,D)$ is surjective.
 
 *** Abelian category
 #+begin_definition
