@@ -1,0 +1,45 @@
+#+TITLE: Álgebra conmutativa y computacional
+#+SUBTITLE: Ejercicios
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \newtheorem{proofs}{Demostración}
+#+latex_header: \setlength{\parindent}{0pt}
+
+* Relación 1
+** Ejercicio 3
+Demostramos que ${\cal P}(X)$ con la suma forma un grupo abeliano. Cada conjunto es su
+inverso, es conmutativo y tiene al conjunto vacío como neutro. La asociatividad
+se comprueba viendo que pertenecer a $A+B+C$ es pertenecer a uno o a los tres.
+
+** Ejercicio 16
+*** Punto 1
+Tenemos que $0 = (2x)^2 - 2x = 4x - 2x= 2x$.
+*** Punto 2
+Si $\pi$ es primo, entonces $R/\pi$ es dominio de integridad. Sea $m \in R/\pi$, tenemos que
+$m(m-1) = 0$, luego $m=0$ ó $m=1$. Así, sólo puede ser isomorfo a $\mathbb{Z}_2$
+y cuerpo. $\pi$ es maximal.
+*** Punto 3
+Definimos la operación $a \oplus b = a+b+ab$ y comprobamos que $(a,b) = (a \oplus b)$, ya que
+$a (a\oplus b) =a$ y $b(a\oplus b) = b$. Por inducción, cada ideal generado por varios lo podemos
+generar por un elemento.
+
+** Ejercicio 26
+Nótese que si $x$ es nilpotente, también lo es $ux$ para $u$ unidad.
+Sea $x^n = 0$. Tenemos que:
+
+\[(1+x)(1-x+x^2-\dots+x^{n-1}) = 1 + (-x)^n = 1\]
+
+Luego es unidad. Dada suma de unidad y nilpotente, podemos escribirla como:
+
+\[(u+x) = u(1+u^{-1}x)\]
+
+Producto de unidades.
