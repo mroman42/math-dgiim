@@ -1,7 +1,7 @@
 #+TITLE: Álgebra III
-#+SUBTITLE: Relación 1
+#+SUBTITLE: Ejercicios
 #+AUTHOR: Mario Román
-#+OPTIONS:
+#+OPTIONS: toc:nil num:nil
 #+LANGUAGE: es
 
 #+LaTeX: \setcounter{secnumdepth}{0}
@@ -112,6 +112,8 @@ de ese monomio tiene por tanto orden $k = |Stab(x)| = m_1!m_2!\dots m_n!$. Aplic
 Teorema de Lagrange para órbitas y estabilizadores obtenemos el número de
 monomios distintos:
 
+\[|M| = |S_n(M)| = \frac{|S_n|}{|Stab(x)|} = \frac{n!}{m_1!m_2!\dots m_n!}\]
+
 ** Ejercicio 1.25
 Sea el polinomio $p(x) = x^3-5x-5$ con raíces $\alpha, \beta, \gamma$. Tenemos que el polinomio $p(x-1)$
 tendrá raíces $\alpha+1,\beta+1,\gamma+1$:
@@ -150,3 +152,129 @@ Y así, finalmente tenemos:
 \[u^3+v^3+w^3 = (-2)^3 - 3(-2)3 + 3 = 13\]
 
 # ¿Existen cuerpos infinitos de característica no nula?
+
+* Semana 2
+** Ejercicio 2.14
+*** Punto 1
+Supongamos que se tiene $f(x) = ax+b$ con $a$ una unidad del anillo. Entonces podríamos
+tomar como inversa de $\phi$ el homomorfismo de anillos que cumple $g(x) = a^{-1}(x - b)$ y que
+sobre los elementos del anillo es la identidad. Sería un isomorfismo.
+
+Estudiamos el caso de que $f(x)$ fuera de otra forma pero fuera isomorfismo. 
+Trivialmente su grado no podría ser $0$ para ser inyectivo sobre los elementos del
+anillo. Si $f(x)$ tuviera monomio líder $b_kx^k$
+y el monomio líder de $p$ fuera $a_mx^m$. Su imagen sería:
+
+\[\phi(p(x)) = a_0 + a_1f(x) + a_2f(x)^2 + \dots + a_mf(x)^m\]
+
+tendría un único coeficiente líder de grado $km$ que sería 
+$a_mb_kx^{m+k} \neq 0$ por ser dominio de integridad.
+
+Así,tenemos que $f$ no puede tener grado mayor que $1$ y debe tener un coeficiente líder unidad
+si queremos que $a_mb_kx^{m+k} = x \in img(\phi)$.
+
+*** Punto 2
+El coeficiente líder puede anularse y la condición ya no es suficiente.
+
+Sea $e$ en el nilradical de un anillo, con $e^n = 0$. Entonces se pueden tomar
+los dos homomorfismos cumpliendo:
+
+\[\phi(x) = x - e^{n-1}x^n\]
+\[\phi'(x) = x + e^{n-1}x^n\]
+
+Nótese ahora que $\phi\phi'(x) = \phi'\phi(x) = x$ y que para cualquier polinomio se comprobará
+que son dos automorfismos inversos entre sí. De hecho, usando que son
+homomorfismos:
+
+\[\phi\phi'(p(x)) = p(\phi\phi'(x)) = p(x)\]
+
+** Ejercicio 2.15
+*** Punto 1
+Si $f$ es irreducible en $\mathbb{Z}$, es en particular primitivo.
+Supongamos que $f = gh$ en $\mathbb{Q}$, factorización no trivial. Puedo escribir $g$ y $h$ como
+polinomios primitivos por una unidad de $\mathbb{Q}$: $f = ug_0h_0$. Como el producto de primitivos
+es primitivo, $g_0h_0$ lo es. Supongamos que tuviéramos $u = \frac{a}{b}$, con:
+
+\[bf = ag_0h_0\]
+
+Llegamos a que $a|b$, $b|a$, ya que ninguno de los dos puede dividir a un 
+polinomio primitivo; y obtenemos $u$ unidad de $\mathbb{Z}$. Con lo cual, $f$ no sería
+irreducible en $\mathbb{Z}$.
+
+*** Punto 2
+Como es irreducible sobre $\mathbb{Q}$, el ideal que genera es maximal y $F$ es
+por tanto un cuerpo. Las inclusiones son las triviales.
+
+*** Punto 3
+Sea el polinomio $f(y) \in F[y]$. Tenemos que:
+
+\[f(X + (f(X))) = f(X) + (f(X)) = 0 + (f(X)) \]
+
+Por lo que es raíz.
+
+La primera igualdad se obtiene del hecho de que las potencias y el producto
+por elementos del cuerpo respetan las clases de equivalencia; y por tanto,
+la evaluación de un polinomio lo hace:
+
+\[(X + (f(X)))^n = X^n + X^{n-1}(f(X)) + \dots + (f(X)) = X^n + (f(X))\]
+\[a(X+(f(X))) = aX + (f(X))\]
+
+** Ejercicio 2.16
+Tenemos una extensión sobre $\mathbb{F}_2$ generada por un polinomio de grado 3. 
+Sus elementos son clases de equivalencia sobre polinomios de hasta 
+grado dos, habiendo 8 elementos. Abusando de la notación, los escribimos como
+los representantes de su clase de equivalencia:
+
+\[\{0,1,x,x+1,x^2,x^2+1,x^2+x,x^2+x+1\}\]
+
+Tenemos las siguientes tablas para la suma y el producto:
+
+#+BEGIN_SRC sage :exports none
+R.<t> = PolynomialRing(GF(2),'t')
+I = R.ideal(t^3+t+1)
+S.<x> = R.quotient_ring(I)
+#+END_SRC
+#+RESULTS:
+
+#+BEGIN_SRC sage :exports results
+S.addition_table(
+    names=["0","1","x","x+1","x^2","x^2+1","x^2+x","x^2+x+1"],
+    elements=[0,1,x,x+1,x^2,x^2+1,x^2+x,x^2+x+1]
+)
+#+END_SRC
+#+RESULTS:
+#+begin_example
+
+      +        0       1       x     x+1     x^2   x^2+1   x^2+x x^2+x+1
+       +----------------------------------------------------------------
+      0|       0       1       x     x+1     x^2   x^2+1   x^2+x x^2+x+1
+      1|       1       0     x+1       x   x^2+1     x^2 x^2+x+1   x^2+x
+      x|       x     x+1       0       1   x^2+x x^2+x+1     x^2   x^2+1
+    x+1|     x+1       x       1       0 x^2+x+1   x^2+x   x^2+1     x^2
+    x^2|     x^2   x^2+1   x^2+x x^2+x+1       0       1       x     x+1
+  x^2+1|   x^2+1     x^2 x^2+x+1   x^2+x       1       0     x+1       x
+  x^2+x|   x^2+x x^2+x+1     x^2   x^2+1       x     x+1       0       1
+x^2+x+1| x^2+x+1   x^2+x   x^2+1     x^2     x+1       x       1       0
+#+end_example
+
+#+BEGIN_SRC sage :exports results
+S.multiplication_table(
+    names=["0","1","x","x+1","x^2","x^2+1","x^2+x","x^2+x+1"],
+    elements=[0,1,x,x+1,x^2,x^2+1,x^2+x,x^2+x+1]
+)
+#+END_SRC
+#+RESULTS:
+#+begin_example
+
+      *        0       1       x     x+1     x^2   x^2+1   x^2+x x^2+x+1
+       +----------------------------------------------------------------
+      0|       0       0       0       0       0       0       0       0
+      1|       0       1       x     x+1     x^2   x^2+1   x^2+x x^2+x+1
+      x|       0       x     x^2   x^2+x     x+1       1 x^2+x+1   x^2+1
+    x+1|       0     x+1   x^2+x   x^2+1 x^2+x+1     x^2       1       x
+    x^2|       0     x^2     x+1 x^2+x+1   x^2+x       x   x^2+1       1
+  x^2+1|       0   x^2+1       1     x^2       x x^2+x+1     x+1   x^2+x
+  x^2+x|       0   x^2+x x^2+x+1       1   x^2+1     x+1       x     x^2
+x^2+x+1|       0 x^2+x+1   x^2+1       x       1   x^2+x     x^2     x+1
+#+end_example
+
