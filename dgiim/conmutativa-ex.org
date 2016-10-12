@@ -23,7 +23,19 @@ se comprueba viendo que pertenecer a $A+B+C$ es pertenecer a uno o a los tres.
 Que es conmutativo se tiene por:
 
 \[0 = (A+B)^2 - (A+B) = AB + BA\]
+$0 = A+A$
 
+** Ejercicio 4
+Nos sirve tomar:
+
+\[a \oplus b = a+b-1\]
+\[a \otimes b = a + b - ab\]
+
+Debemos comprobar las propiedades.
+
+** TODO Ejercicio 7
+** TODO Ejercicio 8
+Las inyecciones en el coproducto (producto directo) son contraejemplos.
 ** Ejercicio 16
 *** Punto 1
 Tenemos que $0 = (2x)^2 - 2x = 4x - 2x= 2x$.
@@ -48,6 +60,7 @@ Luego es unidad. Dada suma de unidad y nilpotente, podemos escribirla como:
 
 Producto de unidades.
 
+** TODO Ejercicio 27
 ** Ejercicio 43
 *** Punto 1
 Tenemos $X \times \mathbb{Z}$ grupo abeliano con la suma por serlo $X$ y $\mathbb{Z}$. La asociatividad se 
@@ -120,3 +133,12 @@ descomposiciones); por tanto $1 = u^2 + v^2$, y por unicidad $u=u^2$ y $v=v^2$.
 
 Ahora veamos $S = (u)$, si tengo $s \in S$, entonces $su+sv = s$, y como $sv \in S$ y
 además $sv \in T$, debe ser nulo y tenerse $s = su$.
+** Ejercicio propuesto
+Veamos que si $x \in J(R)$, entonces $1-xy$ es unidad. Tenemos que $yx \in J(R)$. Si 
+$1-xy$ no fuera unidad, habría un maximal conteniéndolo, luego ese maximal contendría
+a la vez a $1-xy$ y a $xy$.
+
+Ahora, sea $1-xy$ unidad para cualquier $y$. Si un maximal no contuviera a $x$, entonces
+contendría a $1-xy$. Tendría que necesariamente al añadir $x$ a ese maximal obtendría
+todo el anillo. Luego $m + xy = 1$ y entonces $m = 1-xy$ sería unidad y pertenecería
+al ideal maximal, lo que es imposible.
