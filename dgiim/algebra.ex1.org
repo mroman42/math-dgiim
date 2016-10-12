@@ -95,8 +95,23 @@ Lo mismo se puede hacer con $\frac{5}{3}$, pero saldría $k \notin \mathbb{Z}$.
 ** Ejercicio 11
 
 
-
 * Semana 1
+** Ejercicio 1.24
+Sea $M$ el conjunto de posibles /monomios/ en las variables y exponentes dados. 
+Podemos definir una función $S_n \longrightarrow M$ como sigue:
+
+\[\sigma(X_1^{e_1} X_2^{e_2} \dots X_n^{e_n}) = 
+X_{\sigma(1)}^{e_1} X_{\sigma(2)}^{e_2} \dots X_{\sigma(n)}^{e_n}
+\]
+
+Esto es una acción transitiva pero no fiel. El estabilizador para
+el monomio inicial, por ejemplo, son las permutaciones que mueven variables a
+variables del mismo exponente. Si hay $m_i$ variables de exponente $i$, podemos
+intercambiarlas de $m_i!$ formas distintas quedando un monomio igual. El estabilizador
+de ese monomio tiene por tanto orden $k = |Stab(x)| = m_1!m_2!\dots m_n!$. Aplicando ahora el
+Teorema de Lagrange para órbitas y estabilizadores obtenemos el número de
+monomios distintos:
+
 ** Ejercicio 1.25
 Sea el polinomio $p(x) = x^3-5x-5$ con raíces $\alpha, \beta, \gamma$. Tenemos que el polinomio $p(x-1)$
 tendrá raíces $\alpha+1,\beta+1,\gamma+1$:
@@ -108,7 +123,7 @@ Y que el polinomio recíproco a él tendrá raíces  $\frac{1}{\alpha+1}, \frac{
 \[q(x) = 1 - 3x - 2x^2 - x^3\]
 
 Trabajando con $-q(x)$, que es mónico, y con los polinomios de Cardano-Vieta sobre
-sus raíces tenemos, que si estas fueran $u,v,w$, tendríamos:
+sus raíces tenemos que si estas fueran $u,v,w$, tendríamos:
 
 \[(x-u)(x-v)(x-w) = x^3 - (u+v+w)x^2 +(uv+vw+wu)x - uvw\]
 
@@ -122,7 +137,7 @@ e_3 &= uvw = 1
 \end{align*}\]
 
 Ahora, expresamos el valor de $u^3+v^3+w^3$ como suma de polinomios elementales
-mediante el algoritmo de orden lexicgráfico de la demostración:
+mediante el algoritmo de orden lexicográfico de la demostración:
 
 \[\begin{align*}
 \sum X_1^3 &= e_1^3 - (3\sum X_1^2X_2 + 6\sum X_1X_2X_3) \\
