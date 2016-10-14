@@ -61,6 +61,18 @@ menor.
 **** Notes
 Convergente implica Cauchy.
 *** Criterio de D'Alembert :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       74d86f1a-d9c7-43f8-8ec3-7ee8f4e524a3
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 20:08]
+    :END:
 
 Enunciado
 
@@ -76,6 +88,18 @@ Entonces:
 - Si $L>1$, la serie no converge
 - Si $L=1$, no se afirma nada
 *** Criterio de Leibniz :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       0f3505a9-6f38-4cab-987d-72e299cdd2b1
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 20:06]
+    :END:
 Enunciado
 
 **** Answer
@@ -92,3 +116,142 @@ Converge cuando la sucesión $a_n$ es:
 Así se prueba convergencia de la serie armónica alternada:
 
 \[\sum^\infty_{n=1} \frac{(-1)^{n+1}}{n} = \ln 2\]
+
+* Topología I
+*** Topología cociente :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       64824f61-8ede-48ca-b6a6-214328fcc5cf
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 20:07]
+    :END:
+
+Enunciado
+
+**** Answer
+
+Dada la proyección $\pi : X \longrightarrow X/\sim$, tiene como abiertos los 
+conjuntos cuya preimagen es abierta:
+
+\[\tau_{X/\sim} = 
+\left\{ U \mid \pi^{-1}(U) \in \tau_X  \right\}\]
+
+**** Notes
+
+Es la *topología final* respecto de la proyección.
+*** Conexión :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       9d15cd27-ba5f-460a-975e-81594dac05ed
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 20:06]
+    :END:
+
+Definición
+
+**** Answer
+Un conjunto es conexo si no es la unión de dos abiertos 
+no vacíos y disjuntos.
+*** Compacidad :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       27d7a587-e95c-4249-987c-fd00bacaf886
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 20:07]
+    :END:
+
+Definición
+
+**** Answer
+
+Todo recubrimiento por abiertos tiene un subrecubrimiento finito.
+*** Teorema de Heine-Borel :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       103849dd-44e5-4811-98fc-12e18aca905a
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 20:07]
+    :END:
+Enunciado
+
+**** Answer
+
+En $\mathbb{R}^n$ equivalen, dado un subconjunto $S$:
+
+ - $S$ cerrado y acotado
+ - $S$ compacto
+* Variable compleja
+*** Función holomorfa :drill:
+Definición
+
+**** Answer
+
+Función *complejo-diferenciable* en todo punto de algún
+conjunto. Existe la derivada compleja:
+
+\[ f'(z_0) = \lim_{z \rightarrow z_0} \frac{f(z)-f(z_0)}{z-z_0}\]
+
+Que toma el límite sobre todas las sucesiones de complejos.
+
+**** Note
+
+Holomorfa sobre todo el plano es *función entera*.
+
+*** Función analítica :drill:
+
+Definición
+
+**** Answer
+
+Es analítica en $x_0$ si existe un entorno del punto donde puede
+expresarse como serie de potencias:
+
+\[ f(x) = \sum^\infty_{n=0} a_n (x-x_0)^n\]
+* Ecuaciones diferenciales I
+*** Difeomorfismo :drill:
+Definición
+**** Answer
+Homeomorfismo diferenciable con inversa diferenciable.
+**** Categóricamente
+Isomorfismo en la categoría de variedades diferenciables.
+
+*** Exponencial de una matriz :drill:
+Definición.
+
+**** Definición
+
+\[e^X = \sum^\infty_{k=0} \frac{X^k}{k!}\]
+
+Esta serie converge para cualquier matriz $X$.
+
+**** Relación traza-determinante
+
+\[\operatorname{det}(e^X) = e^{\operatorname{tr} X}\]
+
+**** Preservación de la conmutación
+
+Cuando conmutan $XY = YX$, conmutan $e^Xe^Y = e^Ye^X$.
