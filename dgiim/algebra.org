@@ -14,7 +14,7 @@
 #+latex_header: \setlength{\parindent}{0pt}
 
 
-* Extensiones de cuerpos
+* Tema 1
 ** La cúbica
 *** Polinomios cúbicos
 Toda ecuación cúbica polinómica puede escribirse en la forma
@@ -28,7 +28,7 @@ El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
 Ahora podemos resolver esa cuadrática y resolver luego la ecuación
 en $w^3$.
 
-* Anillos de polinomios
+** Anillos de polinomios
 *** Polinomios simétricos
 #+begin_definition
 *Polinomio simétrico*. Invariante por $f_\sigma$ para cualquier $\sigma \in S_r$, donde 
@@ -89,3 +89,69 @@ $\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
 #+begin_fact
 \[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
 #+end_fact
+
+* Tema 2
+** 1. Teoría de cuerpos
+*** Extensiones de cuerpos
+#+begin_definition
+*Extensión de cuerpos*. Subcuerpo $K$ de $F$, se nota por $F/K$. Llamamos *grado*
+a la dimensión de $F$ como espacio vectorial.
+#+end_definition
+
+#+begin_theorem
+*Teorema de Lagrange para extensiones de cuerpos*. Sea $K \subset F \subset E$,
+extensiones de cuerpos, se tiene que:
+
+\[ [E:K] = [E:F][F:K] \]
+#+end_theorem
+
+*** Elementos algebraicos
+#+begin_definition
+*Elemento algebraico*. $\alpha \in F$ es *algebraico* sobre $K$ si existe polinomio $f \in K[x]$
+tal que $f(\alpha) = 0$. Un no algebraico es *trascendente* y una extensión es *algebraica*
+si lo son todos sus elementos.
+#+end_definition
+
+#+begin_theorem
+*Polinomio irreducible*. Dado $F/K$ con $\alpha \in F$ algebraico. Existe un único polinomio
+irreducible del que $\alpha$ es raíz salvo asociados, llamado $Irr(\alpha)$.
+#+end_theorem
+#+begin_proofs
+Tomo el núcleo del homomorfismo que evalúa un polinomio en $\alpha$. Por ser un
+ideal en PID, estará generado por algún polinomio $f$ no nulo y no constante.
+
+Este será irreducible, porque si no lo fuera, con $f = g_1g_2$ se tendría:
+
+\[0 = f(\alpha) = g_1(\alpha)g_2(\alpha)\]
+
+Un polinomio de grado mínimo debería estar dentro del ideal, y por tanto ser 
+asociado de $f$, que lo genera.
+#+end_proofs
+
+#+begin_theorem
+*Grado del irreducible*. Si $grad(Irr(\alpha,K)) = n$, entonces $[K(\alpha) : K] = n$ y 
+una base de $K(\alpha)$ es $\{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}$.
+#+end_theorem
+
+#+begin_theorem
+*Las extensiones finitas son algebraicas*.
+#+end_theorem
+
+** 2. Clausura algebraica
+*** Existencia de clausura
+#+begin_theorem
+*Teorema de Steinitz*. Todo cuerpo tiene una extensión algebraicamente cerrada.
+#+end_theorem
+
+*** Homomorfismos sobre un cuerpo
+#+begin_theorem
+*Homomorfismo sobre un cuerpo*. Un homomorfismo sobre cuerpos $K,K'$ con extensiones
+$F,F'$ con un isomorfismo $\omega : K \longrightarrow K'$ debe cumplir: $\phi|_K = \omega$. Cuando no se especifica,
+se asume la identidad.
+
+\[ \phi : F/K \longrightarrow F'/K' \]
+#+end_theorem
+
+#+begin_theorem
+*Automorfismos entre extensiones*. Sea $\phi : F/K \longrightarrow F/K$ homomorfismo respetando $K$
+#+end_theorem
