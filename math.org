@@ -1,0 +1,94 @@
+# -*- mode: org; coding: utf-8 -*-
+
+* Cálculo I
+*** Teorema de Bolzao-Weierstrass :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       55318435-09ab-44ac-8d7d-0f15b16d7020
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 19:27]
+    :END:
+
+Enunciado.
+
+**** Answer
+Toda sucesión *acotada* en $\mathbb{R}^n$ es convergente.
+
+*** Espacio completo :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       b9f8e947-4653-442b-8b5a-3466e79d4e76
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.5
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 19:34]
+    :END:
+Definición
+**** Answer
+Toda *sucesión de Cauchy* converge en él.
+
+*** Sucesión de Cauchy :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       84ed9a91-c566-4315-92dd-134dcec0d8c8
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 19:34]
+    :END:
+Definición.
+
+**** Answer
+Dado un $\epsilon$, la distancia de dos cualesquiera a partir de un término es
+menor.
+
+ \[\forall \epsilon > 0 : \exists n : \forall p,q > n :\quad d(x_p, x_q) < \epsilon \]
+
+**** Notes
+Convergente implica Cauchy.
+*** Criterio de D'Alembert :drill:
+
+Enunciado
+
+**** Answer
+
+Para $\sum^\infty_{k=1} a_k$ serie con $a_k > 0$, sea:
+
+\[\lim_{k \rightarrow \infty} \frac{a_{k+1}}{a_k} = L\]
+
+Entonces:
+
+- Si $L<1$, la serie converge
+- Si $L>1$, la serie no converge
+- Si $L=1$, no se afirma nada
+*** Criterio de Leibniz :drill:
+Enunciado
+
+**** Answer
+
+Una serie alternada,
+
+\[\sum_{n=1}^\infty (-1)^na_n\]
+
+Converge cuando la sucesión $a_n$ es:
+ - monótona decreciente y
+ - convergente a $0$
+
+**** Note
+Así se prueba convergencia de la serie armónica alternada:
+
+\[\sum^\infty_{n=1} \frac{(-1)^{n+1}}{n} = \ln 2\]
