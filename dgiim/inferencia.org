@@ -95,7 +95,7 @@ la función de verosimilitud o de su logaritmo:
 
 
 * 1. Introducción a la inferencia estadística. Estadísticos muestrales.
-** 1.1. Planteamiento de un problema de inferencia.
+** Planteamiento de un problema de inferencia.
 #+begin_definition
 *Modelo*. Familia paramétrica de distribuciones $F(x,\theta)$ para un parámetro $\theta$.
 #+end_definition
@@ -105,7 +105,7 @@ la función de verosimilitud o de su logaritmo:
 distribuidas.
 #+end_definition
 
-** 1.2. Función de distribución empírica
+** Función de distribución empírica
 #+begin_definition
 *Función de distribución empírica*. La función de distribución más razonable que podemos obtener
 del muestreo.
@@ -199,7 +199,7 @@ distribución normal.
 
 
 * 3. Suficiencia y completitud
-** 3.1. Estadísticos suficientes y completos
+** Estadísticos suficientes y completos
 *** Estadístico suficiente
 #+begin_definition
 *Estadístico suficiente*. Un estadístico $t$ es suficiente para un parámetro $\theta$ 
@@ -237,4 +237,51 @@ Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\the
 \[ E_\theta [g(T)] = 0 \; \forall\theta\in\Theta \ \Rightarrow \
    P_\theta(g(T) = 0) = 1\; \forall\theta\in\Theta\]
 #+end_definition
-** 3.2. Suficiencia y completitud en familias exponenciales
+** Suficiencia y completitud en familias exponenciales
+
+* 4. Estimación puntual
+** Planteamiento del problema de estimación
+Tenemos un *estimador puntual*, que es un estadístico tomando valores en el dominio del parámetro.
+Hay una *función de pérdida* que nos dice la pérdida asociada a estimar un parámetro si su verdadero
+valor es otro. La *función de riesgo* es la que asocia a cada valor del parámetro, la pérdida media
+asociada al estimador.
+
+\[ R^L_T(\theta) = E_\theta [L(\theta,T)]\]
+
+El *estimador óptimo* es el que minimiza uniformemente la función de riesgo:
+
+\[ R^L_T(\theta) \leq R^L_T''(\theta),\quad \forall \theta \in \Theta,\; \forall T''\]
+
+** Estimación de menor error cuadrático
+Usa la *función de pérdida cuadrática*: ${\cal L}(\theta, t) = (t - \theta)^2$, dejando la función de riesgo de un estimador
+como su error cuadrático medio:
+
+\[R^L_T(\theta) = E_\theta[(T - \theta)^2]\]
+
+Nótese que en el caso de $E[T] = \theta$, se tiene $R^L_T(\theta) = Var_\theta[T]$.
+
+** Estimación insesgada de mínima varianza
+*** Estimador insesgado
+Un estimador $T$ de $g(\theta)$, es *insesgado* o *centrado* si:
+
+$E_\theta[T(X_1,\dots,X_n)] = g(\theta)$
+
+*** Estimador insesgado uniformemente de mínima varianza
+# TODO: ¿De segundo orden?
+Un estimador $T$ insesgado y de segundo orden es *UMVUE* para $g(\theta)$ si para cualquier otro 
+estimador insesgado $T'$ se tiene que:
+
+\[ Var_\theta[T] \leq Var_\theta[T']\]
+
+Propiedades:
+
+ - Unicidad: El UMVUE de cualquier función paramétrica, si existe, es único.
+ - Linealidad: Si $T,Q$ son UMVUE para $g,h$; $aT+bQ$ es UMVUE para $ag+bh$.
+
+*** Teorema de Raó-Blackwell
+Si $T$ es suficiente para $\theta$ y $S$ es un estimador insesgado de $g(\theta)$ de segundo orden:
+
+ - $E[S \mid T]$ es estimador insesgado de $g(\theta)$ de segundo orden.
+ - $Var_\theta[E[S \mid T]] \leq Var_\theta[S]$
+
+Es decir, $E[S \mid T]$ será normalmente mejor estimador y nunca peor que $S$.
