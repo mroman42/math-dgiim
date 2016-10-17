@@ -66,7 +66,6 @@ x_1^{\alpha_1-1} \dots x_{k}^{\alpha_{k-1}-1}
 # Dirichlet ordenada
 
 
-
 ** Máxima verosimilitud
 #+begin_definition
 *Máxima verosimilitud*. Sean $X_1,\dots,X_n$ v.as. independientes extraídas de una
@@ -110,3 +109,48 @@ Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\the
 **** Ejemplo de una distribución binomial
 
 *** Conjuntos creíbles
+
+* 1. Introducción a la inferencia estadística. Estadísticos muestrales.
+** 1.1. Planteamiento de un problema de inferencia.
+#+begin_definition
+*Modelo*. Familia paramétrica de distribuciones $F(x,\theta)$ para un parámetro $\theta$.
+#+end_definition
+
+#+begin_definition
+*Muestra aleatoria simple*. Vector $(X_1,\dots,X_n)$ de variables independientes idénticamente 
+distribuidas.
+#+end_definition
+
+** 1.2. Función de distribución empírica
+#+begin_definition
+*Función de distribución empírica*. La función de distribución más razonable que podemos obtener
+del muestreo.
+
+\[F^\ast_{X_1,\dots,X_n}(x) = \frac{1}{n} \sum_{i=1}^n \mathbf{1}_{(x_i < x)} \]
+#+end_definition
+
+Fijado un $x \in \mathbb{R}$, $F^\ast(x)$ es una variable aleatoria cumpliendo por definición que:
+
+\[ nF^\ast(x) \longrightarrow {\cal B}(n, F(x))\]
+
+Calculamos su esperanza y varianza desde Bernoulli como:
+
+- Esperanza: $E[F^\ast(x)] = F(x)$
+- Varianza: $Var[F^\ast(x)] = \frac{F(x) (1-F(x))}{n}$
+
+Aplicando entonces el Teorema Central del Límite:
+
+\[ \frac{nF^\ast(x) - nF(x)}{\sqrt{nF(x)(1-F(x))}} \leadsto {\cal N}(0,1) \]
+
+*** Teorema de Glivenko-Cantelli
+#+begin_theorem
+*Teorema de Glivenko-Cantelli*. Las funciones de distribución muestrales convergen 
+casi seguramente y uniformemente a la teórica.
+
+\[ P\left\{ \lim_{n \rightarrow \infty} \sup_{x \in \mathbb{R}} |F^\ast(x) - F(x)| = 0\right\} = 1\]
+#+end_theorem
+
+# TODO: Funciones características
+
+
+* 2. Muestreo de poblaciones normales
