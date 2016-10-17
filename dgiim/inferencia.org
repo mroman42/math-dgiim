@@ -66,7 +66,6 @@ x_1^{\alpha_1-1} \dots x_{k}^{\alpha_{k-1}-1}
 # Subvector
 # Dirichlet ordenada
 
-
 ** Máxima verosimilitud
 #+begin_definition
 *Máxima verosimilitud*. Sean $X_1,\dots,X_n$ v.as. independientes extraídas de una
@@ -93,6 +92,7 @@ la función de verosimilitud o de su logaritmo:
 **** Ejemplo de una distribución binomial
 
 *** Conjuntos creíbles
+
 
 * 1. Introducción a la inferencia estadística. Estadísticos muestrales.
 ** 1.1. Planteamiento de un problema de inferencia.
@@ -197,6 +197,7 @@ su cociente nos da:
 distribución normal.
 #+end_theorem
 
+
 * 3. Suficiencia y completitud
 ** 3.1. Estadísticos suficientes y completos
 *** Estadístico suficiente
@@ -229,3 +230,11 @@ Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\the
  - Si $T$ es suficiente y $T = h(U(X)$, $U$ es suficiente.
  - Toda transformación biunívoca de suficiente es suficiente.
 #+end_theorem
+*** Estadístico completo
+#+begin_definition
+*Estadístico completo*. Un estadístico es completo cuando para cualquier función medible se tiene:
+
+\[ E_\theta [g(T)] = 0 \; \forall\theta\in\Theta \ \Rightarrow \
+   P_\theta(g(T) = 0) = 1\; \forall\theta\in\Theta\]
+#+end_definition
+** 3.2. Suficiencia y completitud en familias exponenciales
