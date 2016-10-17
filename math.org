@@ -1,7 +1,10 @@
 # -*- mode: org; coding: utf-8 -*-
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
 
 * Cálculo I
-*** Teorema de Bolzao-Weierstrass :drill:
+*** Teorema de Bolzano-Weierstrass 				      :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       55318435-09ab-44ac-8d7d-0f15b16d7020
@@ -20,7 +23,7 @@ Enunciado.
 **** Answer
 Toda sucesión *acotada* en $\mathbb{R}^n$ es convergente.
 
-*** Espacio completo :drill:
+*** Espacio completo 						      :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       b9f8e947-4653-442b-8b5a-3466e79d4e76
@@ -37,7 +40,7 @@ Definición
 **** Answer
 Toda *sucesión de Cauchy* converge en él.
 
-*** Sucesión de Cauchy :drill:
+*** Sucesión de Cauchy 						      :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       84ed9a91-c566-4315-92dd-134dcec0d8c8
@@ -60,7 +63,7 @@ menor.
 
 **** Notes
 Convergente implica Cauchy.
-*** Criterio de D'Alembert :drill:
+*** Criterio de D'Alembert 					      :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       74d86f1a-d9c7-43f8-8ec3-7ee8f4e524a3
@@ -87,7 +90,7 @@ Entonces:
 - Si $L<1$, la serie converge
 - Si $L>1$, la serie no converge
 - Si $L=1$, no se afirma nada
-*** Criterio de Leibniz :drill:
+*** Criterio de Leibniz 					      :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       0f3505a9-6f38-4cab-987d-72e299cdd2b1
@@ -118,7 +121,7 @@ Así se prueba convergencia de la serie armónica alternada:
 \[\sum^\infty_{n=1} \frac{(-1)^{n+1}}{n} = \ln 2\]
 
 * Topología I
-*** Topología cociente :drill:
+*** Topología cociente 						      :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       64824f61-8ede-48ca-b6a6-214328fcc5cf
@@ -145,7 +148,7 @@ conjuntos cuya preimagen es abierta:
 **** Notes
 
 Es la *topología final* respecto de la proyección.
-*** Conexión :drill:
+*** Conexión 							      :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       9d15cd27-ba5f-460a-975e-81594dac05ed
@@ -164,7 +167,7 @@ Definición
 **** Answer
 Un conjunto es conexo si no es la unión de dos abiertos 
 no vacíos y disjuntos.
-*** Compacidad :drill:
+*** Compacidad 							      :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       27d7a587-e95c-4249-987c-fd00bacaf886
@@ -183,7 +186,7 @@ Definición
 **** Answer
 
 Todo recubrimiento por abiertos tiene un subrecubrimiento finito.
-*** Teorema de Heine-Borel :drill:
+*** Teorema de Heine-Borel 					      :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       103849dd-44e5-4811-98fc-12e18aca905a
@@ -205,7 +208,19 @@ En $\mathbb{R}^n$ equivalen, dado un subconjunto $S$:
  - $S$ cerrado y acotado
  - $S$ compacto
 * Variable compleja
-*** Función holomorfa :drill:
+*** Función holomorfa 						      :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       2fa2a4b8-893e-4929-9b70-bc262a3194ac
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 22:31]
+    :END:
 Definición
 
 **** Answer
@@ -221,7 +236,19 @@ Que toma el límite sobre todas las sucesiones de complejos.
 
 Holomorfa sobre todo el plano es *función entera*.
 
-*** Función analítica :drill:
+*** Función analítica 						      :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       41a59e8e-9553-4ab6-b13f-ba280b976ec3
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 22:31]
+    :END:
 
 Definición
 
@@ -231,15 +258,62 @@ Es analítica en $x_0$ si existe un entorno del punto donde puede
 expresarse como serie de potencias:
 
 \[ f(x) = \sum^\infty_{n=0} a_n (x-x_0)^n\]
+*** Teorema de Morera 						      :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       f7142bef-51e2-4729-aef1-d563614b59ec
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 22:25]
+    :END:
+Enunciado.
+**** Enunciado
+Sea una función compleja continua definida en un abierto conexo,
+si toda integral sobre una curva $\gamma$ que sea ${\cal C}^1$ 
+es nula:
+
+\[\int_\gamma f(z) dz = 0\]
+
+Entonces es holomorfa.
+
 * Ecuaciones diferenciales I
-*** Difeomorfismo :drill:
+*** Difeomorfismo 						      :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       1000cb9b-ef09-42a2-8169-c4e5531439f9
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 22:31]
+    :END:
 Definición
 **** Answer
 Homeomorfismo diferenciable con inversa diferenciable.
 **** Categóricamente
 Isomorfismo en la categoría de variedades diferenciables.
 
-*** Exponencial de una matriz :drill:
+*** Exponencial de una matriz 					      :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       76ea67b9-ba48-4216-b7f9-d62033363f33
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 22:32]
+    :END:
 Definición.
 
 **** Definición
@@ -255,3 +329,67 @@ Esta serie converge para cualquier matriz $X$.
 **** Preservación de la conmutación
 
 Cuando conmutan $XY = YX$, conmutan $e^Xe^Y = e^Ye^X$.
+* Teoría de categorías
+* Álgebra homológica
+*** Módulo plano 						      :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       00a02e67-5516-47ea-ab08-abf574aeb407
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 22:26]
+    :END:
+Definición
+**** Definición
+El módulo $N$ es *plano* si el funtor $\_ \otimes N$ es un funtor exacto.
+**** Ejemplos
+- Los módulos libres
+- Los espacios vectoriales
+- Los módulos proyectivos
+*** Módulos proyectivos e inyectivos 				      :drill:
+    SCHEDULED: <2016-10-18 Tue>
+    :PROPERTIES:
+    :ID:       a1c4e673-5b2b-4418-beb5-a79e79e6abf6
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 22:40]
+    :END:
+Módulos proyectivos e inyectivos
+
+**** Definición
+
+Un R-módulo es /proyectivo/ si $Hom(P,\_)$
+es exacto; e /inyectivo/ si $Hom(\_,P)$ es exacto.
+
+**** Caracterización por diagramas
+
+Esto es equivalente a decir que cada epimorfismo $M \longrightarrow N$ lleva un
+morfismo $P \longrightarrow N$ a $P \longrightarrow M$, en el caso de 
+/proyectividad/:
+
+\[ \begin{tikzcd}
+ & P \dlar[swap,dashed]{\exists p'} \dar[swap]{p} & \\
+M \rar[two heads] & N \rar & 0
+\end{tikzcd} \]
+
+O que cada monomorfismo $N \longrightarrow M$ lleva un morfismo $N \longrightarrow Q$ 
+a un morfismo $M \longrightarrow Q$, en el de la /inyectividad/:
+
+\[ \begin{tikzcd}
+ & Q & \\
+0 \rar & N \rar[hook] \uar[swap]{q} & M \ular[dashed,swap]{\exists q'}
+\end{tikzcd} \]
+
+**** No unicidad
+No requerimos a los morfismos creados ser únicos.
+¡Esto no es una propiedad universal!
