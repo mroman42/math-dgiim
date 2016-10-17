@@ -89,23 +89,6 @@ la función de verosimilitud o de su logaritmo:
 
 \[\hat l (\hat\theta | x_1,\dots,x_n) = \sum_{i=1}^n \ln f(x_i|\theta)\]
 
-*** Estadístico suficiente
-#+begin_definition
-*Estadístico suficiente*. Un estadístico es suficiente para un parámetro $\theta$ 
-cuando una vez conocido no puede obtenerse más información de sobre $\theta$ de
-los datos; esto es:
-
-\[\Pr(\theta| t,x) = \Pr(\theta|t)\]
-#+end_definition
-
-#+begin_theorem
-*Caraterización de suficiencia de Fisher-Neyman*. $T$ es suficiente para $\theta$
-ssi existen funciones no negativas $g$,$h$ tales que:
-
-\[f_\theta(x) = h(x)g_\theta(T(x))\]
-
-Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\theta$.
-#+end_theorem
 
 **** Ejemplo de una distribución binomial
 
@@ -159,7 +142,8 @@ casi seguramente y uniformemente a la teórica.
 *** Definición
 #+begin_definition
 *Distribución chi cuadrado*. Es un caso particular de la distribución gamma que se obtiene como la
-distribución de la suma de cuadrados de variables normales, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
+distribución de la suma de $k$ cuadrados de variables normales, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
+Al parámetro $k$ se le llama número de grados de libertad.
 #+end_definition
 
 *** Función de densidad
@@ -183,7 +167,6 @@ Dadas variables independientes $X_i \leadsto {\cal N}(0,1)$,
 
 \[\sum_{i=1}^n X^2_i \leadsto \chi^2(n)\]
 
-
 ** Distribución t de Student
 *** Definición
 #+begin_definition
@@ -200,3 +183,49 @@ Tenemos que $\exists E[T^k] \Leftrightarrow k < n$, cuando existen, se tiene
  - $Var[T] = \frac{n}{n-2}$
 
 ** Distribución F de Snedecor
+*** Definición
+#+begin_definition
+*F de Snedecor*. Dadas dos variables independientes $X \leadsto \chi^2(n)$ e $Y \leadsto \chi^2(m)$,
+su cociente nos da:
+
+\[F = \frac{X/m}{Y/n} \longrightarrow F(m,n)\]
+#+end_definition
+** Muestreo de una normal unidimensional
+*** Lema de Fisher
+#+begin_theorem
+*Lema de Fisher*. Los estadísticos $\overline{X}$ y $S^2$ son independientes cuando $X$ tiene
+distribución normal.
+#+end_theorem
+
+* 3. Suficiencia y completitud
+** 3.1. Estadísticos suficientes y completos
+*** Estadístico suficiente
+#+begin_definition
+*Estadístico suficiente*. Un estadístico $t$ es suficiente para un parámetro $\theta$ 
+cuando una vez conocido no puede obtenerse más información de sobre $\theta$ de
+los datos; esto es:
+
+\[\Pr(\theta| t,x) = \Pr(\theta|t)\]
+
+De forma equivalente, es independiente si la distribución condicionada al estadístico
+es independiente del parámetro $\theta$:
+
+\[\Pr(x|t,\theta) = \Pr(x|t)\]
+#+end_definition
+
+#+begin_theorem
+*Teorema de factorización de Fisher-Neyman*. $T$ es suficiente para $\theta$
+ssi existen funciones no negativas $g$,$h$ tales que:
+
+\[f_\theta(x) = h(x)g_\theta(T(x))\]
+
+Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\theta$.
+#+end_theorem
+
+#+begin_theorem
+*Propiedades de los estadísticos suficientes*.
+
+ - Si $T$ es suficiente para $\{P_\theta \mid \theta \in \Theta\}$, lo es para $\{P_\theta \mid \theta \in \Theta' \subset \Theta\}$.
+ - Si $T$ es suficiente y $T = h(U(X)$, $U$ es suficiente.
+ - Toda transformación biunívoca de suficiente es suficiente.
+#+end_theorem
