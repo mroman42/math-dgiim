@@ -154,3 +154,33 @@ casi seguramente y uniformemente a la teórica.
 
 
 * 2. Muestreo de poblaciones normales
+** Distribución chi cuadrado de Pearson
+*** Definición
+#+begin_definition
+*Distribución chi cuadrado*. Es un caso particular de la distribución gamma que se obtiene como la
+distribución de la suma de cuadrados de variables normales, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
+#+end_definition
+
+*** Función de densidad
+
+\[f(x) = \frac{1}{\Gamma(\frac{k}{2})2^{k/2}} x^{k/2-1}e^{-x/2}\]
+
+*** Función generatriz de momentos
+
+*** Esperanza y varianza
+
+- $E[X] = k$
+- $Var[X] = 2k$
+
+*** Propiedad de reproductividad
+Si tengo una serie de variables independientes distribuidas por $X_i \leadsto \chi^2(k_i)$, entonces:
+
+\[\sum_{i=1}^n X_i = \chi^2 \left(\sum_{i=1}^n k_i \right)\]
+
+*** Relación con la distribución normal
+Dadas variables independientes $X_i \leadsto {\cal N}(0,1)$,
+
+\[\sum_{i=1}^n X^2_i \leadsto \chi^2(n)\]
+
+
+** Distribución t de Student
