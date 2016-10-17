@@ -13,6 +13,7 @@
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \setlength{\parindent}{0pt}
 
+* Apuntes en clase
 ** Introducción
 *** Estadísticos
 #+begin_definition
@@ -184,3 +185,18 @@ Dadas variables independientes $X_i \leadsto {\cal N}(0,1)$,
 
 
 ** Distribución t de Student
+*** Definición
+#+begin_definition
+*T de Student*. Dadas dos variables independientes $X \leadsto {\cal N}(0,1)$ e $Y \leadsto \chi^2(n)$, tenemos
+
+\[ T = \frac{X}{\sqrt{Y/n}} \leadsto t(n) \]
+#+end_definition
+
+*** Función de densidad
+*** Momentos
+Tenemos que $\exists E[T^k] \Leftrightarrow k < n$, cuando existen, se tiene
+
+ - $E[T] = 0$
+ - $Var[T] = \frac{n}{n-2}$
+
+** Distribución F de Snedecor
