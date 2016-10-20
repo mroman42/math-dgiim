@@ -36,18 +36,63 @@ Debemos comprobar las propiedades.
 ** TODO Ejercicio 7
 ** TODO Ejercicio 8
 Las inyecciones en el coproducto (producto directo) son contraejemplos.
+** Ejercicio 12
+Sea una cadena de ideales $\Pi \subset \beta\subset R$, con $x \in \beta$, $x \notin \Pi$.
+Entonces $x(x^{n-1}-1) = 0 \in \Pi$, y debe tenerse $x^{n-1}-1 \in \Pi \subset \beta$.
+Con eso, debe ser $\beta = R$.
+
+** Ejercicio 13
+Por definición de *radical*, tenemos que cuando es radical es intersección de 
+anillos primos.
+
+Sea $\alpha$ intersección de ideales primos, será en particular intersección de ideales
+primos más algunos que lo contienen.
+
+** Ejercicio 14
+Sea $x$ idempotente y sea $M$ el maximal de $R$. 
+
+- Sea $x \notin M$, entonces debe ser $x$ una
+  unidad; por ser $R$ local. Siendo unidad $x^2 = x$ nos da $x=1$.
+
+- Sea $x \in M$. Sabemos ${\cal J}(R) = M$, luego $x$ está en el radical de Jacobson.
+  Esto quiere decir que $1-xy \in U(R)$ para cualquier $y \in R$. En particular $1-x$
+  está en las unidades del anillo. Como $x(1-x) = 0$, se tiene $x = 0$.
+
+** Ejercicio 15
+Aplicaremos Zorn, viendo que todo conjunto totalmente ordenado tiene cota inferior.
+
+Sea una cadena de ideales primos $\Pi_i$, entonces sea $ab \in \bigcap \Pi_i$, entonces, supongamos que
+$a$ no perteneciera a la intersección, entonces, por primalidad, si $b \notin \Pi_j$, tampoco
+pertenecería a ninguno por debajo de él; y $a$ debería pertenecer a todos ellos y
+por tanto a la intersección.
+
 ** Ejercicio 16
 *** Punto 1
 Tenemos que $0 = (2x)^2 - 2x = 4x - 2x= 2x$.
+
 *** Punto 2
 Si $\pi$ es primo, entonces $R/\pi$ es dominio de integridad. Sea $m \in R/\pi$, tenemos que
 $m(m-1) = 0$, luego $m=0$ ó $m=1$. Así, sólo puede ser isomorfo a $\mathbb{Z}_2$
 y cuerpo. $\pi$ es maximal.
+
+Además, la primera parte se obtiene también por caso particular del ejercicio 12.
+
 *** Punto 3
 Definimos la operación $a \oplus b = a+b+ab$ y comprobamos que $(a,b) = (a \oplus b)$, ya que
 $a (a\oplus b) =a$ y $b(a\oplus b) = b$. Por inducción, cada ideal generado por varios lo podemos
 generar por un elemento.
 
+** TODO Ejercicio 17
+** TODO Ejercicio 18
+Esto es equivalente a decir, ya que estamos en un anillo de ideales principales,
+que $X^3-Y^2$ es irreducible.
+
+** Ejercicio 19
+Vemos que $\alpha$ es ideal. Supongamos que fuera principal, debería estar generado
+por uno de mínimo grado. Si está generado por una constante, como contiene a $(2)$,
+debe estar generado por $(2)$, pero no es el caso porque no contendría a $x+2$.
+
+** Ejercicio 21
 ** Ejercicio 26
 Nótese que si $x$ es nilpotente, también lo es $ux$ para $u$ unidad.
 Sea $x^n = 0$. Tenemos que:
@@ -60,7 +105,74 @@ Luego es unidad. Dada suma de unidad y nilpotente, podemos escribirla como:
 
 Producto de unidades.
 
-** TODO Ejercicio 27
+** Ejercicio 27
+*** Punto 1
+Por un lado, si todos los $a_i$ fueran nilpotentes se tendrían $a_iX^i$ nilpotentes.
+Y como la suma de unidad por nilpotente es unidad, la suma total es unidad.
+
+Sea $\sum b_iX^i$ el inverso de un polinomio $f(x) = \sum a_iX^i$. Es obvio que $a_0$ es unidad
+porque $a_0b_0 = 1$. Veamos por inducción que  $a^{r+1}_nb_{m-r} = 0$.
+
+ - *Caso base:* $a_nb_m = 0$ por ser coeficiente del grado máximo.
+ - *Caso de inducción*: El coeficiente de grado $n+m-1$ sería:
+   $a_nb_{m-1} + a_{n-1}b_n = 0$, luego $a_n(a_nb_{m-1} + a_{n-1}b_m) = a_n^2b_{m-1} = 0$; y aplicaríamos
+   inducción en los siguientes casos de forma similar.
+
+En particular, para $r=n$ tenemos que $a_n^{n+1}b_0 = 0$, luego $a_n$ es nilpotente.
+Ahora hacemos inducción sobre el grado. También es nilpotente $a_nX^n$, y 
+entonces tenemos que el polinomio siguiente también es unidad, pero de menor grado 
+que el original:
+
+\[f - a_nX^n = \sum^{n-1} a_iX^i \in {\cal U}(R[X])\]
+
+*** Punto 2
+Tenemos que las $a_iX^i$ son nilpotentes; y la suma de nilpotentes es trivialmente
+nilpotente. 
+
+Hacia el otro lado, hacemos inducción sobre $grd(f)$:
+
+ - Si $grd(f) = 0$, entonces $f = a_0$.
+ - Sea $f = a_0 + \dots + a_nX^n$, tenemos que que si $f$ es nilpotente a la potencia $m$:
+   \[ 0 = f^m = \sum_{j=0}^m {m \choose j}(a_0+\dots+a_n-1X^{n-1})^j(a_nX^n)^{m-j} = a_n^mX^{nm} + \dots\]
+   Luego $a^m_n = 0$. El polinomio total es suma de esto y un polinomio de grado menor,
+   que por inducción es nilpotente.
+
+*** Punto 3. Teorema de MaCoy.
+Una implicación es trivial por definición.
+
+Sea $f$ divisor de cero. Tomamos un polinomio $g = \sum b_iX^i$ de grado mínimo con
+
+$fg = 0$. Entonces $a_nb_m = 0$, y por tanto $a_ng$ anularía también a $f$ pero tendría grado
+menor que $m$, luego debería ser $a_ng = 0$. Ahora procedemos por inducción, y se 
+volvería a tener $a_{n-r}g = 0$.
+
+Si $a_{n-r}g = 0$ para cualquier $r$, entonces:
+
+\[ 0 = \sum a_{n-r}b_i X^i\]
+
+Así que $a_{n-r}b_0 = 0$ y se concluye $fb_0 = 0$.
+
+** Ejercicio 41
+*** Punto 1
+Veamos que la aplicación que va del producto de ideales a $R$ es un homomorfismo
+de grupos abelianos multiplicativo biyectivo.
+
+\[ f((x_1,\dots,x_n)) = x_1+\dots+x_n\]
+
+Por la definición de *conjunto independiente*, sabemos que dado $x\in R$ existen únicos
+$x_1 \in \alpha_1, x_2 \in \alpha_2,\dots, x_t \in \alpha_t$ tales que $x = x_1 + \dots + x_t$. Esto en el caso $2$ es trivial, y
+se puede ampliar por inducción.
+
+*** Punto 2
+Por el apartado primero, sabemos que existen $e_1+e_2+\dots+e_t = 1$. Puedo tomar
+$\alpha_i$ como anillo sobre la suma y el producto, pero tomando $e_i$ como unidad.
+
+Sea $x_i \in \alpha_i$, tenemos que $x_i = x_i(e_1+e_2+\dots+e_t)$, así que por unicidad de la 
+descomposición, debe ser $x_i = e_ix_i$.
+
+*** Punto 3
+Tenemos un conjunto de elementos que suman $1$, son idempotentes y ortogonales.
+
 ** Ejercicio 43
 *** Punto 1
 Tenemos $X \times \mathbb{Z}$ grupo abeliano con la suma por serlo $X$ y $\mathbb{Z}$. La asociatividad se 
@@ -133,6 +245,37 @@ descomposiciones); por tanto $1 = u^2 + v^2$, y por unicidad $u=u^2$ y $v=v^2$.
 
 Ahora veamos $S = (u)$, si tengo $s \in S$, entonces $su+sv = s$, y como $sv \in S$ y
 además $sv \in T$, debe ser nulo y tenerse $s = su$.
+** Ejercicio 45
+*** Punto 1
+El producto directo de ideales es trivialmente ideal.
+
+Sea $\alpha$ un ideal del producto directo, tomamos los siguientes ideales
+\[\beta_i = \{ e_ix \med| x \in \alpha\}\]. Siendo $\pi_i$ la proyección canónica, tomamos:
+
+\[ \alpha_i = \pi_i(\beta_i) \]
+
+Por ser sobreyectivo $\pi$, se tiene que es ideal. Queda probar:
+
+\[\alpha = \prod \alpha_i\]
+
+*** Punto 2
+Vemos que los ideales primos son de la forma $R_1 \times \dots \times P_i \times \dots R_n$, para algún
+$P_i$ primo en $R_i$.
+
+Sea un ideal primo del producto, será producto de ideales 
+\[P = \alpha_1\times\alpha_2\dots\times\alpha_n\]. Veremos que son todos el total salvo uno. Supongamos que 
+tuviéramos dos ideales propios $\alpha_i,\alpha_j$, con $x_i \in \alpha_i$ y $x_j \in \alpha_j$. Tengo:
+
+\[x = (0,\dots,x_i,0,\dots,1,0,\dots,0) \notin \Pi\]
+\[y = (0,\dots,1,0,\dots,x_j,0,\dots,0) \notin \Pi\]
+
+Y sin embargo, $xy \in \pi$.
+
+Para maximales, la demostración es análoga.
+
+*** Punto 3
+Por el apartado primero, tiene $2^n$ ideales.
+
 ** Ejercicio propuesto
 Veamos que si $x \in J(R)$, entonces $1-xy$ es unidad. Tenemos que $yx \in J(R)$. Si 
 $1-xy$ no fuera unidad, habría un maximal conteniéndolo, luego ese maximal contendría
