@@ -14,7 +14,7 @@
 #+latex_header: \setlength{\parindent}{0pt}
 
 
-* Tema 1
+* Polinomios simétricos
 ** La cúbica
 *** Polinomios cúbicos
 Toda ecuación cúbica polinómica puede escribirse en la forma
@@ -90,28 +90,24 @@ $\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
 \[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
 #+end_fact
 
-* Tema 2
+* Extensiones de cuerpos
 ** 1. Teoría de cuerpos
 *** Extensiones de cuerpos
-#+begin_definition
 *Extensión de cuerpos*. Subcuerpo $K$ de $F$, se nota por $F/K$. Llamamos *grado*
 a la dimensión de $F$ como espacio vectorial.
-#+end_definition
 
-#+begin_theorem
+*** Teorema de Lagrange para extensiones de cuerpos
 *Teorema de Lagrange para extensiones de cuerpos*. Sea $K \subset F \subset E$,
 extensiones de cuerpos, se tiene que:
 
 \[ [E:K] = [E:F][F:K] \]
-#+end_theorem
 
 *** Elementos algebraicos
-#+begin_definition
 *Elemento algebraico*. $\alpha \in F$ es *algebraico* sobre $K$ si existe polinomio $f \in K[x]$
 tal que $f(\alpha) = 0$. Un no algebraico es *trascendente* y una extensión es *algebraica*
 si lo son todos sus elementos.
-#+end_definition
 
+*** Polinomios irreducibles
 #+begin_theorem
 *Polinomio irreducible*. Dado $F/K$ con $\alpha \in F$ algebraico. Existe un único polinomio
 irreducible del que $\alpha$ es raíz salvo asociados, llamado $Irr(\alpha)$.
@@ -155,3 +151,184 @@ se asume la identidad.
 #+begin_theorem
 *Automorfismos entre extensiones*. Sea $\phi : F/K \longrightarrow F/K$ homomorfismo respetando $K$
 #+end_theorem
+* Cuerpos de descomposición
+** Teorema de Kronecker
+#+begin_theorem
+*Teorema de Kronecker*. Sea $f$ de grado positivo sobre $K$, entonces existe
+una extensión $F/K$ tal que existe $u \in F$ con $f(u) = 0$.
+#+end_theorem
+#+begin_proofs
+Puedo descomponer en irreducibles $f = f_1f_2\dots f_m$; y tener una extensión cumpliendo
+lo pedido:
+
+\[ F = \frac{K[X]}{(f_1)}\]
+
+\[u = x + (f_1)\]
+#+end_proofs
+
+** Extensión de homomorfismos
+#+begin_definition
+*Extensión de un homomorfismo*. $\tau : F_1 \longrightarrow F_2$ es extensión de 
+$\sigma : K_1 \longrightarrow K_2$ cuando son dos extensiones $F/K$ y se cumple
+que $\tau |_K_1 = \sigma$.
+
+Cuando $\sigma = 1$, llamamos a $\tau$ *homomorfismo sobre K*.
+#+end_definition
+
+*** Extensión a polinomios
+#+begin_theorem
+*Extensión a polinomios*. Dado $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos, hay una única
+extensión a $\sigma : K_1[X] \longrightarrow K_2[X]$ cumpliendo $\sigma(x) = x$, que conserva:
+
+ - los grados
+ - los polinomios irreducibles
+ - las raíces de un polinomio sobre extensiones
+#+end_theorem
+
+*** Automorfismos de una extensión
+#+begin_theorem
+*Automorfismos de una extensión*. Sea $\sigma : F/K \longrightarrow F/K$, entonces,
+$\sigma$ es automorfismo.
+#+end_theorem
+#+begin_proofs
+Para $u\in F$, tomamos $K(u_1,\dots,u_k)$ la extensión finita generada por todas 
+las raíces del irreducible sobre $u$. Como $\sigma$ respeta raíces, puede restringirse
+a esta extensión; y será inyectivo en ella por ser morfismo de cuerpos.
+
+Como esta extensión es finita y esto es una aplicación lineal, la aplicación 
+restringida es sobreyectiva.
+#+end_proofs
+
+*** Número de extensiones
+#+begin_theorem
+*Número de extensiones*. Teniendo $u_1$ de irreducible a $f_1$, hay tantas
+extensiones $\tau : K_1[u_1] \longrightarrow F_2$ como raíces tenga su imagen $f_2$; ya que están 
+completamente determinadas por la imagen de $u_1$.
+#+end_theorem
+#+begin_proofs
+Existe un único isomorfismo llevando $\tau(u_1) = u_2$, tomando este diagrama de
+isomorfismos:
+
+\[ \begin{tikzcd}
+K_1(u) \rar{\tau} & K_2(u) \\
+\frac{K_1[X]}{(f_1)} \uar{p_1} \rar{\overline\sigma} &
+\frac{K_2[X]}{(f_2)} \uar{p_2}
+\end{tikzcd} \]
+
+Donde $\sigma$ es inducido por el isomorfismo de extensión a polinomios.
+#+end_proofs
+
+** Cuerpo de descomposición
+*** Descomposición
+#+begin_definition
+Un polinomio $f \in K[X]$ *descompone* en una extensión $E$ si factoriza como polinomios
+lineales en $E[X]$. Llamamos *cuerpo de descomposición* a un cuerpo extensión
+de $K$ minimal en el que descompone.
+#+end_definition
+
+Propiedades:
+
+ - Sea $E$ cuerpo de descomposición, entonces $E = K(\alpha_1,\alpha_2,\dots,\alpha_n)$, siendo una
+   extensión finita con grado acotado por $n!$.
+ - Todo polinomio tiene cuerpo de descomposición sobre $K$, ya que podemos tomar
+   una clausura algebraica y crear $K(\alpha_1,\dots,\alpha_n)$ con sus raíces.
+
+*** Lema de isomorfismo entre cuerpos de descomposición
+#+begin_theorem
+Sean $E_1/K$, $E_2/K$ dos cuerpos de descomposición de $f$ sobre $K$.
+Entonces existe un isomorfismo $\sigma : E_1/K \longrightarrow E_2/K$.
+#+end_theorem
+#+begin_proofs
+Aplicamos inducción sobre el grado del polinomio irreducible de dos raíces
+cualquiera y descomponemos siempre como: $f_i = (X-u_i)g_i$. Sé que hay siempre un
+isomorfismo $K_1(u_1) \cong K_2(u_2)$ respetando $\sigma(u_1) = u_2$ a cada paso; y el caso de grado $0$
+es trivial.
+#+end_proofs
+
+* Extensiones normales y separables
+** Elementos conjugados y extensiones conjugadas
+*** Elementos conjugados
+Sean $u,v \in \overline{K}$, clausura algebraica. Equivalen:
+
+ - $Irr(u,K) = Irr(v,K)$
+ - $\exists \tau : K(u) \longrightarrow K(v)$ *isomorfismo* con $\tau(u) = v$.
+ - $\exists\sigma : K(u) \longrightarrow \overline{K}$ *homomorfismo* con $\sigma(u) = v$.
+ - $\exists \sigma : \overline{K} \longrightarrow \overline{K}$ *automorfismo* con $\sigma(u) = v$.
+
+Estos elementos se llaman *elementos conjugados*.
+
+*** Extensiones conjugadas
+Sean $F_1/K$, $F_2/K$ extensiones algebraicas, equivalen:
+
+ - $\exists \sigma: F_1 \longrightarrow F_2$ *isomorfismo* sobre $K$.
+ - $\exists \sigma : F_1 \longrightarrow \overline{K}$, *homomorfismo* sobre $K$ con $\sigma(F_1) = F_2$.
+ - $\sigma : \overline{K} \longrightarrow \overline{K}$, *isomorfismo* tal que $\sigma(F_1) = F_2$.
+
+Estas extensiones se llaman *extensiones conjugadas*.
+
+** Extensiones normales
+*** Extensiones normales
+Sea $F/K$ extensión subcuerpo de $\overline{K}$, equivalen:
+
+ - $\sigma : F \longrightarrow \overline{K}$, me da $\sigma(F) = F$.
+ - Todo irreducible de $K[X]$ con raíz en $F$ descompone en lineales en $F[X]$.
+ - $F$ es cuerpo de descomposición de algún polinomio.
+
+A una extensión de este tipo se le llama *extensión normal*.
+
+*** Caracterización de extensiones normales
+#+begin_theorem
+*Caracterización de extensiones normales*. Sea $E/K$ extensión finita, equivalen:
+
+  - $E/K$ es extensión normal.
+  - Para cada $\sigma : E/K \longrightarrow \overline{K}/K$, se tiene $\sigma(E) = E$. Equivalentemente, para cada
+    $\sigma : \overline{K}/K \longrightarrow \overline{K}/K$, se tiene $\sigma(E) = E$.
+  - Todo irreducible $f \in K[X]$ con una raíz en $E$ descompone en $E$.
+#+end_theorem
+
+*** Caracterización de extensiones normales en torres
+#+begin_theorem
+Sea $K\subset F \subset E$ extensiones finitas, $E$ extensión normal. Equivalen:
+
+  - $F/K$ es normal.
+  - Para cada $\sigma : E/K \longrightarrow E/K$, se tiene $\sigma(F) = F$.
+#+end_theorem
+
+Sea $F/K$ normal, podemos cambiar el dominio y codominio para tener un
+$\sigma : F/K \longrightarrow \overline{K}/K$. Por ser $F$ normal, $\sigma(F) = F$.
+
+Sea $\sigma : F/K \longrightarrow \overline{K}/K$, podemos extenderla finitamente hasta $E$ como $\overline\sigma$. Como $E/K$ es
+normal, $\overline\sigma(E) = E$; y así tengo un $\overline\sigma : E/K \longrightarrow E/K$, que me da $\sigma(F)=\overline\sigma(F) = F$.
+
+* Teoría de Galois Finita
+** Grupos de automorfismos
+*** Lema de Dedekind
+Sean n homomorfismos de cuerpos distintos $F_1 \longrightarrow F_2$, entonces son 
+linealmente independientes sobre $F_2$.
+
+*** Grupo de extensión
+Para toda extensión finita $F/K$ llamamos *grupo de la extensión* a:
+
+\[ G(F/K) = \{ \sigma \in \Aut(F) \mid \forall u \in K : \sigma(u) = u\}\]
+
+Y se verifica que $|G(F/K)| \leq [F : K]$.
+*** Teorema de Artin
+Llamamos *cuerpo fijo* al subcuerpo al que no afecta $G$:
+
+\[ E^G = \{ u \in E \mid \forall\sigma\in G: \sigma(u) = u\}\]
+
+El *Teorema de Artin* afirma que para un subgrupo finito de $Aut(E)$, entonces
+$[E : E^G] = |G|$.
+*** Extensión de Galois
+Una extensión finita $E/K$ es *de Galois* si existe $G$ tal que $E^G = K$. En este
+caso, llamamos a $G$ el *grupo de Galois* de la extensión, $Gal(E/K)$.
+
+Una extensión es de Galois ssi es normal y separable.
+
+** Correspondencia de Galois, caso finito
+*** Correspondencia
+Definimos una correspondencia entre los subgrupos de una extensión de Galois
+y los cuerpos intermedios como:
+
+\[ H^\ast = E^H = \{u \in E \mid \forall\sigma\in H: \sigma(u)=u\}\]
+\[F^\ast = Gal(E/F) = \{\sigma\in G \mid \forall u\in F: \sigma(u) = u\}\]
