@@ -91,7 +91,7 @@ la función de verosimilitud o de su logaritmo:
 
 **** Ejemplo de una distribución binomial
 
-*** Conjuntos creíbles
+# Conjuntos creíbles
 
 
 * 1. Introducción a la inferencia estadística. Estadísticos muestrales.
@@ -239,6 +239,7 @@ Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\the
 #+end_definition
 ** Suficiencia y completitud en familias exponenciales
 
+
 * 4. Estimación puntual
 ** Planteamiento del problema de estimación
 Tenemos un *estimador puntual*, que es un estadístico tomando valores en el dominio del parámetro.
@@ -285,3 +286,19 @@ Si $T$ es suficiente para $\theta$ y $S$ es un estimador insesgado de $g(\theta)
  - $Var_\theta[E[S \mid T]] \leq Var_\theta[S]$
 
 Es decir, $E[S \mid T]$ será normalmente mejor estimador y nunca peor que $S$.
+
+*** Teorema de Lehmann-Scheffé
+Para $T$ suficiente y completo para $\theta$; si $g(\theta)$ admite un estimador insesgado de segundo
+orden $S$, entonces existe el UMVUE de $g(\theta)$ y está dado por:
+
+\[ E [S \mid T]\]
+** Estimación eficiente
+*** Condiciones de regularidad de Fréchet-Cramer-Rao
+Una familia de distribuciones es *regular en el sentido de Fréchet-Cramer-Rao* si cumple, siendo
+$\{P_\theta \; \theta\in\Theta\}$:
+
+- $\Theta$ es intervalo abierto de $\mathbb{R}$.
+- $\forall \theta\in\Theta : \{x \mid f_\theta(x) > 0\} = \chi$
+- Tenemos $f_\theta(x)$ derivable respecto a $\theta$ para todo $x\in\chi$ con:
+
+\[ \int_\chi \frac{d f_\theta(x)}{d\theta} dx = \frac{d}{d\theta} \int_\chi f_\theta(x) dx = 0, \quad \forall \theta\in\Theta\]
