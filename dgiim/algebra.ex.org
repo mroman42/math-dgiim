@@ -278,3 +278,157 @@ S.multiplication_table(
 x^2+x+1|       0 x^2+x+1   x^2+1       x       1   x^2+x     x^2     x+1
 #+end_example
 
+* Semana 3
+** Ejercicio 2.17
+*** Punto 1
+Tenemos el siguiente diagrama con las extensiones
+
+\[ \begin{tikzcd}
+ & \mathbb{Q}({\sqrt{2}},\sqrt{3},\sqrt{5}) \drar[dash] \dar[dash] \dlar[dash] & \\
+\mathbb{Q}(\sqrt{2}) & \mathbb{Q}(\sqrt{3}) & \mathbb{Q}(\sqrt{5}) \\
+& \mathbb{Q} \urar[dash,swap]{2} \uar[dash]{2} \ular[dash]{2} &
+\end{tikzcd} \]
+
+Donde $\sqrt{2},\sqrt{3},\sqrt{5}$ son irracionales y sus polinomios irreducibles
+en $\mathbb{Q}$ son $x^2-2 = 0$, $x^2-3=0$ y $x^2-5=0$; por lo que son extensiones
+de grado $2$.
+
+Ahora mostramos que $\sqrt{3} \notin \mathbb{Q}(\sqrt{2})$, ya que:
+
+\[\sqrt{3} = a + b \sqrt{2}\]
+
+Y sabiendo que no puede tenerse $\sqrt{3} = a$ o $\sqrt{3} = b\sqrt{2}$:
+
+\[\sqrt{2} = \frac{3-a^2-b^2}{2ab}\]
+
+Y entones $\sqrt{2}$ sería racional. Así, $\mathbb{Q}(\sqrt{2},\sqrt{3})$, sabiendo que además 
+$\sqrt{3}^2 \in \mathbb{Q}$, debe ser una extensión de grado $2$ sobre $\mathbb{Q}(\sqrt{2})$.
+
+Ahora mostramos que $\sqrt{5} \notin \mathbb{Q}(\sqrt{2})(\sqrt{3})$, ya que, siendo $a,b \in \mathbb{Q}(\sqrt{2})$:
+
+\[\sqrt{5} = a + b\sqrt{3}\]
+\[ 5 = a^2 + 2ab\sqrt{3} + 3b^2\]
+
+Ahora, $ab = 0$, ya que, si no fuera así, $\sqrt{3} \in \mathbb{Q}(\sqrt{2})$; además, $a=0$ o $b=0$, llegando
+a uno de los siguientes casos:
+
+\[ 5 = a^2 = x^2+y^2+2xy\sqrt{2}\]
+\[ 5 = 3b^2 = 3(x^2+y^2+2xy\sqrt{2})\]
+
+Donde, análogamente, llegaríamos a contradicción con $\frac{5}{3} \notin \mathbb{Q}$.
+Como además $\sqrt{5}^2 \in \mathbb{Q}$, es una extensión de grado $2$.
+
+Resumiendo, tenemos:
+
+\[ \begin{tikzcd}
+ & \mathbb{Q}({\sqrt{2}},\sqrt{3},\sqrt{5}) & \\
+ \mathbb{Q}(\sqrt{2},\sqrt{3}) \urar[dash]{2} & & \\
+\mathbb{Q}(\sqrt{2}) \uar[dash]{2} & \mathbb{Q}(\sqrt{3}) \ular[dash]{2} & \mathbb{Q}(\sqrt{5}) \arrow[uul,dash] \\
+& \mathbb{Q} \urar[,dash,swap]{2} \uar[dash]{2} \ular[dash]{2} &
+\end{tikzcd} \]
+
+Y aplicando la fórmula de grado de las extensiones llegamos
+a que $[\mathbb{Q}(\sqrt{2},\sqrt{3},\sqrt{5}) : \mathbb{Q}] = 8$.
+
+*** Punto 2
+Tenemos a $1,\sqrt{2},\sqrt{3},\sqrt{5},\sqrt{6},\sqrt{10},\sqrt{15},\sqrt{30}$ sistema de generadores del espacio,
+y por ser de dimensión $8$, sabemos que forman una base. Veamos que $1,\alpha,\alpha^2,\dots,\alpha^7$ es una base 
+del mismo espacio comprobando independencia lineal sobre la base inicial.
+
+#+BEGIN_SRC sage :exports none
+  A = FreeAlgebra(QQ,3,'i')
+  F = A.monoid()
+  a,b,c = F.gens()
+  mons = [ F(1), a,b,c,a*b,a*c,b*c,a*b*c ]
+  M = MatrixSpace(QQ,len(mons))
+  mats = [
+      M([0,1,0,0,0,0,0,0,
+         2,0,0,0,0,0,0,0,
+         0,0,0,0,1,0,0,0,
+         0,0,0,0,0,1,0,0,
+         0,0,2,0,0,0,0,0,
+         0,0,0,2,0,0,0,0,
+         0,0,0,0,0,0,0,1,
+         0,0,0,0,0,0,2,0
+      ]),
+      M([0,0,1,0,0,0,0,0,
+         0,0,0,0,1,0,0,0,
+         3,0,0,0,0,0,0,0,
+         0,0,0,0,0,0,1,0,
+         0,3,0,0,0,0,0,0,
+         0,0,0,0,0,0,0,1,
+         0,0,0,3,0,0,0,0,
+         0,0,0,0,0,3,0,0
+      ]),
+      M([0,0,0,1,0,0,0,0,
+         0,0,0,0,0,1,0,0,
+         0,0,0,0,0,0,1,0,
+         5,0,0,0,0,0,0,0,
+         0,0,0,0,0,0,0,1,
+         0,5,0,0,0,0,0,0,
+         0,0,5,0,0,0,0,0,
+         0,0,0,0,5,0,0,0
+      ])
+  ]
+  P3.<a,b,c> = A.quotient(mons,mats)
+#+END_SRC
+
+#+RESULTS:
+
+Para ello escribo los coeficientes de cada $\alpha^n$ en la
+base inicial formando la siguiente matriz y compruebo que son linealmente independientes.
+
+#+BEGIN_SRC sage :exports results
+M = matrix([ ((a+b+c)^n).vector() for n in range(0,8) ]).transpose()
+M
+#+END_SRC
+
+#+RESULTS:
+: 
+: [    1     0    10     0   224     0  6160     0]
+: [    0     1     0    26     0   784     0 23024]
+: [    0     1     0    24     0   664     0 18976]
+: [    0     1     0    20     0   520     0 14720]
+: [    0     0     2     0    80     0  2448     0]
+: [    0     0     2     0    64     0  1904     0]
+: [    0     0     2     0    56     0  1584     0]
+: [    0     0     0     6     0   200     0  5936]
+
+Si calculamos el rango de esta matriz, obtenemos que es invertible.
+
+#+BEGIN_SRC sage :exports both
+M.rank()
+#+END_SRC
+
+#+RESULTS:
+: 8
+
+*** Punto 3
+Usando la matriz anterior, obtengo un polinomio que tiene por raíz
+a $\sqrt{2}+\sqrt{3}+\sqrt{5}$. Para ello escribo los coeficientes de $\alpha^8$ en
+función de la base anterior de la matriz.
+
+#+BEGIN_SRC sage :exports both
+M.solve_right(vector(QQ,((a+b+c)^8).vector()))
+#+END_SRC
+
+#+RESULTS:
+: (-576, 0, 960, 0, -352, 0, 40, 0)
+
+Así que tengo el polinomio siguiente del que $\alpha$ es raíz:
+
+\[t^8-40*t^6+352*t^4-960*t^2+576\]
+
+# Checking the answer
+#+BEGIN_SRC sage :exports none
+t = sqrt(2)+sqrt(3)+sqrt(5)
+(-40*t^6+352*t^4-960*t^2+576+t^8).expand()
+#+END_SRC
+
+#+RESULTS:
+: 0
+
+*** Punto 4
+Por el diagrama de extensiones del ejercicio $1$ sabemos que $\mathbb{Q}(\sqrt{2},\sqrt{3})$ es una extensión
+de grado 4. Como ya sabemos que $\mathbb{Q}(\sqrt{2}+\sqrt{3}) = \mathbb{Q}(\sqrt{2},\sqrt{3})$, tenemos que $\sqrt{2}+\sqrt{3}$ es 
+un elemento de grado 4 sobre $\mathbb{Q}$.
