@@ -1,0 +1,57 @@
+#+TITLE: Análisis funcional
+#+SUBTITLE: Ejercicios
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \newtheorem{proofs}{Demostración}
+#+latex_header: \setlength{\parindent}{0pt}
+
+* 1. Espacios normados
+** Ejercicio 3
+La sucesión no puede tener ninguna parcial convergente a $0$, porque si no, al ser
+de Cauchy, convergería a $0$. Por tanto, a partir de un cierto $n$, todos los 
+términos deben alejarse de $0$ más de un determinado $\alpha$.
+
+Sean ahora $\|x - y\| \leq \epsilon$, por desigualdad triangular inversa tenemos:
+
+\[ \bigg|\|x\|-\|y\|\bigg| \leq \|x-y\| \leq \epsilon\]
+
+Y por tanto:
+
+\[1 - \frac{\epsilon}{\|x\|} \leq \frac{\|x\|}{\|y\|} \leq 1 + \frac{\epsilon}{\|x\|}\]
+
+Ahora, por otro lado, comprobaremos que podemos demostrar a la función $f(x) = \frac{x}{\|x\|}$
+uniformemente continua:
+
+\[ 
+\bigg| \frac{x}{\|x\|} - \frac{y}{\|y\|} \bigg| =
+\frac{1}{\|x\|} \|(x-y) + \left(1 - \frac{\|x\|}{\|y\|}y\right) \leq
+\frac{\epsilon}{\|x\|} + \frac{\|y\|}{\|x\|} \left|1-\frac{\|x\|}{\|y\|}\right|
+\]
+
+Pero como tenemos acotaciones uniformes de $\|x\|^{-1}$ y de $\frac{\|y\|}{\|x\|}$, hemos terminado.
+
+** Ejercicio 16
+*** Punto a
+Es de hecho una isometría por tenerse: 
+
+\[\|Tx\| = \left(\sum_{n=0} |Tx_n|^p\right)^{1/p} = 
+0 + \left(\sum_{n=1} |x_n|^p\right)^{1/p} =
+\|x\|\]
+
+Así que es continua y su norma es $1$.
+
+*** Punto b
+Vemos que es lipschitziana trivialmente con $\|Tx\| \leq \|x\|$. Como además realiza la cota
+sobre la bola unidad al tener: $\|T(0,1,0,\dots)\| = \|(1,0,\dots)\| = 1$.
+
+*** Punto c
+Vemos que es isometría $\|Tx\| = \|x\|$, por lo que es continua y de norma $1$.
