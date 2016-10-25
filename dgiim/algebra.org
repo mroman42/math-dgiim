@@ -332,3 +332,15 @@ y los cuerpos intermedios como:
 
 \[ H^\ast = E^H = \{u \in E \mid \forall\sigma\in H: \sigma(u)=u\}\]
 \[F^\ast = Gal(E/F) = \{\sigma\in G \mid \forall u\in F: \sigma(u) = u\}\]
+* Cuerpos finitos
+** Estructura de los cuerpos finitos
+*** Propiedades de un cuerpo finito
+Sea $F$ cuerpo finito con $|F| = q$,
+
+ - $car(F) = p$ es un primo
+ - $<1>$ es isomorfo a $\mathbb{Z}/p\mathbb{Z}$
+ - $F/\mathbb{Z}_p$ es extensión finita
+ - $[ F : \mathbb{Z}_p] = n$, entonces $q = p^n$
+ - $F^\times$ es cíclico de orden $q-1$
+
+
