@@ -343,4 +343,30 @@ Sea $F$ cuerpo finito con $|F| = q$,
  - $[ F : \mathbb{Z}_p] = n$, entonces $q = p^n$
  - $F^\times$ es cíclico de orden $q-1$
 
+*** Existencia de cuerpos finitos
+#+begin_theorem
+Para $p$ primo, existe cuerpo de $p^n$ elementos.
+#+end_theorem
+#+begin_proofs
+Sea $f(x) = x^{p^n}-x$ polinomio en $\mathbb{Z}_p$. Su derivada no tiene raíces, luego él tiene sólo
+raíces simples. Vemos que con sólo añadir las raíces del polinomio, llega a ser
+cuerpo de descomposición.
 
+Sean $u,v \in S$, conjunto de raíces:
+
+ - $(u+v)^{p^n} - (u+v) = u^{p^n}-u+v^{p^n}-v = 0$
+ - $(uv)^{p^n}-uv = u^{p^n}v^{p^n} - uv = 0$
+ - $(-u)^q - (-u) = 0$
+ - $(u^{-1})^q-u^{-1} = 0$
+#+end_proofs
+
+*** Teorema de Moore
+Para cada $p^n$ existe exactamente un cuerpo con $p^n$ elementos; que es el cuerpo de
+descomposición de $x^{p^n}-x$ sobre $\mathbb{Z}_p$. No existen otros cuerpos finitos.
+** Factorización de polinomios
+*** Clasificación de polinomios irreducibles
+#+begin_theorem
+Los factores irreducibles de $x^{p^n}-x$ son exactamente los polinomios irreducibles de
+$\mathbb{F}_p[X]$ cuyo grado divida a $n$.
+#+end_theorem
+** Extensiones ciclotómicas
