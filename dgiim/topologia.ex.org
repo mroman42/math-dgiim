@@ -1,0 +1,50 @@
+#+TITLE: Topología II
+#+SUBTITLE: Ejercicios
+#+AUTHOR: Mario Román
+#+OPTIONS: toc:nil num:nil
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+* Ejercicios de clase
+** Cálculo del espacio proyectivo con Van-Kampen
+Para calcular el grupo de $\mathbb{R}\mathbb{P}^2$, lo definimos como una proyección desde la bola 
+cerrada $C$ y tomamos abiertos en él.
+
+#+begin_center
+#+attr_latex: :width 50px
+[[./imgpng/rpvankampen.png]]
+#+end_center
+
+Aplicaremos Van Kampen sobre los siguientes abiertos:
+
+\[ U = \pi(C-\{p\})\]
+\[ V = \pi(B(p,\epsilon))\]
+\[ U \cap V = \pi((C-\{p\}) \cap B(p,\epsilon)) = \pi (B(p,\epsilon)) - \{p\}\]
+
+Y tenemos que el grupo de $V$ es trivial. Para calcular el grupo de $U$ usaré que
+tiene el mismo tipo de homotopía que su borde, que es isomorfo a un círculo y
+por tanto tiene grupo fundamental $\mathbb{Z}$.
+
+De la intersección tomaremos un generador $f$ y lo llevaremos al borde para tener:
+
+\[ f \simeq \alpha \ast c \ast a \ast \tilde\alpha\]
+
+Que proyectando mientras sabemos que el generador de $U$ es 
+$g = [\pi(\alpha \ast c \ast \tilde\alpha)]$ nos da finalmente que:
+
+\[ [\pi(f)] \simeq 
+[\pi(\alpha\ast c \ast\tilde\alpha \ast \alpha \ast a \ast \tilde\alpha)] \simeq
+[g] \ast [g] \simeq 2[g]\]
+
+Y el cálculo del grupo nos da:
+
+\[\frac{<g>}{<2g>} \cong \mathbb{Z}_2\]
+
