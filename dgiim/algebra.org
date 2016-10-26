@@ -12,7 +12,8 @@
 #+latex_header: \newtheorem{fact}{Proposición}
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \setlength{\parindent}{0pt}
-
+#+latex_header: \newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}
+#+latex_header: \newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}
 
 * Polinomios simétricos
 ** La cúbica
@@ -369,4 +370,36 @@ descomposición de $x^{p^n}-x$ sobre $\mathbb{Z}_p$. No existen otros cuerpos fi
 Los factores irreducibles de $x^{p^n}-x$ son exactamente los polinomios irreducibles de
 $\mathbb{F}_p[X]$ cuyo grado divida a $n$.
 #+end_theorem
+* Extensiones ciclotómicas
+** Raíces de la unidad
+*** Subgrupos finitos del grupo multiplicativo
+Todo subgrupo finito del grupo multiplicativo $K^\times$ es cíclico.
+
+*** Grupo de raíces n-ésimas
+Llamamos *grupo de raíces n-ésimas* de la unidad al grupo siguiente. Cualquier
+generador del grupo se llama una *raíz primitiva* de la unidad.
+
+\[ \mu_n = \{\zeta\in K \mid \zeta^n = 1\} \]
+
+** Polinomios ciclotómicos
+*** Definición
+Se llama *polinomio ciclotómico* al polinomio:
+
+\[\Phi_n = \prod_{\zeta \text{ primitiva}} (X -\zeta)\]
+
+Se cumple que $\operatorname{grad}(\Phi_n) = \phi(n)$.
+
+*** Cálculo de los polinomios ciclotómicos
+Tenemos que:
+
+\[\Phi_n  = \frac{X^n-1}{\prod_{d|n, d\neq n} \phi_d}\]
+
+*** Función de Möbius
+Se define $\mu : \mathbb{N} \longrightarrow \mathbb{Z}$ como:
+
+\[\mu(n) = \threepartdef
+{0}{\exists p: \text{ primo con } p^2|n}
+{(-1)^r}{n = p_1p_2\dots p_n \text{ primos distintos}}
+{1}{n=1}\]
+
 ** Extensiones ciclotómicas
