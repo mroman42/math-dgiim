@@ -432,3 +432,39 @@ t = sqrt(2)+sqrt(3)+sqrt(5)
 Por el diagrama de extensiones del ejercicio $1$ sabemos que $\mathbb{Q}(\sqrt{2},\sqrt{3})$ es una extensión
 de grado 4. Como ya sabemos que $\mathbb{Q}(\sqrt{2}+\sqrt{3}) = \mathbb{Q}(\sqrt{2},\sqrt{3})$, tenemos que $\sqrt{2}+\sqrt{3}$ es 
 un elemento de grado 4 sobre $\mathbb{Q}$.
+* Semana 4
+** Ejercicio 3.11
+*** Punto 1
+Sea el polinomio $f\in \mathbb{F}_2[X]$ con una raíz $\lambda$; comprobamos que también
+es raíz $\lambda^2$:
+
+\[\begin{aligned}
+f(\lambda^2) 
+&= a_n\lambda^{2n} + a_{n-1}\lambda^{2(n-1)} + \dots + a_1\lambda^2 + a_0 \\
+&= (a_n\lambda^n + a_{n-1}\lambda^{n-1} + \dots + a_1\lambda + a_0)^2 \\
+&= f(\lambda)^2
+\end{aligned}
+\]
+
+Donde usamos que:
+
+\[a_p\lambda^{2p} + a_q\lambda^{2q} = 
+a^2_p\lambda^{2p} + 2a_pa_q\lambda^p\lambda^q + a^2_q\lambda^{2q} =
+(a_p\lambda^p + a_q\lambda^q)^2\]
+
+Aplicando esto varias veces llegamos a que $\lambda,\lambda^2,\lambda^4,\dots$ son raíces.
+
+*** Punto 2
+Sea el polinomio $f(x) = x(x^2+x+1) = x^3+x^2+x$, que tiene como raíz en 
+$K \cong \frac{\mathbb{F}_2[X]}{(x^2+x+1)}$ a $\lambda = x + (x^2+x+1)$; nótese que tiene como raíz también a $0$, que no es
+potencia de $\lambda$.
+
+*** Punto 3
+Siendo $\beta$ una raíz primitiva, genera el cuerpo y una base de $K$ sobre su cuerpo
+base debe estar formada por  
+$\{1,\beta,\beta^2,\dots,\beta^{n-1}\}$; supongamos que el grado de $f$ fuera
+menor que $n$, entonces podría dividir:
+
+\[\beta^n=q(\beta)f(\beta)+r(\beta) = r(\beta)\]
+
+Con $r$ de grado menor que $n$, llegando a contradicción.
