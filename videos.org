@@ -1,5 +1,55 @@
-* Adjunctions
-** Adjuntos. The Catsters.
+#+TITLE: Notes of Youtube math videos
+#+SUBTITLE: Theory
+#+AUTHOR: Mario Román
+#+OPTIONS: num:nil
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+* Harpreet Bedi's channel
+** Sheaves and coho
+*** Preseaves and sheaves
+**** Preseaf definition
+ #+begin_definition
+ *Preseaf*. A preseaf ${\cal F}$ of abelian groups on a topological space $X$ consists of:
+
+ - For each open set $U$, an abelian group ${\cal F}(U)$, whose elements are called *sections*.
+ - For each inclusion $V \subseteq U$, a *restriction map*, homomorphism of the form:
+ \[p_{U,V} : {\cal F}(U) \longrightarrow {\cal F}(V)\]
+
+ such that $p_{U,W} = p_{V,W} \circ p_{U,V}$.
+ #+end_definition
+
+ We can write the restriction of an element $u \in U$ to a set $V \subseteq U$ as
+ $u|_V = p_{U,V}(u)$.
+
+**** Sheaf definition
+ #+begin_definition
+ *Gluability axiom*. Given $U = \bigcup U_i$ with sections $s_i \in {\cal F}(U_i)$, if we have:
+
+ \[ s_\alpha|_{U_\alpha \cap U_\beta} = s_\beta|_{U_\alpha \cap U_\beta} \]
+
+ then there exists $s \in {\cal F}(U)$ such that $s|_U_\alpha = s_\alpha$.
+ #+end_definition
+ #+begin_definition
+ *Uniqueness axiom*. Given $U = \bigcup U_i$ with sections $s,t \in {\cal F}(U)$ such that:
+
+ \[\forall U_\alpha:\ s|_U_\alpha = t|_U_\alpha\]
+
+ then $s=t$.
+ #+end_definition
+ #+begin_definition
+ *Sheaves*. A presheaf satisfiying gluability and uniqueness.
+ #+end_definition
+* The Catsters
+** Adjunctions
 Serie de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][vídeos]] sobre funtores adjuntos.
 
 *** Adjuntions 1
