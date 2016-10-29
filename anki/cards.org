@@ -1,0 +1,55 @@
+#+TITLE: Anki Cards
+#+AUTHOR: Mario Román
+#+OPTIONS:
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+* Teoría de categorías
+** Adjunciones.
+*** Isomorfismo de categorías.
+Isomorfismo en la categoría de categorías. Dos functores 
+inversos $1_C = GF$ y $FG = 1_D$:
+
+\[ \begin{tikzcd}
+{\cal C } \arrow[bend left]{r}{F} & {\cal D} \arrow[bend left]{l}{G}
+\end{tikzcd}
+\]
+
+*** Equivalencia de categorías.
+Dos isomorfismos dados por dos transformaciones naturales cada 
+uno $1_C \cong GF$ y $FG \cong 1_D$.
+
+\[ \begin{tikzcd}
+{\cal C} \arrow[bend left]{r}{F} & {\cal D} \arrow[bend left]{l}{G}
+\end{tikzcd}
+\]
+
+*** Adjunción.
+Tenemos transformaciones naturales $1_C \overset{\eta}\Longrightarrow GF$ y 
+$FG \overset{\epsilon}\Longrightarrow 1_D$ que cumplen las dos identidades triangulares siguientes:
+ 
+\[ \begin{tikzcd}
+F \arrow{r}{\eta} \arrow{dr}{id} & FGF \arrow{d}{\epsilon} \\
+ & F
+\end{tikzcd}   
+\]  \[ \begin{tikzcd}
+G \arrow{r}{\eta} \arrow{dr}{id} & GFG \arrow{d}{\epsilon} \\
+ & G
+\end{tikzcd}
+\]
+
+*** Adjunción (por morfismos).
+Una adjunción es un isomorfismo natural:
+
+\[Hom_D(FX,Y) \cong Hom_C(X,GY)\]
+
+Natural sobre $X$ fijado cualquier $Y$ y natural sobre $Y$ fijado 
+cualquier $X$. Hay dos cuadrados de naturalidad.
