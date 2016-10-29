@@ -1,0 +1,1090 @@
+#+TITLE: Notes of Youtube math videos
+#+SUBTITLE: Theory
+#+AUTHOR: Mario Román
+#+OPTIONS: num:nil
+#+LANGUAGE: es
+
+#+LaTeX: \setcounter{secnumdepth}{0}
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \newtheorem{theorem}{Teorema}
+#+latex_header: \newtheorem{fact}{Proposición}
+#+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \setlength{\parindent}{0pt}
+
+* Harpreet Bedi's channel
+** Sheaves and coho
+*** Preseaves and sheaves
+**** Preseaf definition
+ #+begin_definition
+ *Preseaf*. A preseaf ${\cal F}$ of abelian groups on a topological space $X$ consists of:
+
+ - For each open set $U$, an abelian group ${\cal F}(U)$, whose elements are called *sections*.
+ - For each inclusion $V \subseteq U$, a *restriction map*, homomorphism of the form:
+ \[p_{U,V} : {\cal F}(U) \longrightarrow {\cal F}(V)\]
+
+ such that $p_{U,W} = p_{V,W} \circ p_{U,V}$.
+ #+end_definition
+
+ We can write the restriction of an element $u \in U$ to a set $V \subseteq U$ as
+ $u|_V = p_{U,V}(u)$.
+
+**** Sheaf definition
+ #+begin_definition
+ *Gluability axiom*. Given $U = \bigcup U_i$ with sections $s_i \in {\cal F}(U_i)$, if we have:
+
+ \[ s_\alpha|_{U_\alpha \cap U_\beta} = s_\beta|_{U_\alpha \cap U_\beta} \]
+
+ then there exists $s \in {\cal F}(U)$ such that $s|_U_\alpha = s_\alpha$.
+ #+end_definition
+ #+begin_definition
+ *Uniqueness axiom*. Given $U = \bigcup U_i$ with sections $s,t \in {\cal F}(U)$ such that:
+
+ \[\forall U_\alpha:\ s|_U_\alpha = t|_U_\alpha\]
+
+ then $s=t$.
+ #+end_definition
+ #+begin_definition
+ *Sheaves*. A presheaf satisfiying gluability and uniqueness.
+ #+end_definition
+* The Catsters
+** Adjunctions
+Serie de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][vídeos]] sobre funtores adjuntos.
+
+*** Adjuntions 1
+Tenemos varias nociones de igualdad entre categorías.
+
+#+begin_definition
+*Isomorfismo de categorías*. Ocurre con dos functores:
+
+\[ \begin{tikzcd}
+{\cal C} \arrow[bend left]{r}{F} & {\cal D} \arrow[bend left]{l}{G}
+\end{tikzcd}
+\]
+
+Tales que $1_C = GF$ y $FG = 1_D$.
+#+end_definition
+
+#+begin_definition
+*Equivalencia de categorías*. Ocurre con dos functores:
+
+\[ \begin{tikzcd}
+{\cal C} \arrow[bend left]{r}{F} & {\cal D} \arrow[bend left]{l}{G}
+\end{tikzcd}
+\]
+
+Tales que $1_C \cong GF$ y $FG \cong 1_D$. Entendiendo la isomorfía en la 
+categoría de funtores, es decir, una [[https://ncatlab.org/nlab/show/natural+isomorphism][isomorfía natural]].
+#+end_definition
+
+#+begin_definition
+*Adjunción*. Ocurre con dos functores:
+
+\[ \begin{tikzcd}
+{\cal C} \arrow[bend left]{r}{F} & {\cal D} \arrow[bend left]{l}{G}
+\end{tikzcd}
+\]
+
+Tales que tenemos transformaciones naturales $1_C \overset{\eta}\Longrightarrow GF$ y 
+$FG \overset{\epsilon}\Longrightarrow 1_D$ que cumplen las dos identidades triangulares siguientes:
+ 
+\[ \begin{tikzcd}
+F \arrow{r}{\eta} \arrow{dr}{id} & FGF \arrow{d}{\epsilon} \\
+ & F
+\end{tikzcd}   
+\]     \[ \begin{tikzcd}
+G \arrow{r}{\eta} \arrow{dr}{id} & GFG \arrow{d}{\epsilon} \\
+ & G
+\end{tikzcd}
+\]
+#+end_definition
+
+En este caso escribimos $F \dashv G$, y $F$ es funtor adjunto de $G$.
+
+*** Adjuntions 2
+Damos una definición equivalente de funtores adjuntos.
+
+#+begin_definition
+*Adjunción*. Una adjunción es un isomorfismo natural:
+
+\[Hom_D(FX,Y) \cong Hom_C(X,GY)\]
+
+Natural sobre $X$ fijado cualquier $Y$ y natural sobre $Y$ fijado 
+cualquier $X$. Entendiendo que usamos los funtores contravariantes $Hom(F-,Y)$,
+$Hom(-,GY)$ por un lado y los funtores covariantes $Hom(FX,-)$ y $Hom(X,G-)$;
+que nos dan los siguientes cuadrados de naturalidad:
+
+\[ \begin{tikzcd}
+Hom_D(FX',Y) \arrow{d}[swap]{Hom_D(Ff,Y)} \arrow{r}{\alpha_{X'}} & Hom_C(X',GY) \arrow{d}{Hom_C(f,GY)}\\
+Hom_D(FX, Y) \arrow{r}{\alpha_{X}}& Hom_C(X,GY)
+\end{tikzcd}
+\] 
+
+\[ \begin{tikzcd}
+Hom_D(FX,Y) \arrow{d}[swap]{Hom_D(FX,g)} \arrow{r}{\beta_{Y}} & Hom_C(X,GY) \arrow{d}{Hom_C(X,Gf)}\\
+Hom_D(FX,Y') \arrow{r}{\beta_{Y'}}& Hom_C(X,GY')
+\end{tikzcd}
+\] 
+#+end_definition
+
+Esta definición es equivalente intuitivamente a la anterior porque podemos crear $\eta$ y $\epsilon$
+desde las identidades usando las siguientes transformaciones naturales: 
+
+\[Hom_D(FX,FX) \cong Hom_C(X,GFX)\]
+
+\[Hom_D(FGY,Y) \cong Hom_C(GY,GY)\]
+
+*** Adjuntions 3
+
+Podemos presentar ejemplos de adjunciones.
+Los *funtores libres y de olvido* suelen ser adjuntos. Entre $Set$ y $Monoid$ tenemos:
+
+\[ \begin{tikzcd}
+{Set} \arrow[bend left]{r}{Free} & {Monoid} \arrow[bend left]{l}{Forget}
+\end{tikzcd}
+\]
+
+Con la adjunción $Free \dashv Forget$. 
+
+#+begin_theorem
+*Mónada de una adjunción*. Cada adjunción da lugar a una mónada.
+#+end_theorem
+
+Tenemos un funtor $T = GF : {\cal C}  \longrightarrow {\cal C}$. Podemos definir la unidad de
+la mónada como la unidad de la adjunción $\eta : 1_C \Longrightarrow T$ y la
+multiplicación podemos definirla usando $id \ast \epsilon \ast id : GFGF \Longrightarrow GF$.
+
+Ahora debemos comprobar que cumple los axiomas de mónada. El primero
+se obtiene directamente desde los triángulos de la adjunción:
+
+\[ \begin{tikzcd}
+T \arrow{r}{T\eta} \arrow{dr}{id} & T^2 \arrow{d}{\mu} \\
+ & T
+\end{tikzcd}   
+\]   \[ \begin{tikzcd}
+GF \arrow{r}{GF\eta} \arrow{dr}{id} & GFGF \arrow{d}{G \epsilon F} \\
+ & GF
+\end{tikzcd}   
+\]
+
+Donde el segundo es resultado de aplicar el funtor $G$ a uno de los triángulos conmutativos
+de la adjunción. Comprobamos el segundo axioma:
+
+\[ \begin{tikzcd}
+T^2 \arrow{d}{\mu} & T \arrow{dl}{id} \arrow{l}[swap]{\eta T} \\
+T
+\end{tikzcd}   
+\]   \[ \begin{tikzcd}
+GFGF \arrow{d}{G \epsilon F} & GF \arrow{dl}{id} \arrow{l}[swap]{\eta GF} \\
+GF
+\end{tikzcd}   
+\]
+
+Donde tenemos el resultado de aplicar $F$ por la derecha al otro triángulo conmutativo.
+
+Y finalmente el axioma de conmutatividad de la mónada se comprueba como:
+
+\[ \begin{tikzcd}
+T^3 \arrow{d}{T \mu} \arrow{r}{\mu T} & T^2 \arrow{d}{\mu} \\
+T^2 \arrow{r}{\mu} & T
+\end{tikzcd} \]  \[ \begin{tikzcd}
+GFGFGF \arrow{d}{GFG \epsilon F} \arrow{r}{G \epsilon FGF} & GFGF \arrow{d}{G\epsilon F} \\
+GFGF \arrow{r}{G \epsilon F} & GF
+\end{tikzcd} \] 
+
+Donde el segundo diagrama se obtiene desde la naturalidad de $\epsilon$ aplicando funtores.
+
+*** Adjuntions 4
+Vamos a probar la igualdad entre las dos definiciones de adjunción.
+Supongamos primero que tenemos el isomorfismo natural entre los dos 
+conjuntos de morfismos, es decir, tenemos:
+
+\[ (-) : Hom_D(FX,Y) \cong Hom_C(X,GY) \]
+
+Si tomamos ahora los dos cuadrados naturales que teníamos por este 
+isomorfismo y tomamos en ellos los casos particulares $Y = FX$ primero,
+y $X = GY$ después:
+
+
+\[ \begin{tikzcd}
+Hom_D(FX,FX) \arrow{d}[swap]{\_ \circ Ff} \arrow{r}{(-)} & Hom_C(X,GFX) \arrow{d}{\_\circ f}\\
+Hom_D(FX', FX) \arrow{r}{(-)}& Hom_C(X',GFX)
+\end{tikzcd}
+\]
+
+Si tomamos la identidad $1_{FX}$ y llamamos $\eta_X = \overline{1_{FX}}$, tenemos que
+\(\eta \circ f = \overline{Ff}\). Ahora, si damos la vuelta al isomorfismo $(-)$ en este 
+diagrama a la vez que hacemos $X = GY$:
+
+\[ \begin{tikzcd}
+Hom_D(FGY,Y) \arrow{d}[swap]{\_ \circ Ff}  & Hom_C(GY,GY) \arrow{l}[swap]{(-)} \arrow{d}{\_\circ f}\\
+Hom_D(FGY',Y) & Hom_C(GY',GY) \arrow{l}[swap]{(-)}
+\end{tikzcd}
+\]
+
+Volviendo a tomar la identidad $1_{GY}$ y llamando $\epsilon_Y = \overline{1_{GY}}$, tenemos
+$\epsilon \circ Ff = \overline{f}$.
+
+Ahora tomamos el segundo cuadrado natural, y repetimos el mismo
+proceso.
+
+\[ \begin{tikzcd}
+Hom_D(FX,FX) \arrow{d}[swap]{g \circ \_} \arrow{r}{(-)} & Hom_C(X,GFX) \arrow{d}{Gg\circ \_}\\
+Hom_D(FX,FX') \arrow{r}{(-)}& Hom_C(X,GFX')
+\end{tikzcd}
+\] 
+
+Obteniendo desde la identidad en $FX$ la ecuación $\overline{g} = Gg \circ \eta$. Y volviendo
+a dar la vuelta a los isomorfimos llegamos a:
+
+\[ \begin{tikzcd}
+Hom_D(FGY,Y) \arrow{d}[swap]{g \circ \_}  & Hom_C(GY,GY) \arrow{l}[swap]{(-)} \arrow{d}{Gg \circ \_}\\
+Hom_D(FGY,Y') & \arrow{l}[swap]{(-)} Hom_C(GY,GY')
+\end{tikzcd}
+\]
+
+Obteniendo finalmente $\overline{Gg} = g \circ \epsilon$. De este proceso hemos obtenido finalmente
+las siguientes ecuaciones:
+
+\[ \begin{aligned}
+\eta \circ f &= \overline{Ff} \\
+\epsilon \circ Ff &= \overline{f} \\
+Gg \circ \eta &= \overline{g} \\
+g \circ  \epsilon &= \overline{Gg} 
+\end{aligned} \]
+
+Con ellas podemos probar la naturalidad de $\eta$ y la naturalidad de
+$\epsilon$:
+
+\[ \begin{tikzcd}
+GFX  \arrow{r}{GFf} & GFY \\
+X \arrow{u}[swap]{\eta_X} \arrow{r}[swap]{f} & Y \arrow{u}{\eta_Y}
+\end{tikzcd}
+\]   \[ \begin{tikzcd}
+FGX \arrow{d}[swap]{\epsilon_X} \arrow{r}{FGg} & FGY \arrow{d}{\epsilon_Y}\\
+X \arrow{r}[swap]{g} & Y
+\end{tikzcd}
+\]
+
+Ya que $\eta \circ f = \overline{Ff} = GFf \circ \eta$ y $f \circ \epsilon = \overline{Gf} = \epsilon \circ FGf$. Y además podemos probar
+los dos triángulos de naturalidad.
+
+\[ \begin{tikzcd}
+F \arrow{r}{F \eta_X} \arrow{dr}{id} & FGF \arrow{d}{\epsilon_{FX}} \\
+ & F
+\end{tikzcd}   
+\]     \[ \begin{tikzcd}
+G \arrow{r}{\eta_{GX}} \arrow{dr}{id} & GFG \arrow{d}{G\epsilon_X} \\
+ & G
+\end{tikzcd}
+\]
+
+Teniendo finalmente que:
+
+
+\[ \begin{aligned}
+\epsilon \circ F\eta &= \overline{\eta} = 1 \\
+G\epsilon \circ \eta &= \overline{\epsilon} = 1
+\end{aligned} \]
+
+El otro sentido de la demostración se tiene llegando primero a las cuatro ecuaciones,
+y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su naturalidad.
+* Aluffi - Algebra Chapter 0
+** III. Anillos y módulos
+*** 7. Complejos y homología
+**** 7.1. Complejos y secuencias exactas.
+ #+begin_definition
+ *Complejo*. Un complejo es una serie de morfismos $d_i$ entre R-Módulos:
+
+ \[\dots \longrightarrow M_{i+1} \longrightarrow M_i \longrightarrow M_{i-1} \longrightarrow \dots\]
+
+ tales que $d_i \circ d_{i+1} = 0$.
+ #+end_definition
+
+ Además lo llamamos *exacto* cuando $im (d_{i+1}) = ker (d_i)$.
+
+ #+begin_proposition
+ *Exactitud de monomorfismos y epimorfismos*. Dos complejos de la forma:
+
+ \[ \dots \longrightarrow 0 \longrightarrow L \overset{\alpha}\longrightarrow M \longrightarrow \dots \]
+ \[ \dots \longrightarrow M \overset{\beta} \longrightarrow N \longrightarrow 0 \longrightarrow \dots \]
+
+ Son exactos en $L$ y $N$ ssi $\alpha$ y $\beta$ son monomorfismo y epimorfismo, 
+ respectivamente.
+ #+end_proposition
+
+ #+begin_definition
+ *Secuencia exacta corta*. Una secuencia exacta corta es un complejo de la forma:
+
+ \[ 0 \longrightarrow L \overset{\alpha}\longrightarrow M \overset{\beta}\longrightarrow N \longrightarrow 0 \]
+ #+end_definition
+
+ El primer teorema de isomorfía nos dice que $N \cong \frac{M}{ker(\beta)} = \frac{M}{im(\alpha)}$ lo que nos 
+ lleva a identificar   $N \cong \frac{M}{L}$. De hecho, cada monomorfismo da lugar a una 
+ secuencia exacta corta:
+
+ \[ 0 \longrightarrow \ker(\phi) \longrightarrow M \longrightarrow im(\phi) \longrightarrow 0 \]
+
+**** 7.2. Secuencias exactas escindidas
+ #+begin_definition
+ *Secuencia escindida*. Una secuencia exacta corta:
+
+ \[ 0 \longrightarrow M_1 \longrightarrow N \longrightarrow M_2 \longrightarrow 0 \]
+
+ es escindida si es isomorfa a una secuencia de la forma siguiente:
+
+ \[ \begin{tikzcd}
+ 0   \arrow{r}{} & 
+ M_1 \arrow{d}{\sim}\arrow{r}{} & 
+ N   \arrow{d}{\sim}\arrow{r}{} & 
+ M_2 \arrow{d}{\sim}\arrow{r}{} & 
+ 0 \\
+ 0   \arrow{r}{} & 
+ M_1 \arrow{r}{} & 
+ M_1 \oplus M_2   \arrow{r}{} & 
+ M_2 \arrow{r}{} & 
+ 0
+ \end{tikzcd} \]
+
+ Es decir, hay un isomorfismo entre secuencias.
+ #+end_definition
+
+ #+begin_theorem
+ *Relación entre secuencias escindidas e inversas*. Sea $\phi$ un homomorfismo;
+ entonces tiene inversa izquierda ssi la secuencia siguiente escinde:
+
+ \[ 0 \longrightarrow M \overset{\phi}\longrightarrow N \longrightarrow coker(\phi) \longrightarrow 0 \]
+
+ Y tiene inversa derecha si la secuencia siguiente escinde:
+
+ \[ 0 \longrightarrow ker(\phi) \longrightarrow M \overset{\phi}\longrightarrow N \longrightarrow 0 \]
+ #+end_theorem
+
+**** 7.3. Homología, y el lema de la serpiente
+ #+begin_definition
+ *Homología*. La i-ésima homología de un complejo,
+
+ \[ \dots \longrightarrow M_{i+1} \overset{d_{i+1}}\longrightarrow M_i \overset{d_i}\longrightarrow M_{i-1} \longrightarrow \dots \]
+
+ es el R-módulo:
+
+ \[H_i(M) = \frac{ker(d_i)}{im(d_{i+1})}\]
+ #+end_definition
+
+ La homología mide lo que se aleja de ser exacto en un punto determinado, y
+ es $0$ cuando el complejo es exacto. Puede verse como una generalización de
+ kernel y cokernel; que los realiza en este caso extremo:
+
+ \[ 0 \longrightarrow M_1 \overset{\phi}\longrightarrow M_0 \longrightarrow 0 \]
+
+ En el que $H_1(M) \cong ker(\phi)$ y $H_0(M) \cong coker(\phi)$.
+
+ #+begin_theorem
+ *Lema de la serpiente*. Teniendo dos secuencias exactas en el diagrama 
+ conmutativo siguiente:
+
+ \[ \begin{tikzcd}
+ 0 \rar & L_1 \rar{\alpha_1}\arrow{d}{\lambda} & M_1 \rar{\beta_1}\arrow{d}{\mu} & N_1 \rar\arrow{d}{\eta} & 0 \\
+ 0 \rar & L_0 \rar{\alpha_0}                   & M_0 \rar{\beta_0}               & N_0 \rar                & 0
+ \end{tikzcd} \]
+
+ Existe una secuencia exacta de la forma:
+
+ \[ 0 \overset{}\longrightarrow 
+ ker(\lambda) \overset{}\longrightarrow 
+ ker(\mu) \overset{}\longrightarrow 
+ ker(\eta) \overset{\delta}\longrightarrow 
+ coker(\lambda) \overset{}\longrightarrow 
+ coker(\mu) \overset{}\longrightarrow 
+ coker(\eta) \overset{}\longrightarrow 
+ 0\]
+ #+end_theorem
+
+ El diagrama desde el que se deduce todo esto, con columnas exactas, es
+ el siguiente:
+
+ \[ \begin{tikzcd}
+	& 0 \dar              & 0 \dar            & 0 \dar           &   \\
+ 0 \rar & ker(\lambda) \rar \dar  & ker(\mu) \rar \dar    & ker(\eta) \dar \ar[out=355, in=175,looseness=1, overlay, swap]{dddll}{\delta}       &   \\
+ 0 \rar & L_1 \rar{\alpha_1} \dar{\lambda}  & M_1 \rar{\beta_1} \dar{\mu} & N_1 \rar \dar{\eta}        & 0 \\
+ 0 \rar & L_0 \rar{\alpha_0} \dar & M_0 \rar{\beta_0} \dar & N_0 \rar \dar        & 0 \\
+	& coker(\lambda) \rar \dar & coker(\mu) \rar \dar  & coker(\eta) \rar \dar & 0 \\
+	& 0                   & 0                 & 0                &
+ \end{tikzcd} \]
+
+** IV. Álgebra lineal
+*** 4. Presentaciones y resoluciones
+**** 4.1. Torsión
+ #+begin_definition
+ *Torsión*. Un elemento $m \in M$ módulo de $R$ es de *torsión* si $\{m\}$ es linealmente
+ dependiente. Es decir,
+
+   \[ \exists r \in R,\ r \neq 0\ :\ rm = 0 \]
+
+ El conjunto de elementos de torsión se llama $Tor(M)$. Un módulo es *libre de torsión*
+ si $Tor(M) = 0$ y *de torsión* si $Tor(M)=M$.
+ #+end_definition
+
+ Un anillo conmutativo es libre de torsión sobre sí mismo si y sólo si es dominio de
+ integridad. Cuando esto ocurre, $Tor(M)$ es siempre submódulo de $M$. Submódulos o
+ sumas de módulos libres de tensión serán libres de torsión, y por todo esto, los módulos
+ libres sobre dominios de integridad serán libres de torsión.
+
+ #+begin_definition
+ *Cíclico*. Un módulo es *cíclico* cuando es generado por un elemento. Es decir,
+ cuando $M \cong R/I$ para algún ideal.
+ #+end_definition
+
+ La equivalencia se ve en este [[file:aluffi.org::*Un%20cociente%20por%20ideal%20es%20c%C3%ADclico.][ejercicio]]. Cuando en un dominio de integridad todos sus
+ módulos cíclicos son libres de torsión, es un cuerpo. Otra forma de pensar sobre un módulo
+ cíclico es como aquel que admite un epimorfismo:
+
+ \[ R \longrightarrow M \longrightarrow 0 \]
+
+**** 4.2. Módulos finitamente presentados y resoluciones libres
+ #+begin_definition
+ *Anulador.* El anulador de un módulo $M$ es:
+
+ \[Ann_R(M) = \{ r \in R\ |\ \forall m \in M, rm = 0 \}\]
+ #+end_definition
+
+ Es un ideal de $R$. Cuando $M$ es finitamente generado y $R$ es dominio de integridad,
+ $M$ es de torsión si y sólo si $Ann(M) \neq 0$. Puede verse en este [[file:aluffi.org::*M%20de%20torsi%C3%B3n%20si%20y%20s%C3%B3lo%20si%20el%20anulador%20es%20no%20nulo.][ejercicio]].
+
+ #+begin_definition
+ *Módulos finitamente generados y presentados*. Sabemos que todos los módulos admiten un
+ epimorfismo de la forma:
+
+ \[ R^{\oplus A} \longrightarrow M \longrightarrow 0\]
+
+ Cuando lo admiten con $A$ finito, se tiene $M$ *finitamente generado*. Un módulo se dice
+ *finitamente presentado* si hay una secuencia exacta de la forma:
+
+ \[R^n \overset{\phi}\longrightarrow R^m \longrightarrow M \longrightarrow 0\]
+ #+end_definition
+
+ Si $R$ es Noetheriano, todo módulo finitamente generado es finitamente presentado.
+
+ #+begin_definition
+ *Resolución*. Una resolución de $M$ mediante módulos libres finitamente generados es
+ un complejo exacto:
+
+ \[ \dots \rightarrow R^{m_3} \rightarrow R^{m_2} \rightarrow R^{m_1} \rightarrow R^{m_0} \rightarrow M \rightarrow 0 \]
+ #+end_definition
+
+ Aquí podemos entender que $R^{m_0}$ contiene los generadores, $R^{m_1}$ las relaciones
+ entre los generadores, $R^{m_2}$ las relaciones entre relaciones, y así sucesivamente.
+
+ Un dominio de integridad es *cuerpo si y sólo si todos sus módulos son finitamente generados*,
+ esto es equivalente a tener:
+
+ \[ 0 \longrightarrow R^m \longrightarrow M \longrightarrow 0 \]
+
+ para cualquier módulo.
+
+ Un dominio de integridad es *PID si todas las resoluciones como finitamente generado 
+ extienden a finitamente presentado*, de la forma:
+
+ \[0 \longrightarrow R^{m_1} \longrightarrow R^{m_0} \overset{\pi}\longrightarrow M \longrightarrow 0\]
+
+ esto equivale a pedir que $\ker(\pi)$ sea libre.
+
+**** 4.3. Leyendo una presentación
+ Hemos visto que podemos estudiar un módulo finitamente presentado por un
+ morfismo $\phi: R^n \longrightarrow R^m$, donde $M = coker(\phi)$. Esto quiere decir que 
+ podemos asignarle una matriz explícita.
+
+ #+begin_theorem
+ *Producto de módulos en matrices*. Sean $M,N$ módulos con matrices $A,B$.
+ Tenemos $M \oplus N$ con matriz:
+
+ \[\left(\begin{array}{c|c}
+ A & 0 \\ \hline 0 & B 
+ \end{array}\right)\]
+ #+end_theorem
+
+ Además nótese que las *matrices equivalentes* representan el mismo 
+ homeomorfismo, y por tanto el mismo módulo.
+
+ #+begin_theorem
+ *Transformaciones de matrices de módulos*. Una matriz representa el mismo módulo
+ tras las transformaciones de:
+  - Permutar filas o columnas
+  - Añadir filas o columnas linealmente dependientes
+  - Multiplicar filas o columnas por una unidad
+  - Quitar una fila y columna en la que sólo queda una unidad
+ #+end_theorem
+
+ Las primeras son consecuencia de la equivalencia. La última puede colocarse como
+ una parte de identidad en una matriz de la forma:
+
+ \[A = \left(\begin{array}{c|c}
+ u & 0 \\ \hline 0 & A' 
+ \end{array}\right)\]
+
+ Que no afecta al cokernel.
+
+** VIII. Vuelta al álgebra lineal
+*** 1. Preliminares
+**** 1.1. Funtores
+ #+begin_definition
+ *Funtor*. Un funtor covariante:
+
+ \[{\cal F} : C \longrightarrow D\]
+
+ Asigna a cada $A \in C$ un ${\cal F}(A) \in D$ y mapea los morfismos entre cada par de objetos:
+
+ \[Hom_C(A,B) \rightarrow Hom_D({\cal F}(A),{\cal F}(B))\]
+
+ Respetando la identidad y la composición de morfismos. 
+
+ Un *funtor contravariante* es un funtor desde la categoría opuesta:
+
+ \[{\cal F} : C^{op} \longrightarrow D\]
+ #+end_definition
+
+ Los funtores preservan los diagramas conmutativos. Llamamos *prehaz* a un funtor
+ contravariante $C \longrightarrow \mathtt{Set}$.
+
+ #+begin_definition
+ *Funtor aditivo*. Llamamos a un funtor 
+ ${\cal F}: R-\mathtt{Mod} \longrightarrow S-\mathtt{Mod}$ *aditivo* cuando
+ la función $Hom_{R}(A,B) \rightarrow Hom_{S}({\cal F}(A),{\cal F}(B))$ es homomorfismo de grupos.
+ #+end_definition
+
+**** 1.3. Equivalencia de categorías
+ #+begin_definition
+ *Funtores plenamente fieles*. Dada la función inducida:
+ \[Hom_C(A,B) \rightarrow Hom_D({\cal F}(A),{\cal F}(B))\]
+ Un funtor es *fiel* si es inyectiva, *pleno* si es sobreyectiva y *plenamente fiel*
+ si es biyectiva.
+ #+end_definition
+
+ #+begin_definition
+ *Equivalencia de categorías*. Un funtor es una equivalencia de categorías si 
+ es plenamente fiel y esencialmente sobreyectivo, es decir, para cada $Y \in D$,
+ existe un $X \in C$ tal que $F(X) \cong Y$.
+ #+end_definition
+
+**** 1.4. Límites y colímites
+
+ #+begin_definition
+ *Límite*. Para un funtor ${\cal F}: {\cal I} \longrightarrow C$, su límite es
+ un objeto $L \in C$ con morfismos $\lambda_I: L \longrightarrow {\cal F}(I)$ tales que
+
+ - Conmuta el siguiente diagrama para cualquier $\alpha : I \longrightarrow J$:
+
+ \[ \begin{tikzcd}[column sep=1.5em]
+  & L \arrow{dr}{\lambda_J} \arrow{dl}[swap]{\lambda_I} \\
+ {\cal F}(I) \arrow{rr}{{\cal F}(\alpha)} && {\cal F}(J)
+ \end{tikzcd} \]
+
+ - $L$ es final en este diagrama.
+ #+end_definition
+
+ Será esencialmente único y puede notarse por $\varprojlim {\cal F}$.
+
+ #+begin_theorem
+ *Límites sobre cadenas en R-Mod*. En R-Mod siempre existe un límite llamado \(\varprojlim {\cal A}_i\) sobre una
+ cadena de la forma:
+
+ \[ \begin{tikzcd}
+ & & A 
+ \arrow{lld}[swap]{\phi_5}
+ \arrow{ld}{\phi_4}
+ \arrow{d}{\phi_3}
+ \arrow{rd}[swap]{\phi_2}
+ \arrow{rrd}{\phi_1} 
+ & & \\
+ \dots \arrow{r}[swap]{\phi_{45}}  &
+ A_4 \arrow{r}[swap]{\phi_{34}} &
+ A_3 \arrow{r}[swap]{\phi_{23}} &
+ A_2 \arrow{r}[swap]{\phi_{12}} &
+ A_1
+ \end{tikzcd} \]
+ #+end_theorem
+
+ Este límite es el submódulo de las /secuencias coherentes/ en $\prod_i A_i$, es decir, de
+ aquellas tales que $a_i = \phi_{i,i+1}(a_{i+1})$; teniendo como morfismos $\phi_i$ las proyecciones
+ canónicas
+
+
+ #+begin_definition
+ *Colímite*. La noción dual de límite es el *colímite*, es decir, para
+ un funtor ${\cal F} : I \longrightarrow C$, su colímite es un objeto $L \in C$ con morfismos $\gamma_i : {\cal F}(I) \longrightarrow L$
+ tales que
+
+ - Conmuta el siguiente diagrama para cualquier $\alpha : I \longrightarrow J$:
+
+ \[ \begin{tikzcd}[column sep=1.5em]
+  & L  \\
+ {\cal F}(I) \arrow{ur}{\gamma_I} \arrow{rr}{{\cal F}(\alpha)} && {\cal F}(J) \arrow{ul}[swap]{\gamma_J}
+ \end{tikzcd} \]
+
+ - $L$ es inicial en este diagrama.
+ #+end_definition
+
+**** 1.5. Comparando funtores
+ #+begin_definition
+ *Transformación natural*. Una transformación natural entre dos funtores ${\cal F} \Longrightarrow {\cal G}$ 
+ consiste en morfismos $\upsilon_X : {\cal F}(X) \longrightarrow {\cal G}(X)$ tales que conmuta el diagrama:
+
+ \[ \begin{tikzcd}
+ {\cal F}(X) \arrow{r}{{\cal F}(\alpha)} \arrow{d}{\upsilon_X} & {\cal F}(Y) \arrow{d}{\upsilon_Y} \\
+ {\cal G}(X) \arrow{r}{{\cal G}(\alpha)} & {\cal G}(Y)
+ \end{tikzcd}
+ \]
+
+ para cualquier morfismo $\alpha$.
+
+ Llamamos *isomorfismo natural* a una transformación natural donde cada $\upsilon$
+ es un isomorfismo.
+ #+end_definition
+
+ #+begin_definition
+ *Funtor adjunto*. Llamamos ${F}$ y ${G}$ adjuntos si tenemos:
+
+ \[ Hom_C(X,GY) \cong Hom_D(FX,Y) \]
+
+ Isomorfismos naturales.
+ #+end_definition
+
+ Lo que nos da realmente un isormorfismo natural de $Hom_C(F-,-)$ con $Hom_D(-,G-)$,
+ entendidos como funtores. Llamamos aquí adjunto izquierdo a $F$ y adjunto derecho a $G$.
+ Tenemos más sobre funtores adjuntos en la lista de reproducción de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][The Catsters]].
+
+ #+begin_theorem
+ *Continuidad de adjuntos*. Los funtores adjuntos derechos son continuos, los adjuntos
+ izquierdos son cocontinuos. Es decir, para $I : {\cal I}\longrightarrow D$, $J : {\cal J}\longrightarrow C$
+
+ \[G(\varprojlim I) = \varprojlim (G \circ I)\]
+ \[F(\varinjlim J) = \varinjlim (F \circ J)\]
+ #+end_theorem
+
+ Siempre que existan los límites. La demostración de esto se puede hacer aplicando los
+ funtores en los diagramas conmutativos y usando las propiedades universales de los límites.
+
+ #+begin_definition
+ *Funtor exacto*. Un funtor exacto respeta la exactitud de las secuencias. Es decir,
+ siendo la siguiente secuencia exacta:
+
+ \[ 0 \longrightarrow A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C \longrightarrow 0\]
+
+ La siguiente secuencia será exacta:
+
+ \[ 0 \longrightarrow FA \overset{F\phi}\longrightarrow FB \overset{F\psi}\longrightarrow FC \longrightarrow 0\]
+ #+end_definition
+
+ En particular, lo llamamos /exacto a la izquierda/ si preserva la exactitud de:
+
+ \[ 0 \longrightarrow A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C\]
+
+ Y /exacto a la derecha/ si preserva la exactitud de:
+
+ \[ A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C \longrightarrow 0\]
+
+*** 2. Producto tensor y el funtor Tor
+**** 2.1. Aplicaciones bilineales
+ #+begin_definition
+ *Aplicación bilineal*. Una aplicación $\phi:M\times N \longrightarrow P$ es bilineal si
+ son lineales $\phi(\_,n)$ y $\phi(m,\_)$ para cualesquiera $m,n$.
+ #+end_definition
+
+ #+begin_definition
+ *Producto tensor*. $M \otimes_R N$ es el producto tensor de $M$ y $N$ como módulos de $R$
+ si cualquier aplicación bilineal factoriza de forma única a través de él:
+
+ \[ \begin{tikzcd}
+ M \times N \arrow{r}{\phi} \arrow{d}{\otimes} & P \\
+ M \otimes N \arrow{ru}[swap]{\exists! \overline\phi} &
+ \end{tikzcd} \]
+ #+end_definition
+
+ Usando universalidad podemos ver que $R \otimes N \cong N$ y que $M\otimes N \cong N\otimes M$. La construcción
+ explícita del producto tensor se hace sobre el módulo libre sobre $M \times N$ provocando un
+ cociente sobre los submódulos generados por:
+
+ \[(m,r_1n_1+r_2n_2) - r_1(m,n_1) - r_2(m,n_2)\]
+ \[(r_1m_1+r_2m_2,n) - r_1(m_1,n) - r_2(m_2,n)\]
+
+ Lo que nos permite actuar con ellos de forma bilineal. La demostración se basa en usar
+ la propiedad universal de la proyección sobre ese cociente.
+
+**** 2.2. Adjunción con Hom
+ Dado un módulo $N$ de $R$, tenemos un funtor covariante $\otimes_R N$, que será *adjunto izquierdo*
+ a $Hom_{R-mod}(N,-)$. Podemos observar simplemente que una aplicación bilineal, al currificarse,
+ determina una función que va de $M$ a $Hom(N,P)$, y que es lineal. Sabiendo esto, es trivial
+ que:
+
+ \[ Hom_R(M, Hom_R(N,P)) \cong Hom_R(M \otimes N, P)\]
+
+ La naturalidad y el hecho de que es un isomorfismo se comprueban fácilmente. El hecho de
+ que exista una adjunción nos dice además que $\otimes_R N$, o $N\otimes_R$ por la isomorfía anterior,
+ son cocontinuos.
+
+ #+begin_fact
+ Para cualesquiera \(R\)-módulos, se tiene:
+
+ \[(M_1 \oplus M_2) \otimes N \cong (M_1 \otimes N) \oplus (M_2 \otimes N)\]
+
+ \[N \otimes (M_1 \oplus M_2) \cong (N \otimes M_1) \oplus (N \otimes M_2)\]
+
+ \[(\oplus_\alpha M_\alpha) \otimes N \cong \oplus_\alpha (M_\alpha \otimes N)\]
+ #+end_fact
+
+ Por cocontinuidad.
+
+ #+begin_fact
+ Para cualesquiera dos conjuntos $A,B$, se tiene:
+
+ \[R^{\oplus A} \otimes R^{\oplus B} \cong R^{\oplus A \times B}\]
+ #+end_fact
+
+ Teniendo \(R^{\oplus n} \otimes R^{\oplus m} \cong R^{\oplus nm}\). De hecho, la base del espacio producto
+ tensor la forman los vectores puros que emparejan elementos de las 
+ bases de cada uno de los espacios.
+
+ #+begin_theorem
+ *Producto tensor de cocientes*. Dado un $N$ módulo de $R$, e $I$ ideal,
+ tenemos:
+
+ \[\frac{R}{I}\otimes N \cong \frac{N}{IN}\]
+
+ Y desde ahí, aplicando además el tercer teorema de isomorfía, tenemos:
+
+ \[\frac{R}{I} \otimes \frac{R}{J} \cong \frac{R}{I+J}\]
+ #+end_theorem
+
+ Esto se deduce de aplicar el funtor $\_ \otimes N$ a la secuencia exacta del 
+ ideal:
+
+ \[I \longrightarrow R \longrightarrow \frac{R}{I} \longrightarrow 0\]
+ 
+ \[I \otimes N \longrightarrow N \longrightarrow \frac{R}{I} \otimes N \longrightarrow 0\]
+
+ Desde donde se obtiene $IN$ como inclusión de $I\otimes N$ en $N$.
+
+**** 2.3. Exactitud y planitud
+ #+begin_definition
+ *Módulo plano*. El módulo $N$ es *plano* si el funtor $\_ \otimes N$ es un
+ funtor exacto.
+ #+end_definition
+
+ Un *módulo libre* será siempre plano.
+
+**** 2.4. Los funtores Tor
+ #+begin_definition
+ *El funtor Tor*. Lo que se aleja de la exactitud el funtor $\_ \otimes N$
+ es medido por el funtor $Tor_1(\_,N)$. De hecho, si tenemos una secuencia
+ exacta:
+
+ \[0\longrightarrow A \longrightarrow B \longrightarrow C \longrightarrow 0\]
+
+ Obtenemos aplicando el funtor $\otimes N$ esta otra secuencia:
+
+ \[Tor_1(C,N) \longrightarrow A \otimes N \longrightarrow B \otimes N \longrightarrow C \otimes N \longrightarrow 0\]
+
+ Y de hecho, esta secuencia podrá extenderse aún más con /funtores derivados/,
+ que se definen como:
+
+ \[Tor_i^R(M,N) = H_i(M_{\bullet} \otimes N)\]
+ #+end_definition
+
+ Aquí entendemos $M_\bullet \otimes N$ como el complejo que se obtiene tomando una resolución
+ libre de $M$:
+
+ \[\dots \longrightarrow R^{\otimes S_2} \longrightarrow R^{\otimes S_1} 
+ \longrightarrow R^{\otimes S_0} \longrightarrow M \longrightarrow 0}\]
+
+ Y retirando $M$ y tensando sobre $N$, para tener:
+
+ \[\dots \longrightarrow N^{\otimes S_2} \longrightarrow N^{\otimes S_1} 
+ \longrightarrow N^{\otimes S_0} \longrightarrow 0}\]
+
+ Todo esto se obtendrá de manera natural aplicando el lema de la serpiente a una secuencia
+ de resoluciones compatibles, algo que, si los módulos fueran PID y tuvieran una resolución
+ de grado 2, sería de la forma:
+
+ \[ \begin{tikzcd}
+    & 0 \dar & 0 \dar & 0 \dar &   \\
+ 0 \rar & R^{\oplus a_1}\rar\dar & R^{\oplus b_1} \rar\dar & R^{\oplus c_1} \rar\dar & 0 \\
+ 0 \rar & R^{\oplus a_0}\rar\dar & R^{\oplus b_0} \rar\dar & R^{\oplus c_0} \rar\dar & 0 \\
+ 0 \rar & A\rar\dar & B \rar\dar & C \rar\dar & 0 \\
+  & 0 & 0 & 0 & 
+ \end{tikzcd} \]
+
+ Tensando las dos filas superiores, que son libres, nos quedarían dos filas sobre las que aplicar
+ el lema de la serpiente y obtener los funtores derivados tal y como los hemos definido.
+
+*** 5. Funtor Hom y dualidad 
+**** 5.1. Adjunciones, de nuevo
+ Ya sabemos que el funtor $Hom(N,\_)$ es adjunto derecho a $\_\otimes N$, ahora
+ estudiamos el funtor $Hom(\_,N)$.
+
+ #+begin_theorem
+ *Adjunción de Hom contravariante*. El funtor $Hom(\_,N)$ es adjunto derecho
+ de su funtor opuesto, $Hom^{op}(\_,N)$.
+ #+end_theorem
+
+ Aplicando currificación tenemos trivialmente:
+
+ \[Hom(L,Hom(M,N)) \cong Hom(M,Hom(L,N))\]
+
+ Que, teniendo en cuenta que estamos usando la categoría opuesta, prueba la
+ adjunción.
+
+ #+begin_proposition
+ *Exactitud de Hom*. Ambos funtores $Hom$ son adjuntos derechos y por tanto,
+ exactos por la izquierda. Teniendo en cuenta que uno es contravariante, quiere
+ decir que:
+
+ \[ A \overset{}\longrightarrow B \overset{}\longrightarrow C \overset{}\longrightarrow 0\]
+
+ Lleva a:
+
+ \[ 0 \overset{}\longrightarrow Hom(C,N) \overset{}\longrightarrow 
+ Hom(B,N) \overset{}\longrightarrow Hom(A,N)\]
+ #+end_proposition
+
+**** 5.2. Módulos duales.
+ #+begin_definition
+ *Módulo dual*. El dual de un R-módulo $M$ es el módulo $M^{\vee} = Hom_R(M,R)$.
+ #+end_definition
+
+ Tenemos que $Hom(M,R^n) \cong M^{\vee} \otimes R^n$.
+
+*** 6. Módulos proyectivos e inyectivos, y el funtor Ext
+**** 6.1. Proyectividad e inyectividad
+ #+begin_definition
+ *Módulos proyectivos e inyectivos*. Un R-módulo es /proyectivo/ si $Hom(P,\_)$
+ es exacto; e /inyectivo/ si $Hom(\_,P)$ es exacto.
+ #+end_definition
+
+ Esto es equivalente a decir que cada epimorfismo $M \longrightarrow N$ lleva un
+ morfismo $P \longrightarrow N$ a $P \longrightarrow M$, en el caso de /proyectividad/:
+
+ \[ \begin{tikzcd}
+  & P \dlar[swap,dashed]{\exists p'} \dar[swap]{p} \drar{0} & \\
+ M \rar & N \rar & 0
+ \end{tikzcd} \]
+
+ O que cada monomorfismo $L \longrightarrow M$ lleva un morfismo $L \longrightarrow Q$ a
+ un monomorfismo $M \longrightarrow Q$, en el de la /inyectividad/:
+
+ \[ \begin{tikzcd}
+  & Q & \\
+ 0 \urar{0} \rar & N \rar \uar[swap]{q} & M \ular[dashed,swap]{\exists q'}
+ \end{tikzcd} \]
+
+ Además, esto es equivalente a decir que un módulo $P$ es /proyectivo/ si toda secuencia
+
+ \[ 0 \overset{}\longrightarrow L \overset{}\longrightarrow M \overset{}\longrightarrow P \overset{}\longrightarrow 0 \]
+
+ es escindida, y $Q$ es /inyectivo/ si toda secuencia:
+
+ \[ 0 \overset{}\longrightarrow Q \overset{}\longrightarrow M \overset{}\longrightarrow N \overset{}\longrightarrow 0 \]
+
+ es escindida.
+
+**** 6.2. Módulos proyectivos
+ #+begin_theorem
+ *Caracterización de proyectividad*. Un módulo es proyectivo ssi es el sumando
+ directo de un módulo libre.
+ #+end_theorem
+
+ Así, la suma directa de dos módulos proyectivos es proyectiva; el producto tensor
+ de dos módulos proyectivos es proyectivo, y todo módulo proyectivo es plano.
+
+**** 6.3. Módulos inyectivos
+ #+begin_theorem
+ *Caracterización de inyectividad*. Un módulo es *inyectivo* ssi toda aplicación
+ $f : I \longrightarrow Q$ extiende a una aplicación $\hat f : R \longrightarrow Q$, donde I es ideal de R.
+ #+end_theorem
+
+**** 6.4. El funtor Ext
+ Existirían dos formas naturales de definir *Ext*, que coinciden no trivialmente:
+
+ #+begin_definition
+ *Funtor Ext*. Dado $M$ con una resolución proyectiva:
+
+ \[ \dots \overset{}\longrightarrow P_1 \overset{}\longrightarrow P_0 \overset{}\longrightarrow M \overset{}\longrightarrow 0 \]
+
+ aplicamos el funtor contravariante $Hom(\_,N)$ eliminando $M$ para obtener:
+
+ \[ 0 \overset{}\longrightarrow Hom(P_0,N) \overset{}\longrightarrow Hom(P_1,N) \overset{}\longrightarrow Hom(P_2,N) \overset{}\longrightarrow \dots \]
+
+ Y tomamos la cohomología de este complejo $Hom(M_\bullet,N)$, dejando como definición:
+
+ \[Ext^i_R(M,N) = H^i(Hom(M_\bullet,N))\]
+ #+end_definition
+
+ #+begin_definition
+ *Funtor Ext*. Dado $N$ con una resolución inyectiva:
+
+ \[ 0 \overset{}\longrightarrow N \overset{}\longrightarrow Q_0 \overset{}\longrightarrow Q_1 \overset{}\longrightarrow \dots \]
+
+ aplicamos el funtor covariante $Hom(M,\_)$ eliminando $N$ para obtener:
+
+ \[ 0 \overset{}\longrightarrow 
+ Hom(M,Q_0) \overset{}\longrightarrow 
+ Hom(M,Q_1) \overset{}\longrightarrow 
+ Hom(M,Q_2) \overset{}\longrightarrow \dots \]
+
+ Y tomamos la cohomología de este complejo $Hom(M,N_\bullet)$, dejando como definición:
+
+ \[Ext^i_R(M,N) = H^i(Hom(M,N_\bullet))\]
+ #+end_definition
+
+** IX. Álgebra homológica
+*** Complejos y homología, de nuevo
+**** 3.1. Recordatorio de definiciones básicas
+ #+begin_definition
+ *Resolución*. La /resolución/ de un objeto $A$ es un complejo
+ exacto excepto en un punto, donde es isomorfa a $A$.
+ #+end_definition
+
+ Esto es equivalente a tener un complejo exacto de la forma:
+
+ \[ \dots \overset{}\longrightarrow 
+ M_2 \overset{}\longrightarrow 
+ M_1 \overset{}\longrightarrow 
+ M_0 \overset{}\longrightarrow 
+ A \longrightarrow
+ 0\]
+
+**** 3.2. La categoría de los complejos
+ #+begin_definition
+ *Categoría de complejos de cocadenas*. La categoría $C(A)$ tiene como objetos
+ los complejos de cocadenas en una categoría $A$; y como morfismos entre dos 
+ cocadenas,   $Hom(M^\bullet,N^\bullet)$, los diagramas conmutativos entre ellas. Por ejemplo:
+
+ \[ \begin{tikzcd}
+ \dots \rar & M^{i-1} \rar\dar{\alpha^{i-1}} & M^{i} \rar\dar{\alpha^{i}} &  M^{i+1} \rar\dar{\alpha^{i+1}} & \dots \\
+ \dots \rar & N^{i-1} \rar & N^{i} \rar & N^{i+1} \rar & \dots
+ \end{tikzcd} \]
+
+ representa el morfismo $\alpha_\bullet$.
+ #+end_definition
+
+ Esta es una categoría abeliana. De ella definiremos además dos variantes:
+
+ - $C^+(A)$, subcategoría plena de los complejos acotados por debajo.
+ - $C^-(A)$, subcategoría plena de los complejos acotados por arriba.
+
+* Rotman - An introduction to homological algebra
+** 5. Setting the stage
+*** 5.4. Sheaves
+**** Protosheaves
+ #+begin_definition
+ *Local homeomorphism*. Continuous map $p : E \longrightarrow X$ such that for each $e \in E$ there is
+ an open neighboorhood $S$ of $e$ such that $p|_S$ is an isomorphism.
+ #+end_definition
+ #+begin_definition
+ *Protosheaf*. Surjective local homeomorphism.
+ #+end_definition
+
+**** Etale-sheaves
+ #+begin_definition
+ *Etale-sheaf of abelian groups*. A *protosheaf* such that:
+
+ - The stalk $E_x$ is an abelian group.
+ - Inversion and adition are continuous.
+ #+end_definition
+
+ #+begin_definition
+ *Etale-map*. Given two etale-sheaves $E$ and $E'$, a map $\phi : E \longrightarrow E'$ such
+ that $p'\phi = p$, and each $\phi|_{E_x}$ is a homomorphism.
+ #+end_definition
+
+ Here, etale-sheaves of abelian groups over a topological space X form an
+ abelian category $\mathtt{Sh}_{et}(X,\mathtt{Ab})$.
+
+*** 5.5. Abelian categories
+
+**** Additive category
+ #+begin_definition
+ *Additive category*. ${\cal C}$ is additive if:
+
+ - $Hom(A,B)$ is an *abelian group*.
+ - *Distributivity* holds: $b \circ (f+g) = b\circ f + b \circ g$ and $(f+g)\circ a = f\circ a + g\circ a$.
+ - Has a *zero object*.
+ - Has finite *products* and *coproducts*.
+
+ A functor $T$ between two additive categories is additive if $T(f+g) = Tf+Tg$.
+ #+end_definition
+
+ #+begin_theorem
+ *Sums and products are the same*. Products and coproducts are isomorphic:
+
+ \[A \mathbin{\Pi} B \cong A \amalg B\]
+
+ So we call them *direct sums*, $A \oplus B$. And there are canonical morphisms:
+
+ \[ \begin{tikzcd}
+ & A \oplus B \dlar[bend right,swap]{\pi_A} \drar[bend left]{\pi_B} $ \\
+ A \urar[bend right,swap]{i_A} & & B \ular[bend left]{i_B}
+ \end{tikzcd} \]
+
+ Such that: \(i_A \circ \pi_A + i_b \circ \pi_B = id\) and \(\pi_B \circ i_A = \pi_A \circ i_B = 0\).
+ #+end_theorem
+
+**** Monomorphisms and epimorphisms
+ #+begin_definition
+ *Monomorphism*. A morphism $u$ such that:
+ \[u \circ f = u \circ g \quad \Rightarrow \quad f = g\]
+ #+end_definition
+ #+begin_definition
+ *Epimorphism*. A morphism $u$ such that:
+ \[f \circ u = g \circ u \quad \Rightarrow \quad f = g\]
+ #+end_definition
+
+ We have that $u : B \longrightarrow C$ is *monomorphism* iff the induced 
+ $u^\ast : Hom(A,B) \longrightarrow Hom(A,C)$ is injective. And $v : B \longrightarrow C$ is *epimorphism* 
+ iff the induced $v^* : Hom(B,D) \longrightarrow Hom(C,D)$ is surjective.
+
+**** Kernels and cokernels
+ #+begin_definition
+ *Kernel*. The kernel of $u$ is the equalizer of $u$ and $0$. In a diagram:
+
+ \[ \begin{tikzcd}
+ & C \dar[dashed] \arrow[ddr, bend left] \arrow[ddl,bend right] &\\
+ & \ker(u) \dlar[swap]{i} \drar{0} & \\
+ A \arrow[shift left]{rr}{u} \arrow[shift right]{rr}[swap]{0} & & B
+ \end{tikzcd} \]
+ #+end_definition
+ #+begin_definition
+ *Cokernel*. The cokernel of $u$ is the coequalizer of $u$ ans $0$. In a diagram
+
+ \[ \begin{tikzcd}
+ & C &\\
+ & \ker(u) \uar[dashed]   & \\
+ A \urar{0} \arrow[uur, bend left]
+ \arrow[shift left]{rr}{u} \arrow[shift right]{rr}[swap]{0} & & 
+ B \ular[swap]{\pi} \arrow[uul,bend right]
+ \end{tikzcd} \]
+ #+end_definition
+
+ #+begin_theorem
+ *Monomorphisms and kernels*.
+ - If $\ker(u)$ exists, $u$ is monomorphism iff $ker(u) = 0$.
+ - If $coker(v)$ exists, $v$ is epimorphism iff $coker(v) = 0$.
+ #+end_theorem
+**** Abelian category
+ #+begin_definition
+ *Abelian category*. ${\cal C}$ is abelian if
+
+ - Every morphism has *kernel* and *cokernel*.
+ - Every monomorphism is a *kernel*.
+ - Every epimorphism is a *cokernel*.
+ #+end_definition
+
+ Abelian categories are /self-dual/, if ${\cal A}$ is an abelian category, then
+ ${\cal A}^{op}$ is an abelian category.
+
+ #+begin_definition
+ *Image*. Given $f : A \longrightarrow B$ in an abelian category, its image is:
+
+ \[img(f) = ker(coker(f))\]
+ #+end_definition
+
