@@ -301,6 +301,22 @@ $\sigma : F/K \longrightarrow \overline{K}/K$. Por ser $F$ normal, $\sigma(F) = 
 Sea $\sigma : F/K \longrightarrow \overline{K}/K$, podemos extenderla finitamente hasta $E$ como $\overline\sigma$. Como $E/K$ es
 normal, $\overline\sigma(E) = E$; y así tengo un $\overline\sigma : E/K \longrightarrow E/K$, que me da $\sigma(F)=\overline\sigma(F) = F$.
 
+** Extensiones separables
+*** Extensiones separables
+Una *elemento separable* $u$ es aquel cumpliendo que $\operatorname{Irr}(u,K)$ no tiene raíces 
+múltiples. Una extensión $F/K$ es *separable* si todos sus elementos son separables
+sobre $K$.
+
+*** Torres separables
+Si $E \supset F \supset K$ es extensión separable, lo son $E/F$ y $F/K$.
+
+*** Grado separable
+El *grado separable* es cardinal del conjunto de homomorfismos de
+
+$F \longrightarrow \overline{K}$ sobre $K$.
+
+\[ [F : K]_s = \#\{\sigma : F \longrightarrow \overline{K} \text{ sobre } K\}\]
+
 * Teoría de Galois Finita
 ** Grupos de automorfismos
 *** Lema de Dedekind
