@@ -461,10 +461,10 @@ potencia de $\lambda$.
 
 *** Punto 3
 Siendo $\beta$ una raíz primitiva, genera el cuerpo y una base de $K$ sobre su cuerpo
-base debe estar formada por  
+base debe estar generada por $\beta$ y formada por  
 $\{1,\beta,\beta^2,\dots,\beta^{n-1}\}$; supongamos que el grado de $f$ fuera
-menor que $n$, entonces podría dividir:
+menor que $n$, entonces tendría una relación de dependencia lineal entre la base:
 
-\[\beta^n=q(\beta)f(\beta)+r(\beta) = r(\beta)\]
+\[ 0 = f(\beta) = a_0 +a_1\beta + \dots + a_{n-1}\beta^{n-1} \]
 
-Con $r$ de grado menor que $n$, llegando a contradicción.
+Lo que nos daría una contradicción.
