@@ -7,9 +7,6 @@
 #+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{amsthm}
 #+latex_header: \usepackage{tikz-cd}
-#+latex_header: \newtheorem{theorem}{Teorema}
-#+latex_header: \newtheorem{fact}{Proposición}
-#+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \setlength{\parindent}{0pt}
 
 * Teoría de categorías
@@ -54,8 +51,20 @@ Una adjunción es un isomorfismo natural:
 Natural sobre $X$ fijado cualquier $Y$ y natural sobre $Y$ fijado 
 cualquier $X$. Hay dos cuadrados de naturalidad.
 * Álgebra conmutativa
-** Ideales
-*** Operaciones de ideales en Z
+** Ideales.
+*** Operaciones de ideales en Z.
 \[n\mathbb{Z} + m\mathbb{Z} = gcd(n,m)\mathbb{Z}\]
 \[n\mathbb{Z} \cap m\mathbb{Z} = lcm(n,m)\mathbb{Z}\]
 \[(n\mathbb{Z})(m\mathbb{Z}) = nm\mathbb{Z}\]
+*** Anillo local.
+Aquel con un único ideal maximal.
+*** Cuerpo residual.
+Que sale de dividir un anillo local
+entre su único ideal maximal.
+*** Anillo reducido.
+Cuando $\operatorname{Nil}(R) = 0$. Los dominios de integridad son anillos reducidos y además,
+podemos reducir un anillo tomando  
+p$R/\operatorname{Nil}(R)$.
+*** Teorema de Krull.
+Sea $\alpha \cap S = \varnothing$, entonces existe un ideal $M \supset \alpha$ tal que $M \cap S = \varnothing$ y maximal respecto
+a esta condición. Además, $M$ es un ideal primo.
