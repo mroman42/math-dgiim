@@ -12,6 +12,8 @@
 #+latex_header: \newtheorem{fact}{Proposición}
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \newtheorem{proofs}{Demostración}
+#+latex_header: \DeclareMathOperator{\im}{Im}
+#+latex_header: \DeclareMathOperator{\coker}{coker}
 #+latex_header: \setlength{\parindent}{0pt}
 #+latex_header: \newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}
 #+latex_header: \newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}
