@@ -13,7 +13,8 @@
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \newtheorem{proofs}{Demostración}
 #+latex_header: \DeclareMathOperator{\im}{Im}
-#+latex_header: \DeclareMathOperator{\coker}{coker}
+#+latex_header: \DeclareMathOperator{\coker}{Coker}
+#+latex_header: \DeclareMathOperator{\spec}{Spec}
 #+latex_header: \setlength{\parindent}{0pt}
 #+latex_header: \newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}
 #+latex_header: \newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}
@@ -1571,7 +1572,71 @@ Y además, los ideales están en correspondencia biyectiva por $f_\ast$ y $f^{-1
 \{ \beta \mid \beta \subset \im(f)\}\]
 
 **** TODO Preservación de ideales primos y maximales
+*** Teorema de Krull
+**** Subconjunto multiplicativamente cerrado
+Es un subconjunto $S$ con:
+ - $1 \in S$
+ - $x,y\in S \Rightarrow xy \in S$
 
+**** Teorema de Krull
+#+begin_theorem
+Sea $\alpha \cap S = \varnothing$, entonces existe un ideal $M \supset \alpha$ tal que $M \cap S = \varnothing$ y maximal respecto
+a esta condición. Además, $M$ es un ideal primo.
+#+end_theorem
+
+**** Corolario al teorema de Krull
+Tomando $S=\{1\}$ tenemos que, dado un ideal, existe un ideal maximal que lo contiene.
+En particular, todo elemento no unidad está contenido en un ideal maximal.
+
+**** TODO Inclusión en ideales primos
+
+*** Anillos locales
+**** Definición
+Un anillo local es aquel con un único ideal maximal. A $R/M$ se le llama 
+*cuerpo residual*.
+**** TODO Caracterización
+*** Radicales
+**** Nilradical
+Sus elementos se llaman *nilpotentes*:
+
+\[\operatorname{Nil}(R) = \{x \in R \mid \exists n: x^n = 0\}\]
+
+**** Anillo reducido
+Cuando $\operatorname{Nil}(R) = 0$. Los dominios de integridad son anillos reducidos y además,
+podemos reducir un anillo tomando  
+p$R/\operatorname{Nil}(R)$
+
+**** Espectro
+\[\spec(R) = \{\pi\in R \mid \pi \text{ es un ideal primo}\}\]
+
+**** Radical de un ideal
+Se define como:
+
+\[\sqrt{\alpha} = \{x \in R \mid \exists n \geq 1 : x^n \in \alpha\}\]
+
+Tenemos que $\operatorname{Nil}(R/\alpha) = \sqrt{\alpha}/\alpha$. Cuando $\alpha = \sqrt{\alpha}$ decimos que es *ideal radical*.
+
+**** Radical de Jacobson
+\[{\cal J}(R) = \bigcap_{{\cal M} \text{ maximal}} {\cal M}\]
+
+Tenemos que $x \in {\cal J}(R)$ ssi $1-xy \in U(R)$ para cualquier $y$.
+
+*** Ideales residuales
+**** Definición
+Definimos el *ideal residual* (a veces llamado *cociente*) de dos ideales como:
+
+\[ (\alpha : \beta) = \{x\in R\mid x\beta \subset\alpha\}\]
+
+**** Anulador
+\[\operatorname{Ann}(\beta) = \{x \in R \mid x\beta = 0\} = (0 : \beta)\]
+
+*** TODO Ideales contraídos y extendidos
+*** Producto directo de anillos
+**** TODO Definición
+**** TODO Propiedad universal
+
+*** Teorema Chino del Resto
+** 2. Bases de Gröbner
 * Análisis Funcional
 ** 1. Espacios normados
 **** Norma
