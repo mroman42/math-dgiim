@@ -1101,6 +1101,7 @@ y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su natu
  \(Y^3 + pY + q\), tomando un cambio de variable desde la original
  \(X \mapsto - \frac{1}{3} b\). Esto se llama una cúbica deprimida.
 
+***** Método de Vieta
  El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
 
  \[w^3 + q - \frac{p^3}{27w^3} = 0\]
@@ -1120,8 +1121,10 @@ y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su natu
 
 **** Polinomios simétricos elementales
  #+begin_definition
- *Polinomios simétricos elementales*. De la forma:
+ *Polinomios simétricos elementales*. Son de la forma:
+
  \[e_i = \sum_{i_1 < \dots < i_i} X_i_1 X_i_2 \dots X_i_i\]
+
  #+end_definition
  #+begin_theorem
  *Teorema fundamental de los polinomios simétricos*. Los polinomios elementales
@@ -1505,26 +1508,70 @@ Consideramos la categoría de los anillos conmutativos, que consta de los anillo
 conmutativos como objetos y de los homomorfismos de anillos; respetando suma,
 producto y unidad; como morfismos.
 
-#+begin_theorem
-*Z es inicial*. El anillo $\mathbb{Z}$ es inicial en =CRing=.
-#+end_theorem
-#+begin_proofs
+**** Z es objeto inicial
+El anillo $\mathbb{Z}$ es inicial en =CRing=.
 El homomorfismo único queda unívocamente definido con $f(1) = 1$ y $f(n) = nf(1)$.
-#+end_proofs
+
+**** Subanillos
+*Subanillo*. Subconjunto cerrado para la suma y el producto conteniendo a 1.
+
+**** Monomorfismos y epimorfismos
+En =CRing= coinciden la inyectividad con ser monomorfismo y la sobreyectividad
+con ser epimorfismo.
 
 *** Ideales
-#+begin_definition
-*Subanillo*. Subconjunto cerrado para la suma y el producto conteniendo a 1.
-#+end_definition
-#+begin_definition
-*Ideal*. Subconjunto cerrado para la suma y el producto de cualquier elemento 
-desde $R$.
-#+end_definition
+**** Definición
+Un *ideal* es un subconjunto cerrado para la suma y el producto de cualquier 
+elemento desde $R$.
 
-#+begin_theorem
-*Retículo de ideales*. Los ideales forman un retículo con la suma y la 
-intersección.
-#+end_theorem
+**** Retículo de ideales
+Los ideales forman un retículo con la suma y la intersección.
+Dos ideales son *primos relativos* cuando suman el anillo.
+
+**** Generación de ideales
+Llamamos $(X)$ al *ideal generado* por $X$; el menor ideal que 
+contiene a $X$:
+
+\[ (X) = \bigcap_{X \subset \alpha \text{, ideal}} \alpha\]
+
+Lo llamamos *ideal finitamente generado* cuando $X$ es finito,
+cumpliéndose:
+
+\[ (X) = \left\{ \sum^{finita} r_ix_i \mid r_i \in R, x_i \in X\right\}\]
+
+E *ideal principal* cuando $X$ tiene un sólo elemento.
+
+**** Producto de ideales
+Se define para $\alpha, \beta$ ideales como:
+
+\[ \alpha\beta = \left\{ xy \mid x\in\alpha, y\in\beta \right\}\]
+
+**** TODO Ideales primos relativos
+
+*** Anillo cociente
+**** Definición
+Sea $R$ anillo y $\alpha \subset R$ ideal, tomamos la relación de equivalencia
+$x \sim y \Leftrightarrow x-y \in \alpha$, para obtener:
+
+\[ R/\alpha = \{x+\alpha \mid x\in R\}\]
+
+**** Ideales del anillo cociente
+Los ideales del anillo cociente sobre $\alpha$ están en correspondencia biyectiva
+con los ideales que lo contienen, $\beta \supset \alpha$. Son siempre de la forma $\beta/\alpha$.
+
+**** Primer Teorema de Isomorfía
+Para cualquier homomorfismo de anillos $f$:
+
+\[ R/\ker(f) \cong \im(f)\]
+
+Y además, los ideales están en correspondencia biyectiva por $f_\ast$ y $f^{-1}$:
+
+\[ \{ \alpha \mid \ker(f)\subset\alpha \} 
+\longleftrightarrow 
+\{ \beta \mid \beta \subset \im(f)\}\]
+
+**** TODO Preservación de ideales primos y maximales
+
 * Análisis Funcional
 ** 1. Espacios normados
 **** Norma
@@ -1948,7 +1995,6 @@ intersección.
  - Tenemos $f_\theta(x)$ derivable respecto a $\theta$ para todo $x\in\chi$ con:
 
  \[ \int_\chi \frac{d f_\theta(x)}{d\theta} dx = \frac{d}{d\theta} \int_\chi f_\theta(x) dx = 0, \quad \forall \theta\in\Theta\]
-
 
 * Topología II
 ** 1. El grupo fundamental
