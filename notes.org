@@ -2227,9 +2227,19 @@ $X = U \cup V$ y $U\cap V$ son arcoconexos. Existe un isomorfismo:
 
 donde se amalgama usando $i_\ast$, $j_\ast$, homomorfismos dados por las inclusiones.
 
-**** TODO Seifert-Van Kampen para intersección simplemente conexa
-**** TODO Seifert-Van Kampen para abierto simplemente conexo
-*** Aplicaciones
+**** Seifert-Van Kampen para intersección simplemente conexa
+En las condiciones del teorema, con $U\cap V$ simplemente conexo, se tiene:
+
+\[\Pi(X,x) \cong \Pi(U,x)\ast\Pi(V,x)\]
+
+**** Seifert-Van Kampen para abierto simplemente conexo
+En las condiciones del teorema, con $V$ simplemente conexo, se tiene:
+
+\[\Pi(X,x) \cong \Pi(U,x)/N\]
+
+Con $N$ es el subgrupo normal generado por $i_\ast(\Pi(U\cap V,x))$.
+
+*** Extra: Aplicaciones
 **** Teorema fundamental del álgebra
  #+begin_theorem
  *Teorema fundamental del álgebra*. Todo polinomio con coeficientes
@@ -2270,3 +2280,35 @@ donde se amalgama usando $i_\ast$, $j_\ast$, homomorfismos dados por las inclusi
 
  Que es homotopía entre $e^{2\pi int}$ y $f_R(t)$. Luego $deg(f_R) = n$.
  #+end_proof
+*** Extra: Teoría de categorías
+**** El grupo fundamental como funtor
+El grupo fundamental $\Pi$ es un funtor entre las categorías:
+
+ - =Top.= de los espacios topológicos con un punto base, usando como morfismos
+   las funciones continuas respetando punto base.
+ - =Grp= de los grupos con los homomorfismos de grupos.
+
+Estamos llamando $f_\ast$ a los morfismos creados por el funtor, $\Pi(f)$.
+
+**** Producto categórico
+El producto de dos espacios con un punto base es, usando la topología producto:
+
+\[(X,x) \times (Y,y) \cong (X\times Y, (x,y))\]
+
+El funtor lo lleva al producto de grupos.
+
+**** Coproducto categórico
+El coproducto de dos espacios con un punto es la suma directa de los espacios
+identificando el punto. Intuitivamente, consiste pegar los dos espacios por ese
+punto.
+
+\[ X \wedge Y \cong (X \amalg Y)/(x\sim y)\]
+
+Cuando además tenemos espacios localmente contractibles, el coproducto se lleva
+al coproducto de grupos, esto es, al producto libre:
+
+\[\Pi(X \wedge Y) \cong \Pi(X) \ast \Pi(Y)\]
+
+Nótese que esto es un caso particular de Seifert-Van Kampen.
+
+**** TODO Seifert-Van Kampen
