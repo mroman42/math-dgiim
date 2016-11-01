@@ -2075,53 +2075,129 @@ $\lambda : R \longrightarrow S$. Nótese que puedo pasar de una a otra definici�
 
 * Topología II
 ** 1. El grupo fundamental
+*** 1. Espacios conexos por arcos
 **** Arcoconexión
- #+begin_definition
- *Arcoconexión*. Las curvas definen relación de equivalencia cuando unen dos puntos.
+*Arcoconexión*. Las curvas definen relación de equivalencia cuando unen dos puntos.
 
-  \[\exists f\ \text{arco}: f(0) = x, f(1) = y \Rightarrow x \sim y\]
+ \[\exists f\ \text{arco}: f(0) = x, f(1) = y \Rightarrow x \sim y\]
 
- Cada componente de esta partición es una *componente arcoconexa*. Un espacio es
- *arcoconexo* cuando tiene una sola componente.
- #+end_definition
- #+begin_proof
- Las propiedades de la relación de equivalencia se cumplen por:
+Cada componente de esta partición es una *componente arcoconexa*. Un espacio es
+*arcoconexo* cuando tiene una sola componente.
 
-  - 1. *Reflexividad*. Arco constante, $f(t) = x$, lleva a $x \sim x$.
-  - 2. *Simetría*. Arco inverso, $\widetilde f(t) = f(1-t)$, lleva a $x\sim y \Rightarrow y \sim x$.
-  - 3. *Transitividad*. Composición de arcos $f \ast g$.
+Las propiedades de la relación de equivalencia se cumplen por:
 
- La composición de arcos se define como:
+ - 1. *Reflexividad*. Arco constante, $f(t) = x$, lleva a $x \sim x$.
+ - 2. *Simetría*. Arco inverso, $\widetilde f(t) = f(1-t)$, lleva a $x\sim y \Rightarrow y \sim x$.
+ - 3. *Transitividad*. Composición de arcos $f \ast g$.
 
- \[f \ast g = \twopartdef{f(2t)}{t \leq \frac{1}{2}}{g(2t-1)}{t \geq \frac{1}{2}}\]
- #+end_proof
+La composición de arcos se define como:
 
- #+begin_theorem
- *Arcoconexión implica conexión*. Pero no en sentido contrario.
- #+end_theorem
- #+begin_proofs
- Dado un punto en un espacio arcoconexo, los caminos a los demás serán conexos y
- compartirán un punto, luego su unión será conexa.
+\[f \ast g = \twopartdef{f(2t)}{t \leq \frac{1}{2}}{g(2t-1)}{t \geq \frac{1}{2}}\]
 
- Sin embargo, hay un contraejemplo de espacio conexo no arcoconexo en el
- [[https://es.wikipedia.org/wiki/Seno_del_top%25C3%25B3logo][seno del topólogo]].
- #+end_proofs
+**** Arcoconexión y conexión
+#+begin_theorem
+Un espacio *arcoconexo es conexo*. Un espacio conexo donde todo punto posee un
+entorno arcoconexo es arcoconexo.
+#+end_theorem
+#+begin_proofs
+Dado un punto en un espacio arcoconexo, los caminos a los demás serán conexos y
+compartirán un punto, luego su unión será conexa.
 
-**** Lazos y homotopía
- #+begin_definition
- *Lazo alrededor de un punto*. Un arco con $f(0) = f(1) = x$ es un lazo alrededor de $x$.
- #+end_definition
- #+begin_definition
- *Lazos homotópicos*. Tenemos $f \sim g$ cuando $\exists H: [0,1] \longrightarrow [0,1] \longrightarrow X$,
- cumpliendo
+Sin embargo, hay un contraejemplo de espacio conexo no arcoconexo en el
+[[https://es.wikipedia.org/wiki/Seno_del_top%25C3%25B3logo][seno del topólogo]].
+#+end_proofs
+
+*** 2. Grupo fundamental
+**** Homotopía de lazos
+Un arco con $f(0) = f(1) = x$ es un *lazo* alrededor de $x$. Dos lazos son *homotópicos*
+y escribimos $f \sim g$ cuando $\exists H: [0,1] \times [0,1] \longrightarrow X$, cumpliendo:
 
   - $H$ continua.
-  - $H(0) = f$
-  - $H(1) = g$
-  - $H(s,0) = H(s,1) = x_0$
+  - $H(t,0) = f(t)$
+  - $H(t,1) = g(t)$
+  - $H(0,s) = H(1,s) = x_0$
 
- En ocasiones usaremos =(flip . uncurry) H=.
- #+end_definition
+lo escribimos como $H : f \simeq g$.
+
+**** Clases de homotopía
+La homotopía es una relación de equivalencia:
+
+ - *Reflexividad*. Definiendo $H(t,s) = f(t)$, tenemos $H : f \simeq f$.
+ - *Simetría*. Dada $G : g \simeq f$, definimos $H(t,s) = G(t,1-s)$, tenemos $H : f \simeq g$.
+ - *Transitividad*. Dadas $F : f \simeq g$, $G : g \simeq h$, definimos
+
+    \[H(t,s) = \twopartdef{F(t,2s)}{0\leq s \leq 1/2}{G(t,2s-1)}{1/2 \leq s \leq 1}\]
+
+    Y tenemos $H : f \simeq h$.
+
+Llamamos *clase de homotopía* $[f]$ a la clase de equivalencia de un lazo $f$.
+
+**** Producto de clases de homotopía
+El producto de lazos está bien definido entre las clases de homotopía. Sean 
+$H : f_1 \simeq f_2$ y $G: g_1 \simeq g_2$; entonces definimos $F: f_1 \ast g_1 \simeq f_2 \ast g_2$ como:
+
+\[ F(t,s) = \twopartdef{H(2t,s)}{0\leq t \leq 1/2}{G(2t-1,s)}{1/2 \leq t \leq 1}\]
+
+**** El grupo fundamental
+Comprobamos que las clases de homotopía sobre un $x$ forman un grupo con el producto:
+
+\[\Pi(X,x) = \{[f] \mid f \text{ lazo alrededor de } x\}\]
+
+Para la *asociatividad*, definimos $H : (f \ast g) \ast h \simeq f \ast (g \ast h)$:
+
+\[H(t,s) = \threepartdef
+{f\left(t \frac{4}{1+s}\right)}{0\leq t\leq \frac{1+s}{4}}
+{g\left(4t-1-s\right)}{\frac{1+s}{4}\leq t \leq \frac{2+s}{4}}
+{h\left(t\frac{4}{2-s}-1\right)}{\frac{2+s}{4}\leq t\leq 1}\]
+
+Como *elemento neutro* tomaremos el lazo constante $f_x(t)=x$. Y definimos  
+$H : f_x \ast f \simeq f$:
+
+\[ H(t,s) = \twopartdef
+{f(t\frac{2t}{1+s})}{0\leq t\leq \frac{1+s}{2}}
+{x}{\frac{1+s}{2}\leq t \leq 1}\]
+
+Como *elemento inverso* tendremos el lazo $\hat{f}(t) = f(1-t)$. Y definimos 
+$H : f \ast \hat{f} \simeq f$:
+
+\[H(t,s) = \threepartdef
+{f(2t)}{0\leq t\leq\frac{1-s}{2}}
+{f(1-s)}{\frac{1-s}{2}\leq t\leq \frac{1+s}{2}}
+{\hat{f}(2t-1)}{\frac{1+s}{2}\leq t\leq 1}\]
+
+**** El grupo fundamental como funtor
+Sea $\Phi : (X,x) \longrightarrow (Y,y)$ /continua/, entonces tenemos una aplicación bien definida por:
+
+\[\Phi_\ast ([f]) = [\Phi \circ f] \]
+
+Que es un homomorfismo de grupos. Podemos comprobar fácilmente que $Id_\ast = Id$ y que
+$(\Psi\circ\Phi)_\ast = \Psi_\ast\circ\Phi_\ast$. Es decir, el grupo fundamental es un funtor de la categoría de los
+espacios topológicos punteados a la de los grupos.
+
+**** Homotopía de arcos
+Decimos que dos arcos cumpliendo $f(0)=g(0)$, $f(1)=g(1)$ son homotópicos cuando existe
+una función continua con características similares a la dada para lazos.
+
+**** Isomorfismo entre grupos fundamentales en distintos puntos
+Sea un arco $\gamma : [0,1] \longrightarrow X$ cumpliendo $\gamma(0) = x$, $\gamma(1)=y$. Entonces se tiene un 
+isomorfismo:
+
+\[ F_\gamma : \Pi(X,x) \longrightarrow \Pi(X,y)\]
+\[ F_\gamma([f]) = [\hat\gamma\ast(f\ast\gamma)]\]
+
+Por tanto, el grupo fundamental es el mismo en cualquier punto de la componente
+arcoconexa.
+
+**** El grupo fundamental del producto
+Dado el producto de dos espacios topológicos $X\times Y$ con proyecciones $\pi_1,\pi_2$. Tenemos
+un isomorfismo entre grupos fundamentales:
+
+\[F: \Pi(X\times Y, (x,y)) \longrightarrow \Pi(X,x)\times\Pi(Y,y)\]
+\[F([f]) = (\pi_1([f]), \pi_2([f]))\]
+
+*** TODO 3. El grupo fundamental del círculo
+*** TODO 4. Tipo de homotopía. Equivalencias homotópicas
+*** TODO 5. Teorema de Seifert-Van Kampen
 *** Aplicaciones
 **** Teorema fundamental del álgebra
  #+begin_theorem
