@@ -1638,6 +1638,17 @@ Definimos el *ideal residual* (a veces llamado *cociente*) de dos ideales como:
 
 *** Teorema Chino del Resto
 ** 2. Bases de Gröbner
+*** R-álgebras
+Una *R-álgebra*, $S$ es un anillo con estructura de R-módulo, tal que:
+
+\[\forall r\in R, x,y\in S:\; (rx)y = r(xy) = x(ry)\]
+
+Equivalentemente es un anillo $S$ junto a un *homomorfismo de estructura* 
+$\lambda : R \longrightarrow S$. Nótese que puedo pasar de una a otra definición tomando $\lambda(r) = r1$.
+
+*** TODO Anillos de polinomios
+*** TODO Órdenes monomiales
+
 * Análisis Funcional
 ** 1. Espacios normados
 **** Norma
