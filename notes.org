@@ -2197,7 +2197,38 @@ un isomorfismo entre grupos fundamentales:
 
 *** TODO 3. El grupo fundamental del círculo
 *** TODO 4. Tipo de homotopía. Equivalencias homotópicas
-*** TODO 5. Teorema de Seifert-Van Kampen
+*** 5. Teorema de Seifert-Van Kampen
+**** Producto libre de grupos
+Si definimos el *producto libre* de grupos en términos de palabras; podemos llamar
+*grupo libre sobre un conjunto de generadores* al producto libre del grupo libre
+generado por cada uno de ellos.
+
+**** Subgrupo normal generado
+El *subgrupo normal generado* por un subgrupo $B$ o por un conjunto de generadores
+es:
+
+\[ \{g \cdot b \cdot g^{-1} \mid g\in G, b\in B\}\]
+
+**** Producto libre amalgamado
+Sean tres grupos $A$, $G_1$, $G_2$ y dos proyecciones de $A$ en ellos, llamadas 
+$\Phi_1,\Phi_2$. Definimos el *producto libre amalgamado* como:
+
+\[G_1 \ast_{A} G_2 =
+\frac{G_1 \cdot G_2}{N} = \frac{G_1 \cdot G_2}{\{\Phi_1(a)=\Phi_2(a)\}}\]
+
+Donde estamos dividiendo por $N$, el subgrupo normal generado por 
+$\{\Phi_1(a)\Phi_2(a)^{-1} \mid a \in A\}$. Es decir, imponemos la relación $\Phi_1(a) = \Phi_2(a)$.
+
+**** Teorema de Seifert-Van Kampen
+Sea $X$ espacio topológico con $U,V$ abiertos arcoconexos no vacíos de $X$ tales que
+$X = U \cup V$ y $U\cap V$ son arcoconexos. Existe un isomorfismo:
+
+\[\Theta : \Pi(U,x) \ast_{\Pi(U\cap V,x)} \Pi(V,x) \longrightarrow \Pi(X,x)\]
+
+donde se amalgama usando $i_\ast$, $j_\ast$, homomorfismos dados por las inclusiones.
+
+**** TODO Seifert-Van Kampen para intersección simplemente conexa
+**** TODO Seifert-Van Kampen para abierto simplemente conexo
 *** Aplicaciones
 **** Teorema fundamental del álgebra
  #+begin_theorem
