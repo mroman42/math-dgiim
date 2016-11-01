@@ -50,21 +50,46 @@ Una adjunción es un isomorfismo natural:
 
 Natural sobre $X$ fijado cualquier $Y$ y natural sobre $Y$ fijado 
 cualquier $X$. Hay dos cuadrados de naturalidad.
+** Límites.
+*** Definición de kernel.
+*Kernel*. The kernel of $u$ is the equalizer of $u$ and $0$. In a diagram:
+
+\[ \begin{tikzcd}
+& C \dar[dashed] \arrow[ddr, bend left] \arrow[ddl,bend right] &\\
+& \ker(u) \dlar[swap]{i} \drar{0} & \\
+A \arrow[shift left]{rr}{u} \arrow[shift right]{rr}[swap]{0} & & B
+\end{tikzcd} \]
+*** Definición de cokernel.
+*Cokernel*. The cokernel of $u$ is the coequalizer of $u$ ans $0$. In a diagram:
+
+\[ \begin{tikzcd}
+& C &\\
+& \operatorname{coker}(u) \uar[dashed]   & \\
+A \urar{0} \arrow[uur, bend left]
+\arrow[shift left]{rr}{u} \arrow[shift right]{rr}[swap]{0} & & 
+B \ular[swap]{\pi} \arrow[uul,bend right]
+\end{tikzcd} \]
+
+** Haces.
+*** Definición de prehaz.
+Funtor contravariante desde la categoría que forman los abiertos de un
+espacio topológico con las inclusiones.
+*** Definición de haz.
+Es un *prehaz* que satisface los axiomas de *pegado* y *unicidad*
 * Álgebra conmutativa
 ** Ideales.
-*** Operaciones de ideales en Z.
+*** Operaciones de los ideales de Z.
 \[n\mathbb{Z} + m\mathbb{Z} = gcd(n,m)\mathbb{Z}\]
 \[n\mathbb{Z} \cap m\mathbb{Z} = lcm(n,m)\mathbb{Z}\]
 \[(n\mathbb{Z})(m\mathbb{Z}) = nm\mathbb{Z}\]
-*** Anillo local.
+*** Definición de anillo local.
 Aquel con un único ideal maximal.
-*** Cuerpo residual.
+*** Crear un cuerpo residual dado un anillo local.
 Que sale de dividir un anillo local
 entre su único ideal maximal.
-*** Anillo reducido.
+*** Definición de anillo reducido.
 Cuando $\operatorname{Nil}(R) = 0$. Los dominios de integridad son anillos reducidos y además,
-podemos reducir un anillo tomando  
-p$R/\operatorname{Nil}(R)$.
+podemos reducir un anillo tomando $R/\operatorname{Nil}(R)$.
 *** Teorema de Krull.
 Sea $\alpha \cap S = \varnothing$, entonces existe un ideal $M \supset \alpha$ tal que $M \cap S = \varnothing$ y maximal respecto
 a esta condición. Además, $M$ es un ideal primo.
