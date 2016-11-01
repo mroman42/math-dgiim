@@ -23,18 +23,20 @@
 ** Sheaves and coho
 *** Preseaves and sheaves
 **** Preseaf definition
- #+begin_definition
- *Preseaf*. A preseaf ${\cal F}$ of abelian groups on a topological space $X$ consists of:
+#+begin_definition
+*Preseaf*. A preseaf ${\cal F}$ of abelian groups on a topological space $X$ consists of:
 
- - For each open set $U$, an abelian group ${\cal F}(U)$, whose elements are called *sections*.
- - For each inclusion $V \subseteq U$, a *restriction map*, homomorphism of the form:
- \[p_{U,V} : {\cal F}(U) \longrightarrow {\cal F}(V)\]
+- For each open set $U$, an abelian group ${\cal F}(U)$, whose elements are called *sections*.
+- For each inclusion $V \subseteq U$, a *restriction map*, homomorphism of the form:
+  
+ 
+\[p_{U,V} : {\cal F}(U) \longrightarrow {\cal F}(V)\]
 
- such that $p_{U,W} = p_{V,W} \circ p_{U,V}$.
- #+end_definition
+such that $p_{U,W} = p_{V,W} \circ p_{U,V}$.
+#+end_definition
 
- We can write the restriction of an element $u \in U$ to a set $V \subseteq U$ as
- $u|_V = p_{U,V}(u)$.
+We can write the restriction of an element $u \in U$ to a set $V \subseteq U$ as
+$u|_V = p_{U,V}(u)$.
 
 **** Sheaf definition
  #+begin_definition
@@ -1007,7 +1009,6 @@ y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su natu
  abelian category $\mathtt{Sh}_{et}(X,\mathtt{Ab})$.
 
 *** 5.5. Abelian categories
-
 **** Additive category
  #+begin_definition
  *Additive category*. ${\cal C}$ is additive if:
