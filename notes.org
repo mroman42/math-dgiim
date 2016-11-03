@@ -5,8 +5,8 @@
 #+LANGUAGE: es
 
 #+LaTeX: \setcounter{secnumdepth}{0}
-#+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{tikz-cd}
 #+latex_header: \newtheorem{theorem}{Teorema}
 #+latex_header: \newtheorem{fact}{Proposición}
@@ -1651,112 +1651,100 @@ $\lambda : R \longrightarrow S$. Nótese que puedo pasar de una a otra definici�
 
 * Análisis Funcional
 ** 1. Espacios normados
-**** Norma
- #+begin_definition
- *Norma*. Función $\|\_\| : X \longrightarrow \mathbb{R}$ verficando:
+*** Espacios normados
+**** Norma y seminorma
+*Norma*. Función $\|\_\| : X \longrightarrow \mathbb{R}$ verficando:
 
  - $\|x\| = 0 \Leftrightarrow x = 0$
-
  - $\|ax\| = |a| \|x\|$
-
  - $\|x+y\| \leq \|x\|+\|y\|$
- #+end_definition
 
- Desde la norma se puede definir una distancia asociada $d(x,y) = \|x-y\|$, que hace a $X$ un 
- /espacio métrico/. Además, será /espacio topológico/ desde esa distancia con abiertos:
+Cuando $\|x\| = 0$ no implica $x = 0$, se llama *seminorma*.
 
- \[\tau = \{G \subset X \;|\; \forall a \in G: \exists r > : B(x,r) \subset G\}\]
+**** Topología de la norma
+Desde la norma se puede definir una *distancia* asociada $d(x,y) = \|x-y\|$, 
+que hace a $X$ un *espacio métrico*. Además, será *espacio topológico*
+desde esa distancia con abiertos:
 
- #+begin_theorem
- *Todo espacio vectorial es normado*. Cualquier espacio vectorial sobre $\mathbb{R}$ o
- $\mathbb{C}$ admite una norma.
- #+end_theorem
- #+begin_proofs
- Dada una base \(\{e_i\}\) del espacio, podemos escribir $x = \sum \alpha_i e_i$ y definirla como:
+\[\tau = \{G \subset X \;|\; \forall a \in G: \exists r > : B(x,r) \subset G\}\]
+
+Dos normas que generan el mismo espacio topológico son *equivalentes*.
+
+**** Espacios vectoriales topológicos
+Cualquier espacio vectorial sobre $\mathbb{R}$ o    $\mathbb{C}$ admite una norma.
+Dada una base \(\{e_i\}\) del espacio, podemos escribir $x = \sum \alpha_i e_i$ y definirla como:
 
  \[ \|x\| = \sum |\alpha_i|\]
- #+end_proofs
 
-**** Espacios de Banach
- #+begin_definition
- *Espacio de Banach*. Espacio normado completo.
- #+end_definition
-
- #+begin_theorem
- *La norma es continua*. La norma, la suma y el producto por
- escalar son continuas.
- #+end_theorem
- #+begin_proofs
- Usando la desigualdad triangular vemos que la norma es lispchitziana 
- y por tanto, continua:
+**** Continuidad de la norma, suma y producto
+La norma es continua en su espacio por ser lipschitziana:
 
  \[ |\|x\| -  \|y\|| \leq \|x-y\| \]
 
- Usando que la convergencia en el producto es la convergencia por coordenadas:
+La suma y el producto por escalares son continuos, usando que la convergencia 
+en el producto equivale a la convergencia por coordenadas.
 
- \[\|(x_n+y_n) - (x+y)\| \leq \|x-x_n\| + \|y-y_n\| \longrightarrow 0\]
- \[\|ax_n - ax\| = |a| \|x_n - x\| \longrightarrow 0\] 
- #+end_proofs
+Como corolario, lo son las *homotecias* y *translaciones*, todas las bolas cerradas
+son homeomorfas a la bola unidad.
 
- Como corolario, lo son las homotecias y translaciones, todas las bolas cerradas
- son homeomorfas a la bola unidad.
+**** Conexión de espacios normados
+Todo espacio normado es *arcoconexo* y *localmente arcoconexo*; por tanto *conexo*.
+De hecho, la bola unidad es *convexa*.
 
- #+begin_theorem
- *Normado es conexo*.
- #+end_theorem
- #+begin_proofs
- La bola unidad es arcoconexa con la curva recta entre dos puntos, que
- queda dentro de la bola:
+**** Espacios de Banach
+Un *espacio de Banach* es un espacio normado completo.
 
- \[ \|tx - (1-t)y\| \leq t\|x\| + (1-t)\|y\| \leq 1 \]
+*** Equivalencia de normas y desigualdades
+**** Equivalencia proporcional
+Dos normas   D$\|.\|$ y $\|.\|_\ast$ son equivalentes cuando:
 
- Así, el espacio es localmente arcoconexo y por tanto conexo.
- #+end_proofs
-**** Equivalencia de normas
- #+begin_theorem
- *Equivalencia proporcional*. $\|.\|$ y $\|.\|_\ast$ son equivalentes si:
+\[\exists m,M \in \mathbb{R^+}:\; m \|x\| \leq \|x\|_\ast \leq M \|x\|\]
 
- \[\exists m,M \in \mathbb{R^+}:\; m \|x\| \leq \|x\|_\ast \leq M \|x\|\]
- #+end_theorem
+Como se demuestra por mutua inclusión de bolas.
 
- #+begin_theorem
- *Desigualdad de Young*. Para $p>1$ con $\frac{1}{p}+\frac{1}{q} = 1$ se tiene:
+**** Desigualdad de Young
+Para $p>1$ con $\frac{1}{p}+\frac{1}{q} = 1$ se tiene:
 
- \[ab \leq \frac{a^p}{p}+\frac{b^q}{q}\]
- #+end_theorem
+\[ab \leq \frac{a^p}{p}+\frac{b^q}{q}\]
 
- #+begin_theorem
- *Desigualdades de Hölder y Minkowski*. Para 
- $a_1\dots a_nb_1\dots b_n \in \mathbb{R}^+_0$ se tiene:
+Se demuestra aplicando desigualdad de Taylor al logaritmo con pesos $1/p$ y $1/q$.
 
- - *Desigualdad de Hölder*. Con $\frac{1}{p} +\frac{1}{q} = 1$ se verifica:
+**** Desigualdad de Hölder
+Para $a_1\dots a_nb_1\dots b_n \in \mathbb{R}^+_0$ con $\frac{1}{p} +\frac{1}{q} = 1$ se verifica:
 
- \[\sum a_kb_k \leq \left(\sum a_k^p\right)^{1/p}\left(\sum b_k^q\right)^{1/q}\]
+\[\sum a_kb_k \leq \left(\sum a_k^p\right)^{1/p}\left(\sum b_k^q\right)^{1/q}\]
 
- - *Desigualdad de Minkowski*. La desigualdad triangular para discretos:
+Se demuestra aplicando Young a la división de ambos lados. Cuidando el caso $0$.
 
- \[\left(\sum (a_k+b_k)^p \right)^{1/p} = \left(\sum a_k^p \right)^{1/p} + \left(\sum b_k^p \right)^{1/p} \]
- #+end_theorem
+**** Desigualdad de Minkowski
+Para $a_1\dots a_nb_1\dots b_n \in \mathbb{R}^+_0$ con $\frac{1}{p} +\frac{1}{q} = 1$ se verifica:
+
+\[\left(\sum (a_k+b_k)^p \right)^{1/p} \leq 
+\left(\sum a_k^p \right)^{1/p} + \left(\sum b_k^p \right)^{1/p} \]
+
+\[\|a+b\|_p \leq \|a\|_p + \|b\|_p\]
+
+Aplicando Hölder.
 
 *** Ejemplos de espacios normados
 **** Espacios de dimensión finita
- Solemos notar por ${\mathcal L}_p^n$ al espacio de Banach sobre $\mathbb{R}^n$ o $\mathbb{C}^n$ que da la norma
+Solemos notar por ${\mathcal L}_p^n$ al espacio de Banach sobre $\mathbb{R}^n$ o $\mathbb{C}^n$ que da la norma
 
  \[\|x\|_p = \left(\sum |x_{(k)}|^p \right)^{1/p}\]
 
- Nótese el caso especial ${\cal L}^n_\infty$ que da la norma del máximo.
+Nótese el caso especial ${\cal L}^n_\infty$ que da la norma del máximo.
 
 **** Espacios de sucesiones
- Sobre las *sucesiones* podemos definir las normas $\|.\|_p$ de forma similar
- sobre los siguientes espacios de Banach:
+Las *sucesiones* con las normas $\|.\|_p$ dan los siguientes espacios de Banach:
 
- \[{\cal L}_p = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K}\ \left|\ \sum |x(n)|^p \right\}\]
+\[\ell_p = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K} \,\middle|\,
+\sum |x(n)|^p < \infty \right\}\]
 
- Siendo un caso particular el de la norma del máximo sobre *sucesiones acotadas*:
+siendo un caso particular el de la norma del máximo sobre *sucesiones acotadas*:
 
- \[{\cal L}_\infty = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K}\ \left|\ x(n) \text{ acotada} \right\}\]
+\[{\cal \ell}_\infty = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K}\ \left|\ x(n) \text{ acotada} \right\}\]
 
- Que además cuenta con subespacios usando la misma norma:
+Que además cuenta con subespacios usando la misma norma:
 
  - *Sucesiones convergentes*. Cerrado, y por tanto, de Banach.
 
@@ -1773,7 +1761,6 @@ $\lambda : R \longrightarrow S$. Nótese que puedo pasar de una a otra definici�
 
 **** Espacios de funciones continuas
 
-
 **** Espacios de funciones derivables
  Consideraremos el espacio de funciones sobre un intervalo que sean $d$ veces
  derivables con derivadas continuas, ${\cal C}^n([a,b],\mathbb{K}^d)$. Y sobre él defimos una norma del
@@ -1786,6 +1773,21 @@ $\lambda : R \longrightarrow S$. Nótese que puedo pasar de una a otra definici�
  Cauchy converja de manera que respete la derivada. Este será un espacio de Banach.
 
 **** Espacios de funciones integrables
+*** Categoría de espacios normados
+**** Producto de espacios normados
+Dados $X_1,\dots,X_n$ espacios normados, podemos definir normas sobre su producto 
+cartesiano  $\prod X_i$:
+
+ - *Norma del máximo*: $\|x\|_\infty = \max\{\|x_i\|\}$
+ - *Norma p*: $\|x\|_p = (\sum \|x_i\|^p)^{1/p}$
+
+La convergencia es trivialmente coordenada a coordenada.
+
+**** Cociente de un espacio normado
+
+** 2. Fundamentos del análisis funcional
+** 3. Espacios de Hilbert
+** 4. Topologías débiles
 * Inferencia Estadística
 ** Apuntes en clase
 *** Introducción
