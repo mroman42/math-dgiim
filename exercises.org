@@ -977,7 +977,7 @@ factorización única y ambos son mónicos.
  Que es conmutativo se tiene por:
 
  \[0 = (A+B)^2 - (A+B) = AB + BA\]
- $0 = A+A$
+ \[0 = A+A\]
 
 *** Ejercicio 4
  Nos sirve tomar:
@@ -1240,6 +1240,285 @@ factorización única y ambos son mónicos.
  todo el anillo. Luego $m + xy = 1$ y entonces $m = 1-xy$ sería unidad y pertenecería
  al ideal maximal, lo que es imposible.
 
+** Práctica 1: Anillos e ideales
+*** Anillos básicos
+#+BEGIN_SRC sage
+  ZZ in Fields
+  ZZ in EuclideanDomains
+#+END_SRC
+
+#+RESULTS:
+: False
+: True
+
+**** Extensiones algebraicas
+ #+BEGIN_SRC sage
+ K = NumberField(x^2+1, 's')
+ OK = K.ring_of_integers()
+ OK
+ SS = NumberField(x^2-5,'s').ring_of_integers()
+ SS.0
+ SS
+ #+END_SRC
+
+ #+RESULTS:
+ : Gaussian Integers in Number Field in s with defining polynomial x^2 + 1
+ : 1/2*s + 1/2
+ : Maximal Order in Number Field in s with defining polynomial x^2 - 5
+
+**** Anillos de enteros módulo n
+ #+BEGIN_SRC sage
+ Z7 = Integers(7)
+ Z7.is_field()
+ Z8 = Integers(8)
+ Z8.cardinality()
+ #+END_SRC
+
+ #+RESULTS:
+ : True
+ : 8
+
+**** Anillos de polinomios
+ #+BEGIN_SRC sage
+ P = QQ['x']
+ P
+ P2 = QQ['x','y','z']
+ P2
+ #+END_SRC
+
+ #+RESULTS:
+ : Univariate Polynomial Ring in x over Rational Field
+ : Multivariate Polynomial Ring in x, y, z over Rational Field
+
+*** Cuerpos finitos
+#+BEGIN_SRC sage
+K = GF(5)
+a = K.0
+a+a+a+a
+K.characteristic()
+#+END_SRC
+
+#+RESULTS:
+: 4
+: 5
+
+**** Cuerpos de fracciones
+ #+BEGIN_SRC sage
+ P.<x> = QQ[]
+ K = P.fraction_field()
+ 1/x in K
+ #+END_SRC
+
+ #+RESULTS:
+ : True
+
+*** Producto de anillos
+#+BEGIN_SRC sage
+CZQ = ZZ.cartesian_product(QQ)
+CZQ
+CZQ.one()
+#+END_SRC
+
+#+RESULTS:
+: The Cartesian product of (Integer Ring, Rational Field)
+: (1, 1)
+
+*** Ideales
+#+BEGIN_SRC sage
+P.<x,y> = QQ[]
+I = Ideal(P,[x+y,x^2+1])
+I
+ZZ8 = ZZ.quotient(ZZ.ideal(8))
+ZZ8 == Integers(8)
+#+END_SRC
+
+#+RESULTS:
+: Ideal (x + y, x^2 + 1) of Multivariate Polynomial Ring in x, y over Rational Field
+: True
+
+**** Inclusión de ideales
+ Definimos la inclusión de ideales y sobrecargamos el método de 
+ orden para expresarla.
+ #+BEGIN_SRC sage
+   I = 2*ZZ
+   J = 4*ZZ
+   def contenido(I,J):
+       return I+J == J
+
+   contenido(I,J)
+   contenido(J,I)
+   sage.rings.ideal.Ideal_pid.__lt__=contenido
+   I < J
+   J > I
+ #+END_SRC
+
+ #+RESULTS:
+ : False
+ : True
+ : False
+ : True
+
+**** Operaciones con ideales
+ #+BEGIN_SRC sage
+   # Suma de ideales
+   4*ZZ + 6*ZZ
+
+   # Producto de ideales
+   (4*ZZ)*(6*ZZ)
+
+   # Intersección de ideales
+   def intersection(I,J):
+       a = I.gen()
+       b = J.gen()
+       q = (a*b).quo_rem(gcd(a,b))
+       return Ideal(q[0])
+   sage.rings.ideal.Ideal_pid.__and__=intersection
+
+   (4*ZZ)&(6*ZZ)
+
+   # Cociente de ideales
+   def cocienteideales(I,J):
+       if not (J<I):
+           raise "El cociente necesita de inclusión"
+       return I.gens()*I.ring().quo(J)
+   sage.rings.ideal.Ideal_pid.__div__=cocienteideales
+
+   (2*ZZ)/(4*ZZ)
+
+   # Operaciones con ideales
+   6*ZZ/((6*ZZ)&(4*ZZ))
+ #+END_SRC
+
+ #+RESULTS:
+ : Principal ideal (2) of Integer Ring
+ : Principal ideal (24) of Integer Ring
+ : Principal ideal (12) of Integer Ring
+ : Principal ideal (2) of Ring of integers modulo 4
+ : Principal ideal (6) of Ring of integers modulo 12
+
+**** Ideales primos y maximales
+ #+BEGIN_SRC sage :file images/idealpoly.png
+ P.<x,y> = QQ[]
+ I = (x^3-y^2)*P
+ I.is_prime()
+ implicit_plot(x^3-y^2, (x,-1,2), (y,-1,1))
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:images/idealpoly.png]]
+
+**** Ideales radicales
+ #+BEGIN_SRC sage
+ R.<x,y> = GF(2)[]
+ I = (x,y)*R
+ J = (x-1,y-1)*R
+ K = I*J
+ K.radical() == K
+ #+END_SRC
+
+ #+RESULTS:
+ : True
+
+*** Homomorfismos de anillos
+#+BEGIN_SRC sage
+# Inclusión 
+H = Hom(ZZ,QQ)
+inc = H([1])
+inc(1)
+
+# Homomorfismo al cociente
+f = ZZ.hom([1],ZZ.quo(4*ZZ))
+f(1) == f(5)
+f(6)
+
+# Composición de homomorfismos
+R.<x,y,z> = QQ[]
+S.<t> = QQ[]
+f = R.hom([t^3,t^5,t^7],S)
+g = S.hom([t^2],S)
+g*f
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+1
+True
+2
+
+Ring morphism:
+  From: Multivariate Polynomial Ring in x, y, z over Rational Field
+  To:   Univariate Polynomial Ring in t over Rational Field
+  Defn: x |--> t^6
+        y |--> t^10
+        z |--> t^14
+#+end_example
+
+** Práctica 2: Anillos de polinomios
+*** Anillos de polinomios
+#+BEGIN_SRC sage
+# Para poder usar las variables del anillo de polinomios en 
+# sage debemos insertarlas
+P = PolynomialRing(QQ,['x','y','z'])
+P.inject_variables()
+x in P
+#+END_SRC
+#+RESULTS:
+: Defining x, y, z
+: True
+
+*** Factorización
+#+BEGIN_SRC sage
+P.<x,y> = QQ[]
+c = x^3-y^2
+c.factor()
+
+f = x*y-1
+g = x^2+y^2-4
+#+END_SRC
+#+RESULTS:
+: (-1) * (-x^3 + y^2)
+
+*** Polinomios en una variable
+#+BEGIN_SRC sage
+R = Zmod(2)['x']
+R.inject_variables()
+filter(is_prime,list(R.monics(of_degree=5)))
+#+END_SRC
+#+RESULTS:
+: Defining x
+: 
+: [x^5 + x^2 + 1,
+:  x^5 + x^3 + 1,
+:  x^5 + x^3 + x^2 + x + 1,
+:  x^5 + x^4 + x^2 + x + 1,
+:  x^5 + x^4 + x^3 + x + 1,
+:  x^5 + x^4 + x^3 + x^2 + 1]
+
+*** Ejemplo: Cuerpo de 256 elementos
+Vamos a tomar un cuerpo de 256 elementos y vamos a multiplicar en él usando 
+logaritmos. Es decir, vamos a representar cada polinomio como un número binario
+y vamos a sumarlos para multiplicar.
+
+#+BEGIN_SRC sage
+p = R.irreducible_element(8)
+Q = R.quo(p*R,'a')
+Q.is_field()
+a = Q.0
+
+# Potencias de a, son todo elementos de Q
+l = [a^i for i in range(2**8-1)]
+l.index(a^2+1)
+#+END_SRC
+#+RESULTS:
+: True
+: 50
+
+*** TODO Ejercicio 1
+#+begin_statement
+Demuestra que la clase de $x+1$ genera $\mathbb{Z}_2[x]/(x^8+x^4+x^3+x+1)$.
+#+end_statement
+
+*** Órdenes monomiales
 * Topología
 ** Ejercicios de clase
 *** Cálculo del espacio proyectivo con Van-Kampen
