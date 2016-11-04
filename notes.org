@@ -1774,6 +1774,13 @@ Que además cuenta con subespacios usando la misma norma:
 
 **** Espacios de funciones integrables
 *** Categoría de espacios normados
+**** Homomorfismos topológicos
+Los morfismos de la categoría de espacios normados son los 
+*homomorfismos topológicos*, operadores lineales y continuos que además
+son abiertos en su imagen. Hablamos
+igualmente de *monomorfismos topológicos*, *epimorfismos topológicos* o de
+*isomorfismos topológicos*.
+
 **** Producto de espacios normados
 Dados $X_1,\dots,X_n$ espacios normados, podemos definir normas sobre su producto 
 cartesiano  $\prod X_i$:
@@ -1840,18 +1847,25 @@ Cuando $p$ es seminorma, se tiene además que $|f(x)|\leq p(x)$.
 Sea $X$ espacio normado, $M$ subespacio vectorial, con $g \in M^\ast$. Existe $f\in X^\ast$ tal
 que $f|_M = g$ y $\|f\| = \|g\|$.
 
-*** Teorema de Baire
+*** Lema de categoría de Baire
 **** Teorema de Baire
-Sea $E$ espacio métrico completo y sea $\forall n : G_n \subset E$ un abierto denso.  $\bigcap G_n$ es denso.
+Sea $E$ espacio métrico completo y sea $\forall n : G_n \subset E$ un abierto denso. $\bigcap G_n$ es denso.
+
+**** Dimensión en espacios de Banach
+Todo espacio de Banach tiene dimensión finita o no numerable.
 
 *** Teorema de la aplicación abierta
 **** Teorema de la aplicación abierta
-Sean $X,Y$ espacios de Banach con $T: X \longrightarrow Y$ lineal, continua y sobreyectiva.
-Entonces, $T$ es abierta.
+Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ sobreyectiva.
+Entonces, $T$ es abierta, y homomorfismo topológico.
 
 **** Corolario de los isomorfismos de Banach
-Sean $X,Y$ espacios de Banach con $T : X \longrightarrow Y$ biyección lineal continua.
+Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ biyección.
 Entonces $T$ es isomorfismo topológico.
+
+**** Teorema del homomorfismo de Banach
+Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$. Será homomorfismo topológico ssi
+$TX$ es cerrado en $Y$.
 
 **** Equivalencia de normas en espacios de Banach
 Sean $\|\cdot\|_1, \|\cdot\|_2$ dos normas en un espacio de Banach. Si cumplen que:
@@ -1860,7 +1874,36 @@ Sean $\|\cdot\|_1, \|\cdot\|_2$ dos normas en un espacio de Banach. Si cumplen q
 
 Entonces son equivalentes.
 
+*** Teorema de la gráfica cerrada
+**** Teorema de la gráfica cerrada
+Sean $X,Y$ de Banach con $T : X \longrightarrow Y$ lineal. Es continuo ssi la gráfica de $T$
+es cerrada:
+
+\[\operatorname{Graf}(T) = \{(x,Tx) \mid x\in X\}\]
+
+**** Corolario de la gráfica cerrada
+Sean $X,Y$ normados con $T: X \longrightarrow Y$ lineal. Equivalen:
+
+ - $T$ con gráfica cerrada.
+ - Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$.
+
 *** Teorema de Banach-Steinhaus
+**** Teorema de Banach-Steinhaus para funcionales
+Sea ${\cal A} \subset L(X,Y)$ para $X$ de Banach e $Y$ normado; una familia de operadores acotada
+puntualmente:
+
+\[ \forall x : \exists M(x): \forall T \in A: \quad \|T(x)\| \leq M(x)\]
+
+Entonces está acotada:
+
+\[\exists M : \forall T \in A: \quad \|T\| \leq M \]
+
+**** Teorema del cierre de Steinhaus
+Sea $X$ de Banach, $Y$ normado, y una sucesión $\{T_n\} \in L(X,Y)$ convergiendo
+puntualmente. La convergencia puntual da un operador lineal y continuo:
+
+\[ T(x) = \lim_{n \longrightarrow \infty} T_n(x) \in L(X,Y)\]
+
 ** 3. Espacios de Hilbert
 ** 4. Topologías débiles
 * Inferencia Estadística
