@@ -861,6 +861,70 @@
 
  Lo que nos daría una contradicción.
 
+** Semana 5
+*** Ejercicio 4.17
+#+begin_statement
+Sea $K \subseteq E \subseteq F$ una torre de cuerpos y supongamos que $\alpha_1,\dots,\alpha_r$ son algunas de las 
+raíces de $f(X) \in K[X]$ y $E = K(\alpha_1,\dots,\alpha_r)$. Demuestra que $F$ es el cuerpo de 
+descomposición de $f(X)$ sobre $K$ si, y sólo si, $F$ es el cuerpo de descomposición de
+$f(X)$ sobre $E$.
+#+end_statement
+
+Antes que nada, podemos descomponer $f$ en la clausura algebraica $\overline{K}$ como factores
+lineales con raíces $\alpha_1,\dots,\alpha_n$. Vamos a fijarnos en el hecho de que el cuerpo de 
+descomposición de un polinomio sobre un cuerpo es el cuerpo resultante de añadirle
+sus raíces en la clausura; esto es debido que cumple trivialmente la propiedad del 
+cuerpo de descomposición, y además es minimal porque cualquier otro debe contener a 
+sus raíces y, por tanto, contenerlo él.
+
+Ahora veamos que ambos cuerpos de descomposición que se plantean en el ejercicio 
+son iguales. Por un lado, el cuerpo de descomposción de $f$ sobre $K$ debe ser
+$K(\alpha_1,\dots,\alpha_n)$; y por otro, el cuerpo de descomposición de $f$ sobre
+$E$, que también tiene como clausura algebraica a $K$, debe ser: 
+
+\[\begin{aligned}
+E(\alpha_1,\dots,\alpha_n) &= K(\alpha_1,\dots,\alpha_r)(\alpha_1,\dots,\alpha_n) \\
+&= K(\alpha_1,\dots,\alpha_r)(\alpha_{r+1},\dots,\alpha_n) \\
+&= K(\alpha_1,\dots,\alpha_n) 
+\end{aligned}\]
+
+*** Ejercicio 4.18
+#+begin_statement
+Sea $a \in \mathbb{Q}$ y $n$ un número entero positivo impar tal que
+$\sqrt[n]{a} \in \mathbb{R}/\mathbb{Q}$. Demuestra que la extensión $\mathbb{Q}(\sqrt[n]{a})/\mathbb{Q}$ no es normal.
+#+end_statement
+
+Tengo que $\sqrt[n]{a}$ es raíz de $x^n-a$. Eso quiere decir que será múltiplo de 
+$\operatorname{Irr}(\sqrt[n]{a},K)$, y que por tanto, toda raíz de su polinomio irreducible será raíz 
+de $x^n-a$. En $\mathbb{C}$, las raíces de ese polinomio son de la forma $\{\zeta^i_n\sqrt[n]{a}\}$,
+con los $\zeta$ raíces de la unidad; y, siendo $n$ impar, sólo una será real.
+
+Por otro lado, si queremos que sea una extensión normal, el polinomio irreducible
+debería tener todas sus raíces en la extensión y factorizar linealmente en ellas;
+pero como sólo hay una real y la extensión está contenida en los reales, sólo
+podría tener una raíz, el polinomio sería lineal y entonces se tendría $\sqrt[n]{a} \in \mathbb{Q}$.
+
+*** Ejercicio 4.19
+#+begin_statement
+Sea $E/K$ una extensión normal y $f(X) \in K[x]$ un polinomio (mónico) irreducible. Si
+$f(X)$ se factoriza en $E$ como producto de dos polinomios (mónicos) irreducibles 
+$f_1(x)$ y $f_2(x)$. Demuestra que existe un homomorfismo $\sigma : E/K \longrightarrow E/K$ tal que
+$f^\sigma_1(x) = f_2(x)$.
+#+end_statement
+
+Sea $\alpha$ raíz de $f_1$ y $\beta$ raíz de $f_2$. Ambos son los polinomios irreducibles de sus raíces
+en $E$. Como ambas además son raíces de $f$, son conjugadas sobre $K$
+y existe un automorfismo sobre $K$ que lleva $\sigma(\alpha) = \beta$. Ese isomorfismo cumple 
+que $\sigma(E) = E$ por normalidad. Ahora, por irreducibilidad:
+
+\[f_2 | f_1^\sigma\]
+
+Y tenemos que:
+
+\[ f_1f_2 = f = f^\sigma = f_1^\sigma f_2^\sigma\]
+
+Esto quiere decir que $f_1 = f_2^\sigma$ y que $f_2 = f_1^\sigma$; ya que estamos en un dominio de 
+factorización única y ambos son mónicos.
 * Análisis funcional
 ** 1. Espacios normados
 *** Ejercicio 3
