@@ -1,8 +1,8 @@
 # Math
 
-Apuntes y ejercicios de matemáticas escritos en **org-mode**.
+Notes and math exercises written **org-mode**, mostly in Spanish.
 
-Estudiando estos apuntes he empezado a escribir también los siguientes artículos de Wikipedia:
+Studying over these notes, I have started written the following Wikipedia articles:
 * [Wikipedia - Lema de escisión](https://es.wikipedia.org/wiki/Lema_de_escisi%C3%B3n)
 * [Wikipedia - Compleción (álgebra)](https://es.wikipedia.org/wiki/Compleci%C3%B3n_(%C3%A1lgebra))
 * [Wikipedia - Lema de la serpiente](https://es.wikipedia.org/wiki/Lema_de_la_serpiente)
