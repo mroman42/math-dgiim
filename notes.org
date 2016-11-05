@@ -533,6 +533,67 @@ y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su natu
 
  Que no afecta al cokernel.
 
+** VII. Cuerpos
+*** 1. Extensiones de cuerpos I
+**** 1.1. Definiciones básicas
+***** Categoría de los cuerpos
+Los cuerpos forman la *categoría $\mathtt{Fld}$* con los homomorfismos de 
+anillos entre ellos. Todo homomorfismo de anillos entre cuerpos
+es inyectivo y todo morfismo en esta categoría es monomorfismo.
+
+Así, todo morfismo entre cuerpos en $Hom(k,K)$ es una extensión $K/k$.
+
+***** Característica de un cuerpo
+La *característica* de $K$ es el generador de $ker(i)$ para 
+$i : \mathbb{Z} \longrightarrow K$. Las extensiones preservan la característica, así
+que podemos particionar la categoría en categorías $\mathtt{Fld}_p$.
+
+***** Cuerpos primos
+El inicial de $\mathtt{Fld}_0$ es $\mathbb{Q}$, y el de $\mathtt{Fld}_p$ es $\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}$. Todos los
+cuerpos son extensiones de uno de estos llamados *cuerpos primos*.
+
+***** Grado de una extensión
+El *grado*, $[F : K]$, de una extensión es su dimensión como espacio
+vectorial sobre la base. Es *finita* o *infinita* si lo es su grado.
+
+**** 1.2. Extensiones simples
+***** Extensión simple
+Una extensión es *simple* si es de la forma $K(\alpha)$ donde 
+$K(\alpha)$ es la intersección de todos los subcuerpos de algún
+$F$ conteniendo al cuerpo $K$ y el elemento $\alpha$.
+
+***** Polinomio irreducible mínimo
+Dada una extensión simple $K(\alpha)$, consideramos la evaluación
+$\epsilon : K[X] \longrightarrow K(\alpha)$ por casos:
+
+ - Es *inyectiva* ssi es una *extensión infinita*. En este
+   caso $K(\alpha) \cong K(X)$ es el cuerpo de funciones racionales.
+ - No es *inyectiva*. Existe un único polinomio mónico
+   irreducible $p$ que genera el núcleo,
+
+   \[ K(\alpha) \cong \frac{K[t]}{(p(t))}\]
+
+   Se le llama *polinomio mínimo*.
+
+***** TODO Extensión de isomorfismos a extensiones simples
+Proposition 1.5
+***** Automorfismos de una extensión
+El *grupo de automorfismos* de una extensión $Aut_K(F)$, es el
+grupo de los automorfismos de cuerpos que dejan fijo $K$.
+***** Automorfismos y raíces
+Sea $K(\alpha)$ con $p$ polinomio mínimo. Entonces $p$ tiene $|Aut_K(K(\alpha))|$ raíces
+distintas en $K(\alpha)$. En particular,
+
+\[ |Aut_K(K(\alpha))| \leq [K(\alpha):K] \]
+
+y el caso de igualdad se tiene con $p$ factorizando en factores 
+lineales sobre $F$.
+**** 1.3. Extensiones finitas y algebraicas
+***** Elementos algebraicos y trascendentes
+Sea $F/K$ una extensión con $\alpha \in F$, entonces $\alpha$ es *algebraico*
+cuando $K(\alpha)/K$ es finita, y *trascendente* si no. Una extensión
+es *algebraica* si todos sus elementos lo son.
+
 ** VIII. Vuelta al álgebra lineal
 *** 1. Preliminares
 **** 1.1. Funtores
@@ -1652,7 +1713,7 @@ Tenemos que $\operatorname{Nil}(R/\alpha) = \sqrt{\alpha}/\alpha$. Cuando $\alph
 
 Tenemos que $x \in {\cal J}(R)$ ssi $1-xy \in U(R)$ para cualquier $y$.
 
-*** Ideales residuales
+*** Ideales residuales y anulador
 **** Definición
 Definimos el *ideal residual* (a veces llamado *cociente*) de dos ideales como:
 
@@ -1661,12 +1722,22 @@ Definimos el *ideal residual* (a veces llamado *cociente*) de dos ideales como:
 **** Anulador
 \[\operatorname{Ann}(\beta) = \{x \in R \mid x\beta = 0\} = (0 : \beta)\]
 
-*** TODO Ideales contraídos y extendidos
-*** Producto directo de anillos
+*** Ideales contraídos y extendidos
+**** Ideal extendido
+Dado un homomorfismo $f : R \longrightarrow S$ llamamos *ideal extendido* de $\alpha$ al ideal:
+
+\[ \alpha^e = (f(\alpha)) = \left\{ \sum s_i f(x_i) \mid s_i \in S, x_i \in \alpha\right\}\]
+
+**** Ideal contraído
+Dado un homomorfismo $f$ llamamos *ideal contraído* de $\beta$ al ideal:
+
+\[ \beta^c = f(\beta) \]
+
+**** Biyección entre ideales
+*** TODO Producto directo de anillos
 **** TODO Definición
 **** TODO Propiedad universal
-
-*** Teorema Chino del Resto
+*** TODO Teorema Chino del Resto
 ** 3. Bases de Gröbner
 *** R-álgebras
 Una *R-álgebra*, $S$ es un anillo con estructura de R-módulo, tal que:
