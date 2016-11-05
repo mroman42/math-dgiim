@@ -1506,13 +1506,14 @@ y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su natu
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
 *** La categoría CRing
-Consideramos la categoría de los anillos conmutativos, que consta de los anillos
+**** Categoría
+Consideramos la categoría de los *anillos conmutativos*, que consta de los anillos
 conmutativos como objetos y de los homomorfismos de anillos; respetando suma,
 producto y unidad; como morfismos.
 
 **** Z es objeto inicial
-El anillo $\mathbb{Z}$ es inicial en =CRing=.
-El homomorfismo único queda unívocamente definido con $f(1) = 1$ y $f(n) = nf(1)$.
+El anillo $\mathbb{Z}$ es inicial en =CRing=. El homomorfismo único queda unívocamente 
+definido con $f(1) = 1$ y $f(n) = nf(1)$.
 
 **** Subanillos
 *Subanillo*. Subconjunto cerrado para la suma y el producto conteniendo a 1.
@@ -1548,7 +1549,9 @@ Se define para $\alpha, \beta$ ideales como:
 
 \[ \alpha\beta = \left\{ xy \mid x\in\alpha, y\in\beta \right\}\]
 
-**** TODO Ideales primos relativos
+**** Ideales primos relativos
+Dos ideales son *primos relativos* cuando $\alpha+\beta = R$. Cuando son primos relativos
+debe cumplirse que $\alpha\beta = \alpha \cap \beta$.
 
 *** Anillo cociente
 **** Definición
@@ -1572,7 +1575,23 @@ Y además, los ideales están en correspondencia biyectiva por $f_\ast$ y $f^{-1
 \longleftrightarrow 
 \{ \beta \mid \beta \subset \im(f)\}\]
 
-**** TODO Preservación de ideales primos y maximales
+*** Ideales primos y maximales
+**** Definición
+$P$ es ideal *primo* si no es el total y $xy\in P \Rightarrow x \in P \vee y \in P$.
+$P$ es ideal *maximal* si $M \neq R$ y es maximal en el retículo de ideales sin $R$.
+**** Caracterización de ideales primos y maximales
+En relación a su cociente en el anillo:
+
+ - $P$ es primo ssi $R/P$ es un dominio de integridad no trivial.
+ - $M$ es maximal ssi $M/P$ es un cuerpo no trivial.
+
+**** Preservación de ideales primos y maximales
+Dado un homomorfismo $f$,
+
+ - Si $\Pi \subseteq S$ es primo, $f^\ast(\Pi)$ es primo.
+ - La imagen y preimagen de ideales preserva primos y maximales sobre la imagen 
+   del anillo.
+
 *** Teorema de Krull
 **** Subconjunto multiplicativamente cerrado
 Es un subconjunto $S$ con:
@@ -1580,22 +1599,33 @@ Es un subconjunto $S$ con:
  - $x,y\in S \Rightarrow xy \in S$
 
 **** Teorema de Krull
-#+begin_theorem
 Sea $\alpha \cap S = \varnothing$, entonces existe un ideal $M \supset \alpha$ tal que $M \cap S = \varnothing$ y maximal respecto
 a esta condición. Además, $M$ es un ideal primo.
-#+end_theorem
 
 **** Corolario al teorema de Krull
 Tomando $S=\{1\}$ tenemos que, dado un ideal, existe un ideal maximal que lo contiene.
 En particular, todo elemento no unidad está contenido en un ideal maximal.
 
-**** TODO Inclusión en ideales primos
-
 *** Anillos locales
-**** Definición
-Un anillo local es aquel con un único ideal maximal. A $R/M$ se le llama 
+**** Inclusión en ideales primos
+Sean ideales $\alpha_1,\dots,\alpha_n$ y $\pi$ un ideal primo. Si $\bigcap \alpha_i \subset \pi$, entonces
+
+$\exists i: \alpha_i \subset \pi$.
+
+**** Inclusión de ideales primos
+Sean ideales primos $\pi_1,\dots,\pi_n$ y $\alpha$ un ideal. Si $\alpha \subset \bigcup \pi_i$, entonces 
+$\exists i: \alpha \subset \pi_i$.
+
+**** Definición de anillo local
+Un *anillo local* es aquel con un único ideal maximal. A $R/M$ se le llama 
 *cuerpo residual*.
-**** TODO Caracterización
+
+**** Caracterización de anillos locales
+Sea $M$ ideal propio:
+
+ - $R$ es local con maximal $M$ ssi $R-M \subset {\cal U}(R)$.
+ - Si $M$ es maximal y $\{1+x \mid x\in M\}\in {\cal U}(R)$ entonces es $R$ local y $M$ su maximal.
+
 *** Radicales
 **** Nilradical
 Sus elementos se llaman *nilpotentes*:
@@ -1637,7 +1667,7 @@ Definimos el *ideal residual* (a veces llamado *cociente*) de dos ideales como:
 **** TODO Propiedad universal
 
 *** Teorema Chino del Resto
-** 2. Bases de Gröbner
+** 3. Bases de Gröbner
 *** R-álgebras
 Una *R-álgebra*, $S$ es un anillo con estructura de R-módulo, tal que:
 
