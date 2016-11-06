@@ -969,31 +969,120 @@ factorización única y ambos son mónicos.
  Vemos que es isometría $\|Tx\| = \|x\|$, por lo que es continua y de norma $1$.
 * Álgebra conmutativa y computacional
 ** Relación 1
+*** Ejercicio 1
+#+begin_statement
+Sea $R$ un anillo conmutativo. Demostrar:
+
+ 1. Los elementos $0$ y $1$ están determinados de forma única.
+ 2. Para cada elemento $x\in R$, el opuesto $-x$ y el inverso si existe $x^{-1}$, están
+    determinados de forma única.
+ 3. El conjunto ${\cal U}(R)$ de las unidades de $R$ es un grupo abeliano.
+
+$\quad$
+#+end_statement
+**** Punto 1
+Supongamos que hubiera dos elementos neutros de cualquier tipo:
+
+\[e = e \otimes e' = e'\]
+
+**** Punto 2
+Supongamos que hubiera dos inversos $x,y$ de cualquier tipo:
+
+\[x = x \otimes (a \otimes y) = (x \otimes a) \otimes y = y\]
+
+**** Punto 3
+El anillo es conmutativo. Así que el grupo de las unidades con el producto será
+abeliano.
+
+*** TODO Ejercicio 2
+#+begin_statement
+Sea $R$ anillo conmutativo. Demostrar:
+
+  1. $x0=0$ para todo $x\in R$.
+  2. $R$ tiene más de un elemento ssi $0\neq 1$.
+  3. $(-x)y = -(xy) = x(-y)$ para cualesquiera $x,y \in R$.
+  4. $(nx)y = n(xy) = x(ny)$ para cualesquiera $x,y \in R$ y todo $n \in \mathbb{Z}$.
+  5. $(nx)(my) = (nm)(xy)$ para cualesquiera $x,y \in R$ y $n,m \in \mathbb{Z}$.
+  6. $\left(\sum_{i=1}^n x_i\right) \left(\sum^m_{j=1} y_j\right) = \left(\sum^{n,m}_{i=1,j=1} x_iy_j\right)$, para $x_i,y_j \in R$ y $n,m > 0$.
+  7. $(x+y)^n = \sum_{i=0}^n {n \choose i} x y^{n-i}$, para cualesquiera $x,y \in R$ y $n,m \geq 0$.
+  8. $(xy)^n = x^ny^n$ y $(x^n)^m = x^{nm}$, para cualesquiera $x,y\in R$ y $n,m \geq 0$.
+
+$\quad$
+#+end_statement
 *** Ejercicio 3
- Demostramos que ${\cal P}(X)$ con la suma forma un grupo abeliano. Cada conjunto es su
- inverso, es conmutativo y tiene al conjunto vacío como neutro. La asociatividad
- se comprueba viendo que pertenecer a $A+B+C$ es pertenecer a uno o a los tres.
+#+begin_statement
+Sea $X$ un conjunto, en ${\cal P}(X)$ se consideran las opearciones
 
- Que es conmutativo se tiene por:
+\[A+B := (A\cup B) \setminus (A\cap B)\]
+\[AB := A \cap B\]
 
- \[0 = (A+B)^2 - (A+B) = AB + BA\]
- \[0 = A+A\]
+para cualesquiera $A,B \in {\cal P}(X)$.
+
+Prueba que ${\cal P}(X)$, con las operaciones anteriores y elemento uno igual a $X$, es un
+anillo conmutativo. ¿Cuál es el elemento cero?. Observa que este anillo es un 
+*anillo de Boole*, es decir $A^2=A$ para $A\in{\cal P}(X)$ y que por tanto $2A = 0$.
+#+end_statement
+
+Demostramos que ${\cal P}(X)$ con la suma forma un grupo abeliano. Cada conjunto es su
+inverso, es conmutativo y tiene al conjunto vacío como neutro. La asociatividad
+se comprueba viendo que pertenecer a $A+B+C$ es pertenecer a uno o a los tres.
+
+Que es conmutativo se tiene por:
+
+\[0 = (A+B)^2 - (A+B) = AB + BA\]
+\[0 = A+A\]
 
 *** Ejercicio 4
- Nos sirve tomar:
+#+begin_statement
+Dado un anillo $R = (R,+,\times,1)$, definir sobre $R$ dos operaciones $\oplus,\otimes$ de forma
+que $(R,\oplus,\otimes,0)$ sea un anillo con elemento $1$ como cero.
+#+end_statement
+Nos sirve tomar:
 
- \[a \oplus b = a+b-1\]
- \[a \otimes b = a + b - ab\]
+\[a \oplus b = a+b-1\]
+\[a \otimes b = a + b - ab\]
 
- Debemos comprobar las propiedades.
+Debemos comprobar las propiedades.
 
 *** TODO Ejercicio 7
-*** TODO Ejercicio 8
- Las inyecciones en el coproducto (producto directo) son contraejemplos.
+*** Ejercicio 8
+#+begin_statement
+¿Se deduce la condición $f(1) = 1$ en la definición de homomorfismo de anillos de 
+las dos condiciones $f(x+y) = f(x)+f(y)$ y $f(xy) = f(x)f(y)$?
+#+end_statement
+Una inclusión en la suma directa de dos anillos cumple lo pedido pero no cumple
+que $i(1) = 1$.
+
+\[i : R \longrightarrow R \oplus S,\quad i(r) = (r,0)\]
+
+*** Ejercicio 9
+#+begin_statement
+Prueba que los elementos nilpotentes de un anillo forman un ideal.
+#+end_statement
+Sean $n^p = 0$ y $m^q = 0$, dos nilpotentes. Tenemos que $(n+m)^{p+q} = 0$, por binomio de 
+Newton, y que $(rn)^p = 0$ por conmutatividad.
+*** Ejercicio 10
+#+begin_statement
+Demuestra que todo dominio de integridad finito es un cuerpo.
+#+end_statement
+Dado $x \in R$, considero el endomorfismo $(\lambda a. xa)$. Por ser dominio de integridad, es
+inyectivo, y siendo inyectivo y finito, es sobreyectivo. Luego $\exists a : xa = 1$.
+*** Ejercicio 11
+#+begin_statement
+Demuestra que todo dominio de integridad con un número finito de ideales es un
+cuerpo.
+#+end_statement
+Dado $x\in R$, considero una aplicación que lleva un ideal $I$ en $(x)I$. Tenemos que es
+inyectiva por ser dominio de integridad. De hecho, sean $i \in I$ con $(x)I = (x)J$:
+
+\[xi = rxj = xrj \Rightarrow i = rj\]
+
+Luego $I\subset J$, simétricamente $I =J$. Por ser inyectiva y ser de número finito, es
+biyectiva, luego $\exists I: (x)I = (1)$.
 *** Ejercicio 12
- Sea una cadena de ideales $\Pi \subset \beta\subset R$, con $x \in \beta$, $x \notin \Pi$.
- Entonces $x(x^{n-1}-1) = 0 \in \Pi$, y debe tenerse $x^{n-1}-1 \in \Pi \subset \beta$.
- Con eso, debe ser $\beta = R$.
+Sea una cadena de ideales $\Pi \subset \beta\subset R$, con $x \in \beta$, $x \notin \Pi$.
+Entonces $x(x^{n-1}-1) = 0 \in \Pi$, y debe tenerse $x^{n-1}-1 \in \Pi \subset \beta$.
+Con eso, debe ser $\beta = R$.
 
 *** Ejercicio 13
  Por definición de *radical*, tenemos que cuando es radical es intersección de 
