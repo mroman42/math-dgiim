@@ -2126,54 +2126,57 @@ puntualmente. La convergencia puntual da un operador lineal y continuo:
 
 ** 1. Introducción a la inferencia estadística. Estadísticos muestrales.
 *** Planteamiento de un problema de inferencia.
- #+begin_definition
- *Modelo*. Familia paramétrica de distribuciones $F(x,\theta)$ para un parámetro $\theta$.
- #+end_definition
+**** Modelo
+Un *modelo* es una familia paramétrica de distribuciones $F(x,\theta)$ para un 
+parámetro $\theta$.
 
- #+begin_definition
- *Muestra aleatoria simple*. Vector $(X_1,\dots,X_n)$ de variables independientes idénticamente 
- distribuidas.
- #+end_definition
+**** Muestra aleatoria simple
+Una *muestra aleatoria simple* es un vector $(X_1,\dots,X_n)$
+de variables independientes idénticamente distribuidas. 
+Llamo *realización muestral* a un valor concreto obtenido al 
+observar la muestra y *espacio muestral* al conjunto de todas 
+las posibles realizaciones.
+
+**** Estadístico muestral
+Dada una muestra aleatoria simple, un *estadístico muestral* es una función sobre
+ella $T : (\mathbb{R}^n,{\cal B}^n)\longrightarrow (\mathbb{R}^k,{\cal B}^k)$ medible e independiente de cualquier parámetro desconocido.
 
 *** Función de distribución empírica
- #+begin_definition
- *Función de distribución empírica*. La función de distribución más razonable que podemos obtener
- del muestreo.
+**** Función de distribución empírica
+La *función de distribución empírica* es una función de distribución razonable 
+que podemos obtener desde una realización muestral.
 
  \[F^\ast_{X_1,\dots,X_n}(x) = \frac{1}{n} \sum_{i=1}^n \mathbf{1}_{(x_i < x)} \]
- #+end_definition
 
- Fijado un $x \in \mathbb{R}$, $F^\ast(x)$ es una variable aleatoria cumpliendo por definición que:
+**** Propiedades de la función de distribución empírica
+Fijado un $x \in \mathbb{R}$, $F^\ast(x)$ es una variable aleatoria siguiendo por definición una
+binomial:
 
- \[ nF^\ast(x) \longrightarrow {\cal B}(n, F(x))\]
+\[ nF^\ast(x) \longrightarrow {\cal B}(n, F(x))\]
 
- Calculamos su esperanza y varianza desde Bernoulli como:
+Calculamos su *esperanza* y *varianza* desde Bernoulli como:
 
  - Esperanza: $E[F^\ast(x)] = F(x)$
  - Varianza: $Var[F^\ast(x)] = \frac{F(x) (1-F(x))}{n}$
 
- Aplicando entonces el Teorema Central del Límite:
+Aplicando entonces el Teorema Central del Límite:
 
- \[ \frac{nF^\ast(x) - nF(x)}{\sqrt{nF(x)(1-F(x))}} \leadsto {\cal N}(0,1) \]
+\[ \frac{nF^\ast(x) - nF(x)}{\sqrt{nF(x)(1-F(x))}} \leadsto {\cal N}(0,1) \]
 
 **** Teorema de Glivenko-Cantelli
- #+begin_theorem
- *Teorema de Glivenko-Cantelli*. Las funciones de distribución muestrales convergen 
- casi seguramente y uniformemente a la teórica.
+Las funciones de distribución muestrales convergen 
+casi seguramente y uniformemente a la teórica.
 
- \[ P\left\{ \lim_{n \rightarrow \infty} \sup_{x \in \mathbb{R}} |F^\ast(x) - F(x)| = 0\right\} = 1\]
- #+end_theorem
+\[ P\left\{ \lim_{n \rightarrow \infty} 
+\sup_{x \in \mathbb{R}} |F^\ast_n(x) - F(x)| = 0\right\} = 1\]
 
- # TODO: Funciones características
-
+*** TODO Funciones características
 ** 2. Muestreo de poblaciones normales
 *** Distribución chi cuadrado de Pearson
-**** Definición
- #+begin_definition
- *Distribución chi cuadrado*. Es un caso particular de la distribución gamma que se obtiene como la
- distribución de la suma de $k$ cuadrados de variables normales, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
- Al parámetro $k$ se le llama número de grados de libertad.
- #+end_definition
+**** Distribución chi cuadrado
+Es un caso particular de la distribución gamma que se obtiene como la
+distribución de la suma de $k$ cuadrados de variables normales, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
+Al parámetro $k$ se le llama número de grados de libertad.
 
 **** Función de densidad
 
