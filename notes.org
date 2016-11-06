@@ -2352,7 +2352,33 @@ si cumple, siendo $\{P_\theta \; \theta\in\Theta\}$:
 *** TODO Otros métodos de estimación
 ** TODO 5. Estimación por intervalos de confianza
 ** TODO 6. Contraste de hipótesis
+*** Planteamiento del problema
+**** Problema de contraste de hipótesis
+Dada $(X_1,\dots,X_n)$ una muestra aleatoria simple de $X \leadsto P_\theta$, para 
+$\theta \in \Theta_0 \cup \Theta_1$, llamamos:
 
+ - *Hipótesis nula*: $H_0 : \theta \in \Theta_0$
+ - *Hipótesis alternativa*: $H_1 : \theta \in \Theta$
+
+a dos hipótesis posibles.
+
+**** Test de hipótesis
+El *test de hipótesis* es un estadístico $\varphi$ tomando valores en $[0,1]$, que da la 
+posibilidad de rechazar $H_0$ dada una realización muestral. Se llama:
+
+ - *Test no aleatorizado*, si toma valores $0,1$.
+ - *Test aleatorizado*, si toma valor distinto de $0,1$.
+
+**** Tipos de errores de un test de hipótesis
+Hay dos tipos de erorres:
+
+ - *Error de tipo 1*: Rechazar $H_0$ siendo cierta.
+ - *Error de tipo 2*: Aceptar $H_0$ siendo falsa.
+
+*** TODO Lema de Neyman-Pearson
+*** TODO Test de la razón de verosimilitudes
+*** TODO Dualidad entre tests de hipótesis y regiones de confianza
+** 7. Teoría general de modelos lineales
 * Topología II
 ** 1. El grupo fundamental
 *** 1. Espacios conexos por arcos
