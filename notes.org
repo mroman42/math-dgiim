@@ -2200,96 +2200,107 @@ Al parámetro $k$ se le llama número de grados de libertad.
  \[\sum_{i=1}^n X^2_i \leadsto \chi^2(n)\]
 
 *** Distribución t de Student
-**** Definición
- #+begin_definition
- *T de Student*. Dadas dos variables independientes $X \leadsto {\cal N}(0,1)$ e $Y \leadsto \chi^2(n)$, tenemos
+**** T de Student
+Dadas dos variables independientes $X \leadsto {\cal N}(0,1)$ e $Y \leadsto \chi^2(n)$, tenemos
 
  \[ T = \frac{X}{\sqrt{Y/n}} \leadsto t(n) \]
- #+end_definition
 
-**** Función de densidad
+**** TODO Función de densidad
 **** Momentos
- Tenemos que $\exists E[T^k] \Leftrightarrow k < n$, cuando existen, se tiene
+Tenemos que $\exists E[T^k] \Leftrightarrow k < n$. Cuando existen, se tiene
 
-  - $E[T] = 0$
-  - $Var[T] = \frac{n}{n-2}$
+ - $E[T] = 0$
+ - $Var[T] = \frac{n}{n-2}$
 
 *** Distribución F de Snedecor
 **** Definición
- #+begin_definition
- *F de Snedecor*. Dadas dos variables independientes $X \leadsto \chi^2(n)$ e $Y \leadsto \chi^2(m)$,
- su cociente nos da:
+*F de Snedecor*. Dadas dos variables independientes $X \leadsto \chi^2(n)$ e $Y \leadsto \chi^2(m)$,
+su cociente nos da:
 
  \[F = \frac{X/m}{Y/n} \longrightarrow F(m,n)\]
- #+end_definition
-*** Muestreo de una normal unidimensional
-**** Lema de Fisher
- #+begin_theorem
- *Lema de Fisher*. Los estadísticos $\overline{X}$ y $S^2$ son independientes cuando $X$ tiene
- distribución normal.
- #+end_theorem
 
+*** Muestreo de la normal
+**** Lema de Fisher
+Sea $(X_1,\dots,X_n)$ una muestra aleatoria simple con $X \leadsto {\cal N}(\mu,\sigma^2)$. Definimos:
+
+ - $\overline{X} = \frac{1}{n}\sum_{i=1}^n X_i$
+ - $S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \overline{X})$
+
+Los estadísticos $\overline{X}$ y $S^2$ son independientes cuando $X$ tiene
+distribución normal.
+
+**** TODO Distribuciones del muestreo de una normal unidimensional
+*** Muestreo de dos normales
+**** Extensión del lema de Fisher
+Sean $(X_1,\dots,X_{n_2})$ y $(Y_1,\dots,Y_{n_1})$ muestras aleatorias simples con $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y
+con $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$. Definimos análogamente al caso univariable $\overline{X}$, $\overline{Y}$, $S^2_1$, $S^2_2$.
+
+Los vectores $(\overline{X},\overline{Y})$ y $(S^2_1,S^2_2)$ son independientes.
+
+**** TODO Distribuciones del muestreo de dos normales unidimensionales
 ** 3. Suficiencia y completitud
 *** Estadísticos suficientes y completos
 **** Estadístico suficiente
- #+begin_definition
- *Estadístico suficiente*. Un estadístico $t$ es suficiente para un parámetro $\theta$ 
- cuando una vez conocido no puede obtenerse más información de sobre $\theta$ de
- los datos; esto es:
+Un estadístico $t$ es *suficiente* para un parámetro $\theta$ 
+cuando una vez conocido no puede obtenerse más información de sobre $\theta$ de
+los datos; esto es:
 
- \[\Pr(\theta| t,x) = \Pr(\theta|t)\]
+\[\Pr(\theta| t,x) = \Pr(\theta|t)\]
 
- De forma equivalente, es independiente si la distribución condicionada al estadístico
- es independiente del parámetro $\theta$:
+De forma equivalente, es *suficiente* si la distribución condicionada 
+al estadístico es independiente del parámetro $\theta$:
 
  \[\Pr(x|t,\theta) = \Pr(x|t)\]
- #+end_definition
 
- #+begin_theorem
- *Teorema de factorización de Fisher-Neyman*. $T$ es suficiente para $\theta$
- ssi existen funciones no negativas $g$,$h$ tales que:
+**** Teorema de factorización de Fisher-Neyman
+*Teorema de factorización de Fisher-Neyman*. $T$ es suficiente para $\theta$
+ssi existen funciones no negativas $g$,$h$ tales que:
 
- \[f_\theta(x) = h(x)g_\theta(T(x))\]
+\[f_\theta(x) = h(x)g_\theta(T(x))\]
 
- Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\theta$.
- #+end_theorem
+Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\theta$.
 
- #+begin_theorem
- *Propiedades de los estadísticos suficientes*.
+**** Propiedades de los estadísticos suficientes
+*Propiedades de los estadísticos suficientes*.
 
   - Si $T$ es suficiente para $\{P_\theta \mid \theta \in \Theta\}$, lo es para $\{P_\theta \mid \theta \in \Theta' \subset \Theta\}$.
   - Si $T$ es suficiente y $T = h(U(X)$, $U$ es suficiente.
   - Toda transformación biunívoca de suficiente es suficiente.
- #+end_theorem
+
 **** Estadístico completo
- #+begin_definition
- *Estadístico completo*. Un estadístico es completo cuando para cualquier función medible se tiene:
+Un estadístico es *completo* cuando para cualquier función medible se tiene:
 
- \[ E_\theta [g(T)] = 0 \; \forall\theta\in\Theta \ \Rightarrow \
+\[ E_\theta [g(T)] = 0 \; \forall\theta\in\Theta \quad \Rightarrow \quad
     P_\theta(g(T) = 0) = 1\; \forall\theta\in\Theta\]
- #+end_definition
-*** Suficiencia y completitud en familias exponenciales
 
+*** TODO Suficiencia y completitud en familias exponenciales
 ** 4. Estimación puntual
 *** Planteamiento del problema de estimación
- Tenemos un *estimador puntual*, que es un estadístico tomando valores en el dominio del parámetro.
- Hay una *función de pérdida* que nos dice la pérdida asociada a estimar un parámetro si su verdadero
- valor es otro. La *función de riesgo* es la que asocia a cada valor del parámetro, la pérdida media
- asociada al estimador.
+**** Estimador puntual
+Un *estimador puntual* es un estadístico $T$ tomando valores en el dominio
+del parámetro. 
 
- \[ R^L_T(\theta) = E_\theta [L(\theta,T)]\]
+**** Función de pérdida y de riesgo
+La *función de pérdida*, $L$, nos dice la pérdida asociada a estimar un parámetro si 
+su verdadero valor es otro. La *función de riesgo* es la 
+que asocia a cada valor del parámetro, la pérdida media asociada al estimador.
 
- El *estimador óptimo* es el que minimiza uniformemente la función de riesgo:
+\[ R^L_T(\theta) = E_\theta [L(\theta,T)]\]
 
- \[ R^L_T(\theta) \leq R^L_T''(\theta),\quad \forall \theta \in \Theta,\; \forall T''\]
+**** Estimador óptimo
+El *estimador óptimo*, $T$, dada una función de pérdida, es el que minimiza 
+uniformemente la función de riesgo:
+
+\[ R^L_T(\theta) \leq R^L_{T''}(\theta),\quad \forall \theta \in \Theta,\; \forall T''\]
 
 *** Estimación de menor error cuadrático
- Usa la *función de pérdida cuadrática*: ${\cal L}(\theta, t) = (t - \theta)^2$, dejando la función de riesgo de un estimador
- como su error cuadrático medio:
+**** Función de pérdida cuadrática
+La *función de pérdida cuadrática*, ${\cal L}(\theta, t) = (t - \theta)^2$, deja la función de 
+riesgo de un estimador como su *error cuadrático medio*:
 
- \[R^L_T(\theta) = E_\theta[(T - \theta)^2]\]
+\[R^L_T(\theta) = E_\theta[(T - \theta)^2]\]
 
- Nótese que en el caso de $E[T] = \theta$, se tiene $R^L_T(\theta) = Var_\theta[T]$.
+Nótese que en el caso de $E[T] = \theta$, se tiene $R^L_T(\theta) = Var_\theta[T]$.
 
 *** Estimación insesgada de mínima varianza
 **** Estimador insesgado
@@ -2310,28 +2321,37 @@ Al parámetro $k$ se le llama número de grados de libertad.
   - Linealidad: Si $T,Q$ son UMVUE para $g,h$; $aT+bQ$ es UMVUE para $ag+bh$.
 
 **** Teorema de Raó-Blackwell
- Si $T$ es suficiente para $\theta$ y $S$ es un estimador insesgado de $g(\theta)$ de segundo orden:
+Si $T$ es suficiente para $\theta$ y $S$ es un estimador insesgado de $g(\theta)$ de segundo orden:
 
   - $E[S \mid T]$ es estimador insesgado de $g(\theta)$ de segundo orden.
   - $Var_\theta[E[S \mid T]] \leq Var_\theta[S]$
 
- Es decir, $E[S \mid T]$ será normalmente mejor estimador y nunca peor que $S$.
+Es decir, $E[S \mid T]$ será normalmente mejor estimador y nunca peor que $S$.
 
 **** Teorema de Lehmann-Scheffé
- Para $T$ suficiente y completo para $\theta$; si $g(\theta)$ admite un estimador insesgado de segundo
- orden $S$, entonces existe el UMVUE de $g(\theta)$ y está dado por:
+Para $T$ suficiente y completo para $\theta$; si $g(\theta)$ admite un estimador insesgado de 
+segundo orden $S$, entonces existe el UMVUE de $g(\theta)$ y está dado por:
 
  \[ E [S \mid T]\]
+
 *** Estimación eficiente
 **** Condiciones de regularidad de Fréchet-Cramer-Rao
- Una familia de distribuciones es *regular en el sentido de Fréchet-Cramer-Rao* si cumple, siendo
- $\{P_\theta \; \theta\in\Theta\}$:
+Una familia de distribuciones es *regular en el sentido de Fréchet-Cramer-Rao* 
+si cumple, siendo $\{P_\theta \; \theta\in\Theta\}$:
 
  - $\Theta$ es intervalo abierto de $\mathbb{R}$.
  - $\forall \theta\in\Theta : \{x \mid f_\theta(x) > 0\} = \chi$
  - Tenemos $f_\theta(x)$ derivable respecto a $\theta$ para todo $x\in\chi$ con:
-
- \[ \int_\chi \frac{d f_\theta(x)}{d\theta} dx = \frac{d}{d\theta} \int_\chi f_\theta(x) dx = 0, \quad \forall \theta\in\Theta\]
+   \[ \int_\chi \frac{d f_\theta(x)}{d\theta} dx = 
+   \frac{d}{d\theta} \int_\chi f_\theta(x) dx = 
+   0, \quad \forall \theta\in\Theta\]
+**** TODO Cota de Fréchet-Cramer-Raó
+**** TODO Estimador eficiente
+**** TODO Caracterización de estimadores eficientes
+*** TODO Estimación de máxima verosimilitud
+*** TODO Otros métodos de estimación
+** TODO 5. Estimación por intervalos de confianza
+** TODO 6. Contraste de hipótesis
 
 * Topología II
 ** 1. El grupo fundamental
