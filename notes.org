@@ -594,6 +594,42 @@ Sea $F/K$ una extensión con $\alpha \in F$, entonces $\alpha$ es *algebraico*
 cuando $K(\alpha)/K$ es finita, y *trascendente* si no. Una extensión
 es *algebraica* si todos sus elementos lo son.
 
+*** 6. Un poco de teoría de Galois
+**** 6.1. Correspondencia de Galois y extensiones de Galois
+***** Cuerpo fijo
+Sea $F/k$ extensión y $G \subseteq Aut_k(F)$. Llamamos *cuerpo fijo* de $G$ a:
+
+\[ F^G = \{ \alpha\in F \mid \forall g \in G, g\alpha=\alpha\}\]
+
+***** Correspondencia de Galois
+Hay correspondencia entre los cuerpos intermedios de la extensión
+y los subgrupos del grupo de automorfismos.
+
+Dado $E$ cuerpo intermedio, lo enviamos a $Aut_E(F)$. Dado $G$ lo enviamos
+a $F^G$.
+
+***** Inclusión y correspondencia
+Para cualesquiera subgrupo $G$ y cuerpo intermedio $E$:
+
+ - $E \subseteq F^{Aut_E(F)}$
+ - $G \subseteq Aut_{F^G}(F)$
+
+Si llamamos $E_1E_2$ al menor subcuerpo de $F$ conteniendo $E_1,E_2$ y llamamos
+$<G_1,G_2>$ al menor subgrupo de los automorfismos conteniendo $G_1,G_2$:
+
+ - $Aut_{E_1E_2}(F) = Aut_{E_1}(F) \cap Aut_{E_2}(F)$
+ - $F^{<G_1,G_2>} = F^{G_1} \cap F^{G_2}$
+
+***** Extensiones de Galois
+Sea $F/k$ extensión, equivalen:
+
+ - $F$ es cuerpo de descomposición de algún $f \in k[t]$.
+ - $F/k$ es normal y separable.
+ - $|Aut_k(F)| = [F : k]$.
+ - La correspondencia de Galois es biyección.
+ - $F/k$ separable y, si $E/F$ es algebraica con $\sigma \in Aut_k(E)$, $\sigma(F)=F$.
+
+Llamamos a esto una *extensión de Galois*.
 ** VIII. Vuelta al álgebra lineal
 *** 1. Preliminares
 **** 1.1. Funtores
