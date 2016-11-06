@@ -1135,7 +1135,7 @@ Con eso, debe ser $\beta = R$.
  por uno de mínimo grado. Si está generado por una constante, como contiene a $(2)$,
  debe estar generado por $(2)$, pero no es el caso porque no contendría a $x+2$.
 
-*** Ejercicio 21
+*** TODO Ejercicio 21
 *** Ejercicio 26
  Nótese que si $x$ es nilpotente, también lo es $ux$ para $u$ unidad.
  Sea $x^n = 0$. Tenemos que:
@@ -1195,6 +1195,90 @@ Con eso, debe ser $\beta = R$.
 
  Así que $a_{n-r}b_0 = 0$ y se concluye $fb_0 = 0$.
 
+*** Ejercicio 30
+#+begin_statement
+Calcular el radical de cualquier ideal de $\mathbb{Z}$.
+#+end_statement
+Dado $(n\mathbb{Z})$ y escribiendo $n = p_1^{e_1}\dots p_n^{e_n}$, podemos ver que un número que perteneciera
+a su radical debería ser tal que:
+
+\[ p_1^{e_1}\dots p_n^{e_n} | (q_1^{f_1}\dots q_n^{f_n})^k\]
+
+Para algún $k$, lo que equivale a que $e_i \leq kf_i$. Es decir, necesitamos sólo $f_i \neq 0$.
+En conclusión, $\sqrt{n\mathbb{Z}} = (p_1p_2\dots p_n)\mathbb{Z}$, ideal del producto de sus factores primos.
+
+*** Ejercicio 31
+#+begin_statement
+Demostrar los siguientes resultados para radicales de ideales de un anillo $R$:
+
+  1. $\sqrt{\sqrt{\alpha}} = \sqrt{\alpha}$.
+  2. $\sqrt{\alpha\beta} = \sqrt{\alpha \cap \beta} = \sqrt{\alpha} \cap \sqrt{\beta}$.
+  3. $\sqrt{\alpha} = R \Leftrightarrow \alpha = R$.
+  4. $\sqrt{\alpha+\beta} = \sqrt{\sqrt{\alpha}+\sqrt{\beta}}$.
+  5. Si $\pi$ es un ideal primo, entonces $\sqrt{\pi} = \pi$.
+  6. Si $\sqrt{\alpha} + \sqrt{\beta} = R$, entonces $\alpha+\beta = R$.
+
+$\quad$
+#+end_statement
+**** Punto 1
+Sea $y \in \sqrt{\sqrt{\alpha}}$, entonces $y^n \in \sqrt\alpha$, y entonces $(y^n)^m \in \alpha$, luego $y \in \sqrt{\alpha}$.
+**** Punto 2
+Sea $y \in \sqrt{\alpha \cap \beta}$, entonces $y^n \in \alpha \cap \beta$, y entonces $y^ny^n \in \alpha\beta$, luego 
+$y \in \sqrt{\alpha\beta}$.
+**** Punto 3
+Sea $\sqrt{\alpha} = R$, entonces $1 = 1^n \in\alpha$.
+**** Punto 4
+Sea $x \in \sqrt{\sqrt\alpha+\sqrt\beta}$, entonces $x^n = u+v$, donde $u^p \in \alpha$, $v^q \in \beta$. Tengo entonces que
+$(x^n)^{p+q} = (u+v)^{p+q} \in \alpha+\beta$, donde aplicamos Binomio de Newton.
+**** Punto 5
+Si fuera $x^n \in \pi$ para $n>1$, por primalidad, debería tenerse $x^{n-1} \in \pi$. Así que $x\in\pi$.
+**** Punto 6
+Si $1 = a+b$ con $a^n\in \alpha$, $b^m\in\beta$, entonces, por Binomio de Newton tenemos que 
+$1^{n+m} = (a+b)^{n+m} \in \alpha+\beta$.
+
+*** Ejercicio 32
+#+begin_statement
+Sean $\alpha,\beta$ ideales de un anillo $R$ tales que $\sqrt{\alpha},\sqrt{\beta}$ son primos entre sí. Demostrar que
+entonces $\alpha,\beta$ también son primos entre sí.
+#+end_statement
+Trivial por el punto 6 del ejercicio 31.
+
+*** Ejercicio 33
+#+begin_statement
+Sea $R$ un anillo y $\alpha,\beta$ ideales. Demostrar que si $(\alpha)^n\subseteq\beta$ para algún $n\geq 0$, entonces
+$\sqrt\alpha \subseteq \sqrt\beta$.
+#+end_statement
+Tengo trivialmente que $\alpha \subseteq \sqrt\beta$, puedo tomar 
+raíces para tener $\sqrt{\alpha} \subseteq \sqrt{\sqrt{\beta}}$.
+
+*** Ejercicio 34
+#+begin_statement
+Sea $\alpha\subseteq R$ un ideal tal que $\sqrt\alpha$ es finitamente generado. Demostrar que existe
+$n \in \mathbb{N}$ tal que $(\sqrt{\alpha})^n\subseteq\alpha$.
+#+end_statement
+Sea $(\sqrt{\alpha}) = (x_1,\dots,x_m)$ tales que $x_i^{e_i} \in \alpha$. Entonces se tiene por binomio de Newton:
+
+\[(\sqrt\alpha)^{e_1+\dots+e_m} \subset \alpha\]
+
+Ya que cada sumando tiene algún $x_i$ elevado a más que $e_i$.
+
+*** Ejercicio 35
+#+begin_statement
+En el anillo de polinomios $\mathbb{F}_2[X,Y]$, con $\mathbb{F}_2$ cuerpo finito de dos elementos, sean
+$\alpha_1 = (X,Y)$ y $\alpha_2 = (X-1,Y-1)$. Haciendo uso del ejercicio anterior, demuestra que el
+ideal producto $\alpha = \alpha_1\alpha_2$ es un ideal radical.
+#+end_statement
+Primero vemos que $\alpha_1$ y $\alpha_2$ son radicales. $\alpha_1$ lo forman todos los polinomios con
+término independiente $0$, y ningún polinomio con término independiente $1$ puede
+elevarse hasta tener término $0$. $\alpha_2$ es la imagen de $\alpha_1$ por el homomorfismo de 
+anillos que lleva la indeterminada $X$ en $X+1$, así que también lo es.
+
+Sabemos que $\alpha_1$,$\alpha_2$ son primos entre sí. Luego $\alpha_1\alpha_2 = \alpha_1 \cap \alpha_2$. Ahora tenemos
+que:
+
+\[\sqrt{\alpha_1\alpha_2} = \sqrt\alpha_1 \cap \sqrt\alpha_2 = 
+\alpha_1\cap\alpha_2 = \alpha_1\alpha_2\]
+
 *** Ejercicio 41
 **** Punto 1
  Veamos que la aplicación que va del producto de ideales a $R$ es un homomorfismo
@@ -1227,10 +1311,10 @@ Con eso, debe ser $\beta = R$.
 
  Y la distributividad:
 
- \[\begin{align*}
+ \[\begin{aligned}
  (x,y)((a,b)+(c,d)) &= (x,y)(a+c,b+d) = (x(a+c)+y(a+c)+x(b+d)), y(b+d)) \\
  &= (xa+ya+xb,yb) + (xc+yc+xd,yd)
- \end{align*}\]
+ \end{aligned}\]
 
 **** Punto 2
  Vemos que es trivialmente cerrado para la suma y el producto. Cualquier
