@@ -1254,6 +1254,53 @@ Llamamos a esto una *extensión de Galois*.
  \[img(f) = ker(coker(f))\]
  #+end_definition
 
+* Carlos Ivorra - Álgebra conmutativa
+** I. Funtores Derivados
+*** 1.1. Haces
+**** Prehaces
+Un *prehaz* sobre un espacio topológico $X$ es un par $({\cal F},\rho)$, donde cada abierto $U$
+tiene un grupo asociado ${\cal F}(U)$ y cada inclusión $U \subset V$ tiene asociado un homomorfismo
+llamado *restricción*, $\rho_U^V : {\cal F}(V) \longrightarrow {\cal F}(U)$ cumpliendo:
+
+  - ${\cal F}(\varnothing) = 0$
+  - $\rho_U^U$ es la identidad
+  - Si $U\subset V\subset W$, entonces $\rho_V^W \circ \rho_U^V = \rho_U^W$
+
+Cuando los grupos ${\cal F}(U)$ son anillos o módulos tenemos un *prehaz de anillos* o un
+*prehax de módulos*.
+
+# Categóricamente, un funtor contravariante desde los conjuntos del espacio
+# topológico con la inclusión a los grupos, o módulos, o álgebras...
+
+**** Notación de restricción
+Normalmente escribiremos $f|_{U}$ para llamar a la restricción de $f$ a $U$, esto 
+es $\rho_U^V(f)$.
+
+**** Haces
+Un *haz* es un prehaz tal que si $U = \bigcup U_i$ es el recubrimiento de un abierto:
+
+  - Si $f|_{U_i} = 0$ para todos los $i$, entonces $f = 0$.
+  - Para una familia de elementos $f_i \in {\cal F}(U_i)$ cumpliendo que 
+    $f_i|_{U_i \cap U_j} = f_j|_{U_i \cap U_j}$, se tiene que hay un $f \in {\cal F}(U)$ tal que $f|_{U_i} = f_i$.
+
+**** Grupo de gérmenes o grupo local
+Dado un prehaz ${\cal F}$ sobre $X$, con $P \in X$, llamamos *grupo de gérmenes* en $P$ al grupo
+${\cal F}_P$, formado por las clases de equivalencia de pares $(U,f)$ con $P\in U$, $f \in {\cal F}(U)$;
+respecto de la relación dada por $(U,f) \sim (V,g)$ ssi hay un abierto $W \subset U \cap V$
+tal que $P \in W$ y además $f|_W = g|_W$. Teniendo como operación de grupo a:
+
+\[ [(U,f)]+[(V,g)] = [(U\cap V, f|_{U\cap V} + g|_{U\cap V})] \]
+
+**** Homomorfismo de prehaces
+Un *homomorfismo de prehaces* $\alpha : {\cal F} \longrightarrow {\cal G}$, asigna a cada abierto $U$ un homomorfismo
+de grupos $\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)$, tal que:
+
+\[ \begin{tikzcd}
+{\cal F}(V) \rar{\alpha_V} \dar[swap]{\rho_U^V} & {\cal G}(V) \dar{\rho_U^V} \\
+{\cal F}(U) \rar{\alpha_U} & {\cal G}(U)
+\end{tikzcd} \]
+
+# Categóricamente son transformaciones naturales.
 * Álgebra III
 ** Polinomios simétricos
 *** La cúbica
