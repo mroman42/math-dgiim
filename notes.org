@@ -1757,7 +1757,7 @@ Se define para $\alpha, \beta$ ideales como:
 
 **** Ideales primos relativos
 Dos ideales son *primos relativos* cuando $\alpha+\beta = R$. Cuando son primos relativos
-debe cumplirse que $\alpha\beta = \alpha \cap \beta$.
+se cumple que $\alpha\beta = \alpha \cap \beta$.
 
 *** Anillo cociente
 **** Definición
@@ -1785,18 +1785,34 @@ Y además, los ideales están en correspondencia biyectiva por $f_\ast$ y $f^{-1
 **** Definición
 $P$ es ideal *primo* si no es el total y $xy\in P \Rightarrow x \in P \vee y \in P$.
 $P$ es ideal *maximal* si $M \neq R$ y es maximal en el retículo de ideales sin $R$.
+
 **** Caracterización de ideales primos y maximales
 En relación a su cociente en el anillo:
 
  - $P$ es primo ssi $R/P$ es un dominio de integridad no trivial.
  - $M$ es maximal ssi $M/P$ es un cuerpo no trivial.
 
+***** Demostración trivial
+
 **** Preservación de ideales primos y maximales
 Dado un homomorfismo $f$,
 
- - Si $\Pi \subseteq S$ es primo, $f^\ast(\Pi)$ es primo.
- - La imagen y preimagen de ideales preserva primos y maximales sobre la imagen 
-   del anillo.
+ 1. Si $\Pi$ es ideal primo, entonces $f^{-1}(\Pi)$ es ideal primo.
+ 2. La imagen y preimagen de ideales preserva primos y maximales 
+    entre el núcleo y sobre la imagen del anillo.
+
+Como consecuencia los ideales primos (resp. maximales) de un
+anillo $R/\alpha$, son los ideales de la forma $\Pi/\alpha$ con $\alpha\subset\Pi$ primo (resp.
+maximal).
+
+***** Demostración
+*1* es trivial. *2* tenemos que demostrarlo en cuatro pasos:
+
+ - Si $M$ es maximal en $\im f$, entonces $f^{-1}(M)$ es maximal entre los 
+   ideales que contienen a $\ker f$.
+ - Si $\ker f \subset M$ es maximal, entonces $f(M)$ es maximal en $\im f$.
+ - Si $\Pi$ es primo en $\im f$, entonces $f^{-1}(\Pi)$ es primo, ya demostrado.
+ - Si $\ker f \subset \Pi$ es primo, entonces $f(\Pi)$ es primo en $\im f$.
 
 *** Teorema de Krull
 **** Subconjunto multiplicativamente cerrado
@@ -1808,9 +1824,15 @@ Es un subconjunto $S$ con:
 Sea $\alpha \cap S = \varnothing$, entonces existe un ideal $M \supset \alpha$ tal que $M \cap S = \varnothing$ y maximal respecto
 a esta condición. Además, $M$ es un ideal primo.
 
+***** Demostración
+Aplicando el lema de Zorn a los ideales que cumplen la condición. Nótese que la
+unión de ideales es cota de una cadena y cumple también la condición.
+Se demuestra que es primo por manipulación.
+
 **** Corolario al teorema de Krull
-Tomando $S=\{1\}$ tenemos que, dado un ideal, existe un ideal maximal que lo contiene.
-En particular, todo elemento no unidad está contenido en un ideal maximal.
+Tomando $S=\{1\}$ tenemos que; dado un ideal, existe un ideal maximal que lo contiene.
+En particular, todo elemento no unidad está contenido en un ideal maximal,
+tomando $S = (x)$.
 
 *** Anillos locales
 **** Inclusión en ideales primos
@@ -1818,9 +1840,17 @@ Sean ideales $\alpha_1,\dots,\alpha_n$ y $\pi$ un ideal primo. Si $\bigcap \alph
 
 $\exists i: \alpha_i \subset \pi$.
 
+***** Demostración
+Supongamos que $\forall i: \alpha_i \nsubseteq \Pi$; entonces tenemos $x_i \in \alpha_i - \Pi$ tales que ninguno
+está en $\Pi$, pero su producto debe estar, contraviniendo que sea primo.
+
 **** Inclusión de ideales primos
 Sean ideales primos $\pi_1,\dots,\pi_n$ y $\alpha$ un ideal. Si $\alpha \subset \bigcup \pi_i$, entonces 
+
 $\exists i: \alpha \subset \pi_i$.
+
+***** Demostración
+En el caso $n=2$, 
 
 **** Definición de anillo local
 Un *anillo local* es aquel con un único ideal maximal. A $R/M$ se le llama 
@@ -1878,11 +1908,60 @@ Dado un homomorfismo $f$ llamamos *ideal contraído* de $\beta$ al ideal:
 
 \[ \beta^c = f(\beta) \]
 
-**** Biyección entre ideales
-*** TODO Producto directo de anillos
-**** TODO Definición
-**** TODO Propiedad universal
-*** TODO Teorema Chino del Resto
+**** TODO Biyección entre ideales
+*** Producto directo de anillos
+**** Definición
+Para $R_1,R_2,\dots,R_n$ tomamos como su producto directo a:
+
+\[R_1\times \dots \times R_n = \prod_{i=1}^n R_i\]
+
+con las operaciones definidas componente a componente.
+
+**** Proyecciones e inclusiones
+Las *proyecciones*, $p_k$, a cualquier factor son homomorfismos.
+Las *inclusiones*, $u_k$, *no* son homomorfismos, ya que no respetan
+el uno del anillo, que en este caso es $(1,\dots,1)$. Cumplen además:
+
+ - $p_k \circ u_k = \delta_{kj}id$
+ - $\sum u_i \circ p_i = id$
+ - $\ker(p_j) = \sum \im(u_j)$
+
+**** Propiedad universal
+El producto con las proyecciones es el *producto categórico* de la
+categoría de los anillos:
+
+\[ \begin{tikzcd}
+& & S \dar[dashed]{\exists!} \arrow[bend right]{ddll} \arrow[bend right]{ddl} \arrow[bend left]{ddr} \arrow[bend left]{ddrr} & &\\
+& & \prod R \arrow{dll}[swap]{\pi_1} \arrow{dl}{\pi_2} \arrow{dr}[swap]{\pi_3} \arrow{drr} & & \\
+R_1 & R_2 &  & R_3 & \dots
+\end{tikzcd} \]
+
+**** Teorema Chino del Resto 
+En la situación la propiedad universal sobre el cociente por unos
+ideales $\alpha_1,\dots,\alpha_n$:
+
+\[ \begin{tikzcd}
+\prod_{i=1}^n R/\alpha_i \rar{\pi_i} &  R/\alpha_i \\
+R \uar{\exists! f} \urar{p_i}
+\end{tikzcd} \]
+
+Tenemos que
+
+ 1. Si los $\alpha_i$ son primos entre sí, $\prod \alpha_i = \bigcap \alpha_i$.
+ 2. La $f$ es sobreyectiva ssi los $\alpha_i$ son primos entre sí.
+ 3. La $f$ es inyectiva ssi $\bigcap \alpha_i = 0$. De hecho, $\ker(f) = \bigcap \alpha_i$.
+
+***** Demostración
+1. El caso $n=2$ es conocido. En el caso $n>2$, aplicamos la hipótesis
+   de inducción a $\alpha_1\alpha_2\dots\alpha_{n-1}$ y a $\alpha_n$, que se demuestran primos relativos.
+2. Doble implicación:
+   - Si $f$ es sobreyectiva, existe $f(x) = (1,0,0,\dots)$, que me da $x \in \alpha_i$
+     para cualquier $i$, y además, $x-1 \in \alpha_1$; luego $1 \in \alpha_i+\alpha_1$.
+   - Si son primos relativos, existen $x_i + y_i = 1$ con $x_i \in \alpha_1$, $y_i \in \alpha_i$.
+     $y = y_2y_3\dots y_n = 1 + x$, con $x \in \alpha_1$; luego $y \equiv_{\alpha_1} 1$ pero $y \equiv_{\alpha_i} 0$; luego
+     puedo crear una base del anillo.
+3. Trivial.
+
 ** 3. Bases de Gröbner
 *** R-álgebras
 Una *R-álgebra*, $S$ es un anillo con estructura de R-módulo, tal que:
