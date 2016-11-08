@@ -56,6 +56,68 @@ $u|_V = p_{U,V}(u)$.
  #+begin_definition
  *Sheaves*. A presheaf satisfiying gluability and uniqueness.
  #+end_definition
+** Homological Algebra
+*** 2. Chain Complex and Homology
+*** 4. Homology Theorem
+**** Setting
+Given a SES of chain complexes $0 \longrightarrow {\cal A}
+\longrightarrow{\cal B}
+\longrightarrow{\cal C}
+\longrightarrow 0$, we have a long exact
+sequence like:
+
+\[ \begin{tikzcd}
+ & \dots\rar & H_{n+1}({\cal C}) \arrow[out=355,in=175,swap]{dll}{\delta_{n+1}} \\
+H_{n}({\cal A})\rar & H_{n}({\cal B}) \rar & H_{n}({\cal C}) \arrow[out=355,in=175,swap]{dll}{\delta_n}\\
+H_{n-1}({\cal A})\rar & \dots & 
+\end{tikzcd} \]
+
+**** Naturality
+When we have two SES of chain complexes:
+
+\[ \begin{tikzcd}
+0 \rar & {\cal A}\rar\dar & {\cal B}\rar\dar & {\cal C}\rar\dar & 0 \\
+0 \rar & {\cal A}'\rar & {\cal B}'\rar & {\cal C}'\rar & 0 \\
+\end{tikzcd} \]
+
+where it hols for every $n$ that:
+
+\[ \begin{tikzcd}
+H_n({\cal C}) \rar\dar & H_{n-1}({\cal A})\dar \\
+H_n({\cal C}') \rar & H_{n-1}({\cal A}')
+\end{tikzcd} \]
+
+*** 8. Proj, inj and flat modules
+**** Definitions
+An $R$-module $D$ is:
+
+ 1. *Projective* if $Hom(D, -)$ is exact.
+ 2. *Injective* if $Hom(-,D)$ is exact.
+ 3. *Flat* if $D \otimes -$ is exact.
+
+**** Considerations
+We know that $Hom(D,-)$ and $Hom(-,D)$ are left-exact and that
+$D\otimes -$ is right-exact; so for them to be exact, we only need:
+
+ - A module $D$ is *projective* when $B \longrightarrow C$ surjective induces
+   $Hom(D,B) \longrightarrow Hom(D,C)$ surjective.
+
+   \[ \begin{tikzcd}
+               & B \dar[two heads] \\
+   D \rar\urar[dashed]{\exists} & C
+   \end{tikzcd} \]
+
+ - A module $D$ is *injective* when $A \longrightarrow B$ surjective induces
+   $Hom(B,D) \longrightarrow Hom(A,D)$ surjective.
+
+   \[ \begin{tikzcd}
+     & A \dar[two heads]\dlar \\
+   D & B \lar[dashed]{\exists}
+   \end{tikzcd} \]
+
+ - A module $D$ is *flat* when $A \longrightarrow B$ injective induces 
+   $D\otimes A \longrightarrow D \otimes B$ injective.
+
 * The Catsters
 ** Adjunctions
 Serie de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][vídeos]] sobre funtores adjuntos.
