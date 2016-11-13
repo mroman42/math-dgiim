@@ -1006,7 +1006,6 @@ Sea $R$ anillo conmutativo. Demostrar:
   6. $\left(\sum_{i=1}^n x_i\right) \left(\sum^m_{j=1} y_j\right) = \left(\sum^{n,m}_{i=1,j=1} x_iy_j\right)$, para $x_i,y_j \in R$ y $n,m > 0$.
   7. $(x+y)^n = \sum_{i=0}^n {n \choose i} x y^{n-i}$, para cualesquiera $x,y \in R$ y $n,m \geq 0$.
   8. $(xy)^n = x^ny^n$ y $(x^n)^m = x^{nm}$, para cualesquiera $x,y\in R$ y $n,m \geq 0$.
-
 $\quad$
 #+end_statement
 *** Ejercicio 3
@@ -1125,7 +1124,8 @@ Con eso, debe ser $\beta = R$.
  $a (a\oplus b) =a$ y $b(a\oplus b) = b$. Por inducción, cada ideal generado por varios lo podemos
  generar por un elemento.
 
-*** TODO Ejercicio 17
+*** Ejercicio 17
+Tenemos que los divisores de cero ya forman un ideal primo.
 *** TODO Ejercicio 18
  Esto es equivalente a decir, ya que estamos en un anillo de ideales principales,
  que $X^3-Y^2$ es irreducible.
@@ -1136,6 +1136,18 @@ Con eso, debe ser $\beta = R$.
  debe estar generado por $(2)$, pero no es el caso porque no contendría a $x+2$.
 
 *** TODO Ejercicio 21
+*** Ejercicio 24
+1. => 2. Sea $R$ con un ideal primo, y sea $a \in R$ no unidad. Tengo $a \in M$ para algún 
+   maximal, que debe ser el único ideal primo que hay. Aplicando Krull a  
+   $S = \{1,a,a^2\dots\}$ contra el ideal $(0)$ tendría un ideal no conteniendo 
+   a $S$ pero primo, lo que es imposible, así que $S$ tiene intersección no vacía 
+   con $(0)$.
+2. => 3. Trivial.
+3. => 1. Si $R/{\cal N}$ es un cuerpo, ${\cal N}$ es maximal. Si hubiera otro ideal primo, 
+   lo meteríamosen su maximal ${\cal M}$ y; si hubiera $m \in {\cal M}-{\cal N}$, se 
+   tendría $(m) \cup {\cal M} = R$. Entonces $km+n = 1$, luego $km$ es unidad y ${\cal M} = R$.
+
+*** TODO Ejercicio 25
 *** Ejercicio 26
  Nótese que si $x$ es nilpotente, también lo es $ux$ para $u$ unidad.
  Sea $x^n = 0$. Tenemos que:
@@ -1279,6 +1291,13 @@ que:
 \[\sqrt{\alpha_1\alpha_2} = \sqrt\alpha_1 \cap \sqrt\alpha_2 = 
 \alpha_1\cap\alpha_2 = \alpha_1\alpha_2\]
 
+*** Ejercicio 36
+Sea $x \in \sqrt{\alpha}$, entonces $x^n \in \alpha \subset \bigcap \pi_i$, pero $x^n \in \pi_i$ me da $x \in \pi_i$, luego $x \in \bigcap \pi_i$.
+
+*** Ejercicio 37
+*** Ejercicio 38
+*** Ejercicio 39
+*** Ejercicio 40
 *** Ejercicio 41
 **** Punto 1
  Veamos que la aplicación que va del producto de ideales a $R$ es un homomorfismo
