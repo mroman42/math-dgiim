@@ -1867,9 +1867,12 @@ Sea $\alpha \cap S = \varnothing$, entonces existe un ideal $M \supset \alpha$ t
 a esta condición. Además, $M$ es un ideal primo.
 
 ***** Demostración
-Aplicando el lema de Zorn a los ideales que cumplen la condición. Nótese que la
-unión de ideales es cota de una cadena y cumple también la condición.
-Se demuestra que es primo por manipulación.
+Dada una cadena de ideales cumpliendo la condición su unión también la cumple
+y es cota de la cadena. Aplicando lema de Zorn obtenemos un maximal.
+
+Para ver que es primo tengamos $xy\in M$, los dos no pueden estar en $S$. Si $x \notin S$;
+entonces $xz \notin S$, ya que se tiene $xzy \in M$; tomamos $M + (x) \supset M$, y contravendríamos
+la maximalidad de $M$.
 
 **** Corolario al teorema de Krull
 Tomando $S=\{1\}$ tenemos que; dado un ideal, existe un ideal maximal que lo contiene.
@@ -1887,22 +1890,47 @@ Supongamos que $\forall i: \alpha_i \nsubseteq \Pi$; entonces tenemos $x_i \in \
 está en $\Pi$, pero su producto debe estar, contraviniendo que sea primo.
 
 **** Inclusión de ideales primos
-Sean ideales primos $\pi_1,\dots,\pi_n$ y $\alpha$ un ideal. Si $\alpha \subset \bigcup \pi_i$, entonces 
+Sean ideales primos $\pi_1,\dots,\pi_n$, (salvo quizá 2) y $\alpha$ un ideal. Si $\alpha \subset \bigcup \pi_i$, entonces,
 
 $\exists i: \alpha \subset \pi_i$.
 
 ***** Demostración
-En el caso $n=2$, 
+En el caso $n=2$, supongamos $\alpha \subset \pi_1 \cup \pi_2$; y tomemos $x \in \alpha, x\in\pi_1$, $y\in\alpha, y\in\pi_2$.
+Entonces tendría $x+y \in \alpha$, pero no estaría en $\pi_1 \cup \pi_2$. Nótese que no usamos
+todavía que sean primos.
+
+En el caso inductivo, aplico la hipótesis de inducción para obtener, para cada $k$:
+
+\[\exists x_k \in \alpha : x_k \notin \bigcup_{i\neq k} \pi_i\]
+
+Luego debe tenerse $x_k \in \alpha_k$; sea ahora $x = x_1x_2\dots x_{n-1}+x_n \in \alpha$; 
+luego $\exists r: x\in\alpha_r$. Si $r=n$, tendríamos $x_1x_2\dots x_{n-1} \in \alpha_r$, y por primalidad debería
+estar alguno; si no, tendríamos $x_n \in \alpha_r$.
 
 **** Definición de anillo local
 Un *anillo local* es aquel con un único ideal maximal. A $R/M$ se le llama 
 *cuerpo residual*.
 
 **** Caracterización de anillos locales
+Un anillo $R$ es local ssi $\{x\in R \mid x \text{ no unidad}\}$ es un ideal.
+
 Sea $M$ ideal propio:
 
  - $R$ es local con maximal $M$ ssi $R-M \subset {\cal U}(R)$.
- - Si $M$ es maximal y $\{1+x \mid x\in M\}\in {\cal U}(R)$ entonces es $R$ local y $M$ su maximal.
+ - Si $M$ es maximal y $\{1+x \mid x\in M\}\subset {\cal U}(R)$ entonces es $R$ local y $M$ su maximal.
+
+***** Demostración
+1. Una no unidad debe estar contenida en el único maximal que hay, que no contiene
+   a las unidades y además es ideal.
+   Por otro lado, por Krull, el ideal de las no unidades debería estar contenido
+   en un ideal maximal que tampoco tuviera unidades, luego debe ser él mismo.
+2. Por la caracterización anterior tenemos una implicación. Sea $R-M \subset {\cal U}(R)$,
+   si tenemos $M \not\subset \beta$, entonces tendríamos un $x \in \beta,x \notin M$, luego $x \in {\cal U}(R)$
+   y entonces $\beta = R$. Si tenemos otro $M'$ maximal, entonces $\exists x\in M': x \notin M$,
+   pero eso me vuelve a dar $M' = R$. Luego $M$ es el único ideal y maximal.
+3. Por la caracterización anterior tenemos una implicación. Sea $x \notin R-M$,
+   tenemos por maximalidad: $rx+m = 1$, luego $rx = 1-m \in {\cal U}(R)$.
+   En conclusión, $R-M \subset {\cal U}(R)$ y es local.
 
 *** Radicales
 **** Nilradical
@@ -1910,13 +1938,26 @@ Sus elementos se llaman *nilpotentes*:
 
 \[\operatorname{Nil}(R) = \{x \in R \mid \exists n: x^n = 0\}\]
 
+El nilradical es un ideal.
+
 **** Anillo reducido
-Cuando $\operatorname{Nil}(R) = 0$. Los dominios de integridad son anillos reducidos y además,
-podemos reducir un anillo tomando  
-p$R/\operatorname{Nil}(R)$
+Un anillo es *reducido* si $\operatorname{Nil}(R) = 0$. Los dominios de integridad son reducidos. 
+Además, podemos reducir un anillo dividiendo por su nilradical $R/\operatorname{Nil}(R)$.
 
 **** Espectro
+El *espectro* de un anillo R es la intersección de sus ideales primos:
+
 \[\spec(R) = \{\pi\in R \mid \pi \text{ es un ideal primo}\}\]
+
+**** Caracterización del nilradical
+El nilradical de $R$ es la intersección de los ideales del espectro:
+
+\[ \operatorname{Nil}(R) = \bigcap_{\pi \in \operatorname{Spec}(R)} \pi\]
+
+***** Demostración
+Sea $x^n = 0$, entonces $x^n \in \pi, \forall \pi \in \operatorname{Spec}(R)$; y, por primalidad, $x \in \pi$.
+Sea $x \notin \operatorname{Nil}(R)$, entonces $S = \{1,x,x^2,\dots\}$ es multiplicativamente cerrado con
+$S \cap \operatorname{Nil}(R) = \varnothing$. Por Krull, tenemos un $\pi$ tal que $\pi \cap S = \varnothing$.
 
 **** Radical de un ideal
 Se define como:
@@ -1924,11 +1965,32 @@ Se define como:
 \[\sqrt{\alpha} = \{x \in R \mid \exists n \geq 1 : x^n \in \alpha\}\]
 
 Tenemos que $\operatorname{Nil}(R/\alpha) = \sqrt{\alpha}/\alpha$. Cuando $\alpha = \sqrt{\alpha}$ decimos que es *ideal radical*.
+Se caracteriza como:
+
+\[\sqrt{\alpha} = \bigcap_{\alpha \subset \pi \in Spec(R)} \pi\]
+
+***** Demostración
+Tenemos claramente $\pi^{-1}(\operatorname{Nil}(R/\alpha)) = \sqrt{\alpha}$, pero entonces:
+
+\[\sqrt{\alpha} = 
+\pi^{-1}(\operatorname{Nil}(R/\alpha))=
+\pi^{-1} \left( 
+\bigcap_{\alpha \subset \pi \in \operatorname{Spec}(R/\alpha)} \pi/\alpha 
+\right) = \bigcap_{\alpha \subset \pi \in \operatorname{Spec}(R)} \pi\]
 
 **** Radical de Jacobson
+Se define el *radical de Jacobson* como:
+
 \[{\cal J}(R) = \bigcap_{{\cal M} \text{ maximal}} {\cal M}\]
 
 Tenemos que $x \in {\cal J}(R)$ ssi $1-xy \in U(R)$ para cualquier $y$.
+
+***** Demostración
+Un elemento $1-xy$ para $x \in {\cal J}(R)$ no puede estar en ningún ideal maximal, porque
+estaría entonces el $1$. Por corolario de Krull, debe ser unidad.
+
+Supongamos $x \notin M$, entonces $(x) + M = R$, y por tanto $1-xy \in M$. Pero un maximal
+no puede contener una unidad.
 
 *** Ideales residuales y anulador
 **** Definición
