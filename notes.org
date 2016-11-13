@@ -1819,6 +1819,11 @@ Y además, los ideales están en correspondencia biyectiva por $f_\ast$ y $f^{-1
 \longleftrightarrow 
 \{ \beta \mid \beta \subset \im(f)\}\]
 
+***** Demostración
+Trivial desde la descomposición de morfismos en una categoría arbitraria.
+Además, se comprueba que $f^{-1}$ preserva ideales y que $f_\ast$ preserva ideales en su 
+imagen.
+
 *** Ideales primos y maximales
 **** Definición
 $P$ es ideal *primo* si no es el total y $xy\in P \Rightarrow x \in P \vee y \in P$.
@@ -1831,7 +1836,6 @@ En relación a su cociente en el anillo:
  - $M$ es maximal ssi $M/P$ es un cuerpo no trivial.
 
 ***** Demostración trivial
-
 **** Preservación de ideales primos y maximales
 Dado un homomorfismo $f$,
 
@@ -1848,7 +1852,7 @@ maximal).
 
  - Si $M$ es maximal en $\im f$, entonces $f^{-1}(M)$ es maximal entre los 
    ideales que contienen a $\ker f$.
- - Si $\ker f \subset M$ es maximal, entonces $f(M)$ es maximal en $\im f$.
+ - Si $M$ es maximal, entonces $f(M)$ es maximal en $\im f$.
  - Si $\Pi$ es primo en $\im f$, entonces $f^{-1}(\Pi)$ es primo, ya demostrado.
  - Si $\ker f \subset \Pi$ es primo, entonces $f(\Pi)$ es primo en $\im f$.
 
