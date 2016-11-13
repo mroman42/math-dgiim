@@ -2012,7 +2012,19 @@ Dado un homomorfismo $f$ llamamos *ideal contraído* de $\beta$ al ideal:
 
 \[ \beta^c = f(\beta) \]
 
-**** TODO Biyección entre ideales
+**** Biyección entre ideales
+Para $f : S \longrightarrow R$ homomorfismo y $\alpha,\beta$ ideales:
+
+  1. $\alpha \subset \alpha^e^c$, y $\beta \supset \beta^c^e$.
+  2. $\alpha^e = \alpha^e^c^e$, y $\beta^c = \beta^c^e^c$
+  3. Hay una biyección con $(-)^e,(-)^c$ entre ideales contraídos y extendidos, que 
+     además pueden escribirse como $\{\alpha \subset R \mid \alpha = \alpha^e^c\}$
+     y $\{\beta \subset S \mid \beta = \beta^c^e\}$.
+
+***** Demostración
+Pueden escribirse así porque si tengo $\beta = \alpha^e$, entonces $\beta^c^e = \alpha^e^c^e = \alpha^e = \beta$. La biyección
+es trivial desde la definición y las proposiciones anteriores.
+
 *** Producto directo de anillos
 **** Definición
 Para $R_1,R_2,\dots,R_n$ tomamos como su producto directo a:
@@ -2040,7 +2052,7 @@ categoría de los anillos:
 R_1 & R_2 &  & R_3 & \dots
 \end{tikzcd} \]
 
-**** Teorema Chino del Resto 
+**** Teorema Chino del Resto
 En la situación la propiedad universal sobre el cociente por unos
 ideales $\alpha_1,\dots,\alpha_n$:
 
@@ -2077,7 +2089,6 @@ $\lambda : R \longrightarrow S$. Nótese que puedo pasar de una a otra definici�
 
 *** TODO Anillos de polinomios
 *** TODO Órdenes monomiales
-
 * Análisis Funcional
 ** 1. Espacios normados
 *** Espacios normados
