@@ -1139,6 +1139,44 @@ Llamamos a esto una *extensión de Galois*.
  - $C^+(A)$, subcategoría plena de los complejos acotados por debajo.
  - $C^-(A)$, subcategoría plena de los complejos acotados por arriba.
 
+* Jara - Apuntes
+** XIII. Homología de Hochschild
+*** 3. Cohomología de Hochschild
+**** Resolución proyectiva
+***** R;R módulo
+Sea $R$ una $K\text{-álgebra}$; un $(R;R)$ *módulo* es un $R$ módulo a izquierda y derecha 
+verificando la *relación de compatibilidad*:
+
+\[r_1(mr_2) = (r_1m)r_2\]
+
+En particular, se tiene,
+
+\[km = mk \quad \forall k \in K\]
+
+Un *homomorfismo de R;R-módulos* es un homomorfismo de R-módulos a izquierda y
+*R-módulos* a derecha. Forman la categoría $(R;R)\mathtt{-Mod}$.
+
+***** Álgebra envolvente
+Sea $R$ una $K\text{-álgebra}$, llamamos *álgebra envolvente* a $R^e = R \otimes R^{op}$. Con el producto:
+
+\[ (r_1 \otimes s_1)(r_2 \otimes s_2) = (r_1r_2) \otimes (s_2s_1)\]
+
+***** Caracterización de R;R-módulos
+Para cada $K\text{-álgebra}$, $R$, las categorías siguientes son isomorfas:
+
+  - $(R;R)\text{-Mod}$
+  - $R^e\text{-Mod}$
+  - $\text{Mod-}R^e$
+
+**** Cohomología de Hochschild
+***** Definición 
+Sea $R$ una $K\text{-álgebra}$ y $M$ un $(R;R)\text{-módulo}$, llamamos:
+
+  - *cohomología de Hochschild* de $R$ en $M$ a 
+    $HH^{\bullet}(R,M) = \operatorname{Ext}^\bullet_{R^e}(R,M)$.
+  - *homología de Hochschild* de $R$ en $M$ a 
+    $HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)$.
+
 * Rotman - An introduction to homological algebra
 ** 5. Setting the stage
 *** 5.4. Sheaves
