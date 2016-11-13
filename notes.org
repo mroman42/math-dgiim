@@ -118,6 +118,84 @@ $D\otimes -$ is right-exact; so for them to be exact, we only need:
  - A module $D$ is *flat* when $A \longrightarrow B$ injective induces 
    $D\otimes A \longrightarrow D \otimes B$ injective.
 
+*** 9. Resolutions: projective, injective and flat
+**** Definitions
+***** Resolutions
+Resolutions are *exact sequences*.
+
+***** Projective resolution
+A resolution, with $d_i$ maps:
+
+\[\dots\longrightarrow P_2\longrightarrow P_1\longrightarrow P_0
+\longrightarrow M \longrightarrow 0\]
+
+where $P_i$ is projective.
+
+***** Injective resolution
+A resolution:
+
+\[0 \longrightarrow M \longrightarrow E_0\longrightarrow E_1
+\longrightarrow E_2 \longrightarrow \dots\]
+
+where $E_i$ is injective.
+
+***** Flat resolution
+A resolution:
+
+\[\dots\longrightarrow F_2\longrightarrow F_1\longrightarrow F_0
+\longrightarrow M \longrightarrow 0\]
+
+where $F_i$ is flat.
+
+**** How to form a resolution
+It is important to notice that, given a module $M$, you can always find a surjection
+from a proyective module (we have /enough projectives/). So we can construct a
+projective resolution as follows:
+
+\[ \begin{tikzcd}
+&\ker f_2 \drar&&&&\ker \pi\drar &&& \\
+\dots&&P_2 \drar[two heads]{f_2}&&P_1 \urar[two heads]{f_1} && P_0 \rar[two heads]{\pi} & M \rar & 0\\
+&&&\ker f_1 \urar&&&&
+\end{tikzcd} \]
+
+We can reverse the arrows to obtain an injective resolution.
+
+
+*** TODO 10. Homotopic projective resolutions
+**** Extending a morphism
+Given two projective resolutions of two $R$ modules, $A$ and $A'$, and a morphism
+between them, $f$. We can extend it to $f_n \in Hom(P_n,P_n')$.
+
+\[ \begin{tikzcd}
+\dots\rar & P_{n+1}\rar & P_n\rar& \dots
+ \rar & P_1\rar{d_1} & P_0\rar{d_0}& A \dar{f} \rar& 0 \\
+\dots\rar & P_{n+1}'\rar & P_n'\rar&\dots
+ \rar & P_1'\rar{d_1¡} & P_0'\rar{d_0'}& A' \rar& 0 \\
+\end{tikzcd} \]
+
+**** Extending the morphism, base case
+We use that $P_0$ is projective to construct:
+
+\[ \begin{tikzcd}
+     & P_0 \arrow[ddl,"f_0",dashed,swap] \dar\\
+     & A \dar{f} \\
+P_0' \rar[two heads] & A'
+\end{tikzcd} \]
+
+**** Extending the morphism, inductive case
+We are going to show that $f_n(\im d_{n+1}) \subset \im d_{n+1}' = \ker d_n'$. That is, 
+$d_n' \circ f_n \circ d_{n+1} = 0$. And that follows from diagram chasing. We use
+again the projectivity of $P_{n+1}$.
+
+\[ \begin{tikzcd}
+     & P_{n_+1} \arrow[ddl,"f_{n+1}",dashed,swap] \dar\\
+     & \im d_{n+1} \dar{f_n} \\
+P_{n+1}' \rar[two heads] & \im d_{n+1}'
+\end{tikzcd} \]
+
+
+**** TODO Homotopic resolutions
+
 * The Catsters
 ** Adjunctions
 Serie de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][vídeos]] sobre funtores adjuntos.
