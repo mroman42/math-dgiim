@@ -1657,7 +1657,7 @@ ZZ8 == Integers(8)
  : Principal ideal (6) of Ring of integers modulo 12
 
 **** Ideales primos y maximales
- #+BEGIN_SRC sage :file images/idealpoly.png
+ #+BEGIN_SRC sage :file images/idealpoly.png :output both
  P.<x,y> = QQ[]
  I = (x^3-y^2)*P
  I.is_prime()
@@ -1780,40 +1780,102 @@ Demuestra que la clase de $x+1$ genera $\mathbb{Z}_2[x]/(x^8+x^4+x^3+x+1)$.
 
 *** Órdenes monomiales
 * Topología
+** Relación de problemas 1
+*** Ejercicio 1
+Trabajando en el grupo fundamental $\Pi(X,x)$.
+
+*** Ejercicio 2
+**** Punto 1
+Trivial trabajando en el grupo fundamental.
+**** Punto 2
+La condición es $\gamma\beta \in {\cal Z}(\Pi(X,x))$.
+
+*** Ejercicio 3
+Calculamos usando Seifert-Van Kampen.
+
+*** Ejercicio 6
+Por Seifert-Van Kampen haciendo tres grupos, uno con equivalencia homotópica al
+círculo y otro trivial. Sale $\mathbb{Z}$.
+
+*** Ejercicio 7
+Equivalencia homotópica a un círculo en el que se identifican antípodas, que es
+homeomorfo a un círculo. Sale $\mathbb{Z}$.
+
+*** Ejercicio 8
+Por Van Kampen, teniendo un trozo con equivalencia homotópica a la esfera y otro
+que es un simple disco abierto. Grupo fundamental trivial.
+
+*** Ejercicio 9
+Por el Van Kampen que aplicamos en estos casos, es $\mathbb{Z}_3$.
+
+*** Ejercicio 10
+Homeomorfo al anterior.
+** Relación de problemas 2
+*** Ejercicio 1
+**** Punto 1
+Trivial
+**** Punto 2
+Subiendo la intersección del entorno abierto que es isomorfo a $\mathbb{R}^n$ con el entorno
+abierto que nos da el recubridor.
+**** Punto 3
+Probamos la caracterización, que es ser semilocalmente simplemente conexo. Cada
+punto tiene un entorno homeomorfo a un abierto de $\mathbb{R}^n$, así que puedo tomar una bola
+abierta en el punto y que sea homeomorfa a un abierto en el punto en el que el
+grupo fundamental sea trivial.
+**** Punto 4
+Las esferas.
+
+*** Ejercicio 2
+#+begin_statement
+Sea $\{a,b\}$ una base de $\mathbb{R}^2$ y $R$ la relación de equivalencia en $\mathbb{R}^2$ dada por:
+
+\[ qRq' \text{ si }\ q'-q = ma+nb,\quad m,n\in\mathbb{Z}\]
+
+Sea $T_{a,b}$ el espacio topológico cociente.
+#+end_statement
+
+**** Punto 1
+Usamos el recubrimiento de cocientes que surgen de acciones discontinuas para
+el grupo de acciones de los $\phi_{n,m}(z) = z + (n,0) + (0,m)$ con $n,m\in\mathbb{Z}$.
+
+*** Ejercicio 3
+
+
 ** Ejercicios de clase
 *** Cálculo del espacio proyectivo con Van-Kampen
- Para calcular el grupo de $\mathbb{R}\mathbb{P}^2$, lo definimos como una proyección desde la bola 
- cerrada $C$ y tomamos abiertos en él.
+Para calcular el grupo de $\mathbb{R}\mathbb{P}^2$, lo definimos como una proyección desde la bola 
+cerrada $C$ y tomamos abiertos en él.
 
  #+begin_center
  #+attr_latex: :width 50px
  [[./pinta/rpvankampen.png]]
  #+end_center
 
- Aplicaremos Van Kampen sobre los siguientes abiertos:
+Aplicaremos Van Kampen sobre los siguientes abiertos:
 
  \[ U = \pi(C-\{p\})\]
  \[ V = \pi(B(p,\epsilon))\]
  \[ U \cap V = \pi((C-\{p\}) \cap B(p,\epsilon)) = \pi (B(p,\epsilon)) - \{p\}\]
 
- Y tenemos que el grupo de $V$ es trivial. Para calcular el grupo de $U$ usaré que
- tiene el mismo tipo de homotopía que su borde, que es isomorfo a un círculo y
- por tanto tiene grupo fundamental $\mathbb{Z}$.
+Y tenemos que el grupo de $V$ es trivial. Para calcular el grupo de $U$ usaré que
+tiene el mismo tipo de homotopía que su borde, que es isomorfo a un círculo y
+por tanto tiene grupo fundamental $\mathbb{Z}$.
 
- De la intersección tomaremos un generador $f$ y lo llevaremos al borde para tener:
+De la intersección tomaremos un generador $f$ y lo llevaremos al borde para tener:
 
  \[ f \simeq \alpha \ast c \ast a \ast \tilde\alpha\]
 
- Que proyectando mientras sabemos que el generador de $U$ es 
- $g = [\pi(\alpha \ast c \ast \tilde\alpha)]$ nos da finalmente que:
+Que proyectando mientras sabemos que el generador de $U$ es 
+$g = [\pi(\alpha \ast c \ast \tilde\alpha)]$ nos da finalmente que:
 
- \[ [\pi(f)] \simeq 
+\[ [\pi(f)] \simeq 
  [\pi(\alpha\ast c \ast\tilde\alpha \ast \alpha \ast a \ast \tilde\alpha)] \simeq
  [g] \ast [g] \simeq 2[g]\]
 
- Y el cálculo del grupo nos da:
+Y el cálculo del grupo nos da:
 
- \[\frac{<g>}{<2g>} \cong \mathbb{Z}_2\]
+\[\frac{<g>}{<2g>} \cong \mathbb{Z}_2\]
+
 * Inferencia estadística
 ** Tema 1. Introducción a la inferencia estadística
 *** Ejercicio 1
