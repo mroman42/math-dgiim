@@ -925,6 +925,74 @@ Y tenemos que:
 
 Esto quiere decir que $f_1 = f_2^\sigma$ y que $f_2 = f_1^\sigma$; ya que estamos en un dominio de 
 factorización única y ambos son mónicos.
+** Semana 6
+*** Ejercicio 5.10
+#+begin_statement
+Sea $K$ cuerpo de característica $p \neq 0$ y $t$ una indeterminada sobre $K$. Prueba que el
+polinomio $X^p-t^p \in K(t^p)[X]$ es irreducible.
+#+end_statement
+
+Por binomio de Newton, en $K(t)[X]$ tenemos $x^p-t^p = (x-t)^p$. Sus divisores son de la
+forma $(x-t)^q$ para $q<p$; y ninguno puede estar en $K(t^p)[X]$ porque implicaría que
+estuviera su último coeficiente $(-t)^q \in K(t^p)[X]$, con lo que ya no sería una 
+indeterminada porque se podría escribir $t^q$ relacionado con $t^p$.
+
+*** Ejercicio 5.11
+#+begin_statement
+Estudiar si son o no ciertas las siguientes afirmaciones:
+
+ - $\sqrt[3]{-1}$ es separable sobre $\mathbb{F}_9$.
+ - $\sqrt[3]{-1}$ es separable sobre $\mathbb{F}_{49}$.
+ - $\sqrt[7]{5}$ es separable sobre $\mathbb{F}_{7^7}$.
+ - $t$ es separable sobre $\mathbb{F}_{p^2}(t^p)$, siendo $p$ un número entero primo positivo y $t$ una
+   indeterminada sobre $\mathbb{F}_{p^2}$.
+
+$\quad$
+#+end_statement
+
+Las tres primeras son extensiones finitas sobre cuerpos perfectos (por ser finitos),
+luego todas son separables. Para el último caso, $x^p-t^p = 0$ es irreducible y por 
+tanto polinomio mínimo de $t$, pero tiene raíces múltiples, luego $t$ es un elemento 
+no separable.
+
+*** Ejercicio 5.12
+#+begin_statement
+Sea $E$ un cuerpo y $\{\varphi_1,\dots,\varphi_n\}$ un conjunto de $n$ automorfismos distintos de $E$.
+Llamamos $K = \{e \in E \mid \varphi_i(e) = e, 1 \leq i \leq n\}$. Demuestra que $[E:K]\geq n$.
+#+end_statement
+
+Dada la extensión $E/K$. Tenemos dos casos:
+
+ - $E$ es infinita sobre $K$, luego $[E:K] \geq n$.
+ - $E$ es finita sobre $K$, por el corolario al lema de Dedekind, tenemos:
+   \[ [E:K] \geq |Hom(E/K,E/K)| \geq n\]
+
+** Semana 7
+*** Ejercicio 7.25
+#+begin_statement
+Sea $f \in K[X]$ un polinomio sin raíces múltiples; y
+$G = \operatorname{Gal}(f/K)$. Prueba que son equivalentes:
+
+ 1. $f(X)$ es irreducible.
+ 2. $G$ actúa transitivamente sobre las raíces de $f$.
+
+$\quad$
+#+end_statement
+
+Sea $f$ irreducible. Cualesquiera dos de sus raíces tienen a $f$ como polinomio 
+irreducible; luego son conjugadas y existe un automorfismo de la clausura que
+lleva una en otra, $\sigma : \overline{K} \longrightarrow \overline{K}$. Como la extensión $f/K$ es normal ser la extensión
+de descomposición de un polinomio irreducible $f$, tenemos que $\sigma|_{f/K} \in G$.
+
+Sea $G$ actuando transitivamente sobre las raíces de $f = gh$, descomposición
+en $K[X]$. Una raíz no puede estar
+repetida en $g$ y en $h$, porque conllevaría raíces múltiples. Sea $a$ raíz de $g$, y
+sea un $\sigma : f/K \longrightarrow f/K$ que la lleve en $b$ raíz de $h$. Entonces
+
+\[ h(a) = h(\sigma(b)) = \sigma(h(b)) = 0\]
+
+contraviniendo que no existan raíces múltiples.
+
 * Análisis funcional
 ** 1. Espacios normados
 *** Ejercicio 3
