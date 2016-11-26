@@ -2808,6 +2808,7 @@ Hay dos tipos de erorres:
 Cada componente de esta partición es una *componente arcoconexa*. Un espacio es
 *arcoconexo* cuando tiene una sola componente.
 
+**** Operaciones en arcos y arcoconexión como equivalencia
 Las propiedades de la relación de equivalencia se cumplen por:
 
  - 1. *Reflexividad*. Arco constante, $f(t) = x$, lleva a $x \sim x$.
@@ -2819,17 +2820,19 @@ La composición de arcos se define como:
 \[f \ast g = \twopartdef{f(2t)}{t \leq \frac{1}{2}}{g(2t-1)}{t \geq \frac{1}{2}}\]
 
 **** Arcoconexión y conexión
-#+begin_theorem
-Un espacio *arcoconexo es conexo*. Un espacio conexo donde todo punto posee un
-entorno arcoconexo es arcoconexo.
-#+end_theorem
-#+begin_proofs
-Dado un punto en un espacio arcoconexo, los caminos a los demás serán conexos y
-compartirán un punto, luego su unión será conexa.
+Un espacio *arcoconexo es conexo*. Un espacio *conexo localmente arcoconexo 
+es arcoconexo*, que es conexo y donde todo punto posee un entorno arcoconexo.
 
-Sin embargo, hay un contraejemplo de espacio conexo no arcoconexo en el
+***** Demostración
+Dado un punto en un espacio arcoconexo, los caminos a los demás serán conexos y
+compartirán un punto, luego su unión será conexa. Por otro lado, en un localmente
+arcoconexo, todo punto está dentro de un abierto (tiene un entorno arcoconexo),
+luego cada componente arcoconexa será abierta y si hubiera varias, contravendría
+la conexión.
+
+***** Contraejemplo del recíproco
+Hay un contraejemplo de espacio conexo no arcoconexo en el
 [[https://es.wikipedia.org/wiki/Seno_del_top%25C3%25B3logo][seno del topólogo]].
-#+end_proofs
 
 *** 2. Grupo fundamental
 **** Homotopía de lazos
@@ -2839,7 +2842,7 @@ y escribimos $f \sim g$ cuando $\exists H: [0,1] \times [0,1] \longrightarrow X$
   - $H$ continua.
   - $H(t,0) = f(t)$
   - $H(t,1) = g(t)$
-  - $H(0,s) = H(1,s) = x_0$
+  - $H(0,s) = H(1,s) = x$
 
 lo escribimos como $H : f \simeq g$.
 
@@ -2867,6 +2870,7 @@ Comprobamos que las clases de homotopía sobre un $x$ forman un grupo con el pro
 
 \[\Pi(X,x) = \{[f] \mid f \text{ lazo alrededor de } x\}\]
 
+***** Asociatividad
 Para la *asociatividad*, definimos $H : (f \ast g) \ast h \simeq f \ast (g \ast h)$:
 
 \[H(t,s) = \threepartdef
@@ -2874,6 +2878,7 @@ Para la *asociatividad*, definimos $H : (f \ast g) \ast h \simeq f \ast (g \ast 
 {g\left(4t-1-s\right)}{\frac{1+s}{4}\leq t \leq \frac{2+s}{4}}
 {h\left(t\frac{4}{2-s}-1\right)}{\frac{2+s}{4}\leq t\leq 1}\]
 
+***** Elemento neutro
 Como *elemento neutro* tomaremos el lazo constante $f_x(t)=x$. Y definimos  
 $H : f_x \ast f \simeq f$:
 
@@ -2881,6 +2886,7 @@ $H : f_x \ast f \simeq f$:
 {f(t\frac{2t}{1+s})}{0\leq t\leq \frac{1+s}{2}}
 {x}{\frac{1+s}{2}\leq t \leq 1}\]
 
+***** Elemento inverso
 Como *elemento inverso* tendremos el lazo $\hat{f}(t) = f(1-t)$. Y definimos 
 $H : f \ast \hat{f} \simeq f$:
 
