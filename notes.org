@@ -3067,47 +3067,6 @@ En las condiciones del teorema, con $V$ simplemente conexo, se tiene:
 
 Con $N$ es el subgrupo normal generado por $i_\ast(\Pi(U\cap V,x))$.
 
-*** Extra: Aplicaciones
-**** Teorema fundamental del álgebra
- #+begin_theorem
- *Teorema fundamental del álgebra*. Todo polinomio con coeficientes
- en $\mathbb{C}$ de grado $n$ tiene $n$ raíces en $\mathbb{C}$.
- #+end_theorem
- #+begin_proof
- Supongamos un $P$ que no tuviera raíz en $\mathbb{C}$.
-
- Fijado un $r$, restringimos el polinomio desde la circunferencia de
- radio $r$ a la circunferencia unidad, girándolo
- además para que en $0$ valga $1$.
-
- \[f_r(t) = \frac{|P(r)|}{P(r)} \frac{P(re^{2\pi it})}{|P(re^{2\pi it})|}\]
-
- Tenemos una homotopía de este lazo al constante, definida como:
-
- \[H(t,s) = f_{(1-s)r}(t)\]
-
- Y por tanto, $deg(f_r) = 0$.
-
- Por otro lado, sea ahora $R > 1, \sum |a_i|$, y tomemos $|z| = R$, tenemos
- por un lado:
-
- \[|z^n| 
- = R^n > R^{n-1}\left(\sum |a_i|\right) 
- \geq |a_1z^{n-1} + \dots + a_n|\]
-
- Y por otro lado, si tomo un $t \in [0,1]$, puedo definir una familia
- de polinomios $P_s(z) = z^n + t(a_1z^{n-1} + \dots + a_n) = 0$, que no tienen raíces
- porque, por otro lado:
-
- \[|z^n| = |t||a_1z^{n-1} + \dots + a_n| \leq |a_1z^{n-1} + \dots + a_n|\]
-
- Luego esta familia de polinomios no tiene raíces en el círculo 
- de radio $R$. Podemos ahora definir otra homotopía:
-
- \[H(t,s) = \frac{P_s(Re^{2\pi it})}{|P_s(Re^{2\pi it})|}  \frac{|P_s(R)|}{P_s(R)}\]
-
- Que es homotopía entre $e^{2\pi int}$ y $f_R(t)$. Luego $deg(f_R) = n$.
- #+end_proof
 *** Extra: Teoría de categorías
 **** El grupo fundamental como funtor
 El grupo fundamental $\Pi$ es un funtor entre las categorías:
