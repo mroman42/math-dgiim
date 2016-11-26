@@ -2896,23 +2896,31 @@ $H : f \ast \hat{f} \simeq f$:
 {\hat{f}(2t-1)}{\frac{1+s}{2}\leq t\leq 1}\]
 
 **** El grupo fundamental como funtor
-Sea $\Phi : (X,x) \longrightarrow (Y,y)$ /continua/, entonces tenemos una aplicación bien definida por:
+Sea $\Phi : (X,x) \longrightarrow (Y,y)$ /continua/, entonces tenemos una aplicación bien definida 
+por:
 
 \[\Phi_\ast ([f]) = [\Phi \circ f] \]
 
 Que es un homomorfismo de grupos. Podemos comprobar fácilmente que $Id_\ast = Id$ y que
-$(\Psi\circ\Phi)_\ast = \Psi_\ast\circ\Phi_\ast$. Es decir, el grupo fundamental es un funtor de la categoría de los
-espacios topológicos punteados a la de los grupos.
+$(\Psi\circ\Phi)_\ast = \Psi_\ast\circ\Phi_\ast$. Es decir, el grupo fundamental es un funtor de la categoría de 
+los espacios topológicos punteados a la de los grupos.
+
+***** Demostración
+Sean $H: f \simeq g$, veamos que $F\circ H: Ff \simeq Fg$. Tenemos que:
+
+  - $F\circ H$ continua
+  - $F\circ H(t,0) = F\circ f(t)$
+  - $F\circ H(t,1) = F\circ g(t)$
+  - $F \circ H(0,s) = F \circ H(1,s) = y$
 
 **** Homotopía de arcos
-Decimos que dos arcos cumpliendo $f(0)=g(0)$, $f(1)=g(1)$ son homotópicos cuando existe
-una función continua con características similares a la dada para lazos.
+Decimos que dos arcos cumpliendo $f(0)=g(0)$, $f(1)=g(1)$ son homotópicos cuando 
+existe una función continua con características similares a la dada para lazos.
 
 **** Isomorfismo entre grupos fundamentales en distintos puntos
 Sea un arco $\gamma : [0,1] \longrightarrow X$ cumpliendo $\gamma(0) = x$, $\gamma(1)=y$. Entonces se tiene un 
-isomorfismo:
+isomorfismo entre $\Pi(X,x)$ y $\Pi(X,y)$:
 
-\[ F_\gamma : \Pi(X,x) \longrightarrow \Pi(X,y)\]
 \[ F_\gamma([f]) = [\hat\gamma\ast(f\ast\gamma)]\]
 
 Por tanto, el grupo fundamental es el mismo en cualquier punto de la componente
@@ -2923,10 +2931,100 @@ Dado el producto de dos espacios topológicos $X\times Y$ con proyecciones $\pi_
 un isomorfismo entre grupos fundamentales:
 
 \[F: \Pi(X\times Y, (x,y)) \longrightarrow \Pi(X,x)\times\Pi(Y,y)\]
+
+Dado por:
+
 \[F([f]) = (\pi_1([f]), \pi_2([f]))\]
 
-*** TODO 3. El grupo fundamental del círculo
-*** TODO 4. Tipo de homotopía. Equivalencias homotópicas
+*** 3. El grupo fundamental del círculo
+**** Cálculo del grupo fundamental del círculo
+Usaremos teoría de recubridores que se probará luego.
+
+Probamos que $\pi : \mathbb{R} \longrightarrow \mathbb{S}$ es un recubridor con $\pi(t) = e^{it}$; podemos tomar como entorno
+fundamental de $p$ a $\mathbb{S}-\{p\}$, que tiene en la preimagen componentes arcoconexas 
+homeomorfas a él. Siendo $t_0 \in \pi^{-1}(p)$:
+
+\[V_m = (t_0 + 2\pi m, t_0 + 2\pi(m+1))\]
+
+Definimos ahora el grado de un lazo en el círculo como:
+
+\[\operatorname{deg}(f) = \frac{\hat{f}(1) - \hat{f}(0)}{2\pi} \]
+
+Y comprobamos que está bien definido entre las clases de homotopía levantando
+las homotopías y viendo que debe ser constante el punto final para que se proyecte
+en un punto constante. Es decir $f \simeq g \Rightarrow \hat{f}(0) = \hat{g}(0)
+\Rightarrow \hat{f}(1) = \hat{g}(1)$.
+
+Como el levantamiento de la composición es la composición de levantamientos
+y levantando de forma que $\hat{g}(0) = \hat{f}(1)$:
+
+\[ \operatorname{deg}(f \ast g) =
+   \frac{\widehat{f\ast g}(1) - \widehat{f\ast g}(0)}{2\pi} = 
+   \frac{\hat{f}(1) - \hat{g}(0) + \hat{g}(1) - \hat{f}(0)}{2\pi} =
+   \operatorname{deg}(f) + \operatorname{deg}(g) \]
+
+Siendo un homomorfismo del grupo fundamental del círculo con $\mathbb{Z}$.
+
+**** Teorema fundamental del álgebra
+*Teorema fundamental del álgebra*. Todo polinomio con coeficientes
+en $\mathbb{C}$ de grado $n$ tiene $n$ raíces en $\mathbb{C}$.
+
+***** Demostración
+Supongamos un $P$ que no tuviera raíz en $\mathbb{C}$.
+
+Fijado un $r$, restringimos el polinomio desde la circunferencia de
+radio $r$ a la circunferencia unidad, girándolo
+además para que en $0$ valga $1$.
+
+\[f_r(t) = \frac{|P(r)|}{P(r)} \frac{P(re^{2\pi it})}{|P(re^{2\pi it})|}\]
+
+Tenemos una homotopía de este lazo al constante, definida como:
+
+\[H(t,s) = f_{(1-s)r}(t)\]
+
+Y por tanto, $deg(f_r) = 0$.
+
+Por otro lado, sea ahora $R > 1, \sum |a_i|$, y tomemos $|z| = R$, tenemos
+por un lado:
+
+\[|z^n| 
+ = R^n > R^{n-1}\left(\sum |a_i|\right) 
+ \geq |a_1z^{n-1} + \dots + a_n|\]
+
+Y por otro lado, si tomo un $t \in [0,1]$, puedo definir una familia
+de polinomios $P_s(z) = z^n + t(a_1z^{n-1} + \dots + a_n) = 0$, que no tienen raíces
+porque, por otro lado:
+
+\[|z^n| = |t||a_1z^{n-1} + \dots + a_n| \leq |a_1z^{n-1} + \dots + a_n|\]
+
+Luego esta familia de polinomios no tiene raíces en el círculo 
+de radio $R$. Podemos ahora definir otra homotopía:
+
+\[H(t,s) = \frac{P_s(Re^{2\pi it})}{|P_s(Re^{2\pi it})|}  \frac{|P_s(R)|}{P_s(R)}\]
+
+Que es homotopía entre $e^{2\pi int}$ y $f_R(t)$. Luego $deg(f_R) = n$.
+
+*** 4. Tipo de homotopía. Equivalencias homotópicas
+**** Aplicaciones homotópicas
+Sean $F,G : X \longrightarrow Y$ continuas. Las decimos *homotópicas* si existe 
+$H : X \times [0,1] \longrightarrow Y$ tal que $H(x,0) = F(x)$ y $H(x,1) = G(x)$. Lo notamos
+por $H: F\simeq G$.
+
+**** Grupo fundamental entre dos puntos
+Entre cualesquiera puntos de dos funciones homotópicas $F(x_0)$, $G(x_0)$; tenemos un 
+arco $\gamma = H(x_0,t)$. Se cumple que:
+
+\[ \begin{tikzcd}
+& \Pi(Y,F(x_0)) \arrow[leftrightarrow]{dd}{F_\gamma}\\
+\Pi(X,x_0) \urar{F_\ast}\drar{G_\ast} \\
+& \Pi(Y,G(x_0))
+\end{tikzcd} \]
+
+***** TODO Demostración
+**** Equivalencia homotópica
+Una *equivalencia homotópica* es un par de aplicaciones continuas $F,G$
+cumpliendo $F \circ G \simeq G \circ F \simeq Id$.
+
 *** 5. Teorema de Seifert-Van Kampen
 **** Producto libre de grupos
 Si definimos el *producto libre* de grupos en términos de palabras; podemos llamar
