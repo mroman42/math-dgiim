@@ -2847,14 +2847,12 @@ y escribimos $f \sim g$ cuando $\exists H: [0,1] \times [0,1] \longrightarrow X$
 lo escribimos como $H : f \simeq g$.
 
 **** Clases de homotopía
-La homotopía es una relación de equivalencia:
+La homotopía es una relación de equivalencia entre lazos:
 
  - *Reflexividad*. Definiendo $H(t,s) = f(t)$, tenemos $H : f \simeq f$.
  - *Simetría*. Dada $G : g \simeq f$, definimos $H(t,s) = G(t,1-s)$, tenemos $H : f \simeq g$.
  - *Transitividad*. Dadas $F : f \simeq g$, $G : g \simeq h$, definimos
-
     \[H(t,s) = \twopartdef{F(t,2s)}{0\leq s \leq 1/2}{G(t,2s-1)}{1/2 \leq s \leq 1}\]
-
     Y tenemos $H : f \simeq h$.
 
 Llamamos *clase de homotopía* $[f]$ a la clase de equivalencia de un lazo $f$.
@@ -2906,25 +2904,42 @@ $(\Psi\circ\Phi)_\ast = \Psi_\ast\circ\Phi_\ast$. Es decir, el grupo fundamental
 los espacios topológicos punteados a la de los grupos.
 
 ***** Demostración
-Sean $H: f \simeq g$, veamos que $F\circ H: Ff \simeq Fg$. Tenemos que:
+Sean $H: f \simeq g$, veamos que $\Phi\circ H: \Phi f \simeq \Phi g$. Tenemos que:
 
-  - $F\circ H$ continua
-  - $F\circ H(t,0) = F\circ f(t)$
-  - $F\circ H(t,1) = F\circ g(t)$
-  - $F \circ H(0,s) = F \circ H(1,s) = y$
+  - $\Phi\circ H$ continua
+  - $\Phi\circ H(t,0) = \Phi\circ f(t)$
+  - $\Phi\circ H(t,1) = \Phi\circ g(t)$
+  - $\Phi \circ H(0,s) = \Phi \circ H(1,s) = y$
+
+El que respeta el producto se tiene por $\Phi\circ (f \ast g) = \Phi\circ f \ast \Phi\circ g$.
 
 **** Homotopía de arcos
 Decimos que dos arcos cumpliendo $f(0)=g(0)$, $f(1)=g(1)$ son homotópicos cuando 
 existe una función continua con características similares a la dada para lazos.
 
+***** Propiedades
+De demostración similar al caso de lazos:
+
+  - Hay un arco simétrico $\tilde{f}$ tal que $f\ast \tilde{f} \simeq f_x$.
+  - El producto es asociativo por homotopía $f \ast (g \ast h)\simeq (f\ast g)\ast h$-
+    
 **** Isomorfismo entre grupos fundamentales en distintos puntos
 Sea un arco $\gamma : [0,1] \longrightarrow X$ cumpliendo $\gamma(0) = x$, $\gamma(1)=y$. Entonces se tiene un 
 isomorfismo entre $\Pi(X,x)$ y $\Pi(X,y)$:
 
-\[ F_\gamma([f]) = [\hat\gamma\ast(f\ast\gamma)]\]
+\[ F_\gamma([f]) = [\tilde\gamma\ast f\ast\gamma]\]
 
 Por tanto, el grupo fundamental es el mismo en cualquier punto de la componente
 arcoconexa.
+
+***** Demostración
+Para ver que está bien definido basta notar:
+
+\[f \simeq g \Rightarrow 
+\gamma\ast f\ast\tilde\gamma\simeq \gamma\ast g\ast\tilde\gamma\]
+
+Que es homomorfismo se tiene viendo $F([f]\ast [g]) = F([f]) \ast F([g])$, y que es biyectivo
+porque tiene inversa $G_\gamma([f]) = [\gamma\ast f\ast \tilde\gamma]$.
 
 **** El grupo fundamental del producto
 Dado el producto de dos espacios topológicos $X\times Y$ con proyecciones $\pi_1,\pi_2$. Tenemos
