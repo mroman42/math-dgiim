@@ -3653,3 +3653,40 @@ $\beta \in H$, debe cumplir $\phi(y) = y\cdot\beta$ para algún $\phi\in G$, y e
 de los buscados. Tenemos:
 
 \[\hat{p}(\Pi(Y/G, q(y)) = \operatorname{Stab}(q(y)) = H\]
+**** Clasificación de recubridores del círculo
+El círculo $\mathbb{S}^1$ tiene como grupo fundamental a $\mathbb{Z}$, que es abeliano y tiene como 
+subgrupos a $n\mathbb{Z}$.
+
+  - $0$ tiene a la *recta* como recubridor universal $\mathbb{R}$ con $p(t) = e^{2\pi it}$.
+  - $n\mathbb{Z}$ tiene al *círculo* como recubridor $\mathbb{S}^1$ de $n$ hojas con $p(z) = z^n$.
+  - $\mathbb{Z}$ tiene al recubridor *identidad*.
+
+**** Clasificación de recubridores del toro
+El toro $\mathbb{S}^1\times\mathbb{S}^1$ tiene como grupo fundamental a $\mathbb{Z}\times\mathbb{Z}$, que tiene como subgrupos a los
+generados por un generador $<(a,b)>$ o a los generados por dos, de la forma 
+$<(a,b),(0,d)>$.
+
+  - $0$ tiene al *plano* como recubridor universal $\mathbb{R}^2$ con $p(x,y) = (e^{2\pi ix},e^{2\pi iy})$.
+  - $<(a,b)>$ tiene al *cilindro* como recubridor $\mathbb{S}\times\mathbb{R}$ con
+     $p(z,y) = (az, bze^{2\pi iy})$.
+  - $<(a,b),(0,d)>$ tienen al *toro* como recubridor $\mathbb{S}\times\mathbb{S}$ con 
+    $p(z,w) = (z^a,z^bw^d)$.
+
+**** Clasificación de recubridores del cilindro
+El cilindro $\mathbb{S}\times\mathbb{R}$ tiene como grupo fundamental a $\mathbb{Z}$, que es abeliano y tiene como
+subgrupos a $n\mathbb{Z}$.
+
+  - $0$ tiene al *plano* como recubridor universal $\mathbb{R}^2$ con $p(x,y) = (e^{2\pi ix},y)$.
+  - $n\mathbb{Z}$ tiene al *cilindro* como recubridor universal con $p(z,y) = (e^{2\pi inz},y)$.
+  - $\mathbb{Z}$ tiene al recubridor *identidad*.
+
+**** Clasificación de recubridores de la cinta de Möbius.
+La cinta de Möbius tiene tipo de homotopía del círculo y por tanto grupo 
+fundamental $\mathbb{Z}$. 
+
+  - $0$ tiene al *plano* como recubridor universal $\mathbb{R}^2$ sobre el que actúa el grupo
+    $\phi_n(x,y) = (x+n, (-1)^ny)$ discontinuamente.
+  - $n\mathbb{Z}$ con $n = 2m$ par tiene al *cilindro* recubriéndose a sí mismo $m$ veces y un
+    recubrimiento de dos hojas del *cilindro* a la banda de Möbius.
+  - $n\mathbb{Z}$ con $n$ impar tiene a la *banda de Möbius* como recubridor.
+  - $\mathbb{Z}$ tiene al recubridor *identidad*.
