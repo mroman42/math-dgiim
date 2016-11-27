@@ -3311,8 +3311,7 @@ Sea $(Y,p)$ recubridor con $x_0\in X$ y $y \in p^{-1}(x_0)$. Sea
 $H : [0,1]\times[0,1] \longrightarrow X$ continua con $H(0,0) = x_0$, entonces existe una única aplicación
 continua $\check{H} : [0,1]\times [0,1] \longrightarrow Y$ cumpliendo:
 
- - 
-$\check{H}(0,0) = y_0$
+ - $\check{H}(0,0) = y_0$
  - $p \circ \check{H} = H$
 
 Llamada el *levantamiento* de $H$.
@@ -3539,7 +3538,10 @@ Aplicando las dos identificaciones anteriores:
 
 **** Recubridores regulares
 Un recubridor es *regular* cuando $p_\ast(\Pi(Y,y))$ es subgrupo normal de $\Pi(X,x)$ siendo
-$y \in p^{-1}(x)$.
+$y \in p^{-1}(x)$. Equivalen, por conjugación:
+
+  - $\exists x\in X, y \in Y: p_\ast(\Pi(Y,y))$ subgrupo normal en $\Pi(X,x)$.
+  - $\forall x\in X, y \in Y: p_\ast(\Pi(Y,y))$ subgrupo normal en $\Pi(X,x)$.
 
 **** Propiedades de recubridores regulares
 Sea $(Y,p)$ un recubridor regular:
