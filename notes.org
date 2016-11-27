@@ -3073,10 +3073,97 @@ arco $\gamma = H(x_0,t)$. Se cumple que:
 & \Pi(Y,G(x_0))
 \end{tikzcd} \]
 
-***** TODO Demostración
+***** Demostración
+Sea $f \in \Pi(X,x_0)$. Si defino la función $\hat{H}(t,s) = H(f(t),s)$ tengo una homotopía como
+la siguiente:
+
+\begin{tikzpicture}
+\draw (A) -- node [above] {$G f$} ++ (-1, 0)
+          -- node [left]  {$\gamma$} ++ (0, -1)
+          -- node [below] {$F f$} ++ (1, 0)
+          -- node [right] {$\gamma$} ++ (0, 1);
+\end{tikzpicture}
+
+Rotándola obtengo:
+
+\begin{tikzpicture}
+\draw (A) -- node [above] {$G f \circ \gamma$} ++ (-1, 0)
+          -- node [left]  {$F(x_0)$} ++ (0, -1)
+          -- node [below] {$\gamma \circ F f$} ++ (1, 0)
+          -- node [right] {$G(x_0)$} ++ (0, 1);
+\end{tikzpicture}
+
+Lo que me da $[Gf \circ \gamma] = [\gamma \circ Ff]$, y por tanto $[Gf] = [\gamma \circ Ff \circ \tilde{\gamma}]$.
+
 **** Equivalencia homotópica
-Una *equivalencia homotópica* es un par de aplicaciones continuas $F,G$
-cumpliendo $F \circ G \simeq G \circ F \simeq Id$.
+Una *equivalencia homotópica* es una aplicación continua $F$, para la que
+existe $G$ cumpliendo $F \circ G \simeq G \circ F \simeq Id$.
+
+**** Propiedades de la equivalencia homotópica
+Cumple:
+
+  1. Los homeomorfismos son equivalencias homotópicas.
+  2. La inversa de una equivalencia homotópica es equivalencia homotópica.
+  3. La composición de equivalencias homotópicas es equivalencia homotópica.
+
+**** Conservación del grupo fundamental por equivalencia homotópica
+Sea $F: X\longrightarrow Y$ equivalencia homotópica:
+
+\[\forall x\in X : F_\ast : \Pi(X,x) \longrightarrow \Pi(Y,F(x))\]
+
+Es un isomorfismo
+
+***** Demostración
+Por ser equivalencia homotópica tengo que $F \circ G \simeq Id$, luego se cumple:
+
+\[ \begin{tikzcd}
+& \Pi(X,F\circ G(x_0)) \arrow[leftrightarrow]{dd}{\cong}\\
+\Pi(X,x_0) \urar{(F\circ G)_\ast}\drar{Id} \\
+& \Pi(X,x_0)
+\end{tikzcd} \]
+
+Así, $(F\circ G)_\ast$, y de la misma forma $(G\circ F)_\ast$ son isomorfismos. Tenemos por tanto:
+
+\[ \begin{tikzcd}
+  \Pi(X,x) \rar{F_\ast} \arrow[bend left=20]{rr}{\cong}
+& \Pi(Y,F(x)) \rar{G_\ast} \dlar{\cong}
+& \Pi(X,(G\circ F)(x)) \dlar{\cong}
+\\
+  \Pi(Y,F(x)) \rar{F_\ast} \arrow[bend right=20]{rr}{\cong}
+& \Pi(X,(G\circ F)(x)) \rar{F_\ast}
+& \Pi(X,(G\circ F)(x))
+\end{tikzcd} \]
+
+Demostrando ambas filas que $F_\ast$ y $G_\ast$ son isomorfismos.
+
+**** Lema a Borsuk-Ulam
+No existe $F: \mathbb{S}^2 \longrightarrow \mathbb{S}^1$ continua respetando antípodas.
+
+\[F(-x) = -F(x)\]
+
+***** TODO Demostración
+**** Teorema de Borsuk-Ulam
+Sea $F:\mathbb{S}^2 \longrightarrow \mathbb{R}^2$ continua, entonces:
+
+\[\exists x\in\mathbb{S}^2 : F(-x) = F(x)\]
+
+***** Demostración
+Supongamos que no se cumpliera, definimos:
+
+\[G(x) = \frac{F(x)-F(-x)}{|F(x)-F(-x)|}\]
+
+Y entonces $G$ sería continua respetando antípodas.
+
+**** Teorema del sandwich de jamón
+Sean $A,B\subset \mathbb{R}^2$ compactos y conexos. Existe una recta dividiendo a ambos en dos
+trozos de igual área.
+
+***** TODO Demostración
+**** Espacio proyectivo
+En $\mathbb{S}^n$ defino la ralación de equivalencia $p \sim q$ ssi $p = \pm q$. Definimos el espacio
+proyectivo como el cociente bajo esta relación:
+
+\[\mathbb{RP}^n = \mathbb{S}^n}/\sim\]
 
 *** 5. Teorema de Seifert-Van Kampen
 **** Producto libre de grupos
