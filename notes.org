@@ -3279,7 +3279,7 @@ es abierto.
 
 *** 2. Grupo fundamental y levantamiento de aplicaciones al recubridor
 **** Levantamiento de arcos
-Sea $(Y,p)$ recubridor con $x_0\in X$ y $y \in p^{-1}(x_0)$. Sea $f : [0,1]\longrightarrow X$ arco continuo
+Sea $(Y,p)$ recubridor con $x_0\in X$ y $y_0 \in p^{-1}(x_0)$. Sea $f : [0,1]\longrightarrow X$ arco continuo
 con $f(0) = x_0$, entonces existe un único arco continuo $\check{f}$ cumpliendo:
 
   - $\check{f}(0) = y_0$
@@ -3395,7 +3395,7 @@ H &= \{[g]^{-1} \ast [p\circ h] \ast g \mid [h] \in \Pi(Y,y)\} \\
   &= p_\ast(F_{\check{g}}(\Pi(Y,y))) = p_\ast(\Pi(Y,y'))
 \end{aligned} \]
 
-**** Levntamiento de de aplicaciones
+**** Levntamiento de aplicaciones
 Sea $\Phi : Z \longrightarrow X$ continua con $x_0 = \Phi(z_0)$, $y_0 \in p^{-1}(x_0)$. Tenemos que
 $\exists! \Psi : Z \longrightarrow Y$ continua cumpliendo:
 
@@ -3426,8 +3426,8 @@ $\check{H} : \widehat{\phi\circ f} \ast \widehat{\phi \circ \tilde{g}}
 Para ver que es *continua*, sea $\check{\Phi}(z) \in O$, abierto. Tenemos $p(O)$ abierto y tomamos
 $W$ como la arcocomponente de la preimagen de $U^{\Phi(z)}$ en la que está $\check{\Phi}(z)$. Ahora
 sea $\Phi(z) \in p(W \cap O)$, abierto por homeomorfismo; y sea
-,
-$\Phi(\hat{O}) \subset p(W \cap O)$, que existe por continuidad de $\Phi$ y es abierto arcoconexo. 
+
+ $\Phi(\hat{O}) \subset p(W \cap O)$, que existe por continuidad de $\Phi$ y es abierto arcoconexo. 
 
 Veamos que $\Phi(\hat{O}) \subset \check{\Phi}^{-1}(O)$. Si $\hat{z} \in \hat{O}$, entonces hay un arco $g$ que une $z$ y $\hat{z}$; y tenemos
 $\Phi(g) \subset p(W\cap O)$; como hay homeomorfismo, su levantamiento está en $W \cap O$, y
@@ -3438,7 +3438,7 @@ se tiene:
 **** Estructura de grupo topológico
 Sea $G$ un grupo topológico con neutro $e$. Sea $(\check{G},p)$ un recubridor y 
 $\check{e} \in p^{-1}(e)$. Entonces $\check{G}$ admite una estructura de grupo topológico que tiene
-a $\check{e}$ como elemento normal y a $p$ como homomorfismo de grupos.
+a $\check{e}$ como elemento neutro y a $p$ como homomorfismo de grupos.
 
 *** 3. Isomorfismos de recubridores
 **** Homomorfismos
