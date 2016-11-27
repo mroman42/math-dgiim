@@ -2,7 +2,7 @@
 
 Notes and math exercises written **org-mode**, mostly in Spanish.
 
-Studying over these notes, I have started written the following Wikipedia articles:
+Studying over these notes, I have started to write the following Wikipedia articles:
 * [Wikipedia - Lema de escisión](https://es.wikipedia.org/wiki/Lema_de_escisi%C3%B3n)
 * [Wikipedia - Compleción (álgebra)](https://es.wikipedia.org/wiki/Compleci%C3%B3n_(%C3%A1lgebra))
 * [Wikipedia - Lema de la serpiente](https://es.wikipedia.org/wiki/Lema_de_la_serpiente)
