@@ -3019,6 +3019,44 @@ de radio $R$. Podemos ahora definir otra homotopía:
 
 Que es homotopía entre $e^{2\pi int}$ y $f_R(t)$. Luego $deg(f_R) = n$.
 
+**** Lema al punto fijo de Brower
+No existe aplicación continua $f : D^2\longrightarrow \mathbb{S}$ tal que $f|_\mathbb{S} = id$.
+
+***** Demostración
+Estamos buscando una aplicación cumpliendo:
+
+\[ \begin{tikzcd}
+\mathbb{S} \rar[hook]{i} & D^2 \rar{f} & \mathbb{S}
+\end{tikzcd} \]
+
+Aplicando el funtor obtendríamos:
+
+\[ \begin{tikzcd}
+\mathbb{Z} \rar[hook] & 0 \rar & \mathbb{Z}
+\end{tikzcd} \]
+
+Pero así es imposible obtener la identidad como composición.
+
+**** Teorema del punto fijo de Brower
+Toda función continua $f : D^2 \longrightarrow D^2$ tiene un punto fijo.
+
+***** Demostración
+Si no lo hubiera, para cada $x$ tomo $f(x)$ y la intersección de la recta que los une
+con el círculo más cercana a $x$. Tengo una aplicación cuya restricción es la 
+identidad.
+
+**** Grupos topológicos
+Un grupo topológico es un grupo en la categoría de espacios punteados. Esto es,
+tal que la función producto y la función inverso son continuas.
+**** Grupos topológicos y grupo fundamental
+El producto en un grupo topológico respeta clases de homotopía:
+
+\[ [f]\cdot [g] = [f\cdot g]\]
+
+Y además, actúa sobre ellas igual que la composición:
+
+\[ [f]\ast [g] = [f] \cdot [g]\]
+
 *** 4. Tipo de homotopía. Equivalencias homotópicas
 **** Aplicaciones homotópicas
 Sean $F,G : X \longrightarrow Y$ continuas. Las decimos *homotópicas* si existe 
