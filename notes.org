@@ -1800,14 +1800,14 @@ de grupos $\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)$, tal que:
 ** Extensiones normales y separables
 *** Elementos conjugados y extensiones conjugadas
 **** Elementos conjugados
- Sean $u,v \in \overline{K}$, clausura algebraica. Equivalen:
+     Sean $u,v \in \overline{K}$, clausura algebraica. Equivalen:
 
-  - $Irr(u,K) = Irr(v,K)$
-  - $\exists \tau : K(u) \longrightarrow K(v)$ *isomorfismo* con $\tau(u) = v$.
-  - $\exists\sigma : K(u) \longrightarrow \overline{K}$ *homomorfismo* con $\sigma(u) = v$.
-  - $\exists \sigma : \overline{K} \longrightarrow \overline{K}$ *automorfismo* con $\sigma(u) = v$.
+       - $Irr(u,K) = Irr(v,K)$
+       - $\exists \tau : K(u) \longrightarrow K(v)$ *isomorfismo* con $\tau(u) = v$.
+       - $\exists\sigma : K(u) \longrightarrow \overline{K}$ *homomorfismo* con $\sigma(u) = v$.
+       - $\exists \sigma : \overline{K} \longrightarrow \overline{K}$ *automorfismo* con $\sigma(u) = v$.
 
- Estos elementos se llaman *elementos conjugados*.
+     Estos elementos se llaman *elementos conjugados*.
 
 **** Extensiones conjugadas
  Sean $F_1/K$, $F_2/K$ extensiones algebraicas, equivalen:
@@ -2352,9 +2352,27 @@ $\lambda : R \longrightarrow S$. Nótese que puedo pasar de una a otra definici�
       Como corolario, lo son las *homotecias* y *translaciones*, todas las bolas cerradas
       son homeomorfas a la bola unidad.
 
+**** Operaciones sobre conjuntos
+     Para $X$ espacio normado:
+     
+       1. $A$ abierto $\Rightarrow$ $A+B$ abierto.
+       2. $A$ cerrrado, $B$ compacto $\Rightarrow$ $A+B$ cerrado.
+       3. $A,B$ compactos $\Rightarrow$ $A+B$ compacto.
+       4. $M$ subespacio $\Rightarrow$ $\bar{M}$ subespacio.
+
+***** Demostración de 1
+      Es la unión de abiertos, $A + B = \bigcup_{b \in B} (b + A)$.
+
+***** Demostración de 2
+      Sea $x \in \overline{A+B}$, $\exists \{a_n,b_n\} : \{a_n,b_n\} \longrightarrow x$, por compacidad
+      tenemos $\{b_{\sigma_n}\} \longrightarrow b \in B$ y por tanto $\{a_{\sigma_n}\} \longrightarrow x-b \in A$.
+
+***** Demostración de 3
+      
+      
 **** Conexión de espacios normados
-     Todo espacio normado es *arcoconexo* y *localmente arcoconexo*; por tanto 
-     *conexo*. De hecho, la bola unidad es *convexa*.
+     Todo espacio normado es *arcoconexo* y *localmente arcoconexo*; 
+     por tanto *conexo*. De hecho, la bola unidad es *convexa*.
 
 **** Espacios de Banach
      Un *espacio de Banach* es un espacio normado completo.
@@ -2491,85 +2509,87 @@ $\lambda : R \longrightarrow S$. Nótese que puedo pasar de una a otra definici�
 ** 2. Principios fundamentales del análisis funcional
 *** Teorema de Hahn-Banach
 **** Funcionales sublineales
-Un funcional $p : X \longrightarrow \mathbb{R}$ se dice *sublineal* cuando:
+     Un funcional $p : X \longrightarrow \mathbb{R}$ se dice *sublineal* cuando:
 
- - $\forall t \in \mathbb{R}^+_0: p(tx) = tp(x)$
- - $p(x+y) \leq p(x)+p(y)$
+     - $\forall t \in \mathbb{R}^+_0: p(tx) = tp(x)$
+     - $p(x+y) \leq p(x)+p(y)$
 
-Si además $p(\alpha x) = |\alpha|p(x)$, se llama *seminorma*.
+     Si además $p(\alpha x) = |\alpha|p(x)$, se llama *seminorma*.
 
 **** Versión analítica de Hahn-Banach
-Sea $X$ espacio vectorial sobre $\mathbb{K}$ con $p$ sublineal. Y sea $M$ subespacio con 
-un $g\in M^\ast$, verificando:
+     Sea $X$ espacio vectorial sobre $\mathbb{K}$ con $p$ sublineal. Y sea $M$ subespacio 
+     con un $g\in M^\ast$, verificando:
 
-\[Re(g(m)) \leq p(m)\]
+     \[Re(g(m)) \leq p(m)\]
 
-Entonces existe $f\in X^\ast$ extendiéndolo y verificando:
+     Entonces existe $f\in X^\ast$ extendiéndolo y verificando:
 
-\[Re(f(x)) \leq p(x)\]
+     \[Re(f(x)) \leq p(x)\]
 
-Cuando $p$ es seminorma, se tiene además que $|f(x)|\leq p(x)$.
+     Cuando $p$ es seminorma, se tiene además que $|f(x)|\leq p(x)$.
 
 **** Extensión equinórmica
-Sea $X$ espacio normado, $M$ subespacio vectorial, con $g \in M^\ast$. Existe $f\in X^\ast$ tal
-que $f|_M = g$ y $\|f\| = \|g\|$.
+     Sea $X$ espacio normado, $M$ subespacio vectorial, con $g \in M^\ast$. 
+     Existe $f\in X^\ast$ tal que $f|_M = g$ y $\|f\| = \|g\|$.
 
 *** Lema de categoría de Baire
 **** Teorema de Baire
-Sea $E$ espacio métrico completo y sea $\forall n : G_n \subset E$ un abierto denso. $\bigcap G_n$ es denso.
+     Sea $E$ espacio métrico completo y sea $\forall n : G_n \subset E$ un abierto denso.
+     $\bigcap G_n$ es denso.
 
 **** Dimensión en espacios de Banach
-Todo espacio de Banach tiene dimensión finita o no numerable.
+     Todo espacio de Banach tiene dimensión finita o no numerable.
 
 *** Teorema de la aplicación abierta
 **** Teorema de la aplicación abierta
-Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ sobreyectiva.
-Entonces, $T$ es abierta, y homomorfismo topológico.
+     Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ sobreyectiva.
+     Entonces, $T$ es abierta, y homomorfismo topológico.
 
 **** Corolario de los isomorfismos de Banach
-Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ biyección.
-Entonces $T$ es isomorfismo topológico.
+     Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ biyección.
+     Entonces $T$ es isomorfismo topológico.
 
 **** Teorema del homomorfismo de Banach
-Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$. Será homomorfismo topológico ssi
-$TX$ es cerrado en $Y$.
+     Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$. Será homomorfismo 
+     topológico ssi $TX$ es cerrado en $Y$.
 
 **** Equivalencia de normas en espacios de Banach
-Sean $\|\cdot\|_1, \|\cdot\|_2$ dos normas en un espacio de Banach. Si cumplen que:
+     Sean $\|\cdot\|_1, \|\cdot\|_2$ dos normas en un espacio de Banach. Si cumplen que:
 
-\[\exists M>0 : \|x\|_1 \leq M \|x\|_2\]
+     \[\exists M>0 : \|x\|_1 \leq M \|x\|_2\]
 
-Entonces son equivalentes.
+     Entonces son equivalentes.
 
 *** Teorema de la gráfica cerrada
 **** Teorema de la gráfica cerrada
-Sean $X,Y$ de Banach con $T : X \longrightarrow Y$ lineal. Es continuo ssi la gráfica de $T$
-es cerrada:
+     Sean $X,Y$ de Banach con $T : X \longrightarrow Y$ lineal. Es continuo ssi la gráfica 
+     de $T$ es cerrada:
 
-\[\operatorname{Graf}(T) = \{(x,Tx) \mid x\in X\}\]
+     \[\operatorname{Graf}(T) = \{(x,Tx) \mid x\in X\}\]
 
 **** Corolario de la gráfica cerrada
-Sean $X,Y$ normados con $T: X \longrightarrow Y$ lineal. Equivalen:
+     Sean $X,Y$ normados con $T: X \longrightarrow Y$ lineal. Equivalen:
 
- - $T$ con gráfica cerrada.
- - Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$.
+     - $T$ con gráfica cerrada.
+     - Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$.
 
 *** Teorema de Banach-Steinhaus
 **** Teorema de Banach-Steinhaus para funcionales
-Sea ${\cal A} \subset L(X,Y)$ para $X$ de Banach e $Y$ normado; una familia de operadores acotada
-puntualmente:
+     Sea ${\cal A} \subset L(X,Y)$ para $X$ de Banach e $Y$ normado; una familia de 
+     operadores acotada puntualmente:
 
-\[ \forall x : \exists M(x): \forall T \in A: \quad \|T(x)\| \leq M(x)\]
+     \[ \forall x : \exists M(x): \forall T \in A: \quad \|T(x)\| \leq M(x)\]
 
-Entonces está acotada:
+     Entonces está acotada:
 
-\[\exists M : \forall T \in A: \quad \|T\| \leq M \]
+     \[\exists M : \forall T \in A: \quad \|T\| \leq M \]
 
 **** Teorema del cierre de Steinhaus
-Sea $X$ de Banach, $Y$ normado, y una sucesión $\{T_n\} \in L(X,Y)$ convergiendo
-puntualmente. La convergencia puntual da un operador lineal y continuo:
+     Sea $X$ de Banach, $Y$ normado, y una sucesión $\{T_n\} \in L(X,Y)$ 
+     convergiendo puntualmente. La convergencia puntual da un operador 
+     lineal y continuo:
 
-\[ T(x) = \lim_{n \longrightarrow \infty} T_n(x) \in L(X,Y)\]
+     \[ T(x) = \lim_{n \longrightarrow \infty} T_n(x) \in L(X,Y)\]
 
 ** 3. Espacios de Hilbert
 ** 4. Topologías débiles
