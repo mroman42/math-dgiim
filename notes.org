@@ -19,6 +19,114 @@
 #+latex_header: \newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}
 #+latex_header: \newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}
 
+* Papers & articles
+** TODO Dependent types at work - Ana Bove, Peter Dybjer
+*** 1. What are dependent types?
+*** 2. Simply Typed Functional Programming in Agda
+**** 2.1. Truth Values
+**** 2.2. Natural numbers
+***** Notion of Inductive type
+      /Recursive types/ in Haskell are *inductive types* in constructive type
+      theory.
+***** Notion of Canonical form
+      Elements on canonical form are built up by constructors only. They do not
+      contain defined functions. Martin-Löf considers /lazy canonical forms/, where
+      it suffices to begin with a constructor:
+
+      #+BEGIN_SRC haskell
+      Zero * Zero        -- Not a canonical form
+      Succ (Zero + Zero) -- Lazy canonical form
+      Succ (Succ Zero)   -- Canonical form
+      #+END_SRC
+      
+**** 2.3. Lambda Notation and Polymorphism
+     In Agda we have no type variables, we have families of functions:
+
+     #+BEGIN_SRC 
+     id : (A : Set) -> A -> A
+     id = \(A : Set) -> \(x : A) -> x
+     #+END_SRC
+
+**** 2.4. Implicit Arguments
+     Implicit arguments are declared by enclosing their typings within curly 
+     braces.
+
+**** 2.5. Gödel System T
+     Gödel System T is a system of primitive recursive functionals. All typable
+     programs in Gödel System T terminate. We can only use β-reduction and the
+     definitions of:
+
+     #+BEGIN_SRC 
+     true
+     false
+     zero
+     succ
+     if_then_else
+     natrec
+     #+END_SRC
+
+     We can define all primitive recursive functions, but also others such as the
+     Ackermann fuction.
+
+**** 2.6. Parametrised Types
+**** 2.7. Termination-checking
+     In M-L Type Theory, all recursion is *primitive recursion*; a structural
+     recursion on the well-founded data types.
+
+     As the Agda's termination-checker has not yet been documented, if Agda will
+     be used as a system for formalising mathematics rigorously, it is advisable to
+     stay within a well-specified subset such as Martin-Löf type theory.
+
+     In fact, the termination checker will not recognize calls to non-constructors
+     as smaller arguments. =(m-n)= will not be recognized as smaller than =m=,
+     for example.
+
+*** 3. Dependent Types
+**** 3.1. Vectors of a given length
+     We have to alternatives to define vectors of a given length:
+     
+     - *As a Recursive Family*:
+       
+       #+BEGIN_SRC 
+       Vec : Set -> Nat -> Set
+       Vec A zero = Unit
+       Vec A (succ n) = A X Vec A n
+       #+END_SRC
+
+       Functions must be written by induction on the length of the vector.
+
+     - *As an Inductive Family*:
+
+       #+BEGIN_SRC 
+       data Vec (A : Set) : Nat -> Set where
+         [] : Vec A zero
+	 _::_ : {n : Nat} -> A -> Vec A n -> Vec A (succ n)
+       #+END_SRC
+       
+     We can use type-checking to define functions that work only over non-empty
+     vectors, such as =tail= or =head=.
+
+**** 3.2. Finite Sets
+     This data type is useful when we want to access the element at a certain
+     position in a vector.
+
+**** 3.3. More Inductive Families
+*** TODO 4. Propositions as Types
+** TODO Monads for functional programming - Philip Wadler
+*** 1. Introduction
+*** 2. Evaluating monads
+**** 2.1. Variation zero: The basic evaluator
+**** 2.2. Variation one: Exceptions
+**** 2.3. Variation two: State
+**** 2.4. Variation three: Output
+**** 2.5. A monadic evaluator
+**** 2.6. Variation zero, revisited: The basic evaluator
+**** 2.7. Variation one, revisited: Exceptions
+**** 2.8. Variation two, revisited: State
+**** 2.9. Variation three, revisited: Output
+*** TODO 3. Monad Laws
+    
+
 * Aluffi - Algebra Chapter 0
 ** III. Anillos y módulos
 *** 7. Complejos y homología
