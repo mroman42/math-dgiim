@@ -376,20 +376,21 @@
 *** 1. Extensiones de cuerpos I
 **** 1.1. Definiciones básicas
 ***** Categoría de los cuerpos
-Los cuerpos forman la *categoría $\mathtt{Fld}$* con los homomorfismos de 
-anillos entre ellos. Todo homomorfismo de anillos entre cuerpos
-es inyectivo y todo morfismo en esta categoría es monomorfismo.
+      Los cuerpos forman la *categoría $\mathtt{Fld}$* con los homomorfismos de 
+      anillos entre ellos. Todo homomorfismo de anillos entre cuerpos
+      es inyectivo y todo morfismo en esta categoría es monomorfismo.
 
-Así, todo morfismo entre cuerpos en $Hom(k,K)$ es una extensión $K/k$.
+      Así, todo morfismo entre cuerpos en $Hom(k,K)$ es una extensión $K/k$.
 
 ***** Característica de un cuerpo
-La *característica* de $K$ es el generador de $ker(i)$ para 
-$i : \mathbb{Z} \longrightarrow K$. Las extensiones preservan la característica, así
-que podemos particionar la categoría en categorías $\mathtt{Fld}_p$.
+      La *característica* de $K$ es el generador de $ker(i)$ para 
+      $i : \mathbb{Z} \longrightarrow K$. Las extensiones preservan la 
+      característica, así que podemos particionar la categoría en categorías 
+      $\mathtt{Fld}_p$.
 
 ***** Cuerpos primos
-El inicial de $\mathtt{Fld}_0$ es $\mathbb{Q}$, y el de $\mathtt{Fld}_p$ es $\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}$. Todos los
-cuerpos son extensiones de uno de estos llamados *cuerpos primos*.
+      El inicial de $\mathtt{Fld}_0$ es $\mathbb{Q}$, y el de $\mathtt{Fld}_p$ es $\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}$. Todos los
+      cuerpos son extensiones de uno de estos llamados *cuerpos primos*.
 
 ***** Grado de una extensión
 El *grado*, $[F : K]$, de una extensión es su dimensión como espacio
@@ -1573,169 +1574,154 @@ de grupos $\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)$, tal que:
 
 # Categóricamente son transformaciones naturales.
 * Álgebra III
-** Polinomios simétricos
-*** La cúbica
+** 1. Polinomios simétricos
+*** Motivación: La cúbica
 **** Polinomios cúbicos
- Toda ecuación cúbica polinómica puede escribirse en la forma
- \(Y^3 + pY + q\), tomando un cambio de variable desde la original
- \(X \mapsto - \frac{1}{3} b\). Esto se llama una cúbica deprimida.
+     Toda ecuación cúbica polinómica puede escribirse en la forma
+     \(Y^3 + pY + q\), tomando un cambio de variable desde la original
+     \(X \mapsto - \frac{1}{3} b\). Esto se llama una cúbica deprimida.
 
 ***** Método de Vieta
- El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
+      El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
 
- \[w^3 + q - \frac{p^3}{27w^3} = 0\]
+      \[w^3 + q - \frac{p^3}{27w^3} = 0\]
 
- Ahora podemos resolver esa cuadrática y resolver luego la ecuación
- en $w^3$.
+      Ahora podemos resolver esa cuadrática y resolver luego la ecuación
+      en $w^3$.
 
 *** Anillos de polinomios
 **** Polinomios simétricos
- #+begin_definition
- *Polinomio simétrico*. Invariante por $f_\sigma$ para cualquier $\sigma \in S_r$, donde 
- $f_\sigma (X_i) = X_{\sigma i}$. Llamamos $Sim(A[X_1\dots X_n])$ al subanillo de polinomios simétricos.
- #+end_definition
+     Un *polinomio simétrico* es aquel invariante por $f_\sigma$ para cualquier $\sigma \in S_r$, 
+     donde $f_\sigma (X_i) = X_{\sigma i}$. Llamamos $Sim(A[X_1\dots X_n])$ al subanillo de polinomios 
+     simétricos.
 
- Llamamos *componente homogénea* a cada sumando homogéneo maximal de un polinomio.
- Un polinomio es simétrico si y sólo si cada una de sus componentes lo es.
+     Llamamos *componente homogénea* a cada sumando homogéneo maximal de un 
+     polinomio. Un polinomio es simétrico si y sólo si cada una de sus componentes 
+     lo es.
 
 **** Polinomios simétricos elementales
- #+begin_definition
- *Polinomios simétricos elementales*. Son de la forma:
+     Los polinomios simétricos elementales son aquellos de la forma:
 
- \[e_i = \sum_{i_1 < \dots < i_i} X_i_1 X_i_2 \dots X_i_i\]
+     \[e_i = \sum_{i_1 < \dots < i_i} X_i_1 X_i_2 \dots X_i_i\]
 
- #+end_definition
- #+begin_theorem
- *Teorema fundamental de los polinomios simétricos*. Los polinomios elementales
- generan cada polinomio $Sim(A[X_1\dots X_n])$ de forma única. En particular,
+**** Teorema fundamental de los polinomios simétricos
+     *Teorema fundamental de los polinomios simétricos*. Los polinomios elementales
+     generan cada polinomio $Sim(A[X_1\dots X_n])$ de forma única. En particular,
 
- \[\omega : A[X_1,\dots,X_r] \longrightarrow Sim(A[X_1,\dots,X_r])\]
+     \[\omega : A[X_1,\dots,X_r] \longrightarrow Sim(A[X_1,\dots,X_r])\]
 
- con $\omega(a) = a$ y $\omega(X_i) = e_i$ es un isomorfismo.
- #+end_theorem
- #+begin_proofs
- Damos una relación de orden lexicográfica entre los monomios de un polinomio
- simétrico homogéneo. Al mayor de ellos, llamado $X_1^{k_1} \dots X_r^{k_r}$ le restamos 
- $e^{b1}_1 e^{b2}_2 \dots e^{br}_r$, donde $b_i = k_i - k_{i+1}$. 
- Nos quedará $0$ u otro polinomio simétrico de 
- igual grado pero menor en el orden lexicográfico. Este proceso debe ser finito.
+     con $\omega(a) = a$ y $\omega(X_i) = e_i$ es un isomorfismo.
 
- La unicidad se obtiene con $0 = h(e_1\dots e_r) - k(e_1\dots e_r) = l(e_1 \dots e_r)$.
- #+end_proofs
+***** Demostración
+      Damos una relación de orden lexicográfica entre los monomios de un polinomio
+      simétrico homogéneo. Al mayor de ellos, llamado $X_1^{k_1} \dots X_r^{k_r}$ le restamos 
+      $e^{b1}_1 e^{b2}_2 \dots e^{br}_r$, donde $b_i = k_i - k_{i+1}$. Nos quedará $0$ u otro polinomio simétrico de 
+      igual grado pero menor en el orden lexicográfico. Este proceso debe ser 
+      finito.
+
+      La unicidad se obtiene con $0 = h(e_1\dots e_r) - k(e_1\dots e_r) = l(e_1 \dots e_r)$.
 
 **** Resultante
- #+begin_definition
- *Resultante*. Es el determinante solución de $pq' - qp' = 0$ dados $p$ y $q$.
+     La *resultante* de dos polinomios $p,q$ es el determinante solución de 
+     $pq' - qp' = 0$ dados $p$ y $q$.
 
- \[R(p,q) = \left| \begin{matrix}
- a_0 & a_1 & \dots & a_n & 0 & \dots &\\
- 0   & a_0 & \dots & a_{n-1} & a_n & 0 & \dots \\
- 0   &   0 & a_0 & \dots & a_{n-1} & a_n & \dots \\
+     \[R(p,q) = \left| \begin{matrix}
+     a_0 & a_1 & \dots & a_n & 0 & \dots &\\
+     0   & a_0 & \dots & a_{n-1} & a_n & 0 & \dots \\
+     0   &   0 & a_0 & \dots & a_{n-1} & a_n & \dots \\
      &     &     &\dots & & & \\
- b_0 & b_1 & \dots & b_m & 0 & \dots &\\
- 0   & b_0 & \dots & b_{m-1} & b_m & 0 & \dots \\
- 0   &   0 & b_0 & \dots & b_{m-1} & b_m & \dots \\
- \end{matrix} \right|
- \]
+     b_0 & b_1 & \dots & b_m & 0 & \dots &\\
+     0   & b_0 & \dots & b_{m-1} & b_m & 0 & \dots \\
+     0   &   0 & b_0 & \dots & b_{m-1} & b_m & \dots \\
+     \end{matrix} \right|
+     \]
 
- Y llamamos *matriz resultante* a la matriz de la que es determinante.
- #+end_definition
+     Y llamamos *matriz resultante* a la matriz de la que es determinante.
 
- #+begin_definition
- *Discriminante*. El discriminante de un polinomio con raíces
- $\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
+**** Discriminante
+     El *discriminante* de un polinomio con raíces
+     $\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
 
- \[\text{Discr}(p) = a^{2n-2} \prod_{i>j}(\alpha_i-\alpha_j)^2\]
- #+end_definition
+     \[\text{Discr}(p) = a^{2n-2} \prod_{i>j}(\alpha_i-\alpha_j)^2\]
 
- #+begin_fact
- \[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
- #+end_fact
+***** Relación con la resultante
+      \[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
 
-** Extensiones de cuerpos
-*** 1. Teoría de cuerpos
+** 3. Extensiones de cuerpos
+*** 3.1. Generalidades
 **** Extensiones de cuerpos
- *Extensión de cuerpos*. Subcuerpo $K$ de $F$, se nota por $F/K$. Llamamos *grado*
- a la dimensión de $F$ como espacio vectorial.
+     Una *extensión de cuerpos* es un subcuerpo $K$ de $F$, se nota por $F/K$. 
+     Llamamos *grado* a la dimensión de $F$ como espacio vectorial.
 
 **** Teorema de Lagrange para extensiones de cuerpos
- *Teorema de Lagrange para extensiones de cuerpos*. Sea $K \subset F \subset E$,
- extensiones de cuerpos, se tiene que:
+     *Teorema de Lagrange para extensiones de cuerpos*. Sea $K \subset F \subset E$,
+     extensiones de cuerpos, se tiene que:
 
- \[ [E:K] = [E:F][F:K] \]
+     \[ [E:K] = [E:F][F:K] \]
 
 **** Elementos algebraicos
- *Elemento algebraico*. $\alpha \in F$ es *algebraico* sobre $K$ si existe polinomio $f \in K[x]$
- tal que $f(\alpha) = 0$. Un no algebraico es *trascendente* y una extensión es *algebraica*
- si lo son todos sus elementos.
+     *Elemento algebraico*. $\alpha \in F$ es *algebraico* sobre $K$ si existe polinomio
+     $f \in K[x]$ tal que $f(\alpha) = 0$. Un no algebraico es *trascendente* y una extensión 
+     es *algebraica* si lo son todos sus elementos.
 
 **** Polinomios irreducibles
- #+begin_theorem
- *Polinomio irreducible*. Dado $F/K$ con $\alpha \in F$ algebraico. Existe un único polinomio
- irreducible del que $\alpha$ es raíz salvo asociados, llamado $Irr(\alpha)$.
- #+end_theorem
- #+begin_proofs
- Tomo el núcleo del homomorfismo que evalúa un polinomio en $\alpha$. Por ser un
- ideal en PID, estará generado por algún polinomio $f$ no nulo y no constante.
+     *Polinomio irreducible*. Dado $F/K$ con $\alpha \in F$
+     algebraico. Existe un único polinomio irreducible del que
+     $\alpha$ es raíz salvo asociados, llamado $Irr(\alpha)$.
+     
+***** Existencia de polinomios irreducibles
+      Tomo el núcleo del homomorfismo que evalúa un polinomio en $\alpha$. Por ser un
+      ideal en PID, estará generado por algún polinomio $f$ no nulo y no constante.
 
- Este será irreducible, porque si no lo fuera, con $f = g_1g_2$ se tendría:
+      Este será irreducible, porque si no lo fuera, con $f = g_1g_2$ se tendría:
 
- \[0 = f(\alpha) = g_1(\alpha)g_2(\alpha)\]
+      \[0 = f(\alpha) = g_1(\alpha)g_2(\alpha)\]
 
- Un polinomio de grado mínimo debería estar dentro del ideal, y por tanto ser 
- asociado de $f$, que lo genera.
- #+end_proofs
+      Un polinomio de grado mínimo debería estar dentro del ideal, y por tanto ser 
+      asociado de $f$, que lo genera.
 
- #+begin_theorem
- *Grado del irreducible*. Si $grad(Irr(\alpha,K)) = n$, entonces $[K(\alpha) : K] = n$ y 
- una base de $K(\alpha)$ es $\{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}$.
- #+end_theorem
+**** Grado de un polinomio irreducible
+     *Grado del irreducible*. Si $grad(Irr(\alpha,K)) = n$, entonces $[K(\alpha) : K] = n$ y 
+     una base de $K(\alpha)$ es $\{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}$.
 
- #+begin_theorem
- *Las extensiones finitas son algebraicas*.
- #+end_theorem
+**** Las extensiones finitas son algebraicas
+     Toda extensión finita es algebraica
 
-*** 2. Clausura algebraica
+*** 3.2. Elementos algebraicos y extensiones algebraicas
 **** Existencia de clausura
- #+begin_theorem
- *Teorema de Steinitz*. Todo cuerpo tiene una extensión algebraicamente cerrada.
- #+end_theorem
+     *Teorema de Steinitz*. Todo cuerpo tiene una extensión algebraicamente 
+     cerrada.
 
 **** Homomorfismos sobre un cuerpo
- #+begin_theorem
- *Homomorfismo sobre un cuerpo*. Un homomorfismo sobre cuerpos $K,K'$ con extensiones
- $F,F'$ con un isomorfismo $\omega : K \longrightarrow K'$ debe cumplir: $\phi|_K = \omega$. Cuando no se especifica,
- se asume la identidad.
+     Un *homomorfismo sobre cuerpos* $K,K'$ es un homomorfismo $\phi$ sobre extensiones
+     $F,F'$ con un isomorfismo $\omega : K \longrightarrow K'$ debe cumplir: $\phi|_K = \omega$. 
+     Cuando no se especifica, se asume la identidad.
 
- \[ \phi : F/K \longrightarrow F'/K' \]
- #+end_theorem
+     \[ \phi : F/K \longrightarrow F'/K' \]
 
- #+begin_theorem
- *Automorfismos entre extensiones*. Sea $\phi : F/K \longrightarrow F/K$ homomorfismo respetando $K$
- #+end_theorem
-** Cuerpos de descomposición
+**** Automorfismos entre extensiones
+     Un automofismo de extensiones es un homomorfismo sobre el cuerpo $K$, 
+     $\phi : F/K \longrightarrow F/K$ que es isomorfismo.
+
+** 4. Cuerpos de descomposición
 *** Teorema de Kronecker
- #+begin_theorem
- *Teorema de Kronecker*. Sea $f$ de grado positivo sobre $K$, entonces existe
- una extensión $F/K$ tal que existe $u \in F$ con $f(u) = 0$.
- #+end_theorem
- #+begin_proofs
- Puedo descomponer en irreducibles $f = f_1f_2\dots f_m$; y tener una extensión cumpliendo
- lo pedido:
+    *Teorema de Kronecker*. Sea $f$ de grado positivo sobre $K$, entonces existe
+    una extensión $F/K$ tal que existe $u \in F$ con $f(u) = 0$.
 
- \[ F = \frac{K[X]}{(f_1)}\]
+**** Demostración
+     Puedo descomponer en irreducibles $f = f_1f_2\dots f_m$; y tener una extensión 
+     cumpliendo lo pedido:
 
- \[u = x + (f_1)\]
- #+end_proofs
+     \[ F = \frac{K[X]}{(f_1)}\]
+
+     \[u = x + (f_1)\]
 
 *** Extensión de homomorfismos
- #+begin_definition
- *Extensión de un homomorfismo*. $\tau : F_1 \longrightarrow F_2$ es extensión de 
- $\sigma : K_1 \longrightarrow K_2$ cuando son dos extensiones $F/K$ y se cumple
- que $\tau |_K_1 = \sigma$.
+*Extensión de un homomorfismo*. $\tau : F_1 \longrightarrow F_2$ es extensión de 
+$\sigma : K_1 \longrightarrow K_2$ cuando son dos extensiones $F/K$ y se cumple
+que $\tau |_K_1 = \sigma$.
 
- Cuando $\sigma = 1$, llamamos a $\tau$ *homomorfismo sobre K*.
- #+end_definition
+Cuando $\sigma = 1$, llamamos a $\tau$ *homomorfismo sobre K*.
 
 **** Extensión a polinomios
  #+begin_theorem
@@ -1748,76 +1734,140 @@ de grupos $\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)$, tal que:
  #+end_theorem
 
 **** Automorfismos de una extensión
- #+begin_theorem
- *Automorfismos de una extensión*. Sea $\sigma : F/K \longrightarrow F/K$, entonces,
- $\sigma$ es automorfismo.
- #+end_theorem
- #+begin_proofs
- Para $u\in F$, tomamos $K(u_1,\dots,u_k)$ la extensión finita generada por todas 
- las raíces del irreducible sobre $u$. Como $\sigma$ respeta raíces, puede restringirse
- a esta extensión; y será inyectivo en ella por ser morfismo de cuerpos.
+#+begin_theorem
+*Automorfismos de una extensión*. Sea $\sigma : F/K \longrightarrow F/K$, entonces,
+$\sigma$ es automorfismo.
+#+end_theorem
+#+begin_proofs
+Para $u\in F$, tomamos $K(u_1,\dots,u_k)$ la extensión finita generada por todas 
+las raíces del irreducible sobre $u$. Como $\sigma$ respeta raíces, puede restringirse
+a esta extensión; y será inyectivo en ella por ser morfismo de cuerpos.
 
- Como esta extensión es finita y esto es una aplicación lineal, la aplicación 
- restringida es sobreyectiva.
- #+end_proofs
+Como esta extensión es finita y esto es una aplicación lineal, la aplicación 
+restringida es sobreyectiva.
+#+end_proofs
 
 **** Número de extensiones
- #+begin_theorem
- *Número de extensiones*. Teniendo $u_1$ de irreducible a $f_1$, hay tantas
- extensiones $\tau : K_1[u_1] \longrightarrow F_2$ como raíces tenga su imagen $f_2$; ya que están 
- completamente determinadas por la imagen de $u_1$.
- #+end_theorem
- #+begin_proofs
- Existe un único isomorfismo llevando $\tau(u_1) = u_2$, tomando este diagrama de
- isomorfismos:
+#+begin_theorem
+*Número de extensiones*. Teniendo $u_1$ de irreducible a $f_1$, hay tantas
+extensiones $\tau : K_1[u_1] \longrightarrow F_2$ como raíces tenga su imagen $f_2$; ya que están 
+completamente determinadas por la imagen de $u_1$.
+#+end_theorem
+#+begin_proofs
+Existe un único isomorfismo llevando $\tau(u_1) = u_2$, tomando este diagrama de
+isomorfismos:
 
- \[ \begin{tikzcd}
- K_1(u) \rar{\tau} & K_2(u) \\
- \frac{K_1[X]}{(f_1)} \uar{p_1} \rar{\overline\sigma} &
- \frac{K_2[X]}{(f_2)} \uar{p_2}
- \end{tikzcd} \]
+\[ \begin{tikzcd}
+K_1(u) \rar{\tau} & K_2(u) \\
+\frac{K_1[X]}{(f_1)} \uar{p_1} \rar{\overline\sigma} &
+\frac{K_2[X]}{(f_2)} \uar{p_2}
+\end{tikzcd} \]
 
- Donde $\sigma$ es inducido por el isomorfismo de extensión a polinomios.
- #+end_proofs
+Donde $\sigma$ es inducido por el isomorfismo de extensión a polinomios.
+#+end_proofs
 
-*** Cuerpo de descomposición
+*** 4.1. Cuerpo de descomposición
+**** 4.1.3. Isomorfismo extendido a polinomios
+Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos. Existe una única extensión a
+un isomorfismo $\sigma : K_1[X] \longrightarrow K_2[X]$ cumpliendo que $\sigma(X) = X$.
+
+***** Demostración
+Por la propiedad universal por el anillo de polinomios.
+
+**** 4.1.5. Isomorfismo de raíces de polinomios 
+Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos y sean $F_1/K_1, F_2/K_2$ extensiones
+algebraicas. Dado un homomorfismo $\tau : F_1 \longrightarrow F_2$ sobre $\sigma$; si $u$ es raíz de $p$
+entonces $\tau(u)$ es raíz de $\sigma(p)$.
+
+***** Demostración
+Por simple cálculo tomando $p(x) = a_nx^n + \dots + a_1x + a_0$:
+
+\[ \begin{aligned}
+\sigma(p)(\tau(u)) &= \sigma(a_n)\tau(u)^n + \dots + \sigma(a_1)\tau(u) + \sigma(a_0) \\ 
+                   &= \tau(a_n)\tau(u)^n + \dots + \tau(a_1)\tau(u) + \tau(a_0) \\
+                   &= \tau(a_nu^n + \dots + a_1u + a_0) \\
+                   &= \tau(0) = 0
+\end{aligned} \]
+
+**** 4.1.7. Isomorfismo intercambiando conjugadas
+Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos. Sea $p$ irreducible 
+y $u_1,u_2$ raíces en la clausura de $p$ y $\sigma(p)$. Entonces existe un único 
+isomorfismo $\tau : K_1(u_1) \longrightarrow K_2(u_2)$ sobre $\sigma$ tal que $\tau(u_1) = u_2$.
+
+***** Demostración
+El isomorfismo buscado sale como composición:
+
+\[K_1(u_1) \cong 
+  \frac{K_1[X]}{(f_1)} \cong 
+  \frac{K_2[X]}{(f_2)} \cong
+  K_2(u_2)\]
+
 **** Descomposición
- #+begin_definition
- Un polinomio $f \in K[X]$ *descompone* en una extensión $E$ si factoriza como polinomios
- lineales en $E[X]$. Llamamos *cuerpo de descomposición* a un cuerpo extensión
- de $K$ minimal en el que descompone.
- #+end_definition
+Un polinomio $f \in K[X]$ *descompone* en una extensión $E$ si
+factoriza como polinomios lineales en $E[X]$. Llamamos *cuerpo de
+descomposición* a un cuerpo extensión de $K$ minimal en el que
+descompone.
 
- Propiedades:
+Propiedades:
 
-  - Sea $E$ cuerpo de descomposición, entonces $E = K(\alpha_1,\alpha_2,\dots,\alpha_n)$, siendo una
-    extensión finita con grado acotado por $n!$.
-  - Todo polinomio tiene cuerpo de descomposición sobre $K$, ya que podemos tomar
-    una clausura algebraica y crear $K(\alpha_1,\dots,\alpha_n)$ con sus raíces.
+ - Sea $E$ cuerpo de descomposición, entonces $E = K(\alpha_1,\alpha_2,\dots,\alpha_n)$, 
+   siendo una extensión finita con grado acotado por $n!$.
+ - Todo polinomio tiene cuerpo de descomposición sobre $K$, ya que 
+   podemos tomar una clausura algebraica y crear $K(\alpha_1,\dots,\alpha_n)$ con
+   sus raíces.
 
 **** Lema de isomorfismo entre cuerpos de descomposición
- #+begin_theorem
- Sean $E_1/K$, $E_2/K$ dos cuerpos de descomposición de $f$ sobre $K$.
- Entonces existe un isomorfismo $\sigma : E_1/K \longrightarrow E_2/K$.
- #+end_theorem
- #+begin_proofs
- Aplicamos inducción sobre el grado del polinomio irreducible de dos raíces
- cualquiera y descomponemos siempre como: $f_i = (X-u_i)g_i$. Sé que hay siempre un
- isomorfismo $K_1(u_1) \cong K_2(u_2)$ respetando $\sigma(u_1) = u_2$ a cada paso; y el caso de grado $0$
- es trivial.
- #+end_proofs
+Sean $E_1/K$, $E_2/K$ dos cuerpos de descomposición de $f$ sobre $K$.
+Entonces existe un isomorfismo $\sigma : E_1/K \longrightarrow E_2/K$.
 
-** Extensiones normales y separables
-*** Elementos conjugados y extensiones conjugadas
+***** Demostración
+Aplicamos inducción sobre el grado del polinomio irreducible de dos raíces
+cualquiera y descomponemos siempre como: $f_i = (X-u_i)g_i$. Sé que hay siempre un
+isomorfismo $K_1(u_1) \cong K_2(u_2)$ respetando $\sigma(u_1) = u_2$ a cada paso; y el caso de grado $0$
+es trivial.
+
+*** 4.2. Clausura algebraica
+**** 4.2.10. Extensión de homomorfismos a algebraicas
+Sea $K \subset F \subset E$ con $E/K$ algebraica. Entonces todo $\sigma : F \longrightarrow \overline{K}$ tiene
+una extensión $\tau : E \longrightarrow \overline{K}$.
+
+***** Demostración
+Aplicamos Zorn sobre el siguiente conjunto ordenado para la inclusión,
+sabiendo que toda cadena de cuerpos está acotada por su unión y que cada
+$\sigma_i$ es extensión del anterior:
+
+\[{\cal S} = \{(E_i,\sigma_i) \mid 
+F \subset E_i \subset E, \sigma_i : E_i \longrightarrow \overline{K};\;
+\sigma_i|_F = \sigma\}\]
+
+Esto nos da el maximal $E_1$. Si $E_1 \subsetneq E$, tomo $u \in E - E_1$; y busco un
+[[*4.1.7. Isomorfismo intercambiando conjugadas][isomorfismo]] intercambiando $u$ por una conjugada también raíz de $Irr(u,K)$.
+Esto me da $(E_1,\sigma_1) \leq (E_1(u),\tau)$.
+
+** 5. Extensiones normales y separables
+*** 5.1. Elementos conjugados y extensiones conjugadas
 **** Elementos conjugados
-     Sean $u,v \in \overline{K}$, clausura algebraica. Equivalen:
+Sean $u,v \in \overline{K}$, clausura algebraica. Equivalen:
 
-       - $Irr(u,K) = Irr(v,K)$
-       - $\exists \tau : K(u) \longrightarrow K(v)$ *isomorfismo* con $\tau(u) = v$.
-       - $\exists\sigma : K(u) \longrightarrow \overline{K}$ *homomorfismo* con $\sigma(u) = v$.
-       - $\exists \sigma : \overline{K} \longrightarrow \overline{K}$ *automorfismo* con $\sigma(u) = v$.
+  1. $Irr(u,K) = Irr(v,K)$
+  2. $\exists \tau : K(u) \longrightarrow K(v)$ *isomorfismo* con $\tau(u) = v$.
+  3. $\exists\sigma : K(u) \longrightarrow \overline{K}$ *homomorfismo* con $\sigma(u) = v$.
+  4. $\exists \sigma : \overline{K} \longrightarrow \overline{K}$ *automorfismo* con $\sigma(u) = v$.
 
-     Estos elementos se llaman *elementos conjugados*.
+Morfismos manteniendo $K$. Estos elementos se llaman *elementos conjugados*.
+
+***** Demostración
+Supongamos que tienen el mismo polinomio irreducible $f(X)$, entonces
+podemos construir un isomorfismo que lleve $u,v$ a $X + (f(X))$ para tener:
+
+\[K(u) \cong \frac{K[X]}{(f(X))}\cong K(v)\]
+
+Dado el isomorfismo, lo podemos prolongar a un homomorfismo. Y dado un
+homomorfismo, lo podemos [[*4.2.10. Extensión de homomorfismos a algebraicas][prolongar]] a un automorfismo por ser una 
+extensión algebraica.
+
+Supongamos que existe el automorfismo de $\overline{K}$. Sea $f(X) = Irr(u,K)$, y
+tenemos $0 = \phi(f(u)) = f(\phi(u)) = f(v)$; luego $Irr(u,K) = Irr(v,K)$.
 
 **** Extensiones conjugadas
  Sean $F_1/K$, $F_2/K$ extensiones algebraicas, equivalen:
@@ -1869,48 +1919,146 @@ de grupos $\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)$, tal que:
  sobre $K$.
 
 **** Torres separables
- Si $E \supset F \supset K$ es extensión separable, lo son $E/F$ y $F/K$.
+Si $E \supset F \supset K$ es extensión separable, lo son $E/F$ y $F/K$.
 
 **** Grado separable
- El *grado separable* es cardinal del conjunto de homomorfismos de
+El *grado separable* es cardinal del conjunto de homomorfismos de
 
- $F \longrightarrow \overline{K}$ sobre $K$.
+$F \longrightarrow \overline{K}$ sobre $K$.
 
- \[ [F : K]_s = \#\{\sigma : F \longrightarrow \overline{K} \text{ sobre } K\}\]
+\[ [F : K]_s = \#\{\sigma : F \longrightarrow \overline{K} \text{ sobre } K\}\]
 
-** Teoría de Galois Finita
-*** Grupos de automorfismos
+** 6. Teoría de Galois Finita
+*** 6.1. Grupos de automorfismos
+**** Proposición al lema de Dedekind
+Sean $\sigma_1,\dots, \sigma_m : G \longrightarrow F^\times$ homomorfismos desde un grupo $G$ al grupo 
+multiplicativo de un cuerpo $F$. Ssi son distintos, son linealmente 
+independientes sobre $F$.
+
+***** Demostración
+Procedemos por inducción. Cuando $n=1$, es trivial.
+
+Supongamos que fueran linealmente dependientes, y tomamos un subconjunto
+mínimo de linealmente dependientes, $\sigma_1,\dots,\sigma_s$. Tendríamos coeficientes
+$b_i \in F^\times$ tales que:
+
+\[\sigma_s = b_1\sigma_1 + \dots + b_{s-1}\sigma_{s-1}\]
+
+Si tomamos ahora $y$ tal que $\sigma_1(y) \neq \sigma_s(y)$, evaluamos en $xy$ y multiplicamos
+por $\sigma_s(y)$ obtenemos:
+
+\[0 = b_1(\sigma_1(y)-\sigma_s(y))\sigma_1 + \dots + b_{s-1}(\sigma_{s-1}(y) - \sigma_s(y)) \sigma_{s-1}\]
+
+Que es una relación con el primer término no nulo y que contradice 
+minimalidad.
+
 **** Lema de Dedekind
- Sean n homomorfismos de cuerpos distintos $F_1 \longrightarrow F_2$, entonces son 
- linealmente independientes sobre $F_2$.
+     Un conjunto de homomorfismos de cuerpos $F_1 \longrightarrow F_2$ que sean distintos, son 
+     linealmente independientes sobre $F_2$.
+
+***** Demostración
+      Desde el lema anterior, tenemos que son linealmente independientes una
+      vez restringidos a $F_1^\times \longrightarrow F_2^\times$, el añadirles el $0$ no los vuelve dependientes.
+
+**** Acotación del número de homomorfismos sobre K
+     Si $[F : K] = n$, existen como máximo $n$ morfismos distintos sobre $K$ hacia otro
+     cuerpo:
+
+     $|Hom(F/K,E/K)| \leq n$
+
+***** Demostración
+      Sea $\{u_1,\dots,u_n\}$ base de $F$, y supongamos $n+1$ homomorfismos distintos.
+      El siguiente sistema de ecuaciones tiene solución no trivial porque tiene 
+      $n+1$ incógnitas y tiene $n$ ecuaciones.
+      
+      \[ X_1\sigma_1(u_j) + \dots + X_{n+1}\sigma_{n+1}(u_j) = 0 
+      \qquad j = 1,\dots,n\]
+      
+      Sea $c_1,\dots,c_{n+1} \in E$ la solución, entonces se tiene:
+
+      \[(c_1\sigma_1 + \dots + c_{n+1}\sigma_{n+1})(u) = 0\]
+
+      Luego son linealmente dependientes y no pueden ser distintos.
 
 **** Grupo de extensión
- Para toda extensión finita $F/K$ llamamos *grupo de la extensión* a:
+     Para toda extensión finita $F/K$ llamamos *grupo de la extensión* a:
 
- \[ G(F/K) = \{ \sigma \in \Aut(F) \mid \forall u \in K : \sigma(u) = u\}\]
+     \[ G(F/K) = \{ \sigma \in  Aut(F) \mid \forall u \in K : \sigma(u) = u\}\]
 
- Y se verifica que $|G(F/K)| \leq [F : K]$.
+     Y se verifica que $|G(F/K)| \leq [F : K]$ por la acotación anterior.
+
+**** Cuerpo fijo
+     Sea $G < Aut(E)$, llamamos *cuerpo fijo* por $G$ al conjunto al que dejan fijos
+     todos los elementos de $G$:
+
+     \[ E^G = \{ u \in E \mid \forall\sigma\in G: \sigma(u) = u\}\]
+
+     Es un *subcuerpo* de $E$ trivialmente.
+     
 **** Teorema de Artin
- Llamamos *cuerpo fijo* al subcuerpo al que no afecta $G$:
+     El *Teorema de Artin* afirma que para un subgrupo finito de $Aut(E)$, entonces
+     $[E : E^G] = |G|$.
 
- \[ E^G = \{ u \in E \mid \forall\sigma\in G: \sigma(u) = u\}\]
+***** Demostración
+      Sabemos que $n = |G| \leq [E : E^G]$ por ser extensión. Supongamos la desigualdad
+      estricta con $u_1,\dots,u_{n+1} \in E$ independientes sobre $E^G$. Y tenemos el sistema
+      de $n+1$ incógnitas y $n$ ecuaciones, sobre los $\sigma_j$ de $G$:
 
- El *Teorema de Artin* afirma que para un subgrupo finito de $Aut(E)$, entonces
- $[E : E^G] = |G|$.
+      \[ X_1\sigma_j(u_1) + \dots + X_{n+1}\sigma_j(u_{n+1}) = 0 \qquad
+      j = 1,\dots,n\]
+      
+      Sea $a_1,\dots,a_{n+1}$ una solución no trivial con número mínimo de elementos no 
+      nulos. Suponemos s.p.g. que $a_1 \neq 0$ y despejamos para tener:
+
+      \[\sigma_j(u_1) = b_2\sigma_j(u_2) + \dots + b_n\sigma_j(u_{n+1}) 
+      \qquad j = 1,\dots,n\]
+      
+      En particular, en el caso $\sigma_j = id$, tenemos:
+
+      \[u_1 = b_2u_2 + \dots + b_{n+1}u_{n+1}\]
+
+      que obliga a que uno de los coeficientes no esté en $E^G$. Supongamos s.p.g.
+      que $b_2 \notin G$, y sea $\tau \in G$ tal que $\tau(b_2) \neq b_2$. Si aplicamos ahora $\tau$ a cada una
+      de las ecuaciones y restamos tenemos:
+
+      \[0 = (b_2-\tau(b_2))\sigma_j(u_2) + \dots + (b_n-\tau(b_n)\sigma_j(u_{n+1}))
+	  \qquad j = 1,\dots,n\]
+
+      Esta solución es no trivial porque $(b_2-\tau(b_2)) \neq 0$, pero tiene menos elementos
+      nulos que la anterior.
+
 **** Extensión de Galois
- Una extensión finita $E/K$ es *de Galois* si existe $G$ tal que $E^G = K$. En este
- caso, llamamos a $G$ el *grupo de Galois* de la extensión, $Gal(E/K)$.
+     Una extensión finita $E/K$ es *de Galois* cuando:
+     
+     \[\exists Gal(E/K) < Aut(E): E^{Gal(E/K)} = K\]
+ 
+     Llamamos a $Gal(E/K)$ el *grupo de Galois* de la extensión.
 
- Una extensión es de Galois ssi es normal y separable.
+**** Caracterización de extensión de Galois
+     Una extensión finita es de Galois ssi es normal y separable.
 
-*** Correspondencia de Galois, caso finito
+***** Demostración
+      Sea $Gal(E/K) = G$, entonces cada automorfismo se extiende a un homomorfismo
+      $\sigma' : E \longrightarrow K$, luego $[E:K]_S \geq |G| = [E:K] \geq [E:K]_S$, y por tanto la 
+      extensión es separable. Como además el número total de homomorfismos es
+      $[E:K]_S = |G|$, son todos automorfismos y la extesión es normal.
+
+      Sea $E/K$ normal y separable. Tenemos $n = [E:K]_S = [E:K]$ homomorfismos
+      $\tau : E \longrightarrow \overline{K}$ sobre $K$, con $\tau(E) = E$. Entonces $G = G(E/K)$ tiene orden $n$.
+      Por Teorema de Artin, $[E:E^G] = n = [E:K]$, luego $[E^G:K] = 1$.
+
+**** Corolario a la caracterización de Galois
+     Sea $F/K$ una extensión separable finita y sea $E/K$ su clausura normal.
+     Entonces $E/K$ es una extensión finita de Galois.
+
+*** 6.2. Correspondencia de Galois, caso finito
 **** Correspondencia
- Definimos una correspondencia entre los subgrupos de una extensión de Galois
- y los cuerpos intermedios como:
+     Definimos una correspondencia entre los subgrupos de una extensión de Galois
+     y los cuerpos intermedios como:
 
- \[ H^\ast = E^H = \{u \in E \mid \forall\sigma\in H: \sigma(u)=u\}\]
- \[F^\ast = Gal(E/F) = \{\sigma\in G \mid \forall u\in F: \sigma(u) = u\}\]
-** Cuerpos finitos
+     \[ H^\ast = E^H = \{u \in E \mid \forall\sigma\in H: \sigma(u)=u\}\]
+     \[F^\ast = Gal(E/F) = \{\sigma\in G \mid \forall u\in F: \sigma(u) = u\}\]
+** 7. Cuerpos finitos
 *** Estructura de los cuerpos finitos
 **** Propiedades de un cuerpo finito
  Sea $F$ cuerpo finito con $|F| = q$,
@@ -1947,7 +2095,7 @@ de grupos $\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)$, tal que:
  Los factores irreducibles de $x^{p^n}-x$ son exactamente los polinomios irreducibles de
  $\mathbb{F}_p[X]$ cuyo grado divida a $n$.
  #+end_theorem
-** Extensiones ciclotómicas
+** 8. Extensiones ciclotómicas
 *** Raíces de la unidad
 **** Subgrupos finitos del grupo multiplicativo
  Todo subgrupo finito del grupo multiplicativo $K^\times$ es cíclico.
