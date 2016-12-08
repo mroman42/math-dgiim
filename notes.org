@@ -126,8 +126,16 @@
 **** 2.7. Variation one, revisited: Exceptions
 **** 2.8. Variation two, revisited: State
 **** 2.9. Variation three, revisited: Output
-*** TODO 3. Monad Laws
-    
+*** 3. Monad Laws
+    Son equivalentes =return,join= y =return,bind=. Y además, desde cualesquiera
+    de ellos, se define =map=.
+*** 4. State
+**** 4.1. Arrays
+**** 4.2. Array transformers
+**** 4.3. Array readers
+     Conmutative monads.
+**** 4.4. Conclusion
+*** TODO 5. Parsers
 
 * Aluffi - Algebra Chapter 0
 ** III. Anillos y módulos
