@@ -3496,9 +3496,9 @@ Y además, actúa sobre ellas igual que la composición:
 
 *** 4. Tipo de homotopía. Equivalencias homotópicas
 **** Aplicaciones homotópicas
-     Sean $F,G : X \longrightarrow Y$ continuas. Las decimos *homotópicas* si existe 
-     $H : X \times [0,1] \longrightarrow Y$ tal que $H(x,0) = F(x)$ y $H(x,1) = G(x)$. Lo notamos
-     por $H: F\simeq G$.
+Sean $F,G : X \longrightarrow Y$ continuas. Las decimos *homotópicas* si existe 
+$H : X \times [0,1] \longrightarrow Y$ tal que $H(x,0) = F(x)$ y $H(x,1) = G(x)$. Lo notamos
+por $H: F\simeq G$.
 
 **** Grupo fundamental entre dos puntos
 Entre cualesquiera puntos de dos funciones homotópicas $F(x_0)$, $G(x_0)$; tenemos un 
@@ -3516,18 +3516,18 @@ la siguiente:
 
 \begin{tikzpicture}
 \draw (A) -- node [above] {$G f$} ++ (-1, 0)
-          -- node [left]  {$\gamma$} ++ (0, -1)
-          -- node [below] {$F f$} ++ (1, 0)
-          -- node [right] {$\gamma$} ++ (0, 1);
+-- node [left]  {$\gamma$} ++ (0, -1)
+-- node [below] {$F f$} ++ (1, 0)
+-- node [right] {$\gamma$} ++ (0, 1);
 \end{tikzpicture}
 
 Rotándola obtengo:
 
 \begin{tikzpicture}
 \draw (A) -- node [above] {$G f \circ \gamma$} ++ (-1, 0)
-          -- node [left]  {$F(x_0)$} ++ (0, -1)
-          -- node [below] {$\gamma \circ F f$} ++ (1, 0)
-          -- node [right] {$G(x_0)$} ++ (0, 1);
+-- node [left]  {$F(x_0)$} ++ (0, -1)
+-- node [below] {$\gamma \circ F f$} ++ (1, 0)
+-- node [right] {$G(x_0)$} ++ (0, 1);
 \end{tikzpicture}
 
 Lo que me da $[Gf \circ \gamma] = [\gamma \circ Ff]$, y por tanto $[Gf] = [\gamma \circ Ff \circ \tilde{\gamma}]$.
@@ -3539,16 +3539,16 @@ existe $G$ cumpliendo $F \circ G \simeq G \circ F \simeq Id$.
 **** Propiedades de la equivalencia homotópica
 Cumple:
 
-  1. Los homeomorfismos son equivalencias homotópicas.
-  2. La inversa de una equivalencia homotópica es equivalencia homotópica.
-  3. La composición de equivalencias homotópicas es equivalencia homotópica.
+1. Los homeomorfismos son equivalencias homotópicas.
+2. La inversa de una equivalencia homotópica es equivalencia homotópica.
+3. La composición de equivalencias homotópicas es equivalencia homotópica.
 
 **** Conservación del grupo fundamental por equivalencia homotópica
-     Sea $F: X\longrightarrow Y$ equivalencia homotópica:
+Sea $F: X\longrightarrow Y$ equivalencia homotópica:
 
-     \[\forall x\in X : F_\ast : \Pi(X,x) \longrightarrow \Pi(Y,F(x))\]
+\[\forall x\in X : F_\ast : \Pi(X,x) \longrightarrow \Pi(Y,F(x))\]
 
-     Es un isomorfismo
+Es un isomorfismo
 
 ***** Demostración
 Por ser equivalencia homotópica tengo que $F \circ G \simeq Id$, luego se cumple:
@@ -3562,11 +3562,11 @@ Por ser equivalencia homotópica tengo que $F \circ G \simeq Id$, luego se cumpl
 Así, $(F\circ G)_\ast$, y de la misma forma $(G\circ F)_\ast$ son isomorfismos. Tenemos por tanto:
 
 \[ \begin{tikzcd}
-  \Pi(X,x) \rar{F_\ast} \arrow[bend left=20]{rr}{\cong}
+\Pi(X,x) \rar{F_\ast} \arrow[bend left=20]{rr}{\cong}
 & \Pi(Y,F(x)) \rar{G_\ast} \dlar{\cong}
 & \Pi(X,(G\circ F)(x)) \dlar{\cong}
 \\
-  \Pi(Y,F(x)) \rar{F_\ast} \arrow[bend right=20]{rr}{\cong}
+\Pi(Y,F(x)) \rar{F_\ast} \arrow[bend right=20]{rr}{\cong}
 & \Pi(X,(G\circ F)(x)) \rar{F_\ast}
 & \Pi(X,(G\circ F)(x))
 \end{tikzcd} \]
@@ -3574,15 +3574,15 @@ Así, $(F\circ G)_\ast$, y de la misma forma $(G\circ F)_\ast$ son isomorfismos.
 Demostrando ambas filas que $F_\ast$ y $G_\ast$ son isomorfismos.
 
 **** Lema a Borsuk-Ulam
-     No existe $F: \mathbb{S}^2 \longrightarrow \mathbb{S}^1$ continua respetando antípodas.
+No existe $F: \mathbb{S}^2 \longrightarrow \mathbb{S}^1$ continua respetando antípodas.
 
-     \[F(-x) = -F(x)\]
+\[F(-x) = -F(x)\]
 
 ***** TODO Demostración
 **** Teorema de Borsuk-Ulam
-     Sea $F:\mathbb{S}^2 \longrightarrow \mathbb{R}^2$ continua, entonces:
+Sea $F:\mathbb{S}^2 \longrightarrow \mathbb{R}^2$ continua, entonces:
 
-     \[\exists x\in\mathbb{S}^2 : F(-x) = F(x)\]
+\[\exists x\in\mathbb{S}^2 : F(-x) = F(x)\]
 
 ***** Demostración
 Supongamos que no se cumpliera, definimos:
@@ -3592,65 +3592,65 @@ Supongamos que no se cumpliera, definimos:
 Y entonces $G$ sería continua respetando antípodas.
 
 **** Teorema del sandwich de jamón
-     Sean $A,B\subset \mathbb{R}^2$ compactos y conexos. Existe una recta dividiendo a ambos en dos
-     trozos de igual área.
+Sean $A,B\subset \mathbb{R}^2$ compactos y conexos. Existe una recta dividiendo a ambos en dos
+trozos de igual área.
 
 ***** TODO Demostración
 **** Espacio proyectivo
-     En $\mathbb{S}^n$ defino la ralación de equivalencia $p \sim q$ ssi $p = \pm q$. Definimos el 
-     espacio proyectivo como el cociente bajo esta relación:
+En $\mathbb{S}^n$ defino la ralación de equivalencia $p \sim q$ ssi $p = \pm q$. Definimos el 
+espacio proyectivo como el cociente bajo esta relación:
 
-     \[\mathbb{RP}^n = \mathbb{S}^n}/\sim\]
+\[\mathbb{RP}^n = \mathbb{S}^n}/\sim\]
 
 *** 5. Teorema de Seifert-Van Kampen
 **** Producto libre de grupos
-     Si definimos el *producto libre* de grupos en términos de palabras; podemos 
-     llamar *grupo libre sobre un conjunto de generadores* al producto libre del 
-     grupo libre generado por cada uno de ellos.
+Si definimos el *producto libre* de grupos en términos de palabras; podemos 
+llamar *grupo libre sobre un conjunto de generadores* al producto libre del 
+grupo libre generado por cada uno de ellos.
 
 **** Subgrupo normal generado
-     El *subgrupo normal generado* por un subgrupo $B$ o por un conjunto de 
-     generadores es:
+El *subgrupo normal generado* por un subgrupo $B$ o por un conjunto de 
+generadores es:
 
-     \[ \{g \cdot b \cdot g^{-1} \mid g\in G, b\in B\}\]
+\[ \{g \cdot b \cdot g^{-1} \mid g\in G, b\in B\}\]
 
 **** Producto libre amalgamado
-     Sean tres grupos $A$, $G_1$, $G_2$ y dos proyecciones de $A$ en ellos, llamadas 
-     $\Phi_1,\Phi_2$. Definimos el *producto libre amalgamado* como:
+Sean tres grupos $A$, $G_1$, $G_2$ y dos proyecciones de $A$ en ellos, llamadas 
+$\Phi_1,\Phi_2$. Definimos el *producto libre amalgamado* como:
 
-     \[G_1 \ast_{A} G_2 =
+\[G_1 \ast_{A} G_2 =
 \frac{G_1 \cdot G_2}{N} = \frac{G_1 \cdot G_2}{\{\Phi_1(a)=\Phi_2(a)\}}\]
 
-     Donde estamos dividiendo por $N$, el subgrupo normal generado por 
-     $\{\Phi_1(a)\Phi_2(a)^{-1} \mid a \in A\}$. Es decir, imponemos la relación $\Phi_1(a) = \Phi_2(a)$.
+Donde estamos dividiendo por $N$, el subgrupo normal generado por 
+$\{\Phi_1(a)\Phi_2(a)^{-1} \mid a \in A\}$. Es decir, imponemos la relación $\Phi_1(a) = \Phi_2(a)$.
 
 **** Teorema de Seifert-Van Kampen
-     Sea $X$ espacio topológico con $U,V$ abiertos arcoconexos no vacíos de $X$ tales 
-     que $X = U \cup V$ y $U\cap V$ son arcoconexos. Existe un isomorfismo:
+Sea $X$ espacio topológico con $U,V$ abiertos arcoconexos no vacíos de $X$ tales 
+que $X = U \cup V$ y $U\cap V$ son arcoconexos. Existe un isomorfismo:
 
-     \[\Theta : \Pi(U,x) \ast_{\Pi(U\cap V,x)} \Pi(V,x) \longrightarrow \Pi(X,x)\]
+\[\Theta : \Pi(U,x) \ast_{\Pi(U\cap V,x)} \Pi(V,x) \longrightarrow \Pi(X,x)\]
 
-     donde se amalgama usando $i_\ast$, $j_\ast$, homomorfismos dados por las inclusiones.
+donde se amalgama usando $i_\ast$, $j_\ast$, homomorfismos dados por las inclusiones.
 
 **** Seifert-Van Kampen para intersección simplemente conexa
-     En las condiciones del teorema, con $U\cap V$ simplemente conexo, se tiene:
+En las condiciones del teorema, con $U\cap V$ simplemente conexo, se tiene:
 
-     \[\Pi(X,x) \cong \Pi(U,x)\ast\Pi(V,x)\]
+\[\Pi(X,x) \cong \Pi(U,x)\ast\Pi(V,x)\]
 
 **** Seifert-Van Kampen para abierto simplemente conexo
-     En las condiciones del teorema, con $V$ simplemente conexo, se tiene:
+En las condiciones del teorema, con $V$ simplemente conexo, se tiene:
 
-     \[\Pi(X,x) \cong \Pi(U,x)/N\]
+\[\Pi(X,x) \cong \Pi(U,x)/N\]
 
-     Con $N$ es el subgrupo normal generado por $i_\ast(\Pi(U\cap V,x))$.
+Con $N$ es el subgrupo normal generado por $i_\ast(\Pi(U\cap V,x))$.
 
 *** Extra: Teoría de categorías
 **** El grupo fundamental como funtor
 El grupo fundamental $\Pi$ es un funtor entre las categorías:
 
- - =Top.= de los espacios topológicos con un punto base, usando como morfismos
-   las funciones continuas respetando punto base.
- - =Grp= de los grupos con los homomorfismos de grupos.
+- =Top.= de los espacios topológicos con un punto base, usando como morfismos
+  las funciones continuas respetando punto base.
+- =Grp= de los grupos con los homomorfismos de grupos.
 
 Estamos llamando $f_\ast$ a los morfismos creados por el funtor, $\Pi(f)$.
 
@@ -3679,82 +3679,82 @@ Nótese que esto es un caso particular de Seifert-Van Kampen.
 ** 2. Recubridores
 *** 1. Introducción
 **** Localmente arcoconexo
-     Un espacio es *localmente arcoconexo* si todo punto posee una base de 
-     entornos arcoconexos.
+Un espacio es *localmente arcoconexo* si todo punto posee una base de 
+entornos arcoconexos.
 
-     /Durante este tema tomamos los espacios como arcoconexos y localmente 
-     arcoconexos/.
+/Durante este tema tomamos los espacios como arcoconexos y localmente 
+arcoconexos/.
 
 **** Recubridores
-     Un *recubridor* de $X$ es un par $(Y,p)$ donde $p : Y \longrightarrow X$ es continua; 
-     cumpliendo que todo $x\in X$ tiene un entorno abierto $U$, llamado *entorno 
-     fundamental* tal que toda componente arcoconexa de $p^{-1}(U)$ se aplica 
-     homeomórficamente por $p$ sobre $U$.
+Un *recubridor* de $X$ es un par $(Y,p)$ donde $p : Y \longrightarrow X$ es continua; 
+cumpliendo que todo $x\in X$ tiene un entorno abierto $U$, llamado *entorno 
+fundamental* tal que toda componente arcoconexa de $p^{-1}(U)$ se aplica 
+homeomórficamente por $p$ sobre $U$.
 
 **** Ejemplos de recubridores
-     Ejemplos básicos de recubridores son:
+Ejemplos básicos de recubridores son:
 
-       - Cualquier homeomorfismo $p : Y \longrightarrow X$
-       - $p : \mathbb{S}^1\longrightarrow\mathbb{S}^1$, con $p(z) = z^n$
+- Cualquier homeomorfismo $p : Y \longrightarrow X$
+- $p : \mathbb{S}^1\longrightarrow\mathbb{S}^1$, con $p(z) = z^n$
 
 **** Homeomorfismos locales
-     Un *homeomorfismo local* es una aplicación continua $f : Y \longrightarrow X$ tal que para 
-     todo $y\in Y$ existe $y \in V\in\tau_Y$ tal que $f|_V$ es homeomorfismo.
+Un *homeomorfismo local* es una aplicación continua $f : Y \longrightarrow X$ tal que para 
+todo $y\in Y$ existe $y \in V\in\tau_Y$ tal que $f|_V$ es homeomorfismo.
 
 **** Propiedades de un recubridores
-     Sea $(Y,p)$ recubridores de $X$. Entonces:
+Sea $(Y,p)$ recubridores de $X$. Entonces:
 
-       1. $p$ es sobreyectiva.
-       2. $p$ es una aplicación abierta.
-       3. $p$ es un homeomorfismo local.
+1. $p$ es sobreyectiva.
+2. $p$ es una aplicación abierta.
+3. $p$ es un homeomorfismo local.
 
 ***** Demostración
-      La sobreyectividad es trivial por la definición. Dado un abierto $y\in O$; 
-      tengo $y \in V_y \cong U_x$ su entorno abierto, luego $p(O\cap V_y)$ es abierto. De esta 
-      forma,
+La sobreyectividad es trivial por la definición. Dado un abierto $y\in O$; 
+tengo $y \in V_y \cong U_x$ su entorno abierto, luego $p(O\cap V_y)$ es abierto. De esta 
+forma,
 
-      \[p(O) = \bigcup_{y\in O} p(O \cap V_y)\]
+\[p(O) = \bigcup_{y\in O} p(O \cap V_y)\]
 
-      es abierto.
+es abierto.
 
 *** 2. Grupo fundamental y levantamiento de aplicaciones al recubridor
 **** Levantamiento de arcos
-     Sea $(Y,p)$ recubridor con $x_0\in X$ y $y_0 \in p^{-1}(x_0)$. Sea $f : [0,1]\longrightarrow X$ arco 
-     continuo con $f(0) = x_0$, entonces existe un único arco continuo $\check{f}$ cumpliendo:
+Sea $(Y,p)$ recubridor con $x_0\in X$ y $y_0 \in p^{-1}(x_0)$. Sea $f : [0,1]\longrightarrow X$ arco 
+continuo con $f(0) = x_0$, entonces existe un único arco continuo $\check{f}$ cumpliendo:
 
-       - $\check{f}(0) = y_0$
-       - $p \circ \check{f} = f$
+  - $\check{f}(0) = y_0$
+  - $p \circ \check{f} = f$
 
-     Llamado el *levantamiento* de $f$.
+    Llamado el *levantamiento* de $f$.
 
 ***** Existencia
-      Tomo $\{f^{-1}(U^x) \mid x\in X\}$, que recubre por abiertos a $[0,1]$. Sabemos que 
-      existirá una partición del intervalo cumpliendo:
+Tomo $\{f^{-1}(U^x) \mid x\in X\}$, que recubre por abiertos a $[0,1]$. Sabemos que 
+existirá una partición del intervalo cumpliendo:
 
-      \[\exists 0 < t_1 <\dots < t_n < 1: f([t_i,t_{i+1}]) \subseteq U^{x_i}\]
+\[\exists 0 < t_1 <\dots < t_n < 1: f([t_i,t_{i+1}]) \subseteq U^{x_i}\]
 
-      La correspondiente $y_i \in V^{y_i}$ nos da un isomorfismo $p_i$ que nos 
-      deja definir $\check{f} : [t_i,t_{i+1}] \longrightarrow V^{y_i}$ mediante $\check{f} = (p|_{V^{y_i}})^{-1} \circ f$. Nótese que para 
-      tomar cada $y_i$ necesitamos usar la componente arcoconexa de la última $\check{f}(t_{i-1})$.
+La correspondiente $y_i \in V^{y_i}$ nos da un isomorfismo $p_i$ que nos 
+deja definir $\check{f} : [t_i,t_{i+1}] \longrightarrow V^{y_i}$ mediante $\check{f} = (p|_{V^{y_i}})^{-1} \circ f$. Nótese que para 
+tomar cada $y_i$ necesitamos usar la componente arcoconexa de la última $\check{f}(t_{i-1})$.
 
 ***** Unicidad
-      Sean dos levantamientos $g_1,g_2$. Su conjunto ecualizador es cerrado:
+Sean dos levantamientos $g_1,g_2$. Su conjunto ecualizador es cerrado:
 
-      \[ A = \{ t \mid g_1(t) = g_2(t)\} \neq \varnothing\]
+\[ A = \{ t \mid g_1(t) = g_2(t)\} \neq \varnothing\]
 
-      Pero también es abierto porque dado un punto donde coincidan, puedo tomar la 
-      componente arcoconexa que es isomorfa por $p$ a un entorno abierto; y las 
-      curvas deben coincidir en él.
+Pero también es abierto porque dado un punto donde coincidan, puedo tomar la 
+componente arcoconexa que es isomorfa por $p$ a un entorno abierto; y las 
+curvas deben coincidir en él.
 
 **** Levantamiento de homotopías
-     Sea $(Y,p)$ recubridor con $x_0\in X$ y $y \in p^{-1}(x_0)$. Sea $H : [0,1]\times[0,1] \longrightarrow X$ 
-     continua con $H(0,0) = x_0$, entonces existe una única aplicación
-     continua $\check{H} : [0,1]\times [0,1] \longrightarrow Y$ cumpliendo:
+Sea $(Y,p)$ recubridor con $x_0\in X$ y $y \in p^{-1}(x_0)$. Sea $H : [0,1]\times[0,1] \longrightarrow X$ 
+continua con $H(0,0) = x_0$, entonces existe una única aplicación
+continua $\check{H} : [0,1]\times [0,1] \longrightarrow Y$ cumpliendo:
 
-      - $p \circ \check{H} = H$
-      - $\check{H}(0,0) = y_0$
+  - $p \circ \check{H} = H$
+  - $\check{H}(0,0) = y_0$
 
-     Llamada el *levantamiento* de $H$.
+    Llamada el *levantamiento* de $H$.
 
 ***** Existencia
 Tomamos las $\{ H^{-1}(U^x) \mid x \in X \}$ y tenemos recubrimiento por abiertos de $[0,1]^2$. 
@@ -3770,14 +3770,14 @@ por ser arcoconexa.
 
 ***** TODO Unicidad
 **** Hojas del recubridor
-     Sea $p : Y\longrightarrow X$ recubridor. Los cardinales de los $p^{-1}(x)$ son un invariante 
-     llamado el *cardinal de hojas del recubridor*.
+Sea $p : Y\longrightarrow X$ recubridor. Los cardinales de los $p^{-1}(x)$ son un invariante 
+llamado el *cardinal de hojas del recubridor*.
 
 ***** Demostración
-      Puedo definir una biyección entre $p^{-1}(x_1)$ y $p^{-1}(x_2)$ tomando un arco entre 
-      ellas $\gamma$, y levantándolo en cada componente. Los arcos arriba me relacionan 
-      los dos conjuntos. La biyección se obtiene levantando $\tilde\gamma$, que sé que es $\tilde{g}$ 
-      porque ella ya es un levantamiento y es único.
+Puedo definir una biyección entre $p^{-1}(x_1)$ y $p^{-1}(x_2)$ tomando un arco entre 
+ellas $\gamma$, y levantándolo en cada componente. Los arcos arriba me relacionan 
+los dos conjuntos. La biyección se obtiene levantando $\tilde\gamma$, que sé que es $\tilde{g}$ 
+porque ella ya es un levantamiento y es único.
 
 **** Los recubridores crean monomorfismos
 Sea $p: Y \longrightarrow X$ recubridor, entonces $p_\ast : \Pi(Y,y) \longrightarrow \Pi(X,x)$ es monomorfismo.
@@ -3820,8 +3820,8 @@ Que es conmutativo:
 Y que nos da por tanto:
 
 \[ p_\ast(\Pi(Y,y_2)) = 
-   F_{p\circ\gamma}(\Pi(Y,y_1)) =
-   [p(\tilde\gamma)] \ast \Pi(Y,y_1) \ast [p(\gamma)]
+F_{p\circ\gamma}(\Pi(Y,y_1)) =
+[p(\tilde\gamma)] \ast \Pi(Y,y_1) \ast [p(\gamma)]
 \]
 
 Ahora, sea una clase de conjugación de la proyección de un grupo fundamental
@@ -3830,16 +3830,16 @@ $p^{-1}(x)$, y vemos que:
 
 \[ \begin{aligned}
 H &= \{[g]^{-1} \ast [p\circ h] \ast g \mid [h] \in \Pi(Y,y)\} \\
-  &= \{[p\circ \tilde{\check{g}} \ast p\circ h \ast p \circ \check{g}] \mid [h] \in \Pi(Y,y)\} \\
-  &= p_\ast(F_{\check{g}}(\Pi(Y,y))) = p_\ast(\Pi(Y,y'))
+&= \{[p\circ \tilde{\check{g}} \ast p\circ h \ast p \circ \check{g}] \mid [h] \in \Pi(Y,y)\} \\
+&= p_\ast(F_{\check{g}}(\Pi(Y,y))) = p_\ast(\Pi(Y,y'))
 \end{aligned} \]
 
 **** Levntamiento de aplicaciones
 Sea $\Phi : Z \longrightarrow X$ continua con $x_0 = \Phi(z_0)$, $y_0 \in p^{-1}(x_0)$. Tenemos que
 $\exists! \Psi : Z \longrightarrow Y$ continua cumpliendo:
 
-  - $\Psi(z_0) = y_0$
-  - $p \circ \Psi = \Phi$
+- $\Psi(z_0) = y_0$
+- $p \circ \Psi = \Phi$
 
 ssi $\Phi_\ast(\Pi(Z,z_0)) \subset p_\ast(\Pi(Y,y_0))$.
 
@@ -3866,7 +3866,7 @@ Para ver que es *continua*, sea $\check{\Phi}(z) \in O$, abierto. Tenemos $p(O)$
 $W$ como la arcocomponente de la preimagen de $U^{\Phi(z)}$ en la que está $\check{\Phi}(z)$. Ahora
 sea $\Phi(z) \in p(W \cap O)$, abierto por homeomorfismo; y sea
 
- $\Phi(\hat{O}) \subset p(W \cap O)$, que existe por continuidad de $\Phi$ y es abierto arcoconexo. 
+$\Phi(\hat{O}) \subset p(W \cap O)$, que existe por continuidad de $\Phi$ y es abierto arcoconexo. 
 
 Veamos que $\Phi(\hat{O}) \subset \check{\Phi}^{-1}(O)$. Si $\hat{z} \in \hat{O}$, entonces hay un arco $g$ que une $z$ y $\hat{z}$; y tenemos
 $\Phi(g) \subset p(W\cap O)$; como hay homeomorfismo, su levantamiento está en $W \cap O$, y
@@ -3881,285 +3881,285 @@ a $\check{e}$ como elemento neutro y a $p$ como homomorfismo de grupos.
 
 *** 3.1. Isomorfismos de recubridores
 **** Homomorfismos
-     Sean $(Y_1,p_1)$, $(Y_2,p_2)$ recubridores. Un *homomorfismo de recubridores* es
-     $\Phi : (Y_1,p_1) \longrightarrow (Y_2,p_2)$ continua con $p_2 \circ \Phi = p_1$.
+Sean $(Y_1,p_1)$, $(Y_2,p_2)$ recubridores. Un *homomorfismo de recubridores* es
+$\Phi : (Y_1,p_1) \longrightarrow (Y_2,p_2)$ continua con $p_2 \circ \Phi = p_1$.
 
-     \[ \begin{tikzcd}
+\[ \begin{tikzcd}
 Y_1 \drar[swap]{p_1} \arrow{rr}{\Phi} & & Y_2 \dlar{p_2} \\
- & X &
+& X &
 \end{tikzcd} \]
 
 **** Propiedades de los homomorfismos de recubridores
-     Los homomorfismos de recubridores cumplen:
+Los homomorfismos de recubridores cumplen:
 
-      1. La composición de homomorfismos es homomorfismo.
-      2. La identidad $Id : Y \longrightarrow Y$ es homomorfismo.
-      3. El inverso de isomorfismo es isomorfismo.
+   1. La composición de homomorfismos es homomorfismo.
+   2. La identidad $Id : Y \longrightarrow Y$ es homomorfismo.
+   3. El inverso de isomorfismo es isomorfismo.
 
-    Llamamos $Aut(Y,p)$ al *grupo de automorfismos* de un recubridor.
-    # ¡Forman una categoría! Debe ser algo como una "slice category".
+      Llamamos $Aut(Y,p)$ al *grupo de automorfismos* de un recubridor.
+      # ¡Forman una categoría! Debe ser algo como una "slice category".
 
 **** Puntos fijos de los automorfismos de recubridores
-     Sean dos homomorfismos de recubridores $\Phi,\Psi$ con $\Phi(y) = \Psi(y)$ en algún punto; 
-     entonces $\Phi = \Psi$. Por tanto, todo automorfismo distinto de la identidad actúa 
-     sin puntos fijos.
+Sean dos homomorfismos de recubridores $\Phi,\Psi$ con $\Phi(y) = \Psi(y)$ en algún punto; 
+entonces $\Phi = \Psi$. Por tanto, todo automorfismo distinto de la identidad actúa 
+sin puntos fijos.
 
 **** Existencia de homomorfismos
-     Existe un homomorfismo de recubridores $\Phi : (Y_1,p_1) \longrightarrow (Y_2,p_2)$ con $\Phi(y_1) = y_2$ ssi
-     $p_1_\ast(\Pi(Y_1,y_1)) \subseteq p_2_\ast(\Pi(Y_2,y_2))$. Es isomorfismo en el caso de igualdad.
+Existe un homomorfismo de recubridores $\Phi : (Y_1,p_1) \longrightarrow (Y_2,p_2)$ con $\Phi(y_1) = y_2$ ssi
+$p_1_\ast(\Pi(Y_1,y_1)) \subseteq p_2_\ast(\Pi(Y_2,y_2))$. Es isomorfismo en el caso de igualdad.
 
 **** Existencia de isomorfismos
-     Dos recubridores son isomorfos ssi las clases de conjugación asociadas a sus 
-     proyecciones al grupo fundamental son iguales:
+Dos recubridores son isomorfos ssi las clases de conjugación asociadas a sus 
+proyecciones al grupo fundamental son iguales:
 
-     \[\{ p_1_\ast(\Pi(Y_1,y)) \mid y\in p_1^{-1}(x)\}
-     = \{ p_2_\ast(\Pi(Y_2,y)) \mid y\in p_2^{-1}(x)\}\]
+\[\{ p_1_\ast(\Pi(Y_1,y)) \mid y\in p_1^{-1}(x)\}
+= \{ p_2_\ast(\Pi(Y_2,y)) \mid y\in p_2^{-1}(x)\}\]
 
 **** Ejemplos de recubridores
 ***** Espacios simplemente conexos
-      Sólo se admiten a sí mismos como recubridores.
+Sólo se admiten a sí mismos como recubridores.
 ***** Circunferencia unidad
-      Grupo fundamental isomorfo a $\mathbb{Z}$ y abeliano. Sus subgrupos son de la forma $m\mathbb{Z}$,
-      así que, salvo isomorfismos, sus recubridores son de la forma:
+Grupo fundamental isomorfo a $\mathbb{Z}$ y abeliano. Sus subgrupos son de la forma $m\mathbb{Z}$,
+así que, salvo isomorfismos, sus recubridores son de la forma:
 
-      \[ p_0 : \mathbb{R} \longrightarrow \mathbb{S}^1,\ p(t) = e^{it} \]
-      \[p_m : \mathbb{S}^1 \longrightarrow \mathbb{S}^1,\ p_m(z) = z^m\]
+\[ p_0 : \mathbb{R} \longrightarrow \mathbb{S}^1,\ p(t) = e^{it} \]
+\[p_m : \mathbb{S}^1 \longrightarrow \mathbb{S}^1,\ p_m(z) = z^m\]
 
 ***** Espacio proyectivo
-      Como $\mathbb{R}\mathbb{P}^n$ tiene grupo fundamental $\mathbb{Z}_2$, tiene sólo a $(\mathbb{RP}^n,Id)$ y a $(\mathbb{S}^n,p)$ 
-      como recubridores.
+Como $\mathbb{R}\mathbb{P}^n$ tiene grupo fundamental $\mathbb{Z}_2$, tiene sólo a $(\mathbb{RP}^n,Id)$ y a $(\mathbb{S}^n,p)$ 
+como recubridores.
 
 **** Recubridores de recubridores
-     Sean $(Y_1,p_1)$, $(Y_2,p_2)$ dos recubridores, y sea $\Phi : Y_1 \longrightarrow Y_2$ un homomorfismo de 
-     recubridores. Entonces $(Y_1,\Phi)$ es un recubridor de $Y_2$.
+Sean $(Y_1,p_1)$, $(Y_2,p_2)$ dos recubridores, y sea $\Phi : Y_1 \longrightarrow Y_2$ un homomorfismo de 
+recubridores. Entonces $(Y_1,\Phi)$ es un recubridor de $Y_2$.
 
 **** Recubridores universales
-     Un recubridor $(\check{X},p)$ de $X$ es *universal* si $\check{X}$ es simplemente conexo.
+Un recubridor $(\check{X},p)$ de $X$ es *universal* si $\check{X}$ es simplemente conexo.
 
 *** 3.2. Automorfismos de recubridores
 **** Acción del grupo fundamental
-     Sea $(Y,p)$ un recubridor y $x$ punto de $X$ definimos la acción
+Sea $(Y,p)$ un recubridor y $x$ punto de $X$ definimos la acción
 
-     \[ (\cdot) : p^{-1}(x) \times \Pi(X,x) \longrightarrow p^{-1}(x) \]
+\[ (\cdot) : p^{-1}(x) \times \Pi(X,x) \longrightarrow p^{-1}(x) \]
 
-     construyendo $y \cdot \alpha$ como sigue: sea $\alpha = [f]$, tomamos $\check{f}(0) = y$ y llamamos 
-     $y \cdot \alpha = \check{f}(1)$.
+construyendo $y \cdot \alpha$ como sigue: sea $\alpha = [f]$, tomamos $\check{f}(0) = y$ y llamamos 
+$y \cdot \alpha = \check{f}(1)$.
 
 ***** TODO Está bien definida
 ***** TODO Es una acción transitiva
 ***** TODO Espacios homogéneos.
 **** Índice y hojas del recubridor
-     Sea $(Y,p)$ recubridor; su número de hojas es el índice del subgrupo  $p_\ast(\Pi(Y,y))$ 
-     en $\Pi(X,x)$; donde $y \in p^{-1}(x)$.
+Sea $(Y,p)$ recubridor; su número de hojas es el índice del subgrupo  $p_\ast(\Pi(Y,y))$ 
+en $\Pi(X,x)$; donde $y \in p^{-1}(x)$.
 
 **** Automorfismos del espacio homogéneo
-     Un *automorfismo del espacio homogéneo* $p^{-1}(x)$ es una biyección
-     $\varphi : p^{-1}(x) \longrightarrow p^{-1}(x)$ tal que:
+Un *automorfismo del espacio homogéneo* $p^{-1}(x)$ es una biyección
+$\varphi : p^{-1}(x) \longrightarrow p^{-1}(x)$ tal que:
 
-     \[ \varphi(y \cdot \alpha) = \varphi(y) \cdot \alpha\]
+\[ \varphi(y \cdot \alpha) = \varphi(y) \cdot \alpha\]
 
 **** Automorfismos del espacio homogéneo y automorfismos de recubridores
-     Como dado un automorfismo de recubridores $\Phi\in Aut(Y,p)$, tenemos que 
-     $\Phi(y\cdot \alpha) = \Phi(y)\cdot\alpha$, tenemos $\Phi|_{p^{-1}(x)}$ un automorfismo del espacio homogéneo.
-     De hecho, es isomorfismo de grupos:
+Como dado un automorfismo de recubridores $\Phi\in Aut(Y,p)$, tenemos que 
+$\Phi(y\cdot \alpha) = \Phi(y)\cdot\alpha$, tenemos $\Phi|_{p^{-1}(x)}$ un automorfismo del espacio homogéneo.
+De hecho, es isomorfismo de grupos:
 
-     \[ ( \bullet |_{p^{-1}(x)}) : Aut(Y,p) \longrightarrow Aut(p^{-1}(x))\]
+\[ ( \bullet |_{p^{-1}(x)}) : Aut(Y,p) \longrightarrow Aut(p^{-1}(x))\]
 
 ***** Demostración
 ****** La restricción es automorfismo en el espacio homogéneo
-       Sea $y\in p^{-1}(x)$, tenemos $p(\Phi(y)) = p(y) = x$, luego $\Phi(y) \in p^{-1}(x)$.
+Sea $y\in p^{-1}(x)$, tenemos $p(\Phi(y)) = p(y) = x$, luego $\Phi(y) \in p^{-1}(x)$.
 
 ****** Los automorfismos de recubridor respetan la acción de grupos
-       Sea $[f]=\alpha$, y sea $\check{f}$ su levantamiento en $y$; si considero $\Phi(\check{f})$ puedo 
-       comprobar que $\Phi(\check{f})(0) = \Phi(y)$ y que $p \circ \Phi (\check{f}) = f$, luego es el levantamiento
-       de $f$ en $\Phi(y)$. Así:
+Sea $[f]=\alpha$, y sea $\check{f}$ su levantamiento en $y$; si considero $\Phi(\check{f})$ puedo 
+comprobar que $\Phi(\check{f})(0) = \Phi(y)$ y que $p \circ \Phi (\check{f}) = f$, luego es el levantamiento
+de $f$ en $\Phi(y)$. Así:
 
-       \[\Phi(y)\cdot\alpha = \Phi(\check{f})(1) = \Phi(y \cdot \alpha)\]
+\[\Phi(y)\cdot\alpha = \Phi(\check{f})(1) = \Phi(y \cdot \alpha)\]
 
 ****** Es inyectiva
-       Llamamos $F = (\bullet |_{p^{-1}(x)})$. Sea $\Phi\in\ker(F)$, entonces $\Phi|_{p^{-1}(x)} = Id$; pero dos
-       homomorfismos de recubridores coindiciendo en un punto son iguales.
+Llamamos $F = (\bullet |_{p^{-1}(x)})$. Sea $\Phi\in\ker(F)$, entonces $\Phi|_{p^{-1}(x)} = Id$; pero dos
+homomorfismos de recubridores coindiciendo en un punto son iguales.
 
 ****** Es sobreyectiva
-       Sea $\varphi\in Aut(p^{-1}(x))$. Por el lema de existencia:
+Sea $\varphi\in Aut(p^{-1}(x))$. Por el lema de existencia:
        
-       \[\exists \phi\in Aut(Y,p): \phi(y) = \varphi(y) \Leftrightarrow
-       p_\ast(\Pi(Y,y)) = p_\ast(\Pi(Y,\varphi(y))\]
+\[\exists \phi\in Aut(Y,p): \phi(y) = \varphi(y) \Leftrightarrow
+p_\ast(\Pi(Y,y)) = p_\ast(\Pi(Y,\varphi(y))\]
        
-       Pero tenemos la igualdad de estos dos grupos de isotropía por:
+Pero tenemos la igualdad de estos dos grupos de isotropía por:
        
-       \[\begin{aligned}
-       H_{\varphi(y)} 
-       &= \{\alpha\in\Pi(X,x) \mid \varphi(y)\cdot\alpha = \varphi(y)\} \\
-       &= \{\alpha\in\Pi(X,x) \mid \varphi(y\cdot\alpha) = \varphi(y)\} \\
-       &= \{\alpha\in\Pi(X,x) \mid y\cdot\alpha = y\} = H_y\\
-       \end{aligned}\]
+\[\begin{aligned}
+H_{\varphi(y)} 
+&= \{\alpha\in\Pi(X,x) \mid \varphi(y)\cdot\alpha = \varphi(y)\} \\
+&= \{\alpha\in\Pi(X,x) \mid \varphi(y\cdot\alpha) = \varphi(y)\} \\
+&= \{\alpha\in\Pi(X,x) \mid y\cdot\alpha = y\} = H_y\\
+\end{aligned}\]
        
 **** Identificación de automorfismos de un espacio homogéneo
-     Dado $E$ espacio homogéneo sobre $G$, existe el isomorfismo:
+Dado $E$ espacio homogéneo sobre $G$, existe el isomorfismo:
 
-     \[ Aut(E) \cong N(H)/H \]
+\[ Aut(E) \cong N(H)/H \]
 
-     donde $H = \operatorname{Stab}(y)$ y $N(H)$ es su normalizador, el mayor 
-     grupo en el que es normal.
+donde $H = \operatorname{Stab}(y)$ y $N(H)$ es su normalizador, el mayor 
+grupo en el que es normal.
 
 **** Identificación de automorfismos del recubridor
-     Aplicando las dos identificaciones anteriores:
+Aplicando las dos identificaciones anteriores:
 
-     \[Aut(Y,p) \cong N(p_\ast(\Pi(Y,y))) / p_\ast(\Pi(Y,y))\]
+\[Aut(Y,p) \cong N(p_\ast(\Pi(Y,y))) / p_\ast(\Pi(Y,y))\]
 
 **** Recubridores regulares
-     Un recubridor es *regular* cuando $p_\ast(\Pi(Y,y))$ es subgrupo normal de 
-     $\Pi(X,x)$ siendo $y \in p^{-1}(x)$. Equivalen, por conjugación:
+Un recubridor es *regular* cuando $p_\ast(\Pi(Y,y))$ es subgrupo normal de 
+$\Pi(X,x)$ siendo $y \in p^{-1}(x)$. Equivalen, por conjugación:
 
-      - $\exists x\in X, y \in Y: p_\ast(\Pi(Y,y))$ subgrupo normal en $\Pi(X,x)$.
-      - $\forall x\in X, y \in Y: p_\ast(\Pi(Y,y))$ subgrupo normal en $\Pi(X,x)$.
+- $\exists x\in X, y \in Y: p_\ast(\Pi(Y,y))$ subgrupo normal en $\Pi(X,x)$.
+- $\forall x\in X, y \in Y: p_\ast(\Pi(Y,y))$ subgrupo normal en $\Pi(X,x)$.
 
 **** Propiedades de recubridores regulares
-     Sea $(Y,p)$ un recubridor regular:
+Sea $(Y,p)$ un recubridor regular:
 
-      1. $Aut(Y,p) \cong \Pi(X,x)/p_\ast(\Pi(Y,y))$
-      2. Si es el universal, $Aut(Y,p) \cong \Pi(X,x)$. Y el número de hojas es 
-         el orden de $\Pi(X,x)$.
+1. $Aut(Y,p) \cong \Pi(X,x)/p_\ast(\Pi(Y,y))$
+2. Si es el universal, $Aut(Y,p) \cong \Pi(X,x)$. Y el número de hojas es 
+   el orden de $\Pi(X,x)$.
 
 **** Ejemplos de recubridores
 ***** Circunferencia, recubridor universal
-      Tenemos el recubridor $(\mathbb{R},p)$ de $\mathbb{S}$, que tiene como automorfismos:
+Tenemos el recubridor $(\mathbb{R},p)$ de $\mathbb{S}$, que tiene como automorfismos:
 
-      \[Aut(\mathbb{R},p) = \{\Phi_n(t) = t + 2\pi n \mid n \in \mathbb{N}\}\]
+\[Aut(\mathbb{R},p) = \{\Phi_n(t) = t + 2\pi n \mid n \in \mathbb{N}\}\]
 
 ***** Espacio proyectivo
-      Siendo $(\mathbb{S}^n,p)$ un recubridor de dos hojas de $\mathbb{RP}^n$, sus automorfismos 
-      vienen dados por:
+Siendo $(\mathbb{S}^n,p)$ un recubridor de dos hojas de $\mathbb{RP}^n$, sus automorfismos 
+vienen dados por:
 
-      \[Aut(\mathbb{RP}^n,p) = \{Id, -Id\}\]
+\[Aut(\mathbb{RP}^n,p) = \{Id, -Id\}\]
 
 ***** Circunferencia, otros recubridores
-      Sean los recubridores $(\mathbb{S}^1,p_n)$ de $\mathbb{S}^1$. Sus grupos de automorfismos son:
+Sean los recubridores $(\mathbb{S}^1,p_n)$ de $\mathbb{S}^1$. Sus grupos de automorfismos son:
 
-      \[Aut(\mathbb{S}^1,p_n) = \left\{\Phi_k(z) = e^{\frac{2\pi k}{n}i}z 
-      \mid k = 0,1,\dots,n-1 \right\}\]
+\[Aut(\mathbb{S}^1,p_n) = \left\{\Phi_k(z) = e^{\frac{2\pi k}{n}i}z 
+\mid k = 0,1,\dots,n-1 \right\}\]
 
 **** Teorema de Borsuk-Ulam
-     No existe una aplicación continua $F : \mathbb{S}^2 \longrightarrow \mathbb{S}^1$ respetando antípodas, es decir,
-     $F(-x) = -F(x)$.
+No existe una aplicación continua $F : \mathbb{S}^2 \longrightarrow \mathbb{S}^1$ respetando antípodas, es decir,
+$F(-x) = -F(x)$.
 
 *** 4. Recubridores regulares y espacios cocientes
 **** Acción transitiva de automorfismos de recubridores regulares
-     $Aut(Y,p)$ actúa transitivamente sobre $p^{-1}(x)$ ssi $(Y,p)$ es regular.
+$Aut(Y,p)$ actúa transitivamente sobre $p^{-1}(x)$ ssi $(Y,p)$ es regular.
 
 **** Acciones discontinuas
-     Un $G \subset Homeo(Y)$ *actúa discontinuamente* si:
+Un $G \subset Homeo(Y)$ *actúa discontinuamente* si:
  
-     \[\forall y\in Y: \exists V_y\text{ entorno}: \forall \Phi \in G:\quad
-     \Phi \neq Id \Rightarrow \Phi(V) \cap V = \varnothing\]
+\[\forall y\in Y: \exists V_y\text{ entorno}: \forall \Phi \in G:\quad
+\Phi \neq Id \Rightarrow \Phi(V) \cap V = \varnothing\]
 
 **** Recubrimiento de cocientes
-     Sea $G \subset Homeo(Y)$ actuando propia y discontinuamente sobre $Y$. Si
-     $p : Y \longrightarrow Y/G$ es proyección al cociente, $(Y,p)$ es recubridor regular de $Y/G$, 
-     con $Aut(Y,p) = G$.
+Sea $G \subset Homeo(Y)$ actuando propia y discontinuamente sobre $Y$. Si
+$p : Y \longrightarrow Y/G$ es proyección al cociente, $(Y,p)$ es recubridor regular de $Y/G$, 
+con $Aut(Y,p) = G$.
 
 **** Espacios lente
-     Sean las aplicaciones $\Phi_k : \mathbb{S}^{2n+1} \longrightarrow \mathbb{S}^{2n+1}$ definidas por:
+Sean las aplicaciones $\Phi_k : \mathbb{S}^{2n+1} \longrightarrow \mathbb{S}^{2n+1}$ definidas por:
 
-     \[\Phi_k(z) = e^{\frac{2\pi ik}{p}}z\]
+\[\Phi_k(z) = e^{\frac{2\pi ik}{p}}z\]
 
-     Entonces $G_p = \{\Phi_0,\Phi_1,\dots,\Phi_{p-1}\}$ actúa discontinuamente. Llamamos *espacio 
-     lente* al cociente:
+Entonces $G_p = \{\Phi_0,\Phi_1,\dots,\Phi_{p-1}\}$ actúa discontinuamente. Llamamos *espacio 
+lente* al cociente:
 
-     \[ L_p^{2n+1} = \mathbb{S}^{2n+1}/G_p\]
+\[ L_p^{2n+1} = \mathbb{S}^{2n+1}/G_p\]
 
 *** 5. Existencia de espacios recubridores
 **** Caso del recubridor universal
-     Si $X$ admite recubridor universal, toda clase de conjugación de subgrupos de
-     $\Pi(X,x)$ está asociada a un recubridor.
+Si $X$ admite recubridor universal, toda clase de conjugación de subgrupos de
+$\Pi(X,x)$ está asociada a un recubridor.
 
 **** Espacios semilocalmente simplemente conexos
-     Todo $x$ posee un entorno abierto y arcoconexo $U_x$ tal que el homomorfismo 
-     inducido por la inclusión $\Pi(U_x,x) \longrightarrow \Pi(X,x)$ es trivial.
+Todo $x$ posee un entorno abierto y arcoconexo $U_x$ tal que el homomorfismo 
+inducido por la inclusión $\Pi(U_x,x) \longrightarrow \Pi(X,x)$ es trivial.
 
 ***** Contraejemplo
-      El espacio formado por infinitos círculos de radio cada vez menor y unidos 
-      en un punto:
+El espacio formado por infinitos círculos de radio cada vez menor y unidos 
+en un punto:
 
-      \[ X = \bigcup_{n>0} \left\{(x,y) \in \mathbb{R}^2 \mid 
-      \left(x-\frac{1}{n}\right)^2 + y^2 = \frac{1}{n^2} \right\}\]
+\[ X = \bigcup_{n>0} \left\{(x,y) \in \mathbb{R}^2 \mid 
+\left(x-\frac{1}{n}\right)^2 + y^2 = \frac{1}{n^2} \right\}\]
 
-      cumple que cualquier entorno del $(0,0)$ contiene un lazo no trivial.
+cumple que cualquier entorno del $(0,0)$ contiene un lazo no trivial.
 
 **** Existencia del recubridor universal
-     Un espacio semilocalmente simplemente conexo tiene recubridor universal.
+Un espacio semilocalmente simplemente conexo tiene recubridor universal.
 
 **** Teorema de existencia de recubridores
-     Sea $X$ semilocalmente simplemente conexo. Para toda clase de conjugación de 
-     subgrupos de $\Pi(X,x)$, existe un recubridor que la tiene asociada.
+Sea $X$ semilocalmente simplemente conexo. Para toda clase de conjugación de 
+subgrupos de $\Pi(X,x)$, existe un recubridor que la tiene asociada.
 
 ***** Demostración
-      Sea $C$ clase de conjugación de algún $H < \Pi(X,x)$. Sea $Y$ recubridor universal 
-      de $X$, que existe por ser semilocalmente simplemente conexo, cumpliendo 
-      $Aut(Y,p) \cong \Pi(X,x)$; puedo tomar $G < Aut(Y,p)$ cumpliendo $G \cong H$.
+Sea $C$ clase de conjugación de algún $H < \Pi(X,x)$. Sea $Y$ recubridor universal 
+de $X$, que existe por ser semilocalmente simplemente conexo, cumpliendo 
+$Aut(Y,p) \cong \Pi(X,x)$; puedo tomar $G < Aut(Y,p)$ cumpliendo $G \cong H$.
 
-      Los automorfismos del recubridor actúan discontinuamente, así que $Y/G$ es un 
-      espacio del que es $Y$ recubridor. Induciendo la siguiente aplicación:
+Los automorfismos del recubridor actúan discontinuamente, así que $Y/G$ es un 
+espacio del que es $Y$ recubridor. Induciendo la siguiente aplicación:
 
-      \[ \begin{tikzcd}
-      Y \rar{p} \dar{q} & X \\
-      Y/G \urar{\hat{p}} &
-      \end{tikzcd} \]
+\[ \begin{tikzcd}
+Y \rar{p} \dar{q} & X \\
+Y/G \urar{\hat{p}} &
+\end{tikzcd} \]
 
-      Que está bien definida por respetar la relación y es continua. Veamos que es 
-      un recubridor. Sea $U^x$ entorno fundamental, las arcocomponentes de su 
-      preimagen cumplen:
+Que está bien definida por respetar la relación y es continua. Veamos que es 
+un recubridor. Sea $U^x$ entorno fundamental, las arcocomponentes de su 
+preimagen cumplen:
 
-      \[ p^{-1}(U) = \bigcup_{\phi\in Aut(Y,p)} \phi(V) \]
+\[ p^{-1}(U) = \bigcup_{\phi\in Aut(Y,p)} \phi(V) \]
 
-      Si tenemos en cuenta que $\forall \phi \in G: q(\phi(V)) = q(V)$, tendremos:
+Si tenemos en cuenta que $\forall \phi \in G: q(\phi(V)) = q(V)$, tendremos:
 
-      \[\hat{p}^{-1}(U)
-      = \bigcup_{\phi \in Aut(Y,p)/G} q(\phi(V)) \]
+\[\hat{p}^{-1}(U)
+= \bigcup_{\phi \in Aut(Y,p)/G} q(\phi(V)) \]
 
-      Donde hay $[G:H]$ componentes. Ahora intentamos ver que $\hat{p}_\ast(\Pi(Y/G,-))$ genera
-      la clase de conjugación de $C$. Recordando cómo actuaban los caminos en el 
-      espacio base sobre los puntos del recubridor, buscamos los $\alpha\in\Pi(X,x)$ que 
-      cumplan $q(y)\cdot\alpha = q(y)$, es decir $\exists \phi\in G: y\cdot\alpha = \phi(y)$; luego tenemos $\alpha\in H$. Si 
-      tengo otro $\beta \in H$, debe cumplir $\phi(y) = y\cdot\beta$ para algún $\phi\in G$, y entonces
-      $q(y)\cdot\alpha = q(y)$, siendo de los buscados. Tenemos:
+Donde hay $[G:H]$ componentes. Ahora intentamos ver que $\hat{p}_\ast(\Pi(Y/G,-))$ genera
+la clase de conjugación de $C$. Recordando cómo actuaban los caminos en el 
+espacio base sobre los puntos del recubridor, buscamos los $\alpha\in\Pi(X,x)$ que 
+cumplan $q(y)\cdot\alpha = q(y)$, es decir $\exists \phi\in G: y\cdot\alpha = \phi(y)$; luego tenemos $\alpha\in H$. Si 
+tengo otro $\beta \in H$, debe cumplir $\phi(y) = y\cdot\beta$ para algún $\phi\in G$, y entonces
+$q(y)\cdot\alpha = q(y)$, siendo de los buscados. Tenemos:
 
-      \[\hat{p}(\Pi(Y/G, q(y)) = \operatorname{Stab}(q(y)) = H\]
+\[\hat{p}(\Pi(Y/G, q(y)) = \operatorname{Stab}(q(y)) = H\]
 
 **** Clasificación de recubridores del círculo
-     El círculo $\mathbb{S}^1$ tiene como grupo fundamental a $\mathbb{Z}$, que es abeliano y tiene como 
-     subgrupos a $n\mathbb{Z}$.
+El círculo $\mathbb{S}^1$ tiene como grupo fundamental a $\mathbb{Z}$, que es abeliano y tiene como 
+subgrupos a $n\mathbb{Z}$.
 
-      - $0$ tiene a la *recta* como recubridor universal $\mathbb{R}$ con $p(t) = e^{2\pi it}$.
-      - $n\mathbb{Z}$ tiene al *círculo* como recubridor $\mathbb{S}^1$ de $n$ hojas con $p(z) = z^n$.
-      - $\mathbb{Z}$ tiene al recubridor *identidad*.
+- $0$ tiene a la *recta* como recubridor universal $\mathbb{R}$ con $p(t) = e^{2\pi it}$.
+- $n\mathbb{Z}$ tiene al *círculo* como recubridor $\mathbb{S}^1$ de $n$ hojas con $p(z) = z^n$.
+- $\mathbb{Z}$ tiene al recubridor *identidad*.
 
 **** Clasificación de recubridores del toro
-     El toro $\mathbb{S}^1\times\mathbb{S}^1$ tiene como grupo fundamental a $\mathbb{Z}\times\mathbb{Z}$, que tiene como subgrupos 
-     a los generados por un generador $<(a,b)>$ o a los generados por dos, de la 
-     forma $<(a,b),(0,d)>$.
+El toro $\mathbb{S}^1\times\mathbb{S}^1$ tiene como grupo fundamental a $\mathbb{Z}\times\mathbb{Z}$, que tiene como subgrupos 
+a los generados por un generador $<(a,b)>$ o a los generados por dos, de la 
+forma $<(a,b),(0,d)>$.
 
-      - $0$ tiene al *plano* como recubridor universal $\mathbb{R}^2$ con $p(x,y) = (e^{2\pi ix},e^{2\pi iy})$.
-      - $<(a,b)>$ tiene al *cilindro* como recubridor $\mathbb{S}\times\mathbb{R}$ con $p(z,y) = (az, bze^{2\pi iy})$.
-      - $<(a,b),(0,d)>$ tienen al *toro* como recubridor $\mathbb{S}\times\mathbb{S}$ con
-        $p(z,w) = (z^a,z^bw^d)$.
+- $0$ tiene al *plano* como recubridor universal $\mathbb{R}^2$ con $p(x,y) = (e^{2\pi ix},e^{2\pi iy})$.
+- $<(a,b)>$ tiene al *cilindro* como recubridor $\mathbb{S}\times\mathbb{R}$ con $p(z,y) = (az, bze^{2\pi iy})$.
+- $<(a,b),(0,d)>$ tienen al *toro* como recubridor $\mathbb{S}\times\mathbb{S}$ con
+  $p(z,w) = (z^a,z^bw^d)$.
 
 **** Clasificación de recubridores del cilindro
-     El cilindro $\mathbb{S}\times\mathbb{R}$ tiene como grupo fundamental a $\mathbb{Z}$, que es abeliano y tiene 
-     como subgrupos a $n\mathbb{Z}$.
+El cilindro $\mathbb{S}\times\mathbb{R}$ tiene como grupo fundamental a $\mathbb{Z}$, que es abeliano y tiene 
+como subgrupos a $n\mathbb{Z}$.
 
-      - $0$ tiene al *plano* como recubridor universal $\mathbb{R}^2$ con $p(x,y) = (e^{2\pi ix},y)$.
-      - $n\mathbb{Z}$ tiene al *cilindro* como recubridor universal con $p(z,y) = (e^{2\pi inz},y)$.
-      - $\mathbb{Z}$ tiene al recubridor *identidad*.
+- $0$ tiene al *plano* como recubridor universal $\mathbb{R}^2$ con $p(x,y) = (e^{2\pi ix},y)$.
+- $n\mathbb{Z}$ tiene al *cilindro* como recubridor universal con $p(z,y) = (e^{2\pi inz},y)$.
+- $\mathbb{Z}$ tiene al recubridor *identidad*.
 
 **** Clasificación de recubridores de la cinta de Möbius.
-     La cinta de Möbius tiene tipo de homotopía del círculo y por tanto grupo 
-     fundamental $\mathbb{Z}$. 
+La cinta de Möbius tiene tipo de homotopía del círculo y por tanto grupo 
+fundamental $\mathbb{Z}$. 
 
-      - $0$ tiene al *plano* como recubridor universal $\mathbb{R}^2$ sobre el que actúa el grupo
-        $\phi_n(x,y) = (x+n, (-1)^ny)$ discontinuamente.
-      - $n\mathbb{Z}$ con $n = 2m$ par tiene al *cilindro* recubriéndose a sí mismo $m$ veces y 
-        un recubrimiento de dos hojas del *cilindro* a la banda de Möbius.
-      - $n\mathbb{Z}$ con $n$ impar tiene a la *banda de Möbius* como recubridor.
-      - $\mathbb{Z}$ tiene al recubridor *identidad*.
+- $0$ tiene al *plano* como recubridor universal $\mathbb{R}^2$ sobre el que actúa el grupo
+  $\phi_n(x,y) = (x+n, (-1)^ny)$ discontinuamente.
+- $n\mathbb{Z}$ con $n = 2m$ par tiene al *cilindro* recubriéndose a sí mismo $m$ veces y 
+  un recubrimiento de dos hojas del *cilindro* a la banda de Möbius.
+- $n\mathbb{Z}$ con $n$ impar tiene a la *banda de Möbius* como recubridor.
+- $\mathbb{Z}$ tiene al recubridor *identidad*.
