@@ -2764,7 +2764,71 @@ Esto, por *Teorema de la convergencia uniforme* nos lleva a que una
 sucesión de Cauchy converja de manera que respete la derivada. Este
 será un espacio de Banach.
 
-**** TODO Espacios de funciones integrables
+**** Espacios de funciones integrables
+Consideramos el *espacio de funciones p-integrables* como:
+
+\[ L_p(\Omega) =
+\left\{ f \in L(\Omega) \mid \int_\Omega |f(t)|^p dt < \infty \right\}
+\]
+
+Normándolas con:
+
+\[ \|f\|_p =
+\left( \int_\Omega |f(t)|^p dt \right)^{1/p}\]
+
+Debemos /identificar funciones que coinciden c.p.d./ para
+deducir $\|f\|_p = 0 \Rightarrow f = 0$. Estos espacios son siempre completos.
+
+***** Desigualdades integrales de Hölder y Minkowski
+A partir de la desigualdad de Young llegamos
+a la *desigualdad integral de Hölder* para funciones
+tales que $|f|^p, |g|^p$ son Lebesgue-integrables:
+
+\[\int_\Omega |f(t)g(t)| dt \leq
+\left( \int_\Omega |f(t)|^p dt \right)^{1/p}
+\left( \int_\Omega |g(t)|^q dt \right)^{1/q}\]
+
+Y desde ella, la *desigualdad integral de Minkowski*:
+
+\[\left( \int_\Omega |f(t) + g(t)|^p dt \right)^{1/p} \leq
+\left( \int_\Omega |f(t)|^p dt \right)^{1/p} +
+\left( \int_\Omega |g(t)|^p dt \right)^{1/p}\]
+
+Esto nos da la naturaleza de norma.
+
+***** Complitud en el caso real
+Usando el Teorema de Riesz-Fisher.
+
+**** Espacios de funciones esencialmente acotadas
+Una función es *esencialmente acotada* cuando
+es $f : [0,1] \longrightarrow \mathbb{K}$:
+
+\[\exists M: |f| \leq M \text{ c.p.d.}\]
+
+Al espacio de funciones esencialmente acotadas lo
+llamamos ${\cal L}_\infty[0,1]$ y le damos una seminorma:
+
+\[\phi_\infty(f) = \inf\{ M
+ \mid |f|\leq M \text{ c.p.d.}\}\]
+
+***** Naturaleza de seminorma
+Se cumple por un lado que:
+
+\[\phi_\infty(\alpha f) = |\alpha|\phi_\infty(f)\]
+
+Y por otro lado que:
+
+\[ \phi_\infty(f+g) \leq \phi_\infty(f) + \phi_\infty(g) \]
+
+***** Estructura de espacio normado
+Podemos convertirlo en espacio normado si tomamos
+cociente sobre:
+
+\[ N = \{ f \in {\cal L}_\infty[0,1] \mid
+\phi_\infty(f)=0 \} \]
+
+Esto es espacio de Banach con la norma $\phi_\infty$.
+
 *** Categoría de espacios normados
 **** Homomorfismos topológicos
      Los morfismos de la categoría de espacios normados son los 
