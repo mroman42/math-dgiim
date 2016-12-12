@@ -3162,9 +3162,209 @@ Entonces existe $f\in X^\ast$ extendiéndolo y verificando:
 
 Cuando $p$ es seminorma, se tiene además que $|f(x)|\leq p(x)$.
 
-**** Extensión equinórmica
+***** Demostración
+****** Primera extensión en los reales
+En un primer caso, sea $\mathbb{K} = \mathbb{R}$. Podemos tomar $x_0 \notin X-M$, 
+crear $Y = M\oplus x_0\mathbb{R}$ y extender como:
+
+\[ f(m + \lambda x_0) = g(m) + \lambda\alpha\]
+
+****** Elegir el coeficiente de la extensión
+Nos falta elegir el $\alpha$. Sabemos que debe cumplir:
+
+\[\alpha \leq \frac{1}{\lambda}\left( p(m+\lambda x_0) - g(m) \right)\]
+
+Tomando un $\lambda$ positivo y negativo llegamos a dos 
+condiciones:
+
+\[ g(v) - p(v-x_0) 
+\leq \alpha 
+\leq p(u+x_0) - g(u)\]
+
+Y tenemos un $\alpha$ cumpliendo esta condición por ser 
+equivalente a:
+
+\[ g(u+v) \leq p(u+v) \leq p(u+x_0) + p(v-x_0)\]
+
+****** Lema de Zorn
+Puedo ordenar las extensiones por inclusión, teniendo
+además que una cadena de extensiones tiene por maximal a
+la unión de todos los espacios, con la función definida
+por el primer conjunto en el que aparece el primer elemento.
+
+Si $Y \neq X$ fuera el maximal, podría añadir $x_0 \in X-Y$ y
+contravenir la maximalidad de $Y$ extendiendo una dimensión.
+
+****** Caso complejo
+Como todo espacio sobre los complejos lo es sobre los reales,
+aplicamos el caso real a $g_0 = Re(g)$, y obtenemos $f_0$ cumpliéndolo
+y siendo lineal en los reales.
+
+Creo $f$ siendo lineal en los complejos como:
+
+\[f(x) = f_0(x) - if_0(xi)\]
+
+Que cumple las condiciones
+
+****** Caso de la seminorma
+Cuando $p$ es seminorma tengo, para $|\alpha|=1$ dando el giro
+apropiado:
+
+\[f(\alpha x) = |f(x)| = Re(f(\alpha x)) \leq p(\alpha x) = p(x)\]
+
+**** Teorema de Hahn-Banach
 Sea $X$ espacio normado, $M$ subespacio vectorial, con $g \in M^\ast$. 
 Existe $f\in X^\ast$ tal que $f|_M = g$ y $\|f\| = \|g\|$.
+
+***** Demostración
+Sea $p(x) = \|g\|\|x\|$, es una seminorma y cumple $Re(g(m)) \leq p(x)$.
+Por *Hahn-Banach*, tenemos una extensión $f$, cumpliendo $\|f\| \geq \|g\|$
+por ser extensión y:
+
+\[ \|f\| 
+= \sup\left\{ \frac{|f(x)|}{\|x\|} \mid x\in X-\{0\}\right\} 
+\leq \|g\|\]
+
+**** Separación en el dual topológico
+Sea $x_0 \in X$, entonces existe $f \in \mathbb{S}_{X^\ast}$, tal que $f(x_0) = \|x_0\|$.
+En consecuencia:
+
+ 1. El dual topológico separa los puntos de $X$. Si $x \neq y$,
+    existe $f \in X^\ast: f(x) \neq f(y)$.
+ 2. \[\forall x \in X: \|x\| = max\left\{ |f(x)| : f \in B_{X^\ast} \right\}\]
+
+***** Demostración
+Podemos aplicar Hahn-Banach a $g : x_0\mathbb{K} \longrightarrow \mathbb{K}$ con $g(\lambda x_0) = \lambda \|x_0\|$,
+para obtener una extensión de norma $1$.
+
+***** Corolario 1
+Aplicamos el resultado para $f(x-y) = \|x-y\| = 0$.
+
+***** Corolario 2
+Tenemos $|f(x)| \leq \|x\|$. El mínimo se alcanza en un $f$ dado por
+la proposición.
+
+**** Corolario a la separación
+Sea $X$ un espacio normado $\{x_1,\dots,x_n\} \subseteq X$ linealmente independientes
+y $\alpha_1,\dots,\alpha_n \in \mathbb{K}$, entonces existe $f \in X^\ast$ tal que $f(x_i) = \alpha_i$.
+
+*** Inyección canónica e isometrías
+**** Inyección canónica
+Se define $J_X(x_0) : X^\ast \longrightarrow \mathbb{K}$ como:
+
+\[J_X(x_0)(f) = f(x_0)\]
+
+**** Propiedades de la inyección
+Se verifica:
+
+ 1. $\forall x \in X: J_X(x)$ es lineal y de módulo $1$.
+ 2. $J_X : X \longrightarrow X^\ast^\ast$ es isométrica y lineal.
+
+**** Completación de un espacio
+$X^\ast$ es completo para cualquier espacio normado $X$. 
+Cuando $X$ no es completo, $J_X$ no es sobreyectivo y podemos
+completarlo como:
+
+\[ X \subset \overline{J_X(X)} \]
+
+Que lo será por ser cerrado en $X^{\ast\ast}$, que es completo.
+
+**** Polar de un subespacio
+Dado $M \subset X$, el *polar* de $M$ se define como:
+
+\[M^0 = \left\{ f\in X^\ast \mid f(M) = \{0\} \right\}\]
+
+Si tenemos la restricción $S : X^\ast \longrightarrow M^\ast$, $M^0 = \ker S$.
+
+**** Primer teorema de isometría
+Sea $X$ espacio normado y $M$ subespacio, tenemos una biyección
+lineal isométrica \[T : {X^\ast}/{M^0} \longrightarrow M^\ast \] dada por:
+
+\[T(f + M^0) = f|_M\]
+
+***** Demostración
+Tenemos $\|T(f+M^0)\| \leq \|f+M^0\|$, y obtenemos igualdad gracias
+a Hahn-Banach.
+
+**** Segundo teorema de isometría
+Sea $X$ espacio normado y $M$ subespacio vectorial cerrado de $X$.
+La aplicación $T : (X/M)^\ast \longrightarrow M^0$ es una biyección lineal isométrica
+definida por:
+
+\[ T(f)(x) = f(x+M) \]
+
+Además $T = f \circ Q$ para $Q$ proyección.
+
+***** Demostración
+Claramente es lineal. Tenemos que es lipschitziana por:
+
+\[ \|T(f)\| = \| f \circ Q \| \leq \|f\|\|Q\| = \|f\| \]
+
+Y por otro lado,
+
+\[ \|T(f)\|\|x+m\| \geq 
+\|T(f)(x+m)\| = 
+\|f(x+M)\|\]
+
+Por tanto, $\|T(f)\| \geq \|f\|$.
+
+**** Función de aproximación
+Sea $X$ normado, $M$ subespacio con $x_0 \in X-\overline{M}$. Existe $f\in X^\ast$ con $\|f\|=1$,
+tal que $f(M) = \{0\}$ y $f(x_0) = d(x_0,\overline{M}) = d(x_0,M)$.
+
+***** Demostración
+Como $\overline{M}$ es subespacio cerrado, tenemos $g \in (X/M)^\ast$ con $\|g\|=1$ y
+$g(x_0+\overline{M}) = \|x_0+\overline{M}\|$. Entonces $T(g) \in \overline{M}^0$ y $T(g)(x) = g(x+\overline{M})$.
+Tenemos $\|T(g)\|= \|g\|=1$ y $f(x_0) = g(x_0+\overline{M}) = \|x_0+\overline{M}\|$.
+
+**** Caracterización del polar
+Sea $X$ normado, $M$ subespacio. Entonces:
+
+\[ \overline{M} = \bigcap_{f \in M^0} \ker(f)\]
+
+**** Distancia a un kernel
+Sea $X$ espacio normado, $f \in X^\ast - \{0\}$ y $x_0 \in X$. Entonces,
+
+\[d(x_0,\ker(f)) = \frac{|f(x_0)|}{\|f\|}\]
+
+***** Demostración
+Por el [[*Función de aproximación][teorema de aproximación]] con $M = \ker(f)$, tenemos una $g$ con
+$\|g\| = 1$ tal que $g(x_0) = d(x_0,M)$; tenemos $\ker(f) \subseteq \ker(g)$.
+
+\[\exists u\in X: f(u)=1\]. Para $x\in X$, tenemos $x -f(x)u \in \ker(f)$ y entonces:
+
+\[ 0 = g(x-f(x)u) = g(x) - f(x)g(u)\]
+
+Aplicando esto en $x_0$ tenemos $g(x_0) = g(u)f(x_0)$, que tomando módulos,
+nos da $\|g\| = \|f\| |g(u)|$.
+
+**** Funcional de Minkowski
+Se define $p_U : X \longrightarrow \mathbb{R}^+$ para $X$ normado con $U$ entorno de $0$ como:
+
+\[ p_U(x) = \inf\{ \lambda \in \mathbb{R}^+_0 \mid x \in \lambda U\} \]
+
+Para un entorno de $0$ convexo, $p_U$ es sublineal.
+
+**** Separación de un punto
+Sea $U$ entorno de $0$ convexo con $x_0 \notin U$, existe $f \in X^\ast$ tal que 
+$Re(f(x)) \leq 1$ para todo $x \in U$; mientras $Re(f(x_0)) \geq 1$.
+
+Se cumple además:
+
+\[ \{x \in X \mid p_U(x)<1\} \subset
+U \subset
+\{ x \in X \mid p_U(x) \leq 1\}\]
+
+***** Demostración
+Tomamos $g : x_0\mathbb{R} \longrightarrow \mathbb{R}$ definido por $g(\alpha x_0) = \alpha p_U(x_0)$.
+Aplicamos [[*Versión analítica de Hahn-Banach][Hahn-Banach]] sobre $x_0\mathbb{R}$ y tenemos un $f$ extensión de $g$
+verificando que $f(x_0) = p_U(x_0) \geq 1$, y que para $x \in U$ se tiene 
+$f(x) \leq p_U(x) \leq 1$.
+
+Ahora para el caso complejo, tenemos $f_0$ lineal y continuo
+cumpliendo que $f_0(x_0)\geq 1$, pero $f_0(x) \leq 1$ para todo $x \in U$.
+Definimos $f(x) = f_0(x) - if_0(ix)$, y entonces es lineal en los
+complejos cumpliendo lo pedido.
 
 *** Lema de categoría de Baire
 **** Teorema de Baire
