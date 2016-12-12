@@ -1734,18 +1734,16 @@ Cuando $\sigma = 1$, llamamos a $\tau$ *homomorfismo sobre K*.
  #+end_theorem
 
 **** Automorfismos de una extensión
-#+begin_theorem
 *Automorfismos de una extensión*. Sea $\sigma : F/K \longrightarrow F/K$, entonces,
 $\sigma$ es automorfismo.
-#+end_theorem
-#+begin_proofs
+
+***** Demostración
 Para $u\in F$, tomamos $K(u_1,\dots,u_k)$ la extensión finita generada por todas 
 las raíces del irreducible sobre $u$. Como $\sigma$ respeta raíces, puede restringirse
 a esta extensión; y será inyectivo en ella por ser morfismo de cuerpos.
 
 Como esta extensión es finita y esto es una aplicación lineal, la aplicación 
 restringida es sobreyectiva.
-#+end_proofs
 
 **** Número de extensiones
 #+begin_theorem
@@ -1870,13 +1868,13 @@ Supongamos que existe el automorfismo de $\overline{K}$. Sea $f(X) = Irr(u,K)$, 
 tenemos $0 = \phi(f(u)) = f(\phi(u)) = f(v)$; luego $Irr(u,K) = Irr(v,K)$.
 
 **** Extensiones conjugadas
- Sean $F_1/K$, $F_2/K$ extensiones algebraicas, equivalen:
+Sean $F_1/K$, $F_2/K$ extensiones algebraicas, equivalen:
 
-  - $\exists \sigma: F_1 \longrightarrow F_2$ *isomorfismo* sobre $K$.
-  - $\exists \sigma : F_1 \longrightarrow \overline{K}$, *homomorfismo* sobre $K$ con $\sigma(F_1) = F_2$.
-  - $\sigma : \overline{K} \longrightarrow \overline{K}$, *isomorfismo* tal que $\sigma(F_1) = F_2$.
+ - $\exists \sigma: F_1 \longrightarrow F_2$ *isomorfismo* sobre $K$.
+ - $\exists \sigma : F_1 \longrightarrow \overline{K}$, *homomorfismo* sobre $K$ con $\sigma(F_1) = F_2$.
+ - $\sigma : \overline{K} \longrightarrow \overline{K}$, *isomorfismo* tal que $\sigma(F_1) = F_2$.
 
- Estas extensiones se llaman *extensiones conjugadas*.
+Estas extensiones se llaman *extensiones conjugadas*.
 
 *** Extensiones normales
 **** Extensiones normales
@@ -1914,9 +1912,9 @@ tenemos $0 = \phi(f(u)) = f(\phi(u)) = f(v)$; luego $Irr(u,K) = Irr(v,K)$.
 
 *** Extensiones separables
 **** Extensiones separables
- Un *elemento separable* $u$ es aquel cumpliendo que $\operatorname{Irr}(u,K)$ no tiene raíces 
- múltiples. Una extensión $F/K$ es *separable* si todos sus elementos son separables
- sobre $K$.
+Un *elemento separable* $u$ es aquel cumpliendo que $\operatorname{Irr}(u,K)$ no 
+tiene raíces múltiples. Una extensión $F/K$ es *separable* si 
+todos sus elementos son separables sobre $K$.
 
 **** Torres separables
 Si $E \supset F \supset K$ es extensión separable, lo son $E/F$ y $F/K$.
@@ -1996,8 +1994,8 @@ minimalidad.
      Es un *subcuerpo* de $E$ trivialmente.
      
 **** Teorema de Artin
-     El *Teorema de Artin* afirma que para un subgrupo finito de $Aut(E)$, entonces
-     $[E : E^G] = |G|$.
+El *Teorema de Artin* afirma que para un subgrupo finito de $Aut(E)$
+se tiene $[E : E^G] = |G|$.
 
 ***** Demostración
       Sabemos que $n = |G| \leq [E : E^G]$ por ser extensión. Supongamos la desigualdad
