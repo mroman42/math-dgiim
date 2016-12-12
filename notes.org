@@ -2051,11 +2051,99 @@ se tiene $[E : E^G] = |G|$.
 
 *** 6.2. Correspondencia de Galois, caso finito
 **** Correspondencia
-     Definimos una correspondencia entre los subgrupos de una extensión de Galois
-     y los cuerpos intermedios como:
+Definimos una correspondencia entre los subgrupos de una 
+extensión de Galois y los cuerpos intermedios como:
 
-     \[ H^\ast = E^H = \{u \in E \mid \forall\sigma\in H: \sigma(u)=u\}\]
-     \[F^\ast = Gal(E/F) = \{\sigma\in G \mid \forall u\in F: \sigma(u) = u\}\]
+\[ H^\ast = E^H = \{u \in E \mid \forall\sigma\in H: \sigma(u)=u\}\]
+\[F^\ast = Gal(E/F) = \{\sigma\in G \mid \forall u\in F: \sigma(u) = u\}\]
+
+**** 6.2.1. Contenidos de cuerpos
+Sean $F_i$ cuerpos intermedios de $E/K$ y $H_i$ subgrupos de $Gal(E/K)$.
+Se cumple:
+
+ 1. Si $F_1 \subset F_2$, entonces $F_1^\ast \supset F_2^\ast$.
+ 2. Si $H_1 \subset H_2$, entonces $H_1^\ast \supset H_2^\ast$.
+ 3. $F \subset F^\ast^\ast$; $H < H^\ast^\ast$.
+ 4. $F^\ast = F^\ast^\ast^\ast$; $H^\ast = H^\ast^\ast^\ast$.
+
+***** Demostración
+1. Trivial.
+2. Trivial.
+3. Trivial.
+4. Componiendo el apartado 3 con el 2 y el 1.
+
+**** 6.2.2. Correspondencia de Galois
+El par de aplicaciones $\ast$ se llama *correspondencia de Galois*.
+
+**** 6.2.3. Teorema fundamental
+Sea $E/K$ una extensión de Galois finita con $G = Gal(E/K)$:
+
+  1. La correspondencia es biyección, ${\cal F}(E/K) \cong {\cal S}(G)$.
+  2. $A \supset B$ ssi $B^\ast \subset A^\ast$.
+  3. La correspondencia es un antiisomorfismo de retículos, 
+     $(F_1 \cdot F_2)^\ast = F_1^\ast \cap F_2^\ast$ y $(F_1 \cap F_2)^\ast = F_1^\ast \vee F_2^\ast$.
+  4. Las extensiones $F_1/K$ y $F_2/K$ son conjugadas ssi los subgrupos
+     $F_1^\ast$ y $F_2^\ast$ son conjugados en $G$.
+  5. La extensión $F/K$ es normal ssi $F^\ast$ es un subgrupo normal de $G$.
+     En este caso $Gal(F/K) \cong G/F^\ast$.
+  6. Para $H<G$ se verifica $|H| = [E:H^\ast]$ y $[G:H]=[H^\ast:K]$. 
+     Para $F \in {\cal F}(E/K)$ se verifica $[E:F] = |F^\ast|$ y $[F:K] = [G:F^\ast]$.
+ 
+***** Demostración de 6 para grupos
+Por [[*Teorema de Artin][teorema de Artin]] tenemos $|G| = [E:K]$ y $|H| = [E : H^\ast]$.
+Por teorema de Lagrange y teorema del grado tenemos:
+
+\[ |G| = [G:H] |H| \]
+\[ [E:K] = [E:H^\ast][H^\ast : K] \]
+
+Simplificando obtenemos $[G:H] = [H^\ast : K]$.
+
+***** Demostración de 6 para cuerpos intermedios
+Como $E/F$ es de Galois, $|F^\ast| = [E:F]$ y sabemos $|G| = [E:K]$.
+Volvemos a aplicar Lagrange y teorema del grado.
+
+***** Demostración de 1
+Tenemos la torre $G > H^\ast^\ast > H$ y:
+
+\[ [G : H^\ast^\ast] = [H^\ast^\ast^\ast : K] = [H^\ast : K] = [G : H] \]
+
+Tenemos la torre $E \supset F^\ast^\ast \supset F$ y:
+
+\[ [E:F] = |F^\ast| = |F^\ast^\ast^\ast| = [E : F^\ast^\ast] \]
+
+***** Demostración de 2 y 3
+Se cumple por ser biyección y la proposición anterior. Trivial
+desde esto el antiisomorfismo de retículos.
+
+***** Demostración 4
+Sean $F_2 = \sigma(F_1)$, para $\tau \in F_1^\ast$, tenemos $\sigma\tau\sigma^{-1} \in F_2^\ast$.
+Luego $\sigma F_1^\ast \sigma^{-1} \subset F_2^\ast$. Aplicando lo mismo sobre $\sigma^{-1}$ llegamos
+a la otra igualdad. Dando la vuelta al razonamiento, tenemos
+que $\sigma F_1^\ast \sigma^{-1} = F_2^\ast$ nos da $F_2 = \sigma(F_1)$.
+
+***** Demostración 5
+Desde el cuarto apartado, se conserva normalidad.
+
+Si aplicamos primer Teorema de Isomorfía a la restricción
+$\Phi : Gal(E/K) \longrightarrow Gal(F/K)$:
+
+\[ \frac{Gal(E/K)}{F^\ast} 
+= \frac{Gal(E/K)}{\ker(\Phi)} 
+\cong \im(\Phi) 
+= Gal(F/K) \]
+
+El que $\im(\Phi) = Gal(F/K)$ usa la normalidad de $F$.
+
+*** 6.4. Propiedades de las extensiones de Galois
+**** 6.4.1. Subgrupos en Galois
+Sean $E \supset F \supset K$ con $E/K$ Galois finita. Entonces $E/F$ es Galois
+finita y $Gal(E/F)$ es subgrupo de $Gal(E/K)$.
+**** 6.4.2. Extensiones abelianas, cíclicas y solubles
+Una extensión finita se dice *abeliana, cíclica o soluble* si es
+de Galois y su grupo lo es.
+**** 6.4.3. Subgrupos abelianos, cíclicos y solubles
+SEa $E\supset F\supset K$ con $E/K$ *abeliana, cíclica o soluble*, 
+
 ** 7. Cuerpos finitos
 *** Estructura de los cuerpos finitos
 **** Propiedades de un cuerpo finito
