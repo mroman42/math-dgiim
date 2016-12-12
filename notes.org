@@ -3366,24 +3366,145 @@ cumpliendo que $f_0(x_0)\geq 1$, pero $f_0(x) \leq 1$ para todo $x \in U$.
 Definimos $f(x) = f_0(x) - if_0(ix)$, y entonces es lineal en los
 complejos cumpliendo lo pedido.
 
+**** Separación de convexos (para un abierto)
+Sean $A,B \subset X$ convexos con $A \cap B = \varnothing$ con $A$ abierto.
+Existe $f \in X^\ast$ con $\alpha \in \mathbb{R}$ tal que:
+
+\[ Re(f(a)) < \alpha \leq Re(f(b)) \quad \forall a \in A, b \in B\]
+
+**** Existencia de funcionales de soporte
+Sea $X$ normado, $A \subset X$ convexo cerrado con $\mathring{A} \neq \varnothing$. Para cada 
+$x_0 \in Fr(A)$; existe $f \in X^\ast$ tal que:
+
+  - $\|f\| = 1$
+  - $Re(f(x_0)) = \max\{Re(f(x)) \mid x \in A\}$
+
+***** TODO Demostración
+
+**** Separación de convexos (para un compacto)
+Sean $A,B \subset X$ convexos con $A \cap B = \varnothing$ con $A$ compacto y 
+$B$ cerrado. Existe $f \in X^\ast$ con $\alpha \in \mathbb{R}$ tal que:
+
+\[ Re(f(a)) < \alpha \leq Re(f(b)) \quad \forall a \in A, b \in B\]
+
+***** TODO Demostración
+
 *** Lema de categoría de Baire
 **** Teorema de Baire
-Sea $E$ espacio métrico completo y sea $\forall n : G_n \subset E$ un abierto denso.
-$\bigcap G_n$ es denso.
+Sea $E$ espacio métrico completo y sea $\forall n : G_n \subset E$ un abierto 
+denso. $\bigcap_{n \in \mathbb{N}} G_n$ es denso.
+
+***** Demostración
+Empezando con un abierto $G$ y con $G_1$, puedo a cada paso tomar el 
+abierto anterior, tomar un abierto dentro de él como 
+$\overline{B}(a_i,r_i) \subset G_i \cap B(a_{i-1},r_{i-1})$, y construir una sucesión $\overline{B}(a_n,r_n)$.
+
+Esta sucesión podemos tomarla para que cumpla $\{r_n\} \to 0$. Desde
+aquí tenemos que converge $\{a_n\} \to a \in \bigcap \overline{B}(a_n,r_n) \cap G$ por ser de 
+Cauchy.
+
+**** Corolario al teorema de Baire
+Sean $F_n \subset E$ cerrados con:
+
+\[E = \bigcup_{n \in \mathbb{N}} F_n\]
+
+Entonces, $\exists n \in \mathbb{N}$ tal que $\mathring{F}_N \neq \varnothing$.
+
+***** Demostración
+Aplicando el teorema de Baire en sus complementos.
 
 **** Dimensión en espacios de Banach
 Todo espacio de Banach tiene dimensión finita o no numerable.
 
+***** Demostración
+Si fuera $X$ espacio de Banach con base numerable, cualquier
+subespacio de dimensión finita sería cerrado, pero entonces,
+tomando $F_n = \langle e_1,\dots,e_n \rangle$:
+
+\[ X = \bigcup F_n \]
+
+Luego para algún $n$, se tiene $\mathring{F_n} \neq \varnothing$; así que debe ser 
+$X=F_n$.
+
 *** Teorema de la aplicación abierta
 **** Teorema de la aplicación abierta
-Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ sobreyectiva.
-Entonces, $T$ es abierta, y homomorfismo topológico.
+Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$, lineal,
+continua, y sobreyectiva. Entonces, $T$ es abierta, y 
+homomorfismo topológico.
 
-**** Corolario de los isomorfismos de Banach
-Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ biyección.
-Entonces $T$ es isomorfismo topológico.
+***** Demostración
+****** La imagen de bola tiene interior no vacío
+Como $X = \bigcup_{n \in \mathbb{N}} n B_X$, tenemos que:
 
-**** Teorema del homomorfismo de Banach
+\[ Y 
+= T\left(\bigcup_{n \in \mathbb{N}} n B_X \right)
+= \bigcup_{n \in \mathbb{N}} n T(B_X) 
+\subseteq \bigcup_{n \in \mathbb{N}} \overline{n T(B_X)}
+= Y
+\]
+
+Aplicando corolario a Baire, $\exists N: \mathring{\overline{NT(B_X)}} \neq \varnothing$, luego
+$\mathring{\overline{T(B_X)}} \neq \varnothing$. 
+
+****** La imagen de la bola es entorno de 0
+Sea ahora, $y_0 \in \mathring{\overline{T(B_X)}}$, se tendrá que:
+
+\[ 0 \in \mathring{\overline{T(B_X)}} - y_0
+\subset \overline{T(B_X)} - \overline{T(B_X)}
+\subset 2\overline{T(B_X)}\]
+
+Siendo por tanto $\overline{T(B_X)}$ un entorno de 0.
+
+****** Acotación de la bola
+Tenemos $\exists\delta > 0: \delta B_Y \subset \overline{T(B_X)}$, y en general:
+
+\[ \forall n \in \mathbb{N}: \frac{\delta}{2^n}B_Y \subseteq \overline{T\left(\frac{1}{2^n}B_X\right)}\]
+
+****** Sucesión
+Tomamos $x_0 = 0$, $y \in \overline{T(\frac{1}{2}B_X)}$, y construimos sabiendo:
+
+\[ y - T(x_i) \in
+\frac{\delta}{2^i} B_Y \subseteq
+T\left(\frac{1}{2^i} B_X\right)\]
+
+Luego existe un $x_{i+1}$ verificando $\|x_{i+1}\|\leq \frac{1}{2^{i+1}}$ y que:
+
+\[ \left\| y - \sum_{k=1}^{i+1} T(x_k) \right\| < \frac{\delta}{2^{i+2}} \]
+
+****** La suma converge
+Definimos la suma de la sucesión:
+
+\[ S_n = \sum_{k=1}^n x_k \in X\]
+
+Es de Cauchy por ser convergente $\sum_{n=1}^\infty \frac{1}{2^n}$. Por complitud,
+converge, $S_n \to x$, con:
+
+\[ \|S_n\| \leq \sum \|x_k\| \leq \sum \frac{1}{2^n} = 1 \]
+
+Luego $\|x\| \leq 1$, $x \in B_X$. Como además se tiene:
+
+\[\| y - T(S_n) \| \leq  
+\|y - \sum T(x_k) \| < 
+\frac{\delta}{2^{n+1}} \]
+
+Tenemos $\lim\{T(S_n)\} = T(x)$ y concluimos $y \in T(B_X)$.
+
+****** Conclusión
+Hemos probado $\overline{T(\frac{1}{2} B_X)} \subseteq T(B_X)$, y finalmente,
+
+\[ \frac{\delta}{2} B_Y \subset \overline{T\left(\frac{1}{2} B_X\right)} \subset T(B_X)\]
+
+Así que $T(B_X)$ es un entorno de $0$ y $T$ es abierta.
+
+**** Teorema de los isomorfismos de Banach
+Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$, lineal,
+continua y biyección. Entonces $T$ es isomorfismo topológico.
+
+***** Demostración
+Por [[*Teorema de la aplicación abierta][teorema de la aplicación abierta]] $T$ y $T^{-1}$ son abiertas;
+luego $T^{-1}$ y $T$ son continuas.
+
+**** TODO Teorema del homomorfismo de Banach
 Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$. Será homomorfismo 
 topológico ssi $TX$ es cerrado en $Y$.
 
