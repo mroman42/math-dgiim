@@ -3515,36 +3515,128 @@ Sean $\|\cdot\|_1, \|\cdot\|_2$ dos normas en un espacio de Banach. Si cumplen q
 
 Entonces son equivalentes.
 
-*** Teorema de la gráfica cerrada
-**** Teorema de la gráfica cerrada
-     Sean $X,Y$ de Banach con $T : X \longrightarrow Y$ lineal. Es continuo ssi la gráfica 
-     de $T$ es cerrada:
+***** Demostración
+Sea $T(x)=x$ biyección lineal entre las dos normas. Es 
+lipschitziana por la condición. Por el [[*Teorema de los isomorfismos de Banach][teorema de los isomorfismos
+de Banach]], es isomorfismo topológico.
 
-     \[\operatorname{Graf}(T) = \{(x,Tx) \mid x\in X\}\]
+*** Teorema de la gráfica cerrada
+**** Gráfica de una función
+La *gráfica* de una función $f$ se define como:
+
+\[ Graf(f) = 
+\{(x,f(x)) \mid x \in A\} \subseteq
+A \times B\]
+
+Una $T$ es lineal ssi $Graf(T)$ es subespacio vectorial, y
+cuando $f$ es continua, $Graf(f)$ es cerrada.
+
+**** Teorema de la gráfica cerrada
+Sean $X,Y$ de Banach con $T : X \longrightarrow Y$ lineal. Si la gráfica 
+de $T$ es cerrada, $T$ es continua.
+
+***** Demostración
+Si tomamos $\|x+y\| = \|x\|+\|y\|$, que genera la topología
+producto en $X \times Y$, tenemos un Banach. Como $T$ es lineal,
+$G(T)$ es subespacio lineal de $X \times Y$, y como $G(T)$ es cerrado,
+es de Banach con la norma inducida.
+
+Sea $\Phi : GT \longrightarrow X$ definida por:
+
+\[ \Phi(x,Tx) = x\]
+
+Como $\Phi$ es lineal, su restricción es continua, lineal y biyectiva.
+Por [[*Teorema de los isomorfismos de Banach][teorema de isomorfismo de Banach]], $\Phi^{-1}$ es continua; y entonces
+$T = \pi_2 \circ \Phi^{-1}$ es continua.
 
 **** Corolario de la gráfica cerrada
-     Sean $X,Y$ normados con $T: X \longrightarrow Y$ lineal. Equivalen:
+Sean $X,Y$ normados con $T: X \longrightarrow Y$ lineal. Equivalen:
 
-     - $T$ con gráfica cerrada.
-     - Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$.
+- $T$ con gráfica cerrada.
+- Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$.
+ 
+***** Demostración
 
 *** Teorema de Banach-Steinhaus
 **** Teorema de Banach-Steinhaus para funcionales
-     Sea ${\cal A} \subset L(X,Y)$ para $X$ de Banach e $Y$ normado; una familia de 
-     operadores acotada puntualmente:
+Sea ${\cal A} \subset L(X,Y)$ para $X$ de Banach e $Y$ normado; una familia de 
+operadores acotada puntualmente:
 
-     \[ \forall x : \exists M(x): \forall T \in A: \quad \|T(x)\| \leq M(x)\]
+\[ \forall x : \exists M(x): \forall T \in A: \quad \|T(x)\| \leq M(x)\]
 
-     Entonces está acotada:
+Entonces está acotada:
 
-     \[\exists M : \forall T \in A: \quad \|T\| \leq M \]
+\[\exists M : \forall T \in A: \quad \|T\| \leq M \]
+
+***** Demostración
+Tomamos $F_n$ como intersección de conjuntos que son cerrados
+por la continuidad de $T$:
+
+\[F_n = \bigcap_{T \in {\cal A}} \{ x \in X \mid \|Tx\| \leq n\}\]
+
+Como está acotada puntualmente, $\bigcup F_n = X$; así que aplicamos
+el [[*Corolario al teorema de Baire][corolario a Baire]] para tener un $\mathring{F_N} \neq \varnothing$. Eso quiere decir
+que $\exists a: \exists r: a + rB_X \subseteq F_n$. Para $T \in {\cal A}$ se tiene:
+
+\[\begin{aligned}
+\|Tx\| =& \frac{1}{r} \| T(a+rx) - Ta\| \\
+     \leq& \frac{1}{r} (\| T(a+rx) \| + \|Ta\|) \\
+     \leq& \frac{N}{r} + \|Ta\|\frac{1}{r} \\ 
+     \leq& \frac{N}{r} + M(a)\frac{1}{r}
+\end{aligned}\]
+
+Acotación independiente de $X$.
 
 **** Teorema del cierre de Steinhaus
-     Sea $X$ de Banach, $Y$ normado, y una sucesión $\{T_n\} \in L(X,Y)$ 
-     convergiendo puntualmente. La convergencia puntual da un operador 
-     lineal y continuo:
+Sea $X$ de Banach, $Y$ normado, y una sucesión $\{T_n\} \in L(X,Y)$ 
+convergiendo puntualmente. La convergencia puntual da un operador 
+lineal y continuo:
 
-     \[ T(x) = \lim_{n \longrightarrow \infty} T_n(x) \in L(X,Y)\]
+\[ T(x) = \lim_{n \longrightarrow \infty} T_n(x) \in L(X,Y)\]
+
+***** Demostración
+La linealidad se tiene trivialmente:
+
+\[ T(\alpha x_1 + \beta x_2) 
+= \lim T_n (\alpha x_1 + \beta x_2)
+= \alpha T(x_1) + \beta T(x_2) \]
+
+Como $\{T_n\}$ es una familia acotada puntualmente por converger
+puntualmente, se tiene por [[*Teorema de Banach-Steinhaus para funcionales][Banach-Steinhaus]] que está acotada.
+
+Entonces para $x \in B_X$, tenemos $\|T_n(x)\| \leq M$, así que:
+
+\[ \|\lim T_n(x)\| =
+\lim \|T_n(x)\| \leq M\]
+
+Luego $\|T(x)\| \leq M$, y por estar acotada en la bola unidad
+y ser lineal, $T$ es continua.
+
+**** Corolario a Banach-Steinhaus para Banach
+Sea $X$ espacio de Banach y $A \subseteq X^\ast$, equivalen:
+
+ 1. $A$ acotado, $\exists M>0: \forall f \in A: \|f\| \leq M$
+ 2. $A$ puntualmente acotado, $\forall x\in X: \{f(x) \mid f \in A\}$ acotado.
+
+***** Demostración
+Por [[*Teorema de Banach-Steinhaus para funcionales][teorema Banach-Steinhaus]] con $X^\ast = L(X,\mathbb{K})$ se tiene
+la segunda implicación. La primera se tiene simplemente por
+tenerse:
+
+\[ \|f(x)\| \leq \|f\|\|x\| \leq M \|x\| \]
+
+**** Corolario a Banach-Steinhaus para normados
+Sea $X$ espacio normado con $A \subseteq X$. Equivalen:
+
+ 1. $A$ acotado.
+ 2. $\{ f(x) \mid x \in A\}$ acotado para cualquier $f \in X^\ast$.
+
+***** Demostración
+Sabemos $J_X$ isometría, luego $J_X(A)$ está acotado. Como 
+la acotación equivale a la acotación puntual, para cualquier
+punto del espacio $f \in X^\ast$ se tiene acotado:
+
+\[ \{J_X(x)(f) \mid x \in A \} \]
 
 ** 3. Espacios de Hilbert
 ** 4. Topologías débiles
