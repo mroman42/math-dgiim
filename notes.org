@@ -3088,12 +3088,22 @@ Equivalen:
 
 *** Teorema de Riesz
 **** Lema al teorema de Riesz
-Sea $X$ espacio normado con $M$ subespacio cerrado. Si
+Sea $X$ espacio normado con $M$ subespacio propio cerrado. Si
 $\varepsilon \in (0,1)$, existe $x \in \mathbb{S}_X$ tal que:
 
 \[ \|x+M\| = d(x,M) > 1-\varepsilon \]
 
-***** TODO Demostración
+***** Demostración
+Sea $x_0 \notin X-M$. Por ser $M$ cerrado $d(x_0,M)>0$. Por ser
+el ínfimo, tengo que existe $m_0$ tal que:
+
+\[\frac{1}{1-\varepsilon}\| x_0 - M\| > \| x_0-m_0 \| \]
+
+Por tanto, tomando $x = \frac{x_0-m_0}{\|x_0-m_0\|} \in \mathbb{S}_X$, tenemos:
+
+\[ \| x + M \| 
+=  \left\| \frac{x_0-m_0}{\|x_0-m_0\|} + M \right\|
+= \frac{\|x_0-M\|}{\|x_0-m_0\|} > 0\]
 
 **** Teorema de Riesz
 Son equivalentes:
@@ -3101,9 +3111,26 @@ Son equivalentes:
 1. $X$ de dimensión finita.
 2. $X$ es localmente compacto.
 3. $B_X$ es compacta.
-4. $B_X$ es precompacta.
+4. $B_X$ es [[*Compacidad relativa y precompacidad][precompacta]].
 
-***** TODO Demostración
+***** Demostración
+1. Cuando la dimensión es finita, $X \cong \mathbb{K}^n$, que es localmente
+   compacto.
+2. Sea $U$ entorno compacto de $0$, $\exists r>0: \overline{B}(0,r) \subset U$. Por ser un cerrado
+   en compacto, es compacto. Por homeomorfismo, lo es $B_X$.
+3. Compacidad implica precompacidad.
+4. Por ser $B_X$ precompacta,
+
+   \[B_X \subseteq \bigcup B\left(x_i,\frac{1}{2}\right)\]
+   
+   Como $M = \langle x_1,x_2,\dots,x_k \rangle$ es de dimensión finita, es un subespacio 
+   cerrado y propio en $X$. Por el lema de Riesz, existe $x_0 \in \mathbb{S}_X$ 
+   tal que:
+
+   \[ \|x_0 - x_i\| \leq d(x_0,M) > \frac{1}{2} \]
+   
+   Teniendo entonces $x \notin \bigcup B(x_i,\frac{1}{2})$, que nos lleva a 
+   contradicción.
 
 **** Dual topológico
 Sea $X$ normado de dimensión finita, su *dual topológico* 
@@ -3124,8 +3151,8 @@ Un funcional $p : X \longrightarrow \mathbb{R}$ se dice *sublineal* cuando:
 Si además $p(\alpha x) = |\alpha|p(x)$, se llama *seminorma*.
 
 **** Versión analítica de Hahn-Banach
-Sea $X$ espacio vectorial sobre $\mathbb{K}$ con $p$ sublineal. Y sea $M$ subespacio 
-con un $g\in M^\ast$, verificando:
+Sea $X$ espacio vectorial sobre $\mathbb{K}$ con $p$ sublineal. Y 
+sea $M$ subespacio con un $g\in M^\ast$, verificando:
 
 \[Re(g(m)) \leq p(m)\]
 
