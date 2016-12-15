@@ -2763,7 +2763,7 @@ Para $X$ espacio normado:
   1. $A$ abierto $\Rightarrow$ $A+B$ abierto.
   2. $A$ cerrrado, $B$ compacto $\Rightarrow$ $A+B$ cerrado.
   3. $A,B$ compactos $\Rightarrow$ $A+B$ compacto.
-  4. $M$ subespacio $\Rightarrow$ $\bar{M}$ subespacio.
+  4. $M$ subespacio $\Rightarrow$ $\overline{M}$ subespacio.
 
 ***** Demostración de 1
 Es la unión de abiertos, $A + B = \bigcup_{b \in B} (b + A)$.
@@ -2862,7 +2862,7 @@ que da la norma:
 
 Nótese el caso especial $l^n_\infty$ que da la norma del máximo.
 
-***** Normas 
+***** Normas
 Todas estas normas lo son gracias a la [[*Desigualdad de Minkowski][desigualdad de 
 Minkowski]].
 
@@ -3068,7 +3068,7 @@ cociente sobre:
 Esto es espacio de Banach con la norma $\phi_\infty$.
 
 *** Categoría de espacios normados
-**** TODO Homomorfismos topológicos
+**** Homomorfismos topológicos
 Los morfismos de la categoría de espacios normados son los
 *homomorfismos topológicos*, operadores lineales y continuos que
 además son abiertos en su imagen. Hablamos igualmente de
@@ -3166,9 +3166,16 @@ Sea $T : X \longrightarrow Y$ lineal. Equivalen:
 - $T$ abierta sobre $TX$
 - $\exists r>0:\quad TX \cap rB_Y \subset TB_X$
 - $\exists\alpha>0: \forall y\in TX: \exists x\in X: 
-  \quad \|x\| \leq \alpha\|y\|$
+  \quad \|x\| \leq \alpha\|y\|$, cumpliendo $Tx = y$.
 
-Se cumple $Tx = y$.
+***** Demostración
+Aplicando la caracterización anterior a $TX$ tenemos que
+equivalen el primer y segundo apartado.
+
+Por el apartado 2, tengo que dado un $y$, $y\frac{\delta}{\|y\|} \in \delta B_Y$.
+Por tanto, $\exists x: Tx = y \frac{\delta}{\|y\|}$. Tomamos $x' = x \frac{\|y\|}{\delta}$, y tenemos
+que $T(x') = y$, y además que $\|x'\| = \|x\|\frac{\|y\|}{\delta} \leq \frac{\|y\|}{\delta}$.
+
 
 **** Descomposición canónica: proyección al cociente
 Sea $X$ un espacio normado, $M$ subespacio cerrado y $\pi$
@@ -3176,6 +3183,14 @@ la proyección. Entonces $\pi \in L(X,X/M)$ es sobreyectiva y
 abierta con $\|\pi\| = 1$.
 
 ***** TODO Demostración
+Para ver que tiene norma 1, tomamos $x_0 \notin M$.
+
+\[\forall m \in M: \|x+M\| = \|Q(x+m)\| \leq \|Q\|\|x+m\|\]
+
+En particular,
+
+\[ \|x+M\| \leq \|Q\| \inf\{\|x+m\|\} = \|Q\|\|x+M\| \]
+
 **** Descomposición canónica: isomorfismo
 Sea $T: X\longrightarrow Y$ lineal con $\ker(T)$ cerrado. Se define:
 
@@ -3189,14 +3204,22 @@ Cumpliendo $T = \hat{T}\circ\pi$. Y se tiene:
 ***** Demostración
 
 *** Teorema de Tychonoff
+**** Lema a Tychonoff
+Toda aplicación lineal desde $\ell_2^n$ es continua.
+
 **** Teorema de Tychonoff
-Sea $X$ espacio normado de dimensión finita $n$. Toda
+Sea $X$ espacio normado. Toda
 biyección lineal de $\ell^n_2$ sobre $X$ es isomorfismo topológico.
+
+***** Demostración
+Por el lema sabemos que es continua.
+La esfera de $\ell^n_2$ es compacta; y podemos aplicar la 
+caracterización de aplicaciones abiertas anterior.
 
 **** Corolarios al teorema
 Se cumple que:
 
-1. $T:X\longrightarrow Y$ lineal con $dim(X) < \infty$ nos da $T$ continua.
+1. $T:X\longrightarrow Y$ lineal con $dim(X) < \infty$ nos da $T$ lipschiztiana.
 2. Dos espacios de dimensión finita son isomorfos ssi 
    tienen igual dimensión.
 3. En un espacio de dimensión finita, todas las normas son
@@ -3237,6 +3260,12 @@ Equivalen:
 
 1. $T$ es abierta.
 2. $T$ es sobreyectiva.
+
+**** Corolario de caracterización de la dimensión finita.
+Equivalen:
+
+ 1. Todo cerrado y acotado es compacto.
+ 2. Bola unidad compacta.
 
 *** Teorema de Riesz
 **** Lema al teorema de Riesz
@@ -3284,13 +3313,15 @@ Son equivalentes:
    Teniendo entonces $x \notin \bigcup B(x_i,\frac{1}{2})$, que nos lleva a 
    contradicción.
 
-**** Dual topológico
+**** Dual topológico en dimensión finita
 Sea $X$ normado de dimensión finita, su *dual topológico* 
 es:
 
 \[X^\ast =
 \left\{ f:X \longrightarrow \mathbb{K} \mid
-f \text{ lineal y continuo} \right\}\]
+f \text{ lineal } \right\}\]
+
+Ya que toda lineal también es continua.
 
 ** 2. Principios fundamentales del análisis funcional
 *** Teorema de Hahn-Banach
@@ -3304,11 +3335,11 @@ Si además $p(\alpha x) = |\alpha|p(x)$, se llama *seminorma*.
 
 **** Versión analítica de Hahn-Banach
 Sea $X$ espacio vectorial sobre $\mathbb{K}$ con $p$ sublineal. Y 
-sea $M$ subespacio con un $g\in M^\ast$, verificando:
+sea $M$ subespacio con un $g : M \longrightarrow \mathbb{K}$, verificando:
 
 \[Re(g(m)) \leq p(m)\]
 
-Entonces existe $f\in X^\ast$ extendiéndolo y verificando:
+Entonces existe $f : X \longrightarrow \mathbb{K}$ lineal extendiéndolo y verificando:
 
 \[Re(f(x)) \leq p(x)\]
 
@@ -3370,7 +3401,7 @@ apropiado:
 
 \[f(\alpha x) = |f(x)| = Re(f(\alpha x)) \leq p(\alpha x) = p(x)\]
 
-**** Teorema de Hahn-Banach
+**** Extensión equinórmica de Hahn-Banach
 Sea $X$ espacio normado, $M$ subespacio vectorial, con $g \in M^\ast$. 
 Existe $f\in X^\ast$ tal que $f|_M = g$ y $\|f\| = \|g\|$.
 
@@ -3402,9 +3433,14 @@ Aplicamos el resultado para $f(x-y) = \|x-y\| = 0$.
 Tenemos $|f(x)| \leq \|x\|$. El mínimo se alcanza en un $f$ dado por
 la proposición.
 
-**** Corolario a la separación
+**** Corolario para subespacios finitos
 Sea $X$ un espacio normado $\{x_1,\dots,x_n\} \subseteq X$ linealmente independientes
 y $\alpha_1,\dots,\alpha_n \in \mathbb{K}$, entonces existe $f \in X^\ast$ tal que $f(x_i) = \alpha_i$.
+
+***** Demostración
+Puedo crear una función lineal, sobre $\langle x_1,\dots,x_n \rangle$ que lo cumpla.
+Por venir de dimensión finita será continua, así que podemos
+aplicar Hahn-Banach para obtener una extensión.
 
 *** Inyección canónica e isometrías
 **** Inyección canónica
@@ -3415,7 +3451,7 @@ Se define $J_X(x_0) : X^\ast \longrightarrow \mathbb{K}$ como:
 **** Propiedades de la inyección
 Se verifica:
 
- 1. $\forall x \in X: J_X(x)$ es lineal y de módulo $1$.
+ 1. $\forall x \in S_X: J_X(x)$ es lineal y de módulo $1$.
  2. $J_X : X \longrightarrow X^\ast^\ast$ es isométrica y lineal.
 
 **** Completación de un espacio
@@ -3468,7 +3504,7 @@ Por tanto, $\|T(f)\| \geq \|f\|$.
 
 **** Función de aproximación
 Sea $X$ normado, $M$ subespacio con $x_0 \in X-\overline{M}$. Existe $f\in X^\ast$ con $\|f\|=1$,
-tal que $f(M) = \{0\}$ y $f(x_0) = d(x_0,\overline{M}) = d(x_0,M)$.
+tal que $f \in M^0$ y $f(x_0) = d(x_0,\overline{M}) = d(x_0,M)$.
 
 ***** Demostración
 Como $\overline{M}$ es subespacio cerrado, tenemos $g \in (X/M)^\ast$ con $\|g\|=1$ y
@@ -3543,7 +3579,7 @@ $x_0 \in Fr(A)$; existe $f \in X^\ast$ tal que:
 Sean $A,B \subset X$ convexos con $A \cap B = \varnothing$ con $A$ compacto y 
 $B$ cerrado. Existe $f \in X^\ast$ con $\alpha \in \mathbb{R}$ tal que:
 
-\[ Re(f(a)) < \alpha \leq Re(f(b)) \quad \forall a \in A, b \in B\]
+\[ Re(f(a)) < \alpha < Re(f(b)) \quad \forall a \in A, b \in B\]
 
 ***** TODO Demostración
 
@@ -3586,9 +3622,8 @@ $X=F_n$.
 
 *** Teorema de la aplicación abierta
 **** Teorema de la aplicación abierta
-Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$, lineal,
-continua, y sobreyectiva. Entonces, $T$ es abierta, y 
-homomorfismo topológico.
+Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ sobreyectiva. 
+Entonces, $T$ es abierta; y, por tanto, epimorfismo topológico.
 
 ***** Demostración
 ****** La imagen de bola tiene interior no vacío
