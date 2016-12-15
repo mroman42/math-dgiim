@@ -1729,9 +1729,9 @@ de grupos $\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)$, tal que:
 ** 1. Polinomios simétricos
 *** Motivación: La cúbica
 **** Polinomios cúbicos
-     Toda ecuación cúbica polinómica puede escribirse en la forma
-     \(Y^3 + pY + q\), tomando un cambio de variable desde la original
-     \(X \mapsto - \frac{1}{3} b\). Esto se llama una cúbica deprimida.
+Toda ecuación cúbica polinómica puede escribirse en la forma
+\(Y^3 + pY + q\), tomando un cambio de variable desde la original
+\(X \mapsto - \frac{1}{3} b\). Esto se llama una cúbica deprimida.
 
 ***** Método de Vieta
       El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
@@ -3690,17 +3690,18 @@ Hemos probado $\overline{T(\frac{1}{2} B_X)} \subseteq T(B_X)$, y finalmente,
 Así que $T(B_X)$ es un entorno de $0$ y $T$ es abierta.
 
 **** Teorema de los isomorfismos de Banach
-Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$, lineal,
-continua y biyección. Entonces $T$ es isomorfismo topológico.
+Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$, biyección. 
+Entonces $T$ es isomorfismo topológico.
 
 ***** Demostración
 Por [[*Teorema de la aplicación abierta][teorema de la aplicación abierta]] $T$ y $T^{-1}$ son abiertas;
 luego $T^{-1}$ y $T$ son continuas.
 
-**** TODO Teorema del homomorfismo de Banach
+**** Teorema del homomorfismo de Banach
 Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$. Será homomorfismo 
 topológico ssi $TX$ es cerrado en $Y$.
 
+***** TODO Demostración
 **** Equivalencia de normas en espacios de Banach
 Sean $\|\cdot\|_1, \|\cdot\|_2$ dos normas en un espacio de Banach. Si cumplen que:
 
@@ -3710,8 +3711,8 @@ Entonces son equivalentes.
 
 ***** Demostración
 Sea $T(x)=x$ biyección lineal entre las dos normas. Es 
-lipschitziana por la condición. Por el [[*Teorema de los isomorfismos de Banach][teorema de los isomorfismos
-de Banach]], es isomorfismo topológico.
+lipschitziana por la condición. Por el
+[[*Teorema de los isomorfismos de Banach][teorema de los isomorfismos de Banach]], es isomorfismo topológico.
 
 *** Teorema de la gráfica cerrada
 **** Gráfica de una función
@@ -3722,7 +3723,7 @@ La *gráfica* de una función $f$ se define como:
 A \times B\]
 
 Una $T$ es lineal ssi $Graf(T)$ es subespacio vectorial, y
-cuando $f$ es continua, $Graf(f)$ es cerrada.
+cuando $f$ es continua en Hausdorff, $Graf(f)$ es cerrada.
 
 **** Teorema de la gráfica cerrada
 Sean $X,Y$ de Banach con $T : X \longrightarrow Y$ lineal. Si la gráfica 
@@ -3742,13 +3743,13 @@ Como $\Phi$ es lineal, su restricción es continua, lineal y biyectiva.
 Por [[*Teorema de los isomorfismos de Banach][teorema de isomorfismo de Banach]], $\Phi^{-1}$ es continua; y entonces
 $T = \pi_2 \circ \Phi^{-1}$ es continua.
 
-**** Corolario de la gráfica cerrada
+**** Caracterización de la gráfica cerrada en espacios normados
 Sean $X,Y$ normados con $T: X \longrightarrow Y$ lineal. Equivalen:
 
 - $T$ con gráfica cerrada.
 - Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$.
  
-***** Demostración
+***** TODO Demostración
 
 *** Teorema de Banach-Steinhaus
 **** Teorema de Banach-Steinhaus para funcionales
@@ -3805,7 +3806,7 @@ Entonces para $x \in B_X$, tenemos $\|T_n(x)\| \leq M$, así que:
 Luego $\|T(x)\| \leq M$, y por estar acotada en la bola unidad
 y ser lineal, $T$ es continua.
 
-**** Corolario a Banach-Steinhaus para Banach
+**** Corolario a Banach-Steinhaus para el dual
 Sea $X$ espacio de Banach y $A \subseteq X^\ast$, equivalen:
 
  1. $A$ acotado, $\exists M>0: \forall f \in A: \|f\| \leq M$
@@ -3818,7 +3819,7 @@ tenerse:
 
 \[ \|f(x)\| \leq \|f\|\|x\| \leq M \|x\| \]
 
-**** Corolario a Banach-Steinhaus para normados
+**** Corolario a Banach-Steinhaus para el doble dual
 Sea $X$ espacio normado con $A \subseteq X$. Equivalen:
 
  1. $A$ acotado.
