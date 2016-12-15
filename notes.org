@@ -172,6 +172,11 @@ Different uses of this term can be found [[http://planetmath.org/semisimplegroup
 *Semisimple module*. It is a direct sum of simple modules, that is, 
 they have no non-zero proper submodules.
 
+**** Semisimple algebra
+An associative finite dimensional algebra $A$ is *semisimple* if
+$A$ is a direct product of simple algebras or equivalently, if $A$ has
+trivial Jacobson radical.
+
 *** 1. Almost-koszul pairs
 **** 1.1. R-rings
 ***** R-Ring
@@ -189,6 +194,27 @@ when $A_0 = R$. It is *strongly graded* when $m^{1,p}$ is surjective. We
 call $\pi^n_A$ to the projection of $A$ onto $A^n$.
 
 **** 1.2. R-corings
+***** Definition of coalgebra
+A [[https://en.wikipedia.org/wiki/Coalgebra#Formal_definition][coalgebra]] over a field $K$ is a *vector space* $V$ together with linear
+maps $\Delta : V \longrightarrow V \otimes V$ and $\varepsilon : V \longrightarrow K$ such that:
+
+ 1. $(id \otimes \Delta) \circ \Delta = (\Delta \otimes id) \circ \Delta$
+ 2. $(id \otimes \varepsilon) \circ \Delta = id 
+    = (\varepsilon \otimes id) \circ \Delta$
+
+Sometimes, the coalgebras use [[https://en.wikipedia.org/wiki/Coalgebra#Sweedler_notation][Sweedler notation]].
+
+***** Examples of coalgebras
+****** The divided power coalgebra
+Consider $K[X]$, the polynomial ring, where we define by linearity:
+
+\[\Delta(X^n) = \sum^n_{k=0} {n \choose k} X^k \otimes X^{n-k}\]
+
+\[\epsilon(X^n) = \twopartdef{1}{n=0}{0}{n>0}\]
+
+When the structures of algebra and coalgebra are compatible, they
+are called [[https://en.wikipedia.org/wiki/Bialgebra][bialgebras]].
+
 ***** R-coring
 *R-coring*. Coassociative and counital coalgebra. It is an R-bimodule 
 with a /comultiplication/ $\Delta : C \longrightarrow C \otimes C$ and 
@@ -202,9 +228,57 @@ such that:
 
 **** 1.3. Almost-Koszul pair
 *Almost-Koszul pair*. Connected R-ring and R-coring $(A,C)$ with an 
-isomorphism $\theta_{C,A} : C_1 \longrightarrow A^1$.
+isomorphism $\theta_{C,A} : C_1 \longrightarrow A^1$, that satisfies the relation:
 
+\[ m^{1,1} \circ (\theta_{C,A} \otimes \theta_{C,A}) \circ \Delta_{1,1}
+= 0\]
 
+Or, using Sweedler notation, for any $c \in C_2$:
+
+\[ \sum \theta_{C,A}(c_{(1,1)}) \theta_{C,A}(c_{(2,1)}) = 0\]
+
+**** 1.4. Opposite Koszul pair
+If $(A,C)$ is a Koszul pair, then $(A^{op},C^{op})$ are Koszul pairs with
+respect to:
+
+\[\theta_{C^{op},A^{op}} = \theta_{C,A}\]
+
+**** 1.5. The normalized bar resolution of R
+For every strongly graded R-ring A, there is a graded coring C such that
+$(A,C)$ is an almost-Koszul pair.
+
+***** The normalized right bar resolution
+The exact sequence $\beta_\ast^r(A)$:
+
+\[ 0 \longleftarrow 
+R \overset{\delta_0}\longleftarrow 
+A \overset{\delta_1}\longleftarrow
+\overline{A} \otimes A \overset{\delta_2}\longleftarrow
+\overline{A} \otimes \overline{A} \otimes A \overset{\delta_3}\longleftarrow
+\overline{A} \otimes \overline{A} \otimes \overline{A} \otimes A \longleftarrow
+\dots
+\]
+
+is called the *normalized right bar resolution*. Where
+the $\delta$ are defined as:
+
+ - $\delta_0 = \pi^0_A$
+ - \[ \delta_n(a_1 \otimes \dots \otimes a_n \otimes a_{n+1}) 
+      = \sum_{i=1}^n (-1)^i  a_1 \otimes \dots \otimes a_ia_{i+1} \otimes \dots \otimes a_{n+1}\]
+
+***** TODO Normalized bar complex
+
+*** 2. Koszul Pairs
+
+*** 3. Hochschild (co)homology of Koszul rings
+**** 3.1. The cyclic tensor product
+***** Enveloping algebra of R
+The tensor product algebra $R^e = R \otimes_\mathbb{K} R^{op}$ is called the 
+*enveloping algebra* of $R$.
+
+*** 4. Almost-Koszul pairs associated to twisted tensor products
+
+*** 5. The Hochschlid cohomology of a twisted tensor product
 * Aluffi - Algebra Chapter 0
 ** III. Anillos y módulos
 *** 7. Complejos y homología
