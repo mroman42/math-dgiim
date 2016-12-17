@@ -2175,51 +2175,160 @@ Sean $u,v \in \overline{K}$, clausura algebraica. Equivalen:
   3. $\exists\sigma : K(u) \longrightarrow \overline{K}$ *homomorfismo* con $\sigma(u) = v$.
   4. $\exists \sigma : \overline{K} \longrightarrow \overline{K}$ *automorfismo* con $\sigma(u) = v$.
 
-Morfismos manteniendo $K$. Estos elementos se llaman *elementos conjugados*.
+Morfismos manteniendo $K$. Estos elementos se llaman 
+*elementos conjugados*.
 
 ***** Demostración
-Supongamos que tienen el mismo polinomio irreducible $f(X)$, entonces
-podemos construir un isomorfismo que lleve $u,v$ a $X + (f(X))$ para tener:
+Supongamos que tienen el mismo polinomio irreducible $f(X)$, 
+entonces podemos construir un isomorfismo que lleve $u,v$ a 
+$X + (f(X))$ para tener:
 
 \[K(u) \cong \frac{K[X]}{(f(X))}\cong K(v)\]
 
-Dado el isomorfismo, lo podemos prolongar a un homomorfismo. Y dado un
-homomorfismo, lo podemos [[*4.2.10. Extensión de homomorfismos a algebraicas][prolongar]] a un automorfismo por ser una 
-extensión algebraica.
+Dado el isomorfismo, lo podemos prolongar a un homomorfismo.
+Y dado un homomorfismo, lo podemos [[*4.2.10. Extensión de homomorfismos a algebraicas][prolongar]] a un automorfismo 
+por ser una extensión algebraica.
 
-Supongamos que existe el automorfismo de $\overline{K}$. Sea $f(X) = Irr(u,K)$, y
-tenemos $0 = \phi(f(u)) = f(\phi(u)) = f(v)$; luego $Irr(u,K) = Irr(v,K)$.
+Supongamos que existe el automorfismo de $\overline{K}$. Sea $f(X) = Irr(u,K)$,
+y tenemos $0 = \phi(f(u)) = f(\phi(u)) = f(v)$; luego $Irr(u,K) = Irr(v,K)$.
 
-**** Extensiones conjugadas
+**** 5.1.3. Extensiones conjugadas
 Sean $F_1/K$, $F_2/K$ extensiones algebraicas, equivalen:
 
- - $\exists \sigma: F_1 \longrightarrow F_2$ *isomorfismo* sobre $K$.
- - $\exists \sigma : F_1 \longrightarrow \overline{K}$, *homomorfismo* sobre $K$ con $\sigma(F_1) = F_2$.
- - $\sigma : \overline{K} \longrightarrow \overline{K}$, *isomorfismo* tal que $\sigma(F_1) = F_2$.
+ 1. $\exists \sigma: F_1 \longrightarrow F_2$ *isomorfismo* sobre $K$.
+ 2. $\exists \sigma : F_1 \longrightarrow \overline{K}$, *homomorfismo* sobre $K$ con $\sigma(F_1) = F_2$.
+ 3. $\sigma : \overline{K} \longrightarrow \overline{K}$, *isomorfismo* tal que $\sigma(F_1) = F_2$.
 
 Estas extensiones se llaman *extensiones conjugadas*.
 
-*** Extensiones normales
+***** Demostración
+****** Implicación 1 a 2
+Extendiendo el isomorfismo se pasa de 1 a 2.
+****** Implicación 2 a 3
+Dado el homomorfismo, lo podemos [[*4.2.10. Extensión de homomorfismos a algebraicas][prolongar]] a un homomorfismo
+por ser $\overline{K}$ algebraica. Tenemos entonces un endomorfismo de un
+cuerpo algebraico, que [[*4.1.6. Los endomorfismos algebraicos son automorfismos][debe ser]] un automorfismo.
+****** Implicación 3 a 1
+La restricción a $F_1$ es isomorfismo.
+*** 5.2. Extensiones normales
 **** Extensiones normales
- Sea $F/K$ extensión subcuerpo de $\overline{K}$, equivalen:
+Sea $F/K$ extensión algebraica, subcuerpo de $\overline{K}$, equivalen:
 
-  - $\sigma : F \longrightarrow \overline{K}$, me da $\sigma(F) = F$.
-  - Todo irreducible de $K[X]$ con raíz en $F$ descompone en lineales en $F[X]$.
-  - $F$ es cuerpo de descomposición de algún polinomio.
+  - $\sigma : F \longrightarrow \overline{K}$ sobre $K$, me da $\sigma(F) = F$.
+  - Todo irreducible de $K[X]$ con una raíz en $F$ descompone en 
+    lineales en $F[X]$.
+  - $F$ es cuerpo de descomposición de una familia de polinomios
+    sobre $K[X]$.
 
  A una extensión de este tipo se le llama *extensión normal*.
 
-**** Caracterización de extensiones normales
- #+begin_theorem
- *Caracterización de extensiones normales*. Sea $E/K$ extensión finita, equivalen:
+***** Demostración
+****** Implicación 1 a 2
+Dos raíces del mismo irreducible son conjugadas, luego existe
+un [[*5.1.1. Elementos conjugados][homomorfismo]] que lleva una en otra, como debe llevar $F$ en $F$,
+la otra debe estar en $F$.
+****** Implicación 2 a 3
+Para cada elemento de $F$ puedo tomar su irreducible, como tiene
+una raíz en $F$ tiene todas. $F$ es el cuerpo de descomposición de la
+familia de todos los irreducibles de sus elementos.
+****** Implicación 3 a 1
+Tenemos que $F = K(\alpha_1,\alpha_2,\dots)$, raíces de los polinomios. La imagen
+de la raíz de un polinomio sobre $K$ debe ser raíz de ese mismo 
+polinomio porque este debe quedar invariante sobre $\sigma$. Así tenemos
+que $\sigma(F) \subset F$, y por ser algebraico, todo endomorfismo es automorfismo.
 
-   - $E/K$ es extensión normal.
-   - Para cada $\sigma : E/K \longrightarrow \overline{K}/K$, se tiene $\sigma(E) = E$. Equivalentemente, para cada
-     $\sigma : \overline{K}/K \longrightarrow \overline{K}/K$, se tiene $\sigma(E) = E$.
-   - Todo irreducible $f \in K[X]$ con una raíz en $E$ descompone en $E$.
- #+end_theorem
+**** Propiedades de las extensiones normales
+Sea $E$ extensión normal. Cumple:
 
-**** Caracterización de extensiones normales en torres
+ 1. Si $A/K$ es algebraica, $EA/A$ es normal.
+ 2. Si $K \subset F \subset E$, entonces $E/F$ es normal.
+ 3. Si $E_1/K, E_2/K$ son normales, $E_1E_2/K$ es normal.
+ 4. Sea $E_\lambda$, familia de extensiones normales; $F = \bigcap E_\lambda$ es normal.
+
+***** Demostración de 1
+Dado $\sigma : EA/A \longrightarrow \overline{K}/A$, tengo que $\sigma(EA) = \sigma(E)\sigma(A) = EA$.
+
+***** Demostración de 2
+Sea $\sigma : E/F \longrightarrow \overline{K}/F$, como deja fijo $K$, debe tenerse $\sigma(E)=E$.
+
+***** Demostración de 3
+Sea $\sigma: E_1E_2/K \longrightarrow \overline{K}/K$, las restricciones dejan fijos ambos cuerpos
+y $\sigma(E_1E_2) = \sigma(E_1)\sigma(E_2) = E_1E_2$.
+
+***** Demostración de 4
+Si un homomorfismo de la intersección lo extiendo y lo restrinjo a
+cada uno, debe dejar todos los cuerpos fijos. Por tanto, un elemento
+en la intersección debe quedarse en la intersección.
+
+***** Contraejemplo: subcuerpo de normal no es normal
+El último es cuerpo de descomposición de $x^3-2$,
+pero el primero no es normal, porque no están todas las
+raíces del polinomio irreducible de $\sqrt[3]{2}$.
+
+$\mathbb{Q} 
+\subset \mathbb{Q}(\sqrt[3]{2}) 
+\subset \mathbb{Q}(\sqrt[3]{2}, i)$
+
+**** Clausura normal
+Llamamos clausura normal de $F/K$ a:
+
+\[ E = \bigcap \{ H \mid H \supset F;\; H/K\text{ normal}\}\]
+
+**** Existencia y unicidad de la clausura normal
+Para toda extensión algebraica existe una clausura normal y es
+única salvo isomorfismos.
+
+***** Demostración
+Trivial porque la clausura algebraica es normal.
+
+**** 5.2.7. Extensión de homomorfismos a extensión normal
+Sea $K \subset F \subset E$ con $E/K$ normal. Todo $\tau : F \longrightarrow E$ extiende a
+un $\tau : E \longrightarrow E$. 
+
+***** Demostración
+Tenemos que extiende a $\tau : F \longrightarrow \overline{K}$ y de ahí, por ser $E$ algebraica,
+se [[*4.2.10. Extensión de homomorfismos a algebraicas][prolonga]] a $\tau : E \longrightarrow \overline{K}$. Por ser normal, $\tau(E) = E$.
+
+**** 5.2.8. Clausura de una extensión finita
+Sea $F = K(u_1,u_2,\dots,u_n)$ y $f_i = Irr(u_i,K)$; entonces la clausura normal
+es el cuerpo de descomposición de $f = f_1f_2\dots f_n$.
+
+***** Demostración
+Es normal por ser cuerpo de descomposición de un polinomio, es
+la mínima porque debe contener las raíces de $f_i = Irr(u_i,K)$
+para ser normal, y si las contiene, debe contener al cuerpo de
+descomposición de $f$.
+
+**** 5.2.9. La clausura normal de extensión finita es finita
+Sea $F/K$ finita, su clausura normal es finita.
+
+***** Demostración
+El cuerpo de descomposición anterior es finito porque puedo
+crearlo insertando las raíces de cada polinomio.
+
+**** 5.2.10. Polinomio normal
+Un polinomio irreducible es normal si en toda extensión 
+algebraica $F/K$ con una raíz de $f$, descompone en factores lineales.
+
+**** 5.2.11. Caracterización de polinomios normales
+Sea $f$ un polinomio en $K[X]$, equivalen:
+
+ 1. $f$ es normal sobre $K$.
+ 2. El cuerpo de descomposición de $f$ es $K(u)$, una raíz de $f$.
+ 3. Todas las raíces de $f$ es expresan como polinomios de una de ellas.
+
+***** Demostración
+****** Implicación 1 a 2
+Tenemos que en $K(u)$, $f$ descompone en factores lineales,
+luego es cuerpo de descomposición.
+****** Implicación 2 a 3
+Trivial.
+****** Implicación 3 a 1
+Una extensión con una raíz $u$ contendría a $K(u)$, y como todas
+las raíces se expresan como polinomios de $u$, contendría a todas
+las raíces y $f$ descompondría en polinomios lineales.
+
+**** DONE Caracterización de extensiones normales en torres
  #+begin_theorem
  Sea $K\subset F \subset E$ extensiones finitas, $E$ extensión normal. Equivalen:
 
@@ -2233,25 +2342,133 @@ Estas extensiones se llaman *extensiones conjugadas*.
  Sea $\sigma : F/K \longrightarrow \overline{K}/K$, podemos extenderla finitamente hasta $E$ como $\overline\sigma$. Como $E/K$ es
  normal, $\overline\sigma(E) = E$; y así tengo un $\overline\sigma : E/K \longrightarrow E/K$, que me da $\sigma(F)=\overline\sigma(F) = F$.
 
-*** Extensiones separables
-**** Extensiones separables
-Un *elemento separable* $u$ es aquel cumpliendo que $\operatorname{Irr}(u,K)$ no 
-tiene raíces múltiples. Una extensión $F/K$ es *separable* si 
-todos sus elementos son separables sobre $K$.
+*** 5.3. Extensiones separables
+**** 5.3.1. Elemento separable
+Un elemento $u$ es separable en $K$ si $Irr(u,K)$ no tiene raíces
+múltiples.
 
-**** Torres separables
+**** 5.3.2. Extensiones separables
+Una extensión $F/K$ es *separable* si todos sus elementos lo son.
+
+***** Ejemplo de extensión normal no separable
+Existen [[http://math.stackexchange.com/questions/982702/example-of-a-non-separable-normal-extension][ejemplos]] de extensiones normales no separables.
+
+**** 5.3.3. Torres separables
 Si $E \supset F \supset K$ es extensión separable, lo son $E/F$ y $F/K$.
 
-**** Grado separable
+***** Demostración
+Que $F/K$ es separable es trivial. Y $E/F$ es separable porque
+$Irr(u,F) \mid Irr(u,K)$, y si el segundo no tiene raíces múltiples,
+no puede tenerlas el primero.
+
+**** 5.3.4. Grado separable
 El *grado separable* es cardinal del conjunto de homomorfismos de
+$F/K \longrightarrow \overline{K}/K$.
 
-$F \longrightarrow \overline{K}$ sobre $K$.
+\[ [F : K]_s = \#\{\sigma : F/K \longrightarrow \overline{K}/K \text{ sobre } K\}\]
 
-\[ [F : K]_s = \#\{\sigma : F \longrightarrow \overline{K} \text{ sobre } K\}\]
+**** 5.3.5. Grado separable en torres
+Sea $K \subset F \subset E \subset \overline{K}$ entonces $[E:K]_s = [E:F]_s[F:K]_s$.
+
+**** 5.3.6. Relación de grado y grado separable
+Sea $F/K$ extensión finita, entonces $[F:K]_s \mid [F:K]$.
+
+**** 5.3.7. Igualdad de grados en torres
+Sea $K \subset F \subset E$, con $E/K$. Entonces $[E:K]_s = [E:K]$ ssi 
+$[E:F]_s = [E:F]$ y $[F:K]_s = [F:K]$.
+
+**** 5.3.8. Caracterización de extensión separable
+La extensión finita $E/K$ es separable ssi $[E:K]_s = [E:K]$.
+
+**** 5.3.9. Extensión por un conjunto separable
+Para $K(S)/K$ algebraica es separable ssi todo elemento de $S$ es
+separable sobre $K$.
+
+**** 5.3.10. Propiedades de extensiones separables
+Las extensiones separables cumplen:
+
+ 1. Para $K \subset F \subset E$, se tiene $E/K$ separable ssi 
+    $E/F$ y $F/K$ separables.
+ 2. Sea $E/K$ separable y $H/K$ extensión, entonces $EH/H$ es 
+    separable.
+ 3. Sean $E/K$ y $F/K$ separables, entonces $EF/K$ es separable.
+
+**** 5.3.11. La clausura normal de un separable es separable
+Sea $F/K$ separable y $E/K$ su clausura normal. Entonces $E/K$ es
+separable.
+
+**** 5.3.12. Clausura separable
+El conjunto de todos los elementos de $\overline{K}$ separables sobre $K$ forman
+un subcuerpo $K^{sep}$ que se llama *clausura separable*.
+
+**** 5.3.13. Teorema del elemento primitivo
+Sea $E/K$ una extensión finita. Es simple ssi el conjunto de cuerpos
+intermedios $\{ F \mid K \subset F \subset E\}$ es finito. Si una extensión es finita
+
+**** 5.3.14. Endomorfismo de Frobenius
+Sea $K$ de característica de $p$. Llamamos *endomorfismo de Frobenius* 
+a $\phi(u) = u^p$.
+
+**** 5.3.15. Caracterización de cuerpos perfectos
+Para $K$ cuerpo equivalen:
+
+ 1. Todo $f \in K[X]$ irreducible tiene raíces simples.
+ 2. Toda $E/K$ algebraica es separable.
+ 3. Toda $E/K$ finita es separable.
+ 4. $car(K)=0$ ó $car(K)=p$, y el endomorfismo de Frobenius es 
+    sobreyectivo.
+
+Y en ese caso, llamamos a $K$ cuerpo perfecto.
+
+**** 5.3.17. Ejemplos de cuerpos perfectos
+Son perfectos:
+
+ 1. Todo cuerpo de característica cero.
+ 2. Todo cuerpo finito.
+ 3. Todo cuerpo algebraicamente cerrado.
+
+*** 5.4. Derivada y raíces múltiples
+**** 5.4.1. Raíces
+Sea $f\in F[X]$ y $u \in F$. Es raíz de multiplicidad $k$ cuando $f = (X-u)^kf_0$,
+con $f_0(u) \neq 0$.
+
+**** 5.4.2. Derivada
+Se define la derivada de $f$ como:
+
+\[ f' = \sum_{i=1}^n ia_iX^{i-1} = na_nX^{n-1} + \dots + a_1\]
+
+**** 5.4.3. Propiedades de la derivada
+La derivada verifica:
+
+ 1. $(f+g)' = f'+g'$
+ 2. $(f \cdot g)' = f' \cdot g'$
+ 3. $(f^m)' = mf^{m-1}\cdot f'$
+
+**** 5.4.4. Condición de raíces simples
+Las raíces de $f$ son simples ssi $mcd(f,f') = 1$.
+
+**** 5.4.5. Condición de raíces simples en irreducibles
+Sea $f$ irreducible con $f' \neq 0$, las raíces de $f$ son simples.
+
+**** 5.4.6. Propiedades de las raíces simples
+Se cumple:
+
+ 1. En característica $0$, todo irreducible tiene raíces simples.
+ 2. En característica $p$ prima, un irreducible tiene raíces múltiples
+    ssi $f(x) = g(x^p)$.
+
+**** 5.4.7. Polinomio separable
+Un polinomio $f \in K[X]$ se llama separable $K$ si sus factores 
+irreducibles tienen sólo raíces simples.
 
 ** 6. Teoría de Galois Finita
 *** 6.1. Grupos de automorfismos
-**** Proposición al lema de Dedekind
+**** 6.1.1. Espacio vectorial de las aplicaciones de un conjunto
+Sea $S$ un conjunto. Las aplicaciones $Fun(S,F)$ con la suma y producto
+de escalares elevados desde $F$ forma un espacio vectorial de dimensión
+$|S|$.
+
+**** 6.1.2. Proposición al lema de Dedekind
 Sean $\sigma_1,\dots, \sigma_m : G \longrightarrow F^\times$ homomorfismos desde un grupo $G$ al grupo 
 multiplicativo de un cuerpo $F$. Ssi son distintos, son linealmente 
 independientes sobre $F$.
