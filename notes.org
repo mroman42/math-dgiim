@@ -518,11 +518,11 @@ The tensor product algebra $R^e = R \otimes_\mathbb{K} R^{op}$ is called the
 *** 1. Extensiones de cuerpos I
 **** 1.1. Definiciones básicas
 ***** Categoría de los cuerpos
-      Los cuerpos forman la *categoría $\mathtt{Fld}$* con los homomorfismos de 
-      anillos entre ellos. Todo homomorfismo de anillos entre cuerpos
-      es inyectivo y todo morfismo en esta categoría es monomorfismo.
+Los cuerpos forman la *categoría $\mathtt{Fld}$* con los homomorfismos de 
+anillos entre ellos. Todo homomorfismo de anillos entre cuerpos
+es inyectivo y todo morfismo en esta categoría es monomorfismo.
 
-      Así, todo morfismo entre cuerpos en $Hom(k,K)$ es una extensión $K/k$.
+Así, todo morfismo entre cuerpos en $Hom(k,K)$ es una extensión $K/k$.
 
 ***** Característica de un cuerpo
       La *característica* de $K$ es el generador de $ker(i)$ para 
@@ -1023,7 +1023,7 @@ Llamamos a esto una *extensión de Galois*.
  \[Ext^i_R(M,N) = H^i(Hom(M,N_\bullet))\]
  #+end_definition
 
-** IX. Álgebra homológica
+** IX. Álgebpra homológica
 *** Complejos y homología, de nuevo
 **** 3.1. Recordatorio de definiciones básicas
  #+begin_definition
@@ -1734,115 +1734,281 @@ Toda ecuación cúbica polinómica puede escribirse en la forma
 \(X \mapsto - \frac{1}{3} b\). Esto se llama una cúbica deprimida.
 
 ***** Método de Vieta
-      El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
+El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
 
-      \[w^3 + q - \frac{p^3}{27w^3} = 0\]
+\[w^3 + q - \frac{p^3}{27w^3} = 0\]
 
-      Ahora podemos resolver esa cuadrática y resolver luego la ecuación
-      en $w^3$.
+Ahora podemos resolver esa cuadrática y resolver luego la ecuación
+en $w^3$.
 
-*** Anillos de polinomios
+*** 1.1. Polinómios simétricos
 **** Polinomios simétricos
-     Un *polinomio simétrico* es aquel invariante por $f_\sigma$ para cualquier $\sigma \in S_r$, 
-     donde $f_\sigma (X_i) = X_{\sigma i}$. Llamamos $Sim(A[X_1\dots X_n])$ al subanillo de polinomios 
-     simétricos.
+Un *polinomio simétrico* es aquel invariante por $f_\sigma$ para cualquier $\sigma \in S_r$, 
+donde $f_\sigma (X_i) = X_{\sigma i}$. Llamamos $Sim(A[X_1\dots X_n])$ al subanillo de polinomios 
+simétricos.
 
-     Llamamos *componente homogénea* a cada sumando homogéneo maximal de un 
-     polinomio. Un polinomio es simétrico si y sólo si cada una de sus componentes 
-     lo es.
+**** Componentes homogéneas
+Llamamos *componente homogénea* a cada sumando homogéneo maximal de un 
+polinomio. Un polinomio es simétrico si y sólo si cada una de sus componentes 
+lo es.
 
 **** Polinomios simétricos elementales
-     Los polinomios simétricos elementales son aquellos de la forma:
+Los polinomios simétricos elementales son aquellos de la forma:
 
-     \[e_i = \sum_{i_1 < \dots < i_i} X_i_1 X_i_2 \dots X_i_i\]
+\[e_i = \sum_{i_1 < \dots < i_i} X_{i1} X_{i2} \dots X_{ii}\]
 
 **** Teorema fundamental de los polinomios simétricos
-     *Teorema fundamental de los polinomios simétricos*. Los polinomios elementales
-     generan cada polinomio $Sim(A[X_1\dots X_n])$ de forma única. En particular,
+Los polinomios elementales generan cada polinomio $Sim(A[X_1\dots X_n])$ 
+de forma única. En particular,
 
-     \[\omega : A[X_1,\dots,X_r] \longrightarrow Sim(A[X_1,\dots,X_r])\]
+\[\omega : A[X_1,\dots,X_r] \longrightarrow Sim(A[X_1,\dots,X_r])\]
 
-     con $\omega(a) = a$ y $\omega(X_i) = e_i$ es un isomorfismo.
+con $\omega(a) = a$ y $\omega(X_i) = e_i$ es un isomorfismo.
 
 ***** Demostración
-      Damos una relación de orden lexicográfica entre los monomios de un polinomio
-      simétrico homogéneo. Al mayor de ellos, llamado $X_1^{k_1} \dots X_r^{k_r}$ le restamos 
-      $e^{b1}_1 e^{b2}_2 \dots e^{br}_r$, donde $b_i = k_i - k_{i+1}$. Nos quedará $0$ u otro polinomio simétrico de 
-      igual grado pero menor en el orden lexicográfico. Este proceso debe ser 
-      finito.
+Damos una relación de orden lexicográfica entre los monomios de un
+polinomio simétrico homogéneo. Al mayor de ellos, llamado 
+$X_1^{k_1} \dots X_r^{k_r}$ le restamos $e^{b1}_1 e^{b2}_2 \dots e^{br}_r$, donde
+$b_i = k_i - k_{i+1}$. Nos quedará $0$ u otro polinomio simétrico de
+igual grado pero menor en el orden lexicográfico. Este proceso debe
+ser finito.
 
-      La unicidad se obtiene con $0 = h(e_1\dots e_r) - k(e_1\dots e_r) = l(e_1 \dots e_r)$.
+La unicidad se obtiene con $0 = h(e_1\dots e_r) - k(e_1\dots e_r) =
+l(e_1 \dots e_r)$.
 
+*** 1.2. Polinomios alternados
+**** Polinomio alternado
+Un polinomio $f$ es alternado cuando para toda permutación se tiene
+$\sigma(f) = sign(\sigma) f$.
+
+*** 1.3. La resultante
 **** Resultante
-     La *resultante* de dos polinomios $p,q$ es el determinante solución de 
-     $pq' - qp' = 0$ dados $p$ y $q$.
+Dados dos polinomios $f,g$ en un cuerpo $K$ en el que descomponen 
+podemos escribirlos como:
 
-     \[R(p,q) = \left| \begin{matrix}
-     a_0 & a_1 & \dots & a_n & 0 & \dots &\\
-     0   & a_0 & \dots & a_{n-1} & a_n & 0 & \dots \\
-     0   &   0 & a_0 & \dots & a_{n-1} & a_n & \dots \\
-     &     &     &\dots & & & \\
-     b_0 & b_1 & \dots & b_m & 0 & \dots &\\
-     0   & b_0 & \dots & b_{m-1} & b_m & 0 & \dots \\
-     0   &   0 & b_0 & \dots & b_{m-1} & b_m & \dots \\
-     \end{matrix} \right|
-     \]
+\[ f = a_n(X-\alpha_1)\dots(X-\alpha_n) = a_n \prod^n_{i=1}(X-\alpha_i)\]
+\[ g = b_n(X-\beta_1)\dots(X-\beta_n) = a_n \prod^n_{i=1}(X-\beta_i)\]
 
-     Y llamamos *matriz resultante* a la matriz de la que es determinante.
+La *resultante* busca ser una expresión que se anula cuando tienen
+raíz común, y se define como:
 
-**** Discriminante
-     El *discriminante* de un polinomio con raíces
-     $\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
+\[ R(f,g) = a_n^m b_m^n \prod^n_{i=1} \prod^m_{j=1} (\alpha_i - \beta_j)\]
 
-     \[\text{Discr}(p) = a^{2n-2} \prod_{i>j}(\alpha_i-\alpha_j)^2\]
+**** TODO Propiedades de la resultante
+La resultante de dos polinomios $f,g$ cumple:
 
-***** Relación con la resultante
-      \[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
+ 1. $R(f,g) = 0$ ssi tienen una raíz común.
+ 2. $R(g,f) = (-1)^{nm}R(f,g)$, siendo $nm$ el producto del número de raíces.
+ 3. $R(f,g) = a^m_n \prod^n_{i=1} g(\alpha_i)$
+ 4. $R(fg,h) = R(f,h)R(g,h)$, $R(f,gh) = R(f,g)R(f,h)$
+ 5. Si $m=0$, entonces $R(f,k) = k^n$
+ 6. $R(X^k,f) = a_0^k$; con $R(f,X^k) = (-1)^{nk}a_0^k$
+
+*** 1.4. Discriminante
+**** Raíces múltiples
+Podemos usar la resultante para caracterizar los polinomios
+con raíces múltiples, que son aquellos que comparten raíz con
+su derivada.
+# Duda: ¿Una raíz doble se comparte con la derivada siempre?
+
+\[ R(f,f') = a_n^{n-1} \prod f'(\alpha_j)\]
+
+**** El discriminante
+El *discriminante* de un polinomio con raíces
+$\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
+
+\[\text{Discr}(p) = a^{2n-2} \prod_{i>j}(\alpha_i-\alpha_j)^2\]
+
+**** Relación con la resultante
+\[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
+
+*** 1.5. Métodos de cálculo
+**** Método modular
+**** Por el algoritmo de Euclides
+**** Resultante de Euler-Sylvester-Cayley
+Definimos la resultante de Euler-Sylvester-Cayley:
+
+\[
+R(f,g) = \left| \begin{matrix}
+a_n & a_{n-1} & \dots & a_0 & 0 & \dots &\\
+0   & a_n & \dots & a_{1} & a_0 & 0 & \dots \\
+0   &   0 & a_n & \dots & a_1 & a_0 & \dots \\
+&      &     &\vdots & & & \\
+b_m & b_{m-1} & \dots & b_0 & 0 & \dots &\\
+0   & b_m & \dots & b_1 & b_0 & 0 & \dots \\
+0   &   0 & b_m & \dots & b_1 & b_0 & \dots \\
+\end{matrix} \right|
+\]
+
+***** Origen
+La resultante se obtiene como la determinante de la
+matriz del sistema de ecuaciones que dan:
+
+\[ \begin{aligned}
+X^{m-1} f &= 0 \\
+X^{m-2} f &= 0 \\
+& \vdots \\
+1f &= 0 \\
+X^{n-1}g &= 0 \\
+X^{n-2}g &= 0 \\
+& \vdots \\
+1g &= 0 \\
+\end{aligned}\]
+
+Por Teorema de Rouché, este sistema tiene solución ssi 
+el determinante de los coeficientes es cero.
+
+**** Resultante como determinante
+La *resultante* de dos polinomios $p,q$ es el determinante solución de 
+$pq' - qp' = 0$ dados $p$ y $q$.
+
+\[R(p,q) = \left| \begin{matrix}
+a_0 & a_1 & \dots & a_n & 0 & \dots &\\
+0   & a_0 & \dots & a_{n-1} & a_n & 0 & \dots \\
+0   &   0 & a_0 & \dots & a_{n-1} & a_n & \dots \\
+&     &     &\dots & & & \\
+b_0 & b_1 & \dots & b_m & 0 & \dots &\\
+0   & b_0 & \dots & b_{m-1} & b_m & 0 & \dots \\
+0   &   0 & b_0 & \dots & b_{m-1} & b_m & \dots \\
+\end{matrix} \right|
+\]
+
+Y llamamos *matriz resultante* a la matriz de la que es determinante.
 
 ** 3. Extensiones de cuerpos
 *** 3.1. Generalidades
 **** Extensiones de cuerpos
-     Una *extensión de cuerpos* es un subcuerpo $K$ de $F$, se nota por $F/K$. 
-     Llamamos *grado* a la dimensión de $F$ como espacio vectorial.
+Una *extensión de cuerpos* es un subcuerpo $K$ de $F$, se nota por $F/K$. 
 
-**** Teorema de Lagrange para extensiones de cuerpos
-     *Teorema de Lagrange para extensiones de cuerpos*. Sea $K \subset F \subset E$,
-     extensiones de cuerpos, se tiene que:
+**** Grado de la extensión
+Llamamos *grado* a la dimensión de $F$ como espacio vectorial.
+Notamos por $[F : K]$.
 
-     \[ [E:K] = [E:F][F:K] \]
+**** Extensiones finitas
+Una extensión es finita ssi $[F:K]$ es finito.
+
+**** Base de una torre de inclusiones
+Sea $E \supset F \supset K$ una torre de inclusiones. Sean $\{u_i\}$ una base de $E$
+sobre $F$ y $\{v_i\}$ una base de $F$ sobre $K$.
+
+***** TODO Demostración
+**** Teorema del grado
+Sean $K \subset F \subset E$, extensiones de cuerpos, se tiene que:
+
+\[ [E:K] = [E:F][F:K] \]
+
+***** TODO Demostración
+
+**** Corolario al Teorema del grado: finitud
+**** Corolario al Teorema del grado: torres de cuerpos
+**** Corolario al Teorema del grado: extensiones primas
+*** 3.2. Elementos algebraicos y extensiones algebraicas
+**** Homomorfismo unital
+Para todo anillo $A$ existe un único homomorfismo de anillos
+$1_\mathbb{Z} : \mathbb{Z} \longrightarrow A$, llamado *homorfismo unital*.
+
+**** Característica del anillo
+La característica de $A$ es el entero no negativo que genera
+al ideal $ker(1_\mathbb{Z})$.
+
+**** Característica en dominios de integridad
+Si $A$ es dominio de integridad, $car(A)$ es primo o $0$.
+
+***** Demostración
+Trivialmente desde el homomorfismo unital.
+
+**** Caracterización de la característica
+$car(A)=n$ ssi $n$ es el menor entero positivo tal que $na = 0$ para
+todo $a \in A$.
+
+***** Demostración
+Si hubiera otro menor, debería pertenecer al núcleo del homomorfismo
+unital, y no podría ser generado por $n$. Si cumple la condición
+y es el menor, todo el resto de elementos del núcleo deben ser múltiplos,
+porque si no lo fueran, podríamos crear un menor con Bezout.
+
+**** Intersección de anillos
+Sea $A$ un anillo y sea $\{B_i\}_{i\in I}$ una familia de subanillos. Entonces
+$\bigcap B_i$ es subanillo. Análogo para cuerpos y subcuerpos.
+
+**** Anillo primo
+Llamamos subanillo primo de $A$ a la intersección de todos los subanillos
+de $A$.
+
+**** Clasificación de anillos primos
+El subanillo primo de un $A$ es isomorfo a $\mathbb{Z}$ si $car(A) = 0$ y
+a $\mathbb{Z}/n\mathbb{Z}$ si $car(A) = n \neq 0$. Cuando $A$ es dominio de integridad,
+o $car(A) = 0$, o $car(A)$ es primo.
+
+***** TODO Demostración
+**** Subcuerpo primo
+Llamamos subcuerpo primo de $K$ a la intersección de todos los
+subcuerpos de $K$.
+
+**** Clasificación de subcuerpos primos
+El subcuerpo primo de un cuerpo $K$ es isomorfo a $\mathbb{Q}$ cuando
+$car(K)=0$ y a $\mathbb{Z}/p\mathbb{Z}$ cuando $car(K) = p \neq 0$.
+
+**** Subanillo generado
+Sea $F/K$ extensión con $S\subseteq F$; llamamos *subanillo generado*
+$K[S]$ a la intersección de todos los subanillos de $F$ conteniendo
+a $K$ y a $S$.
+
+**** Subcuerpo generado
+Sea $F/K$ extensión con $S \subseteq F$; llamamos *subcuerpo generado*
+$K(S)$ a la intersección de todos los subcuerpos de $F$ conteniendo
+a $K$ y a $S$.
+
+**** Propiedades de subanillos y subcuerpos generados
+Para $S,T \subseteq F$ extensión de $K$, tenemos:
+
+ - $K[S \cup T] = K[S][T] = K[T][S]$
+ - $K(S \cup T) = K(S)(T) = K(T)(S)$
+
+**** Subcuerpo compuesto
+Dados $L \supset E,F \supset K$, definimos el subcuerpo compuesto
+$EF = E(F) = F(E)$.
+
+**** Conjunto de generadores
+Sea $F/K$ con $S \subseteq F$, es un subconjunto de generadores si
+$F($
 
 **** Elementos algebraicos
-     *Elemento algebraico*. $\alpha \in F$ es *algebraico* sobre $K$ si existe polinomio
-     $f \in K[x]$ tal que $f(\alpha) = 0$. Un no algebraico es *trascendente* y una extensión 
-     es *algebraica* si lo son todos sus elementos.
+$\alpha \in F$ es *algebraico* sobre $K$ si existe polinomio $f \in K[x]$ tal 
+que $f(\alpha) = 0$. 
+
+Un no algebraico es *trascendente* y una extensión es *algebraica* 
+si lo son todos sus elementos.
 
 **** Polinomios irreducibles
-     *Polinomio irreducible*. Dado $F/K$ con $\alpha \in F$
-     algebraico. Existe un único polinomio irreducible del que
-     $\alpha$ es raíz salvo asociados, llamado $Irr(\alpha)$.
-     
-***** Existencia de polinomios irreducibles
-      Tomo el núcleo del homomorfismo que evalúa un polinomio en $\alpha$. Por ser un
-      ideal en PID, estará generado por algún polinomio $f$ no nulo y no constante.
+*Polinomio irreducible*. Dado $F/K$ con $\alpha \in F$ algebraico. Existe un 
+único polinomio irreducible del que $\alpha$ es raíz salvo asociados, 
+llamado $Irr(\alpha)$.
+   
+***** Existencia y unicidad del polinomio irreducible
+Tomo el núcleo del homomorfismo que evalúa un polinomio en $\alpha$. 
+Por ser un ideal en PID, estará generado por algún polinomio $f$ 
+no nulo y no constante.
 
-      Este será irreducible, porque si no lo fuera, con $f = g_1g_2$ se tendría:
+Este será irreducible, porque si no lo fuera, con $f = g_1g_2$ se 
+tendría:
 
-      \[0 = f(\alpha) = g_1(\alpha)g_2(\alpha)\]
+\[0 = f(\alpha) = g_1(\alpha)g_2(\alpha)\]
 
-      Un polinomio de grado mínimo debería estar dentro del ideal, y por tanto ser 
-      asociado de $f$, que lo genera.
+Un polinomio de grado mínimo debería estar dentro del ideal, 
+y por tanto ser asociado de $f$, que lo genera.
 
 **** Grado de un polinomio irreducible
-     *Grado del irreducible*. Si $grad(Irr(\alpha,K)) = n$, entonces $[K(\alpha) : K] = n$ y 
-     una base de $K(\alpha)$ es $\{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}$.
+*Grado del irreducible*. Si $grad(Irr(\alpha,K)) = n$, entonces $[K(\alpha) : K] = n$ y 
+una base de $K(\alpha)$ es $\{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}$.
 
 **** Las extensiones finitas son algebraicas
-     Toda extensión finita es algebraica
+Toda extensión finita es algebraica
 
-*** 3.2. Elementos algebraicos y extensiones algebraicas
+***** TODO Demostración
 **** Existencia de clausura
-     *Teorema de Steinitz*. Todo cuerpo tiene una extensión algebraicamente 
-     cerrada.
+*Teorema de Steinitz*. Todo cuerpo tiene una extensión algebraicamente 
+cerrada.
 
 **** Homomorfismos sobre un cuerpo
      Un *homomorfismo sobre cuerpos* $K,K'$ es un homomorfismo $\phi$ sobre extensiones
@@ -1939,6 +2105,11 @@ Por simple cálculo tomando $p(x) = a_nx^n + \dots + a_1x + a_0$:
                    &= \tau(0) = 0
 \end{aligned} \]
 
+**** 4.1.6. Los endomorfismos algebraicos son automorfismos
+Sea $F/K$ una extensión algebraica y $\sigma : F \longrightarrow F$ un homomorfismo
+sobre $K$. Entonces $\sigma$ es un automorfismo
+
+***** TODO Demostración
 **** 4.1.7. Isomorfismo intercambiando conjugadas
 Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos. Sea $p$ irreducible 
 y $u_1,u_2$ raíces en la clausura de $p$ y $\sigma(p)$. Entonces existe un único 
@@ -1996,7 +2167,7 @@ Esto me da $(E_1,\sigma_1) \leq (E_1(u),\tau)$.
 
 ** 5. Extensiones normales y separables
 *** 5.1. Elementos conjugados y extensiones conjugadas
-**** Elementos conjugados
+**** 5.1.1. Elementos conjugados
 Sean $u,v \in \overline{K}$, clausura algebraica. Equivalen:
 
   1. $Irr(u,K) = Irr(v,K)$
