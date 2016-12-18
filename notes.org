@@ -1958,87 +1958,112 @@ cuyo caso sería un subespacio de la misma dimensión que $F$, y por
 tanto $F$. O debería tener grado $1$, en cuyo caso sería $K$.
 
 *** 3.2. Elementos algebraicos y extensiones algebraicas
-**** Homomorfismo unital
+**** 3.2.1. Homomorfismo unital
 Para todo anillo $A$ existe un único homomorfismo de anillos
 $1_\mathbb{Z} : \mathbb{Z} \longrightarrow A$, llamado *homorfismo unital*.
 
-**** Característica del anillo
+**** 3.2.2. Característica del anillo
 La característica de $A$ es el entero no negativo que genera
 al ideal $ker(1_\mathbb{Z})$.
 
-**** Característica en dominios de integridad
+**** 3.2.3. Característica en dominios de integridad
 Si $A$ es dominio de integridad, $car(A)$ es primo o $0$.
 
 ***** Demostración
-Trivialmente desde el homomorfismo unital.
+Trivialmente desde el homomorfismo unital. Si no fuera así,
+tendríamos $ab = 0$ enteros.
 
-**** Caracterización de la característica
+**** 3.2.4. Caracterización de la característica
 $car(A)=n$ ssi $n$ es el menor entero positivo tal que $na = 0$ para
 todo $a \in A$.
 
 ***** Demostración
 Si hubiera otro menor, debería pertenecer al núcleo del homomorfismo
 unital, y no podría ser generado por $n$. Si cumple la condición
-y es el menor, todo el resto de elementos del núcleo deben ser múltiplos,
-porque si no lo fueran, podríamos crear un menor con Bezout.
+y es el menor, todo el resto de elementos del núcleo deben ser 
+múltiplos, porque si no lo fueran, podríamos crear un menor con 
+Bezout.
 
-**** Intersección de anillos
+**** 3.2.5. Intersección de anillos
 Sea $A$ un anillo y sea $\{B_i\}_{i\in I}$ una familia de subanillos. Entonces
 $\bigcap B_i$ es subanillo. Análogo para cuerpos y subcuerpos.
 
-**** Anillo primo
-Llamamos subanillo primo de $A$ a la intersección de todos los subanillos
-de $A$.
+***** Demostración
+Si dos elementos pertenecen a todos los $B_i$, tenemos que su suma
+y su producto pertenece a cada uno de ellos.
 
-**** Clasificación de anillos primos
+**** 3.2.6. Anillo primo
+Llamamos subanillo primo de $A$ a la intersección de todos los 
+subanillos de $A$.
+
+**** 3.2.7. Clasificación de anillos primos
 El subanillo primo de un $A$ es isomorfo a $\mathbb{Z}$ si $car(A) = 0$ y
-a $\mathbb{Z}/n\mathbb{Z}$ si $car(A) = n \neq 0$. Cuando $A$ es dominio de integridad,
-o $car(A) = 0$, o $car(A)$ es primo.
+a $\mathbb{Z}/n\mathbb{Z}$ si $car(A) = n \neq 0$.
 
-***** TODO Demostración
-**** Subcuerpo primo
+***** Demostración
+En ambos casos, ellos son subanillos por ser imágenes del 
+homomorfismo unital, como se comprueba por primer teorema de
+isomorfía.
+
+**** 3.2.8. Subcuerpo primo
 Llamamos subcuerpo primo de $K$ a la intersección de todos los
 subcuerpos de $K$.
 
-**** Clasificación de subcuerpos primos
+**** 3.2.9. Clasificación de subcuerpos primos
 El subcuerpo primo de un cuerpo $K$ es isomorfo a $\mathbb{Q}$ cuando
 $car(K)=0$ y a $\mathbb{Z}/p\mathbb{Z}$ cuando $car(K) = p \neq 0$.
 
-**** Subanillo generado
+***** Demostración
+De nuevo, vuelve a tenerse una inyección de ambos por el 
+homomorfismo unital. Cualquier subanillo contendrá a $1$ y por
+tanto a este subcuerpo.
+
+**** 3.2.10. Subanillo generado
 Sea $F/K$ extensión con $S\subseteq F$; llamamos *subanillo generado*
 $K[S]$ a la intersección de todos los subanillos de $F$ conteniendo
 a $K$ y a $S$.
 
-**** Subcuerpo generado
+**** 3.2.10. Subcuerpo generado
 Sea $F/K$ extensión con $S \subseteq F$; llamamos *subcuerpo generado*
 $K(S)$ a la intersección de todos los subcuerpos de $F$ conteniendo
 a $K$ y a $S$.
 
-**** Propiedades de subanillos y subcuerpos generados
+**** 3.2.11. Propiedades de subanillos y subcuerpos generados
 Para $S,T \subseteq F$ extensión de $K$, tenemos:
 
  - $K[S \cup T] = K[S][T] = K[T][S]$
  - $K(S \cup T) = K(S)(T) = K(T)(S)$
 
-**** Subcuerpo compuesto
-Dados $L \supset E,F \supset K$, definimos el subcuerpo compuesto
+***** TODO Demostración
+**** 3.2.12. Subcuerpo compuesto
+Dados $K \subset E,F \subset L$, definimos el subcuerpo compuesto
 $EF = E(F) = F(E)$.
 
-**** Conjunto de generadores
-Sea $F/K$ con $S \subseteq F$, es un subconjunto de generadores si
-$F($
+***** Demostración
+Son iguales trivialmente desde la definición.
 
-**** Elementos algebraicos
+**** 3.2.13. Conjunto de generadores
+Sea $F/K$ con $S \subseteq F$, es un subconjunto de generadores si
+$F = K(S)$.
+
+**** 3.2.14. Extensión finitamente generada
+Una extensión $F/K$ es finitamente generada cuando tiene un
+conjunto finito de generadores. $F = K(u_1,u_2,\dots,u_n)$.
+
+**** 3.2.15. Extensiones simples
+Una extensión $F/K$ se llama simple cuando $F = K(u)$. Al $u$
+se le llama elemento primitivo para la extensión.
+
+**** 3.2.16. Elementos algebraicos
 $\alpha \in F$ es *algebraico* sobre $K$ si existe polinomio $f \in K[x]$ tal 
 que $f(\alpha) = 0$. 
 
 Un no algebraico es *trascendente* y una extensión es *algebraica* 
 si lo son todos sus elementos.
 
-**** Polinomios irreducibles
-*Polinomio irreducible*. Dado $F/K$ con $\alpha \in F$ algebraico. Existe un 
-único polinomio irreducible del que $\alpha$ es raíz salvo asociados, 
-llamado $Irr(\alpha)$.
+**** 3.2.16. Polinomios irreducibles
+Dado $F/K$ con $\alpha \in F$ algebraico. Existe un único polinomio 
+irreducible del que $\alpha$ es raíz salvo asociados, llamado $Irr(\alpha)$.
    
 ***** Existencia y unicidad del polinomio irreducible
 Tomo el núcleo del homomorfismo que evalúa un polinomio en $\alpha$. 
@@ -2053,42 +2078,174 @@ tendría:
 Un polinomio de grado mínimo debería estar dentro del ideal, 
 y por tanto ser asociado de $f$, que lo genera.
 
-**** Grado de un polinomio irreducible
-*Grado del irreducible*. Si $grad(Irr(\alpha,K)) = n$, entonces $[K(\alpha) : K] = n$ y 
-una base de $K(\alpha)$ es $\{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}$.
+**** 3.2.16. Propiedades de los polinomios irreducibles
+Sea $F/K$ extensión con $u \in F$ algebraico. Se cumple:
 
-**** Las extensiones finitas son algebraicas
-Toda extensión finita es algebraica
+ 1. $K(u) = K[u]$
+ 2. $K[u] \cong K[X]/(Irr(u,K))$
+ 3. $[K(u):K]$ es igual al grado de $Irr(u,K)$.
+ 4. $\{1,u,u^2,\dots,u^{n-1}\}$ es una base de $K[u]$ sobre $K$.
+ 5. $f(u)=0$ ssi $Irr(u,K) \mid f$.
+
+Llamamos *grado* del elemento $u$ al grado de $Irr(u,K)$.
+
+***** Demostración
+****** Punto 1
+Sabemos que el anillo generado está dentro del cuerpo generado,
+y además, $u^{-1}$ está en el anillo generado porque, si su polinomio
+irreducible nos da $\sum a_iu^i = 0$, tenemos:
+
+\[ u \left(a_nu^{n-1} + a_{n-1}u^{n-2} + \dots a_1 \right)\frac{1}{a_0} = 1\]
+
+****** Punto 2
+Aplicando el primer teorema de isomorfía al morfismo evaluación,
+tenemos el resultado.
+
+****** Punto 3
+Tenemos que $1,u,u^2,\dots,u^{n-1}$ son linealmente independientes porque
+una relación lineal entre ellos daría un polinomio menor que el
+mínimo. Además son base trivialmente porque $u^{-1}$ puede expresarse
+linealmente como polinomio suyo como mostramos [[*Punto 1][antes]] y porque
+cuaquier expresión polinómica de grado mayor a $n$ puede dividirse 
+por el polinomio irreducible para obtener otra de grado menor.
+
+****** Punto 4
+La misma demostración [[*Punto 3][anterior]].
+
+****** Punto 5
+Un polinomio verificando $f(u)=0$ está dentro del núcleo del
+homomorfismo evaluación.
+
+**** 3.2.17. Algebraicos en una torre de cuerpos
+Sea $K \subset F \subset E$ con $u \in E$ algebraico sobre $K$, entonces $u$ es
+algebraico sobre $F$ y $Irr(u,F)$ divide a $Irr(u,K)$.
+
+***** Demostración
+Notamos que $Irr(u,K)$ es también un polinomio sobre $F$ que anula
+a $u$, así que, por las propiedades de los polinomios irreducibles,
+se debe tener $Irr(u,F) \mid Irr(u,K)$.
+
+**** 3.2.18. Extensiones algebraicas
+Una extensión se llama *algebraica* si todos sus elementos lo son.
+Es *trascendente* en otro caso.
+
+**** 3.2.19. Elementos algebraicamente independientes
+Los elementos $\{u_i \mid i\in I\}$ son algebraicamente independientes si el
+homomorfismo de evaluación sobre el cuerpo de polinomios en varias
+variables $K[X_i \mid i\in I]$ es inyectivo.
+
+**** 3.2.20. Extensiones puramente trascendentes
+Una extensión $F/K$ se llama puramente trascendente si $F = K(S)$
+donde $S$ un conjunto de algebraicamente independientes.
+
+**** 3.2.21. Generación finita de elementos
+Para $F/K$ extensión cualquiera $S \subseteq F$, se tiene:
+
+ 1. Para $u \in K[S]$ existe un subconjunto $\{u_1,\dots,u_n\} \subset S$ tal que
+    $u \in K[u_1,\dots,u_n]$.
+ 2. Para $u \in K(S)$ existe un subconjunto $\{u_1,\dots,u_n\} \subset S$ tal que
+    $u \in K(u_1,\dots,u_n)$.
+
+***** Demostración
+Tener $u \in K[S]$ nos da una expresión polinómica finita como elementos
+de $S$. Los elementos involucrados en esa expresión crean una extensión
+finita en la que está $u$. Análogo en el caso de cuerpos.
+
+**** 3.2.22. Generacion del compuesto
+Sean $K \subset E,K(S) \subset L$, entonces $EK(S) = E(S)$.
 
 ***** TODO Demostración
-**** Existencia de clausura
+**** 3.2.23. Grado de una extensión compuesta
+Sean $K \subset E,F \subset L$. Entonces:
+
+\[ [EF:K] \leq [E:K][F:K]\]
+
+***** Demostración
+En el caso finito, el cuerpo generado por las bases de $E$ y
+de $F$ contiene a todo elemento de $E$ y de $F$, por lo que es
+sistema de generadores de $EF$.
+
+**** 3.2.24. Extensiones primas relativas
+Sean $K \subset E,F \subset L$ con $n = [E:K]$ y $m = [F:K]$ primos relativos.
+Entonces $[EF:K] = [E:K][F:K]$.
+
+***** Demostración
+Sea $\{f_i\}$ base de $F$ sobre $K$. Tenemos que es sistema de generadores
+de $F$ sobre $E$, y por tanto, de $EF$ sobre $E$. Así $[EF:E] \leq [F:K]$
+y análogamente $[EF:F] \leq [E:K]$.
+
+Por otro lado, por teorema del grado tenemos:
+
+\[[EF:K] = [EF:F][F:K] = [EF:F]m\]
+\[[EF:K] = [EF:E][E:K] = [EF:E]n\] 
+
+Así, por ser primos relativos, tenemos $n \mid [EF:E]$ y $m \mid [EF:F]$; 
+teniéndose finalmente:
+
+\[ [EF:F] = [E:K] \]
+\[ [EF:E] = [F:K] \]
+
+**** 3.2.25. Extensión finitamente generada por algebraicos es finita
+Una extensión $F = K(u_1,\dots,u_n)$ finitamente generada por $u_i$ algebraicos
+es finita.
+
+***** Demostración
+Todo elemento algebraico cumple una relación polinómica. Así,
+todo elemento de grado igual o mayor a esta relación, puede
+expresarse como elementos de grado menor.
+
+Si tenemos $e_i$ como el exponente mayor al que puedo elevar $u_i$ sin
+que pueda ser reescrito, tenemos un sistema de generadores de $F$ 
+finito como:
+
+\[\{ 1, u_1^1, u_1^2, \dots u_1^{e_i}, u_2^1, \dots, u_2^{e_j}, u_3^1,\dots\}\]
+
+**** 3.2.26. Extensión generada por algebraicos es algebraica
+Una extensión $K(S)/K$ es algebraica sobre $K$ ssi todo $u \in S$ es 
+algebraico sobre $K$.
+
+***** TODO Demostración
+Si es algebraica, en particular lo es cada elemento de $S$.
+Si lo son los elementos de $S$, podemos ver que cualquier 
+
+**** 3.2.27. Una extensión algebraica y finitamente generada es finita
+Una extensión es finita ssi es algebraica y finitamente generada
+
+***** TODO Demostración
+
+**** 3.2.28. Caracterización de elementos algebraicos
+Un elemento $u \in F$ es algebraico sobre $K$ ssi existe una extensión
+finita intermedia $E/K$ donde $u \in E$.
+
+***** TODO Demostración
+
+**** 3.2.29. Torre algebraica
+Sean $K \subset F \subset E$, $E/K$ es algebraica ssi $E/F$ y $F/K$ son ambas 
+algebraicas.
+
+***** TODO Demostración
+
+**** 3.2.30. Clausura algebraica relativa
+Dada $F/K$ extensión, el conjunto de elementos algebraicos forman un
+subcuerpo de $F$. Llamado *clausura algebraica relativa* de $F$.
+
+***** TODO Demostración
+**** DONE Existencia de clausura
 *Teorema de Steinitz*. Todo cuerpo tiene una extensión algebraicamente 
 cerrada.
 
-**** Homomorfismos sobre un cuerpo
+**** DONE Homomorfismos sobre un cuerpo
      Un *homomorfismo sobre cuerpos* $K,K'$ es un homomorfismo $\phi$ sobre extensiones
      $F,F'$ con un isomorfismo $\omega : K \longrightarrow K'$ debe cumplir: $\phi|_K = \omega$. 
      Cuando no se especifica, se asume la identidad.
 
      \[ \phi : F/K \longrightarrow F'/K' \]
 
-**** Automorfismos entre extensiones
+**** DONE Automorfismos entre extensiones
      Un automofismo de extensiones es un homomorfismo sobre el cuerpo $K$, 
      $\phi : F/K \longrightarrow F/K$ que es isomorfismo.
 
 ** 4. Cuerpos de descomposición
-*** Teorema de Kronecker
-    *Teorema de Kronecker*. Sea $f$ de grado positivo sobre $K$, entonces existe
-    una extensión $F/K$ tal que existe $u \in F$ con $f(u) = 0$.
-
-**** Demostración
-     Puedo descomponer en irreducibles $f = f_1f_2\dots f_m$; y tener una extensión 
-     cumpliendo lo pedido:
-
-     \[ F = \frac{K[X]}{(f_1)}\]
-
-     \[u = x + (f_1)\]
-
 *** Extensión de homomorfismos
 *Extensión de un homomorfismo*. $\tau : F_1 \longrightarrow F_2$ es extensión de 
 $\sigma : K_1 \longrightarrow K_2$ cuando son dos extensiones $F/K$ y se cumple
@@ -2138,17 +2295,44 @@ Donde $\sigma$ es inducido por el isomorfismo de extensión a polinomios.
 #+end_proofs
 
 *** 4.1. Cuerpo de descomposición
+**** 4.1.1. Teorema de Kronecker
+Sea $f$ de grado no nulo sobre $K$, entonces existe
+una extensión $F/K$ tal que existe $u \in F$ con $f(u) = 0$.
+
+***** Demostración
+Puedo descomponer en irreducibles $f = f_1f_2\dots f_m$; y tener una 
+extensión cumpliendo lo pedido:
+
+\[ F = \frac{K[X]}{(f_1)}\]
+
+Para el elemento $u = x + (f_1)$.
+
+**** 4.1.2. Extensión de un homomorfismo
+Dadas extensiones $F_1/K_1, F_2/K_2$, decimos que $\tau : F_1 \longrightarrow F_2$ 
+es una extensión de $\sigma : K_1 \longrightarrow K_2$, ambos homomorfismos de 
+cuerpos, cuando $\tau|_{K_1} = \sigma$.
+
 **** 4.1.3. Isomorfismo extendido a polinomios
 Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos. Existe una única extensión a
 un isomorfismo $\sigma : K_1[X] \longrightarrow K_2[X]$ cumpliendo que $\sigma(X) = X$.
 
 ***** Demostración
-Por la propiedad universal por el anillo de polinomios.
+Por la propiedad universal por el anillo de polinomios. Las imágenes
+de todos los elementos están fijas excepto la de $X$ y sus múltiplos.
 
-**** 4.1.5. Isomorfismo de raíces de polinomios 
-Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos y sean $F_1/K_1, F_2/K_2$ extensiones
-algebraicas. Dado un homomorfismo $\tau : F_1 \longrightarrow F_2$ sobre $\sigma$; si $u$ es raíz de $p$
-entonces $\tau(u)$ es raíz de $\sigma(p)$.
+**** 4.1.4. Isomorfismos respetan irreducibilidad
+Sea $f_1 \in K_1[X]$ irreducible sobre $K_1$, entonces $\sigma(f)$ es irreducible sobre
+$K_2$; donde $\sigma$ es la [[*4.1.3. Isomorfismo extendido a polinomios][extensión]] a polinomios de un isomorfismo.
+
+***** Demostración
+Si tuviéramos $f_1 = gh$ dos polinomios no triviales, su grado se 
+conservaría al apliacr el isomorfismo y tendríamos 
+$\sigma(f)=\sigma(g)\sigma(h)$.
+
+**** 4.1.5. Isomorfismo de raíces de polinomios
+Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos y sean $F_1/K_1, F_2/K_2$ 
+extensiones algebraicas. Dado un homomorfismo $\tau : F_1 \longrightarrow F_2$ sobre $\sigma$;
+si $u$ es raíz de $p$ entonces $\tau(u)$ es raíz de $\sigma(p)$.
 
 ***** Demostración
 Por simple cálculo tomando $p(x) = a_nx^n + \dots + a_1x + a_0$:
@@ -2160,15 +2344,23 @@ Por simple cálculo tomando $p(x) = a_nx^n + \dots + a_1x + a_0$:
                    &= \tau(0) = 0
 \end{aligned} \]
 
-**** 4.1.6. Los endomorfismos algebraicos son automorfismos
-Sea $F/K$ una extensión algebraica y $\sigma : F \longrightarrow F$ un homomorfismo
-sobre $K$. Entonces $\sigma$ es un automorfismo
+**** 4.1.6. Los endomorfismos de extensiones algebraicas son automorfismos
+Sea $F/K$ una extensión algebraica y $\tau : F/K \longrightarrow F/K$ un endomorfismo
+sobre $K$. Entonces $\tau$ es un automorfismo.
 
-***** TODO Demostración
+***** Demostración
+Tenemos que es una extensión de la identidad y que preserva [[*4.1.5. Isomorfismo de raíces de polinomios][raíces]].
+Por eso, dado un elemento $u \in F$, tomamos su $f = Irr(u,K)$. Y tenemos
+que $\{\tau^n(u)\}_{n\in \mathbb{N}}$ es una sucesión de raíces del polinomio que, por 
+inyectividad, deberá repetir los elementos en algún momento.
+
+Tendremos $\tau^m(u)=u$ y será sobreyectiva. Nótese que estamos usando
+la inyectividad de todo homomorfismo de cuerpos.
+
 **** 4.1.7. Isomorfismo intercambiando conjugadas
-Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos. Sea $p$ irreducible 
-y $u_1,u_2$ raíces en la clausura de $p$ y $\sigma(p)$. Entonces existe un único 
-isomorfismo $\tau : K_1(u_1) \longrightarrow K_2(u_2)$ sobre $\sigma$ tal que $\tau(u_1) = u_2$.
+Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos. Sea $p$ irreducible
+y $u_1,u_2$ raíces de $p$ y $\sigma(p)$ en extensiones $F_1,F_2$. Entonces existe un 
+único isomorfismo $\tau : K_1(u_1) \longrightarrow K_2(u_2)$ sobre $\sigma$ tal que $\tau(u_1) = u_2$.
 
 ***** Demostración
 El isomorfismo buscado sale como composición:
@@ -2177,6 +2369,136 @@ El isomorfismo buscado sale como composición:
   \frac{K_1[X]}{(f_1)} \cong 
   \frac{K_2[X]}{(f_2)} \cong
   K_2(u_2)\]
+
+**** 4.1.8. Número de extensiones
+El número de extensiones $\tau : K_1[u_1] \longrightarrow F_2$ sobre $\sigma$ es el número de
+raíces distintas de $\sigma(p)$ en $F_2$.
+
+***** Demostración
+Por la [[*4.1.7. Isomorfismo intercambiando conjugadas][proposición anterior]], una para cada raíz de $\sigma(p)$. Nótese
+que no puede haber más porque la imagen de $u_1$ determina completamente
+el morfismo y porque la imagen de raíz [[*4.1.5. Isomorfismo de raíces de polinomios][debe ser]] una raíz.
+
+**** 4.1.9. Cuerpo de descomposición
+Un $E/K$ es un cuerpo de descomposición de $f$ ssi existen $u_1,\dots,u_n \in E$ 
+tales que $f = (X-u_1)\dots(X-u_n)$ y $E = K(u_1,\dots,u_n)$.
+
+**** 4.1.10. Cuerpo de descomposición de una torre
+Sean $K \subset F \subset E$. Si $E$ es cuerpo de descomposición de $f$ sobre $K$, 
+también lo es de $f$ sobre $F$.
+
+***** Demostración
+Se cumple trivialmente:
+
+\[ E = K(u_1,\dots,u_n) \subset F(u_1,\dots,u_n) \subset E\]
+
+**** 4.1.11. Existencia del cuerpo de descomposición
+Cualquier $f \in K[X]$ de grado $n$ tiene un cuerpo de descomposición, 
+que además verifica $[F:K] \leq n!$
+
+***** Demostración
+Aplicamos inducción sobre el grado. En el caso $1$ tenemos una
+raíz en el cuerpo y el propio cuerpo es de descomposición, con
+grado $1$.
+
+En otro caso, por Kronecker, tenemos que existe una extensión
+en la que hay una raíz del polinomio. Tomamos esa raíz para crear
+$K(u)$. Por hipótesis de inducción, hay un cuerpo de descomposición
+de $f/(X-u)$ sobre $K(u)$, llamado $F$. Por último, podemos construir 
+un cuerpo de descomposición con sus raíces.
+
+Tenemos además que la raíz tiene menos grado que el polinomio:
+
+\[ [F:K] = [F:K(u)][K(u):K] \leq (n-1)!n = n! \]
+
+**** 4.1.12. Isomorfismo entre cuerpos de descomposición
+Sean $F_1/K_1, F_2/K_2$ cuerpos de descomposición de $f \in K_1[X]$ y 
+$\sigma(f) \in K_2[X]$; para $\sigma : K_1 \longrightarrow K_2$ isomorfismo. Entonces hay una
+extensión isomorfismo $\tau: F_1 \longrightarrow F_2$.
+
+***** Demostración
+Por inducción sobre el grado. Si ambos son de grado $1$ tenemos 
+extensiones triviales y hemos terminado.
+
+En otro caso, sea $u \in F_1$ raíz de $f$. Como $Irr(u,K) \mid f$, tenemos 
+que $\sigma(Irr(u,K)) \mid \sigma(f)$. Si tomamos una raíz $v$ de $\sigma(Irr(u,K))$ y
+aplicamos el [[*4.1.7. Isomorfismo intercambiando conjugadas][isomorfismo intercambiando conjugadas]] anterior,
+tenemos una extensión $\tau : K_1(u) \longrightarrow K_2(v)$ que lleva una en 
+otra. Ahora tomamos $f=g(X-u)$ y por inducción tenemos
+un isomorfismo extendiendo hasta el cuerpo de descomposición.
+
+**** 4.1.13. Los cuerpos de descomposición son isomorfos
+Dos cuerpos de descomposición de $f \in K[X]$ sobre $K$ son isomorfos.
+
+***** Demostración
+Trivial aplicando lo [[*4.1.12. Isomorfismo entre cuerpos de descomposición][anterior]] al isomorfismo igualdad.
+
+**** 4.1.23. Cuerpo de descomposición de una familia
+Sea ${\cal P} \subseteq K[X]$ una familia de polinomios no constantes. Una
+extensión $E/K$ es cuerpo de descomposición suyo si todo polinomio
+factoriza linealmente y es además se tiene $E = K(S)$ con:
+
+\[ S = \{ u \in E \mid \exists f \in {\cal P}: f(u)=0\} \]
+
+**** 4.1.24. Existencia del cuerpo de descomposición
+Para toda familia de polinomios existe un cuerpo de descomposición.
+
+***** Demostración
+****** Caso finito
+En el caso finito, multiplicamos toda la familia para aplicar
+la [[*4.1.11. Existencia del cuerpo de descomposición][existencia del cuerpo de descomposición]] del producto. Nótese
+que si un polinomio tiene una raíz, tiene que estar en la 
+descomposición lineal del producto.
+
+****** Caso infinito
+Cuando tenemos una familia $\{ f_\lambda \mid \lambda \in \Lambda\}$. Por inducción finita
+sobre la cardinalidad de los conjuntos, si tomamos $I \subset \Lambda$ finito, 
+podemos asignarle un cuerpo de descomposición $F_I$ tal que $I\subset J$ 
+implique $F_I \subset F_J$.
+
+Tomamos:
+
+\[F = \bigcup_{J\text{ finito}} F_J \]
+
+Las operaciones entre dos elementos de $F$ se definen en el menor
+cuerpo que contenga a los dos.
+
+Esto es un cuerpo de descomposición porque todo polinomio ya
+descompone linealmente en cualquier $F_J$ que lo contenga; y cada
+$F_J$ era ya cuerpo de descomposición de los polinomios que contenía,
+así que el cuerpo de descomposición debe al menos contener a todos
+los $F_J$.
+
+**** 4.1.25. Unicidad (esencial) del cuerpo de descomposición
+El cuerpo de descomposición de una familia de polinomios es único
+salvo isomorfismos.
+
+***** Demostración
+****** Caso finito
+Aplicamos que los cuerpos de descomposición de un polinomio
+[[*4.1.13. Los cuerpos de descomposición son isomorfos][son isomorfos]] al polinomio producto.
+
+****** Caso infinito
+Sean $F_1,F_2$ dos cuerpos de descomposición sobre $K$ de una familia
+de polinomios.
+
+Formamos el conjunto de los isomorfismos extensión de cuerpos
+intermedios y lo ordenamos por inclusión y por extensión del
+isomorfismo:
+
+\[ {\cal E} = 
+\left\{ (E,\tau) 
+\mid E \supset K;\; \tau : E \overset{\cong}\longrightarrow \tau(E)
+\right\}\]
+
+Por el caso finito, sabemos que los cuerpos de descomposición
+de las subfamilias finitas están ahí. Sea $(F,\sigma)$ maximal. Y 
+supongamos que $F \subsetneq F_1$, entonces existe alguna raíz de alguno
+de los polinomios que no está en $F$. Creando un [[*4.1.7. Isomorfismo intercambiando conjugadas][isomorfismo]]
+sobre $F$ que la llevara a su conjugada, contravendríamos maximalidad.
+
+Ahora, todo $f$ de la familia descompondría en $F$ y por $\sigma$, se las
+llevarían a $F_2$.
 
 **** Descomposición
 Un polinomio $f \in K[X]$ *descompone* en una extensión $E$ si
@@ -2203,6 +2525,103 @@ isomorfismo $K_1(u_1) \cong K_2(u_2)$ respetando $\sigma(u_1) = u_2$ a cada paso
 es trivial.
 
 *** 4.2. Clausura algebraica
+**** 4.2.1. Algebraicamente cerrado
+Un cuerpo tal que toda extensión algebraica suya sea trivial
+es un cuerpo algebraicamente cerrado.
+
+**** 4.2.2. Caracterización de los algebraicamente cerrados
+Equivalen las siguientes propiedades:
+
+ 1. Todo polinomio no constante tiene raíz en $K$.
+ 2. Todo polinomio descompone linealmente en $K$.
+ 3. Un polinomio es irreducible en $K$ ssi es de grado $1$.
+ 4. Toda extensión algebraica de $K$ es trivial.
+
+***** Demostración
+****** Implicación 1 a 2
+Como $f$ tiene raíz en $K$, podemos dividirlo por $(x-u)$, para
+obtener un nuevo polinomio de grado menor. 
+****** Implicación 2 a 3
+Trivialmente.
+****** Implicación 3 a 4
+Sea un elemento en la extensión algebraica, su irreducible
+debe ser de grado $1$, luego debe estar en el cuerpo base.
+****** Implicación 4 a 1
+Si algún polinomio no constante no tuviera raíz, aplicamos
+[[*4.1.1. Teorema de Kronecker][Teorema de Kronecker]] para crear una extensión algebraica
+no trivial.
+**** 4.2.3. Infinitud de algebraicamente cerrados
+Todo cuerpo algebraicamente cerrado es infinito.
+
+***** Demostración
+Si tengo un cuerpo finito $K$ formo el polinomio irreducible
+siguiente, que no tiene raíces en $K$:
+
+\[ 
+f(x) = \prod_{k \in K} (x-k)
+\]
+
+**** 4.2.4. Cuerpo algebraicamente cerrado de elementos algebraicos
+Sea $E/K$ con $E$ algebraicamente cerrado. Los elementos algebraicos
+de $E$ forman un cuerpo algebraicamente cerrado.
+
+***** Demostración
+Sabemos que [[*3.2.30. Clausura algebraica relativa][forman un cuerpo]]. Para ver que es algebraicamente cerrado
+vemos que todo polinomio sobre ellos tiene una raíz en $E$, por ser
+este algebraicamente cerrado. Como una raíz es algebraica, tiene
+una raíz en el subcuerpo de los algebraicos.
+
+**** 4.2.5. Clausura algebraica absoluta
+Una extensión algebraica $E/K$ es la clausura algebraica (absoluta) 
+si es una extensión algebraica y $E$ es algebraicamente cerrado.
+
+**** 4.2.6. Caracterización de la clausura algebraica
+Equivalen:
+
+ 1. $E/K$ clausura algebraica.
+ 2. $E/K$ algebraica y todo polinomio no constante $f \in K[X]$ 
+    descompone en factores lineales en $E[X]$.
+ 3. $E$ es cuerpo de descomposición de todos los polinomios no 
+    constantes de $K$.
+ 4. $E/K$ algebraica y todo no constante tiene una raíz en $E$.
+
+***** Demostración
+****** Implicación 1 a 2
+Como $E$ es algebraicamente cerrado, [[*4.2.2. Caracterización de los algebraicamente cerrados][sabemos que]] todos sus polinomios
+descomponen en factores lineales en $E[X]$.
+****** Implicación 2 a 3
+Todo polinomio descompone. Además, todo elemento de $E$ es algebraico;
+así que $K(S) = E$.
+****** Implicación 3 a 1
+$E$ está generado por elementos algebraicos, luego es algebraico.
+Además, todo polinomio no constante descompone en él, luego
+es clausura algebraica por la [[*4.2.2. Caracterización de los algebraicamente cerrados][caracterización]].
+
+**** 4.2.7. Transitividad de la clausura algebraica
+Sean $K \subset F \subset E$ torre de cuerpos, con $F/K$ algebraica. 
+Entonces $E$ es clausura algebraica de $F$ ssi lo es de $K$.
+
+***** Demostración
+Ser algebraicamente cerrado es independiente del cuerpo base de
+la extensión. Ser algebraico [[*3.2.29. Torre algebraica][equivale]] a que lo sean las dos partes.
+
+**** 4.2.8. Teorema de Steinitz
+Para todo cuerpo existe una clausura algebraica.
+
+***** Demostración
+Sabemos que [[*4.1.24. Existencia del cuerpo de descomposición][existe]] el cuerpo de descomposición de todos los polinomios
+no constantes. Por la caracterización de [[*4.2.6. Caracterización de la clausura algebraica][clausura algebraica]] sabemos
+que lo es.
+
+**** 4.2.9. Unicidad esencial de la clausura algebraica
+Dos clausuras algebraicas $E_1,E_2$ del mismo cuerpo $K$ son isomorfas 
+sobre $K$.
+
+***** Demostración
+Tenemos unicidad de esencial de los cuerpos de descomposición,
+y estos son cuerpos de descomposición de todos los polinomios
+no constantes.
+
 **** 4.2.10. Extensión de homomorfismos a algebraicas
 Sea $K \subset F \subset E$ con $E/K$ algebraica. Entonces todo $\sigma : F \longrightarrow \overline{K}$ tiene
 una extensión $\tau : E \longrightarrow \overline{K}$.
@@ -2219,6 +2638,22 @@ F \subset E_i \subset E, \sigma_i : E_i \longrightarrow \overline{K};\;
 Esto nos da el maximal $E_1$. Si $E_1 \subsetneq E$, tomo $u \in E - E_1$; y busco un
 [[*4.1.7. Isomorfismo intercambiando conjugadas][isomorfismo]] intercambiando $u$ por una conjugada también raíz de $Irr(u,K)$.
 Esto me da $(E_1,\sigma_1) \leq (E_1(u),\tau)$.
+
+**** 4.2.11. Cardinalidad de la clausura algebraica
+Sea $K$ cuerpo y $\overline{K}$ su clausura.
+
+ 1. Si $K$ es finito, $\overline{K}$ es infinito numerable
+ 2. Si $K$ es infinito, $\#K = \#\overline{K}$.
+
+***** Demostración
+****** Caso finito
+Cuando $K$ es finito, el número de polinomios irreducibles
+sobre él es infinito numerable.
+****** Caso infinito
+En el caso infinito, como máximo se tendrá la acotación que
+da el número de polinomios, que es una unión numerable:
+
+\[ \#\overline{K} \leq \#\left(\bigcup K^n\right) = \#K \]
 
 ** 5. Extensiones normales y separables
 *** 5.1. Elementos conjugados y extensiones conjugadas
