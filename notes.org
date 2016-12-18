@@ -1877,31 +1877,86 @@ Y llamamos *matriz resultante* a la matriz de la que es determinante.
 
 ** 3. Extensiones de cuerpos
 *** 3.1. Generalidades
-**** Extensiones de cuerpos
+**** 3.1.1. Extensiones de cuerpos
 Una *extensión de cuerpos* es un subcuerpo $K$ de $F$, se nota por $F/K$. 
 
-**** Grado de la extensión
+**** 3.1.2. Grado de la extensión
 Llamamos *grado* a la dimensión de $F$ como espacio vectorial.
 Notamos por $[F : K]$.
 
-**** Extensiones finitas
+**** 3.1.3. Cuerpo intermedio
+Un cuerpo intermedio entre $F$ y $K$ es cualquier subcuerpo de $F$ 
+conteniendo a $K$.
+
+**** 3.1.4. Torre de cuerpos
+Una torre es una sucesión de subcuerpos:
+
+\[F_0 \subset F_1 \subset \dots \subset F_n\]
+
+**** 3.1.5. Extensiones finitas
 Una extensión es finita ssi $[F:K]$ es finito.
 
-**** Base de una torre de inclusiones
-Sea $E \supset F \supset K$ una torre de inclusiones. Sean $\{u_i\}$ una base de $E$
-sobre $F$ y $\{v_i\}$ una base de $F$ sobre $K$.
+**** 3.1.6. Base de una torre de inclusiones
+Sea $E \supset F \supset K$ una torre de inclusiones. Sean $\{u_i\}_{i\in I}$ una base de $E$
+sobre $F$ y $\{v_j\}_{j\in J}$ una base de $F$ sobre $K$. Entonces $\{u_iv_j\}$ es una base
+de $E$ sobre $K$.
 
-***** TODO Demostración
-**** Teorema del grado
+***** Demostración
+****** Es sistema de generadores
+Si tenemos ambos sistemas de generadores, podemos escribir cada
+elemento de $E$ como:
+
+\[ e 
+= \sum u_i f_i 
+= \sum u_i \left(\sum v_j k_{ij}\right) 
+= \sum u_iv_ik_{ij}\]
+
+****** Son linealmente independientes
+Aplicando la independencia lineal de cada una de las bases:
+
+\[ \sum u_iv_jk_{ij} 
+= \sum u_i \left( \sum v_jk_{ij}\right) = 0\]
+
+Tenemos que $\sum v_jk_{ij} = 0$, luego $k_{ij} = 0$.
+
+**** 3.1.7. Teorema del grado
 Sean $K \subset F \subset E$, extensiones de cuerpos, se tiene que:
 
 \[ [E:K] = [E:F][F:K] \]
 
-***** TODO Demostración
+***** Demostración
+Teniendo una base de cada uno de ellos, calculamos la base
+de la [[*3.1.6. Base de una torre de inclusiones][torre de inclusiones]], que nos da la dimensión.
 
-**** Corolario al Teorema del grado: finitud
-**** Corolario al Teorema del grado: torres de cuerpos
-**** Corolario al Teorema del grado: extensiones primas
+**** 3.1.8. Corolario al Teorema del grado: finitud
+Sean $K \subset F \subset E$, la extensión $E/K$ es finita ssi las extensiones
+$E/F$ y $F/K$ lo son.
+
+***** Demostración
+Si ambas son finitas, podemos aplicar el [[*3.1.7. Teorema del grado][teorema del grado]]. Cuando
+$E/K$ es finita, tenemos que $E/F$ tiene como sistema generador a la
+base y $F/K$ es un subespacio de $E/K$.
+
+**** 3.1.9. Corolario al Teorema del grado: torres de cuerpos
+Sea $F_0 \subset F_1 \subset \dots \subset F_n$ torre de longitud $n$, entonces:
+
+\[ [F_n : F_0] =
+[F_n:F_{n-1}] \dots [F_2:F_1][F_1 : F_0]
+\]
+
+***** Demostración
+Por inducción sobre la longitud de la torre y aplicando el teorema
+del grado a cada paso.
+
+**** 3.1.10. Corolario al Teorema del grado: extensiones primas
+Sea $F/K$ una extensión tal que $[F:K] = p$ es primo. Entonces no
+existe ningún cuerpo intermedio propio.
+
+***** Demostración
+Usando el teorema del grado, tenemos que debería tener grado $p$, en
+cuyo caso sería un subespacio de la misma dimensión que $F$, y por
+tanto $F$. O debería tener grado $1$, en cuyo caso sería $K$.
+
 *** 3.2. Elementos algebraicos y extensiones algebraicas
 **** Homomorfismo unital
 Para todo anillo $A$ existe un único homomorfismo de anillos
@@ -2370,6 +2425,7 @@ $F/K \longrightarrow \overline{K}/K$.
 **** 5.3.5. Grado separable en torres
 Sea $K \subset F \subset E \subset \overline{K}$ entonces $[E:K]_s = [E:F]_s[F:K]_s$.
 
+***** Demostración
 **** 5.3.6. Relación de grado y grado separable
 Sea $F/K$ extensión finita, entonces $[F:K]_s \mid [F:K]$.
 
@@ -2679,11 +2735,15 @@ El que $\im(\Phi) = Gal(F/K)$ usa la normalidad de $F$.
 **** 6.4.1. Subgrupos en Galois
 Sean $E \supset F \supset K$ con $E/K$ Galois finita. Entonces $E/F$ es Galois
 finita y $Gal(E/F)$ es subgrupo de $Gal(E/K)$.
+
+***** TODO Demostración
 **** 6.4.2. Extensiones abelianas, cíclicas y solubles
 Una extensión finita se dice *abeliana, cíclica o soluble* si es
 de Galois y su grupo lo es.
+
 **** 6.4.3. Subgrupos abelianos, cíclicos y solubles
-SEa $E\supset F\supset K$ con $E/K$ *abeliana, cíclica o soluble*, 
+Sea $E\supset F\supset K$ con $E/K$ finita y *abeliana, cíclica o soluble*,
+entonces $E/F$ también es abeliana, cíclica o soluble, respectivamente.
 
 ** 7. Cuerpos finitos
 *** Estructura de los cuerpos finitos
