@@ -2034,7 +2034,10 @@ Para $S,T \subseteq F$ extensión de $K$, tenemos:
  - $K[S \cup T] = K[S][T] = K[T][S]$
  - $K(S \cup T) = K(S)(T) = K(T)(S)$
 
-***** TODO Demostración
+***** Demostración
+En cualquiera de los dos casos la definición es la intersección
+de todos los que contienen a $K$, $T$ y $S$.
+
 **** 3.2.12. Subcuerpo compuesto
 Dados $K \subset E,F \subset L$, definimos el subcuerpo compuesto
 $EF = E(F) = F(E)$.
@@ -2050,9 +2053,9 @@ $F = K(S)$.
 Una extensión $F/K$ es finitamente generada cuando tiene un
 conjunto finito de generadores. $F = K(u_1,u_2,\dots,u_n)$.
 
-**** 3.2.15. Extensiones simples
+**** 3.2.15. Extensiones simples y elementos primitivos
 Una extensión $F/K$ se llama simple cuando $F = K(u)$. Al $u$
-se le llama elemento primitivo para la extensión.
+se le llama *elemento primitivo* para la extensión.
 
 **** 3.2.16. Elementos algebraicos
 $\alpha \in F$ es *algebraico* sobre $K$ si existe polinomio $f \in K[x]$ tal 
@@ -2154,7 +2157,9 @@ finita en la que está $u$. Análogo en el caso de cuerpos.
 **** 3.2.22. Generacion del compuesto
 Sean $K \subset E,K(S) \subset L$, entonces $EK(S) = E(S)$.
 
-***** TODO Demostración
+***** Demostración
+Por definición del cuerpo compuesto, será $EK(S) = K(E)(S) = E(S)$.
+
 **** 3.2.23. Grado de una extensión compuesta
 Sean $K \subset E,F \subset L$. Entonces:
 
@@ -2162,8 +2167,8 @@ Sean $K \subset E,F \subset L$. Entonces:
 
 ***** Demostración
 En el caso finito, el cuerpo generado por las bases de $E$ y
-de $F$ contiene a todo elemento de $E$ y de $F$, por lo que es
-sistema de generadores de $EF$.
+de $F$ multiplicadas contiene a todo elemento de $E$ y de $F$, por 
+lo que es sistema de generadores de $EF$.
 
 **** 3.2.24. Extensiones primas relativas
 Sean $K \subset E,F \subset L$ con $n = [E:K]$ y $m = [F:K]$ primos relativos.
@@ -2204,32 +2209,56 @@ finito como:
 Una extensión $K(S)/K$ es algebraica sobre $K$ ssi todo $u \in S$ es 
 algebraico sobre $K$.
 
-***** TODO Demostración
+***** Demostración
 Si es algebraica, en particular lo es cada elemento de $S$.
 Si lo son los elementos de $S$, podemos ver que cualquier 
 
-**** 3.2.27. Una extensión algebraica y finitamente generada es finita
+**** 3.2.27. Finita es algebraica y finitamente generada
 Una extensión es finita ssi es algebraica y finitamente generada
 
-***** TODO Demostración
+***** Demostración
+Tenemos que extensión finitamente generada por algebraicos es
+[[*3.2.25. Extensión finitamente generada por algebraicos es finita][finita]]. Por otro lado, si es finita, tendrá una base finita que
+la genera; y para cada elemento de la base, $\{1,u,\dots,u^n\}$ no
+será linealmente independiente. Luego será finita.
 
 **** 3.2.28. Caracterización de elementos algebraicos
 Un elemento $u \in F$ es algebraico sobre $K$ ssi existe una extensión
 finita intermedia $E/K$ donde $u \in E$.
 
-***** TODO Demostración
+***** Demostración
+Si es algebraico de grado $n$, tenemos $K(u)$ algebraica y finitamente
+generada, [[*3.2.27. Una extensión algebraica y finitamente generada es finita][luego finita]]. Si existe una extensión finita intermedia, 
+será algebraica.
 
 **** 3.2.29. Torre algebraica
 Sean $K \subset F \subset E$, $E/K$ es algebraica ssi $E/F$ y $F/K$ son ambas 
 algebraicas.
 
-***** TODO Demostración
+***** Demostración
+****** Si es algebraica, lo son sus partes
+Un elemento algebraico sobre $K$ lo será sobre $F$. Y todo elemento
+de $F$ está en $E$, luego será algebraico sobre $K$.
+
+****** Si las partes son algebraicas, es algebraica
+Todo elemento $e \in E$ es algebraico sobre $F$, luego cumple algún
+polinomio con elementos en $F$. Los elementos que generan el polinomio
+en $F$ son todos algebraicos sobre $K$, luego $K$ extendido con esos
+elementos es finito. Si lo extiendo con $e$, que es algebraico sobre
+ellos, llego a otra extensión finita. Toda finita es [[*3.2.27. Finita es algebraica y finitamente generada][algebraica]].
 
 **** 3.2.30. Clausura algebraica relativa
 Dada $F/K$ extensión, el conjunto de elementos algebraicos forman un
-subcuerpo de $F$. Llamado *clausura algebraica relativa* de $F$.
+subcuerpo de $F$. Llamado *clausura algebraica relativa* de $K$ en $F$.
 
-***** TODO Demostración
+***** Demostración
+Sean $a,b \in F$ algebraicos; entonces $K(a,b)$ es finito, luego $a+b$ y
+$ab$ son también algebraicos.
+
+***** Demostración constructiva para la suma
+Se puede [[http://mathoverflow.net/a/81640/45365][encontrar constructivamente]] un polinomio que tenga como
+raíz a la suma de dos algebraicos.
+
 **** DONE Existencia de clausura
 *Teorema de Steinitz*. Todo cuerpo tiene una extensión algebraicamente 
 cerrada.
