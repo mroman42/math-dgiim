@@ -2905,52 +2905,156 @@ no puede tenerlas el primero.
 El *grado separable* es cardinal del conjunto de homomorfismos de
 $F/K \longrightarrow \overline{K}/K$.
 
-\[ [F : K]_s = \#\{\sigma : F/K \longrightarrow \overline{K}/K \text{ sobre } K\}\]
+\[ [F : K]_s = \#\{F/K \longrightarrow \overline{K}/K\}\]
 
 **** 5.3.5. Grado separable en torres
 Sea $K \subset F \subset E \subset \overline{K}$ entonces $[E:K]_s = [E:F]_s[F:K]_s$.
 
 ***** Demostración
+****** Con dos homomorfismos construyo el mayor
+Dados $\sigma : F/K \longrightarrow \overline{K}/K$ y $\psi : E/F \longrightarrow \overline{K}/F$, puedo extender $\sigma$ al
+algebraico $E$ para tener $\sigma^\ast : E/K \longrightarrow \overline{K}/K$. Ahora, la composición
+$\sigma^\ast \circ \psi$, me da el homomorfismo buscado.
+
+****** Y es único
+Supongamos que $\sigma^\ast \circ \psi = \sigma'^\ast \circ \psi'$; como deben ser iguales para 
+cualquier $f \in F$, se tiene $\sigma = \sigma'$. Ahora, si tomamos la misma extensión
+para cada elemento, $\sigma^\ast = \sigma'^\ast$ y entoces por inyectividad $\psi = \psi'$.
+
+Así tenemos ya:
+
+\[ [E:K]_S \geq [E:F]_S[F:K]_S \]
+
+****** Con el mayor construyo los dos menores
+Dado un $\sigma : E/K \longrightarrow \overline{K}/K$, para cada $\sigma|_F$ construyo una extensión
+a la clausura, $\tau : \overline{K}/K \longrightarrow \overline{K}/K$, que es isomorfismo. Como 
+es isomorfismo podemos construirle inversa para tener 
+$\tau^{-1} : \overline{K}/K \longrightarrow \overline{K}/K$. A la vez, podemos extender todos los $\sigma$ a
+la clausura algebraica como $\sigma^\ast$.
+
+Ahora bien, como $\tau|_F = \sigma|_F$, tenemos que $\sigma^\ast \circ \tau^{-1}$ deja fijo a $F$. 
+Así, hemos partido $\sigma$ en $\sigma^\ast \circ \tau^{-1}|_E$ y $\sigma|_F$.
+
+****** Y son únicas
+Supongamos que tenemos $\sigma|_F = \sigma'|_F$, entonces las dos extensiones $\tau$
+las hemos tomado iguales. Si tenemos $\sigma \circ \tau^{-1}|_E = \sigma' \circ \tau^{-1}|_E$, como $\tau^{-1}$
+es sobreyectiva, tenemos $\sigma^\ast|_E = \sigma'^\ast|_E$, y por tanto $\sigma = \sigma'$.
+
+Así tenemos que:
+
+\[ [E:K]_S \leq [E:F]_S[F:K]_S \]
+
 **** 5.3.6. Relación de grado y grado separable
 Sea $F/K$ extensión finita, entonces $[F:K]_s \mid [F:K]$.
+
+***** Demostración
+****** Caso simple
+Sea $K(u)$ la extensión, con polinomio $Irr(u,K)$ de grado $n$. 
+Si la raíz $u$ tiene multiplicidad $m$ en el polinomio, todas las
+raíces del polinomio tienen la misma multiplicidad y hay
+$n/m$ raíces distintas.
+
+Cada homormofismo quedará determinado por la imagen de $u$, y
+tenemos $n/m$ imágenes distintas para $u$.
+
+****** Caso compuesto
+Ahora procedemos por inducción sobre el grado de la extensión. 
+Tomamos un elemento de la base y hacemos:
+
+\[ [F:K(u)]_S[K(u):K]_S  \mid  [F:K(u)][K(u):K] \]
+
+Lo primero es divisible por el caso simple y lo segundo por
+hipótesis de inducción.
 
 **** 5.3.7. Igualdad de grados en torres
 Sea $K \subset F \subset E$, con $E/K$. Entonces $[E:K]_s = [E:K]$ ssi 
 $[E:F]_s = [E:F]$ y $[F:K]_s = [F:K]$.
 
+***** Demostración
+Tenemos que deben tenerse ambos casos de igualdad en:
+
+\[
+[E:K]_S = [E:F]_S[F:K]_S \leq [E:F][F:K] = [E:K]
+\]
+
 **** 5.3.8. Caracterización de extensión separable
 La extensión finita $E/K$ es separable ssi $[E:K]_s = [E:K]$.
+
+***** Demostración
+Usamos la idea de la demostración de la relación con el grado.
+En el caso simple tenemos $[K(u):K]_S = [K(u):K]$ sólo cuando la
+multiplicidad de cada raíz es uno. En el caso compuesto exigimos
+eso a cada paso.
 
 **** 5.3.9. Extensión por un conjunto separable
 Para $K(S)/K$ algebraica es separable ssi todo elemento de $S$ es
 separable sobre $K$.
+
+***** Demostración
+La suma o producto de elementos separables [[http://math.stackexchange.com/a/82837/85067][es separable]].
 
 **** 5.3.10. Propiedades de extensiones separables
 Las extensiones separables cumplen:
 
  1. Para $K \subset F \subset E$, se tiene $E/K$ separable ssi 
     $E/F$ y $F/K$ separables.
- 2. Sea $E/K$ separable y $H/K$ extensión, entonces $EH/H$ es 
-    separable.
+ 2. Sea $E/K$ algebraica separable y $H/K$ extensión, entonces $EH/H$ 
+    es separable.
  3. Sean $E/K$ y $F/K$ separables, entonces $EF/K$ es separable.
+
+***** Demostración
+****** Punto 1
+Simplemente usar que la igualdad de grados de separabilidad
+se da en [[*5.3.7. Igualdad de grados en torres][torres]] y que equivale a la [[*5.3.8. Caracterización de extensión separable][separabilidad]].
+
+****** Punto 2
+Tenemos $EH/H = H(E)/H$. Que sea separable [[*5.3.9. Extensión por un conjunto separable][equivale]] a que
+cada elemento de $E$ lo sea. Pero $Irr(e,H) \mid Irr(e,K)$, y si uno
+tiene sólo raíces simples, el otro las tendrá también.
+
+****** Punto 3
+Tenemos $K(E,F)/K$ separable por serlo todos los elementos en 
+$E,F$.
 
 **** 5.3.11. La clausura normal de un separable es separable
 Sea $F/K$ separable y $E/K$ su clausura normal. Entonces $E/K$ es
 separable.
 
+***** Demostración
+Si extiendo $F$ con todas las raíces de los irreducibles de sus
+elementos, tengo la clausura normal; porque debe contenerlas
+y es normal, así que es la mínima. Como cada una de ellas es
+separable porque tiene como irreducible el mismo irreducible
+de un elemento de $F$, la [[*5.3.9. Extensión por un conjunto separable][extensión entera]] es separable.
+
 **** 5.3.12. Clausura separable
 El conjunto de todos los elementos de $\overline{K}$ separables sobre $K$ forman
 un subcuerpo $K^{sep}$ que se llama *clausura separable*.
 
+***** Demostración
+La suma o producto de elementos separables es separable, como
+demostramos [[*5.3.9. Extensión por un conjunto separable][anteriormente]].
+
 **** 5.3.13. Teorema del elemento primitivo
 Sea $E/K$ una extensión finita. Es simple ssi el conjunto de cuerpos
-intermedios $\{ F \mid K \subset F \subset E\}$ es finito. Si una extensión es finita
+intermedios $\{ F \mid K \subset F \subset E\}$ es finito.
+
+***** TODO Demostración
+
+**** 5.3.13. Finita y separable es simple
+Una extensión finita y separable es simple.
+
+***** TODO Demostración
+
+***** Contraejemplo: cuerpo finito no simple
+Tenemos [[https://en.wikipedia.org/wiki/Primitive_element_theorem#Counterexamples][contraejemplos]] en característica $p$ con cuerpos de
+dimensión $p^2$.
 
 **** 5.3.14. Endomorfismo de Frobenius
 Sea $K$ de característica de $p$. Llamamos *endomorfismo de Frobenius* 
 a $\phi(u) = u^p$.
 
-**** 5.3.15. Caracterización de cuerpos perfectos
+**** 5.3.15. Cuerpos perfectos
 Para $K$ cuerpo equivalen:
 
  1. Todo $f \in K[X]$ irreducible tiene raíces simples.
@@ -2959,7 +3063,38 @@ Para $K$ cuerpo equivalen:
  4. $car(K)=0$ ó $car(K)=p$, y el endomorfismo de Frobenius es 
     sobreyectivo.
 
-Y en ese caso, llamamos a $K$ cuerpo perfecto.
+Y en ese caso, llamamos a $K$ *cuerpo perfecto*.
+
+***** Demostración
+****** Implicación 1 a 2
+Todo elemento de la extensión cumple algún polinomio,
+y son todos separables, luego es separable.
+
+****** Implicación 2 a 3
+Trivial
+
+****** Implicación 3 a 4
+Supongamos que no fuera sobreyectivo, existe $y \neq x^p$.
+Si tomamos $(x^p-y)$, tenemos que es irreducible. Y si creamos
+entonces $z^p = y$ tendríamos una extensión no finita no
+separable.
+
+# TODO: ¿Por qué es irreducible? Por Eisenstein en algún cuerpo 
+# raro podría tenerse.
+
+****** Implicación 4 a 1 en característica 0
+En característica $0$, un polinomio no puede dividir a su derivada,
+que será de grado menor, así que un irreducible no puede tener raíces
+dobles.
+
+****** Implicación 4 a 1 en característica p
+Para que un irreducible divida a la derivada, que debe ser de grado
+menor, se debe tener que sea $0$. El polinomio original debe ser
+de la forma  $f(x^p)$ para que al derivarlo se anule.
+
+Cuando Frobenius es automorfismo, podemos escribir $f(x^p) = (g(x))^p$,
+contraviniendo irreducibilidad. Todos los polinomios deben tener
+raíces simples.
 
 **** 5.3.17. Ejemplos de cuerpos perfectos
 Son perfectos:
@@ -2967,6 +3102,15 @@ Son perfectos:
  1. Todo cuerpo de característica cero.
  2. Todo cuerpo finito.
  3. Todo cuerpo algebraicamente cerrado.
+    
+***** Demostración
+****** Punto 1
+Trivial desde la [[*5.3.15. Cuerpos perfectos][caracterización]].
+****** Punto 2
+En todo cuerpo finito, un endomorfismo es sobreyectivo.
+****** Punto 3
+En un algebraicamente cerrado, todo irreducible es lineal y
+tiene raíces simples.
 
 *** 5.4. Derivada y raíces múltiples
 **** 5.4.1. Raíces
@@ -3006,12 +3150,16 @@ irreducibles tienen sólo raíces simples.
 *** 6.1. Grupos de automorfismos
 **** 6.1.1. Espacio vectorial de las aplicaciones de un conjunto
 Sea $S$ un conjunto. Las aplicaciones $Fun(S,F)$ con la suma y producto
-de escalares elevados desde $F$ forma un espacio vectorial de dimensión
+de escalares elevados desde $F$ forman un espacio vectorial de dimensión
 $|S|$.
+
+***** Demostración
+Simplemente comprobar que cumplen las propiedades de espacio 
+vectorial.
 
 **** 6.1.2. Proposición al lema de Dedekind
 Sean $\sigma_1,\dots, \sigma_m : G \longrightarrow F^\times$ homomorfismos desde un grupo $G$ al grupo 
-multiplicativo de un cuerpo $F$. Ssi son distintos, son linealmente 
+multiplicativo de un cuerpo $F$. Son distintos ssi son linealmente 
 independientes sobre $F$.
 
 ***** Demostración
@@ -3029,15 +3177,16 @@ multiplicamos por $\sigma_s(y)$ obtenemos:
 \[0 = b_1(\sigma_1(y)-\sigma_s(y))\sigma_1 + \dots + b_{s-1}(\sigma_{s-1}(y) - \sigma_s(y)) \sigma_{s-1}\]
 
 Que es una relación con el primer término no nulo y que 
-contradice minimalidad.
+contradice minimalidad, luego deben ser iguales.
 
 **** 6.1.3. Lema de Dedekind
 Un conjunto de homomorfismos de cuerpos $F_1 \longrightarrow F_2$ que sean distintos, 
 entonces son linealmente independientes sobre $F_2$.
 
 ***** Demostración
-      Desde el lema anterior, tenemos que son linealmente independientes una
-      vez restringidos a $F_1^\times \longrightarrow F_2^\times$, el añadirles el $0$ no los vuelve dependientes.
+Desde el lema anterior, tenemos que son linealmente independientes 
+una vez restringidos a $F_1^\times \longrightarrow F_2^\times$, el añadirles el $0$ no los vuelve 
+dependientes.
 
 **** 6.1.4. Acotación del número de homomorfismos sobre K
 Si $[F : K] = n$, existen como máximo $n$ morfismos distintos 
@@ -3046,18 +3195,18 @@ sobre $K$ hacia cualquier otro cuerpo:
 \[|Hom(F/K,E/K)| \leq n\]
 
 ***** Demostración
-      Sea $\{u_1,\dots,u_n\}$ base de $F$, y supongamos $n+1$ homomorfismos distintos.
-      El siguiente sistema de ecuaciones tiene solución no trivial porque tiene 
-      $n+1$ incógnitas y tiene $n$ ecuaciones.
+Sea $\{u_1,\dots,u_n\}$ base de $F$, y supongamos $n+1$ homomorfismos distintos.
+El siguiente sistema de ecuaciones tiene solución no trivial porque tiene 
+$n+1$ incógnitas y tiene $n$ ecuaciones.
       
-      \[ X_1\sigma_1(u_j) + \dots + X_{n+1}\sigma_{n+1}(u_j) = 0 
-      \qquad j = 1,\dots,n\]
+\[ X_1\sigma_1(u_j) + \dots + X_{n+1}\sigma_{n+1}(u_j) = 0 
+\qquad j = 1,\dots,n\]
       
-      Sea $c_1,\dots,c_{n+1} \in E$ la solución, entonces se tiene:
+Sea $c_1,\dots,c_{n+1} \in E$ la solución, entonces se tiene:
 
-      \[(c_1\sigma_1 + \dots + c_{n+1}\sigma_{n+1})(u) = 0\]
+\[(c_1\sigma_1 + \dots + c_{n+1}\sigma_{n+1})(u) = 0\]
 
-      Luego son linealmente dependientes y no pueden ser distintos.
+Luego son linealmente dependientes y no pueden ser distintos.
 
 **** 6.1.5. Grupo de extensión
 Para toda extensión finita $F/K$ llamamos *grupo de la 
