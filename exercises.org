@@ -1163,6 +1163,69 @@ sage: G.subgroups()
     Como $g$ es el polinomio irreducible de cualesquiera dos raíces suyas, estas son
     conjugadas y existe un isomorfismo $\sigma : \overline{K} \longrightarrow \overline{K}$. Como $f/K$ entendemos que es
     normal, ese isomorfismo se restringe a $f/K$.
+** Semana 10
+*** Ejercicio 7.29 
+**** Punto 1
+Si es irreducible, teníamos por el ejercicio de Semana 9 que
+su grupo sería un subgrupo transitivo de $S_4$.
+
+Como si $\alpha$ es raíz lo es $-\alpha$, tenemos que como mucho habrá $8$ automorfismos.
+Fijada la imagen de $\alpha$ entre las cuatro posibles, queda fijada la imagen
+de $-\alpha$, así, sólo quedan dos posibles imágenes para $\beta$. No puede ser
+isomorfo por tanto a $S_4$ o a $A_4$.
+
+**** Punto 2
+Estamos en el caso del punto anterior por el polinomio $(x^2-n)(x^2-m)$.
+El grupo no es trivial porque $\sqrt{n},\sqrt{m}$ no son racionales. No puede
+tener automorfismos que lleven $\sqrt{n}$ en $\sqrt{m}$ porque $\sqrt{nm}$ no es un
+cuadrado y entonces se tiene $n \neq m$.
+
+Fijada la imagen de $\sqrt{n}$ entre dos posibles, sólo queda la imagen de 
+$\sqrt{m}$ entre dos posibles. No puede ser por tanto $D_4$, y no puede ser
+un grupo cíclico porque tiene elementos de orden $2$. Debe ser $V$.
+
+**** Punto 3
+Como $\mathbb{Q}(\sqrt{n}+\sqrt{m})$ genera una extensión de grado 4, será de grado 4
+su polinomio irreducible, ya que hemos dicho que $\sqrt{nm}$ no es racional
+y tenemos que:
+
+\[ \frac{\sqrt{nm}}{\sqrt{n}+\sqrt{m}} = \frac{1}{\sqrt{1/n}+\sqrt{1/m}}\]
+
+Ambos irreducibles por serlo $\sqrt{n}+\sqrt{m}$.
+
+Por último, comprobamos que es un polinomio que lo tiene como raíz:
+
+\[ x^4 - 2(n+m) x^2 + n^2 -2nm + m^2\]
+
+A este polinomio llegamos simplemente manipulando algebraicamente
+las representaciones de $(\sqrt{n}+\sqrt{m})^2$ y $(\sqrt{n}+\sqrt{m})^4$.
+
+**** Punto 4
+Si tomamos un elemento en $u \in F-\mathbb{Q}$, tenemos que $[F:\mathbb{Q}(u)]$ podría
+ser $2$ o $1$. Si fuera $1$, entonces $\{1,u,u^2,u^3\}$ es base y $[F : Q(u^2)]$ sería
+de grado $2$. Tendríamos un cíclico. Si fuera $2$, tenemos $u^2 \in \mathbb{Q}$,
+como buscamos.
+
+**** Punto 5
+Tomamos $f_1(x) = (x^2-2)(x^2-3)$, que hemos demostrado en el punto
+2 que funciona. $f_2(x) = x^4+3$ tiene grupo isomorfo a $D_3$.
+En el punto 7 tenemos un ejemplo para $f_3$ en $x^4+5x^2+5$, que es
+irreducible por Eisenstein en módulo 2.
+
+**** Punto 6
+Si tengo raíces $u,-u,v,-v$, tengo $\sqrt{c} = \pm uv$ racional. Cualquier
+automorfismo de grado cuatro de los posibles llevaría $u \mapsto v$
+$v \mapsto -u$, por lo que cambiaría el signo de un racional.
+
+**** Punto 7
+Si resolvemos la ecuación de grado $4$ tenemos:
+
+\[ \sqrt{c} = uv \]
+\[ \sqrt{b^2-4c} = (u^2-v^2)\]
+
+El producto de ambas es racional, pero uno de los automorfismos de
+grado dos que está en $V$ y en $D_4$, que lleva $u \mapsto v$, $v \mapsto u$, cambiaría
+el signo de un real.
 * Análisis funcional
 ** 1. Espacios normados
 *** Ejercicio 3
@@ -1604,7 +1667,6 @@ Que tiene imagen de norma:
 \[ \left( \sum_{k=0}^n |x_k|^q  \right)^{1/q}\]
 
 Mientras que él tiene norma $1$.
-
 
 * Álgebra conmutativa y computacional
 ** Relación 1
