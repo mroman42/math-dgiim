@@ -2154,7 +2154,7 @@ Tener $u \in K[S]$ nos da una expresión polinómica finita como elementos
 de $S$. Los elementos involucrados en esa expresión crean una extensión
 finita en la que está $u$. Análogo en el caso de cuerpos.
 
-**** 3.2.22. Generacion del compuesto
+**** 3.2.22. Generación del compuesto
 Sean $K \subset E,K(S) \subset L$, entonces $EK(S) = E(S)$.
 
 ***** Demostración
@@ -2355,7 +2355,7 @@ $K_2$; donde $\sigma$ es la [[*4.1.3. Isomorfismo extendido a polinomios][extens
 
 ***** Demostración
 Si tuviéramos $f_1 = gh$ dos polinomios no triviales, su grado se 
-conservaría al apliacr el isomorfismo y tendríamos 
+conservaría al aplicar el isomorfismo y tendríamos
 $\sigma(f)=\sigma(g)\sigma(h)$.
 
 **** 4.1.5. Isomorfismo de raíces de polinomios
@@ -2412,7 +2412,11 @@ el morfismo y porque la imagen de raíz [[*4.1.5. Isomorfismo de raíces de poli
 Un $E/K$ es un cuerpo de descomposición de $f$ ssi existen $u_1,\dots,u_n \in E$ 
 tales que $f = (X-u_1)\dots(X-u_n)$ y $E = K(u_1,\dots,u_n)$.
 
-**** 4.1.10. Cuerpo de descomposición de una torre
+***** Caracterización
+Nótese que es el mínimo en el que factoriza linealmente. Cualquier
+otro en el que factorice linealmente necesita contar con sus raíces.
+
+**** 4.1.10. Cuerpo de descomposición en una torre
 Sean $K \subset F \subset E$. Si $E$ es cuerpo de descomposición de $f$ sobre $K$, 
 también lo es de $f$ sobre $F$.
 
@@ -2430,7 +2434,7 @@ Aplicamos inducción sobre el grado. En el caso $1$ tenemos una
 raíz en el cuerpo y el propio cuerpo es de descomposición, con
 grado $1$.
 
-En otro caso, por Kronecker, tenemos que existe una extensión
+En otro caso, por [[*4.1.1. Teorema de Kronecker][Kronecker]], tenemos que existe una extensión
 en la que hay una raíz del polinomio. Tomamos esa raíz para crear
 $K(u)$. Por hipótesis de inducción, hay un cuerpo de descomposición
 de $f/(X-u)$ sobre $K(u)$, llamado $F$. Por último, podemos construir 
@@ -2456,7 +2460,7 @@ tenemos una extensión $\tau : K_1(u) \longrightarrow K_2(v)$ que lleva una en
 otra. Ahora tomamos $f=g(X-u)$ y por inducción tenemos
 un isomorfismo extendiendo hasta el cuerpo de descomposición.
 
-**** 4.1.13. Los cuerpos de descomposición son isomorfos
+**** 4.1.13. Unicidad del cuerpo de descomposición
 Dos cuerpos de descomposición de $f \in K[X]$ sobre $K$ son isomorfos.
 
 ***** Demostración
@@ -2498,7 +2502,7 @@ $F_J$ era ya cuerpo de descomposición de los polinomios que contenía,
 así que el cuerpo de descomposición debe al menos contener a todos
 los $F_J$.
 
-**** 4.1.25. Unicidad (esencial) del cuerpo de descomposición
+**** 4.1.25. Unicidad (esencial) del cuerpo de descomposición de una familia
 El cuerpo de descomposición de una familia de polinomios es único
 salvo isomorfismos.
 
@@ -2529,7 +2533,7 @@ sobre $F$ que la llevara a su conjugada, contravendríamos maximalidad.
 Ahora, todo $f$ de la familia descompondría en $F$ y por $\sigma$, se las
 llevarían a $F_2$.
 
-**** Descomposición
+**** DONE Descomposición
 Un polinomio $f \in K[X]$ *descompone* en una extensión $E$ si
 factoriza como polinomios lineales en $E[X]$. Llamamos *cuerpo de
 descomposición* a un cuerpo extensión de $K$ minimal en el que
@@ -2542,16 +2546,6 @@ Propiedades:
  - Todo polinomio tiene cuerpo de descomposición sobre $K$, ya que 
    podemos tomar una clausura algebraica y crear $K(\alpha_1,\dots,\alpha_n)$ con
    sus raíces.
-
-**** Lema de isomorfismo entre cuerpos de descomposición
-Sean $E_1/K$, $E_2/K$ dos cuerpos de descomposición de $f$ sobre $K$.
-Entonces existe un isomorfismo $\sigma : E_1/K \longrightarrow E_2/K$.
-
-***** Demostración
-Aplicamos inducción sobre el grado del polinomio irreducible de dos raíces
-cualquiera y descomponemos siempre como: $f_i = (X-u_i)g_i$. Sé que hay siempre un
-isomorfismo $K_1(u_1) \cong K_2(u_2)$ respetando $\sigma(u_1) = u_2$ a cada paso; y el caso de grado $0$
-es trivial.
 
 *** 4.2. Clausura algebraica
 **** 4.2.1. Algebraicamente cerrado
