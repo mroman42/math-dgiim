@@ -3396,6 +3396,58 @@ de Galois y su grupo lo es.
 Sea $E\supset F\supset K$ con $E/K$ finita y *abeliana, cíclica o soluble*,
 entonces $E/F$ también es abeliana, cíclica o soluble, respectivamente.
 
+***** Demostración
+Tenemos que el subgrupo de un abeliano, cíclico o soluble
+es también abeliano, cíclico o soluble.
+
+**** 6.4.4. Subextensiones finitas abelianas y cíclicas
+Sean $K \subset F \subset E$ torre de extensiones *finitas*:
+
+ 1. Si $E/K$ es Galois abeliana, $F/K$ es Galois abeliana.
+ 2. Si $E/K$ es Galois cíclica, $F/K$ es Galois cíclica.
+
+***** TODO Demostración
+
+**** 6.4.5. Galois para cuerpos compuestos
+Sea $E/K$ Galois finita y $F/K$ extensión con $E,F \subset L$.
+Entonces $EF/F$ y $E/(E\cap F)$ son extensiones finitas de Galois.
+Además la aplicación restricción $\sigma \mapsto \sigma|_E$ define un isomorfismo:
+
+\[ \bullet|_E : Gal(EF/F) \longrightarrow Gal(E/(E\cap F)) < Gal(E/K) \]
+
+***** TODO Demostración
+
+**** 6.4.6. Relación de Galois con el grado
+Sea $E/K$ extensión finita de Galois y sea $F/K$ con $E,F \subset L$.
+Entonces $[EF:F] \mid [F:K]$.
+
+***** TODO Demostración
+
+**** 6.4.8. Composición de extensiones de Galois
+Sean $E_1/K$, $E_2/K$ extensiones Galois finitas con $E_1,E_2 \subset L$.
+Entonces $E_1E_2/K$ es extensión finita de Galois y existe un
+monomorfismo restricción:
+
+\[
+\lambda : Gal(E_1E_2/K) 
+\longrightarrow 
+Gal(E_1/K) \times Gal(E_2/K)
+\]
+
+Cuando además tenemos $E_1 \cap E_2 = K$, $\lambda$ es un isomorfismo.
+
+***** TODO Demostración
+**** 6.4.9. Extensión del producto
+Sean $E_i/K$ extensiones contenidas en un $L$ con grupos de Galois
+$G_1,G_2,\dots,G_n$. Si cumplena demás $E_i \cap (E_1E_2\dots E_{i-1}) = K$, entonces:
+
+\[Gal(E_1E_2\dots E_n/K) \cong G_1 \times G_2 \times \dots \times G_n\]
+
+***** TODO Demostración
+**** 6.4.10. Cuerpos fijos del producto
+Sea $E/K$ una extensión finita de Galois con grupo $G = G_1 \times \dots \times G_n$.
+Sea $E_i$ el cuerpo fijo de $G_1 \times \dots \times \{1\} \times \dots \times G_n$.
+
 ** 7. Cuerpos finitos
 *** Estructura de los cuerpos finitos
 **** Propiedades de un cuerpo finito
