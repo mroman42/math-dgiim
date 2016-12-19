@@ -2563,16 +2563,20 @@ Equivalen las siguientes propiedades:
 ***** Demostración
 ****** Implicación 1 a 2
 Como $f$ tiene raíz en $K$, podemos dividirlo por $(x-u)$, para
-obtener un nuevo polinomio de grado menor. 
+obtener un nuevo polinomio de grado menor.
+
 ****** Implicación 2 a 3
 Trivialmente.
+
 ****** Implicación 3 a 4
 Sea un elemento en la extensión algebraica, su irreducible
 debe ser de grado $1$, luego debe estar en el cuerpo base.
+
 ****** Implicación 4 a 1
 Si algún polinomio no constante no tuviera raíz, aplicamos
 [[*4.1.1. Teorema de Kronecker][Teorema de Kronecker]] para crear una extensión algebraica
 no trivial.
+
 **** 4.2.3. Infinitud de algebraicamente cerrados
 Todo cuerpo algebraicamente cerrado es infinito.
 
@@ -2581,7 +2585,7 @@ Si tengo un cuerpo finito $K$ formo el polinomio irreducible
 siguiente, que no tiene raíces en $K$:
 
 \[ 
-f(x) = \prod_{k \in K} (x-k)
+f(x) = \prod_{k \in K} (x-k) + 1
 \]
 
 **** 4.2.4. Cuerpo algebraicamente cerrado de elementos algebraicos
@@ -2612,14 +2616,17 @@ Equivalen:
 ****** Implicación 1 a 2
 Como $E$ es algebraicamente cerrado, [[*4.2.2. Caracterización de los algebraicamente cerrados][sabemos que]] todos sus polinomios
 descomponen en factores lineales en $E[X]$.
+
 ****** Implicación 2 a 3
 Todo polinomio descompone. Además, todo elemento de $E$ es algebraico;
 así que $K(S) = E$.
+
 ****** Implicación 3 a 1
 $E$ está generado por elementos algebraicos, luego es algebraico.
 Además, todo polinomio no constante descompone en él, luego
 es clausura algebraica por la [[*4.2.2. Caracterización de los algebraicamente cerrados][caracterización]].
 
+****** TODO Equivalencia con 4
 **** 4.2.7. Transitividad de la clausura algebraica
 Sean $K \subset F \subset E$ torre de cuerpos, con $F/K$ algebraica. 
 Entonces $E$ es clausura algebraica de $F$ ssi lo es de $K$.
@@ -2655,7 +2662,7 @@ sabiendo que toda cadena de cuerpos está acotada por su unión y que cada
 $\sigma_i$ es extensión del anterior:
 
 \[{\cal S} = \{(E_i,\sigma_i) \mid 
-F \subset E_i \subset E, \sigma_i : E_i \longrightarrow \overline{K};\;
+F \subset E_i \subset E;\; \sigma_i : E_i \longrightarrow \overline{K};\;
 \sigma_i|_F = \sigma\}\]
 
 Esto nos da el maximal $E_1$. Si $E_1 \subsetneq E$, tomo $u \in E - E_1$; y busco un
@@ -2692,16 +2699,19 @@ Morfismos manteniendo $K$. Estos elementos se llaman
 *elementos conjugados*.
 
 ***** Demostración
+****** Implicación 1 a 2
 Supongamos que tienen el mismo polinomio irreducible $f(X)$, 
 entonces podemos construir un isomorfismo que lleve $u,v$ a 
 $X + (f(X))$ para tener:
 
 \[K(u) \cong \frac{K[X]}{(f(X))}\cong K(v)\]
 
+****** Implicación 2 a 3 y 4
 Dado el isomorfismo, lo podemos prolongar a un homomorfismo.
 Y dado un homomorfismo, lo podemos [[*4.2.10. Extensión de homomorfismos a algebraicas][prolongar]] a un automorfismo 
 por ser una extensión algebraica.
 
+****** Implicación 4 a 1
 Supongamos que existe el automorfismo de $\overline{K}$. Sea $f(X) = Irr(u,K)$,
 y tenemos $0 = \phi(f(u)) = f(\phi(u)) = f(v)$; luego $Irr(u,K) = Irr(v,K)$.
 
@@ -2717,14 +2727,17 @@ Estas extensiones se llaman *extensiones conjugadas*.
 ***** Demostración
 ****** Implicación 1 a 2
 Extendiendo el isomorfismo se pasa de 1 a 2.
+
 ****** Implicación 2 a 3
 Dado el homomorfismo, lo podemos [[*4.2.10. Extensión de homomorfismos a algebraicas][prolongar]] a un homomorfismo
 por ser $\overline{K}$ algebraica. Tenemos entonces un endomorfismo de un
 cuerpo algebraico, que [[*4.1.6. Los endomorfismos algebraicos son automorfismos][debe ser]] un automorfismo.
+
 ****** Implicación 3 a 1
 La restricción a $F_1$ es isomorfismo.
+
 *** 5.2. Extensiones normales
-**** Extensiones normales
+**** 5.2.1. Extensiones normales
 Sea $F/K$ extensión algebraica, subcuerpo de $\overline{K}$, equivalen:
 
   - $\sigma : F \longrightarrow \overline{K}$ sobre $K$, me da $\sigma(F) = F$.
@@ -2740,17 +2753,20 @@ Sea $F/K$ extensión algebraica, subcuerpo de $\overline{K}$, equivalen:
 Dos raíces del mismo irreducible son conjugadas, luego existe
 un [[*5.1.1. Elementos conjugados][homomorfismo]] que lleva una en otra, como debe llevar $F$ en $F$,
 la otra debe estar en $F$.
+
 ****** Implicación 2 a 3
 Para cada elemento de $F$ puedo tomar su irreducible, como tiene
 una raíz en $F$ tiene todas. $F$ es el cuerpo de descomposición de la
 familia de todos los irreducibles de sus elementos.
+
 ****** Implicación 3 a 1
 Tenemos que $F = K(\alpha_1,\alpha_2,\dots)$, raíces de los polinomios. La imagen
 de la raíz de un polinomio sobre $K$ debe ser raíz de ese mismo 
 polinomio porque este debe quedar invariante sobre $\sigma$. Así tenemos
-que $\sigma(F) \subset F$, y por ser algebraico, todo endomorfismo es automorfismo.
+que $\sigma(F) \subset F$, y por ser algebraico, todo [[*4.1.6. Los endomorfismos de extensiones algebraicas son automorfismos][endomorfismo es 
+automorfismo]].
 
-**** Propiedades de las extensiones normales
+**** 5.2.3. Propiedades de las extensiones normales
 Sea $E$ extensión normal. Cumple:
 
  1. Si $A/K$ es algebraica, $EA/A$ es normal.
@@ -2782,17 +2798,24 @@ $\mathbb{Q}
 \subset \mathbb{Q}(\sqrt[3]{2}) 
 \subset \mathbb{Q}(\sqrt[3]{2}, i)$
 
-**** Clausura normal
+**** 5.2.4. Clausura normal
 Llamamos clausura normal de $F/K$ a:
 
 \[ E = \bigcap \{ H \mid H \supset F;\; H/K\text{ normal}\}\]
 
-**** Existencia y unicidad de la clausura normal
-Para toda extensión algebraica existe una clausura normal y es
-única salvo isomorfismos.
+**** 5.2.5. Existencia de la clausura normal
+Para toda extensión algebraica existe una clausura normal. 
 
 ***** Demostración
 Trivial porque la clausura algebraica es normal.
+
+**** 5.2.6. Unicidad de la clausura normal
+La clausura normal es única salvo isomorfismos.
+
+***** Demostración
+Sean las dos clausuras sobre la clausura algebraica absoluta.
+Como son intersección de normales y ambas lo son, deben ser
+la misma.
 
 **** 5.2.7. Extensión de homomorfismos a extensión normal
 Sea $K \subset F \subset E$ con $E/K$ normal. Todo $\tau : F \longrightarrow E$ extiende a
@@ -2820,8 +2843,9 @@ El cuerpo de descomposición anterior es finito porque puedo
 crearlo insertando las raíces de cada polinomio.
 
 **** 5.2.10. Polinomio normal
-Un polinomio irreducible es normal si en toda extensión 
-algebraica $F/K$ con una raíz de $f$, descompone en factores lineales.
+Un polinomio irreducible es normal si en toda extensión
+algebraica $F/K$ con una raíz de $f$, descompone en factores 
+lineales.
 
 **** 5.2.11. Caracterización de polinomios normales
 Sea $f$ un polinomio en $K[X]$, equivalen:
@@ -2834,8 +2858,10 @@ Sea $f$ un polinomio en $K[X]$, equivalen:
 ****** Implicación 1 a 2
 Tenemos que en $K(u)$, $f$ descompone en factores lineales,
 luego es cuerpo de descomposición.
+
 ****** Implicación 2 a 3
 Trivial.
+
 ****** Implicación 3 a 1
 Una extensión con una raíz $u$ contendría a $K(u)$, y como todas
 las raíces se expresan como polinomios de $u$, contendría a todas
@@ -2857,11 +2883,12 @@ las raíces y $f$ descompondría en polinomios lineales.
 
 *** 5.3. Extensiones separables
 **** 5.3.1. Elemento separable
-Un elemento $u$ es separable en $K$ si $Irr(u,K)$ no tiene raíces
-múltiples.
+Un elemento algebraico $u$ es separable en $K$ si $Irr(u,K)$ no tiene 
+raíces múltiples.
 
 **** 5.3.2. Extensiones separables
-Una extensión $F/K$ es *separable* si todos sus elementos lo son.
+Una extensión algebraica $F/K$ es *separable* si todos sus elementos 
+lo son.
 
 ***** Ejemplo de extensión normal no separable
 Existen [[http://math.stackexchange.com/questions/982702/example-of-a-non-separable-normal-extension][ejemplos]] de extensiones normales no separables.
