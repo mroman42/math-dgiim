@@ -2,10 +2,11 @@
 #+SUBTITLE: Theory
 #+AUTHOR: Mario Román
 #+EMAIL: mromang08@gmail.com
-#+OPTIONS: num:nil
+#+OPTIONS: num:nil broken-links:t
 #+LANGUAGE: es
 #+STARTUP: indent
 #+SETUPFILE: math.setup
+#+SETUPFILE: theme-bigblow-local.setup
 
 * Papers & articles
 ** TODO Dependent types at work - Ana Bove, Peter Dybjer
@@ -411,7 +412,7 @@ The tensor product algebra $R^e = R \otimes_\mathbb{K} R^{op}$ is called the
  cuando $M \cong R/I$ para algún ideal.
  #+end_definition
 
- La equivalencia se ve en este [[file:aluffi.org::*Un%20cociente%20por%20ideal%20es%20c%C3%ADclico.][ejercicio]]. Cuando en un dominio de integridad todos sus
+ Cuando en un dominio de integridad todos sus
  módulos cíclicos son libres de torsión, es un cuerpo. Otra forma de pensar sobre un módulo
  cíclico es como aquel que admite un epimorfismo:
 
@@ -425,7 +426,7 @@ The tensor product algebra $R^e = R \otimes_\mathbb{K} R^{op}$ is called the
  #+end_definition
 
  Es un ideal de $R$. Cuando $M$ es finitamente generado y $R$ es dominio de integridad,
- $M$ es de torsión si y sólo si $Ann(M) \neq 0$. Puede verse en este [[file:aluffi.org::*M%20de%20torsi%C3%B3n%20si%20y%20s%C3%B3lo%20si%20el%20anulador%20es%20no%20nulo.][ejercicio]].
+ $M$ es de torsión si y sólo si $Ann(M) \neq 0$.
 
  #+begin_definition
  *Módulos finitamente generados y presentados*. Sabemos que todos los módulos admiten un
@@ -437,6 +438,8 @@ The tensor product algebra $R^e = R \otimes_\mathbb{K} R^{op}$ is called the
  *finitamente presentado* si hay una secuencia exacta de la forma:
 
  \[R^n \overset{\phi}\longrightarrow R^m \longrightarrow M \longrightarrow 0\]
+
+ .
  #+end_definition
 
  Si $R$ es Noetheriano, todo módulo finitamente generado es finitamente presentado.
