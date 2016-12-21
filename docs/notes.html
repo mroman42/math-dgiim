@@ -1,0 +1,1481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2016-12-21 Wed 17:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>5. Extensiones normales y separables</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">5. Extensiones normales y separables
+<br>
+<span class="subtitle">Theory</span>
+</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5e51d5c">5.1. Elementos conjugados y extensiones conjugadas</a>
+<ul>
+<li><a href="#orgcbe13af">5.1.1. Elementos conjugados</a>
+<ul>
+<li><a href="#orgac2b360">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org6a3eb4b">5.1.3. Extensiones conjugadas</a>
+<ul>
+<li><a href="#orgb3401a2">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org43511f8">5.2. Extensiones normales</a>
+<ul>
+<li><a href="#org646f988">5.2.1. Extensiones normales</a>
+<ul>
+<li><a href="#org273a317">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org92daec6">5.2.3. Propiedades de las extensiones normales</a>
+<ul>
+<li><a href="#orga3c5b22">Demostración de 1</a></li>
+<li><a href="#org9baf624">Demostración de 2</a></li>
+<li><a href="#orge9668c4">Demostración de 3</a></li>
+<li><a href="#org645c437">Demostración de 4</a></li>
+<li><a href="#org2a64d92">Contraejemplo: subcuerpo de normal no es normal</a></li>
+</ul>
+</li>
+<li><a href="#org31684ee">5.2.4. Clausura normal</a></li>
+<li><a href="#org19ceec5">5.2.5. Existencia de la clausura normal</a>
+<ul>
+<li><a href="#org07f3964">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org7194a46">5.2.6. Unicidad de la clausura normal</a>
+<ul>
+<li><a href="#org78fc564">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org1166fdf">5.2.7. Extensión de homomorfismos a extensión normal</a>
+<ul>
+<li><a href="#org92a38ca">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org355b4a5">5.2.8. Clausura de una extensión finita</a>
+<ul>
+<li><a href="#org9e668de">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org160c239">5.2.9. La clausura normal de extensión finita es finita</a>
+<ul>
+<li><a href="#orgf3467a1">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orga90a9e9">5.2.10. Polinomio normal</a></li>
+<li><a href="#org0a260cc">5.2.11. Caracterización de polinomios normales</a>
+<ul>
+<li><a href="#orgcbdb285">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org566ead6"><span class="done DONE">DONE</span> Caracterización de extensiones normales en torres</a></li>
+</ul>
+</li>
+<li><a href="#orgc1b8e8c">5.3. Extensiones separables</a>
+<ul>
+<li><a href="#org40ad898">5.3.1. Elemento separable</a></li>
+<li><a href="#org9e0c58a">5.3.2. Extensiones separables</a>
+<ul>
+<li><a href="#org8538020">Ejemplo de extensión normal no separable</a></li>
+</ul>
+</li>
+<li><a href="#orgc0f6832">5.3.3. Torres separables</a>
+<ul>
+<li><a href="#org792b69c">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org7fd9912">5.3.4. Grado separable</a></li>
+<li><a href="#org9d6aec5">5.3.5. Grado separable en torres</a>
+<ul>
+<li><a href="#org58e51d2">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0e71a0e">5.3.6. Relación de grado y grado separable</a>
+<ul>
+<li><a href="#orge056204">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgf429120">5.3.7. Igualdad de grados en torres</a>
+<ul>
+<li><a href="#org07ce88f">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org479d0cf">5.3.8. Caracterización de extensión separable</a>
+<ul>
+<li><a href="#org734da46">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgdd2aab1">5.3.9. Extensión por un conjunto separable</a>
+<ul>
+<li><a href="#org545a88f">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org9a9bdff">5.3.10. Propiedades de extensiones separables</a>
+<ul>
+<li><a href="#org44b611e">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgb3a298d">5.3.11. La clausura normal de una separable es separable</a>
+<ul>
+<li><a href="#org42ccb33">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc56336f">5.3.12. Clausura separable</a>
+<ul>
+<li><a href="#org25b33ed">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgbdd2025">5.3.13. Teorema del elemento primitivo</a>
+<ul>
+<li><a href="#orgccb7efc">Demostración: si hay finitos subcuerpos es simple</a></li>
+<li><a href="#org3fa3e68">Demostración: si es simple, hay finitos subcuerpos</a></li>
+<li><a href="#orgb808bd2">Contraejemplo:</a></li>
+</ul>
+</li>
+<li><a href="#org35b6be7">5.3.13. Finita y separable es simple</a>
+<ul>
+<li><a href="#org746dd4d">Demostración</a></li>
+<li><a href="#orge2428bc">Contraejemplo: cuerpo finito no simple</a></li>
+</ul>
+</li>
+<li><a href="#orgcdbf5a1">5.3.14. Endomorfismo de Frobenius</a></li>
+<li><a href="#orgba32df0">5.3.15. Cuerpos perfectos</a>
+<ul>
+<li><a href="#org91142c3">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org44b7bc8">5.3.17. Ejemplos de cuerpos perfectos</a>
+<ul>
+<li><a href="#orgff7360b">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgfb3ee8b">5.4. Derivada y raíces múltiples</a>
+<ul>
+<li><a href="#orgf845926">5.4.1. Raíces</a></li>
+<li><a href="#org3046213">5.4.2. Derivada</a></li>
+<li><a href="#org572ddeb">5.4.3. Propiedades de la derivada</a></li>
+<li><a href="#orgd307842">5.4.4. Condición de raíces simples</a></li>
+<li><a href="#org34aae17">5.4.5. Condición de raíces simples en irreducibles</a></li>
+<li><a href="#orge47f211">5.4.6. Propiedades de las raíces simples</a></li>
+<li><a href="#orgb55f8e1">5.4.7. Polinomio separable</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5e51d5c" class="outline-2">
+<h2 id="org5e51d5c">5.1. Elementos conjugados y extensiones conjugadas</h2>
+<div class="outline-text-2" id="text-org5e51d5c">
+</div><div id="outline-container-orgcbe13af" class="outline-3">
+<h3 id="orgcbe13af">5.1.1. Elementos conjugados</h3>
+<div class="outline-text-3" id="text-orgcbe13af">
+<p>
+Sean \(u,v \in \overline{K}\), clausura algebraica. Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(Irr(u,K) = Irr(v,K)\)</li>
+<li>\(\exists \tau : K(u) \longrightarrow K(v)\) <b>isomorfismo</b> con \(\tau(u) = v\).</li>
+<li>\(\exists\sigma : K(u) \longrightarrow \overline{K}\) <b>homomorfismo</b> con \(\sigma(u) = v\).</li>
+<li>\(\exists \sigma : \overline{K} \longrightarrow \overline{K}\) <b>automorfismo</b> con \(\sigma(u) = v\).</li>
+</ol>
+
+<p>
+Morfismos manteniendo \(K\). Estos elementos se llaman 
+<b>elementos conjugados</b>.
+</p>
+</div>
+
+<div id="outline-container-orgac2b360" class="outline-4">
+<h4 id="orgac2b360">Demostración</h4>
+<div class="outline-text-4" id="text-orgac2b360">
+</div><ul class="org-ul"><li><a id="org21fbea9"></a>Implicación 1 a 2<br  /><div class="outline-text-5" id="text-org21fbea9">
+<p>
+Supongamos que tienen el mismo polinomio irreducible \(f(X)\), 
+entonces podemos construir un isomorfismo que lleve \(u,v\) a 
+\(X + (f(X))\) para tener:
+</p>
+
+<p>
+\[K(u) \cong \frac{K[X]}{(f(X))}\cong K(v)\]
+</p>
+</div></li>
+
+<li><a id="org159c3fc"></a>Implicación 2 a 3 y 4<br  /><div class="outline-text-5" id="text-org159c3fc">
+<p>
+Dado el isomorfismo, lo podemos prolongar a un homomorfismo.
+Y dado un homomorfismo, lo podemos a un automorfismo 
+por ser una extensión algebraica.
+</p>
+</div></li>
+
+<li><a id="org90a6bd2"></a>Implicación 4 a 1<br  /><div class="outline-text-5" id="text-org90a6bd2">
+<p>
+Supongamos que existe el automorfismo de \(\overline{K}\). Sea \(f(X) = Irr(u,K)\),
+y tenemos \(0 = \phi(f(u)) = f(\phi(u)) = f(v)\); luego \(Irr(u,K) = Irr(v,K)\).
+</p>
+</div></li></ul>
+</div>
+</div>
+
+<div id="outline-container-org6a3eb4b" class="outline-3">
+<h3 id="org6a3eb4b">5.1.3. Extensiones conjugadas</h3>
+<div class="outline-text-3" id="text-org6a3eb4b">
+<p>
+Sean \(F_1/K\), \(F_2/K\) extensiones algebraicas, equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(\exists \sigma: F_1 \longrightarrow F_2\) <b>isomorfismo</b> sobre \(K\).</li>
+<li>\(\exists \sigma : F_1 \longrightarrow \overline{K}\), <b>homomorfismo</b> sobre \(K\) con \(\sigma(F_1) = F_2\).</li>
+<li>\(\sigma : \overline{K} \longrightarrow \overline{K}\), <b>isomorfismo</b> tal que \(\sigma(F_1) = F_2\).</li>
+</ol>
+
+<p>
+Estas extensiones se llaman <b>extensiones conjugadas</b>.
+</p>
+</div>
+
+<div id="outline-container-orgb3401a2" class="outline-4">
+<h4 id="orgb3401a2">Demostración</h4>
+<div class="outline-text-4" id="text-orgb3401a2">
+</div><ul class="org-ul"><li><a id="org17cd230"></a>Implicación 1 a 2<br  /><div class="outline-text-5" id="text-org17cd230">
+<p>
+Extendiendo el isomorfismo se pasa de 1 a 2.
+</p>
+</div></li>
+
+<li><a id="org42354c4"></a>Implicación 2 a 3<br  /><div class="outline-text-5" id="text-org42354c4">
+<p>
+Dado el homomorfismo, lo podemos a un homomorfismo
+por ser \(\overline{K}\) algebraica. Tenemos entonces un endomorfismo de un
+cuerpo algebraico, que un automorfismo.
+</p>
+</div></li>
+
+<li><a id="org6d6ab37"></a>Implicación 3 a 1<br  /><div class="outline-text-5" id="text-org6d6ab37">
+<p>
+La restricción a \(F_1\) es isomorfismo.
+</p>
+</div></li></ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org43511f8" class="outline-2">
+<h2 id="org43511f8">5.2. Extensiones normales</h2>
+<div class="outline-text-2" id="text-org43511f8">
+</div><div id="outline-container-org646f988" class="outline-3">
+<h3 id="org646f988">5.2.1. Extensiones normales</h3>
+<div class="outline-text-3" id="text-org646f988">
+<p>
+Sea \(F/K\) extensión algebraica, subcuerpo de \(\overline{K}\), equivalen:
+</p>
+
+<ul class="org-ul">
+<li>\(\sigma : F \longrightarrow \overline{K}\) sobre \(K\), me da \(\sigma(F) = F\).</li>
+<li>Todo irreducible de \(K[X]\) con una raíz en \(F\) descompone en 
+lineales en \(F[X]\).</li>
+<li>\(F\) es cuerpo de descomposición de una familia de polinomios
+sobre \(K[X]\).</li>
+</ul>
+
+<p>
+A una extensión de este tipo se le llama <b>extensión normal</b>.
+</p>
+</div>
+
+<div id="outline-container-org273a317" class="outline-4">
+<h4 id="org273a317">Demostración</h4>
+<div class="outline-text-4" id="text-org273a317">
+</div><ul class="org-ul"><li><a id="org49864ea"></a>Implicación 1 a 2<br  /><div class="outline-text-5" id="text-org49864ea">
+<p>
+Dos raíces del mismo irreducible son conjugadas, luego existe
+un <a href="#orgcbe13af">homomorfismo</a> que lleva una en otra, como debe llevar \(F\) en \(F\),
+la otra debe estar en \(F\).
+</p>
+</div></li>
+
+<li><a id="org96508f1"></a>Implicación 2 a 3<br  /><div class="outline-text-5" id="text-org96508f1">
+<p>
+Para cada elemento de \(F\) puedo tomar su irreducible, como tiene
+una raíz en \(F\) tiene todas. \(F\) es el cuerpo de descomposición de la
+familia de todos los irreducibles de sus elementos.
+</p>
+</div></li>
+
+<li><a id="org3c989d7"></a>Implicación 3 a 1<br  /><div class="outline-text-5" id="text-org3c989d7">
+<p>
+Tenemos que \(F = K(\alpha_1,\alpha_2,\dots)\), raíces de los polinomios. La imagen
+de la raíz de un polinomio sobre \(K\) debe ser raíz de ese mismo 
+polinomio porque este debe quedar invariante sobre \(\sigma\). Así tenemos
+que \(\sigma(F) \subset F\), y por ser algebraico, todo .
+</p>
+</div></li></ul>
+</div>
+</div>
+
+<div id="outline-container-org92daec6" class="outline-3">
+<h3 id="org92daec6">5.2.3. Propiedades de las extensiones normales</h3>
+<div class="outline-text-3" id="text-org92daec6">
+<p>
+Sea \(E\) extensión normal. Cumple:
+</p>
+
+<ol class="org-ol">
+<li>Si \(A/K\) es algebraica, \(EA/A\) es normal.</li>
+<li>Si \(K \subset F \subset E\), entonces \(E/F\) es normal.</li>
+<li>Si \(E_1/K, E_2/K\) son normales, \(E_1E_2/K\) es normal.</li>
+<li>Sea \(E_\lambda\), familia de extensiones normales; \(F = \bigcap E_\lambda\) es normal.</li>
+</ol>
+</div>
+
+<div id="outline-container-orga3c5b22" class="outline-4">
+<h4 id="orga3c5b22">Demostración de 1</h4>
+<div class="outline-text-4" id="text-orga3c5b22">
+<p>
+Dado \(\sigma : EA/A \longrightarrow \overline{K}/A\), tengo que \(\sigma(EA) = \sigma(E)\sigma(A) = EA\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9baf624" class="outline-4">
+<h4 id="org9baf624">Demostración de 2</h4>
+<div class="outline-text-4" id="text-org9baf624">
+<p>
+Sea \(\sigma : E/F \longrightarrow \overline{K}/F\), como deja fijo \(K\), debe tenerse \(\sigma(E)=E\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge9668c4" class="outline-4">
+<h4 id="orge9668c4">Demostración de 3</h4>
+<div class="outline-text-4" id="text-orge9668c4">
+<p>
+Sea \(\sigma: E_1E_2/K \longrightarrow \overline{K}/K\), las restricciones dejan fijos ambos cuerpos
+y \(\sigma(E_1E_2) = \sigma(E_1)\sigma(E_2) = E_1E_2\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org645c437" class="outline-4">
+<h4 id="org645c437">Demostración de 4</h4>
+<div class="outline-text-4" id="text-org645c437">
+<p>
+Si un homomorfismo de la intersección lo extiendo y lo restrinjo a
+cada uno, debe dejar todos los cuerpos fijos. Por tanto, un elemento
+en la intersección debe quedarse en la intersección.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2a64d92" class="outline-4">
+<h4 id="org2a64d92">Contraejemplo: subcuerpo de normal no es normal</h4>
+<div class="outline-text-4" id="text-org2a64d92">
+<p>
+El último es cuerpo de descomposición de \(x^3-2\),
+pero el primero no es normal, porque no están todas las
+raíces del polinomio irreducible de \(\sqrt[3]{2}\).
+</p>
+
+<p>
+\(\mathbb{Q} 
+\subset \mathbb{Q}(\sqrt[3]{2}) 
+\subset \mathbb{Q}(\sqrt[3]{2}, i)\)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org31684ee" class="outline-3">
+<h3 id="org31684ee">5.2.4. Clausura normal</h3>
+<div class="outline-text-3" id="text-org31684ee">
+<p>
+Llamamos clausura normal de \(F/K\) a:
+</p>
+
+<p>
+\[ E = \bigcap \{ H \mid H \supset F;\; H/K\text{ normal}\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org19ceec5" class="outline-3">
+<h3 id="org19ceec5">5.2.5. Existencia de la clausura normal</h3>
+<div class="outline-text-3" id="text-org19ceec5">
+<p>
+Para toda extensión algebraica existe una clausura normal. 
+</p>
+</div>
+
+<div id="outline-container-org07f3964" class="outline-4">
+<h4 id="org07f3964">Demostración</h4>
+<div class="outline-text-4" id="text-org07f3964">
+<p>
+Trivial porque la clausura algebraica es normal.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7194a46" class="outline-3">
+<h3 id="org7194a46">5.2.6. Unicidad de la clausura normal</h3>
+<div class="outline-text-3" id="text-org7194a46">
+<p>
+La clausura normal es única salvo isomorfismos.
+</p>
+</div>
+
+<div id="outline-container-org78fc564" class="outline-4">
+<h4 id="org78fc564">Demostración</h4>
+<div class="outline-text-4" id="text-org78fc564">
+<p>
+Sean las dos clausuras sobre la clausura algebraica absoluta.
+Como son intersección de normales y ambas lo son, deben ser
+la misma.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1166fdf" class="outline-3">
+<h3 id="org1166fdf">5.2.7. Extensión de homomorfismos a extensión normal</h3>
+<div class="outline-text-3" id="text-org1166fdf">
+<p>
+Sea \(K \subset F \subset E\) con \(E/K\) normal. Todo \(\tau : F \longrightarrow E\) extiende a
+un \(\tau : E \longrightarrow E\). 
+</p>
+</div>
+
+<div id="outline-container-org92a38ca" class="outline-4">
+<h4 id="org92a38ca">Demostración</h4>
+<div class="outline-text-4" id="text-org92a38ca">
+<p>
+Tenemos que extiende a \(\tau : F \longrightarrow \overline{K}\) y de ahí, por ser \(E\) algebraica,
+se a \(\tau : E \longrightarrow \overline{K}\). Por ser normal, \(\tau(E) = E\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org355b4a5" class="outline-3">
+<h3 id="org355b4a5">5.2.8. Clausura de una extensión finita</h3>
+<div class="outline-text-3" id="text-org355b4a5">
+<p>
+Sea \(F = K(u_1,u_2,\dots,u_n)\) y \(f_i = Irr(u_i,K)\); entonces la clausura normal
+es el cuerpo de descomposición de \(f = f_1f_2\dots f_n\).
+</p>
+</div>
+
+<div id="outline-container-org9e668de" class="outline-4">
+<h4 id="org9e668de">Demostración</h4>
+<div class="outline-text-4" id="text-org9e668de">
+<p>
+Es normal por ser cuerpo de descomposición de un polinomio, es
+la mínima porque debe contener las raíces de \(f_i = Irr(u_i,K)\)
+para ser normal, y si las contiene, debe contener al cuerpo de
+descomposición de \(f\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org160c239" class="outline-3">
+<h3 id="org160c239">5.2.9. La clausura normal de extensión finita es finita</h3>
+<div class="outline-text-3" id="text-org160c239">
+<p>
+Sea \(F/K\) finita, su clausura normal es finita.
+</p>
+</div>
+
+<div id="outline-container-orgf3467a1" class="outline-4">
+<h4 id="orgf3467a1">Demostración</h4>
+<div class="outline-text-4" id="text-orgf3467a1">
+<p>
+El cuerpo de descomposición anterior es finito porque puedo
+crearlo insertando las raíces de cada polinomio.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga90a9e9" class="outline-3">
+<h3 id="orga90a9e9">5.2.10. Polinomio normal</h3>
+<div class="outline-text-3" id="text-orga90a9e9">
+<p>
+Un polinomio irreducible es normal si en toda extensión
+algebraica \(F/K\) con una raíz de \(f\), descompone en factores 
+lineales.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0a260cc" class="outline-3">
+<h3 id="org0a260cc">5.2.11. Caracterización de polinomios normales</h3>
+<div class="outline-text-3" id="text-org0a260cc">
+<p>
+Sea \(f\) un polinomio en \(K[X]\), equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(f\) es normal sobre \(K\).</li>
+<li>El cuerpo de descomposición de \(f\) es \(K(u)\), una raíz de \(f\).</li>
+<li>Todas las raíces de \(f\) es expresan como polinomios de una de ellas.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgcbdb285" class="outline-4">
+<h4 id="orgcbdb285">Demostración</h4>
+<div class="outline-text-4" id="text-orgcbdb285">
+</div><ul class="org-ul"><li><a id="orge90183b"></a>Implicación 1 a 2<br  /><div class="outline-text-5" id="text-orge90183b">
+<p>
+Tenemos que en \(K(u)\), \(f\) descompone en factores lineales,
+luego es cuerpo de descomposición.
+</p>
+</div></li>
+
+<li><a id="orgdf5e05e"></a>Implicación 2 a 3<br  /><div class="outline-text-5" id="text-orgdf5e05e">
+<p>
+Trivial.
+</p>
+</div></li>
+
+<li><a id="org8e51c68"></a>Implicación 3 a 1<br  /><div class="outline-text-5" id="text-org8e51c68">
+<p>
+Una extensión con una raíz \(u\) contendría a \(K(u)\), y como todas
+las raíces se expresan como polinomios de \(u\), contendría a todas
+las raíces y \(f\) descompondría en polinomios lineales.
+</p>
+</div></li></ul>
+</div>
+</div>
+
+<div id="outline-container-org566ead6" class="outline-3">
+<h3 id="org566ead6"><span class="done DONE">DONE</span> Caracterización de extensiones normales en torres</h3>
+<div class="outline-text-3" id="text-org566ead6">
+<div class="theorem">
+<p>
+Sea \(K\subset F \subset E\) extensiones finitas, \(E\) extensión normal. Equivalen:
+</p>
+
+<ul class="org-ul">
+<li>\(F/K\) es normal.</li>
+<li>Para cada \(\sigma : E/K \longrightarrow E/K\), se tiene \(\sigma(F) = F\).</li>
+</ul>
+
+</div>
+
+<p>
+Sea \(F/K\) normal, podemos cambiar el dominio y codominio para tener un
+\(\sigma : F/K \longrightarrow \overline{K}/K\). Por ser \(F\) normal, \(\sigma(F) = F\).
+</p>
+
+<p>
+Sea \(\sigma : F/K \longrightarrow \overline{K}/K\), podemos extenderla finitamente hasta \(E\) como \(\overline\sigma\). Como \(E/K\) es
+normal, \(\overline\sigma(E) = E\); y así tengo un \(\overline\sigma : E/K \longrightarrow E/K\), que me da \(\sigma(F)=\overline\sigma(F) = F\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1b8e8c" class="outline-2">
+<h2 id="orgc1b8e8c">5.3. Extensiones separables</h2>
+<div class="outline-text-2" id="text-orgc1b8e8c">
+</div><div id="outline-container-org40ad898" class="outline-3">
+<h3 id="org40ad898">5.3.1. Elemento separable</h3>
+<div class="outline-text-3" id="text-org40ad898">
+<p>
+Un elemento algebraico \(u\) es separable en \(K\) si \(Irr(u,K)\) no tiene 
+raíces múltiples.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e0c58a" class="outline-3">
+<h3 id="org9e0c58a">5.3.2. Extensiones separables</h3>
+<div class="outline-text-3" id="text-org9e0c58a">
+<p>
+Una extensión algebraica \(F/K\) es <b>separable</b> si todos sus elementos 
+lo son.
+</p>
+</div>
+
+<div id="outline-container-org8538020" class="outline-4">
+<h4 id="org8538020">Ejemplo de extensión normal no separable</h4>
+<div class="outline-text-4" id="text-org8538020">
+<p>
+Existen <a href="http://math.stackexchange.com/questions/982702/example-of-a-non-separable-normal-extension">ejemplos</a> de extensiones normales no separables.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc0f6832" class="outline-3">
+<h3 id="orgc0f6832">5.3.3. Torres separables</h3>
+<div class="outline-text-3" id="text-orgc0f6832">
+<p>
+Si \(E \supset F \supset K\) es extensión separable, lo son \(E/F\) y \(F/K\).
+</p>
+</div>
+
+<div id="outline-container-org792b69c" class="outline-4">
+<h4 id="org792b69c">Demostración</h4>
+<div class="outline-text-4" id="text-org792b69c">
+<p>
+Que \(F/K\) es separable es trivial. Y \(E/F\) es separable porque
+\(Irr(u,F) \mid Irr(u,K)\), y si el segundo no tiene raíces múltiples,
+no puede tenerlas el primero.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7fd9912" class="outline-3">
+<h3 id="org7fd9912">5.3.4. Grado separable</h3>
+<div class="outline-text-3" id="text-org7fd9912">
+<p>
+El <b>grado separable</b> es cardinal del conjunto de homomorfismos de
+\(F/K \longrightarrow \overline{K}/K\).
+</p>
+
+<p>
+\[ [F : K]_s = \#\{F/K \longrightarrow \overline{K}/K\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9d6aec5" class="outline-3">
+<h3 id="org9d6aec5">5.3.5. Grado separable en torres</h3>
+<div class="outline-text-3" id="text-org9d6aec5">
+<p>
+Sea \(K \subset F \subset E \subset \overline{K}\) entonces \([E:K]_s = [E:F]_s[F:K]_s\).
+</p>
+</div>
+
+<div id="outline-container-org58e51d2" class="outline-4">
+<h4 id="org58e51d2">Demostración</h4>
+<div class="outline-text-4" id="text-org58e51d2">
+</div><ul class="org-ul"><li><a id="org0422c98"></a>Con dos homomorfismos construyo el mayor<br  /><div class="outline-text-5" id="text-org0422c98">
+<p>
+Dados \(\sigma : F/K \longrightarrow \overline{K}/K\) y \(\psi : E/F \longrightarrow \overline{K}/F\), puedo extender \(\sigma\) al
+algebraico \(E\) para tener \(\sigma^\ast : \overline{K}/K \longrightarrow \overline{K}/K\). Ahora, la composición
+\(\sigma^\ast \circ \psi\), me da el homomorfismo buscado.
+</p>
+</div></li>
+
+<li><a id="orge376251"></a>Y es único<br  /><div class="outline-text-5" id="text-orge376251">
+<p>
+Supongamos que \(\sigma^\ast \circ \psi = \sigma'^\ast \circ \psi'\); como deben ser iguales para 
+cualquier \(f \in F\), se tiene \(\sigma = \sigma'\). Ahora, si tomamos la misma extensión
+para cada elemento, \(\sigma^\ast = \sigma'^\ast\) y entoces por inyectividad \(\psi = \psi'\).
+</p>
+
+<p>
+Así tenemos ya:
+</p>
+
+<p>
+\[ [E:K]_S \geq [E:F]_S[F:K]_S \]
+</p>
+</div></li>
+
+<li><a id="orgf0b6272"></a>Con el mayor construyo los dos menores<br  /><div class="outline-text-5" id="text-orgf0b6272">
+<p>
+Dado un \(\sigma : E/K \longrightarrow \overline{K}/K\), para cada \(\sigma|_F\) construyo una extensión
+a la clausura, \(\tau : \overline{K}/K \longrightarrow \overline{K}/K\), que es isomorfismo. Como 
+es isomorfismo podemos construirle inversa para tener 
+\(\tau^{-1} : \overline{K}/K \longrightarrow \overline{K}/K\). A la vez, podemos extender todos los \(\sigma\) a
+la clausura algebraica como \(\sigma^\ast\).
+</p>
+
+<p>
+Ahora bien, como \(\tau|_F = \sigma|_F\), tenemos que \(\sigma^\ast \circ \tau^{-1}\) deja fijo a \(F\). 
+Así, hemos partido \(\sigma\) en \(\sigma^\ast \circ \tau^{-1}|_E\) y \(\sigma|_F\).
+</p>
+</div></li>
+
+<li><a id="orgd67bd3b"></a>Y son únicas<br  /><div class="outline-text-5" id="text-orgd67bd3b">
+<p>
+Supongamos que tenemos \(\sigma|_F = \sigma'|_F\), entonces las dos extensiones \(\tau\)
+las hemos tomado iguales. Si tenemos \(\sigma \circ \tau^{-1}|_E = \sigma' \circ \tau^{-1}|_E\), como \(\tau^{-1}\)
+es sobreyectiva, tenemos \(\sigma^\ast|_E = \sigma'^\ast|_E\), y por tanto \(\sigma = \sigma'\).
+</p>
+
+<p>
+Así tenemos que:
+</p>
+
+<p>
+\[ [E:K]_S \leq [E:F]_S[F:K]_S \]
+</p>
+</div></li></ul>
+</div>
+</div>
+
+<div id="outline-container-org0e71a0e" class="outline-3">
+<h3 id="org0e71a0e">5.3.6. Relación de grado y grado separable</h3>
+<div class="outline-text-3" id="text-org0e71a0e">
+<p>
+Sea \(F/K\) extensión finita, entonces \([F:K]_s \mid [F:K]\).
+</p>
+</div>
+
+<div id="outline-container-orge056204" class="outline-4">
+<h4 id="orge056204">Demostración</h4>
+<div class="outline-text-4" id="text-orge056204">
+</div><ul class="org-ul"><li><a id="org149d55b"></a>Caso simple<br  /><div class="outline-text-5" id="text-org149d55b">
+<p>
+Sea \(K(u)\) la extensión, con polinomio \(Irr(u,K)\) de grado \(n\). 
+Si la raíz \(u\) tiene multiplicidad \(m\) en el polinomio, todas las
+raíces del polinomio tienen la misma multiplicidad y hay
+\(n/m\) raíces distintas.
+</p>
+
+<p>
+Cada homormofismo quedará determinado por la imagen de \(u\), y
+tenemos \(n/m\) imágenes distintas para \(u\).
+</p>
+</div></li>
+
+<li><a id="org5fc791b"></a>Caso compuesto<br  /><div class="outline-text-5" id="text-org5fc791b">
+<p>
+Ahora procedemos por inducción sobre el grado de la extensión. 
+Tomamos un elemento de la base y hacemos:
+</p>
+
+<p>
+\[ [F:K(u)]_S[K(u):K]_S  \mid  [F:K(u)][K(u):K] \]
+</p>
+
+<p>
+Lo primero es divisible por el caso simple y lo segundo por
+hipótesis de inducción.
+</p>
+</div></li></ul>
+</div>
+</div>
+
+<div id="outline-container-orgf429120" class="outline-3">
+<h3 id="orgf429120">5.3.7. Igualdad de grados en torres</h3>
+<div class="outline-text-3" id="text-orgf429120">
+<p>
+Sea \(K \subset F \subset E\), con \(E/K\). Entonces \([E:K]_s = [E:K]\) ssi 
+\([E:F]_s = [E:F]\) y \([F:K]_s = [F:K]\).
+</p>
+</div>
+
+<div id="outline-container-org07ce88f" class="outline-4">
+<h4 id="org07ce88f">Demostración</h4>
+<div class="outline-text-4" id="text-org07ce88f">
+<p>
+Tenemos que deben tenerse ambos casos de igualdad en:
+</p>
+
+<p>
+\[
+[E:K]_S = [E:F]_S[F:K]_S \leq [E:F][F:K] = [E:K]
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org479d0cf" class="outline-3">
+<h3 id="org479d0cf">5.3.8. Caracterización de extensión separable</h3>
+<div class="outline-text-3" id="text-org479d0cf">
+<p>
+La extensión finita \(E/K\) es separable ssi \([E:K]_s = [E:K]\).
+</p>
+</div>
+
+<div id="outline-container-org734da46" class="outline-4">
+<h4 id="org734da46">Demostración</h4>
+<div class="outline-text-4" id="text-org734da46">
+<p>
+Usamos la idea de la demostración de la relación con el grado.
+En el caso simple tenemos \([K(u):K]_S = [K(u):K]\) sólo cuando la
+multiplicidad de cada raíz es uno. En el caso compuesto exigimos
+eso a cada paso.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdd2aab1" class="outline-3">
+<h3 id="orgdd2aab1">5.3.9. Extensión por un conjunto separable</h3>
+<div class="outline-text-3" id="text-orgdd2aab1">
+<p>
+Para \(K(S)/K\) algebraica es separable ssi todo elemento de \(S\) es
+separable sobre \(K\).
+</p>
+</div>
+
+<div id="outline-container-org545a88f" class="outline-4">
+<h4 id="org545a88f">Demostración</h4>
+<div class="outline-text-4" id="text-org545a88f">
+<p>
+La suma o producto de elementos separables <a href="http://math.stackexchange.com/a/82837/85067">es separable</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9a9bdff" class="outline-3">
+<h3 id="org9a9bdff">5.3.10. Propiedades de extensiones separables</h3>
+<div class="outline-text-3" id="text-org9a9bdff">
+<p>
+Las extensiones separables cumplen:
+</p>
+
+<ol class="org-ol">
+<li>Para \(K \subset F \subset E\), se tiene \(E/K\) separable ssi 
+\(E/F\) y \(F/K\) separables.</li>
+<li>Sea \(E/K\) algebraica separable y \(H/K\) extensión, entonces \(EH/H\) 
+es separable.</li>
+<li>Sean \(E/K\) y \(F/K\) separables, entonces \(EF/K\) es separable.</li>
+</ol>
+</div>
+
+<div id="outline-container-org44b611e" class="outline-4">
+<h4 id="org44b611e">Demostración</h4>
+<div class="outline-text-4" id="text-org44b611e">
+</div><ul class="org-ul"><li><a id="org541e770"></a>Punto 1<br  /><div class="outline-text-5" id="text-org541e770">
+<p>
+Simplemente usar que la igualdad de grados de separabilidad
+se da en <a href="#orgf429120">torres</a> y que equivale a la <a href="#org479d0cf">separabilidad</a>.
+</p>
+</div></li>
+
+<li><a id="org364bc7e"></a>Punto 2<br  /><div class="outline-text-5" id="text-org364bc7e">
+<p>
+Tenemos \(EH/H = H(E)/H\). Que sea separable <a href="#orgdd2aab1">equivale</a> a que
+cada elemento de \(E\) lo sea. Pero \(Irr(e,H) \mid Irr(e,K)\), y si uno
+tiene sólo raíces simples, el otro las tendrá también.
+</p>
+</div></li>
+
+<li><a id="org59a5425"></a>Punto 3<br  /><div class="outline-text-5" id="text-org59a5425">
+<p>
+Tenemos \(K(E,F)/K\) separable por serlo todos los elementos en 
+\(E,F\).
+</p>
+</div></li></ul>
+</div>
+</div>
+
+<div id="outline-container-orgb3a298d" class="outline-3">
+<h3 id="orgb3a298d">5.3.11. La clausura normal de una separable es separable</h3>
+<div class="outline-text-3" id="text-orgb3a298d">
+<p>
+Sea \(F/K\) separable y \(E/K\) su clausura normal. Entonces \(E/K\) es
+separable.
+</p>
+</div>
+
+<div id="outline-container-org42ccb33" class="outline-4">
+<h4 id="org42ccb33">Demostración</h4>
+<div class="outline-text-4" id="text-org42ccb33">
+<p>
+Si extiendo \(F\) con todas las raíces de los irreducibles de sus
+elementos, tengo la clausura normal; porque debe contenerlas
+y es normal, así que es la mínima. Como cada una de ellas es
+separable porque tiene como irreducible el mismo irreducible
+de un elemento de \(F\), la <a href="#orgdd2aab1">extensión entera</a> es separable.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc56336f" class="outline-3">
+<h3 id="orgc56336f">5.3.12. Clausura separable</h3>
+<div class="outline-text-3" id="text-orgc56336f">
+<p>
+El conjunto de todos los elementos de \(\overline{K}\) separables sobre \(K\) forman
+un subcuerpo \(K^{sep}\) que se llama <b>clausura separable</b>.
+</p>
+</div>
+
+<div id="outline-container-org25b33ed" class="outline-4">
+<h4 id="org25b33ed">Demostración</h4>
+<div class="outline-text-4" id="text-org25b33ed">
+<p>
+La suma o producto de elementos separables es separable, como
+demostramos <a href="#orgdd2aab1">anteriormente</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbdd2025" class="outline-3">
+<h3 id="orgbdd2025">5.3.13. Teorema del elemento primitivo</h3>
+<div class="outline-text-3" id="text-orgbdd2025">
+<p>
+Sea \(E/K\) una extensión finita. Es simple ssi el conjunto de
+cuerpos intermedios \(\{ F \mid K \subset F \subset E\}\) es finito.
+</p>
+</div>
+
+<div id="outline-container-orgccb7efc" class="outline-4">
+<h4 id="orgccb7efc">Demostración: si hay finitos subcuerpos es simple</h4>
+<div class="outline-text-4" id="text-orgccb7efc">
+</div><ul class="org-ul"><li><a id="org21895e1"></a>Cuerpo base finito<br  /><div class="outline-text-5" id="text-org21895e1">
+<p>
+Como la extensión es finita, tenemos que hay finitos elementos.
+El grupo multiplicativo de un cuerpo es <a href="http://mathoverflow.net/a/54741/45365">cíclico</a>, luego es simple.
+</p>
+</div></li>
+
+<li><a id="org0f9218c"></a>Cuerpo base infinito<br  /><div class="outline-text-5" id="text-org0f9218c">
+<p>
+Siendo \(E = K(a_1,a_2,\dots,a_n)\), nos limitamos a probar \(K(a,b)\) simple.
+Consideramos las \(K(a+xb)\) para \(x \in F\). Como los elementos de \(F\) son 
+infinitos y las extensiones intermedias finitas, se tienen \(x \neq y\)
+tales que \(K(a+xb) = K(a+yb)\), y por tanto:
+</p>
+
+<p>
+\[
+b = \frac{ a +bx - (a + by)}{x-y} \in K(a+bx)
+\]
+</p>
+</div></li></ul>
+</div>
+
+<div id="outline-container-org3fa3e68" class="outline-4">
+<h4 id="org3fa3e68">Demostración: si es simple, hay finitos subcuerpos</h4>
+<div class="outline-text-4" id="text-org3fa3e68">
+<p>
+Sea \(K(\alpha)\) simple, como es finita es algebraica, y \(Irr(a,K)\) tiene 
+finitos divisores en la clausura. 
+</p>
+
+<p>
+Para cada divisor del polinomio irreducible creo \(K[|p|]\), el subcuerpo
+generado por los coeficientes del polinomio. Todo cuerpo intermedio \(E\),
+en el que el irreducible de \(\alpha\) sea \(p\) contendrá a \(K[|p|]\), pero como:
+</p>
+
+<p>
+\[ [K(\alpha): E] = [K(\alpha) : K[|p|]] \]
+</p>
+
+<p>
+Se tendrá forzosamente \(E = K[|p|]\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb808bd2" class="outline-4">
+<h4 id="orgb808bd2">Contraejemplo:</h4>
+<div class="outline-text-4" id="text-orgb808bd2">
+<p>
+Hay extensiones finitas de cuerpos que no son simples
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org35b6be7" class="outline-3">
+<h3 id="org35b6be7">5.3.13. Finita y separable es simple</h3>
+<div class="outline-text-3" id="text-org35b6be7">
+<p>
+Una extensión finita y separable es simple.
+</p>
+</div>
+
+<div id="outline-container-org746dd4d" class="outline-4">
+<h4 id="org746dd4d">Demostración</h4>
+<div class="outline-text-4" id="text-org746dd4d">
+<p>
+Si es finita y separable, podemos tomar su clausura normal.
+La clausura normal de una extensión finita es <a href="#org355b4a5">finita</a>, así que
+tengo una extensión de Galois finita. Habrá finitas subextensiones
+porque habrá finitos subgrupos de Galois.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge2428bc" class="outline-4">
+<h4 id="orge2428bc">Contraejemplo: cuerpo finito no simple</h4>
+<div class="outline-text-4" id="text-orge2428bc">
+<p>
+Tenemos <a href="https://en.wikipedia.org/wiki/Primitive_element_theorem#Counterexamples">contraejemplos</a> en característica \(p\) con cuerpos de
+dimensión \(p^2\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcdbf5a1" class="outline-3">
+<h3 id="orgcdbf5a1">5.3.14. Endomorfismo de Frobenius</h3>
+<div class="outline-text-3" id="text-orgcdbf5a1">
+<p>
+Sea \(K\) de característica de \(p\). Llamamos <b>endomorfismo de Frobenius</b> 
+a \(\phi(u) = u^p\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgba32df0" class="outline-3">
+<h3 id="orgba32df0">5.3.15. Cuerpos perfectos</h3>
+<div class="outline-text-3" id="text-orgba32df0">
+<p>
+Para \(K\) cuerpo equivalen:
+</p>
+
+<ol class="org-ol">
+<li>Todo \(f \in K[X]\) irreducible tiene raíces simples.</li>
+<li>Toda \(E/K\) algebraica es separable.</li>
+<li>Toda \(E/K\) finita es separable.</li>
+<li>\(car(K)=0\) ó \(car(K)=p\), y el endomorfismo de Frobenius es 
+sobreyectivo.</li>
+</ol>
+
+<p>
+Y en ese caso, llamamos a \(K\) <b>cuerpo perfecto</b>.
+</p>
+</div>
+
+<div id="outline-container-org91142c3" class="outline-4">
+<h4 id="org91142c3">Demostración</h4>
+<div class="outline-text-4" id="text-org91142c3">
+</div><ul class="org-ul"><li><a id="org6d99975"></a>Implicación 1 a 2<br  /><div class="outline-text-5" id="text-org6d99975">
+<p>
+Todo elemento de la extensión cumple algún polinomio,
+y son todos separables, luego es separable.
+</p>
+</div></li>
+
+<li><a id="orge824e38"></a>Implicación 2 a 3<br  /><div class="outline-text-5" id="text-orge824e38">
+<p>
+Trivial
+</p>
+</div></li>
+
+<li><a id="orgbd88a81"></a>Implicación 3 a 4<br  /><div class="outline-text-5" id="text-orgbd88a81">
+<p>
+Supongamos que no fuera sobreyectivo, existe \(y \neq x^p\).
+Si tomamos \((x^p-y)\), tenemos que es irreducible. Y si creamos
+entonces \(z^p = y\) tendríamos una extensión no finita no
+separable.
+</p>
+</div></li>
+
+<li><a id="org671cf8d"></a>Implicación 4 a 1 en característica 0<br  /><div class="outline-text-5" id="text-org671cf8d">
+<p>
+En característica \(0\), un polinomio no puede dividir a su derivada,
+que será de grado menor, así que un irreducible no puede tener raíces
+dobles.
+</p>
+</div></li>
+
+<li><a id="orge2914a6"></a>Implicación 4 a 1 en característica p<br  /><div class="outline-text-5" id="text-orge2914a6">
+<p>
+Para que un irreducible divida a la derivada, que debe ser de grado
+menor, se debe tener que sea \(0\). El polinomio original debe ser
+de la forma  \(f(x^p)\) para que al derivarlo se anule.
+</p>
+
+<p>
+Cuando Frobenius es automorfismo, podemos escribir \(f(x^p) = (g(x))^p\),
+contraviniendo irreducibilidad. Todos los polinomios deben tener
+raíces simples.
+</p>
+</div></li></ul>
+</div>
+</div>
+
+<div id="outline-container-org44b7bc8" class="outline-3">
+<h3 id="org44b7bc8">5.3.17. Ejemplos de cuerpos perfectos</h3>
+<div class="outline-text-3" id="text-org44b7bc8">
+<p>
+Son perfectos:
+</p>
+
+<ol class="org-ol">
+<li>Todo cuerpo de característica cero.</li>
+<li>Todo cuerpo finito.</li>
+<li>Todo cuerpo algebraicamente cerrado.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgff7360b" class="outline-4">
+<h4 id="orgff7360b">Demostración</h4>
+<div class="outline-text-4" id="text-orgff7360b">
+</div><ul class="org-ul"><li><a id="org1164a16"></a>Punto 1<br  /><div class="outline-text-5" id="text-org1164a16">
+<p>
+Trivial desde la <a href="#orgba32df0">caracterización</a>.
+</p>
+</div></li>
+<li><a id="org9be4a9d"></a>Punto 2<br  /><div class="outline-text-5" id="text-org9be4a9d">
+<p>
+En todo cuerpo finito, un endomorfismo es sobreyectivo.
+</p>
+</div></li>
+<li><a id="orgbe906d5"></a>Punto 3<br  /><div class="outline-text-5" id="text-orgbe906d5">
+<p>
+En un algebraicamente cerrado, todo irreducible es lineal y
+tiene raíces simples.
+</p>
+</div></li></ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb3ee8b" class="outline-2">
+<h2 id="orgfb3ee8b">5.4. Derivada y raíces múltiples</h2>
+<div class="outline-text-2" id="text-orgfb3ee8b">
+</div><div id="outline-container-orgf845926" class="outline-3">
+<h3 id="orgf845926">5.4.1. Raíces</h3>
+<div class="outline-text-3" id="text-orgf845926">
+<p>
+Sea \(f\in F[X]\) y \(u \in F\). Es raíz de multiplicidad \(k\) cuando \(f = (X-u)^kf_0\),
+con \(f_0(u) \neq 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3046213" class="outline-3">
+<h3 id="org3046213">5.4.2. Derivada</h3>
+<div class="outline-text-3" id="text-org3046213">
+<p>
+Se define la derivada de \(f\) como:
+</p>
+
+<p>
+\[ f' = \sum_{i=1}^n ia_iX^{i-1} = na_nX^{n-1} + \dots + a_1\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org572ddeb" class="outline-3">
+<h3 id="org572ddeb">5.4.3. Propiedades de la derivada</h3>
+<div class="outline-text-3" id="text-org572ddeb">
+<p>
+La derivada verifica:
+</p>
+
+<ol class="org-ol">
+<li>\((f+g)' = f'+g'\)</li>
+<li>\((f \cdot g)' = f' \cdot g'\)</li>
+<li>\((f^m)' = mf^{m-1}\cdot f'\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd307842" class="outline-3">
+<h3 id="orgd307842">5.4.4. Condición de raíces simples</h3>
+<div class="outline-text-3" id="text-orgd307842">
+<p>
+Las raíces de \(f\) son simples ssi \(mcd(f,f') = 1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org34aae17" class="outline-3">
+<h3 id="org34aae17">5.4.5. Condición de raíces simples en irreducibles</h3>
+<div class="outline-text-3" id="text-org34aae17">
+<p>
+Sea \(f\) irreducible con \(f' \neq 0\), las raíces de \(f\) son simples.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge47f211" class="outline-3">
+<h3 id="orge47f211">5.4.6. Propiedades de las raíces simples</h3>
+<div class="outline-text-3" id="text-orge47f211">
+<p>
+Se cumple:
+</p>
+
+<ol class="org-ol">
+<li>En característica \(0\), todo irreducible tiene raíces simples.</li>
+<li>En característica \(p\) prima, un irreducible tiene raíces múltiples
+ssi \(f(x) = g(x^p)\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb55f8e1" class="outline-3">
+<h3 id="orgb55f8e1">5.4.7. Polinomio separable</h3>
+<div class="outline-text-3" id="text-orgb55f8e1">
+<p>
+Un polinomio \(f \in K[X]\) se llama separable \(K\) si sus factores 
+irreducibles tienen sólo raíces simples.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2016-12-21 Wed 17:50</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
