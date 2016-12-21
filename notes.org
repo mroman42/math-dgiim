@@ -1897,7 +1897,7 @@ Una torre es una sucesión de subcuerpos:
 Una extensión es finita ssi $[F:K]$ es finito.
 
 **** 3.1.6. Base de una torre de inclusiones
-Sea $E \supset F \supset K$ una torre de inclusiones. Sean $\{u_i\}_{i\in I}$ una base de $E$
+Sea $K \supset F \supset E$ una torre de inclusiones. Sean $\{u_i\}_{i\in I}$ una base de $E$
 sobre $F$ y $\{v_j\}_{j\in J}$ una base de $F$ sobre $K$. Entonces $\{u_iv_j\}$ es una base
 de $E$ sobre $K$.
 
@@ -2275,22 +2275,12 @@ cerrada.
      $\phi : F/K \longrightarrow F/K$ que es isomorfismo.
 
 ** 4. Cuerpos de descomposición
-*** Extensión de homomorfismos
+*** DONE Extensión de homomorfismos
 *Extensión de un homomorfismo*. $\tau : F_1 \longrightarrow F_2$ es extensión de 
 $\sigma : K_1 \longrightarrow K_2$ cuando son dos extensiones $F/K$ y se cumple
 que $\tau |_K_1 = \sigma$.
 
 Cuando $\sigma = 1$, llamamos a $\tau$ *homomorfismo sobre K*.
-
-**** Extensión a polinomios
- #+begin_theorem
- *Extensión a polinomios*. Dado $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos, hay una única
- extensión a $\sigma : K_1[X] \longrightarrow K_2[X]$ cumpliendo $\sigma(x) = x$, que conserva:
-
-  - los grados
-  - los polinomios irreducibles
-  - las raíces de un polinomio sobre extensiones
- #+end_theorem
 
 **** Automorfismos de una extensión
 *Automorfismos de una extensión*. Sea $\sigma : F/K \longrightarrow F/K$, entonces,
@@ -2430,10 +2420,10 @@ Cualquier $f \in K[X]$ de grado $n$ tiene un cuerpo de descomposición,
 que además verifica $[F:K] \leq n!$
 
 ***** Demostración
-Aplicamos inducción sobre el grado. En el caso $1$ tenemos una
-raíz en el cuerpo y el propio cuerpo es de descomposición, con
-grado $1$.
+****** Inducción: caso base
+Cuando $n=1$, tenemos una raíz en el cuerpo.
 
+****** Inducción: caso inductivo
 En otro caso, por [[*4.1.1. Teorema de Kronecker][Kronecker]], tenemos que existe una extensión
 en la que hay una raíz del polinomio. Tomamos esa raíz para crear
 $K(u)$. Por hipótesis de inducción, hay un cuerpo de descomposición
@@ -2446,15 +2436,17 @@ Tenemos además que la raíz tiene menos grado que el polinomio:
 
 **** 4.1.12. Isomorfismo entre cuerpos de descomposición
 Sean $F_1/K_1, F_2/K_2$ cuerpos de descomposición de $f \in K_1[X]$ y 
-$\sigma(f) \in K_2[X]$; para $\sigma : K_1 \longrightarrow K_2$ isomorfismo. Entonces hay una
-extensión isomorfismo $\tau: F_1 \longrightarrow F_2$.
+$\sigma(f) \in K_2[X]$; para $\sigma : K_1 \longrightarrow K_2$ isomorfismo. Entonces son
+isomorfos.
 
 ***** Demostración
-Por inducción sobre el grado. Si ambos son de grado $1$ tenemos 
-extensiones triviales y hemos terminado.
+****** Caso base
+Si ambos son de grado $1$ tenemos extensiones triviales y 
+hemos terminado.
 
-En otro caso, sea $u \in F_1$ raíz de $f$. Como $Irr(u,K) \mid f$, tenemos 
-que $\sigma(Irr(u,K)) \mid \sigma(f)$. Si tomamos una raíz $v$ de $\sigma(Irr(u,K))$ y
+****** Caso inductivo
+Sea $u \in F_1$ raíz de $f$. Como $Irr(u,K) \mid f$, tenemos que 
+$\sigma(Irr(u,K)) \mid \sigma(f)$. Si tomamos una raíz $v$ de $\sigma(Irr(u,K))$ y 
 aplicamos el [[*4.1.7. Isomorfismo intercambiando conjugadas][isomorfismo intercambiando conjugadas]] anterior,
 tenemos una extensión $\tau : K_1(u) \longrightarrow K_2(v)$ que lleva una en 
 otra. Ahora tomamos $f=g(X-u)$ y por inducción tenemos
@@ -2473,19 +2465,16 @@ factoriza linealmente y es además se tiene $E = K(S)$ con:
 
 \[ S = \{ u \in E \mid \exists f \in {\cal P}: f(u)=0\} \]
 
-**** 4.1.24. Existencia del cuerpo de descomposición
+**** 4.1.24. Existencia del cuerpo de descomposición de una familia
 Para toda familia de polinomios existe un cuerpo de descomposición.
 
 ***** Demostración
 ****** Caso finito
 En el caso finito, multiplicamos toda la familia para aplicar
-la [[*4.1.11. Existencia del cuerpo de descomposición][existencia del cuerpo de descomposición]] del producto. Nótese
-que si un polinomio tiene una raíz, tiene que estar en la 
-descomposición lineal del producto.
+la [[*4.1.11. Existencia del cuerpo de descomposición][existencia del cuerpo de descomposición]] al producto.
 
 ****** Caso infinito
-Cuando tenemos una familia $\{ f_\lambda \mid \lambda \in \Lambda\}$. Por inducción finita
-sobre la cardinalidad de los conjuntos, si tomamos $I \subset \Lambda$ finito, 
+Cuando tenemos una familia $\{ f_\lambda \mid \lambda \in \Lambda\}$. Si tomamos $I \subset \Lambda$ finito, 
 podemos asignarle un cuerpo de descomposición $F_I$ tal que $I\subset J$ 
 implique $F_I \subset F_J$.
 
@@ -2515,17 +2504,22 @@ Aplicamos que los cuerpos de descomposición de un polinomio
 Sean $F_1,F_2$ dos cuerpos de descomposición sobre $K$ de una familia
 de polinomios.
 
-Formamos el conjunto de los isomorfismos extensión de cuerpos
-intermedios y lo ordenamos por inclusión y por extensión del
-isomorfismo:
+Ordenamos el siguiente conjunto por inclusión y por extensión del
+isomorfismo. 
+
+\[ (E,\tau) \leq (F,\psi) \Leftrightarrow 
+(E \subset F) \wedge (\psi|_E = \tau)\]
+
+Es una ordenación inductiva porque la unión arbitraria da una 
+cota maximal de cualquier cadena:
 
 \[ {\cal E} = 
 \left\{ (E,\tau) 
-\mid E \supset K;\; \tau : E \overset{\cong}\longrightarrow \tau(E)
+\mid F_1 \supset E \supset K;\;
+\tau : E/K \longrightarrow F_2/K
 \right\}\]
 
-Por el caso finito, sabemos que los cuerpos de descomposición
-de las subfamilias finitas están ahí. Sea $(F,\sigma)$ maximal. Y 
+Que sabemos no vacío por el caso finito. Sea $(F,\sigma)$ maximal. Y 
 supongamos que $F \subsetneq F_1$, entonces existe alguna raíz de alguno
 de los polinomios que no está en $F$. Creando un [[*4.1.7. Isomorfismo intercambiando conjugadas][isomorfismo]]
 sobre $F$ que la llevara a su conjugada, contravendríamos maximalidad.
@@ -2624,7 +2618,7 @@ así que $K(S) = E$.
 ****** Implicación 3 a 1
 $E$ está generado por elementos algebraicos, luego es algebraico.
 Además, todo polinomio no constante descompone en él, luego
-es clausura algebraica por la [[*4.2.2. Caracterización de los algebraicamente cerrados][caracterización]].
+es algebraicamente cerrado por la [[*4.2.2. Caracterización de los algebraicamente cerrados][caracterización]].
 
 ****** TODO Equivalencia con 4
 **** 4.2.7. Transitividad de la clausura algebraica
@@ -2639,7 +2633,7 @@ la extensión. Ser algebraico [[*3.2.29. Torre algebraica][equivale]] a que lo s
 Para todo cuerpo existe una clausura algebraica.
 
 ***** Demostración
-Sabemos que [[*4.1.24. Existencia del cuerpo de descomposición][existe]] el cuerpo de descomposición de todos los polinomios
+Sabemos que [[*4.1.24. Existencia del cuerpo de descomposición de una familia][existe]] el cuerpo de descomposición de todos los polinomios
 no constantes. Por la caracterización de [[*4.2.6. Caracterización de la clausura algebraica][clausura algebraica]] sabemos
 que lo es.
 
@@ -3036,15 +3030,47 @@ La suma o producto de elementos separables es separable, como
 demostramos [[*5.3.9. Extensión por un conjunto separable][anteriormente]].
 
 **** 5.3.13. Teorema del elemento primitivo
-Sea $E/K$ una extensión finita. Es simple ssi el conjunto de cuerpos
-intermedios $\{ F \mid K \subset F \subset E\}$ es finito.
+Sea $E/K$ una extensión finita. Es simple ssi el conjunto de
+cuerpos intermedios $\{ F \mid K \subset F \subset E\}$ es finito.
 
-***** TODO Demostración
+***** Demostración: si hay finitos subcuerpos es simple
+****** Cuerpo base finito
+Como la extensión es finita, tenemos que hay finitos elementos.
+El grupo multiplicativo de un cuerpo es [[http://mathoverflow.net/a/54741/45365][cíclico]], luego es simple.
+
+****** Cuerpo base infinito
+Siendo $E = K(a_1,a_2,\dots,a_n)$, nos limitamos a probar $K(a,b)$ simple.
+Consideramos las $K(a+xb)$ para $x \in F$. Como los elementos de $F$ son 
+infinitos y las extensiones intermedias finitas, se tienen $x \neq y$
+tales que $K(a+xb) = K(a+yb)$, y por tanto:
+
+\[
+b = \frac{ a +bx - (a + by)}{x-y} \in K(a+bx)
+\]
+
+***** Demostración: si es simple, hay finitos subcuerpos
+Sea $K(\alpha)$ simple, como es finita es algebraica, y $Irr(a,K)$ tiene 
+finitos divisores en la clausura. 
+
+Para cada divisor del polinomio irreducible creo $K[|p|]$, el subcuerpo
+generado por los coeficientes del polinomio. Todo cuerpo intermedio $E$,
+en el que el irreducible de $\alpha$ sea $p$ contendrá a $K[|p|]$, pero como:
+
+\[ [K(\alpha): E] = [K(\alpha) : K[|p|]] \]
+
+Se tendrá forzosamente $E = K[|p|]$.
+
+***** Contraejemplo:
+Hay extensiones finitas de cuerpos que no son simples
 
 **** 5.3.13. Finita y separable es simple
 Una extensión finita y separable es simple.
 
-***** TODO Demostración
+***** Demostración
+Si es finita y separable, podemos tomar su clausura normal.
+La clausura normal de una extensión finita es [[*5.2.8. Clausura de una extensión finita][finita]], así que
+tengo una extensión de Galois finita. Habrá finitas subextensiones
+porque habrá finitos subgrupos de Galois.
 
 ***** Contraejemplo: cuerpo finito no simple
 Tenemos [[https://en.wikipedia.org/wiki/Primitive_element_theorem#Counterexamples][contraejemplos]] en característica $p$ con cuerpos de
@@ -3273,7 +3299,7 @@ Una extensión finita es de Galois ssi es normal y separable.
 
 ***** Demostración
 Sea $Gal(E/K) = G$, entonces cada automorfismo se extiende a un 
-homomorfismo $\sigma' : E \longrightarrow K$, luego $[E:K]_S \geq |G| = [E:K] \geq [E:K]_S$, 
+homomorfismo $\sigma' : E/K \longrightarrow \overline{K}/K$, luego $[E:K]_S \geq |G| = [E:K] \geq [E:K]_S$, 
 y por tanto la extensión es separable. Como además el número total 
 de homomorfismos es $[E:K]_S = |G|$, son todos automorfismos y la 
 extesión es normal.
@@ -3446,39 +3472,59 @@ $G_1,G_2,\dots,G_n$. Si cumplena demás $E_i \cap (E_1E_2\dots E_{i-1}) = K$, en
 ***** TODO Demostración
 **** 6.4.10. Cuerpos fijos del producto
 Sea $E/K$ una extensión finita de Galois con grupo $G = G_1 \times \dots \times G_n$.
-Sea $E_i$ el cuerpo fijo de $G_1 \times \dots \times \{1\} \times \dots \times G_n$.
+Sea $E_i$ el cuerpo fijo de $G_1 \times \dots \times \{1\} \times \dots \times G_n$. Entonces $E_i/K$ es
+de Galois con grupo $Gal(E_i/K) = G_i$, $E_i \cap (E_1\dots E_{i-1})$ y $E=E_1\dots E_n$.
+
+***** TODO Demostración
 
 ** 7. Cuerpos finitos
-*** Estructura de los cuerpos finitos
-**** Propiedades de un cuerpo finito
- Sea $F$ cuerpo finito con $|F| = q$,
+*** 7.1. Estructura de los cuerpos finitos
+**** 7.1.1. Propiedades de un cuerpo finito
+Sea $F$ cuerpo finito con $|F| = q$,
 
-  - $car(F) = p$ es un primo
-  - $<1>$ es isomorfo a $\mathbb{Z}/p\mathbb{Z}$
-  - $F/\mathbb{Z}_p$ es extensión finita
-  - $[ F : \mathbb{Z}_p] = n$, entonces $q = p^n$
-  - $F^\times$ es cíclico de orden $q-1$
+ 1. $car(F) = p$ es un primo
+ 2. El cuerpo primo es $\mathbb{Z}/p\mathbb{Z}$
+ 3. $F/\mathbb{Z}_p$ es extensión finita
+ 4. $[ F : \mathbb{Z}_p] = n$, entonces $|F| = p^n$
+ 5. $F^\times$ es cíclico de orden $|F|-1$
+ 
+***** TODO Demostración
 
-**** Existencia de cuerpos finitos
- #+begin_theorem
- Para $p$ primo, existe cuerpo de $p^n$ elementos.
- #+end_theorem
- #+begin_proofs
- Sea $f(x) = x^{p^n}-x$ polinomio en $\mathbb{Z}_p$. Su derivada no tiene raíces, luego él tiene sólo
- raíces simples. Vemos que con sólo añadir las raíces del polinomio, llega a ser
- cuerpo de descomposición.
+**** 7.1.2. Clasificación de cuerpos finitos
+Dos cuerpos finitos del mismo cardinal son isomorfos. De hecho,
+son el cuerpo de descomposición de $X^{|F|} - X$.
 
- Sean $u,v \in S$, conjunto de raíces:
+***** TODO Demostración
 
-  - $(u+v)^{p^n} - (u+v) = u^{p^n}-u+v^{p^n}-v = 0$
-  - $(uv)^{p^n}-uv = u^{p^n}v^{p^n} - uv = 0$
-  - $(-u)^q - (-u) = 0$
-  - $(u^{-1})^q-u^{-1} = 0$
- #+end_proofs
+**** 7.1.3. Existencia de cuerpos finitos
+Dado $p$ primo, existe cuerpo de $p^n$ elementos.
 
-**** Teorema de Moore
- Para cada $p^n$ existe exactamente un cuerpo con $p^n$ elementos; que es el cuerpo de
- descomposición de $x^{p^n}-x$ sobre $\mathbb{Z}_p$. No existen otros cuerpos finitos.
+***** Demostración
+Sea $f(x) = x^{p^n}-x$ polinomio en $\mathbb{Z}_p$. Su derivada es $-1$ y no tiene raíces, 
+luego tiene sólo raíces simples. Vemos que con sólo añadir las 
+raíces del polinomio, llega a ser cuerpo de descomposición.
+
+Sean $u,v \in S$, conjunto de raíces:
+
+- $(u+v)^{p^n} - (u+v) = u^{p^n}-u+v^{p^n}-v = 0$
+- $(uv)^{p^n}-uv = u^{p^n}v^{p^n} - uv = 0$
+- $(-u)^q - (-u) = 0$
+- $(u^{-1})^q-u^{-1} = 0$
+
+**** 7.1.4. Teorema de Moore
+Para cada $p^n$ existe exactamente un cuerpo con $p^n$ elementos; 
+que es el cuerpo de descomposición de $x^{p^n}-x$ sobre $\mathbb{Z}_p$. 
+No existen otros cuerpos finitos.
+
+***** Demostración
+Sabemos los cuerpos [[*7.1.1. Propiedades de un cuerpo finito][deben]] tener cardinal $p^n$ y que dos cuerpos
+con el mismo cardinal son [[*7.1.2. Clasificación de cuerpos finitos][isomorfos]]. Además, sabemos que
+[[*7.1.3. Existencia de cuerpos finitos][existe]].
+
+**** 7.1.5. Cuerpos de Galois
+Notamos por $GF(p^n)$ o $\mathbb{F}_{p^n}$ al único cuerpo con esa cardinalidad,
+lo llamamos cuerpo de Galois de orden $p^n$.
+
 *** Factorización de polinomios
 **** Clasificación de polinomios irreducibles
  #+begin_theorem
