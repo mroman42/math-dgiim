@@ -31,7 +31,7 @@ html, body {
 #preamble {
     background: none repeat scroll 0 0 #46484B;
     color: #FFFFFF;
-    font-family: Arial,Helvetica,sans-serif;
+    font-family: ubuntu,Arial,Helvetica,sans-serif;
     font-size: 70%;
     font-weight: bold;
     height: 224px; /* so that content begins after... */
@@ -96,7 +96,7 @@ html, body {
 
 #postamble {
     color: #999999;
-    font-family: Arial,Helvetica,sans-serif;
+    font-family: ubuntu,Arial,Helvetica,sans-serif;
     font-size: 70%;
     height: 40px;
     margin: 0 auto;
@@ -109,7 +109,7 @@ html, body {
 
 body {
     color: #333333;
-    font: 13px/1.385 arial,helvetica,clean,sans-serif;
+    font: 14px/1.385 ubuntu,arial,helvetica,clean,sans-serif;
     margin: 0 .1em;
     padding: 0;
 }
@@ -147,23 +147,23 @@ h3, h4, h5, h6 {
 h3 {
     border-bottom: 1px solid #B5DAF1;
     font-size: 16px;
-    margin-left: 25px;
+    margin-left: 10px;
 }
 
 h4 {
     border-bottom: 1px dotted #C9E3F5;
     font-size: 14px;
-    margin-left: 60px;
+    margin-left: 15px;
 }
 
 h5 {
     font-size: 1em;
-    margin-left: 87px;
+    margin-left: 20px;
 }
 
 h6 {
     font-size: 1em;
-    margin-left: 100px;
+    margin-left: 25px;
 }
 
 .DONEheader {
@@ -182,15 +182,15 @@ h6 {
 .outline-text-2, .outline-text-3, .outline-text-4, .outline-text-5,
 .outline-3 > ul, /* for HTML export of Beamer slides */
 .outline-4 > ol, #text-footnotes {
-    margin-left: 100px;
+    margin-left: 25px;
 }
 
 li > .outline-text-5 {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 ul, ol {
-    padding-left: 1.5em;
+    padding-left: 3em;
 }
 
 dt {
@@ -273,7 +273,7 @@ a:focus {
         border: 0 none;
         color: #666666;
         float: left;
-        font-family: Arial,Helvetica,sans-serif;
+        font-family: ubuntu,Arial,Helvetica,sans-serif;
         font-size: 11px;
         font-weight: normal;
         margin: 0;
