@@ -122,48 +122,54 @@ i {
     color: #1A1A1A;
 }
 
-h1, ul#tabs, h2, h3, h4, h5 {
+h1, ul#tabs, h2, h3, h4, h5, h6 {
     font-family: "Trebuchet MS",Verdana,sans-serif;
 }
 
 h1 {
     background-color: #0A3F69;
     color: #F8F8F8;
-    font-size: 24px;
+    font-size: 40px;
     margin: 0;
     padding: 9px 0px 0px 10px;
 }
 
 h2 {
-    border-bottom: 4px solid #67B3E3;
-    color: #13679D;
-    font-size: 20px;
-}
-
-h3, h4, h5, h6 {
-    color: #1572AE;
+    border-bottom: 4px solid #03770D;
+    color: #03770D;
+    font-size: 30px;
 }
 
 h3 {
-    border-bottom: 1px solid #B5DAF1;
-    font-size: 16px;
+    color: #15427E;
+}
+
+h3 {
+    border-bottom: 1px solid #15427E;
+    font-size: 25px;
     margin-left: 10px;
 }
 
 h4 {
     border-bottom: 1px dotted #C9E3F5;
-    font-size: 14px;
+    font-size: 18px;
     margin-left: 15px;
+    color: #157280;
 }
 
 h5 {
-    font-size: 1em;
+    font-size: 14px;
     margin-left: 20px;
+    color: #852290;
+    margin-bottom: 10px;
 }
 
 h6 {
-    font-size: 1em;
+    font-size: 12px;
     margin-left: 25px;
+    color: #652260;
+    margin-bottom: 0px;
+    margin-top: 0;
 }
 
 .DONEheader {
@@ -179,13 +185,22 @@ h6 {
         border-bottom: 1px dotted #DDDDDD;
     }
 
-.outline-text-2, .outline-text-3, .outline-text-4, .outline-text-5,
+.outline-text-2, .outline-text-3, .outline-text-4, .outline-text-5, .outline-text-6,
 .outline-3 > ul, /* for HTML export of Beamer slides */
 .outline-4 > ol, #text-footnotes {
     margin-left: 25px;
 }
 
+.outline-text-6 {
+    font-size: 13px;
+}
+
+
 li > .outline-text-5 {
+    font-size: 18px;
+    margin-left: 10px;
+}
+li > .outline-text-6 {
     margin-left: 10px;
 }
 
