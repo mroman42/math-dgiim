@@ -1,0 +1,3068 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2016-12-24 Sat 00:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Análisis Funcional</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Análisis Funcional
+<br>
+<span class="subtitle">Theory</span>
+</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2973738">1. Espacios normados</a>
+<ul>
+<li><a href="#orgc3914e5">Espacios normados</a>
+<ul>
+<li><a href="#org26125cc">Norma y seminorma</a></li>
+<li><a href="#org5a861f5">Distancia de la norma</a></li>
+<li><a href="#org34d862f">Topología de la norma</a></li>
+<li><a href="#org7ef7f0d">Espacios vectoriales topológicos</a></li>
+<li><a href="#org090230a">Continuidad de la norma, suma y producto</a>
+<ul>
+<li><a href="#orgeba1cd3">Continuidad de suma y producto</a></li>
+<li><a href="#org640bf0a">Continuidad de homotecias y translaciones</a></li>
+</ul>
+</li>
+<li><a href="#orgacb2426">Operaciones sobre conjuntos</a>
+<ul>
+<li><a href="#org82679dc">Demostración de 1</a></li>
+<li><a href="#orgd154c31">Demostración de 2</a></li>
+<li><a href="#orga438f4b">Demostración de 3</a></li>
+<li><a href="#orgda58902">Demostración de 4</a></li>
+<li><a href="#org0573b8b">Contraejemplo de suma de cerrados</a></li>
+</ul>
+</li>
+<li><a href="#org036c62e">Conexión de espacios normados</a></li>
+<li><a href="#orge3e92e1">Espacios de Banach</a></li>
+</ul>
+</li>
+<li><a href="#org9a86f9e">Equivalencia de normas y desigualdades</a>
+<ul>
+<li><a href="#org698ddf9">Equivalencia proporcional</a></li>
+<li><a href="#orgbb4a198">Desigualdad de Young</a>
+<ul>
+<li><a href="#org9e0feb3">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgcc372e2">Desigualdad de Hölder</a>
+<ul>
+<li><a href="#org2bb18b7">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org30bf7bb">Desigualdad de Minkowski</a>
+<ul>
+<li><a href="#orgd30ab85">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org76c2c7a">Ejemplos de espacios normados</a>
+<ul>
+<li><a href="#org059cb8a">Espacios de dimensión finita</a>
+<ul>
+<li><a href="#orgba72080">Normas</a></li>
+<li><a href="#orgc4139a9">Equivalencia</a></li>
+</ul>
+</li>
+<li><a href="#orgaec0468">Espacios de sucesiones</a>
+<ul>
+<li><a href="#org55f2c0e">Forma un subespacio vectorial</a></li>
+<li><a href="#org4bc0ba0">Son espacios de Banach</a></li>
+</ul>
+</li>
+<li><a href="#orgf0c8041">Subespacios del espacio de sucesiones</a>
+<ul>
+<li><a href="#org6a67511">Sucesiones convergentes</a></li>
+<li><a href="#orgc85142f">Sucesiones nulas</a></li>
+<li><a href="#org70cc9e7">Sucesiones casi-nulas o de soporte finito</a></li>
+</ul>
+</li>
+<li><a href="#orgc12f2b1">Espacios de funciones continuas acotadas</a>
+<ul>
+<li><a href="#org703a35b"><span class="todo TODO">TODO</span> Es espacio de Banach</a></li>
+<li><a href="#orgf7e4bae">Anuladas en infinito</a></li>
+<li><a href="#orge809086">Funciones de soporte compacto</a></li>
+<li><a href="#org4d8757e">Relación entre ambas</a></li>
+</ul>
+</li>
+<li><a href="#orgee1d6aa">Espacios de funciones derivables</a>
+<ul>
+<li><a href="#org88c73ef">Es espacio de Banach</a></li>
+</ul>
+</li>
+<li><a href="#org1ca3c15">Espacios de funciones integrables</a>
+<ul>
+<li><a href="#org54e399f">Desigualdades integrales de Hölder y Minkowski</a></li>
+<li><a href="#orgd04d4f1">Complitud en el caso real</a></li>
+</ul>
+</li>
+<li><a href="#org98804ee">Espacios de funciones esencialmente acotadas</a>
+<ul>
+<li><a href="#orgb1f3442">Naturaleza de seminorma</a></li>
+<li><a href="#orgab0a05e">Estructura de espacio normado</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org450c559">Categoría de espacios normados</a>
+<ul>
+<li><a href="#orgb24e216">Homomorfismos topológicos</a></li>
+<li><a href="#orgcdb2bd2">Producto de espacios normados</a></li>
+<li><a href="#orga60c7cf">Cociente de un espacio normado</a></li>
+</ul>
+</li>
+<li><a href="#orgc1f246b">Operadores y funcionales lineales</a>
+<ul>
+<li><a href="#org7f8f0ac">Operadores lineales continuos</a>
+<ul>
+<li><a href="#orgca3a6a4"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc4747bd">Norma de operadores</a></li>
+<li><a href="#org8b1a256">Cuatro teoremas sobre la norma de operadores</a>
+<ul>
+<li><a href="#orgf984c3e"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org79ed317">Espacio dual topológico</a></li>
+<li><a href="#orgc8c5e8a">Extensión desde un subespacio denso</a>
+<ul>
+<li><a href="#org6bb4ec1"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgb3fb369">Caracterización de operadores abiertos</a>
+<ul>
+<li><a href="#org600eceb"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org8cd1754">Funciones lineales abiertas</a>
+<ul>
+<li><a href="#org07c8011">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org46ce9a6">Descomposición canónica: proyección al cociente</a>
+<ul>
+<li><a href="#org4afa1fe"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgd63c279">Descomposición canónica: isomorfismo</a>
+<ul>
+<li><a href="#orgd3dfac5">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb3082f3">Teorema de Tychonoff</a>
+<ul>
+<li><a href="#org6613d70">Lema a Tychonoff</a></li>
+<li><a href="#org2d1d73b">Teorema de Tychonoff</a>
+<ul>
+<li><a href="#org663a60c">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org94e2e18">Corolarios al teorema</a></li>
+<li><a href="#orgf3907a6">Compacidad relativa y precompacidad</a>
+<ul>
+<li><a href="#org4fe3fd3">Cadena de implicaciones</a></li>
+</ul>
+</li>
+<li><a href="#orgd4b1c51">Corolario de Tychonoff de compacidad</a></li>
+<li><a href="#org5fe5d10">Corolario de caracterización de continuas</a>
+<ul>
+<li><a href="#org3afc43f"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orge4f5f29">Corolario de caracterización de abiertas</a></li>
+<li><a href="#org42e9b18">Corolario de caracterización de la dimensión finita.</a></li>
+</ul>
+</li>
+<li><a href="#org75b65af">Teorema de Riesz</a>
+<ul>
+<li><a href="#orgd8a31ac">Lema al teorema de Riesz</a>
+<ul>
+<li><a href="#orgd80a18b">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org9b9b34d">Teorema de Riesz</a>
+<ul>
+<li><a href="#org9c00443">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org58200c6">Dual topológico en dimensión finita</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgcfc252a">2. Principios fundamentales del análisis funcional</a>
+<ul>
+<li><a href="#org8e2f9ba">Teorema de Hahn-Banach</a>
+<ul>
+<li><a href="#orgde976fe">Funcionales sublineales</a></li>
+<li><a href="#org2a9fb4f">Versión analítica de Hahn-Banach</a>
+<ul>
+<li><a href="#org94ba914">Demostración</a>
+<ul>
+<li><a href="#orgc3a60ca">Primera extensión en los reales</a></li>
+<li><a href="#org54609d5">Elegir el coeficiente de la extensión</a></li>
+<li><a href="#orga5683b7">Lema de Zorn</a></li>
+<li><a href="#org4332b3c">Caso complejo</a></li>
+<li><a href="#org6b12bc7">Caso de la seminorma</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6b8cb31">Extensión equinórmica de Hahn-Banach</a>
+<ul>
+<li><a href="#orgd957a53">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org45f2c6e">Separación en el dual topológico</a>
+<ul>
+<li><a href="#orgdb40fee">Demostración</a></li>
+<li><a href="#org0cbb68d">Corolario 1</a></li>
+<li><a href="#orge727f09">Corolario 2</a></li>
+</ul>
+</li>
+<li><a href="#orgad5c0b8">Corolario para subespacios finitos</a>
+<ul>
+<li><a href="#orgb39b2d8">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3be9f21">Inyección canónica e isometrías</a>
+<ul>
+<li><a href="#orga55f5bd">Inyección canónica</a></li>
+<li><a href="#org6a2f890">Propiedades de la inyección</a></li>
+<li><a href="#org839e7f5">Completación de un espacio</a></li>
+<li><a href="#org44f7f3c">Polar de un subespacio</a></li>
+<li><a href="#org1b4bfeb">Primer teorema de isometría</a>
+<ul>
+<li><a href="#orgbf841c7">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org706e3d4">Segundo teorema de isometría</a>
+<ul>
+<li><a href="#orgdcca21f">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org33186a0">Función de aproximación</a>
+<ul>
+<li><a href="#org210fdee">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgddbbd47">Caracterización del polar</a></li>
+<li><a href="#orga33ddd1">Distancia a un kernel</a>
+<ul>
+<li><a href="#org53d7afe">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgffa4746">Funcional de Minkowski</a></li>
+<li><a href="#org9b6477d">Separación de un punto</a>
+<ul>
+<li><a href="#org74285b8">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc01bd98">Separación de convexos (para un abierto)</a></li>
+<li><a href="#org579dafd">Existencia de funcionales de soporte</a>
+<ul>
+<li><a href="#org30e855b"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgd0652ef">Separación de convexos (para un compacto)</a>
+<ul>
+<li><a href="#org83cc35f"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org83eb1cb">Lema de categoría de Baire</a>
+<ul>
+<li><a href="#org04b1065">Teorema de Baire</a>
+<ul>
+<li><a href="#orge7dd1bd">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org20f8d98">Corolario al teorema de Baire</a>
+<ul>
+<li><a href="#org4eeb140">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org3817372">Dimensión en espacios de Banach</a>
+<ul>
+<li><a href="#orgd54ce9e">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9ba2a16">Teorema de la aplicación abierta</a>
+<ul>
+<li><a href="#orge9e53cb">Teorema de la aplicación abierta</a>
+<ul>
+<li><a href="#org640b921">Demostración</a>
+<ul>
+<li><a href="#orga61fb8c">La imagen de bola tiene interior no vacío</a></li>
+<li><a href="#org834abb9">La imagen de la bola es entorno de 0</a></li>
+<li><a href="#orgc173027">Acotación de la bola</a></li>
+<li><a href="#orgc792485">Sucesión</a></li>
+<li><a href="#orgb6d77ca">La suma converge</a></li>
+<li><a href="#org37795fa">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org10e93e1">Teorema de los isomorfismos de Banach</a>
+<ul>
+<li><a href="#org7189b82">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org932b658">Teorema del homomorfismo de Banach</a>
+<ul>
+<li><a href="#orgbd3a5a8"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc5e8fa7">Equivalencia de normas en espacios de Banach</a>
+<ul>
+<li><a href="#orgef2f7e7">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org659418a">Teorema de la gráfica cerrada</a>
+<ul>
+<li><a href="#orgf12597d">Gráfica de una función</a></li>
+<li><a href="#org46bad70">Teorema de la gráfica cerrada</a>
+<ul>
+<li><a href="#org1d3db36">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org512bc6d">Caracterización de la gráfica cerrada en espacios normados</a>
+<ul>
+<li><a href="#orgd0be080"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8c352c6">Teorema de Banach-Steinhaus</a>
+<ul>
+<li><a href="#org8e2bf45">Teorema de Banach-Steinhaus para funcionales</a>
+<ul>
+<li><a href="#orgb6b24a0">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0269815">Teorema del cierre de Steinhaus</a>
+<ul>
+<li><a href="#org3bf6e9a">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org376ca23">Corolario a Banach-Steinhaus para el dual</a>
+<ul>
+<li><a href="#org9588c86">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgeb8fd30">Corolario a Banach-Steinhaus para el doble dual</a>
+<ul>
+<li><a href="#orgaf8a1b3">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org88bd80d">3. Espacios de Hilbert</a></li>
+<li><a href="#orgd626dc3">4. Topologías débiles</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2973738" class="outline-2">
+<h2 id="org2973738">1. Espacios normados</h2>
+<div class="outline-text-2" id="text-org2973738">
+</div><div id="outline-container-orgc3914e5" class="outline-3">
+<h3 id="orgc3914e5">Espacios normados</h3>
+<div class="outline-text-3" id="text-orgc3914e5">
+</div><div id="outline-container-org26125cc" class="outline-4">
+<h4 id="org26125cc">Norma y seminorma</h4>
+<div class="outline-text-4" id="text-org26125cc">
+<p>
+<b>Norma</b>. Función \(\|\_\| : X \longrightarrow \mathbb{R}\) verficando:
+</p>
+
+<ul class="org-ul">
+<li>\(\|x\| = 0 \Leftrightarrow x = 0\)</li>
+<li>\(\|ax\| = |a| \|x\|\)</li>
+<li>\(\|x+y\| \leq \|x\|+\|y\|\)</li>
+</ul>
+
+<p>
+Cuando \(\|x\| = 0\) no implica \(x = 0\), se llama <b>seminorma</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5a861f5" class="outline-4">
+<h4 id="org5a861f5">Distancia de la norma</h4>
+<div class="outline-text-4" id="text-org5a861f5">
+<p>
+Desde la norma se puede definir una <b>distancia</b> asociada \(d(x,y) = \|x-y\|\), 
+que hace a \(X\) un <b>espacio métrico</b>. La distancia cumple
+</p>
+
+<ul class="org-ul">
+<li>\(d(x+a,y+a) = d(x,y)\)</li>
+<li>\(d(\lambda a) = |\lambda| d(a)\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org34d862f" class="outline-4">
+<h4 id="org34d862f">Topología de la norma</h4>
+<div class="outline-text-4" id="text-org34d862f">
+<p>
+La distancia hace a un espacio normado un <b>espacio topológico</b>
+con abiertos:
+</p>
+
+<p>
+\[\tau = \{G \subset X \;|\; \forall a \in G: \exists r > : B(a,r) \subset G\}\]
+</p>
+
+<p>
+Dos normas que generan el mismo espacio topológico son 
+<b>equivalentes</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ef7f0d" class="outline-4">
+<h4 id="org7ef7f0d">Espacios vectoriales topológicos</h4>
+<div class="outline-text-4" id="text-org7ef7f0d">
+<p>
+Cualquier espacio vectorial sobre \(\mathbb{R}\) o \(\mathbb{C}\) admite una norma.
+Dada una base \(\{e_i\}\) del espacio, podemos escribir \(x = \sum \alpha_i e_i\) 
+y definirla como:
+</p>
+
+<p>
+\[ \|x\| = \sum |\alpha_i|\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org090230a" class="outline-4">
+<h4 id="org090230a">Continuidad de la norma, suma y producto</h4>
+<div class="outline-text-4" id="text-org090230a">
+<p>
+La norma es continua en su espacio por ser lipschitziana:
+</p>
+
+<p>
+\[ |\|x\| -  \|y\|| \leq \|x-y\| \]
+</p>
+</div>
+
+<div id="outline-container-orgeba1cd3" class="outline-5">
+<h5 id="orgeba1cd3">Continuidad de suma y producto</h5>
+<div class="outline-text-5" id="text-orgeba1cd3">
+<p>
+La suma y el producto por escalares son continuos, usando 
+que la convergencia en el producto equivale a la 
+convergencia por coordenadas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org640bf0a" class="outline-5">
+<h5 id="org640bf0a">Continuidad de homotecias y translaciones</h5>
+<div class="outline-text-5" id="text-org640bf0a">
+<p>
+Como corolario, lo son las <b>homotecias</b> y <b>translaciones</b>, 
+todas las bolas cerradas son homeomorfas a la bola unidad.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgacb2426" class="outline-4">
+<h4 id="orgacb2426">Operaciones sobre conjuntos</h4>
+<div class="outline-text-4" id="text-orgacb2426">
+<p>
+Para \(X\) espacio normado:
+</p>
+
+<ol class="org-ol">
+<li>\(A\) abierto \(\Rightarrow\) \(A+B\) abierto.</li>
+<li>\(A\) cerrrado, \(B\) compacto \(\Rightarrow\) \(A+B\) cerrado.</li>
+<li>\(A,B\) compactos \(\Rightarrow\) \(A+B\) compacto.</li>
+<li>\(M\) subespacio \(\Rightarrow\) \(\overline{M}\) subespacio.</li>
+</ol>
+</div>
+
+<div id="outline-container-org82679dc" class="outline-5">
+<h5 id="org82679dc">Demostración de 1</h5>
+<div class="outline-text-5" id="text-org82679dc">
+<p>
+Es la unión de abiertos, \(A + B = \bigcup_{b \in B} (b + A)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd154c31" class="outline-5">
+<h5 id="orgd154c31">Demostración de 2</h5>
+<div class="outline-text-5" id="text-orgd154c31">
+<p>
+Sea \(x \in \overline{A+B}\), \(\exists \{a_n,b_n\} : \{a_n,b_n\} \longrightarrow x\), por compacidad
+tenemos \(\{b_{\sigma_n}\} \longrightarrow b \in B\) y por tanto \(\{a_{\sigma_n}\} \longrightarrow x-b \in A\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga438f4b" class="outline-5">
+<h5 id="orga438f4b">Demostración de 3</h5>
+<div class="outline-text-5" id="text-orga438f4b">
+<p>
+Se tiene \(A\times B\) compacto, y la suma es continua, luego
+\(A+B\) es compacto.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgda58902" class="outline-5">
+<h5 id="orgda58902">Demostración de 4</h5>
+<div class="outline-text-5" id="text-orgda58902">
+<p>
+Usando la continuidad de la suma y del producto por 
+escalares:
+</p>
+
+<p>
+\[(+)(\overline{M}\times\overline{M}) 
+= (+)\overline{(M\times M)}
+\subset \overline{(+)(M \times M)}\]
+\[(*)(\mathbb{K}\times\overline{M})
+= (*)\overline{(\mathbb{K}\times M)}
+\subset \overline{(*)(\mathbb{K} \times M)}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0573b8b" class="outline-5">
+<h5 id="org0573b8b">Contraejemplo de suma de cerrados</h5>
+<div class="outline-text-5" id="text-org0573b8b">
+<p>
+La suma de dos cerrados puede no ser cerrado:
+</p>
+
+<p>
+\[\left\{n + \frac{1}{n} \mid n \in \mathbb{N}\right\} + 
+\left\{-n \mid n \in \mathbb{N}\right\} = 
+\left\{\frac{1}{n} \mid n \in \mathbb{N}\right\}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org036c62e" class="outline-4">
+<h4 id="org036c62e">Conexión de espacios normados</h4>
+<div class="outline-text-4" id="text-org036c62e">
+<p>
+Todo espacio normado es <b>arcoconexo</b> y <b>localmente arcoconexo</b>; 
+por tanto <b>conexo</b>. De hecho, la bola unidad es <b>convexa</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge3e92e1" class="outline-4">
+<h4 id="orge3e92e1">Espacios de Banach</h4>
+<div class="outline-text-4" id="text-orge3e92e1">
+<p>
+Un <b>espacio de Banach</b> es un espacio normado completo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9a86f9e" class="outline-3">
+<h3 id="org9a86f9e">Equivalencia de normas y desigualdades</h3>
+<div class="outline-text-3" id="text-org9a86f9e">
+</div><div id="outline-container-org698ddf9" class="outline-4">
+<h4 id="org698ddf9">Equivalencia proporcional</h4>
+<div class="outline-text-4" id="text-org698ddf9">
+<p>
+Dos normas \(\|.\|\) y \(\|.\|_\ast\) son equivalentes cuando:
+</p>
+
+<p>
+\[\exists m,M \in \mathbb{R^+}:\; m \|x\| \leq \|x\|_\ast \leq M \|x\|\]
+</p>
+
+<p>
+Como se demuestra por mutua inclusión de bolas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbb4a198" class="outline-4">
+<h4 id="orgbb4a198">Desigualdad de Young</h4>
+<div class="outline-text-4" id="text-orgbb4a198">
+<p>
+Para \(a,b\in\mathbb{R}^+\) y \(p>1\) con \(\frac{1}{p}+\frac{1}{q} = 1\) se tiene:
+</p>
+
+<p>
+\[ab \leq \frac{a^p}{p}+\frac{b^q}{q}\]
+</p>
+</div>
+
+<div id="outline-container-org9e0feb3" class="outline-5">
+<h5 id="org9e0feb3">Demostración</h5>
+<div class="outline-text-5" id="text-org9e0feb3">
+<p>
+Se demuestra aplicando desigualdad de Taylor al logaritmo con 
+pesos \(1/p\) y \(1/q\).
+</p>
+
+<p>
+\[\log(ab) = \frac{1}{p}\log(a^p) + \frac{1}{q}\log(b^q) \leq 
+\log\left(\frac{a^p}{p} + \frac{b^q}{q}\right)\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc372e2" class="outline-4">
+<h4 id="orgcc372e2">Desigualdad de Hölder</h4>
+<div class="outline-text-4" id="text-orgcc372e2">
+<p>
+Para \(a_1\dots a_nb_1\dots b_n \in \mathbb{R}^+_0\) con \(\frac{1}{p} +\frac{1}{q} = 1\) se verifica:
+</p>
+
+<p>
+\[\sum a_kb_k \leq \left(\sum a_k^p\right)^{1/p}\left(\sum b_k^q\right)^{1/q}\]
+</p>
+</div>
+
+<div id="outline-container-org2bb18b7" class="outline-5">
+<h5 id="org2bb18b7">Demostración</h5>
+<div class="outline-text-5" id="text-org2bb18b7">
+<p>
+Se demuestra aplicando Young a la división de ambos lados y
+cuidando el caso \(0\). Llamamos \(\alpha = \left(\sum_k a^p_k\right)^{1/p}\), \(\beta = \left(\sum_k \beta^q_k\right)^{1/q}\):
+</p>
+
+<p>
+\[\frac{a_kb_k}{\alpha\beta}
+\leq \frac{a_k^p}{p\alpha^p} + \frac{b_k^q}{q\beta^q}\]
+</p>
+
+<p>
+Sumando cada desigualdad tenemos:
+</p>
+
+<p>
+\[\frac{1}{\alpha\beta} \sum a_kb_k \leq 
+\frac{1}{p\alpha^p}\sum a_k^p +
+\frac{1}{q\beta^q}\sum b_k^q = 1\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org30bf7bb" class="outline-4">
+<h4 id="org30bf7bb">Desigualdad de Minkowski</h4>
+<div class="outline-text-4" id="text-org30bf7bb">
+<p>
+Para \(a_1\dots a_nb_1\dots b_n \in \mathbb{R}^+_0\) con \(\frac{1}{p} +\frac{1}{q} = 1\) se verifica:
+</p>
+
+<p>
+\[\left(\sum_{k=1}^n (a_k+b_k)^p \right)^{1/p} \leq 
+\left(\sum_{k=1}^n a_k^p \right)^{1/p} + 
+\left(\sum_{k=1}^n b_k^p \right)^{1/p} \]
+</p>
+
+<p>
+Dicho de otra forma:
+</p>
+
+<p>
+\[\|a+b\|_p \leq \|a\|_p + \|b\|_p\]
+</p>
+</div>
+
+<div id="outline-container-orgd30ab85" class="outline-5">
+<h5 id="orgd30ab85">Demostración</h5>
+<div class="outline-text-5" id="text-orgd30ab85">
+<p>
+Aplicando Hölder.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org76c2c7a" class="outline-3">
+<h3 id="org76c2c7a">Ejemplos de espacios normados</h3>
+<div class="outline-text-3" id="text-org76c2c7a">
+</div><div id="outline-container-org059cb8a" class="outline-4">
+<h4 id="org059cb8a">Espacios de dimensión finita</h4>
+<div class="outline-text-4" id="text-org059cb8a">
+<p>
+Solemos notar por \({l}_p^n = (\mathbb{K}^n,\|.\|_p)\) al espacio de Banach sobre \(\mathbb{R}^n\) o \(\mathbb{C}^n\) 
+que da la norma:
+</p>
+
+<p>
+\[\|x\|_p = \left(\sum |x_{(k)}|^p \right)^{1/p}\]
+</p>
+
+<p>
+Nótese el caso especial \(l^n_\infty\) que da la norma del máximo.
+</p>
+</div>
+
+<div id="outline-container-orgba72080" class="outline-5">
+<h5 id="orgba72080">Normas</h5>
+<div class="outline-text-5" id="text-orgba72080">
+<p>
+Todas estas normas lo son gracias a la <a href="#org30bf7bb">desigualdad de 
+Minkowski</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc4139a9" class="outline-5">
+<h5 id="orgc4139a9">Equivalencia</h5>
+<div class="outline-text-5" id="text-orgc4139a9">
+<p>
+Todas las normas son equivalentes y generan el mismo espacio
+de Banach:
+</p>
+
+<p>
+\[ \|x\|_\infty \leq \|x\|_p \leq \|x\|_1 \leq N \|x\|_\infty\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaec0468" class="outline-4">
+<h4 id="orgaec0468">Espacios de sucesiones</h4>
+<div class="outline-text-4" id="text-orgaec0468">
+<p>
+Las <b>sucesiones</b> tales que su p-suma es convergente,
+con las normas \(\|.\|_p\), dan los siguientes espacios de Banach:
+</p>
+
+<p>
+\[\ell_p = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K} \,\middle|\,
+\sum_{n=1}^\infty |x(n)|^p < \infty \right\}\]
+</p>
+
+<p>
+siendo un caso particular el de la norma del supremo
+sobre <b>sucesiones acotadas</b>:
+</p>
+
+<p>
+\[{\cal \ell}_\infty = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K}\ \left|\ x(n) \text{ acotada} \right\}\]
+</p>
+</div>
+
+<div id="outline-container-org55f2c0e" class="outline-5">
+<h5 id="org55f2c0e">Forma un subespacio vectorial</h5>
+<div class="outline-text-5" id="text-org55f2c0e">
+<p>
+Pasando la desigualdad de Minkowski al límite, tenemos:
+</p>
+
+<p>
+\[\left(\sum^\infty_{k=1} (a_k+b_k)^p \right)^{1/p} \leq 
+\left(\sum^\infty_{k=1} a_k^p \right)^{1/p} + 
+\left(\sum^\infty_{k=1} b_k^p \right)^{1/p} \]
+</p>
+
+<p>
+Por tanto, es un subespacio vectorial y se obtiene una norma
+como:
+</p>
+
+<p>
+\[\|x\|_p = \left(\sum_{n=1}^\infty |x(n)|^p \right)^{1/p}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4bc0ba0" class="outline-5">
+<h5 id="org4bc0ba0">Son espacios de Banach</h5>
+<div class="outline-text-5" id="text-org4bc0ba0">
+<p>
+Como tenemos \(|x_n(k)-x_m(k)| \leq \|x_n-x_m\|\), cuando \(\{x_n\}\) es 
+Cauchy en \(\ell_p\), también es Cauchy \(\{x_n(k)\}\). Y por tanto, es
+convergente por componentes \(x(k) = \lim_{n\to\infty}x_n(k)\).
+</p>
+
+<p>
+Usamos \(\{x_n\}\) de Cauchy para tener:
+</p>
+
+<p>
+\[\exists n_0 : \forall m,n\geq n_0 :
+\|x_n-x_m\| < \varepsilon\]
+</p>
+
+<p>
+Es decir,
+</p>
+
+<p>
+\[\sum_{k=1}^N |x_n(k)-x_m(k)|^p \leq (\|x_n-x_m\|_p)^p < \varepsilon^p\]
+</p>
+
+<p>
+Tomando \(m \to \infty\), y luego tomando \(N \to \infty\):
+</p>
+
+<p>
+\[\sum_{k=1}^\infty |x_n(k)-x(k)|^p \leq \varepsilon^p\]
+</p>
+
+<p>
+Así, tenemos que \(x = x_n - (x_n-x) \in \ell_p\), y como \(\|x_n-x\|_p \leq \varepsilon\),
+tenemos \(\{x_n\} \to x\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf0c8041" class="outline-4">
+<h4 id="orgf0c8041">Subespacios del espacio de sucesiones</h4>
+<div class="outline-text-4" id="text-orgf0c8041">
+<p>
+El espacio de sucesiones cuenta con subespacios usando la misma 
+norma:
+</p>
+</div>
+
+<div id="outline-container-org6a67511" class="outline-5">
+<h5 id="org6a67511">Sucesiones convergentes</h5>
+<div class="outline-text-5" id="text-org6a67511">
+<p>
+Es un subespacio de \(\ell_\infty\) cerrado, y por tanto, de Banach.
+</p>
+
+<p>
+\[c = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K}\ 
+\left|\ \{x(n)\} \text{ convergente } \right\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc85142f" class="outline-5">
+<h5 id="orgc85142f">Sucesiones nulas</h5>
+<div class="outline-text-5" id="text-orgc85142f">
+<p>
+Otro subespacio de \(\ell_\infty\), también cerrado y por tanto, de Banach.
+</p>
+
+<p>
+\[c_0 = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K}\ 
+\left|\ \{x(n)\} \longrightarrow 0 \right\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org70cc9e7" class="outline-5">
+<h5 id="org70cc9e7">Sucesiones casi-nulas o de soporte finito</h5>
+<div class="outline-text-5" id="text-org70cc9e7">
+<p>
+Es un subespacio para todo \(\ell_p\).
+</p>
+
+<p>
+\[c_{00} = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K}\ 
+\left|\ \exists m: \forall n \geq m:\  x(n) = 0 \right\}\]
+</p>
+
+<p>
+Este es un subespacio denso ya que toda sucesión es límite de
+sucesiones de soporte finito. Pero no es el total, así que no
+será completo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc12f2b1" class="outline-4">
+<h4 id="orgc12f2b1">Espacios de funciones continuas acotadas</h4>
+<div class="outline-text-4" id="text-orgc12f2b1">
+<p>
+Dado \(T\) espacio topológico, tomamos el espacio de funciones
+continuas y acotadas:
+</p>
+
+<p>
+\[{\cal C}_b(T) = \left\{f : T \longrightarrow \mathbb{K} \mid
+f \text{ continua, acotada}\right\}\]
+</p>
+
+<p>
+Y lo dotamos de la <b>norma del supremo</b>:
+</p>
+
+<p>
+\[ \|f\|_\infty = \sup\{ |f(t)| \mid t \in T\}\]
+</p>
+
+<p>
+Que da la <b>convergencia uniforme</b>.
+</p>
+</div>
+
+<div id="outline-container-org703a35b" class="outline-5">
+<h5 id="org703a35b"><span class="todo TODO">TODO</span> Es espacio de Banach</h5>
+</div>
+<div id="outline-container-orgf7e4bae" class="outline-5">
+<h5 id="orgf7e4bae">Anuladas en infinito</h5>
+<div class="outline-text-5" id="text-orgf7e4bae">
+<p>
+Sea \(L\) compacto y separado. Una función se <b>anula en 
+el infinito</b> cuando:
+</p>
+
+<p>
+\[\forall \varepsilon: 
+\{t\in L \mid |f(t)|\geq\varepsilon\} 
+\text{ es compacto}\]
+</p>
+
+<p>
+Las funciones continuas que se anulan en el infinito 
+forman \({\cal C}_0(L)\), subespacio de \({\cal C}_b(L)\). Es espacio cerrado
+y por tanto de Banach.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge809086" class="outline-5">
+<h5 id="orge809086">Funciones de soporte compacto</h5>
+<div class="outline-text-5" id="text-orge809086">
+<p>
+El soporte de \(f : L \longrightarrow \mathbb{K}\) para \(L\) localmente compacto 
+separado es:
+</p>
+
+<p>
+\[sop(f) = 
+\overline{\{t \in L \mid f(t) \neq 0\}} \subset
+L \]
+</p>
+
+<p>
+Las funciones con soporte compacto forman \({\cal C}_{00}(L)\), subespacio
+vectorial de \({\cal C}_0(L)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4d8757e" class="outline-5">
+<h5 id="org4d8757e">Relación entre ambas</h5>
+<div class="outline-text-5" id="text-org4d8757e">
+<p>
+Tenemos que \({\cal C}_{00}(L)\) no es completo en general y que:
+</p>
+
+<p>
+\[\overline{{\cal C}_{00}(L)} = {\cal C}_0(L)\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgee1d6aa" class="outline-4">
+<h4 id="orgee1d6aa">Espacios de funciones derivables</h4>
+<div class="outline-text-4" id="text-orgee1d6aa">
+<p>
+Consideraremos el espacio de funciones sobre un intervalo que sean \(d\)
+veces derivables con derivadas continuas, \({\cal C}^n([a,b],\mathbb{K}^d)\). Escritas:
+</p>
+
+<p>
+\[f^{k)} = \left(f^{k)}_1,f^{k)}_2,\dots,f^{k)}_d\right)\]
+</p>
+
+<p>
+Sobre él defimos una norma del supremo sobre cada derivada
+\(\|f^{k)}\| = max \{\|f^{k)}_i\|_\infty\}\). La norma del espacio es la
+suma de la de cada una de las derivadas.
+</p>
+
+<p>
+\[ \|f\|_\infty = \sum \|f^{k)}\|_\infty\]
+</p>
+</div>
+
+<div id="outline-container-org88c73ef" class="outline-5">
+<h5 id="org88c73ef">Es espacio de Banach</h5>
+<div class="outline-text-5" id="text-org88c73ef">
+<p>
+Esto, por <b>Teorema de la convergencia uniforme</b> nos lleva a que una
+sucesión de Cauchy converja de manera que respete la derivada. Este
+será un espacio de Banach.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1ca3c15" class="outline-4">
+<h4 id="org1ca3c15">Espacios de funciones integrables</h4>
+<div class="outline-text-4" id="text-org1ca3c15">
+<p>
+Consideramos el <b>espacio de funciones p-integrables</b> como:
+</p>
+
+<p>
+\[ L_p(\Omega) =
+\left\{ f \in L(\Omega) \mid \int_\Omega |f(t)|^p dt < \infty \right\}
+\]
+</p>
+
+<p>
+Normándolas con:
+</p>
+
+<p>
+\[ \|f\|_p =
+\left( \int_\Omega |f(t)|^p dt \right)^{1/p}\]
+</p>
+
+<p>
+Debemos <i>identificar funciones que coinciden c.p.d.</i> para
+deducir \(\|f\|_p = 0 \Rightarrow f = 0\). Estos espacios son siempre completos.
+</p>
+</div>
+
+<div id="outline-container-org54e399f" class="outline-5">
+<h5 id="org54e399f">Desigualdades integrales de Hölder y Minkowski</h5>
+<div class="outline-text-5" id="text-org54e399f">
+<p>
+A partir de la desigualdad de Young llegamos
+a la <b>desigualdad integral de Hölder</b> para funciones
+tales que \(|f|^p, |g|^p\) son Lebesgue-integrables:
+</p>
+
+<p>
+\[\int_\Omega |f(t)g(t)| dt \leq
+\left( \int_\Omega |f(t)|^p dt \right)^{1/p}
+\left( \int_\Omega |g(t)|^q dt \right)^{1/q}\]
+</p>
+
+<p>
+Y desde ella, la <b>desigualdad integral de Minkowski</b>:
+</p>
+
+<p>
+\[\left( \int_\Omega |f(t) + g(t)|^p dt \right)^{1/p} \leq
+\left( \int_\Omega |f(t)|^p dt \right)^{1/p} +
+\left( \int_\Omega |g(t)|^p dt \right)^{1/p}\]
+</p>
+
+<p>
+Esto nos da la naturaleza de norma.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd04d4f1" class="outline-5">
+<h5 id="orgd04d4f1">Complitud en el caso real</h5>
+<div class="outline-text-5" id="text-orgd04d4f1">
+<p>
+Usando el Teorema de Riesz-Fisher.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org98804ee" class="outline-4">
+<h4 id="org98804ee">Espacios de funciones esencialmente acotadas</h4>
+<div class="outline-text-4" id="text-org98804ee">
+<p>
+Una función es <b>esencialmente acotada</b> cuando
+es \(f : [0,1] \longrightarrow \mathbb{K}\):
+</p>
+
+<p>
+\[\exists M: |f| \leq M \text{ c.p.d.}\]
+</p>
+
+<p>
+Al espacio de funciones esencialmente acotadas lo
+llamamos \({\cal L}_\infty[0,1]\) y le damos una seminorma:
+</p>
+
+<p>
+\[\phi_\infty(f) = \inf\{ M
+ \mid |f|\leq M \text{ c.p.d.}\}\]
+</p>
+</div>
+
+<div id="outline-container-orgb1f3442" class="outline-5">
+<h5 id="orgb1f3442">Naturaleza de seminorma</h5>
+<div class="outline-text-5" id="text-orgb1f3442">
+<p>
+Se cumple por un lado que:
+</p>
+
+<p>
+\[\phi_\infty(\alpha f) = |\alpha|\phi_\infty(f)\]
+</p>
+
+<p>
+Y por otro lado que:
+</p>
+
+<p>
+\[ \phi_\infty(f+g) \leq \phi_\infty(f) + \phi_\infty(g) \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgab0a05e" class="outline-5">
+<h5 id="orgab0a05e">Estructura de espacio normado</h5>
+<div class="outline-text-5" id="text-orgab0a05e">
+<p>
+Podemos convertirlo en espacio normado si tomamos
+cociente sobre:
+</p>
+
+<p>
+\[ N = \{ f \in {\cal L}_\infty[0,1] \mid
+\phi_\infty(f)=0 \} \]
+</p>
+
+<p>
+Esto es espacio de Banach con la norma \(\phi_\infty\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org450c559" class="outline-3">
+<h3 id="org450c559">Categoría de espacios normados</h3>
+<div class="outline-text-3" id="text-org450c559">
+</div><div id="outline-container-orgb24e216" class="outline-4">
+<h4 id="orgb24e216">Homomorfismos topológicos</h4>
+<div class="outline-text-4" id="text-orgb24e216">
+<p>
+Los morfismos de la categoría de espacios normados son los
+<b>homomorfismos topológicos</b>, operadores lineales y continuos que
+además son abiertos en su imagen. Hablamos igualmente de
+<b>monomorfismos topológicos</b>, <b>epimorfismos topológicos</b> o de
+<b>isomorfismos topológicos</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcdb2bd2" class="outline-4">
+<h4 id="orgcdb2bd2">Producto de espacios normados</h4>
+<div class="outline-text-4" id="text-orgcdb2bd2">
+<p>
+Dados \(X_1,\dots,X_n\) espacios normados, podemos definir normas 
+sobre su producto cartesiano \(\prod X_i\):
+</p>
+
+<ul class="org-ul">
+<li><b>Norma del máximo</b>: \(\|x\|_\infty = \max\{\|x_i\|\}\)</li>
+<li><b>Norma p</b>: \(\|x\|_p = (\sum \|x_i\|^p)^{1/p}\)</li>
+</ul>
+
+<p>
+La convergencia es trivialmente coordenada a coordenada, y
+las topologías asociadas son equivalentes a la topología
+producto. El espacio es completo ssi lo son las componentes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga60c7cf" class="outline-4">
+<h4 id="orga60c7cf">Cociente de un espacio normado</h4>
+<div class="outline-text-4" id="text-orga60c7cf">
+<p>
+Sea \(M\) subespacio vectorial cerrado de \(X\). Podemos hacer a
+\(X/M\) normado con:
+</p>
+
+<p>
+\[ \|x+M\| 
+= \inf\left\{ \|x - m\| \mid m \in M \right\} 
+= d(x,M)\]
+</p>
+
+<p>
+Este espacio es de Banach ssi \(X\) es de Banach. Y la topología
+coincide con la topología cociente.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1f246b" class="outline-3">
+<h3 id="orgc1f246b">Operadores y funcionales lineales</h3>
+<div class="outline-text-3" id="text-orgc1f246b">
+</div><div id="outline-container-org7f8f0ac" class="outline-4">
+<h4 id="org7f8f0ac">Operadores lineales continuos</h4>
+<div class="outline-text-4" id="text-org7f8f0ac">
+<p>
+Para \(T : X \longrightarrow Y\) lineal entre espacios normados, equivalen:
+</p>
+
+<ul class="org-ul">
+<li>\(T\) lipschitziana</li>
+<li>\(T\) uniformemente continua</li>
+<li>\(T\) continua</li>
+<li>\(T\) continua en \(0\)</li>
+<li>\(\exists M: \|Tx\| \leq M\|x\|\)</li>
+<li>\(T\) preserva acotación, \(A\) acotado da \(TA\) acotado</li>
+<li>\(TB_X\) acotado</li>
+<li>\(TS_X\) acotado</li>
+</ul>
+
+<p>
+Y lo llamamos <b>operador lineal continuo</b>.
+</p>
+</div>
+
+<div id="outline-container-orgca3a6a4" class="outline-5">
+<h5 id="orgca3a6a4"><span class="todo TODO">TODO</span> Demostración</h5>
+<div class="outline-text-5" id="text-orgca3a6a4">
+<p>
+La lipschitzianidad implica hasta la continuidad en \(0\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc4747bd" class="outline-4">
+<h4 id="orgc4747bd">Norma de operadores</h4>
+<div class="outline-text-4" id="text-orgc4747bd">
+<p>
+Se define la <b>norma de operadores</b> como:
+</p>
+
+<p>
+\[\begin{aligned}
+\|T\| =& \sup_{x \in B_X}\left\{\|Tx\|\right\} \\
+=& \sup_{x \in S_X}\left\{\|Tx\|\right\} \\
+=& \min\{k \mid \|Tx\| \leq k\|x\| \}
+\end{aligned}\]
+</p>
+
+<p>
+Y cumple que \(\|Tx\| \leq \|T\|\|x\|\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8b1a256" class="outline-4">
+<h4 id="org8b1a256">Cuatro teoremas sobre la norma de operadores</h4>
+<div class="outline-text-4" id="text-org8b1a256">
+<p>
+Dados \(X,Y\) espacios normados:
+</p>
+
+<ol class="org-ol">
+<li>\((L(X,Y),\|.\|)\) es espacio normado.</li>
+<li>\(\{T_n\}\longrightarrow T\) ssi \(\{T_n\}\longrightarrow T\) uniformemente en \(B_X\).</li>
+<li>Si \(Y\) es de Banach, \(L(X,Y)\) es de Banach.</li>
+<li>Para \(X \overset{T}\longrightarrow Y \overset{S}\longrightarrow Z\), se tiene \(\|S \circ T\| = \|S\|\|T\|\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgf984c3e" class="outline-5">
+<h5 id="orgf984c3e"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org79ed317" class="outline-4">
+<h4 id="org79ed317">Espacio dual topológico</h4>
+<div class="outline-text-4" id="text-org79ed317">
+<p>
+Sea \(X\) normado, su <b>dual topológico</b> es el espacio
+de funciones al cuerpo con la norma de operadores:
+</p>
+
+<p>
+\[ X^\ast = 
+L(X,\mathbb{K}) 
+= \left\{ f : X \longrightarrow \mathbb{K} \mid
+f \text{ lineal y continua} \right\}
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc8c5e8a" class="outline-4">
+<h4 id="orgc8c5e8a">Extensión desde un subespacio denso</h4>
+<div class="outline-text-4" id="text-orgc8c5e8a">
+<p>
+Sea \(M\) subespacio denso en \(X\), para cada \(T \in L(M,Y)\) existe
+un \(S \in L(X,Y)\) tal que \(S|_M = T\) y \(\|S\| = \|T\|\)
+</p>
+</div>
+
+<div id="outline-container-org6bb4ec1" class="outline-5">
+<h5 id="org6bb4ec1"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgb3fb369" class="outline-4">
+<h4 id="orgb3fb369">Caracterización de operadores abiertos</h4>
+<div class="outline-text-4" id="text-orgb3fb369">
+<p>
+Sean \(X,Y\) espacios normados, \(T : X\longrightarrow Y\) lineal. Equivalen:
+</p>
+
+<ul class="org-ul">
+<li>\(T\) es abierta</li>
+<li>\(T(B_X)\) es entorno de \(0\)</li>
+</ul>
+</div>
+
+<div id="outline-container-org600eceb" class="outline-5">
+<h5 id="org600eceb"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org8cd1754" class="outline-4">
+<h4 id="org8cd1754">Funciones lineales abiertas</h4>
+<div class="outline-text-4" id="text-org8cd1754">
+<p>
+Sea \(T : X \longrightarrow Y\) lineal. Equivalen:
+</p>
+
+<ul class="org-ul">
+<li>\(T\) abierta sobre \(TX\)</li>
+<li>\(\exists r>0:\quad TX \cap rB_Y \subset TB_X\)</li>
+<li>\(\exists\alpha>0: \forall y\in TX: \exists x\in X: 
+  \quad \|x\| \leq \alpha\|y\|\), cumpliendo \(Tx = y\).</li>
+</ul>
+</div>
+
+<div id="outline-container-org07c8011" class="outline-5">
+<h5 id="org07c8011">Demostración</h5>
+<div class="outline-text-5" id="text-org07c8011">
+<p>
+Aplicando la caracterización anterior a \(TX\) tenemos que
+equivalen el primer y segundo apartado.
+</p>
+
+<p>
+Por el apartado 2, tengo que dado un \(y\), \(y\frac{\delta}{\|y\|} \in \delta B_Y\).
+Por tanto, \(\exists x: Tx = y \frac{\delta}{\|y\|}\). Tomamos \(x' = x \frac{\|y\|}{\delta}\), y tenemos
+que \(T(x') = y\), y además que \(\|x'\| = \|x\|\frac{\|y\|}{\delta} \leq \frac{\|y\|}{\delta}\).
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org46ce9a6" class="outline-4">
+<h4 id="org46ce9a6">Descomposición canónica: proyección al cociente</h4>
+<div class="outline-text-4" id="text-org46ce9a6">
+<p>
+Sea \(X\) un espacio normado, \(M\) subespacio cerrado y \(\pi\)
+la proyección. Entonces \(\pi \in L(X,X/M)\) es sobreyectiva y
+abierta con \(\|\pi\| = 1\).
+</p>
+</div>
+
+<div id="outline-container-org4afa1fe" class="outline-5">
+<h5 id="org4afa1fe"><span class="todo TODO">TODO</span> Demostración</h5>
+<div class="outline-text-5" id="text-org4afa1fe">
+<p>
+Para ver que tiene norma 1, tomamos \(x_0 \notin M\).
+</p>
+
+<p>
+\[\forall m \in M: \|x+M\| = \|Q(x+m)\| \leq \|Q\|\|x+m\|\]
+</p>
+
+<p>
+En particular,
+</p>
+
+<p>
+\[ \|x+M\| \leq \|Q\| \inf\{\|x+m\|\} = \|Q\|\|x+M\| \]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd63c279" class="outline-4">
+<h4 id="orgd63c279">Descomposición canónica: isomorfismo</h4>
+<div class="outline-text-4" id="text-orgd63c279">
+<p>
+Sea \(T: X\longrightarrow Y\) lineal con \(\ker(T)\) cerrado. Se define:
+</p>
+
+<p>
+\[ \hat{T} : {X}/{\ker{T}} \longrightarrow Y\]
+</p>
+
+<p>
+Cumpliendo \(T = \hat{T}\circ\pi\). Y se tiene:
+</p>
+
+<ul class="org-ul">
+<li>\(\hat{T}\) continua ssi \(T\) continua. En cuyo caso \(\|T\| = \|\hat{T}\|\).</li>
+<li>\(T\) abierta en \(TX\) ssi \(\hat{T}\) abierta en \(TX\).</li>
+</ul>
+</div>
+
+<div id="outline-container-orgd3dfac5" class="outline-5">
+<h5 id="orgd3dfac5">Demostración</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb3082f3" class="outline-3">
+<h3 id="orgb3082f3">Teorema de Tychonoff</h3>
+<div class="outline-text-3" id="text-orgb3082f3">
+</div><div id="outline-container-org6613d70" class="outline-4">
+<h4 id="org6613d70">Lema a Tychonoff</h4>
+<div class="outline-text-4" id="text-org6613d70">
+<p>
+Toda aplicación lineal desde \(\ell_2^n\) es continua.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d1d73b" class="outline-4">
+<h4 id="org2d1d73b">Teorema de Tychonoff</h4>
+<div class="outline-text-4" id="text-org2d1d73b">
+<p>
+Sea \(X\) espacio normado. Toda
+biyección lineal de \(\ell^n_2\) sobre \(X\) es isomorfismo topológico.
+</p>
+</div>
+
+<div id="outline-container-org663a60c" class="outline-5">
+<h5 id="org663a60c">Demostración</h5>
+<div class="outline-text-5" id="text-org663a60c">
+<p>
+Por el lema sabemos que es continua.
+La esfera de \(\ell^n_2\) es compacta; y podemos aplicar la 
+caracterización de aplicaciones abiertas anterior.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94e2e18" class="outline-4">
+<h4 id="org94e2e18">Corolarios al teorema</h4>
+<div class="outline-text-4" id="text-org94e2e18">
+<p>
+Se cumple que:
+</p>
+
+<ol class="org-ol">
+<li>\(T:X\longrightarrow Y\) lineal con \(dim(X) < \infty\) nos da \(T\) lipschiztiana.</li>
+<li>Dos espacios de dimensión finita son isomorfos ssi 
+tienen igual dimensión.</li>
+<li>En un espacio de dimensión finita, todas las normas son
+equivalentes.</li>
+<li>Todo espacio de dimensión finita es Banach.</li>
+<li>Todo subespacio de dimensión finita de espacio normado es
+cerrado</li>
+<li>Un subconjunto de un espacio normado de dimensión finita
+es compacto ssi es cerrado y acotado.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgf3907a6" class="outline-4">
+<h4 id="orgf3907a6">Compacidad relativa y precompacidad</h4>
+<div class="outline-text-4" id="text-orgf3907a6">
+<p>
+Llamamos \(A\) <b>relativamente compacto</b> cuando \(\overline{A}\) es compacto.
+Llamamos \(A\) <b>precompacto</b> cuando, dado un \(\varepsilon\), existen \(x_1,\dots,x_n\):
+</p>
+
+<p>
+\[ A \subset \bigcup_{k=1}^n B(x_n,\varepsilon) \]
+</p>
+</div>
+
+<div id="outline-container-org4fe3fd3" class="outline-5">
+<h5 id="org4fe3fd3">Cadena de implicaciones</h5>
+<div class="outline-text-5" id="text-org4fe3fd3">
+<p>
+Compacidad implica compacidad relativa, que a su vez implica
+precompacidad, que implica acotación.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd4b1c51" class="outline-4">
+<h4 id="orgd4b1c51">Corolario de Tychonoff de compacidad</h4>
+<div class="outline-text-4" id="text-orgd4b1c51">
+<p>
+En un espacio normado de dimensión finita, un subconjuto
+es relativamente compacto ssi es acotado y ssi es 
+precompacto.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5fe5d10" class="outline-4">
+<h4 id="org5fe5d10">Corolario de caracterización de continuas</h4>
+<div class="outline-text-4" id="text-org5fe5d10">
+<p>
+Sea \(T : X \longrightarrow Y\) lineal con \(TX\) de dimensión finita. 
+Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(T\) es continua.</li>
+<li>\(\ker T\) cerrado en \(X\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org3afc43f" class="outline-5">
+<h5 id="org3afc43f"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orge4f5f29" class="outline-4">
+<h4 id="orge4f5f29">Corolario de caracterización de abiertas</h4>
+<div class="outline-text-4" id="text-orge4f5f29">
+<p>
+Sea \(T : X \longrightarrow Y\) lineal con \(X\) de dimensión finita.
+Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(T\) es abierta.</li>
+<li>\(T\) es sobreyectiva.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org42e9b18" class="outline-4">
+<h4 id="org42e9b18">Corolario de caracterización de la dimensión finita.</h4>
+<div class="outline-text-4" id="text-org42e9b18">
+<p>
+Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>Todo cerrado y acotado es compacto.</li>
+<li>Bola unidad compacta.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75b65af" class="outline-3">
+<h3 id="org75b65af">Teorema de Riesz</h3>
+<div class="outline-text-3" id="text-org75b65af">
+</div><div id="outline-container-orgd8a31ac" class="outline-4">
+<h4 id="orgd8a31ac">Lema al teorema de Riesz</h4>
+<div class="outline-text-4" id="text-orgd8a31ac">
+<p>
+Sea \(X\) espacio normado con \(M\) subespacio propio cerrado. Si
+\(\varepsilon \in (0,1)\), existe \(x \in \mathbb{S}_X\) tal que:
+</p>
+
+<p>
+\[ \|x+M\| = d(x,M) > 1-\varepsilon \]
+</p>
+</div>
+
+<div id="outline-container-orgd80a18b" class="outline-5">
+<h5 id="orgd80a18b">Demostración</h5>
+<div class="outline-text-5" id="text-orgd80a18b">
+<p>
+Sea \(x_0 \notin X-M\). Por ser \(M\) cerrado \(d(x_0,M)>0\). Por ser
+el ínfimo, tengo que existe \(m_0\) tal que:
+</p>
+
+<p>
+\[\frac{1}{1-\varepsilon}\| x_0 - M\| > \| x_0-m_0 \| \]
+</p>
+
+<p>
+Por tanto, tomando \(x = \frac{x_0-m_0}{\|x_0-m_0\|} \in \mathbb{S}_X\), tenemos:
+</p>
+
+<p>
+\[ \| x + M \| 
+=  \left\| \frac{x_0-m_0}{\|x_0-m_0\|} + M \right\|
+= \frac{\|x_0-M\|}{\|x_0-m_0\|} > 0\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b9b34d" class="outline-4">
+<h4 id="org9b9b34d">Teorema de Riesz</h4>
+<div class="outline-text-4" id="text-org9b9b34d">
+<p>
+Son equivalentes:
+</p>
+
+<ol class="org-ol">
+<li>\(X\) de dimensión finita.</li>
+<li>\(X\) es localmente compacto.</li>
+<li>\(B_X\) es compacta.</li>
+<li>\(B_X\) es <a href="#orgf3907a6">precompacta</a>.</li>
+</ol>
+</div>
+
+<div id="outline-container-org9c00443" class="outline-5">
+<h5 id="org9c00443">Demostración</h5>
+<div class="outline-text-5" id="text-org9c00443">
+<ol class="org-ol">
+<li>Cuando la dimensión es finita, \(X \cong \mathbb{K}^n\), que es localmente
+compacto.</li>
+<li>Sea \(U\) entorno compacto de \(0\), \(\exists r>0: \overline{B}(0,r) \subset U\). Por ser un cerrado
+en compacto, es compacto. Por homeomorfismo, lo es \(B_X\).</li>
+<li>Compacidad implica precompacidad.</li>
+<li><p>
+Por ser \(B_X\) precompacta,
+</p>
+
+<p>
+\[B_X \subseteq \bigcup B\left(x_i,\frac{1}{2}\right)\]
+</p>
+
+<p>
+Como \(M = \langle x_1,x_2,\dots,x_k \rangle\) es de dimensión finita, es un subespacio 
+cerrado y propio en \(X\). Por el lema de Riesz, existe \(x_0 \in \mathbb{S}_X\) 
+tal que:
+</p>
+
+<p>
+\[ \|x_0 - x_i\| \leq d(x_0,M) > \frac{1}{2} \]
+</p>
+
+<p>
+Teniendo entonces \(x \notin \bigcup B(x_i,\frac{1}{2})\), que nos lleva a 
+contradicción.
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org58200c6" class="outline-4">
+<h4 id="org58200c6">Dual topológico en dimensión finita</h4>
+<div class="outline-text-4" id="text-org58200c6">
+<p>
+Sea \(X\) normado de dimensión finita, su <b>dual topológico</b> 
+es:
+</p>
+
+<p>
+\[X^\ast =
+\left\{ f:X \longrightarrow \mathbb{K} \mid
+f \text{ lineal } \right\}\]
+</p>
+
+<p>
+Ya que toda lineal también es continua.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcfc252a" class="outline-2">
+<h2 id="orgcfc252a">2. Principios fundamentales del análisis funcional</h2>
+<div class="outline-text-2" id="text-orgcfc252a">
+</div><div id="outline-container-org8e2f9ba" class="outline-3">
+<h3 id="org8e2f9ba">Teorema de Hahn-Banach</h3>
+<div class="outline-text-3" id="text-org8e2f9ba">
+</div><div id="outline-container-orgde976fe" class="outline-4">
+<h4 id="orgde976fe">Funcionales sublineales</h4>
+<div class="outline-text-4" id="text-orgde976fe">
+<p>
+Un funcional \(p : X \longrightarrow \mathbb{R}\) se dice <b>sublineal</b> cuando:
+</p>
+
+<ul class="org-ul">
+<li>\(\forall t \in \mathbb{R}^+_0: p(tx) = tp(x)\)</li>
+<li>\(p(x+y) \leq p(x)+p(y)\)</li>
+</ul>
+
+<p>
+Si además \(p(\alpha x) = |\alpha|p(x)\), se llama <b>seminorma</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2a9fb4f" class="outline-4">
+<h4 id="org2a9fb4f">Versión analítica de Hahn-Banach</h4>
+<div class="outline-text-4" id="text-org2a9fb4f">
+<p>
+Sea \(X\) espacio vectorial sobre \(\mathbb{K}\) con \(p\) sublineal. Y 
+sea \(M\) subespacio con un \(g : M \longrightarrow \mathbb{K}\), verificando:
+</p>
+
+<p>
+\[Re(g(m)) \leq p(m)\]
+</p>
+
+<p>
+Entonces existe \(f : X \longrightarrow \mathbb{K}\) lineal extendiéndolo y verificando:
+</p>
+
+<p>
+\[Re(f(x)) \leq p(x)\]
+</p>
+
+<p>
+Cuando \(p\) es seminorma, se tiene además que \(|f(x)|\leq p(x)\).
+</p>
+</div>
+
+<div id="outline-container-org94ba914" class="outline-5">
+<h5 id="org94ba914">Demostración</h5>
+<div class="outline-text-5" id="text-org94ba914">
+</div><div id="outline-container-orgc3a60ca" class="outline-6">
+<h6 id="orgc3a60ca">Primera extensión en los reales</h6>
+<div class="outline-text-6" id="text-orgc3a60ca">
+<p>
+En un primer caso, sea \(\mathbb{K} = \mathbb{R}\). Podemos tomar \(x_0 \notin X-M\), 
+crear \(Y = M\oplus x_0\mathbb{R}\) y extender como:
+</p>
+
+<p>
+\[ f(m + \lambda x_0) = g(m) + \lambda\alpha\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org54609d5" class="outline-6">
+<h6 id="org54609d5">Elegir el coeficiente de la extensión</h6>
+<div class="outline-text-6" id="text-org54609d5">
+<p>
+Nos falta elegir el \(\alpha\). Sabemos que debe cumplir:
+</p>
+
+<p>
+\[\alpha \leq \frac{1}{\lambda}\left( p(m+\lambda x_0) - g(m) \right)\]
+</p>
+
+<p>
+Tomando un \(\lambda\) positivo y negativo llegamos a dos 
+condiciones:
+</p>
+
+<p>
+\[ g(v) - p(v-x_0) 
+\leq \alpha 
+\leq p(u+x_0) - g(u)\]
+</p>
+
+<p>
+Y tenemos un \(\alpha\) cumpliendo esta condición por ser 
+equivalente a:
+</p>
+
+<p>
+\[ g(u+v) \leq p(u+v) \leq p(u+x_0) + p(v-x_0)\]
+</p>
+
+<p>
+Y lo sacamos partiendo la desigualdad, minimizando
+y maximizando cada lado de la desigualdad, y dando
+la vuelta a todas las desigualdades:
+</p>
+
+<p>
+\[ g(u) - p(v-x_0) \leq \alpha \leq p(u+x_0) - g(u)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga5683b7" class="outline-6">
+<h6 id="orga5683b7">Lema de Zorn</h6>
+<div class="outline-text-6" id="text-orga5683b7">
+<p>
+Puedo ordenar las extensiones por inclusión, teniendo
+además que una cadena de extensiones tiene por maximal a
+la unión de todos los espacios, con la función definida
+por el primer conjunto en el que aparece el primer elemento.
+</p>
+
+<p>
+Si \(Y \neq X\) fuera el maximal, podría añadir \(x_0 \in X-Y\) y
+contravenir la maximalidad de \(Y\) extendiendo una dimensión.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4332b3c" class="outline-6">
+<h6 id="org4332b3c">Caso complejo</h6>
+<div class="outline-text-6" id="text-org4332b3c">
+<p>
+Como todo espacio sobre los complejos lo es sobre los reales,
+aplicamos el caso real a \(g_0 = Re(g)\), y obtenemos \(f_0\) cumpliéndolo
+y siendo lineal en los reales.
+</p>
+
+<p>
+Creo \(f\) siendo lineal en los complejos como:
+</p>
+
+<p>
+\[f(x) = f_0(x) - if_0(xi)\]
+</p>
+
+<p>
+Que cumple las condiciones
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b12bc7" class="outline-6">
+<h6 id="org6b12bc7">Caso de la seminorma</h6>
+<div class="outline-text-6" id="text-org6b12bc7">
+<p>
+Cuando \(p\) es seminorma tengo, para \(|\alpha|=1\) dando el giro
+apropiado:
+</p>
+
+<p>
+\[f(\alpha x) = |f(x)| = Re(f(\alpha x)) \leq p(\alpha x) = p(x)\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6b8cb31" class="outline-4">
+<h4 id="org6b8cb31">Extensión equinórmica de Hahn-Banach</h4>
+<div class="outline-text-4" id="text-org6b8cb31">
+<p>
+Sea \(X\) espacio normado, \(M\) subespacio vectorial, con \(g \in M^\ast\). 
+Existe \(f\in X^\ast\) tal que \(f|_M = g\) y \(\|f\| = \|g\|\).
+</p>
+</div>
+
+<div id="outline-container-orgd957a53" class="outline-5">
+<h5 id="orgd957a53">Demostración</h5>
+<div class="outline-text-5" id="text-orgd957a53">
+<p>
+Sea \(p(x) = \|g\|\|x\|\), es una seminorma y cumple \(Re(g(m)) \leq p(x)\).
+Por <b>Hahn-Banach</b>, tenemos una extensión \(f\), cumpliendo \(\|f\| \geq \|g\|\)
+por ser extensión y:
+</p>
+
+<p>
+\[ \|f\| 
+= \sup\left\{ \frac{|f(x)|}{\|x\|} \mid x\in X-\{0\}\right\} 
+\leq \|g\|\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org45f2c6e" class="outline-4">
+<h4 id="org45f2c6e">Separación en el dual topológico</h4>
+<div class="outline-text-4" id="text-org45f2c6e">
+<p>
+Sea \(x_0 \in X\), entonces existe \(f \in \mathbb{S}_{X^\ast}\), tal que \(f(x_0) = \|x_0\|\).
+En consecuencia:
+</p>
+
+<ol class="org-ol">
+<li>El dual topológico separa los puntos de \(X\). Si \(x \neq y\),
+existe \(f \in X^\ast: f(x) \neq f(y)\).</li>
+<li>\[\forall x \in X: \|x\| = max\left\{ |f(x)| : f \in B_{X^\ast} \right\}\]</li>
+</ol>
+</div>
+
+<div id="outline-container-orgdb40fee" class="outline-5">
+<h5 id="orgdb40fee">Demostración</h5>
+<div class="outline-text-5" id="text-orgdb40fee">
+<p>
+Podemos aplicar Hahn-Banach a \(g : x_0\mathbb{K} \longrightarrow \mathbb{K}\) con \(g(\lambda x_0) = \lambda \|x_0\|\),
+para obtener una extensión de norma \(1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0cbb68d" class="outline-5">
+<h5 id="org0cbb68d">Corolario 1</h5>
+<div class="outline-text-5" id="text-org0cbb68d">
+<p>
+Aplicamos el resultado para \(f(x-y) = \|x-y\| = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge727f09" class="outline-5">
+<h5 id="orge727f09">Corolario 2</h5>
+<div class="outline-text-5" id="text-orge727f09">
+<p>
+Tenemos \(|f(x)| \leq \|x\|\). El mínimo se alcanza en un \(f\) dado por
+la proposición.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad5c0b8" class="outline-4">
+<h4 id="orgad5c0b8">Corolario para subespacios finitos</h4>
+<div class="outline-text-4" id="text-orgad5c0b8">
+<p>
+Sea \(X\) un espacio normado \(\{x_1,\dots,x_n\} \subseteq X\) linealmente independientes
+y \(\alpha_1,\dots,\alpha_n \in \mathbb{K}\), entonces existe \(f \in X^\ast\) tal que \(f(x_i) = \alpha_i\).
+</p>
+</div>
+
+<div id="outline-container-orgb39b2d8" class="outline-5">
+<h5 id="orgb39b2d8">Demostración</h5>
+<div class="outline-text-5" id="text-orgb39b2d8">
+<p>
+Puedo crear una función lineal, sobre \(\langle x_1,\dots,x_n \rangle\) que lo cumpla.
+Por venir de dimensión finita será continua, así que podemos
+aplicar Hahn-Banach para obtener una extensión.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3be9f21" class="outline-3">
+<h3 id="org3be9f21">Inyección canónica e isometrías</h3>
+<div class="outline-text-3" id="text-org3be9f21">
+</div><div id="outline-container-orga55f5bd" class="outline-4">
+<h4 id="orga55f5bd">Inyección canónica</h4>
+<div class="outline-text-4" id="text-orga55f5bd">
+<p>
+Se define \(J_X(x_0) : X^\ast \longrightarrow \mathbb{K}\) como:
+</p>
+
+<p>
+\[J_X(x_0)(f) = f(x_0)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6a2f890" class="outline-4">
+<h4 id="org6a2f890">Propiedades de la inyección</h4>
+<div class="outline-text-4" id="text-org6a2f890">
+<p>
+Se verifica:
+</p>
+
+<ol class="org-ol">
+<li>\(\forall x \in S_X: J_X(x)\) es lineal y de módulo \(1\).</li>
+<li>\(J_X : X \longrightarrow X^\ast^\ast\) es isométrica y lineal.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org839e7f5" class="outline-4">
+<h4 id="org839e7f5">Completación de un espacio</h4>
+<div class="outline-text-4" id="text-org839e7f5">
+<p>
+\(X^\ast\) es completo para cualquier espacio normado \(X\). 
+Cuando \(X\) no es completo, \(J_X\) no es sobreyectivo y podemos
+completarlo como:
+</p>
+
+<p>
+\[ X \subset \overline{J_X(X)} \]
+</p>
+
+<p>
+Que lo será por ser cerrado en \(X^{\ast\ast}\), que es completo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org44f7f3c" class="outline-4">
+<h4 id="org44f7f3c">Polar de un subespacio</h4>
+<div class="outline-text-4" id="text-org44f7f3c">
+<p>
+Dado \(M \subset X\), el <b>polar</b> de \(M\) se define como:
+</p>
+
+<p>
+\[M^0 = \left\{ f\in X^\ast \mid f(M) = \{0\} \right\}\]
+</p>
+
+<p>
+Si tenemos la restricción \(S : X^\ast \longrightarrow M^\ast\), \(M^0 = \ker S\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1b4bfeb" class="outline-4">
+<h4 id="org1b4bfeb">Primer teorema de isometría</h4>
+<div class="outline-text-4" id="text-org1b4bfeb">
+<p>
+Sea \(X\) espacio normado y \(M\) subespacio, tenemos una biyección
+lineal isométrica \[T : {X^\ast}/{M^0} \longrightarrow M^\ast \] dada por:
+</p>
+
+<p>
+\[T(f + M^0) = f|_M\]
+</p>
+</div>
+
+<div id="outline-container-orgbf841c7" class="outline-5">
+<h5 id="orgbf841c7">Demostración</h5>
+<div class="outline-text-5" id="text-orgbf841c7">
+<p>
+Tenemos \(\|T(f+M^0)\| \leq \|f+M^0\|\), y obtenemos igualdad gracias
+a Hahn-Banach.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org706e3d4" class="outline-4">
+<h4 id="org706e3d4">Segundo teorema de isometría</h4>
+<div class="outline-text-4" id="text-org706e3d4">
+<p>
+Sea \(X\) espacio normado y \(M\) subespacio vectorial cerrado de \(X\).
+La aplicación \(T : (X/M)^\ast \longrightarrow M^0\) es una biyección lineal isométrica
+definida por:
+</p>
+
+<p>
+\[ T(f)(x) = f(x+M) \]
+</p>
+
+<p>
+Además \(T = f \circ Q\) para \(Q\) proyección.
+</p>
+</div>
+
+<div id="outline-container-orgdcca21f" class="outline-5">
+<h5 id="orgdcca21f">Demostración</h5>
+<div class="outline-text-5" id="text-orgdcca21f">
+<p>
+Claramente es lineal. Tenemos que es lipschitziana por:
+</p>
+
+<p>
+\[ \|T(f)\| = \| f \circ Q \| \leq \|f\|\|Q\| = \|f\| \]
+</p>
+
+<p>
+Y por otro lado,
+</p>
+
+<p>
+\[ \|T(f)\|\|x+m\| \geq 
+\|T(f)(x+m)\| = 
+\|f(x+M)\|\]
+</p>
+
+<p>
+Por tanto, \(\|T(f)\| \geq \|f\|\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org33186a0" class="outline-4">
+<h4 id="org33186a0">Función de aproximación</h4>
+<div class="outline-text-4" id="text-org33186a0">
+<p>
+Sea \(X\) normado, \(M\) subespacio con \(x_0 \in X-\overline{M}\). Existe \(f\in X^\ast\) con \(\|f\|=1\),
+tal que \(f \in M^0\) y \(f(x_0) = d(x_0,\overline{M}) = d(x_0,M)\).
+</p>
+</div>
+
+<div id="outline-container-org210fdee" class="outline-5">
+<h5 id="org210fdee">Demostración</h5>
+<div class="outline-text-5" id="text-org210fdee">
+<p>
+Como \(\overline{M}\) es subespacio cerrado, tenemos \(g \in (X/M)^\ast\) con \(\|g\|=1\) y
+\(g(x_0+\overline{M}) = \|x_0+\overline{M}\|\). Entonces \(T(g) \in \overline{M}^0\) y \(T(g)(x) = g(x+\overline{M})\).
+Tenemos \(\|T(g)\|= \|g\|=1\) y \(f(x_0) = g(x_0+\overline{M}) = \|x_0+\overline{M}\|\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgddbbd47" class="outline-4">
+<h4 id="orgddbbd47">Caracterización del polar</h4>
+<div class="outline-text-4" id="text-orgddbbd47">
+<p>
+Sea \(X\) normado, \(M\) subespacio. Entonces:
+</p>
+
+<p>
+\[ \overline{M} = \bigcap_{f \in M^0} \ker(f)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga33ddd1" class="outline-4">
+<h4 id="orga33ddd1">Distancia a un kernel</h4>
+<div class="outline-text-4" id="text-orga33ddd1">
+<p>
+Sea \(X\) espacio normado, \(f \in X^\ast - \{0\}\) y \(x_0 \in X\). Entonces,
+</p>
+
+<p>
+\[d(x_0,\ker(f)) = \frac{|f(x_0)|}{\|f\|}\]
+</p>
+</div>
+
+<div id="outline-container-org53d7afe" class="outline-5">
+<h5 id="org53d7afe">Demostración</h5>
+<div class="outline-text-5" id="text-org53d7afe">
+<p>
+Por el <a href="#org33186a0">teorema de aproximación</a> con \(M = \ker(f)\), tenemos una \(g\) con
+\(\|g\| = 1\) tal que \(g(x_0) = d(x_0,M)\); tenemos \(\ker(f) \subseteq \ker(g)\).
+</p>
+
+<p>
+\[\exists u\in X: f(u)=1\]. Para \(x\in X\), tenemos \(x -f(x)u \in \ker(f)\) y entonces:
+</p>
+
+<p>
+\[ 0 = g(x-f(x)u) = g(x) - f(x)g(u)\]
+</p>
+
+<p>
+Aplicando esto en \(x_0\) tenemos \(g(x_0) = g(u)f(x_0)\), que tomando módulos,
+nos da \(\|g\| = \|f\| |g(u)|\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgffa4746" class="outline-4">
+<h4 id="orgffa4746">Funcional de Minkowski</h4>
+<div class="outline-text-4" id="text-orgffa4746">
+<p>
+Se define \(p_U : X \longrightarrow \mathbb{R}^+\) para \(X\) normado con \(U\) entorno de \(0\) como:
+</p>
+
+<p>
+\[ p_U(x) = \inf\{ \lambda \in \mathbb{R}^+_0 \mid x \in \lambda U\} \]
+</p>
+
+<p>
+Para un entorno de \(0\) convexo, \(p_U\) es sublineal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9b6477d" class="outline-4">
+<h4 id="org9b6477d">Separación de un punto</h4>
+<div class="outline-text-4" id="text-org9b6477d">
+<p>
+Sea \(U\) entorno de \(0\) convexo con \(x_0 \notin U\), existe \(f \in X^\ast\) tal que 
+\(Re(f(x)) \leq 1\) para todo \(x \in U\); mientras \(Re(f(x_0)) \geq 1\).
+</p>
+
+<p>
+Se cumple además:
+</p>
+
+<p>
+\[ \{x \in X \mid p_U(x)<1\} \subset
+U \subset
+\{ x \in X \mid p_U(x) \leq 1\}\]
+</p>
+</div>
+
+<div id="outline-container-org74285b8" class="outline-5">
+<h5 id="org74285b8">Demostración</h5>
+<div class="outline-text-5" id="text-org74285b8">
+<p>
+Tomamos \(g : x_0\mathbb{R} \longrightarrow \mathbb{R}\) definido por \(g(\alpha x_0) = \alpha p_U(x_0)\).
+Aplicamos <a href="#org2a9fb4f">Hahn-Banach</a> sobre \(x_0\mathbb{R}\) y tenemos un \(f\) extensión de \(g\)
+verificando que \(f(x_0) = p_U(x_0) \geq 1\), y que para \(x \in U\) se tiene 
+\(f(x) \leq p_U(x) \leq 1\).
+</p>
+
+<p>
+Ahora para el caso complejo, tenemos \(f_0\) lineal y continuo
+cumpliendo que \(f_0(x_0)\geq 1\), pero \(f_0(x) \leq 1\) para todo \(x \in U\).
+Definimos \(f(x) = f_0(x) - if_0(ix)\), y entonces es lineal en los
+complejos cumpliendo lo pedido.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc01bd98" class="outline-4">
+<h4 id="orgc01bd98">Separación de convexos (para un abierto)</h4>
+<div class="outline-text-4" id="text-orgc01bd98">
+<p>
+Sean \(A,B \subset X\) convexos con \(A \cap B = \varnothing\) con \(A\) abierto.
+Existe \(f \in X^\ast\) con \(\alpha \in \mathbb{R}\) tal que:
+</p>
+
+<p>
+\[ Re(f(a)) < \alpha \leq Re(f(b)) \quad \forall a \in A, b \in B\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org579dafd" class="outline-4">
+<h4 id="org579dafd">Existencia de funcionales de soporte</h4>
+<div class="outline-text-4" id="text-org579dafd">
+<p>
+Sea \(X\) normado, \(A \subset X\) convexo cerrado con \(\mathring{A} \neq \varnothing\). Para cada 
+\(x_0 \in Fr(A)\); existe \(f \in X^\ast\) tal que:
+</p>
+
+<ul class="org-ul">
+<li>\(\|f\| = 1\)</li>
+<li>\(Re(f(x_0)) = \max\{Re(f(x)) \mid x \in A\}\)</li>
+</ul>
+</div>
+
+<div id="outline-container-org30e855b" class="outline-5">
+<h5 id="org30e855b"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgd0652ef" class="outline-4">
+<h4 id="orgd0652ef">Separación de convexos (para un compacto)</h4>
+<div class="outline-text-4" id="text-orgd0652ef">
+<p>
+Sean \(A,B \subset X\) convexos con \(A \cap B = \varnothing\) con \(A\) compacto y 
+\(B\) cerrado. Existe \(f \in X^\ast\) con \(\alpha \in \mathbb{R}\) tal que:
+</p>
+
+<p>
+\[ Re(f(a)) < \alpha < Re(f(b)) \quad \forall a \in A, b \in B\]
+</p>
+</div>
+
+<div id="outline-container-org83cc35f" class="outline-5">
+<h5 id="org83cc35f"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org83eb1cb" class="outline-3">
+<h3 id="org83eb1cb">Lema de categoría de Baire</h3>
+<div class="outline-text-3" id="text-org83eb1cb">
+</div><div id="outline-container-org04b1065" class="outline-4">
+<h4 id="org04b1065">Teorema de Baire</h4>
+<div class="outline-text-4" id="text-org04b1065">
+<p>
+Sea \(E\) espacio métrico completo y sea \(\forall n : G_n \subset E\) un abierto 
+denso. \(\bigcap_{n \in \mathbb{N}} G_n\) es denso.
+</p>
+</div>
+
+<div id="outline-container-orge7dd1bd" class="outline-5">
+<h5 id="orge7dd1bd">Demostración</h5>
+<div class="outline-text-5" id="text-orge7dd1bd">
+<p>
+Empezando con un abierto \(G\) y con \(G_1\), puedo a cada paso tomar el 
+abierto anterior, tomar un abierto dentro de él como 
+\(\overline{B}(a_i,r_i) \subset G_i \cap B(a_{i-1},r_{i-1})\), y construir una sucesión \(\overline{B}(a_n,r_n)\).
+</p>
+
+<p>
+Esta sucesión podemos tomarla para que cumpla \(\{r_n\} \to 0\). Desde
+aquí tenemos que converge \(\{a_n\} \to a \in \bigcap \overline{B}(a_n,r_n) \cap G\) por ser de 
+Cauchy.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org20f8d98" class="outline-4">
+<h4 id="org20f8d98">Corolario al teorema de Baire</h4>
+<div class="outline-text-4" id="text-org20f8d98">
+<p>
+Sean \(F_n \subset E\) cerrados con:
+</p>
+
+<p>
+\[E = \bigcup_{n \in \mathbb{N}} F_n\]
+</p>
+
+<p>
+Entonces, \(\exists n \in \mathbb{N}\) tal que \(\mathring{F}_N \neq \varnothing\).
+</p>
+</div>
+
+<div id="outline-container-org4eeb140" class="outline-5">
+<h5 id="org4eeb140">Demostración</h5>
+<div class="outline-text-5" id="text-org4eeb140">
+<p>
+Aplicando el teorema de Baire en sus complementos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3817372" class="outline-4">
+<h4 id="org3817372">Dimensión en espacios de Banach</h4>
+<div class="outline-text-4" id="text-org3817372">
+<p>
+Todo espacio de Banach tiene dimensión finita o no numerable.
+</p>
+</div>
+
+<div id="outline-container-orgd54ce9e" class="outline-5">
+<h5 id="orgd54ce9e">Demostración</h5>
+<div class="outline-text-5" id="text-orgd54ce9e">
+<p>
+Si fuera \(X\) espacio de Banach con base numerable, cualquier
+subespacio de dimensión finita sería cerrado, pero entonces,
+tomando \(F_n = \langle e_1,\dots,e_n \rangle\):
+</p>
+
+<p>
+\[ X = \bigcup F_n \]
+</p>
+
+<p>
+Luego para algún \(n\), se tiene \(\mathring{F_n} \neq \varnothing\); así que debe ser 
+\(X=F_n\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9ba2a16" class="outline-3">
+<h3 id="org9ba2a16">Teorema de la aplicación abierta</h3>
+<div class="outline-text-3" id="text-org9ba2a16">
+</div><div id="outline-container-orge9e53cb" class="outline-4">
+<h4 id="orge9e53cb">Teorema de la aplicación abierta</h4>
+<div class="outline-text-4" id="text-orge9e53cb">
+<p>
+Sean \(X,Y\) espacios de Banach con \(T \in L(X,Y)\) sobreyectiva. 
+Entonces, \(T\) es abierta; y, por tanto, epimorfismo topológico.
+</p>
+</div>
+
+<div id="outline-container-org640b921" class="outline-5">
+<h5 id="org640b921">Demostración</h5>
+<div class="outline-text-5" id="text-org640b921">
+</div><div id="outline-container-orga61fb8c" class="outline-6">
+<h6 id="orga61fb8c">La imagen de bola tiene interior no vacío</h6>
+<div class="outline-text-6" id="text-orga61fb8c">
+<p>
+Como \(X = \bigcup_{n \in \mathbb{N}} n B_X\), tenemos que:
+</p>
+
+<p>
+\[ Y 
+= T\left(\bigcup_{n \in \mathbb{N}} n B_X \right)
+= \bigcup_{n \in \mathbb{N}} n T(B_X) 
+\subseteq \bigcup_{n \in \mathbb{N}} \overline{n T(B_X)}
+= Y
+\]
+</p>
+
+<p>
+Aplicando corolario a Baire, \(\exists N: \mathring{\overline{NT(B_X)}} \neq \varnothing\), luego
+\(\mathring{\overline{T(B_X)}} \neq \varnothing\). 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org834abb9" class="outline-6">
+<h6 id="org834abb9">La imagen de la bola es entorno de 0</h6>
+<div class="outline-text-6" id="text-org834abb9">
+<p>
+Sea ahora, \(y_0 \in \mathring{\overline{T(B_X)}}\), se tendrá que:
+</p>
+
+<p>
+\[ 0 \in \mathring{\overline{T(B_X)}} - y_0
+\subset \overline{T(B_X)} - \overline{T(B_X)}
+\subset 2\overline{T(B_X)}\]
+</p>
+
+<p>
+Siendo por tanto \(\overline{T(B_X)}\) un entorno de 0.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc173027" class="outline-6">
+<h6 id="orgc173027">Acotación de la bola</h6>
+<div class="outline-text-6" id="text-orgc173027">
+<p>
+Tenemos \(\exists\delta > 0: \delta B_Y \subset \overline{T(B_X)}\), y en general:
+</p>
+
+<p>
+\[ \forall n \in \mathbb{N}: \frac{\delta}{2^n}B_Y \subseteq \overline{T\left(\frac{1}{2^n}B_X\right)}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc792485" class="outline-6">
+<h6 id="orgc792485">Sucesión</h6>
+<div class="outline-text-6" id="text-orgc792485">
+<p>
+Tomamos \(x_0 = 0\), \(y \in \overline{T(\frac{1}{2}B_X)}\), y construimos sabiendo:
+</p>
+
+<p>
+\[ y - T(x_i) \in
+\frac{\delta}{2^i} B_Y \subseteq
+T\left(\frac{1}{2^i} B_X\right)\]
+</p>
+
+<p>
+Luego existe un \(x_{i+1}\) verificando \(\|x_{i+1}\|\leq \frac{1}{2^{i+1}}\) y que:
+</p>
+
+<p>
+\[ \left\| y - \sum_{k=1}^{i+1} T(x_k) \right\| < \frac{\delta}{2^{i+2}} \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb6d77ca" class="outline-6">
+<h6 id="orgb6d77ca">La suma converge</h6>
+<div class="outline-text-6" id="text-orgb6d77ca">
+<p>
+Definimos la suma de la sucesión:
+</p>
+
+<p>
+\[ S_n = \sum_{k=1}^n x_k \in X\]
+</p>
+
+<p>
+Es de Cauchy por ser convergente \(\sum_{n=1}^\infty \frac{1}{2^n}\). Por complitud,
+converge, \(S_n \to x\), con:
+</p>
+
+<p>
+\[ \|S_n\| \leq \sum \|x_k\| \leq \sum \frac{1}{2^n} = 1 \]
+</p>
+
+<p>
+Luego \(\|x\| \leq 1\), \(x \in B_X\). Como además se tiene:
+</p>
+
+<p>
+\[\| y - T(S_n) \| \leq  
+\|y - \sum T(x_k) \| < 
+\frac{\delta}{2^{n+1}} \]
+</p>
+
+<p>
+Tenemos \(\lim\{T(S_n)\} = T(x)\) y concluimos \(y \in T(B_X)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org37795fa" class="outline-6">
+<h6 id="org37795fa">Conclusión</h6>
+<div class="outline-text-6" id="text-org37795fa">
+<p>
+Hemos probado \(\overline{T(\frac{1}{2} B_X)} \subseteq T(B_X)\), y finalmente,
+</p>
+
+<p>
+\[ \frac{\delta}{2} B_Y \subset \overline{T\left(\frac{1}{2} B_X\right)} \subset T(B_X)\]
+</p>
+
+<p>
+Así que \(T(B_X)\) es un entorno de \(0\) y \(T\) es abierta.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org10e93e1" class="outline-4">
+<h4 id="org10e93e1">Teorema de los isomorfismos de Banach</h4>
+<div class="outline-text-4" id="text-org10e93e1">
+<p>
+Sean \(X,Y\) espacios de Banach con \(T \in L(X,Y)\), biyección. 
+Entonces \(T\) es isomorfismo topológico.
+</p>
+</div>
+
+<div id="outline-container-org7189b82" class="outline-5">
+<h5 id="org7189b82">Demostración</h5>
+<div class="outline-text-5" id="text-org7189b82">
+<p>
+Por <a href="#org9ba2a16">teorema de la aplicación abierta</a> \(T\) y \(T^{-1}\) son abiertas;
+luego \(T^{-1}\) y \(T\) son continuas.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org932b658" class="outline-4">
+<h4 id="org932b658">Teorema del homomorfismo de Banach</h4>
+<div class="outline-text-4" id="text-org932b658">
+<p>
+Sean \(X,Y\) espacios de Banach con \(T \in L(X,Y)\). Será homomorfismo 
+topológico ssi \(TX\) es cerrado en \(Y\).
+</p>
+</div>
+
+<div id="outline-container-orgbd3a5a8" class="outline-5">
+<h5 id="orgbd3a5a8"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-orgc5e8fa7" class="outline-4">
+<h4 id="orgc5e8fa7">Equivalencia de normas en espacios de Banach</h4>
+<div class="outline-text-4" id="text-orgc5e8fa7">
+<p>
+Sean \(\|\cdot\|_1, \|\cdot\|_2\) dos normas en un espacio de Banach. Si cumplen que:
+</p>
+
+<p>
+\[\exists M>0 : \|x\|_1 \leq M \|x\|_2\]
+</p>
+
+<p>
+Entonces son equivalentes.
+</p>
+</div>
+
+<div id="outline-container-orgef2f7e7" class="outline-5">
+<h5 id="orgef2f7e7">Demostración</h5>
+<div class="outline-text-5" id="text-orgef2f7e7">
+<p>
+Sea \(T(x)=x\) biyección lineal entre las dos normas. Es 
+lipschitziana por la condición. Por el
+<a href="#org10e93e1">teorema de los isomorfismos de Banach</a>, es isomorfismo topológico.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org659418a" class="outline-3">
+<h3 id="org659418a">Teorema de la gráfica cerrada</h3>
+<div class="outline-text-3" id="text-org659418a">
+</div><div id="outline-container-orgf12597d" class="outline-4">
+<h4 id="orgf12597d">Gráfica de una función</h4>
+<div class="outline-text-4" id="text-orgf12597d">
+<p>
+La <b>gráfica</b> de una función \(f\) se define como:
+</p>
+
+<p>
+\[ Graf(f) = 
+\{(x,f(x)) \mid x \in A\} \subseteq
+A \times B\]
+</p>
+
+<p>
+Una \(T\) es lineal ssi \(Graf(T)\) es subespacio vectorial, y
+cuando \(f\) es continua en Hausdorff, \(Graf(f)\) es cerrada.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org46bad70" class="outline-4">
+<h4 id="org46bad70">Teorema de la gráfica cerrada</h4>
+<div class="outline-text-4" id="text-org46bad70">
+<p>
+Sean \(X,Y\) de Banach con \(T : X \longrightarrow Y\) lineal. Si la gráfica 
+de \(T\) es cerrada, \(T\) es continua.
+</p>
+</div>
+
+<div id="outline-container-org1d3db36" class="outline-5">
+<h5 id="org1d3db36">Demostración</h5>
+<div class="outline-text-5" id="text-org1d3db36">
+<p>
+Si tomamos \(\|x+y\| = \|x\|+\|y\|\), que genera la topología
+producto en \(X \times Y\), tenemos un Banach. Como \(T\) es lineal,
+\(G(T)\) es subespacio lineal de \(X \times Y\), y como \(G(T)\) es cerrado,
+es de Banach con la norma inducida.
+</p>
+
+<p>
+Sea \(\Phi : GT \longrightarrow X\) definida por:
+</p>
+
+<p>
+\[ \Phi(x,Tx) = x\]
+</p>
+
+<p>
+Como \(\Phi\) es lineal, su restricción es continua, lineal y biyectiva.
+Por <a href="#org10e93e1">teorema de isomorfismo de Banach</a>, \(\Phi^{-1}\) es continua; y entonces
+\(T = \pi_2 \circ \Phi^{-1}\) es continua.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org512bc6d" class="outline-4">
+<h4 id="org512bc6d">Caracterización de la gráfica cerrada en espacios normados</h4>
+<div class="outline-text-4" id="text-org512bc6d">
+<p>
+Sean \(X,Y\) normados con \(T: X \longrightarrow Y\) lineal. Equivalen:
+</p>
+
+<ul class="org-ul">
+<li>\(T\) con gráfica cerrada.</li>
+<li>Si \(\{x_n\} \longrightarrow 0\) y \(\{Tx_n\}\longrightarrow y\); entonces \(y=0\).</li>
+</ul>
+</div>
+
+<div id="outline-container-orgd0be080" class="outline-5">
+<h5 id="orgd0be080"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8c352c6" class="outline-3">
+<h3 id="org8c352c6">Teorema de Banach-Steinhaus</h3>
+<div class="outline-text-3" id="text-org8c352c6">
+</div><div id="outline-container-org8e2bf45" class="outline-4">
+<h4 id="org8e2bf45">Teorema de Banach-Steinhaus para funcionales</h4>
+<div class="outline-text-4" id="text-org8e2bf45">
+<p>
+Sea \({\cal A} \subset L(X,Y)\) para \(X\) de Banach e \(Y\) normado; una familia de 
+operadores acotada puntualmente:
+</p>
+
+<p>
+\[ \forall x : \exists M(x): \forall T \in A: \quad \|T(x)\| \leq M(x)\]
+</p>
+
+<p>
+Entonces está acotada:
+</p>
+
+<p>
+\[\exists M : \forall T \in A: \quad \|T\| \leq M \]
+</p>
+</div>
+
+<div id="outline-container-orgb6b24a0" class="outline-5">
+<h5 id="orgb6b24a0">Demostración</h5>
+<div class="outline-text-5" id="text-orgb6b24a0">
+<p>
+Tomamos \(F_n\) como intersección de conjuntos que son cerrados
+por la continuidad de \(T\):
+</p>
+
+<p>
+\[F_n = \bigcap_{T \in {\cal A}} \{ x \in X \mid \|Tx\| \leq n\}\]
+</p>
+
+<p>
+Como está acotada puntualmente, \(\bigcup F_n = X\); así que aplicamos
+el <a href="#org20f8d98">corolario a Baire</a> para tener un \(\mathring{F_N} \neq \varnothing\). Eso quiere decir
+que \(\exists a: \exists r: a + rB_X \subseteq F_n\). Para \(T \in {\cal A}\) se tiene:
+</p>
+
+<p>
+\[\begin{aligned}
+\|Tx\| =& \frac{1}{r} \| T(a+rx) - Ta\| \\
+     \leq& \frac{1}{r} (\| T(a+rx) \| + \|Ta\|) \\
+     \leq& \frac{N}{r} + \|Ta\|\frac{1}{r} \\ 
+     \leq& \frac{N}{r} + M(a)\frac{1}{r}
+\end{aligned}\]
+</p>
+
+<p>
+Acotación independiente de \(X\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0269815" class="outline-4">
+<h4 id="org0269815">Teorema del cierre de Steinhaus</h4>
+<div class="outline-text-4" id="text-org0269815">
+<p>
+Sea \(X\) de Banach, \(Y\) normado, y una sucesión \(\{T_n\} \in L(X,Y)\) 
+convergiendo puntualmente. La convergencia puntual da un operador 
+lineal y continuo:
+</p>
+
+<p>
+\[ T(x) = \lim_{n \longrightarrow \infty} T_n(x) \in L(X,Y)\]
+</p>
+</div>
+
+<div id="outline-container-org3bf6e9a" class="outline-5">
+<h5 id="org3bf6e9a">Demostración</h5>
+<div class="outline-text-5" id="text-org3bf6e9a">
+<p>
+La linealidad se tiene trivialmente:
+</p>
+
+<p>
+\[ T(\alpha x_1 + \beta x_2) 
+= \lim T_n (\alpha x_1 + \beta x_2)
+= \alpha T(x_1) + \beta T(x_2) \]
+</p>
+
+<p>
+Como \(\{T_n\}\) es una familia acotada puntualmente por converger
+puntualmente, se tiene por <a href="#org8e2bf45">Banach-Steinhaus</a> que está acotada.
+</p>
+
+<p>
+Entonces para \(x \in B_X\), tenemos \(\|T_n(x)\| \leq M\), así que:
+</p>
+
+<p>
+\[ \|\lim T_n(x)\| =
+\lim \|T_n(x)\| \leq M\]
+</p>
+
+<p>
+Luego \(\|T(x)\| \leq M\), y por estar acotada en la bola unidad
+y ser lineal, \(T\) es continua.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org376ca23" class="outline-4">
+<h4 id="org376ca23">Corolario a Banach-Steinhaus para el dual</h4>
+<div class="outline-text-4" id="text-org376ca23">
+<p>
+Sea \(X\) espacio de Banach y \(A \subseteq X^\ast\), equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(A\) acotado, \(\exists M>0: \forall f \in A: \|f\| \leq M\)</li>
+<li>\(A\) puntualmente acotado, \(\forall x\in X: \{f(x) \mid f \in A\}\) acotado.</li>
+</ol>
+</div>
+
+<div id="outline-container-org9588c86" class="outline-5">
+<h5 id="org9588c86">Demostración</h5>
+<div class="outline-text-5" id="text-org9588c86">
+<p>
+Por <a href="#org8e2bf45">teorema Banach-Steinhaus</a> con \(X^\ast = L(X,\mathbb{K})\) se tiene
+la segunda implicación. La primera se tiene simplemente por
+tenerse:
+</p>
+
+<p>
+\[ \|f(x)\| \leq \|f\|\|x\| \leq M \|x\| \]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb8fd30" class="outline-4">
+<h4 id="orgeb8fd30">Corolario a Banach-Steinhaus para el doble dual</h4>
+<div class="outline-text-4" id="text-orgeb8fd30">
+<p>
+Sea \(X\) espacio normado con \(A \subseteq X\). Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(A\) acotado.</li>
+<li>\(\{ f(x) \mid x \in A\}\) acotado para cualquier \(f \in X^\ast\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgaf8a1b3" class="outline-5">
+<h5 id="orgaf8a1b3">Demostración</h5>
+<div class="outline-text-5" id="text-orgaf8a1b3">
+<p>
+Sabemos \(J_X\) isometría, luego \(J_X(A)\) está acotado. Como 
+la acotación equivale a la acotación puntual, para cualquier
+punto del espacio \(f \in X^\ast\) se tiene acotado:
+</p>
+
+<p>
+\[ \{J_X(x)(f) \mid x \in A \} \]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org88bd80d" class="outline-2">
+<h2 id="org88bd80d">3. Espacios de Hilbert</h2>
+</div>
+<div id="outline-container-orgd626dc3" class="outline-2">
+<h2 id="orgd626dc3">4. Topologías débiles</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2016-12-24 Sat 00:23</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,1189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2016-12-24 Sat 00:22 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Álgebra Conmutativa y Computacional</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Álgebra Conmutativa y Computacional
+<br>
+<span class="subtitle">Theory</span>
+</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org836e2e5">1. Anillos e ideales</a>
+<ul>
+<li><a href="#orgbe83995">La categoría CRing</a>
+<ul>
+<li><a href="#orgb83b97b">Categoría</a></li>
+<li><a href="#org91a7bcd">Z es objeto inicial</a></li>
+<li><a href="#org09caf25">Subanillos</a></li>
+<li><a href="#org5fe792f">Monomorfismos y epimorfismos</a></li>
+</ul>
+</li>
+<li><a href="#org70bdd06">Ideales</a>
+<ul>
+<li><a href="#org01cf441">Definición</a></li>
+<li><a href="#org3dc8e38">Retículo de ideales</a></li>
+<li><a href="#org1392344">Generación de ideales</a></li>
+<li><a href="#orgd0af8fd">Producto de ideales</a></li>
+<li><a href="#orgf60f31e">Ideales primos relativos</a></li>
+</ul>
+</li>
+<li><a href="#org8d45880">Anillo cociente</a>
+<ul>
+<li><a href="#org8915817">Definición</a></li>
+<li><a href="#orge0afa45">Ideales del anillo cociente</a></li>
+<li><a href="#org5314d5c">Primer Teorema de Isomorfía</a>
+<ul>
+<li><a href="#orgb6b1cef">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6d6af43">Ideales primos y maximales</a>
+<ul>
+<li><a href="#org6f80321">Definición</a></li>
+<li><a href="#orgdf0f6a4">Caracterización de ideales primos y maximales</a>
+<ul>
+<li><a href="#orgcffb02b">Demostración trivial</a></li>
+</ul>
+</li>
+<li><a href="#org2028784">Preservación de ideales primos y maximales</a>
+<ul>
+<li><a href="#org179d0b5">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc84dc8c">Teorema de Krull</a>
+<ul>
+<li><a href="#org07e1ccf">Subconjunto multiplicativamente cerrado</a></li>
+<li><a href="#org5a04432">Teorema de Krull</a>
+<ul>
+<li><a href="#org44e6b87">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org56acea3">Corolario al teorema de Krull</a></li>
+</ul>
+</li>
+<li><a href="#orgf8cf0fb">Anillos locales</a>
+<ul>
+<li><a href="#orgdf7a7b8">Inclusión en ideales primos</a>
+<ul>
+<li><a href="#org2ddd1f6">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org15f3157">Inclusión de ideales primos</a>
+<ul>
+<li><a href="#org3ce8000">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0a40118">Definición de anillo local</a></li>
+<li><a href="#orgc440612">Caracterización de anillos locales</a>
+<ul>
+<li><a href="#org6c25222">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org34383ef">Radicales</a>
+<ul>
+<li><a href="#org69eb62e">Nilradical</a></li>
+<li><a href="#orgd75bacc">Anillo reducido</a></li>
+<li><a href="#org2a709a4">Espectro</a></li>
+<li><a href="#org858669d">Caracterización del nilradical</a>
+<ul>
+<li><a href="#orgf86af3f">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orga1da8d8">Radical de un ideal</a>
+<ul>
+<li><a href="#org7547c7a">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orge00f25a">Radical de Jacobson</a>
+<ul>
+<li><a href="#orgf04bc70">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgcaf17fa">Ideales residuales y anulador</a>
+<ul>
+<li><a href="#orge75d4aa">Definición</a></li>
+<li><a href="#org8851dd8">Anulador</a></li>
+</ul>
+</li>
+<li><a href="#orgedde7b6">Ideales contraídos y extendidos</a>
+<ul>
+<li><a href="#org220a663">Ideal extendido</a></li>
+<li><a href="#org9e14287">Ideal contraído</a></li>
+<li><a href="#org6af5412">Biyección entre ideales</a>
+<ul>
+<li><a href="#org6711edc">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd20e508">Producto directo de anillos</a>
+<ul>
+<li><a href="#orgd4e78a3">Definición</a></li>
+<li><a href="#org1da3ba2">Proyecciones e inclusiones</a></li>
+<li><a href="#org337c215">Propiedad universal</a></li>
+<li><a href="#org8563f92">Teorema Chino del Resto</a>
+<ul>
+<li><a href="#orga100f84">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga92cf89">3. Bases de Gröbner</a>
+<ul>
+<li><a href="#org1326d5e">R-álgebras</a></li>
+<li><a href="#org108a4fc"><span class="todo TODO">TODO</span> Anillos de polinomios</a></li>
+<li><a href="#org81c41db"><span class="todo TODO">TODO</span> Órdenes monomiales</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org836e2e5" class="outline-2">
+<h2 id="org836e2e5">1. Anillos e ideales</h2>
+<div class="outline-text-2" id="text-org836e2e5">
+</div><div id="outline-container-orgbe83995" class="outline-3">
+<h3 id="orgbe83995">La categoría CRing</h3>
+<div class="outline-text-3" id="text-orgbe83995">
+</div><div id="outline-container-orgb83b97b" class="outline-4">
+<h4 id="orgb83b97b">Categoría</h4>
+<div class="outline-text-4" id="text-orgb83b97b">
+<p>
+Consideramos la categoría de los <b>anillos conmutativos</b>, que consta de los anillos
+conmutativos como objetos y de los homomorfismos de anillos; respetando suma,
+producto y unidad; como morfismos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org91a7bcd" class="outline-4">
+<h4 id="org91a7bcd">Z es objeto inicial</h4>
+<div class="outline-text-4" id="text-org91a7bcd">
+<p>
+El anillo \(\mathbb{Z}\) es inicial en <code>CRing</code>. El homomorfismo único queda unívocamente 
+definido con \(f(1) = 1\) y \(f(n) = nf(1)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org09caf25" class="outline-4">
+<h4 id="org09caf25">Subanillos</h4>
+<div class="outline-text-4" id="text-org09caf25">
+<p>
+<b>Subanillo</b>. Subconjunto cerrado para la suma y el producto conteniendo a 1.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5fe792f" class="outline-4">
+<h4 id="org5fe792f">Monomorfismos y epimorfismos</h4>
+<div class="outline-text-4" id="text-org5fe792f">
+<p>
+En <code>CRing</code> coinciden la inyectividad con ser monomorfismo y la sobreyectividad
+con ser epimorfismo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org70bdd06" class="outline-3">
+<h3 id="org70bdd06">Ideales</h3>
+<div class="outline-text-3" id="text-org70bdd06">
+</div><div id="outline-container-org01cf441" class="outline-4">
+<h4 id="org01cf441">Definición</h4>
+<div class="outline-text-4" id="text-org01cf441">
+<p>
+Un <b>ideal</b> es un subconjunto cerrado para la suma y el producto de cualquier 
+elemento desde \(R\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3dc8e38" class="outline-4">
+<h4 id="org3dc8e38">Retículo de ideales</h4>
+<div class="outline-text-4" id="text-org3dc8e38">
+<p>
+Los ideales forman un retículo con la suma y la intersección.
+Dos ideales son <b>primos relativos</b> cuando suman el anillo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1392344" class="outline-4">
+<h4 id="org1392344">Generación de ideales</h4>
+<div class="outline-text-4" id="text-org1392344">
+<p>
+Llamamos \((X)\) al <b>ideal generado</b> por \(X\); el menor ideal que 
+contiene a \(X\):
+</p>
+
+<p>
+\[ (X) = \bigcap_{X \subset \alpha \text{, ideal}} \alpha\]
+</p>
+
+<p>
+Lo llamamos <b>ideal finitamente generado</b> cuando \(X\) es finito,
+cumpliéndose:
+</p>
+
+<p>
+\[ (X) = \left\{ \sum^{finita} r_ix_i \mid r_i \in R, x_i \in X\right\}\]
+</p>
+
+<p>
+E <b>ideal principal</b> cuando \(X\) tiene un sólo elemento.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd0af8fd" class="outline-4">
+<h4 id="orgd0af8fd">Producto de ideales</h4>
+<div class="outline-text-4" id="text-orgd0af8fd">
+<p>
+Se define para \(\alpha, \beta\) ideales como:
+</p>
+
+<p>
+\[ \alpha\beta = \left\{ xy \mid x\in\alpha, y\in\beta \right\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf60f31e" class="outline-4">
+<h4 id="orgf60f31e">Ideales primos relativos</h4>
+<div class="outline-text-4" id="text-orgf60f31e">
+<p>
+Dos ideales son <b>primos relativos</b> cuando \(\alpha+\beta = R\). Cuando son primos relativos
+se cumple que \(\alpha\beta = \alpha \cap \beta\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8d45880" class="outline-3">
+<h3 id="org8d45880">Anillo cociente</h3>
+<div class="outline-text-3" id="text-org8d45880">
+</div><div id="outline-container-org8915817" class="outline-4">
+<h4 id="org8915817">Definición</h4>
+<div class="outline-text-4" id="text-org8915817">
+<p>
+Sea \(R\) anillo y \(\alpha \subset R\) ideal, tomamos la relación de equivalencia
+\(x \sim y \Leftrightarrow x-y \in \alpha\), para obtener:
+</p>
+
+<p>
+\[ R/\alpha = \{x+\alpha \mid x\in R\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge0afa45" class="outline-4">
+<h4 id="orge0afa45">Ideales del anillo cociente</h4>
+<div class="outline-text-4" id="text-orge0afa45">
+<p>
+Los ideales del anillo cociente sobre \(\alpha\) están en correspondencia biyectiva
+con los ideales que lo contienen, \(\beta \supset \alpha\). Son siempre de la forma \(\beta/\alpha\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5314d5c" class="outline-4">
+<h4 id="org5314d5c">Primer Teorema de Isomorfía</h4>
+<div class="outline-text-4" id="text-org5314d5c">
+<p>
+Para cualquier homomorfismo de anillos \(f\):
+</p>
+
+<p>
+\[ R/\ker(f) \cong \im(f)\]
+</p>
+
+<p>
+Y además, los ideales están en correspondencia biyectiva por \(f_\ast\) y \(f^{-1}\):
+</p>
+
+<p>
+\[ \{ \alpha \mid \ker(f)\subset\alpha \} 
+\longleftrightarrow 
+\{ \beta \mid \beta \subset \im(f)\}\]
+</p>
+</div>
+
+<div id="outline-container-orgb6b1cef" class="outline-5">
+<h5 id="orgb6b1cef">Demostración</h5>
+<div class="outline-text-5" id="text-orgb6b1cef">
+<p>
+Trivial desde la descomposición de morfismos en una categoría arbitraria.
+Además, se comprueba que \(f^{-1}\) preserva ideales y que \(f_\ast\) preserva ideales en su 
+imagen.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d6af43" class="outline-3">
+<h3 id="org6d6af43">Ideales primos y maximales</h3>
+<div class="outline-text-3" id="text-org6d6af43">
+</div><div id="outline-container-org6f80321" class="outline-4">
+<h4 id="org6f80321">Definición</h4>
+<div class="outline-text-4" id="text-org6f80321">
+<p>
+\(P\) es ideal <b>primo</b> si no es el total y \(xy\in P \Rightarrow x \in P \vee y \in P\).
+\(P\) es ideal <b>maximal</b> si \(M \neq R\) y es maximal en el retículo de ideales sin \(R\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdf0f6a4" class="outline-4">
+<h4 id="orgdf0f6a4">Caracterización de ideales primos y maximales</h4>
+<div class="outline-text-4" id="text-orgdf0f6a4">
+<p>
+En relación a su cociente en el anillo:
+</p>
+
+<ul class="org-ul">
+<li>\(P\) es primo ssi \(R/P\) es un dominio de integridad no trivial.</li>
+<li>\(M\) es maximal ssi \(M/P\) es un cuerpo no trivial.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgcffb02b" class="outline-5">
+<h5 id="orgcffb02b">Demostración trivial</h5>
+</div>
+</div>
+<div id="outline-container-org2028784" class="outline-4">
+<h4 id="org2028784">Preservación de ideales primos y maximales</h4>
+<div class="outline-text-4" id="text-org2028784">
+<p>
+Dado un homomorfismo \(f\),
+</p>
+
+<ol class="org-ol">
+<li>Si \(\Pi\) es ideal primo, entonces \(f^{-1}(\Pi)\) es ideal primo.</li>
+<li>La imagen y preimagen de ideales preserva primos y maximales 
+entre el núcleo y sobre la imagen del anillo.</li>
+</ol>
+
+<p>
+Como consecuencia los ideales primos (resp. maximales) de un
+anillo \(R/\alpha\), son los ideales de la forma \(\Pi/\alpha\) con \(\alpha\subset\Pi\) primo (resp.
+maximal).
+</p>
+</div>
+
+<div id="outline-container-org179d0b5" class="outline-5">
+<h5 id="org179d0b5">Demostración</h5>
+<div class="outline-text-5" id="text-org179d0b5">
+<p>
+<b>1</b> es trivial. <b>2</b> tenemos que demostrarlo en cuatro pasos:
+</p>
+
+<ul class="org-ul">
+<li>Si \(M\) es maximal en \(\im f\), entonces \(f^{-1}(M)\) es maximal entre los 
+ideales que contienen a \(\ker f\).</li>
+<li>Si \(M\) es maximal, entonces \(f(M)\) es maximal en \(\im f\).</li>
+<li>Si \(\Pi\) es primo en \(\im f\), entonces \(f^{-1}(\Pi)\) es primo, ya demostrado.</li>
+<li>Si \(\ker f \subset \Pi\) es primo, entonces \(f(\Pi)\) es primo en \(\im f\).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc84dc8c" class="outline-3">
+<h3 id="orgc84dc8c">Teorema de Krull</h3>
+<div class="outline-text-3" id="text-orgc84dc8c">
+</div><div id="outline-container-org07e1ccf" class="outline-4">
+<h4 id="org07e1ccf">Subconjunto multiplicativamente cerrado</h4>
+<div class="outline-text-4" id="text-org07e1ccf">
+<p>
+Es un subconjunto \(S\) con:
+</p>
+<ul class="org-ul">
+<li>\(1 \in S\)</li>
+<li>\(x,y\in S \Rightarrow xy \in S\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5a04432" class="outline-4">
+<h4 id="org5a04432">Teorema de Krull</h4>
+<div class="outline-text-4" id="text-org5a04432">
+<p>
+Sea \(\alpha \cap S = \varnothing\), entonces existe un ideal \(M \supset \alpha\) tal que \(M \cap S = \varnothing\) y maximal respecto
+a esta condición. Además, \(M\) es un ideal primo.
+</p>
+</div>
+
+<div id="outline-container-org44e6b87" class="outline-5">
+<h5 id="org44e6b87">Demostración</h5>
+<div class="outline-text-5" id="text-org44e6b87">
+<p>
+Dada una cadena de ideales cumpliendo la condición su unión también la cumple
+y es cota de la cadena. Aplicando lema de Zorn obtenemos un maximal.
+</p>
+
+<p>
+Para ver que es primo tengamos \(xy\in M\), los dos no pueden estar en \(S\). Si \(x \notin S\);
+entonces \(xz \notin S\), ya que se tiene \(xzy \in M\); tomamos \(M + (x) \supset M\), y contravendríamos
+la maximalidad de \(M\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org56acea3" class="outline-4">
+<h4 id="org56acea3">Corolario al teorema de Krull</h4>
+<div class="outline-text-4" id="text-org56acea3">
+<p>
+Tomando \(S=\{1\}\) tenemos que; dado un ideal, existe un ideal maximal que lo contiene.
+En particular, todo elemento no unidad está contenido en un ideal maximal,
+tomando \(S = (x)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf8cf0fb" class="outline-3">
+<h3 id="orgf8cf0fb">Anillos locales</h3>
+<div class="outline-text-3" id="text-orgf8cf0fb">
+</div><div id="outline-container-orgdf7a7b8" class="outline-4">
+<h4 id="orgdf7a7b8">Inclusión en ideales primos</h4>
+<div class="outline-text-4" id="text-orgdf7a7b8">
+<p>
+Sean ideales \(\alpha_1,\dots,\alpha_n\) y \(\pi\) un ideal primo. Si \(\bigcap \alpha_i \subset \pi\), entonces
+</p>
+
+<p>
+\(\exists i: \alpha_i \subset \pi\).
+</p>
+</div>
+
+<div id="outline-container-org2ddd1f6" class="outline-5">
+<h5 id="org2ddd1f6">Demostración</h5>
+<div class="outline-text-5" id="text-org2ddd1f6">
+<p>
+Supongamos que \(\forall i: \alpha_i \nsubseteq \Pi\); entonces tenemos \(x_i \in \alpha_i - \Pi\) tales que ninguno
+está en \(\Pi\), pero su producto debe estar, contraviniendo que sea primo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org15f3157" class="outline-4">
+<h4 id="org15f3157">Inclusión de ideales primos</h4>
+<div class="outline-text-4" id="text-org15f3157">
+<p>
+Sean ideales primos \(\pi_1,\dots,\pi_n\), (salvo quizá 2) y \(\alpha\) un ideal. Si \(\alpha \subset \bigcup \pi_i\), entonces,
+</p>
+
+<p>
+\(\exists i: \alpha \subset \pi_i\).
+</p>
+</div>
+
+<div id="outline-container-org3ce8000" class="outline-5">
+<h5 id="org3ce8000">Demostración</h5>
+<div class="outline-text-5" id="text-org3ce8000">
+<p>
+En el caso \(n=2\), supongamos \(\alpha \subset \pi_1 \cup \pi_2\); y tomemos \(x \in \alpha, x\in\pi_1\), \(y\in\alpha, y\in\pi_2\).
+Entonces tendría \(x+y \in \alpha\), pero no estaría en \(\pi_1 \cup \pi_2\). Nótese que no usamos
+todavía que sean primos.
+</p>
+
+<p>
+En el caso inductivo, aplico la hipótesis de inducción para obtener, para cada \(k\):
+</p>
+
+<p>
+\[\exists x_k \in \alpha : x_k \notin \bigcup_{i\neq k} \pi_i\]
+</p>
+
+<p>
+Luego debe tenerse \(x_k \in \alpha_k\); sea ahora \(x = x_1x_2\dots x_{n-1}+x_n \in \alpha\); 
+luego \(\exists r: x\in\alpha_r\). Si \(r=n\), tendríamos \(x_1x_2\dots x_{n-1} \in \alpha_r\), y por primalidad debería
+estar alguno; si no, tendríamos \(x_n \in \alpha_r\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a40118" class="outline-4">
+<h4 id="org0a40118">Definición de anillo local</h4>
+<div class="outline-text-4" id="text-org0a40118">
+<p>
+Un <b>anillo local</b> es aquel con un único ideal maximal. A \(R/M\) se le llama 
+<b>cuerpo residual</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc440612" class="outline-4">
+<h4 id="orgc440612">Caracterización de anillos locales</h4>
+<div class="outline-text-4" id="text-orgc440612">
+<p>
+Un anillo \(R\) es local ssi \(\{x\in R \mid x \text{ no unidad}\}\) es un ideal.
+</p>
+
+<p>
+Sea \(M\) ideal propio:
+</p>
+
+<ul class="org-ul">
+<li>\(R\) es local con maximal \(M\) ssi \(R-M \subset {\cal U}(R)\).</li>
+<li>Si \(M\) es maximal y \(\{1+x \mid x\in M\}\subset {\cal U}(R)\) entonces es \(R\) local y \(M\) su maximal.</li>
+</ul>
+</div>
+
+<div id="outline-container-org6c25222" class="outline-5">
+<h5 id="org6c25222">Demostración</h5>
+<div class="outline-text-5" id="text-org6c25222">
+<ol class="org-ol">
+<li>Una no unidad debe estar contenida en el único maximal que hay, que no contiene
+a las unidades y además es ideal.
+Por otro lado, por Krull, el ideal de las no unidades debería estar contenido
+en un ideal maximal que tampoco tuviera unidades, luego debe ser él mismo.</li>
+<li>Por la caracterización anterior tenemos una implicación. Sea \(R-M \subset {\cal U}(R)\),
+si tenemos \(M \not\subset \beta\), entonces tendríamos un \(x \in \beta,x \notin M\), luego \(x \in {\cal U}(R)\)
+y entonces \(\beta = R\). Si tenemos otro \(M'\) maximal, entonces \(\exists x\in M': x \notin M\),
+pero eso me vuelve a dar \(M' = R\). Luego \(M\) es el único ideal y maximal.</li>
+<li>Por la caracterización anterior tenemos una implicación. Sea \(x \notin R-M\),
+tenemos por maximalidad: \(rx+m = 1\), luego \(rx = 1-m \in {\cal U}(R)\).
+En conclusión, \(R-M \subset {\cal U}(R)\) y es local.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org34383ef" class="outline-3">
+<h3 id="org34383ef">Radicales</h3>
+<div class="outline-text-3" id="text-org34383ef">
+</div><div id="outline-container-org69eb62e" class="outline-4">
+<h4 id="org69eb62e">Nilradical</h4>
+<div class="outline-text-4" id="text-org69eb62e">
+<p>
+Sus elementos se llaman <b>nilpotentes</b>:
+</p>
+
+<p>
+\[\operatorname{Nil}(R) = \{x \in R \mid \exists n: x^n = 0\}\]
+</p>
+
+<p>
+El nilradical es un ideal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd75bacc" class="outline-4">
+<h4 id="orgd75bacc">Anillo reducido</h4>
+<div class="outline-text-4" id="text-orgd75bacc">
+<p>
+Un anillo es <b>reducido</b> si \(\operatorname{Nil}(R) = 0\). Los dominios de integridad son reducidos. 
+Además, podemos reducir un anillo dividiendo por su nilradical \(R/\operatorname{Nil}(R)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2a709a4" class="outline-4">
+<h4 id="org2a709a4">Espectro</h4>
+<div class="outline-text-4" id="text-org2a709a4">
+<p>
+El <b>espectro</b> de un anillo R es la intersección de sus ideales primos:
+</p>
+
+<p>
+\[\spec(R) = \{\pi\in R \mid \pi \text{ es un ideal primo}\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org858669d" class="outline-4">
+<h4 id="org858669d">Caracterización del nilradical</h4>
+<div class="outline-text-4" id="text-org858669d">
+<p>
+El nilradical de \(R\) es la intersección de los ideales del espectro:
+</p>
+
+<p>
+\[ \operatorname{Nil}(R) = \bigcap_{\pi \in \operatorname{Spec}(R)} \pi\]
+</p>
+</div>
+
+<div id="outline-container-orgf86af3f" class="outline-5">
+<h5 id="orgf86af3f">Demostración</h5>
+<div class="outline-text-5" id="text-orgf86af3f">
+<p>
+Sea \(x^n = 0\), entonces \(x^n \in \pi, \forall \pi \in \operatorname{Spec}(R)\); y, por primalidad, \(x \in \pi\).
+Sea \(x \notin \operatorname{Nil}(R)\), entonces \(S = \{1,x,x^2,\dots\}\) es multiplicativamente cerrado con
+\(S \cap \operatorname{Nil}(R) = \varnothing\). Por Krull, tenemos un \(\pi\) tal que \(\pi \cap S = \varnothing\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga1da8d8" class="outline-4">
+<h4 id="orga1da8d8">Radical de un ideal</h4>
+<div class="outline-text-4" id="text-orga1da8d8">
+<p>
+Se define como:
+</p>
+
+<p>
+\[\sqrt{\alpha} = \{x \in R \mid \exists n \geq 1 : x^n \in \alpha\}\]
+</p>
+
+<p>
+Tenemos que \(\operatorname{Nil}(R/\alpha) = \sqrt{\alpha}/\alpha\). Cuando \(\alpha = \sqrt{\alpha}\) decimos que es <b>ideal radical</b>.
+Se caracteriza como:
+</p>
+
+<p>
+\[\sqrt{\alpha} = \bigcap_{\alpha \subset \pi \in Spec(R)} \pi\]
+</p>
+</div>
+
+<div id="outline-container-org7547c7a" class="outline-5">
+<h5 id="org7547c7a">Demostración</h5>
+<div class="outline-text-5" id="text-org7547c7a">
+<p>
+Tenemos claramente \(\pi^{-1}(\operatorname{Nil}(R/\alpha)) = \sqrt{\alpha}\), pero entonces:
+</p>
+
+<p>
+\[\sqrt{\alpha} = 
+\pi^{-1}(\operatorname{Nil}(R/\alpha))=
+\pi^{-1} \left( 
+\bigcap_{\alpha \subset \pi \in \operatorname{Spec}(R/\alpha)} \pi/\alpha 
+\right) = \bigcap_{\alpha \subset \pi \in \operatorname{Spec}(R)} \pi\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge00f25a" class="outline-4">
+<h4 id="orge00f25a">Radical de Jacobson</h4>
+<div class="outline-text-4" id="text-orge00f25a">
+<p>
+Se define el <b>radical de Jacobson</b> como:
+</p>
+
+<p>
+\[{\cal J}(R) = \bigcap_{{\cal M} \text{ maximal}} {\cal M}\]
+</p>
+
+<p>
+Tenemos que \(x \in {\cal J}(R)\) ssi \(1-xy \in U(R)\) para cualquier \(y\).
+</p>
+</div>
+
+<div id="outline-container-orgf04bc70" class="outline-5">
+<h5 id="orgf04bc70">Demostración</h5>
+<div class="outline-text-5" id="text-orgf04bc70">
+<p>
+Un elemento \(1-xy\) para \(x \in {\cal J}(R)\) no puede estar en ningún ideal maximal, porque
+estaría entonces el \(1\). Por corolario de Krull, debe ser unidad.
+</p>
+
+<p>
+Supongamos \(x \notin M\), entonces \((x) + M = R\), y por tanto \(1-xy \in M\). Pero un maximal
+no puede contener una unidad.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcaf17fa" class="outline-3">
+<h3 id="orgcaf17fa">Ideales residuales y anulador</h3>
+<div class="outline-text-3" id="text-orgcaf17fa">
+</div><div id="outline-container-orge75d4aa" class="outline-4">
+<h4 id="orge75d4aa">Definición</h4>
+<div class="outline-text-4" id="text-orge75d4aa">
+<p>
+Definimos el <b>ideal residual</b> (a veces llamado <b>cociente</b>) de dos ideales como:
+</p>
+
+<p>
+\[ (\alpha : \beta) = \{x\in R\mid x\beta \subset\alpha\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8851dd8" class="outline-4">
+<h4 id="org8851dd8">Anulador</h4>
+<div class="outline-text-4" id="text-org8851dd8">
+<p>
+\[\operatorname{Ann}(\beta) = \{x \in R \mid x\beta = 0\} = (0 : \beta)\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgedde7b6" class="outline-3">
+<h3 id="orgedde7b6">Ideales contraídos y extendidos</h3>
+<div class="outline-text-3" id="text-orgedde7b6">
+</div><div id="outline-container-org220a663" class="outline-4">
+<h4 id="org220a663">Ideal extendido</h4>
+<div class="outline-text-4" id="text-org220a663">
+<p>
+Dado un homomorfismo \(f : R \longrightarrow S\) llamamos <b>ideal extendido</b> de \(\alpha\) al ideal:
+</p>
+
+<p>
+\[ \alpha^e = (f(\alpha)) = \left\{ \sum s_i f(x_i) \mid s_i \in S, x_i \in \alpha\right\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e14287" class="outline-4">
+<h4 id="org9e14287">Ideal contraído</h4>
+<div class="outline-text-4" id="text-org9e14287">
+<p>
+Dado un homomorfismo \(f\) llamamos <b>ideal contraído</b> de \(\beta\) al ideal:
+</p>
+
+<p>
+\[ \beta^c = f(\beta) \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6af5412" class="outline-4">
+<h4 id="org6af5412">Biyección entre ideales</h4>
+<div class="outline-text-4" id="text-org6af5412">
+<p>
+Para \(f : S \longrightarrow R\) homomorfismo y \(\alpha,\beta\) ideales:
+</p>
+
+<ol class="org-ol">
+<li>\(\alpha \subset \alpha^e^c\), y \(\beta \supset \beta^c^e\).</li>
+<li>\(\alpha^e = \alpha^e^c^e\), y \(\beta^c = \beta^c^e^c\)</li>
+<li>Hay una biyección con \((-)^e,(-)^c\) entre ideales contraídos y extendidos, que 
+además pueden escribirse como \(\{\alpha \subset R \mid \alpha = \alpha^e^c\}\)
+y \(\{\beta \subset S \mid \beta = \beta^c^e\}\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org6711edc" class="outline-5">
+<h5 id="org6711edc">Demostración</h5>
+<div class="outline-text-5" id="text-org6711edc">
+<p>
+Pueden escribirse así porque si tengo \(\beta = \alpha^e\), entonces \(\beta^c^e = \alpha^e^c^e = \alpha^e = \beta\). La biyección
+es trivial desde la definición y las proposiciones anteriores.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd20e508" class="outline-3">
+<h3 id="orgd20e508">Producto directo de anillos</h3>
+<div class="outline-text-3" id="text-orgd20e508">
+</div><div id="outline-container-orgd4e78a3" class="outline-4">
+<h4 id="orgd4e78a3">Definición</h4>
+<div class="outline-text-4" id="text-orgd4e78a3">
+<p>
+Para \(R_1,R_2,\dots,R_n\) tomamos como su producto directo a:
+</p>
+
+<p>
+\[R_1\times \dots \times R_n = \prod_{i=1}^n R_i\]
+</p>
+
+<p>
+con las operaciones definidas componente a componente.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1da3ba2" class="outline-4">
+<h4 id="org1da3ba2">Proyecciones e inclusiones</h4>
+<div class="outline-text-4" id="text-org1da3ba2">
+<p>
+Las <b>proyecciones</b>, \(p_k\), a cualquier factor son homomorfismos.
+Las <b>inclusiones</b>, \(u_k\), <b>no</b> son homomorfismos, ya que no respetan
+el uno del anillo, que en este caso es \((1,\dots,1)\). Cumplen además:
+</p>
+
+<ul class="org-ul">
+<li>\(p_k \circ u_k = \delta_{kj}id\)</li>
+<li>\(\sum u_i \circ p_i = id\)</li>
+<li>\(\ker(p_j) = \sum \im(u_j)\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org337c215" class="outline-4">
+<h4 id="org337c215">Propiedad universal</h4>
+<div class="outline-text-4" id="text-org337c215">
+<p>
+El producto con las proyecciones es el <b>producto categórico</b> de la
+categoría de los anillos:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+& & S \dar[dashed]{\exists!} \arrow[bend right]{ddll} \arrow[bend right]{ddl} \arrow[bend left]{ddr} \arrow[bend left]{ddrr} & &\\
+& & \prod R \arrow{dll}[swap]{\pi_1} \arrow{dl}{\pi_2} \arrow{dr}[swap]{\pi_3} \arrow{drr} & & \\
+R_1 & R_2 &  & R_3 & \dots
+\end{tikzcd} \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8563f92" class="outline-4">
+<h4 id="org8563f92">Teorema Chino del Resto</h4>
+<div class="outline-text-4" id="text-org8563f92">
+<p>
+En la situación la propiedad universal sobre el cociente por unos
+ideales \(\alpha_1,\dots,\alpha_n\):
+</p>
+
+<p>
+\[ \begin{tikzcd}
+\prod_{i=1}^n R/\alpha_i \rar{\pi_i} &  R/\alpha_i \\
+R \uar{\exists! f} \urar{p_i}
+\end{tikzcd} \]
+</p>
+
+<p>
+Tenemos que:
+</p>
+
+<ol class="org-ol">
+<li>Si los \(\alpha_i\) son primos entre sí, \(\prod \alpha_i = \bigcap \alpha_i\).</li>
+<li>La \(f\) es sobreyectiva ssi los \(\alpha_i\) son primos entre sí.</li>
+<li>La \(f\) es inyectiva ssi \(\bigcap \alpha_i = 0\). De hecho, \(\ker(f) = \bigcap \alpha_i\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orga100f84" class="outline-5">
+<h5 id="orga100f84">Demostración</h5>
+<div class="outline-text-5" id="text-orga100f84">
+<ol class="org-ol">
+<li>El caso \(n=2\) es conocido. En el caso \(n>2\), aplicamos la hipótesis
+de inducción a \(\alpha_1\alpha_2\dots\alpha_{n-1}\) y a \(\alpha_n\), que se demuestran primos relativos.</li>
+<li>Doble implicación:
+<ul class="org-ul">
+<li>Si \(f\) es sobreyectiva, existe \(f(x) = (1,0,0,\dots)\), que me da \(x \in \alpha_i\)
+para cualquier \(i\), y además, \(x-1 \in \alpha_1\); luego \(1 \in \alpha_i+\alpha_1\).</li>
+<li>Si son primos relativos, existen \(x_i + y_i = 1\) con \(x_i \in \alpha_1\), \(y_i \in \alpha_i\).
+\(y = y_2y_3\dots y_n = 1 + x\), con \(x \in \alpha_1\); luego \(y \equiv_{\alpha_1} 1\) pero \(y \equiv_{\alpha_i} 0\); luego
+puedo crear una base del anillo.</li>
+</ul></li>
+<li>Trivial.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga92cf89" class="outline-2">
+<h2 id="orga92cf89">3. Bases de Gröbner</h2>
+<div class="outline-text-2" id="text-orga92cf89">
+</div><div id="outline-container-org1326d5e" class="outline-3">
+<h3 id="org1326d5e">R-álgebras</h3>
+<div class="outline-text-3" id="text-org1326d5e">
+<p>
+Una <b>R-álgebra</b>, \(S\) es un anillo con estructura de R-módulo, tal que:
+</p>
+
+<p>
+\[\forall r\in R, x,y\in S:\; (rx)y = r(xy) = x(ry)\]
+</p>
+
+<p>
+Equivalentemente es un anillo \(S\) junto a un <b>homomorfismo de estructura</b> 
+\(\lambda : R \longrightarrow S\). Nótese que puedo pasar de una a otra definición tomando \(\lambda(r) = r1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org108a4fc" class="outline-3">
+<h3 id="org108a4fc"><span class="todo TODO">TODO</span> Anillos de polinomios</h3>
+</div>
+<div id="outline-container-org81c41db" class="outline-3">
+<h3 id="org81c41db"><span class="todo TODO">TODO</span> Órdenes monomiales</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2016-12-24 Sat 00:22</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

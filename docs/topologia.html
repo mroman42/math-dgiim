@@ -1,0 +1,2510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2016-12-24 Sat 00:24 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Topología II</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Topología II
+<br>
+<span class="subtitle">Theory</span>
+</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org0ffedc0">1. El grupo fundamental</a>
+<ul>
+<li><a href="#org08185ba">1. Espacios conexos por arcos</a>
+<ul>
+<li><a href="#org6a0b5cf">Arcoconexión</a></li>
+<li><a href="#org6d58987">Operaciones en arcos y arcoconexión como equivalencia</a></li>
+<li><a href="#org191153c">Arcoconexión y conexión</a>
+<ul>
+<li><a href="#org28516f2">Demostración</a></li>
+<li><a href="#org518883f">Contraejemplo del recíproco</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgdfb2932">2. Grupo fundamental</a>
+<ul>
+<li><a href="#org502cdcc">Homotopía de lazos</a></li>
+<li><a href="#orgd7d550b">Clases de homotopía</a></li>
+<li><a href="#org9e8646b">Producto de clases de homotopía</a></li>
+<li><a href="#org9e0815f">El grupo fundamental</a>
+<ul>
+<li><a href="#org335a339">Asociatividad</a></li>
+<li><a href="#org8fbd20a">Elemento neutro</a></li>
+<li><a href="#orgd388798">Elemento inverso</a></li>
+</ul>
+</li>
+<li><a href="#org17cf081">El grupo fundamental como funtor</a>
+<ul>
+<li><a href="#org58f1f4d">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org327f4fd">Homotopía de arcos</a>
+<ul>
+<li><a href="#orgbe423e2">Propiedades</a></li>
+</ul>
+</li>
+<li><a href="#org4405c98">Isomorfismo entre grupos fundamentales en distintos puntos</a>
+<ul>
+<li><a href="#org745c175">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0bfd636">El grupo fundamental del producto</a></li>
+</ul>
+</li>
+<li><a href="#org6b3783f">3. El grupo fundamental del círculo</a>
+<ul>
+<li><a href="#org0d03ac7">Cálculo del grupo fundamental del círculo</a></li>
+<li><a href="#org6b725f5">Teorema fundamental del álgebra</a>
+<ul>
+<li><a href="#org68ff3b4">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org6fe6251">Lema al punto fijo de Brower</a>
+<ul>
+<li><a href="#org7d98c01">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org8718b94">Teorema del punto fijo de Brower</a>
+<ul>
+<li><a href="#org2f2b526">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org160c0ab">Grupos topológicos</a></li>
+<li><a href="#org2db7397">Grupos topológicos y grupo fundamental</a></li>
+</ul>
+</li>
+<li><a href="#org930205b">4. Tipo de homotopía. Equivalencias homotópicas</a>
+<ul>
+<li><a href="#org85e3a4f">Aplicaciones homotópicas</a></li>
+<li><a href="#org443e0df">Grupo fundamental entre dos puntos</a>
+<ul>
+<li><a href="#orga6fba68">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org6f8347e">Equivalencia homotópica</a></li>
+<li><a href="#org90bf572">Propiedades de la equivalencia homotópica</a></li>
+<li><a href="#orge268526">Conservación del grupo fundamental por equivalencia homotópica</a>
+<ul>
+<li><a href="#orgd3d0e26">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org147c36c">Lema a Borsuk-Ulam</a>
+<ul>
+<li><a href="#org627742a"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org60b4f80">Teorema de Borsuk-Ulam</a>
+<ul>
+<li><a href="#orgf6b1ea1">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org712dfc9">Teorema del sandwich de jamón</a>
+<ul>
+<li><a href="#org0f0acfd"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org6f96822">Espacio proyectivo</a></li>
+</ul>
+</li>
+<li><a href="#org82fda6b">5. Teorema de Seifert-Van Kampen</a>
+<ul>
+<li><a href="#orgee65764">Producto libre de grupos</a></li>
+<li><a href="#org9c84e7e">Subgrupo normal generado</a></li>
+<li><a href="#org8eb322b">Producto libre amalgamado</a></li>
+<li><a href="#orgeb48479">Teorema de Seifert-Van Kampen</a></li>
+<li><a href="#org970a9f8">Seifert-Van Kampen para intersección simplemente conexa</a></li>
+<li><a href="#org9137c28">Seifert-Van Kampen para abierto simplemente conexo</a></li>
+</ul>
+</li>
+<li><a href="#orgc94f7cb">Extra: Teoría de categorías</a>
+<ul>
+<li><a href="#org312b7e7">El grupo fundamental como funtor</a></li>
+<li><a href="#org21c918f">Producto categórico</a></li>
+<li><a href="#org55c37b3">Coproducto categórico</a></li>
+<li><a href="#org02edea9"><span class="todo TODO">TODO</span> Seifert-Van Kampen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc6db5ee">2. Recubridores</a>
+<ul>
+<li><a href="#org5b0ee3c">1. Introducción</a>
+<ul>
+<li><a href="#org2f86b7b">Localmente arcoconexo</a></li>
+<li><a href="#org20b0fe1">Recubridores</a></li>
+<li><a href="#org862a76e">Ejemplos de recubridores</a></li>
+<li><a href="#org9299063">Homeomorfismos locales</a></li>
+<li><a href="#org534a7ac">Propiedades de un recubridores</a>
+<ul>
+<li><a href="#orgb76cca5">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf540ad1">2. Grupo fundamental y levantamiento de aplicaciones al recubridor</a>
+<ul>
+<li><a href="#org3a7bc5c">Levantamiento de arcos</a>
+<ul>
+<li><a href="#orgf8c1e38">Existencia</a></li>
+<li><a href="#org0c6652d">Unicidad</a></li>
+</ul>
+</li>
+<li><a href="#org32931b2">Levantamiento de homotopías</a>
+<ul>
+<li><a href="#org982bb85">Existencia</a></li>
+<li><a href="#orgeee07ae"><span class="todo TODO">TODO</span> Unicidad</a></li>
+</ul>
+</li>
+<li><a href="#org9ab15fe">Hojas del recubridor</a>
+<ul>
+<li><a href="#org6f5d4fc">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgf336a2d">Los recubridores crean monomorfismos</a>
+<ul>
+<li><a href="#org349f3bf">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgf3c2c20">Conjugación y recubridores</a>
+<ul>
+<li><a href="#orgc7cfe13">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org8fe4a05">Levntamiento de aplicaciones</a>
+<ul>
+<li><a href="#orgbd7aa86">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org3e4c23a">Estructura de grupo topológico</a></li>
+</ul>
+</li>
+<li><a href="#orga15cb72">3.1. Isomorfismos de recubridores</a>
+<ul>
+<li><a href="#org91f859c">Homomorfismos</a></li>
+<li><a href="#org4cde635">Propiedades de los homomorfismos de recubridores</a></li>
+<li><a href="#orgdc9de15">Puntos fijos de los automorfismos de recubridores</a></li>
+<li><a href="#org9d6fc56">Existencia de homomorfismos</a></li>
+<li><a href="#org3ceb620">Existencia de isomorfismos</a></li>
+<li><a href="#org18713d2">Ejemplos de recubridores</a>
+<ul>
+<li><a href="#org610be6d">Espacios simplemente conexos</a></li>
+<li><a href="#org2a311fd">Circunferencia unidad</a></li>
+<li><a href="#org4178ef7">Espacio proyectivo</a></li>
+</ul>
+</li>
+<li><a href="#org957a4c2">Recubridores de recubridores</a></li>
+<li><a href="#orgf343a7f">Recubridores universales</a></li>
+</ul>
+</li>
+<li><a href="#org3126e0f">3.2. Automorfismos de recubridores</a>
+<ul>
+<li><a href="#org6439645">Acción del grupo fundamental</a>
+<ul>
+<li><a href="#org5eddc9c"><span class="todo TODO">TODO</span> Está bien definida</a></li>
+<li><a href="#org4cefe96"><span class="todo TODO">TODO</span> Es una acción transitiva</a></li>
+<li><a href="#orgeb1fb7d"><span class="todo TODO">TODO</span> Espacios homogéneos.</a></li>
+</ul>
+</li>
+<li><a href="#org61ad842">Índice y hojas del recubridor</a></li>
+<li><a href="#org6df5e38">Automorfismos del espacio homogéneo</a></li>
+<li><a href="#org19ba6d3">Automorfismos del espacio homogéneo y automorfismos de recubridores</a>
+<ul>
+<li><a href="#org0b0ab24">Demostración</a>
+<ul>
+<li><a href="#orgf117acd">La restricción es automorfismo en el espacio homogéneo</a></li>
+<li><a href="#org8b18dfa">Los automorfismos de recubridor respetan la acción de grupos</a></li>
+<li><a href="#org3de94c7">Es inyectiva</a></li>
+<li><a href="#org6887a36">Es sobreyectiva</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb868fd6">Identificación de automorfismos de un espacio homogéneo</a></li>
+<li><a href="#orgdeb9bc2">Identificación de automorfismos del recubridor</a></li>
+<li><a href="#org558cb78">Recubridores regulares</a></li>
+<li><a href="#org7d051c4">Propiedades de recubridores regulares</a></li>
+<li><a href="#orgd17acaa">Ejemplos de recubridores</a>
+<ul>
+<li><a href="#orge9a3f10">Circunferencia, recubridor universal</a></li>
+<li><a href="#org7a20954">Espacio proyectivo</a></li>
+<li><a href="#org5d9de5a">Circunferencia, otros recubridores</a></li>
+</ul>
+</li>
+<li><a href="#org42b8d73">Teorema de Borsuk-Ulam</a></li>
+</ul>
+</li>
+<li><a href="#org181bf63">4. Recubridores regulares y espacios cocientes</a>
+<ul>
+<li><a href="#org6e9a7aa">Acción transitiva de automorfismos de recubridores regulares</a></li>
+<li><a href="#org0e5c360">Acciones discontinuas</a></li>
+<li><a href="#org50671c1">Recubrimiento de cocientes</a></li>
+<li><a href="#org65284ea">Espacios lente</a></li>
+</ul>
+</li>
+<li><a href="#orgceb6bbc">5. Existencia de espacios recubridores</a>
+<ul>
+<li><a href="#org6affac0">Caso del recubridor universal</a></li>
+<li><a href="#org286aa82">Espacios semilocalmente simplemente conexos</a>
+<ul>
+<li><a href="#orgf372c9d">Contraejemplo</a></li>
+</ul>
+</li>
+<li><a href="#orgeee02e1">Existencia del recubridor universal</a></li>
+<li><a href="#org58f506d">Teorema de existencia de recubridores</a>
+<ul>
+<li><a href="#org8b99dd9">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgedc0780">Clasificación de recubridores del círculo</a></li>
+<li><a href="#org22b5567">Clasificación de recubridores del toro</a></li>
+<li><a href="#org02167f0">Clasificación de recubridores del cilindro</a></li>
+<li><a href="#org6137e14">Clasificación de recubridores de la cinta de Möbius.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0ffedc0" class="outline-2">
+<h2 id="org0ffedc0">1. El grupo fundamental</h2>
+<div class="outline-text-2" id="text-org0ffedc0">
+</div><div id="outline-container-org08185ba" class="outline-3">
+<h3 id="org08185ba">1. Espacios conexos por arcos</h3>
+<div class="outline-text-3" id="text-org08185ba">
+</div><div id="outline-container-org6a0b5cf" class="outline-4">
+<h4 id="org6a0b5cf">Arcoconexión</h4>
+<div class="outline-text-4" id="text-org6a0b5cf">
+<p>
+<b>Arcoconexión</b>. Las curvas definen relación de equivalencia cuando unen dos puntos.
+</p>
+
+<p>
+\[\exists f\ \text{arco}: f(0) = x, f(1) = y \Rightarrow x \sim y\]
+</p>
+
+<p>
+Cada componente de esta partición es una <b>componente arcoconexa</b>. Un espacio es
+<b>arcoconexo</b> cuando tiene una sola componente.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6d58987" class="outline-4">
+<h4 id="org6d58987">Operaciones en arcos y arcoconexión como equivalencia</h4>
+<div class="outline-text-4" id="text-org6d58987">
+<p>
+Las propiedades de la relación de equivalencia se cumplen por:
+</p>
+
+<ul class="org-ul">
+<li>1. <b>Reflexividad</b>. Arco constante, \(f(t) = x\), lleva a \(x \sim x\).</li>
+<li>2. <b>Simetría</b>. Arco inverso, \(\widetilde f(t) = f(1-t)\), lleva a \(x\sim y \Rightarrow y \sim x\).</li>
+<li>3. <b>Transitividad</b>. Composición de arcos \(f \ast g\).</li>
+</ul>
+
+<p>
+La composición de arcos se define como:
+</p>
+
+<p>
+\[f \ast g = \twopartdef{f(2t)}{t \leq \frac{1}{2}}{g(2t-1)}{t \geq \frac{1}{2}}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org191153c" class="outline-4">
+<h4 id="org191153c">Arcoconexión y conexión</h4>
+<div class="outline-text-4" id="text-org191153c">
+<p>
+Un espacio <b>arcoconexo es conexo</b>. Un espacio <b>conexo localmente arcoconexo 
+es arcoconexo</b>, que es conexo y donde todo punto posee un entorno arcoconexo.
+</p>
+</div>
+
+<div id="outline-container-org28516f2" class="outline-5">
+<h5 id="org28516f2">Demostración</h5>
+<div class="outline-text-5" id="text-org28516f2">
+<p>
+Dado un punto en un espacio arcoconexo, los caminos a los demás serán conexos y
+compartirán un punto, luego su unión será conexa. Por otro lado, en un localmente
+arcoconexo, todo punto está dentro de un abierto (tiene un entorno arcoconexo),
+luego cada componente arcoconexa será abierta y si hubiera varias, contravendría
+la conexión.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org518883f" class="outline-5">
+<h5 id="org518883f">Contraejemplo del recíproco</h5>
+<div class="outline-text-5" id="text-org518883f">
+<p>
+Hay un contraejemplo de espacio conexo no arcoconexo en el
+<a href="https://es.wikipedia.org/wiki/Seno_del_top%C3%B3logo">seno del topólogo</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdfb2932" class="outline-3">
+<h3 id="orgdfb2932">2. Grupo fundamental</h3>
+<div class="outline-text-3" id="text-orgdfb2932">
+</div><div id="outline-container-org502cdcc" class="outline-4">
+<h4 id="org502cdcc">Homotopía de lazos</h4>
+<div class="outline-text-4" id="text-org502cdcc">
+<p>
+Un arco con \(f(0) = f(1) = x\) es un <b>lazo</b> alrededor de \(x\). Dos lazos son <b>homotópicos</b>
+y escribimos \(f \sim g\) cuando \(\exists H: [0,1] \times [0,1] \longrightarrow X\), cumpliendo:
+</p>
+
+<ul class="org-ul">
+<li>\(H\) continua.</li>
+<li>\(H(t,0) = f(t)\)</li>
+<li>\(H(t,1) = g(t)\)</li>
+<li>\(H(0,s) = H(1,s) = x\)</li>
+</ul>
+
+<p>
+lo escribimos como \(H : f \simeq g\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd7d550b" class="outline-4">
+<h4 id="orgd7d550b">Clases de homotopía</h4>
+<div class="outline-text-4" id="text-orgd7d550b">
+<p>
+La homotopía es una relación de equivalencia entre lazos:
+</p>
+
+<ul class="org-ul">
+<li><b>Reflexividad</b>. Definiendo \(H(t,s) = f(t)\), tenemos \(H : f \simeq f\).</li>
+<li><b>Simetría</b>. Dada \(G : g \simeq f\), definimos \(H(t,s) = G(t,1-s)\), tenemos \(H : f \simeq g\).</li>
+<li><b>Transitividad</b>. Dadas \(F : f \simeq g\), \(G : g \simeq h\), definimos
+\[H(t,s) = \twopartdef{F(t,2s)}{0\leq s \leq 1/2}{G(t,2s-1)}{1/2 \leq s \leq 1}\]
+Y tenemos \(H : f \simeq h\).</li>
+</ul>
+
+<p>
+Llamamos <b>clase de homotopía</b> \([f]\) a la clase de equivalencia de un lazo \(f\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e8646b" class="outline-4">
+<h4 id="org9e8646b">Producto de clases de homotopía</h4>
+<div class="outline-text-4" id="text-org9e8646b">
+<p>
+El producto de lazos está bien definido entre las clases de homotopía. Sean 
+\(H : f_1 \simeq f_2\) y \(G: g_1 \simeq g_2\); entonces definimos \(F: f_1 \ast g_1 \simeq f_2 \ast g_2\) como:
+</p>
+
+<p>
+\[ F(t,s) = \twopartdef{H(2t,s)}{0\leq t \leq 1/2}{G(2t-1,s)}{1/2 \leq t \leq 1}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e0815f" class="outline-4">
+<h4 id="org9e0815f">El grupo fundamental</h4>
+<div class="outline-text-4" id="text-org9e0815f">
+<p>
+Comprobamos que las clases de homotopía sobre un \(x\) forman un grupo con el producto:
+</p>
+
+<p>
+\[\Pi(X,x) = \{[f] \mid f \text{ lazo alrededor de } x\}\]
+</p>
+</div>
+
+<div id="outline-container-org335a339" class="outline-5">
+<h5 id="org335a339">Asociatividad</h5>
+<div class="outline-text-5" id="text-org335a339">
+<p>
+Para la <b>asociatividad</b>, definimos \(H : (f \ast g) \ast h \simeq f \ast (g \ast h)\):
+</p>
+
+<p>
+\[H(t,s) = \threepartdef
+{f\left(t \frac{4}{1+s}\right)}{0\leq t\leq \frac{1+s}{4}}
+{g\left(4t-1-s\right)}{\frac{1+s}{4}\leq t \leq \frac{2+s}{4}}
+{h\left(t\frac{4}{2-s}-1\right)}{\frac{2+s}{4}\leq t\leq 1}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8fbd20a" class="outline-5">
+<h5 id="org8fbd20a">Elemento neutro</h5>
+<div class="outline-text-5" id="text-org8fbd20a">
+<p>
+Como <b>elemento neutro</b> tomaremos el lazo constante \(f_x(t)=x\). Y definimos  
+\(H : f_x \ast f \simeq f\):
+</p>
+
+<p>
+\[ H(t,s) = \twopartdef
+{f(t\frac{2t}{1+s})}{0\leq t\leq \frac{1+s}{2}}
+{x}{\frac{1+s}{2}\leq t \leq 1}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd388798" class="outline-5">
+<h5 id="orgd388798">Elemento inverso</h5>
+<div class="outline-text-5" id="text-orgd388798">
+<p>
+Como <b>elemento inverso</b> tendremos el lazo \(\hat{f}(t) = f(1-t)\). Y definimos 
+\(H : f \ast \hat{f} \simeq f\):
+</p>
+
+<p>
+\[H(t,s) = \threepartdef
+{f(2t)}{0\leq t\leq\frac{1-s}{2}}
+{f(1-s)}{\frac{1-s}{2}\leq t\leq \frac{1+s}{2}}
+{\hat{f}(2t-1)}{\frac{1+s}{2}\leq t\leq 1}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17cf081" class="outline-4">
+<h4 id="org17cf081">El grupo fundamental como funtor</h4>
+<div class="outline-text-4" id="text-org17cf081">
+<p>
+Sea \(\Phi : (X,x) \longrightarrow (Y,y)\) <i>continua</i>, entonces tenemos una aplicación bien definida 
+por:
+</p>
+
+<p>
+\[\Phi_\ast ([f]) = [\Phi \circ f] \]
+</p>
+
+<p>
+Que es un homomorfismo de grupos. Podemos comprobar fácilmente que \(Id_\ast = Id\) y que
+\((\Psi\circ\Phi)_\ast = \Psi_\ast\circ\Phi_\ast\). Es decir, el grupo fundamental es un funtor de la categoría de 
+los espacios topológicos punteados a la de los grupos.
+</p>
+</div>
+
+<div id="outline-container-org58f1f4d" class="outline-5">
+<h5 id="org58f1f4d">Demostración</h5>
+<div class="outline-text-5" id="text-org58f1f4d">
+<p>
+Sean \(H: f \simeq g\), veamos que \(\Phi\circ H: \Phi f \simeq \Phi g\). Tenemos que:
+</p>
+
+<ul class="org-ul">
+<li>\(\Phi\circ H\) continua</li>
+<li>\(\Phi\circ H(t,0) = \Phi\circ f(t)\)</li>
+<li>\(\Phi\circ H(t,1) = \Phi\circ g(t)\)</li>
+<li>\(\Phi \circ H(0,s) = \Phi \circ H(1,s) = y\)</li>
+</ul>
+
+<p>
+El que respeta el producto se tiene por \(\Phi\circ (f \ast g) = \Phi\circ f \ast \Phi\circ g\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org327f4fd" class="outline-4">
+<h4 id="org327f4fd">Homotopía de arcos</h4>
+<div class="outline-text-4" id="text-org327f4fd">
+<p>
+Decimos que dos arcos cumpliendo \(f(0)=g(0)\), \(f(1)=g(1)\) son homotópicos cuando 
+existe una función continua con características similares a la dada para lazos.
+</p>
+</div>
+
+<div id="outline-container-orgbe423e2" class="outline-5">
+<h5 id="orgbe423e2">Propiedades</h5>
+<div class="outline-text-5" id="text-orgbe423e2">
+<p>
+De demostración similar al caso de lazos:
+</p>
+
+<ul class="org-ul">
+<li>Hay un arco simétrico \(\tilde{f}\) tal que \(f\ast \tilde{f} \simeq f_x\).</li>
+<li>El producto es asociativo por homotopía $f &lowast; (g &lowast; h)&cong; (f&lowast; g)&lowast; h$-</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4405c98" class="outline-4">
+<h4 id="org4405c98">Isomorfismo entre grupos fundamentales en distintos puntos</h4>
+<div class="outline-text-4" id="text-org4405c98">
+<p>
+Sea un arco \(\gamma : [0,1] \longrightarrow X\) cumpliendo \(\gamma(0) = x\), \(\gamma(1)=y\). Entonces se tiene un 
+isomorfismo entre \(\Pi(X,x)\) y \(\Pi(X,y)\):
+</p>
+
+<p>
+\[ F_\gamma([f]) = [\tilde\gamma\ast f\ast\gamma]\]
+</p>
+
+<p>
+Por tanto, el grupo fundamental es el mismo en cualquier punto de la componente
+arcoconexa.
+</p>
+</div>
+
+<div id="outline-container-org745c175" class="outline-5">
+<h5 id="org745c175">Demostración</h5>
+<div class="outline-text-5" id="text-org745c175">
+<p>
+Para ver que está bien definido basta notar:
+</p>
+
+<p>
+\[f \simeq g \Rightarrow 
+\gamma\ast f\ast\tilde\gamma\simeq \gamma\ast g\ast\tilde\gamma\]
+</p>
+
+<p>
+Que es homomorfismo se tiene viendo \(F([f]\ast [g]) = F([f]) \ast F([g])\), y que es biyectivo
+porque tiene inversa \(G_\gamma([f]) = [\gamma\ast f\ast \tilde\gamma]\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0bfd636" class="outline-4">
+<h4 id="org0bfd636">El grupo fundamental del producto</h4>
+<div class="outline-text-4" id="text-org0bfd636">
+<p>
+Dado el producto de dos espacios topológicos \(X\times Y\) con proyecciones \(\pi_1,\pi_2\). Tenemos
+un isomorfismo entre grupos fundamentales:
+</p>
+
+<p>
+\[F: \Pi(X\times Y, (x,y)) \longrightarrow \Pi(X,x)\times\Pi(Y,y)\]
+</p>
+
+<p>
+Dado por:
+</p>
+
+<p>
+\[F([f]) = (\pi_1([f]), \pi_2([f]))\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6b3783f" class="outline-3">
+<h3 id="org6b3783f">3. El grupo fundamental del círculo</h3>
+<div class="outline-text-3" id="text-org6b3783f">
+</div><div id="outline-container-org0d03ac7" class="outline-4">
+<h4 id="org0d03ac7">Cálculo del grupo fundamental del círculo</h4>
+<div class="outline-text-4" id="text-org0d03ac7">
+<p>
+Usaremos la teoría de recubridores que se probará luego.
+</p>
+
+<p>
+Probamos que \(\pi : \mathbb{R} \longrightarrow \mathbb{S}\) es un recubridor con \(\pi(t) = e^{it}\); podemos tomar como entorno
+fundamental de \(p\) a \(\mathbb{S}-\{p\}\), que tiene en la preimagen componentes arcoconexas 
+homeomorfas a él. Siendo \(t_0 \in \pi^{-1}(p)\):
+</p>
+
+<p>
+\[V_m = (t_0 + 2\pi m, t_0 + 2\pi(m+1))\]
+</p>
+
+<p>
+Definimos ahora el grado de un lazo en el círculo como:
+</p>
+
+<p>
+\[\operatorname{deg}(f) = \frac{\hat{f}(1) - \hat{f}(0)}{2\pi} \]
+</p>
+
+<p>
+Y comprobamos que está bien definido entre las clases de homotopía levantando
+las homotopías y viendo que debe ser constante el punto final para que se proyecte
+en un punto constante. Es decir \(f \simeq g \Rightarrow \hat{f}(0) = \hat{g}(0)
+\Rightarrow \hat{f}(1) = \hat{g}(1)\).
+</p>
+
+<p>
+Como el levantamiento de la composición es la composición de levantamientos
+y levantando de forma que \(\hat{g}(0) = \hat{f}(1)\):
+</p>
+
+<p>
+\[ \operatorname{deg}(f \ast g) =
+   \frac{\widehat{f\ast g}(1) - \widehat{f\ast g}(0)}{2\pi} = 
+   \frac{\hat{f}(1) - \hat{g}(0) + \hat{g}(1) - \hat{f}(0)}{2\pi} =
+   \operatorname{deg}(f) + \operatorname{deg}(g) \]
+</p>
+
+<p>
+Siendo un homomorfismo del grupo fundamental del círculo con \(\mathbb{Z}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b725f5" class="outline-4">
+<h4 id="org6b725f5">Teorema fundamental del álgebra</h4>
+<div class="outline-text-4" id="text-org6b725f5">
+<p>
+<b>Teorema fundamental del álgebra</b>. Todo polinomio con coeficientes
+en \(\mathbb{C}\) de grado \(n\) tiene \(n\) raíces en \(\mathbb{C}\).
+</p>
+</div>
+
+<div id="outline-container-org68ff3b4" class="outline-5">
+<h5 id="org68ff3b4">Demostración</h5>
+<div class="outline-text-5" id="text-org68ff3b4">
+<p>
+Supongamos un \(P\) que no tuviera raíz en \(\mathbb{C}\).
+</p>
+
+<p>
+Fijado un \(r\), restringimos el polinomio desde la circunferencia de
+radio \(r\) a la circunferencia unidad, girándolo
+además para que en \(0\) valga \(1\).
+</p>
+
+<p>
+\[f_r(t) = \frac{|P(r)|}{P(r)} \frac{P(re^{2\pi it})}{|P(re^{2\pi it})|}\]
+</p>
+
+<p>
+Tenemos una homotopía de este lazo al constante, definida como:
+</p>
+
+<p>
+\[H(t,s) = f_{(1-s)r}(t)\]
+</p>
+
+<p>
+Y por tanto, \(deg(f_r) = 0\).
+</p>
+
+<p>
+Por otro lado, sea ahora \(R > 1, \sum |a_i|\), y tomemos \(|z| = R\), tenemos
+por un lado:
+</p>
+
+<p>
+\[|z^n| 
+ = R^n > R^{n-1}\left(\sum |a_i|\right) 
+ \geq |a_1z^{n-1} + \dots + a_n|\]
+</p>
+
+<p>
+Y por otro lado, si tomo un \(t \in [0,1]\), puedo definir una familia
+de polinomios \(P_s(z) = z^n + t(a_1z^{n-1} + \dots + a_n) = 0\), que no tienen raíces
+porque, por otro lado:
+</p>
+
+<p>
+\[|z^n| = |t||a_1z^{n-1} + \dots + a_n| \leq |a_1z^{n-1} + \dots + a_n|\]
+</p>
+
+<p>
+Luego esta familia de polinomios no tiene raíces en el círculo 
+de radio \(R\). Podemos ahora definir otra homotopía:
+</p>
+
+<p>
+\[H(t,s) = \frac{P_s(Re^{2\pi it})}{|P_s(Re^{2\pi it})|}  \frac{|P_s(R)|}{P_s(R)}\]
+</p>
+
+<p>
+Que es homotopía entre \(e^{2\pi int}\) y \(f_R(t)\). Luego \(deg(f_R) = n\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6fe6251" class="outline-4">
+<h4 id="org6fe6251">Lema al punto fijo de Brower</h4>
+<div class="outline-text-4" id="text-org6fe6251">
+<p>
+No existe aplicación continua \(f : D^2\longrightarrow \mathbb{S}\) tal que \(f|_\mathbb{S} = id\).
+</p>
+</div>
+
+<div id="outline-container-org7d98c01" class="outline-5">
+<h5 id="org7d98c01">Demostración</h5>
+<div class="outline-text-5" id="text-org7d98c01">
+<p>
+Estamos buscando una aplicación cumpliendo:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+\mathbb{S} \rar[hook]{i} & D^2 \rar{f} & \mathbb{S}
+\end{tikzcd} \]
+</p>
+
+<p>
+Aplicando el funtor obtendríamos:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+\mathbb{Z} \rar[hook] & 0 \rar & \mathbb{Z}
+\end{tikzcd} \]
+</p>
+
+<p>
+Pero así es imposible obtener la identidad como composición.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8718b94" class="outline-4">
+<h4 id="org8718b94">Teorema del punto fijo de Brower</h4>
+<div class="outline-text-4" id="text-org8718b94">
+<p>
+Toda función continua \(f : D^2 \longrightarrow D^2\) tiene un punto fijo.
+</p>
+</div>
+
+<div id="outline-container-org2f2b526" class="outline-5">
+<h5 id="org2f2b526">Demostración</h5>
+<div class="outline-text-5" id="text-org2f2b526">
+<p>
+Si no lo hubiera, para cada \(x\) tomo \(f(x)\) y la intersección de la recta que los une
+con el círculo más cercana a \(x\). Tengo una aplicación cuya restricción es la 
+identidad.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org160c0ab" class="outline-4">
+<h4 id="org160c0ab">Grupos topológicos</h4>
+<div class="outline-text-4" id="text-org160c0ab">
+<p>
+Un grupo topológico es un grupo en la categoría de espacios punteados. Esto es,
+tal que la función producto y la función inverso son continuas.
+</p>
+</div>
+</div>
+<div id="outline-container-org2db7397" class="outline-4">
+<h4 id="org2db7397">Grupos topológicos y grupo fundamental</h4>
+<div class="outline-text-4" id="text-org2db7397">
+<p>
+El producto en un grupo topológico respeta clases de homotopía:
+</p>
+
+<p>
+\[ [f]\cdot [g] = [f\cdot g]\]
+</p>
+
+<p>
+Y además, actúa sobre ellas igual que la composición:
+</p>
+
+<p>
+\[ [f]\ast [g] = [f] \cdot [g]\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org930205b" class="outline-3">
+<h3 id="org930205b">4. Tipo de homotopía. Equivalencias homotópicas</h3>
+<div class="outline-text-3" id="text-org930205b">
+</div><div id="outline-container-org85e3a4f" class="outline-4">
+<h4 id="org85e3a4f">Aplicaciones homotópicas</h4>
+<div class="outline-text-4" id="text-org85e3a4f">
+<p>
+Sean \(F,G : X \longrightarrow Y\) continuas. Las decimos <b>homotópicas</b> si existe 
+\(H : X \times [0,1] \longrightarrow Y\) tal que \(H(x,0) = F(x)\) y \(H(x,1) = G(x)\). Lo notamos
+por \(H: F\simeq G\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org443e0df" class="outline-4">
+<h4 id="org443e0df">Grupo fundamental entre dos puntos</h4>
+<div class="outline-text-4" id="text-org443e0df">
+<p>
+Entre cualesquiera puntos de dos funciones homotópicas \(F(x_0)\), \(G(x_0)\); tenemos un 
+arco \(\gamma = H(x_0,t)\). Se cumple que:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+& \Pi(Y,F(x_0)) \arrow[leftrightarrow]{dd}{F_\gamma}\\
+\Pi(X,x_0) \urar{F_\ast}\drar{G_\ast} \\
+& \Pi(Y,G(x_0))
+\end{tikzcd} \]
+</p>
+</div>
+
+<div id="outline-container-orga6fba68" class="outline-5">
+<h5 id="orga6fba68">Demostración</h5>
+<div class="outline-text-5" id="text-orga6fba68">
+<p>
+Sea \(f \in \Pi(X,x_0)\). Si defino la función \(\hat{H}(t,s) = H(f(t),s)\) tengo una homotopía como
+la siguiente:
+</p>
+
+\begin{tikzpicture}
+\draw (A) -- node [above] {$G f$} ++ (-1, 0)
+-- node [left]  {$\gamma$} ++ (0, -1)
+-- node [below] {$F f$} ++ (1, 0)
+-- node [right] {$\gamma$} ++ (0, 1);
+\end{tikzpicture}
+
+<p>
+Rotándola obtengo:
+</p>
+
+\begin{tikzpicture}
+\draw (A) -- node [above] {$G f \circ \gamma$} ++ (-1, 0)
+-- node [left]  {$F(x_0)$} ++ (0, -1)
+-- node [below] {$\gamma \circ F f$} ++ (1, 0)
+-- node [right] {$G(x_0)$} ++ (0, 1);
+\end{tikzpicture}
+
+<p>
+Lo que me da \([Gf \circ \gamma] = [\gamma \circ Ff]\), y por tanto \([Gf] = [\gamma \circ Ff \circ \tilde{\gamma}]\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6f8347e" class="outline-4">
+<h4 id="org6f8347e">Equivalencia homotópica</h4>
+<div class="outline-text-4" id="text-org6f8347e">
+<p>
+Una <b>equivalencia homotópica</b> es una aplicación continua \(F\), para la que
+existe \(G\) cumpliendo \(F \circ G \simeq G \circ F \simeq Id\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org90bf572" class="outline-4">
+<h4 id="org90bf572">Propiedades de la equivalencia homotópica</h4>
+<div class="outline-text-4" id="text-org90bf572">
+<p>
+Cumple:
+</p>
+
+<ol class="org-ol">
+<li>Los homeomorfismos son equivalencias homotópicas.</li>
+<li>La inversa de una equivalencia homotópica es equivalencia homotópica.</li>
+<li>La composición de equivalencias homotópicas es equivalencia homotópica.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orge268526" class="outline-4">
+<h4 id="orge268526">Conservación del grupo fundamental por equivalencia homotópica</h4>
+<div class="outline-text-4" id="text-orge268526">
+<p>
+Sea \(F: X\longrightarrow Y\) equivalencia homotópica:
+</p>
+
+<p>
+\[\forall x\in X : F_\ast : \Pi(X,x) \longrightarrow \Pi(Y,F(x))\]
+</p>
+
+<p>
+Es un isomorfismo
+</p>
+</div>
+
+<div id="outline-container-orgd3d0e26" class="outline-5">
+<h5 id="orgd3d0e26">Demostración</h5>
+<div class="outline-text-5" id="text-orgd3d0e26">
+<p>
+Por ser equivalencia homotópica tengo que \(F \circ G \simeq Id\), luego se cumple:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+& \Pi(X,F\circ G(x_0)) \arrow[leftrightarrow]{dd}{\cong}\\
+\Pi(X,x_0) \urar{(F\circ G)_\ast}\drar{Id} \\
+& \Pi(X,x_0)
+\end{tikzcd} \]
+</p>
+
+<p>
+Así, \((F\circ G)_\ast\), y de la misma forma \((G\circ F)_\ast\) son isomorfismos. Tenemos por tanto:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+\Pi(X,x) \rar{F_\ast} \arrow[bend left=20]{rr}{\cong}
+& \Pi(Y,F(x)) \rar{G_\ast} \dlar{\cong}
+& \Pi(X,(G\circ F)(x)) \dlar{\cong}
+\\
+\Pi(Y,F(x)) \rar{F_\ast} \arrow[bend right=20]{rr}{\cong}
+& \Pi(X,(G\circ F)(x)) \rar{F_\ast}
+& \Pi(X,(G\circ F)(x))
+\end{tikzcd} \]
+</p>
+
+<p>
+Demostrando ambas filas que \(F_\ast\) y \(G_\ast\) son isomorfismos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org147c36c" class="outline-4">
+<h4 id="org147c36c">Lema a Borsuk-Ulam</h4>
+<div class="outline-text-4" id="text-org147c36c">
+<p>
+No existe \(F: \mathbb{S}^2 \longrightarrow \mathbb{S}^1\) continua respetando antípodas.
+</p>
+
+<p>
+\[F(-x) = -F(x)\]
+</p>
+</div>
+
+<div id="outline-container-org627742a" class="outline-5">
+<h5 id="org627742a"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org60b4f80" class="outline-4">
+<h4 id="org60b4f80">Teorema de Borsuk-Ulam</h4>
+<div class="outline-text-4" id="text-org60b4f80">
+<p>
+Sea \(F:\mathbb{S}^2 \longrightarrow \mathbb{R}^2\) continua, entonces:
+</p>
+
+<p>
+\[\exists x\in\mathbb{S}^2 : F(-x) = F(x)\]
+</p>
+</div>
+
+<div id="outline-container-orgf6b1ea1" class="outline-5">
+<h5 id="orgf6b1ea1">Demostración</h5>
+<div class="outline-text-5" id="text-orgf6b1ea1">
+<p>
+Supongamos que no se cumpliera, definimos:
+</p>
+
+<p>
+\[G(x) = \frac{F(x)-F(-x)}{|F(x)-F(-x)|}\]
+</p>
+
+<p>
+Y entonces \(G\) sería continua respetando antípodas.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org712dfc9" class="outline-4">
+<h4 id="org712dfc9">Teorema del sandwich de jamón</h4>
+<div class="outline-text-4" id="text-org712dfc9">
+<p>
+Sean \(A,B\subset \mathbb{R}^2\) compactos y conexos. Existe una recta dividiendo a ambos en dos
+trozos de igual área.
+</p>
+</div>
+
+<div id="outline-container-org0f0acfd" class="outline-5">
+<h5 id="org0f0acfd"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org6f96822" class="outline-4">
+<h4 id="org6f96822">Espacio proyectivo</h4>
+<div class="outline-text-4" id="text-org6f96822">
+<p>
+En \(\mathbb{S}^n\) defino la ralación de equivalencia \(p \sim q\) ssi \(p = \pm q\). Definimos el 
+espacio proyectivo como el cociente bajo esta relación:
+</p>
+
+<p>
+\[\mathbb{RP}^n = \mathbb{S}^n}/\sim\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org82fda6b" class="outline-3">
+<h3 id="org82fda6b">5. Teorema de Seifert-Van Kampen</h3>
+<div class="outline-text-3" id="text-org82fda6b">
+</div><div id="outline-container-orgee65764" class="outline-4">
+<h4 id="orgee65764">Producto libre de grupos</h4>
+<div class="outline-text-4" id="text-orgee65764">
+<p>
+Si definimos el <b>producto libre</b> de grupos en términos de palabras; podemos 
+llamar <b>grupo libre sobre un conjunto de generadores</b> al producto libre del 
+grupo libre generado por cada uno de ellos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c84e7e" class="outline-4">
+<h4 id="org9c84e7e">Subgrupo normal generado</h4>
+<div class="outline-text-4" id="text-org9c84e7e">
+<p>
+El <b>subgrupo normal generado</b> por un subgrupo \(B\) o por un conjunto de 
+generadores es:
+</p>
+
+<p>
+\[ \{g \cdot b \cdot g^{-1} \mid g\in G, b\in B\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8eb322b" class="outline-4">
+<h4 id="org8eb322b">Producto libre amalgamado</h4>
+<div class="outline-text-4" id="text-org8eb322b">
+<p>
+Sean tres grupos \(A\), \(G_1\), \(G_2\) y dos proyecciones de \(A\) en ellos, llamadas 
+\(\Phi_1,\Phi_2\). Definimos el <b>producto libre amalgamado</b> como:
+</p>
+
+<p>
+\[G_1 \ast_{A} G_2 =
+\frac{G_1 \cdot G_2}{N} = \frac{G_1 \cdot G_2}{\{\Phi_1(a)=\Phi_2(a)\}}\]
+</p>
+
+<p>
+Donde estamos dividiendo por \(N\), el subgrupo normal generado por 
+\(\{\Phi_1(a)\Phi_2(a)^{-1} \mid a \in A\}\). Es decir, imponemos la relación \(\Phi_1(a) = \Phi_2(a)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeb48479" class="outline-4">
+<h4 id="orgeb48479">Teorema de Seifert-Van Kampen</h4>
+<div class="outline-text-4" id="text-orgeb48479">
+<p>
+Sea \(X\) espacio topológico con \(U,V\) abiertos arcoconexos no vacíos de \(X\) tales 
+que \(X = U \cup V\) y \(U\cap V\) son arcoconexos. Existe un isomorfismo:
+</p>
+
+<p>
+\[\Theta : \Pi(U,x) \ast_{\Pi(U\cap V,x)} \Pi(V,x) \longrightarrow \Pi(X,x)\]
+</p>
+
+<p>
+donde se amalgama usando \(i_\ast\), \(j_\ast\), homomorfismos dados por las inclusiones.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org970a9f8" class="outline-4">
+<h4 id="org970a9f8">Seifert-Van Kampen para intersección simplemente conexa</h4>
+<div class="outline-text-4" id="text-org970a9f8">
+<p>
+En las condiciones del teorema, con \(U\cap V\) simplemente conexo, se tiene:
+</p>
+
+<p>
+\[\Pi(X,x) \cong \Pi(U,x)\ast\Pi(V,x)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9137c28" class="outline-4">
+<h4 id="org9137c28">Seifert-Van Kampen para abierto simplemente conexo</h4>
+<div class="outline-text-4" id="text-org9137c28">
+<p>
+En las condiciones del teorema, con \(V\) simplemente conexo, se tiene:
+</p>
+
+<p>
+\[\Pi(X,x) \cong \Pi(U,x)/N\]
+</p>
+
+<p>
+Con \(N\) es el subgrupo normal generado por \(i_\ast(\Pi(U\cap V,x))\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc94f7cb" class="outline-3">
+<h3 id="orgc94f7cb">Extra: Teoría de categorías</h3>
+<div class="outline-text-3" id="text-orgc94f7cb">
+</div><div id="outline-container-org312b7e7" class="outline-4">
+<h4 id="org312b7e7">El grupo fundamental como funtor</h4>
+<div class="outline-text-4" id="text-org312b7e7">
+<p>
+El grupo fundamental \(\Pi\) es un funtor entre las categorías:
+</p>
+
+<ul class="org-ul">
+<li><code>Top.</code> de los espacios topológicos con un punto base, usando como morfismos
+las funciones continuas respetando punto base.</li>
+<li><code>Grp</code> de los grupos con los homomorfismos de grupos.</li>
+</ul>
+
+<p>
+Estamos llamando \(f_\ast\) a los morfismos creados por el funtor, \(\Pi(f)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org21c918f" class="outline-4">
+<h4 id="org21c918f">Producto categórico</h4>
+<div class="outline-text-4" id="text-org21c918f">
+<p>
+El producto de dos espacios con un punto base es, usando la topología producto:
+</p>
+
+<p>
+\[(X,x) \times (Y,y) \cong (X\times Y, (x,y))\]
+</p>
+
+<p>
+El funtor lo lleva al producto de grupos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org55c37b3" class="outline-4">
+<h4 id="org55c37b3">Coproducto categórico</h4>
+<div class="outline-text-4" id="text-org55c37b3">
+<p>
+El coproducto de dos espacios con un punto es la suma directa de los espacios
+identificando el punto. Intuitivamente, consiste pegar los dos espacios por ese
+punto.
+</p>
+
+<p>
+\[ X \wedge Y \cong (X \amalg Y)/(x\sim y)\]
+</p>
+
+<p>
+Cuando además tenemos espacios localmente contractibles, el coproducto se lleva
+al coproducto de grupos, esto es, al producto libre:
+</p>
+
+<p>
+\[\Pi(X \wedge Y) \cong \Pi(X) \ast \Pi(Y)\]
+</p>
+
+<p>
+Nótese que esto es un caso particular de Seifert-Van Kampen.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org02edea9" class="outline-4">
+<h4 id="org02edea9"><span class="todo TODO">TODO</span> Seifert-Van Kampen</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc6db5ee" class="outline-2">
+<h2 id="orgc6db5ee">2. Recubridores</h2>
+<div class="outline-text-2" id="text-orgc6db5ee">
+</div><div id="outline-container-org5b0ee3c" class="outline-3">
+<h3 id="org5b0ee3c">1. Introducción</h3>
+<div class="outline-text-3" id="text-org5b0ee3c">
+</div><div id="outline-container-org2f86b7b" class="outline-4">
+<h4 id="org2f86b7b">Localmente arcoconexo</h4>
+<div class="outline-text-4" id="text-org2f86b7b">
+<p>
+Un espacio es <b>localmente arcoconexo</b> si todo punto posee una base de 
+entornos arcoconexos.
+</p>
+
+<p>
+<i>Durante este tema tomamos los espacios como arcoconexos y localmente 
+arcoconexos</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org20b0fe1" class="outline-4">
+<h4 id="org20b0fe1">Recubridores</h4>
+<div class="outline-text-4" id="text-org20b0fe1">
+<p>
+Un <b>recubridor</b> de \(X\) es un par \((Y,p)\) donde \(p : Y \longrightarrow X\) es continua; 
+cumpliendo que todo \(x\in X\) tiene un entorno abierto \(U\), llamado <b>entorno 
+fundamental</b> tal que toda componente arcoconexa de \(p^{-1}(U)\) se aplica 
+homeomórficamente por \(p\) sobre \(U\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org862a76e" class="outline-4">
+<h4 id="org862a76e">Ejemplos de recubridores</h4>
+<div class="outline-text-4" id="text-org862a76e">
+<p>
+Ejemplos básicos de recubridores son:
+</p>
+
+<ul class="org-ul">
+<li>Cualquier homeomorfismo \(p : Y \longrightarrow X\)</li>
+<li>\(p : \mathbb{S}^1\longrightarrow\mathbb{S}^1\), con \(p(z) = z^n\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9299063" class="outline-4">
+<h4 id="org9299063">Homeomorfismos locales</h4>
+<div class="outline-text-4" id="text-org9299063">
+<p>
+Un <b>homeomorfismo local</b> es una aplicación continua \(f : Y \longrightarrow X\) tal que para 
+todo \(y\in Y\) existe \(y \in V\in\tau_Y\) tal que \(f|_V\) es homeomorfismo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org534a7ac" class="outline-4">
+<h4 id="org534a7ac">Propiedades de un recubridores</h4>
+<div class="outline-text-4" id="text-org534a7ac">
+<p>
+Sea \((Y,p)\) recubridores de \(X\). Entonces:
+</p>
+
+<ol class="org-ol">
+<li>\(p\) es sobreyectiva.</li>
+<li>\(p\) es una aplicación abierta.</li>
+<li>\(p\) es un homeomorfismo local.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgb76cca5" class="outline-5">
+<h5 id="orgb76cca5">Demostración</h5>
+<div class="outline-text-5" id="text-orgb76cca5">
+<p>
+La sobreyectividad es trivial por la definición. Dado un abierto \(y\in O\); 
+tengo \(y \in V_y \cong U_x\) su entorno abierto, luego \(p(O\cap V_y)\) es abierto. De esta 
+forma,
+</p>
+
+<p>
+\[p(O) = \bigcup_{y\in O} p(O \cap V_y)\]
+</p>
+
+<p>
+es abierto.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf540ad1" class="outline-3">
+<h3 id="orgf540ad1">2. Grupo fundamental y levantamiento de aplicaciones al recubridor</h3>
+<div class="outline-text-3" id="text-orgf540ad1">
+</div><div id="outline-container-org3a7bc5c" class="outline-4">
+<h4 id="org3a7bc5c">Levantamiento de arcos</h4>
+<div class="outline-text-4" id="text-org3a7bc5c">
+<p>
+Sea \((Y,p)\) recubridor con \(x_0\in X\) y \(y_0 \in p^{-1}(x_0)\). Sea \(f : [0,1]\longrightarrow X\) arco 
+continuo con \(f(0) = x_0\), entonces existe un único arco continuo \(\check{f}\) cumpliendo:
+</p>
+
+<ul class="org-ul">
+<li>\(\check{f}(0) = y_0\)</li>
+<li><p>
+\(p \circ \check{f} = f\)
+</p>
+
+<p>
+Llamado el <b>levantamiento</b> de \(f\).
+</p></li>
+</ul>
+</div>
+
+<div id="outline-container-orgf8c1e38" class="outline-5">
+<h5 id="orgf8c1e38">Existencia</h5>
+<div class="outline-text-5" id="text-orgf8c1e38">
+<p>
+Tomo \(\{f^{-1}(U^x) \mid x\in X\}\), que recubre por abiertos a \([0,1]\). Sabemos que 
+existirá una partición del intervalo cumpliendo:
+</p>
+
+<p>
+\[\exists 0 < t_1 <\dots < t_n < 1: f([t_i,t_{i+1}]) \subseteq U^{x_i}\]
+</p>
+
+<p>
+La correspondiente \(y_i \in V^{y_i}\) nos da un isomorfismo \(p_i\) que nos 
+deja definir \(\check{f} : [t_i,t_{i+1}] \longrightarrow V^{y_i}\) mediante \(\check{f} = (p|_{V^{y_i}})^{-1} \circ f\). Nótese que para 
+tomar cada \(y_i\) necesitamos usar la componente arcoconexa de la última \(\check{f}(t_{i-1})\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0c6652d" class="outline-5">
+<h5 id="org0c6652d">Unicidad</h5>
+<div class="outline-text-5" id="text-org0c6652d">
+<p>
+Sean dos levantamientos \(g_1,g_2\). Su conjunto ecualizador es cerrado:
+</p>
+
+<p>
+\[ A = \{ t \mid g_1(t) = g_2(t)\} \neq \varnothing\]
+</p>
+
+<p>
+Pero también es abierto porque dado un punto donde coincidan, puedo tomar la 
+componente arcoconexa que es isomorfa por \(p\) a un entorno abierto; y las 
+curvas deben coincidir en él.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org32931b2" class="outline-4">
+<h4 id="org32931b2">Levantamiento de homotopías</h4>
+<div class="outline-text-4" id="text-org32931b2">
+<p>
+Sea \((Y,p)\) recubridor con \(x_0\in X\) y \(y \in p^{-1}(x_0)\). Sea \(H : [0,1]\times[0,1] \longrightarrow X\) 
+continua con \(H(0,0) = x_0\), entonces existe una única aplicación
+continua \(\check{H} : [0,1]\times [0,1] \longrightarrow Y\) cumpliendo:
+</p>
+
+<ul class="org-ul">
+<li>\(p \circ \check{H} = H\)</li>
+<li><p>
+\(\check{H}(0,0) = y_0\)
+</p>
+
+<p>
+Llamada el <b>levantamiento</b> de \(H\).
+</p></li>
+</ul>
+</div>
+
+<div id="outline-container-org982bb85" class="outline-5">
+<h5 id="org982bb85">Existencia</h5>
+<div class="outline-text-5" id="text-org982bb85">
+<p>
+Tomamos las \(\{ H^{-1}(U^x) \mid x \in X \}\) y tenemos recubrimiento por abiertos de \([0,1]^2\). 
+Tendremos alguna partición cumpliendo:
+</p>
+
+<p>
+\[\exists 0 < t_1 < \dots < t_n < 1 : 
+H([t_i,t_{i+1}]\times[s_i,s_{i+1}]) \subset U^{x_i}\]
+</p>
+
+<p>
+En la correspondiente \(y_i \in V^{y_i}\) podemos definir 
+\(\check{H} = (p|_{V^{y_i}}^{-1})\circ H\). Nótese que tenemos que usar en cada paso la componente arcoconexa
+del último lado unido a nuestro cuadrado, que no puede salirse de esa componente
+por ser arcoconexa.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeee07ae" class="outline-5">
+<h5 id="orgeee07ae"><span class="todo TODO">TODO</span> Unicidad</h5>
+</div>
+</div>
+<div id="outline-container-org9ab15fe" class="outline-4">
+<h4 id="org9ab15fe">Hojas del recubridor</h4>
+<div class="outline-text-4" id="text-org9ab15fe">
+<p>
+Sea \(p : Y\longrightarrow X\) recubridor. Los cardinales de los \(p^{-1}(x)\) son un invariante 
+llamado el <b>cardinal de hojas del recubridor</b>.
+</p>
+</div>
+
+<div id="outline-container-org6f5d4fc" class="outline-5">
+<h5 id="org6f5d4fc">Demostración</h5>
+<div class="outline-text-5" id="text-org6f5d4fc">
+<p>
+Puedo definir una biyección entre \(p^{-1}(x_1)\) y \(p^{-1}(x_2)\) tomando un arco entre 
+ellas \(\gamma\), y levantándolo en cada componente. Los arcos arriba me relacionan 
+los dos conjuntos. La biyección se obtiene levantando \(\tilde\gamma\), que sé que es \(\tilde{g}\) 
+porque ella ya es un levantamiento y es único.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf336a2d" class="outline-4">
+<h4 id="orgf336a2d">Los recubridores crean monomorfismos</h4>
+<div class="outline-text-4" id="text-orgf336a2d">
+<p>
+Sea \(p: Y \longrightarrow X\) recubridor, entonces \(p_\ast : \Pi(Y,y) \longrightarrow \Pi(X,x)\) es monomorfismo.
+</p>
+</div>
+
+<div id="outline-container-org349f3bf" class="outline-5">
+<h5 id="org349f3bf">Demostración</h5>
+<div class="outline-text-5" id="text-org349f3bf">
+<p>
+Supongamos \(p_\ast[h] = 0\); tengo una homotopía \(H : p \circ h \simeq f_x\) que puedo levantar tomando
+\(\check{H}(0,0)=y\) y sabiendo \(p \circ \check{H} = H\). Tengo:
+</p>
+
+<p>
+\[ p \circ \check{H} (t,0) = H(t,0) = (p\circ h)(t)\]
+\[ p \circ \check{H} (t,1) = H(t,1) = f_x(t) = x\]
+</p>
+
+<p>
+Luego \(\check{H}(t,0) = h(t)\) porque son levantamientos de lo mismo y \(\check{H}(t,1) = y\) para poder
+ser levantamiento. Esto me da \(\check{H} : h \simeq f_y\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf3c2c20" class="outline-4">
+<h4 id="orgf3c2c20">Conjugación y recubridores</h4>
+<div class="outline-text-4" id="text-orgf3c2c20">
+<p>
+Si \(p : Y \longrightarrow X\) es recubridor y \(x\in X\), entonces la familia de subgrupos:
+</p>
+
+<p>
+\[ \left\{p_\ast(\Pi(Y,y)) \mid y\in p^{-1}(x)\right\}\]
+</p>
+
+<p>
+forma exactamente una clase de conjugación de subgrupos de \(\Pi(X,x)\).
+</p>
+</div>
+
+<div id="outline-container-orgc7cfe13" class="outline-5">
+<h5 id="orgc7cfe13">Demostración</h5>
+<div class="outline-text-5" id="text-orgc7cfe13">
+<p>
+Sea \(\gamma\) camino entre \(y_1,y_2 \in p^{-1}(x)\) con el isomorfismo \(F_\gamma([f]) = [\tilde\gamma \ast f \ast \gamma]\), construimos 
+el diagrama:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+\Pi(Y,y_1) \rar{F_\gamma} \dar{p_\ast} & \Pi(Y,y_2) \dar{p_\ast} \\
+\Pi(X,x) \rar{F_{p \circ \gamma}}& \Pi(X,x)
+\end{tikzcd} \]
+</p>
+
+<p>
+Que es conmutativo:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+\math{[f]} \rar{F_\gamma} \dar{p_\ast} & 
+\math{[\tilde\gamma \ast f \ast\gamma]} \dar{p_\ast} \\
+\math{[p\circ f]} \rar{F_{p \circ \gamma}} & 
+\math{[p(\tilde\gamma) \ast p(f) \ast p(\gamma)]}
+\end{tikzcd} \]
+</p>
+
+<p>
+Y que nos da por tanto:
+</p>
+
+<p>
+\[ p_\ast(\Pi(Y,y_2)) = 
+F_{p\circ\gamma}(\Pi(Y,y_1)) =
+[p(\tilde\gamma)] \ast \Pi(Y,y_1) \ast [p(\gamma)]
+\]
+</p>
+
+<p>
+Ahora, sea una clase de conjugación de la proyección de un grupo fundamental
+\(H = [g]^{-1} \ast p_\ast(\Pi(Y,y)) \ast [g]\). El levantamiento \(\check{g}\) da un camino entre dos puntos de 
+\(p^{-1}(x)\), y vemos que:
+</p>
+
+<p>
+\[ \begin{aligned}
+H &= \{[g]^{-1} \ast [p\circ h] \ast g \mid [h] \in \Pi(Y,y)\} \\
+&= \{[p\circ \tilde{\check{g}} \ast p\circ h \ast p \circ \check{g}] \mid [h] \in \Pi(Y,y)\} \\
+&= p_\ast(F_{\check{g}}(\Pi(Y,y))) = p_\ast(\Pi(Y,y'))
+\end{aligned} \]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8fe4a05" class="outline-4">
+<h4 id="org8fe4a05">Levntamiento de aplicaciones</h4>
+<div class="outline-text-4" id="text-org8fe4a05">
+<p>
+Sea \(\Phi : Z \longrightarrow X\) continua con \(x_0 = \Phi(z_0)\), \(y_0 \in p^{-1}(x_0)\). Tenemos que
+\(\exists! \Psi : Z \longrightarrow Y\) continua cumpliendo:
+</p>
+
+<ul class="org-ul">
+<li>\(\Psi(z_0) = y_0\)</li>
+<li>\(p \circ \Psi = \Phi\)</li>
+</ul>
+
+<p>
+ssi \(\Phi_\ast(\Pi(Z,z_0)) \subset p_\ast(\Pi(Y,y_0))\).
+</p>
+</div>
+
+<div id="outline-container-orgbd7aa86" class="outline-5">
+<h5 id="orgbd7aa86">Demostración</h5>
+<div class="outline-text-5" id="text-orgbd7aa86">
+<p>
+Definimos:
+</p>
+
+<p>
+\[\check\Phi(z) = \widehat{\Phi \circ f}(1)\]
+</p>
+
+<p>
+Siendo el levantamiento de la imagen de una curva que tenía \(f(1)=z\), \(f(0)=z_0\).
+Esta es una función que lo cumple; debemos demostrar que está <b>bien definida</b> y
+que es continua. Esto es, \(\widehat{\phi \circ g}(1) = \widehat{\phi\circ f}(1)\), para otro \(g\) cumpliendo lo mismo que \(f\).
+</p>
+
+<p>
+Como tenemos por la condición que \(\phi_\ast[f \ast\tilde{g}] = p_\ast(\alpha)\), tenemos que ambas
+\(H : \phi(f \ast \tilde{g}) \simeq p\circ \alpha\). Tomamos \([f \circ \tilde{g}]\) para ver:
+</p>
+
+<p>
+\[ p(\widehat{\phi\circ f} \ast \widehat{\phi\circ g}) = 
+\phi\circ f \ast \widetilde{\phi\circ g}\]
+</p>
+
+<p>
+Y usando eso, levantamos la homotopía, para tener 
+\(\check{H} : \widehat{\phi\circ f} \ast \widehat{\phi \circ \tilde{g}} 
+\simeq \alpha\). Pero como \(\alpha\) es lazo, tengo que es lazo lo primero.
+</p>
+
+<p>
+Para ver que es <b>continua</b>, sea \(\check{\Phi}(z) \in O\), abierto. Tenemos \(p(O)\) abierto y tomamos
+\(W\) como la arcocomponente de la preimagen de \(U^{\Phi(z)}\) en la que está \(\check{\Phi}(z)\). Ahora
+sea \(\Phi(z) \in p(W \cap O)\), abierto por homeomorfismo; y sea
+</p>
+
+<p>
+\(\Phi(\hat{O}) \subset p(W \cap O)\), que existe por continuidad de \(\Phi\) y es abierto arcoconexo. 
+</p>
+
+<p>
+Veamos que \(\Phi(\hat{O}) \subset \check{\Phi}^{-1}(O)\). Si \(\hat{z} \in \hat{O}\), entonces hay un arco \(g\) que une \(z\) y \(\hat{z}\); y tenemos
+\(\Phi(g) \subset p(W\cap O)\); como hay homeomorfismo, su levantamiento está en \(W \cap O\), y
+se tiene:
+</p>
+
+<p>
+\[\check{\Phi}(z) = \widehat{\Phi(g)}(1) \in O\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3e4c23a" class="outline-4">
+<h4 id="org3e4c23a">Estructura de grupo topológico</h4>
+<div class="outline-text-4" id="text-org3e4c23a">
+<p>
+Sea \(G\) un grupo topológico con neutro \(e\). Sea \((\check{G},p)\) un recubridor y 
+\(\check{e} \in p^{-1}(e)\). Entonces \(\check{G}\) admite una estructura de grupo topológico que tiene
+a \(\check{e}\) como elemento neutro y a \(p\) como homomorfismo de grupos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga15cb72" class="outline-3">
+<h3 id="orga15cb72">3.1. Isomorfismos de recubridores</h3>
+<div class="outline-text-3" id="text-orga15cb72">
+</div><div id="outline-container-org91f859c" class="outline-4">
+<h4 id="org91f859c">Homomorfismos</h4>
+<div class="outline-text-4" id="text-org91f859c">
+<p>
+Sean \((Y_1,p_1)\), \((Y_2,p_2)\) recubridores. Un <b>homomorfismo de recubridores</b> es
+\(\Phi : (Y_1,p_1) \longrightarrow (Y_2,p_2)\) continua con \(p_2 \circ \Phi = p_1\).
+</p>
+
+<p>
+\[ \begin{tikzcd}
+Y_1 \drar[swap]{p_1} \arrow{rr}{\Phi} & & Y_2 \dlar{p_2} \\
+& X &
+\end{tikzcd} \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4cde635" class="outline-4">
+<h4 id="org4cde635">Propiedades de los homomorfismos de recubridores</h4>
+<div class="outline-text-4" id="text-org4cde635">
+<p>
+Los homomorfismos de recubridores cumplen:
+</p>
+
+<ol class="org-ol">
+<li>La composición de homomorfismos es homomorfismo.</li>
+<li>La identidad \(Id : Y \longrightarrow Y\) es homomorfismo.</li>
+<li><p>
+El inverso de isomorfismo es isomorfismo.
+</p>
+
+<p>
+Llamamos \(Aut(Y,p)\) al <b>grupo de automorfismos</b> de un recubridor.
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgdc9de15" class="outline-4">
+<h4 id="orgdc9de15">Puntos fijos de los automorfismos de recubridores</h4>
+<div class="outline-text-4" id="text-orgdc9de15">
+<p>
+Sean dos homomorfismos de recubridores \(\Phi,\Psi\) con \(\Phi(y) = \Psi(y)\) en algún punto; 
+entonces \(\Phi = \Psi\). Por tanto, todo automorfismo distinto de la identidad actúa 
+sin puntos fijos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9d6fc56" class="outline-4">
+<h4 id="org9d6fc56">Existencia de homomorfismos</h4>
+<div class="outline-text-4" id="text-org9d6fc56">
+<p>
+Existe un homomorfismo de recubridores \(\Phi : (Y_1,p_1) \longrightarrow (Y_2,p_2)\) con \(\Phi(y_1) = y_2\) ssi
+\(p_1_\ast(\Pi(Y_1,y_1)) \subseteq p_2_\ast(\Pi(Y_2,y_2))\). Es isomorfismo en el caso de igualdad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3ceb620" class="outline-4">
+<h4 id="org3ceb620">Existencia de isomorfismos</h4>
+<div class="outline-text-4" id="text-org3ceb620">
+<p>
+Dos recubridores son isomorfos ssi las clases de conjugación asociadas a sus 
+proyecciones al grupo fundamental son iguales:
+</p>
+
+<p>
+\[\{ p_1_\ast(\Pi(Y_1,y)) \mid y\in p_1^{-1}(x)\}
+= \{ p_2_\ast(\Pi(Y_2,y)) \mid y\in p_2^{-1}(x)\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org18713d2" class="outline-4">
+<h4 id="org18713d2">Ejemplos de recubridores</h4>
+<div class="outline-text-4" id="text-org18713d2">
+</div><div id="outline-container-org610be6d" class="outline-5">
+<h5 id="org610be6d">Espacios simplemente conexos</h5>
+<div class="outline-text-5" id="text-org610be6d">
+<p>
+Sólo se admiten a sí mismos como recubridores.
+</p>
+</div>
+</div>
+<div id="outline-container-org2a311fd" class="outline-5">
+<h5 id="org2a311fd">Circunferencia unidad</h5>
+<div class="outline-text-5" id="text-org2a311fd">
+<p>
+Grupo fundamental isomorfo a \(\mathbb{Z}\) y abeliano. Sus subgrupos son de la forma \(m\mathbb{Z}\),
+así que, salvo isomorfismos, sus recubridores son de la forma:
+</p>
+
+<p>
+\[ p_0 : \mathbb{R} \longrightarrow \mathbb{S}^1,\ p(t) = e^{it} \]
+\[p_m : \mathbb{S}^1 \longrightarrow \mathbb{S}^1,\ p_m(z) = z^m\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4178ef7" class="outline-5">
+<h5 id="org4178ef7">Espacio proyectivo</h5>
+<div class="outline-text-5" id="text-org4178ef7">
+<p>
+Como \(\mathbb{R}\mathbb{P}^n\) tiene grupo fundamental \(\mathbb{Z}_2\), tiene sólo a \((\mathbb{RP}^n,Id)\) y a \((\mathbb{S}^n,p)\) 
+como recubridores.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org957a4c2" class="outline-4">
+<h4 id="org957a4c2">Recubridores de recubridores</h4>
+<div class="outline-text-4" id="text-org957a4c2">
+<p>
+Sean \((Y_1,p_1)\), \((Y_2,p_2)\) dos recubridores, y sea \(\Phi : Y_1 \longrightarrow Y_2\) un homomorfismo de 
+recubridores. Entonces \((Y_1,\Phi)\) es un recubridor de \(Y_2\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf343a7f" class="outline-4">
+<h4 id="orgf343a7f">Recubridores universales</h4>
+<div class="outline-text-4" id="text-orgf343a7f">
+<p>
+Un recubridor \((\check{X},p)\) de \(X\) es <b>universal</b> si \(\check{X}\) es simplemente conexo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3126e0f" class="outline-3">
+<h3 id="org3126e0f">3.2. Automorfismos de recubridores</h3>
+<div class="outline-text-3" id="text-org3126e0f">
+</div><div id="outline-container-org6439645" class="outline-4">
+<h4 id="org6439645">Acción del grupo fundamental</h4>
+<div class="outline-text-4" id="text-org6439645">
+<p>
+Sea \((Y,p)\) un recubridor y \(x\) punto de \(X\) definimos la acción
+</p>
+
+<p>
+\[ (\cdot) : p^{-1}(x) \times \Pi(X,x) \longrightarrow p^{-1}(x) \]
+</p>
+
+<p>
+construyendo \(y \cdot \alpha\) como sigue: sea \(\alpha = [f]\), tomamos \(\check{f}(0) = y\) y llamamos 
+\(y \cdot \alpha = \check{f}(1)\).
+</p>
+</div>
+
+<div id="outline-container-org5eddc9c" class="outline-5">
+<h5 id="org5eddc9c"><span class="todo TODO">TODO</span> Está bien definida</h5>
+</div>
+<div id="outline-container-org4cefe96" class="outline-5">
+<h5 id="org4cefe96"><span class="todo TODO">TODO</span> Es una acción transitiva</h5>
+</div>
+<div id="outline-container-orgeb1fb7d" class="outline-5">
+<h5 id="orgeb1fb7d"><span class="todo TODO">TODO</span> Espacios homogéneos.</h5>
+</div>
+</div>
+<div id="outline-container-org61ad842" class="outline-4">
+<h4 id="org61ad842">Índice y hojas del recubridor</h4>
+<div class="outline-text-4" id="text-org61ad842">
+<p>
+Sea \((Y,p)\) recubridor; su número de hojas es el índice del subgrupo  \(p_\ast(\Pi(Y,y))\) 
+en \(\Pi(X,x)\); donde \(y \in p^{-1}(x)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6df5e38" class="outline-4">
+<h4 id="org6df5e38">Automorfismos del espacio homogéneo</h4>
+<div class="outline-text-4" id="text-org6df5e38">
+<p>
+Un <b>automorfismo del espacio homogéneo</b> \(p^{-1}(x)\) es una biyección
+\(\varphi : p^{-1}(x) \longrightarrow p^{-1}(x)\) tal que:
+</p>
+
+<p>
+\[ \varphi(y \cdot \alpha) = \varphi(y) \cdot \alpha\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org19ba6d3" class="outline-4">
+<h4 id="org19ba6d3">Automorfismos del espacio homogéneo y automorfismos de recubridores</h4>
+<div class="outline-text-4" id="text-org19ba6d3">
+<p>
+Como dado un automorfismo de recubridores \(\Phi\in Aut(Y,p)\), tenemos que 
+\(\Phi(y\cdot \alpha) = \Phi(y)\cdot\alpha\), tenemos \(\Phi|_{p^{-1}(x)}\) un automorfismo del espacio homogéneo.
+De hecho, es isomorfismo de grupos:
+</p>
+
+<p>
+\[ ( \bullet |_{p^{-1}(x)}) : Aut(Y,p) \longrightarrow Aut(p^{-1}(x))\]
+</p>
+</div>
+
+<div id="outline-container-org0b0ab24" class="outline-5">
+<h5 id="org0b0ab24">Demostración</h5>
+<div class="outline-text-5" id="text-org0b0ab24">
+</div><div id="outline-container-orgf117acd" class="outline-6">
+<h6 id="orgf117acd">La restricción es automorfismo en el espacio homogéneo</h6>
+<div class="outline-text-6" id="text-orgf117acd">
+<p>
+Sea \(y\in p^{-1}(x)\), tenemos \(p(\Phi(y)) = p(y) = x\), luego \(\Phi(y) \in p^{-1}(x)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8b18dfa" class="outline-6">
+<h6 id="org8b18dfa">Los automorfismos de recubridor respetan la acción de grupos</h6>
+<div class="outline-text-6" id="text-org8b18dfa">
+<p>
+Sea \([f]=\alpha\), y sea \(\check{f}\) su levantamiento en \(y\); si considero \(\Phi(\check{f})\) puedo 
+comprobar que \(\Phi(\check{f})(0) = \Phi(y)\) y que \(p \circ \Phi (\check{f}) = f\), luego es el levantamiento
+de \(f\) en \(\Phi(y)\). Así:
+</p>
+
+<p>
+\[\Phi(y)\cdot\alpha = \Phi(\check{f})(1) = \Phi(y \cdot \alpha)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3de94c7" class="outline-6">
+<h6 id="org3de94c7">Es inyectiva</h6>
+<div class="outline-text-6" id="text-org3de94c7">
+<p>
+Llamamos \(F = (\bullet |_{p^{-1}(x)})\). Sea \(\Phi\in\ker(F)\), entonces \(\Phi|_{p^{-1}(x)} = Id\); pero dos
+homomorfismos de recubridores coindiciendo en un punto son iguales.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6887a36" class="outline-6">
+<h6 id="org6887a36">Es sobreyectiva</h6>
+<div class="outline-text-6" id="text-org6887a36">
+<p>
+Sea \(\varphi\in Aut(p^{-1}(x))\). Por el lema de existencia:
+</p>
+
+<p>
+\[\exists \phi\in Aut(Y,p): \phi(y) = \varphi(y) \Leftrightarrow
+p_\ast(\Pi(Y,y)) = p_\ast(\Pi(Y,\varphi(y))\]
+</p>
+
+<p>
+Pero tenemos la igualdad de estos dos grupos de isotropía por:
+</p>
+
+<p>
+\[\begin{aligned}
+H_{\varphi(y)} 
+&= \{\alpha\in\Pi(X,x) \mid \varphi(y)\cdot\alpha = \varphi(y)\} \\
+&= \{\alpha\in\Pi(X,x) \mid \varphi(y\cdot\alpha) = \varphi(y)\} \\
+&= \{\alpha\in\Pi(X,x) \mid y\cdot\alpha = y\} = H_y\\
+\end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb868fd6" class="outline-4">
+<h4 id="orgb868fd6">Identificación de automorfismos de un espacio homogéneo</h4>
+<div class="outline-text-4" id="text-orgb868fd6">
+<p>
+Dado \(E\) espacio homogéneo sobre \(G\), existe el isomorfismo:
+</p>
+
+<p>
+\[ Aut(E) \cong N(H)/H \]
+</p>
+
+<p>
+donde \(H = \operatorname{Stab}(y)\) y \(N(H)\) es su normalizador, el mayor 
+grupo en el que es normal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdeb9bc2" class="outline-4">
+<h4 id="orgdeb9bc2">Identificación de automorfismos del recubridor</h4>
+<div class="outline-text-4" id="text-orgdeb9bc2">
+<p>
+Aplicando las dos identificaciones anteriores:
+</p>
+
+<p>
+\[Aut(Y,p) \cong N(p_\ast(\Pi(Y,y))) / p_\ast(\Pi(Y,y))\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org558cb78" class="outline-4">
+<h4 id="org558cb78">Recubridores regulares</h4>
+<div class="outline-text-4" id="text-org558cb78">
+<p>
+Un recubridor es <b>regular</b> cuando \(p_\ast(\Pi(Y,y))\) es subgrupo normal de 
+\(\Pi(X,x)\) siendo \(y \in p^{-1}(x)\). Equivalen, por conjugación:
+</p>
+
+<ul class="org-ul">
+<li>\(\exists x\in X, y \in Y: p_\ast(\Pi(Y,y))\) subgrupo normal en \(\Pi(X,x)\).</li>
+<li>\(\forall x\in X, y \in Y: p_\ast(\Pi(Y,y))\) subgrupo normal en \(\Pi(X,x)\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7d051c4" class="outline-4">
+<h4 id="org7d051c4">Propiedades de recubridores regulares</h4>
+<div class="outline-text-4" id="text-org7d051c4">
+<p>
+Sea \((Y,p)\) un recubridor regular:
+</p>
+
+<ol class="org-ol">
+<li>\(Aut(Y,p) \cong \Pi(X,x)/p_\ast(\Pi(Y,y))\)</li>
+<li>Si es el universal, \(Aut(Y,p) \cong \Pi(X,x)\). Y el número de hojas es 
+el orden de \(\Pi(X,x)\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd17acaa" class="outline-4">
+<h4 id="orgd17acaa">Ejemplos de recubridores</h4>
+<div class="outline-text-4" id="text-orgd17acaa">
+</div><div id="outline-container-orge9a3f10" class="outline-5">
+<h5 id="orge9a3f10">Circunferencia, recubridor universal</h5>
+<div class="outline-text-5" id="text-orge9a3f10">
+<p>
+Tenemos el recubridor \((\mathbb{R},p)\) de \(\mathbb{S}\), que tiene como automorfismos:
+</p>
+
+<p>
+\[Aut(\mathbb{R},p) = \{\Phi_n(t) = t + 2\pi n \mid n \in \mathbb{N}\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7a20954" class="outline-5">
+<h5 id="org7a20954">Espacio proyectivo</h5>
+<div class="outline-text-5" id="text-org7a20954">
+<p>
+Siendo \((\mathbb{S}^n,p)\) un recubridor de dos hojas de \(\mathbb{RP}^n\), sus automorfismos 
+vienen dados por:
+</p>
+
+<p>
+\[Aut(\mathbb{RP}^n,p) = \{Id, -Id\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5d9de5a" class="outline-5">
+<h5 id="org5d9de5a">Circunferencia, otros recubridores</h5>
+<div class="outline-text-5" id="text-org5d9de5a">
+<p>
+Sean los recubridores \((\mathbb{S}^1,p_n)\) de \(\mathbb{S}^1\). Sus grupos de automorfismos son:
+</p>
+
+<p>
+\[Aut(\mathbb{S}^1,p_n) = \left\{\Phi_k(z) = e^{\frac{2\pi k}{n}i}z 
+\mid k = 0,1,\dots,n-1 \right\}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org42b8d73" class="outline-4">
+<h4 id="org42b8d73">Teorema de Borsuk-Ulam</h4>
+<div class="outline-text-4" id="text-org42b8d73">
+<p>
+No existe una aplicación continua \(F : \mathbb{S}^2 \longrightarrow \mathbb{S}^1\) respetando antípodas, es decir,
+\(F(-x) = -F(x)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org181bf63" class="outline-3">
+<h3 id="org181bf63">4. Recubridores regulares y espacios cocientes</h3>
+<div class="outline-text-3" id="text-org181bf63">
+</div><div id="outline-container-org6e9a7aa" class="outline-4">
+<h4 id="org6e9a7aa">Acción transitiva de automorfismos de recubridores regulares</h4>
+<div class="outline-text-4" id="text-org6e9a7aa">
+<p>
+\(Aut(Y,p)\) actúa transitivamente sobre \(p^{-1}(x)\) ssi \((Y,p)\) es regular.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0e5c360" class="outline-4">
+<h4 id="org0e5c360">Acciones discontinuas</h4>
+<div class="outline-text-4" id="text-org0e5c360">
+<p>
+Un \(G \subset Homeo(Y)\) <b>actúa discontinuamente</b> si:
+</p>
+
+<p>
+\[\forall y\in Y: \exists V_y\text{ entorno}: \forall \Phi \in G:\quad
+\Phi \neq Id \Rightarrow \Phi(V) \cap V = \varnothing\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org50671c1" class="outline-4">
+<h4 id="org50671c1">Recubrimiento de cocientes</h4>
+<div class="outline-text-4" id="text-org50671c1">
+<p>
+Sea \(G \subset Homeo(Y)\) actuando propia y discontinuamente sobre \(Y\). Si
+\(p : Y \longrightarrow Y/G\) es proyección al cociente, \((Y,p)\) es recubridor regular de \(Y/G\), 
+con \(Aut(Y,p) = G\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org65284ea" class="outline-4">
+<h4 id="org65284ea">Espacios lente</h4>
+<div class="outline-text-4" id="text-org65284ea">
+<p>
+Sean las aplicaciones \(\Phi_k : \mathbb{S}^{2n+1} \longrightarrow \mathbb{S}^{2n+1}\) definidas por:
+</p>
+
+<p>
+\[\Phi_k(z) = e^{\frac{2\pi ik}{p}}z\]
+</p>
+
+<p>
+Entonces \(G_p = \{\Phi_0,\Phi_1,\dots,\Phi_{p-1}\}\) actúa discontinuamente. Llamamos <b>espacio 
+lente</b> al cociente:
+</p>
+
+<p>
+\[ L_p^{2n+1} = \mathbb{S}^{2n+1}/G_p\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgceb6bbc" class="outline-3">
+<h3 id="orgceb6bbc">5. Existencia de espacios recubridores</h3>
+<div class="outline-text-3" id="text-orgceb6bbc">
+</div><div id="outline-container-org6affac0" class="outline-4">
+<h4 id="org6affac0">Caso del recubridor universal</h4>
+<div class="outline-text-4" id="text-org6affac0">
+<p>
+Si \(X\) admite recubridor universal, toda clase de conjugación de subgrupos de
+\(\Pi(X,x)\) está asociada a un recubridor.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org286aa82" class="outline-4">
+<h4 id="org286aa82">Espacios semilocalmente simplemente conexos</h4>
+<div class="outline-text-4" id="text-org286aa82">
+<p>
+Todo \(x\) posee un entorno abierto y arcoconexo \(U_x\) tal que el homomorfismo 
+inducido por la inclusión \(\Pi(U_x,x) \longrightarrow \Pi(X,x)\) es trivial.
+</p>
+</div>
+
+<div id="outline-container-orgf372c9d" class="outline-5">
+<h5 id="orgf372c9d">Contraejemplo</h5>
+<div class="outline-text-5" id="text-orgf372c9d">
+<p>
+El espacio formado por infinitos círculos de radio cada vez menor y unidos 
+en un punto:
+</p>
+
+<p>
+\[ X = \bigcup_{n>0} \left\{(x,y) \in \mathbb{R}^2 \mid 
+\left(x-\frac{1}{n}\right)^2 + y^2 = \frac{1}{n^2} \right\}\]
+</p>
+
+<p>
+cumple que cualquier entorno del \((0,0)\) contiene un lazo no trivial.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeee02e1" class="outline-4">
+<h4 id="orgeee02e1">Existencia del recubridor universal</h4>
+<div class="outline-text-4" id="text-orgeee02e1">
+<p>
+Un espacio semilocalmente simplemente conexo tiene recubridor universal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org58f506d" class="outline-4">
+<h4 id="org58f506d">Teorema de existencia de recubridores</h4>
+<div class="outline-text-4" id="text-org58f506d">
+<p>
+Sea \(X\) semilocalmente simplemente conexo. Para toda clase de conjugación de 
+subgrupos de \(\Pi(X,x)\), existe un recubridor que la tiene asociada.
+</p>
+</div>
+
+<div id="outline-container-org8b99dd9" class="outline-5">
+<h5 id="org8b99dd9">Demostración</h5>
+<div class="outline-text-5" id="text-org8b99dd9">
+<p>
+Sea \(C\) clase de conjugación de algún \(H < \Pi(X,x)\). Sea \(Y\) recubridor universal 
+de \(X\), que existe por ser semilocalmente simplemente conexo, cumpliendo 
+\(Aut(Y,p) \cong \Pi(X,x)\); puedo tomar \(G < Aut(Y,p)\) cumpliendo \(G \cong H\).
+</p>
+
+<p>
+Los automorfismos del recubridor actúan discontinuamente, así que \(Y/G\) es un 
+espacio del que es \(Y\) recubridor. Induciendo la siguiente aplicación:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+Y \rar{p} \dar{q} & X \\
+Y/G \urar{\hat{p}} &
+\end{tikzcd} \]
+</p>
+
+<p>
+Que está bien definida por respetar la relación y es continua. Veamos que es 
+un recubridor. Sea \(U^x\) entorno fundamental, las arcocomponentes de su 
+preimagen cumplen:
+</p>
+
+<p>
+\[ p^{-1}(U) = \bigcup_{\phi\in Aut(Y,p)} \phi(V) \]
+</p>
+
+<p>
+Si tenemos en cuenta que \(\forall \phi \in G: q(\phi(V)) = q(V)\), tendremos:
+</p>
+
+<p>
+\[\hat{p}^{-1}(U)
+= \bigcup_{\phi \in Aut(Y,p)/G} q(\phi(V)) \]
+</p>
+
+<p>
+Donde hay \([G:H]\) componentes. Ahora intentamos ver que \(\hat{p}_\ast(\Pi(Y/G,-))\) genera
+la clase de conjugación de \(C\). Recordando cómo actuaban los caminos en el 
+espacio base sobre los puntos del recubridor, buscamos los \(\alpha\in\Pi(X,x)\) que 
+cumplan \(q(y)\cdot\alpha = q(y)\), es decir \(\exists \phi\in G: y\cdot\alpha = \phi(y)\); luego tenemos \(\alpha\in H\). Si 
+tengo otro \(\beta \in H\), debe cumplir \(\phi(y) = y\cdot\beta\) para algún \(\phi\in G\), y entonces
+\(q(y)\cdot\alpha = q(y)\), siendo de los buscados. Tenemos:
+</p>
+
+<p>
+\[\hat{p}(\Pi(Y/G, q(y)) = \operatorname{Stab}(q(y)) = H\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgedc0780" class="outline-4">
+<h4 id="orgedc0780">Clasificación de recubridores del círculo</h4>
+<div class="outline-text-4" id="text-orgedc0780">
+<p>
+El círculo \(\mathbb{S}^1\) tiene como grupo fundamental a \(\mathbb{Z}\), que es abeliano y tiene como 
+subgrupos a \(n\mathbb{Z}\).
+</p>
+
+<ul class="org-ul">
+<li>\(0\) tiene a la <b>recta</b> como recubridor universal \(\mathbb{R}\) con \(p(t) = e^{2\pi it}\).</li>
+<li>\(n\mathbb{Z}\) tiene al <b>círculo</b> como recubridor \(\mathbb{S}^1\) de \(n\) hojas con \(p(z) = z^n\).</li>
+<li>\(\mathbb{Z}\) tiene al recubridor <b>identidad</b>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org22b5567" class="outline-4">
+<h4 id="org22b5567">Clasificación de recubridores del toro</h4>
+<div class="outline-text-4" id="text-org22b5567">
+<p>
+El toro \(\mathbb{S}^1\times\mathbb{S}^1\) tiene como grupo fundamental a \(\mathbb{Z}\times\mathbb{Z}\), que tiene como subgrupos 
+a los generados por un generador \(<(a,b)>\) o a los generados por dos, de la 
+forma \(<(a,b),(0,d)>\).
+</p>
+
+<ul class="org-ul">
+<li>\(0\) tiene al <b>plano</b> como recubridor universal \(\mathbb{R}^2\) con \(p(x,y) = (e^{2\pi ix},e^{2\pi iy})\).</li>
+<li>\(<(a,b)>\) tiene al <b>cilindro</b> como recubridor \(\mathbb{S}\times\mathbb{R}\) con \(p(z,y) = (az, bze^{2\pi iy})\).</li>
+<li>\(<(a,b),(0,d)>\) tienen al <b>toro</b> como recubridor \(\mathbb{S}\times\mathbb{S}\) con
+\(p(z,w) = (z^a,z^bw^d)\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org02167f0" class="outline-4">
+<h4 id="org02167f0">Clasificación de recubridores del cilindro</h4>
+<div class="outline-text-4" id="text-org02167f0">
+<p>
+El cilindro \(\mathbb{S}\times\mathbb{R}\) tiene como grupo fundamental a \(\mathbb{Z}\), que es abeliano y tiene 
+como subgrupos a \(n\mathbb{Z}\).
+</p>
+
+<ul class="org-ul">
+<li>\(0\) tiene al <b>plano</b> como recubridor universal \(\mathbb{R}^2\) con \(p(x,y) = (e^{2\pi ix},y)\).</li>
+<li>\(n\mathbb{Z}\) tiene al <b>cilindro</b> como recubridor universal con \(p(z,y) = (e^{2\pi inz},y)\).</li>
+<li>\(\mathbb{Z}\) tiene al recubridor <b>identidad</b>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6137e14" class="outline-4">
+<h4 id="org6137e14">Clasificación de recubridores de la cinta de Möbius.</h4>
+<div class="outline-text-4" id="text-org6137e14">
+<p>
+La cinta de Möbius tiene tipo de homotopía del círculo y por tanto grupo 
+fundamental \(\mathbb{Z}\). 
+</p>
+
+<ul class="org-ul">
+<li>\(0\) tiene al <b>plano</b> como recubridor universal \(\mathbb{R}^2\) sobre el que actúa el grupo
+\(\phi_n(x,y) = (x+n, (-1)^ny)\) discontinuamente.</li>
+<li>\(n\mathbb{Z}\) con \(n = 2m\) par tiene al <b>cilindro</b> recubriéndose a sí mismo \(m\) veces y 
+un recubrimiento de dos hojas del <b>cilindro</b> a la banda de Möbius.</li>
+<li>\(n\mathbb{Z}\) con \(n\) impar tiene a la <b>banda de Möbius</b> como recubridor.</li>
+<li>\(\mathbb{Z}\) tiene al recubridor <b>identidad</b>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2016-12-24 Sat 00:24</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
