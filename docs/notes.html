@@ -1,0 +1,5238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2016-12-24 Sat 13:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Álgebra III</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Álgebra III
+<br>
+<span class="subtitle">Theory</span>
+</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd726b13">1. Polinomios simétricos</a>
+<ul>
+<li><a href="#org6e76a7c">Motivación: La cúbica</a>
+<ul>
+<li><a href="#org9265549">Polinomios cúbicos</a>
+<ul>
+<li><a href="#org3e482b0">Método de Vieta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgfc2aed2">1.1. Polinómios simétricos</a>
+<ul>
+<li><a href="#orgaf2d298">Polinomios simétricos</a></li>
+<li><a href="#org5903181">Componentes homogéneas</a></li>
+<li><a href="#org9ccaa89">Polinomios simétricos elementales</a></li>
+<li><a href="#org63f5426">Teorema fundamental de los polinomios simétricos</a>
+<ul>
+<li><a href="#org245d157">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd385b34">1.2. Polinomios alternados</a>
+<ul>
+<li><a href="#org0ff02a6">Polinomio alternado</a></li>
+</ul>
+</li>
+<li><a href="#orge372d28">1.3. La resultante</a>
+<ul>
+<li><a href="#orgcf0dc99">Resultante</a></li>
+<li><a href="#orgc175185"><span class="todo TODO">TODO</span> Propiedades de la resultante</a></li>
+</ul>
+</li>
+<li><a href="#org866b81c">1.4. Discriminante</a>
+<ul>
+<li><a href="#orgc6b504d">Raíces múltiples</a></li>
+<li><a href="#org4aaacd7">El discriminante</a></li>
+<li><a href="#org90b0d9a">Relación con la resultante</a></li>
+</ul>
+</li>
+<li><a href="#org595c76d">1.5. Métodos de cálculo</a>
+<ul>
+<li><a href="#orgaa43cf0">Método modular</a></li>
+<li><a href="#orgd18f8e5">Por el algoritmo de Euclides</a></li>
+<li><a href="#org0e5c4b8">Resultante de Euler-Sylvester-Cayley</a>
+<ul>
+<li><a href="#orgfeeb27f">Origen</a></li>
+</ul>
+</li>
+<li><a href="#org018dc56">Resultante como determinante</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgea6255c">3. Extensiones de cuerpos</a>
+<ul>
+<li><a href="#orgc50b32a">3.1. Generalidades</a>
+<ul>
+<li><a href="#orgd399f7a">3.1.1. Extensiones de cuerpos</a></li>
+<li><a href="#org86db882">3.1.2. Grado de la extensión</a></li>
+<li><a href="#orgba70940">3.1.3. Cuerpo intermedio</a></li>
+<li><a href="#orgb2f6a06">3.1.4. Torre de cuerpos</a></li>
+<li><a href="#org225462f">3.1.5. Extensiones finitas</a></li>
+<li><a href="#orgd720e57">3.1.6. Base de una torre de inclusiones</a>
+<ul>
+<li><a href="#orga5684d2">Demostración</a>
+<ul>
+<li><a href="#orge2eed25">Es sistema de generadores</a></li>
+<li><a href="#orgcf06c7d">Son linealmente independientes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga6cf094">3.1.7. Teorema del grado</a>
+<ul>
+<li><a href="#orgb69ae5f">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orge0a967a">3.1.8. Corolario al Teorema del grado: finitud</a>
+<ul>
+<li><a href="#orga21fdcd">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgb1aa262">3.1.9. Corolario al Teorema del grado: torres de cuerpos</a>
+<ul>
+<li><a href="#org3ee5a9e">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orga39a14f">3.1.10. Corolario al Teorema del grado: extensiones primas</a>
+<ul>
+<li><a href="#org802ff4e">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc7a41d8">3.2. Elementos algebraicos y extensiones algebraicas</a>
+<ul>
+<li><a href="#orgbd9ecd5">3.2.1. Homomorfismo unital</a></li>
+<li><a href="#org641864f">3.2.2. Característica del anillo</a></li>
+<li><a href="#org504c7ea">3.2.3. Característica en dominios de integridad</a>
+<ul>
+<li><a href="#org914bcfd">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orga3cc648">3.2.4. Caracterización de la característica</a>
+<ul>
+<li><a href="#org69d9164">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org5e1fe28">3.2.5. Intersección de anillos</a>
+<ul>
+<li><a href="#orgbfc5d41">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0ae8e0c">3.2.6. Anillo primo</a></li>
+<li><a href="#orgec60417">3.2.7. Clasificación de anillos primos</a>
+<ul>
+<li><a href="#org37bbf38">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgcef9d81">3.2.8. Subcuerpo primo</a></li>
+<li><a href="#orgc6f6c8b">3.2.9. Clasificación de subcuerpos primos</a>
+<ul>
+<li><a href="#orga7c9e12">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org2f134ef">3.2.10. Subanillo generado</a></li>
+<li><a href="#orgef11b4e">3.2.10. Subcuerpo generado</a></li>
+<li><a href="#orgf0f8efd">3.2.11. Propiedades de subanillos y subcuerpos generados</a>
+<ul>
+<li><a href="#org3177633">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org4b16910">3.2.12. Subcuerpo compuesto</a>
+<ul>
+<li><a href="#orge5bea7d">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org166a14b">3.2.13. Conjunto de generadores</a></li>
+<li><a href="#org0edb260">3.2.14. Extensión finitamente generada</a></li>
+<li><a href="#org305ee38">3.2.15. Extensiones simples y elementos primitivos</a></li>
+<li><a href="#orgce19622">3.2.16. Elementos algebraicos</a></li>
+<li><a href="#org9322721">3.2.16. Polinomios irreducibles</a>
+<ul>
+<li><a href="#orga85b5d5">Existencia y unicidad del polinomio irreducible</a></li>
+</ul>
+</li>
+<li><a href="#org0e05451">3.2.16. Propiedades de los polinomios irreducibles</a>
+<ul>
+<li><a href="#org8dd5519">Demostración</a>
+<ul>
+<li><a href="#orge560ffa">Punto 1</a></li>
+<li><a href="#org52a7f63">Punto 2</a></li>
+<li><a href="#orgadf06dd">Punto 3</a></li>
+<li><a href="#org6c5fe1d">Punto 4</a></li>
+<li><a href="#orgb813390">Punto 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org2d33f10">3.2.17. Algebraicos en una torre de cuerpos</a>
+<ul>
+<li><a href="#orgbb678ff">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org60494f3">3.2.18. Extensiones algebraicas</a></li>
+<li><a href="#org15fc3d4">3.2.19. Elementos algebraicamente independientes</a></li>
+<li><a href="#orgfd087ba">3.2.20. Extensiones puramente trascendentes</a></li>
+<li><a href="#orgcb4f74c">3.2.21. Generación finita de elementos</a>
+<ul>
+<li><a href="#org61b00ba">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org86e01a2">3.2.22. Generación del compuesto</a>
+<ul>
+<li><a href="#org4ea7e28">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orga77ba44">3.2.23. Grado de una extensión compuesta</a>
+<ul>
+<li><a href="#org885c9e6">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org80aa70c">3.2.24. Extensiones primas relativas</a>
+<ul>
+<li><a href="#org6823eff">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org315540c">3.2.25. Extensión finitamente generada por algebraicos es finita</a>
+<ul>
+<li><a href="#orged69414">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org11d0f3e">3.2.26. Extensión generada por algebraicos es algebraica</a>
+<ul>
+<li><a href="#org2ab707c">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orga7d4ea0">3.2.27. Finita es algebraica y finitamente generada</a>
+<ul>
+<li><a href="#orgf0953d9">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgd8a8c78">3.2.28. Caracterización de elementos algebraicos</a>
+<ul>
+<li><a href="#orgede937f">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org7b28d84">3.2.29. Torre algebraica</a>
+<ul>
+<li><a href="#orgb0506c6">Demostración</a>
+<ul>
+<li><a href="#org621c9be">Si es algebraica, lo son sus partes</a></li>
+<li><a href="#org0c70f59">Si las partes son algebraicas, es algebraica</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org15e070c">3.2.30. Clausura algebraica relativa</a>
+<ul>
+<li><a href="#org2d4dfd7">Demostración</a></li>
+<li><a href="#orgaf1f967">Demostración constructiva para la suma</a></li>
+</ul>
+</li>
+<li><a href="#orgdedf5a4"><span class="done DONE">DONE</span> Existencia de clausura</a></li>
+<li><a href="#org96af242"><span class="done DONE">DONE</span> Homomorfismos sobre un cuerpo</a></li>
+<li><a href="#org90f0e19"><span class="done DONE">DONE</span> Automorfismos entre extensiones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgcdf8de8">4. Cuerpos de descomposición</a>
+<ul>
+<li><a href="#org50564a0"><span class="done DONE">DONE</span> Extensión de homomorfismos</a>
+<ul>
+<li><a href="#org823b873">Automorfismos de una extensión</a>
+<ul>
+<li><a href="#orge5fa356">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orga7af1c4">Número de extensiones</a></li>
+</ul>
+</li>
+<li><a href="#org814ac2a">4.1. Cuerpo de descomposición</a>
+<ul>
+<li><a href="#orgfba94ed">4.1.1. Teorema de Kronecker</a>
+<ul>
+<li><a href="#orgf619767">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org33ebee7">4.1.2. Extensión de un homomorfismo</a></li>
+<li><a href="#org8d1482a">4.1.3. Isomorfismo extendido a polinomios</a>
+<ul>
+<li><a href="#org01ecd9d">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org524cc17">4.1.4. Isomorfismos respetan irreducibilidad</a>
+<ul>
+<li><a href="#orgc1525fa">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orga1b7058">4.1.5. Isomorfismo de raíces de polinomios</a>
+<ul>
+<li><a href="#org09935d1">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc97658b">4.1.6. Los endomorfismos de extensiones algebraicas son automorfismos</a>
+<ul>
+<li><a href="#org54d678a">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgb27a35a">4.1.7. Isomorfismo intercambiando conjugadas</a>
+<ul>
+<li><a href="#org5809d00">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org7335c9e">4.1.8. Número de extensiones</a>
+<ul>
+<li><a href="#org27aa89a">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgef982be">4.1.9. Cuerpo de descomposición</a>
+<ul>
+<li><a href="#org222a40a">Caracterización</a></li>
+</ul>
+</li>
+<li><a href="#org99cfb2f">4.1.10. Cuerpo de descomposición en una torre</a>
+<ul>
+<li><a href="#orgf2ace56">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgf81c4e0">4.1.11. Existencia del cuerpo de descomposición</a>
+<ul>
+<li><a href="#org95c1f47">Demostración</a>
+<ul>
+<li><a href="#orgab77301">Inducción: caso base</a></li>
+<li><a href="#org728bd89">Inducción: caso inductivo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgbbf8d78">4.1.12. Isomorfismo entre cuerpos de descomposición</a>
+<ul>
+<li><a href="#org36dff5d">Demostración</a>
+<ul>
+<li><a href="#org07e02d3">Caso base</a></li>
+<li><a href="#org58fb1b4">Caso inductivo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3d29624">4.1.13. Unicidad del cuerpo de descomposición</a>
+<ul>
+<li><a href="#org2fd3e0e">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org7baa400">4.1.23. Cuerpo de descomposición de una familia</a></li>
+<li><a href="#org5cf4ad6">4.1.24. Existencia del cuerpo de descomposición de una familia</a>
+<ul>
+<li><a href="#org03cc735">Demostración</a>
+<ul>
+<li><a href="#orgfd89963">Caso finito</a></li>
+<li><a href="#orga07578e">Caso infinito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgba7efee">4.1.25. Unicidad (esencial) del cuerpo de descomposición de una familia</a>
+<ul>
+<li><a href="#orgc1d37a2">Demostración</a>
+<ul>
+<li><a href="#org85c0e98">Caso finito</a></li>
+<li><a href="#orga9812b7">Caso infinito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org72bd6a4"><span class="done DONE">DONE</span> Descomposición</a></li>
+</ul>
+</li>
+<li><a href="#org8e6440d">4.2. Clausura algebraica</a>
+<ul>
+<li><a href="#orga39ce2a">4.2.1. Algebraicamente cerrado</a></li>
+<li><a href="#org759e286">4.2.2. Caracterización de los algebraicamente cerrados</a>
+<ul>
+<li><a href="#orgeb66d74">Demostración</a>
+<ul>
+<li><a href="#org13a188a">Implicación 1 a 2</a></li>
+<li><a href="#org1943606">Implicación 2 a 3</a></li>
+<li><a href="#orgf4829b0">Implicación 3 a 4</a></li>
+<li><a href="#org3e45025">Implicación 4 a 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org09c8931">4.2.3. Infinitud de algebraicamente cerrados</a>
+<ul>
+<li><a href="#org14f45c7">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org06b8c30">4.2.4. Cuerpo algebraicamente cerrado de elementos algebraicos</a>
+<ul>
+<li><a href="#org280b460">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org46c447c">4.2.5. Clausura algebraica absoluta</a></li>
+<li><a href="#orgb1a8301">4.2.6. Caracterización de la clausura algebraica</a>
+<ul>
+<li><a href="#org63d183e">Demostración</a>
+<ul>
+<li><a href="#orgba4729c">Implicación 1 a 2</a></li>
+<li><a href="#orga4741d5">Implicación 2 a 3</a></li>
+<li><a href="#org24dda8a">Implicación 3 a 1</a></li>
+<li><a href="#orgad634a0"><span class="todo TODO">TODO</span> Equivalencia con 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1a86cce">4.2.7. Transitividad de la clausura algebraica</a>
+<ul>
+<li><a href="#org101f8a9">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org651b37b">4.2.8. Teorema de Steinitz</a>
+<ul>
+<li><a href="#orgc3f212a">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgfc8959e">4.2.9. Unicidad esencial de la clausura algebraica</a>
+<ul>
+<li><a href="#orgfacdc45">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgfcf11ee">4.2.10. Extensión de homomorfismos a algebraicas</a>
+<ul>
+<li><a href="#org4830029">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org38aa960">4.2.11. Cardinalidad de la clausura algebraica</a>
+<ul>
+<li><a href="#org5ba2959">Demostración</a>
+<ul>
+<li><a href="#org151a9f8">Caso finito</a></li>
+<li><a href="#orgeb0af64">Caso infinito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6db03bd">5. Extensiones normales y separables</a>
+<ul>
+<li><a href="#orga267d4f">5.1. Elementos conjugados y extensiones conjugadas</a>
+<ul>
+<li><a href="#org3aa6f36">5.1.1. Elementos conjugados</a>
+<ul>
+<li><a href="#org1ed212f">Demostración</a>
+<ul>
+<li><a href="#orga244acc">Implicación 1 a 2</a></li>
+<li><a href="#org7551e75">Implicación 2 a 3 y 4</a></li>
+<li><a href="#org656f65f">Implicación 4 a 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org797361c">5.1.3. Extensiones conjugadas</a>
+<ul>
+<li><a href="#orgee4989c">Demostración</a>
+<ul>
+<li><a href="#orge9abb92">Implicación 1 a 2</a></li>
+<li><a href="#org4c583e5">Implicación 2 a 3</a></li>
+<li><a href="#orgeb1fecd">Implicación 3 a 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1fa2557">5.2. Extensiones normales</a>
+<ul>
+<li><a href="#orga2569c8">5.2.1. Extensiones normales</a>
+<ul>
+<li><a href="#orgf3579e9">Demostración</a>
+<ul>
+<li><a href="#org4decbdb">Implicación 1 a 2</a></li>
+<li><a href="#orgad30bd7">Implicación 2 a 3</a></li>
+<li><a href="#orgc59ad9b">Implicación 3 a 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0fdb8ca">5.2.3. Propiedades de las extensiones normales</a>
+<ul>
+<li><a href="#org6957042">Demostración de 1</a></li>
+<li><a href="#org708f14d">Demostración de 2</a></li>
+<li><a href="#org6497b2d">Demostración de 3</a></li>
+<li><a href="#org3e4684f">Demostración de 4</a></li>
+<li><a href="#orgae647cf">Contraejemplo: subcuerpo de normal no es normal</a></li>
+</ul>
+</li>
+<li><a href="#orgc2dc06b">5.2.4. Clausura normal</a></li>
+<li><a href="#org53d5ef2">5.2.5. Existencia de la clausura normal</a>
+<ul>
+<li><a href="#orge6b77a1">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgb75aa41">5.2.6. Unicidad de la clausura normal</a>
+<ul>
+<li><a href="#orga75b041">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc8d8751">5.2.7. Extensión de homomorfismos a extensión normal</a>
+<ul>
+<li><a href="#orgb8a8aac">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgeab8f29">5.2.8. Clausura de una extensión finita</a>
+<ul>
+<li><a href="#org4f75532">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc92f9e7">5.2.9. La clausura normal de extensión finita es finita</a>
+<ul>
+<li><a href="#org0c83c67">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0750336">5.2.10. Polinomio normal</a></li>
+<li><a href="#org47e5ba1">5.2.11. Caracterización de polinomios normales</a>
+<ul>
+<li><a href="#orged5f038">Demostración</a>
+<ul>
+<li><a href="#org91d903b">Implicación 1 a 2</a></li>
+<li><a href="#orged1e3a7">Implicación 2 a 3</a></li>
+<li><a href="#orgf1f34ef">Implicación 3 a 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb13419a"><span class="done DONE">DONE</span> Caracterización de extensiones normales en torres</a></li>
+</ul>
+</li>
+<li><a href="#org095d90d">5.3. Extensiones separables</a>
+<ul>
+<li><a href="#orge33d047">5.3.1. Elemento separable</a></li>
+<li><a href="#org748f892">5.3.2. Extensiones separables</a>
+<ul>
+<li><a href="#orgadc46cf">Ejemplo de extensión normal no separable</a></li>
+</ul>
+</li>
+<li><a href="#org2bcad36">5.3.3. Torres separables</a>
+<ul>
+<li><a href="#orgf117464">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc5c4160">5.3.4. Grado separable</a></li>
+<li><a href="#orgd8bfbae">5.3.5. Grado separable en torres</a>
+<ul>
+<li><a href="#orgfe83a68">Demostración</a>
+<ul>
+<li><a href="#orgfff0f3f">Con dos homomorfismos construyo el mayor</a></li>
+<li><a href="#org0ba81fa">Y es único</a></li>
+<li><a href="#org52ef293">Con el mayor construyo los dos menores</a></li>
+<li><a href="#orgaa9dd43">Y son únicas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org34a834c">5.3.6. Relación de grado y grado separable</a>
+<ul>
+<li><a href="#orge9afff5">Demostración</a>
+<ul>
+<li><a href="#org65ec4b6">Caso simple</a></li>
+<li><a href="#org67617c0">Caso compuesto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org47699c9">5.3.7. Igualdad de grados en torres</a>
+<ul>
+<li><a href="#orge1b0fcc">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0bfbdd9">5.3.8. Caracterización de extensión separable</a>
+<ul>
+<li><a href="#org1406c85">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgfd64694">5.3.9. Extensión por un conjunto separable</a>
+<ul>
+<li><a href="#orgd83810b">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgdd3a339">5.3.10. Propiedades de extensiones separables</a>
+<ul>
+<li><a href="#org5e5639b">Demostración</a>
+<ul>
+<li><a href="#orgf40eb99">Punto 1</a></li>
+<li><a href="#org0bbab5b">Punto 2</a></li>
+<li><a href="#orgfd16d97">Punto 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0013033">5.3.11. La clausura normal de una separable es separable</a>
+<ul>
+<li><a href="#orga923635">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org5d865e5">5.3.12. Clausura separable</a>
+<ul>
+<li><a href="#org76f16de">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org6e4efde">5.3.13. Teorema del elemento primitivo</a>
+<ul>
+<li><a href="#orga372e74">Demostración: si hay finitos subcuerpos es simple</a>
+<ul>
+<li><a href="#org42ec453">Cuerpo base finito</a></li>
+<li><a href="#org3b73cfe">Cuerpo base infinito</a></li>
+</ul>
+</li>
+<li><a href="#orge64092c">Demostración: si es simple, hay finitos subcuerpos</a></li>
+<li><a href="#org6d06cd5">Contraejemplo:</a></li>
+</ul>
+</li>
+<li><a href="#org989ad64">5.3.13. Finita y separable es simple</a>
+<ul>
+<li><a href="#org7024d05">Demostración</a></li>
+<li><a href="#org474cac4">Contraejemplo: cuerpo finito no simple</a></li>
+</ul>
+</li>
+<li><a href="#orgafad3ef">5.3.14. Endomorfismo de Frobenius</a></li>
+<li><a href="#orgacc8119">5.3.15. Cuerpos perfectos</a>
+<ul>
+<li><a href="#org7c6b5b0">Demostración</a>
+<ul>
+<li><a href="#org1d5ac01">Implicación 1 a 2</a></li>
+<li><a href="#org448dced">Implicación 2 a 3</a></li>
+<li><a href="#org3b180bb">Implicación 3 a 4</a></li>
+<li><a href="#org9280a12">Implicación 4 a 1 en característica 0</a></li>
+<li><a href="#org67bff06">Implicación 4 a 1 en característica p</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org11ecbd4">5.3.17. Ejemplos de cuerpos perfectos</a>
+<ul>
+<li><a href="#org3b6af8b">Demostración</a>
+<ul>
+<li><a href="#org360f03e">Punto 1</a></li>
+<li><a href="#orgb3c9bef">Punto 2</a></li>
+<li><a href="#org9f30382">Punto 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org50918ea">5.4. Derivada y raíces múltiples</a>
+<ul>
+<li><a href="#org98162f8">5.4.1. Raíces</a></li>
+<li><a href="#orgbf27db0">5.4.2. Derivada</a></li>
+<li><a href="#org8ae3f12">5.4.3. Propiedades de la derivada</a></li>
+<li><a href="#orgd06e93d">5.4.4. Condición de raíces simples</a></li>
+<li><a href="#org0a64705">5.4.5. Condición de raíces simples en irreducibles</a></li>
+<li><a href="#orged03d88">5.4.6. Propiedades de las raíces simples</a></li>
+<li><a href="#orga0aea6e">5.4.7. Polinomio separable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org2d7983f">6. Teoría de Galois Finita</a>
+<ul>
+<li><a href="#org59702e6">6.1. Grupos de automorfismos</a>
+<ul>
+<li><a href="#org9c8cc07">6.1.1. Espacio vectorial de las aplicaciones de un conjunto</a>
+<ul>
+<li><a href="#orgfc8a13d">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org5800c2a">6.1.2. Proposición al lema de Dedekind</a>
+<ul>
+<li><a href="#orgee8eb93">Demostración</a>
+<ul>
+<li><a href="#orgd7ef930">Caso base</a></li>
+<li><a href="#orgbb38abc">caso inductivo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org45d9725">6.1.3. Lema de Dedekind</a>
+<ul>
+<li><a href="#org2a8e285">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org425d464">6.1.4. Acotación del número de homomorfismos sobre K</a>
+<ul>
+<li><a href="#org3063afc">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org68082f8">6.1.5. Grupo de extensión</a></li>
+<li><a href="#org27e8cb9">6.1.6. Acotación de elementos del grupo</a>
+<ul>
+<li><a href="#orgabe7c84">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc19505f">6.1.7. Cuerpo fijo</a>
+<ul>
+<li><a href="#org52d792c">Demostración: es un subcuerpo</a></li>
+</ul>
+</li>
+<li><a href="#org1c3fad6">6.1.8. Teorema de Artin</a>
+<ul>
+<li><a href="#orgf94191a">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org55d6601">6.1.9. Extensión de Galois</a></li>
+<li><a href="#org5423393">6.1.10. Caracterización de extensión de Galois</a>
+<ul>
+<li><a href="#orgc18e885">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orge4afdd2">6.1.11. Caracterización para extensiones finitas</a>
+<ul>
+<li><a href="#orgd85816b">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org018db94">6.2. Correspondencia de Galois, caso finito</a>
+<ul>
+<li><a href="#orgaf9104e">Correspondencia</a></li>
+<li><a href="#orgbffb56a">6.2.1. Contenidos de cuerpos</a>
+<ul>
+<li><a href="#org6c77ce4">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org83d9444">6.2.2. Correspondencia de Galois</a></li>
+<li><a href="#org316a43d">6.2.3. Teorema fundamental</a>
+<ul>
+<li><a href="#orgcc56beb">Demostración de 6 para grupos</a></li>
+<li><a href="#org91f3cea">Demostración de 6 para cuerpos intermedios</a></li>
+<li><a href="#org7e58c36">Demostración de 1</a></li>
+<li><a href="#org6828bae">Demostración de 2 y 3</a></li>
+<li><a href="#orgb1ce67d">Demostración 4</a></li>
+<li><a href="#org2d0ecd7">Demostración 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga45a573">6.4. Propiedades de las extensiones de Galois</a>
+<ul>
+<li><a href="#orgaa6240f">6.4.1. Subgrupos en Galois</a>
+<ul>
+<li><a href="#org70fa0a0">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org4373bf6">6.4.2. Extensiones abelianas, cíclicas y solubles</a></li>
+<li><a href="#org0855d1f">6.4.3. Subgrupos abelianos, cíclicos y solubles</a>
+<ul>
+<li><a href="#org16184cb">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org9b89838">6.4.4. Subextensiones finitas abelianas y cíclicas</a>
+<ul>
+<li><a href="#orga4bb2f1"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0282722">6.4.5. Galois para cuerpos compuestos</a>
+<ul>
+<li><a href="#org818f7c6"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org40b34bf">6.4.6. Relación de Galois con el grado</a>
+<ul>
+<li><a href="#org48798d2"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org221165f">6.4.8. Composición de extensiones de Galois</a>
+<ul>
+<li><a href="#org3705869"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org83f303b">6.4.9. Extensión del producto</a>
+<ul>
+<li><a href="#orgc7924aa"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orga0807dc">6.4.10. Cuerpos fijos del producto</a>
+<ul>
+<li><a href="#orga0e31b6"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8d268d2">7. Cuerpos finitos</a>
+<ul>
+<li><a href="#org6d562d5">7.1. Estructura de los cuerpos finitos</a>
+<ul>
+<li><a href="#org692ac6b">7.1.1. Propiedades de un cuerpo finito</a>
+<ul>
+<li><a href="#orga281446"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgb1628a7">7.1.2. Clasificación de cuerpos finitos</a>
+<ul>
+<li><a href="#orgbb876dc"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgabf88ef">7.1.3. Existencia de cuerpos finitos</a>
+<ul>
+<li><a href="#orgc534b0f">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orge7305e3">7.1.4. Teorema de Moore</a>
+<ul>
+<li><a href="#org0c987d9">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc1c3b47">7.1.5. Cuerpos de Galois</a></li>
+</ul>
+</li>
+<li><a href="#orgefecbed">Factorización de polinomios</a>
+<ul>
+<li><a href="#orgde463fb">Clasificación de polinomios irreducibles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8763f3a">8. Extensiones ciclotómicas</a>
+<ul>
+<li><a href="#org4466c77">Raíces de la unidad</a>
+<ul>
+<li><a href="#orgb08b2e6">Subgrupos finitos del grupo multiplicativo</a></li>
+<li><a href="#org501ef89">Grupo de raíces n-ésimas</a></li>
+</ul>
+</li>
+<li><a href="#org9848370">Polinomios ciclotómicos</a>
+<ul>
+<li><a href="#orgf84c190">Definición</a></li>
+<li><a href="#orgd9b1e7d">Cálculo de los polinomios ciclotómicos</a></li>
+<li><a href="#orgec62f5b">Función de Möbius</a></li>
+</ul>
+</li>
+<li><a href="#org29fbe13">Extensiones ciclotómicas</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd726b13" class="outline-2">
+<h2 id="orgd726b13">1. Polinomios simétricos</h2>
+<div class="outline-text-2" id="text-orgd726b13">
+</div><div id="outline-container-org6e76a7c" class="outline-3">
+<h3 id="org6e76a7c">Motivación: La cúbica</h3>
+<div class="outline-text-3" id="text-org6e76a7c">
+</div><div id="outline-container-org9265549" class="outline-4">
+<h4 id="org9265549">Polinomios cúbicos</h4>
+<div class="outline-text-4" id="text-org9265549">
+<p>
+Toda ecuación cúbica polinómica puede escribirse en la forma
+\(Y^3 + pY + q\), tomando un cambio de variable desde la original
+\(X \mapsto - \frac{1}{3} b\). Esto se llama una cúbica deprimida.
+</p>
+</div>
+
+<div id="outline-container-org3e482b0" class="outline-5">
+<h5 id="org3e482b0">Método de Vieta</h5>
+<div class="outline-text-5" id="text-org3e482b0">
+<p>
+El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
+</p>
+
+<p>
+\[w^3 + q - \frac{p^3}{27w^3} = 0\]
+</p>
+
+<p>
+Ahora podemos resolver esa cuadrática y resolver luego la ecuación
+en \(w^3\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfc2aed2" class="outline-3">
+<h3 id="orgfc2aed2">1.1. Polinómios simétricos</h3>
+<div class="outline-text-3" id="text-orgfc2aed2">
+</div><div id="outline-container-orgaf2d298" class="outline-4">
+<h4 id="orgaf2d298">Polinomios simétricos</h4>
+<div class="outline-text-4" id="text-orgaf2d298">
+<p>
+Un <b>polinomio simétrico</b> es aquel invariante por \(f_\sigma\) para cualquier \(\sigma \in S_r\), 
+donde \(f_\sigma (X_i) = X_{\sigma i}\). Llamamos \(Sim(A[X_1\dots X_n])\) al subanillo de polinomios 
+simétricos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5903181" class="outline-4">
+<h4 id="org5903181">Componentes homogéneas</h4>
+<div class="outline-text-4" id="text-org5903181">
+<p>
+Llamamos <b>componente homogénea</b> a cada sumando homogéneo maximal de un 
+polinomio. Un polinomio es simétrico si y sólo si cada una de sus componentes 
+lo es.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9ccaa89" class="outline-4">
+<h4 id="org9ccaa89">Polinomios simétricos elementales</h4>
+<div class="outline-text-4" id="text-org9ccaa89">
+<p>
+Los polinomios simétricos elementales son aquellos de la forma:
+</p>
+
+<p>
+\[e_i = \sum_{i_1 < \dots < i_i} X_{i1} X_{i2} \dots X_{ii}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org63f5426" class="outline-4">
+<h4 id="org63f5426">Teorema fundamental de los polinomios simétricos</h4>
+<div class="outline-text-4" id="text-org63f5426">
+<p>
+Los polinomios elementales generan cada polinomio \(Sim(A[X_1\dots X_n])\) 
+de forma única. En particular,
+</p>
+
+<p>
+\[\omega : A[X_1,\dots,X_r] \longrightarrow Sim(A[X_1,\dots,X_r])\]
+</p>
+
+<p>
+con \(\omega(a) = a\) y \(\omega(X_i) = e_i\) es un isomorfismo.
+</p>
+</div>
+
+<div id="outline-container-org245d157" class="outline-5">
+<h5 id="org245d157">Demostración</h5>
+<div class="outline-text-5" id="text-org245d157">
+<p>
+Damos una relación de orden lexicográfica entre los monomios de un
+polinomio simétrico homogéneo. Al mayor de ellos, llamado 
+\(X_1^{k_1} \dots X_r^{k_r}\) le restamos \(e^{b1}_1 e^{b2}_2 \dots e^{br}_r\), donde
+\(b_i = k_i - k_{i+1}\). Nos quedará \(0\) u otro polinomio simétrico de
+igual grado pero menor en el orden lexicográfico. Este proceso debe
+ser finito.
+</p>
+
+<p>
+La unicidad se obtiene con \(0 = h(e_1\dots e_r) - k(e_1\dots e_r) =
+l(e_1 \dots e_r)\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd385b34" class="outline-3">
+<h3 id="orgd385b34">1.2. Polinomios alternados</h3>
+<div class="outline-text-3" id="text-orgd385b34">
+</div><div id="outline-container-org0ff02a6" class="outline-4">
+<h4 id="org0ff02a6">Polinomio alternado</h4>
+<div class="outline-text-4" id="text-org0ff02a6">
+<p>
+Un polinomio \(f\) es alternado cuando para toda permutación se tiene
+\(\sigma(f) = sign(\sigma) f\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge372d28" class="outline-3">
+<h3 id="orge372d28">1.3. La resultante</h3>
+<div class="outline-text-3" id="text-orge372d28">
+</div><div id="outline-container-orgcf0dc99" class="outline-4">
+<h4 id="orgcf0dc99">Resultante</h4>
+<div class="outline-text-4" id="text-orgcf0dc99">
+<p>
+Dados dos polinomios \(f,g\) en un cuerpo \(K\) en el que descomponen 
+podemos escribirlos como:
+</p>
+
+<p>
+\[ f = a_n(X-\alpha_1)\dots(X-\alpha_n) = a_n \prod^n_{i=1}(X-\alpha_i)\]
+\[ g = b_n(X-\beta_1)\dots(X-\beta_n) = a_n \prod^n_{i=1}(X-\beta_i)\]
+</p>
+
+<p>
+La <b>resultante</b> busca ser una expresión que se anula cuando tienen
+raíz común, y se define como:
+</p>
+
+<p>
+\[ R(f,g) = a_n^m b_m^n \prod^n_{i=1} \prod^m_{j=1} (\alpha_i - \beta_j)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc175185" class="outline-4">
+<h4 id="orgc175185"><span class="todo TODO">TODO</span> Propiedades de la resultante</h4>
+<div class="outline-text-4" id="text-orgc175185">
+<p>
+La resultante de dos polinomios \(f,g\) cumple:
+</p>
+
+<ol class="org-ol">
+<li>\(R(f,g) = 0\) ssi tienen una raíz común.</li>
+<li>\(R(g,f) = (-1)^{nm}R(f,g)\), siendo \(nm\) el producto del número de raíces.</li>
+<li>\(R(f,g) = a^m_n \prod^n_{i=1} g(\alpha_i)\)</li>
+<li>\(R(fg,h) = R(f,h)R(g,h)\), \(R(f,gh) = R(f,g)R(f,h)\)</li>
+<li>Si \(m=0\), entonces \(R(f,k) = k^n\)</li>
+<li>\(R(X^k,f) = a_0^k\); con \(R(f,X^k) = (-1)^{nk}a_0^k\)</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org866b81c" class="outline-3">
+<h3 id="org866b81c">1.4. Discriminante</h3>
+<div class="outline-text-3" id="text-org866b81c">
+</div><div id="outline-container-orgc6b504d" class="outline-4">
+<h4 id="orgc6b504d">Raíces múltiples</h4>
+<div class="outline-text-4" id="text-orgc6b504d">
+<p>
+Podemos usar la resultante para caracterizar los polinomios
+con raíces múltiples, que son aquellos que comparten raíz con
+su derivada.
+</p>
+
+<p>
+\[ R(f,f') = a_n^{n-1} \prod f'(\alpha_j)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4aaacd7" class="outline-4">
+<h4 id="org4aaacd7">El discriminante</h4>
+<div class="outline-text-4" id="text-org4aaacd7">
+<p>
+El <b>discriminante</b> de un polinomio con raíces
+\(\alpha_1, \dots, \alpha_n\) en una clausura algebraica es:
+</p>
+
+<p>
+\[\text{Discr}(p) = a^{2n-2} \prod_{i>j}(\alpha_i-\alpha_j)^2\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org90b0d9a" class="outline-4">
+<h4 id="org90b0d9a">Relación con la resultante</h4>
+<div class="outline-text-4" id="text-org90b0d9a">
+<p>
+\[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org595c76d" class="outline-3">
+<h3 id="org595c76d">1.5. Métodos de cálculo</h3>
+<div class="outline-text-3" id="text-org595c76d">
+</div><div id="outline-container-orgaa43cf0" class="outline-4">
+<h4 id="orgaa43cf0">Método modular</h4>
+</div>
+<div id="outline-container-orgd18f8e5" class="outline-4">
+<h4 id="orgd18f8e5">Por el algoritmo de Euclides</h4>
+</div>
+<div id="outline-container-org0e5c4b8" class="outline-4">
+<h4 id="org0e5c4b8">Resultante de Euler-Sylvester-Cayley</h4>
+<div class="outline-text-4" id="text-org0e5c4b8">
+<p>
+Definimos la resultante de Euler-Sylvester-Cayley:
+</p>
+
+<p>
+\[
+R(f,g) = \left| \begin{matrix}
+a_n & a_{n-1} & \dots & a_0 & 0 & \dots &\\
+0   & a_n & \dots & a_{1} & a_0 & 0 & \dots \\
+0   &   0 & a_n & \dots & a_1 & a_0 & \dots \\
+&      &     &\vdots & & & \\
+b_m & b_{m-1} & \dots & b_0 & 0 & \dots &\\
+0   & b_m & \dots & b_1 & b_0 & 0 & \dots \\
+0   &   0 & b_m & \dots & b_1 & b_0 & \dots \\
+\end{matrix} \right|
+\]
+</p>
+</div>
+
+<div id="outline-container-orgfeeb27f" class="outline-5">
+<h5 id="orgfeeb27f">Origen</h5>
+<div class="outline-text-5" id="text-orgfeeb27f">
+<p>
+La resultante se obtiene como la determinante de la
+matriz del sistema de ecuaciones que dan:
+</p>
+
+<p>
+\[ \begin{aligned}
+X^{m-1} f &= 0 \\
+X^{m-2} f &= 0 \\
+& \vdots \\
+1f &= 0 \\
+X^{n-1}g &= 0 \\
+X^{n-2}g &= 0 \\
+& \vdots \\
+1g &= 0 \\
+\end{aligned}\]
+</p>
+
+<p>
+Por Teorema de Rouché, este sistema tiene solución ssi 
+el determinante de los coeficientes es cero.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org018dc56" class="outline-4">
+<h4 id="org018dc56">Resultante como determinante</h4>
+<div class="outline-text-4" id="text-org018dc56">
+<p>
+La <b>resultante</b> de dos polinomios \(p,q\) es el determinante solución de 
+\(pq' - qp' = 0\) dados \(p\) y \(q\).
+</p>
+
+<p>
+\[R(p,q) = \left| \begin{matrix}
+a_0 & a_1 & \dots & a_n & 0 & \dots &\\
+0   & a_0 & \dots & a_{n-1} & a_n & 0 & \dots \\
+0   &   0 & a_0 & \dots & a_{n-1} & a_n & \dots \\
+&     &     &\dots & & & \\
+b_0 & b_1 & \dots & b_m & 0 & \dots &\\
+0   & b_0 & \dots & b_{m-1} & b_m & 0 & \dots \\
+0   &   0 & b_0 & \dots & b_{m-1} & b_m & \dots \\
+\end{matrix} \right|
+\]
+</p>
+
+<p>
+Y llamamos <b>matriz resultante</b> a la matriz de la que es determinante.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgea6255c" class="outline-2">
+<h2 id="orgea6255c">3. Extensiones de cuerpos</h2>
+<div class="outline-text-2" id="text-orgea6255c">
+</div><div id="outline-container-orgc50b32a" class="outline-3">
+<h3 id="orgc50b32a">3.1. Generalidades</h3>
+<div class="outline-text-3" id="text-orgc50b32a">
+</div><div id="outline-container-orgd399f7a" class="outline-4">
+<h4 id="orgd399f7a">3.1.1. Extensiones de cuerpos</h4>
+<div class="outline-text-4" id="text-orgd399f7a">
+<p>
+Una <b>extensión de cuerpos</b> es un subcuerpo \(K\) de \(F\), se nota por \(F/K\). 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86db882" class="outline-4">
+<h4 id="org86db882">3.1.2. Grado de la extensión</h4>
+<div class="outline-text-4" id="text-org86db882">
+<p>
+Llamamos <b>grado</b> a la dimensión de \(F\) como espacio vectorial.
+Notamos por \([F : K]\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgba70940" class="outline-4">
+<h4 id="orgba70940">3.1.3. Cuerpo intermedio</h4>
+<div class="outline-text-4" id="text-orgba70940">
+<p>
+Un cuerpo intermedio entre \(F\) y \(K\) es cualquier subcuerpo de \(F\) 
+conteniendo a \(K\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb2f6a06" class="outline-4">
+<h4 id="orgb2f6a06">3.1.4. Torre de cuerpos</h4>
+<div class="outline-text-4" id="text-orgb2f6a06">
+<p>
+Una torre es una sucesión de subcuerpos:
+</p>
+
+<p>
+\[F_0 \subset F_1 \subset \dots \subset F_n\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org225462f" class="outline-4">
+<h4 id="org225462f">3.1.5. Extensiones finitas</h4>
+<div class="outline-text-4" id="text-org225462f">
+<p>
+Una extensión es finita ssi \([F:K]\) es finito.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd720e57" class="outline-4">
+<h4 id="orgd720e57">3.1.6. Base de una torre de inclusiones</h4>
+<div class="outline-text-4" id="text-orgd720e57">
+<p>
+Sea \(K \supset F \supset E\) una torre de inclusiones. Sean \(\{u_i\}_{i\in I}\) una base de \(E\)
+sobre \(F\) y \(\{v_j\}_{j\in J}\) una base de \(F\) sobre \(K\). Entonces \(\{u_iv_j\}\) es una base
+de \(E\) sobre \(K\).
+</p>
+</div>
+
+<div id="outline-container-orga5684d2" class="outline-5">
+<h5 id="orga5684d2">Demostración</h5>
+<div class="outline-text-5" id="text-orga5684d2">
+</div><div id="outline-container-orge2eed25" class="outline-6">
+<h6 id="orge2eed25">Es sistema de generadores</h6>
+<div class="outline-text-6" id="text-orge2eed25">
+<p>
+Si tenemos ambos sistemas de generadores, podemos escribir cada
+elemento de \(E\) como:
+</p>
+
+<p>
+\[ e 
+= \sum u_i f_i 
+= \sum u_i \left(\sum v_j k_{ij}\right) 
+= \sum u_iv_ik_{ij}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcf06c7d" class="outline-6">
+<h6 id="orgcf06c7d">Son linealmente independientes</h6>
+<div class="outline-text-6" id="text-orgcf06c7d">
+<p>
+Aplicando la independencia lineal de cada una de las bases:
+</p>
+
+<p>
+\[ \sum u_iv_jk_{ij} 
+= \sum u_i \left( \sum v_jk_{ij}\right) = 0\]
+</p>
+
+<p>
+Tenemos que \(\sum v_jk_{ij} = 0\), luego \(k_{ij} = 0\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga6cf094" class="outline-4">
+<h4 id="orga6cf094">3.1.7. Teorema del grado</h4>
+<div class="outline-text-4" id="text-orga6cf094">
+<p>
+Sean \(K \subset F \subset E\), extensiones de cuerpos, se tiene que:
+</p>
+
+<p>
+\[ [E:K] = [E:F][F:K] \]
+</p>
+</div>
+
+<div id="outline-container-orgb69ae5f" class="outline-5">
+<h5 id="orgb69ae5f">Demostración</h5>
+<div class="outline-text-5" id="text-orgb69ae5f">
+<p>
+Teniendo una base de cada uno de ellos, calculamos la base
+de la <a href="#orgd720e57">torre de inclusiones</a>, que nos da la dimensión.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge0a967a" class="outline-4">
+<h4 id="orge0a967a">3.1.8. Corolario al Teorema del grado: finitud</h4>
+<div class="outline-text-4" id="text-orge0a967a">
+<p>
+Sean \(K \subset F \subset E\), la extensión \(E/K\) es finita ssi las extensiones
+\(E/F\) y \(F/K\) lo son.
+</p>
+</div>
+
+<div id="outline-container-orga21fdcd" class="outline-5">
+<h5 id="orga21fdcd">Demostración</h5>
+<div class="outline-text-5" id="text-orga21fdcd">
+<p>
+Si ambas son finitas, podemos aplicar el <a href="#orga6cf094">teorema del grado</a>. Cuando
+\(E/K\) es finita, tenemos que \(E/F\) tiene como sistema generador a la
+base y \(F/K\) es un subespacio de \(E/K\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb1aa262" class="outline-4">
+<h4 id="orgb1aa262">3.1.9. Corolario al Teorema del grado: torres de cuerpos</h4>
+<div class="outline-text-4" id="text-orgb1aa262">
+<p>
+Sea \(F_0 \subset F_1 \subset \dots \subset F_n\) torre de longitud \(n\), entonces:
+</p>
+
+<p>
+\[ [F_n : F_0] =
+[F_n:F_{n-1}] \dots [F_2:F_1][F_1 : F_0]
+\]
+</p>
+</div>
+
+<div id="outline-container-org3ee5a9e" class="outline-5">
+<h5 id="org3ee5a9e">Demostración</h5>
+<div class="outline-text-5" id="text-org3ee5a9e">
+<p>
+Por inducción sobre la longitud de la torre y aplicando el teorema
+del grado a cada paso.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga39a14f" class="outline-4">
+<h4 id="orga39a14f">3.1.10. Corolario al Teorema del grado: extensiones primas</h4>
+<div class="outline-text-4" id="text-orga39a14f">
+<p>
+Sea \(F/K\) una extensión tal que \([F:K] = p\) es primo. Entonces no
+existe ningún cuerpo intermedio propio.
+</p>
+</div>
+
+<div id="outline-container-org802ff4e" class="outline-5">
+<h5 id="org802ff4e">Demostración</h5>
+<div class="outline-text-5" id="text-org802ff4e">
+<p>
+Usando el teorema del grado, tenemos que debería tener grado \(p\), en
+cuyo caso sería un subespacio de la misma dimensión que \(F\), y por
+tanto \(F\). O debería tener grado \(1\), en cuyo caso sería \(K\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc7a41d8" class="outline-3">
+<h3 id="orgc7a41d8">3.2. Elementos algebraicos y extensiones algebraicas</h3>
+<div class="outline-text-3" id="text-orgc7a41d8">
+</div><div id="outline-container-orgbd9ecd5" class="outline-4">
+<h4 id="orgbd9ecd5">3.2.1. Homomorfismo unital</h4>
+<div class="outline-text-4" id="text-orgbd9ecd5">
+<p>
+Para todo anillo \(A\) existe un único homomorfismo de anillos
+\(1_\mathbb{Z} : \mathbb{Z} \longrightarrow A\), llamado <b>homorfismo unital</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org641864f" class="outline-4">
+<h4 id="org641864f">3.2.2. Característica del anillo</h4>
+<div class="outline-text-4" id="text-org641864f">
+<p>
+La característica de \(A\) es el entero no negativo que genera
+al ideal \(ker(1_\mathbb{Z})\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org504c7ea" class="outline-4">
+<h4 id="org504c7ea">3.2.3. Característica en dominios de integridad</h4>
+<div class="outline-text-4" id="text-org504c7ea">
+<p>
+Si \(A\) es dominio de integridad, \(car(A)\) es primo o \(0\).
+</p>
+</div>
+
+<div id="outline-container-org914bcfd" class="outline-5">
+<h5 id="org914bcfd">Demostración</h5>
+<div class="outline-text-5" id="text-org914bcfd">
+<p>
+Trivialmente desde el homomorfismo unital. Si no fuera así,
+tendríamos \(ab = 0\) enteros.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga3cc648" class="outline-4">
+<h4 id="orga3cc648">3.2.4. Caracterización de la característica</h4>
+<div class="outline-text-4" id="text-orga3cc648">
+<p>
+\(car(A)=n\) ssi \(n\) es el menor entero positivo tal que \(na = 0\) para
+todo \(a \in A\).
+</p>
+</div>
+
+<div id="outline-container-org69d9164" class="outline-5">
+<h5 id="org69d9164">Demostración</h5>
+<div class="outline-text-5" id="text-org69d9164">
+<p>
+Si hubiera otro menor, debería pertenecer al núcleo del homomorfismo
+unital, y no podría ser generado por \(n\). Si cumple la condición
+y es el menor, todo el resto de elementos del núcleo deben ser 
+múltiplos, porque si no lo fueran, podríamos crear un menor con 
+Bezout.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5e1fe28" class="outline-4">
+<h4 id="org5e1fe28">3.2.5. Intersección de anillos</h4>
+<div class="outline-text-4" id="text-org5e1fe28">
+<p>
+Sea \(A\) un anillo y sea \(\{B_i\}_{i\in I}\) una familia de subanillos. Entonces
+\(\bigcap B_i\) es subanillo. Análogo para cuerpos y subcuerpos.
+</p>
+</div>
+
+<div id="outline-container-orgbfc5d41" class="outline-5">
+<h5 id="orgbfc5d41">Demostración</h5>
+<div class="outline-text-5" id="text-orgbfc5d41">
+<p>
+Si dos elementos pertenecen a todos los \(B_i\), tenemos que su suma
+y su producto pertenece a cada uno de ellos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0ae8e0c" class="outline-4">
+<h4 id="org0ae8e0c">3.2.6. Anillo primo</h4>
+<div class="outline-text-4" id="text-org0ae8e0c">
+<p>
+Llamamos subanillo primo de \(A\) a la intersección de todos los 
+subanillos de \(A\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgec60417" class="outline-4">
+<h4 id="orgec60417">3.2.7. Clasificación de anillos primos</h4>
+<div class="outline-text-4" id="text-orgec60417">
+<p>
+El subanillo primo de un \(A\) es isomorfo a \(\mathbb{Z}\) si \(car(A) = 0\) y
+a \(\mathbb{Z}/n\mathbb{Z}\) si \(car(A) = n \neq 0\).
+</p>
+</div>
+
+<div id="outline-container-org37bbf38" class="outline-5">
+<h5 id="org37bbf38">Demostración</h5>
+<div class="outline-text-5" id="text-org37bbf38">
+<p>
+En ambos casos, ellos son subanillos por ser imágenes del 
+homomorfismo unital, como se comprueba por primer teorema de
+isomorfía.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcef9d81" class="outline-4">
+<h4 id="orgcef9d81">3.2.8. Subcuerpo primo</h4>
+<div class="outline-text-4" id="text-orgcef9d81">
+<p>
+Llamamos subcuerpo primo de \(K\) a la intersección de todos los
+subcuerpos de \(K\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc6f6c8b" class="outline-4">
+<h4 id="orgc6f6c8b">3.2.9. Clasificación de subcuerpos primos</h4>
+<div class="outline-text-4" id="text-orgc6f6c8b">
+<p>
+El subcuerpo primo de un cuerpo \(K\) es isomorfo a \(\mathbb{Q}\) cuando
+\(car(K)=0\) y a \(\mathbb{Z}/p\mathbb{Z}\) cuando \(car(K) = p \neq 0\).
+</p>
+</div>
+
+<div id="outline-container-orga7c9e12" class="outline-5">
+<h5 id="orga7c9e12">Demostración</h5>
+<div class="outline-text-5" id="text-orga7c9e12">
+<p>
+De nuevo, vuelve a tenerse una inyección de ambos por el 
+homomorfismo unital. Cualquier subanillo contendrá a \(1\) y por
+tanto a este subcuerpo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2f134ef" class="outline-4">
+<h4 id="org2f134ef">3.2.10. Subanillo generado</h4>
+<div class="outline-text-4" id="text-org2f134ef">
+<p>
+Sea \(F/K\) extensión con \(S\subseteq F\); llamamos <b>subanillo generado</b>
+\(K[S]\) a la intersección de todos los subanillos de \(F\) conteniendo
+a \(K\) y a \(S\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgef11b4e" class="outline-4">
+<h4 id="orgef11b4e">3.2.10. Subcuerpo generado</h4>
+<div class="outline-text-4" id="text-orgef11b4e">
+<p>
+Sea \(F/K\) extensión con \(S \subseteq F\); llamamos <b>subcuerpo generado</b>
+\(K(S)\) a la intersección de todos los subcuerpos de \(F\) conteniendo
+a \(K\) y a \(S\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf0f8efd" class="outline-4">
+<h4 id="orgf0f8efd">3.2.11. Propiedades de subanillos y subcuerpos generados</h4>
+<div class="outline-text-4" id="text-orgf0f8efd">
+<p>
+Para \(S,T \subseteq F\) extensión de \(K\), tenemos:
+</p>
+
+<ul class="org-ul">
+<li>\(K[S \cup T] = K[S][T] = K[T][S]\)</li>
+<li>\(K(S \cup T) = K(S)(T) = K(T)(S)\)</li>
+</ul>
+</div>
+
+<div id="outline-container-org3177633" class="outline-5">
+<h5 id="org3177633">Demostración</h5>
+<div class="outline-text-5" id="text-org3177633">
+<p>
+En cualquiera de los dos casos la definición es la intersección
+de todos los que contienen a \(K\), \(T\) y \(S\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4b16910" class="outline-4">
+<h4 id="org4b16910">3.2.12. Subcuerpo compuesto</h4>
+<div class="outline-text-4" id="text-org4b16910">
+<p>
+Dados \(K \subset E,F \subset L\), definimos el subcuerpo compuesto
+\(EF = E(F) = F(E)\).
+</p>
+</div>
+
+<div id="outline-container-orge5bea7d" class="outline-5">
+<h5 id="orge5bea7d">Demostración</h5>
+<div class="outline-text-5" id="text-orge5bea7d">
+<p>
+Son iguales trivialmente desde la definición.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org166a14b" class="outline-4">
+<h4 id="org166a14b">3.2.13. Conjunto de generadores</h4>
+<div class="outline-text-4" id="text-org166a14b">
+<p>
+Sea \(F/K\) con \(S \subseteq F\), es un subconjunto de generadores si
+\(F = K(S)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0edb260" class="outline-4">
+<h4 id="org0edb260">3.2.14. Extensión finitamente generada</h4>
+<div class="outline-text-4" id="text-org0edb260">
+<p>
+Una extensión \(F/K\) es finitamente generada cuando tiene un
+conjunto finito de generadores. \(F = K(u_1,u_2,\dots,u_n)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org305ee38" class="outline-4">
+<h4 id="org305ee38">3.2.15. Extensiones simples y elementos primitivos</h4>
+<div class="outline-text-4" id="text-org305ee38">
+<p>
+Una extensión \(F/K\) se llama simple cuando \(F = K(u)\). Al \(u\)
+se le llama <b>elemento primitivo</b> para la extensión.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgce19622" class="outline-4">
+<h4 id="orgce19622">3.2.16. Elementos algebraicos</h4>
+<div class="outline-text-4" id="text-orgce19622">
+<p>
+\(\alpha \in F\) es <b>algebraico</b> sobre \(K\) si existe polinomio \(f \in K[x]\) tal 
+que \(f(\alpha) = 0\). 
+</p>
+
+<p>
+Un no algebraico es <b>trascendente</b> y una extensión es <b>algebraica</b> 
+si lo son todos sus elementos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9322721" class="outline-4">
+<h4 id="org9322721">3.2.16. Polinomios irreducibles</h4>
+<div class="outline-text-4" id="text-org9322721">
+<p>
+Dado \(F/K\) con \(\alpha \in F\) algebraico. Existe un único polinomio 
+irreducible del que \(\alpha\) es raíz salvo asociados, llamado \(Irr(\alpha)\).
+</p>
+</div>
+
+<div id="outline-container-orga85b5d5" class="outline-5">
+<h5 id="orga85b5d5">Existencia y unicidad del polinomio irreducible</h5>
+<div class="outline-text-5" id="text-orga85b5d5">
+<p>
+Tomo el núcleo del homomorfismo que evalúa un polinomio en \(\alpha\). 
+Por ser un ideal en PID, estará generado por algún polinomio \(f\) 
+no nulo y no constante.
+</p>
+
+<p>
+Este será irreducible, porque si no lo fuera, con \(f = g_1g_2\) se 
+tendría:
+</p>
+
+<p>
+\[0 = f(\alpha) = g_1(\alpha)g_2(\alpha)\]
+</p>
+
+<p>
+Un polinomio de grado mínimo debería estar dentro del ideal, 
+y por tanto ser asociado de \(f\), que lo genera.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0e05451" class="outline-4">
+<h4 id="org0e05451">3.2.16. Propiedades de los polinomios irreducibles</h4>
+<div class="outline-text-4" id="text-org0e05451">
+<p>
+Sea \(F/K\) extensión con \(u \in F\) algebraico. Se cumple:
+</p>
+
+<ol class="org-ol">
+<li>\(K(u) = K[u]\)</li>
+<li>\(K[u] \cong K[X]/(Irr(u,K))\)</li>
+<li>\([K(u):K]\) es igual al grado de \(Irr(u,K)\).</li>
+<li>\(\{1,u,u^2,\dots,u^{n-1}\}\) es una base de \(K[u]\) sobre \(K\).</li>
+<li>\(f(u)=0\) ssi \(Irr(u,K) \mid f\).</li>
+</ol>
+
+<p>
+Llamamos <b>grado</b> del elemento \(u\) al grado de \(Irr(u,K)\).
+</p>
+</div>
+
+<div id="outline-container-org8dd5519" class="outline-5">
+<h5 id="org8dd5519">Demostración</h5>
+<div class="outline-text-5" id="text-org8dd5519">
+</div><div id="outline-container-orge560ffa" class="outline-6">
+<h6 id="orge560ffa">Punto 1</h6>
+<div class="outline-text-6" id="text-orge560ffa">
+<p>
+Sabemos que el anillo generado está dentro del cuerpo generado,
+y además, \(u^{-1}\) está en el anillo generado porque, si su polinomio
+irreducible nos da \(\sum a_iu^i = 0\), tenemos:
+</p>
+
+<p>
+\[ u \left(a_nu^{n-1} + a_{n-1}u^{n-2} + \dots a_1 \right)\frac{1}{a_0} = 1\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org52a7f63" class="outline-6">
+<h6 id="org52a7f63">Punto 2</h6>
+<div class="outline-text-6" id="text-org52a7f63">
+<p>
+Aplicando el primer teorema de isomorfía al morfismo evaluación,
+tenemos el resultado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgadf06dd" class="outline-6">
+<h6 id="orgadf06dd">Punto 3</h6>
+<div class="outline-text-6" id="text-orgadf06dd">
+<p>
+Tenemos que \(1,u,u^2,\dots,u^{n-1}\) son linealmente independientes porque
+una relación lineal entre ellos daría un polinomio menor que el
+mínimo. Además son base trivialmente porque \(u^{-1}\) puede expresarse
+linealmente como polinomio suyo como mostramos <a href="#orge560ffa">antes</a> y porque
+cuaquier expresión polinómica de grado mayor a \(n\) puede dividirse 
+por el polinomio irreducible para obtener otra de grado menor.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6c5fe1d" class="outline-6">
+<h6 id="org6c5fe1d">Punto 4</h6>
+<div class="outline-text-6" id="text-org6c5fe1d">
+<p>
+La misma demostración <a href="#orgadf06dd">anterior</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb813390" class="outline-6">
+<h6 id="orgb813390">Punto 5</h6>
+<div class="outline-text-6" id="text-orgb813390">
+<p>
+Un polinomio verificando \(f(u)=0\) está dentro del núcleo del
+homomorfismo evaluación.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d33f10" class="outline-4">
+<h4 id="org2d33f10">3.2.17. Algebraicos en una torre de cuerpos</h4>
+<div class="outline-text-4" id="text-org2d33f10">
+<p>
+Sea \(K \subset F \subset E\) con \(u \in E\) algebraico sobre \(K\), entonces \(u\) es
+algebraico sobre \(F\) y \(Irr(u,F)\) divide a \(Irr(u,K)\).
+</p>
+</div>
+
+<div id="outline-container-orgbb678ff" class="outline-5">
+<h5 id="orgbb678ff">Demostración</h5>
+<div class="outline-text-5" id="text-orgbb678ff">
+<p>
+Notamos que \(Irr(u,K)\) es también un polinomio sobre \(F\) que anula
+a \(u\), así que, por las propiedades de los polinomios irreducibles,
+se debe tener \(Irr(u,F) \mid Irr(u,K)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org60494f3" class="outline-4">
+<h4 id="org60494f3">3.2.18. Extensiones algebraicas</h4>
+<div class="outline-text-4" id="text-org60494f3">
+<p>
+Una extensión se llama <b>algebraica</b> si todos sus elementos lo son.
+Es <b>trascendente</b> en otro caso.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org15fc3d4" class="outline-4">
+<h4 id="org15fc3d4">3.2.19. Elementos algebraicamente independientes</h4>
+<div class="outline-text-4" id="text-org15fc3d4">
+<p>
+Los elementos \(\{u_i \mid i\in I\}\) son algebraicamente independientes si el
+homomorfismo de evaluación sobre el cuerpo de polinomios en varias
+variables \(K[X_i \mid i\in I]\) es inyectivo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfd087ba" class="outline-4">
+<h4 id="orgfd087ba">3.2.20. Extensiones puramente trascendentes</h4>
+<div class="outline-text-4" id="text-orgfd087ba">
+<p>
+Una extensión \(F/K\) se llama puramente trascendente si \(F = K(S)\)
+donde \(S\) un conjunto de algebraicamente independientes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcb4f74c" class="outline-4">
+<h4 id="orgcb4f74c">3.2.21. Generación finita de elementos</h4>
+<div class="outline-text-4" id="text-orgcb4f74c">
+<p>
+Para \(F/K\) extensión cualquiera \(S \subseteq F\), se tiene:
+</p>
+
+<ol class="org-ol">
+<li>Para \(u \in K[S]\) existe un subconjunto \(\{u_1,\dots,u_n\} \subset S\) tal que
+\(u \in K[u_1,\dots,u_n]\).</li>
+<li>Para \(u \in K(S)\) existe un subconjunto \(\{u_1,\dots,u_n\} \subset S\) tal que
+\(u \in K(u_1,\dots,u_n)\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org61b00ba" class="outline-5">
+<h5 id="org61b00ba">Demostración</h5>
+<div class="outline-text-5" id="text-org61b00ba">
+<p>
+Tener \(u \in K[S]\) nos da una expresión polinómica finita como elementos
+de \(S\). Los elementos involucrados en esa expresión crean una extensión
+finita en la que está \(u\). Análogo en el caso de cuerpos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org86e01a2" class="outline-4">
+<h4 id="org86e01a2">3.2.22. Generación del compuesto</h4>
+<div class="outline-text-4" id="text-org86e01a2">
+<p>
+Sean \(K \subset E,K(S) \subset L\), entonces \(EK(S) = E(S)\).
+</p>
+</div>
+
+<div id="outline-container-org4ea7e28" class="outline-5">
+<h5 id="org4ea7e28">Demostración</h5>
+<div class="outline-text-5" id="text-org4ea7e28">
+<p>
+Por definición del cuerpo compuesto, será \(EK(S) = K(E)(S) = E(S)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga77ba44" class="outline-4">
+<h4 id="orga77ba44">3.2.23. Grado de una extensión compuesta</h4>
+<div class="outline-text-4" id="text-orga77ba44">
+<p>
+Sean \(K \subset E,F \subset L\). Entonces:
+</p>
+
+<p>
+\[ [EF:K] \leq [E:K][F:K]\]
+</p>
+</div>
+
+<div id="outline-container-org885c9e6" class="outline-5">
+<h5 id="org885c9e6">Demostración</h5>
+<div class="outline-text-5" id="text-org885c9e6">
+<p>
+En el caso finito, el cuerpo generado por las bases de \(E\) y
+de \(F\) multiplicadas contiene a todo elemento de \(E\) y de \(F\), por 
+lo que es sistema de generadores de \(EF\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org80aa70c" class="outline-4">
+<h4 id="org80aa70c">3.2.24. Extensiones primas relativas</h4>
+<div class="outline-text-4" id="text-org80aa70c">
+<p>
+Sean \(K \subset E,F \subset L\) con \(n = [E:K]\) y \(m = [F:K]\) primos relativos.
+Entonces \([EF:K] = [E:K][F:K]\).
+</p>
+</div>
+
+<div id="outline-container-org6823eff" class="outline-5">
+<h5 id="org6823eff">Demostración</h5>
+<div class="outline-text-5" id="text-org6823eff">
+<p>
+Sea \(\{f_i\}\) base de \(F\) sobre \(K\). Tenemos que es sistema de generadores
+de \(F\) sobre \(E\), y por tanto, de \(EF\) sobre \(E\). Así \([EF:E] \leq [F:K]\)
+y análogamente \([EF:F] \leq [E:K]\).
+</p>
+
+<p>
+Por otro lado, por teorema del grado tenemos:
+</p>
+
+<p>
+\[[EF:K] = [EF:F][F:K] = [EF:F]m\]
+\[[EF:K] = [EF:E][E:K] = [EF:E]n\] 
+</p>
+
+<p>
+Así, por ser primos relativos, tenemos \(n \mid [EF:E]\) y \(m \mid [EF:F]\); 
+teniéndose finalmente:
+</p>
+
+<p>
+\[ [EF:F] = [E:K] \]
+\[ [EF:E] = [F:K] \]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org315540c" class="outline-4">
+<h4 id="org315540c">3.2.25. Extensión finitamente generada por algebraicos es finita</h4>
+<div class="outline-text-4" id="text-org315540c">
+<p>
+Una extensión \(F = K(u_1,\dots,u_n)\) finitamente generada por \(u_i\) algebraicos
+es finita.
+</p>
+</div>
+
+<div id="outline-container-orged69414" class="outline-5">
+<h5 id="orged69414">Demostración</h5>
+<div class="outline-text-5" id="text-orged69414">
+<p>
+Todo elemento algebraico cumple una relación polinómica. Así,
+todo elemento de grado igual o mayor a esta relación, puede
+expresarse como elementos de grado menor.
+</p>
+
+<p>
+Si tenemos \(e_i\) como el exponente mayor al que puedo elevar \(u_i\) sin
+que pueda ser reescrito, tenemos un sistema de generadores de \(F\) 
+finito como:
+</p>
+
+<p>
+\[\{ 1, u_1^1, u_1^2, \dots u_1^{e_i}, u_2^1, \dots, u_2^{e_j}, u_3^1,\dots\}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org11d0f3e" class="outline-4">
+<h4 id="org11d0f3e">3.2.26. Extensión generada por algebraicos es algebraica</h4>
+<div class="outline-text-4" id="text-org11d0f3e">
+<p>
+Una extensión \(K(S)/K\) es algebraica sobre \(K\) ssi todo \(u \in S\) es 
+algebraico sobre \(K\).
+</p>
+</div>
+
+<div id="outline-container-org2ab707c" class="outline-5">
+<h5 id="org2ab707c">Demostración</h5>
+<div class="outline-text-5" id="text-org2ab707c">
+<p>
+Si es algebraica, en particular lo es cada elemento de \(S\).
+Si lo son los elementos de \(S\), podemos ver que cualquier 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga7d4ea0" class="outline-4">
+<h4 id="orga7d4ea0">3.2.27. Finita es algebraica y finitamente generada</h4>
+<div class="outline-text-4" id="text-orga7d4ea0">
+<p>
+Una extensión es finita ssi es algebraica y finitamente generada
+</p>
+</div>
+
+<div id="outline-container-orgf0953d9" class="outline-5">
+<h5 id="orgf0953d9">Demostración</h5>
+<div class="outline-text-5" id="text-orgf0953d9">
+<p>
+Tenemos que extensión finitamente generada por algebraicos es
+<a href="#org315540c">finita</a>. Por otro lado, si es finita, tendrá una base finita que
+la genera; y para cada elemento de la base, \(\{1,u,\dots,u^n\}\) no
+será linealmente independiente. Luego será finita.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd8a8c78" class="outline-4">
+<h4 id="orgd8a8c78">3.2.28. Caracterización de elementos algebraicos</h4>
+<div class="outline-text-4" id="text-orgd8a8c78">
+<p>
+Un elemento \(u \in F\) es algebraico sobre \(K\) ssi existe una extensión
+finita intermedia \(E/K\) donde \(u \in E\).
+</p>
+</div>
+
+<div id="outline-container-orgede937f" class="outline-5">
+<h5 id="orgede937f">Demostración</h5>
+<div class="outline-text-5" id="text-orgede937f">
+<p>
+Si es algebraico de grado \(n\), tenemos \(K(u)\) algebraica y finitamente
+generada, <a href="#orga7d4ea0">luego finita</a>. Si existe una extensión finita intermedia, 
+será algebraica.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7b28d84" class="outline-4">
+<h4 id="org7b28d84">3.2.29. Torre algebraica</h4>
+<div class="outline-text-4" id="text-org7b28d84">
+<p>
+Sean \(K \subset F \subset E\), \(E/K\) es algebraica ssi \(E/F\) y \(F/K\) son ambas 
+algebraicas.
+</p>
+</div>
+
+<div id="outline-container-orgb0506c6" class="outline-5">
+<h5 id="orgb0506c6">Demostración</h5>
+<div class="outline-text-5" id="text-orgb0506c6">
+</div><div id="outline-container-org621c9be" class="outline-6">
+<h6 id="org621c9be">Si es algebraica, lo son sus partes</h6>
+<div class="outline-text-6" id="text-org621c9be">
+<p>
+Un elemento algebraico sobre \(K\) lo será sobre \(F\). Y todo elemento
+de \(F\) está en \(E\), luego será algebraico sobre \(K\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0c70f59" class="outline-6">
+<h6 id="org0c70f59">Si las partes son algebraicas, es algebraica</h6>
+<div class="outline-text-6" id="text-org0c70f59">
+<p>
+Todo elemento \(e \in E\) es algebraico sobre \(F\), luego cumple algún
+polinomio con elementos en \(F\). Los elementos que generan el polinomio
+en \(F\) son todos algebraicos sobre \(K\), luego \(K\) extendido con esos
+elementos es finito. Si lo extiendo con \(e\), que es algebraico sobre
+ellos, llego a otra extensión finita. Toda finita es <a href="#orga7d4ea0">algebraica</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org15e070c" class="outline-4">
+<h4 id="org15e070c">3.2.30. Clausura algebraica relativa</h4>
+<div class="outline-text-4" id="text-org15e070c">
+<p>
+Dada \(F/K\) extensión, el conjunto de elementos algebraicos forman un
+subcuerpo de \(F\). Llamado <b>clausura algebraica relativa</b> de \(K\) en \(F\).
+</p>
+</div>
+
+<div id="outline-container-org2d4dfd7" class="outline-5">
+<h5 id="org2d4dfd7">Demostración</h5>
+<div class="outline-text-5" id="text-org2d4dfd7">
+<p>
+Sean \(a,b \in F\) algebraicos; entonces \(K(a,b)\) es finito, luego \(a+b\) y
+\(ab\) son también algebraicos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf1f967" class="outline-5">
+<h5 id="orgaf1f967">Demostración constructiva para la suma</h5>
+<div class="outline-text-5" id="text-orgaf1f967">
+<p>
+Se puede <a href="http://mathoverflow.net/a/81640/45365">encontrar constructivamente</a> un polinomio que tenga como
+raíz a la suma de dos algebraicos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdedf5a4" class="outline-4">
+<h4 id="orgdedf5a4"><span class="done DONE">DONE</span> Existencia de clausura</h4>
+<div class="outline-text-4" id="text-orgdedf5a4">
+<p>
+<b>Teorema de Steinitz</b>. Todo cuerpo tiene una extensión algebraicamente 
+cerrada.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org96af242" class="outline-4">
+<h4 id="org96af242"><span class="done DONE">DONE</span> Homomorfismos sobre un cuerpo</h4>
+<div class="outline-text-4" id="text-org96af242">
+<p>
+Un <b>homomorfismo sobre cuerpos</b> \(K,K'\) es un homomorfismo \(\phi\) sobre extensiones
+\(F,F'\) con un isomorfismo \(\omega : K \longrightarrow K'\) debe cumplir: \(\phi|_K = \omega\). 
+Cuando no se especifica, se asume la identidad.
+</p>
+
+<p>
+\[ \phi : F/K \longrightarrow F'/K' \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org90f0e19" class="outline-4">
+<h4 id="org90f0e19"><span class="done DONE">DONE</span> Automorfismos entre extensiones</h4>
+<div class="outline-text-4" id="text-org90f0e19">
+<p>
+Un automofismo de extensiones es un homomorfismo sobre el cuerpo \(K\), 
+\(\phi : F/K \longrightarrow F/K\) que es isomorfismo.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcdf8de8" class="outline-2">
+<h2 id="orgcdf8de8">4. Cuerpos de descomposición</h2>
+<div class="outline-text-2" id="text-orgcdf8de8">
+</div><div id="outline-container-org50564a0" class="outline-3">
+<h3 id="org50564a0"><span class="done DONE">DONE</span> Extensión de homomorfismos</h3>
+<div class="outline-text-3" id="text-org50564a0">
+<p>
+<b>Extensión de un homomorfismo</b>. \(\tau : F_1 \longrightarrow F_2\) es extensión de 
+\(\sigma : K_1 \longrightarrow K_2\) cuando son dos extensiones \(F/K\) y se cumple
+que \(\tau |_K_1 = \sigma\).
+</p>
+
+<p>
+Cuando \(\sigma = 1\), llamamos a \(\tau\) <b>homomorfismo sobre K</b>.
+</p>
+</div>
+
+<div id="outline-container-org823b873" class="outline-4">
+<h4 id="org823b873">Automorfismos de una extensión</h4>
+<div class="outline-text-4" id="text-org823b873">
+<p>
+<b>Automorfismos de una extensión</b>. Sea \(\sigma : F/K \longrightarrow F/K\), entonces,
+\(\sigma\) es automorfismo.
+</p>
+</div>
+
+<div id="outline-container-orge5fa356" class="outline-5">
+<h5 id="orge5fa356">Demostración</h5>
+<div class="outline-text-5" id="text-orge5fa356">
+<p>
+Para \(u\in F\), tomamos \(K(u_1,\dots,u_k)\) la extensión finita generada por todas 
+las raíces del irreducible sobre \(u\). Como \(\sigma\) respeta raíces, puede restringirse
+a esta extensión; y será inyectivo en ella por ser morfismo de cuerpos.
+</p>
+
+<p>
+Como esta extensión es finita y esto es una aplicación lineal, la aplicación 
+restringida es sobreyectiva.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga7af1c4" class="outline-4">
+<h4 id="orga7af1c4">Número de extensiones</h4>
+<div class="outline-text-4" id="text-orga7af1c4">
+<div class="theorem">
+<p>
+<b>Número de extensiones</b>. Teniendo \(u_1\) de irreducible a \(f_1\), hay tantas
+extensiones \(\tau : K_1[u_1] \longrightarrow F_2\) como raíces tenga su imagen \(f_2\); ya que están 
+completamente determinadas por la imagen de \(u_1\).
+</p>
+
+</div>
+<div class="proofs">
+<p>
+Existe un único isomorfismo llevando \(\tau(u_1) = u_2\), tomando este diagrama de
+isomorfismos:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+K_1(u) \rar{\tau} & K_2(u) \\
+\frac{K_1[X]}{(f_1)} \uar{p_1} \rar{\overline\sigma} &
+\frac{K_2[X]}{(f_2)} \uar{p_2}
+\end{tikzcd} \]
+</p>
+
+<p>
+Donde \(\sigma\) es inducido por el isomorfismo de extensión a polinomios.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org814ac2a" class="outline-3">
+<h3 id="org814ac2a">4.1. Cuerpo de descomposición</h3>
+<div class="outline-text-3" id="text-org814ac2a">
+</div><div id="outline-container-orgfba94ed" class="outline-4">
+<h4 id="orgfba94ed">4.1.1. Teorema de Kronecker</h4>
+<div class="outline-text-4" id="text-orgfba94ed">
+<p>
+Sea \(f\) de grado no nulo sobre \(K\), entonces existe
+una extensión \(F/K\) tal que existe \(u \in F\) con \(f(u) = 0\).
+</p>
+</div>
+
+<div id="outline-container-orgf619767" class="outline-5">
+<h5 id="orgf619767">Demostración</h5>
+<div class="outline-text-5" id="text-orgf619767">
+<p>
+Puedo descomponer en irreducibles \(f = f_1f_2\dots f_m\); y tener una 
+extensión cumpliendo lo pedido:
+</p>
+
+<p>
+\[ F = \frac{K[X]}{(f_1)}\]
+</p>
+
+<p>
+Para el elemento \(u = x + (f_1)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org33ebee7" class="outline-4">
+<h4 id="org33ebee7">4.1.2. Extensión de un homomorfismo</h4>
+<div class="outline-text-4" id="text-org33ebee7">
+<p>
+Dadas extensiones \(F_1/K_1, F_2/K_2\), decimos que \(\tau : F_1 \longrightarrow F_2\) 
+es una extensión de \(\sigma : K_1 \longrightarrow K_2\), ambos homomorfismos de 
+cuerpos, cuando \(\tau|_{K_1} = \sigma\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8d1482a" class="outline-4">
+<h4 id="org8d1482a">4.1.3. Isomorfismo extendido a polinomios</h4>
+<div class="outline-text-4" id="text-org8d1482a">
+<p>
+Sea \(\sigma : K_1 \longrightarrow K_2\) isomorfismo de cuerpos. Existe una única extensión a
+un isomorfismo \(\sigma : K_1[X] \longrightarrow K_2[X]\) cumpliendo que \(\sigma(X) = X\).
+</p>
+</div>
+
+<div id="outline-container-org01ecd9d" class="outline-5">
+<h5 id="org01ecd9d">Demostración</h5>
+<div class="outline-text-5" id="text-org01ecd9d">
+<p>
+Por la propiedad universal por el anillo de polinomios. Las imágenes
+de todos los elementos están fijas excepto la de \(X\) y sus múltiplos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org524cc17" class="outline-4">
+<h4 id="org524cc17">4.1.4. Isomorfismos respetan irreducibilidad</h4>
+<div class="outline-text-4" id="text-org524cc17">
+<p>
+Sea \(f_1 \in K_1[X]\) irreducible sobre \(K_1\), entonces \(\sigma(f)\) es irreducible sobre
+\(K_2\); donde \(\sigma\) es la <a href="#org8d1482a">extensión</a> a polinomios de un isomorfismo.
+</p>
+</div>
+
+<div id="outline-container-orgc1525fa" class="outline-5">
+<h5 id="orgc1525fa">Demostración</h5>
+<div class="outline-text-5" id="text-orgc1525fa">
+<p>
+Si tuviéramos \(f_1 = gh\) dos polinomios no triviales, su grado se 
+conservaría al aplicar el isomorfismo y tendríamos
+\(\sigma(f)=\sigma(g)\sigma(h)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga1b7058" class="outline-4">
+<h4 id="orga1b7058">4.1.5. Isomorfismo de raíces de polinomios</h4>
+<div class="outline-text-4" id="text-orga1b7058">
+<p>
+Sea \(\sigma : K_1 \longrightarrow K_2\) isomorfismo de cuerpos y sean \(F_1/K_1, F_2/K_2\) 
+extensiones algebraicas. Dado un homomorfismo \(\tau : F_1 \longrightarrow F_2\) sobre \(\sigma\);
+si \(u\) es raíz de \(p\) entonces \(\tau(u)\) es raíz de \(\sigma(p)\).
+</p>
+</div>
+
+<div id="outline-container-org09935d1" class="outline-5">
+<h5 id="org09935d1">Demostración</h5>
+<div class="outline-text-5" id="text-org09935d1">
+<p>
+Por simple cálculo tomando \(p(x) = a_nx^n + \dots + a_1x + a_0\):
+</p>
+
+<p>
+\[ \begin{aligned}
+\sigma(p)(\tau(u)) &= \sigma(a_n)\tau(u)^n + \dots + \sigma(a_1)\tau(u) + \sigma(a_0) \\ 
+                   &= \tau(a_n)\tau(u)^n + \dots + \tau(a_1)\tau(u) + \tau(a_0) \\
+                   &= \tau(a_nu^n + \dots + a_1u + a_0) \\
+                   &= \tau(0) = 0
+\end{aligned} \]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc97658b" class="outline-4">
+<h4 id="orgc97658b">4.1.6. Los endomorfismos de extensiones algebraicas son automorfismos</h4>
+<div class="outline-text-4" id="text-orgc97658b">
+<p>
+Sea \(F/K\) una extensión algebraica y \(\tau : F/K \longrightarrow F/K\) un endomorfismo
+sobre \(K\). Entonces \(\tau\) es un automorfismo.
+</p>
+</div>
+
+<div id="outline-container-org54d678a" class="outline-5">
+<h5 id="org54d678a">Demostración</h5>
+<div class="outline-text-5" id="text-org54d678a">
+<p>
+Tenemos que es una extensión de la identidad y que preserva <a href="#orga1b7058">raíces</a>.
+Por eso, dado un elemento \(u \in F\), tomamos su \(f = Irr(u,K)\). Y tenemos
+que \(\{\tau^n(u)\}_{n\in \mathbb{N}}\) es una sucesión de raíces del polinomio que, por 
+inyectividad, deberá repetir los elementos en algún momento.
+</p>
+
+<p>
+Tendremos \(\tau^m(u)=u\) y será sobreyectiva. Nótese que estamos usando
+la inyectividad de todo homomorfismo de cuerpos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb27a35a" class="outline-4">
+<h4 id="orgb27a35a">4.1.7. Isomorfismo intercambiando conjugadas</h4>
+<div class="outline-text-4" id="text-orgb27a35a">
+<p>
+Sea \(\sigma : K_1 \longrightarrow K_2\) isomorfismo de cuerpos. Sea \(p\) irreducible
+y \(u_1,u_2\) raíces de \(p\) y \(\sigma(p)\) en extensiones \(F_1,F_2\). Entonces existe un 
+único isomorfismo \(\tau : K_1(u_1) \longrightarrow K_2(u_2)\) sobre \(\sigma\) tal que \(\tau(u_1) = u_2\).
+</p>
+</div>
+
+<div id="outline-container-org5809d00" class="outline-5">
+<h5 id="org5809d00">Demostración</h5>
+<div class="outline-text-5" id="text-org5809d00">
+<p>
+El isomorfismo buscado sale como composición:
+</p>
+
+<p>
+\[K_1(u_1) \cong 
+  \frac{K_1[X]}{(f_1)} \cong 
+  \frac{K_2[X]}{(f_2)} \cong
+  K_2(u_2)\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7335c9e" class="outline-4">
+<h4 id="org7335c9e">4.1.8. Número de extensiones</h4>
+<div class="outline-text-4" id="text-org7335c9e">
+<p>
+El número de extensiones \(\tau : K_1[u_1] \longrightarrow F_2\) sobre \(\sigma\) es el número de
+raíces distintas de \(\sigma(p)\) en \(F_2\).
+</p>
+</div>
+
+<div id="outline-container-org27aa89a" class="outline-5">
+<h5 id="org27aa89a">Demostración</h5>
+<div class="outline-text-5" id="text-org27aa89a">
+<p>
+Por la <a href="#orgb27a35a">proposición anterior</a>, una para cada raíz de \(\sigma(p)\). Nótese
+que no puede haber más porque la imagen de \(u_1\) determina completamente
+el morfismo y porque la imagen de raíz <a href="#orga1b7058">debe ser</a> una raíz.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgef982be" class="outline-4">
+<h4 id="orgef982be">4.1.9. Cuerpo de descomposición</h4>
+<div class="outline-text-4" id="text-orgef982be">
+<p>
+Un \(E/K\) es un cuerpo de descomposición de \(f\) ssi existen \(u_1,\dots,u_n \in E\) 
+tales que \(f = (X-u_1)\dots(X-u_n)\) y \(E = K(u_1,\dots,u_n)\).
+</p>
+</div>
+
+<div id="outline-container-org222a40a" class="outline-5">
+<h5 id="org222a40a">Caracterización</h5>
+<div class="outline-text-5" id="text-org222a40a">
+<p>
+Nótese que es el mínimo en el que factoriza linealmente. Cualquier
+otro en el que factorice linealmente necesita contar con sus raíces.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org99cfb2f" class="outline-4">
+<h4 id="org99cfb2f">4.1.10. Cuerpo de descomposición en una torre</h4>
+<div class="outline-text-4" id="text-org99cfb2f">
+<p>
+Sean \(K \subset F \subset E\). Si \(E\) es cuerpo de descomposición de \(f\) sobre \(K\), 
+también lo es de \(f\) sobre \(F\).
+</p>
+</div>
+
+<div id="outline-container-orgf2ace56" class="outline-5">
+<h5 id="orgf2ace56">Demostración</h5>
+<div class="outline-text-5" id="text-orgf2ace56">
+<p>
+Se cumple trivialmente:
+</p>
+
+<p>
+\[ E = K(u_1,\dots,u_n) \subset F(u_1,\dots,u_n) \subset E\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf81c4e0" class="outline-4">
+<h4 id="orgf81c4e0">4.1.11. Existencia del cuerpo de descomposición</h4>
+<div class="outline-text-4" id="text-orgf81c4e0">
+<p>
+Cualquier \(f \in K[X]\) de grado \(n\) tiene un cuerpo de descomposición, 
+que además verifica \([F:K] \leq n!\)
+</p>
+</div>
+
+<div id="outline-container-org95c1f47" class="outline-5">
+<h5 id="org95c1f47">Demostración</h5>
+<div class="outline-text-5" id="text-org95c1f47">
+</div><div id="outline-container-orgab77301" class="outline-6">
+<h6 id="orgab77301">Inducción: caso base</h6>
+<div class="outline-text-6" id="text-orgab77301">
+<p>
+Cuando \(n=1\), tenemos una raíz en el cuerpo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org728bd89" class="outline-6">
+<h6 id="org728bd89">Inducción: caso inductivo</h6>
+<div class="outline-text-6" id="text-org728bd89">
+<p>
+En otro caso, por <a href="#orgfba94ed">Kronecker</a>, tenemos que existe una extensión
+en la que hay una raíz del polinomio. Tomamos esa raíz para crear
+\(K(u)\). Por hipótesis de inducción, hay un cuerpo de descomposición
+de \(f/(X-u)\) sobre \(K(u)\), llamado \(F\). Por último, podemos construir 
+un cuerpo de descomposición con sus raíces.
+</p>
+
+<p>
+Tenemos además que la raíz tiene menos grado que el polinomio:
+</p>
+
+<p>
+\[ [F:K] = [F:K(u)][K(u):K] \leq (n-1)!n = n! \]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbbf8d78" class="outline-4">
+<h4 id="orgbbf8d78">4.1.12. Isomorfismo entre cuerpos de descomposición</h4>
+<div class="outline-text-4" id="text-orgbbf8d78">
+<p>
+Sean \(F_1/K_1, F_2/K_2\) cuerpos de descomposición de \(f \in K_1[X]\) y 
+\(\sigma(f) \in K_2[X]\); para \(\sigma : K_1 \longrightarrow K_2\) isomorfismo. Entonces son
+isomorfos.
+</p>
+</div>
+
+<div id="outline-container-org36dff5d" class="outline-5">
+<h5 id="org36dff5d">Demostración</h5>
+<div class="outline-text-5" id="text-org36dff5d">
+</div><div id="outline-container-org07e02d3" class="outline-6">
+<h6 id="org07e02d3">Caso base</h6>
+<div class="outline-text-6" id="text-org07e02d3">
+<p>
+Si ambos son de grado \(1\) tenemos extensiones triviales y 
+hemos terminado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org58fb1b4" class="outline-6">
+<h6 id="org58fb1b4">Caso inductivo</h6>
+<div class="outline-text-6" id="text-org58fb1b4">
+<p>
+Sea \(u \in F_1\) raíz de \(f\). Como \(Irr(u,K) \mid f\), tenemos que 
+\(\sigma(Irr(u,K)) \mid \sigma(f)\). Si tomamos una raíz \(v\) de \(\sigma(Irr(u,K))\) y 
+aplicamos el <a href="#orgb27a35a">isomorfismo intercambiando conjugadas</a> anterior,
+tenemos una extensión \(\tau : K_1(u) \longrightarrow K_2(v)\) que lleva una en 
+otra. Ahora tomamos \(f=g(X-u)\) y por inducción tenemos
+un isomorfismo extendiendo hasta el cuerpo de descomposición.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3d29624" class="outline-4">
+<h4 id="org3d29624">4.1.13. Unicidad del cuerpo de descomposición</h4>
+<div class="outline-text-4" id="text-org3d29624">
+<p>
+Dos cuerpos de descomposición de \(f \in K[X]\) sobre \(K\) son isomorfos.
+</p>
+</div>
+
+<div id="outline-container-org2fd3e0e" class="outline-5">
+<h5 id="org2fd3e0e">Demostración</h5>
+<div class="outline-text-5" id="text-org2fd3e0e">
+<p>
+Trivial aplicando lo <a href="#orgbbf8d78">anterior</a> al isomorfismo igualdad.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7baa400" class="outline-4">
+<h4 id="org7baa400">4.1.23. Cuerpo de descomposición de una familia</h4>
+<div class="outline-text-4" id="text-org7baa400">
+<p>
+Sea \({\cal P} \subseteq K[X]\) una familia de polinomios no constantes. Una
+extensión \(E/K\) es cuerpo de descomposición suyo si todo polinomio
+factoriza linealmente y es además se tiene \(E = K(S)\) con:
+</p>
+
+<p>
+\[ S = \{ u \in E \mid \exists f \in {\cal P}: f(u)=0\} \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5cf4ad6" class="outline-4">
+<h4 id="org5cf4ad6">4.1.24. Existencia del cuerpo de descomposición de una familia</h4>
+<div class="outline-text-4" id="text-org5cf4ad6">
+<p>
+Para toda familia de polinomios existe un cuerpo de descomposición.
+</p>
+</div>
+
+<div id="outline-container-org03cc735" class="outline-5">
+<h5 id="org03cc735">Demostración</h5>
+<div class="outline-text-5" id="text-org03cc735">
+</div><div id="outline-container-orgfd89963" class="outline-6">
+<h6 id="orgfd89963">Caso finito</h6>
+<div class="outline-text-6" id="text-orgfd89963">
+<p>
+En el caso finito, multiplicamos toda la familia para aplicar
+la <a href="#orgf81c4e0">existencia del cuerpo de descomposición</a> al producto.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga07578e" class="outline-6">
+<h6 id="orga07578e">Caso infinito</h6>
+<div class="outline-text-6" id="text-orga07578e">
+<p>
+Cuando tenemos una familia \(\{ f_\lambda \mid \lambda \in \Lambda\}\). Si tomamos \(I \subset \Lambda\) finito, 
+podemos asignarle un cuerpo de descomposición \(F_I\) tal que \(I\subset J\) 
+implique \(F_I \subset F_J\).
+</p>
+
+<p>
+Tomamos:
+</p>
+
+<p>
+\[F = \bigcup_{J\text{ finito}} F_J \]
+</p>
+
+<p>
+Las operaciones entre dos elementos de \(F\) se definen en el menor
+cuerpo que contenga a los dos.
+</p>
+
+<p>
+Esto es un cuerpo de descomposición porque todo polinomio ya
+descompone linealmente en cualquier \(F_J\) que lo contenga; y cada
+\(F_J\) era ya cuerpo de descomposición de los polinomios que contenía,
+así que el cuerpo de descomposición debe al menos contener a todos
+los \(F_J\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgba7efee" class="outline-4">
+<h4 id="orgba7efee">4.1.25. Unicidad (esencial) del cuerpo de descomposición de una familia</h4>
+<div class="outline-text-4" id="text-orgba7efee">
+<p>
+El cuerpo de descomposición de una familia de polinomios es único
+salvo isomorfismos.
+</p>
+</div>
+
+<div id="outline-container-orgc1d37a2" class="outline-5">
+<h5 id="orgc1d37a2">Demostración</h5>
+<div class="outline-text-5" id="text-orgc1d37a2">
+</div><div id="outline-container-org85c0e98" class="outline-6">
+<h6 id="org85c0e98">Caso finito</h6>
+<div class="outline-text-6" id="text-org85c0e98">
+<p>
+Aplicamos que los cuerpos de descomposición de un polinomio
+<a href="#org3d29624">son isomorfos</a> al polinomio producto.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga9812b7" class="outline-6">
+<h6 id="orga9812b7">Caso infinito</h6>
+<div class="outline-text-6" id="text-orga9812b7">
+<p>
+Sean \(F_1,F_2\) dos cuerpos de descomposición sobre \(K\) de una familia
+de polinomios.
+</p>
+
+<p>
+Ordenamos el siguiente conjunto por inclusión y por extensión del
+isomorfismo. 
+</p>
+
+<p>
+\[ (E,\tau) \leq (F,\psi) \Leftrightarrow 
+(E \subset F) \wedge (\psi|_E = \tau)\]
+</p>
+
+<p>
+Es una ordenación inductiva porque la unión arbitraria da una 
+cota maximal de cualquier cadena:
+</p>
+
+<p>
+\[ {\cal E} = 
+\left\{ (E,\tau) 
+\mid F_1 \supset E \supset K;\;
+\tau : E/K \longrightarrow F_2/K
+\right\}\]
+</p>
+
+<p>
+Que sabemos no vacío por el caso finito. Sea \((F,\sigma)\) maximal. Y 
+supongamos que \(F \subsetneq F_1\), entonces existe alguna raíz de alguno
+de los polinomios que no está en \(F\). Creando un <a href="#orgb27a35a">isomorfismo</a>
+sobre \(F\) que la llevara a su conjugada, contravendríamos maximalidad.
+</p>
+
+<p>
+Ahora, todo \(f\) de la familia descompondría en \(F\) y por \(\sigma\), se las
+llevarían a \(F_2\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org72bd6a4" class="outline-4">
+<h4 id="org72bd6a4"><span class="done DONE">DONE</span> Descomposición</h4>
+<div class="outline-text-4" id="text-org72bd6a4">
+<p>
+Un polinomio \(f \in K[X]\) <b>descompone</b> en una extensión \(E\) si
+factoriza como polinomios lineales en \(E[X]\). Llamamos <b>cuerpo de
+descomposición</b> a un cuerpo extensión de \(K\) minimal en el que
+descompone.
+</p>
+
+<p>
+Propiedades:
+</p>
+
+<ul class="org-ul">
+<li>Sea \(E\) cuerpo de descomposición, entonces \(E = K(\alpha_1,\alpha_2,\dots,\alpha_n)\), 
+siendo una extensión finita con grado acotado por \(n!\).</li>
+<li>Todo polinomio tiene cuerpo de descomposición sobre \(K\), ya que 
+podemos tomar una clausura algebraica y crear \(K(\alpha_1,\dots,\alpha_n)\) con
+sus raíces.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8e6440d" class="outline-3">
+<h3 id="org8e6440d">4.2. Clausura algebraica</h3>
+<div class="outline-text-3" id="text-org8e6440d">
+</div><div id="outline-container-orga39ce2a" class="outline-4">
+<h4 id="orga39ce2a">4.2.1. Algebraicamente cerrado</h4>
+<div class="outline-text-4" id="text-orga39ce2a">
+<p>
+Un cuerpo tal que toda extensión algebraica suya sea trivial
+es un cuerpo algebraicamente cerrado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org759e286" class="outline-4">
+<h4 id="org759e286">4.2.2. Caracterización de los algebraicamente cerrados</h4>
+<div class="outline-text-4" id="text-org759e286">
+<p>
+Equivalen las siguientes propiedades:
+</p>
+
+<ol class="org-ol">
+<li>Todo polinomio no constante tiene raíz en \(K\).</li>
+<li>Todo polinomio descompone linealmente en \(K\).</li>
+<li>Un polinomio es irreducible en \(K\) ssi es de grado \(1\).</li>
+<li>Toda extensión algebraica de \(K\) es trivial.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgeb66d74" class="outline-5">
+<h5 id="orgeb66d74">Demostración</h5>
+<div class="outline-text-5" id="text-orgeb66d74">
+</div><div id="outline-container-org13a188a" class="outline-6">
+<h6 id="org13a188a">Implicación 1 a 2</h6>
+<div class="outline-text-6" id="text-org13a188a">
+<p>
+Como \(f\) tiene raíz en \(K\), podemos dividirlo por \((x-u)\), para
+obtener un nuevo polinomio de grado menor.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1943606" class="outline-6">
+<h6 id="org1943606">Implicación 2 a 3</h6>
+<div class="outline-text-6" id="text-org1943606">
+<p>
+Trivialmente.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf4829b0" class="outline-6">
+<h6 id="orgf4829b0">Implicación 3 a 4</h6>
+<div class="outline-text-6" id="text-orgf4829b0">
+<p>
+Sea un elemento en la extensión algebraica, su irreducible
+debe ser de grado \(1\), luego debe estar en el cuerpo base.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3e45025" class="outline-6">
+<h6 id="org3e45025">Implicación 4 a 1</h6>
+<div class="outline-text-6" id="text-org3e45025">
+<p>
+Si algún polinomio no constante no tuviera raíz, aplicamos
+<a href="#orgfba94ed">Teorema de Kronecker</a> para crear una extensión algebraica
+no trivial.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org09c8931" class="outline-4">
+<h4 id="org09c8931">4.2.3. Infinitud de algebraicamente cerrados</h4>
+<div class="outline-text-4" id="text-org09c8931">
+<p>
+Todo cuerpo algebraicamente cerrado es infinito.
+</p>
+</div>
+
+<div id="outline-container-org14f45c7" class="outline-5">
+<h5 id="org14f45c7">Demostración</h5>
+<div class="outline-text-5" id="text-org14f45c7">
+<p>
+Si tengo un cuerpo finito \(K\) formo el polinomio irreducible
+siguiente, que no tiene raíces en \(K\):
+</p>
+
+<p>
+\[ 
+f(x) = \prod_{k \in K} (x-k) + 1
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org06b8c30" class="outline-4">
+<h4 id="org06b8c30">4.2.4. Cuerpo algebraicamente cerrado de elementos algebraicos</h4>
+<div class="outline-text-4" id="text-org06b8c30">
+<p>
+Sea \(E/K\) con \(E\) algebraicamente cerrado. Los elementos algebraicos
+de \(E\) forman un cuerpo algebraicamente cerrado.
+</p>
+</div>
+
+<div id="outline-container-org280b460" class="outline-5">
+<h5 id="org280b460">Demostración</h5>
+<div class="outline-text-5" id="text-org280b460">
+<p>
+Sabemos que <a href="#org15e070c">forman un cuerpo</a>. Para ver que es algebraicamente cerrado
+vemos que todo polinomio sobre ellos tiene una raíz en \(E\), por ser
+este algebraicamente cerrado. Como una raíz es algebraica, tiene
+una raíz en el subcuerpo de los algebraicos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org46c447c" class="outline-4">
+<h4 id="org46c447c">4.2.5. Clausura algebraica absoluta</h4>
+<div class="outline-text-4" id="text-org46c447c">
+<p>
+Una extensión algebraica \(E/K\) es la clausura algebraica (absoluta) 
+si es una extensión algebraica y \(E\) es algebraicamente cerrado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb1a8301" class="outline-4">
+<h4 id="orgb1a8301">4.2.6. Caracterización de la clausura algebraica</h4>
+<div class="outline-text-4" id="text-orgb1a8301">
+<p>
+Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(E/K\) clausura algebraica.</li>
+<li>\(E/K\) algebraica y todo polinomio no constante \(f \in K[X]\) 
+descompone en factores lineales en \(E[X]\).</li>
+<li>\(E\) es cuerpo de descomposición de todos los polinomios no 
+constantes de \(K\).</li>
+<li>\(E/K\) algebraica y todo no constante tiene una raíz en \(E\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org63d183e" class="outline-5">
+<h5 id="org63d183e">Demostración</h5>
+<div class="outline-text-5" id="text-org63d183e">
+</div><div id="outline-container-orgba4729c" class="outline-6">
+<h6 id="orgba4729c">Implicación 1 a 2</h6>
+<div class="outline-text-6" id="text-orgba4729c">
+<p>
+Como \(E\) es algebraicamente cerrado, <a href="#org759e286">sabemos que</a> todos sus polinomios
+descomponen en factores lineales en \(E[X]\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga4741d5" class="outline-6">
+<h6 id="orga4741d5">Implicación 2 a 3</h6>
+<div class="outline-text-6" id="text-orga4741d5">
+<p>
+Todo polinomio descompone. Además, todo elemento de \(E\) es algebraico;
+así que \(K(S) = E\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org24dda8a" class="outline-6">
+<h6 id="org24dda8a">Implicación 3 a 1</h6>
+<div class="outline-text-6" id="text-org24dda8a">
+<p>
+\(E\) está generado por elementos algebraicos, luego es algebraico.
+Además, todo polinomio no constante descompone en él, luego
+es algebraicamente cerrado por la <a href="#org759e286">caracterización</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad634a0" class="outline-6">
+<h6 id="orgad634a0"><span class="todo TODO">TODO</span> Equivalencia con 4</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-org1a86cce" class="outline-4">
+<h4 id="org1a86cce">4.2.7. Transitividad de la clausura algebraica</h4>
+<div class="outline-text-4" id="text-org1a86cce">
+<p>
+Sean \(K \subset F \subset E\) torre de cuerpos, con \(F/K\) algebraica. 
+Entonces \(E\) es clausura algebraica de \(F\) ssi lo es de \(K\).
+</p>
+</div>
+
+<div id="outline-container-org101f8a9" class="outline-5">
+<h5 id="org101f8a9">Demostración</h5>
+<div class="outline-text-5" id="text-org101f8a9">
+<p>
+Ser algebraicamente cerrado es independiente del cuerpo base de
+la extensión. Ser algebraico <a href="#org7b28d84">equivale</a> a que lo sean las dos partes.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org651b37b" class="outline-4">
+<h4 id="org651b37b">4.2.8. Teorema de Steinitz</h4>
+<div class="outline-text-4" id="text-org651b37b">
+<p>
+Para todo cuerpo existe una clausura algebraica.
+</p>
+</div>
+
+<div id="outline-container-orgc3f212a" class="outline-5">
+<h5 id="orgc3f212a">Demostración</h5>
+<div class="outline-text-5" id="text-orgc3f212a">
+<p>
+Sabemos que <a href="#org5cf4ad6">existe</a> el cuerpo de descomposición de todos los polinomios
+no constantes. Por la caracterización de <a href="#orgb1a8301">clausura algebraica</a> sabemos
+que lo es.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfc8959e" class="outline-4">
+<h4 id="orgfc8959e">4.2.9. Unicidad esencial de la clausura algebraica</h4>
+<div class="outline-text-4" id="text-orgfc8959e">
+<p>
+Dos clausuras algebraicas \(E_1,E_2\) del mismo cuerpo \(K\) son isomorfas 
+sobre \(K\).
+</p>
+</div>
+
+<div id="outline-container-orgfacdc45" class="outline-5">
+<h5 id="orgfacdc45">Demostración</h5>
+<div class="outline-text-5" id="text-orgfacdc45">
+<p>
+Tenemos unicidad de esencial de los cuerpos de descomposición,
+y estos son cuerpos de descomposición de todos los polinomios
+no constantes.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfcf11ee" class="outline-4">
+<h4 id="orgfcf11ee">4.2.10. Extensión de homomorfismos a algebraicas</h4>
+<div class="outline-text-4" id="text-orgfcf11ee">
+<p>
+Sea \(K \subset F \subset E\) con \(E/K\) algebraica. Entonces todo \(\sigma : F \longrightarrow \overline{K}\) tiene
+una extensión \(\tau : E \longrightarrow \overline{K}\).
+</p>
+</div>
+
+<div id="outline-container-org4830029" class="outline-5">
+<h5 id="org4830029">Demostración</h5>
+<div class="outline-text-5" id="text-org4830029">
+<p>
+Aplicamos Zorn sobre el siguiente conjunto ordenado para la inclusión,
+sabiendo que toda cadena de cuerpos está acotada por su unión y que cada
+\(\sigma_i\) es extensión del anterior:
+</p>
+
+<p>
+\[{\cal S} = \{(E_i,\sigma_i) \mid 
+F \subset E_i \subset E;\; \sigma_i : E_i \longrightarrow \overline{K};\;
+\sigma_i|_F = \sigma\}\]
+</p>
+
+<p>
+Esto nos da el maximal \(E_1\). Si \(E_1 \subsetneq E\), tomo \(u \in E - E_1\); y busco un
+<a href="#orgb27a35a">isomorfismo</a> intercambiando \(u\) por una conjugada también raíz de \(Irr(u,K)\).
+Esto me da \((E_1,\sigma_1) \leq (E_1(u),\tau)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org38aa960" class="outline-4">
+<h4 id="org38aa960">4.2.11. Cardinalidad de la clausura algebraica</h4>
+<div class="outline-text-4" id="text-org38aa960">
+<p>
+Sea \(K\) cuerpo y \(\overline{K}\) su clausura.
+</p>
+
+<ol class="org-ol">
+<li>Si \(K\) es finito, \(\overline{K}\) es infinito numerable</li>
+<li>Si \(K\) es infinito, \(\#K = \#\overline{K}\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org5ba2959" class="outline-5">
+<h5 id="org5ba2959">Demostración</h5>
+<div class="outline-text-5" id="text-org5ba2959">
+</div><div id="outline-container-org151a9f8" class="outline-6">
+<h6 id="org151a9f8">Caso finito</h6>
+<div class="outline-text-6" id="text-org151a9f8">
+<p>
+Cuando \(K\) es finito, el número de polinomios irreducibles
+sobre él es infinito numerable.
+</p>
+</div>
+</div>
+<div id="outline-container-orgeb0af64" class="outline-6">
+<h6 id="orgeb0af64">Caso infinito</h6>
+<div class="outline-text-6" id="text-orgeb0af64">
+<p>
+En el caso infinito, como máximo se tendrá la acotación que
+da el número de polinomios, que es una unión numerable:
+</p>
+
+<p>
+\[ \#\overline{K} \leq \#\left(\bigcup K^n\right) = \#K \]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6db03bd" class="outline-2">
+<h2 id="org6db03bd">5. Extensiones normales y separables</h2>
+<div class="outline-text-2" id="text-org6db03bd">
+</div><div id="outline-container-orga267d4f" class="outline-3">
+<h3 id="orga267d4f">5.1. Elementos conjugados y extensiones conjugadas</h3>
+<div class="outline-text-3" id="text-orga267d4f">
+</div><div id="outline-container-org3aa6f36" class="outline-4">
+<h4 id="org3aa6f36">5.1.1. Elementos conjugados</h4>
+<div class="outline-text-4" id="text-org3aa6f36">
+<p>
+Sean \(u,v \in \overline{K}\), clausura algebraica. Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(Irr(u,K) = Irr(v,K)\)</li>
+<li>\(\exists \tau : K(u) \longrightarrow K(v)\) <b>isomorfismo</b> con \(\tau(u) = v\).</li>
+<li>\(\exists\sigma : K(u) \longrightarrow \overline{K}\) <b>homomorfismo</b> con \(\sigma(u) = v\).</li>
+<li>\(\exists \sigma : \overline{K} \longrightarrow \overline{K}\) <b>automorfismo</b> con \(\sigma(u) = v\).</li>
+</ol>
+
+<p>
+Morfismos manteniendo \(K\). Estos elementos se llaman 
+<b>elementos conjugados</b>.
+</p>
+</div>
+
+<div id="outline-container-org1ed212f" class="outline-5">
+<h5 id="org1ed212f">Demostración</h5>
+<div class="outline-text-5" id="text-org1ed212f">
+</div><div id="outline-container-orga244acc" class="outline-6">
+<h6 id="orga244acc">Implicación 1 a 2</h6>
+<div class="outline-text-6" id="text-orga244acc">
+<p>
+Supongamos que tienen el mismo polinomio irreducible \(f(X)\), 
+entonces podemos construir un isomorfismo que lleve \(u,v\) a 
+\(X + (f(X))\) para tener:
+</p>
+
+<p>
+\[K(u) \cong \frac{K[X]}{(f(X))}\cong K(v)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7551e75" class="outline-6">
+<h6 id="org7551e75">Implicación 2 a 3 y 4</h6>
+<div class="outline-text-6" id="text-org7551e75">
+<p>
+Dado el isomorfismo, lo podemos prolongar a un homomorfismo.
+Y dado un homomorfismo, lo podemos <a href="#orgfcf11ee">prolongar</a> a un automorfismo 
+por ser una extensión algebraica.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org656f65f" class="outline-6">
+<h6 id="org656f65f">Implicación 4 a 1</h6>
+<div class="outline-text-6" id="text-org656f65f">
+<p>
+Supongamos que existe el automorfismo de \(\overline{K}\). Sea \(f(X) = Irr(u,K)\),
+y tenemos \(0 = \phi(f(u)) = f(\phi(u)) = f(v)\); luego \(Irr(u,K) = Irr(v,K)\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org797361c" class="outline-4">
+<h4 id="org797361c">5.1.3. Extensiones conjugadas</h4>
+<div class="outline-text-4" id="text-org797361c">
+<p>
+Sean \(F_1/K\), \(F_2/K\) extensiones algebraicas, equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(\exists \sigma: F_1 \longrightarrow F_2\) <b>isomorfismo</b> sobre \(K\).</li>
+<li>\(\exists \sigma : F_1 \longrightarrow \overline{K}\), <b>homomorfismo</b> sobre \(K\) con \(\sigma(F_1) = F_2\).</li>
+<li>\(\sigma : \overline{K} \longrightarrow \overline{K}\), <b>isomorfismo</b> tal que \(\sigma(F_1) = F_2\).</li>
+</ol>
+
+<p>
+Estas extensiones se llaman <b>extensiones conjugadas</b>.
+</p>
+</div>
+
+<div id="outline-container-orgee4989c" class="outline-5">
+<h5 id="orgee4989c">Demostración</h5>
+<div class="outline-text-5" id="text-orgee4989c">
+</div><div id="outline-container-orge9abb92" class="outline-6">
+<h6 id="orge9abb92">Implicación 1 a 2</h6>
+<div class="outline-text-6" id="text-orge9abb92">
+<p>
+Extendiendo el isomorfismo se pasa de 1 a 2.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c583e5" class="outline-6">
+<h6 id="org4c583e5">Implicación 2 a 3</h6>
+<div class="outline-text-6" id="text-org4c583e5">
+<p>
+Dado el homomorfismo, lo podemos <a href="#orgfcf11ee">prolongar</a> a un homomorfismo
+por ser \(\overline{K}\) algebraica. Tenemos entonces un endomorfismo de un
+cuerpo algebraico, que <a href="#orgc97658b">debe ser</a> un automorfismo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeb1fecd" class="outline-6">
+<h6 id="orgeb1fecd">Implicación 3 a 1</h6>
+<div class="outline-text-6" id="text-orgeb1fecd">
+<p>
+La restricción a \(F_1\) es isomorfismo.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1fa2557" class="outline-3">
+<h3 id="org1fa2557">5.2. Extensiones normales</h3>
+<div class="outline-text-3" id="text-org1fa2557">
+</div><div id="outline-container-orga2569c8" class="outline-4">
+<h4 id="orga2569c8">5.2.1. Extensiones normales</h4>
+<div class="outline-text-4" id="text-orga2569c8">
+<p>
+Sea \(F/K\) extensión algebraica, subcuerpo de \(\overline{K}\), equivalen:
+</p>
+
+<ul class="org-ul">
+<li>\(\sigma : F \longrightarrow \overline{K}\) sobre \(K\), me da \(\sigma(F) = F\).</li>
+<li>Todo irreducible de \(K[X]\) con una raíz en \(F\) descompone en 
+lineales en \(F[X]\).</li>
+<li>\(F\) es cuerpo de descomposición de una familia de polinomios
+sobre \(K[X]\).</li>
+</ul>
+
+<p>
+A una extensión de este tipo se le llama <b>extensión normal</b>.
+</p>
+</div>
+
+<div id="outline-container-orgf3579e9" class="outline-5">
+<h5 id="orgf3579e9">Demostración</h5>
+<div class="outline-text-5" id="text-orgf3579e9">
+</div><div id="outline-container-org4decbdb" class="outline-6">
+<h6 id="org4decbdb">Implicación 1 a 2</h6>
+<div class="outline-text-6" id="text-org4decbdb">
+<p>
+Dos raíces del mismo irreducible son conjugadas, luego existe
+un <a href="#org3aa6f36">homomorfismo</a> que lleva una en otra, como debe llevar \(F\) en \(F\),
+la otra debe estar en \(F\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad30bd7" class="outline-6">
+<h6 id="orgad30bd7">Implicación 2 a 3</h6>
+<div class="outline-text-6" id="text-orgad30bd7">
+<p>
+Para cada elemento de \(F\) puedo tomar su irreducible, como tiene
+una raíz en \(F\) tiene todas. \(F\) es el cuerpo de descomposición de la
+familia de todos los irreducibles de sus elementos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc59ad9b" class="outline-6">
+<h6 id="orgc59ad9b">Implicación 3 a 1</h6>
+<div class="outline-text-6" id="text-orgc59ad9b">
+<p>
+Tenemos que \(F = K(\alpha_1,\alpha_2,\dots)\), raíces de los polinomios. La imagen
+de la raíz de un polinomio sobre \(K\) debe ser raíz de ese mismo 
+polinomio porque este debe quedar invariante sobre \(\sigma\). Así tenemos
+que \(\sigma(F) \subset F\), y por ser algebraico, todo <a href="#orgc97658b">endomorfismo es 
+automorfismo</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0fdb8ca" class="outline-4">
+<h4 id="org0fdb8ca">5.2.3. Propiedades de las extensiones normales</h4>
+<div class="outline-text-4" id="text-org0fdb8ca">
+<p>
+Sea \(E\) extensión normal. Cumple:
+</p>
+
+<ol class="org-ol">
+<li>Si \(A/K\) es algebraica, \(EA/A\) es normal.</li>
+<li>Si \(K \subset F \subset E\), entonces \(E/F\) es normal.</li>
+<li>Si \(E_1/K, E_2/K\) son normales, \(E_1E_2/K\) es normal.</li>
+<li>Sea \(E_\lambda\), familia de extensiones normales; \(F = \bigcap E_\lambda\) es normal.</li>
+</ol>
+</div>
+
+<div id="outline-container-org6957042" class="outline-5">
+<h5 id="org6957042">Demostración de 1</h5>
+<div class="outline-text-5" id="text-org6957042">
+<p>
+Dado \(\sigma : EA/A \longrightarrow \overline{K}/A\), tengo que \(\sigma(EA) = \sigma(E)\sigma(A) = EA\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org708f14d" class="outline-5">
+<h5 id="org708f14d">Demostración de 2</h5>
+<div class="outline-text-5" id="text-org708f14d">
+<p>
+Sea \(\sigma : E/F \longrightarrow \overline{K}/F\), como deja fijo \(K\), debe tenerse \(\sigma(E)=E\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6497b2d" class="outline-5">
+<h5 id="org6497b2d">Demostración de 3</h5>
+<div class="outline-text-5" id="text-org6497b2d">
+<p>
+Sea \(\sigma: E_1E_2/K \longrightarrow \overline{K}/K\), las restricciones dejan fijos ambos cuerpos
+y \(\sigma(E_1E_2) = \sigma(E_1)\sigma(E_2) = E_1E_2\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3e4684f" class="outline-5">
+<h5 id="org3e4684f">Demostración de 4</h5>
+<div class="outline-text-5" id="text-org3e4684f">
+<p>
+Si un homomorfismo de la intersección lo extiendo y lo restrinjo a
+cada uno, debe dejar todos los cuerpos fijos. Por tanto, un elemento
+en la intersección debe quedarse en la intersección.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgae647cf" class="outline-5">
+<h5 id="orgae647cf">Contraejemplo: subcuerpo de normal no es normal</h5>
+<div class="outline-text-5" id="text-orgae647cf">
+<p>
+El último es cuerpo de descomposición de \(x^3-2\),
+pero el primero no es normal, porque no están todas las
+raíces del polinomio irreducible de \(\sqrt[3]{2}\).
+</p>
+
+<p>
+\(\mathbb{Q} 
+\subset \mathbb{Q}(\sqrt[3]{2}) 
+\subset \mathbb{Q}(\sqrt[3]{2}, i)\)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc2dc06b" class="outline-4">
+<h4 id="orgc2dc06b">5.2.4. Clausura normal</h4>
+<div class="outline-text-4" id="text-orgc2dc06b">
+<p>
+Llamamos clausura normal de \(F/K\) a:
+</p>
+
+<p>
+\[ E = \bigcap \{ H \mid H \supset F;\; H/K\text{ normal}\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org53d5ef2" class="outline-4">
+<h4 id="org53d5ef2">5.2.5. Existencia de la clausura normal</h4>
+<div class="outline-text-4" id="text-org53d5ef2">
+<p>
+Para toda extensión algebraica existe una clausura normal. 
+</p>
+</div>
+
+<div id="outline-container-orge6b77a1" class="outline-5">
+<h5 id="orge6b77a1">Demostración</h5>
+<div class="outline-text-5" id="text-orge6b77a1">
+<p>
+Trivial porque la clausura algebraica es normal.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb75aa41" class="outline-4">
+<h4 id="orgb75aa41">5.2.6. Unicidad de la clausura normal</h4>
+<div class="outline-text-4" id="text-orgb75aa41">
+<p>
+La clausura normal es única salvo isomorfismos.
+</p>
+</div>
+
+<div id="outline-container-orga75b041" class="outline-5">
+<h5 id="orga75b041">Demostración</h5>
+<div class="outline-text-5" id="text-orga75b041">
+<p>
+Sean las dos clausuras sobre la clausura algebraica absoluta.
+Como son intersección de normales y ambas lo son, deben ser
+la misma.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc8d8751" class="outline-4">
+<h4 id="orgc8d8751">5.2.7. Extensión de homomorfismos a extensión normal</h4>
+<div class="outline-text-4" id="text-orgc8d8751">
+<p>
+Sea \(K \subset F \subset E\) con \(E/K\) normal. Todo \(\tau : F \longrightarrow E\) extiende a
+un \(\tau : E \longrightarrow E\). 
+</p>
+</div>
+
+<div id="outline-container-orgb8a8aac" class="outline-5">
+<h5 id="orgb8a8aac">Demostración</h5>
+<div class="outline-text-5" id="text-orgb8a8aac">
+<p>
+Tenemos que extiende a \(\tau : F \longrightarrow \overline{K}\) y de ahí, por ser \(E\) algebraica,
+se <a href="#orgfcf11ee">prolonga</a> a \(\tau : E \longrightarrow \overline{K}\). Por ser normal, \(\tau(E) = E\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeab8f29" class="outline-4">
+<h4 id="orgeab8f29">5.2.8. Clausura de una extensión finita</h4>
+<div class="outline-text-4" id="text-orgeab8f29">
+<p>
+Sea \(F = K(u_1,u_2,\dots,u_n)\) y \(f_i = Irr(u_i,K)\); entonces la clausura normal
+es el cuerpo de descomposición de \(f = f_1f_2\dots f_n\).
+</p>
+</div>
+
+<div id="outline-container-org4f75532" class="outline-5">
+<h5 id="org4f75532">Demostración</h5>
+<div class="outline-text-5" id="text-org4f75532">
+<p>
+Es normal por ser cuerpo de descomposición de un polinomio, es
+la mínima porque debe contener las raíces de \(f_i = Irr(u_i,K)\)
+para ser normal, y si las contiene, debe contener al cuerpo de
+descomposición de \(f\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc92f9e7" class="outline-4">
+<h4 id="orgc92f9e7">5.2.9. La clausura normal de extensión finita es finita</h4>
+<div class="outline-text-4" id="text-orgc92f9e7">
+<p>
+Sea \(F/K\) finita, su clausura normal es finita.
+</p>
+</div>
+
+<div id="outline-container-org0c83c67" class="outline-5">
+<h5 id="org0c83c67">Demostración</h5>
+<div class="outline-text-5" id="text-org0c83c67">
+<p>
+El cuerpo de descomposición anterior es finito porque puedo
+crearlo insertando las raíces de cada polinomio.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0750336" class="outline-4">
+<h4 id="org0750336">5.2.10. Polinomio normal</h4>
+<div class="outline-text-4" id="text-org0750336">
+<p>
+Un polinomio irreducible es normal si en toda extensión
+algebraica \(F/K\) con una raíz de \(f\), descompone en factores 
+lineales.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org47e5ba1" class="outline-4">
+<h4 id="org47e5ba1">5.2.11. Caracterización de polinomios normales</h4>
+<div class="outline-text-4" id="text-org47e5ba1">
+<p>
+Sea \(f\) un polinomio en \(K[X]\), equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(f\) es normal sobre \(K\).</li>
+<li>El cuerpo de descomposición de \(f\) es \(K(u)\), una raíz de \(f\).</li>
+<li>Todas las raíces de \(f\) es expresan como polinomios de una de ellas.</li>
+</ol>
+</div>
+
+<div id="outline-container-orged5f038" class="outline-5">
+<h5 id="orged5f038">Demostración</h5>
+<div class="outline-text-5" id="text-orged5f038">
+</div><div id="outline-container-org91d903b" class="outline-6">
+<h6 id="org91d903b">Implicación 1 a 2</h6>
+<div class="outline-text-6" id="text-org91d903b">
+<p>
+Tenemos que en \(K(u)\), \(f\) descompone en factores lineales,
+luego es cuerpo de descomposición.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orged1e3a7" class="outline-6">
+<h6 id="orged1e3a7">Implicación 2 a 3</h6>
+<div class="outline-text-6" id="text-orged1e3a7">
+<p>
+Trivial.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf1f34ef" class="outline-6">
+<h6 id="orgf1f34ef">Implicación 3 a 1</h6>
+<div class="outline-text-6" id="text-orgf1f34ef">
+<p>
+Una extensión con una raíz \(u\) contendría a \(K(u)\), y como todas
+las raíces se expresan como polinomios de \(u\), contendría a todas
+las raíces y \(f\) descompondría en polinomios lineales.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb13419a" class="outline-4">
+<h4 id="orgb13419a"><span class="done DONE">DONE</span> Caracterización de extensiones normales en torres</h4>
+<div class="outline-text-4" id="text-orgb13419a">
+<div class="theorem">
+<p>
+Sea \(K\subset F \subset E\) extensiones finitas, \(E\) extensión normal. Equivalen:
+</p>
+
+<ul class="org-ul">
+<li>\(F/K\) es normal.</li>
+<li>Para cada \(\sigma : E/K \longrightarrow E/K\), se tiene \(\sigma(F) = F\).</li>
+</ul>
+
+</div>
+
+<p>
+Sea \(F/K\) normal, podemos cambiar el dominio y codominio para tener un
+\(\sigma : F/K \longrightarrow \overline{K}/K\). Por ser \(F\) normal, \(\sigma(F) = F\).
+</p>
+
+<p>
+Sea \(\sigma : F/K \longrightarrow \overline{K}/K\), podemos extenderla finitamente hasta \(E\) como \(\overline\sigma\). Como \(E/K\) es
+normal, \(\overline\sigma(E) = E\); y así tengo un \(\overline\sigma : E/K \longrightarrow E/K\), que me da \(\sigma(F)=\overline\sigma(F) = F\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org095d90d" class="outline-3">
+<h3 id="org095d90d">5.3. Extensiones separables</h3>
+<div class="outline-text-3" id="text-org095d90d">
+</div><div id="outline-container-orge33d047" class="outline-4">
+<h4 id="orge33d047">5.3.1. Elemento separable</h4>
+<div class="outline-text-4" id="text-orge33d047">
+<p>
+Un elemento algebraico \(u\) es separable en \(K\) si \(Irr(u,K)\) no tiene 
+raíces múltiples.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org748f892" class="outline-4">
+<h4 id="org748f892">5.3.2. Extensiones separables</h4>
+<div class="outline-text-4" id="text-org748f892">
+<p>
+Una extensión algebraica \(F/K\) es <b>separable</b> si todos sus elementos 
+lo son.
+</p>
+</div>
+
+<div id="outline-container-orgadc46cf" class="outline-5">
+<h5 id="orgadc46cf">Ejemplo de extensión normal no separable</h5>
+<div class="outline-text-5" id="text-orgadc46cf">
+<p>
+Existen <a href="http://math.stackexchange.com/questions/982702/example-of-a-non-separable-normal-extension">ejemplos</a> de extensiones normales no separables.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2bcad36" class="outline-4">
+<h4 id="org2bcad36">5.3.3. Torres separables</h4>
+<div class="outline-text-4" id="text-org2bcad36">
+<p>
+Si \(E \supset F \supset K\) es extensión separable, lo son \(E/F\) y \(F/K\).
+</p>
+</div>
+
+<div id="outline-container-orgf117464" class="outline-5">
+<h5 id="orgf117464">Demostración</h5>
+<div class="outline-text-5" id="text-orgf117464">
+<p>
+Que \(F/K\) es separable es trivial. Y \(E/F\) es separable porque
+\(Irr(u,F) \mid Irr(u,K)\), y si el segundo no tiene raíces múltiples,
+no puede tenerlas el primero.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc5c4160" class="outline-4">
+<h4 id="orgc5c4160">5.3.4. Grado separable</h4>
+<div class="outline-text-4" id="text-orgc5c4160">
+<p>
+El <b>grado separable</b> es cardinal del conjunto de homomorfismos de
+\(F/K \longrightarrow \overline{K}/K\).
+</p>
+
+<p>
+\[ [F : K]_s = \#\{F/K \longrightarrow \overline{K}/K\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd8bfbae" class="outline-4">
+<h4 id="orgd8bfbae">5.3.5. Grado separable en torres</h4>
+<div class="outline-text-4" id="text-orgd8bfbae">
+<p>
+Sea \(K \subset F \subset E \subset \overline{K}\) entonces \([E:K]_s = [E:F]_s[F:K]_s\).
+</p>
+</div>
+
+<div id="outline-container-orgfe83a68" class="outline-5">
+<h5 id="orgfe83a68">Demostración</h5>
+<div class="outline-text-5" id="text-orgfe83a68">
+</div><div id="outline-container-orgfff0f3f" class="outline-6">
+<h6 id="orgfff0f3f">Con dos homomorfismos construyo el mayor</h6>
+<div class="outline-text-6" id="text-orgfff0f3f">
+<p>
+Dados \(\sigma : F/K \longrightarrow \overline{K}/K\) y \(\psi : E/F \longrightarrow \overline{K}/F\), puedo extender \(\sigma\) al
+algebraico \(E\) para tener \(\sigma^\ast : \overline{K}/K \longrightarrow \overline{K}/K\). Ahora, la composición
+\(\sigma^\ast \circ \psi\), me da el homomorfismo buscado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0ba81fa" class="outline-6">
+<h6 id="org0ba81fa">Y es único</h6>
+<div class="outline-text-6" id="text-org0ba81fa">
+<p>
+Supongamos que \(\sigma^\ast \circ \psi = \sigma'^\ast \circ \psi'\); como deben ser iguales para 
+cualquier \(f \in F\), se tiene \(\sigma = \sigma'\). Ahora, si tomamos la misma extensión
+para cada elemento, \(\sigma^\ast = \sigma'^\ast\) y entoces por inyectividad \(\psi = \psi'\).
+</p>
+
+<p>
+Así tenemos ya:
+</p>
+
+<p>
+\[ [E:K]_S \geq [E:F]_S[F:K]_S \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org52ef293" class="outline-6">
+<h6 id="org52ef293">Con el mayor construyo los dos menores</h6>
+<div class="outline-text-6" id="text-org52ef293">
+<p>
+Dado un \(\sigma : E/K \longrightarrow \overline{K}/K\), para cada \(\sigma|_F\) construyo una extensión
+a la clausura, \(\tau : \overline{K}/K \longrightarrow \overline{K}/K\), que es isomorfismo. Como 
+es isomorfismo podemos construirle inversa para tener 
+\(\tau^{-1} : \overline{K}/K \longrightarrow \overline{K}/K\). A la vez, podemos extender todos los \(\sigma\) a
+la clausura algebraica como \(\sigma^\ast\).
+</p>
+
+<p>
+Ahora bien, como \(\tau|_F = \sigma|_F\), tenemos que \(\sigma^\ast \circ \tau^{-1}\) deja fijo a \(F\). 
+Así, hemos partido \(\sigma\) en \(\sigma^\ast \circ \tau^{-1}|_E\) y \(\sigma|_F\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa9dd43" class="outline-6">
+<h6 id="orgaa9dd43">Y son únicas</h6>
+<div class="outline-text-6" id="text-orgaa9dd43">
+<p>
+Supongamos que tenemos \(\sigma|_F = \sigma'|_F\), entonces las dos extensiones \(\tau\)
+las hemos tomado iguales. Si tenemos \(\sigma \circ \tau^{-1}|_E = \sigma' \circ \tau^{-1}|_E\), como \(\tau^{-1}\)
+es sobreyectiva, tenemos \(\sigma^\ast|_E = \sigma'^\ast|_E\), y por tanto \(\sigma = \sigma'\).
+</p>
+
+<p>
+Así tenemos que:
+</p>
+
+<p>
+\[ [E:K]_S \leq [E:F]_S[F:K]_S \]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org34a834c" class="outline-4">
+<h4 id="org34a834c">5.3.6. Relación de grado y grado separable</h4>
+<div class="outline-text-4" id="text-org34a834c">
+<p>
+Sea \(F/K\) extensión finita, entonces \([F:K]_s \mid [F:K]\).
+</p>
+</div>
+
+<div id="outline-container-orge9afff5" class="outline-5">
+<h5 id="orge9afff5">Demostración</h5>
+<div class="outline-text-5" id="text-orge9afff5">
+</div><div id="outline-container-org65ec4b6" class="outline-6">
+<h6 id="org65ec4b6">Caso simple</h6>
+<div class="outline-text-6" id="text-org65ec4b6">
+<p>
+Sea \(K(u)\) la extensión, con polinomio \(Irr(u,K)\) de grado \(n\). 
+Si la raíz \(u\) tiene multiplicidad \(m\) en el polinomio, todas las
+raíces del polinomio tienen la misma multiplicidad y hay
+\(n/m\) raíces distintas.
+</p>
+
+<p>
+Cada homormofismo quedará determinado por la imagen de \(u\), y
+tenemos \(n/m\) imágenes distintas para \(u\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org67617c0" class="outline-6">
+<h6 id="org67617c0">Caso compuesto</h6>
+<div class="outline-text-6" id="text-org67617c0">
+<p>
+Ahora procedemos por inducción sobre el grado de la extensión. 
+Tomamos un elemento de la base y hacemos:
+</p>
+
+<p>
+\[ [F:K(u)]_S[K(u):K]_S  \mid  [F:K(u)][K(u):K] \]
+</p>
+
+<p>
+Lo primero es divisible por el caso simple y lo segundo por
+hipótesis de inducción.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org47699c9" class="outline-4">
+<h4 id="org47699c9">5.3.7. Igualdad de grados en torres</h4>
+<div class="outline-text-4" id="text-org47699c9">
+<p>
+Sea \(K \subset F \subset E\), con \(E/K\). Entonces \([E:K]_s = [E:K]\) ssi 
+\([E:F]_s = [E:F]\) y \([F:K]_s = [F:K]\).
+</p>
+</div>
+
+<div id="outline-container-orge1b0fcc" class="outline-5">
+<h5 id="orge1b0fcc">Demostración</h5>
+<div class="outline-text-5" id="text-orge1b0fcc">
+<p>
+Tenemos que deben tenerse ambos casos de igualdad en:
+</p>
+
+<p>
+\[
+[E:K]_S = [E:F]_S[F:K]_S \leq [E:F][F:K] = [E:K]
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0bfbdd9" class="outline-4">
+<h4 id="org0bfbdd9">5.3.8. Caracterización de extensión separable</h4>
+<div class="outline-text-4" id="text-org0bfbdd9">
+<p>
+La extensión finita \(E/K\) es separable ssi \([E:K]_s = [E:K]\).
+</p>
+</div>
+
+<div id="outline-container-org1406c85" class="outline-5">
+<h5 id="org1406c85">Demostración</h5>
+<div class="outline-text-5" id="text-org1406c85">
+<p>
+Usamos la idea de la demostración de la relación con el grado.
+En el caso simple tenemos \([K(u):K]_S = [K(u):K]\) sólo cuando la
+multiplicidad de cada raíz es uno. En el caso compuesto exigimos
+eso a cada paso.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfd64694" class="outline-4">
+<h4 id="orgfd64694">5.3.9. Extensión por un conjunto separable</h4>
+<div class="outline-text-4" id="text-orgfd64694">
+<p>
+Para \(K(S)/K\) algebraica es separable ssi todo elemento de \(S\) es
+separable sobre \(K\).
+</p>
+</div>
+
+<div id="outline-container-orgd83810b" class="outline-5">
+<h5 id="orgd83810b">Demostración</h5>
+<div class="outline-text-5" id="text-orgd83810b">
+<p>
+La suma o producto de elementos separables <a href="http://math.stackexchange.com/a/82837/85067">es separable</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdd3a339" class="outline-4">
+<h4 id="orgdd3a339">5.3.10. Propiedades de extensiones separables</h4>
+<div class="outline-text-4" id="text-orgdd3a339">
+<p>
+Las extensiones separables cumplen:
+</p>
+
+<ol class="org-ol">
+<li>Para \(K \subset F \subset E\), se tiene \(E/K\) separable ssi 
+\(E/F\) y \(F/K\) separables.</li>
+<li>Sea \(E/K\) algebraica separable y \(H/K\) extensión, entonces \(EH/H\) 
+es separable.</li>
+<li>Sean \(E/K\) y \(F/K\) separables, entonces \(EF/K\) es separable.</li>
+</ol>
+</div>
+
+<div id="outline-container-org5e5639b" class="outline-5">
+<h5 id="org5e5639b">Demostración</h5>
+<div class="outline-text-5" id="text-org5e5639b">
+</div><div id="outline-container-orgf40eb99" class="outline-6">
+<h6 id="orgf40eb99">Punto 1</h6>
+<div class="outline-text-6" id="text-orgf40eb99">
+<p>
+Simplemente usar que la igualdad de grados de separabilidad
+se da en <a href="#org47699c9">torres</a> y que equivale a la <a href="#org0bfbdd9">separabilidad</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0bbab5b" class="outline-6">
+<h6 id="org0bbab5b">Punto 2</h6>
+<div class="outline-text-6" id="text-org0bbab5b">
+<p>
+Tenemos \(EH/H = H(E)/H\). Que sea separable <a href="#orgfd64694">equivale</a> a que
+cada elemento de \(E\) lo sea. Pero \(Irr(e,H) \mid Irr(e,K)\), y si uno
+tiene sólo raíces simples, el otro las tendrá también.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfd16d97" class="outline-6">
+<h6 id="orgfd16d97">Punto 3</h6>
+<div class="outline-text-6" id="text-orgfd16d97">
+<p>
+Tenemos \(K(E,F)/K\) separable por serlo todos los elementos en 
+\(E,F\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0013033" class="outline-4">
+<h4 id="org0013033">5.3.11. La clausura normal de una separable es separable</h4>
+<div class="outline-text-4" id="text-org0013033">
+<p>
+Sea \(F/K\) separable y \(E/K\) su clausura normal. Entonces \(E/K\) es
+separable.
+</p>
+</div>
+
+<div id="outline-container-orga923635" class="outline-5">
+<h5 id="orga923635">Demostración</h5>
+<div class="outline-text-5" id="text-orga923635">
+<p>
+Si extiendo \(F\) con todas las raíces de los irreducibles de sus
+elementos, tengo la clausura normal; porque debe contenerlas
+y es normal, así que es la mínima. Como cada una de ellas es
+separable porque tiene como irreducible el mismo irreducible
+de un elemento de \(F\), la <a href="#orgfd64694">extensión entera</a> es separable.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5d865e5" class="outline-4">
+<h4 id="org5d865e5">5.3.12. Clausura separable</h4>
+<div class="outline-text-4" id="text-org5d865e5">
+<p>
+El conjunto de todos los elementos de \(\overline{K}\) separables sobre \(K\) forman
+un subcuerpo \(K^{sep}\) que se llama <b>clausura separable</b>.
+</p>
+</div>
+
+<div id="outline-container-org76f16de" class="outline-5">
+<h5 id="org76f16de">Demostración</h5>
+<div class="outline-text-5" id="text-org76f16de">
+<p>
+La suma o producto de elementos separables es separable, como
+demostramos <a href="#orgfd64694">anteriormente</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6e4efde" class="outline-4">
+<h4 id="org6e4efde">5.3.13. Teorema del elemento primitivo</h4>
+<div class="outline-text-4" id="text-org6e4efde">
+<p>
+Sea \(E/K\) una extensión finita. Es simple ssi el conjunto de
+cuerpos intermedios \(\{ F \mid K \subset F \subset E\}\) es finito.
+</p>
+</div>
+
+<div id="outline-container-orga372e74" class="outline-5">
+<h5 id="orga372e74">Demostración: si hay finitos subcuerpos es simple</h5>
+<div class="outline-text-5" id="text-orga372e74">
+</div><div id="outline-container-org42ec453" class="outline-6">
+<h6 id="org42ec453">Cuerpo base finito</h6>
+<div class="outline-text-6" id="text-org42ec453">
+<p>
+Como la extensión es finita, tenemos que hay finitos elementos.
+El grupo multiplicativo de un cuerpo es <a href="http://mathoverflow.net/a/54741/45365">cíclico</a>, luego es simple.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b73cfe" class="outline-6">
+<h6 id="org3b73cfe">Cuerpo base infinito</h6>
+<div class="outline-text-6" id="text-org3b73cfe">
+<p>
+Siendo \(E = K(a_1,a_2,\dots,a_n)\), nos limitamos a probar \(K(a,b)\) simple.
+Consideramos las \(K(a+xb)\) para \(x \in F\). Como los elementos de \(F\) son 
+infinitos y las extensiones intermedias finitas, se tienen \(x \neq y\)
+tales que \(K(a+xb) = K(a+yb)\), y por tanto:
+</p>
+
+<p>
+\[
+b = \frac{ a +bx - (a + by)}{x-y} \in K(a+bx)
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge64092c" class="outline-5">
+<h5 id="orge64092c">Demostración: si es simple, hay finitos subcuerpos</h5>
+<div class="outline-text-5" id="text-orge64092c">
+<p>
+Sea \(K(\alpha)\) simple, como es finita es algebraica, y \(Irr(a,K)\) tiene 
+finitos divisores en la clausura. 
+</p>
+
+<p>
+Para cada divisor del polinomio irreducible creo \(K[|p|]\), el subcuerpo
+generado por los coeficientes del polinomio. Todo cuerpo intermedio \(E\),
+en el que el irreducible de \(\alpha\) sea \(p\) contendrá a \(K[|p|]\), pero como:
+</p>
+
+<p>
+\[ [K(\alpha): E] = [K(\alpha) : K[|p|]] \]
+</p>
+
+<p>
+Se tendrá forzosamente \(E = K[|p|]\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6d06cd5" class="outline-5">
+<h5 id="org6d06cd5">Contraejemplo:</h5>
+<div class="outline-text-5" id="text-org6d06cd5">
+<p>
+Hay extensiones finitas de cuerpos que no son simples
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org989ad64" class="outline-4">
+<h4 id="org989ad64">5.3.13. Finita y separable es simple</h4>
+<div class="outline-text-4" id="text-org989ad64">
+<p>
+Una extensión finita y separable es simple.
+</p>
+</div>
+
+<div id="outline-container-org7024d05" class="outline-5">
+<h5 id="org7024d05">Demostración</h5>
+<div class="outline-text-5" id="text-org7024d05">
+<p>
+Si es finita y separable, podemos tomar su clausura normal.
+La clausura normal de una extensión finita es <a href="#orgeab8f29">finita</a>, así que
+tengo una extensión de Galois finita. Habrá finitas subextensiones
+porque habrá finitos subgrupos de Galois.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org474cac4" class="outline-5">
+<h5 id="org474cac4">Contraejemplo: cuerpo finito no simple</h5>
+<div class="outline-text-5" id="text-org474cac4">
+<p>
+Tenemos <a href="https://en.wikipedia.org/wiki/Primitive_element_theorem#Counterexamples">contraejemplos</a> en característica \(p\) con cuerpos de
+dimensión \(p^2\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgafad3ef" class="outline-4">
+<h4 id="orgafad3ef">5.3.14. Endomorfismo de Frobenius</h4>
+<div class="outline-text-4" id="text-orgafad3ef">
+<p>
+Sea \(K\) de característica de \(p\). Llamamos <b>endomorfismo de Frobenius</b> 
+a \(\phi(u) = u^p\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgacc8119" class="outline-4">
+<h4 id="orgacc8119">5.3.15. Cuerpos perfectos</h4>
+<div class="outline-text-4" id="text-orgacc8119">
+<p>
+Para \(K\) cuerpo equivalen:
+</p>
+
+<ol class="org-ol">
+<li>Todo \(f \in K[X]\) irreducible tiene raíces simples.</li>
+<li>Toda \(E/K\) algebraica es separable.</li>
+<li>Toda \(E/K\) finita es separable.</li>
+<li>\(car(K)=0\) ó \(car(K)=p\), y el endomorfismo de Frobenius es 
+sobreyectivo.</li>
+</ol>
+
+<p>
+Y en ese caso, llamamos a \(K\) <b>cuerpo perfecto</b>.
+</p>
+</div>
+
+<div id="outline-container-org7c6b5b0" class="outline-5">
+<h5 id="org7c6b5b0">Demostración</h5>
+<div class="outline-text-5" id="text-org7c6b5b0">
+</div><div id="outline-container-org1d5ac01" class="outline-6">
+<h6 id="org1d5ac01">Implicación 1 a 2</h6>
+<div class="outline-text-6" id="text-org1d5ac01">
+<p>
+Todo elemento de la extensión cumple algún polinomio,
+y son todos separables, luego es separable.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org448dced" class="outline-6">
+<h6 id="org448dced">Implicación 2 a 3</h6>
+<div class="outline-text-6" id="text-org448dced">
+<p>
+Trivial
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b180bb" class="outline-6">
+<h6 id="org3b180bb">Implicación 3 a 4</h6>
+<div class="outline-text-6" id="text-org3b180bb">
+<p>
+Supongamos que no fuera sobreyectivo, existe \(y \neq x^p\).
+Si tomamos \((x^p-y)\), tenemos que es irreducible. Y si creamos
+entonces \(z^p = y\) tendríamos una extensión no finita no
+separable.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9280a12" class="outline-6">
+<h6 id="org9280a12">Implicación 4 a 1 en característica 0</h6>
+<div class="outline-text-6" id="text-org9280a12">
+<p>
+En característica \(0\), un polinomio no puede dividir a su derivada,
+que será de grado menor, así que un irreducible no puede tener raíces
+dobles.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org67bff06" class="outline-6">
+<h6 id="org67bff06">Implicación 4 a 1 en característica p</h6>
+<div class="outline-text-6" id="text-org67bff06">
+<p>
+Para que un irreducible divida a la derivada, que debe ser de grado
+menor, se debe tener que sea \(0\). El polinomio original debe ser
+de la forma  \(f(x^p)\) para que al derivarlo se anule.
+</p>
+
+<p>
+Cuando Frobenius es automorfismo, podemos escribir \(f(x^p) = (g(x))^p\),
+contraviniendo irreducibilidad. Todos los polinomios deben tener
+raíces simples.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org11ecbd4" class="outline-4">
+<h4 id="org11ecbd4">5.3.17. Ejemplos de cuerpos perfectos</h4>
+<div class="outline-text-4" id="text-org11ecbd4">
+<p>
+Son perfectos:
+</p>
+
+<ol class="org-ol">
+<li>Todo cuerpo de característica cero.</li>
+<li>Todo cuerpo finito.</li>
+<li>Todo cuerpo algebraicamente cerrado.</li>
+</ol>
+</div>
+
+<div id="outline-container-org3b6af8b" class="outline-5">
+<h5 id="org3b6af8b">Demostración</h5>
+<div class="outline-text-5" id="text-org3b6af8b">
+</div><div id="outline-container-org360f03e" class="outline-6">
+<h6 id="org360f03e">Punto 1</h6>
+<div class="outline-text-6" id="text-org360f03e">
+<p>
+Trivial desde la <a href="#orgacc8119">caracterización</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb3c9bef" class="outline-6">
+<h6 id="orgb3c9bef">Punto 2</h6>
+<div class="outline-text-6" id="text-orgb3c9bef">
+<p>
+En todo cuerpo finito, un endomorfismo es sobreyectivo.
+</p>
+</div>
+</div>
+<div id="outline-container-org9f30382" class="outline-6">
+<h6 id="org9f30382">Punto 3</h6>
+<div class="outline-text-6" id="text-org9f30382">
+<p>
+En un algebraicamente cerrado, todo irreducible es lineal y
+tiene raíces simples.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org50918ea" class="outline-3">
+<h3 id="org50918ea">5.4. Derivada y raíces múltiples</h3>
+<div class="outline-text-3" id="text-org50918ea">
+</div><div id="outline-container-org98162f8" class="outline-4">
+<h4 id="org98162f8">5.4.1. Raíces</h4>
+<div class="outline-text-4" id="text-org98162f8">
+<p>
+Sea \(f\in F[X]\) y \(u \in F\). Es raíz de multiplicidad \(k\) cuando \(f = (X-u)^kf_0\),
+con \(f_0(u) \neq 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbf27db0" class="outline-4">
+<h4 id="orgbf27db0">5.4.2. Derivada</h4>
+<div class="outline-text-4" id="text-orgbf27db0">
+<p>
+Se define la derivada de \(f\) como:
+</p>
+
+<p>
+\[ f' = \sum_{i=1}^n ia_iX^{i-1} = na_nX^{n-1} + \dots + a_1\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8ae3f12" class="outline-4">
+<h4 id="org8ae3f12">5.4.3. Propiedades de la derivada</h4>
+<div class="outline-text-4" id="text-org8ae3f12">
+<p>
+La derivada verifica:
+</p>
+
+<ol class="org-ol">
+<li>\((f+g)' = f'+g'\)</li>
+<li>\((f \cdot g)' = f' \cdot g'\)</li>
+<li>\((f^m)' = mf^{m-1}\cdot f'\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd06e93d" class="outline-4">
+<h4 id="orgd06e93d">5.4.4. Condición de raíces simples</h4>
+<div class="outline-text-4" id="text-orgd06e93d">
+<p>
+Las raíces de \(f\) son simples ssi \(mcd(f,f') = 1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0a64705" class="outline-4">
+<h4 id="org0a64705">5.4.5. Condición de raíces simples en irreducibles</h4>
+<div class="outline-text-4" id="text-org0a64705">
+<p>
+Sea \(f\) irreducible con \(f' \neq 0\), las raíces de \(f\) son simples.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orged03d88" class="outline-4">
+<h4 id="orged03d88">5.4.6. Propiedades de las raíces simples</h4>
+<div class="outline-text-4" id="text-orged03d88">
+<p>
+Se cumple:
+</p>
+
+<ol class="org-ol">
+<li>En característica \(0\), todo irreducible tiene raíces simples.</li>
+<li>En característica \(p\) prima, un irreducible tiene raíces múltiples
+ssi \(f(x) = g(x^p)\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orga0aea6e" class="outline-4">
+<h4 id="orga0aea6e">5.4.7. Polinomio separable</h4>
+<div class="outline-text-4" id="text-orga0aea6e">
+<p>
+Un polinomio \(f \in K[X]\) se llama separable \(K\) si sus factores 
+irreducibles tienen sólo raíces simples.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d7983f" class="outline-2">
+<h2 id="org2d7983f">6. Teoría de Galois Finita</h2>
+<div class="outline-text-2" id="text-org2d7983f">
+</div><div id="outline-container-org59702e6" class="outline-3">
+<h3 id="org59702e6">6.1. Grupos de automorfismos</h3>
+<div class="outline-text-3" id="text-org59702e6">
+</div><div id="outline-container-org9c8cc07" class="outline-4">
+<h4 id="org9c8cc07">6.1.1. Espacio vectorial de las aplicaciones de un conjunto</h4>
+<div class="outline-text-4" id="text-org9c8cc07">
+<p>
+Sea \(S\) un conjunto. Las aplicaciones \(Fun(S,F)\) con la suma y producto
+de escalares elevados desde \(F\) forman un espacio vectorial de dimensión
+\(|S|\).
+</p>
+</div>
+
+<div id="outline-container-orgfc8a13d" class="outline-5">
+<h5 id="orgfc8a13d">Demostración</h5>
+<div class="outline-text-5" id="text-orgfc8a13d">
+<p>
+Simplemente comprobar que cumplen las propiedades de espacio 
+vectorial.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5800c2a" class="outline-4">
+<h4 id="org5800c2a">6.1.2. Proposición al lema de Dedekind</h4>
+<div class="outline-text-4" id="text-org5800c2a">
+<p>
+Sean \(\sigma_1,\dots, \sigma_m : G \longrightarrow F^\times\) homomorfismos desde un grupo \(G\). 
+Son distintos ssi son linealmente independientes sobre \(F\).
+</p>
+</div>
+
+<div id="outline-container-orgee8eb93" class="outline-5">
+<h5 id="orgee8eb93">Demostración</h5>
+<div class="outline-text-5" id="text-orgee8eb93">
+</div><div id="outline-container-orgd7ef930" class="outline-6">
+<h6 id="orgd7ef930">Caso base</h6>
+<div class="outline-text-6" id="text-orgd7ef930">
+<p>
+Procedemos por inducción. Cuando \(n=1\), es trivial.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbb38abc" class="outline-6">
+<h6 id="orgbb38abc">caso inductivo</h6>
+<div class="outline-text-6" id="text-orgbb38abc">
+<p>
+Tomemos un subconjunto mínimo de linealmente dependientes, 
+\(\sigma_1,\dots,\sigma_s\). Tendríamos \(b_i \in F^\times\):
+</p>
+
+<p>
+\[\sigma_s = b_1\sigma_1 + \dots + b_{s-1}\sigma_{s-1}\]
+</p>
+
+<p>
+Si tomamos ahora \(y\) tal que \(\sigma_1(y) \neq \sigma_s(y)\), evaluamos en \(xy\) y 
+multiplicamos por \(\sigma_s(y)\) obtenemos dos ecuaciones que restadas
+dan:
+</p>
+
+<p>
+\[0 = b_1(\sigma_1(y)-\sigma_s(y))\sigma_1 + \dots + b_{s-1}(\sigma_{s-1}(y) - \sigma_s(y)) \sigma_{s-1}\]
+</p>
+
+<p>
+Relación de dependencia no nula menor que la anterior.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org45d9725" class="outline-4">
+<h4 id="org45d9725">6.1.3. Lema de Dedekind</h4>
+<div class="outline-text-4" id="text-org45d9725">
+<p>
+Un conjunto de homomorfismos de cuerpos \(F_1 \longrightarrow F_2\) distintos
+son linealmente independientes sobre \(F_2\).
+</p>
+</div>
+
+<div id="outline-container-org2a8e285" class="outline-5">
+<h5 id="org2a8e285">Demostración</h5>
+<div class="outline-text-5" id="text-org2a8e285">
+<p>
+Desde el lema anterior, tenemos que son linealmente independientes 
+una vez restringidos a \(F_1^\times \longrightarrow F_2^\times\), el añadirles el \(0\) no los vuelve 
+dependientes.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org425d464" class="outline-4">
+<h4 id="org425d464">6.1.4. Acotación del número de homomorfismos sobre K</h4>
+<div class="outline-text-4" id="text-org425d464">
+<p>
+Existen como máximo \([F:K]\) morfismos distintos sobre \(K\) 
+hacia cualquier otro cuerpo:
+</p>
+
+<p>
+\[|Hom(F/K,E/K)| \leq [F:K]\]
+</p>
+</div>
+
+<div id="outline-container-org3063afc" class="outline-5">
+<h5 id="org3063afc">Demostración</h5>
+<div class="outline-text-5" id="text-org3063afc">
+<p>
+Sea \(\{u_1,\dots,u_n\}\) base de \(F\), y supongamos \(n+1\) homomorfismos
+distintos. El siguiente sistema de ecuaciones tiene solución 
+no trivial porque tiene \(n+1\) incógnitas y tiene \(n\) ecuaciones.
+</p>
+
+<p>
+\[ X_1\sigma_1(u_j) + \dots + X_{n+1}\sigma_{n+1}(u_j) = 0 
+\qquad j = 1,\dots,n\]
+</p>
+
+<p>
+Pero una solución es una relación de dependencia sobre toda la
+base de \(F\). Si son dependientes, por Dedekind son <a href="#org45d9725">iguales</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org68082f8" class="outline-4">
+<h4 id="org68082f8">6.1.5. Grupo de extensión</h4>
+<div class="outline-text-4" id="text-org68082f8">
+<p>
+Para toda extensión finita \(F/K\) llamamos <b>grupo de la extensión</b> a:
+</p>
+
+<p>
+\[ G(F/K) = \{ \sigma \in  Aut(F) \mid \forall u \in K : \sigma(u) = u\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org27e8cb9" class="outline-4">
+<h4 id="org27e8cb9">6.1.6. Acotación de elementos del grupo</h4>
+<div class="outline-text-4" id="text-org27e8cb9">
+<p>
+Para toda extensión finita \(F/K\) se verifica que \(|G(F/K)| \leq [F : K]\).
+</p>
+</div>
+
+<div id="outline-container-orgabe7c84" class="outline-5">
+<h5 id="orgabe7c84">Demostración</h5>
+<div class="outline-text-5" id="text-orgabe7c84">
+<p>
+Caso particular de la <a href="#org425d464">acotación</a> del número de homomorfismos
+sobre el cuerpo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc19505f" class="outline-4">
+<h4 id="orgc19505f">6.1.7. Cuerpo fijo</h4>
+<div class="outline-text-4" id="text-orgc19505f">
+<p>
+Sea \(G < Aut(E)\), llamamos <b>cuerpo fijo</b> por \(G\) al conjunto al que 
+dejan fijos todos los elementos de \(G\):
+</p>
+
+<p>
+\[ E^G = \{ u \in E \mid \forall\sigma\in G: \sigma(u) = u\}\]
+</p>
+
+<p>
+Es un <b>subcuerpo</b> de \(E\).
+</p>
+</div>
+
+<div id="outline-container-org52d792c" class="outline-5">
+<h5 id="org52d792c">Demostración: es un subcuerpo</h5>
+<div class="outline-text-5" id="text-org52d792c">
+<p>
+Trivialmente desde la definición de automorfismo de cuerpos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1c3fad6" class="outline-4">
+<h4 id="org1c3fad6">6.1.8. Teorema de Artin</h4>
+<div class="outline-text-4" id="text-org1c3fad6">
+<p>
+Para \(G < Aut(E)\) finito, \([E : E^G] = |G|\).
+</p>
+</div>
+
+<div id="outline-container-orgf94191a" class="outline-5">
+<h5 id="orgf94191a">Demostración</h5>
+<div class="outline-text-5" id="text-orgf94191a">
+<p>
+Ya tenemos \(n = |G| \leq [E : E^G]\). Supongamos la 
+desigualdad estricta con \(u_1,\dots,u_{n+1} \in E\) independientes sobre \(E^G\). 
+Y tenemos el sistema de \(n+1\) incógnitas y \(n\) ecuaciones, sobre los
+\(\sigma_j\) de \(G\):
+</p>
+
+<p>
+\[ X_1\sigma_j(u_1) + \dots + X_{n+1}\sigma_j(u_{n+1}) = 0 \qquad
+j = 1,\dots,n\]
+</p>
+
+<p>
+Sea \(a_1,\dots,a_{n+1}\) una solución no trivial con número mínimo de 
+elementos no nulos. Suponemos s.p.g. que \(a_1 \neq 0\) y despejamos para 
+tener:
+</p>
+
+<p>
+\[\sigma_j(u_1) = b_2\sigma_j(u_2) + \dots + b_n\sigma_j(u_{n+1}) 
+\qquad j = 1,\dots,n\]
+</p>
+
+<p>
+En particular, en el caso \(\sigma_j = id\), tenemos:
+</p>
+
+<p>
+\[u_1 = b_2u_2 + \dots + b_{n+1}u_{n+1}\]
+</p>
+
+<p>
+que obliga a que uno de los coeficientes no esté en \(E^G\). Supongamos 
+s.p.g. que \(b_2 \notin G\), y sea \(\tau \in G\) tal que \(\tau(b_2) \neq b_2\). Si aplicamos ahora
+\(\tau\) a cada una de las ecuaciones y restamos tenemos:
+</p>
+
+<p>
+\[0 = (b_2-\tau(b_2))\sigma_j(u_2) + \dots + (b_n-\tau(b_n)\sigma_j(u_{n+1}))
+\qquad j = 1,\dots,n\]
+</p>
+
+<p>
+Esta solución es no trivial porque \((b_2-\tau(b_2)) \neq 0\), pero tiene más 
+elementos nulos que la anterior.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org55d6601" class="outline-4">
+<h4 id="org55d6601">6.1.9. Extensión de Galois</h4>
+<div class="outline-text-4" id="text-org55d6601">
+<p>
+Una extensión finita \(E/K\) es <b>de Galois</b> cuando:
+</p>
+
+<p>
+\[\exists Gal(E/K) < Aut(E): E^{Gal(E/K)} = K\]
+</p>
+
+<p>
+Llamamos a \(Gal(E/K)\) el <b>grupo de Galois</b> de la extensión.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5423393" class="outline-4">
+<h4 id="org5423393">6.1.10. Caracterización de extensión de Galois</h4>
+<div class="outline-text-4" id="text-org5423393">
+<p>
+Una extensión finita es de Galois ssi es normal y separable.
+</p>
+</div>
+
+<div id="outline-container-orgc18e885" class="outline-5">
+<h5 id="orgc18e885">Demostración</h5>
+<div class="outline-text-5" id="text-orgc18e885">
+<p>
+Sea \(Gal(E/K) = G\), entonces cada automorfismo se extiende a un 
+homomorfismo \(\sigma' : E/K \longrightarrow \overline{K}/K\), luego \([E:K]_S \geq |G| = [E:K] \geq [E:K]_S\), 
+y por tanto la extensión es separable. Como además el número total 
+de homomorfismos es \([E:K]_S = |G|\), son todos automorfismos y la 
+extesión es normal.
+</p>
+
+<p>
+Sea \(E/K\) normal y separable. Tenemos \(n = [E:K]_S = [E:K]\) 
+homomorfismos \(\tau : E \longrightarrow \overline{K}\) sobre \(K\), con \(\tau(E) = E\). Entonces 
+\(G = G(E/K)\) tiene orden \(n\). Por Teorema de Artin, 
+\([E:E^G] = n = [E:K]\), luego \([E^G:K] = 1\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge4afdd2" class="outline-4">
+<h4 id="orge4afdd2">6.1.11. Caracterización para extensiones finitas</h4>
+<div class="outline-text-4" id="text-orge4afdd2">
+<p>
+Sea \(F/K\) una extensión separable finita y sea \(E/K\) su clausura 
+normal. Entonces \(E/K\) es una extensión finita de Galois.
+</p>
+</div>
+
+<div id="outline-container-orgd85816b" class="outline-5">
+<h5 id="orgd85816b">Demostración</h5>
+<div class="outline-text-5" id="text-orgd85816b">
+<p>
+La clausura normal de una extensión separable es <a href="#org0013033">separable</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org018db94" class="outline-3">
+<h3 id="org018db94">6.2. Correspondencia de Galois, caso finito</h3>
+<div class="outline-text-3" id="text-org018db94">
+</div><div id="outline-container-orgaf9104e" class="outline-4">
+<h4 id="orgaf9104e">Correspondencia</h4>
+<div class="outline-text-4" id="text-orgaf9104e">
+<p>
+Definimos una correspondencia entre los subgrupos de una 
+extensión de Galois y los cuerpos intermedios como:
+</p>
+
+<p>
+\[ H^\ast = E^H = \{u \in E \mid \forall\sigma\in H: \sigma(u)=u\}\]
+\[F^\ast = Gal(E/F) = \{\sigma\in G \mid \forall u\in F: \sigma(u) = u\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbffb56a" class="outline-4">
+<h4 id="orgbffb56a">6.2.1. Contenidos de cuerpos</h4>
+<div class="outline-text-4" id="text-orgbffb56a">
+<p>
+Sean \(F_i\) cuerpos intermedios de \(E/K\) y \(H_i\) subgrupos de \(Gal(E/K)\).
+Se cumple:
+</p>
+
+<ol class="org-ol">
+<li>Si \(F_1 \subset F_2\), entonces \(F_1^\ast \supset F_2^\ast\).</li>
+<li>Si \(H_1 \subset H_2\), entonces \(H_1^\ast \supset H_2^\ast\).</li>
+<li>\(F \subset F^\ast^\ast\); \(H < H^\ast^\ast\).</li>
+<li>\(F^\ast = F^\ast^\ast^\ast\); \(H^\ast = H^\ast^\ast^\ast\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org6c77ce4" class="outline-5">
+<h5 id="org6c77ce4">Demostración</h5>
+<div class="outline-text-5" id="text-org6c77ce4">
+<ol class="org-ol">
+<li>Trivial.</li>
+<li>Trivial.</li>
+<li>Trivial.</li>
+<li>Componiendo el apartado 3 con el 2 y el 1.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org83d9444" class="outline-4">
+<h4 id="org83d9444">6.2.2. Correspondencia de Galois</h4>
+<div class="outline-text-4" id="text-org83d9444">
+<p>
+El par de aplicaciones \(\ast\) se llama <b>correspondencia de Galois</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org316a43d" class="outline-4">
+<h4 id="org316a43d">6.2.3. Teorema fundamental</h4>
+<div class="outline-text-4" id="text-org316a43d">
+<p>
+Sea \(E/K\) una extensión de Galois finita con \(G = Gal(E/K)\):
+</p>
+
+<ol class="org-ol">
+<li>La correspondencia es biyección, \({\cal F}(E/K) \cong {\cal S}(G)\).</li>
+<li>\(A \supset B\) ssi \(B^\ast \subset A^\ast\).</li>
+<li>La correspondencia es un antiisomorfismo de retículos, 
+\((F_1 \cdot F_2)^\ast = F_1^\ast \cap F_2^\ast\) y \((F_1 \cap F_2)^\ast = F_1^\ast \vee F_2^\ast\).</li>
+<li>Las extensiones \(F_1/K\) y \(F_2/K\) son conjugadas ssi los subgrupos
+\(F_1^\ast\) y \(F_2^\ast\) son conjugados en \(G\).</li>
+<li>La extensión \(F/K\) es normal ssi \(F^\ast\) es un subgrupo normal de \(G\).
+En este caso \(Gal(F/K) \cong G/F^\ast\).</li>
+<li>Para \(H<G\) se verifica \(|H| = [E:H^\ast]\) y \([G:H]=[H^\ast:K]\). 
+Para \(F \in {\cal F}(E/K)\) se verifica \([E:F] = |F^\ast|\) y \([F:K] = [G:F^\ast]\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgcc56beb" class="outline-5">
+<h5 id="orgcc56beb">Demostración de 6 para grupos</h5>
+<div class="outline-text-5" id="text-orgcc56beb">
+<p>
+Por <a href="#org1c3fad6">teorema de Artin</a> tenemos \(|G| = [E:K]\) y \(|H| = [E : H^\ast]\).
+Por teorema de Lagrange y teorema del grado tenemos:
+</p>
+
+<p>
+\[ |G| = [G:H] |H| \]
+\[ [E:K] = [E:H^\ast][H^\ast : K] \]
+</p>
+
+<p>
+Simplificando obtenemos \([G:H] = [H^\ast : K]\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org91f3cea" class="outline-5">
+<h5 id="org91f3cea">Demostración de 6 para cuerpos intermedios</h5>
+<div class="outline-text-5" id="text-org91f3cea">
+<p>
+Como \(E/F\) es de Galois, \(|F^\ast| = [E:F]\) y sabemos \(|G| = [E:K]\).
+Volvemos a aplicar Lagrange y teorema del grado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e58c36" class="outline-5">
+<h5 id="org7e58c36">Demostración de 1</h5>
+<div class="outline-text-5" id="text-org7e58c36">
+<p>
+Tenemos la torre \(G > H^\ast^\ast > H\) y:
+</p>
+
+<p>
+\[ [G : H^\ast^\ast] = [H^\ast^\ast^\ast : K] = [H^\ast : K] = [G : H] \]
+</p>
+
+<p>
+Tenemos la torre \(E \supset F^\ast^\ast \supset F\) y:
+</p>
+
+<p>
+\[ [E:F] = |F^\ast| = |F^\ast^\ast^\ast| = [E : F^\ast^\ast] \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6828bae" class="outline-5">
+<h5 id="org6828bae">Demostración de 2 y 3</h5>
+<div class="outline-text-5" id="text-org6828bae">
+<p>
+Se cumple por ser biyección y la proposición anterior. Trivial
+desde esto el antiisomorfismo de retículos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb1ce67d" class="outline-5">
+<h5 id="orgb1ce67d">Demostración 4</h5>
+<div class="outline-text-5" id="text-orgb1ce67d">
+<p>
+Sean \(F_2 = \sigma(F_1)\), para \(\tau \in F_1^\ast\), tenemos \(\sigma\tau\sigma^{-1} \in F_2^\ast\).
+Luego \(\sigma F_1^\ast \sigma^{-1} \subset F_2^\ast\). Aplicando lo mismo sobre \(\sigma^{-1}\) llegamos
+a la otra igualdad. Dando la vuelta al razonamiento, tenemos
+que \(\sigma F_1^\ast \sigma^{-1} = F_2^\ast\) nos da \(F_2 = \sigma(F_1)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d0ecd7" class="outline-5">
+<h5 id="org2d0ecd7">Demostración 5</h5>
+<div class="outline-text-5" id="text-org2d0ecd7">
+<p>
+Desde el cuarto apartado, se conserva normalidad.
+</p>
+
+<p>
+Si aplicamos primer Teorema de Isomorfía a la restricción
+\(\Phi : Gal(E/K) \longrightarrow Gal(F/K)\):
+</p>
+
+<p>
+\[ \frac{Gal(E/K)}{F^\ast} 
+= \frac{Gal(E/K)}{\ker(\Phi)} 
+\cong \im(\Phi) 
+= Gal(F/K) \]
+</p>
+
+<p>
+El que \(\im(\Phi) = Gal(F/K)\) usa la normalidad de \(F\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga45a573" class="outline-3">
+<h3 id="orga45a573">6.4. Propiedades de las extensiones de Galois</h3>
+<div class="outline-text-3" id="text-orga45a573">
+</div><div id="outline-container-orgaa6240f" class="outline-4">
+<h4 id="orgaa6240f">6.4.1. Subgrupos en Galois</h4>
+<div class="outline-text-4" id="text-orgaa6240f">
+<p>
+Sean \(E \supset F \supset K\) con \(E/K\) Galois finita. Entonces \(E/F\) es Galois
+finita y \(Gal(E/F)\) es subgrupo de \(Gal(E/K)\).
+</p>
+</div>
+
+<div id="outline-container-org70fa0a0" class="outline-5">
+<h5 id="org70fa0a0">Demostración</h5>
+<div class="outline-text-5" id="text-org70fa0a0">
+<p>
+La finitud se tiene trivialmente. La normalidad se tiene
+sobre cuerpos <a href="#org0fdb8ca">intermedios</a> y la separabilidad <a href="#orgdd3a339">también</a>. Y sabemos
+que normal y separable es de <a href="#org5423393">Galois</a>.
+</p>
+
+<p>
+Que uno es subgrupo de otro está claro por las propiedades de la
+<a href="#org316a43d">correspondencia</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4373bf6" class="outline-4">
+<h4 id="org4373bf6">6.4.2. Extensiones abelianas, cíclicas y solubles</h4>
+<div class="outline-text-4" id="text-org4373bf6">
+<p>
+Una extensión finita se dice <b>abeliana, cíclica o soluble</b> si es
+de Galois y su grupo lo es.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0855d1f" class="outline-4">
+<h4 id="org0855d1f">6.4.3. Subgrupos abelianos, cíclicos y solubles</h4>
+<div class="outline-text-4" id="text-org0855d1f">
+<p>
+Sea \(E\supset F\supset K\) con \(E/K\) finita y <b>abeliana, cíclica o soluble</b>,
+entonces \(E/F\) también es abeliana, cíclica o soluble, respectivamente.
+</p>
+</div>
+
+<div id="outline-container-org16184cb" class="outline-5">
+<h5 id="org16184cb">Demostración</h5>
+<div class="outline-text-5" id="text-org16184cb">
+<p>
+Tenemos que el subgrupo de un abeliano, cíclico o soluble
+es también abeliano, cíclico o soluble.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b89838" class="outline-4">
+<h4 id="org9b89838">6.4.4. Subextensiones finitas abelianas y cíclicas</h4>
+<div class="outline-text-4" id="text-org9b89838">
+<p>
+Sean \(K \subset F \subset E\) torre de extensiones <b>finitas</b>:
+</p>
+
+<ol class="org-ol">
+<li>Si \(E/K\) es Galois abeliana, \(F/K\) es Galois abeliana.</li>
+<li>Si \(E/K\) es Galois cíclica, \(F/K\) es Galois cíclica.</li>
+</ol>
+</div>
+
+<div id="outline-container-orga4bb2f1" class="outline-5">
+<h5 id="orga4bb2f1"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org0282722" class="outline-4">
+<h4 id="org0282722">6.4.5. Galois para cuerpos compuestos</h4>
+<div class="outline-text-4" id="text-org0282722">
+<p>
+Sea \(E/K\) Galois finita y \(F/K\) extensión con \(E,F \subset L\).
+Entonces \(EF/F\) y \(E/(E\cap F)\) son extensiones finitas de Galois.
+Además la aplicación restricción \(\sigma \mapsto \sigma|_E\) define un isomorfismo:
+</p>
+
+<p>
+\[ \bullet|_E : Gal(EF/F) \longrightarrow Gal(E/(E\cap F)) < Gal(E/K) \]
+</p>
+</div>
+
+<div id="outline-container-org818f7c6" class="outline-5">
+<h5 id="org818f7c6"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org40b34bf" class="outline-4">
+<h4 id="org40b34bf">6.4.6. Relación de Galois con el grado</h4>
+<div class="outline-text-4" id="text-org40b34bf">
+<p>
+Sea \(E/K\) extensión finita de Galois y sea \(F/K\) con \(E,F \subset L\).
+Entonces \([EF:F] \mid [F:K]\).
+</p>
+</div>
+
+<div id="outline-container-org48798d2" class="outline-5">
+<h5 id="org48798d2"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org221165f" class="outline-4">
+<h4 id="org221165f">6.4.8. Composición de extensiones de Galois</h4>
+<div class="outline-text-4" id="text-org221165f">
+<p>
+Sean \(E_1/K\), \(E_2/K\) extensiones Galois finitas con \(E_1,E_2 \subset L\).
+Entonces \(E_1E_2/K\) es extensión finita de Galois y existe un
+monomorfismo restricción:
+</p>
+
+<p>
+\[
+\lambda : Gal(E_1E_2/K) 
+\longrightarrow 
+Gal(E_1/K) \times Gal(E_2/K)
+\]
+</p>
+
+<p>
+Cuando además tenemos \(E_1 \cap E_2 = K\), \(\lambda\) es un isomorfismo.
+</p>
+</div>
+
+<div id="outline-container-org3705869" class="outline-5">
+<h5 id="org3705869"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org83f303b" class="outline-4">
+<h4 id="org83f303b">6.4.9. Extensión del producto</h4>
+<div class="outline-text-4" id="text-org83f303b">
+<p>
+Sean \(E_i/K\) extensiones contenidas en un \(L\) con grupos de Galois
+\(G_1,G_2,\dots,G_n\). Si cumplena demás \(E_i \cap (E_1E_2\dots E_{i-1}) = K\), entonces:
+</p>
+
+<p>
+\[Gal(E_1E_2\dots E_n/K) \cong G_1 \times G_2 \times \dots \times G_n\]
+</p>
+</div>
+
+<div id="outline-container-orgc7924aa" class="outline-5">
+<h5 id="orgc7924aa"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-orga0807dc" class="outline-4">
+<h4 id="orga0807dc">6.4.10. Cuerpos fijos del producto</h4>
+<div class="outline-text-4" id="text-orga0807dc">
+<p>
+Sea \(E/K\) una extensión finita de Galois con grupo \(G = G_1 \times \dots \times G_n\).
+Sea \(E_i\) el cuerpo fijo de \(G_1 \times \dots \times \{1\} \times \dots \times G_n\). Entonces \(E_i/K\) es
+de Galois con grupo \(Gal(E_i/K) = G_i\), \(E_i \cap (E_1\dots E_{i-1})\) y \(E=E_1\dots E_n\).
+</p>
+</div>
+
+<div id="outline-container-orga0e31b6" class="outline-5">
+<h5 id="orga0e31b6"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8d268d2" class="outline-2">
+<h2 id="org8d268d2">7. Cuerpos finitos</h2>
+<div class="outline-text-2" id="text-org8d268d2">
+</div><div id="outline-container-org6d562d5" class="outline-3">
+<h3 id="org6d562d5">7.1. Estructura de los cuerpos finitos</h3>
+<div class="outline-text-3" id="text-org6d562d5">
+</div><div id="outline-container-org692ac6b" class="outline-4">
+<h4 id="org692ac6b">7.1.1. Propiedades de un cuerpo finito</h4>
+<div class="outline-text-4" id="text-org692ac6b">
+<p>
+Sea \(F\) cuerpo finito con \(|F| = q\),
+</p>
+
+<ol class="org-ol">
+<li>\(car(F) = p\) es un primo</li>
+<li>El cuerpo primo es \(\mathbb{Z}/p\mathbb{Z}\)</li>
+<li>\(F/\mathbb{Z}_p\) es extensión finita</li>
+<li>\([ F : \mathbb{Z}_p] = n\), entonces \(|F| = p^n\)</li>
+<li>\(F^\times\) es cíclico de orden \(|F|-1\)</li>
+</ol>
+</div>
+
+<div id="outline-container-orga281446" class="outline-5">
+<h5 id="orga281446"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgb1628a7" class="outline-4">
+<h4 id="orgb1628a7">7.1.2. Clasificación de cuerpos finitos</h4>
+<div class="outline-text-4" id="text-orgb1628a7">
+<p>
+Dos cuerpos finitos del mismo cardinal son isomorfos. De hecho,
+son el cuerpo de descomposición de \(X^{|F|} - X\).
+</p>
+</div>
+
+<div id="outline-container-orgbb876dc" class="outline-5">
+<h5 id="orgbb876dc"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgabf88ef" class="outline-4">
+<h4 id="orgabf88ef">7.1.3. Existencia de cuerpos finitos</h4>
+<div class="outline-text-4" id="text-orgabf88ef">
+<p>
+Dado \(p\) primo, existe cuerpo de \(p^n\) elementos.
+</p>
+</div>
+
+<div id="outline-container-orgc534b0f" class="outline-5">
+<h5 id="orgc534b0f">Demostración</h5>
+<div class="outline-text-5" id="text-orgc534b0f">
+<p>
+Sea \(f(x) = x^{p^n}-x\) polinomio en \(\mathbb{Z}_p\). Su derivada es \(-1\) y no tiene raíces, 
+luego tiene sólo raíces simples. Vemos que con sólo añadir las 
+raíces del polinomio, llega a ser cuerpo de descomposición.
+</p>
+
+<p>
+Sean \(u,v \in S\), conjunto de raíces:
+</p>
+
+<ul class="org-ul">
+<li>\((u+v)^{p^n} - (u+v) = u^{p^n}-u+v^{p^n}-v = 0\)</li>
+<li>\((uv)^{p^n}-uv = u^{p^n}v^{p^n} - uv = 0\)</li>
+<li>\((-u)^q - (-u) = 0\)</li>
+<li>\((u^{-1})^q-u^{-1} = 0\)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge7305e3" class="outline-4">
+<h4 id="orge7305e3">7.1.4. Teorema de Moore</h4>
+<div class="outline-text-4" id="text-orge7305e3">
+<p>
+Para cada \(p^n\) existe exactamente un cuerpo con \(p^n\) elementos; 
+que es el cuerpo de descomposición de \(x^{p^n}-x\) sobre \(\mathbb{Z}_p\). 
+No existen otros cuerpos finitos.
+</p>
+</div>
+
+<div id="outline-container-org0c987d9" class="outline-5">
+<h5 id="org0c987d9">Demostración</h5>
+<div class="outline-text-5" id="text-org0c987d9">
+<p>
+Sabemos los cuerpos <a href="#org692ac6b">deben</a> tener cardinal \(p^n\) y que dos cuerpos
+con el mismo cardinal son <a href="#orgb1628a7">isomorfos</a>. Además, sabemos que
+<a href="#orgabf88ef">existe</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1c3b47" class="outline-4">
+<h4 id="orgc1c3b47">7.1.5. Cuerpos de Galois</h4>
+<div class="outline-text-4" id="text-orgc1c3b47">
+<p>
+Notamos por \(GF(p^n)\) o \(\mathbb{F}_{p^n}\) al único cuerpo con esa cardinalidad,
+lo llamamos cuerpo de Galois de orden \(p^n\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgefecbed" class="outline-3">
+<h3 id="orgefecbed">Factorización de polinomios</h3>
+<div class="outline-text-3" id="text-orgefecbed">
+</div><div id="outline-container-orgde463fb" class="outline-4">
+<h4 id="orgde463fb">Clasificación de polinomios irreducibles</h4>
+<div class="outline-text-4" id="text-orgde463fb">
+<div class="theorem">
+<p>
+Los factores irreducibles de \(x^{p^n}-x\) son exactamente los polinomios irreducibles de
+\(\mathbb{F}_p[X]\) cuyo grado divida a \(n\).
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org8763f3a" class="outline-2">
+<h2 id="org8763f3a">8. Extensiones ciclotómicas</h2>
+<div class="outline-text-2" id="text-org8763f3a">
+</div><div id="outline-container-org4466c77" class="outline-3">
+<h3 id="org4466c77">Raíces de la unidad</h3>
+<div class="outline-text-3" id="text-org4466c77">
+</div><div id="outline-container-orgb08b2e6" class="outline-4">
+<h4 id="orgb08b2e6">Subgrupos finitos del grupo multiplicativo</h4>
+<div class="outline-text-4" id="text-orgb08b2e6">
+<p>
+Todo subgrupo finito del grupo multiplicativo \(K^\times\) es cíclico.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org501ef89" class="outline-4">
+<h4 id="org501ef89">Grupo de raíces n-ésimas</h4>
+<div class="outline-text-4" id="text-org501ef89">
+<p>
+Llamamos <b>grupo de raíces n-ésimas</b> de la unidad al grupo siguiente. Cualquier
+generador del grupo se llama una <b>raíz primitiva</b> de la unidad.
+</p>
+
+<p>
+\[ \mu_n = \{\zeta\in K \mid \zeta^n = 1\} \]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9848370" class="outline-3">
+<h3 id="org9848370">Polinomios ciclotómicos</h3>
+<div class="outline-text-3" id="text-org9848370">
+</div><div id="outline-container-orgf84c190" class="outline-4">
+<h4 id="orgf84c190">Definición</h4>
+<div class="outline-text-4" id="text-orgf84c190">
+<p>
+Se llama <b>polinomio ciclotómico</b> al polinomio:
+</p>
+
+<p>
+\[\Phi_n = \prod_{\zeta \text{ primitiva}} (X -\zeta)\]
+</p>
+
+<p>
+Se cumple que \(\operatorname{grad}(\Phi_n) = \phi(n)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd9b1e7d" class="outline-4">
+<h4 id="orgd9b1e7d">Cálculo de los polinomios ciclotómicos</h4>
+<div class="outline-text-4" id="text-orgd9b1e7d">
+<p>
+Tenemos que:
+</p>
+
+<p>
+\[\Phi_n  = \frac{X^n-1}{\prod_{d|n, d\neq n} \phi_d}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgec62f5b" class="outline-4">
+<h4 id="orgec62f5b">Función de Möbius</h4>
+<div class="outline-text-4" id="text-orgec62f5b">
+<p>
+Se define \(\mu : \mathbb{N} \longrightarrow \mathbb{Z}\) como:
+</p>
+
+<p>
+\[\mu(n) = \threepartdef
+ {0}{\exists p: \text{ primo con } p^2|n}
+ {(-1)^r}{n = p_1p_2\dots p_n \text{ primos distintos}}
+ {1}{n=1}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org29fbe13" class="outline-3">
+<h3 id="org29fbe13">Extensiones ciclotómicas</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2016-12-24 Sat 13:57</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
