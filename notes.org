@@ -3899,20 +3899,21 @@ lo llamamos cuerpo de Galois de orden $p^n$.
 ** 1. Anillos e ideales
 *** La categoría CRing
 **** Categoría
-Consideramos la categoría de los *anillos conmutativos*, que consta de los anillos
-conmutativos como objetos y de los homomorfismos de anillos; respetando suma,
-producto y unidad; como morfismos.
+Consideramos la categoría de los *anillos conmutativos*, que consta de
+los anillos conmutativos como objetos y de los homomorfismos de
+anillos; respetando suma, producto y unidad; como morfismos.
 
 **** Z es objeto inicial
-El anillo $\mathbb{Z}$ es inicial en =CRing=. El homomorfismo único queda unívocamente 
-definido con $f(1) = 1$ y $f(n) = nf(1)$.
+El anillo $\mathbb{Z}$ es inicial en =CRing=. El homomorfismo único
+queda unívocamente definido con $f(1) = 1$ y $f(n) = nf(1)$.
 
 **** Subanillos
-*Subanillo*. Subconjunto cerrado para la suma y el producto conteniendo a 1.
+*Subanillo*. Subconjunto cerrado para la suma y el producto
+conteniendo a 1.
 
 **** Monomorfismos y epimorfismos
-En =CRing= coinciden la inyectividad con ser monomorfismo y la sobreyectividad
-con ser epimorfismo.
+En =CRing= coinciden la inyectividad con ser monomorfismo y la
+sobreyectividad con ser epimorfismo.
 
 *** Ideales
 **** Definición
@@ -4228,15 +4229,269 @@ Tenemos que:
 
 ** 3. Bases de Gröbner
 *** R-álgebras
+**** R-álgebras
 Una *R-álgebra*, $S$ es un anillo con estructura de R-módulo, tal que:
 
 \[\forall r\in R, x,y\in S:\; (rx)y = r(xy) = x(ry)\]
 
-Equivalentemente es un anillo $S$ junto a un *homomorfismo de estructura* 
-$\lambda : R \longrightarrow S$. Nótese que puedo pasar de una a otra definición tomando $\lambda(r) = r1$.
+**** Homomorfismo de estructura
+Equivalentemente, una R-álgebra es un anillo $S$ junto a un *homomorfismo 
+de estructura* $\lambda : R \longrightarrow S$. 
 
-*** TODO Anillos de polinomios
-*** TODO Órdenes monomiales
+***** Equivalencia
+Nótese que puedo pasar de una a otra definición tomando $\lambda(r) = r1$.
+
+**** Homomorfismos de R-álgebras
+Un homormorfismo de R-álgebras $f : S_1 \longrightarrow S_2$ es un homomorfismo de anillos
+que sea también homomorfismo de R-módulos.
+
+\[ f(rs) = rf(s) \]
+
+**** Anillo de polinomios
+Definimos el anillo de polinomios en varias variables recursivamente:
+
+\[ R[X_1,X_2,\dots,X_n] = R[X_1,X_2,\dots,X_{n-1}][X_n] \]
+
+Y forma una R-álgebra con la inclusión desde $R$.
+
+**** Propiedad universal del anillo de polinomios
+Sea $S$ anillo y $f : R \longrightarrow S$ homomorfismo de anillos. Sean $s_1,\dots,s_n \in S$
+elementos arbitrarios; entonces existe un único homomorfismo de R-álgebras
+$f_{s_1,\dots,s_n} : R[X_1,\dots,X_n] \longrightarrow S$ tal que:
+
+\[ \begin{tikzcd}
+R \rar[hook]{i} \drar[swap]{f} & R[X_1,X_2,\dots,X_n] \dar[dashed]{f_{s_1,\dots,s_n}} \\
+  & S
+\end{tikzcd} \]
+
+**** Representación distributiva de un polinomio
+Llamamos representación distributiva a la siguiente:
+
+\[ p = \sum a_{(\alpha_1,\dots,\alpha_n)} 
+X_1^{\alpha_1} X_2^{\alpha_2} \dots X_n^{\alpha_n} \]
+
+Si escribimos los monomios como $X^{\alpha}$ para cada $\alpha \in \mathbb{N}^n$, nos
+queda:
+
+\[p = \sum_{\alpha \in \mathbb{N}^n} a_\alpha X^\alpha\]
+
+*** Órdenes monomiales
+**** Órdenes compatibles
+Un orden $\leq$ en $\mathbb{N}^n$ es compatible si:
+
+\[\alpha \leq \beta \Longrightarrow \alpha + \gamma \geq \beta + \gamma\]
+
+**** Órdenes monótonos
+Un orden $\leq$ es monótono si:
+
+\[ 0 \leq \alpha \]
+
+**** Órdenes monomiales
+Un orden monomial es compatible, monótono y total.
+
+**** Orden lexicográfico
+Definimos $\alpha \geq_{lex} \beta$ cuando para el primer $\alpha_i \neq \beta_i$, se tiene
+$\alpha_i \geq \beta_i$.
+
+**** Orden lexicográfico graduado
+Definimos $\alpha \geq_{grlex} \beta$ cuando $\sum \alpha > \sum \beta$ ó se da la igualdad
+y se tiene $\alpha \geq_{lex} \beta$.
+
+**** Orden lexicográfico graduado inverso
+Definimos $\alpha \geq_{invgrlex} \beta$ cuando $\sum \alpha > \sum \beta$ ó se da la igualdad
+y para el primer $\alpha_i \neq \beta_i$ a la derecha, se tiene $\alpha_i < \beta_i$.
+
+**** Relación de equivalencia en preódenes
+Dado un preorden $\sqsubseteq$, se define la relación de equivalencia $x \equiv y$,
+que se tiene cuando $x \sqsubseteq y \wedge y \sqsubseteq x$.
+
+**** Producto lexicográfico de preórdenes
+Definimos el producto lexicográfico de dos preórdenes $\sqsubseteq_1,\sqsubseteq_2$
+como:
+
+\[x \sqsubseteq_{12} y = \left\{
+\begin{array}{l} 
+x \sqsubseteq_1 y \wedge y \not\sqsubseteq_1 x \\ 
+\text{  ó} \\
+x \equiv_1 y \wedge x \sqsubseteq_2 y
+\end{array}\right.\]
+
+**** Propiedades del producto
+El producto de preórdenes cumple:
+
+ 1. $\sqsubseteq_{12}$ es un preorden
+ 2. $\sqsubseteq_2$ orden $\Rightarrow$ $\sqsubseteq_{12}$ orden
+ 3. $\sqsubseteq_1,\sqsubseteq_2$ totales $\Rightarrow$ $\sqsubseteq_{12}$ total
+ 4. $\sqsubseteq_1,\sqsubseteq_2$ compatible $\Rightarrow$ $\sqsubseteq_{12}$ compatible
+ 5. $\sqsubseteq_1,\sqsubseteq_2$ monótono $\Rightarrow$ $\sqsubseteq_{12}$ monótono
+
+***** TODO Demostración
+
+**** Los órdenes son monomiales
+Los órdenes $\leq_{lex},\leq_{grlex},\leq_{invgrlex}$ son monomiales.
+
+***** TODO Demostración
+
+**** Lema de Dickson
+Sea $S \subseteq \mathbb{N}^n$ no vacío, existe $G \subseteq S$ finito tal que:
+
+\[\forall x\in S: \exists y \in G: \quad x = y + \alpha\]
+
+***** TODO Demostración
+**** Orden monomial es buen orden
+Todo orden monomial en $\mathbb{N}^n$ es buen orden.
+
+**** Monoideales
+Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E + \mathbb{N}^n$.
+
+**** Sistemas de generadores
+Si $E$ es monoideal, existe $G \subset E$ finito con $E = G + \mathbb{N}^n$.
+Llamamos a $G$ sistema de generadores de $E$.
+
+***** TODO Demostración
+
+**** Sistema de generadores minimal
+Un sistema de generadores es minimal si ningún subconjunto
+suyo es sistema de generadores.
+
+**** Unicidad del sistema de generadores minimal
+El sistema de generadores minimal de un $E$ es único.
+
+***** TODO Demostración
+
+*** División de polinomios
+**** Diagrama de Newton
+El conjunto de exponentes para un polinomio $p = \sum a_\alpha x^\alpha$:
+
+\[N(p) = \{\alpha\in\mathbb{N}^n \mid a_\alpha \neq 0\}\]
+
+**** Exponente
+El exponente de un polinomio, fijado un orden monomial, es el máximo
+exponente de su diagrama
+
+\[Exp(p) = \max \{\alpha\in\mathbb{N}^n \mid a_\alpha \neq 0\} \]
+
+**** Grado total
+Definimos el grado total, fijado un orden monomial, como el máximo
+valor absoluto de los exponentes:
+
+\[Grtot(p) = \max \{|\alpha| \mid a_\alpha \neq 0\} \]
+
+**** Término líder
+Llamamos término líder al que aporta el exponente, $a_{Exp(p)}X^{Exp(p)}$.
+Su coeficiente líder es $a_{Exp(p)}$ y su monomio líder, $X^{Exp(p)}$.
+
+**** Propiedades del exponente
+Dados $F,G \in K[X_1,\dots,X_n]$ no nulos: 
+
+ 1. $Exp(FG) = Exp(F) + Exp(G)$.
+ 2. Si $F+G \neq 0$ entonces $Exp(F+G) \leq \max\{Exp(F),Exp(G)\}$.
+ 3. Si $Exp(F) < Exp(G)$; entonces $Exp(F+G) = Exp(G)$.
+ 
+***** TODO Demostración
+
+**** Partición de generadores
+Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
+definimos inductivamente:
+
+\[\Delta^1 = a_1 + \mathbb{N}^n\]
+
+\[\Delta^i = (a_i + \mathbb{N}^n) \setminus \bigcup_{j < i} \Delta^j \]
+
+\[ \overline{\Delta} = \mathbb{N}^n \setminus \bigcup_{j \leq k} \Delta^j\]
+
+**** Teorema de la división
+Dado un orden monomial y una lista de polinomios $G_i$; consideramos la
+partición $\Delta_1,\dots,\overline{\Delta}$ dada por los exponentes $Exp(G_i)$. Tenemos que para
+cada $F \in K[X_1,\dots,X_n]$, existen $Q_1,\dots,Q_t,R$ únicos tales:
+
+ 1. $F = Q_1G_1 + \dots + Q_tG_t + R$
+ 2. $R = 0$ ó $N(R) \subseteq \overline\Delta$
+ 3. $Exp(G_i) + N(Q_i) \subseteq \Delta^i$
+
+***** TODO Demostración
+
+**** Ideales monomiales
+Un ideal es monomial si es de la forma:
+
+\[ I = (X^\alpha \mid \alpha\in A)\]
+
+Para algún $A \subseteq \mathbb{N}^n$.
+
+**** Pertenencia a ideal monomial
+Sea $I = (X^\alpha \mid \alpha\in A)$. $X^\beta \in I$ ssi existen $F$ y $\alpha$ tales que: $X^\beta = FX^\alpha$.
+
+***** TODO Demostración
+
+**** Monomios en ideal monomial
+Sea $I = (X^\alpha \mid \alpha\in A)$ y $F \in K[X_1,\dots,X_n]$, equivalen entonces:
+
+ 1. $F \in I$.
+ 2. Todo monomio de $F$ está en $I$.
+ 3. $F$ es combinación lineal de monomios de $I$.
+
+***** TODO Demostración
+ 
+**** Exponente de un ideal
+Dado un ideal $I$ no nulo, definimos su exponente como el subconjunto:
+
+\[Exp(I) = \{Exp(F) \mid 0\neq F \in I\} \subseteq \mathbb{N}^n\]
+
+**** El exponente es monoideal
+$Exp(I)$ es un monoideal de $\mathbb{N}^n$.
+
+***** TODO Demostración
+
+**** Lema de Dickson para ideales monomiales
+Todo ideal monomial tiene un sistema de generadores finito y formado
+por monomios.
+
+***** TODO Demostración
+
+**** Unicidad del sistema de generadores minimal
+Sea $I$ monomial no nulo. Existe un único sistema de generadores minimal
+formado por monomios, es decir, ningún subconjunto suyo es generador.
+
+***** TODO Demostración
+
+**** TODO Otros sistemas de generadores
+**** Bases de Gröbner
+Sea $I \subseteq K[X_1,\dots,X_n]$ un ideal no nulo. Una base de Gröbner es un conjunto
+$\mathbb{G} = \{G_1,\dots,G_n\} \subseteq I$ cumpliendo $Exp(I) = \{Exp(G_1),\dots,Exp(G_n)\} + \mathbb{N}^n$.
+
+**** Resto en bases de Gröbner
+Sea $I$ ideal con bases de Gröbner $\mathbb{G},\mathbb{G}'$. Para $F \in K[X_1,\dots,X_n]$:
+
+\[R(F;\mathbb{G}) = R(F;\mathbb{G}')\]
+
+***** TODO Demostración
+
+**** Caracterización de bases de Gröbner
+Sea $I$ ideal no nulo, equivalen:
+
+ 1. $\mathbb{G}$ es base de Gröbner de $I$.
+ 2. $R(F,\mathbb{G}) = 0$, para todo $F \in I$.
+
+***** TODO Demostración
+
+**** Semizigia
+Sean $F,G \in K[X_1,\dots,X_n]$ no nulos. Definimos el S-polinomial o semizigia
+como el siguiente polinomio:
+
+\[{\cal S}(F,G) 
+= \frac{1}{cl(F)}X^{\gamma-\alpha}F - \frac{1}{cl(G)}X^{\gamma-\beta}G\]
+
+donde $\gamma_i = \max\{\alpha_i,\beta_i\}$, para $\gamma = (\gamma_1,\dots,\gamma_n)$.
+
+**** Teorema de Buchberger
+Sea $I$ ideal no nulo de $K[X_1,\dots,X_n]$ y $\mathbb{G} = \{G_1,\dots,G_n\}$ un sistema de
+generadores. Equivalen:
+
+ 1. $\mathbb{G}$ es base de Gröbner.
+ 2. Para cualquier ordenación de $\mathbb{G}$, se tiene $R({\cal S}(G_i,G_j); \mathbb{G}) = 0$
+    para cualesquiera $i \neq j$.
+
+***** TODO Demostración
 * Análisis Funcional
 ** 1. Espacios normados
 *** Espacios normados
