@@ -5699,32 +5699,44 @@ punto del espacio $f \in X^\ast$ se tiene acotado:
  # Conjuntos creíbles
 
 ** 1. Introducción a la inferencia estadística. Estadísticos muestrales.
-*** Planteamiento de un problema de inferencia.
-**** Modelo
-Un *modelo* es una familia paramétrica de distribuciones $F(x,\theta)$ para un 
-parámetro $\theta$.
+*** Planteamiento de un problema de inferencia
+**** Modelo estadístico
+Un modelo estadístico $(X,{\cal P})$ consta de:
+
+  - $X : (\Omega, {\cal A},{\cal P}) \longrightarrow (\mathbb{R},{\cal B},P_X)$ variable aleatoria que describe el 
+    objeto de estudio.
+  - ${\cal P}$ familia de distribuciones que pueden ser la de $X$.
+
+**** Modelo estadístico paramétrico
+Cuando se conoce la forma funcional de $P_X$ y sólo desconocemos un 
+parámetro tenemos una familia paramétrica de distribuciones $F(x,\theta)$ 
+para $\theta$.
+
+**** Modelo estadístico no paramétrico
+Cuando la forma funcional de $P_X$ es desconocida.
 
 **** Muestra aleatoria simple
-Una *muestra aleatoria simple* es un vector $(X_1,\dots,X_n)$
+Una muestra aleatoria simple es un vector $(X_1,\dots,X_n)$
 de variables independientes idénticamente distribuidas. 
-Llamo *realización muestral* a un valor concreto obtenido al 
-observar la muestra y *espacio muestral* al conjunto de todas 
-las posibles realizaciones.
 
-**** Estadístico muestral
-Dada una muestra aleatoria simple, un *estadístico muestral* es una función sobre
-ella $T : (\mathbb{R}^n,{\cal B}^n)\longrightarrow (\mathbb{R}^k,{\cal B}^k)$ medible e independiente de cualquier parámetro desconocido.
+***** Realización muestral
+Una realización muestral a un valor concreto obtenido al 
+observar la muestra.
+
+***** Espacio muestral
+Conjunto de todas las posibles realizaciones.
 
 *** Función de distribución empírica
-**** Función de distribución empírica
-La *función de distribución empírica* es una función de distribución razonable 
-que podemos obtener desde una realización muestral.
+**** Función de distribución muestral
+La *función de distribución empírica* es una función de 
+distribución razonable que podemos obtener desde una 
+realización muestral.
 
- \[F^\ast_{X_1,\dots,X_n}(x) = \frac{1}{n} \sum_{i=1}^n \mathbf{1}_{(x_i < x)} \]
+ \[F^\ast_{X_1,\dots,X_n}(x) = \frac{1}{n} \sum_{i=1}^n \mathbf{1}_{(X_i < x)} \]
 
 **** Propiedades de la función de distribución empírica
-Fijado un $x \in \mathbb{R}$, $F^\ast(x)$ es una variable aleatoria siguiendo por definición una
-binomial:
+Fijado un $x \in \mathbb{R}$, $F^\ast(x)$ es una variable aleatoria siguiendo por 
+definición una binomial:
 
 \[ nF^\ast(x) \longrightarrow {\cal B}(n, F(x))\]
 
@@ -5735,7 +5747,7 @@ Calculamos su *esperanza* y *varianza* desde Bernoulli como:
 
 Aplicando entonces el Teorema Central del Límite:
 
-\[ \frac{nF^\ast(x) - nF(x)}{\sqrt{nF(x)(1-F(x))}} \leadsto {\cal N}(0,1) \]
+\[ \frac{F^\ast(x) - F(x)}{\sqrt{\frac{F(x)(1-F(x))}{n}}} \leadsto {\cal N}(0,1) \]
 
 **** Teorema de Glivenko-Cantelli
 Las funciones de distribución muestrales convergen 
@@ -5744,74 +5756,209 @@ casi seguramente y uniformemente a la teórica.
 \[ P\left\{ \lim_{n \rightarrow \infty} 
 \sup_{x \in \mathbb{R}} |F^\ast_n(x) - F(x)| = 0\right\} = 1\]
 
-*** TODO Funciones características
+***** Equivalentemente
+Con probabilidad 1 se tiene que, al tomar sucesivas observaciones 
+independientes y considerar las correspondientes funciones de 
+distribución muestrales:
+
+\[\forall \epsilon>0: \exists n_\epsilon : \forall n \geq n_\epsilon:
+\quad F^\ast_{X_1,\dots,X_n}(x) - \epsilon < F_X(x) < F^\ast_{X_1,\dots,X_n}(x) + \epsilon\]
+
+***** TODO Demostración
+
+*** Estadístico muestral
+**** Estadístico muestral
+Dada una muestra aleatoria simple, un *estadístico muestral* es una 
+función sobre ella $T : (\mathbb{R}^n,{\cal B}^n)\longrightarrow (\mathbb{R}^k,{\cal B}^k)$ medible e independiente 
+de cualquier parámetro desconocido.
+
+**** Estadísticos de interés
+***** Momentos muestrales no centrados
+Para cada $k \in \mathbb{N}$:
+
+\[A_k = \frac{1}{n}\sum_{i=1}^n X_i^k\]
+
+***** Momentos muestrales centrados
+Para cada $k \in \mathbb{N}$:
+
+\[B_k = \frac{1}{n}\sum_{i=1}^n(X_i - \overline{X})^k\]
+
+***** Media muestral
+Caso particular,
+
+\[A_1 = \frac{1}{n}\sum_{i=1}^n X_i = \overline{X}\]
+
+***** Varianza muestral
+Caso particular,
+
+\[B_2 = \frac{1}{n}\sum_{i=1}^n(X_i - \overline{X})^2\]
+
+***** Cuasivarianza muestral
+
+\[S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i-\overline{X})^2\]
+
 ** 2. Muestreo de poblaciones normales
-*** Distribución chi cuadrado de Pearson
+*** Distribución χ² de Pearson
 **** Distribución chi cuadrado
-Es un caso particular de la distribución gamma que se obtiene como la
-distribución de la suma de $k$ cuadrados de variables normales, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
-Al parámetro $k$ se le llama número de grados de libertad.
+Es un caso particular de la distribución gamma, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
+Al parámetro $k$ se le llama *número de grados de libertad*.
 
 **** Función de densidad
 
  \[f(x) = \frac{1}{\Gamma(\frac{k}{2})2^{k/2}} x^{k/2-1}e^{-x/2}\]
 
+***** TODO Demostración
 **** Función generatriz de momentos
 
+\[M_X(t) = \frac{1}{(1-2t)^{n/2}}\], para $t < 1/2$.
+
+***** TODO Demostración
 **** Esperanza y varianza
 
  - $E[X] = k$
  - $Var[X] = 2k$
 
-**** Propiedad de reproductividad
- Si tengo una serie de variables independientes distribuidas por $X_i \leadsto \chi^2(k_i)$, entonces:
+***** TODO Demostración
 
- \[\sum_{i=1}^n X_i = \chi^2 \left(\sum_{i=1}^n k_i \right)\]
+**** Propiedad de reproductividad
+Si tengo una serie de variables independientes distribuidas 
+por $X_i \leadsto \chi^2(k_i)$, entonces:
+
+\[\sum_{i=1}^n X_i \leadsto \chi^2 \left(\sum_{i=1}^n k_i \right)\]
 
 **** Relación con la distribución normal
- Dadas variables independientes $X_i \leadsto {\cal N}(0,1)$,
+Dadas variables independientes $X_i \leadsto {\cal N}(0,1)$,
 
  \[\sum_{i=1}^n X^2_i \leadsto \chi^2(n)\]
 
+***** TODO Demostración
+
+**** Aproximación
+Para valores pequeños, pueden usarse tablas. Para valores grandes
+de $n$, podemos aproximarla mediante el Teorema Central del Límite
+como:
+
+\[ \chi^2(x) \approx {\cal N}(n,2n)\]
+
+***** TODO Demostración
+
+**** TODO Gráfica de la función de densidad
 *** Distribución t de Student
 **** T de Student
-Dadas dos variables independientes $X \leadsto {\cal N}(0,1)$ e $Y \leadsto \chi^2(n)$, tenemos
+Dadas dos variables independientes $X \leadsto {\cal N}(0,1)$ e $Y \leadsto \chi^2(n)$, 
+tenemos:
 
- \[ T = \frac{X}{\sqrt{Y/n}} \leadsto t(n) \]
+\[ T = \frac{X}{\sqrt{Y/n}} \leadsto t(n) \]
 
-**** TODO Función de densidad
+**** Función de densidad
+
+\[ f(t) 
+= \frac
+{\Gamma\left(\frac{n+1}{2}\right)}
+{\Gamma\left(\frac{n}{2}\right) \sqrt{n\pi}} 
+\left(
+1 + \frac{t^2}{n}
+\right)^{-\frac{n+1}{2}}
+\], $t \in \mathbb{R}$
+
+***** TODO Demostración
+
 **** Momentos
-Tenemos que $\exists E[T^k] \Leftrightarrow k < n$. Cuando existen, se tiene
+Tenemos que $\exists E[T^k] \iff k < n$. Cuando existen, se tiene
 
  - $E[T] = 0$
  - $Var[T] = \frac{n}{n-2}$
 
+***** TODO Demostración
+
+**** Aproximación
+Tabulada para $n$ pequeños y aproximada por ${\cal N}(0,1)$ para valores
+grandes.
+
+**** TODO Gráfica de la función de densidad
 *** Distribución F de Snedecor
 **** Definición
-*F de Snedecor*. Dadas dos variables independientes $X \leadsto \chi^2(n)$ e $Y \leadsto \chi^2(m)$,
-su cociente nos da:
+*F de Snedecor*. Dadas dos variables independientes $X \leadsto \chi^2(n)$ e
+$Y \leadsto \chi^2(m)$, su cociente nos da:
 
- \[F = \frac{X/m}{Y/n} \longrightarrow F(m,n)\]
+\[F = \frac{X/m}{Y/n} \leadsto F(m,n)\]
 
+**** Función de densidad
+
+\[g(t)
+= \frac
+{\Gamma(\frac{m+n}{2})}
+{\Gamma(\frac{m}{2})\Gamma(\frac{n}{2})}
+\left(\frac{m}{n}\right)^{\frac{m}{2}}
+t^{m/2-1}
+\left(1+\frac{m}{n}t\right)^{-\frac{m+n}{2}}\], para $t>0$.
+
+***** TODO Demostración
+
+**** Momentos
+Tenemos que $\exists E[T^k] \iff k < n/2$.
+
+ - $n > 2 \Rightarrow \exists E[F] = \frac{n}{n-2}$
+ - $n > 4 \Rightarrow \exists Var[F] = \frac{n^2(2m+2n-4)}{m(n-2)^2(n-4)}$
+
+***** TODO Demostración
+
+**** Propiedades
+\[ F \leadsto F(m,n) \iff F^{-1} \leadsto F(n,m)\]
+\[T \leadsto t(n) \iff T^2 \leadsto F(1,n)\]
+
+**** Aproximación
+La distribución está tabulada y las tablas incluyen aproximaciones 
+para valores grandes de $n$ y $m$.
+
+**** TODO Gráfica de la función de densidad
 *** Muestreo de la normal
 **** Lema de Fisher
-Sea $(X_1,\dots,X_n)$ una muestra aleatoria simple con $X \leadsto {\cal N}(\mu,\sigma^2)$. Definimos:
+Sea $(X_1,\dots,X_n)$ una muestra aleatoria simple con $X \leadsto {\cal N}(\mu,\sigma^2)$.
+Los estadísticos $\overline{X}$ y $S^2$ son independientes.
 
- - $\overline{X} = \frac{1}{n}\sum_{i=1}^n X_i$
- - $S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \overline{X})$
+***** TODO Demostración 
+**** Distribuciones del muestreo de una normal unidimensional
+***** Inferir la media con varianza conocida
 
-Los estadísticos $\overline{X}$ y $S^2$ son independientes cuando $X$ tiene
-distribución normal.
+\[\frac
+{\overline{X}-\mu}
+{\sigma/\sqrt{n}}
+\leadsto
+{\cal N}(0,1)\]
 
-**** TODO Distribuciones del muestreo de una normal unidimensional
+***** Inferir la media con varianza desconocida
+
+\[\frac
+{\overline{X} - \mu}
+{S/\sqrt{n}}
+\leadsto
+t(n-1)\]
+
+***** Inferir la varianza con media conocida
+
+\[\frac
+{\sum^n_{i=1}(X_i - \mu)^2}
+{\sigma^2}
+\leadsto
+\chi^2(n)\]
+
+***** Inferir la varianza con media desconocida
+
+\[\frac
+{(n-1)S^2}
+{\sigma^2}
+\leadsto
+\chi^2(n-1)\]
+
 *** Muestreo de dos normales
 **** Extensión del lema de Fisher
-Sean $(X_1,\dots,X_{n_2})$ y $(Y_1,\dots,Y_{n_1})$ muestras aleatorias simples con $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y
-con $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$. Definimos análogamente al caso univariable $\overline{X}$, $\overline{Y}$, $S^2_1$, $S^2_2$.
-
+Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$ independientes.
 Los vectores $(\overline{X},\overline{Y})$ y $(S^2_1,S^2_2)$ son independientes.
 
+***** TODO Demostración
 **** TODO Distribuciones del muestreo de dos normales unidimensionales
+
 ** 3. Suficiencia y completitud
 *** Estadísticos suficientes y completos
 **** Estadístico suficiente
