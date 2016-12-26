@@ -4227,7 +4227,7 @@ Tenemos que:
      puedo crear una base del anillo.
 3. Trivial.
 
-** 3. Bases de Gröbner
+** 2. Bases de Gröbner
 *** R-álgebras
 **** R-álgebras
 Una *R-álgebra*, $S$ es un anillo con estructura de R-módulo, tal que:
@@ -4411,6 +4411,7 @@ cada $F \in K[X_1,\dots,X_n]$, existen $Q_1,\dots,Q_t,R$ únicos tales:
 
 ***** TODO Demostración
 
+*** Ideales monomiales
 **** Ideales monomiales
 Un ideal es monomial si es de la forma:
 
@@ -4492,6 +4493,8 @@ generadores. Equivalen:
     para cualesquiera $i \neq j$.
 
 ***** TODO Demostración
+
+** 3. Tema 3
 * Análisis Funcional
 ** 1. Espacios normados
 *** Espacios normados
@@ -5619,22 +5622,18 @@ punto del espacio $f \in X^\ast$ se tiene acotado:
 ** 3. Espacios de Hilbert
 ** 4. Topologías débiles
 * Inferencia Estadística
-** Apuntes en clase
+** DONE Apuntes en clase
 *** Introducción
 **** Estadísticos
- #+begin_definition
  *Estadístico*. Función medible sobre variables aleatorias $f(X_1,X_2,\dots,X_n)$.
  Se dice que es un *estimador consistente* de un parámetro cuando converge 
  en probabilidad a él.
- #+end_definition
 
 *** Distribuciones continuas
 **** Distribución uniforme
- #+begin_definition
  *Distribución uniforme*. Sobre un intervalo $[a,b]$, definida por:
 
  \[f(x|a,b) = \frac{1}{b-a}\]
- #+end_definition
 
  \[EX = \int^b_a \frac{x}{b-a}dx = \frac{b+a}{2}\]
  \[Var X = \int_a^b \frac{(x-\frac{b+a}{2})^2}{b-a} dx = \frac{(b-a)^2}{12}\]
