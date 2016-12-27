@@ -2206,6 +2206,141 @@ b_0 & b_1 & \dots & b_m & 0 & \dots &\\
 
 Y llamamos *matriz resultante* a la matriz de la que es determinante.
 
+** 2. Series de grupos y grupos solubles
+*** 2.1. Series de composición
+**** 2.1.1. Factor
+Sea $G$ grupo, llamamos factor a cualquier $H/H'$ donde $G > H \trianglerighteq H'$.
+
+**** 2.1.2. Proyección
+Llamamos proyección de $H/H'$ sobre $K/K'$, ambos factores, a:
+
+\[\frac
+{K'(H\cap K)}
+{K'(H'\cap K)}\]
+
+**** 2.1.3. Serie
+Llamamos serie a toda cadena finita:
+
+\[ G > G_1 > G_2 > \dots > G_r = 1\]
+
+Donde llamamos a $r$ la longitud del grupo.
+
+**** 2.1.4. Refinamiento de una serie
+Dadas dos series,
+
+\[ G > G_1 > G_2 > \dots > G_r = 1\]
+\[ G > G'_1 > G'_2 > \dots > G'_r = 1\]
+
+llamamos a la segunda refinamiento si todo grupo suyo aparece en
+la primera. Es refinamiento propio si además son distintas.
+
+**** 2.1.5. Serie normal
+Una serie es *normal* cuando se verfica $G_i \trianglerighteq G_{i+1}$. Llamamos a $G_{i-1}/G_i$
+los *factores* de la serie.
+
+**** 2.1.5. Serie propia
+Una serie propia tiene sólo inclusiones propias $G_i \gneq G_{i+1}$.
+
+**** 2.1.5. Isomorfismo de series
+Dos series son isomorfas cuando existe una permutación que hace 
+isomorfos sus factores:
+
+\[\exists \sigma \in S_r : \quad 
+G_{i-1}/G_i \cong H_{\sigma(i)-1}/H_{\sigma(i)}\]
+
+**** 2.1.5. Serie de composición
+Una *serie de composición* es una serie normal propia sin 
+refinamientos normales. Llamamos *factores de composición* a sus
+factores.
+
+**** 2.1.6. Grupo simple
+Un grupo simple es aquel que no admite subgrupos normales propios.
+
+**** 2.1.7. Grupos abelianos finitos simples
+Un grupo abeliano, finito y simple es isomorfo a $\mathbb{Z}_p$ para algún $p$ primo.
+
+***** TODO Demostración
+
+**** 2.1.8. Los factores de composición son simples
+Los factores de cualquier serie de composición son simples.
+
+***** TODO Demostración
+
+**** 2.1.9. Existencia de la serie de composición
+Todo grupo finito posee una serie de composición.
+
+**** 2.1.10. Teorema de refinamiento de Schreier
+Dos series normales de un grupo tienen refinamientos isomorfos.
+
+**** 2.1.11. Teorema de Jordan-Holder
+Si un grupo admite serie de composición, toda serie normal propia puede
+refinarse a una serie de composición. Las series de composición son 
+isomorfas.
+
+*** 2.2. El programa de Holder
+**** TODO 2.2.1. Teorema de clasificación de grupos simples finitos
+**** 2.2.2. Teorema de Abel
+El grupo $A_n$ es simple para $n \geq 5$.
+
+***** TODO Demostración
+
+**** 2.2.3. Teorema de Feit-Thompson
+Si $G$ es simple de orden impar, entonces $G \cong \mathbb{Z}_p$ con $p$ primo.
+
+***** TODO Demostración
+
+*** 2.3. Grupos solubles
+**** 2.3.1. Serie derivada
+Dado $G$, definimos la serie derivada de $G$ como:
+
+\[G = G^0 > G' > G'' > \dots \]
+
+donde $G^{(i+1} = [G^{(i}, G^{(i}]$ es el grupo derivado. Nótese que no tiene por
+qué ser finita.
+
+**** 2.3.2. Caracterización de grupos solubles
+Para $G$ grupo finito, equivalen:
+
+ 1. Los factores de composición son cíclicos de orden primo.
+ 2. $G$ tiene serie normal con factores cíclicos.
+ 3. $G$ tiene serie normal con factores abelianos.
+ 4. Se tiene $G^{(i} = 1$.
+
+***** TODO Demostración
+
+**** 2.3.3. Grupo soluble
+Un grupo es soluble si tiene una serie normal con factores cíclicos.
+
+**** 2.3.4. Subgrupos de solubles
+Son solubles:
+
+ 1. Los subgrupos de un grupo soluble.
+ 2. Los cocientes de un grupo soluble.
+ 3. Si $N$ y $G/N$ son solubles, $G$ es soluble.
+
+***** TODO Demostración
+
+**** 2.3.5. Producto de solubles
+Todo producto finito de grupos solubles es soluble.
+
+***** TODO Demostración
+
+**** 2.3.6. Teorema de Hall
+Sea $G$ soluble de orden $mk$ cumpliendo $mcd(m,k) = 1$. Entonces:
+
+ 1. $G$ posee un grupo de orden $m$.
+ 2. Dos subgrupos cualesquiera de orden $m$ son conjugados.
+ 3. Todo subgrupo de orden $m' \mid m$ está contenido en uno de orden $m$.
+ 4. El número de subgrupos de orden $m$, $r_m$ es producto de factores
+    congruentes a $1$ módulo algún factor primo de $m$. Es además potencia
+    de primo y divide a alguno de los factores de $G$.
+
+***** TODO Demostración
+
+**** 2.3.7. Caracterización de grupo soluble
+Dado $G$ grupo finito, es soluble ssi para cualquier descomposición $|G|=mk$
+con $mcd(m,k) = 1$, existe un subgrupo de orden $m$.
+
 ** 3. Extensiones de cuerpos
 *** 3.1. Generalidades
 **** 3.1.1. Extensiones de cuerpos
