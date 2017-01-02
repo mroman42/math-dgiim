@@ -5963,9 +5963,159 @@ Caso particular,
 
 ***** Cuasivarianza muestral
 
-\[S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i-\overline{X})^2\]
+1\[S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i-\overline{X})^2\]
 
-** 2. Muestreo de poblaciones normales
+** 2. Distribuciones. Muestreo de poblaciones normales
+*** Distribución normal
+**** Definición
+Definimos la distribución normal ${\cal N}(\mu,\sigma^2)$ como aquella con función de
+densidad:
+
+\[f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]
+
+***** Imagen de la distribución
+#+BEGIN_SRC R :file images/normal.png :results graphics
+library(ggplot2)
+library(ggfortify)
+gg = ggdistribution(dnorm, seq(-3, 3, 0.1), mean = 0, sd = 1, colour='blue')
+gg = ggdistribution(dnorm, seq(-3, 3, 0.1), mean = 0, sd = 1.2, p=gg)
+print(gg)
+#+END_SRC
+
+#+RESULTS:
+[[file:images/normal.png]]
+
+***** Es una distribución
+Tenemos que comprobar que integra la unidad sobre los reales, y
+de hecho, tomando cambio de variable $y = (x-\mu)/\sqrt{2\sigma^2}$ queda:
+
+\[\begin{aligned}
+\int^{+\infty}_{-\infty} 
+\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\left(\frac{x-\mu}{\sqrt{2\sigma^2}}\right)^2} =
+\frac{1}{\sqrt{\pi}}\int^{+\infty}_{-\infty} 
+e^{-y^2} = 1
+\end{aligned}\]
+
+Que es la [[https://en.wikipedia.org/wiki/Gaussian_integral][integral de Gauss]].
+
+**** Función característica
+La función característica de ${\cal N}(\mu,\sigma^2)$ es:
+
+\[\varphi_X(t) = e^{it\mu - t^2\sigma^2/2}\]
+
+***** TODO Demostración
+Usamos la definición de función característica y completamos
+cuadrados para tener:
+
+\[\begin{aligned}
+\varphi_X(t) &= 
+\mathbb{E}\left[e^{itX}\right] &= 
+\int_{-\infty}^{+\infty}
+e^{itx}\frac{1}{\sqrt{2\pi\sigma^2}} 
+e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx \\&=
+\frac{1}{\sqrt{2\pi\sigma^2}} 
+\int_{-\infty}^{+\infty}
+e^{it\mu}
+\end{aligned}\]
+
+**** Suma de normales
+Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ e $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$. Entonces $X+Y\leadsto {\cal N}(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$.
+
+***** TODO Demostración
+**** Teorema de Cramer
+Sean $X,Y$ independientes. Si $X+Y$ es normal, $X$ e $Y$ son normales.
+
+***** TODO Demostración
+
+*** Distribución Gamma
+**** Función Gamma
+Se define la función gamma $\Gamma : (0,\infty) \longrightarrow (0,\infty)$ como:
+
+\[\Gamma(\alpha) = \int^\infty_0 t^{\alpha-1}e^{-t} dt\]
+
+***** La integral existe
+Por un lado, $t^{a-1}e^{-t} < t^{a-1}$, integrable en $[0,b]$. Por otro lado,
+
+\[\lim_{t \to \infty} \frac{t^{\alpha-1}e^{-t}}{e^{-t/2}} = 0\]
+
+Por lo que $t^{\alpha-1}e^{-t} < e^{-t/2}$ integrable, a partir de algún punto.
+Partimos la integral como:
+
+\[\int_0^b t^{\alpha-1}e^{-t}dt + \int^{\infty}_b t^{\alpha-1}e^{-t}dt
+< \infty\]
+
+**** Propiedades de la función Gamma
+Sea $\alpha > 0$, se verifica:
+
+  1. $\Gamma(1) = 1$.
+  2. $\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$.
+  3. $\Gamma(n+1) = n!$ para $n \in \mathbb{N}$.
+  4. $\Gamma(\alpha)\Gamma(1-\alpha) = \frac{\pi}{\sin(\alpha\pi)}$ para $0<\alpha<1$.
+  5. $\Gamma(1/2) = \sqrt{\pi}$.
+  6. $\Gamma(\alpha) = \beta^\alpha \int^\infty_0 t^{\alpha-1}e^{-\beta t} dt$ para $\beta > 0$.
+
+***** Demostración
+****** Punto 1
+Trivial.
+****** Punto 2
+Integral por partes.
+****** Punto 3
+Inducción sobre los dos primeros apartados.
+****** TODO Punto 4
+****** Punto 5
+Trivial desde el punto anterior.
+****** Punto 6
+Cambio de variable $\varphi(t) = \beta t$.
+
+**** Distribución Gamma
+Dados $\alpha,\beta > 0$, definimos la distribución Gamma $\Gamma(\alpha,\beta)$ como aquella con
+función de densidad:
+
+\[f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}\]
+
+para $x>0$.
+
+**** Propiedades de la distribución Gamma
+La función de densidad de una distribución $\Gamma(\alpha,\beta)$ verifica:
+
+  1. Cuando $0<\alpha<1$, $f$ es decreciente y $\lim_{x\to 0} f(x) = \infty$.
+  2. Cuando $\alpha = 1$, $f$ es decreciente y $f(0)=1$.
+  3. Cuando $\alpha>1$, $f$ es creciente en $[0,(\alpha-1)/\beta]$ y decreciente 
+     en $[(\alpha-1)/\beta,\infty]$.
+
+Y sobre convexidad y concavidad se tiene:
+
+  1. Si $0<\alpha\leq 1$, es convexa.
+  2. Si $1 < \alpha \leq 2$, es cóncava en $[0,(\alpha-1+\sqrt{\alpha+1})/\beta]$ y convexa
+     en $[(\alpha-1+\sqrt{\alpha+1})/\beta,\infty]$.
+  3. Si $2 < \alpha$, es cóncava en $[(\alpha-1-\sqrt{\alpha+1})/\beta,(\alpha-1+\sqrt{\alpha+1}/\beta)]$ y
+     convexa en todo el resto del dominio.
+
+***** TODO Demostración
+
+*** Distribución Beta
+**** Función Beta
+Se define la función beta $\beta : (0,\infty) \longrightarrow (0,\infty)$ como:
+
+\[\beta(x,y) = \int^1_0 t^{x-1}(1-t)^{y-1}dt\]
+
+***** Está bien definida
+Por la [[*Relación con la función Gamma][relación con la función Gamma]] sabemos que debe estar
+bien definida.
+
+**** Relación con la función Gamma
+Para cada $x,y$ se tiene:
+
+\[\frac{\Gamma(x)\Gamma(y)}{\Gamma(xy)} = \beta(x,y)\]
+
+***** TODO Demostración
+
+**** Distribución Beta
+Dados $p,q>0$, definimos la distribución Beta $\beta(p,q)$ como aquella con 
+función de densidad:
+
+\[f(x) = \frac{1}{\beta(p,q)} x^{p-1}(1-x)^{q-1}\]
+
 *** Distribución χ² de Pearson
 **** Distribución chi cuadrado
 Es un caso particular de la distribución gamma, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
