@@ -5928,10 +5928,11 @@ Con probabilidad 1 se tiene que, al tomar sucesivas observaciones
 independientes y considerar las correspondientes funciones de 
 distribución muestrales:
 
-\[\forall \epsilon>0: \exists n_\epsilon : \forall n \geq n_\epsilon:
-\quad F^\ast_{X_1,\dots,X_n}(x) - \epsilon < F_X(x) < F^\ast_{X_1,\dots,X_n}(x) + \epsilon\]
+\[\forall x \in \mathbb{R}: \forall \epsilon>0: \exists n_\epsilon : \forall n \geq n_\epsilon:
+\quad F^\ast_n(x) - \epsilon < F_X(x) < F^\ast_n(x) + \epsilon\]
 
-***** TODO Demostración
+***** Demostración
+[[http://matematicas.unex.es/~nogales/estadisticamatematica/TGC.pdf][Teorema de Glivenko-Cantelli]].
 
 *** Estadístico muestral
 **** Estadístico muestral
