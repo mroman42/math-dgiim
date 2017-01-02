@@ -6280,12 +6280,13 @@ Los vectores $(\overline{X},\overline{Y})$ y $(S^2_1,S^2_2)$ son independientes.
 ** 3. Suficiencia y completitud
 *** Estadísticos suficientes y completos
 **** Estadístico suficiente
-Un estadístico $t$ es *suficiente* para un parámetro $\theta$ 
-cuando una vez conocido no puede obtenerse más información de sobre $\theta$ de
-los datos; esto es:
+Un estadístico $t$ es *suficiente* para un parámetro $\theta$ cuando una vez 
+conocido no puede obtenerse más información de sobre $\theta$ de los datos;
+esto es:
 
-\[\Pr(\theta| t,x) = \Pr(\theta|t)\]
+ \[\Pr(\theta| t,x) = \Pr(\theta|t)\]
 
+***** Definición equivalente
 De forma equivalente, es *suficiente* si la distribución condicionada 
 al estadístico es independiente del parámetro $\theta$:
 
@@ -6299,30 +6300,67 @@ ssi existen funciones no negativas $g$,$h$ tales que:
 
 Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\theta$.
 
+***** TODO Demostración
 **** Propiedades de los estadísticos suficientes
 *Propiedades de los estadísticos suficientes*.
 
-  - Si $T$ es suficiente para $\{P_\theta \mid \theta \in \Theta\}$, lo es para $\{P_\theta \mid \theta \in \Theta' \subset \Theta\}$.
-  - Si $T$ es suficiente y $T = h(U(X)$, $U$ es suficiente.
-  - Toda transformación biunívoca de suficiente es suficiente.
+  1. Si $T$ es suficiente para $\{P_\theta \mid \theta \in \Theta\}$, lo es para $\{P_\theta \mid \theta \in \Theta' \subset \Theta\}$.
+  2. Si $T$ es suficiente y $T = h(U)$, $U$ es suficiente.
+  3. Toda transformación biunívoca de suficiente es suficiente.
 
+***** TODO Demostración
 **** Estadístico completo
-Un estadístico es *completo* cuando para cualquier función medible se tiene:
+Un estadístico es *completo* cuando para cualquier función medible $g$,
+se tiene:
 
 \[ E_\theta [g(T)] = 0 \; \forall\theta\in\Theta \quad \Rightarrow \quad
     P_\theta(g(T) = 0) = 1\; \forall\theta\in\Theta\]
 
-*** TODO Suficiencia y completitud en familias exponenciales
+*** Suficiencia y completitud en familias exponenciales
+**** Familia exponencial k-paramétrica
+Una familia $\{P_\theta : \theta \in \Theta\}$ es exponencial k-paramétrica si:
+
+ 1. $\Theta$ es intervalo de $\mathbb{R}^k$.
+ 2. Los valores de la variable no dependen de $\theta$, esto es:
+    $\{{ x \mid f_{\theta}(x) > 0 \} = \{{ x \mid f_{\theta'}(x) > 0 \}$ para cualesquiera $\theta,\theta' \in \Theta$.
+ 3. La familia es de la forma:
+
+    \[f_\theta(x) = exp\left\{\sum_{h=1}^k {Q_h(\theta) T_h(x) + S(x) + D(\theta)}\right\}\]
+
+**** Teorema de suficiencia y complitud
+Si una familia $\{P_\theta : \theta \in \Theta\}$ es exponencial k-paramétrica, cualquier muestra
+aleatoria simple también lo es:
+
+\[
+f^n_\theta(x_1,\dots,x_n) = 
+exp\left\{
+\sum^k_{h=1} Q_h(\theta) \left(
+\sum^n_{i=1} T_h(x_i)
+\right) +
+\sum^n_{i=1} S(x_i) + nD(\theta)
+\right\}
+\]
+
+Teniéndose además:
+
+ 1. $(\sum_i T_1(X_i), \dots \sum_i T_k(X_i))$ estadístico *suficiente* para $\theta$.
+ 2. Para $k \leq n$, cuando $(Q_1(\Theta), \dots Q_k(\Theta))$ contiene un abierto; entonces
+    $(\sum_i T_1(X_i), \dots \sum_i T_k(X_i))$ es *completo*.
+
+***** TODO Demostración
 ** 4. Estimación puntual
 *** Planteamiento del problema de estimación
 **** Estimador puntual
-Un *estimador puntual* es un estadístico $T$ tomando valores en el dominio
-del parámetro. 
+Un *estimador puntual* de $\theta$ es un estadístico $T$ tomando valores en el 
+dominio del parámetro, $\Theta$.
 
 **** Función de pérdida y de riesgo
-La *función de pérdida*, $L$, nos dice la pérdida asociada a estimar un parámetro si 
-su verdadero valor es otro. La *función de riesgo* es la 
-que asocia a cada valor del parámetro, la pérdida media asociada al estimador.
+La *función de pérdida*, $L(\theta,T)$, nos dice la pérdida asociada a estimar 
+un parámetro si su verdadero valor es otro.
+
+**** Función de riesgo
+La *función de riesgo* es la que asocia a cada valor del parámetro la 
+pérdida media asociada al estimador.
 
 \[ R^L_T(\theta) = E_\theta [L(\theta,T)]\]
 
@@ -6334,8 +6372,8 @@ uniformemente la función de riesgo:
 
 *** Estimación de menor error cuadrático
 **** Función de pérdida cuadrática
-La *función de pérdida cuadrática*, ${\cal L}(\theta, t) = (t - \theta)^2$, deja la función de 
-riesgo de un estimador como su *error cuadrático medio*:
+La función de pérdida cuadrática, ${\cal L}(\theta, t) = (t - \theta)^2$, hace a la función de 
+riesgo de un estimador su error cuadrático medio:
 
 \[R^L_T(\theta) = E_\theta[(T - \theta)^2]\]
 
