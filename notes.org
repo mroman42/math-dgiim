@@ -6381,67 +6381,376 @@ Nótese que en el caso de $E[T] = \theta$, se tiene $R^L_T(\theta) = Var_\theta[
 
 *** Estimación insesgada de mínima varianza
 **** Estimador insesgado
- Un estimador $T$ de $g(\theta)$, es *insesgado* o *centrado* si:
+Un estimador $T$ de $g(\theta)$, es *insesgado* o *centrado* si:
 
- $E_\theta[T(X_1,\dots,X_n)] = g(\theta)$
+ $E_\theta[T] = g(\theta)$
 
-**** Estimador insesgado uniformemente de mínima varianza
- # TODO: ¿De segundo orden?
- Un estimador $T$ insesgado y de segundo orden es *UMVUE* para $g(\theta)$ si para cualquier otro 
- estimador insesgado $T'$ se tiene que:
+**** UMVUE: Estimador insesgado uniformemente de mínima varianza
+Un estimador $T$ insesgado y de segundo orden es *UMVUE* para $g(\theta)$ si para 
+cualquier otro estimador insesgado $T'$ se tiene que:
 
- \[ Var_\theta[T] \leq Var_\theta[T']\]
+\[ Var_\theta[T] \leq Var_\theta[T']\]
 
- Propiedades:
+***** TODO De segundo orden
 
-  - Unicidad: El UMVUE de cualquier función paramétrica, si existe, es único.
-  - Linealidad: Si $T,Q$ son UMVUE para $g,h$; $aT+bQ$ es UMVUE para $ag+bh$.
+**** Propiedades del UMVUE
+El estimador UMVUE cumple:
 
+- Unicidad: El UMVUE de cualquier función paramétrica, si existe, es único.
+- Linealidad: Si $T,Q$ son UMVUE para $g,h$; $aT+bQ$ es UMVUE para $ag+bh$.
+
+***** TODO Demostración
 **** Teorema de Raó-Blackwell
-Si $T$ es suficiente para $\theta$ y $S$ es un estimador insesgado de $g(\theta)$ de segundo orden:
+Si $T$ es suficiente para $\theta$ y $S$ es un estimador insesgado de $g(\theta)$ de 
+segundo orden:
 
   - $E[S \mid T]$ es estimador insesgado de $g(\theta)$ de segundo orden.
   - $Var_\theta[E[S \mid T]] \leq Var_\theta[S]$
 
 Es decir, $E[S \mid T]$ será normalmente mejor estimador y nunca peor que $S$.
 
+***** TODO Demostración
 **** Teorema de Lehmann-Scheffé
-Para $T$ suficiente y completo para $\theta$; si $g(\theta)$ admite un estimador insesgado de 
-segundo orden $S$, entonces existe el UMVUE de $g(\theta)$ y está dado por:
+Para $T$ suficiente y completo para $\theta$; si $g(\theta)$ admite un estimador insesgado 
+de segundo orden $S$, entonces existe el UMVUE de $g(\theta)$ y está dado por:
 
  \[ E [S \mid T]\]
 
+***** TODO Demostración
 *** Estimación eficiente
 **** Condiciones de regularidad de Fréchet-Cramer-Rao
-Una familia de distribuciones es *regular en el sentido de Fréchet-Cramer-Rao* 
-si cumple, siendo $\{P_\theta \; \theta\in\Theta\}$:
+Una familia de distribuciones es *regular en el sentido de 
+Fréchet-Cramer-Rao* si cumple que, siendo $\{P_\theta \; \theta\in\Theta\}$:
 
  - $\Theta$ es intervalo abierto de $\mathbb{R}$.
- - $\forall \theta\in\Theta : \{x \mid f_\theta(x) > 0\} = \chi$
+ - $\forall \theta,\theta'\in\Theta : \{x \mid f_\theta(x) > 0\} = \{x \mid f_{\theta'}(x) > 0\}$
  - Tenemos $f_\theta(x)$ derivable respecto a $\theta$ para todo $x\in\chi$ con:
+
    \[ \int_\chi \frac{d f_\theta(x)}{d\theta} dx = 
    \frac{d}{d\theta} \int_\chi f_\theta(x) dx = 
    0, \quad \forall \theta\in\Theta\]
-**** TODO Cota de Fréchet-Cramer-Raó
-**** TODO Estimador eficiente
-**** TODO Caracterización de estimadores eficientes
-*** TODO Estimación de máxima verosimilitud
-*** TODO Otros métodos de estimación
-** TODO 5. Estimación por intervalos de confianza
-** TODO 6. Contraste de hipótesis
+   
+   O, cuando la distribución es discreta:
+
+   \[\sum_\chi \frac{d f_\theta(x)}{d\theta} = \frac{d}{d\theta}\sum_\chi f_\theta(x) = 0\]
+
+**** Función de información de Fisher
+Si $\{P_\theta : \theta \in \Theta\}$ es regular, definimos la función de información asociada
+a $X$ como:
+
+\[I_X(\theta) = E_\theta\left[\left( \frac{d}{d\theta} \ln(f_\theta(X))
+\right)^2\right]\]
+
+Y la función de información asociada a una muestra como:
+
+\[
+\[I_{X_1,\dots,X_n}(\theta) = 
+E_\theta\left[\left( \frac{d}{d\theta}\ln(f_\theta(X_1,\dots,X_n))
+\right)^2\right]\]
+
+**** Propiedades de la función de información
+La función de información tiene como propiedades:
+
+  1. $I_X(\theta) \geq 0$.
+  2. En el caso $I_X(\theta) = 0$, $f_\theta(X)$ no depende de $\theta$.
+  3. \[E_\theta \left[\frac{d}{d\theta} \ln f_\theta(X) \right] = 0\].
+  4. \[ Var_\theta \left[\frac{d}{d\theta} \ln f_\theta(X) \right] = I_X(\theta) \].
+  5. \[E_\theta \left[\frac{d}{d\theta} \ln f^n_\theta(X_1,\dots,X_n) \right] = 0\].
+  6. \[ Var_\theta \left[\frac{d}{d\theta} \ln f_\theta(X_1,\dots,X_n) \right] = I_{X_1,\dots,X_n}(\theta) \].
+  7. Aditividad, $I_{X_1,\dots,X_n}(\theta) = nI_X(\theta)$.
+ 
+***** TODO Demostración
+
+**** Estadístico regular
+Un estadístico $T$ es regular en el sentido de Fréchet-Cramer-Raó, si
+siendo una distribución discreta:
+
+\[\begin{aligned}
+\frac{d}{d\theta}
+E_\theta[T(x_1,\dots,x_n)] &=
+\frac{d}{d\theta} 
+\sum_{\chi^n} T(x_1,\dots,x_n)f^n_\theta(x_1,\dots,x_n) \\&= 
+\sum_{\chi^n} T(x_1,\dots,x_n) \frac{d}{d\theta} f^n_\theta(x_1,\dots,x_n)
+\end{aligned}\]
+
+O, siendo una distribución continua:
+
+\[\begin{aligned}
+\frac{d}{d\theta}
+E_\theta[T(x_1,\dots,x_n)] &=
+\frac{d}{d\theta} 
+\int_{\chi^n} T(x_1,\dots,x_n)f^n_\theta(x_1,\dots,x_n) \;dx_1,\dots,x_n \\&= 
+\intñ_{\chi^n} T(x_1,\dots,x_n) \frac{d}{d\theta} f^n_\theta(x_1,\dots,x_n) \;dx_1,\dots,x_n
+\end{aligned}\]
+
+**** Cota de Fréchet-Cramer-Raó
+Si $\{P_\theta \mid \theta \in \Theta\}$ es *regular*, la función de información se 
+acota $0 < I_X(\theta) < \infty$, y $T$ es un estadístico regular, de segundo orden e
+insesgado en una función derivable $g(\theta)$, se tiene:
+
+  1. \[Var_\theta[T] \geq \frac{g'(\theta)^2}{I_{X_1,\dots,X_n}(\theta)}\]
+  2. Para todo $\theta \in \Theta$ tal que $g'(\theta) \neq 0$:
+
+     \[Var_\theta[T] = \frac{g'(\theta)^2}{I_{X_1,\dots,X_n}(\theta)}\]
+     
+     ssi existe $a(\theta) \neq 0$ tal que:
+
+     \[P_\theta\left(
+     \frac{d}{d\theta} \ln f^n_\theta(X_1,\dots,X_n) = 
+     a(\theta)[T(X_1,\dots,X_n) - g(\theta)]
+     \right) = 1\]
+
+***** TODO Demostración
+**** Estimador eficiente
+Sea $\{P_\theta \mid \theta \in \Theta\}$ regular, con la función de información acotada 
+$0 < I_X(\theta) < \infty$ y $g(\theta)$ función paramétrica derivable. Un estimador $T$ de
+$g(\theta)$ es eficiente si es insesgado, regular, y su varianza alcanza la
+cota de Fréchet-Cramer-Raó en todo punto:
+
+\[Var_\theta[T] = \frac{(g'(\theta))^2}{I_{X_1,\dots,X_n}(\theta)},
+\qquad \forall\theta \in \Theta\]
+
+**** Caracterización de estimadores eficientes
+Sea $\{P_\theta \mid \theta \in \Theta\}$ regular, con $0 < I_X(\theta) < \infty$ y $g(\theta)$ función paramétrica
+derivable y no constante. Un estimador $T$ es eficiente ssi existe un $a(\theta)$
+cumpliendo:
+
+  1. \[P_\theta\left(\frac{d}{d\theta} \ln f^n_\theta(X_1,\dots,X_n) = a(\theta)[T(X_1,\dots,X_n) - g(\theta)]\right) = 1\]
+  2. \[I_{X_1,\dots,X_n}(\theta) = a(\theta)g'(\theta)\]
+
+***** Demostración
+*** Estimación de máxima verosimilitud
+**** Función de verosimilitud
+Para cada realización muestral se define la función de verosimilitud
+de la realización, $L_{x_1,\dots,x_n} : \Theta \longrightarrow \mathbb{R}^+_0$, como:
+
+\[L(\theta) = f_\theta^n(x_1,\dots,x_n)\]
+
+**** Estimador de máxima verosimilitud
+Tenemos $\hat\theta$ estimador de máxima verosimilitud de $\theta$ cuando la estimación
+asociada a cada realización muestral maximiza la verosimilitud:
+
+\[L_{x_1,\dots,x_n}\left(\hat\theta(x_1,\dots,x_n)\right)
+= \max_{\theta \in \Theta} L_{x_1,\dots,x_n}(\theta)\]
+
+**** Relación con estadísticos suficientes
+Si $\{P_\theta \mid \theta \in \Theta\}$ admite estadístico suficiente $T$, entonces $\hat\theta$ es función
+de $T$.
+
+***** TODO Demostración
+**** Relación con estimadores eficientes
+Si $T$ es estimador eficiente de $\theta$, entonces $T$ es el único estimador 
+máximo verosímil de $\theta$.
+
+***** TODO Demostración
+
+**** Función de verosimilitud de una función paramétrica
+Se define la función de verosimilitud de $g : \Theta \longrightarrow \Lambda$ asociada a
+una realización, $M_{x_1,\dots,x_n} : \Theta \longrightarrow \mathbb{R}^+_0$, como:
+
+\[M_{x_1,\dots,x_n}(\lambda)
+= \sup_{\theta \in g^{-1}(\lambda)} L_{x_1,\dots,x_n}(\theta) \]
+
+**** Estimador de máxima verosimilitud de una función paramétrica
+Será $\hat\lambda$ estimador máximo verosímil de $\lambda$ cuando:
+
+\[M_{x_1,\dots,x_n}(\hat\lambda(x_1,\dots,x_n)) 
+= \max_{\lambda \in \Lambda} M_{x_1,\dots,x_n}(\lambda) \]
+
+**** Teorema de invarianza de Zenha
+Si $\hat\theta$ es estimador máximo verosímil de $\theta$, entonces $g(\hat\theta)$ es estimador
+máximo verosímil de $g(\theta)$.
+
+***** TODO Demostración
+
+*** Método de los momentos
+**** Descripción
+El estimador máximo verosímil de una función dependiente en los momentos
+poblacionales es el mismo dependiendo en los momentos muestrales.
+
+\[g(\theta) = h(m_{\theta,1},\dots,m_{\theta,k}) 
+\quad\Rightarrow\quad
+\widehat{g(\theta)}(X_1,\dots,X_n) = h(A_1,\dots,A_k)\]
+
+***** Momentos poblacionales
+Definimos los momentos poblacionales como:
+
+\[m_{\theta,j} = E_\theta[X^j]\]
+
+***** Momentos muestrales
+Definimos los momentos muestrales como:
+
+\[A_j = \frac{1}{n}\sum_{i=1}^n X^j_i\]
+
+***** TODO Demostración
+*** Método de mínimos cuadrados
+**** Descripción
+Si $X_i$ son las observaciones aleatorias de una magnitud $\varphi(t,\theta)$ con
+errores $\varepsilon_i$; es decir:
+
+\[X_i = \varphi(t_i,\theta) + \varepsilon_i\]
+
+Entonces el estimador de mínimos cuadrados de $\theta$ es el que minimice
+la suma de cuadrados de los errores:
+
+\[\sum^n_{i=1}(X_i - \varphi(t_i,\theta))^2\]
+
+** 5. Estimación por intervalos de confianza
+*** Definiciones y métodos de construcción
+**** Intervalo de confianza
+Para $X \leadsto P_\theta$, un intervalo de confianza $\alpha$ para $\theta$ es un intervalo 
+aleatorio $(I_1,I_2)$ tal que para cualquier $\theta \in \Theta$:
+
+\[P_\theta\left(
+I_1(X_1,\dots,X_n) \leq \theta \leq I_2(X_1,\dots,X_n)
+\right)
+\geq 1 - \alpha\]
+
+**** Intervalo de confianza de menor longitud esperada uniformemente
+Un interavlo $(I_1,I_2)$ es el de menor longitud esperada uniformemente 
+si para cualquier otro $(I_1',I_2')$ al mismo nivel, se tiene:
+
+\[
+E_\theta[I_2(X_1,\dots,X_n) - I_1(X_1,\dots,X_n)]
+\leq
+E_\theta[I_2'(X_1,\dots,X_n) - I_1'(X_1,\dots,X_n)]
+\]
+
+**** Intervalos obtenidos mediante desigualdad de Chevychev
+Si $T$ es estimador insesgado de $\theta$ con varianza uniformemente acotada:
+
+  - $E_\theta[T(X_1,\dots,X_n)] = \theta$
+  - $Var_\theta[T(X_1,\dots,X_n)] \leq c$
+
+Por lo que por Chevychev tenemos, dado $k>0$, un intervalo de confianza
+para $\theta$ al nivel de confianza $1 - c/k^2$:
+
+\[(T(X_1,\dots,X_n) - k,\  T(X_1,\dots,X_n) + k)\]
+
+***** TODO Demostración
+
+**** Pivote para un parámetro
+Un pivote es una función $T(X_1,\dots,X_n,\theta)$ tal que fijado cualquier $\theta$,
+$T(X_1,\dots,X_n,\theta)$ es una variable con distribución independiente de $\theta$.
+
+**** Intervalos obtenidos mediante el método pivotal
+Dado un pivote estrictamente monótono respecto a $\theta$, y dos valores $\lambda_1,\lambda_2$,
+tales que para cualquier $\theta$:
+
+\[P_\theta(\lambda_1 < T(X_1,\dots,X_n) < \lambda_2) \geq 1 - \alpha\]
+
+Tomamos las soluciones $\hat\theta_1, \hat\theta_2$, cumpliendo $T(X_1,\dots,\hat\theta_1) = \lambda_1$ y
+$T(X_1,\dots,\hat\theta_2) = \lambda_2$; y ellas forman un intervalo de confianza:
+
+  - $P_\theta(\hat\theta_1 < \theta < \hat\theta_2) \geq 1 - \alpha$, para $T$ creciente.
+  - $P_\theta(\hat\theta_2 < \theta < \hat\theta_1) \geq 1 - \alpha$, para $T$ decreciente.
+
+***** TODO Demostración
+
+**** Un pivote en distribuciones continuas
+Si $X$ es continua con $F_\theta$ función de distribución, un pivote es:
+
+\[ T(X_1,\dots,X_n,\theta) = -2 \sum_{i=1}^n \ln F_\theta(X_i) \leadsto \chi^2(2n)\]
+
+***** TODO Demostración
+**** Un pivote dado un estadístico
+Sea $S$ un estadístico de distribución continua con $F^S_\theta$ función de 
+distribución. Un pivote es:
+
+\[T(X_1,\dots,X_n,\theta) = F^S_\theta(S(X_1,\dots,X_n)) \leadsto U(0,1)\]
+
+*** Ejemplos de intervalos de confianza
+**** Intervalo para la media de una normal con varianza conocida
+Sea $X \leadsto {\cal N}(\mu,\sigma^2_0)$. Un intervalo de confianza para $\mu$ de menor longitud
+media uniforme a nivel de confianza $1-\alpha$ será:
+
+\[\left(
+\overline{X}-z_{\alpha/2}\frac{\sigma_0}{\sqrt{n}},
+\overline{X}+z_{\alpha/2}\frac{\sigma_0}{\sqrt{n}}
+\right)\]
+
+Siendo $z_{\alpha/2}$ el que cumple, con $Z \leadsto {\cal N}(0,1)$, que \[P\left(Z \leq z_{\alpha/2}\right) = \alpha/2\].
+
+***** Pivote
+Usamos como pivote a la normalizada:
+
+\[T(X_1,\dots,X_n,\mu) = \frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \leadsto {\cal N}(0,1)\]
+
+***** Intervalos candidatos
+Usando el pivote, tenemos el siguiente candidato a intervalo de
+confianza:
+
+\[
+1 - \alpha > 
+P_\mu\left(
+\lambda_1 < 
+\frac{\overline{X} - \mu}{\sigma_0 / \sqrt{n}} <
+\lambda_2
+\right)
+=
+P_\mu\left(
+\overline{X} - \lambda_2\frac{\sigma_0}{\sqrt{n}} <
+\mu <
+\overline{X} - \lambda_1\frac{\sigma_0}{\sqrt{n}}
+\right)
+\]
+
+Debiendo tenerse que, si $\Phi$ es la función de distribución de la
+normal $\Phi(\lambda_2)-\Phi(\lambda_1) = 1 - \alpha$.
+
+***** Longitud media
+Buscamos el que minimice la longitud media:
+
+\[E_\mu \left[
+\left( \overline{X} - \lambda_1\frac{\sigma_0}{\sqrt{n}} \right) -
+\left( \overline{X} - \lambda_2\frac{\sigma_0}{\sqrt{n}} \right)
+\right] 
+= (\lambda_2-\lambda_1)\frac{\sigma_0}{\sqrt{n}}\]
+
+Por lo que tratamos de minimizar $(\lambda_2-\lambda_1)$.
+
+***** Minimización
+Usamos multiplicadores de Lagrange para definir:
+
+\[F(\lambda_1,\lambda_2) = \lambda_2-\lambda_1 + \lambda(\Phi(\lambda_2) - \Phi(\lambda_1) - (1-\alpha))\]
+
+Calculando las derivadas parciales tenemos:
+
+\[\begin{aligned}
+-1-\lambda\Phi'(\lambda_1) &= 0\\
+1 + \lambda\Phi'(\lambda_2) &= 0
+\end{aligned}
+\]
+
+Luego debe tenerse $\Phi'(\lambda_1) = \Phi'(\lambda_2)$. Sabiendo que $\Phi'$ es la función
+de distribución de la normal, tenemos $\lambda_1 = \pm \lambda_2$. Como deben ser
+distintos para cumplir la restricción, tenemos $\lambda_1 = -\lambda_2$.
+
+***** Conclusión
+La restricción nos fuerza a $\Phi(\lambda_2) - \Phi(-\lambda_2) = 1 - \alpha$, luego estamos
+buscando el $z_{\alpha/2}$ que cumple, para una normalizada $Z$, $P(Z > z_{\alpha/2}) = \alpha/2$.
+
+**** TODO Intervalo para la media de una normal con varianza desconocida
+**** TODO Intervalo para la varianza de una normal con media conocida
+**** TODO Intervalo para la varianza de una normal con varianza conocida
+**** TODO Intervalo para la diferencia de medias de normales de varianza dada
+**** TODO Intervalo para la diferencia de medias de normales de varianza igual
+**** TODO Intervalo para el cociente de varianzas de normales de media dada
+** 6. Contraste de hipótesis
 *** Planteamiento del problema
 **** Problema de contraste de hipótesis
-Dada $(X_1,\dots,X_n)$ una muestra aleatoria simple de $X \leadsto P_\theta$, para 
+Dada $(X_1,\dots,X_n)$ una muestra aleatoria simple de $X \leadsto P_\theta$, para
 $\theta \in \Theta_0 \cup \Theta_1$, llamamos:
 
  - *Hipótesis nula*: $H_0 : \theta \in \Theta_0$
- - *Hipótesis alternativa*: $H_1 : \theta \in \Theta$
+ - *Hipótesis alternativa*: $H_1 : \theta \in \Theta_1$
 
 a dos hipótesis posibles.
 
 **** Test de hipótesis
-El *test de hipótesis* es un estadístico $\varphi$ tomando valores en $[0,1]$, que da la 
-posibilidad de rechazar $H_0$ dada una realización muestral. Se llama:
+El *test de hipótesis* es un estadístico $\varphi$ tomando valores en $[0,1]$, que 
+da la posibilidad de rechazar $H_0$ dada una realización muestral. Se 
+llama:
 
  - *Test no aleatorizado*, si toma valores $0,1$.
  - *Test aleatorizado*, si toma valor distinto de $0,1$.
