@@ -1894,7 +1894,39 @@ Composing the two commutative diagrams gives us the proof.
 For any functor $F : {\cal A} \longrightarrow {\cal B}$, we can describe an identity natural 
 transformation using the identity morphisms.
 
-**** 1.2.40. Examples of natural transformations
+**** TODO 1.2.40. Examples of natural transformations
+**** TODO 1.2.41. Natural transformations are proper classes
+**** TODO 1.2.42. Yoneda Lemma
+**** TODO 1.2.43. Representable functors
+**** TODO Examples
+**** TODO Yoneda Imbedding
+*** 1.3. Singular Homology
+**** 1.3.1. Hilbert spaces and euclidean spaces
+A *Hilbert space* is the set ${\cal H}$ of all sequences $(x_i) \in \mathbb{R}$ such that
+$\sum x_i^2 < \infty$. A *Euclidean space*, $\mathbb{R}^n$ is a subset of ${\cal H}$ consisting of
+all sequences of the form $(x_0,x_1,\dots,x_{n-1},0,\dots)$.
+
+**** 1.3.2. Standard n-simplex
+The standard n-simplex is the set of all convex combinations:
+
+\[\Delta^n = [e_0,e_1,\dots,e_n]\]
+
+Where $e_i$ form an orthogonal basis.
+
+**** 1.3.3. Singular n-simplex
+Given a topological space $X$, a singular n-simplex is a continuous map
+$\sigma : \Delta^n \longrightarrow X$.
+
+**** 1.3.4. Singular n-chains
+We define $S_n(X)$ as the free group with singular n-simplexes as basis.
+By convention, $S_{-1}(X) = \{0\}$. The elements on this group are called
+singular n-chains.
+
+**** TODO 1.3.5. Face maps
+The ith face map $\epsilon^n_i : \Delta^{n-1} \longrightarrow \Delta^n$ is defined by:
+
+
+
 ** 5. Setting the stage
 *** 5.4. Sheaves
 **** Protosheaves
