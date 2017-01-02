@@ -6859,6 +6859,110 @@ imponiendo el tamaño o nivel de significación requerido.
 
 *** TODO Dualidad entre tests de hipótesis y regiones de confianza
 ** 7. Teoría general de modelos lineales
+*** Modelo lineal general y modelo de Gauss Markov
+**** Modelo lineal general
+El modelo general lineal queda descrito por:
+
+\[\mathbf{Y = X\beta + \varepsilon}\]
+
+***** Vector observable
+$Y = (Y_1,\dots,Y_n)$ es un vector aleatorio observable.
+
+***** Matriz de diseño
+Una matriz conocida $X$ de dimensión $n \times k$, cuyo rango determina el 
+rango del modelo.
+
+***** Vector de efectos
+Un vector desconocido $\beta = (\beta_1,\dots,\beta_k)$.
+
+***** Vector de errores
+Un vector aleatorio no observable $\varepsilon = (\varepsilon_1,\dots,\varepsilon_n)$ representando el 
+error entre $Y$ y $X\beta$.
+
+**** Modelo de Gauss-Markov
+Modelo lineal donde las componentes del vector de errores son variables
+aleatorias de segundo orden, centradas, homocedásticas (igual varianza)
+e incorreladas:
+
+  - $E[\varepsilon_i] = 0$
+  - $E[\varepsilon_i^2] = \sigma^2$
+  - $E[\varepsilon_i\varepsilon_j] = 0$
+
+***** Enunciado vectorial
+Las condiciones sobre el vector de errores equivalen a exigir:
+
+  - $E[\varepsilon] = 0$
+  - $E[\varepsilon\varepsilon^T] = \sigma^2 I_{n \times n}$
+
+**** Objetivo del modelo
+Inferir $\beta$ y $\sigma^2$ a partir de observaciones del vector $Y$.
+
+*** Estimación de mínimos cuadrados del vector de efectos
+**** Modelo
+Partimos del modelo de Gauss-Markov, y queremos minimizar la suma de
+cuadrados de los errores:
+
+\[S^2(\beta) = 
+\sum^n_{i=1} \varepsilon^2_i =
+\|Y - X\beta\|^2\]
+
+***** Minimización
+Para minimizarlo, calculamos la derivada:
+
+\[\frac{\partial}{\partial \beta_h} S^2(\beta) = 
+-2 \sum^n_{i=1} \left(
+Y_i - \sum^k_{j=1} x_{ij}\beta_j
+\right) x_{ih} = 0
+\]
+
+Y obtenemos las ecuaciones normales siguientes:
+
+\[
+\sum^n_{i=1} Y_i x_{ih} = \sum^n_{i=1}\sum^k_{j=1} x_{ij}x_{ih}\beta_j
+\]
+
+Que pueden expresarse matricialmente como:
+
+\[X^TY = (X^TX)\beta\]
+
+**** Estimador de mínimos cuadrados de beta
+Llamamos $\widehat\beta$ al estimador de mínimos cuadrados de $\beta$.
+
+  - Existencia: existe al menos un estimador de mínimos cuadrados de $\beta$.
+  - Unicidad: garantizada cuando el modelo es de rango máximo por tenerse
+    la solución \[\widehat\beta(Y) = (X^TX)^{-1}X^TY\].
+
+**** Función lineal estimable
+Una $\psi(\beta) = a_1\beta_1 + \dots + a_k\beta_k$ es estimable si admite un estimador insesgado,
+lineal en las componentes de $Y$. Es decir:
+
+\[\exists \widehat\psi(Y) = c_1Y_1 + \dots + c_nY_n\]
+
+tal que $E[\widehat\psi(Y)] = \psi(\beta)$.
+
+**** Teorema de Gauss-Markov
+Si $\psi(\beta) = a_1\beta_1 + \dots + a_k\beta_k$ es estimable, admite un único estimador lineal
+insesgado uniformemente de mínima varianza en la clase de estimadores
+lineales insesgados. Dicho estimador es:
+
+\[\widehat\psi(Y) = a_1\widehat\beta_1(Y) + \dots + a_k\widehat\beta_k(Y) \]
+
+Donde $\widehat{\beta}(Y)$ es un estimador de mínimos cuadrados de $\beta$.
+
+***** TODO Demostración
+
+**** Propiedades del estimador de mínimos cuadrados en modelos de rango máximo
+Sea $\widehat\beta(Y) = (X^TX)^{-1}X^TY$ el estimador de mínimos cuadrados en un modelo 
+de rango máximo.
+
+  1. $\widehat\beta_j(Y)$ es el estimador lineal insesgado de mínima varianza de $\beta_j$.
+  2. Las varianzas y covarianzas vienen dadas: $Cov(\widehat\beta(Y)) = \sigma^2(X^TX)^{-1}$.
+  3. Toda función lineal de las componentes de $\beta$ es estimable con 
+     estimador lineal insesgado de mínima varianza
+     $\widehat\psi(Y) = a_1\widehat\beta_1(Y) + \dots + a_k\widehat\beta_k(Y)$.
+
+***** TODO Demostración
+
 * Topología II
 ** 1. El grupo fundamental
 *** 1. Espacios conexos por arcos
