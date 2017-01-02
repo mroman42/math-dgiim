@@ -6758,11 +6758,105 @@ llama:
 **** Tipos de errores de un test de hipótesis
 Hay dos tipos de erorres:
 
- - *Error de tipo 1*: Rechazar $H_0$ siendo cierta.
- - *Error de tipo 2*: Aceptar $H_0$ siendo falsa.
+ - *Error de tipo 1*: Rechazar $H_0$ siendo cierta. Falso negativo.
+ - *Error de tipo 2*: Aceptar $H_0$ siendo falsa. Falso positivo.
 
-*** TODO Lema de Neyman-Pearson
-*** TODO Test de la razón de verosimilitudes
+**** Función de potencia de un test
+Dado un test $\varphi$, su función de potencia $\beta_\varphi : \Theta \longrightarrow [0,1]$ se define:
+
+\[\beta_\varphi(\theta) = E_\theta[\varphi(X_1,\dots,X_n)]\]
+
+Que es la probabilidad media de rechazar $H_0$ bajo $P_\theta$.
+
+**** Tamaño del test
+El tamaño del test es $\sup_{\theta \in \Theta_0} \beta_\varphi(\theta)$, la máxima probabilidad media de
+cometer un error de tipo 1.
+
+**** Nivel de significación de un test
+Un test $\varphi$ tiene nivel de significación $\alpha$ si su tamaño es menor o igual
+que $\alpha$. Es decir,
+
+\[
+\forall \theta \in \Theta_0, \quad
+\beta_\varphi(\theta) =
+E_\theta[\varphi(X_1,\dots,X_n)] \leq
+\alpha
+\]
+
+**** Test uniformemente más potente
+Un test con nivel de significación $\alpha$ es uniformemente más potente a 
+dicho nivel si para cualquier otro test $\varphi'$ con nivel de significación
+$\alpha$, se tiene:
+
+\[\beta_{\varphi'}(\theta) \leq \beta_\varphi(\theta)
+\quad \forall \theta \in \Theta_1\]
+
+*** Lema de Neyman-Pearson
+**** El problema de contraste
+Fijado un nivel de significación, encontrar el test uniformemente más
+potente a dicho nivel.
+
+**** Lema de Neyman-Pearson
+Sea $X \longrightarrow \{P_{\theta_0}, P_{\theta_1}\}$ y $(X_1,\dots,X_n)$ una muestra aleatoria simple
+con funciones de densidad $f_0,f_1$. Consideramos el problema de contraste 
+con $H_0 : \theta = \theta_0$ y $H_1 : \theta = \theta_1$.
+
+  1. Cualquier test de la forma:
+
+     \[
+     \varphi(X_1,\dots,X_n) = 
+     \threepartdef
+     {1}
+     {f_1^n(X_1,\dots,X_n) > kf_0^n(X_1,\dots,X_n)}
+     {\gamma(X_1,\dots,X_n)}
+     {f_1^n(X_1,\dots,X_n) = kf_0^n(X_1,\dots,X_n)}
+     {0}
+     {f_1^n(X_1,\dots,X_n) < kf_0^n(X_1,\dots,X_n)}
+     \]
+     
+     con $k \in \mathbb{R}^+_0$ y $\gamma(X_1,\dots,X_n) \in [0,1]$, es de máxima potencia entre todos
+     los de nivel de significación $\alpha = E_{\theta_0}[\varphi(X_1,\dots,X_n)]$, su tamaño.
+     
+  2. Para todo $\alpha \in (0,1]$ existe un test de la forma anterior con
+     $\gamma(X_1,\dots,X_n) = \gamma$ constante y tamaño $\alpha$.
+
+  3. Si $\varphi'$ es de máxima potencia al nivel de significación
+     $\alpha = E_{\theta_0}[\varphi'(X_1,\dots,X_n)]$, entonces $\varphi'(X_1,\dots,X_n)$ es de la forma anterior
+     con probabilidad 1 bajo $P_{\theta_0}$ y $P_{\theta_1}$.
+
+  4. El test de máxima potencia entre todos los de nivel de significación
+     0 es:
+     
+     \[
+     \varphi_0(X_1,\dots,X_n) = \twopartdef
+     {1}{f^n_0(X_1,\dots,X_n) = 0}
+     {0}{f^n_0(X_1,\dots,X_n) > 0}
+     \]
+
+***** TODO Demostración
+
+*** Test de la razón de verosimilitudes
+**** Test de la razón de verosimilitudes
+Sea $(X_1,\dots,X_n) \in \chi^n$ una muestra aleatoria simple de $X \leadsto \{P_\theta \mid \theta \in \Theta_0 \cup \Theta_1\}$.
+El test de razón de verosimilitudes para el problema de contraste con
+$H_0 : \theta \in \Theta_0$ y $H_1 : \theta \in \Theta_1$; se define como:
+
+\[
+\varphi(X_1,\dots,X_n) = \twopartdef
+{1}{\lambda(X_1,\dots,X_n) < c}
+{0}{\lambda(X_1,\dots,X_n) \geq c}
+\]
+
+donde se define:
+
+\[\lambda(x_1,\dots,x_n) = \frac
+{\sup_{\theta \in \Theta_0} L_{x_1,\dots,x_n}(\theta)}
+{\sup_{\theta \in \Theta} L_{x_1,\dots,x_n}(\theta)}
+\]
+
+siendo $L$ la función de verosimilitud y $c$ una constante que se determina
+imponiendo el tamaño o nivel de significación requerido.
+
 *** TODO Dualidad entre tests de hipótesis y regiones de confianza
 ** 7. Teoría general de modelos lineales
 * Topología II
