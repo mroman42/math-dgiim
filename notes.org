@@ -6154,6 +6154,21 @@ función de densidad:
 
 para $x>0$.
 
+***** Imagen de la distribución
+#+BEGIN_SRC R :results graphics :file images/gamma.png
+  library(ggplot2)
+  library(ggfortify)
+  gg = NULL
+  for (i in c(1,2,3,4,5)) {
+      gg = ggdistribution(dgamma, seq(0, 4, 0.05),
+                          shape = i, rate = 1,
+                          colour=topo.colors(5)[i], p=gg)
+  }
+  print(gg + labs(title = "Distribución gamma, variando α."))
+#+END_SRC
+
+#+RESULTS:
+[[file:images/gamma.png]]
 **** Propiedades de la distribución Gamma
 La función de densidad de una distribución $\Gamma(\alpha,\beta)$ verifica:
 
