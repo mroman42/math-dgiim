@@ -2957,3 +2957,83 @@ P(1,1,0\mid S=3) =
 \frac{p^2(1-p)}{p^2(1-p)+p(1-p)^2}=
 p
 \]
+
+** Tema 4. Estimación puntual. Métodos de estimación
+*** Ejercicio 1
+#+begin_statement
+Sea $(X_1,\dots,X_n)$ una muestra aleatoria simple de $X \leadsto B(1,p)$ y sea 
+$T = \sum_{i=1}^n X_i$.
+
+  1. Probar que si $k \in \mathbb{N}$ y $k\leq n$ el estadístico
+
+     \[\frac{T(T-1)\dots(T-k+1)}{n(n-1)\dots(n-k+1)}\]
+
+     es un estimador insesgado de $p^k$. ¿Es este estimador el UMVUE?
+  2. Probar que si $k>n$, no existe ningún estimador insesgado para $p^k$.
+  3. ¿Puede afirmarse que $\frac{T}{n}\left(1-\frac{T}{n}\right)^2$ es insesgado para $p(1-p)^2$?
+#+end_statement
+
+**** Punto 1. Es insesgado.
+Llamamos $M = \frac{T(T-1)\dots(T-k+1)}{n(n-1)\dots(n-k+1)}$. Comprobamos que es insesgado calculando 
+la esperanza. Dividimos entre los casos $i\leq k$ que son nulos y los demás.
+Usamos $P(T = i) = {n \choose i}p^i(1-p)^{n-i}$.
+
+\[\begin{aligned}
+\mathbb{E}[M] &=
+\sum_{i=1}^n {n \choose i} p^i (1-p)^{n-i}
+\frac{i(i-1)\dots(i-k+1)}{n(n-1)\dots(n-k+1)} \\&=
+\sum_{i=1}^n p^i (1-p)^{n-i}
+\frac{(n-k)!}{(i-k)!((n-k)-(i-k))!} \\&=
+p^k \sum_{i=1}^n p^{i-k} (1-p)^{(n-k)-(i-k)}
+{n-k \choose i-k} \\&= p^k
+\end{aligned}\]
+
+Usando binomio de Newton en el último paso.
+
+**** Punto 1. Es el UMVUE.
+Usaremos el teorema de Lehmann-Scheffé, sabiendo que $M$ es un estimador
+insesgado de $p^k$; y que $T$ es suficiente y completo para $p$.
+
+Para ver que $T$ es completo, calculamos:
+
+\[\begin{aligned}
+\mathbb{E}[g(T)] 
+&= \sum_{t=0}^n g(t) {n \choose t} p^t(1-p)^{n-t} \\
+&= (1-p)^n \sum_{t=0}^n g(t) {n \choose t} \left(\frac{p}{1-p}\right)^t \\
+\end{aligned}\]
+
+Para que se anule siempre, debe anularse el polinomio
+$\sum g(t) {n \choose t}r^t$ para $r \in \mathbb{R}^+$, lo que implica $g(t) = 0$.
+
+Pero ahora, por Lehmann-Scheffé, tenemos que el UMVUE será:
+
+\[\mathbb{E}[M\mid T] = \frac{T(T-1)\dots(T-k+1)}{n(n-1)\dots(n-k+1)}\]
+
+Que es un UMVUE.
+**** Punto 2.
+Supongamos un estimador $Q$ que fuera insesgado para $p^q$. Tendríamos:
+
+\[\mathbb{E}[Q(X)] = p^q\]
+
+Es decir, llamando $R(T) = \sum_{\sum x_i = T} Q(X)$,
+
+\[
+\sum^n {n \choose k} R(t) p^t(1-p)^{n-t} = p^q
+\]
+
+Pero esto nos daría un polinomio de grado $q$ sobre $p$, que no puede ser 
+nulo.
+
+**** TODO Punto 3.
+No. Si calculamos la esperanza usando linealidad obtenemos algo distinto.
+
+#+BEGIN_SRC sage
+n,p = var('n p')
+m1 = n*p
+m2 = m1*(1-p+m1)
+m3 = m1*(1-3*p+3*m1+2*p^2 - 3*n*p^2 + n^2*p^2)
+(p - 2*m2/n^2 + m3/n^3).normalize()
+#+END_SRC
+
+#+RESULTS:
+: (n^2*p^3 - 2*n^2*p^2 - 3*n*p^3 + n^2*p + 5*n*p^2 + 2*p^3 - 2*n*p - 3*p^2 + p)/n^2
