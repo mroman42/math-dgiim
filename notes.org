@@ -5865,6 +5865,81 @@ punto del espacio $f \in X^\ast$ se tiene acotado:
 
  # Conjuntos creíbles
 
+** Prerrequisitos
+*** Varianza
+**** Varianza
+La varianza se define equivalentemente como:
+
+\[Var(X) = E\Big[(X-EX)^2\Big] = E[X^2] - E[X]^2\]
+
+**** Covarianza
+La covarianza se define equivalentemente como:
+
+\[cov(X,Y) = E[(X-EX)(Y-EY)] = E[XY] - E[X]E[Y]\]
+
+Nótese que $cov(X,X) = Var(X)$. Nótese además se comporta como el 
+[[https://en.wikipedia.org/wiki/Covariance#Relationship_to_inner_products][producto interno]] de un espacio prehilbertiano.
+
+**** Varianza de la suma
+La varianza de una suma cumple:
+
+\[
+Var(X+Y) = Var(X) + Var(Y) + 2cov(X,Y)
+\]
+
+En el caso general:
+
+\[Var\left(\sum X_i\right) = \sum_i\sum_j cov(X_i,X_j)\]
+
+**** Cauchy-Schwarz para la covarianza
+Se tiene la desigualdad:
+
+\[cov(X,Y)^2 \leq Var(X)Var(Y)
+\]
+
+***** Demostración
+Sabiendo que la varianza es siempre no negativa:
+
+\[
+0 \leq Var\left(X - \frac{cov(X,Y)}{Var(Y)} Y\right) =
+Var(X) - \frac{\left(cov(X,Y)\right)^2}{Var(Y)}
+\]
+
+***** Demostración por Cauchy-Schwarz
+Se comprueba que la covarianza da un producto escalar que genera
+un [[https://en.wikipedia.org/wiki/Covariance#Relationship_to_inner_products][espacio cociente]] prehilbertiano. Aplicamos Cauchy-Schwarz.
+
+*** Esperanza condicional
+**** Esperanza condicional en caso discreto
+Definimos la esperanza condicional de dos variables discretas como:
+
+\[\mathbb{E}[X|Y] = \sum_x xP(X=x\mid Y=y) = \sum_x x\frac{P(X=x, Y=y)}{P(Y=y)}\]
+
+**** Esperanza condicional en el caso continuo
+Más generalmente se define para el caso continuo:
+
+\[
+\mathbb{E}[X|Y] = \int_X x f_{X|Y}(x|y) dx = \int_X x \frac{f_{X,Y}(x,y)}{f_Y(y)} dx
+\]
+
+**** Ley de esperanza total
+La esperanza condicional cumple:
+
+\[\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y]]\]
+
+***** Demostración en el caso discreto
+Se tiene:
+
+\[\begin{aligned}
+E[E[X|Y]] &= \int_Y f(y)  \left(\int_X x \frac{f(x,y)}{f(y)} dx \right) dy \\ñ
+&= \int_X x \int_Y f(x,y) dy dx \\&= \int_X x f(x) dx = E[X]
+\end{aligned}\]
+
+Nótese que asumimos una conmutatividad de las integrales discretas.
+
+***** Demostración en el caso continuo
+Puede consultarse la [[https://en.wikipedia.org/wiki/Law_of_total_expectation#Proof_in_the_general_case][Ley de la esperanza total]].
+
 ** 1. Introducción a la inferencia estadística. Estadísticos muestrales.
 *** Planteamiento de un problema de inferencia
 **** Modelo estadístico
