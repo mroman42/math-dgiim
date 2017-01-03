@@ -6586,7 +6586,7 @@ Fréchet-Cramer-Rao* si cumple que, siendo $\{P_\theta \; \theta\in\Theta\}$:
    \[\sum_\chi \frac{d f_\theta(x)}{d\theta} = \frac{d}{d\theta}\sum_\chi f_\theta(x) = 0\]
 
 **** Función de información de Fisher
-Si $\{P_\theta : \theta \in \Theta\}$ es regular, definimos la función de información asociada
+Si $\{P_\theta : \theta \in \Theta\}$ es regular, definimos la *función de información* asociada
 a $X$ como:
 
 \[I_X(\theta) = E_\theta\left[\left( \frac{d}{d\theta} \ln(f_\theta(X))
@@ -6618,20 +6618,20 @@ siendo una distribución discreta:
 
 \[\begin{aligned}
 \frac{d}{d\theta}
-E_\theta[T(x_1,\dots,x_n)] &=
+E_\theta[T] &=
 \frac{d}{d\theta} 
-\sum_{\chi^n} T(x_1,\dots,x_n)f^n_\theta(x_1,\dots,x_n) \\&= 
-\sum_{\chi^n} T(x_1,\dots,x_n) \frac{d}{d\theta} f^n_\theta(x_1,\dots,x_n)
+\sum_{x \in \chi^n} T(x)f_\theta(x) \\&= 
+\sum_{x \in \chi^n} T(x) \frac{d}{d\theta} f_\theta(x)
 \end{aligned}\]
 
 O, siendo una distribución continua:
 
 \[\begin{aligned}
 \frac{d}{d\theta}
-E_\theta[T(x_1,\dots,x_n)] &=
+E_\theta[T] &=
 \frac{d}{d\theta} 
-\int_{\chi^n} T(x_1,\dots,x_n)f^n_\theta(x_1,\dots,x_n) \;dx_1,\dots,x_n \\&= 
-\intñ_{\chi^n} T(x_1,\dots,x_n) \frac{d}{d\theta} f^n_\theta(x_1,\dots,x_n) \;dx_1,\dots,x_n
+\int_{x \in \chi^n} T(x)f^n_\theta(x) \;dx \\&= 
+\int_{x \in \chi^n} T(x) \frac{d}{d\theta} f^n_\theta(x) \;dx
 \end{aligned}\]
 
 **** Cota de Fréchet-Cramer-Raó
