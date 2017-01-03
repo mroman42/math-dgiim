@@ -6050,11 +6050,15 @@ densidad:
 
 ***** Imagen de la distribución
 #+BEGIN_SRC R :file images/normal.png :results graphics
-library(ggplot2)
-library(ggfortify)
-gg = ggdistribution(dnorm, seq(-3, 3, 0.1), mean = 0, sd = 1, colour='blue')
-gg = ggdistribution(dnorm, seq(-3, 3, 0.1), mean = 0, sd = 1.2, p=gg)
-print(gg)
+  library(ggplot2)
+  library(ggfortify)
+  gg = NULL
+  for (i in c(1,2,3,4,5)) {
+      gg = ggdistribution(dnorm, seq(-3, 3, 0.1),
+                          mean = 0, sd = 1+0.1*i,
+                          colour=topo.colors(5)[i], p=gg)
+  }
+  print(gg + labs(title = "Distribución normal, variando σ²."))
 #+END_SRC
 
 #+RESULTS:
