@@ -6485,15 +6485,37 @@ cualquier otro estimador insesgado $T'$ se tiene que:
 
 \[ Var_\theta[T] \leq Var_\theta[T']\]
 
-***** TODO De segundo orden
+***** De segundo orden
+# ¿Seguro? No parece estar escrito en ningún sitio.
+Lo llamamos de segundo orden cuando existe la varianza.
 
 **** Propiedades del UMVUE
 El estimador UMVUE cumple:
 
-- Unicidad: El UMVUE de cualquier función paramétrica, si existe, es único.
-- Linealidad: Si $T,Q$ son UMVUE para $g,h$; $aT+bQ$ es UMVUE para $ag+bh$.
+ - Unicidad: El UMVUE de cualquier función paramétrica, si existe, es único.
+ - Linealidad: Si $T,Q$ son UMVUE para $g,h$; $aT+bQ$ es UMVUE para $ag+bh$.
 
-***** TODO Demostración
+***** Unicidad
+Si existieran dos UMVUE con $Var(T) = Var(T')$, tendríamos:
+
+\[\begin{aligned}
+Var\left(\frac{1}{2}(T+T')\right) &= 
+\frac{1}{4}
+\left(
+Var(T) + Var(T') + 2cov(T,T')
+\right) \\& \leq
+\frac{1}{4}
+\left(
+Var(T) + Var(T') + 2\sqrt{Var(T)Var(T')}
+\right) \\& = Var(T)
+\end{aligned}\]
+
+La igualdad se da por ser UMVUE, y entonces, $cov(T,T') = Var(T)$.
+De aquí $cov(T-T',T-T') = 0$, haciendo constante la diferencia entre los
+dos. La diferencia entre ellos debe ser constantemente $0$ por ser ambos 
+insesgados.
+
+***** TODO Linealidad
 **** Teorema de Raó-Blackwell
 Si $T$ es suficiente para $\theta$ y $S$ es un estimador insesgado de $g(\theta)$ de 
 segundo orden:
