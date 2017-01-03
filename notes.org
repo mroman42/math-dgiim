@@ -6525,14 +6525,49 @@ segundo orden:
 
 Es decir, $E[S \mid T]$ será normalmente mejor estimador y nunca peor que $S$.
 
-***** TODO Demostración
+***** Demostración
+Sabemos $E[S|T] = E[S] = \theta$ por la [[*Ley de esperanza total][ley de esperanza total]]. La desigualdad
+entre varianzas la vemos como:
+
+\[\begin{aligned}
+E\Big[(E[S|T] - \theta)^2 \Big] &= 
+E\Big[E[S-\theta | T]^2 \Big] \leq
+E\Big[E[(S-\theta)^2|T] \Big] = E\Big[(S-\theta)^2\Big]
+\end{aligned}\]
+
+Donde volvemos a usar la ley de esperanza total. La desigualdad viene
+de que la varianza es positiva, o de la desigualdad de Jensen para el
+cuadrado.
+
 **** Teorema de Lehmann-Scheffé
 Para $T$ suficiente y completo para $\theta$; si $g(\theta)$ admite un estimador insesgado 
 de segundo orden $S$, entonces existe el UMVUE de $g(\theta)$ y está dado por:
 
- \[ \mathbb{E} [S \mid T]\]
+\[ \mathbb{E} [S \mid T]\]
 
-***** TODO Demostración
+De otra forma, un estimador insesgado que es función de estimador completo
+y suficiente es el UMVUE.
+
+***** Demostración
+Por [[*Teorema de Raó-Blackwell][Raó-Blackwell]], sabemos que es un estimador insesgado; y que, dado
+cualquier otro estimador insesgado $Q$, tenemos que:
+
+\[ Var[E[Q|T]] \leq Var[Q]\]
+
+Ahora bien, dado otro, tendríamos:
+
+\[
+E\Big[ E[S|T] - E[Q|T] \Big] = 0
+\]
+
+Y como $T$ es completo y ambos son dependientes de $T$, eso implica que:
+
+\[P\Big(
+E[S|T] - E[Q|T] = 0
+\Big) = 1\]
+
+Por lo tanto, ambos son el UMVUE.
+
 *** Estimación eficiente
 **** Condiciones de regularidad de Fréchet-Cramer-Rao
 Una familia de distribuciones es *regular en el sentido de 
