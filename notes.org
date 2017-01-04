@@ -6709,7 +6709,7 @@ Fréchet-Cramer-Rao* si cumple que, siendo $\{P_\theta \; \theta\in\Theta\}$:
    0, \quad \forall \theta\in\Theta\]
    
    O, cuando la distribución es discreta:
-
+   
    \[\sum_\chi \frac{d f_\theta(x)}{d\theta} = \frac{d}{d\theta}\sum_\chi f_\theta(x) = 0\]
 
 **** Función de información de Fisher
@@ -6781,8 +6781,8 @@ insesgado en una función derivable $g(\theta)$, se tiene:
 ***** TODO Demostración
 **** Estimador eficiente
 Sea $\{P_\theta \mid \theta \in \Theta\}$ regular, con la función de información acotada 
-$0 < I_X(\theta) < \infty$ y $g(\theta)$ función paramétrica derivable. Un estimador $T$ de
-$g(\theta)$ es eficiente si es insesgado, regular, y su varianza alcanza la
+$0 < I_X(\theta) < \infty$ y $g(\theta)$ función paramétrica derivable. Un estimador $T$ de $g(\theta)$ 
+es eficiente si es insesgado, regular, y su varianza alcanza la
 cota de Fréchet-Cramer-Raó en todo punto:
 
 \[Var_\theta[T] = \frac{(g'(\theta))^2}{I_{X_1,\dots,X_n}(\theta)},
@@ -7240,7 +7240,6 @@ de rango máximo.
      $\widehat\psi(Y) = a_1\widehat\beta_1(Y) + \dots + a_k\widehat\beta_k(Y)$.
 
 ***** TODO Demostración
-
 * Topología II
 ** 1. El grupo fundamental
 *** 1. Espacios conexos por arcos
