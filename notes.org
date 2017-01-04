@@ -6218,6 +6218,21 @@ Sean $X,Y$ independientes. Si $X+Y$ es normal, $X$ e $Y$ son normales.
 
 ***** TODO Demostración
 
+*** Distribución exponencial
+**** Distribución exponencial
+Dado un $\lambda>0$, definimos la distribución exponencial, $\operatorname{Exp}(\lambda)$, como aquella
+con función de densidad:
+
+\[f(x) = \lambda e^{-\lambda x}\qquad \forall x \in \mathbb{R}^+_0\]
+
+***** Es una distribución
+Trivialmente integrando:
+
+\[
+\int_0^\infty \lambda e^{-\lambda x} = 
+-\left[ e^{-\lambda x} \right]^\infty_0 = 1
+\]
+
 *** Distribución Gamma
 **** Función Gamma
 Se define la función gamma $\Gamma : (0,\infty) \longrightarrow (0,\infty)$ como:
