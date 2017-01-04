@@ -5787,6 +5787,118 @@ punto del espacio $f \in X^\ast$ se tiene acotado:
 \[ \{J_X(x)(f) \mid x \in A \} \]
 
 ** 3. Espacios de Hilbert
+*** Espacios prehilbertianos
+**** Producto escalar
+Sea $H$ un K-espacio vectorial. Un producto escalar es: $\langle \cdot,\cdot\rangle : H \times H \longrightarrow \mathbb{K}$
+cumpliendo:
+
+  1. $\langle \alpha u + \beta v, w\rangle = \alpha\langle u,w \rangle + \beta\langle v,w \rangle$, lineal en la primera variable.
+  2. $\langle u,v \rangle = \overline{\langle v,u \rangle}$, forma sexquilineal.
+  3. $\langle u,u \rangle \geq 0$, definida positiva.
+  4. $\langle u,u \rangle = 0$, no nula.
+
+***** Observaciones
+Cuando $\mathbb{K}=\mathbb{R}$, 2 es conmutatividad; cuando $\mathbb{K}=\mathbb{C}$, implica que 3 está 
+bien definido por ser $\langle u,u \rangle = 0$.
+
+**** Espacio prehilbertiano
+Llamamos espacio prehilbertiano a un espacio vectorial dotado de un 
+producto escalar.
+
+**** Ejemplos de espacios prehilbertianos
+***** Espacio euclídeo complejo
+Para el espacio $\mathbb{C}^n$,
+
+\[\langle (x_1,\dots,x_n), (y_1,\dots,y_n) \rangle =
+\sum_{i=0}^n x_i\overline{y_i} \]
+
+***** Espacio de sucesiones
+Para el espacio $\ell^2$, de sucesiones de cuadrado sumable:
+
+\[\langle \{x_i\},\{y_i\} \rangle = \sum^\infty_{n=0} x_n\overline{y_n}\]
+
+Nótese que es sumable por tenerse $2|x_n||y_n| \leq |x_n|^2+|y_n|^2$.
+
+***** Espacio de funciones integrables
+Para ${\cal C}([0,1],\mathbb{K})$ funciones continuas:
+
+\[
+\langle f,g \rangle = \int_{[0,1]} f\overline{g}
+\]
+
+***** Espacio de funciones de cuadrado integrable
+Para funciones de cuadrado integrable $L^2(\mu)$, tenemos:
+
+\[\langle f,g \rangle = \int_\Omega f\overline{g} \;d\mu\]
+
+Donde por Hölder tenemos la integrabilidad:
+
+\[
+\int_\Omega |f\overline{g}| \;d\mu \leq
+\left(
+\int_\Omega |f|^2 d\mu
+\right)
+\left(
+\int_\Omega |g|^2 d\mu
+\right)
+\]
+
+**** Desigualdad de Cauchy-Schwarz
+Para $H$ prehilbertiano, si notamos $\|u\| = \sqrt{\langle u,u \rangle}$,
+
+\[ |\langle u,v \rangle| \leq \|u\|\|v\|
+\]
+
+***** TODO Demostración
+**** Desigualdad de Minkowski
+Para $H$ prehilbertiano, si notamos $\|u\| = \sqrt{\langle u,u \rangle}$,
+
+\[
+\| u + v \| \leq \|u\| + \|v\|
+\]
+
+***** TODO Demostración
+**** Espacio prehilbertiano es normado
+Todo espacio prehilbertiano es normado con norma:
+
+\[
+\| u \| = \sqrt{\langle u,u \rangle}
+\]
+
+***** Cumple propiedades de la norma
+Tenemos trivialmente:
+
+  1. $\|u\| = 0 \iff u =0$
+  2. $\|\alpha u\| = |\alpha| \|u\|$
+  3. $\|u+v\| \leq \|u\|+\|v\|$
+
+Donde la última se deduce de la desigualdad de Minkowski.
+
+**** El producto escalar es continuo
+En un espacio prehilbertiano:
+
+\[\{u_n\} \longrightarrow u, \{v_n\} \longrightarrow v 
+\implies
+\{ \langle u_n, v_n \rangle\} \longrightarrow \langle u,v \rangle\]
+
+***** Demostración
+Se tiene:
+
+\[\begin{aligned} |\langle u_n,v_n \rangle - \langle u,v \rangle| 
+&\leq |\langle u_n-u,v \rangle| + |\langle u,v_n-v \rangle| \\
+&\leq \|u_n-u\|\|v\| + \|u\|\|v_n-v\| \longrightarrow 0
+\end{aligned}\]
+
+*** Producto escalar en espacios normados
+**** Identidades de polarización
+Sea $H$ prehilbertiano:
+
+  1. $\langle u,v \rangle = \frac{1}{4}\left( \|u+v\|^2 - \|u-v\|^2 \right)$, cuando $\mathbb{K} = \mathbb{R}$.
+  2. $\langle u,v \rangle = \frac{1}{4}\left( \|u+v\|^2 - \|u-v\|^2 \right) + \frac{i}{4}\left( \|u+iv\|^2 - \|u-iv\|^2 \right)$, cuando $\mathbb{K} = \mathbb{C}$.
+
+***** Demostración
+La segunda es trivial calculando y la primera es un caso particular.
+
 ** 4. Topologías débiles
 * Inferencia Estadística
 ** DONE Apuntes en clase
