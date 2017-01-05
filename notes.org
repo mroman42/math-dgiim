@@ -5890,7 +5890,7 @@ Se tiene:
 &\leq \|u_n-u\|\|v\| + \|u\|\|v_n-v\| \longrightarrow 0
 \end{aligned}\]
 
-*** Producto escalar en espacios normados
+*** Espacios de Hilbert
 **** Identidades de polarización
 Sea $H$ prehilbertiano:
 
@@ -5900,6 +5900,41 @@ Sea $H$ prehilbertiano:
 ***** Demostración
 La segunda es trivial calculando y la primera es un caso particular.
 
+**** Identidad del paralelogramo
+Sea $H$ normado, es prehilbertiano ssi se verifica:
+
+\[
+\|u+v\|^2 + \|u-v\|^2 = 2\left( \|u\|^2 + \|v\|^2\right)
+\]
+
+Con el producto escalar dado por la [[*Identidades de polarización][identidad de polarización]]:
+
+\[ \langle u,v\rangle = \frac{1}{4}\left(\|u+v\|^2-\|u-v\|^2 \right)\]
+
+***** TODO Demostración
+Cuando es prehilbertiano, se verifica la ecuación trivialmente.
+Cuando se verifica la ecuación, podemos definir:
+
+\[\]
+
+**** Ejemplos de normados prehilbertianos
+***** TODO Espacio de funciones continuas
+***** TODO Espacio de sucesiones de cuadrado sumable
+**** Espacios de Hilbert
+Un espacio prehibertiano completo es un espacio de Hilbert.
+Equivalentemente, un espacio de Banach con norma asociada a un producto
+escalar.
+
+**** Hilbert de dimensión finita
+Todo espacio prehilbertiano de dimensión finita es espacio de Hilbert.
+
+***** Demostración
+Todo espacio normado de dimensión finita es de Banach.
+
+**** Compleción de prehilbertianos
+La completación de un espacio prehilbertiano es espacio de Hilbert.
+
+***** TODO Demostración
 ** 4. Topologías débiles
 * Inferencia Estadística
 ** DONE Apuntes en clase
