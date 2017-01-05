@@ -6279,6 +6279,107 @@ Si escribimos las coordenadas $u = \sum \alpha_ie_i$ tenemos que $\alpha_i = \la
 La norma se obtiene desde la descripción de coordenadas por 
 ortonormalidad.
 
+*** Familias sumables
+**** Familia sumable
+Sea $X$ normado y $\{x_i\}_{i\in I}$ familia; se dice sumable si:
+
+\[\exists x \in X: 
+\forall \epsilon > 0:
+\exists J_\epsilon \subseteq I:
+\forall J \supseteq J_\epsilon: \quad
+\left\|\sum_{i \in J} x_i - x\right\| < \epsilon
+\]
+
+Llamamos suma de la familia a $\sum_{i \in I} x_i = x$.
+
+**** Unicidad de la suma
+La suma de una familia sumable es única.
+
+***** Demostración
+Si tuviera dos sumas $x$ y $x'$, tomaríamos los $J_\varepsilon, J_\varepsilon'$ para tener:
+
+\[
+\| x - x' \| \leq
+\left\| x - \sum_{x_i \in J_\varepsilon \cup J_\varepsilon'} x_i \right\| +
+\left\| \sum_{x_i \in J_\varepsilon \cup J_\varepsilon'} x_i - x' \right\|
+\leq 2\varepsilon
+\]
+
+**** Propiedades de las familias sumables
+Sea $X$ normado con $\{x_i\}_{i \in I}$ familia con suma $x$:
+
+  1. $\sum_{i \in I} x_\sigma(i) = x$, para cualquier permutación $\sigma$.
+  2. $\sum_{i \in I} \alpha x_i + \beta y_i = \alpha x + \beta y$, siendo la suma lineal.
+  3. $\sum_{i \in I} Tx_i = Tx$, para $T$ lineal continua.
+
+***** Demostración
+****** Punto 1
+Trivial por la definición.
+
+****** Punto 2
+Tomando el conjunto $J_{\frac{\varepsilon}{2\alpha}}^x \cup J_{\frac{\varepsilon}{2\beta}}^y = K$, tenemos que:
+
+\[ \left\| \alpha x + \beta y - \left(\sum_{i \in K} \alpha x_i + \beta y_i \right)\right\| 
+\leq |\alpha| \left\| x - \sum_{i \in K} x_i \right\| + |\beta| \left\|y - \sum_{i \in K} y_i \right\| 
+\leq \varepsilon\]
+
+****** Punto 3
+Si tomo unos $\varepsilon \longrightarrow 0$ tendré:
+
+\[
+\left\| Tx - \sum_{i \in J_\varepsilon} Tx_i \right\| = 
+\left\| T\left( x - \sum_{i \in J_\varepsilon} x_i \right) \right\| \leq
+\|T\|\varepsilon \longrightarrow 0
+\]
+
+**** Caracterización de familia sumable
+Una familia $\{x_i\}_{i \in I}$ es sumable ssi:
+
+\[\sup\left\{
+\sum_{i \in J} x_i \mid J \;\mtext{ finito } \subset I
+\right\} < \infty\]
+
+donde además, $\sum_{i \in I} x_i$ es el supremo.
+
+***** TODO Demostración
+
+**** TODO Condición de Cauchy en familias sumables
+**** TODO Numerabilidad de familias sumables
+**** TODO Caracterización numberable de sumabilidad
+**** TODO Familia absolutamente sumable
+**** TODO Criterio de sumabilidad
+**** Suma ortogonal
+Sea $\{e_i\}_{i\in I}$ familia ortogonal en un espacio de Hilbert $H$. Entonces
+$\{e_i\}_{i \in I}$ es sumable ssi $\{\|e_i\|^2\}_{i \in I}$ es sumable en $\mathbb{R}^+$, en cuyo caso:
+
+\[
+\left\| \sum_{i \in I} e_i \right\| = \sqrt{\sum_{i \in I} \|e_i\|^2}
+\]
+
+***** TODO Demostración
+
+**** Corolario: suma ortogonal con coeficientes
+Sea $\{e_i\}_{i \in I}$ familia ortonormal con $f : H \longrightarrow \mathbb{K}$ aplicación. Entonces
+$\{f(e_i)e_i\}$ es sumable ssi $\{|f(e_i)|^2\}$ es sumable en $\mathbb{R}^+$; en cuyo caso:
+
+\[
+\left\| \sum_{i \in I} f(e_i) e_i \right\| =
+\sqrt{\sum_{i \in I} |f(e_i)|^2}
+\]
+
+***** Demostración
+Trivial desde lo anterior viendo $\{f(e_i)e_i\}$ como familia ortogonal.
+
+**** Corolario: suma ortogonal con productos escalares
+Sea $H$ Hilbert, $\{e_i\}_{i \in I}$ familia ortonormal. Para $u \in H$ se tiene que
+$\{\langle u,e_i \rangle e_i\}$ es sumable ssi $\{|\langle u,e_i \rangle|^2\}$ es sumable en $\mathbb{R}^+$.
+
+***** Demostración
+Caso particular de lo anterior con $f(x) = \langle u,x \rangle$.
+
+**** TODO Desigualdad de Bessel
+**** TODO Corolario de Bessel
+**** TODO Existencia de familias ortonormales
 * Inferencia Estadística
 ** DONE Apuntes en clase
 *** Introducción
