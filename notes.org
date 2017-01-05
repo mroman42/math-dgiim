@@ -6182,6 +6182,103 @@ Con caso de igualdad sólo si $\|m-u\| = 0$.
    linear functions. - Mathematics Stack Exchange]]
 
 ** 4. Topologías débiles
+*** Convergencia débil
+**** Convergencia débil
+En $H$ Hilbert, se dice que $\{u_n\}$ converge débilmente a $u$ cuando:
+
+\[\{u_n\} \overset{w}\longrightarrow u 
+\iff \forall v \in H: \{\langle u_n,v \rangle\} \longrightarrow \langle u,v \rangle \]
+
+De otra forma, $\forall f \in H^\ast: \{f(u_n)\} \longrightarrow f(u)$.
+
+***** Unicidad del límite débil
+La unicidad se tiene porque si $\forall v: \langle u,v \rangle = \langle u',v \rangle$, entonces $f_u = f_{u'}$,
+que por [[*Teorema de Riesz-Frechet][Riesz-Frechet]] nos da $u = u'$.
+
+**** Convergencia implica convergencia débil
+En $H$ Hilbert, la convergencia implica la convergencia débil: 
+
+\[\{u_n\} \longrightarrow u \implies \{u_n\} \overset{w}\longrightarrow u\]
+
+***** Demostración
+Trivial por continuidad del producto escalar.
+
+***** Contraejemplo del recíproco
+En el espacio de sucesiones cuadrado sumables $\ell_2$, sabemos que los
+términos de toda sucesión tienden a $0$, por eso:
+
+\[ \{e_n\} \overset{w}\longrightarrow 0\]
+
+Pero no se tiene $\{e_n\} \longrightarrow 0$.
+
+**** Compacidad débil
+Un conjunto es débilmente compacto si toda sucesión suya tiene una
+parcial débilmente convergente.
+
+**** Compacidad de la bola unidad
+Sea $H$ Hilbert, entonces la bola $B(0,1)$ es débilmente compacta.
+
+***** TODO Demostración
+
+**** Espacio vectorial topológico
+Un espacio vectorial topológico es un espacio vectorial con una topología
+que hace continuos a la norma y el producto por escalares.
+
+**** Ortogonalidad y ortonormalidad
+Sea dice $S \subset H$ ortogonal cuando $\forall u,v \in S: \; u \perp v$. Se dice que es además
+ortonormal cuando $\forall u \in S : \|u\| = 1$.
+
+**** Independencia de ortogonales
+Si hay un conjunto ortogonal $S$, es linealmente independiente.
+
+***** Demostración
+Supongamos que tenemos $e_1,\dots,e_n \in S$ y una combinación lineal suya.
+Entonces para cada $e_k$:
+
+\[
+0 = \left\langle \sum \alpha_i e_i, e_k \right\rangle
+= \alpha_k \|e_k\| = \alpha_k
+\]
+
+**** Gram-Schmidt
+Sea $H$ prehilbertiano de dimensión $n$, finita:
+
+  1. $\{e_1,\dots,e_n\}$ ortogonal $\implies$ $\{e_1,\dots,e_n\}$ base
+  2. Existe una base ortonormal.
+
+***** Demostración
+****** Punto 1
+Son linealmente independientes y generan un espacio de dimensión $n$,
+que debe ser el total.
+
+****** Punto 2
+Sabemos que existe una base $u_1,\dots,u_n$, podemos generar una base
+ortonormal tomando a cada paso:
+
+\[ e_i = u_i - \sum_{j < i} \langle u_j,e_j \rangle e_j}\]
+
+Para tener una base ortogonal. Dividiendo por la norma para tener una
+base ortonormal.
+
+**** Base ortonormal finita
+Sea $e_1,\dots,e_n$ una base ortonormal de un Hilbert. Cada elemento puede
+escribirse en coordenadas de sus productos escalares:
+
+\[
+u = \sum_{i=1}^n \langle u,e_i \rangle e_i
+\]
+
+Y su norma será:
+
+\[
+\|u\| = \sqrt{\sum^n_{i=1} |\langle u,e_i \rangle|^2}
+\]
+
+***** Demostración
+Si escribimos las coordenadas $u = \sum \alpha_ie_i$ tenemos que $\alpha_i = \langle u,e_i \rangle$.
+La norma se obtiene desde la descripción de coordenadas por 
+ortonormalidad.
+
 * Inferencia Estadística
 ** DONE Apuntes en clase
 *** Introducción
