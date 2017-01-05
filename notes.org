@@ -5793,13 +5793,14 @@ Sea $H$ un K-espacio vectorial. Un producto escalar es: $\langle \cdot,\cdot\ran
 cumpliendo:
 
   1. $\langle \alpha u + \beta v, w\rangle = \alpha\langle u,w \rangle + \beta\langle v,w \rangle$, lineal en la primera variable.
-  2. $\langle u,v \rangle = \overline{\langle v,u \rangle}$, forma sexquilineal.
-  3. $\langle u,u \rangle \geq 0$, definida positiva.
-  4. $\langle u,u \rangle = 0$, no nula.
+  2. $\langle u,\alpha v + \beta w\rangle = \overline{\alpha}\langle u,v\rangle + \overline{\beta}\langle u,w\rangle$, conjugadalineal en la segunda variable.
+  3. $\langle u,v \rangle = \overline{\langle v,u \rangle}$, hermítica.
+  4. $\langle u,u \rangle \geq 0$, definida positiva.
+  5. $\langle u,u \rangle = 0$, no nula.
 
 ***** Observaciones
-Cuando $\mathbb{K}=\mathbb{R}$, 2 es conmutatividad; cuando $\mathbb{K}=\mathbb{C}$, implica que 3 está 
-bien definido por ser $\langle u,u \rangle = 0$.
+Cuando $\mathbb{K}=\mathbb{R}$, 3 es conmutatividad; cuando $\mathbb{K}=\mathbb{C}$, implica que 4 está 
+bien definido por ser $\langle u,u \rangle$ real.
 
 **** Espacio prehilbertiano
 Llamamos espacio prehilbertiano a un espacio vectorial dotado de un 
