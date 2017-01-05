@@ -1668,6 +1668,32 @@ Que tiene imagen de norma:
 
 Mientras que él tiene norma $1$.
 
+** 4. Espacios de Hilbert I
+*** Ejercicio 2
+#+begin_statement
+Demuéstrese que si $H$ es un espacio prehiilbertiano respecto de dos productos
+escalares $\langle \cdot,\cdot\rangle_1$ y $\langle \cdot,\cdot\rangle_2$ entonces ambos productos coinciden salvo conjugación
+ssi sus normas asociadas coinciden.
+#+end_statement
+
+**** Si coinciden, coinciden las normas
+Si llamamos a las normas $\|\cdot\|_1$ y $\|\cdot\|_2$, tenemos:
+
+\[\|u\|_1 = \sqrt{\langle u,u \rangle_1} 
+= \sqrt{\overline{\langle u,u \rangle_2}} = \|u\|_2\]
+
+Donde usamos que el producto escalar es hermítico.
+
+**** Si coinciden las normas, coinciden
+# ¿Por qué salvo conjugación?
+Por la identidad de polarización, tenemos:
+
+\[
+\langle u,v \rangle_1 = 
+\frac{1}{4}\left( \|u+v\|^2-\|u-v\|^2+i\|u+iv\|^2-i\|u-iv\|^2 \right) =
+\langle u,v \rangle_2
+\]
+
 * Álgebra conmutativa y computacional
 ** Relación 1
 *** Ejercicio 1
