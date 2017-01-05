@@ -5935,6 +5935,92 @@ Todo espacio normado de dimensión finita es de Banach.
 La completación de un espacio prehilbertiano es espacio de Hilbert.
 
 ***** TODO Demostración
+
+*** Ortogonalidad
+**** Ley de los cosenos
+La ley de los cosenos puede reinterpretarse como una definición del
+ángulo para espacios distintos de $\mathbb{R}^2$.
+
+\[
+cos(\theta) = \frac{\langle u,v \rangle}{\|u\|\|v\|}
+\]
+
+**** Ortogonalidad
+Dos vectores se dicen ortogonales $u \perp v$ cuando su producto escalar 
+es nulo:
+
+\[\langle u,v \rangle = 0\]
+
+**** Espacio ortogonal
+Para $H$ hilbertiano, $S \subseteq H$; definimos el ortogonal de $S$ como:
+
+\[
+S^\perp = \left\{
+u \in H \mid \forall s \in S: \langle u,s \rangle = 0
+\right\}
+\]
+
+**** Propiedades del espacio ortogonal
+Para $0 \subset S \subset H$, tenemos:
+
+  1. $0 \in S^\perp$
+  2. $S \cap S^\perp \subseteq \{0\}$
+  3. $\{0\}^\perp = H$, $H^\perp = \{0\}$
+  4. $S_1 \subseteq S_2 \implies S_1^\perp \supseteq S_2^\perp$
+  5. $S^\perp$ es subespacio vectorial cerrado
+  6. $S \subseteq S^{\perp\perp}$
+ 
+***** Demostración
+Triviales. La quinta se tiene por núcleo de una función lineal y
+continua.
+
+**** Suma directa
+Sea $X$ normado con $M,N$ subespacios. Se dice que hay suma directa
+$X = M \oplus N$, cuando:
+
+  1. $X = M + N$
+  2. $M \cap N = \{0\}$
+
+**** Lema de aproximación óptima
+Sea $S$ un cerrado y convexo de $H$ prehilbertiano. Hay un sólo elemento
+en el conjunto que realiza la mínima norma.
+
+\[\exists! s_0 \in S:\quad \|s_0\| = \min\{\|s\| \mid s\in S\}\]
+
+***** Demostración
+****** Existencia
+Sea $t$ el ínfimo. Por convexidad tenemos: $\|\frac{1}{2}(u+v)\| \geq t$. Dada una
+sucesión $\{\|s_n\|\} \longrightarrow t$; vemos que es de Cauchy:
+
+\[\begin{aligned}
+\|s_n-s_m\|^2 &\leq \|s_n+s_m\|^2 + \|s_n-s_m\|^2 - 4t^2 \\&=
+2(\|s_n\|^2 -t^2) + 2(\|s_m\|^2 - t^2) \longrightarrow 0
+\]
+
+Luego converge en el cerrado.
+
+****** Unicidad
+Si hubiese dos mínimos, se tendría:
+
+\[
+\|s+s'\|^2 + \|s-s'\|^2 = 2\left(\|s\|^2 + \|s'\|^2 \right) 
+= 4t^2 \leq \|s+s'\|^2
+\]
+
+Por lo que $\|s-s'\| = 0$.
+
+**** Teorema de la aproximación óptima
+Sea $H$ Hilbert, $M \subseteq H$ subespacio cerrado y $u \in H$. Entonces, existe una 
+única mejor aproximación a $M$, esto es:
+
+\[\exists! \pi_M(u) \in M:\quad d(u, \pi_M(u)) = d(u,M) \]
+
+***** Demostración
+Aplicaremos el [[*Lema de aproximación óptima][lema de aproximación óptima]] a $u+M$. Tenemos que probar
+que es convexo, y para ello:
+
+\[\lambda (u+m) + (1-\lambda)(u+m') = u + m\lambda + m'(1-\lambda) \in u+M\]
+
 ** 4. Topologías débiles
 * Inferencia Estadística
 ** DONE Apuntes en clase
