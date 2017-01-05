@@ -1720,6 +1720,71 @@ ortogonales ssi $\|u+v\| = \|u-v\|$. Pero esto sólo ocurre en $\mathbb{R}$, don
 hermítico da simetría al producto escalar, en $\mathbb{C}$ tenemos un contraejemplo
 trivial en $u=1,v=i$, que no son ortogonales.
 
+*** Ejercicio 15
+#+begin_statement
+Demostrar que el espacio ${\cal C}[-1,1]$ es suma directa del espacio de las funciones
+pares y del espacio de las funciones impares. ¿Son ortogonales dichos 
+subespacios? Encontrar los complementos ortogonales de los siguientes 
+conjuntos:
+
+  - las funciones que se anulan en $[-1,0]$.
+  - las funciones que se anulan en $x = 0$.
+#+end_statement
+
+**** Es suma directa
+Sea $f \in {\cal C}[-1,1]$. Podemos escribirla como:
+
+\[
+f(x) = \frac{f(x) + f(-x)}{2} + \frac{f(x) - f(-x)}{2}
+\]
+
+Siendo cada sumando par e impar. Supongamos un $f$ par e impar, entonces se
+tiene $f(x) = f(-x) = -f(-x) = 0$.
+
+**** Es ortogonal
+Usando que el producto de par e impar es impar:
+
+\[
+\int_{-1}^1 f(x)g(x) dx = \int_0^1 fg - \int_0^1 fg = 0x
+\]
+
+**** Complemento de las anuladas en [-1,0]
+***** Sólo son ortogonales si se anulan en [0,1]
+Para cada intervalo definimos las funciones:
+
+\[
+u_{[a,b]}(x) = \left\{\begin{array}{ll} 
+(x-a)\frac{2}{b-a}& \mbox{if } a \leq x \leq \frac{a+b}{2} \\
+(b-x)\frac{2}{b-a}& \mbox{if } \frac{a+b}{2} \leq x \leq b \\
+0 & \mbox{otherwise}
+\end{array} 
+\right.
+\]
+
+Una $f$ ortogonal a las que se anulan en $[-1,0]$ debe ser nula en $(0,1)$. Si
+no lo fuera en $x \in (0,1)$, existiría un intervalo $[a,b] \subset (0,1)$ donde la función
+preservaría el signo. Y entonces,
+
+\[
+\int f(x)u_{[a,b]}(x) \;dx \neq 0
+\]
+
+contraviniendo ortogonalidad.
+
+***** Si se anulan en [0,1] son ortogonales
+Por otro lado, una función que se anulara en $(0,1)$ sería ortogonal a
+cualquiera que se anulara en $[-1,0]$.
+**** Complemento de las anuladas en 0
+Cualquier función ortogonal a las anuladas en $0$ debe anularse en todo $x \neq 0$.
+Se tiene que si no se anulara en algún punto distinto de $0$, existiría
+un intervalo $[a,b]$ en el que preservaría el signo:
+
+\[
+\int^1_{-1} f(x)u_{[a,b]}(x) \;dx \neq 0
+\]
+
+contraviniendo ortogonalidad. Debe anularse en todo punto distinto de $0$,
+y, por continuidad, también en $0$.
 * Álgebra conmutativa y computacional
 ** Relación 1
 *** Ejercicio 1
