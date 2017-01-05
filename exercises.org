@@ -1694,6 +1694,32 @@ Por la identidad de polarización, tenemos:
 \langle u,v \rangle_2
 \]
 
+*** Ejercicio 3
+#+begin_statement
+Sea $H$ un espacio prehilbertiano real. Probar que si $\|u+v\|^2 = \|u\|^2+\|v\|^2$,
+entonces $u$ y $v$ son ortogonales. ¿Se verifica esta propiedad en todo espacio
+prehilbertiano complejo?
+#+end_statement
+
+En un espacio real, esto implica $2\langle u,v \rangle = 0$. En un espacio complejo,
+sólo tenemos $\langle u,v \rangle + \langle v,u \rangle = 0$, así que podemos buscar un ejemplo en el que
+no se cumpla:
+
+\[2 = \|1+i\|^2 = \|1\|^2 + \|i\|^2 \]
+
+Pero $\langle 1,i \rangle = -i \neq 0$.
+
+*** Ejercicio 4
+#+begin_statement
+Sea $H$ un espacio prehilbertiano sobre $\mathbb{{K}}$. Sean $u,v \in H$ y $\alpha \in \mathbb{K}$. Probar que
+$u$ y $v$ son ortogonales ssi, $\|u+\alpha v\| = \|u-\alpha v\|$.
+#+end_statement
+
+Sea $\alpha \neq 0$, tenemos que $u \perp v \iff u \perp \alpha v$. Así, podemos demostrar que son
+ortogonales ssi $\|u+v\| = \|u-v\|$. Pero esto sólo ocurre en $\mathbb{R}$, donde el ser
+hermítico da simetría al producto escalar, en $\mathbb{C}$ tenemos un contraejemplo
+trivial en $u=1,v=i$, que no son ortogonales.
+
 * Álgebra conmutativa y computacional
 ** Relación 1
 *** Ejercicio 1
