@@ -6055,6 +6055,132 @@ Para $H$ Hilbert, $M$ subespacio, $M$ es denso ssi $M^\perp = \{0\}$.
 
 ***** TODO Demostración
 
+*** Teorema de Riesz-Frechet
+**** Teorema de Lindestrauss-Tzafini
+Un espacio de Banach es Hilbert ssi todo subespacio cerrado suyo admite
+un complemento topológico. Es decir, para cada $M$ cerrado hay un $N$ cerrado
+tal que:
+
+\[
+X = M \overset{t}{\oplus} N
+\]
+
+***** TODO Demostración
+
+**** Recordatorio: Teorema de Hahn-Banach
+Sea $X$ espacio normado sobre $\mathbb{K}$. Entonces $\exists f: X \longrightarrow \mathbb{K}$ lineal y continua
+no nula. Además, dado $x \in X\setminus\{0\}$, tenemos $\exists f \in X^\ast: f(x) \neq 0$. De hecho,
+
+\[
+\|x\| = \sup\{ |f(x)| \mid f \in X^\ast \}
+\]
+
+***** Demostración
+Hemos reenunciado la [[*Separación en el dual topológico][separación en el dual topológico]], que era 
+consecuencia de la [[*Versión analítica de Hahn-Banach][versión analítica de Hahn-Banach]].
+
+***** Relación en el caso prehilbertiano
+Cada vector tiene asociada una función lineal y continua en el dual
+dada por su producto escalar: $v \mapsto \langle \cdot,v \rangle$.
+
+**** Teorema de Riesz-Frechet
+Sea $H$ Hilbert y $f : H \longrightarrow \mathbb{K}$ lineal y continuo. Existe un único $v \in H$ tal
+que:
+
+\[f(u) = \langle u,v \rangle\]
+
+De otra forma, $v \mapsto \langle \cdot,v \rangle$ es una biyección conjugada-lineal de $H$ en $H^\ast$.
+
+***** Demostración
+****** Existencia: caso nulo
+En el caso $f=0$, simplemente tomamos $v=0$.
+
+****** Existencia: caso general
+Dado $f$, $\ker(f)$ será propio, luego necesitamos $\ker(f)^\perp$ espacio propio
+para que la suma directa sea el total. Sea $w \in \ker(f)^\perp$ no nulo, tenemos:
+
+\[
+0 = \langle f(u)w - f(w)u , w \rangle = \|w\|^2f(u) - f(w)\langle u,w \rangle
+\]
+
+Por lo que tenemos:
+
+\[
+f(u) = \left\langle u, \frac{f(w)}{\|w\|^2} w \right\rangle
+\]
+
+****** Unicidad: caso nulo
+Debe ser un vector en $H^\perp = \{0\}$.
+
+****** Unicidad: caso general
+Simplemente notando que $f(u) = \langle u,v \rangle = \langle u,w \rangle$ nos daría $\langle u,v-w \rangle = 0$.
+
+**** Corolario: el dual es de Hilbert
+Si $H$ es Hilbert, $H^\ast$ con la norma de operadores es de Hilbert.
+
+***** Demostración
+Tomamos como producto escalar:
+
+\[
+\langle f_v,f_w \rangle = \langle w,v \rangle
+\]
+
+Y comprobamos que cumple los axiomas. Nótese que es necesario invertir
+el orden para que sea hermítico. Por otro lado, la norma es la misma
+que la norma de operadores:
+
+\[ \sqrt{\langle f_v,f_v \rangle} = \|v\|
+\]
+
+mientras que si $\|u\| = 1$, por Cauchy-Schwarz hay caso de igualdad en:
+
+\[ |f_v(u)| = |\langle u,v \rangle| \leq \|v\|\]
+
+**** Corolario: el doble dual es Hilbert
+Si $H$ es Hilbert, $H^{\ast\ast}$ es Hilbert.
+
+***** Demostración
+Componemos dos veces lo que hemos hecho con el dual. Tenemos una
+biyección lineal en este caso.
+
+**** Corolario: completación de prehilbertianos
+Si $H$ es prehilbertiano, $H^{\ast\ast}$ es su completación.
+
+***** Demostración
+Veremos que si $\widehat H$ es su completación, $H^\ast \cong \widehat{H}^\ast$, por lo que tendrá que
+tenerse $H^{\ast\ast} \cong \widehat{H}^\ast^\ast \cong \widehat{H}$.
+
+Pero $H^\ast \cong \widehat{H}^\ast$ es cierto simplemente porque la única extensión continua y
+la restricción serán inversas.
+
+**** Corolario: extensión única
+Sea $H$ Hilbert con $M \subset H$ subespacio y $f \in M^\ast$. Existe una única extensión
+lineal y continua cumpliendo:
+
+\[ \|f_H\| = \|f\| \]
+
+***** Demostración
+****** Existencia
+Podemos extender la función de $M$ a $\overline{M}$ por continuidad. Como es cerrado
+y subespacio de Hilbert, será Hilbert. Entonces aplicamos Riesz-Frechet
+para tener que la función será de la forma $f(x) = \langle x,m \rangle$ para algún
+$m \in M$. Ahora, $f_m = \langle \cdot,m \rangle$ es extensión y cumple:
+
+\[
+\|f_m\| = \|m\| = \|f\|
+\]
+
+****** Unicidad
+Si hubiera otra extensión $\langle \cdot,u \rangle$, se tendría $\langle \cdot,m \rangle - \langle \cdot,u \rangle = 0$ en $M$. 
+Y entonces, $m - u \in M^\perp$, lo que implicaría:
+
+\[ \|u\|^2 = \|m\|^2 + \|m-u\|^2 \geq \|m\|^2\]
+
+Con caso de igualdad sólo si $\|m-u\| = 0$.
+
+ - [[http://math.stackexchange.com/questions/332350/hilbert-spaces-and-unique-extensions-of-linear-functions][functional analysis - Hilbert spaces and unique extensions of
+   linear functions. - Mathematics Stack Exchange]]
+
 ** 4. Topologías débiles
 * Inferencia Estadística
 ** DONE Apuntes en clase
