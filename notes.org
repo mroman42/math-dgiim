@@ -6021,6 +6021,40 @@ que es convexo, y para ello:
 
 \[\lambda (u+m) + (1-\lambda)(u+m') = u + m\lambda + m'(1-\lambda) \in u+M\]
 
+*** Proyecciones y proyección ortogonal
+**** Proyecciones
+Sea $H$ Hilbert y $p : H \longrightarrow H$ lineal. Se llama proyección cuando $p \circ p = p$.
+
+**** Suma directa de una proyección
+Sea $p:H \longrightarrow H$ proyección, entonces $H = \ker(p) \oplus \im(p)$.
+
+***** Demostración
+Para $h \in H$ tenemos la descomposición $p(h) + (h-p(h))$. Dado $p(g) \in \ker(p)$,
+se tiene $p(g) = p(p(g)) = 0$.
+
+**** Proyecciones ortogonales
+Se dice proyección ortogonal a una proyección $p$ en la que $\ker(p) \perp \im(p)$.
+
+**** Teorema de la proyección ortogonal
+Sea $H$ espacio de Hilbert y $M$ subespacio cerrado. Entonces:
+
+  1. $H = M \oplus M^\perp$.
+  2. $\pi_M$, la proyección, da la aproximación óptima.
+  3. $\|x\|^2 = \|\pi_M(x)\|^2 + \| u - \pi_M(x) \|^2$.
+
+Análogamente, $\pi_{M^\perp}$ da la aproximación óptima a $M^\perp$.
+
+***** TODO Demostración
+
+**** Corolario: clausura del doble ortogonal
+Para $H$ Hilbert, $M$ subespacio, $M^{\perp\perp} = \overline{M}$.
+
+***** TODO Demostración
+**** Corolario: caracterización de la densidad
+Para $H$ Hilbert, $M$ subespacio, $M$ es denso ssi $M^\perp = \{0\}$.
+
+***** TODO Demostración
+
 ** 4. Topologías débiles
 * Inferencia Estadística
 ** DONE Apuntes en clase
