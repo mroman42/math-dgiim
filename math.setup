@@ -6,6 +6,7 @@
 #+latex_header: \newtheorem{fact}{Proposición}
 #+latex_header: \newtheorem{definition}{Definición}
 #+latex_header: \newtheorem{proofs}{Demostración}
+#+latex_header: \newenvironment{statement}{\noindent\rule[0.5ex]{\linewidth}{1pt}\begin{em}}{\end{em}\newline\noindent\rule[0.5ex]{\linewidth}{1pt}}
 #+latex_header: \DeclareMathOperator{\im}{Im}
 #+latex_header: \DeclareMathOperator{\coker}{Coker}
 #+latex_header: \DeclareMathOperator{\spec}{Spec}
