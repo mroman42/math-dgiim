@@ -7049,6 +7049,208 @@ un intervalo $[a,b]$ en el que preservaría el signo:
 
 contraviniendo ortogonalidad. Debe anularse en todo punto distinto de $0$,
 y, por continuidad, también en $0$.
+*** 5. Espacios de Hilbert II
+**** Ejercicio 1
+#+begin_statement
+Demostrar que un funcional lineal sobre un espacio de Hilbert es continuo si
+y sólo si su núcleo es cerrado. ¿Es cierto esto para espacios de Banach en
+general?
+#+end_statement
+***** Si es continua, tiene núcleo cerrado
+Un funcional lineal continuo debe tener siempre un núcleo cerrado 
+trivialmente.
+
+***** TODO Si tiene núcleo cerrado, es continua
+En el caso de tener el núcleo cerrado, [[*Descomposición canónica: isomorfismo][se tiene]] $\widehat{T} : H/\ker(T) \cong Im(T)$. 
+Entonces $H/\ker(T)$ es de dimensión finita y un isomorfismo entre espacios 
+de dimensión finita es continuo.
+
+Por último $T = \widehat{T} \circ \pi$.
+
+**** Ejercicio 2
+#+begin_statement
+Sean $f,g \in l_2 \longrightarrow \mathbb{K}$ los funcionales dados por $f(x) = \alpha_3+\alpha_4$ y $g(x) = 4\alpha_5$,
+para cada $x = \{\alpha_n\}_{n \in \mathbb{N}} \in l_2$. Demostrar que son lineales y continuos. 
+¿Son inyectivos? Calcular $\|f\|$ y $\|g\|$. Determinar $v,w \in l_2$ tales que
+$f = \langle \cdot,g \rangle$ y $g = \langle \cdot,w \rangle$. Dado $n \in \mathbb{N}$, ¿define $h_n(x) = \sum_{k=1}^n \alpha_k$ un funcional
+lineal de $l_2$?; ¿y $h(x) = \sum^\infty_{k=1} \alpha_k$?
+#+end_statement
+
+***** Continuas
+Son trivialmente lineales. Son continuos porque están acotados ambos
+en la bola unidad. Sabemos que debe tenerse $|\alpha_i| \leq 1$ para que esté en la
+bola unidad, porque en caso contrario, la suma de cuadrados sería mayor
+que $1$:
+
+\[ |f(x)| = |\alpha_3+\alpha_4| \leq 2\]
+\[ |g(x)| = 4|\alpha_5| \leq 4\]
+
+Son trivialmente no inyectivas.
+
+De otra forma, las proyecciones, producto y suma son continuas.
+
+***** Calcular la norma
+****** Primer caso
+Tenemos por desigualdad cuadrática-aritmética que $|\alpha_3| + |\alpha_4| \leq 2\sqrt{\frac{1}{2}}$. 
+Y se alcanza la cota con la sucesión $f(0,0,0,\sqrt{1/2},\sqrt{1/2},0,\dots)$.
+
+Podemos ver además que $f = \langle \cdot,(0,0,0,1,1,0,\dots)\rangle$.
+
+****** Segundo caso
+Tenemos por $g(0,0,0,0,1,0,\dots) = 4$ que la cota anterior era correcta.
+Es además el vector por el que multiplicar para tener $g = \langle \cdot,w \rangle$.
+
+***** Otros funcionales
+****** Caso finito
+Tenemos un funcional que es lineal trivialmente y que es continuo por
+acotarse en la bola unidad por la desigualdad aritmético-cuadrática:
+
+\[
+\left| \sum^n_{k=1} \alpha_k \right| \leq
+\sum_{k=1}^n |\alpha_k| \leq
+n \sqrt{\sum^n_{k=1} |\alpha_n|^2} \leq 1
+\]
+
+****** Caso infinito
+No tiene ni por qué estar definido, la sucesión $\{1/n\}$ es cuadrado 
+sumable pero no es sumable.
+
+**** Ejercicio 3
+#+begin_statement
+Sea $f : \mathbb{C}^3 \longrightarrow \mathbb{C}$ el funcional $f(\alpha_1,\alpha_2,\alpha_3) = 3i\alpha_1 + 2\alpha_2 - \alpha_3$. Demostrar que $f$
+está en el dual topológico de $\mathbb{C}^3$. Calcular $v \in \mathbb{C}^3$ tal que $f = \langle \cdot,v \rangle$ y
+determinar $\|f\|$.
+#+end_statement
+
+Es suma y producto por escalares de las proyecciones, así que es continua
+y lineal. Comprobamos $f = \langle \cdot,(3i,2,-1) \rangle$, y por Cauchy-Swarchz sabemos
+la norma será:
+
+\[\|f\| = \|(3i,2,-1)\| = \sqrt{9+4+1} = \sqrt{14}\]
+
+**** Ejercicio 4
+#+begin_statement
+#+end_statement
+
+**** Ejercicio 5
+#+begin_statement
+Sea ${\cal P}(x)$ el espacio vectorial de los polinomios $p(x) :\mathbb{R} \longrightarrow \mathbb{R}$ con el 
+producto interno dado por:
+
+\[
+\langle p,q \rangle = \int_0^1 p(t)q(t)\;dt
+\]
+
+Dar un ejemplo de un funcional lineal y continuo $\varphi : {\cal P}(x) \longrightarrow \mathbb{R}$ para el que
+no exista $v(x) \in {\cal P}(x)$ tal que $\varphi = \langle \cdot,v \rangle$. ¿Contradice este hecho el teorema
+de Riesz-Fréchet?
+#+end_statement
+
+Un ejemplo es:
+
+\[
+\varphi(p) = \int^1_0 e^tp(t) \;dx
+\]
+
+Es trivialmente lineal, está acotado en la bola unidad y por tanto es
+continuo, de hecho, se tiene:
+
+\[
+\left| \int^1_0 e^tp(t) \;dx \right| \leq
+\int^1_0 |e^tp(t)| \;dx \leq
+e\int^1_0 |p(t)| \;dx = e \langle p,1 \rangle \leq e\|p\| \]
+
+Sin embargo, no puede tenerse $\varphi = \langle \cdot,v \rangle$, porque si se tuviera, se tendría
+en el espacio de las funciones:
+
+\[\int_0^1(e^t-v(t)) p(t) \;dt = 0
+\]
+
+Implicando que $e^t-v(t)$ es ortogonal a todos los polinomios. Como los
+polinomios son densos en las continuas, esto implica que es ortogonal
+a todas las funciones y por tanto $0$. $e^t = v(t)$, y no tenemos un polinomio
+que cumpla eso.
+
+No contradice Riesz-Fréchet por no ser el espacio de los polinomios 
+completo.
+
+**** Ejercicio 6
+#+begin_statement
+Considérese el espacio complejo $C[0,1]$ dotado con la norma del máximo.
+Sean $\varphi_1,\varphi_2,\varphi_3$ los funcionales dados por:
+
+\[\varphi_1(f) = \int_0^1 x|f(x)|\;dx \]
+
+\[\varphi_2(f) = \int^1_0 f(x)\;dx\]
+
+\[ \varphi_3(f) = f\left(\frac{1}{2}\right)
+\]
+
+respectivamente, para $f \in C[0,1]$. ¿Cuáles de ellos son funcionales lineales
+y continuos? Cuando lo sean, determinar su norma. Repetir el ejercicio
+considerando la norma dada por $\|f\| = \int_0^1 |f(x)|^2\;dx$. ¿En qué casos existe
+$g \in C[0,1]$ tal que el funcional dado es de la forma $\langle \cdot,g \rangle$?
+#+end_statement
+
+***** Con la norma del máximo
+El primero no es lineal porque no cumple $\varphi_1(if) = i\varphi_1(f)$. El segundo y
+el tercero son trivialmente lineales. Se comprueban continuos acotándolos
+por la norma en la bola unidad. Calculamos su norma viendo que cumplen
+esa acotación en la constante:
+
+\[\varphi_2(1) = 1;\quad \varphi_3(1) =1;\]
+
+***** Con la norma euclídea
+Por Hölder tenemos un funcional acotado en la bola unidad:
+
+\[
+\left| \int^1_0 f(x)\;dx\right| \leq
+\int^1_0 |f(x)|\;dx \leq
+\sqrt{\int^1_0 |f(x)|^2\;dx}
+\]
+
+Pero el otro no está acotado; podemos tomar una familia $\psi_n$ de funciones
+que sean nulas excepto en $[\frac{1}{2} - \frac{1}{2n^2}, \frac{1}{2} + \frac{1}{2n^2}]$, donde crecen hasta llegar
+a $\psi_n\left(\frac{1}{2}\right) = n$ y decrecen. Las podemos construir con líneas considerando
+su parte imaginaria nula. Tenemos a $\varphi_3(\psi_n) = n$, arbitrariamente grande, 
+mientras:
+
+\[
+\int_0^1 |\psi_n(t)|^2 \;dt \leq \frac{1}{n^2}n^2 = \frac{1}{n}
+\]
+
+***** Aplicamos Fréchet en el resto de casos
+Para tener que $\varphi_2 = \langle \cdot,1 \rangle$.
+**** Ejercicio 7
+#+begin_statement
+Sea $\varphi : L^2(\mathbb{R}) \longrightarrow \mathbb{R}$ el funcional dado por $\varphi(g) = \int_0^1 3xg(x)\;dx$. Demostrar
+que $\varphi$ es un funcional lineal y acotado. Determinar $f \in L^2(\mathbb{R})$ tal que
+$\varphi = \langle \cdot,f \rangle$ y calcular $\|f\|$.
+#+end_statement
+
+Es lineal trivialmente. Podemos acotarlo en la bola unidad como:
+
+\[
+\left|
+\int^1_0 3xg(x)\;dx
+\right| \leq 
+3 \int^1_0 |x||g(x)|\;dx \leq 
+3\sqrt{\int_0^1 |g(x)|^2\;dx} \leq
+3\sqrt{\int_{-\infty}^\infty |g(x)|^2\;dx} \leq 3
+\]
+
+Por otro lado, tenemos que $\varphi = \langle \cdot,\psi \rangle$, siendo:
+
+\[\psi = \left\{\begin{array}{ll} 
+3x& \mbox{if } 0 \leq x \leq 1  \\
+0 & \mbox{otherwise }  
+\end{array} 
+\right.\]
+
+La norma de $f$ será la de $\psi$, donde:
+
+\[\|f\| = \int_{-\infty}^\infty \psi(x)\;dx = \frac{3}{2}\]
+
 * Inferencia Estadística
 ** DONE Apuntes en clase
 *** Introducción
