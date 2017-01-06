@@ -6464,9 +6464,32 @@ $\{\langle u,e_i \rangle e_i\}$ es sumable ssi $\{|\langle u,e_i \rangle|^2\}$ e
 ***** Demostración
 Caso particular de lo anterior con $f(x) = \langle u,x \rangle$.
 
-**** TODO Desigualdad de Bessel
-**** TODO Corolario de Bessel
-**** TODO Existencia de familias ortonormales
+**** Desigualdad de Bessel
+Sea $\{e_i\}_{i \in I}$ ortonormal en $H$ Hilbert, entonces:
+
+\[
+\sum_{i \in I} |\langle u,e_i \rangle|^2 \leq
+\|u\|^2
+\]
+
+***** TODO Demostración
+**** Corolario de Bessel
+Sea $\{e_i\}_{i \in I}$ ortonormal en $H$ Hilbert, y sea $M$ el subespacio cerrado 
+generado:
+
+\[M = \overline{lin\{e_i \mid i \in I\}}\]
+
+Entonces, dado $u \in H$, la mejor aproximación de $u$ a $M$ es:
+
+\[ \pi_M(u) = \sum_{i \in I} \langle u,e_i \rangle e_i
+\]
+
+***** TODO Demostración
+**** Existencia de familias ortonormales
+Existen sistemas ortonormales maximales.
+
+***** Demostración
+Lema de Zorn.
 * Inferencia Estadística
 ** DONE Apuntes en clase
 *** Introducción
