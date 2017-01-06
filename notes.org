@@ -5111,7 +5111,12 @@ Sean $X,Y$ espacios normados, $T : X\longrightarrow Y$ lineal. Equivalen:
  - $T$ es abierta
  - $T(B_X)$ es entorno de $0$
 
-***** TODO Demostración
+***** Demostración
+Si es abierta, trivialmente $T(B_X)$ es abierto.
+
+Sea $O \subseteq X$ abierto. Sea $x \in O$, con $B(x,r) \subseteq O$. Como $T(B_X)$ es entorno 
+de $0$, tenemos $T(x) + T(B_X)r = T(B(x,r)) \subseteq T(O)$ entorno de $x$, por ser
+la translación y homotecia [[*Continuidad de homotecias y translaciones][homeomorfismos]].
 
 **** Funciones lineales abiertas
 Sea $T : X \longrightarrow Y$ lineal. Equivalen:
@@ -5129,20 +5134,34 @@ Por el apartado 2, tengo que dado un $y$, $y\frac{\delta}{\|y\|} \in \delta B_Y$
 Por tanto, $\exists x: Tx = y \frac{\delta}{\|y\|}$. Tomamos $x' = x \frac{\|y\|}{\delta}$, y tenemos
 que $T(x') = y$, y además que $\|x'\| = \|x\|\frac{\|y\|}{\delta} \leq \frac{\|y\|}{\delta}$.
 
-
 **** Descomposición canónica: proyección al cociente
 Sea $X$ un espacio normado, $M$ subespacio cerrado y $\pi$
 la proyección. Entonces $\pi \in L(X,X/M)$ es sobreyectiva y
 abierta con $\|\pi\| = 1$.
 
-***** TODO Demostración
+***** Demostración
+****** Es continua
+Por caracterización de [[*Operadores lineales continuos][operadores lineales continuos]]:
+
+\[ \|\pi(x)\| = \|x+M\| \leq \|x\|\]
+
+****** Tiene norma unidad
 Para ver que tiene norma 1, tomamos $x_0 \notin M$.
 
-\[\forall m \in M: \|x+M\| = \|Q(x+m)\| \leq \|Q\|\|x+m\|\]
+\[\forall m \in M: \|x+M\| = \|\pi(x+m)\| \leq \|\pi\|\|x+m\|\]
 
 En particular,
 
-\[ \|x+M\| \leq \|Q\| \inf\{\|x+m\|\} = \|Q\|\|x+M\| \]
+\[ \|x+M\| \leq \|\pi\| \inf\{\|x+m\|\} = \|\pi\|\|x+M\| \]
+
+****** Sobreyectiva y abierta
+Trivialmente es sobreyectiva. Usamos la caracterización de [[*Caracterización de operadores abiertos][operadores
+abiertos]], comprobando que:
+
+\[\pi^{-1}(B(r,0)) = \{x \in X \mid \|x+m\| < r\} = \bigcup_{m \in M} B(r,m)\]
+
+Por tanto, $B(r,0) \subseteq \pi(B(1,0))$ es un entorno de $0$ por contener un 
+abierto.
 
 **** Descomposición canónica: isomorfismo
 Sea $T: X\longrightarrow Y$ lineal con $\ker(T)$ cerrado. Se define:
@@ -5151,8 +5170,8 @@ Sea $T: X\longrightarrow Y$ lineal con $\ker(T)$ cerrado. Se define:
 
 Cumpliendo $T = \hat{T}\circ\pi$. Y se tiene:
 
-- $\hat{T}$ continua ssi $T$ continua. En cuyo caso $\|T\| = \|\hat{T}\|$.
-- $T$ abierta en $TX$ ssi $\hat{T}$ abierta en $TX$.
+  - $\hat{T}$ continua ssi $T$ continua. En cuyo caso $\|T\| = \|\hat{T}\|$.
+  - $T$ abierta en $TX$ ssi $\hat{T}$ abierta en $TX$.
 
 ***** Demostración
 
@@ -5819,7 +5838,7 @@ Para el espacio $\ell^2$, de sucesiones de cuadrado sumable:
 
 Nótese que es sumable por tenerse $2|x_n||y_n| \leq |x_n|^2+|y_n|^2$.
 
-***** Espacio de funciones integrables
+***** Espacio de funciones continuas
 Para ${\cal C}([0,1],\mathbb{K})$ funciones continuas:
 
 \[
@@ -5835,12 +5854,12 @@ Donde por Hölder tenemos la integrabilidad:
 
 \[
 \int_\Omega |f\overline{g}| \;d\mu \leq
-\left(
+\sqrt{
 \int_\Omega |f|^2 d\mu
-\right)
-\left(
+}
+\sqrt{
 \int_\Omega |g|^2 d\mu
-\right)
+}
 \]
 
 **** Desigualdad de Cauchy-Schwarz
@@ -6082,7 +6101,7 @@ consecuencia de la [[*Versión analítica de Hahn-Banach][versión analítica de
 Cada vector tiene asociada una función lineal y continua en el dual
 dada por su producto escalar: $v \mapsto \langle \cdot,v \rangle$.
 
-**** Teorema de Riesz-Frechet
+**** Teorema de Riesz-Fréchet
 Sea $H$ Hilbert y $f : H \longrightarrow \mathbb{K}$ lineal y continuo. Existe un único $v \in H$ tal
 que:
 
@@ -6180,7 +6199,7 @@ Con caso de igualdad sólo si $\|m-u\| = 0$.
  - [[http://math.stackexchange.com/questions/332350/hilbert-spaces-and-unique-extensions-of-linear-functions][functional analysis - Hilbert spaces and unique extensions of
    linear functions. - Mathematics Stack Exchange]]
 
-** 4. Topologías débiles
+** 4. Topologías débiles y familias sumables
 *** Convergencia débil
 **** Convergencia débil
 En $H$ Hilbert, se dice que $\{u_n\}$ converge débilmente a $u$ cuando:
