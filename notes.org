@@ -7275,6 +7275,7 @@ Obtener una base ortonormal del espacio de Hilbert complejo $L^2[0,\pi]$.
 #+end_statement
 
 ***** Primer punto
+****** Generan el espacio
 Sabemos que los polinomios son densos en el espacio de funciones
 continuas en $[0,1]$, y que la función arcocoseno es una biyección en
 ese intervalo. Dado un $f$, tenemos un polinomio $p$ que aproxima a
@@ -7298,7 +7299,7 @@ el espacio completo de los polinomios.
 
 ****** Son una familia ortonormal
 Como además son familia ortonormal, forman una base ortonormal del 
-espacio.
+espacio. Cuando $m \neq n$:
 
 \[
 \int_0^\pi cos(nx)cos(mx) \;dx = 
@@ -7306,7 +7307,17 @@ espacio.
 \frac{1}{n-m}[sen((n-m)x)]^\pi_0 = 0
 \]
 
+Y cuando $m = n$, se tiene:
+
+\[
+\int_0^\pi cos(nx)^2 \;dx
+=
+\frac{1}{2}\int_0^\pi cos(2nx) - 1 \;dx
+= \frac{\pi}{2}
+\]
+
 ***** Segundo punto
+****** Generan el espacio
 Usaremos la derivación. Por el teorema anterior, tenemos un $p\circ cos$ que 
 aproxima con precisión $\varepsilon$ a la siguiente función:
 
@@ -7363,13 +7374,20 @@ Por último, como son ortonormales, forman una base ortonormal:
 
 \[
 \int^\pi_0 sin(nx)sin(mx) \;dx
+= 
+\int^\pi_0 cos((n-m)x) - cos((n+m)x)\;dx = 0
 \]
 
 ***** Tercer punto
-****** Ortogonalidad
-Tenemos que las bases de ambos espacios son ya ortogonales entre sí:
+Toda función puede escribirse como:
 
+\[
+f(x) = \Re(f(x)) + i \Im(f(x))
+\]
 
+Y cada una de esas partes puede aproximarse como suma de cosenos o de
+senos. Así, cualquier base ortonormal del espacio real que hemos 
+construido anteriormente es también base del espacio complejo.
 
 **** Ejercicio 11
 #+begin_statement
@@ -7385,7 +7403,19 @@ e_{-n}(x) = \frac{1}{\sqrt{\pi}} sin(nx)
 define una base ortonormal en un espacio de Hilbert real $L^2[-\pi,\pi]$.
 #+end_statement
 
+***** Es ortogonal
 Comprobamos integrando la ortonormalidad de la base.
+
+***** Genera el espacio
+Las funciones pares pueden aproximarse por la misma función que las
+aproximaba en $[0,\pi]$ con los cosenos; las impares pueden aproximarse
+por la función que las aproximaba en $[0,\pi]$ con senos.
+
+Toda función es suma de par y de impar.
+
+\[f(x) = \frac{f(x)-f(-x)}{2}+\frac{f(x)+f(-x)}{2}\]
+
+Así que toda función puede aproximarse por suma de senos y cosenos.
 
 **** Ejercicio 13
 #+begin_statement
@@ -7393,9 +7423,58 @@ En el espacio $L^2[-\pi,\pi]$, en función de la base de Hilbert dada en el
 ejercicio 11, calcular el desarrollo en serie de Fourier de la función
 $f(x) = |x|$ y deducir mediante la indentidad de Parseval que:
 
-\[\int^\infty_{n=1} \frac{1}{(2n-1)^4} = \frac{\pi^4}{96}\]
+\[\sum^\infty_{n=1} \frac{1}{(2n-1)^4} = \frac{\pi^4}{96}\]
 #+end_statement
 
+***** Desarrollo en serie de Fourier
+Usando que es función par
+
+\[
+\int_{-\pi}^\pi |x| \frac{1}{\sqrt{2\pi}} \;dx = \frac{\pi^2}{\sqrt{2\pi}}
+\]
+
+Usando que es una función par e integrando por partes:
+
+\[
+\int_{-\pi}^\pi |x| \frac{1}{\sqrt{\pi}} cos(nx) \;dx
+=
+\frac{2}{\sqrt{\pi}}\int_{0}^\pi x cos(nx) \;dx 
+=
+\frac{2}{\sqrt{\pi}n^2}((-1)^n-1)
+\]
+
+Usando que es una función impar:
+
+\[
+\int_{-\pi}^\pi |x| \frac{1}{\sqrt{\pi}} sin(nx) \;dx 
+=
+0
+\]
+
+***** Identidad de Parseval
+Calculamos la norma de la función:
+
+\[
+\int_{-\pi}^\pi x^2 \;dx = \frac{2}{3} \pi^3
+\]
+
+Y tenemos finalmente:
+
+\[\begin{aligned}
+\frac{\pi^3}{2} + \sum_{i=0}^\infty \frac{4}{\pi n^4}((-1)^n-1)^2
+&=
+\frac{2}{3} \pi^3
+\\
+\sum_{i=0}^\infty \frac{4}{n^4}((-1)^n-1)^2
+&=
+\frac{1}{6} \pi^4
+\\
+\sum_{i=1}^\infty \frac{1}{(2n-1)^4}
+&=
+\frac{1}{96} \pi^4
+\end{aligned}\]
+
+Considerando sólo los términos impares.
 
 * Inferencia Estadística
 ** DONE Apuntes en clase
