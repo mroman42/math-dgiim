@@ -7263,6 +7263,139 @@ Por otro lado, tenemos que $\varphi = \langle \cdot,\psi \rangle$, siendo:
 La norma de $f$ será la de $\psi$, donde:
 
 \[\|f\| = \int_{-\infty}^\infty \psi(x)\;dx = \frac{3}{2}\]
+**** Ejercicio 10
+#+begin_statement
+Demostrar que los siguientes conjuntos forman una base ortonormal del 
+espacio de Hilbert real $L^2[0,\pi]$.
+
+  1. $B := \{ e_n \mid n \in \mathbb{N}_0\}$, donde $e_0 = \frac{1}{\sqrt{\pi}}$ y $e_n = \frac{\sqrt{2}}{\sqrt{\pi}} cos (nx)$.
+  2. $B := \{ e_n \mid n \in \mathbb{N}\}$ donde $e_n = \frac{\sqrt{2}}{\sqrt{\pi}} sin(nx)$.
+
+Obtener una base ortonormal del espacio de Hilbert complejo $L^2[0,\pi]$.
+#+end_statement
+
+***** Primer punto
+Sabemos que los polinomios son densos en el espacio de funciones
+continuas en $[0,1]$, y que la función arcocoseno es una biyección en
+ese intervalo. Dado un $f$, tenemos un polinomio $p$ que aproxima a
+la función $f \circ arccos$:
+
+\[ 
+\left\| f(x) - p(cos(x)) \right\|_2 =
+\left\| f(arccos(x)) - p(x) \right\|_2 \leq
+\left\| f(arccos(x)) - p(x) \right\|_\infty
+\]
+
+Ahora, un polinomio sobre $cos(x)$ puede reescribirse como una 
+combinación lineal de los vectores de la base:
+
+\[ cos(nx)cos(mx) = 
+\frac{1}{2}\Big( cos((n+m)x) + cos((n-m)x)
+\Big)\]
+
+De esta forma, la clausura del espacio que generan los cosenos es
+el espacio completo de los polinomios.
+
+****** Son una familia ortonormal
+Como además son familia ortonormal, forman una base ortonormal del 
+espacio.
+
+\[
+\int_0^\pi cos(nx)cos(mx) \;dx = 
+\frac{1}{n+m}[sen((n+m)x)]^\pi_0 +
+\frac{1}{n-m}[sen((n-m)x)]^\pi_0 = 0
+\]
+
+***** Segundo punto
+Usaremos la derivación. Por el teorema anterior, tenemos un $p\circ cos$ que 
+aproxima con precisión $\varepsilon$ a la siguiente función:
+
+\[
+g(x) = \left\{\begin{array}{ll} 
+\frac{f(x)}{sin(x)} & \mbox{if } x \in [0+\varepsilon,\pi+\varepsilon]  \\
+\psi(x) & \mbox{otherwise } 
+\end{array} 
+\right.
+\]
+
+Donde $\psi(x)$ la podemos construir con rectas para que haga continua
+a la función e integre menos de $\varepsilon$, algo como:
+
+[[./images/epsilonint.png]]
+
+Sea una primitiva suya el polinomio $P$:
+
+\[\begin{aligned} 
+\|f(x) - \partial (P\circ cos)(x))\|_2 
+&\leq
+K + \int_{0-\varepsilon}^{\pi-\varepsilon} 
+\left|f(x) - \partial (P\circ cos)(x) \right|^2\;dx \\
+&\leq 
+K + \int_{0-\varepsilon}^{\pi-\varepsilon} 
+\left|\frac{f(x)}{sin(x)} - \frac{\partial (P\circ cos)(x)}{sin(x)} \right|^2\;dx \\
+&=
+K + \int_{0-\varepsilon}^{\pi-\varepsilon} 
+\left|\frac{f(x)}{sin(x)} - p(cos(x)) \right|^2\;dx < \varepsilon + K\\
+\end{aligned}\]
+
+Por otro lado, tenemos que:
+
+\[\begin{aligned}
+K &= 
+\int_0^\varepsilon |f(x) - \partial(P \circ cos)(x)|^2 \;dx
+\\&\leq
+\int_0^\varepsilon |f(x)|^2\;dx + \int_0^\varepsilon |sin(x)p(cos(x))|^2\;dx
+\\&\leq
+\int_0^\varepsilon |f(x)|^2\;dx + \int_0^\varepsilon |p(cos(x))|^2\;dx
+\\&\leq 
+\varepsilon \|f\|_\infty + \int_0^\varepsilon |p(cos(x)) - \psi(x)|^2\;dx + \int_0^\varepsilon |\psi(x)|^2\;dx
+\\&\leq
+\varepsilon \|f^2\|_\infty + \varepsilon + \varepsilon
+\end{aligned}\]
+
+Como $\varepsilon$ es arbitrario, se tiene lo pedido. Nótese que $\partial (P \circ cos)$ es la
+derivada de una función polinómica en los cosenos que se puede escribir
+como combinación lineal de la base anterior. Y nótese que la derivada
+lleva cada elemento de la base anterior en uno de la nueva.
+
+****** Son una familia ortonormal
+Por último, como son ortonormales, forman una base ortonormal:
+
+\[
+\int^\pi_0 sin(nx)sin(mx) \;dx
+\]
+
+***** Tercer punto
+****** Ortogonalidad
+Tenemos que las bases de ambos espacios son ya ortogonales entre sí:
+
+
+
+**** Ejercicio 11
+#+begin_statement
+Demostrar que:
+
+\[B:= \left\{
+e_0(x) = \frac{1}{\sqrt{2\pi}},\;
+e_n(x) = \frac{1}{\sqrt{\pi}} cos(nx),\;
+e_{-n}(x) = \frac{1}{\sqrt{\pi}} sin(nx) 
+\mid n \in \mathbb{N}
+\right\}\]
+
+define una base ortonormal en un espacio de Hilbert real $L^2[-\pi,\pi]$.
+#+end_statement
+
+Comprobamos integrando la ortonormalidad de la base.
+
+**** Ejercicio 13
+#+begin_statement
+En el espacio $L^2[-\pi,\pi]$, en función de la base de Hilbert dada en el 
+ejercicio 11, calcular el desarrollo en serie de Fourier de la función
+$f(x) = |x|$ y deducir mediante la indentidad de Parseval que:
+
+\[\int^\infty_{n=1} \frac{1}{(2n-1)^4} = \frac{\pi^4}{96}\]
+#+end_statement
+
 
 * Inferencia Estadística
 ** DONE Apuntes en clase
