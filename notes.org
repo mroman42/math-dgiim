@@ -4989,7 +4989,8 @@ Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E + \mathbb{N
 Si $E$ es monoideal, existe $G \subset E$ finito con $E = G + \mathbb{N}^n$.
 Llamamos a $G$ sistema de generadores de $E$.
 
-***** TODO Demostración
+***** Demostración
+Por Dickson tenemos $E \subset G + \mathbb{N}^n$, luego $E = E + \mathbb{N}^n = G + \mathbb{N}^n$.
 
 **** Sistema de generadores minimal
 Un sistema de generadores es minimal si ningún subconjunto
@@ -4998,7 +4999,15 @@ suyo es sistema de generadores.
 **** Unicidad del sistema de generadores minimal
 El sistema de generadores minimal de un $E$ es único.
 
-***** TODO Demostración
+***** Demostración
+Supongamos que hubiera dos $G,G'$, con $\beta \in G' \setminus G$. Entonces tendría una
+representación con $g \in G, g' \in G', \gamma \neq 0$ como:
+
+\[
+\beta = g + \gamma = g' + \delta + \gamma
+\]
+
+Con lo cual, $\beta \in G'\setminus \{\beta\} + \mathbb{N}^n$, contraviniendo minimalidad.
 
 *** División de polinomios
 **** Diagrama de Newton
