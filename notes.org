@@ -5035,20 +5035,46 @@ Su coeficiente líder es $a_{Exp(p)}$ y su monomio líder, $X^{Exp(p)}$.
 Dados $F,G \in K[X_1,\dots,X_n]$ no nulos: 
 
  1. $Exp(FG) = Exp(F) + Exp(G)$.
- 2. Si $F+G \neq 0$ entonces $Exp(F+G) \leq \max\{Exp(F),Exp(G)\}$.
+ 2. $Exp(F+G) \leq \max\{Exp(F),Exp(G)\}$
  3. Si $Exp(F) < Exp(G)$; entonces $Exp(F+G) = Exp(G)$.
  
-***** TODO Demostración
+***** Demostración
+****** Punto 1
+Primero notamos que si estamos en un cuerpo, el producto de dos
+polinomios tendrá en su diagrama de Newton a la suma de cualesquiera
+exponentes de ambos polinomios. Supongamos la suma máxima $\gamma + \delta$, y
+la suma de los máximos $\alpha+\beta$. Usamos que son máximos y orden monomial
+para tener:
+
+\[\alpha + \beta \geq \gamma + \delta\]
+
+****** Punto 2
+Si un exponente no aparece en $F$ ni en $G$, tendrá coeficiente nulo
+también en $F+G$.
+
+****** Punto 3
+La suma tendrá como mucho los exponentes de $F$ y de $G$. Pero además,
+conserva los exponentes que sólo estuvieran en uno de los dos con los
+coeficientes intactos.
+
+# Todo esto en el fondo parte de la observación de que estas sumas
+# se pueden ver como sumas por componentes en N^n.
 
 **** Partición de generadores
 Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
-definimos inductivamente:
+definimos inductivamente como:
 
-\[\Delta^1 = a_1 + \mathbb{N}^n\]
+  1. Los elementos que genera el primer generador: 
 
-\[\Delta^i = (a_i + \mathbb{N}^n) \setminus \bigcup_{j < i} \Delta^j \]
+     \[\Delta^1 = a_1 + \mathbb{N}^n\]
 
-\[ \overline{\Delta} = \mathbb{N}^n \setminus \bigcup_{j \leq k} \Delta^j\]
+  2. Los elementos nuevos que aporta cada nuevo generador:
+
+     \[\Delta^i = (a_i + \mathbb{N}^n) \setminus \bigcup_{j < i} \Delta^j \]
+
+  3. Todos los demás elementos
+
+     \[ \overline{\Delta} = \mathbb{N}^n \setminus \bigcup_{j \leq k} \Delta^j\]
 
 **** Teorema de la división
 Dado un orden monomial y una lista de polinomios $G_i$; consideramos la
