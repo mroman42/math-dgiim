@@ -4908,17 +4908,80 @@ sabemos que $0 \sqsubseteq_2 x$, tenemos finalmente $0 \sqsubseteq_{12} x$.
 **** Los órdenes son monomiales
 Los órdenes $\leq_{lex},\leq_{grlex},\leq_{invgrlex}$ son monomiales.
 
-***** TODO Demostración
+***** Demostración
+****** El orden lexicográfico es monomial
+Una forma de definir el orden lexicográfico es con el signo del primer
+elemento de la resta. Sabemos que es total. La monotonía y la 
+compatibilidad se tienen por:
 
+\[(\alpha+\gamma)-(\beta+\gamma) = (\alpha-\beta)\]
+
+Tenemos que $\alpha - 0 = \alpha$, positivo.
+
+****** El resto de órdenes son monomiales
+Simplemente notando que el grado es un preorden y que son [[*Propiedades del producto][producto]]
+de preorden con el lexicográfico o con un lexicográfico inverso.
+
+*** Lema de Dickson
 **** Lema de Dickson
 Sea $S \subseteq \mathbb{N}^n$ no vacío, existe $G \subseteq S$ finito tal que:
 
 \[\forall x\in S: \exists y \in G: \quad x = y + \alpha\]
 
-***** TODO Demostración
+Es decir, $S \subseteq G + \mathbb{N}^n$.
+
+***** Demostración
+****** Caso base
+Cuando $n=1$, como los naturales están bien ordenados, podemos tomar
+el mínimo
+
+****** Caso inductivo
+Tomamos un $y \in S$, y tenemos dos casos, o bien $x \in \{y\} + \mathbb{N}^n$, o bien
+se tiene $x \in S_{i|j}$ para $j < y_i$. Donde definimos:
+
+\[
+S_{i|j} 
+= 
+\{ x \in S \mid x_i = j\}
+\]
+
+Y una familia de conjuntos:
+
+\[
+A_{i|j}
+=
+\{ 
+x \in \mathbb{N}^n
+\mid
+x_i=0, (x_1,\dots,j,\dots,x_n) \in S
+\}
+\]
+
+Que por hipótesis de inducción dejando nula a cada paso una de las
+coordenadas, dan lugar a $G_{i|j}' \subseteq A_{i|j}$ finito con $A_{i|j} = G_{i|j}'+\mathbb{N}^{n-1}$.
+
+\[
+G_{i|j} = 
+\{x \in S_{i|j} \mid (x_1,\dots,0,\dots,x_n) \in G'_{ij} \}
+\]
+
+Sea ahora $x \in S_{i|j}$. Si hacemos un cero en $i$, se tiene 
+$(x_1,\dots,0,\dots,x_n) \in S'_{i|j} \subseteq G_{i|j}'+ \mathbb{N}^{n-1}$. Luego
+
+\[\begin{aligned}
+(x_1,\dots,0,\dots,x_n) &= z + \alpha \\
+(x_1,\dots,j,\dots,x_n) &= (z_1,\dots,j,\dots,z_n) + (\alpha_1,\dots,0,\dots,\alpha_n)
+\end{aligned}\]
+
+Por lo tanto, $S_{i|j} \subseteq G_{i|j} + \mathbb{N}^{n}$; y tenemos finalmente $S \subseteq G + \mathbb{N}^n$ si
+definimos:
+
+\[G = \{y\} \cup \bigcup_{i,j<y_i} G_{i|j}\]
+
 **** Orden monomial es buen orden
 Todo orden monomial en $\mathbb{N}^n$ es buen orden.
 
+***** TODO Demostración
 **** Monoideales
 Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E + \mathbb{N}^n$.
 
