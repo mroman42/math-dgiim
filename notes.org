@@ -5085,7 +5085,112 @@ cada $F \in K[X_1,\dots,X_n]$, existen $Q_1,\dots,Q_t,R$ únicos tales:
  2. $R = 0$ ó $N(R) \subseteq \overline\Delta$
  3. $Exp(G_i) + N(Q_i) \subseteq \Delta^i$
 
-***** TODO Demostración
+***** Demostración
+****** Caso base
+Aplicamos inducción a $exp(F)$ aprovechando el [[*Orden monomial es buen orden][buen orden]]. Sea 
+$exp(F) = (0,\dots,0)$.
+
+******* Aparece en algún elemento de la partición
+Si $exp(F) \in \Delta^i$, entonces forzosamente $exp(G_i)=0$. Entonces tomamos
+$Q_i = {F}/{G_i}$, y $Q_j=0$ para $j \neq i$.
+
+******* Sólo aparece en el resto de la partición
+Simplemente tomamos $R = F$.
+
+****** Caso inductivo
+Sabiendo que se tiene el resultado para todo $G$ con $exp(G) < exp(F)$,
+tenemos de nuevo dos casos.
+
+******* Aparece en algún elemento de la partición
+Si $exp(F) \in \Delta^i$, entonces $exp(F) = exp(G) + \gamma$. Tomando $H=X^\gamma G$,
+aplicamos inducción sobre:
+
+\[F - \frac{cl(F)}{cl(H)} H 
+=
+F'
+= 
+\sum Q'_iG_i + R'
+\]
+
+Pero si tomamos $Q_i = Q_i' + \frac{cl(F)}{cl(H)} X^\gamma$ y $Q_j = Q_j'$ para todos los demás:
+
+\[F = \sum Q_i G_i + R\]
+
+******* Sólo aparece en el resto de la partición
+Aplicamos hipótesis de inducción sobre:
+
+\[F-tl(F) = F' = \sum Q_i'G_i + R'\]
+
+Entonces tomamos $R = R' + tl(F)$ y se tiene:
+
+\[F = \sum Q_i'G_i + R\]
+
+**** Ejemplo de división
+Dividimos $F = X^4Y^2+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4$ entre los polinomios:
+
+  - $G_1 = X^3Y-2X^2Z^2$
+  - $G_2 = X^2Y^3+XZ^3$
+  - $G_3 = XY^2Z - X^2YZ - 3XYZ^2$
+
+Usando el orden lexicográfico.
+
+***** Exponentes
+Con el orden dado, tenemos exponentes:
+
+  - $exp(G_1) = (3,1,0)$
+  - $exp(G_2) = (2,3,0)$
+  - $exp(G_3) = (2,1,1)$
+
+Con ellos creamos las particiones $\Delta_i$.
+
+***** Desarrollo
+A cada paso tomamos el exponente mayor, lo encuadramos en un subconjunto
+de la partición y dividimos para el siguiente elemento.
+
+\[F = X^4Y^2+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\]
+
+Tenemos $(4,2,0) \in \Delta_1$, así que restamos $XYG_1$:
+
+\[F = 2X^3YZ^2+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\]
+
+Tenemos $(3,1,2) \in \Delta_1$, así que restamos $2Z^2G_1$:
+
+\[F = 4X^2Z^4+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\]
+
+Tenemos $(2,3,1) \in \Delta_2$, así que restamos $ZG_2$:
+
+\[F = 4X^2Z^4 - 2XY^2Z^3 - 3X^2YZ^4 - XZ^4\]
+
+Tenemos $(2,1,4) \in \Delta_3$, así que restamos $3Z^3G_3$:
+
+\[F = 4X^2Z^4 - 2XY^2Z^3 - XZ^4 - 3XY^2Z^4 + 9XYZ^5\]
+
+Tenemos $(2,0,4) \in \overline\Delta$, así que tomamos lo demás como resto. Nos acabará
+quedando que:
+
+\[R = 4X^2Z^4 - 2XY^2Z^3 - XZ^4 - 3XY^2Z^4 + 9XYZ^5\]
+
+Por lo tanto:
+
+\[F = (XY+2Z^2)G_1 + ZG_2 + 3Z^3G_3 + R\]
+
+***** Cálculo en Sage
+Calculamos el resto de la división en sage. Nótese cómo se ve afectado
+por el orden que escojamos para la división.
+
+#+BEGIN_SRC sage
+  R.<x,y,z> = PolynomialRing(QQ, 3, 'xyz', order='lex')
+  f = x^4*y^2 + x^2*y^3*z - 2*x*y^2*z^3 - 3*x^2*y*z^4
+  g1 = x^3*y - 2*x^2*z^2
+  g2 = x^2*y^3 + x*z^3
+  g3 = x*y^2*z - x^2*y*z - 3*x*y*z^2
+  f.reduce(Ideal([g1])).reduce(Ideal([g2])).reduce(Ideal([g3]))
+  f.reduce(Ideal([g3])).reduce(Ideal([g2])).reduce(Ideal([g1]))
+#+END_SRC
+
+#+RESULTS:
+: 4*x^2*z^4 - 3*x*y^2*z^4 - 2*x*y^2*z^3 + 9*x*y*z^5 - x*z^4
+: x^2*y^3*z - 3*x^2*y*z^4 + 4*x^2*z^4 - 2*x*y^2*z^3
 
 *** Ideales monomiales
 **** Ideales monomiales
