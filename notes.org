@@ -5371,7 +5371,37 @@ Desde las propiedades de una [[*Variedad de una familia de ideales][familia de i
 intersección arbitraria y la unión finita de variedades son variedad.
 Además, lo son el vacío y el total.
 
-**** TODO Ejemplos
+**** Ejemplos
+***** Puntos discretos
+Dado un conjunto discreto de puntos:
+
+\[\{(a_1,\dots,a_n)\} = \mathbb{V}(X_1-a_1,\dots,X_n-a_n)\]
+
+***** Hipersuperficies
+Toda variedad generada por un polinomio no constante:
+
+\[
+\mathbb{V}(F) = \Big\{ 
+\alpha \in \mathbb{A}^n(K) \mid F(\alpha) = 0
+\Big\}
+\]
+
+Toda variedad afín es una intersección finita de hipersuperficies.
+
+***** Hiperplano
+La variedad de un polinomio de grado total 1 es un hiperplano.
+Para $F = a_0 + a_1X_1 +a_2X_2 + \dots + a_nX_n$, tenemos:
+
+\[
+\mathbb{V}(F) = \Big\{
+\alpha \in \mathbb{A}^n(K) 
+\mid 
+a_0 + a_1\alpha_1 + a_2\alpha_2 + \dots + a_n\alpha_n = 0
+\Big\}
+\]
+
+La intersección finita de hiperplanos es una variedad afín lineal.
+
 **** Representaciones paramétricas
 Una *representación paramétrica racional* de $\mathbb{V}(F_1,\dots,F_t)$ es un conjunto
 de funciones $G_i,H_i \in K[X_1,\dots,X_n]$ cumpliendo:
