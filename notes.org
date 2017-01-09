@@ -5419,7 +5419,50 @@ V\]
 
 Cuando $H_i = 1$, la llamamos *representación polinomial*.
 
-***** TODO Demostración
+***** Ejemplos
+****** Representación no racional del círculo
+El círculo es una variedad de la que puede darse una representación
+no paramétrica.
+
+\[V = \{(sen(t), cos(t)) \midt \in \mathbb{R}\}\]
+
+Sabemos que es variedad porque puede expresarse como:
+
+\[ V = \mathbb{V}(X^2+Y^2-1) \]
+
+Y podemos darle además una representación paramétrica racional
+no trivial:
+
+
+
+**** Ideal de una variedad
+Sea $S \subseteq \mathbb{A}^n(K)$. Definimos el ideal asociado a $S$ como:
+
+\[
+\mathbb{I}(S)
+=
+\Big\{F \in K[X_1,\dots,X_n] \mid \forall a \in S: F(a) = 0\Big\}
+\]
+
+***** Es ideal
+Trivialmente sabiendo que se conservan los ceros por suma y producto
+externo.
+
+**** Propiedades de variedades e ideales
+Los ideales y sus variedades cumplen:
+
+  1. $S_1 \subseteq S_2 \implies \mathbb{I}(S_1) \supseteq \mathbb{I}(S_2)$.
+  2. $\mathbb{I}(\varnothing) = K[X_1,\dots,X_n]$.
+  3. $S \subseteq \mathbb{V}\mathbb{I}(S)$ y $J \subseteq \mathbb{I}\mathbb{V}(J)$.
+  4. $\mathbb{I}(S) = \mathbb{I}\mathbb{V}\mathbb{I}(S)$ y $\mathbb{V}(J) = \mathbb{V}\mathbb{I}\mathbb{V}(J)$.
+  5. $\mathbb{I}(S)$ es ideal radical.
+  6. Cuando $V \subseteq \mathbb{A}^n(K)$ es variedad afín, $V = \mathbb{V}\mathbb{I}(V)$.
+  7. $V_1 \subseteq V_2 \iff \mathbb{I}(V_1) \supseteq \mathbb{I}(V_2)$ y $V_1 \subsetneq V_2 \iff \mathbb{I}(V_1) \supsetneq \mathbb{I}(V_2)$.
+  8. $\mathbb{I}(V_1 \cup V_2) = \mathbb{I}(V_1) \cap \mathbb{I}(V_2)$
+  9. $V_1 \cup V_2 = \mathbb{V}(\mathbb{I}(V_1)\mathbb{I}(V_2)) = \mathbb{V}(\mathbb{I}(V_1) \cap \mathbb{I}(V_2))$.
+  10. \[\bigcap_{\lambda \in \Lambda} V_\lambda = \mathbb{V}\left(\sum_{\lambda\in\Lambda} \mathbb{I}(V_\lambda)\right)\]
+
+***** Demostración
 
 * Análisis Funcional
 ** 1. Espacios normados
