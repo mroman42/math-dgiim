@@ -122,6 +122,7 @@
      Conmutative monads.
 **** 4.4. Conclusion
 *** TODO 5. Parsers
+** P?=NP - Scott Aaronson
 ** Koszul Pairs and applications - Pascual Jara, Dragoş Ştefan
 *** Introduction
 **** Koszul ring
@@ -4876,13 +4877,33 @@ x \equiv_1 y \wedge x \sqsubseteq_2 y
 **** Propiedades del producto
 El producto de preórdenes cumple:
 
- 1. $\sqsubseteq_{12}$ es un preorden
+ 1. $\sqsubseteq_{12}$ es un preorden.
  2. $\sqsubseteq_2$ orden $\Rightarrow$ $\sqsubseteq_{12}$ orden
  3. $\sqsubseteq_1,\sqsubseteq_2$ totales $\Rightarrow$ $\sqsubseteq_{12}$ total
  4. $\sqsubseteq_1,\sqsubseteq_2$ compatible $\Rightarrow$ $\sqsubseteq_{12}$ compatible
  5. $\sqsubseteq_1,\sqsubseteq_2$ monótono $\Rightarrow$ $\sqsubseteq_{12}$ monótono
 
-***** TODO Demostración
+***** Demostración
+****** Punto 1
+Es reflexivo trivialmente. La transitividad se obtiene analizando 
+por casos.
+
+****** Punto 2
+Cuando $x \equiv_{12} y$, se tiene $x \equiv_1 y$ y por tanto $x \equiv_2 y$; lo que llevaría
+a $x = y$.
+
+****** Punto 3
+Si ambos son totales, suponemos s.p.g. que $x \sqsubseteq_1 y$. Si no tuviéramos
+que $y \sqsubseteq_1 x$, entonces $x \equiv_1 y$ y como son totales, podemos suponer s.p.g
+que $x \sqsubseteq_2 y$, llgando a $x \sqsubseteq_{12} y$.
+
+****** Punto 4
+# No parece obvio si no son órdenes. Además, tenemos definido lo que
+# es ser compatible o monótono sólo para órdenes.
+
+****** Punto 5
+Tenemos $0 \sqsubseteq_1 x$; si tuviéramos $x \sqsubseteq_1 0$, entonces $x \equiv_1 0$; pero como
+sabemos que $0 \sqsubseteq_2 x$, tenemos finalmente $0 \sqsubseteq_{12} x$.
 
 **** Los órdenes son monomiales
 Los órdenes $\leq_{lex},\leq_{grlex},\leq_{invgrlex}$ son monomiales.
