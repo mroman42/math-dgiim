@@ -4981,8 +4981,7 @@ Un orden $\leq$ es monótono si:
 Un orden monomial es compatible, monótono y total.
 
 **** Orden lexicográfico
-Definimos $\alpha \geq_{lex} \beta$ cuando para el primer $\alpha_i \neq \beta_i$, se tiene
-$\alpha_i \geq \beta_i$.
+Definimos $\alpha \geq_{lex} \beta$ cuando para el primer $\alpha_i \neq \beta_i$, se tiene $\alpha_i \geq \beta_i$.
 
 **** Orden lexicográfico graduado
 Definimos $\alpha \geq_{grlex} \beta$ cuando $\sum \alpha > \sum \beta$ ó se da la igualdad
@@ -4991,6 +4990,10 @@ y se tiene $\alpha \geq_{lex} \beta$.
 **** Orden lexicográfico graduado inverso
 Definimos $\alpha \geq_{invgrlex} \beta$ cuando $\sum \alpha > \sum \beta$ ó se da la igualdad
 y para el primer $\alpha_i \neq \beta_i$ a la derecha, se tiene $\alpha_i < \beta_i$.
+
+**** Preórdenes
+Un preorden es una relación binaria transitiva y reflexiva. 
+Equivalentemente, es un orden sin la antisimetría.
 
 **** Relación de equivalencia en preódenes
 Dado un preorden $\sqsubseteq$, se define la relación de equivalencia $x \equiv y$,
