@@ -5418,7 +5418,11 @@ Sea $I$ ideal no nulo, equivalen:
  1. $\mathbb{G}$ es base de Gröbner de $I$.
  2. $R(F,\mathbb{G}) = 0$, para todo $F \in I$.
 
-***** TODO Demostración
+***** Demostración
+****** Primer punto al segundo
+Tenemos $exp(R) \in Exp(I) \cap \overline{\Delta}$, luego debe ser $exp(R) = 0$.
+
+****** TODO Segundo punto al primero
 
 **** Semizigia
 Sean $F,G \in K[X_1,\dots,X_n]$ no nulos. Definimos el S-polinomial o semizigia
