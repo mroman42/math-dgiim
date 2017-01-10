@@ -5060,11 +5060,7 @@ de preorden con el lexicográfico o con un lexicográfico inverso.
 
 *** Lema de Dickson
 **** Lema de Dickson
-Sea $S \subseteq \mathbb{N}^n$ no vacío, existe $G \subseteq S$ finito tal que:
-
-\[\forall x\in S: \exists y \in G: \quad x = y + \alpha\]
-
-Es decir, $S \subseteq G + \mathbb{N}^n$.
+Para $S \subseteq \mathbb{N}^n$ no vacío, existe $G \subseteq S$ finito tal que $S \subseteq G + \mathbb{N}^n$.
 
 ***** Demostración
 ****** Caso base
@@ -5123,7 +5119,6 @@ El mínimo de $G$ existe por finitud y ser orden total. Es el mínimo de
 $S$ porque cualquier otro $s \in S$ cumple $s = g + \gamma$ para $g \in G$, lo que lleva
 por monotonía y compatibilidad, a $s \geq g$.
 
-
 **** Monoideales
 Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E + \mathbb{N}^n$.
 
@@ -5132,14 +5127,14 @@ Si $E$ es monoideal, existe $G \subset E$ finito con $E = G + \mathbb{N}^n$.
 Llamamos a $G$ sistema de generadores de $E$.
 
 ***** Demostración
-Por Dickson tenemos $E \subset G + \mathbb{N}^n$, luego $E = E + \mathbb{N}^n = G + \mathbb{N}^n$.
+Por Dickson tenemos $E \subset G + \mathbb{N}^n$, luego $E = E + \mathbb{N}^n = G + \mathbb{N}^n$. 
 
 **** Sistema de generadores minimal
 Un sistema de generadores es minimal si ningún subconjunto
 suyo es sistema de generadores.
 
 **** Unicidad del sistema de generadores minimal
-El sistema de generadores minimal de un $E$ es único.
+El sistema de generadores minimal de un monoideal es único.
 
 ***** Demostración
 Supongamos que hubiera dos $G,G'$, con $\beta \in G' \setminus G$. Entonces tendría una
