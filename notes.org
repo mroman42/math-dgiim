@@ -8303,8 +8303,8 @@ ese intervalo. Dado un $f$, tenemos un polinomio $p$ que aproxima a
 la función $f \circ arccos$:
 
 \[ 
-\left\| f(x) - p(cos(x)) \right\|_2 =
-\left\| f(arccos(x)) - p(x) \right\|_2 \leq
+\left\| f(x) - p(cos(x)) \right\|_2 \leq
+\left\| f(x) - p(cos(x)) \right\|_\infty =
 \left\| f(arccos(x)) - p(x) \right\|_\infty
 \]
 
@@ -8316,7 +8316,8 @@ combinación lineal de los vectores de la base:
 \Big)\]
 
 De esta forma, la clausura del espacio que generan los cosenos es
-el espacio completo de los polinomios.
+el espacio de las continuas. Si además las continuas son densas
+en $L_2[0,1]$, tenemos lo pedido.
 
 ****** Son una familia ortonormal
 Como además son familia ortonormal, forman una base ortonormal del 
