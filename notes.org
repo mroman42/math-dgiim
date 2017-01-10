@@ -5680,7 +5680,181 @@ Los ideales y sus variedades cumplen:
   9. $V_1 \cup V_2 = \mathbb{V}(\mathbb{I}(V_1)\mathbb{I}(V_2)) = \mathbb{V}(\mathbb{I}(V_1) \cap \mathbb{I}(V_2))$.
   10. \[\bigcap_{\lambda \in \Lambda} V_\lambda = \mathbb{V}\left(\sum_{\lambda\in\Lambda} \mathbb{I}(V_\lambda)\right)\]
 
+***** TODO Demostración
+
+**** El ideal de una variedad es radical
+Para cualquier $S$, tenemos $\sqrt{\mathbb{I}(S)} = \mathbb{I}(S)$.
+
 ***** Demostración
+
+**** TODO Todo ideal radical es de esa forma
+La función $\mathbb{{I}}$ considerada como:
+
+\[ \mathbb{I} : \{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\}
+\longrightarrow
+\{ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}\}\]
+
+Es inyectiva, se tiene $\mathbb{V}\mathbb{I} = 1$ y en general no se tiene $\mathbb{I}\mathbb{V} = 1$.
+
+*** Anillos de coordenadas
+**** Teorema de los ceros de Hilbert
+Sea $K$ algebraicamente cerrado. Entonces para cualquier ideal
+$J \subseteq K[X_1,\dots,X_n]$, se verifica que:
+
+\[\mathbb{I}\mathbb{V}(J) = \sqrt{J}\]
+
+Y por tanto hay una biyección entre ideales radicales y variedades.
+
+\[ \{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\}
+\cong
+\{ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}\}\]
+
+***** TODO Demostración
+**** Morfismos de variedades afines
+Un *morfismo entre variedades* de $\mathbb{A}^n$ y $\mathbb{A}^m$ es una aplicación $f : V \longrightarrow W$ tal
+que existen polinomios $F_1,\dots,F_n$ tales que:
+
+\[f(a) = (F_1(a),F_2(a),\dots,F_n(a)) \quad \forall a \in V\]
+
+Los llamamos también *aplicaciones polinómicas*.
+
+**** Isomorfismos de variedades afines
+Un isomorfismo entre variedades afines es un morfismo entre variedades
+cuya inversa es un morfismo entre variedades.
+
+**** Anillo de coordenadas
+Sea $V \subset \mathbb{A}^n(K)$ una variedad algebraica afín. Definimos el anillo de 
+coordenadas de $V$ como:
+
+\[
+K[V] = \frac{K[X_1,\dots,X_n]}{\mathbb{I}(V)}
+\]
+
+Estos anillos son K-álgebras.
+
+**** Ejemplos de anillo de coordenadas
+Sea $V = \mathbb{V}(X^3-y^2) \subseteq \mathbb{A}^2(K)$. 
+
+***** En característica 0
+Si $car(K)=0$, entonces $\mathbb{I}(V) = (X^3-Y^2)$.
+Entonces:
+
+\[K[V] = \frac{K[X_1,\dots,X_n]}{(X^3-Y^2)\]
+
+***** En característica 2
+En característica 2 tenemos $V = \{(0,0),(1,1)\}$, luego
+$\mathbb{I}(V) = \mathbb{I}(\{(0,0\} \cup \{(1,1)\}) = (X,Y) \cap (X-1,Y-1)$, y en este caso:
+
+\[\mathbb{F}_2[V]
+= 
+\frac{\mathbb{F}_2[X,Y]}{(X,Y) \cap (X-1,Y-1)}
+= 
+\frac{\mathbb{F}_2[X,Y]}{(X,Y)} +
+\frac{\mathbb{F}_2[X,Y]}{(X-1,Y-1)}
+=
+\mathbb{F}_2 \times \mathbb{F}_2
+\]
+
+**** Propiedades de los morfismos de variedades
+Sea $V \subseteq \mathbb{A}^n(K)$ y $W \subseteq \mathbb{A}^m(K)$ variedades algebraicas afines.
+
+  1. Toda $f : V \longrightarrow W$ aplicación polinómica define un homomorfismo de
+     K-álgebras $\tilde{f} : K[W] \longrightarrow K[V]$.
+  2. Para cada homomorfismo de K-álgebras $h : K[W] \longrightarrow K[V]$ existe una
+     única aplicación polinómica $f : V \longrightarrow W$ única tal que $\tilde{f} = h$.
+  3. Si $V_1 \overset{f}\longrightarrow V_2 \overset{g}\longrightarrow V_3$ son aplicaciones polinómicas, tenemos que
+     la composición se respeta: $\widetilde{f} \circ \widetilde{g} = \widetilde{g \circ f}$.
+  4. Dada una aplicación polinómica entre variedades, $f$ es isomorfismo
+     ssi $\widetilde{f}$ es isomorfismo.
+
+Es decir, hay un funtor contravariante entre ambas categorías.
+
+***** DONE Demostración
+****** Punto 1
+Sea $f(a) = (F_1(a),\dots,F_m(a))$.
+
+\[\begin{tikzcd}
+K \rar[hook]\drar[hook]& K[Y_1,\dots,Y_n] \dar{\exists! f'} \\
+& K[X_1,\dots,X_n]
+\end{tikzcd}\]
+
+donde $f'$ es el único morfismo de K-álgebras tal que $f'(Y_j) = F_j$.
+
+Supongamos que $G \in \mathbb{I}(W)$, veamos que $f'(G) \in \mathbb{I}(V)$. Como sabemos que
+$V = \mathbb{V}\mathbb{I}(V)$. Sea $a \in V$, entonces $f(a) \in W = \mathbb{V}\mathbb{I}(W)$ y se anula en todos
+los polinomios de $\mathbb{I}(W)$, en particular $G(f(a))=0$.
+
+\[ f'(G)(a) = G(F_1(a),\dots,F_n(a)) = G(f(a)) = 0\]
+
+Acabamos de ver que está bien definido con:
+
+\[\widetilde{f}(G + \mathbb{I}(W)) = G(F_1,\dots,F_n)+\mathbb{I}(V)\]
+****** Punto 2
+******* Existencia
+Dada $h$, tenemos que:
+
+\[\begin{aligned}
+h(Y_1+\mathbb{I}(W)) &= F_1 + \mathbb{I}(V) \\
+h(Y_2+\mathbb{I}(W)) &= F_2 + \mathbb{I}(V) \\
+\dots\\
+h(Y_m+\mathbb{I}(W)) &= F_m + \mathbb{I}(V) \\
+\end{aligned}\]
+
+Y definimos $f : V \longrightarrow \mathbb{A}^m(K)$ como:
+
+\[f(a) = (F_1(a),\dots,F_m(a))\]
+
+Si $a \in V$, veremos que $f(a) \in W$. Sea $G \in \mathbb{I}(W)$, entonces 
+$G+\mathbb{I}(W) = 0 + \mathbb{I}(W)$, luego $0 = h(G+\mathbb{I}(W)) = G(F_1,\dots,F_n) + \mathbb{I}(V)$.
+Pero $G(F_1,\dots,F_n)(a) = G(f(a)) = 0$.
+
+Por tanto, tengo una $f: V\longrightarrow W$ polinómica por definición.
+
+Si $h(y_j + \mathbb{I}(W) = F_j'+\mathbb{I}(V)$, entonces $F_j + \mathbb{I}(V) = F_j' + \mathbb{I}(V)$ ssi
+$F_j - F_j' \in \mathbb{I}(V)$, lo que da $(F_j-F_j')(a) = 0$ y $F_j(a) = F_j'(a)$ para cualquier
+$a$. Es claro por tanto que $\widetilde{f} = h$.
+
+******* Unicidad
+Supongamos una $g : V \longrightarrow W$ tal que $\widetilde{g} = h$. Sean
+$G_1,\dots,G_n \in K[X_1,\dots,X_n]$ tales que $g(a) = (G_1(a),\dots,G_m(a))$. Entonces
+$\widetilde{g} : K[W] \longrightarrow K[V]$:
+
+\[\tilde{g}(Y_j + \mathbb{I}(W)) = G_j + \mathbb{I}(V)\]
+\[h(Y_j + \mathbb{I}(W)) = F_j + \mathbb{I}(V)\]
+
+Por lo tanto $G_j - F_j \in \mathbb{I}(V)$ para cualquier $j$.
+
+**** Ejemplo de polinómica biyectiva no isomorfismo
+Sea $V = \mathbb{A}^1(\mathbb{R})$ y $W = \mathbb{V}(X^3-Y^2) \subseteq \mathbb{A}^2(\mathbb{R})$. Tenemos una aplicación
+del tipo $f : \mathbb{A}^1(\mathbb{R}) \longrightarrow W$:
+
+\[ f(a) = (a^2,a^3)
+\]
+
+Que es claro que es polinómica. Tenemos $f$ biyectiva. Pero vemos que no
+es homomorfismo de variedades.
+
+\[\widetilde{f} : \frac{K[X,Y]}{(X^3-Y^2)} \longrightarrow K[T]\]
+
+Pero $\tilde{f}$ no es sobreyectiva porque $T \notin \im(\tilde{f})$.
+**** Calculando núcleos e imágenes de morfismos de anillos de coordenadas
+Sea $h : K[W] \longrightarrow K[V]$ un morfismo de K-álgebras.
+Supongamos $h(y_i + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$ y $h(G + \mathbb{I}(W)) = G(F_1,\dots,F_n) + \mathbb{I}(V)$.
+
+1. Sea $A = K[X_1,\dots,X_n]$ y sea $C$ el ideal de $A$ generado por:
+
+   \[\{Y_1-F_1,\dots,Y_m-F_m\} \cup \{\text{sistema de generdaores de } \mathbb{I}(V)\}\]
+
+   Entonces $\ker(h) = ((C \cap K[Y_1,\dots,Y_m]) + \mathbb{I}(W)) / \mathbb{I}(W)$.
+
+2. Sea $\mathbb{G}$ una base de Gröbner reducida de $C$ con orden lexicográfico.
+
+   \[F + \mathbb{I}(V) \in \im(h) 
+   \iff
+   R(F;\mathbb{G}) \in K[Y_1,\dots,Y_n]
+   \]
+
+   Además, en tal caso, $F+\mathbb{I}(V) = h(R(F;G) + \mathbb{I}(W))$.
 
 * Análisis Funcional
 ** 1. Espacios normados
