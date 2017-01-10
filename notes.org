@@ -2271,6 +2271,8 @@ FA \rar{\tau_A} \dar{Ff} & GA \dar{Gf} \\
 FB \rar{\tau_B} & GB
 \end{tikzcd} \]
 
+We write the natural transformations as $Nat(F,G)$.
+
 **** 1.2.37. Natural isomorphisms
 A natural transformation $\tau$ for which each $\tau_A$ is an isomorphism.
 
@@ -2316,8 +2318,17 @@ singular n-chains.
 **** TODO 1.3.5. Face maps
 The ith face map $\epsilon^n_i : \Delta^{n-1} \longrightarrow \Delta^n$ is defined by:
 
+*** Exercises
+**** Exercise 1.1
+#+begin_statement
+1. Prove, in every category ${\cal C}$, that each object $A \in {\cal C}$ has a unique identity
+   morphism.
+2. If $f$ is an isomorphism in a category, prove that its inverse is unique.
+#+end_statement
 
+We have $id = id \circ id' = id'$ and $\varphi^{-1} = \varphi' \circ \varphi \circ \varphi^{-1} = \varphi'$.
 
+** 2. Hom and Tensor
 ** 5. Setting the stage
 *** 5.4. Sheaves
 **** Protosheaves
