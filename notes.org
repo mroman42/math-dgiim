@@ -5331,14 +5331,15 @@ por el orden de los polinomios que escojamos para la división.
 
 *** Ideales monomiales
 **** Ideales monomiales
-Un ideal es monomial si es de la forma:
+Un ideal es monomial si está generado por monomios. Es decir, si es de la 
+forma:
 
 \[ I = (X^\alpha \mid \alpha\in A)\]
 
-Para algún $A \subseteq \mathbb{N}^n$. Es decir, está generado por monomios.
+Para algún $A \subset \mathbb{N}^n$.
 
 **** Pertenencia a ideal monomial
-Sea $I = (X^\alpha \mid \alpha\in A)$. $X^\beta \in I$ ssi existen $F$ y $\alpha$ tales que: $X^\beta = FX^\alpha$.
+Si $X^\beta \in (X^\alpha \mid \alpha\in A)$ es de la forma: $X^\beta = FX^\alpha$.
 
 ***** Demostración
 Los monomios forman una K-base del espacio. Como:
@@ -5470,7 +5471,7 @@ como el siguiente polinomio:
 \[{\cal S}(F,G) 
 = \frac{1}{cl(F)}X^{\gamma-\alpha}F - \frac{1}{cl(G)}X^{\gamma-\beta}G\]
 
-donde $\gamma_i = \max\{\alpha_i,\beta_i\}$, para $\gamma = (\gamma_1,\dots,\gamma_n)$.
+donde $\alpha = exp(F)$, $\beta = exp(G)$, y $\gamma_i = \max\{\alpha_i,\beta_i\}$, para $\gamma = (\gamma_1,\dots,\gamma_n)$.
 
 **** Teorema de Buchberger
 Sea $I$ ideal no nulo de $K[X_1,\dots,X_n]$ y $\mathbb{G} = \{G_1,\dots,G_n\}$ un sistema de
@@ -5482,16 +5483,17 @@ generadores. Equivalen:
 
 ***** TODO Demostración
 
-**** TODO Algoritmo de Buchberger
-Sea $I$ ideal no nulo y $G$ sistema de generadores. Es posible construir
-una base de Gröbner con los siguientes pasos:
+**** Algoritmo de Buchberger
+Sea $I$ ideal no nulo y $\mathbb{G} = (G_1,\dots,G_n)$ sistema de generadores. Es posible 
+construir una base de Gröbner con los siguientes pasos:
 
   1. $\mathbb{G}_0 = \{G_1,\dots,G_n\}$
-  2. $\mathbb{G}_{n+1} = \mathbb{G}_n \cup \{R\}$
+  2. $\mathbb{G}_{n+1} = \mathbb{G}_n \cup \{R(S(F,G);\mathbb{G}_n) \neq 0 \mid F,G \in \mathbb{G}_n, F \neq G\}$
 
 Entonces cuando $\mathbb{G}_i = \mathbb{G}_{i+1}$, podemos asegurar que $\mathbb{G}_i$ es base de Gröbner del
 ideal $I$.
 
+***** TODO Demostración
 **** Retirando un polinomio de una base de Gröbner
 Sea $\mathbb{G}$ una base de Gröbner de un ideal no nulo $I \subseteq K[X_1,\dots,X_n]$ y sea
 $F \in \mathbb{G}$ tal que $exp(F) \in \{exp(G) \mid G \in \mathbb{G}, F \neq G \}+\mathbb{N}^n$. Entonces, $\mathbb{G}\setminus\{F\}$
@@ -5534,6 +5536,7 @@ Todo ideal no nulo $I$ tiene una única base de Gröbner reducida
 
 ***** TODO Demostración
 
+*** TODO Teoría de eliminación
 ** 3. Variedades afines
 *** Variedades afines
 **** Espacio afín de un álgebra
