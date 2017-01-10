@@ -4950,7 +4950,23 @@ queda:
 
 \[p = \sum_{\alpha \in \mathbb{N}^n} a_\alpha X^\alpha\]
 
-*** Órdenes monomiales
+**** Base de los polinomios
+Los monomios forman una K-base vectorial del espacio de polinomios:
+
+\[\{ X^\alpha \mid \alpha \in \mathbb{N}^n \}\]
+
+***** Demostración
+Son claramente sistema de generadores y, por definición, un polinomio
+con algún coeficiente no nulo no puede ser nunca nulo. Nótese que puede
+haber cuerpos donde los polinomios evalúen a cero en cualquier punto
+del cuerpo, como $X(X-1)$ en $\mathbb{F}_2$, pero ese polinomio no se considera 
+nulo.
+
+**** Grado de un monomio
+El grado de un monomio $X^\alpha$ con $\alpha \in \mathbb{N}^n$ es la suma:
+
+\[gr(X^\alpha) = \sum^n_{i=1} \alpha_i\]
+
 **** Órdenes compatibles
 Un orden $\leq$ en $\mathbb{N}^n$ es compatible si:
 
