@@ -5333,31 +5333,84 @@ Dado un ideal $I$ no nulo, definimos su exponente como el subconjunto:
 **** El exponente es monoideal
 $Exp(I)$ es un monoideal de $\mathbb{N}^n$.
 
-***** TODO Demostración
+***** Demostración
+Sea $F \in I$, tenemos $X^\alpha F \in I$ para cualquier $\alpha$ y:
+
+\[exp(X^\alpha F) = \alpha + exp(F)\]
+
+Gracias a que los órdenes son compatibles.
 
 **** Lema de Dickson para ideales monomiales
 Todo ideal monomial tiene un sistema de generadores finito y formado
 por monomios.
 
-***** TODO Demostración
+***** Demostración
+Como $Exp(I)$ es [[*Monoideales][monoideal]], tiene [[*Sistemas de generadores][sistema de generadores]] $Exp(I) = G + \mathbb{N}^n$.
+Dado un exponente $\alpha \in Exp(I)$, [[*Monomios en ideal monomial][tenemos]] $X^\alpha \in I$, luego tomamos como sistema
+de generadores:
+
+\[ (X^\alpha \mid \alpha \in G) \]
+
+Dado cualquier $F \in I$, sus monomios estarán en $I$ y serán múltiplo de ellos.
+
+**** Corolario de generación de ideales
+Sean $I,J \subseteq K[X_1,\dots,X_n]$ ideales monomiales:
+
+\[I=J \iff Exp(I)=Exp(J)\]
+
+***** Demostración
+Si tienen el mismo exponente, tienen el mismo generador.
 
 **** Unicidad del sistema de generadores minimal
 Sea $I$ monomial no nulo. Existe un único sistema de generadores minimal
 formado por monomios, es decir, ningún subconjunto suyo es generador.
 
-***** TODO Demostración
+***** Demostración
+Dado $G$ el [[*Unicidad del sistema de generadores minimal][único]] sistema generador minimal de $Exp(I)$. Entonces, sus
+monomios generan al ideal y si:
 
-**** TODO Otros sistemas de generadores
+\[H \subseteq (X^\alpha\mid \alpha \in G)\]
+
+genera al ideal, en particular se tendría $Exp(I) = H + \mathbb{N}^n$, contraviniendo
+minimalidad.
+
+**** Otros sistemas de generadores
+Sea $G = \{\alpha_1,\dots,\alpha_n\}$ sistema de generadores de $Exp(I)$. Si $exp(F_i)=\alpha_i$,
+entonces $\{F_1,\dots,F_n\}$ es sistema de generadores de $I$.
+
+***** Demostración
+Para $F\in I$, por [[*Teorema de la división][división]] tenemos:
+
+\[F = \sum Q_iF_i + R\]
+
+Como $R\in I$, $exp(R) \in Exp(I)$ y debe tenerse $R = 0$.
+
+*** Bases de Gröbner
 **** Bases de Gröbner
 Sea $I \subseteq K[X_1,\dots,X_n]$ un ideal no nulo. Una base de Gröbner es un conjunto
-$\mathbb{G} = \{G_1,\dots,G_n\} \subseteq I$ cumpliendo $Exp(I) = \{Exp(G_1),\dots,Exp(G_n)\} + \mathbb{N}^n$.
+$\mathbb{G} = \{G_1,\dots,G_n\} \subseteq I$ cumpliendo $Exp(I) = \{exp(G_1),\dots,exp(G_n)\} + \mathbb{N}^n$.
+
+**** Propiedades de bases de Gröbner
+Las bases de Gröbner en $K[X_1,\dots,X_n]$ cumplen:
+
+  1. Todo ideal no nulo tiene una base de Gröbner.
+  2. Toda base de Gröbner de un ideal es base de generadores del ideal.
+  3. Teorema de la base de Hilbert: todo ideal es finitamente generado.
+
+***** TODO Demostración
 
 **** Resto en bases de Gröbner
 Sea $I$ ideal con bases de Gröbner $\mathbb{G},\mathbb{G}'$. Para $F \in K[X_1,\dots,X_n]$:
 
 \[R(F;\mathbb{G}) = R(F;\mathbb{G}')\]
 
-***** TODO Demostración
+***** Demostración
+Tenemos que, al coincidir los exponentes:
+
+\[Exp(I) = \bigcup_{i=1}^t \Delta^i\]
+
+Por lo tanto, $\overline{\Delta} = \overline{\Delta}'$, y tenemos ${\cal N}(R-R') \subseteq {\cal N}(R) \cup {\cal N}(R') \subseteq \overline{\Delta}$.
+Pero como $R-R' \in I$, y tenemos $exp(R-R') \in Exp(I)$, debe ser nulo.
 
 **** Caracterización de bases de Gröbner
 Sea $I$ ideal no nulo, equivalen:
