@@ -5439,6 +5439,58 @@ generadores. Equivalen:
 
 ***** TODO Demostración
 
+**** TODO Algoritmo de Buchberger
+Sea $I$ ideal no nulo y $G$ sistema de generadores. Es posible construir
+una base de Gröbner con los siguientes pasos:
+
+  1. $\mathbb{G}_0 = \{G_1,\dots,G_n\}$
+  2. $\mathbb{G}_{n+1} = \mathbb{G}_n \cup \{R\}$
+
+Entonces cuando $\mathbb{G}_i = \mathbb{G}_{i+1}$, podemos asegurar que $\mathbb{G}_i$ es base de Gröbner del
+ideal $I$.
+
+**** Retirando un polinomio de una base de Gröbner
+Sea $\mathbb{G}$ una base de Gröbner de un ideal no nulo $I \subseteq K[X_1,\dots,X_n]$ y sea
+$F \in \mathbb{G}$ tal que $exp(F) \in \{exp(G) \mid G \in \mathbb{G}, F \neq G \}+\mathbb{N}^n$. Entonces, $\mathbb{G}\setminus\{F\}$
+es también una base de Gröbner de $I$.
+
+***** TODO Demostración
+
+**** Base de Gröbner minimal
+Una base de Gröbner de un ideal no nulo $I \subseteq K[X_1,\dots,X_n]$ se dice minimal
+si:
+
+  1. $cl(F) = 1,\quad\forall F\in\mathbb{G}$
+  2. $exp(F) \notin \{exp(G) \mid G \in \mathbb{G}, G \neq F\} + \mathbb{N}^n$
+
+Es claro que todo ideal tiene una base de Gröbner minimal.
+
+**** Caracterización de bases minimales
+Sea $\mathbb{G}$ un sistema de generadores de $I$. Equivalen:
+
+  1. $\mathbb{G}$ es una base de Gröbner minimal de $I$.
+  2. $\{exp(G_1),\dots,exp(G_t)\}$ es sistema minimal de generadores de $Exp(I)$.
+
+Consecuentemente, los términos líderes de los polinomios de una base de
+Gröbner minimal están determinados de forma única y, además, dos bases
+de Gröbner minimales tienen el mismo número de elementos.
+
+***** TODO Demostración
+
+**** Base de Gröbner reducida
+Una base de Gröbner $\mathbb{G}$ de $I$ es reducida si para cualquier $\forall F \in \mathbb{G}$:
+
+  1. $cl(F) = 1$
+  2. ${\cal N}(F) \cap \{exp(G) \mid G \in \mathbb{G}, G \neq F\} + \mathbb{N}^n = \varnothing$
+
+**** Una base de Gröbner reducida es minimal
+Toda base de Gröbner reducida es minimal.
+
+**** Existencia y unicidad de la base reducida
+Todo ideal no nulo $I$ tiene una única base de Gröbner reducida
+
+***** TODO Demostración
+
 ** 3. Variedades afines
 *** Variedades afines
 **** Espacio afín de un álgebra
