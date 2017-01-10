@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2016-12-24 Sat 00:22 -->
+<!-- 2017-01-10 Tue 22:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Álgebra Conmutativa y Computacional</title>
@@ -190,6 +190,9 @@
 <script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
 <script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<p style="display:none"> \(\DeclareMathOperator{\im}{Im} \DeclareMathOperator{\coker}{Coker} \DeclareMathOperator{\spec}{Spec} \) </p>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -261,206 +264,542 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Álgebra Conmutativa y Computacional
-<br>
-<span class="subtitle">Theory</span>
-</h1>
+<h1 class="title">Álgebra Conmutativa y Computacional</h1>
 <div id="table-of-contents">
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org836e2e5">1. Anillos e ideales</a>
+<li><a href="#orgbcaf118">1. Anillos e ideales</a>
 <ul>
-<li><a href="#orgbe83995">La categoría CRing</a>
+<li><a href="#orga813f1b">La categoría CRing</a>
 <ul>
-<li><a href="#orgb83b97b">Categoría</a></li>
-<li><a href="#org91a7bcd">Z es objeto inicial</a></li>
-<li><a href="#org09caf25">Subanillos</a></li>
-<li><a href="#org5fe792f">Monomorfismos y epimorfismos</a></li>
+<li><a href="#org1a533bc">Categoría</a></li>
+<li><a href="#org1702dc2">Z es objeto inicial</a></li>
+<li><a href="#org9fbb191">Subanillos</a></li>
+<li><a href="#org7d5996a">Monomorfismos y epimorfismos</a></li>
 </ul>
 </li>
-<li><a href="#org70bdd06">Ideales</a>
+<li><a href="#orgf1ab216">Ideales</a>
 <ul>
-<li><a href="#org01cf441">Definición</a></li>
-<li><a href="#org3dc8e38">Retículo de ideales</a></li>
-<li><a href="#org1392344">Generación de ideales</a></li>
-<li><a href="#orgd0af8fd">Producto de ideales</a></li>
-<li><a href="#orgf60f31e">Ideales primos relativos</a></li>
+<li><a href="#orga5cdffd">Definición</a></li>
+<li><a href="#org87faa0f">Retículo de ideales</a></li>
+<li><a href="#orgfc6883e">Generación de ideales</a></li>
+<li><a href="#org8c400f6">Producto de ideales</a></li>
+<li><a href="#orga3a444c">Ideales primos relativos</a></li>
 </ul>
 </li>
-<li><a href="#org8d45880">Anillo cociente</a>
+<li><a href="#org2fa4a76">Anillo cociente</a>
 <ul>
-<li><a href="#org8915817">Definición</a></li>
-<li><a href="#orge0afa45">Ideales del anillo cociente</a></li>
-<li><a href="#org5314d5c">Primer Teorema de Isomorfía</a>
+<li><a href="#org80e1ece">Definición</a></li>
+<li><a href="#org0f0e825">Ideales del anillo cociente</a></li>
+<li><a href="#org8f37841">Primer Teorema de Isomorfía</a>
 <ul>
-<li><a href="#orgb6b1cef">Demostración</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org6d6af43">Ideales primos y maximales</a>
-<ul>
-<li><a href="#org6f80321">Definición</a></li>
-<li><a href="#orgdf0f6a4">Caracterización de ideales primos y maximales</a>
-<ul>
-<li><a href="#orgcffb02b">Demostración trivial</a></li>
-</ul>
-</li>
-<li><a href="#org2028784">Preservación de ideales primos y maximales</a>
-<ul>
-<li><a href="#org179d0b5">Demostración</a></li>
+<li><a href="#org9db5371">Demostración</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc84dc8c">Teorema de Krull</a>
+<li><a href="#org681146c">Ideales primos y maximales</a>
 <ul>
-<li><a href="#org07e1ccf">Subconjunto multiplicativamente cerrado</a></li>
-<li><a href="#org5a04432">Teorema de Krull</a>
+<li><a href="#org6925c8c">Definición</a></li>
+<li><a href="#org461f1ef">Caracterización de ideales primos y maximales</a>
 <ul>
-<li><a href="#org44e6b87">Demostración</a></li>
+<li><a href="#org023836a">Demostración trivial</a></li>
 </ul>
 </li>
-<li><a href="#org56acea3">Corolario al teorema de Krull</a></li>
-</ul>
-</li>
-<li><a href="#orgf8cf0fb">Anillos locales</a>
+<li><a href="#orga5ff61b">Preservación de ideales primos y maximales</a>
 <ul>
-<li><a href="#orgdf7a7b8">Inclusión en ideales primos</a>
-<ul>
-<li><a href="#org2ddd1f6">Demostración</a></li>
-</ul>
-</li>
-<li><a href="#org15f3157">Inclusión de ideales primos</a>
-<ul>
-<li><a href="#org3ce8000">Demostración</a></li>
-</ul>
-</li>
-<li><a href="#org0a40118">Definición de anillo local</a></li>
-<li><a href="#orgc440612">Caracterización de anillos locales</a>
-<ul>
-<li><a href="#org6c25222">Demostración</a></li>
+<li><a href="#orgbfabb6f">Demostración</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org34383ef">Radicales</a>
+<li><a href="#orgdd95fe8">Teorema de Krull</a>
 <ul>
-<li><a href="#org69eb62e">Nilradical</a></li>
-<li><a href="#orgd75bacc">Anillo reducido</a></li>
-<li><a href="#org2a709a4">Espectro</a></li>
-<li><a href="#org858669d">Caracterización del nilradical</a>
+<li><a href="#org2faabca">Subconjunto multiplicativamente cerrado</a></li>
+<li><a href="#org05e989c">Teorema de Krull</a>
 <ul>
-<li><a href="#orgf86af3f">Demostración</a></li>
+<li><a href="#org9b82682">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#orga1da8d8">Radical de un ideal</a>
-<ul>
-<li><a href="#org7547c7a">Demostración</a></li>
+<li><a href="#orgc58b549">Corolario al teorema de Krull</a></li>
 </ul>
 </li>
-<li><a href="#orge00f25a">Radical de Jacobson</a>
+<li><a href="#org4440a29">Anillos locales</a>
 <ul>
-<li><a href="#orgf04bc70">Demostración</a></li>
+<li><a href="#orgf135777">Inclusión en ideales primos</a>
+<ul>
+<li><a href="#org0f098ef">Demostración</a></li>
 </ul>
 </li>
+<li><a href="#orgd2b1826">Inclusión de ideales primos</a>
+<ul>
+<li><a href="#org67dfca0">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#orgcaf17fa">Ideales residuales y anulador</a>
+<li><a href="#org0cf7043">Definición de anillo local</a></li>
+<li><a href="#orgf42d917">Caracterización de anillos locales</a>
 <ul>
-<li><a href="#orge75d4aa">Definición</a></li>
-<li><a href="#org8851dd8">Anulador</a></li>
-</ul>
-</li>
-<li><a href="#orgedde7b6">Ideales contraídos y extendidos</a>
-<ul>
-<li><a href="#org220a663">Ideal extendido</a></li>
-<li><a href="#org9e14287">Ideal contraído</a></li>
-<li><a href="#org6af5412">Biyección entre ideales</a>
-<ul>
-<li><a href="#org6711edc">Demostración</a></li>
+<li><a href="#orgc1d8708">Demostración</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgd20e508">Producto directo de anillos</a>
+<li><a href="#orgb4ff702">Radicales</a>
 <ul>
-<li><a href="#orgd4e78a3">Definición</a></li>
-<li><a href="#org1da3ba2">Proyecciones e inclusiones</a></li>
-<li><a href="#org337c215">Propiedad universal</a></li>
-<li><a href="#org8563f92">Teorema Chino del Resto</a>
+<li><a href="#org984baa7">Nilradical</a></li>
+<li><a href="#orgefe1bfe">Anillo reducido</a></li>
+<li><a href="#org12cd6f9">Espectro</a></li>
+<li><a href="#org74529f4">Caracterización del nilradical</a>
 <ul>
-<li><a href="#orga100f84">Demostración</a></li>
+<li><a href="#orge19f46d">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgbaf4367">Radical de un ideal</a>
+<ul>
+<li><a href="#org099ba21">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org7da9571">Radical de Jacobson</a>
+<ul>
+<li><a href="#org2471672">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd5e4ccd">Ideales residuales y anulador</a>
+<ul>
+<li><a href="#orgbe3d3d5">Definición</a></li>
+<li><a href="#orgae1a89d">Anulador</a></li>
+</ul>
+</li>
+<li><a href="#orgfd9a0e6">Ideales contraídos y extendidos</a>
+<ul>
+<li><a href="#org2ec86bb">Ideal extendido</a></li>
+<li><a href="#org440b9d0">Ideal contraído</a></li>
+<li><a href="#org53d3790">Biyección entre ideales</a>
+<ul>
+<li><a href="#org0652c87">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd86f7f2">Producto directo de anillos</a>
+<ul>
+<li><a href="#orga3e635c">Definición</a></li>
+<li><a href="#org2672836">Proyecciones e inclusiones</a></li>
+<li><a href="#org499dbcc">Propiedad universal</a></li>
+<li><a href="#orga0caee6">Teorema Chino del Resto</a>
+<ul>
+<li><a href="#orga34bf58">Demostración</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga92cf89">3. Bases de Gröbner</a>
+<li><a href="#org0de1a1b">2. Bases de Gröbner</a>
 <ul>
-<li><a href="#org1326d5e">R-álgebras</a></li>
-<li><a href="#org108a4fc"><span class="todo TODO">TODO</span> Anillos de polinomios</a></li>
-<li><a href="#org81c41db"><span class="todo TODO">TODO</span> Órdenes monomiales</a></li>
+<li><a href="#org2fb915a">R-álgebras</a>
+<ul>
+<li><a href="#orgd5bb73e">R-módulo</a></li>
+<li><a href="#orgdc0f691">R-álgebras</a></li>
+<li><a href="#orgd5843bc">Homomorfismo de estructura</a>
+<ul>
+<li><a href="#orgd486f14">Equivalencia</a></li>
+</ul>
+</li>
+<li><a href="#orgdc9c3f5">Homomorfismos de R-álgebras</a></li>
+<li><a href="#orgd7541e2">Anillo de polinomios</a></li>
+<li><a href="#org5fc494a">Propiedad universal del anillo de polinomios</a>
+<ul>
+<li><a href="#org57be73d"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgc972ecf">R-álgebras finitamente generadas</a></li>
+</ul>
+</li>
+<li><a href="#org036d941">Órdenes monomiales</a>
+<ul>
+<li><a href="#orgd28d810">Representación recursiva de un polinomio</a></li>
+<li><a href="#org837d0aa">Representación distributiva de un polinomio</a></li>
+<li><a href="#org9017452">Base de los polinomios</a>
+<ul>
+<li><a href="#orgba880cf">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgaee3d5c">Grado de un monomio</a></li>
+<li><a href="#org2d772ac">Órdenes compatibles</a></li>
+<li><a href="#orgf0e9341">Órdenes monótonos</a></li>
+<li><a href="#orgf2c1e45">Órdenes monomiales</a></li>
+<li><a href="#orge093802">Orden lexicográfico</a></li>
+<li><a href="#org8a18631">Orden lexicográfico graduado</a></li>
+<li><a href="#orga9c7965">Orden lexicográfico graduado inverso</a></li>
+<li><a href="#orgf9f825b">Preórdenes</a></li>
+<li><a href="#org7e62833">Relación de equivalencia en preódenes</a></li>
+<li><a href="#org17b3fb7">Producto lexicográfico de preórdenes</a></li>
+<li><a href="#org901a3c5">Propiedades del producto</a>
+<ul>
+<li><a href="#org1faa2a3">Demostración</a>
+<ul>
+<li><a href="#org9afcb9b">Punto 1</a></li>
+<li><a href="#org12f0cc9">Punto 2</a></li>
+<li><a href="#orgd33f05d">Punto 3</a></li>
+<li><a href="#org1d6c195">Punto 4</a></li>
+<li><a href="#orgafa5965">Punto 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org151061f">Los órdenes son monomiales</a>
+<ul>
+<li><a href="#org85128bb">Demostración</a>
+<ul>
+<li><a href="#orgf59682d">El orden lexicográfico es monomial</a></li>
+<li><a href="#org0093ab6">El resto de órdenes son monomiales</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org37344e0">Lema de Dickson</a>
+<ul>
+<li><a href="#org6fbc13a">Lema de Dickson</a>
+<ul>
+<li><a href="#org45492ce">Demostración</a>
+<ul>
+<li><a href="#org893707b">Caso base</a></li>
+<li><a href="#org0ed7a74">Caso inductivo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgce05c93">Orden monomial es buen orden</a>
+<ul>
+<li><a href="#org54daa4c">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org1bcd5c9">Monoideales</a></li>
+<li><a href="#orgeff88d2">Sistemas de generadores</a>
+<ul>
+<li><a href="#org3195e93">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org4ffc37a">Sistema de generadores minimal</a></li>
+<li><a href="#org79bc8a0">Unicidad del sistema de generadores minimal</a>
+<ul>
+<li><a href="#org0b290af">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org413142f">División de polinomios</a>
+<ul>
+<li><a href="#org721d049">Diagrama de Newton</a></li>
+<li><a href="#orgbcd0275">Exponente</a></li>
+<li><a href="#orgd1bb728">Grado total</a></li>
+<li><a href="#orgb57a031">Término líder</a></li>
+<li><a href="#orgdfdfc50">Propiedades del exponente</a>
+<ul>
+<li><a href="#org5d65f1f">Demostración</a>
+<ul>
+<li><a href="#org53992ef">Punto 1</a></li>
+<li><a href="#orgf8cf676">Punto 2</a></li>
+<li><a href="#org4c815cf">Punto 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org7c25206">Partición de generadores</a></li>
+<li><a href="#org944abcc">Teorema de la división</a>
+<ul>
+<li><a href="#org6b525c9">Demostración</a>
+<ul>
+<li><a href="#org2831175">Caso base</a>
+<ul>
+<li><a href="#org28b0d80">Aparece en algún elemento de la partición</a></li>
+<li><a href="#org2092b93">Sólo aparece en el resto de la partición</a></li>
+</ul>
+</li>
+<li><a href="#orgd6a0ff8">Caso inductivo</a>
+<ul>
+<li><a href="#org6af710f">Aparece en algún elemento de la partición</a></li>
+<li><a href="#org8a5b64a">Sólo aparece en el resto de la partición</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9b66e07">Ejemplo de división</a>
+<ul>
+<li><a href="#orgf040c03">Exponentes</a></li>
+<li><a href="#org528990b">Desarrollo</a></li>
+<li><a href="#org0167c27">Cálculo en Sage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org389133b">Ideales monomiales</a>
+<ul>
+<li><a href="#orgf4f796a">Ideales monomiales</a></li>
+<li><a href="#orgfc37c5d">Pertenencia a ideal monomial</a>
+<ul>
+<li><a href="#orgc1e1eed">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgb5786f5">Monomios en ideal monomial</a>
+<ul>
+<li><a href="#orgc033ce6">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org1993526">Exponente de un ideal</a></li>
+<li><a href="#orged21bcd">El exponente es monoideal</a>
+<ul>
+<li><a href="#org1e5b6a1">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org87f104d">Lema de Dickson para ideales monomiales</a>
+<ul>
+<li><a href="#org8393521">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org529cc5d">Corolario de generación de ideales</a>
+<ul>
+<li><a href="#org2be3647">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org1cb8cd7">Unicidad del sistema de generadores minimal</a>
+<ul>
+<li><a href="#org8795205">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org878fe06">Otros sistemas de generadores</a>
+<ul>
+<li><a href="#orgceca156">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org834cab4">Bases de Gröbner</a>
+<ul>
+<li><a href="#org8d052c3">Bases de Gröbner</a></li>
+<li><a href="#org297a1d6">Propiedades de bases de Gröbner</a>
+<ul>
+<li><a href="#orgf3624e3"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org85c5366">Resto en bases de Gröbner</a>
+<ul>
+<li><a href="#org798027e">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org5629f7e">Caracterización de bases de Gröbner</a>
+<ul>
+<li><a href="#org198ba07">Demostración</a>
+<ul>
+<li><a href="#org1f515db">Primer punto al segundo</a></li>
+<li><a href="#org1445360"><span class="todo TODO">TODO</span> Segundo punto al primero</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org83ea4f7">Semizigia</a></li>
+<li><a href="#org01ed55b">Teorema de Buchberger</a>
+<ul>
+<li><a href="#org2fdb283"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgbced8df"><span class="todo TODO">TODO</span> Algoritmo de Buchberger</a></li>
+<li><a href="#orgd872d6a">Retirando un polinomio de una base de Gröbner</a>
+<ul>
+<li><a href="#org8760a21"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org965a7cf">Base de Gröbner minimal</a></li>
+<li><a href="#orgd61d8d0">Caracterización de bases minimales</a>
+<ul>
+<li><a href="#org0e5375e"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgfc500b9">Base de Gröbner reducida</a></li>
+<li><a href="#orga8fdc1d">Una base de Gröbner reducida es minimal</a></li>
+<li><a href="#orgaf55a5c">Existencia y unicidad de la base reducida</a>
+<ul>
+<li><a href="#orgc70a90c"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9b03ffd">3. Variedades afines</a>
+<ul>
+<li><a href="#orga4de135">Variedades afines</a>
+<ul>
+<li><a href="#org1b19763">Espacio afín de un álgebra</a></li>
+<li><a href="#org9ba6569">Funciones polinómicas</a></li>
+<li><a href="#org743be93">Álgebra de funciones polinómicas</a></li>
+<li><a href="#orgbfe23d0">Epimorfismo de los polinomios a las funciones polinómicas</a>
+<ul>
+<li><a href="#orgc4bfe6f">No es inyectivo en general</a></li>
+</ul>
+</li>
+<li><a href="#org132ae66">Isomorfismo en cuerpos infinitos</a>
+<ul>
+<li><a href="#org3dce55b"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org45fb7ed">Variedad de un polinomio</a></li>
+<li><a href="#org161b57e">Variedad algebraica afín</a></li>
+<li><a href="#orgfe87be9">Variedad de un ideal</a>
+<ul>
+<li><a href="#org913b072"><span class="todo TODO">TODO</span> Demostración</a>
+<ul>
+<li><a href="#orgce73237">Punto 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3001bd1">Variedad de una familia de ideales</a>
+<ul>
+<li><a href="#org6e691c7"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0d0b13e">Topología de Zariski</a>
+<ul>
+<li><a href="#orgc9135eb">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org92de5b2">Ejemplos</a>
+<ul>
+<li><a href="#orgc6b7bc7">Puntos discretos</a></li>
+<li><a href="#org3fdeaf2">Hipersuperficies</a></li>
+<li><a href="#org961180d">Hiperplano</a></li>
+</ul>
+</li>
+<li><a href="#org92a7cca">Representaciones paramétricas</a>
+<ul>
+<li><a href="#org436ec19">Ejemplos</a>
+<ul>
+<li><a href="#org9adaaf3">Representación no racional del círculo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3f2469b">Ideal de una variedad</a>
+<ul>
+<li><a href="#org6672bae">Es ideal</a></li>
+</ul>
+</li>
+<li><a href="#org0dc82d7">Propiedades de variedades e ideales</a>
+<ul>
+<li><a href="#orgc0774e9"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org77df4d9">El ideal de una variedad es radical</a>
+<ul>
+<li><a href="#orgb793b55">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orge1df2ad"><span class="todo TODO">TODO</span> Todo ideal radical es de esa forma</a></li>
+</ul>
+</li>
+<li><a href="#org2dfbcb4">Anillos de coordenadas</a>
+<ul>
+<li><a href="#orgb69c961">Teorema de los ceros de Hilbert</a>
+<ul>
+<li><a href="#orgdb8eb64"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org7333823">Morfismos de variedades afines</a></li>
+<li><a href="#org713bbce">Isomorfismos de variedades afines</a></li>
+<li><a href="#orge0faf05">Anillo de coordenadas</a></li>
+<li><a href="#orgca6392e">Ejemplos de anillo de coordenadas</a>
+<ul>
+<li><a href="#org621b700">En característica 0</a></li>
+<li><a href="#org90ac10f">En característica 2</a></li>
+</ul>
+</li>
+<li><a href="#org511e475">Propiedades de los morfismos de variedades</a>
+<ul>
+<li><a href="#orga2f2212"><span class="done DONE">DONE</span> Demostración</a>
+<ul>
+<li><a href="#org0f51102">Punto 1</a></li>
+<li><a href="#org49be00c">Punto 2</a>
+<ul>
+<li><a href="#org2ebc867">Existencia</a></li>
+<li><a href="#orgc96c9a8">Unicidad</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0f5ee3e">Ejemplo de polinómica biyectiva no isomorfismo</a></li>
+<li><a href="#orgdd59a3d">Calculando núcleos e imágenes de morfismos de anillos de coordenadas</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org836e2e5" class="outline-2">
-<h2 id="org836e2e5">1. Anillos e ideales</h2>
-<div class="outline-text-2" id="text-org836e2e5">
-</div><div id="outline-container-orgbe83995" class="outline-3">
-<h3 id="orgbe83995">La categoría CRing</h3>
-<div class="outline-text-3" id="text-orgbe83995">
-</div><div id="outline-container-orgb83b97b" class="outline-4">
-<h4 id="orgb83b97b">Categoría</h4>
-<div class="outline-text-4" id="text-orgb83b97b">
+<div id="outline-container-orgbcaf118" class="outline-2">
+<h2 id="orgbcaf118">1. Anillos e ideales</h2>
+<div class="outline-text-2" id="text-orgbcaf118">
+</div><div id="outline-container-orga813f1b" class="outline-3">
+<h3 id="orga813f1b">La categoría CRing</h3>
+<div class="outline-text-3" id="text-orga813f1b">
+</div><div id="outline-container-org1a533bc" class="outline-4">
+<h4 id="org1a533bc">Categoría</h4>
+<div class="outline-text-4" id="text-org1a533bc">
 <p>
-Consideramos la categoría de los <b>anillos conmutativos</b>, que consta de los anillos
-conmutativos como objetos y de los homomorfismos de anillos; respetando suma,
-producto y unidad; como morfismos.
+Consideramos la categoría de los <b>anillos conmutativos</b>, que consta de
+los anillos conmutativos como objetos y de los homomorfismos de
+anillos; respetando suma, producto y unidad; como morfismos.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org91a7bcd" class="outline-4">
-<h4 id="org91a7bcd">Z es objeto inicial</h4>
-<div class="outline-text-4" id="text-org91a7bcd">
+<div id="outline-container-org1702dc2" class="outline-4">
+<h4 id="org1702dc2">Z es objeto inicial</h4>
+<div class="outline-text-4" id="text-org1702dc2">
 <p>
-El anillo \(\mathbb{Z}\) es inicial en <code>CRing</code>. El homomorfismo único queda unívocamente 
-definido con \(f(1) = 1\) y \(f(n) = nf(1)\).
+El anillo \(\mathbb{Z}\) es inicial en <code>CRing</code>. El homomorfismo único
+queda unívocamente definido con \(f(1) = 1\) y \(f(n) = nf(1)\).
 </p>
 </div>
 </div>
 
-<div id="outline-container-org09caf25" class="outline-4">
-<h4 id="org09caf25">Subanillos</h4>
-<div class="outline-text-4" id="text-org09caf25">
+<div id="outline-container-org9fbb191" class="outline-4">
+<h4 id="org9fbb191">Subanillos</h4>
+<div class="outline-text-4" id="text-org9fbb191">
 <p>
-<b>Subanillo</b>. Subconjunto cerrado para la suma y el producto conteniendo a 1.
+<b>Subanillo</b>. Subconjunto cerrado para la suma y el producto
+conteniendo a 1.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5fe792f" class="outline-4">
-<h4 id="org5fe792f">Monomorfismos y epimorfismos</h4>
-<div class="outline-text-4" id="text-org5fe792f">
+<div id="outline-container-org7d5996a" class="outline-4">
+<h4 id="org7d5996a">Monomorfismos y epimorfismos</h4>
+<div class="outline-text-4" id="text-org7d5996a">
 <p>
-En <code>CRing</code> coinciden la inyectividad con ser monomorfismo y la sobreyectividad
-con ser epimorfismo.
+En <code>CRing</code> coinciden la inyectividad con ser monomorfismo y la
+sobreyectividad con ser epimorfismo.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org70bdd06" class="outline-3">
-<h3 id="org70bdd06">Ideales</h3>
-<div class="outline-text-3" id="text-org70bdd06">
-</div><div id="outline-container-org01cf441" class="outline-4">
-<h4 id="org01cf441">Definición</h4>
-<div class="outline-text-4" id="text-org01cf441">
+<div id="outline-container-orgf1ab216" class="outline-3">
+<h3 id="orgf1ab216">Ideales</h3>
+<div class="outline-text-3" id="text-orgf1ab216">
+</div><div id="outline-container-orga5cdffd" class="outline-4">
+<h4 id="orga5cdffd">Definición</h4>
+<div class="outline-text-4" id="text-orga5cdffd">
 <p>
 Un <b>ideal</b> es un subconjunto cerrado para la suma y el producto de cualquier 
 elemento desde \(R\).
@@ -468,9 +807,9 @@ elemento desde \(R\).
 </div>
 </div>
 
-<div id="outline-container-org3dc8e38" class="outline-4">
-<h4 id="org3dc8e38">Retículo de ideales</h4>
-<div class="outline-text-4" id="text-org3dc8e38">
+<div id="outline-container-org87faa0f" class="outline-4">
+<h4 id="org87faa0f">Retículo de ideales</h4>
+<div class="outline-text-4" id="text-org87faa0f">
 <p>
 Los ideales forman un retículo con la suma y la intersección.
 Dos ideales son <b>primos relativos</b> cuando suman el anillo.
@@ -478,9 +817,9 @@ Dos ideales son <b>primos relativos</b> cuando suman el anillo.
 </div>
 </div>
 
-<div id="outline-container-org1392344" class="outline-4">
-<h4 id="org1392344">Generación de ideales</h4>
-<div class="outline-text-4" id="text-org1392344">
+<div id="outline-container-orgfc6883e" class="outline-4">
+<h4 id="orgfc6883e">Generación de ideales</h4>
+<div class="outline-text-4" id="text-orgfc6883e">
 <p>
 Llamamos \((X)\) al <b>ideal generado</b> por \(X\); el menor ideal que 
 contiene a \(X\):
@@ -505,9 +844,9 @@ E <b>ideal principal</b> cuando \(X\) tiene un sólo elemento.
 </div>
 </div>
 
-<div id="outline-container-orgd0af8fd" class="outline-4">
-<h4 id="orgd0af8fd">Producto de ideales</h4>
-<div class="outline-text-4" id="text-orgd0af8fd">
+<div id="outline-container-org8c400f6" class="outline-4">
+<h4 id="org8c400f6">Producto de ideales</h4>
+<div class="outline-text-4" id="text-org8c400f6">
 <p>
 Se define para \(\alpha, \beta\) ideales como:
 </p>
@@ -518,9 +857,9 @@ Se define para \(\alpha, \beta\) ideales como:
 </div>
 </div>
 
-<div id="outline-container-orgf60f31e" class="outline-4">
-<h4 id="orgf60f31e">Ideales primos relativos</h4>
-<div class="outline-text-4" id="text-orgf60f31e">
+<div id="outline-container-orga3a444c" class="outline-4">
+<h4 id="orga3a444c">Ideales primos relativos</h4>
+<div class="outline-text-4" id="text-orga3a444c">
 <p>
 Dos ideales son <b>primos relativos</b> cuando \(\alpha+\beta = R\). Cuando son primos relativos
 se cumple que \(\alpha\beta = \alpha \cap \beta\).
@@ -529,12 +868,12 @@ se cumple que \(\alpha\beta = \alpha \cap \beta\).
 </div>
 </div>
 
-<div id="outline-container-org8d45880" class="outline-3">
-<h3 id="org8d45880">Anillo cociente</h3>
-<div class="outline-text-3" id="text-org8d45880">
-</div><div id="outline-container-org8915817" class="outline-4">
-<h4 id="org8915817">Definición</h4>
-<div class="outline-text-4" id="text-org8915817">
+<div id="outline-container-org2fa4a76" class="outline-3">
+<h3 id="org2fa4a76">Anillo cociente</h3>
+<div class="outline-text-3" id="text-org2fa4a76">
+</div><div id="outline-container-org80e1ece" class="outline-4">
+<h4 id="org80e1ece">Definición</h4>
+<div class="outline-text-4" id="text-org80e1ece">
 <p>
 Sea \(R\) anillo y \(\alpha \subset R\) ideal, tomamos la relación de equivalencia
 \(x \sim y \Leftrightarrow x-y \in \alpha\), para obtener:
@@ -546,9 +885,9 @@ Sea \(R\) anillo y \(\alpha \subset R\) ideal, tomamos la relación de equivalen
 </div>
 </div>
 
-<div id="outline-container-orge0afa45" class="outline-4">
-<h4 id="orge0afa45">Ideales del anillo cociente</h4>
-<div class="outline-text-4" id="text-orge0afa45">
+<div id="outline-container-org0f0e825" class="outline-4">
+<h4 id="org0f0e825">Ideales del anillo cociente</h4>
+<div class="outline-text-4" id="text-org0f0e825">
 <p>
 Los ideales del anillo cociente sobre \(\alpha\) están en correspondencia biyectiva
 con los ideales que lo contienen, \(\beta \supset \alpha\). Son siempre de la forma \(\beta/\alpha\).
@@ -556,9 +895,9 @@ con los ideales que lo contienen, \(\beta \supset \alpha\). Son siempre de la fo
 </div>
 </div>
 
-<div id="outline-container-org5314d5c" class="outline-4">
-<h4 id="org5314d5c">Primer Teorema de Isomorfía</h4>
-<div class="outline-text-4" id="text-org5314d5c">
+<div id="outline-container-org8f37841" class="outline-4">
+<h4 id="org8f37841">Primer Teorema de Isomorfía</h4>
+<div class="outline-text-4" id="text-org8f37841">
 <p>
 Para cualquier homomorfismo de anillos \(f\):
 </p>
@@ -578,9 +917,9 @@ Y además, los ideales están en correspondencia biyectiva por \(f_\ast\) y \(f^
 </p>
 </div>
 
-<div id="outline-container-orgb6b1cef" class="outline-5">
-<h5 id="orgb6b1cef">Demostración</h5>
-<div class="outline-text-5" id="text-orgb6b1cef">
+<div id="outline-container-org9db5371" class="outline-5">
+<h5 id="org9db5371">Demostración</h5>
+<div class="outline-text-5" id="text-org9db5371">
 <p>
 Trivial desde la descomposición de morfismos en una categoría arbitraria.
 Además, se comprueba que \(f^{-1}\) preserva ideales y que \(f_\ast\) preserva ideales en su 
@@ -591,12 +930,12 @@ imagen.
 </div>
 </div>
 
-<div id="outline-container-org6d6af43" class="outline-3">
-<h3 id="org6d6af43">Ideales primos y maximales</h3>
-<div class="outline-text-3" id="text-org6d6af43">
-</div><div id="outline-container-org6f80321" class="outline-4">
-<h4 id="org6f80321">Definición</h4>
-<div class="outline-text-4" id="text-org6f80321">
+<div id="outline-container-org681146c" class="outline-3">
+<h3 id="org681146c">Ideales primos y maximales</h3>
+<div class="outline-text-3" id="text-org681146c">
+</div><div id="outline-container-org6925c8c" class="outline-4">
+<h4 id="org6925c8c">Definición</h4>
+<div class="outline-text-4" id="text-org6925c8c">
 <p>
 \(P\) es ideal <b>primo</b> si no es el total y \(xy\in P \Rightarrow x \in P \vee y \in P\).
 \(P\) es ideal <b>maximal</b> si \(M \neq R\) y es maximal en el retículo de ideales sin \(R\).
@@ -604,9 +943,9 @@ imagen.
 </div>
 </div>
 
-<div id="outline-container-orgdf0f6a4" class="outline-4">
-<h4 id="orgdf0f6a4">Caracterización de ideales primos y maximales</h4>
-<div class="outline-text-4" id="text-orgdf0f6a4">
+<div id="outline-container-org461f1ef" class="outline-4">
+<h4 id="org461f1ef">Caracterización de ideales primos y maximales</h4>
+<div class="outline-text-4" id="text-org461f1ef">
 <p>
 En relación a su cociente en el anillo:
 </p>
@@ -617,13 +956,13 @@ En relación a su cociente en el anillo:
 </ul>
 </div>
 
-<div id="outline-container-orgcffb02b" class="outline-5">
-<h5 id="orgcffb02b">Demostración trivial</h5>
+<div id="outline-container-org023836a" class="outline-5">
+<h5 id="org023836a">Demostración trivial</h5>
 </div>
 </div>
-<div id="outline-container-org2028784" class="outline-4">
-<h4 id="org2028784">Preservación de ideales primos y maximales</h4>
-<div class="outline-text-4" id="text-org2028784">
+<div id="outline-container-orga5ff61b" class="outline-4">
+<h4 id="orga5ff61b">Preservación de ideales primos y maximales</h4>
+<div class="outline-text-4" id="text-orga5ff61b">
 <p>
 Dado un homomorfismo \(f\),
 </p>
@@ -641,9 +980,9 @@ maximal).
 </p>
 </div>
 
-<div id="outline-container-org179d0b5" class="outline-5">
-<h5 id="org179d0b5">Demostración</h5>
-<div class="outline-text-5" id="text-org179d0b5">
+<div id="outline-container-orgbfabb6f" class="outline-5">
+<h5 id="orgbfabb6f">Demostración</h5>
+<div class="outline-text-5" id="text-orgbfabb6f">
 <p>
 <b>1</b> es trivial. <b>2</b> tenemos que demostrarlo en cuatro pasos:
 </p>
@@ -660,12 +999,12 @@ ideales que contienen a \(\ker f\).</li>
 </div>
 </div>
 
-<div id="outline-container-orgc84dc8c" class="outline-3">
-<h3 id="orgc84dc8c">Teorema de Krull</h3>
-<div class="outline-text-3" id="text-orgc84dc8c">
-</div><div id="outline-container-org07e1ccf" class="outline-4">
-<h4 id="org07e1ccf">Subconjunto multiplicativamente cerrado</h4>
-<div class="outline-text-4" id="text-org07e1ccf">
+<div id="outline-container-orgdd95fe8" class="outline-3">
+<h3 id="orgdd95fe8">Teorema de Krull</h3>
+<div class="outline-text-3" id="text-orgdd95fe8">
+</div><div id="outline-container-org2faabca" class="outline-4">
+<h4 id="org2faabca">Subconjunto multiplicativamente cerrado</h4>
+<div class="outline-text-4" id="text-org2faabca">
 <p>
 Es un subconjunto \(S\) con:
 </p>
@@ -676,18 +1015,18 @@ Es un subconjunto \(S\) con:
 </div>
 </div>
 
-<div id="outline-container-org5a04432" class="outline-4">
-<h4 id="org5a04432">Teorema de Krull</h4>
-<div class="outline-text-4" id="text-org5a04432">
+<div id="outline-container-org05e989c" class="outline-4">
+<h4 id="org05e989c">Teorema de Krull</h4>
+<div class="outline-text-4" id="text-org05e989c">
 <p>
 Sea \(\alpha \cap S = \varnothing\), entonces existe un ideal \(M \supset \alpha\) tal que \(M \cap S = \varnothing\) y maximal respecto
 a esta condición. Además, \(M\) es un ideal primo.
 </p>
 </div>
 
-<div id="outline-container-org44e6b87" class="outline-5">
-<h5 id="org44e6b87">Demostración</h5>
-<div class="outline-text-5" id="text-org44e6b87">
+<div id="outline-container-org9b82682" class="outline-5">
+<h5 id="org9b82682">Demostración</h5>
+<div class="outline-text-5" id="text-org9b82682">
 <p>
 Dada una cadena de ideales cumpliendo la condición su unión también la cumple
 y es cota de la cadena. Aplicando lema de Zorn obtenemos un maximal.
@@ -702,9 +1041,9 @@ la maximalidad de \(M\).
 </div>
 </div>
 
-<div id="outline-container-org56acea3" class="outline-4">
-<h4 id="org56acea3">Corolario al teorema de Krull</h4>
-<div class="outline-text-4" id="text-org56acea3">
+<div id="outline-container-orgc58b549" class="outline-4">
+<h4 id="orgc58b549">Corolario al teorema de Krull</h4>
+<div class="outline-text-4" id="text-orgc58b549">
 <p>
 Tomando \(S=\{1\}\) tenemos que; dado un ideal, existe un ideal maximal que lo contiene.
 En particular, todo elemento no unidad está contenido en un ideal maximal,
@@ -714,12 +1053,12 @@ tomando \(S = (x)\).
 </div>
 </div>
 
-<div id="outline-container-orgf8cf0fb" class="outline-3">
-<h3 id="orgf8cf0fb">Anillos locales</h3>
-<div class="outline-text-3" id="text-orgf8cf0fb">
-</div><div id="outline-container-orgdf7a7b8" class="outline-4">
-<h4 id="orgdf7a7b8">Inclusión en ideales primos</h4>
-<div class="outline-text-4" id="text-orgdf7a7b8">
+<div id="outline-container-org4440a29" class="outline-3">
+<h3 id="org4440a29">Anillos locales</h3>
+<div class="outline-text-3" id="text-org4440a29">
+</div><div id="outline-container-orgf135777" class="outline-4">
+<h4 id="orgf135777">Inclusión en ideales primos</h4>
+<div class="outline-text-4" id="text-orgf135777">
 <p>
 Sean ideales \(\alpha_1,\dots,\alpha_n\) y \(\pi\) un ideal primo. Si \(\bigcap \alpha_i \subset \pi\), entonces
 </p>
@@ -729,9 +1068,9 @@ Sean ideales \(\alpha_1,\dots,\alpha_n\) y \(\pi\) un ideal primo. Si \(\bigcap 
 </p>
 </div>
 
-<div id="outline-container-org2ddd1f6" class="outline-5">
-<h5 id="org2ddd1f6">Demostración</h5>
-<div class="outline-text-5" id="text-org2ddd1f6">
+<div id="outline-container-org0f098ef" class="outline-5">
+<h5 id="org0f098ef">Demostración</h5>
+<div class="outline-text-5" id="text-org0f098ef">
 <p>
 Supongamos que \(\forall i: \alpha_i \nsubseteq \Pi\); entonces tenemos \(x_i \in \alpha_i - \Pi\) tales que ninguno
 está en \(\Pi\), pero su producto debe estar, contraviniendo que sea primo.
@@ -740,9 +1079,9 @@ está en \(\Pi\), pero su producto debe estar, contraviniendo que sea primo.
 </div>
 </div>
 
-<div id="outline-container-org15f3157" class="outline-4">
-<h4 id="org15f3157">Inclusión de ideales primos</h4>
-<div class="outline-text-4" id="text-org15f3157">
+<div id="outline-container-orgd2b1826" class="outline-4">
+<h4 id="orgd2b1826">Inclusión de ideales primos</h4>
+<div class="outline-text-4" id="text-orgd2b1826">
 <p>
 Sean ideales primos \(\pi_1,\dots,\pi_n\), (salvo quizá 2) y \(\alpha\) un ideal. Si \(\alpha \subset \bigcup \pi_i\), entonces,
 </p>
@@ -752,9 +1091,9 @@ Sean ideales primos \(\pi_1,\dots,\pi_n\), (salvo quizá 2) y \(\alpha\) un idea
 </p>
 </div>
 
-<div id="outline-container-org3ce8000" class="outline-5">
-<h5 id="org3ce8000">Demostración</h5>
-<div class="outline-text-5" id="text-org3ce8000">
+<div id="outline-container-org67dfca0" class="outline-5">
+<h5 id="org67dfca0">Demostración</h5>
+<div class="outline-text-5" id="text-org67dfca0">
 <p>
 En el caso \(n=2\), supongamos \(\alpha \subset \pi_1 \cup \pi_2\); y tomemos \(x \in \alpha, x\in\pi_1\), \(y\in\alpha, y\in\pi_2\).
 Entonces tendría \(x+y \in \alpha\), pero no estaría en \(\pi_1 \cup \pi_2\). Nótese que no usamos
@@ -778,9 +1117,9 @@ estar alguno; si no, tendríamos \(x_n \in \alpha_r\).
 </div>
 </div>
 
-<div id="outline-container-org0a40118" class="outline-4">
-<h4 id="org0a40118">Definición de anillo local</h4>
-<div class="outline-text-4" id="text-org0a40118">
+<div id="outline-container-org0cf7043" class="outline-4">
+<h4 id="org0cf7043">Definición de anillo local</h4>
+<div class="outline-text-4" id="text-org0cf7043">
 <p>
 Un <b>anillo local</b> es aquel con un único ideal maximal. A \(R/M\) se le llama 
 <b>cuerpo residual</b>.
@@ -788,9 +1127,9 @@ Un <b>anillo local</b> es aquel con un único ideal maximal. A \(R/M\) se le lla
 </div>
 </div>
 
-<div id="outline-container-orgc440612" class="outline-4">
-<h4 id="orgc440612">Caracterización de anillos locales</h4>
-<div class="outline-text-4" id="text-orgc440612">
+<div id="outline-container-orgf42d917" class="outline-4">
+<h4 id="orgf42d917">Caracterización de anillos locales</h4>
+<div class="outline-text-4" id="text-orgf42d917">
 <p>
 Un anillo \(R\) es local ssi \(\{x\in R \mid x \text{ no unidad}\}\) es un ideal.
 </p>
@@ -805,9 +1144,9 @@ Sea \(M\) ideal propio:
 </ul>
 </div>
 
-<div id="outline-container-org6c25222" class="outline-5">
-<h5 id="org6c25222">Demostración</h5>
-<div class="outline-text-5" id="text-org6c25222">
+<div id="outline-container-orgc1d8708" class="outline-5">
+<h5 id="orgc1d8708">Demostración</h5>
+<div class="outline-text-5" id="text-orgc1d8708">
 <ol class="org-ol">
 <li>Una no unidad debe estar contenida en el único maximal que hay, que no contiene
 a las unidades y además es ideal.
@@ -826,12 +1165,12 @@ En conclusión, \(R-M \subset {\cal U}(R)\) y es local.</li>
 </div>
 </div>
 
-<div id="outline-container-org34383ef" class="outline-3">
-<h3 id="org34383ef">Radicales</h3>
-<div class="outline-text-3" id="text-org34383ef">
-</div><div id="outline-container-org69eb62e" class="outline-4">
-<h4 id="org69eb62e">Nilradical</h4>
-<div class="outline-text-4" id="text-org69eb62e">
+<div id="outline-container-orgb4ff702" class="outline-3">
+<h3 id="orgb4ff702">Radicales</h3>
+<div class="outline-text-3" id="text-orgb4ff702">
+</div><div id="outline-container-org984baa7" class="outline-4">
+<h4 id="org984baa7">Nilradical</h4>
+<div class="outline-text-4" id="text-org984baa7">
 <p>
 Sus elementos se llaman <b>nilpotentes</b>:
 </p>
@@ -846,9 +1185,9 @@ El nilradical es un ideal.
 </div>
 </div>
 
-<div id="outline-container-orgd75bacc" class="outline-4">
-<h4 id="orgd75bacc">Anillo reducido</h4>
-<div class="outline-text-4" id="text-orgd75bacc">
+<div id="outline-container-orgefe1bfe" class="outline-4">
+<h4 id="orgefe1bfe">Anillo reducido</h4>
+<div class="outline-text-4" id="text-orgefe1bfe">
 <p>
 Un anillo es <b>reducido</b> si \(\operatorname{Nil}(R) = 0\). Los dominios de integridad son reducidos. 
 Además, podemos reducir un anillo dividiendo por su nilradical \(R/\operatorname{Nil}(R)\).
@@ -856,9 +1195,9 @@ Además, podemos reducir un anillo dividiendo por su nilradical \(R/\operatornam
 </div>
 </div>
 
-<div id="outline-container-org2a709a4" class="outline-4">
-<h4 id="org2a709a4">Espectro</h4>
-<div class="outline-text-4" id="text-org2a709a4">
+<div id="outline-container-org12cd6f9" class="outline-4">
+<h4 id="org12cd6f9">Espectro</h4>
+<div class="outline-text-4" id="text-org12cd6f9">
 <p>
 El <b>espectro</b> de un anillo R es la intersección de sus ideales primos:
 </p>
@@ -869,9 +1208,9 @@ El <b>espectro</b> de un anillo R es la intersección de sus ideales primos:
 </div>
 </div>
 
-<div id="outline-container-org858669d" class="outline-4">
-<h4 id="org858669d">Caracterización del nilradical</h4>
-<div class="outline-text-4" id="text-org858669d">
+<div id="outline-container-org74529f4" class="outline-4">
+<h4 id="org74529f4">Caracterización del nilradical</h4>
+<div class="outline-text-4" id="text-org74529f4">
 <p>
 El nilradical de \(R\) es la intersección de los ideales del espectro:
 </p>
@@ -881,9 +1220,9 @@ El nilradical de \(R\) es la intersección de los ideales del espectro:
 </p>
 </div>
 
-<div id="outline-container-orgf86af3f" class="outline-5">
-<h5 id="orgf86af3f">Demostración</h5>
-<div class="outline-text-5" id="text-orgf86af3f">
+<div id="outline-container-orge19f46d" class="outline-5">
+<h5 id="orge19f46d">Demostración</h5>
+<div class="outline-text-5" id="text-orge19f46d">
 <p>
 Sea \(x^n = 0\), entonces \(x^n \in \pi, \forall \pi \in \operatorname{Spec}(R)\); y, por primalidad, \(x \in \pi\).
 Sea \(x \notin \operatorname{Nil}(R)\), entonces \(S = \{1,x,x^2,\dots\}\) es multiplicativamente cerrado con
@@ -893,9 +1232,9 @@ Sea \(x \notin \operatorname{Nil}(R)\), entonces \(S = \{1,x,x^2,\dots\}\) es mu
 </div>
 </div>
 
-<div id="outline-container-orga1da8d8" class="outline-4">
-<h4 id="orga1da8d8">Radical de un ideal</h4>
-<div class="outline-text-4" id="text-orga1da8d8">
+<div id="outline-container-orgbaf4367" class="outline-4">
+<h4 id="orgbaf4367">Radical de un ideal</h4>
+<div class="outline-text-4" id="text-orgbaf4367">
 <p>
 Se define como:
 </p>
@@ -914,9 +1253,9 @@ Se caracteriza como:
 </p>
 </div>
 
-<div id="outline-container-org7547c7a" class="outline-5">
-<h5 id="org7547c7a">Demostración</h5>
-<div class="outline-text-5" id="text-org7547c7a">
+<div id="outline-container-org099ba21" class="outline-5">
+<h5 id="org099ba21">Demostración</h5>
+<div class="outline-text-5" id="text-org099ba21">
 <p>
 Tenemos claramente \(\pi^{-1}(\operatorname{Nil}(R/\alpha)) = \sqrt{\alpha}\), pero entonces:
 </p>
@@ -932,9 +1271,9 @@ Tenemos claramente \(\pi^{-1}(\operatorname{Nil}(R/\alpha)) = \sqrt{\alpha}\), p
 </div>
 </div>
 
-<div id="outline-container-orge00f25a" class="outline-4">
-<h4 id="orge00f25a">Radical de Jacobson</h4>
-<div class="outline-text-4" id="text-orge00f25a">
+<div id="outline-container-org7da9571" class="outline-4">
+<h4 id="org7da9571">Radical de Jacobson</h4>
+<div class="outline-text-4" id="text-org7da9571">
 <p>
 Se define el <b>radical de Jacobson</b> como:
 </p>
@@ -948,9 +1287,9 @@ Tenemos que \(x \in {\cal J}(R)\) ssi \(1-xy \in U(R)\) para cualquier \(y\).
 </p>
 </div>
 
-<div id="outline-container-orgf04bc70" class="outline-5">
-<h5 id="orgf04bc70">Demostración</h5>
-<div class="outline-text-5" id="text-orgf04bc70">
+<div id="outline-container-org2471672" class="outline-5">
+<h5 id="org2471672">Demostración</h5>
+<div class="outline-text-5" id="text-org2471672">
 <p>
 Un elemento \(1-xy\) para \(x \in {\cal J}(R)\) no puede estar en ningún ideal maximal, porque
 estaría entonces el \(1\). Por corolario de Krull, debe ser unidad.
@@ -965,12 +1304,12 @@ no puede contener una unidad.
 </div>
 </div>
 
-<div id="outline-container-orgcaf17fa" class="outline-3">
-<h3 id="orgcaf17fa">Ideales residuales y anulador</h3>
-<div class="outline-text-3" id="text-orgcaf17fa">
-</div><div id="outline-container-orge75d4aa" class="outline-4">
-<h4 id="orge75d4aa">Definición</h4>
-<div class="outline-text-4" id="text-orge75d4aa">
+<div id="outline-container-orgd5e4ccd" class="outline-3">
+<h3 id="orgd5e4ccd">Ideales residuales y anulador</h3>
+<div class="outline-text-3" id="text-orgd5e4ccd">
+</div><div id="outline-container-orgbe3d3d5" class="outline-4">
+<h4 id="orgbe3d3d5">Definición</h4>
+<div class="outline-text-4" id="text-orgbe3d3d5">
 <p>
 Definimos el <b>ideal residual</b> (a veces llamado <b>cociente</b>) de dos ideales como:
 </p>
@@ -981,9 +1320,9 @@ Definimos el <b>ideal residual</b> (a veces llamado <b>cociente</b>) de dos idea
 </div>
 </div>
 
-<div id="outline-container-org8851dd8" class="outline-4">
-<h4 id="org8851dd8">Anulador</h4>
-<div class="outline-text-4" id="text-org8851dd8">
+<div id="outline-container-orgae1a89d" class="outline-4">
+<h4 id="orgae1a89d">Anulador</h4>
+<div class="outline-text-4" id="text-orgae1a89d">
 <p>
 \[\operatorname{Ann}(\beta) = \{x \in R \mid x\beta = 0\} = (0 : \beta)\]
 </p>
@@ -991,12 +1330,12 @@ Definimos el <b>ideal residual</b> (a veces llamado <b>cociente</b>) de dos idea
 </div>
 </div>
 
-<div id="outline-container-orgedde7b6" class="outline-3">
-<h3 id="orgedde7b6">Ideales contraídos y extendidos</h3>
-<div class="outline-text-3" id="text-orgedde7b6">
-</div><div id="outline-container-org220a663" class="outline-4">
-<h4 id="org220a663">Ideal extendido</h4>
-<div class="outline-text-4" id="text-org220a663">
+<div id="outline-container-orgfd9a0e6" class="outline-3">
+<h3 id="orgfd9a0e6">Ideales contraídos y extendidos</h3>
+<div class="outline-text-3" id="text-orgfd9a0e6">
+</div><div id="outline-container-org2ec86bb" class="outline-4">
+<h4 id="org2ec86bb">Ideal extendido</h4>
+<div class="outline-text-4" id="text-org2ec86bb">
 <p>
 Dado un homomorfismo \(f : R \longrightarrow S\) llamamos <b>ideal extendido</b> de \(\alpha\) al ideal:
 </p>
@@ -1007,9 +1346,9 @@ Dado un homomorfismo \(f : R \longrightarrow S\) llamamos <b>ideal extendido</b>
 </div>
 </div>
 
-<div id="outline-container-org9e14287" class="outline-4">
-<h4 id="org9e14287">Ideal contraído</h4>
-<div class="outline-text-4" id="text-org9e14287">
+<div id="outline-container-org440b9d0" class="outline-4">
+<h4 id="org440b9d0">Ideal contraído</h4>
+<div class="outline-text-4" id="text-org440b9d0">
 <p>
 Dado un homomorfismo \(f\) llamamos <b>ideal contraído</b> de \(\beta\) al ideal:
 </p>
@@ -1020,9 +1359,9 @@ Dado un homomorfismo \(f\) llamamos <b>ideal contraído</b> de \(\beta\) al idea
 </div>
 </div>
 
-<div id="outline-container-org6af5412" class="outline-4">
-<h4 id="org6af5412">Biyección entre ideales</h4>
-<div class="outline-text-4" id="text-org6af5412">
+<div id="outline-container-org53d3790" class="outline-4">
+<h4 id="org53d3790">Biyección entre ideales</h4>
+<div class="outline-text-4" id="text-org53d3790">
 <p>
 Para \(f : S \longrightarrow R\) homomorfismo y \(\alpha,\beta\) ideales:
 </p>
@@ -1036,9 +1375,9 @@ y \(\{\beta \subset S \mid \beta = \beta^c^e\}\).</li>
 </ol>
 </div>
 
-<div id="outline-container-org6711edc" class="outline-5">
-<h5 id="org6711edc">Demostración</h5>
-<div class="outline-text-5" id="text-org6711edc">
+<div id="outline-container-org0652c87" class="outline-5">
+<h5 id="org0652c87">Demostración</h5>
+<div class="outline-text-5" id="text-org0652c87">
 <p>
 Pueden escribirse así porque si tengo \(\beta = \alpha^e\), entonces \(\beta^c^e = \alpha^e^c^e = \alpha^e = \beta\). La biyección
 es trivial desde la definición y las proposiciones anteriores.
@@ -1048,12 +1387,12 @@ es trivial desde la definición y las proposiciones anteriores.
 </div>
 </div>
 
-<div id="outline-container-orgd20e508" class="outline-3">
-<h3 id="orgd20e508">Producto directo de anillos</h3>
-<div class="outline-text-3" id="text-orgd20e508">
-</div><div id="outline-container-orgd4e78a3" class="outline-4">
-<h4 id="orgd4e78a3">Definición</h4>
-<div class="outline-text-4" id="text-orgd4e78a3">
+<div id="outline-container-orgd86f7f2" class="outline-3">
+<h3 id="orgd86f7f2">Producto directo de anillos</h3>
+<div class="outline-text-3" id="text-orgd86f7f2">
+</div><div id="outline-container-orga3e635c" class="outline-4">
+<h4 id="orga3e635c">Definición</h4>
+<div class="outline-text-4" id="text-orga3e635c">
 <p>
 Para \(R_1,R_2,\dots,R_n\) tomamos como su producto directo a:
 </p>
@@ -1068,9 +1407,9 @@ con las operaciones definidas componente a componente.
 </div>
 </div>
 
-<div id="outline-container-org1da3ba2" class="outline-4">
-<h4 id="org1da3ba2">Proyecciones e inclusiones</h4>
-<div class="outline-text-4" id="text-org1da3ba2">
+<div id="outline-container-org2672836" class="outline-4">
+<h4 id="org2672836">Proyecciones e inclusiones</h4>
+<div class="outline-text-4" id="text-org2672836">
 <p>
 Las <b>proyecciones</b>, \(p_k\), a cualquier factor son homomorfismos.
 Las <b>inclusiones</b>, \(u_k\), <b>no</b> son homomorfismos, ya que no respetan
@@ -1085,9 +1424,9 @@ el uno del anillo, que en este caso es \((1,\dots,1)\). Cumplen además:
 </div>
 </div>
 
-<div id="outline-container-org337c215" class="outline-4">
-<h4 id="org337c215">Propiedad universal</h4>
-<div class="outline-text-4" id="text-org337c215">
+<div id="outline-container-org499dbcc" class="outline-4">
+<h4 id="org499dbcc">Propiedad universal</h4>
+<div class="outline-text-4" id="text-org499dbcc">
 <p>
 El producto con las proyecciones es el <b>producto categórico</b> de la
 categoría de los anillos:
@@ -1103,9 +1442,9 @@ R_1 & R_2 &  & R_3 & \dots
 </div>
 </div>
 
-<div id="outline-container-org8563f92" class="outline-4">
-<h4 id="org8563f92">Teorema Chino del Resto</h4>
-<div class="outline-text-4" id="text-org8563f92">
+<div id="outline-container-orga0caee6" class="outline-4">
+<h4 id="orga0caee6">Teorema Chino del Resto</h4>
+<div class="outline-text-4" id="text-orga0caee6">
 <p>
 En la situación la propiedad universal sobre el cociente por unos
 ideales \(\alpha_1,\dots,\alpha_n\):
@@ -1129,9 +1468,9 @@ Tenemos que:
 </ol>
 </div>
 
-<div id="outline-container-orga100f84" class="outline-5">
-<h5 id="orga100f84">Demostración</h5>
-<div class="outline-text-5" id="text-orga100f84">
+<div id="outline-container-orga34bf58" class="outline-5">
+<h5 id="orga34bf58">Demostración</h5>
+<div class="outline-text-5" id="text-orga34bf58">
 <ol class="org-ol">
 <li>El caso \(n=2\) es conocido. En el caso \(n>2\), aplicamos la hipótesis
 de inducción a \(\alpha_1\alpha_2\dots\alpha_{n-1}\) y a \(\alpha_n\), que se demuestran primos relativos.</li>
@@ -1151,12 +1490,32 @@ puedo crear una base del anillo.</li>
 </div>
 </div>
 
-<div id="outline-container-orga92cf89" class="outline-2">
-<h2 id="orga92cf89">3. Bases de Gröbner</h2>
-<div class="outline-text-2" id="text-orga92cf89">
-</div><div id="outline-container-org1326d5e" class="outline-3">
-<h3 id="org1326d5e">R-álgebras</h3>
-<div class="outline-text-3" id="text-org1326d5e">
+<div id="outline-container-org0de1a1b" class="outline-2">
+<h2 id="org0de1a1b">2. Bases de Gröbner</h2>
+<div class="outline-text-2" id="text-org0de1a1b">
+</div><div id="outline-container-org2fb915a" class="outline-3">
+<h3 id="org2fb915a">R-álgebras</h3>
+<div class="outline-text-3" id="text-org2fb915a">
+</div><div id="outline-container-orgd5bb73e" class="outline-4">
+<h4 id="orgd5bb73e">R-módulo</h4>
+<div class="outline-text-4" id="text-orgd5bb73e">
+<p>
+Dado \(R\) anillo. Un <b>R-módulo</b> (izquierdo) es un grupo abeliano \(M\) junto
+a una operación \(\cdot : (R,M) \longrightarrow M\) verificando:
+</p>
+
+<ul class="org-ul">
+<li>\(r(x+y) = rx+ry\)</li>
+<li>\((r+s)x = rx+sx\)</li>
+<li>\(r(sx) = (rs)x\)</li>
+<li>\(1x = x\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdc0f691" class="outline-4">
+<h4 id="orgdc0f691">R-álgebras</h4>
+<div class="outline-text-4" id="text-orgdc0f691">
 <p>
 Una <b>R-álgebra</b>, \(S\) es un anillo con estructura de R-módulo, tal que:
 </p>
@@ -1164,25 +1523,2173 @@ Una <b>R-álgebra</b>, \(S\) es un anillo con estructura de R-módulo, tal que:
 <p>
 \[\forall r\in R, x,y\in S:\; (rx)y = r(xy) = x(ry)\]
 </p>
+</div>
+</div>
+
+<div id="outline-container-orgd5843bc" class="outline-4">
+<h4 id="orgd5843bc">Homomorfismo de estructura</h4>
+<div class="outline-text-4" id="text-orgd5843bc">
+<p>
+Equivalentemente, una R-álgebra es un anillo \(S\) junto a un <b>homomorfismo 
+de estructura</b> \(\lambda : R \longrightarrow S\). 
+</p>
+</div>
+
+<div id="outline-container-orgd486f14" class="outline-5">
+<h5 id="orgd486f14">Equivalencia</h5>
+<div class="outline-text-5" id="text-orgd486f14">
+<p>
+Nótese que puedo pasar de una a otra definición tomando \(\lambda(r) = r1\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdc9c3f5" class="outline-4">
+<h4 id="orgdc9c3f5">Homomorfismos de R-álgebras</h4>
+<div class="outline-text-4" id="text-orgdc9c3f5">
+<p>
+Un homormorfismo de R-álgebras \(f : S_1 \longrightarrow S_2\) es un homomorfismo de anillos
+que sea también homomorfismo de R-módulos.
+</p>
 
 <p>
-Equivalentemente es un anillo \(S\) junto a un <b>homomorfismo de estructura</b> 
-\(\lambda : R \longrightarrow S\). Nótese que puedo pasar de una a otra definición tomando \(\lambda(r) = r1\).
+\[ f(rs) = rf(s) \]
 </p>
 </div>
 </div>
 
-<div id="outline-container-org108a4fc" class="outline-3">
-<h3 id="org108a4fc"><span class="todo TODO">TODO</span> Anillos de polinomios</h3>
+<div id="outline-container-orgd7541e2" class="outline-4">
+<h4 id="orgd7541e2">Anillo de polinomios</h4>
+<div class="outline-text-4" id="text-orgd7541e2">
+<p>
+Definimos el anillo de polinomios en varias variables recursivamente:
+</p>
+
+<p>
+\[ R[X_1,X_2,\dots,X_n] = R[X_1,X_2,\dots,X_{n-1}][X_n] \]
+</p>
+
+<p>
+Y forma una R-álgebra con la inclusión desde \(R\).
+</p>
 </div>
-<div id="outline-container-org81c41db" class="outline-3">
-<h3 id="org81c41db"><span class="todo TODO">TODO</span> Órdenes monomiales</h3>
+</div>
+
+<div id="outline-container-org5fc494a" class="outline-4">
+<h4 id="org5fc494a">Propiedad universal del anillo de polinomios</h4>
+<div class="outline-text-4" id="text-org5fc494a">
+<p>
+Sea \(S\) anillo y \(f : R \longrightarrow S\) homomorfismo de anillos. Sean \(s_1,\dots,s_n \in S\)
+elementos arbitrarios; entonces existe un único homomorfismo de 
+R-álgebras \(f_{s_1,\dots,s_n} : R[X_1,\dots,X_n] \longrightarrow S\) tal que:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+R \rar[hook]{i} \drar[swap]{f} & R[X_1,X_2,\dots,X_n] \dar[dashed]{f_{s_1,\dots,s_n}} \\
+  & S
+\end{tikzcd} \]
+</p>
+
+<p>
+Llevando \(f(X_i) = s_i\).
+</p>
+</div>
+
+<div id="outline-container-org57be73d" class="outline-5">
+<h5 id="org57be73d"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgc972ecf" class="outline-4">
+<h4 id="orgc972ecf">R-álgebras finitamente generadas</h4>
+<div class="outline-text-4" id="text-orgc972ecf">
+<p>
+Una R-álgebra \(S\) es finitamente generada si existe un epimorfismo de
+R-álgebras \(f : R[X_1,\dots,X_n] \longrightarrow S\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org036d941" class="outline-3">
+<h3 id="org036d941">Órdenes monomiales</h3>
+<div class="outline-text-3" id="text-org036d941">
+</div><div id="outline-container-orgd28d810" class="outline-4">
+<h4 id="orgd28d810">Representación recursiva de un polinomio</h4>
+<div class="outline-text-4" id="text-orgd28d810">
+<p>
+Llamamos representación recursiva a la siguiente:
+</p>
+
+<p>
+\[
+F = \sum_{j=0}^t F_j X^j_n
+\]
+</p>
+
+<p>
+donde \(F_j \in K[X_1,\dots,X_{n-1}]\). Nótese que es la representación natural una
+vez asumimos la definición recursiva del anillo de polinomios.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org837d0aa" class="outline-4">
+<h4 id="org837d0aa">Representación distributiva de un polinomio</h4>
+<div class="outline-text-4" id="text-org837d0aa">
+<p>
+Llamamos representación distributiva a la siguiente:
+</p>
+
+<p>
+\[ p = \sum a_{(\alpha_1,\dots,\alpha_n)} 
+X_1^{\alpha_1} X_2^{\alpha_2} \dots X_n^{\alpha_n} \]
+</p>
+
+<p>
+Si escribimos los monomios como \(X^{\alpha}\) para cada \(\alpha \in \mathbb{N}^n\), nos
+queda:
+</p>
+
+<p>
+\[p = \sum_{\alpha \in \mathbb{N}^n} a_\alpha X^\alpha\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9017452" class="outline-4">
+<h4 id="org9017452">Base de los polinomios</h4>
+<div class="outline-text-4" id="text-org9017452">
+<p>
+Los monomios forman una K-base vectorial del espacio de polinomios:
+</p>
+
+<p>
+\[\{ X^\alpha \mid \alpha \in \mathbb{N}^n \}\]
+</p>
+</div>
+
+<div id="outline-container-orgba880cf" class="outline-5">
+<h5 id="orgba880cf">Demostración</h5>
+<div class="outline-text-5" id="text-orgba880cf">
+<p>
+Son claramente sistema de generadores y, por definición, un polinomio
+con algún coeficiente no nulo no puede ser nunca nulo. Nótese que puede
+haber cuerpos donde los polinomios evalúen a cero en cualquier punto
+del cuerpo, como \(X(X-1)\) en \(\mathbb{F}_2\), pero ese polinomio no se considera 
+nulo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaee3d5c" class="outline-4">
+<h4 id="orgaee3d5c">Grado de un monomio</h4>
+<div class="outline-text-4" id="text-orgaee3d5c">
+<p>
+El grado de un monomio \(X^\alpha\) con \(\alpha \in \mathbb{N}^n\) es la suma:
+</p>
+
+<p>
+\[gr(X^\alpha) = \sum^n_{i=1} \alpha_i\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d772ac" class="outline-4">
+<h4 id="org2d772ac">Órdenes compatibles</h4>
+<div class="outline-text-4" id="text-org2d772ac">
+<p>
+Un orden \(\leq\) en \(\mathbb{N}^n\) es compatible si:
+</p>
+
+<p>
+\[\alpha \leq \beta \Longrightarrow \alpha + \gamma \geq \beta + \gamma\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf0e9341" class="outline-4">
+<h4 id="orgf0e9341">Órdenes monótonos</h4>
+<div class="outline-text-4" id="text-orgf0e9341">
+<p>
+Un orden \(\leq\) es monótono si:
+</p>
+
+<p>
+\[ 0 \leq \alpha \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf2c1e45" class="outline-4">
+<h4 id="orgf2c1e45">Órdenes monomiales</h4>
+<div class="outline-text-4" id="text-orgf2c1e45">
+<p>
+Un orden monomial es compatible, monótono y total.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge093802" class="outline-4">
+<h4 id="orge093802">Orden lexicográfico</h4>
+<div class="outline-text-4" id="text-orge093802">
+<p>
+Definimos \(\alpha \geq_{lex} \beta\) cuando para el primer \(\alpha_i \neq \beta_i\), se tiene \(\alpha_i \geq \beta_i\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8a18631" class="outline-4">
+<h4 id="org8a18631">Orden lexicográfico graduado</h4>
+<div class="outline-text-4" id="text-org8a18631">
+<p>
+Definimos \(\alpha \geq_{grlex} \beta\) cuando \(\sum \alpha > \sum \beta\) ó se da la igualdad
+y se tiene \(\alpha \geq_{lex} \beta\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga9c7965" class="outline-4">
+<h4 id="orga9c7965">Orden lexicográfico graduado inverso</h4>
+<div class="outline-text-4" id="text-orga9c7965">
+<p>
+Definimos \(\alpha \geq_{invgrlex} \beta\) cuando \(\sum \alpha > \sum \beta\) ó se da la igualdad
+y para el primer \(\alpha_i \neq \beta_i\) a la derecha, se tiene \(\alpha_i < \beta_i\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf9f825b" class="outline-4">
+<h4 id="orgf9f825b">Preórdenes</h4>
+<div class="outline-text-4" id="text-orgf9f825b">
+<p>
+Un preorden es una relación binaria transitiva y reflexiva. 
+Equivalentemente, es un orden sin la antisimetría.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e62833" class="outline-4">
+<h4 id="org7e62833">Relación de equivalencia en preódenes</h4>
+<div class="outline-text-4" id="text-org7e62833">
+<p>
+Dado un preorden \(\sqsubseteq\), se define la relación de equivalencia \(x \equiv y\),
+que se tiene cuando \(x \sqsubseteq y \wedge y \sqsubseteq x\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org17b3fb7" class="outline-4">
+<h4 id="org17b3fb7">Producto lexicográfico de preórdenes</h4>
+<div class="outline-text-4" id="text-org17b3fb7">
+<p>
+Definimos el producto lexicográfico de dos preórdenes \(\sqsubseteq_1,\sqsubseteq_2\)
+como:
+</p>
+
+<p>
+\[x \sqsubseteq_{12} y = \left\{
+\begin{array}{l} 
+x \sqsubseteq_1 y \wedge y \not\sqsubseteq_1 x \\ 
+\text{  ó} \\
+x \equiv_1 y \wedge x \sqsubseteq_2 y
+\end{array}\right.\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org901a3c5" class="outline-4">
+<h4 id="org901a3c5">Propiedades del producto</h4>
+<div class="outline-text-4" id="text-org901a3c5">
+<p>
+El producto de preórdenes cumple:
+</p>
+
+<ol class="org-ol">
+<li>\(\sqsubseteq_{12}\) es un preorden.</li>
+<li>\(\sqsubseteq_2\) orden \(\Rightarrow\) \(\sqsubseteq_{12}\) orden</li>
+<li>\(\sqsubseteq_1,\sqsubseteq_2\) totales \(\Rightarrow\) \(\sqsubseteq_{12}\) total</li>
+<li>\(\sqsubseteq_1,\sqsubseteq_2\) compatible \(\Rightarrow\) \(\sqsubseteq_{12}\) compatible</li>
+<li>\(\sqsubseteq_1,\sqsubseteq_2\) monótono \(\Rightarrow\) \(\sqsubseteq_{12}\) monótono</li>
+</ol>
+</div>
+
+<div id="outline-container-org1faa2a3" class="outline-5">
+<h5 id="org1faa2a3">Demostración</h5>
+<div class="outline-text-5" id="text-org1faa2a3">
+</div><div id="outline-container-org9afcb9b" class="outline-6">
+<h6 id="org9afcb9b">Punto 1</h6>
+<div class="outline-text-6" id="text-org9afcb9b">
+<p>
+Es reflexivo trivialmente. La transitividad se obtiene analizando 
+por casos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12f0cc9" class="outline-6">
+<h6 id="org12f0cc9">Punto 2</h6>
+<div class="outline-text-6" id="text-org12f0cc9">
+<p>
+Cuando \(x \equiv_{12} y\), se tiene \(x \equiv_1 y\) y por tanto \(x \equiv_2 y\); lo que llevaría
+a \(x = y\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd33f05d" class="outline-6">
+<h6 id="orgd33f05d">Punto 3</h6>
+<div class="outline-text-6" id="text-orgd33f05d">
+<p>
+Si ambos son totales, suponemos s.p.g. que \(x \sqsubseteq_1 y\). Si no tuviéramos
+que \(y \sqsubseteq_1 x\), entonces \(x \equiv_1 y\) y como son totales, podemos suponer s.p.g
+que \(x \sqsubseteq_2 y\), llgando a \(x \sqsubseteq_{12} y\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1d6c195" class="outline-6">
+<h6 id="org1d6c195">Punto 4</h6>
+</div>
+<div id="outline-container-orgafa5965" class="outline-6">
+<h6 id="orgafa5965">Punto 5</h6>
+<div class="outline-text-6" id="text-orgafa5965">
+<p>
+Tenemos \(0 \sqsubseteq_1 x\); si tuviéramos \(x \sqsubseteq_1 0\), entonces \(x \equiv_1 0\); pero como
+sabemos que \(0 \sqsubseteq_2 x\), tenemos finalmente \(0 \sqsubseteq_{12} x\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org151061f" class="outline-4">
+<h4 id="org151061f">Los órdenes son monomiales</h4>
+<div class="outline-text-4" id="text-org151061f">
+<p>
+Los órdenes \(\leq_{lex},\leq_{grlex},\leq_{invgrlex}\) son monomiales.
+</p>
+</div>
+
+<div id="outline-container-org85128bb" class="outline-5">
+<h5 id="org85128bb">Demostración</h5>
+<div class="outline-text-5" id="text-org85128bb">
+</div><div id="outline-container-orgf59682d" class="outline-6">
+<h6 id="orgf59682d">El orden lexicográfico es monomial</h6>
+<div class="outline-text-6" id="text-orgf59682d">
+<p>
+Una forma de definir el orden lexicográfico es con el signo del primer
+elemento de la resta. Sabemos que es total. La monotonía y la 
+compatibilidad se tienen por:
+</p>
+
+<p>
+\[(\alpha+\gamma)-(\beta+\gamma) = (\alpha-\beta)\]
+</p>
+
+<p>
+Tenemos que \(\alpha - 0 = \alpha\), positivo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0093ab6" class="outline-6">
+<h6 id="org0093ab6">El resto de órdenes son monomiales</h6>
+<div class="outline-text-6" id="text-org0093ab6">
+<p>
+Simplemente notando que el grado es un preorden y que son <a href="#org901a3c5">producto</a>
+de preorden con el lexicográfico o con un lexicográfico inverso.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org37344e0" class="outline-3">
+<h3 id="org37344e0">Lema de Dickson</h3>
+<div class="outline-text-3" id="text-org37344e0">
+</div><div id="outline-container-org6fbc13a" class="outline-4">
+<h4 id="org6fbc13a">Lema de Dickson</h4>
+<div class="outline-text-4" id="text-org6fbc13a">
+<p>
+Para \(S \subseteq \mathbb{N}^n\) no vacío, existe \(G \subseteq S\) finito tal que \(S \subseteq G + \mathbb{N}^n\).
+</p>
+</div>
+
+<div id="outline-container-org45492ce" class="outline-5">
+<h5 id="org45492ce">Demostración</h5>
+<div class="outline-text-5" id="text-org45492ce">
+</div><div id="outline-container-org893707b" class="outline-6">
+<h6 id="org893707b">Caso base</h6>
+<div class="outline-text-6" id="text-org893707b">
+<p>
+Cuando \(n=1\), como los naturales están bien ordenados, podemos tomar
+el mínimo
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0ed7a74" class="outline-6">
+<h6 id="org0ed7a74">Caso inductivo</h6>
+<div class="outline-text-6" id="text-org0ed7a74">
+<p>
+Tomamos un \(y \in S\), y tenemos dos casos, o bien \(x \in \{y\} + \mathbb{N}^n\), o bien
+se tiene \(x \in S_{i|j}\) para \(j < y_i\). Donde definimos:
+</p>
+
+<p>
+\[
+S_{i|j} 
+= 
+\{ x \in S \mid x_i = j\}
+\]
+</p>
+
+<p>
+Y una familia de conjuntos:
+</p>
+
+<p>
+\[
+A_{i|j}
+=
+\{ 
+x \in \mathbb{N}^n
+\mid
+x_i=0, (x_1,\dots,j,\dots,x_n) \in S
+\}
+\]
+</p>
+
+<p>
+Que por hipótesis de inducción dejando nula a cada paso una de las
+coordenadas, dan lugar a \(G_{i|j}' \subseteq A_{i|j}\) finito con \(A_{i|j} = G_{i|j}'+\mathbb{N}^{n-1}\).
+</p>
+
+<p>
+\[
+G_{i|j} = 
+\{x \in S_{i|j} \mid (x_1,\dots,0,\dots,x_n) \in G'_{ij} \}
+\]
+</p>
+
+<p>
+Sea ahora \(x \in S_{i|j}\). Si hacemos un cero en \(i\), se tiene 
+\((x_1,\dots,0,\dots,x_n) \in S'_{i|j} \subseteq G_{i|j}'+ \mathbb{N}^{n-1}\). Luego
+</p>
+
+<p>
+\[\begin{aligned}
+(x_1,\dots,0,\dots,x_n) &= z + \alpha \\
+(x_1,\dots,j,\dots,x_n) &= (z_1,\dots,j,\dots,z_n) + (\alpha_1,\dots,0,\dots,\alpha_n)
+\end{aligned}\]
+</p>
+
+<p>
+Por lo tanto, \(S_{i|j} \subseteq G_{i|j} + \mathbb{N}^{n}\); y tenemos finalmente \(S \subseteq G + \mathbb{N}^n\) si
+definimos:
+</p>
+
+<p>
+\[G = \{y\} \cup \bigcup_{i,j<y_i} G_{i|j}\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce05c93" class="outline-4">
+<h4 id="orgce05c93">Orden monomial es buen orden</h4>
+<div class="outline-text-4" id="text-orgce05c93">
+<p>
+Todo orden monomial en \(\mathbb{N}^n\) es buen orden.
+</p>
+</div>
+
+<div id="outline-container-org54daa4c" class="outline-5">
+<h5 id="org54daa4c">Demostración</h5>
+<div class="outline-text-5" id="text-org54daa4c">
+<p>
+Por Dickson, cualquier subconjunto tiene un \(G\) finito con \(S \subseteq G + \mathbb{N}^n\). 
+El mínimo de \(G\) existe por finitud y ser orden total. Es el mínimo de
+\(S\) porque cualquier otro \(s \in S\) cumple \(s = g + \gamma\) para \(g \in G\), lo que lleva
+por monotonía y compatibilidad, a \(s \geq g\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1bcd5c9" class="outline-4">
+<h4 id="org1bcd5c9">Monoideales</h4>
+<div class="outline-text-4" id="text-org1bcd5c9">
+<p>
+Un subconjunto \(E \subseteq \mathbb{N}^n\) es monoideal cuando \(E = E + \mathbb{N}^n\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeff88d2" class="outline-4">
+<h4 id="orgeff88d2">Sistemas de generadores</h4>
+<div class="outline-text-4" id="text-orgeff88d2">
+<p>
+Si \(E\) es monoideal, existe \(G \subset E\) finito con \(E = G + \mathbb{N}^n\).
+Llamamos a \(G\) sistema de generadores de \(E\).
+</p>
+</div>
+
+<div id="outline-container-org3195e93" class="outline-5">
+<h5 id="org3195e93">Demostración</h5>
+<div class="outline-text-5" id="text-org3195e93">
+<p>
+Por Dickson tenemos \(E \subset G + \mathbb{N}^n\), luego \(E = E + \mathbb{N}^n = G + \mathbb{N}^n\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ffc37a" class="outline-4">
+<h4 id="org4ffc37a">Sistema de generadores minimal</h4>
+<div class="outline-text-4" id="text-org4ffc37a">
+<p>
+Un sistema de generadores es minimal si ningún subconjunto
+suyo es sistema de generadores.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org79bc8a0" class="outline-4">
+<h4 id="org79bc8a0">Unicidad del sistema de generadores minimal</h4>
+<div class="outline-text-4" id="text-org79bc8a0">
+<p>
+El sistema de generadores minimal de un \(E\) es único.
+</p>
+</div>
+
+<div id="outline-container-org0b290af" class="outline-5">
+<h5 id="org0b290af">Demostración</h5>
+<div class="outline-text-5" id="text-org0b290af">
+<p>
+Supongamos que hubiera dos \(G,G'\), con \(\beta \in G' \setminus G\). Entonces tendría una
+representación con \(g \in G, g' \in G', \gamma \neq 0\) como:
+</p>
+
+<p>
+\[
+\beta = g + \gamma = g' + \delta + \gamma
+\]
+</p>
+
+<p>
+Con lo cual, \(\beta \in G'\setminus \{\beta\} + \mathbb{N}^n\), contraviniendo minimalidad.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org413142f" class="outline-3">
+<h3 id="org413142f">División de polinomios</h3>
+<div class="outline-text-3" id="text-org413142f">
+</div><div id="outline-container-org721d049" class="outline-4">
+<h4 id="org721d049">Diagrama de Newton</h4>
+<div class="outline-text-4" id="text-org721d049">
+<p>
+El conjunto de exponentes para un polinomio \(p = \sum a_\alpha x^\alpha\):
+</p>
+
+<p>
+\[N(p) = \{\alpha\in\mathbb{N}^n \mid a_\alpha \neq 0\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbcd0275" class="outline-4">
+<h4 id="orgbcd0275">Exponente</h4>
+<div class="outline-text-4" id="text-orgbcd0275">
+<p>
+El exponente de un polinomio, fijado un orden monomial, es el máximo
+exponente de su diagrama
+</p>
+
+<p>
+\[Exp(p) = \max \{\alpha\in\mathbb{N}^n \mid a_\alpha \neq 0\} \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd1bb728" class="outline-4">
+<h4 id="orgd1bb728">Grado total</h4>
+<div class="outline-text-4" id="text-orgd1bb728">
+<p>
+Definimos el grado total, fijado un orden monomial, como el máximo
+valor absoluto de los exponentes:
+</p>
+
+<p>
+\[Grtot(p) = \max \{|\alpha| \mid a_\alpha \neq 0\} \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb57a031" class="outline-4">
+<h4 id="orgb57a031">Término líder</h4>
+<div class="outline-text-4" id="text-orgb57a031">
+<p>
+Llamamos término líder al que aporta el exponente, \(a_{Exp(p)}X^{Exp(p)}\).
+Su coeficiente líder es \(a_{Exp(p)}\) y su monomio líder, \(X^{Exp(p)}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdfdfc50" class="outline-4">
+<h4 id="orgdfdfc50">Propiedades del exponente</h4>
+<div class="outline-text-4" id="text-orgdfdfc50">
+<p>
+Dados \(F,G \in K[X_1,\dots,X_n]\) no nulos: 
+</p>
+
+<ol class="org-ol">
+<li>\(Exp(FG) = Exp(F) + Exp(G)\).</li>
+<li>\(Exp(F+G) \leq \max\{Exp(F),Exp(G)\}\)</li>
+<li>Si \(Exp(F) < Exp(G)\); entonces \(Exp(F+G) = Exp(G)\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org5d65f1f" class="outline-5">
+<h5 id="org5d65f1f">Demostración</h5>
+<div class="outline-text-5" id="text-org5d65f1f">
+</div><div id="outline-container-org53992ef" class="outline-6">
+<h6 id="org53992ef">Punto 1</h6>
+<div class="outline-text-6" id="text-org53992ef">
+<p>
+Primero notamos que si estamos en un cuerpo, el producto de dos
+polinomios tendrá en su diagrama de Newton a la suma de cualesquiera
+exponentes de ambos polinomios. Supongamos la suma máxima \(\gamma + \delta\), y
+la suma de los máximos \(\alpha+\beta\). Usamos que son máximos y orden monomial
+para tener:
+</p>
+
+<p>
+\[\alpha + \beta \geq \gamma + \delta\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf8cf676" class="outline-6">
+<h6 id="orgf8cf676">Punto 2</h6>
+<div class="outline-text-6" id="text-orgf8cf676">
+<p>
+Si un exponente no aparece en \(F\) ni en \(G\), tendrá coeficiente nulo
+también en \(F+G\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c815cf" class="outline-6">
+<h6 id="org4c815cf">Punto 3</h6>
+<div class="outline-text-6" id="text-org4c815cf">
+<p>
+La suma tendrá como mucho los exponentes de \(F\) y de \(G\). Pero además,
+conserva los exponentes que sólo estuvieran en uno de los dos con los
+coeficientes intactos.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7c25206" class="outline-4">
+<h4 id="org7c25206">Partición de generadores</h4>
+<div class="outline-text-4" id="text-org7c25206">
+<p>
+Dada una lista de elementos \(a_1,\dots,a_k\), tenemos una partición que
+definimos inductivamente como:
+</p>
+
+<ol class="org-ol">
+<li><p>
+Los elementos que genera el primer generador: 
+</p>
+
+<p>
+\[\Delta^1 = a_1 + \mathbb{N}^n\]
+</p></li>
+
+<li><p>
+Los elementos nuevos que aporta cada nuevo generador:
+</p>
+
+<p>
+\[\Delta^i = (a_i + \mathbb{N}^n) \setminus \bigcup_{j < i} \Delta^j \]
+</p></li>
+
+<li><p>
+Todos los demás elementos
+</p>
+
+<p>
+\[ \overline{\Delta} = \mathbb{N}^n \setminus \bigcup_{j \leq k} \Delta^j\]
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org944abcc" class="outline-4">
+<h4 id="org944abcc">Teorema de la división</h4>
+<div class="outline-text-4" id="text-org944abcc">
+<p>
+Dado un orden monomial y una lista de polinomios \(G_i\); consideramos la
+partición \(\Delta_1,\dots,\overline{\Delta}\) dada por los exponentes \(Exp(G_i)\). Tenemos que para
+cada \(F \in K[X_1,\dots,X_n]\), existen \(Q_1,\dots,Q_t,R\) únicos tales:
+</p>
+
+<ol class="org-ol">
+<li>\(F = Q_1G_1 + \dots + Q_tG_t + R\)</li>
+<li>\(R = 0\) ó \(N(R) \subseteq \overline\Delta\)</li>
+<li>\(Exp(G_i) + N(Q_i) \subseteq \Delta^i\)</li>
+</ol>
+</div>
+
+<div id="outline-container-org6b525c9" class="outline-5">
+<h5 id="org6b525c9">Demostración</h5>
+<div class="outline-text-5" id="text-org6b525c9">
+</div><div id="outline-container-org2831175" class="outline-6">
+<h6 id="org2831175">Caso base</h6>
+<div class="outline-text-6" id="text-org2831175">
+<p>
+Aplicamos inducción a \(exp(F)\) aprovechando el <a href="#orgce05c93">buen orden</a>. Sea 
+\(exp(F) = (0,\dots,0)\).
+</p>
+</div>
+
+<div id="outline-container-org28b0d80" class="outline-7">
+<h7 id="org28b0d80">Aparece en algún elemento de la partición</h7>
+<div class="outline-text-7" id="text-org28b0d80">
+<p>
+Si \(exp(F) \in \Delta^i\), entonces forzosamente \(exp(G_i)=0\). Entonces tomamos
+\(Q_i = {F}/{G_i}\), y \(Q_j=0\) para \(j \neq i\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2092b93" class="outline-7">
+<h7 id="org2092b93">Sólo aparece en el resto de la partición</h7>
+<div class="outline-text-7" id="text-org2092b93">
+<p>
+Simplemente tomamos \(R = F\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd6a0ff8" class="outline-6">
+<h6 id="orgd6a0ff8">Caso inductivo</h6>
+<div class="outline-text-6" id="text-orgd6a0ff8">
+<p>
+Sabiendo que se tiene el resultado para todo \(G\) con \(exp(G) < exp(F)\),
+tenemos de nuevo dos casos.
+</p>
+</div>
+
+<div id="outline-container-org6af710f" class="outline-7">
+<h7 id="org6af710f">Aparece en algún elemento de la partición</h7>
+<div class="outline-text-7" id="text-org6af710f">
+<p>
+Si \(exp(F) \in \Delta^i\), entonces \(exp(F) = exp(G) + \gamma\). Tomando \(H=X^\gamma G\),
+aplicamos inducción sobre:
+</p>
+
+<p>
+\[F - \frac{cl(F)}{cl(H)} H 
+=
+F'
+= 
+\sum Q'_iG_i + R'
+\]
+</p>
+
+<p>
+Pero si tomamos \(Q_i = Q_i' + \frac{cl(F)}{cl(H)} X^\gamma\) y \(Q_j = Q_j'\) para todos los demás:
+</p>
+
+<p>
+\[F = \sum Q_i G_i + R\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8a5b64a" class="outline-7">
+<h7 id="org8a5b64a">Sólo aparece en el resto de la partición</h7>
+<div class="outline-text-7" id="text-org8a5b64a">
+<p>
+Aplicamos hipótesis de inducción sobre:
+</p>
+
+<p>
+\[F-tl(F) = F' = \sum Q_i'G_i + R'\]
+</p>
+
+<p>
+Entonces tomamos \(R = R' + tl(F)\) y se tiene:
+</p>
+
+<p>
+\[F = \sum Q_i'G_i + R\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b66e07" class="outline-4">
+<h4 id="org9b66e07">Ejemplo de división</h4>
+<div class="outline-text-4" id="text-org9b66e07">
+<p>
+Dividimos \(F = X^4Y^2+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\) entre los polinomios:
+</p>
+
+<ul class="org-ul">
+<li>\(G_1 = X^3Y-2X^2Z^2\)</li>
+<li>\(G_2 = X^2Y^3+XZ^3\)</li>
+<li>\(G_3 = XY^2Z - X^2YZ - 3XYZ^2\)</li>
+</ul>
+
+<p>
+Usando el orden lexicográfico.
+</p>
+</div>
+
+<div id="outline-container-orgf040c03" class="outline-5">
+<h5 id="orgf040c03">Exponentes</h5>
+<div class="outline-text-5" id="text-orgf040c03">
+<p>
+Con el orden dado, tenemos exponentes:
+</p>
+
+<ul class="org-ul">
+<li>\(exp(G_1) = (3,1,0)\)</li>
+<li>\(exp(G_2) = (2,3,0)\)</li>
+<li>\(exp(G_3) = (2,1,1)\)</li>
+</ul>
+
+<p>
+Con ellos creamos las particiones \(\Delta_i\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org528990b" class="outline-5">
+<h5 id="org528990b">Desarrollo</h5>
+<div class="outline-text-5" id="text-org528990b">
+<p>
+A cada paso tomamos el exponente mayor, lo encuadramos en un subconjunto
+de la partición y dividimos para el siguiente elemento.
+</p>
+
+<p>
+\[F = X^4Y^2+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\]
+</p>
+
+<p>
+Tenemos \((4,2,0) \in \Delta_1\), así que restamos \(XYG_1\):
+</p>
+
+<p>
+\[F = 2X^3YZ^2+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\]
+</p>
+
+<p>
+Tenemos \((3,1,2) \in \Delta_1\), así que restamos \(2Z^2G_1\):
+</p>
+
+<p>
+\[F = 4X^2Z^4+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\]
+</p>
+
+<p>
+Tenemos \((2,3,1) \in \Delta_2\), así que restamos \(ZG_2\):
+</p>
+
+<p>
+\[F = 4X^2Z^4 - 2XY^2Z^3 - 3X^2YZ^4 - XZ^4\]
+</p>
+
+<p>
+Tenemos \((2,1,4) \in \Delta_3\), así que restamos \(3Z^3G_3\):
+</p>
+
+<p>
+\[F = 4X^2Z^4 - 2XY^2Z^3 - XZ^4 - 3XY^2Z^4 + 9XYZ^5\]
+</p>
+
+<p>
+Tenemos \((2,0,4) \in \overline\Delta\), así que tomamos lo demás como resto. Nos acabará
+quedando que:
+</p>
+
+<p>
+\[R = 4X^2Z^4 - 2XY^2Z^3 - XZ^4 - 3XY^2Z^4 + 9XYZ^5\]
+</p>
+
+<p>
+Por lo tanto:
+</p>
+
+<p>
+\[F = (XY+2Z^2)G_1 + ZG_2 + 3Z^3G_3 + R\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0167c27" class="outline-5">
+<h5 id="org0167c27">Cálculo en Sage</h5>
+<div class="outline-text-5" id="text-org0167c27">
+<p>
+Calculamos el resto de la división en sage. Nótese cómo se ve afectado
+por el orden que escojamos para la división.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">R.&lt;x,y,z&gt; = PolynomialRing(QQ, 3, <span style="color: #95e454;">'xyz'</span>, order=<span style="color: #95e454;">'lex'</span>)
+<span style="color: #cae682;">f</span> = x^4*y^2 + x^2*y^3*z - 2*x*y^2*z^3 - 3*x^2*y*z^4
+<span style="color: #cae682;">g1</span> = x^3*y - 2*x^2*z^2
+<span style="color: #cae682;">g2</span> = x^2*y^3 + x*z^3
+<span style="color: #cae682;">g3</span> = x*y^2*z - x^2*y*z - 3*x*y*z^2
+f.<span style="color: #e5786d;">reduce</span>(Ideal([g1])).<span style="color: #e5786d;">reduce</span>(Ideal([g2])).<span style="color: #e5786d;">reduce</span>(Ideal([g3]))
+f.<span style="color: #e5786d;">reduce</span>(Ideal([g3])).<span style="color: #e5786d;">reduce</span>(Ideal([g2])).<span style="color: #e5786d;">reduce</span>(Ideal([g1]))
+</pre>
+</div>
+
+<pre class="example">
+4*x^2*z^4 - 3*x*y^2*z^4 - 2*x*y^2*z^3 + 9*x*y*z^5 - x*z^4
+x^2*y^3*z - 3*x^2*y*z^4 + 4*x^2*z^4 - 2*x*y^2*z^3
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org389133b" class="outline-3">
+<h3 id="org389133b">Ideales monomiales</h3>
+<div class="outline-text-3" id="text-org389133b">
+</div><div id="outline-container-orgf4f796a" class="outline-4">
+<h4 id="orgf4f796a">Ideales monomiales</h4>
+<div class="outline-text-4" id="text-orgf4f796a">
+<p>
+Un ideal es monomial si es de la forma:
+</p>
+
+<p>
+\[ I = (X^\alpha \mid \alpha\in A)\]
+</p>
+
+<p>
+Para algún \(A \subseteq \mathbb{N}^n\). Es decir, está generado por monomios.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfc37c5d" class="outline-4">
+<h4 id="orgfc37c5d">Pertenencia a ideal monomial</h4>
+<div class="outline-text-4" id="text-orgfc37c5d">
+<p>
+Sea \(I = (X^\alpha \mid \alpha\in A)\). \(X^\beta \in I\) ssi existen \(F\) y \(\alpha\) tales que: \(X^\beta = FX^\alpha\).
+</p>
+</div>
+
+<div id="outline-container-orgc1e1eed" class="outline-5">
+<h5 id="orgc1e1eed">Demostración</h5>
+<div class="outline-text-5" id="text-orgc1e1eed">
+<p>
+Los monomios forman una K-base del espacio. Como:
+</p>
+
+<p>
+\[X^\beta = \sum F_iX^\alpha\]
+</p>
+
+<p>
+Todo monomio de la expresión de la derecha es divisible por algún \(X^\alpha\),
+y en particular, \(X^\beta\) debe serlo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb5786f5" class="outline-4">
+<h4 id="orgb5786f5">Monomios en ideal monomial</h4>
+<div class="outline-text-4" id="text-orgb5786f5">
+<p>
+Sea \(I = (X^\alpha \mid \alpha\in A)\) monomial, equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(F \in I\).</li>
+<li>Todo monomio de \(F\) está en \(I\).</li>
+<li>\(F\) es combinación lineal de monomios de \(I\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc033ce6" class="outline-5">
+<h5 id="orgc033ce6">Demostración</h5>
+<div class="outline-text-5" id="text-orgc033ce6">
+<p>
+Los monomios forman una K-base del espacio. Como:
+</p>
+
+<p>
+\[F = \sum F_iX^\alpha\]
+</p>
+
+<p>
+Todo monomio de \(F\) debe ser múltiplo de algún \(X^\alpha\).
+</p>
+
+<p>
+El resto de implicaciones son triviales.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1993526" class="outline-4">
+<h4 id="org1993526">Exponente de un ideal</h4>
+<div class="outline-text-4" id="text-org1993526">
+<p>
+Dado un ideal \(I\) no nulo, definimos su exponente como el subconjunto:
+</p>
+
+<p>
+\[Exp(I) = \{Exp(F) \mid 0\neq F \in I\} \subseteq \mathbb{N}^n\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orged21bcd" class="outline-4">
+<h4 id="orged21bcd">El exponente es monoideal</h4>
+<div class="outline-text-4" id="text-orged21bcd">
+<p>
+\(Exp(I)\) es un monoideal de \(\mathbb{N}^n\).
+</p>
+</div>
+
+<div id="outline-container-org1e5b6a1" class="outline-5">
+<h5 id="org1e5b6a1">Demostración</h5>
+<div class="outline-text-5" id="text-org1e5b6a1">
+<p>
+Sea \(F \in I\), tenemos \(X^\alpha F \in I\) para cualquier \(\alpha\) y:
+</p>
+
+<p>
+\[exp(X^\alpha F) = \alpha + exp(F)\]
+</p>
+
+<p>
+Gracias a que los órdenes son compatibles.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org87f104d" class="outline-4">
+<h4 id="org87f104d">Lema de Dickson para ideales monomiales</h4>
+<div class="outline-text-4" id="text-org87f104d">
+<p>
+Todo ideal monomial tiene un sistema de generadores finito y formado
+por monomios.
+</p>
+</div>
+
+<div id="outline-container-org8393521" class="outline-5">
+<h5 id="org8393521">Demostración</h5>
+<div class="outline-text-5" id="text-org8393521">
+<p>
+Como \(Exp(I)\) es <a href="#org1bcd5c9">monoideal</a>, tiene <a href="#orgeff88d2">sistema de generadores</a> \(Exp(I) = G + \mathbb{N}^n\).
+Dado un exponente \(\alpha \in Exp(I)\), <a href="#orgb5786f5">tenemos</a> \(X^\alpha \in I\), luego tomamos como sistema
+de generadores:
+</p>
+
+<p>
+\[ (X^\alpha \mid \alpha \in G) \]
+</p>
+
+<p>
+Dado cualquier \(F \in I\), sus monomios estarán en \(I\) y serán múltiplo de ellos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org529cc5d" class="outline-4">
+<h4 id="org529cc5d">Corolario de generación de ideales</h4>
+<div class="outline-text-4" id="text-org529cc5d">
+<p>
+Sean \(I,J \subseteq K[X_1,\dots,X_n]\) ideales monomiales:
+</p>
+
+<p>
+\[I=J \iff Exp(I)=Exp(J)\]
+</p>
+</div>
+
+<div id="outline-container-org2be3647" class="outline-5">
+<h5 id="org2be3647">Demostración</h5>
+<div class="outline-text-5" id="text-org2be3647">
+<p>
+Si tienen el mismo exponente, tienen el mismo generador.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1cb8cd7" class="outline-4">
+<h4 id="org1cb8cd7">Unicidad del sistema de generadores minimal</h4>
+<div class="outline-text-4" id="text-org1cb8cd7">
+<p>
+Sea \(I\) monomial no nulo. Existe un único sistema de generadores minimal
+formado por monomios, es decir, ningún subconjunto suyo es generador.
+</p>
+</div>
+
+<div id="outline-container-org8795205" class="outline-5">
+<h5 id="org8795205">Demostración</h5>
+<div class="outline-text-5" id="text-org8795205">
+<p>
+Dado \(G\) el <a href="#org79bc8a0">único</a> sistema generador minimal de \(Exp(I)\). Entonces, sus
+monomios generan al ideal y si:
+</p>
+
+<p>
+\[H \subseteq (X^\alpha\mid \alpha \in G)\]
+</p>
+
+<p>
+genera al ideal, en particular se tendría \(Exp(I) = H + \mathbb{N}^n\), contraviniendo
+minimalidad.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org878fe06" class="outline-4">
+<h4 id="org878fe06">Otros sistemas de generadores</h4>
+<div class="outline-text-4" id="text-org878fe06">
+<p>
+Sea \(G = \{\alpha_1,\dots,\alpha_n\}\) sistema de generadores de \(Exp(I)\). Si \(exp(F_i)=\alpha_i\),
+entonces \(\{F_1,\dots,F_n\}\) es sistema de generadores de \(I\).
+</p>
+</div>
+
+<div id="outline-container-orgceca156" class="outline-5">
+<h5 id="orgceca156">Demostración</h5>
+<div class="outline-text-5" id="text-orgceca156">
+<p>
+Para \(F\in I\), por <a href="#org944abcc">división</a> tenemos:
+</p>
+
+<p>
+\[F = \sum Q_iF_i + R\]
+</p>
+
+<p>
+Como \(R\in I\), \(exp(R) \in Exp(I)\) y debe tenerse \(R = 0\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org834cab4" class="outline-3">
+<h3 id="org834cab4">Bases de Gröbner</h3>
+<div class="outline-text-3" id="text-org834cab4">
+</div><div id="outline-container-org8d052c3" class="outline-4">
+<h4 id="org8d052c3">Bases de Gröbner</h4>
+<div class="outline-text-4" id="text-org8d052c3">
+<p>
+Sea \(I \subseteq K[X_1,\dots,X_n]\) un ideal no nulo. Una base de Gröbner es un conjunto
+\(\mathbb{G} = \{G_1,\dots,G_n\} \subseteq I\) cumpliendo \(Exp(I) = \{exp(G_1),\dots,exp(G_n)\} + \mathbb{N}^n\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org297a1d6" class="outline-4">
+<h4 id="org297a1d6">Propiedades de bases de Gröbner</h4>
+<div class="outline-text-4" id="text-org297a1d6">
+<p>
+Las bases de Gröbner en \(K[X_1,\dots,X_n]\) cumplen:
+</p>
+
+<ol class="org-ol">
+<li>Todo ideal no nulo tiene una base de Gröbner.</li>
+<li>Toda base de Gröbner de un ideal es base de generadores del ideal.</li>
+<li>Teorema de la base de Hilbert: todo ideal es finitamente generado.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgf3624e3" class="outline-5">
+<h5 id="orgf3624e3"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org85c5366" class="outline-4">
+<h4 id="org85c5366">Resto en bases de Gröbner</h4>
+<div class="outline-text-4" id="text-org85c5366">
+<p>
+Sea \(I\) ideal con bases de Gröbner \(\mathbb{G},\mathbb{G}'\). Para \(F \in K[X_1,\dots,X_n]\):
+</p>
+
+<p>
+\[R(F;\mathbb{G}) = R(F;\mathbb{G}')\]
+</p>
+</div>
+
+<div id="outline-container-org798027e" class="outline-5">
+<h5 id="org798027e">Demostración</h5>
+<div class="outline-text-5" id="text-org798027e">
+<p>
+Tenemos que, al coincidir los exponentes:
+</p>
+
+<p>
+\[Exp(I) = \bigcup_{i=1}^t \Delta^i\]
+</p>
+
+<p>
+Por lo tanto, \(\overline{\Delta} = \overline{\Delta}'\), y tenemos \({\cal N}(R-R') \subseteq {\cal N}(R) \cup {\cal N}(R') \subseteq \overline{\Delta}\).
+Pero como \(R-R' \in I\), y tenemos \(exp(R-R') \in Exp(I)\), debe ser nulo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5629f7e" class="outline-4">
+<h4 id="org5629f7e">Caracterización de bases de Gröbner</h4>
+<div class="outline-text-4" id="text-org5629f7e">
+<p>
+Sea \(I\) ideal no nulo, equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(\mathbb{G}\) es base de Gröbner de \(I\).</li>
+<li>\(R(F,\mathbb{G}) = 0\), para todo \(F \in I\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org198ba07" class="outline-5">
+<h5 id="org198ba07">Demostración</h5>
+<div class="outline-text-5" id="text-org198ba07">
+</div><div id="outline-container-org1f515db" class="outline-6">
+<h6 id="org1f515db">Primer punto al segundo</h6>
+<div class="outline-text-6" id="text-org1f515db">
+<p>
+Tenemos \(exp(R) \in Exp(I) \cap \overline{\Delta}\), luego debe ser \(exp(R) = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1445360" class="outline-6">
+<h6 id="org1445360"><span class="todo TODO">TODO</span> Segundo punto al primero</h6>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org83ea4f7" class="outline-4">
+<h4 id="org83ea4f7">Semizigia</h4>
+<div class="outline-text-4" id="text-org83ea4f7">
+<p>
+Sean \(F,G \in K[X_1,\dots,X_n]\) no nulos. Definimos el S-polinomial o semizigia
+como el siguiente polinomio:
+</p>
+
+<p>
+\[{\cal S}(F,G) 
+= \frac{1}{cl(F)}X^{\gamma-\alpha}F - \frac{1}{cl(G)}X^{\gamma-\beta}G\]
+</p>
+
+<p>
+donde \(\gamma_i = \max\{\alpha_i,\beta_i\}\), para \(\gamma = (\gamma_1,\dots,\gamma_n)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org01ed55b" class="outline-4">
+<h4 id="org01ed55b">Teorema de Buchberger</h4>
+<div class="outline-text-4" id="text-org01ed55b">
+<p>
+Sea \(I\) ideal no nulo de \(K[X_1,\dots,X_n]\) y \(\mathbb{G} = \{G_1,\dots,G_n\}\) un sistema de
+generadores. Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(\mathbb{G}\) es base de Gröbner.</li>
+<li>Para cualquier ordenación de \(\mathbb{G}\), se tiene \(R({\cal S}(G_i,G_j); \mathbb{G}) = 0\)
+para cualesquiera \(i \neq j\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org2fdb283" class="outline-5">
+<h5 id="org2fdb283"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgbced8df" class="outline-4">
+<h4 id="orgbced8df"><span class="todo TODO">TODO</span> Algoritmo de Buchberger</h4>
+<div class="outline-text-4" id="text-orgbced8df">
+<p>
+Sea \(I\) ideal no nulo y \(G\) sistema de generadores. Es posible construir
+una base de Gröbner con los siguientes pasos:
+</p>
+
+<ol class="org-ol">
+<li>\(\mathbb{G}_0 = \{G_1,\dots,G_n\}\)</li>
+<li>\(\mathbb{G}_{n+1} = \mathbb{G}_n \cup \{R\}\)</li>
+</ol>
+
+<p>
+Entonces cuando \(\mathbb{G}_i = \mathbb{G}_{i+1}\), podemos asegurar que \(\mathbb{G}_i\) es base de Gröbner del
+ideal \(I\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd872d6a" class="outline-4">
+<h4 id="orgd872d6a">Retirando un polinomio de una base de Gröbner</h4>
+<div class="outline-text-4" id="text-orgd872d6a">
+<p>
+Sea \(\mathbb{G}\) una base de Gröbner de un ideal no nulo \(I \subseteq K[X_1,\dots,X_n]\) y sea
+\(F \in \mathbb{G}\) tal que \(exp(F) \in \{exp(G) \mid G \in \mathbb{G}, F \neq G \}+\mathbb{N}^n\). Entonces, \(\mathbb{G}\setminus\{F\}\)
+es también una base de Gröbner de \(I\).
+</p>
+</div>
+
+<div id="outline-container-org8760a21" class="outline-5">
+<h5 id="org8760a21"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org965a7cf" class="outline-4">
+<h4 id="org965a7cf">Base de Gröbner minimal</h4>
+<div class="outline-text-4" id="text-org965a7cf">
+<p>
+Una base de Gröbner de un ideal no nulo \(I \subseteq K[X_1,\dots,X_n]\) se dice minimal
+si:
+</p>
+
+<ol class="org-ol">
+<li>\(cl(F) = 1,\quad\forall F\in\mathbb{G}\)</li>
+<li>\(exp(F) \notin \{exp(G) \mid G \in \mathbb{G}, G \neq F\} + \mathbb{N}^n\)</li>
+</ol>
+
+<p>
+Es claro que todo ideal tiene una base de Gröbner minimal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd61d8d0" class="outline-4">
+<h4 id="orgd61d8d0">Caracterización de bases minimales</h4>
+<div class="outline-text-4" id="text-orgd61d8d0">
+<p>
+Sea \(\mathbb{G}\) un sistema de generadores de \(I\). Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(\mathbb{G}\) es una base de Gröbner minimal de \(I\).</li>
+<li>\(\{exp(G_1),\dots,exp(G_t)\}\) es sistema minimal de generadores de \(Exp(I)\).</li>
+</ol>
+
+<p>
+Consecuentemente, los términos líderes de los polinomios de una base de
+Gröbner minimal están determinados de forma única y, además, dos bases
+de Gröbner minimales tienen el mismo número de elementos.
+</p>
+</div>
+
+<div id="outline-container-org0e5375e" class="outline-5">
+<h5 id="org0e5375e"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgfc500b9" class="outline-4">
+<h4 id="orgfc500b9">Base de Gröbner reducida</h4>
+<div class="outline-text-4" id="text-orgfc500b9">
+<p>
+Una base de Gröbner \(\mathbb{G}\) de \(I\) es reducida si para cualquier \(\forall F \in \mathbb{G}\):
+</p>
+
+<ol class="org-ol">
+<li>\(cl(F) = 1\)</li>
+<li>\({\cal N}(F) \cap \{exp(G) \mid G \in \mathbb{G}, G \neq F\} + \mathbb{N}^n = \varnothing\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orga8fdc1d" class="outline-4">
+<h4 id="orga8fdc1d">Una base de Gröbner reducida es minimal</h4>
+<div class="outline-text-4" id="text-orga8fdc1d">
+<p>
+Toda base de Gröbner reducida es minimal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf55a5c" class="outline-4">
+<h4 id="orgaf55a5c">Existencia y unicidad de la base reducida</h4>
+<div class="outline-text-4" id="text-orgaf55a5c">
+<p>
+Todo ideal no nulo \(I\) tiene una única base de Gröbner reducida
+</p>
+</div>
+
+<div id="outline-container-orgc70a90c" class="outline-5">
+<h5 id="orgc70a90c"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b03ffd" class="outline-2">
+<h2 id="org9b03ffd">3. Variedades afines</h2>
+<div class="outline-text-2" id="text-org9b03ffd">
+</div><div id="outline-container-orga4de135" class="outline-3">
+<h3 id="orga4de135">Variedades afines</h3>
+<div class="outline-text-3" id="text-orga4de135">
+</div><div id="outline-container-org1b19763" class="outline-4">
+<h4 id="org1b19763">Espacio afín de un álgebra</h4>
+<div class="outline-text-4" id="text-org1b19763">
+<p>
+Llamamos \(\mathbb{A}^n(K)\) al espacio afín sobre \(K^n\) con la función afín
+\(\varphi : K^n \times K^n \longrightarrow K^n\) dada por \(\varphi(u,v) = v-u\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9ba6569" class="outline-4">
+<h4 id="org9ba6569">Funciones polinómicas</h4>
+<div class="outline-text-4" id="text-org9ba6569">
+<p>
+A partir de cada polinomio \(F \in K[X_1,\dots,X_n]\), tenemos definida una función
+polinómica \(F^\ast : \mathbb{A}^n(K) \longrightarrow K\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org743be93" class="outline-4">
+<h4 id="org743be93">Álgebra de funciones polinómicas</h4>
+<div class="outline-text-4" id="text-org743be93">
+<p>
+Al conjunto de funciones polinómicas lo denotamos por \(P(\mathbb{A}^n(K))\).
+Forma una K-álgebra con las operaciones usuales:
+</p>
+
+<p>
+\[\begin{aligned}
+(F^\ast+G^\ast)(a_1,\dots,a_n) 
+&= 
+F^\ast(a_1,\dots,a_n)+G^\ast(a_1,\dots,a_n)
+\\
+(F^\ast G^\ast)(a_1,\dots,a_n) 
+&= 
+F^\ast(a_1,\dots,a_n)G^\ast(a_1,\dots,a_n)
+\\
+(\alpha F^\ast)(a_1,\dots,a_n) 
+&= 
+\alpha F^\ast(a_1,\dots,a_n)
+\end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbfe23d0" class="outline-4">
+<h4 id="orgbfe23d0">Epimorfismo de los polinomios a las funciones polinómicas</h4>
+<div class="outline-text-4" id="text-orgbfe23d0">
+<p>
+Por definición se tiene un epimorfismo \(\Delta : K[X_1,\dots,X_n] \longrightarrow P(\mathbb{A}^n(K))\) 
+dado por:
+</p>
+
+<p>
+\[\Delta(F) = F^\ast\]
+</p>
+</div>
+
+<div id="outline-container-orgc4bfe6f" class="outline-5">
+<h5 id="orgc4bfe6f">No es inyectivo en general</h5>
+<div class="outline-text-5" id="text-orgc4bfe6f">
+<p>
+La función dada por un polinomio no nulo puede ser nula. Por ejemplo:
+</p>
+
+<p>
+\[F = X(X+1)\]
+\[G = 0\]
+</p>
+
+<p>
+Dan lugar a la misma función en \(\mathbb{F}_2\), pero son polinomios distintos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org132ae66" class="outline-4">
+<h4 id="org132ae66">Isomorfismo en cuerpos infinitos</h4>
+<div class="outline-text-4" id="text-org132ae66">
+<p>
+Sea \(K\) cuerpo infinito. Sus polinomios verifican:
+</p>
+
+<ol class="org-ol">
+<li>\(F^\ast = 0 \iff F = 0\).</li>
+<li>\(F^\ast=G^\ast \iff F = G\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org3dce55b" class="outline-5">
+<h5 id="org3dce55b"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org45fb7ed" class="outline-4">
+<h4 id="org45fb7ed">Variedad de un polinomio</h4>
+<div class="outline-text-4" id="text-org45fb7ed">
+<p>
+Dado \(F \in K[X_1,\dots,X_n]\), denotamos por \(\mathbb{V}(F)\) al conjunto de sus ceros:
+</p>
+
+<p>
+\[\mathbb{V}(F) = \Big\{(a_1,\dots,a_n) \in \mathbb{A}^n(K) \Big| F(a)=0 \Big\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org161b57e" class="outline-4">
+<h4 id="org161b57e">Variedad algebraica afín</h4>
+<div class="outline-text-4" id="text-org161b57e">
+<p>
+Un conjunto es una <b>variedad algebraica afín</b> cuando existe
+\({\cal F} \subseteq K[X_1,\dots,X_n]\) tal que \(\mathbb{V}({\cal F})\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfe87be9" class="outline-4">
+<h4 id="orgfe87be9">Variedad de un ideal</h4>
+<div class="outline-text-4" id="text-orgfe87be9">
+<p>
+Sea \({\cal F} \subseteq K[X_1,\dots,X_n]\) y sea \({\cal I} = ({\cal F})\) el ideal generado. Se tiene:
+</p>
+
+<ol class="org-ol">
+<li>\(\mathbb{V}({\cal F}) = \mathbb{V}({\cal I})\)</li>
+<li>\(\exists F_1,\dots,F_t : \mathbb{V}({\cal F}) = \mathbb{V}(F_1,\dots,F_t)\)</li>
+</ol>
+</div>
+
+<div id="outline-container-org913b072" class="outline-5">
+<h5 id="org913b072"><span class="todo TODO">TODO</span> Demostración</h5>
+<div class="outline-text-5" id="text-org913b072">
+</div><div id="outline-container-orgce73237" class="outline-6">
+<h6 id="orgce73237">Punto 2</h6>
+<div class="outline-text-6" id="text-orgce73237">
+<p>
+Todo ideal en el anillo de polinomios es finitamente generado.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3001bd1" class="outline-4">
+<h4 id="org3001bd1">Variedad de una familia de ideales</h4>
+<div class="outline-text-4" id="text-org3001bd1">
+<p>
+Las variedades dadas por ideales cumplen:
+</p>
+
+<ol class="org-ol">
+<li>\[\mathbb{V}\left(
+     \sum_{\lambda \in \Lambda} J_\lambda
+     \right) = \bigcap_{\lambda \in \Lambda} \mathbb{V}(J_\lambda)\]</li>
+
+<li>\(\mathbb{V}(J_1J_2) = \mathbb{V}(J_1) \cup \mathbb{V}(J_2) = \mathbb{V}(J_1 \cap J_2)\)</li>
+
+<li>\(\mathbb{V}(0) = \mathbb{A}^n(K)\)</li>
+
+<li>\(\mathbb{V}(K[X_1,\dots,X_n]) = \varnothing\)</li>
+</ol>
+</div>
+
+<div id="outline-container-org6e691c7" class="outline-5">
+<h5 id="org6e691c7"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org0d0b13e" class="outline-4">
+<h4 id="org0d0b13e">Topología de Zariski</h4>
+<div class="outline-text-4" id="text-org0d0b13e">
+<p>
+Las variedades son los cerrados de una topología sobre \(\mathbb{A}^n(K)\).
+</p>
+
+<p>
+\[\{
+V \subseteq \mathbb{A}^n(K) 
+\mid
+V \text{ es variedad algebraica afín}
+\}\]
+</p>
+</div>
+
+<div id="outline-container-orgc9135eb" class="outline-5">
+<h5 id="orgc9135eb">Demostración</h5>
+<div class="outline-text-5" id="text-orgc9135eb">
+<p>
+Desde las propiedades de una <a href="#org3001bd1">familia de ideales</a> tenemos que la 
+intersección arbitraria y la unión finita de variedades son variedad.
+Además, lo son el vacío y el total.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org92de5b2" class="outline-4">
+<h4 id="org92de5b2">Ejemplos</h4>
+<div class="outline-text-4" id="text-org92de5b2">
+</div><div id="outline-container-orgc6b7bc7" class="outline-5">
+<h5 id="orgc6b7bc7">Puntos discretos</h5>
+<div class="outline-text-5" id="text-orgc6b7bc7">
+<p>
+Dado un conjunto discreto de puntos:
+</p>
+
+<p>
+\[\{(a_1,\dots,a_n)\} = \mathbb{V}(X_1-a_1,\dots,X_n-a_n)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3fdeaf2" class="outline-5">
+<h5 id="org3fdeaf2">Hipersuperficies</h5>
+<div class="outline-text-5" id="text-org3fdeaf2">
+<p>
+Toda variedad generada por un polinomio no constante:
+</p>
+
+<p>
+\[
+\mathbb{V}(F) = \Big\{ 
+\alpha \in \mathbb{A}^n(K) \mid F(\alpha) = 0
+\Big\}
+\]
+</p>
+
+<p>
+Toda variedad afín es una intersección finita de hipersuperficies.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org961180d" class="outline-5">
+<h5 id="org961180d">Hiperplano</h5>
+<div class="outline-text-5" id="text-org961180d">
+<p>
+La variedad de un polinomio de grado total 1 es un hiperplano.
+Para \(F = a_0 + a_1X_1 +a_2X_2 + \dots + a_nX_n\), tenemos:
+</p>
+
+<p>
+\[
+\mathbb{V}(F) = \Big\{
+\alpha \in \mathbb{A}^n(K) 
+\mid 
+a_0 + a_1\alpha_1 + a_2\alpha_2 + \dots + a_n\alpha_n = 0
+\Big\}
+\]
+</p>
+
+<p>
+La intersección finita de hiperplanos es una variedad afín lineal.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org92a7cca" class="outline-4">
+<h4 id="org92a7cca">Representaciones paramétricas</h4>
+<div class="outline-text-4" id="text-org92a7cca">
+<p>
+Una <b>representación paramétrica racional</b> de \(\mathbb{V}(F_1,\dots,F_t)\) es un conjunto
+de funciones \(G_i,H_i \in K[X_1,\dots,X_n]\) cumpliendo:
+</p>
+
+<p>
+\[\left\{ 
+\frac{G_1}{H_1}(t_1,\dots,t_n),
+\frac{G_2}{H_2}(t_1,\dots,t_n),
+\dots,
+\frac{G_n}{H_n}(t_1,\dots,t_n)
+\;\middle|\;
+t_1,\dots,t_n \in \mathbb{K}
+\right\}
+\subseteq
+V\]
+</p>
+
+<p>
+Cuando \(H_i = 1\), la llamamos <b>representación polinomial</b>.
+</p>
+</div>
+
+<div id="outline-container-org436ec19" class="outline-5">
+<h5 id="org436ec19">Ejemplos</h5>
+<div class="outline-text-5" id="text-org436ec19">
+</div><div id="outline-container-org9adaaf3" class="outline-6">
+<h6 id="org9adaaf3">Representación no racional del círculo</h6>
+<div class="outline-text-6" id="text-org9adaaf3">
+<p>
+El círculo es una variedad de la que puede darse una representación
+no paramétrica.
+</p>
+
+<p>
+\[V = \{(sen(t), cos(t)) \midt \in \mathbb{R}\}\]
+</p>
+
+<p>
+Sabemos que es variedad porque puede expresarse como:
+</p>
+
+<p>
+\[ V = \mathbb{V}(X^2+Y^2-1) \]
+</p>
+
+<p>
+Y podemos darle además una representación paramétrica racional
+no trivial:
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3f2469b" class="outline-4">
+<h4 id="org3f2469b">Ideal de una variedad</h4>
+<div class="outline-text-4" id="text-org3f2469b">
+<p>
+Sea \(S \subseteq \mathbb{A}^n(K)\). Definimos el ideal asociado a \(S\) como:
+</p>
+
+<p>
+\[
+\mathbb{I}(S)
+=
+\Big\{F \in K[X_1,\dots,X_n] \mid \forall a \in S: F(a) = 0\Big\}
+\]
+</p>
+</div>
+
+<div id="outline-container-org6672bae" class="outline-5">
+<h5 id="org6672bae">Es ideal</h5>
+<div class="outline-text-5" id="text-org6672bae">
+<p>
+Trivialmente sabiendo que se conservan los ceros por suma y producto
+externo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0dc82d7" class="outline-4">
+<h4 id="org0dc82d7">Propiedades de variedades e ideales</h4>
+<div class="outline-text-4" id="text-org0dc82d7">
+<p>
+Los ideales y sus variedades cumplen:
+</p>
+
+<ol class="org-ol">
+<li>\(S_1 \subseteq S_2 \implies \mathbb{I}(S_1) \supseteq \mathbb{I}(S_2)\).</li>
+<li>\(\mathbb{I}(\varnothing) = K[X_1,\dots,X_n]\).</li>
+<li>\(S \subseteq \mathbb{V}\mathbb{I}(S)\) y \(J \subseteq \mathbb{I}\mathbb{V}(J)\).</li>
+<li>\(\mathbb{I}(S) = \mathbb{I}\mathbb{V}\mathbb{I}(S)\) y \(\mathbb{V}(J) = \mathbb{V}\mathbb{I}\mathbb{V}(J)\).</li>
+<li>\(\mathbb{I}(S)\) es ideal radical.</li>
+<li>Cuando \(V \subseteq \mathbb{A}^n(K)\) es variedad afín, \(V = \mathbb{V}\mathbb{I}(V)\).</li>
+<li>\(V_1 \subseteq V_2 \iff \mathbb{I}(V_1) \supseteq \mathbb{I}(V_2)\) y \(V_1 \subsetneq V_2 \iff \mathbb{I}(V_1) \supsetneq \mathbb{I}(V_2)\).</li>
+<li>\(\mathbb{I}(V_1 \cup V_2) = \mathbb{I}(V_1) \cap \mathbb{I}(V_2)\)</li>
+<li>\(V_1 \cup V_2 = \mathbb{V}(\mathbb{I}(V_1)\mathbb{I}(V_2)) = \mathbb{V}(\mathbb{I}(V_1) \cap \mathbb{I}(V_2))\).</li>
+<li>\[\bigcap_{\lambda \in \Lambda} V_\lambda = \mathbb{V}\left(\sum_{\lambda\in\Lambda} \mathbb{I}(V_\lambda)\right)\]</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc0774e9" class="outline-5">
+<h5 id="orgc0774e9"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org77df4d9" class="outline-4">
+<h4 id="org77df4d9">El ideal de una variedad es radical</h4>
+<div class="outline-text-4" id="text-org77df4d9">
+<p>
+Para cualquier \(S\), tenemos \(\sqrt{\mathbb{I}(S)} = \mathbb{I}(S)\).
+</p>
+</div>
+
+<div id="outline-container-orgb793b55" class="outline-5">
+<h5 id="orgb793b55">Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orge1df2ad" class="outline-4">
+<h4 id="orge1df2ad"><span class="todo TODO">TODO</span> Todo ideal radical es de esa forma</h4>
+<div class="outline-text-4" id="text-orge1df2ad">
+<p>
+La función \(\mathbb{{I}}\) considerada como:
+</p>
+
+<p>
+\[ \mathbb{I} : \{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\}
+\longrightarrow
+\{ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}\}\]
+</p>
+
+<p>
+Es inyectiva, se tiene \(\mathbb{V}\mathbb{I} = 1\) y en general no se tiene \(\mathbb{I}\mathbb{V} = 1\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2dfbcb4" class="outline-3">
+<h3 id="org2dfbcb4">Anillos de coordenadas</h3>
+<div class="outline-text-3" id="text-org2dfbcb4">
+</div><div id="outline-container-orgb69c961" class="outline-4">
+<h4 id="orgb69c961">Teorema de los ceros de Hilbert</h4>
+<div class="outline-text-4" id="text-orgb69c961">
+<p>
+Sea \(K\) algebraicamente cerrado. Entonces para cualquier ideal
+\(J \subseteq K[X_1,\dots,X_n]\), se verifica que:
+</p>
+
+<p>
+\[\mathbb{I}\mathbb{V}(J) = \sqrt{J}\]
+</p>
+
+<p>
+Y por tanto hay una biyección entre ideales radicales y variedades.
+</p>
+
+<p>
+\[ \{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\}
+\cong
+\{ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}\}\]
+</p>
+</div>
+
+<div id="outline-container-orgdb8eb64" class="outline-5">
+<h5 id="orgdb8eb64"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org7333823" class="outline-4">
+<h4 id="org7333823">Morfismos de variedades afines</h4>
+<div class="outline-text-4" id="text-org7333823">
+<p>
+Un <b>morfismo entre variedades</b> de \(\mathbb{A}^n\) y \(\mathbb{A}^m\) es una aplicación \(f : V \longrightarrow W\) tal
+que existen polinomios \(F_1,\dots,F_n\) tales que:
+</p>
+
+<p>
+\[f(a) = (F_1(a),F_2(a),\dots,F_n(a)) \quad \forall a \in V\]
+</p>
+
+<p>
+Los llamamos también <b>aplicaciones polinómicas</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org713bbce" class="outline-4">
+<h4 id="org713bbce">Isomorfismos de variedades afines</h4>
+<div class="outline-text-4" id="text-org713bbce">
+<p>
+Un isomorfismo entre variedades afines es un morfismo entre variedades
+cuya inversa es un morfismo entre variedades.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge0faf05" class="outline-4">
+<h4 id="orge0faf05">Anillo de coordenadas</h4>
+<div class="outline-text-4" id="text-orge0faf05">
+<p>
+Sea \(V \subset \mathbb{A}^n(K)\) una variedad algebraica afín. Definimos el anillo de 
+coordenadas de \(V\) como:
+</p>
+
+<p>
+\[
+K[V] = \frac{K[X_1,\dots,X_n]}{\mathbb{I}(V)}
+\]
+</p>
+
+<p>
+Estos anillos son K-álgebras.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgca6392e" class="outline-4">
+<h4 id="orgca6392e">Ejemplos de anillo de coordenadas</h4>
+<div class="outline-text-4" id="text-orgca6392e">
+<p>
+Sea \(V = \mathbb{V}(X^3-y^2) \subseteq \mathbb{A}^2(K)\). 
+</p>
+</div>
+
+<div id="outline-container-org621b700" class="outline-5">
+<h5 id="org621b700">En característica 0</h5>
+<div class="outline-text-5" id="text-org621b700">
+<p>
+Si \(car(K)=0\), entonces \(\mathbb{I}(V) = (X^3-Y^2)\).
+Entonces:
+</p>
+
+<p>
+\[K[V] = \frac{K[X_1,\dots,X_n]}{(X^3-Y^2)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org90ac10f" class="outline-5">
+<h5 id="org90ac10f">En característica 2</h5>
+<div class="outline-text-5" id="text-org90ac10f">
+<p>
+En característica 2 tenemos \(V = \{(0,0),(1,1)\}\), luego
+\(\mathbb{I}(V) = \mathbb{I}(\{(0,0\} \cup \{(1,1)\}) = (X,Y) \cap (X-1,Y-1)\), y en este caso:
+</p>
+
+<p>
+\[\mathbb{F}_2[V]
+= 
+\frac{\mathbb{F}_2[X,Y]}{(X,Y) \cap (X-1,Y-1)}
+= 
+\frac{\mathbb{F}_2[X,Y]}{(X,Y)} +
+\frac{\mathbb{F}_2[X,Y]}{(X-1,Y-1)}
+=
+\mathbb{F}_2 \times \mathbb{F}_2
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org511e475" class="outline-4">
+<h4 id="org511e475">Propiedades de los morfismos de variedades</h4>
+<div class="outline-text-4" id="text-org511e475">
+<p>
+Sea \(V \subseteq \mathbb{A}^n(K)\) y \(W \subseteq \mathbb{A}^m(K)\) variedades algebraicas afines.
+</p>
+
+<ol class="org-ol">
+<li>Toda \(f : V \longrightarrow W\) aplicación polinómica define un homomorfismo de
+K-álgebras \(\tilde{f} : K[W] \longrightarrow K[V]\).</li>
+<li>Para cada homomorfismo de K-álgebras \(h : K[W] \longrightarrow K[V]\) existe una
+única aplicación polinómica \(f : V \longrightarrow W\) única tal que \(\tilde{f} = h\).</li>
+<li>Si \(V_1 \overset{f}\longrightarrow V_2 \overset{g}\longrightarrow V_3\) son aplicaciones polinómicas, tenemos que
+la composición se respeta: \(\widetilde{f} \circ \widetilde{g} = \widetilde{g \circ f}\).</li>
+<li>Dada una aplicación polinómica entre variedades, \(f\) es isomorfismo
+ssi \(\widetilde{f}\) es isomorfismo.</li>
+</ol>
+
+<p>
+Es decir, hay un funtor contravariante entre ambas categorías.
+</p>
+</div>
+
+<div id="outline-container-orga2f2212" class="outline-5">
+<h5 id="orga2f2212"><span class="done DONE">DONE</span> Demostración</h5>
+<div class="outline-text-5" id="text-orga2f2212">
+</div><div id="outline-container-org0f51102" class="outline-6">
+<h6 id="org0f51102">Punto 1</h6>
+<div class="outline-text-6" id="text-org0f51102">
+<p>
+Sea \(f(a) = (F_1(a),\dots,F_m(a))\).
+</p>
+
+<p>
+\[\begin{tikzcd}
+K \rar[hook]\drar[hook]& K[Y_1,\dots,Y_n] \dar{\exists! f'} \\
+& K[X_1,\dots,X_n]
+\end{tikzcd}\]
+</p>
+
+<p>
+donde \(f'\) es el único morfismo de K-álgebras tal que \(f'(Y_j) = F_j\).
+</p>
+
+<p>
+Supongamos que \(G \in \mathbb{I}(W)\), veamos que \(f'(G) \in \mathbb{I}(V)\). Como sabemos que
+\(V = \mathbb{V}\mathbb{I}(V)\). Sea \(a \in V\), entonces \(f(a) \in W = \mathbb{V}\mathbb{I}(W)\) y se anula en todos
+los polinomios de \(\mathbb{I}(W)\), en particular \(G(f(a))=0\).
+</p>
+
+<p>
+\[ f'(G)(a) = G(F_1(a),\dots,F_n(a)) = G(f(a)) = 0\]
+</p>
+
+<p>
+Acabamos de ver que está bien definido con:
+</p>
+
+<p>
+\[\widetilde{f}(G + \mathbb{I}(W)) = G(F_1,\dots,F_n)+\mathbb{I}(V)\]
+</p>
+</div>
+</div>
+<div id="outline-container-org49be00c" class="outline-6">
+<h6 id="org49be00c">Punto 2</h6>
+<div class="outline-text-6" id="text-org49be00c">
+</div><div id="outline-container-org2ebc867" class="outline-7">
+<h7 id="org2ebc867">Existencia</h7>
+<div class="outline-text-7" id="text-org2ebc867">
+<p>
+Dada \(h\), tenemos que:
+</p>
+
+<p>
+\[\begin{aligned}
+h(Y_1+\mathbb{I}(W)) &= F_1 + \mathbb{I}(V) \\
+h(Y_2+\mathbb{I}(W)) &= F_2 + \mathbb{I}(V) \\
+\dots\\
+h(Y_m+\mathbb{I}(W)) &= F_m + \mathbb{I}(V) \\
+\end{aligned}\]
+</p>
+
+<p>
+Y definimos \(f : V \longrightarrow \mathbb{A}^m(K)\) como:
+</p>
+
+<p>
+\[f(a) = (F_1(a),\dots,F_m(a))\]
+</p>
+
+<p>
+Si \(a \in V\), veremos que \(f(a) \in W\). Sea \(G \in \mathbb{I}(W)\), entonces 
+\(G+\mathbb{I}(W) = 0 + \mathbb{I}(W)\), luego \(0 = h(G+\mathbb{I}(W)) = G(F_1,\dots,F_n) + \mathbb{I}(V)\).
+Pero \(G(F_1,\dots,F_n)(a) = G(f(a)) = 0\).
+</p>
+
+<p>
+Por tanto, tengo una \(f: V\longrightarrow W\) polinómica por definición.
+</p>
+
+<p>
+Si \(h(y_j + \mathbb{I}(W) = F_j'+\mathbb{I}(V)\), entonces \(F_j + \mathbb{I}(V) = F_j' + \mathbb{I}(V)\) ssi
+\(F_j - F_j' \in \mathbb{I}(V)\), lo que da \((F_j-F_j')(a) = 0\) y \(F_j(a) = F_j'(a)\) para cualquier
+\(a\). Es claro por tanto que \(\widetilde{f} = h\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc96c9a8" class="outline-7">
+<h7 id="orgc96c9a8">Unicidad</h7>
+<div class="outline-text-7" id="text-orgc96c9a8">
+<p>
+Supongamos una \(g : V \longrightarrow W\) tal que \(\widetilde{g} = h\). Sean
+\(G_1,\dots,G_n \in K[X_1,\dots,X_n]\) tales que \(g(a) = (G_1(a),\dots,G_m(a))\). Entonces
+\(\widetilde{g} : K[W] \longrightarrow K[V]\):
+</p>
+
+<p>
+\[\tilde{g}(Y_j + \mathbb{I}(W)) = G_j + \mathbb{I}(V)\]
+\[h(Y_j + \mathbb{I}(W)) = F_j + \mathbb{I}(V)\]
+</p>
+
+<p>
+Por lo tanto \(G_j - F_j \in \mathbb{I}(V)\) para cualquier \(j\).
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0f5ee3e" class="outline-4">
+<h4 id="org0f5ee3e">Ejemplo de polinómica biyectiva no isomorfismo</h4>
+<div class="outline-text-4" id="text-org0f5ee3e">
+<p>
+Sea \(V = \mathbb{A}^1(\mathbb{R})\) y \(W = \mathbb{V}(X^3-Y^2) \subseteq \mathbb{A}^2(\mathbb{R})\). Tenemos una aplicación
+del tipo \(f : \mathbb{A}^1(\mathbb{R}) \longrightarrow W\):
+</p>
+
+<p>
+\[ f(a) = (a^2,a^3)
+\]
+</p>
+
+<p>
+Que es claro que es polinómica. Tenemos \(f\) biyectiva. Pero vemos que no
+es homomorfismo de variedades.
+</p>
+
+<p>
+\[\widetilde{f} : \frac{K[X,Y]}{(X^3-Y^2)} \longrightarrow K[T]\]
+</p>
+
+<p>
+Pero \(\tilde{f}\) no es sobreyectiva porque \(T \notin \im(\tilde{f})\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgdd59a3d" class="outline-4">
+<h4 id="orgdd59a3d">Calculando núcleos e imágenes de morfismos de anillos de coordenadas</h4>
+<div class="outline-text-4" id="text-orgdd59a3d">
+<p>
+Sea \(h : K[W] \longrightarrow K[V]\) un morfismo de K-álgebras.
+Supongamos \(h(y_i + \mathbb{I}(W)) = F_j+\mathbb{I}(V)\) y \(h(G + \mathbb{I}(W)) = G(F_1,\dots,F_n) + \mathbb{I}(V)\).
+</p>
+
+<ol class="org-ol">
+<li><p>
+Sea \(A = K[X_1,\dots,X_n]\) y sea \(C\) el ideal de \(A\) generado por:
+</p>
+
+<p>
+\[\{Y_1-F_1,\dots,Y_m-F_m\} \cup \{\text{sistema de generdaores de } \mathbb{I}(V)\}\]
+</p>
+
+<p>
+Entonces \(\ker(h) = ((C \cap K[Y_1,\dots,Y_m]) + \mathbb{I}(W)) / \mathbb{I}(W)\).
+</p></li>
+
+<li><p>
+Sea \(\mathbb{G}\) una base de Gröbner reducida de \(C\) con orden lexicográfico.
+</p>
+
+<p>
+\[F + \mathbb{I}(V) \in \im(h) 
+   \iff
+   R(F;\mathbb{G}) \in K[Y_1,\dots,Y_n]
+   \]
+</p>
+
+<p>
+Además, en tal caso, \(F+\mathbb{I}(V) = h(R(F;G) + \mathbb{I}(W))\).
+</p></li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Mario Román</p>
-<p class="date">Created: 2016-12-24 Sat 00:22</p>
+<p class="date">Created: 2017-01-10 Tue 22:18</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
