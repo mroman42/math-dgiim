@@ -4876,6 +4876,15 @@ Tenemos que:
 
 ** 2. Bases de Gröbner
 *** R-álgebras
+**** R-módulo
+Dado $R$ anillo. Un *R-módulo* (izquierdo) es un grupo abeliano $M$ junto
+a una operación $\cdot : (R,M) \longrightarrow M$ verificando:
+
+  - $r(x+y) = rx+ry$
+  - $(r+s)x = rx+sx$
+  - $r(sx) = (rs)x$
+  - $1x = x$
+
 **** R-álgebras
 Una *R-álgebra*, $S$ es un anillo con estructura de R-módulo, tal que:
 
@@ -4903,8 +4912,8 @@ Y forma una R-álgebra con la inclusión desde $R$.
 
 **** Propiedad universal del anillo de polinomios
 Sea $S$ anillo y $f : R \longrightarrow S$ homomorfismo de anillos. Sean $s_1,\dots,s_n \in S$
-elementos arbitrarios; entonces existe un único homomorfismo de R-álgebras
-$f_{s_1,\dots,s_n} : R[X_1,\dots,X_n] \longrightarrow S$ tal que:
+elementos arbitrarios; entonces existe un único homomorfismo de 
+R-álgebras $f_{s_1,\dots,s_n} : R[X_1,\dots,X_n] \longrightarrow S$ tal que:
 
 \[ \begin{tikzcd}
 R \rar[hook]{i} \drar[swap]{f} & R[X_1,X_2,\dots,X_n] \dar[dashed]{f_{s_1,\dots,s_n}} \\
