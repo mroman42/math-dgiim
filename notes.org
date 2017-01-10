@@ -5296,22 +5296,35 @@ Un ideal es monomial si es de la forma:
 
 \[ I = (X^\alpha \mid \alpha\in A)\]
 
-Para algún $A \subseteq \mathbb{N}^n$.
+Para algún $A \subseteq \mathbb{N}^n$. Es decir, está generado por monomios.
 
 **** Pertenencia a ideal monomial
 Sea $I = (X^\alpha \mid \alpha\in A)$. $X^\beta \in I$ ssi existen $F$ y $\alpha$ tales que: $X^\beta = FX^\alpha$.
 
-***** TODO Demostración
+***** Demostración
+Los monomios forman una K-base del espacio. Como:
+
+\[X^\beta = \sum F_iX^\alpha\]
+
+Todo monomio de la expresión de la derecha es divisible por algún $X^\alpha$,
+y en particular, $X^\beta$ debe serlo.
 
 **** Monomios en ideal monomial
-Sea $I = (X^\alpha \mid \alpha\in A)$ y $F \in K[X_1,\dots,X_n]$, equivalen entonces:
+Sea $I = (X^\alpha \mid \alpha\in A)$ monomial, equivalen:
 
  1. $F \in I$.
  2. Todo monomio de $F$ está en $I$.
  3. $F$ es combinación lineal de monomios de $I$.
 
-***** TODO Demostración
- 
+***** Demostración
+Los monomios forman una K-base del espacio. Como:
+
+\[F = \sum F_iX^\alpha\]
+
+Todo monomio de $F$ debe ser múltiplo de algún $X^\alpha$.
+
+El resto de implicaciones son triviales.
+
 **** Exponente de un ideal
 Dado un ideal $I$ no nulo, definimos su exponente como el subconjunto:
 
