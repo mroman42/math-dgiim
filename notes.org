@@ -5117,7 +5117,13 @@ definimos:
 **** Orden monomial es buen orden
 Todo orden monomial en $\mathbb{N}^n$ es buen orden.
 
-***** TODO Demostración
+***** Demostración
+Por Dickson, cualquier subconjunto tiene un $G$ finito con $S \subseteq G + \mathbb{N}^n$. 
+El mínimo de $G$ existe por finitud y ser orden total. Es el mínimo de
+$S$ porque cualquier otro $s \in S$ cumple $s = g + \gamma$ para $g \in G$, lo que lleva
+por monotonía y compatibilidad, a $s \geq g$.
+
+
 **** Monoideales
 Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E + \mathbb{N}^n$.
 
