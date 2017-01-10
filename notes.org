@@ -4920,6 +4920,25 @@ R \rar[hook]{i} \drar[swap]{f} & R[X_1,X_2,\dots,X_n] \dar[dashed]{f_{s_1,\dots,
   & S
 \end{tikzcd} \]
 
+Llevando $f(X_i) = s_i$.
+
+***** TODO Demostración
+
+**** R-álgebras finitamente generadas
+Una R-álgebra $S$ es finitamente generada si existe un epimorfismo de
+R-álgebras $f : R[X_1,\dots,X_n] \longrightarrow S$.
+
+*** Órdenes monomiales
+**** Representación recursiva de un polinomio
+Llamamos representación recursiva a la siguiente:
+
+\[
+F = \sum_{j=0}^t F_j X^j_n
+\]
+
+donde $F_j \in K[X_1,\dots,X_{n-1}]$. Nótese que es la representación natural una
+vez asumimos la definición recursiva del anillo de polinomios.
+
 **** Representación distributiva de un polinomio
 Llamamos representación distributiva a la siguiente:
 
