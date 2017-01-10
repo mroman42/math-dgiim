@@ -5154,15 +5154,15 @@ El conjunto de exponentes para un polinomio $p = \sum a_\alpha x^\alpha$:
 
 **** Exponente
 El exponente de un polinomio, fijado un orden monomial, es el máximo
-exponente de su diagrama
+exponente de su diagrama:
 
-\[Exp(p) = \max \{\alpha\in\mathbb{N}^n \mid a_\alpha \neq 0\} \]
+\[exp(p) = \max \{\alpha\in\mathbb{N}^n \mid a_\alpha \neq 0\} \]
 
 **** Grado total
 Definimos el grado total, fijado un orden monomial, como el máximo
-valor absoluto de los exponentes:
+grado de los exponentes:
 
-\[Grtot(p) = \max \{|\alpha| \mid a_\alpha \neq 0\} \]
+\[Grtot(p) = \max \{gr(\alpha) \mid a_\alpha \neq 0\} \]
 
 **** Término líder
 Llamamos término líder al que aporta el exponente, $a_{Exp(p)}X^{Exp(p)}$.
@@ -5171,10 +5171,10 @@ Su coeficiente líder es $a_{Exp(p)}$ y su monomio líder, $X^{Exp(p)}$.
 **** Propiedades del exponente
 Dados $F,G \in K[X_1,\dots,X_n]$ no nulos: 
 
- 1. $Exp(FG) = Exp(F) + Exp(G)$.
- 2. $Exp(F+G) \leq \max\{Exp(F),Exp(G)\}$
- 3. Si $Exp(F) < Exp(G)$; entonces $Exp(F+G) = Exp(G)$.
- 
+  1. $exp(FG) = exp(F) + exp(G)$.
+  2. $exp(F+G) \leq \max\{exp(F),exp(G)\}$.
+  3. Si $exp(F) < exp(G)$; entonces $exp(F+G) = exp(G)$.
+
 ***** Demostración
 ****** Punto 1
 Primero notamos que si estamos en un cuerpo, el producto de dos
@@ -5194,8 +5194,8 @@ La suma tendrá como mucho los exponentes de $F$ y de $G$. Pero además,
 conserva los exponentes que sólo estuvieran en uno de los dos con los
 coeficientes intactos.
 
-# Todo esto en el fondo parte de la observación de que estas sumas
-# se pueden ver como sumas por componentes en N^n.
+En el fondo, parte sólo de la observación de que son K-espacios 
+vectoriales y tienen de base a los distintos monomios.
 
 **** Partición de generadores
 Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
@@ -5215,12 +5215,12 @@ definimos inductivamente como:
 
 **** Teorema de la división
 Dado un orden monomial y una lista de polinomios $G_i$; consideramos la
-partición $\Delta_1,\dots,\overline{\Delta}$ dada por los exponentes $Exp(G_i)$. Tenemos que para
+partición $\Delta_1,\dots,\overline{\Delta}$ dada por los exponentes $exp(G_i)$. Tenemos que para
 cada $F \in K[X_1,\dots,X_n]$, existen $Q_1,\dots,Q_t,R$ únicos tales:
 
- 1. $F = Q_1G_1 + \dots + Q_tG_t + R$
- 2. $R = 0$ ó $N(R) \subseteq \overline\Delta$
- 3. $Exp(G_i) + N(Q_i) \subseteq \Delta^i$
+  1. $F = Q_1G_1 + \dots + Q_tG_t + R$.
+  2. $R = 0$ ó $N(R) \subseteq \overline\Delta$.
+  3. $exp(G_i) + N(Q_i) \subseteq \Delta^i$.
 
 ***** Demostración
 ****** Caso base
@@ -5313,7 +5313,7 @@ Por lo tanto:
 
 ***** Cálculo en Sage
 Calculamos el resto de la división en sage. Nótese cómo se ve afectado
-por el orden que escojamos para la división.
+por el orden de los polinomios que escojamos para la división.
 
 #+BEGIN_SRC sage
   R.<x,y,z> = PolynomialRing(QQ, 3, 'xyz', order='lex')
