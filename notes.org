@@ -2289,8 +2289,86 @@ transformation using the identity morphisms.
 
 **** TODO 1.2.40. Examples of natural transformations
 **** TODO 1.2.41. Natural transformations are proper classes
-**** TODO 1.2.42. Yoneda Lemma
-**** TODO 1.2.43. Representable functors
+**** 1.2.42. Yoneda Lemma
+Let $A \in obj({\cal C})$ and $G : {\cal C} \longrightarrow \mathtt{Set}$ be a covariant functor. 
+There is a bijection:
+
+\[ y : Nat(Hom_C(A,-), G) \longrightarrow G(A)\]
+
+given by $y : \tau \longrightarrow \tau_A(1_A)$.
+
+***** Proof
+****** Every choice of p determines a natural transformation
+Given $p \in GA$, we can create an unique natural transformation having
+$\eta_A(1_A) = p$. A natural transformation has to obey the following 
+commutative diagram:
+
+\[\begin{tikzcd}
+Hom(A,A) \rar{f \circ \_}\dar{\eta}& Hom(A,B)\dar{\eta} \\
+GA \rar{Gf}& GB
+\end{tikzcd}\]
+
+Then, the image of $\eta_B(f)$ is determined.
+
+\[\begin{tikzcd}
+id \rar{f \circ \_}\dar{\eta}& f\dar{\eta} \\
+p \rar{Gf}& (Gf)(p)
+\end{tikzcd}\]
+
+****** Every choice gives us a natural transformation
+This gives us, in fact, a natural transformation which makes every
+natural square to commute:
+
+\[\begin{tikzcd}
+Hom(A,B) \rar{g \circ \_}\dar{\eta}& Hom(A,C)\dar{\eta} \\
+GB \rar{Gg}& GC
+\end{tikzcd}\]
+
+Given any element $f \in Hom(A,B)$, we can check the commutativity:
+
+\[\begin{tikzcd}
+f \rar{g \circ \_}\dar{\eta}& g \circ f\dar{\eta} \\
+(Gf)(p) \rar{Gg}&  G(g \circ f)(p)
+\end{tikzcd}\]
+
+Knowing that $G(g \circ f)(p) = (Gg \circ Gf) (p)$.
+
+**** 1.2.43. Representable functors
+A covariant functor $F: {\cal C} \longrightarrow \mathtt{Set}$ is representable if $F \cong Hom(A,-)$
+for some $A$.
+
+**** 1.2.44. Yoneda Corollary 
+For $A,B \in obj({\cal C})$:
+
+  1. If $\eta \in Nat(Hom(A,-),Hom(B,-))$, then $\eta = (\_ \circ \psi)$ for some unique $\psi$.
+  2. If $\eta = (\_ \circ \psi)$ and $\tau = (\_\circ\phi)$, then $\tau\circ\eta = (\_ \circ \psi\circ\phi)$.
+  3. $\eta = (\_\circ\psi)$ is a natural isomorphism iff $\psi$ is an isomorphism.
+
+***** Proof
+****** Corollary 1
+If we apply Yoneda Lemma, every transformation is defined by
+$\eta(id_A) = \psi$. The transformation has to be $(\_ \circ\psi)$ because of commutativity:
+
+\[\begin{tikzcd}
+Hom(A,A) \rar{f \circ \_}\dar{\eta}& Hom(A,C)\dar{\eta} \\
+Hom(B,A) \rar{f \circ\_}& Hom(B,C)
+\end{tikzcd}\]
+
+So, given any element $f \in Hom(A,C)$, we have $\eta(f) = f \circ \psi$:
+
+\[\begin{tikzcd}
+id \rar{f \circ \_}\dar{\eta}& f\dar{\eta} \\
+\psi \rar{f \circ\_}& f \circ \psi
+\end{tikzcd}\]
+
+****** Corollary 2
+Trivial consequence of the first corollary.
+
+****** Corollary 3
+It is trivial given the previous corollaries and:
+
+\[(\_\circ\psi^{-1})\circ \psi = (\_\circ id)\]
+
 **** TODO Examples
 **** TODO Yoneda Imbedding
 *** 1.3. Singular Homology
