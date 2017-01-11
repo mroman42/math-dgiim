@@ -5523,7 +5523,17 @@ construir una base de Gröbner con los siguientes pasos:
 Entonces cuando $\mathbb{G}_i = \mathbb{G}_{i+1}$, podemos asegurar que $\mathbb{G}_i$ es base de Gröbner del
 ideal $I$.
 
-***** TODO Demostración
+***** Demostración
+Cuando el algoritmo termina, la base que tenemos es claramente de 
+Gröbner debido a la caracterización que nos da [[*Teorema de Buchberger][Buchberger]].
+
+Hay que demostrar que el algoritmo termina en algún punto. Esto se
+deduce de el hecho de que, dado un monoideal, el conjunto de monoideales
+que lo contienen es finito. Pero si un elemento es resto de una división
+por $\mathbb{G}$ no nulo, no puede estar en el monoideal generado por los exponentes.
+Así, al añadirlo tendremos un monoideal generado mayor, y esto sólo puede
+hacerse un número finito de pasos.
+
 **** Retirando un polinomio de una base de Gröbner
 Sea $\mathbb{G}$ una base de Gröbner de un ideal no nulo $I \subseteq K[X_1,\dots,X_n]$ y sea
 $F \in \mathbb{G}$ tal que $exp(F) \in \{exp(G) \mid G \in \mathbb{G}, F \neq G \}+\mathbb{N}^n$. Entonces, $\mathbb{G}\setminus\{F\}$
