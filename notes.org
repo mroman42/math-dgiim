@@ -5358,6 +5358,9 @@ Sea $I = (X^\alpha \mid \alpha\in A)$ monomial, equivalen:
  2. Todo monomio de $F$ está en $I$.
  3. $F$ es combinación lineal de monomios de $I$.
 
+Y además, si para cualquier polinomio todos sus monomios están en
+el ideal, es monomial.
+
 ***** Demostración
 Los monomios forman una K-base del espacio. Como:
 
@@ -5365,7 +5368,8 @@ Los monomios forman una K-base del espacio. Como:
 
 Todo monomio de $F$ debe ser múltiplo de algún $X^\alpha$.
 
-El resto de implicaciones son triviales.
+El resto de implicaciones son triviales. Nótese que podemos escribir
+el ideal como $(X^\alpha \mid \alpha \in Exp(I))$.
 
 **** Exponente de un ideal
 Dado un ideal $I$ no nulo, definimos su exponente como el subconjunto:
@@ -5504,14 +5508,15 @@ generadores. Equivalen:
  1. $\mathbb{G}$ es base de Gröbner.
  2. Para cualquier ordenación de $\mathbb{G}$, se tiene $R({\cal S}(G_i,G_j); \mathbb{G}) = 0$
     para cualesquiera $i \neq j$.
+ 3. Para alguna ordenación de $\mathbb{G}$, se tiene $R(S(G_i,G_j); \mathbb{G}) = 0$.
 
 ***** Demostración
 ****** Primera implicación
 Trivialmente por la [[*Caracterización de bases de Gröbner][caracterización]] una vez que vemos que las 
 semizigias son combinaciones lineales.
 
-****** TODO Segunda implicación
-No es trivial.
+****** Tercera implicación
+No es trivial. Puede consultarse [[http://people.math.aau.dk/~diego/Libro.pdf][aquí]].
 
 **** Algoritmo de Buchberger
 Sea $I$ ideal no nulo y $\mathbb{G} = (G_1,\dots,G_n)$ sistema de generadores. Es posible 
