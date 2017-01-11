@@ -5767,7 +5767,6 @@ Sabemos que es variedad porque puede expresarse como:
 Y podemos darle además una representación paramétrica racional
 no trivial:
 
-
 **** Ideal de una variedad
 Sea $S \subseteq \mathbb{A}^n(K)$. Definimos el ideal asociado a $S$ como:
 
@@ -5970,6 +5969,881 @@ Supongamos $h(y_i + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$ y $h(G + \mathbb{I}(W)) 
    \]
 
    Además, en tal caso, $F+\mathbb{I}(V) = h(R(F;G) + \mathbb{I}(W))$.
+
+** Ejercicios
+*** Relación 1
+**** Ejercicio 1
+#+begin_statement
+Sea $R$ un anillo conmutativo. Demostrar:
+
+ 1. Los elementos $0$ y $1$ están determinados de forma única.
+ 2. Para cada elemento $x\in R$, el opuesto $-x$ y el inverso si existe $x^{-1}$, están
+    determinados de forma única.
+ 3. El conjunto ${\cal U}(R)$ de las unidades de $R$ es un grupo abeliano.
+
+$\quad$
+#+end_statement
+***** Punto 1
+Supongamos que hubiera dos elementos neutros de cualquier tipo:
+
+\[e = e \otimes e' = e'\]
+
+***** Punto 2
+Supongamos que hubiera dos inversos $x,y$ de cualquier tipo:
+
+\[x = x \otimes (a \otimes y) = (x \otimes a) \otimes y = y\]
+
+***** Punto 3
+El anillo es conmutativo. Así que el grupo de las unidades con el producto será
+abeliano.
+
+**** TODO Ejercicio 2
+#+begin_statement
+Sea $R$ anillo conmutativo. Demostrar:
+
+  1. $x0=0$ para todo $x\in R$.
+  2. $R$ tiene más de un elemento ssi $0\neq 1$.
+  3. $(-x)y = -(xy) = x(-y)$ para cualesquiera $x,y \in R$.
+  4. $(nx)y = n(xy) = x(ny)$ para cualesquiera $x,y \in R$ y todo $n \in \mathbb{Z}$.
+  5. $(nx)(my) = (nm)(xy)$ para cualesquiera $x,y \in R$ y $n,m \in \mathbb{Z}$.
+  6. $\left(\sum_{i=1}^n x_i\right) \left(\sum^m_{j=1} y_j\right) = \left(\sum^{n,m}_{i=1,j=1} x_iy_j\right)$, para $x_i,y_j \in R$ y $n,m > 0$.
+  7. $(x+y)^n = \sum_{i=0}^n {n \choose i} x y^{n-i}$, para cualesquiera $x,y \in R$ y $n,m \geq 0$.
+  8. $(xy)^n = x^ny^n$ y $(x^n)^m = x^{nm}$, para cualesquiera $x,y\in R$ y $n,m \geq 0$.
+$\quad$
+#+end_statement
+**** Ejercicio 3
+#+begin_statement
+Sea $X$ un conjunto, en ${\cal P}(X)$ se consideran las opearciones
+
+\[A+B := (A\cup B) \setminus (A\cap B)\]
+\[AB := A \cap B\]
+
+para cualesquiera $A,B \in {\cal P}(X)$.
+
+Prueba que ${\cal P}(X)$, con las operaciones anteriores y elemento uno igual a $X$, es un
+anillo conmutativo. ¿Cuál es el elemento cero?. Observa que este anillo es un 
+*anillo de Boole*, es decir $A^2=A$ para $A\in{\cal P}(X)$ y que por tanto $2A = 0$.
+#+end_statement
+
+Demostramos que ${\cal P}(X)$ con la suma forma un grupo abeliano. Cada conjunto es su
+inverso, es conmutativo y tiene al conjunto vacío como neutro. La asociatividad
+se comprueba viendo que pertenecer a $A+B+C$ es pertenecer a uno o a los tres.
+
+Que es conmutativo se tiene por:
+
+\[0 = (A+B)^2 - (A+B) = AB + BA\]
+\[0 = A+A\]
+
+**** Ejercicio 4
+#+begin_statement
+Dado un anillo $R = (R,+,\times,1)$, definir sobre $R$ dos operaciones $\oplus,\otimes$ de forma
+que $(R,\oplus,\otimes,0)$ sea un anillo con elemento $1$ como cero.
+#+end_statement
+Nos sirve tomar:
+
+\[a \oplus b = a+b-1\]
+\[a \otimes b = a + b - ab\]
+
+Debemos comprobar las propiedades.
+
+**** TODO Ejercicio 7
+**** Ejercicio 8
+#+begin_statement
+¿Se deduce la condición $f(1) = 1$ en la definición de homomorfismo de anillos de 
+las dos condiciones $f(x+y) = f(x)+f(y)$ y $f(xy) = f(x)f(y)$?
+#+end_statement
+Una inclusión en la suma directa de dos anillos cumple lo pedido pero no cumple
+que $i(1) = 1$.
+
+\[i : R \longrightarrow R \oplus S,\quad i(r) = (r,0)\]
+
+**** Ejercicio 9
+#+begin_statement
+Prueba que los elementos nilpotentes de un anillo forman un ideal.
+#+end_statement
+Sean $n^p = 0$ y $m^q = 0$, dos nilpotentes. Tenemos que $(n+m)^{p+q} = 0$, por binomio de 
+Newton, y que $(rn)^p = 0$ por conmutatividad.
+**** Ejercicio 10
+#+begin_statement
+Demuestra que todo dominio de integridad finito es un cuerpo.
+#+end_statement
+Dado $x \in R$, considero el endomorfismo $(\lambda a. xa)$. Por ser dominio de integridad, es
+inyectivo, y siendo inyectivo y finito, es sobreyectivo. Luego $\exists a : xa = 1$.
+**** Ejercicio 11
+#+begin_statement
+Demuestra que todo dominio de integridad con un número finito de ideales es un
+cuerpo.
+#+end_statement
+Dado $x\in R$, considero una aplicación que lleva un ideal $I$ en $(x)I$. Tenemos que es
+inyectiva por ser dominio de integridad. De hecho, sean $i \in I$ con $(x)I = (x)J$:
+
+\[xi = rxj = xrj \Rightarrow i = rj\]
+
+Luego $I\subset J$, simétricamente $I =J$. Por ser inyectiva y ser de número finito, es
+biyectiva, luego $\exists I: (x)I = (1)$.
+**** Ejercicio 12
+Sea una cadena de ideales $\Pi \subset \beta\subset R$, con $x \in \beta$, $x \notin \Pi$.
+Entonces $x(x^{n-1}-1) = 0 \in \Pi$, y debe tenerse $x^{n-1}-1 \in \Pi \subset \beta$.
+Con eso, debe ser $\beta = R$.
+
+**** Ejercicio 13
+ Por definición de *radical*, tenemos que cuando es radical es intersección de 
+ anillos primos.
+
+ Sea $\alpha$ intersección de ideales primos, será en particular intersección de ideales
+ primos más algunos que lo contienen.
+
+**** Ejercicio 14
+ Sea $x$ idempotente y sea $M$ el maximal de $R$. 
+
+ - Sea $x \notin M$, entonces debe ser $x$ una
+   unidad; por ser $R$ local. Siendo unidad $x^2 = x$ nos da $x=1$.
+
+ - Sea $x \in M$. Sabemos ${\cal J}(R) = M$, luego $x$ está en el radical de Jacobson.
+   Esto quiere decir que $1-xy \in U(R)$ para cualquier $y \in R$. En particular $1-x$
+   está en las unidades del anillo. Como $x(1-x) = 0$, se tiene $x = 0$.
+
+**** Ejercicio 15
+ Aplicaremos Zorn, viendo que todo conjunto totalmente ordenado tiene cota inferior.
+
+ Sea una cadena de ideales primos $\Pi_i$, entonces sea $ab \in \bigcap \Pi_i$, entonces, supongamos que
+ $a$ no perteneciera a la intersección, entonces, por primalidad, si $b \notin \Pi_j$, tampoco
+ pertenecería a ninguno por debajo de él; y $a$ debería pertenecer a todos ellos y
+ por tanto a la intersección.
+
+**** Ejercicio 16
+***** Punto 1
+ Tenemos que $0 = (2x)^2 - 2x = 4x - 2x= 2x$.
+
+***** Punto 2
+ Si $\pi$ es primo, entonces $R/\pi$ es dominio de integridad. Sea $m \in R/\pi$, tenemos que
+ $m(m-1) = 0$, luego $m=0$ ó $m=1$. Así, sólo puede ser isomorfo a $\mathbb{Z}_2$
+ y cuerpo. $\pi$ es maximal.
+
+ Además, la primera parte se obtiene también por caso particular del ejercicio 12.
+
+***** Punto 3
+ Definimos la operación $a \oplus b = a+b+ab$ y comprobamos que $(a,b) = (a \oplus b)$, ya que
+ $a (a\oplus b) =a$ y $b(a\oplus b) = b$. Por inducción, cada ideal generado por varios lo podemos
+ generar por un elemento.
+
+**** Ejercicio 17
+Tenemos que los divisores de cero ya forman un ideal primo.
+**** TODO Ejercicio 18
+ Esto es equivalente a decir, ya que estamos en un anillo de ideales principales,
+ que $X^3-Y^2$ es irreducible.
+
+**** Ejercicio 19
+ Vemos que $\alpha$ es ideal. Supongamos que fuera principal, debería estar generado
+ por uno de mínimo grado. Si está generado por una constante, como contiene a $(2)$,
+ debe estar generado por $(2)$, pero no es el caso porque no contendría a $x+2$.
+
+**** TODO Ejercicio 21
+**** Ejercicio 24
+1. => 2. Sea $R$ con un ideal primo, y sea $a \in R$ no unidad. Tengo $a \in M$ para algún 
+   maximal, que debe ser el único ideal primo que hay. Aplicando Krull a  
+   $S = \{1,a,a^2\dots\}$ contra el ideal $(0)$ tendría un ideal no conteniendo 
+   a $S$ pero primo, lo que es imposible, así que $S$ tiene intersección no vacía 
+   con $(0)$.
+2. => 3. Trivial.
+3. => 1. Si $R/{\cal N}$ es un cuerpo, ${\cal N}$ es maximal. Si hubiera otro ideal primo, 
+   lo meteríamosen su maximal ${\cal M}$ y; si hubiera $m \in {\cal M}-{\cal N}$, se 
+   tendría $(m) \cup {\cal M} = R$. Entonces $km+n = 1$, luego $km$ es unidad y ${\cal M} = R$.
+
+**** TODO Ejercicio 25
+**** Ejercicio 26
+ Nótese que si $x$ es nilpotente, también lo es $ux$ para $u$ unidad.
+ Sea $x^n = 0$. Tenemos que:
+
+ \[(1+x)(1-x+x^2-\dots+x^{n-1}) = 1 + (-x)^n = 1\]
+
+ Luego es unidad. Dada suma de unidad y nilpotente, podemos escribirla como:
+
+ \[(u+x) = u(1+u^{-1}x)\]
+
+ Producto de unidades.
+
+**** Ejercicio 27
+***** Punto 1
+ Por un lado, si todos los $a_i$ fueran nilpotentes se tendrían $a_iX^i$ nilpotentes.
+ Y como la suma de unidad por nilpotente es unidad, la suma total es unidad.
+
+ Sea $\sum b_iX^i$ el inverso de un polinomio $f(x) = \sum a_iX^i$. Es obvio que $a_0$ es unidad
+ porque $a_0b_0 = 1$. Veamos por inducción que  $a^{r+1}_nb_{m-r} = 0$.
+
+  - *Caso base:* $a_nb_m = 0$ por ser coeficiente del grado máximo.
+  - *Caso de inducción*: El coeficiente de grado $n+m-1$ sería:
+    $a_nb_{m-1} + a_{n-1}b_n = 0$, luego $a_n(a_nb_{m-1} + a_{n-1}b_m) = a_n^2b_{m-1} = 0$; y aplicaríamos
+    inducción en los siguientes casos de forma similar.
+
+ En particular, para $r=n$ tenemos que $a_n^{n+1}b_0 = 0$, luego $a_n$ es nilpotente.
+ Ahora hacemos inducción sobre el grado. También es nilpotente $a_nX^n$, y 
+ entonces tenemos que el polinomio siguiente también es unidad, pero de menor grado 
+ que el original:
+
+ \[f - a_nX^n = \sum^{n-1} a_iX^i \in {\cal U}(R[X])\]
+
+***** Punto 2
+ Tenemos que las $a_iX^i$ son nilpotentes; y la suma de nilpotentes es trivialmente
+ nilpotente. 
+
+ Hacia el otro lado, hacemos inducción sobre $grd(f)$:
+
+  - Si $grd(f) = 0$, entonces $f = a_0$.
+  - Sea $f = a_0 + \dots + a_nX^n$, tenemos que que si $f$ es nilpotente a la potencia $m$:
+    \[ 0 = f^m = \sum_{j=0}^m {m \choose j}(a_0+\dots+a_n-1X^{n-1})^j(a_nX^n)^{m-j} = a_n^mX^{nm} + \dots\]
+    Luego $a^m_n = 0$. El polinomio total es suma de esto y un polinomio de grado menor,
+    que por inducción es nilpotente.
+
+***** Punto 3. Teorema de MaCoy.
+ Una implicación es trivial por definición.
+
+ Sea $f$ divisor de cero. Tomamos un polinomio $g = \sum b_iX^i$ de grado mínimo con
+
+ $fg = 0$. Entonces $a_nb_m = 0$, y por tanto $a_ng$ anularía también a $f$ pero tendría grado
+ menor que $m$, luego debería ser $a_ng = 0$. Ahora procedemos por inducción, y se 
+ volvería a tener $a_{n-r}g = 0$.
+
+ Si $a_{n-r}g = 0$ para cualquier $r$, entonces:
+
+ \[ 0 = \sum a_{n-r}b_i X^i\]
+
+ Así que $a_{n-r}b_0 = 0$ y se concluye $fb_0 = 0$.
+
+**** Ejercicio 30
+#+begin_statement
+Calcular el radical de cualquier ideal de $\mathbb{Z}$.
+#+end_statement
+Dado $(n\mathbb{Z})$ y escribiendo $n = p_1^{e_1}\dots p_n^{e_n}$, podemos ver que un número que perteneciera
+a su radical debería ser tal que:
+
+\[ p_1^{e_1}\dots p_n^{e_n} | (q_1^{f_1}\dots q_n^{f_n})^k\]
+
+Para algún $k$, lo que equivale a que $e_i \leq kf_i$. Es decir, necesitamos sólo $f_i \neq 0$.
+En conclusión, $\sqrt{n\mathbb{Z}} = (p_1p_2\dots p_n)\mathbb{Z}$, ideal del producto de sus factores primos.
+
+**** Ejercicio 31
+#+begin_statement
+Demostrar los siguientes resultados para radicales de ideales de un anillo $R$:
+
+  1. $\sqrt{\sqrt{\alpha}} = \sqrt{\alpha}$.
+  2. $\sqrt{\alpha\beta} = \sqrt{\alpha \cap \beta} = \sqrt{\alpha} \cap \sqrt{\beta}$.
+  3. $\sqrt{\alpha} = R \Leftrightarrow \alpha = R$.
+  4. $\sqrt{\alpha+\beta} = \sqrt{\sqrt{\alpha}+\sqrt{\beta}}$.
+  5. Si $\pi$ es un ideal primo, entonces $\sqrt{\pi} = \pi$.
+  6. Si $\sqrt{\alpha} + \sqrt{\beta} = R$, entonces $\alpha+\beta = R$.
+
+$\quad$
+#+end_statement
+***** Punto 1
+Sea $y \in \sqrt{\sqrt{\alpha}}$, entonces $y^n \in \sqrt\alpha$, y entonces $(y^n)^m \in \alpha$, luego $y \in \sqrt{\alpha}$.
+***** Punto 2
+Sea $y \in \sqrt{\alpha \cap \beta}$, entonces $y^n \in \alpha \cap \beta$, y entonces $y^ny^n \in \alpha\beta$, luego 
+$y \in \sqrt{\alpha\beta}$.
+***** Punto 3
+Sea $\sqrt{\alpha} = R$, entonces $1 = 1^n \in\alpha$.
+***** Punto 4
+Sea $x \in \sqrt{\sqrt\alpha+\sqrt\beta}$, entonces $x^n = u+v$, donde $u^p \in \alpha$, $v^q \in \beta$. Tengo entonces que
+$(x^n)^{p+q} = (u+v)^{p+q} \in \alpha+\beta$, donde aplicamos Binomio de Newton.
+***** Punto 5
+Si fuera $x^n \in \pi$ para $n>1$, por primalidad, debería tenerse $x^{n-1} \in \pi$. Así que $x\in\pi$.
+***** Punto 6
+Si $1 = a+b$ con $a^n\in \alpha$, $b^m\in\beta$, entonces, por Binomio de Newton tenemos que 
+$1^{n+m} = (a+b)^{n+m} \in \alpha+\beta$.
+
+**** Ejercicio 32
+#+begin_statement
+Sean $\alpha,\beta$ ideales de un anillo $R$ tales que $\sqrt{\alpha},\sqrt{\beta}$ son primos entre sí. Demostrar que
+entonces $\alpha,\beta$ también son primos entre sí.
+#+end_statement
+Trivial por el punto 6 del ejercicio 31.
+
+**** Ejercicio 33
+#+begin_statement
+Sea $R$ un anillo y $\alpha,\beta$ ideales. Demostrar que si $(\alpha)^n\subseteq\beta$ para algún $n\geq 0$, entonces
+$\sqrt\alpha \subseteq \sqrt\beta$.
+#+end_statement
+Tengo trivialmente que $\alpha \subseteq \sqrt\beta$, puedo tomar 
+raíces para tener $\sqrt{\alpha} \subseteq \sqrt{\sqrt{\beta}}$.
+
+**** Ejercicio 34
+#+begin_statement
+Sea $\alpha\subseteq R$ un ideal tal que $\sqrt\alpha$ es finitamente generado. Demostrar que existe
+$n \in \mathbb{N}$ tal que $(\sqrt{\alpha})^n\subseteq\alpha$.
+#+end_statement
+Sea $(\sqrt{\alpha}) = (x_1,\dots,x_m)$ tales que $x_i^{e_i} \in \alpha$. Entonces se tiene por binomio de Newton:
+
+\[(\sqrt\alpha)^{e_1+\dots+e_m} \subset \alpha\]
+
+Ya que cada sumando tiene algún $x_i$ elevado a más que $e_i$.
+
+**** Ejercicio 35
+#+begin_statement
+En el anillo de polinomios $\mathbb{F}_2[X,Y]$, con $\mathbb{F}_2$ cuerpo finito de dos elementos, sean
+$\alpha_1 = (X,Y)$ y $\alpha_2 = (X-1,Y-1)$. Haciendo uso del ejercicio anterior, demuestra que el
+ideal producto $\alpha = \alpha_1\alpha_2$ es un ideal radical.
+#+end_statement
+Primero vemos que $\alpha_1$ y $\alpha_2$ son radicales. $\alpha_1$ lo forman todos los polinomios con
+término independiente $0$, y ningún polinomio con término independiente $1$ puede
+elevarse hasta tener término $0$. $\alpha_2$ es la imagen de $\alpha_1$ por el homomorfismo de 
+anillos que lleva la indeterminada $X$ en $X+1$, así que también lo es.
+
+Sabemos que $\alpha_1$,$\alpha_2$ son primos entre sí. Luego $\alpha_1\alpha_2 = \alpha_1 \cap \alpha_2$. Ahora tenemos
+que:
+
+\[\sqrt{\alpha_1\alpha_2} = \sqrt\alpha_1 \cap \sqrt\alpha_2 = 
+\alpha_1\cap\alpha_2 = \alpha_1\alpha_2\]
+
+**** Ejercicio 36
+Sea $x \in \sqrt{\alpha}$, entonces $x^n \in \alpha \subset \bigcap \pi_i$, pero $x^n \in \pi_i$ me da $x \in \pi_i$, luego $x \in \bigcap \pi_i$.
+
+**** Ejercicio 37
+**** Ejercicio 38
+**** Ejercicio 39
+**** Ejercicio 40
+**** Ejercicio 41
+***** Punto 1
+ Veamos que la aplicación que va del producto de ideales a $R$ es un homomorfismo
+ de grupos abelianos multiplicativo biyectivo.
+
+ \[ f((x_1,\dots,x_n)) = x_1+\dots+x_n\]
+
+ Por la definición de *conjunto independiente*, sabemos que dado $x\in R$ existen únicos
+ $x_1 \in \alpha_1, x_2 \in \alpha_2,\dots, x_t \in \alpha_t$ tales que $x = x_1 + \dots + x_t$. Esto en el caso $2$ es trivial, y
+ se puede ampliar por inducción.
+
+***** Punto 2
+ Por el apartado primero, sabemos que existen $e_1+e_2+\dots+e_t = 1$. Puedo tomar
+ $\alpha_i$ como anillo sobre la suma y el producto, pero tomando $e_i$ como unidad.
+
+ Sea $x_i \in \alpha_i$, tenemos que $x_i = x_i(e_1+e_2+\dots+e_t)$, así que por unicidad de la 
+ descomposición, debe ser $x_i = e_ix_i$.
+
+***** Punto 3
+ Tenemos un conjunto de elementos que suman $1$, son idempotentes y ortogonales.
+
+**** Ejercicio 43
+***** Punto 1
+ Tenemos $X \times \mathbb{Z}$ grupo abeliano con la suma por serlo $X$ y $\mathbb{Z}$. La asociatividad se 
+ tiene por:
+
+ \[(x_1,n_1)(x_2,n_2)(x_3,n_3) 
+ = (x_1x_2x_3 + n_1x_2x_3+x_1n_2x_3+x_1x_2n_3+x_1n_2n_3+n_1x_2n_3+n_1n_2x_3, 
+ n_1n_2n_3)\]
+
+ Y la distributividad:
+
+ \[\begin{aligned}
+ (x,y)((a,b)+(c,d)) &= (x,y)(a+c,b+d) = (x(a+c)+y(a+c)+x(b+d)), y(b+d)) \\
+ &= (xa+ya+xb,yb) + (xc+yc+xd,yd)
+ \end{aligned}\]
+
+***** Punto 2
+ Vemos que es trivialmente cerrado para la suma y el producto. Cualquier
+ elemento de $X\times \mathbb{Z}$ puede expresarse como $(x,0)+(0,n)$ así que tomamos el isomorfismo
+ entre $X\times \mathbb{Z}/ X$ y $\mathbb{Z}$ siguiente:
+
+ \[\phi(x,n) = n\]
+
+ Bien definido porque tiene a $X$ como núcleo.
+
+***** Punto 3
+ El valor de $f'(x,0) = f(x)$ está fijado por la condición, y por ser homomorfismo
+ de anillos debe tener $f'(0,1) = 1$; por tanto, para preservar suma, $f'(x,n) = f(x)+n$.
+
+ Ahora, para comprobar que es homomorfismo vemos que respeta las sumas, la unidad
+ y los productos:
+
+ \[\begin{align*}
+ f'((a,b)(c,d)) &= f(ac+bc+da) + bd = f(a)f(c)+bf(c)+df(a)+bd \\
+		&= (f(a)+b)(f(c)+d) = f'(a,b)f'(c,d)
+ \end{align*}\]
+
+**** Ejercicio 44
+ $S,T$ son R-Módulos, así que entendemos por $S\times T$ la suma directa como módulos.
+ Tomamos como definición de $R \cong S \times T$ el que:
+
+ \[\forall r \in R: \exists! s\in S, t\in T:\quad s + t = r\]
+
+***** Descompone con un idempotente
+ Primero vemos que $\forall r \in R: re + r(1-e) = r$, y es forma única, porque si existieran
+ dos formas de expresar $r$:
+
+ \[\begin{align*}
+ r &= s + t \\
+ r &= s' + t'
+ \end{align*}\]
+
+ Entonces $(s-s') + (t-t') = 0$, y no es posible salvo que
+ sean iguales, porque $s + t = 0$, con $ea + (1-e)b = 0$ conduce a:
+
+ \[\begin{align*}
+ 0 &= eea + e(1-e)b &=& ea \\
+ 0 &= (1-e)ea + (1-e)(1-e)b &=& (1-e)b
+ \end{align*}\]
+
+
+***** Toda descomposición es por idempotente
+ Supongamos $R \cong S \times T$. Tenemos la única descomposición de $1$ como $u+v = 1$.
+ Hacemos otra descomposición de $1$ como:
+
+ \[1 = (u+v)(u+v) = u^2+v^2+2uv\]
+
+ Aquí tenemos que $uv \in S$ y $uv \in T$, así que $uv = 0$ (si no, tendría dos 
+ descomposiciones); por tanto $1 = u^2 + v^2$, y por unicidad $u=u^2$ y $v=v^2$.
+
+ Ahora veamos $S = (u)$, si tengo $s \in S$, entonces $su+sv = s$, y como $sv \in S$ y
+ además $sv \in T$, debe ser nulo y tenerse $s = su$.
+**** Ejercicio 45
+***** Punto 1
+ El producto directo de ideales es trivialmente ideal.
+
+ Sea $\alpha$ un ideal del producto directo, tomamos los siguientes ideales
+ \[\beta_i = \{ e_ix \med| x \in \alpha\}\]. Siendo $\pi_i$ la proyección canónica, tomamos:
+
+ \[ \alpha_i = \pi_i(\beta_i) \]
+
+ Por ser sobreyectivo $\pi$, se tiene que es ideal. Queda probar:
+
+ \[\alpha = \prod \alpha_i\]
+
+***** Punto 2
+ Vemos que los ideales primos son de la forma $R_1 \times \dots \times P_i \times \dots R_n$, para algún
+ $P_i$ primo en $R_i$.
+
+ Sea un ideal primo del producto, será producto de ideales 
+ \[P = \alpha_1\times\alpha_2\dots\times\alpha_n\]. Veremos que son todos el total salvo uno. Supongamos que 
+ tuviéramos dos ideales propios $\alpha_i,\alpha_j$, con $x_i \in \alpha_i$ y $x_j \in \alpha_j$. Tengo:
+
+ \[x = (0,\dots,x_i,0,\dots,1,0,\dots,0) \notin \Pi\]
+ \[y = (0,\dots,1,0,\dots,x_j,0,\dots,0) \notin \Pi\]
+
+ Y sin embargo, $xy \in \pi$.
+
+ Para maximales, la demostración es análoga.
+
+***** Punto 3
+ Por el apartado primero, tiene $2^n$ ideales.
+
+**** Ejercicio propuesto
+ Veamos que si $x \in J(R)$, entonces $1-xy$ es unidad. Tenemos que $yx \in J(R)$. Si 
+ $1-xy$ no fuera unidad, habría un maximal conteniéndolo, luego ese maximal contendría
+ a la vez a $1-xy$ y a $xy$.
+
+ Ahora, sea $1-xy$ unidad para cualquier $y$. Si un maximal no contuviera a $x$, entonces
+ contendría a $1-xy$. Tendría que necesariamente al añadir $x$ a ese maximal obtendría
+ todo el anillo. Luego $m + xy = 1$ y entonces $m = 1-xy$ sería unidad y pertenecería
+ al ideal maximal, lo que es imposible.
+
+*** Relación 2
+**** Ejercicio 16
+#+begin_statement
+Sea $\leq$  un orden en $\mathbb{N}^n$ que es total y compatible. Haciendo uso de la teoría
+de ideales monomiales, probad que $\leq$ es un buen orden si, y sólo si, es
+monótono.
+#+end_statement
+
+Si es monótono, entonces es monomial, y los monomiales son buenos [[*Sistemas de generadores][órdenes]].
+
+Si es buen orden, todo $\mathbb{N}^n$ tiene un mínimo. Si fuera $a$, se tendría
+que $a \leq 0$ y por tanto $2a \leq a$, llegando a $a = 2a$, lo que da $a = 0$.
+
+*** Práctica 1: Anillos e ideales
+**** Anillos básicos
+#+BEGIN_SRC sage
+  ZZ in Fields
+  ZZ in EuclideanDomains
+#+END_SRC
+
+#+RESULTS:
+: False
+: True
+
+***** Extensiones algebraicas
+ #+BEGIN_SRC sage
+ K = NumberField(x^2+1, 's')
+ OK = K.ring_of_integers()
+ OK
+ SS = NumberField(x^2-5,'s').ring_of_integers()
+ SS.0
+ SS
+ #+END_SRC
+
+ #+RESULTS:
+ : Gaussian Integers in Number Field in s with defining polynomial x^2 + 1
+ : 1/2*s + 1/2
+ : Maximal Order in Number Field in s with defining polynomial x^2 - 5
+
+***** Anillos de enteros módulo n
+ #+BEGIN_SRC sage
+ Z7 = Integers(7)
+ Z7.is_field()
+ Z8 = Integers(8)
+ Z8.cardinality()
+ #+END_SRC
+
+ #+RESULTS:
+ : True
+ : 8
+
+***** Anillos de polinomios
+ #+BEGIN_SRC sage
+ P = QQ['x']
+ P
+ P2 = QQ['x','y','z']
+ P2
+ #+END_SRC
+
+ #+RESULTS:
+ : Univariate Polynomial Ring in x over Rational Field
+ : Multivariate Polynomial Ring in x, y, z over Rational Field
+
+**** Cuerpos finitos
+#+BEGIN_SRC sage
+K = GF(5)
+a = K.0
+a+a+a+a
+K.characteristic()
+#+END_SRC
+
+#+RESULTS:
+: 4
+: 5
+
+***** Cuerpos de fracciones
+ #+BEGIN_SRC sage
+ P.<x> = QQ[]
+ K = P.fraction_field()
+ 1/x in K
+ #+END_SRC
+
+ #+RESULTS:
+ : True
+
+**** Producto de anillos
+#+BEGIN_SRC sage
+CZQ = ZZ.cartesian_product(QQ)
+CZQ
+CZQ.one()
+#+END_SRC
+
+#+RESULTS:
+: The Cartesian product of (Integer Ring, Rational Field)
+: (1, 1)
+
+**** Ideales
+#+BEGIN_SRC sage
+P.<x,y> = QQ[]
+I = Ideal(P,[x+y,x^2+1])
+I
+ZZ8 = ZZ.quotient(ZZ.ideal(8))
+ZZ8 == Integers(8)
+#+END_SRC
+
+#+RESULTS:
+: Ideal (x + y, x^2 + 1) of Multivariate Polynomial Ring in x, y over Rational Field
+: True
+
+***** Inclusión de ideales
+ Definimos la inclusión de ideales y sobrecargamos el método de 
+ orden para expresarla.
+ #+BEGIN_SRC sage
+   I = 2*ZZ
+   J = 4*ZZ
+   def contenido(I,J):
+       return I+J == J
+
+   contenido(I,J)
+   contenido(J,I)
+   sage.rings.ideal.Ideal_pid.__lt__=contenido
+   I < J
+   J > I
+ #+END_SRC
+
+ #+RESULTS:
+ : False
+ : True
+ : False
+ : True
+
+***** Operaciones con ideales
+ #+BEGIN_SRC sage
+   # Suma de ideales
+   4*ZZ + 6*ZZ
+
+   # Producto de ideales
+   (4*ZZ)*(6*ZZ)
+
+   # Intersección de ideales
+   def intersection(I,J):
+       a = I.gen()
+       b = J.gen()
+       q = (a*b).quo_rem(gcd(a,b))
+       return Ideal(q[0])
+   sage.rings.ideal.Ideal_pid.__and__=intersection
+
+   (4*ZZ)&(6*ZZ)
+
+   # Cociente de ideales
+   def cocienteideales(I,J):
+       if not (J<I):
+           raise "El cociente necesita de inclusión"
+       return I.gens()*I.ring().quo(J)
+   sage.rings.ideal.Ideal_pid.__div__=cocienteideales
+
+   (2*ZZ)/(4*ZZ)
+
+   # Operaciones con ideales
+   6*ZZ/((6*ZZ)&(4*ZZ))
+ #+END_SRC
+
+ #+RESULTS:
+ : Principal ideal (2) of Integer Ring
+ : Principal ideal (24) of Integer Ring
+ : Principal ideal (12) of Integer Ring
+ : Principal ideal (2) of Ring of integers modulo 4
+ : Principal ideal (6) of Ring of integers modulo 12
+
+***** Ideales primos y maximales
+ #+BEGIN_SRC sage :file images/idealpoly.png :output both
+ P.<x,y> = QQ[]
+ I = (x^3-y^2)*P
+ I.is_prime()
+ implicit_plot(x^3-y^2, (x,-1,2), (y,-1,1))
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:images/idealpoly.png]]
+
+***** Ideales radicales
+ #+BEGIN_SRC sage
+ R.<x,y> = GF(2)[]
+ I = (x,y)*R
+ J = (x-1,y-1)*R
+ K = I*J
+ K.radical() == K
+ #+END_SRC
+
+ #+RESULTS:
+ : True
+
+**** Homomorfismos de anillos
+#+BEGIN_SRC sage
+# Inclusión 
+H = Hom(ZZ,QQ)
+inc = H([1])
+inc(1)
+
+# Homomorfismo al cociente
+f = ZZ.hom([1],ZZ.quo(4*ZZ))
+f(1) == f(5)
+f(6)
+
+# Composición de homomorfismos
+R.<x,y,z> = QQ[]
+S.<t> = QQ[]
+f = R.hom([t^3,t^5,t^7],S)
+g = S.hom([t^2],S)
+g*f
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+1
+True
+2
+
+Ring morphism:
+  From: Multivariate Polynomial Ring in x, y, z over Rational Field
+  To:   Univariate Polynomial Ring in t over Rational Field
+  Defn: x |--> t^6
+        y |--> t^10
+        z |--> t^14
+#+end_example
+
+*** Práctica 2: Anillos de polinomios
+**** Anillos de polinomios
+    Para poder usar las variables del anillo de polinomios en 
+    sage debemos insertarlas
+
+#+BEGIN_SRC sage
+P = PolynomialRing(QQ,['x','y','z','t'])
+P.inject_variables()
+x in P
+#+END_SRC
+#+RESULTS:
+: Defining x, y, z, t
+: True
+
+**** Factorización
+#+BEGIN_SRC sage
+P.<x,y> = QQ[]
+c = x^3-y^2
+c.factor()
+
+f = x*y-1
+g = x^2+y^2-4
+#+END_SRC
+#+RESULTS:
+: (-1) * (-x^3 + y^2)
+
+**** Polinomios en una variable
+#+BEGIN_SRC sage
+R = Zmod(2)['x']
+R.inject_variables()
+filter(is_prime,list(R.monics(of_degree=5)))
+#+END_SRC
+#+RESULTS:
+: Defining x
+: 
+: [x^5 + x^2 + 1,
+:  x^5 + x^3 + 1,
+:  x^5 + x^3 + x^2 + x + 1,
+:  x^5 + x^4 + x^2 + x + 1,
+:  x^5 + x^4 + x^3 + x + 1,
+:  x^5 + x^4 + x^3 + x^2 + 1]
+
+**** Ejemplo: Cuerpo de 256 elementos
+Vamos a tomar un cuerpo de 256 elementos y vamos a multiplicar en él usando 
+logaritmos. Es decir, vamos a representar cada polinomio como un número binario
+y vamos a sumarlos para multiplicar.
+
+#+BEGIN_SRC sage
+p = R.irreducible_element(8)
+Q = R.quo(p*R,'a')
+Q.is_field()
+a = Q.0
+
+# Potencias de a, son todo elementos de Q
+l = [a^i for i in range(2**8-1)]
+l.index(a^2+1)
+#+END_SRC
+#+RESULTS:
+: True
+: 50
+
+**** TODO Ejercicio 1
+    #+begin_statement
+    Demuestra que la clase de $x+1$ genera $\mathbb{Z}_2[x]/(x^8+x^4+x^3+x+1)$.
+    #+end_statement
+
+**** Órdenes monomiales
+    #+BEGIN_SRC sage
+      P = PolynomialRing(QQ,x,3,order='lex')
+      P.inject_variables()
+
+      ds = list(WeightedIntegerVectors(2,[1,1,1]))+list(WeightedIntegerVectors(1,[1,1,1]))
+      ms=[P({tuple(l):1}) for l in ds]
+      sorted(ms)
+
+      P=PolynomialRing(QQ,x,3,order='degrevlex')
+      P.inject_variables()
+
+      ds = list(WeightedIntegerVectors(2,[1,1,1]))+list(WeightedIntegerVectors(1,[1,1,1]))
+      ms=[P({tuple(l):1}) for l in ds]
+      sorted(ms)
+    #+END_SRC
+
+    #+RESULTS:
+    : Defining x0, x1, x2
+    : [x2, x2^2, x1, x1*x2, x1^2, x0, x0*x2, x0*x1, x0^2]
+    : Defining x0, x1, x2
+    : [x2, x1, x0, x2^2, x1*x2, x0*x2, x1^2, x0*x1, x0^2]
+
+***** Ejercicio
+     Ordena mediante el orden lexicográfico y lexicográfico graduado todos los 
+     monomios en tres variables de grado 3.
+
+     #+BEGIN_SRC sage
+       P=PolynomialRing(QQ,x,3)
+       P.inject_variables()
+
+       ds = list(WeightedIntegerVectors(3,[1,1,1]))
+       ms=[P({tuple(l):1}) for l in ds]
+       sorted(ms)
+     #+END_SRC
+
+     #+RESULTS:
+     #+begin_example
+     Defining x0, x1, x2
+
+     [x2^3,
+      x1*x2^2,
+      x0*x2^2,
+      x1^2*x2,
+      x0*x1*x2,
+      x0^2*x2,
+      x1^3,
+      x0*x1^2,
+      x0^2*x1,
+      x0^3]
+     #+end_example
+
+**** Algoritmo de la división
+*** Práctica 3: Bases de Gröbner
+**** Bases de Gröbner
+    #+BEGIN_SRC sage
+      P = PolynomialRing(QQ, ['x','y','z'], order='lex')
+      I = (x^4-y^4+z^3-1, x^3+y^2+z^2-1)*P
+      len(I.groebner_basis())
+    #+END_SRC
+
+    #+RESULTS:
+    : 5
+
+**** Pertenencia de polinomios
+    #+BEGIN_SRC sage
+      P.<x,y>=QQ[]
+      I = (x^2-y^3,x)*P
+      I.groebner_basis()
+      y**3 in I
+    #+END_SRC
+
+    #+RESULTS:
+    : [y^3, x]
+    : True
+
+***** Ejercicio
+     #+BEGIN_SRC sage
+       P.<x,y,z>=QQ[]
+       g1=x^2*y*z+y^2*z+1
+       g2=x*y^2*z+y*z^2-2
+       g3=x*y*z^2+z+3
+       I = (g1,g2,g3)*P
+       len(I.groebner_basis())
+       P.quo(I).()
+     #+END_SRC
+
+     #+RESULTS:
+     : 8
+     : Rational Field
+
+**** Cúpside
+    #+BEGIN_SRC sage
+      P = PolynomialRing(QQ,["t","x","y"],order="lex")
+      P.inject_variables()
+      I = (x-t^2,y-t^3)*P
+      I.groebner_basis()
+      I.elimination_ideal([t])
+    #+END_SRC
+
+    #+RESULTS:
+    : Defining t, x, y
+    : [t^2 - x, t*x - y, t*y - x^2, x^3 - y^2]
+    : Ideal (x^3 - y^2) of Multivariate Polynomial Ring in t, x, y over Rational Field
+
+    
+***** Ejercicio
+     #+BEGIN_SRC sage
+       P = PolynomialRing(QQ,["t","x","y","z","u"],order="lex")
+       P.inject_variables()
+       I = (x-t-u, y-t^2-2*t*u, z-t^3-3*t^2*u)*P
+       I.elimination_ideal([t,]u)
+     #+END_SRC
+
+     #+RESULTS:
+     : Defining t, x, y, z, u
+     : Ideal (4*x^3*z - 3*x^2*y^2 - 6*x*y*z + 4*y^3 + z^2) of Multivariate Polynomial Ring in t, x, y, z, u over Rational Field
 
 * Análisis Funcional
 ** 1. Espacios normados
