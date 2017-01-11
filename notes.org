@@ -5576,7 +5576,36 @@ Todo ideal no nulo $I$ tiene una única base de Gröbner reducida
 
 ***** TODO Demostración
 
-*** TODO Teoría de eliminación
+*** Teoría de eliminación
+**** Ideal de eliminación
+Sea $I$ ideal no nulo. Definimos el j-ésimo ideal de eliminación como:
+
+\[ I_j = I \cap K[X_{j+1},\dots,X_n]\]
+
+**** Base del ideal de eliminación
+Sea $I$ ideal no nulo y $\mathbb{G}$ base de Gröbner. Entonces:
+
+\[\mathbb{G}_j = \mathbb{G} \cap I_j\]
+
+es base de Gröbner de $I_j$.
+
+***** TODO Demostración
+
+**** Extensión de un ideal
+Sea $I$ ideal de $K[X_1,\dots,X_n]$. Un sistema de generadores suyo es
+también sistema de generadores de:
+
+\[
+I^e = \left\{
+\sum_{i=1}^k Q_iF_i \middle| Q_i \in K[T,X_1,\dots,X_n]
+\right\}
+\]
+
+en el espacio $K[T,X_1,\dots,X_n]$.
+
+***** TODO Demostración
+
+**** Resolución de un sistema
 ** 3. Variedades afines
 *** Variedades afines
 **** Espacio afín de un álgebra
