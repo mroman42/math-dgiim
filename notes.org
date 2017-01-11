@@ -5438,9 +5438,24 @@ Las bases de Gröbner en $K[X_1,\dots,X_n]$ cumplen:
 
   1. Todo ideal no nulo tiene una base de Gröbner.
   2. Toda base de Gröbner de un ideal es base de generadores del ideal.
-  3. Teorema de la base de Hilbert: todo ideal es finitamente generado.
+  3. *Teorema de la base de Hilbert*: todo ideal es finitamente generado.
 
-***** TODO Demostración
+***** Demostración 
+****** Punto 1
+Sabemos que $Exp(I)$ es [[*El exponente es monoideal][monoideal]] y por tanto tiene un sistema de
+[[*Sistemas de generadores][generadores]]. Existen entonces polinomios cumpliendo:
+
+\[Exp(I) = \{exp(G_1),\dots,exp(G_n)\} + \mathbb{N}^n\]
+
+Que forman una base de Gröbner
+
+****** Punto 2
+Por el algoritmo de la [[*Teorema de la división][división]], tenemos que todo polinomio del ideal
+se divide entre ellos dando un resto tal que $exp(R) \in \overline{\Delta} \cap Exp(I) = \varnothing$.
+Por tanto, $R=0$.
+
+****** Punto 3
+Todo ideal está generado por su base de Gröbner, que es finita.
 
 **** Resto en bases de Gröbner
 Sea $I$ ideal con bases de Gröbner $\mathbb{G},\mathbb{G}'$. Para $F \in K[X_1,\dots,X_n]$:
