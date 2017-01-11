@@ -5080,7 +5080,7 @@ S_{i|j}
 Y una familia de conjuntos:
 
 \[
-A_{i|j}
+S_{i|j}'
 =
 \{ 
 x \in \mathbb{N}^n
@@ -5090,7 +5090,7 @@ x_i=0, (x_1,\dots,j,\dots,x_n) \in S
 \]
 
 Que por hipótesis de inducción dejando nula a cada paso una de las
-coordenadas, dan lugar a $G_{i|j}' \subseteq A_{i|j}$ finito con $A_{i|j} = G_{i|j}'+\mathbb{N}^{n-1}$.
+coordenadas, dan lugar a $G_{i|j}' \subseteq S_{i|j}'$ finito con $S'_{i|j} = G_{i|j}'+\mathbb{N}^{n-1}$.
 
 \[
 G_{i|j} = 
@@ -5109,6 +5109,8 @@ Por lo tanto, $S_{i|j} \subseteq G_{i|j} + \mathbb{N}^{n}$; y tenemos finalmente
 definimos:
 
 \[G = \{y\} \cup \bigcup_{i,j<y_i} G_{i|j}\]
+
+Tenemos que cada uno de ellos es finito.
 
 **** Orden monomial es buen orden
 Todo orden monomial en $\mathbb{N}^n$ es buen orden.
@@ -5391,7 +5393,8 @@ de generadores:
 
 \[ (X^\alpha \mid \alpha \in G) \]
 
-Dado cualquier $F \in I$, sus monomios estarán en $I$ y serán múltiplo de ellos.
+Dado cualquier $F \in I$, sus monomios estarán en $I$ y serán múltiplo
+de ellos.
 
 **** Corolario de generación de ideales
 Sean $I,J \subseteq K[X_1,\dots,X_n]$ ideales monomiales:
