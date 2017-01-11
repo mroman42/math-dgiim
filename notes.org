@@ -5473,14 +5473,20 @@ Pero como $R-R' \in I$, y tenemos $exp(R-R') \in Exp(I)$, debe ser nulo.
 **** Caracterización de bases de Gröbner
 Sea $I$ ideal no nulo, equivalen:
 
- 1. $\mathbb{G}$ es base de Gröbner de $I$.
- 2. $R(F,\mathbb{G}) = 0$, para todo $F \in I$.
+  1. $\mathbb{G}$ es base de Gröbner de $I$.
+  2. $R(F,\mathbb{G}) = 0$, para todo $F \in I$.
 
 ***** Demostración
 ****** Primer punto al segundo
 Tenemos $exp(R) \in Exp(I) \cap \overline{\Delta}$, luego debe ser $exp(R) = 0$.
 
-****** TODO Segundo punto al primero
+****** Segundo punto al primero
+Por la división, cualquier $F \in I$ es de la forma:
+
+\[ F = \sum_{i=0}^n Q_iG_i\]
+
+Donde $exp(Q_iG_i) \in \Delta^i$, y como forman una partición disjunta, se tiene 
+que el $exp(F) = max\{exp(Q_iG_i)\} \notin \overline{\Delta}$. Por tanto $Exp(I) \cap \overline{\Delta} = \varnothing$.
 
 **** Semizigia
 Sean $F,G \in K[X_1,\dots,X_n]$ no nulos. Definimos el S-polinomial o semizigia
@@ -5499,7 +5505,13 @@ generadores. Equivalen:
  2. Para cualquier ordenación de $\mathbb{G}$, se tiene $R({\cal S}(G_i,G_j); \mathbb{G}) = 0$
     para cualesquiera $i \neq j$.
 
-***** TODO Demostración
+***** Demostración
+****** Primera implicación
+Trivialmente por la [[*Caracterización de bases de Gröbner][caracterización]] una vez que vemos que las 
+semizigias son combinaciones lineales.
+
+****** TODO Segunda implicación
+No es trivial.
 
 **** Algoritmo de Buchberger
 Sea $I$ ideal no nulo y $\mathbb{G} = (G_1,\dots,G_n)$ sistema de generadores. Es posible 
