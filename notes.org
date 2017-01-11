@@ -6453,6 +6453,101 @@ Si es monótono, entonces es monomial, y los monomiales son buenos [[*Sistemas d
 Si es buen orden, todo $\mathbb{N}^n$ tiene un mínimo. Si fuera $a$, se tendría
 que $a \leq 0$ y por tanto $2a \leq a$, llegando a $a = 2a$, lo que da $a = 0$.
 
+**** Ejercicio 17
+#+begin_statement
+Sean $I,J \subset K[X_1,\dots,X_n]$ ideales monomiales generados por $\{A_1,\dots,A_s\}$ y
+$\{B_1,\dots,B_n\}$, respectivamente:
+
+  1. Demuestra que $I \cap J$ es un ideal monomial.
+  2. Demuestra que $\{M_{i,j} \mid i=1,\dots,s;\;j=1,\dots,t\}$, $M_{i,j}$ es un m.c.m. de
+     $A_i$ y $B_j$, es un sistema de generadores de $I \cap J$.
+  3. Calcula la intersección de los ideales $I = (X,Y^2Z,YZ^2)$ y
+     $J = (X^3YZ, X^2Y, Y^2Z^3)$ en el anillo $K[X,Y,Z]$.
+#+end_statement
+
+***** Punto 1 y punto 2
+Un monomio $X^\mu \in I \cap J$ debe cumplir $A_i \mid X^\mu$, $B_j\mid X^\mu$ y por tanto
+$M_{ij}\mid X^\mu$ para algunos $i,j$. Todo monomio del ideal es generado por 
+los $M_{ij}$.
+
+Pero dado un $F \in I \cap J$, sus monomios deben estar en $I \cap J$ también,
+así que todo polinomio del ideal es generado por los $M_{i,j}$, y es monomial.
+
+***** TODO Punto 3
+Como ambos son ideales monomiales, tenemos que calcular sólo sus
+$M_{ij}$.
+ 
+**** Ejercicio 19
+#+begin_statement
+Demuestra que si $\{J_i \mid i \in I\}$ es una cadena de ideales monomiales, entonces
+la unión $\bigcup_{i} J_i$ es un ideal monomial.
+#+end_statement
+
+Sea un polinomio que está en la unión. Sus monomios están en algún $J_i$,
+así que el ideal es monomial.
+
+**** Ejercicio 20
+#+begin_statement
+Demostrad que la intersección de ideales monomiales es un ideal monomial.
+#+end_statement
+
+Si un polinomio pertenece a la intersección, todos sus monomios pertenecen
+a cada ideal y a la intersección. Por lo tanto, la intersección es monomial.
+
+**** Ejercicio 22
+#+begin_statement
+Demuestra que:
+
+  1. Un ideal monomial es primo ssi está generado por un subconjunto 
+     de $\{X_1,\dots,X_n\}$.
+  2. El número de ideales monomiales primos es finito, y cada uno de ellos
+     es finitamente generado.
+  3. $(X_1,\dots,X_n)$ es el único ideal maximal que es monomial.
+#+end_statement
+
+***** Punto 1
+Si está generado de esa forma, debe ser primo, ya que es imposible que
+el producto de dos polinomios que no contienen a una incógnita contenga
+a la incógnita o sea nulo.
+
+Si tengo un ideal monomial primo:
+
+\[ I = (X^\alpha \mid \alpha \in A \subseteq \mathbb{N}^n)\]
+
+Tengo que si $gr(\alpha) > 1$, entonces podría escribirse como $\alpha = \beta + \gamma$
+y debería tenerse a $X^\beta$ o $X^\gamma$ en el ideal, generando a $X^\alpha$. Por
+descenso infinito tengo todos los generadores de grado $1$.
+
+***** Punto 2
+Como son de la forma dada, debe tenerse.
+
+***** Punto 3
+Tenemos que es un cuerpo su cociente, luego debe ser un ideal
+maximal:
+
+\[ \frac{K[X_1,\dots,X_n]}{(X_1,\dots,X_n)} \cong K\]
+
+Ahora bien, todo ideal maximal es primo, y por tanto de la forma
+anterior, y por tanto está contenido en este, que debe ser el único
+maximal.
+
+**** Ejercicio 26
+#+begin_statement
+Da un ejemplo de dos polinomios $F,G \in K[X_1,\dots,X_n]$ tales que
+$Exp((F,G)) \not\subseteq \{exp(F), exp(G)\} + \mathbb{N}^n$. Observar que la inclusión contraria
+es siempre cierta.
+#+end_statement
+
+Incluso en una variable podemos tener $F = X^2+X$ y $G = X^2-X$, que
+cumplen:
+
+\[Exp((F,G)) = \{1\}+\mathbb{N}^n\]
+$\{exp(F),exp(G)\} + \mathbb{N}^n = \{2\} + \mathbb{N}^n$
+
+La inclusión contraria es cierta porque podemos multiplicar por monomios
+como $X^\gamma$ para cualquier $\gamma$.
+
+** Prácticas
 *** Práctica 1: Anillos e ideales
 **** Anillos básicos
 #+BEGIN_SRC sage
