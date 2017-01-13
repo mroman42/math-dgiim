@@ -6587,6 +6587,7 @@ Sea $x \in \sqrt{\alpha}$, entonces $x^n \in \alpha \subset \bigcap \pi_i$, pero
  al ideal maximal, lo que es imposible.
 
 *** Relación 2
+**** DONE Ejercicio 8
 **** Ejercicio 16
 #+begin_statement
 Sea $\leq$  un orden en $\mathbb{N}^n$ que es total y compatible. Haciendo uso de la teoría
@@ -6692,6 +6693,11 @@ $\{exp(F),exp(G)\} + \mathbb{N}^n = \{2\} + \mathbb{N}^n$
 
 La inclusión contraria es cierta porque podemos multiplicar por monomios
 como $X^\gamma$ para cualquier $\gamma$.
+
+**** Ejercicio 32
+Vemos que en el primer caso queda invariante en el algoritmo de Buchberger
+y en el segundo no. Es decir, las semizigias dan un resto distinto de cero
+sólo en el segundo caso.
 
 ** Prácticas
 *** Práctica 1: Anillos e ideales
@@ -7091,7 +7097,7 @@ l.index(a^2+1)
      : Defining t, x, y, z, u
      : Ideal (4*x^3*z - 3*x^2*y^2 - 6*x*y*z + 4*y^3 + z^2) of Multivariate Polynomial Ring in t, x, y, z, u over Rational Field
 
-* Análisis Funcional
+* Análisis Funcionhal
 ** 1. Espacios normados
 *** Espacios normados
 **** Norma y seminorma
@@ -9857,6 +9863,9 @@ Toda función es suma de par y de impar.
 
 Así que toda función puede aproximarse por suma de senos y cosenos.
 
+**** Ejercicio 12
+
+
 **** Ejercicio 13
 #+begin_statement
 En el espacio $L^2[-\pi,\pi]$, en función de la base de Hilbert dada en el 
@@ -9898,7 +9907,8 @@ Calculamos la norma de la función:
 \int_{-\pi}^\pi x^2 \;dx = \frac{2}{3} \pi^3
 \]
 
-Y tenemos finalmente:
+Y tenemos finalmente, sumando cuadrados de los productos escalares
+anteriores:
 
 \[\begin{aligned}
 \frac{\pi^3}{2} + \sum_{i=0}^\infty \frac{4}{\pi n^4}((-1)^n-1)^2
