@@ -5817,7 +5817,30 @@ Las variedades dadas por ideales cumplen:
 
   4. $\mathbb{V}(K[X_1,\dots,X_n]) = \varnothing$
 
-***** TODO Demostración
+***** Demostración
+****** Punto 1
+Si un punto se anula para todos los polinomios de cada $J_\lambda$, en
+particular está en cada $\mathbb{V}(J_\lambda)$. Si está en cada $\mathbb{V}(J_\lambda)$, se anula
+para todos sus polinomios y por tanto para sus combinaciones
+lineales.
+
+****** Punto 2
+Si $x \notin \mathbb{V}(J_1) \cup \mathbb{V}(J_2)$, entonces existirían polinomios en cada ideal
+para los que no sería cero, y no sería cero de su producto, luego
+$x \notin \mathbb{V}(J_1J_2)$.
+
+El resto de los contenidos son triviales, viendo:
+
+\[\mathbb{V}(J_1) \cup \mathbb{V}(J_2) \subseteq
+\mathbb{V}(J_1\cap J_2) \subseteq
+\mathbb{V}(J_1J_2)\]
+
+****** Punto 3
+Todos los puntos son raíces del constante $0$.
+
+****** Punto 4
+Ningún punto es raíz de todos los polinomios, porque existen los
+polinomios constantes no nulos en cualquier cuerpo.
 
 **** Topología de Zariski
 Las variedades son los cerrados de una topología sobre $\mathbb{A}^n(K)$.
@@ -5938,7 +5961,7 @@ La función $\mathbb{{I}}$ considerada como:
 
 Es inyectiva, se tiene $\mathbb{V}\mathbb{I} = 1$ y en general no se tiene $\mathbb{I}\mathbb{V} = 1$.
 
-*** Anillos de coordenadas
+*** DONE Anillos de coordenadas
 **** Teorema de los ceros de Hilbert
 Sea $K$ algebraicamente cerrado. Entonces para cualquier ideal
 $J \subseteq K[X_1,\dots,X_n]$, se verifica que:
