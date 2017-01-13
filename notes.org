@@ -5774,15 +5774,20 @@ Sea $K$ cuerpo infinito. Sus polinomios verifican:
   2. $F^\ast=G^\ast \iff F = G$.
 
 ***** TODO Demostración
-
 **** Variedad de un polinomio
 Dado $F \in K[X_1,\dots,X_n]$, denotamos por $\mathbb{V}(F)$ al conjunto de sus ceros:
 
-\[\mathbb{V}(F) = \Big\{(a_1,\dots,a_n) \in \mathbb{A}^n(K) \Big| F(a)=0 \Big\}\]
+\[\mathbb{V}(F) = \Big\{(a_1,\dots,a_n) \in \mathbb{A}^n(K) \;\Big|\; F(a)=0 \Big\}\]
+
+Dado un ideal ${\cal F}$, denotamos por $\mathbb{V}({\cal F})$ al conjunto de sus ceros:
+
+\[\mathbb{V}({\cal F})
+=
+\Big\{(a_1,\dots,a_n) \in \mathbb{A}^n(K) \;\Big|\; F(a)=0\; \forall F \in {\cal F} \Big\}\]
 
 **** Variedad algebraica afín
 Un conjunto es una *variedad algebraica afín* cuando existe
-${\cal F} \subseteq K[X_1,\dots,X_n]$ tal que $\mathbb{V}({\cal F})$.
+${\cal F} \subseteq K[X_1,\dots,X_n]$ tal que es de la forma $\mathbb{V}({\cal F})$.
 
 **** Variedad de un ideal
 Sea ${\cal F} \subseteq K[X_1,\dots,X_n]$ y sea ${\cal I} = ({\cal F})$ el ideal generado. Se tiene:
@@ -5790,10 +5795,14 @@ Sea ${\cal F} \subseteq K[X_1,\dots,X_n]$ y sea ${\cal I} = ({\cal F})$ el ideal
   1. $\mathbb{V}({\cal F}) = \mathbb{V}({\cal I})$
   2. $\exists F_1,\dots,F_t : \mathbb{V}({\cal F}) = \mathbb{V}(F_1,\dots,F_t)$
 
-***** TODO Demostración
+***** Demostración
+****** Punto 1
+Si los generadores se anulan en un punto, sus combinaciones lineales
+también.
 
 ****** Punto 2
-Todo ideal en el anillo de polinomios es finitamente generado.
+Todo ideal en el anillo de polinomios es finitamente [[*Propiedades de bases de Gröbner][generado]]
+gracias a las bases de Gröbner.
 
 **** Variedad de una familia de ideales
 Las variedades dadas por ideales cumplen:
