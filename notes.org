@@ -5646,13 +5646,19 @@ Sea $I$ ideal no nulo. Definimos el j-ésimo ideal de eliminación como:
 \[ I_j = I \cap K[X_{j+1},\dots,X_n]\]
 
 **** Base del ideal de eliminación
-Sea $I$ ideal no nulo y $\mathbb{G}$ base de Gröbner. Entonces:
+Sea $I$ ideal no nulo y $\mathbb{G}$ base de Gröbner del orden lexicográfico
+dado por $X_1 > X_2 > \dots > X_n$. Entonces:
 
 \[\mathbb{G}_j = \mathbb{G} \cap I_j\]
 
 es base de Gröbner de $I_j$.
 
-***** TODO Demostración
+***** Demostración
+Sea $F \in I_j$, veremos que $exp(F) = exp(G) + \gamma$ para algún $G \in \mathbb{G}_j$.
+Tenemos ya $exp(F) = exp(G) + \gamma$ para $G \in \mathbb{G}$. Como el exponente de $F$ es
+nulo en las $j$ primeras variables, entonces $exp(G)$ también lo hace.
+Como estamos usando orden lexicográfico ${\cal N}(G)$ entero se anula en las
+$j$ primeras variables. Luego $G \in \mathbb{G}$.
 
 **** Extensión de un ideal
 Sea $I$ ideal de $K[X_1,\dots,X_n]$. Un sistema de generadores suyo es
@@ -5660,15 +5666,65 @@ también sistema de generadores de:
 
 \[
 I^e = \left\{
-\sum_{i=1}^k Q_iF_i \middle| Q_i \in K[T,X_1,\dots,X_n]
+\sum_{i=1}^k Q_iF_i \;\middle|\; Q_i \in K[T,X_1,\dots,X_n], F_i \in I
 \right\}
 \]
 
 en el espacio $K[T,X_1,\dots,X_n]$.
 
-***** TODO Demostración
+***** Demostración
+Trivialmente por ser generador de $I$.
 
-**** Resolución de un sistema
+**** Cálculo de la intersección
+Sean $I,J$ dos ideales no nulos de $K[X_1,\dots,X_n]$. Sea:
+
+\[ H = TI^e + (1-T)J^e \subseteq K[T,X_1,\dots,X_n]\]
+
+Entonces $I\cap J = H \cap K[X_1,\dots,X_n]$, primer ideal de eliminación de $H$.
+Esto nos permite calcular la intersección usando bases de Gröbner
+
+***** TODO Demostración
+Si está en $I\cap J$ tenemos $TF + (1-T)F = F \in H$. Si está en 
+$H \cap K[X_1,\dots,X_n]$, entonces es de la forma:
+
+\[TF+(1-T)G = G + (F-G)T\]
+
+Y por tanto debe tenerse $F = G \in I \cap J$.
+
+**** Cociente de ideales
+Dados $I,J$ ideales no nulos, definimos el ideal cociente como:
+
+\[(I : J) 
+= 
+\{F \in K[X_1,\dots,X_n] \mid FJ \subset I\}
+=
+\bigcap_{i=1}^n (I : G_i)\]
+
+Siendo $J = (G_1,\dots,G_n)$.
+
+***** Demostración
+Trivialmente, si incluye al ideal $J$ incluye a todos sus generadores.
+Si está en la intersección incluye a todos los generadores por tanto
+a todo el ideal.
+
+**** Caracterización del cociente
+Para $G \in K[X_1,\dots,X_n]$ se verifica que $G(I:G) = I \cap (G)$. Luego:
+
+\[(I:G) = \frac{1}{G}(I \cap (G))\]
+
+**** Máximo común divisor y mínimo común múltiplo
+Sean $F,G \in K[X_1,\dots,X_n]$ con $D = \operatorname{mcd}(F,G)$ y $M = \text{mcm}(F,G)$. Entonces:
+
+  1. $(F) \cap (G) = (M)$
+  2. $D = \frac{FG}{M}$
+
+Nótese que la intersección puede calcularse como el primer ideal de
+eliminación de:
+
+\[
+H = T(F)^e + (1-T)(G)^e = (TF,(1-T)G)
+\]
+
 ** 3. Variedades afines
 *** Variedades afines
 **** Espacio afín de un álgebra
