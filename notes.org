@@ -8939,6 +8939,49 @@ Existen sistemas ortonormales maximales.
 ***** Demostración
 Lema de Zorn.
 
+*** Operadores adjuntos
+**** Operadores adjuntos
+Dado $T \in L(H_1,H_2)$ entre espacios de Hilbert, existe:
+
+\[\exists! T^\ast \in L(H_2,H_1):  \langle Tx,y \rangle = \langle x,Ty\rangle\]
+
+Llamado el *operador adjunto*.
+
+***** TODO Demostración
+
+**** Propiedades de operadores adjuntos
+Los adjuntos cumplen:
+
+  1. $T^{\ast\ast} = T$.
+  2. $\|T\| = \|T^\ast\| = \|TT^\ast\|^{1/2} = \|T^\ast T\|^{1/2}$.
+  3. $(T_1+T_2)^\ast = T_1^\ast+T_2^\ast$
+  4. $(\alpha T)^\ast = \overline{\alpha}T^\ast$.
+  5. $(RT)^\ast = T^\ast R^\ast$.
+
+***** TODO Demostración
+
+**** Operador autoadjunto
+Un operador $T \in L(H,H)$ es autoadjunto si $T^\ast = T$.
+
+**** Relación con el adjunto
+Sea $T \in L(H,H)$; se cumple:
+
+  1. $\ker T^\ast = T(H)^\perp$.
+  2. $\ker T = T^\ast(H)^\perp$.
+  3. $T^\ast$ inyectivo $\iff$ $T(H)$ denso.
+
+**** Espectro
+El espectro de un operador es el conjunto de valores propios:
+
+\[
+G_p(T) =
+\{
+\lambda \in \mathbb{C} 
+\mid
+T - \lambda I \text{ no inyectivo}
+\}
+\]
+
 ** Ejercicios
 *** 1. Espacios normados
 **** Ejercicio 3
@@ -9864,7 +9907,6 @@ Toda función es suma de par y de impar.
 Así que toda función puede aproximarse por suma de senos y cosenos.
 
 **** Ejercicio 12
-
 
 **** Ejercicio 13
 #+begin_statement
