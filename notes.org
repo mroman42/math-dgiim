@@ -12638,3 +12638,294 @@ fundamental $\mathbb{Z}$.
   un recubrimiento de dos hojas del *cilindro* a la banda de Möbius.
 - $n\mathbb{Z}$ con $n$ impar tiene a la *banda de Möbius* como recubridor.
 - $\mathbb{Z}$ tiene al recubridor *identidad*.
+** 3. Superficies compactas
+*** 3.0. Clasificación de variedades 1-dimensionales
+**** Variedad 1-dimensional
+Una variedad topológica 1-dimensional es un espacio topológico que
+sea:
+
+  - Conexo.
+  - $T_2$, [[https://en.wikipedia.org/wiki/Hausdorff_space][Hausdorff]].
+  - 2AN, [[https://en.wikipedia.org/wiki/Second-countable_space][segundo axioma de numerabilidad]].
+
+y tal que:
+
+\[\forall x \in X : \exists x \in U_x \in \tau:\quad
+U_x \cong\: ]a,b[\]
+
+**** Ejemplos
+***** Los reales y el círculo
+$\mathbb{R}$ es variedad trivialmente. El círculo $\mathbb{S}^1$ es también una variedad.
+
+***** Contraejemplo: lemniscata
+Un espacio que se cruza consigo mismo formando una lemniscata
+es un contraejemplo. No hay abierto homeomorfo a un entorno del cruce.
+
+[[file:./images/lemniscata.svg]]
+
+***** Contraejemplo: folium
+Una curva inyectiva y continua que se aproxima a un punto sin contenerlo.
+Ninguno de los entornos del punto crítico tiene un entorno abierto
+homeomorfo a un intervalo.
+
+#+begin_center
+#+attr_latex: :width 50px
+[[./images//folium.png]]
+#+end_center
+
+***** Contraejemplo de 2AN
+No existe una base numerable para el punto $(0,0)$ si usamos la
+topología que une la recta izquierda con cada una de las rectas
+derechas de forma separada, no podemos encontrar una base
+numerable.
+
+\[
+X
+=
+\{(x,0) \mid x<0\}
+\cup
+\left(
+\bigcup_{y \in \mathbb{R}\setminus\{0\}}
+\{(x,y) \mid x \geq 0\}
+\right)\]
+
+#+begin_center
+#+attr_latex: :width 50px
+[[./images//2an.png]]
+#+end_center
+
+**** Clasificación de variedades topológicas en dimensión 1
+Toda variedad topológica 1-dimensional es homeomorfa a $\mathbb{R}$ o a $\mathbb{S}^1$.
+
+*** TODO 3.1. Variedades topológicas
+*** 3.2. Complejos simpliciales
+**** P-símplice
+Sean $v_1,\dots,v_p \in \mathbb{R}^n$ afínmente independientes. Se define el *p-símplice*
+generado como:
+
+\[
+\langle v_0,\dots,v_p \rangle
+=
+\left\{
+\sum_{j=0}^p \lambda_jv_j 
+\;\middle|\;
+0 \leq \lambda_j \leq 1, \sum_{j=0}^p \lambda_j = 1
+\right\}
+\]
+
+Llamamos a los $v_i$ *vértices* del p-símplice y al entero $p$ se le llama
+*dimensión* del p-símplice.
+
+**** Caras de un p-símplice
+Las *caras* de un p-símplice $\sigma$ son los k-símplices generados por $k+1$ 
+vértices. Se notan por $\tau < \sigma$.
+
+Llamamos *aristas* a las caras de dimensión 1 y *triángulos* a las caras de
+dimensión 2.
+
+**** P-símplice abierto
+Se define el *p-símplice abierto* como:
+
+\[
+{\cal O}(\langle v_0,\dots,v_p \rangle)
+=
+\left\{
+\sum_{j=0}^p \lambda_jv_j 
+\;\middle|\;
+0 < \lambda_j \leq 1, \sum_{j=0}^p \lambda_j = 1
+\right\}
+\]
+
+Observemos que en general no es igual al interior de un p-símplice.
+
+**** Complejo simplicial euclídeo
+Colección de símplices $K$ en algún $\mathbb{R}^n$ cumpliendo:
+
+  1. $\tau < \sigma, \sigma \in K \implies \tau \in K$.
+  2. $\sigma,\tau \in K,\; \sigma \cap \tau \neq \varnothing$ $\implies$ $\sigma \cap \tau < \sigma$ ó $\sigma \cap \tau < \tau$.
+  3. Todo punto en el símplice tiene un entorno abierto que corta a
+     una cantidad finita de símplices en $\bigcup_{\tau \in K}\tau \subseteq \mathbb{R}^n$.
+
+Llamamos *dimensión* de $K$ a la dimensión del mayor símplice que contiene.
+
+**** Subcomplejo simplicial
+Llamamos subcomplejo simplicial a $K' \subseteq K$ complejo simplicial.
+
+**** Poliedro
+Dado $K$ complejo simplicial, llamamos *poliedro* de $K$ al espacio topológico
+formado por la unión de todos los símplices de $K$ con la topología inducida:
+
+\[|K| = \bigcup_{\tau \in K} \tau \subseteq \mathbb{R}^n\]
+
+**** Un compacto corta una cantidad finita de símplices
+Sea $G \subseteq |K|$ compacto, entonces $G$ corta a una cantidad finita de símplices
+de $K$. En particular $|K|$ compacto tiene una cantidad finita de símplices.
+
+***** TODO Demostración
+
+**** Aplicaciones simpliciales
+Una $f : |K|\longrightarrow |L|$ entre complejos simpliciales es *aplicación simplicial* 
+si:
+
+  1. $f$ lleva símplices de $K$ en símplices de $L$.
+  2. La restricción de $f$ a cada símplice es afín $Ax+b$.
+
+Una aplicación simplicial homeomorfismo la llamamos 
+*homeomorfismo simplicial*.
+
+**** Homeomorfismos simpliciales
+La inversa de un homeomorfismo simplicial es homeomorfismo simplicial;
+así como la identidad y la composición de funciones. Las aplicaciones
+simpliciales forman una categoría.
+
+***** TODO Demostración
+
+**** Superficies triangulables
+Una superficie topológica $S$ se dice *triangulable* si existe algún 
+complejo simplicial de dimensión $2$ con $S \cong |K|$.
+
+**** Teorema de Radó
+Toda superficie admite una triangulación por un complejo simplicial
+euclídeo de dimensión 2 donde cada 1-símplice es cara de exactamente
+dos símplices.
+
+***** Recíproco falso
+No todo complejo simplicial es triangulación de una superficie.
+
+*** TODO 3.3. Suma convexa
+*** 3.4. Presentación poligonal de superficies
+**** Polígono homeomorfo
+Toda superficie topológica compacta es homeomorfa a un polígono con lados
+identificados 2 a 2.
+
+***** TODO Demostración
+
+**** Región poligonal
+Un $P \subseteq \mathbb{R}^2$ es región poligonal si:
+
+  1. Es compacta.
+  2. Tiene por borde una curva poligonal (complejo de dimensión 1).
+  3. Cada $v \in \operatorname{b}(P)$ vértice admite entorno $U \subseteq \mathbb{R}^2$ tal que:
+
+     \[U \cap P = U \cap H_1 \cap H_2\]
+
+     donde $H_1,H_2$ son semiplanos cerrados con $H_1 = H_2$ o $\operatorname{b}H_1 \cap \operatorname{b}H_2 = \{v\}$.
+
+***** TODO Ejemplos
+
+**** Superficie poligonal
+Sea $P \subseteq \mathbb{R}^2$ región poligonal con un número de aristas. Si $R$ es relación 
+de equivalencia, identificando cada arista con exactamente otra arista
+mediante homeomorfismo simplicial, $P/R$ es una superficie topológica 
+compacta.
+
+**** Presentación poligonal
+Llamamos presentación a una expresión de la forma:
+
+\[\langle A;\; W_1,\dots,W_n \rangle\]
+
+donde $W_i$ son palabras con todos los símbolos $\langle A \rangle$ de longitud mayor que 3.
+Permitimos además los casos especiales:
+
+  - $\langle \{a\}, aa \rangle$
+  - $\langle \{a\}, aa^{-1} \rangle$
+  - $\langle \{a\}, a^{-1}a^{-1} \rangle$
+  - $\langle \{a\}, a^{-1}a \rangle$
+
+**** Presentación de un complejo
+Dado un complejo simplicial $K$ donde cada símplice es cara de un 2-símplice,
+tenemos una presentación poligonal asignando a cada 2-símplice una palabra
+de longitud 3.
+
+***** TODO Ejemplo
+
+**** Realización geométrica
+Cada $P = \langle A; W_1,\dots,W_n \rangle$ determina $|P|$, una topología de la forma:
+
+  1. Para cada $W_i$ tomamos un polígono $P_i$ de n-lados.
+  2. Biyección entre lados y aristas de $P_i$ en sentido antihorario.
+  3. Identificamos cada arista con la que tiene el mismo nombre en
+     el sentido marcado por la inversa.
+
+Tomamos la uniónpor esta relación $|P| = \bigsqcup P_i / R$.
+
+**** Extensión a homeomorfismo
+Para $P_1,P_2$ polígonos convexos con el mismo número de aristas.
+El $f : \operatorname{b}P_1 \longrightarrow \operatorname{b}P_2$ homeomorfismo simplicial se extiende a un homeomorfismo
+$F : P_1 \longrightarrow P_2$.
+
+***** TODO Demostración
+
+**** Presentación poligonal de una superficie
+Una presentación $\langle A; W_1,\dots,W_n \rangle$ es de una superficie si 
+cada símbolo de $A$ aparece exactamente dos veces en los $W_i$.
+
+**** Presentación de una superficie
+Si $S$ es superficie compacta y $|P| \cong S$, entonces $P$ es una
+presentación de $S$.
+
+**** Presentaciones topológicamente equivalentes
+Dos presentaciones $P_1,P_2$ son topológicamente equivalentes si:
+
+\[ |P_1| \cong |P_2|\]
+
+**** Transformaciones elementales de presentaciones poligonales
+Dado $\langle A; W_1,\dots,W_n \rangle$, podemos definir las siguientes transformaciones
+elementales.
+
+***** 1. Renombrar
+Cambiar un símbolo $a \in A$ por $e \notin A$ para cada palabra.
+
+***** 2. Subdividir
+Sustituir $a \mapsto ae$ y $a^{-1} \mapsto e^{-1}a^{-1}$.
+
+***** 3. Consolidar
+Inversa de subdividir.
+
+***** 4. Reflejar
+Cambiar orden de una palabra $a_1\dots a_m \mapsto a_m^{-1}\dots a_1^{-1}$.
+
+***** 5. Rotar
+Empezar una palabra en otro vértice $a_1\dots a_m \mapsto a_2\dots a_ma_1$.
+
+***** 6. Cortar
+Partir dos palabras $W_1W_2 \mapsto W_1e,e^{-1}W_2$.
+
+***** 7. Pegar
+Inversa de cortar.
+
+***** 8. Doblar
+Anular dos lados adyacentes $W_1ee^{-1} \mapsto W_1$.
+
+***** 9. Desdoblar
+Inversa de doblar.
+
+*** 3.5. Clasificación de superficies compactas I
+*** 3.6. Clasificación de superficies compactas II
+**** Grupo fundamental de la presentación
+Sea $S$ compacta y convexa determinada por la presentación $P$, entonces
+su grupo fundamental tiene la misma presentación de $P$.
+
+Es decir cociente del libre por la clausura normal de las $W$:
+
+\[\Pi(S) = \frac{F(A)}{N_W}\]
+
+**** Conmutador
+Dado $G$ se define su conmutador $[G,G]$ como el subgrupo normal de $G$ que
+contiene las clases de conjugación, de la forma:
+
+\[
+[G,G] 
+= 
+\langle aba^{-1}b^{-1} \mid a,b \in G \rangle\]
+
+**** Propiedades del conmutador
+El conmutador cumple:
+
+  1. $[G,G] \cong \{e\}$ $\iff$ $G$ abeliano.
+  2. $Ab(G) = G/[G,G]$ es abeliano, llamado el *abelianizado* de $G$.
+
+***** TODO Demostración
+
+*** 3.7. Característica de Euler y orientabilidad
+
