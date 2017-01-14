@@ -9968,6 +9968,26 @@ anteriores:
 
 Considerando sólo los términos impares.
 
+**** TODO Ejercicio 14
+#+begin_statement
+En el espacio $L^2[-\pi,\pi]$, en función de la base de Hilbert dada en el 
+ejercicio 11, obtener el desarrollo en serie de Fourier de la función
+$f(x) = x^2$. Usar dicho desarrollo para calcular:
+
+\[\sum_{n=1}^\infty \frac{1}{n^2}\] y \[\sum_{n=1}^\infty \frac{1}{n^4}\]
+#+end_statement
+
+**** TODO Ejercicio 18
+#+begin_statement
+Encontrar $min_{\alpha,\beta,\gamma \in \mathbb{C}} \int_{-1}^1 |x^3-\alpha-\beta x -\gamma x^2|^2 \;dx$.
+#+end_statement
+
+Buscar la mejor aproximación en el espacio de los polinomios de grado
+menor que 2. Hay que buscar primero una ortonormalización de la base
+con Gram-Schmitd
+
+*** 6. Espacios de Hilbert III
+**** Ejercicio 1
 * Inferencia Estadística
 ** DONE Apuntes en clase
 *** Introducción
