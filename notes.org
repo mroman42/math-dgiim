@@ -8669,6 +8669,7 @@ X = M \overset{t}{\oplus} N
 
 ***** TODO Demostración
 
+*** Teorema de Riesz-Frechet
 **** Recordatorio: Teorema de Hahn-Banach
 Sea $X$ espacio normado sobre $\mathbb{K}$. Entonces $\exists f: X \longrightarrow \mathbb{K}$ lineal y continua
 no nula. Además, dado $x \in X\setminus\{0\}$, tenemos $\exists f \in X^\ast: f(x) \neq 0$. De hecho,
@@ -8686,8 +8687,8 @@ Cada vector tiene asociada una función lineal y continua en el dual
 dada por su producto escalar: $v \mapsto \langle \cdot,v \rangle$.
 
 **** Teorema de Riesz-Fréchet
-Sea $H$ Hilbert y $f : H \longrightarrow \mathbb{K}$ lineal y continuo. Existe un único $v \in H$ tal
-que:
+Sea $H$ Hilbert y $f : H \longrightarrow \mathbb{K}$ lineal y continuo. Existe un único $v \in H$ 
+tal que:
 
 \[f(u) = \langle u,v \rangle\]
 
@@ -8826,6 +8827,7 @@ Sea $H$ Hilbert, entonces la bola $B(0,1)$ es débilmente compacta.
 Un espacio vectorial topológico es un espacio vectorial con una topología
 que hace continuos a la norma y el producto por escalares.
 
+*** Ortonormalidad
 **** Ortogonalidad y ortonormalidad
 Sea dice $S \subset H$ ortogonal cuando $\forall u,v \in S: \; u \perp v$. Se dice que es además
 ortonormal cuando $\forall u \in S : \|u\| = 1$.
@@ -8886,10 +8888,11 @@ ortonormalidad.
 Sea $X$ normado y $\{x_i\}_{i\in I}$ familia; se dice sumable si:
 
 \[\exists x \in X: 
-\forall \epsilon > 0:
-\exists J_\epsilon \subseteq I:
-\forall J \supseteq J_\epsilon: \quad
-\left\|\sum_{i \in J} x_i - x\right\| < \epsilon
+\forall \varepsilon > 0:
+\exists J_\varepsilon:
+\forall J \text{ finito} \supseteq J_\varepsilon: 
+\quad
+\left\|\; \sum_{i \in J} x_i - x \;\right\| < \varepsilon
 \]
 
 Llamamos suma de la familia a $\sum_{i \in I} x_i = x$.
