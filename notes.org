@@ -8937,34 +8937,66 @@ Si tomo unos $\varepsilon \longrightarrow 0$ tendré:
 \|T\|\varepsilon \longrightarrow 0
 \]
 
-**** Caracterización de familia sumable
-Una familia $\{x_i\}_{i \in I}$ es sumable ssi:
+**** Caracterización de familia sumable real
+En los reales positivos, una familia $\{r_i\}_{i \in I} \in \mathbb{R}^+$ es sumable ssi:
 
-\[\sup\left\{
-\sum_{i \in J} x_i \mid J \;\mtext{ finito } \subset I
-\right\} < \infty\]
+\[\sup\left\{\;
+\sum_{i \in J} r_i \;\middle|\; J \;\mtext{ finito } \subset I
+\;\right\} < \infty\]
 
-donde además, $\sum_{i \in I} x_i$ es el supremo.
+donde además, $\sum_{i \in I} r_i$ es el supremo.
 
-***** TODO Demostración
+***** Demostración
+Por la definición de supremo, dado cualquier $\varepsilon$ podemos encontrar:
+
+\[s \geq \sum_{J} r_i \geq \sum_{J_\varepsilon} r_i\]
+
+Cumpliendo por tanto para $J_\varepsilon \subset J$:
+
+\[ 
+\left|s - \sum_J r_i\right| \leq 
+\left|s - \sum_{J_\varepsilon} r_i \right| \leq
+\varepsilon\]
 
 **** Condición de Cauchy en familias sumables
 Una familia $\{x_i\}_{i \in I}$ verifica la condición de Cauchy cuando:
 
 \[\forall \varepsilon > 0:
-\exists J_\varepsilon\text{ finito}:
-\forall J: J \cap J_\varepsilon = \varnothing \implies
-\left\|\sum_{i \in J} x_i\right\| < \varepsilon\]
+\exists J_\varepsilon \text{ finito}:
+\forall J \text{ finito}: J \cap J_\varepsilon = \varnothing \implies
+\left\|\; \sum_{i \in J} x_i \;\right\| < \varepsilon\]
 
 **** Toda sumable es Cauchy
 Si $\{x_i\}_{i \in I}$ es sumable, verifica la condición de Cauchy.
 
-***** TODO Demostración
+***** Demostración
+Suponiendo que suman $s$, podemos tomar $J_\varepsilon$ cumpliendo que, dado $J \cap J_\varepsilon = \varnothing$:
+
+\[
+\left\|\; s - \sum_{J_\varepsilon \cup J} x_i \;\right\| < \varepsilon
+\]
+
+Y por tanto, aplicando Minkowski:
+
+\[
+\left\|\; \sum_{J} x_i \;\right\|
+\leq
+\left\|\; \left(s - \sum_{J_\varepsilon} x_i \right) - \sum_J x_i \;\right\| +
+\left\|\; s - \sum_{J_\varepsilon} x_i \; \right\|
+\leq
+2\varepsilon
+\]
 
 **** Numerabilidad de familias de Cauchy
 Toda familia de Cauchy tiene $\{ i \in I \mid x_i \neq 0\}$ numerable.
 
-***** TODO Demostración
+***** Demostración
+Si verifica Cauchy, para cada $n$ podemos tomar, $J_n$ tal que para $J \cap J_n =\varnothing$:
+
+\[\left\| \sum_{J} x_i \right\| \leq \frac{1}{n}\]
+
+Si tenemos un $x \notin J_n$ para todo $n$, debe cumplir $\|x\| < \frac{1}{n}$, luego $x = 0$.
+Como $\bigcup_{n \in \mathbb{N}} J_n$ es numerable. El conjunto de elementos no nulos es numerable.
 
 **** Sumable es esencialmente numerable
 En un espacio normado cualquiera equivalen:
@@ -9049,7 +9081,14 @@ $\{e_i\}_{i \in I}$ es sumable ssi $\{\|e_i\|^2\}_{i \in I}$ es sumable en $\mat
 \left\| \sum_{i \in I} e_i \right\| = \sqrt{\sum_{i \in I} \|e_i\|^2}
 \]
 
-***** TODO Demostración
+***** Demostración
+Coinciden en cualquier suma finita:
+
+\[
+\left\|\; \sum_{i \in I} e_i \;\right\|^2 = \sum_{i \in I} \|e_i\|^2
+\]
+
+Por lo tanto, coinciden sobre la condición de Cauchy.
 
 **** Corolario: suma ortogonal con coeficientes
 Sea $\{e_i\}_{i \in I}$ familia ortonormal con $f : H \longrightarrow \mathbb{K}$ aplicación. Entonces
@@ -9078,14 +9117,26 @@ Sea $\{e_i\}_{i \in I}$ ortonormal en $H$ Hilbert, entonces:
 \|u\|^2
 \]
 
-***** TODO Demostración
+***** Demostración
+En el caso finito:
+
+\[
+0 \leq
+\left\| u - \sum_{J} \langle u,e_i \rangle e_i \right\|^2 =
+\|u\|^2 - \sum_J \langle u,e_i \rangle^2 - \sum_J |\langle u,e_i \rangle|^2  + \sum_{J} \langle u,e_i \rangle^2
+\]
+
+Por tanto:
+
+\[\sum_J |\langle u,e_i \rangle|^2 \leq \|u\|^2\]
+
+Pero como estamos estudiando sumabilidad en los reales, basta haber
+encontrado una cota sobre el [[*Caracterización de familia sumable real][supremo]] para acotar la suma.
+
 **** Corolario de Bessel
 Sea $\{e_i\}_{i \in I}$ ortonormal en $H$ Hilbert, y sea $M$ el subespacio cerrado 
-generado:
-
-\[M = \overline{lin\{e_i \mid i \in I\}}\]
-
-Entonces, dado $u \in H$, la mejor aproximación de $u$ a $M$ es:
+generado: $M = \overline{lin\{e_i \mid i \in I\}}$. Dado $u \in H$, la mejor aproximación de $u$ a $M$ 
+es:
 
 \[ \pi_M(u) = \sum_{i \in I} \langle u,e_i \rangle e_i
 \]
