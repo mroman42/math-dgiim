@@ -10316,11 +10316,34 @@ Sea $H$ un espacio de Hilbert y $P \in L(H)$. Demostrar que las siguientes
 afirmaciones son equivalentes:
 
   1. $P$ es la proyección ortogonal de $H$ sobre un subespacio cerrado $M$.
-  2. $P$ es idempotente.
+  2. $P$ es idempotente y autoadjunto.
   3. $P$ es idempotente y $H = P(H) \oplus (I-P)(H)$ siendo los subespacios
      $P(H)$ y $(I-P)(H)$ ortogonales.
   4. $P$ es idempotente y $P(H)^\perp = \ker P$.
 #+end_statement
+
+***** Primera implicación
+Trivialmente idempotente. Es autoadjunto por tenerse:
+
+\[\begin{aligned}
+\langle u,pv \rangle &= \langle pu,v \rangle \\
+\langle u-pu,pv \rangle &= \langle pu,v - pv \rangle \\
+0 &= 0
+\end{aligned}\]
+
+Donde usamos que $pu \in M$, pero $u - pu \in M^\perp$.
+
+***** Segunda implicación
+Tenemos $u = p(u) + (u - p(u))$ y son ortogonales por:
+
+\[\langle p(u),v-p(v) \rangle = \langle u , p(v-p(v)) \rangle = 0\]
+
+***** Tercera implicación
+Comprobamos que son iguales $(I-P)(H) = \ker P$. Tenemos que $g = g - p(g)$
+para un caso y $p(g -p(g)) = p(g)-p(g) = 0$ para el otro.
+
+***** Cuarta implicación
+Es una proyección sobre $P(H)$ y es ortogonal por definición.
 
 **** Ejercicio 2
 #+begin_statement
