@@ -10468,15 +10468,23 @@ expand((M*(M.transpose().conjugate())).eigenvalues())
 
 **** Ejercicio 5
 #+begin_statement
-Sea $T \in L(H)$ donde $H$ es un espacio de Hilbert de dimensión 3. Calcúlese
-el espectro de $T$ sabiendo que $T$ es idempotente y autoadjunto, que $\|T\| = 4$,
-que $T$ no tiene inverso, y que el rango de $T-2I$ es $2$.
+Sea $T \in L(H)$ donde $H$ es un espacio de Hilbert de dimensión 3. 
+Calcúlese el espectro de $T$ sabiendo que $T$ es idempotente y autoadjunto,
+que $\|T\| = 4$, que $T$ no tiene inverso, y que el rango de $T-2I$ es $2$.
 #+end_statement
+
+Tenemos primero que:
+
+\[TT^\ast = T^2 = T\]
+
+Usando que su norma es la raíz cuadrada de su mayor valor propio,
+tenemos un valor propio $16$. Sabiendo que no tiene inverso, un valor
+propio es $0$, y por la última condición, un valor propio es $2$.
 
 **** Ejercicio 6
 #+begin_statement
 Sea $H$ un espacio de Hilbert complejo de dimensión $n+1$, y sea
-$B = \{e_0,\dots,e_n\}$ yna base ortonormal. Sea $T \in L(H)$ el operador determinado
+$B = \{e_0,\dots,e_n\}$ una base ortonormal. Sea $T \in L(H)$ el operador determinado
 por las igualdades:
 
    - \[T(e_0) = 0\]
@@ -10485,6 +10493,14 @@ por las igualdades:
 Obtener los operadores $T^\ast$ y $T^\ast T$. Probar que $T^{n+1} = 0$. Calcular el espectro
 de los operadores $T$, $T^\ast$ y $T^\ast T$ así como $\|T\|$ y $\|T^\ast T\|$.
 #+end_statement
+
+La solución es:
+
+  - $T^\ast T(e_j) = je_j$.
+  - $G_p(T^\ast T) = \{0,1,\dots,n\}$.
+  - $G_p(T) = \{0\}$.
+  - $\|T\| = \sqrt{n}$, $\|T^\ast T\| =n$.
+
 
 **** Ejercicio 7
 #+begin_statement
