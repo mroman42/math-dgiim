@@ -8656,7 +8656,7 @@ Para $H$ Hilbert, $M$ subespacio, $M$ es denso ssi $M^\perp = \{0\}$.
 
 ***** Demostración
 Si es denso, $M^\perp = \overline{M}^\perp = \{0\}$. 
-Si $M^\perp = \{0\}$, tenemos $H = M \oplus \{0\}$.
+Si $M^\perp = \{0\}$, tenemos $H = \overline{M} \oplus \{0\}$.
 
 **** Teorema de Lindestrauss-Tzafini
 Un espacio de Banach es Hilbert ssi todo subespacio cerrado suyo admite
@@ -9187,6 +9187,38 @@ Existen sistemas ortonormales maximales.
 ***** Demostración
 Lema de Zorn.
 
+*** Bases de Hilbert
+**** Base de Hilbert
+Se llama base de Hilbert a una familia ortonormal maximal.
+
+***** Desarrollo en serie de Fourier
+Una familia ortonormal maximal debe tener un subespacio cerrado
+generado que sea [[*Corolario: caracterización de la densidad][denso]], ya que si no fuera así, tendría un $M^\perp$ no 
+nulo. Por tanto cumple el corolario a Bessel y se tiene:
+
+\[ u = \sum_{i \in I} \langle u,e_i \rangle e_i\]
+
+llamada *Serie de Fourier*.
+
+**** Dimensión Hilbertiana
+El cardinal de las bases de Hilbert de un espacio es inveriante y
+se llama *dimensión Hilbertiana*.
+
+***** TODO Demostración
+[[http://math.stackexchange.com/questions/232166/showing-the-basis-of-a-hilbert-space-have-the-same-cardinality][Showing the basis of a Hilbert Space have the same cardinality]].
+
+**** Isomorfía entre espacios de igual dimensión
+Dos espacios de Hilbert con la misma dimensión Hilbertiana son
+topológicamente isomorfos.
+
+***** Demostración
+Dado un isomorfismo entre las bases, definimos la aplicación lineal
+que extiende el isomorfismo. Por el desarrollo en serie de Fourier,
+sabemos que es equinórmica y por tanto continua.
+
+Por el Teorema de los [[*Teorema de los isomorfismos de Banach][isomorfismos de Banach]], son isomorfos 
+topológicamente.
+
 *** Operadores adjuntos
 **** Operadores adjuntos
 Dado $T \in L(H_1,H_2)$ entre espacios de Hilbert, existe:
@@ -9252,6 +9284,14 @@ Sea $T \in L(H,H)$; se cumple:
   1. $\ker T^\ast = T(H)^\perp$.
   2. $\ker T = T^\ast(H)^\perp$.
   3. $T^\ast$ inyectivo $\iff$ $T(H)$ denso.
+
+***** Demostración
+****** Punto 1 y 2
+Trivial por doble inclusión y por reflexividad del adjunto.
+
+****** Punto 3
+Uniendo las condiciones de densidad y ortogonalidad con la 
+caracterización de inyectividad por núcleo nulo.
 
 **** Espectro
 El espectro de un operador es el conjunto de valores propios:
