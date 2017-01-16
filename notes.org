@@ -10271,6 +10271,99 @@ con Gram-Schmitd
 
 *** 6. Espacios de Hilbert III
 **** Ejercicio 1
+#+begin_statement
+Sea $H$ un espacio de Hilbert y $P \in L(H)$. Demostrar que las siguientes
+afirmaciones son equivalentes:
+
+  1. $P$ es la proyección ortogonal de $H$ sobre un subespacio cerrado $M$.
+  2. $P$ es idempotente.
+  3. $P$ es idempotente y $H = P(H) \oplus (I-P)(H)$ siendo los subespacios
+     $P(H)$ y $(I-P)(H)$ ortogonales.
+  4. $P$ es idempotente y $P(H)^\perp = \ker P$.
+#+end_statement
+
+**** Ejercicio 2
+#+begin_statement
+Sea $H$ un espacio de Hilbert y $\{e_n\}$ una base ortonormal de $H$. Sea
+$\{\alpha_n\}$ una sucesión acotada de números complejos y:
+
+\[\alpha = \sup_{n \in \mathbb{N}} |\alpha_n|\]
+
+Probar que existe un único $T\in L(H)$ tal que $Te_n = \alpha_ne_n$, para cada $n \in \mathbb{N}$,
+y que $\|T\| = \alpha$. Calcular $T^\ast$ y $\|T^\ast\|$. Demostrar que $T$ es normal. ¿Qué
+condición ha de cumplir la sucesión dada para que el operador $T$ sea
+autoadjunto?¿y para que $T$ sea invertible?
+
+Sea $H = \mathbb{C}^3$ y sea $T \in L(H)$ el operador dado por:
+
+\[T(\alpha_1,\alpha_2,\alpha_3) = (\alpha_1+\alpha_2,\alpha_1+\alpha_3,\alpha_3+2\alpha_1)\]
+
+¿Es unitario?¿Es autoadjunto? Determinar el espectro de $T$.
+#+end_statement
+
+**** Ejercicio 3
+#+begin_statement
+Sea $H$ un espacio de Hilbert sobre $\mathbb{K}$ y $T \in L(H)$ un operador tal que
+$\langle Tu,u \rangle = 0$ para cada $u \in H$. Demostrar que $T = 0$ si $\mathbb{K}=\mathbb{C}$, pero que no
+puede decirse lo mismo si $\mathbb{K}=\mathbb{R}$, y buscar una condición suficiente para
+que se verifique dicha porpiedad en el caso real.
+#+end_statement
+
+**** Ejercicio 4
+#+begin_statement
+Sea $H = \mathbb{C}^2$. Calcular el espectro y la norma del operador $T \in L(H)$ dado,
+respectivamente, por cada una de las siguientes matrices:
+
+  1. \[\begin{pmatrix} 0 & 1+i \\ 1 & 2+2i \end{pmatrix}\]
+
+  2. \[\begin{pmatrix} 
+     cos \theta & e^{i\phi} sen \theta \\
+     e^{i\phi} sen \theta & -cos \theta
+     \end{pmatrix}\]
+#+end_statement
+
+**** Ejercicio 5
+#+begin_statement
+Sea $T \in L(H)$ donde $H$ es un espacio de Hilbert de dimensión 3. Calcúlese
+el espectro de $T$ sabiendo que $T$ es idempotente y autoadjunto, que $\|T\| = 4$,
+que $T$ no tiene inverso, y que el rango de $T-2I$ es $2$.
+#+end_statement
+
+**** Ejercicio 6
+#+begin_statement
+Sea $H$ un espacio de Hilbert complejo de dimensión $n+1$, y sea
+$B = \{e_0,\dots,e_n\}$ yna base ortonormal. Sea $T \in L(H)$ el operador determinado
+por las igualdades:
+
+   - \[T(e_0) = 0\]
+   - \[T(e_j) = \sqrt{j} e_{j-1}\]
+ 
+Obtener los operadores $T^\ast$ y $T^\ast T$. Probar que $T^{n+1} = 0$. Calcular el espectro
+de los operadores $T$, $T^\ast$ y $T^\ast T$ así como $\|T\|$ y $\|T^\ast T\|$.
+#+end_statement
+
+**** Ejercicio 7
+#+begin_statement
+Diagonalizar (si es posible) los operadores dados (respectivamente) por:
+
+  1. \[\begin{pmatrix} 
+     7 & -2 & 1 \\
+     -2 & 10 & 2 \\
+     -1 & -2 & 7
+     \end{pmatrix}\]
+
+  2. \[\begin{pmatrix} 
+     2 & -2 & 3 \\
+     1 & 1 & 1 \\
+     1 & 3 & 1 \\
+     \end{pmatrix}\]
+
+  3. \[\begin{pmatrix} 
+     2 & 2 & 1 \\
+     1 & 3 & 1 \\
+     1 & 2 & 2 \\
+     \end{pmatrix}\]
+#+end_statement
 * Inferencia Estadística
 ** DONE Apuntes en clase
 *** Introducción
