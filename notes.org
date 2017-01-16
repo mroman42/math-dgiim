@@ -9191,11 +9191,31 @@ Lema de Zorn.
 **** Operadores adjuntos
 Dado $T \in L(H_1,H_2)$ entre espacios de Hilbert, existe:
 
-\[\exists! T^\ast \in L(H_2,H_1):  \langle Tx,y \rangle = \langle x,Ty\rangle\]
+\[\exists! T^\ast \in L(H_2,H_1):  \langle Tx,y \rangle = \langle x,T^\ast y\rangle\]
 
 Llamado el *operador adjunto*.
 
-***** TODO Demostración
+***** Demostración
+Por Riesz-Fréchet, tenemos una aplicación $T^\ast y$ única cumpliendo:
+
+\[\langle T \cdot, y \rangle = \langle \cdot , T^\ast y \rangle\]
+
+****** Es lineal
+La función es lineal ya que, aplicando unicidad de Riesz-Fréchet:
+
+\[
+\langle \cdot, T^\ast( \alpha y + y') \rangle =
+\langle T \cdot, \alpha y + y' \rangle =
+\overline{\alpha} \langle T \cdot, y \rangle + \langle T \cdot, y' \rangle =
+\langle \cdot, \alpha T^\ast y + T^\ast y' \rangle
+\]
+
+****** Es continuo
+La continuidad se tiene por acotación en la bola unidad:
+
+\[
+\| T^\ast y \|^2 \leq \|y\| \|TT^\ast y\| \leq \|T\| \|T^\ast y\|
+\]
 
 **** Propiedades de operadores adjuntos
 Los adjuntos cumplen:
@@ -9206,7 +9226,22 @@ Los adjuntos cumplen:
   4. $(\alpha T)^\ast = \overline{\alpha}T^\ast$.
   5. $(RT)^\ast = T^\ast R^\ast$.
 
-***** TODO Demostración
+***** Demostración
+****** Punto 1
+Aplicando unicidad de Riesz-Frechet a:
+
+\[\overline{\langle y, T\cdot \rangle} = \overline{\langle y, T^{\ast\ast} \cdot \rangle}\]
+
+****** Punto 2
+Tenemos $\|T\| = \|T^{\ast\ast}\| \leq \|T^\ast\| \leq \|T\|$, como acotamos anteriormente.
+
+Además, tenemos doble acotación para los dos operadores:
+
+\[\|TT^\ast\| \leq \|T\|\|T^\ast\| = \|T\|^2\]
+\[\|Tx\|^2 \leq \|x\|^2 \|TT^\ast\|\]
+
+****** Puntos 3, 4 y 5
+Trivialmente por linealidad, usando la unicidad de Riesz-Frechet.
 
 **** Operador autoadjunto
 Un operador $T \in L(H,H)$ es autoadjunto si $T^\ast = T$.
