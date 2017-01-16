@@ -10369,8 +10369,37 @@ Sea $H = \mathbb{C}^3$ y sea $T \in L(H)$ el operador dado por:
 Sea $H$ un espacio de Hilbert sobre $\mathbb{K}$ y $T \in L(H)$ un operador tal que
 $\langle Tu,u \rangle = 0$ para cada $u \in H$. Demostrar que $T = 0$ si $\mathbb{K}=\mathbb{C}$, pero que no
 puede decirse lo mismo si $\mathbb{K}=\mathbb{R}$, y buscar una condición suficiente para
-que se verifique dicha porpiedad en el caso real.
+que se verifique dicha propiedad en el caso real.
 #+end_statement
+
+***** Caso complejo
+Desarrollando:
+
+\[\begin{aligned}
+0
+&=& 
+\langle T(u+v),u+v \rangle
+&=&
+\langle Tu,v \rangle + \langle Tv,u \rangle\\
+0
+&=& 
+\langle T(u+iv),u+iv \rangle
+&=&
+(-i)\langle Tu,v \rangle + i\langle Tv,u \rangle
+\end{aligned}\]
+
+Por tanto, $\langle Tu,v \rangle = 0$ y debe tenerse $Tu = 0$.
+
+***** Caso real
+Hay contraejemplos en el caso real. En $\mathbb{R}^2$ se tiene:
+
+\[T(x,y) = (-y,x)\]
+
+cumpliendo lo pedido. En general, cuando se tiene $T^\ast = -T$, tenemos:
+
+\[\langle Tu,u \rangle = -\langle u,Tu \rangle = -\langle Tu,u \rangle = 0\]
+
+siendo una condición suficiente.
 
 **** Ejercicio 4
 #+begin_statement
