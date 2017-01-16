@@ -8458,7 +8458,7 @@ cos(\theta) = \frac{\langle u,v \rangle}{\|u\|\|v\|}
 \]
 
 **** Ortogonalidad
-Dos vectores se dicen ortogonales $u \perp v$ cuando su producto escalar 
+Dos vectores se dicen *ortogonales* $u \perp v$ cuando su producto escalar 
 es nulo:
 
 \[\langle u,v \rangle = 0\]
@@ -8475,12 +8475,12 @@ u \in H \mid \forall s \in S: \langle u,s \rangle = 0
 **** Propiedades del espacio ortogonal
 Para $0 \subset S \subset H$, tenemos:
 
-  1. $0 \in S^\perp$
-  2. $S \cap S^\perp \subseteq \{0\}$
-  3. $\{0\}^\perp = H$, $H^\perp = \{0\}$
-  4. $S_1 \subseteq S_2 \implies S_1^\perp \supseteq S_2^\perp$
-  5. $S^\perp$ es subespacio vectorial cerrado
-  6. $S \subseteq S^{\perp\perp}$
+  1. $0 \in S^\perp$.
+  2. $S \cap S^\perp \subseteq \{0\}$.
+  3. $\{0\}^\perp = H$, $H^\perp = \{0\}$.
+  4. $S_1 \subseteq S_2 \implies S_1^\perp \supseteq S_2^\perp$.
+  5. $S^\perp$ es subespacio vectorial cerrado.
+  6. $S \subseteq S^{\perp\perp}$.
  
 ***** Demostración
 Triviales. La quinta se tiene por núcleo de una función lineal y
@@ -8492,6 +8492,10 @@ $X = M \oplus N$, cuando:
 
   1. $X = M + N$
   2. $M \cap N = \{0\}$
+
+**** Suma directa topológica
+Se dice que hay suma directa topológica cuando $M \oplus N$ cumplen que
+$x_n = m_n + n_n$ respeta la convergencia $x = m + n$ con $m \in M, n \in N$.
 
 **** Lema de aproximación óptima
 Sea $S$ un cerrado y convexo de $H$ prehilbertiano. Hay un sólo elemento
@@ -8522,8 +8526,8 @@ Si hubiese dos mínimos, se tendría:
 Por lo que $\|s-s'\| = 0$.
 
 **** Teorema de la aproximación óptima
-Sea $H$ Hilbert, $M \subseteq H$ subespacio cerrado y $u \in H$. Entonces, existe una 
-única mejor aproximación a $M$, esto es:
+Sea $H$ Hilbert, $M \subseteq H$ subespacio cerrado y $u \in H$. Entonces, existe 
+una única mejor aproximación a $M$, esto es:
 
 \[\exists! \pi_M(u) \in M:\quad d(u, \pi_M(u)) = d(u,M) \]
 
@@ -8532,6 +8536,16 @@ Aplicaremos el [[*Lema de aproximación óptima][lema de aproximación óptima]]
 que es convexo, y para ello:
 
 \[\lambda (u+m) + (1-\lambda)(u+m') = u + m\lambda + m'(1-\lambda) \in u+M\]
+
+Sea $s_0 \in u+M$ la mínima norma en $u+M$:
+
+\[ \|s_0\| = \min\{\| u + m \| \mid m \in M\}\]
+
+Tomamos $\pi_M(u) = u - s$, y tenemos:
+
+\[ \| u - \pi_M(u)\| = \|s \| \leq \|u + m\|\]
+
+La unicidad la da la unicidad en el lema de aproximación óptima.
 
 *** Proyecciones y proyección ortogonal
 **** Proyecciones
