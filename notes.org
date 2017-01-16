@@ -8391,17 +8391,38 @@ Sea $H$ normado, es prehilbertiano ssi se verifica:
 
 Con el producto escalar dado por la [[*Identidades de polarización][identidad de polarización]]:
 
-\[ \langle u,v\rangle = \frac{1}{4}\left(\|u+v\|^2-\|u-v\|^2 \right)\]
+\[ \langle u,v\rangle = 
+\frac{1}{4}\left(\|u+v\|^2-\|u-v\|^2 \right) +
+\frac{i}{4}\left(\|u+iv\|^2-\|u-iv\|^2 \right)
+\]
 
-***** TODO Demostración
+***** Demostración
 Cuando es prehilbertiano, se verifica la ecuación trivialmente.
-Cuando se verifica la ecuación, podemos definir:
-
-\[\]
+Cuando se verifica la ecuación, podemos ver que la identidad de 
+polarización nos da un producto escalar que es conjugadolineal,
+hermítico, definido positivo y no nulo.
 
 **** Ejemplos de normados prehilbertianos
-***** TODO Espacio de funciones continuas
-***** TODO Espacio de sucesiones de cuadrado sumable
+***** Contraejemplo: funciones continuas con el máximo
+El espacio ${\cal C}[0,1]$ con la norma del máximo no es prehilbertiano.
+Hay un contraejemplo a la identidad del paralelogramo en $f(t) = 1$ y
+$g(t) = t$.
+
+***** Espacio de sucesiones de cuadrado sumable
+El espacio $\ell_p$ es prehilbertiano ssi $p=2$, con:
+
+\[\|x\| = \left(\sum_{i=1}^\infty |x_n|^2 \right)^{1/2}\]
+
+****** Demostración
+Se cumple que:
+
+\[
+\sum_{n=1}^k |a_n + b_n|^2 + \sum_{n=1}^k |a_n-b_n|^2
+= 2\left(\sum_{n=1}^k |a_n|^2+|b_n|^2\right)
+\]
+
+Y tomando límites tenemos lo pedido.
+
 **** Espacios de Hilbert
 Un espacio prehibertiano completo es un espacio de Hilbert.
 Equivalentemente, un espacio de Banach con norma asociada a un producto
@@ -8416,7 +8437,16 @@ Todo espacio normado de dimensión finita es de Banach.
 **** Compleción de prehilbertianos
 La completación de un espacio prehilbertiano es espacio de Hilbert.
 
-***** TODO Demostración
+***** Demostración
+La [[*Completación de un espacio][completación]] restringida al espacio orginal tiene su norma. Y la
+norma es [[*Continuidad de la norma, suma y producto][continua]]. Por tanto, será prehilbertiano al cumplir la
+[[*Identidad del paralelogramo][identidad del paralelogramo]]:
+
+\[
+\lim_{n \to \infty} \|u_n+v_n\|^2 + \|u_n-v_n\|^2
+=
+2\left(\|\lim_{n \to \infty} u_n\|^2+\|\lim_{n \to \infty} v_n\|^2\right)
+\]
 
 *** Ortogonalidad
 **** Ley de los cosenos
