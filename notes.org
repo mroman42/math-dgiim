@@ -8306,7 +8306,22 @@ Para $H$ prehilbertiano, si notamos $\|u\| = \sqrt{\langle u,u \rangle}$,
 \[ |\langle u,v \rangle| \leq \|u\|\|v\|
 \]
 
-***** TODO Demostración
+***** Demostración
+Elevando al cuadrado los dos números positivos:
+
+\[\begin{aligned}
+0 
+&\leq 
+\|u\|^2\|v\|^2 - 2|\langle u,v \rangle|^2  + |\langle u,v \rangle|^2
+\\ 0 &\leq
+\|v\|^2 - \frac{2|\langle u,v \rangle|^2}{\|u\|^2}  + \frac{|\langle u,v \rangle|^2}{\|u\|^2}
+\\ 0 &\leq
+\left\langle 
+\frac{\overline{\langle u,v \rangle}}{\|u\|^2}u + v,
+\frac{\overline{\langle u,v \rangle}}{\|u\|^2}u + v
+\right\rangle
+\end{aligned}\]
+
 **** Desigualdad de Minkowski
 Para $H$ prehilbertiano, si notamos $\|u\| = \sqrt{\langle u,u \rangle}$,
 
@@ -8314,7 +8329,18 @@ Para $H$ prehilbertiano, si notamos $\|u\| = \sqrt{\langle u,u \rangle}$,
 \| u + v \| \leq \|u\| + \|v\|
 \]
 
-***** TODO Demostración
+***** Demostración
+Desarrollando llegamos a $\langle u,v \rangle + \langle v,u \rangle \leq 2\|u\|\|v\|$, que es cierto por:
+
+\[
+\langle u,v \rangle + \langle v,u \rangle \leq
+2Re(\langle u,v \rangle) \leq 
+2|\langle u,v \rangle| \leq
+2 \|u\|\|v\|
+\]
+
+Aplicando Cauchy-Schwarz en la última desigualdad.
+
 **** Espacio prehilbertiano es normado
 Todo espacio prehilbertiano es normado con norma:
 
