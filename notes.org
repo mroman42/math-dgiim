@@ -8913,7 +8913,7 @@ Si tuviera dos sumas $x$ y $x'$, tomaríamos los $J_\varepsilon, J_\varepsilon'$
 **** Propiedades de las familias sumables
 Sea $X$ normado con $\{x_i\}_{i \in I}$ familia con suma $x$:
 
-  1. $\sum_{i \in I} x_\sigma(i) = x$, para cualquier permutación $\sigma$.
+  1. $\sum_{i \in I} x_{\sigma(i)} = x$, para cualquier permutación $\sigma$.
   2. $\sum_{i \in I} \alpha x_i + \beta y_i = \alpha x + \beta y$, siendo la suma lineal.
   3. $\sum_{i \in I} Tx_i = Tx$, para $T$ lineal continua.
 
@@ -8972,9 +8972,26 @@ En un espacio normado cualquiera equivalen:
   1. $\{x_i\}_{i \in I}$ sumable.
   2. $I_0 = \{ i \in I \mid x_i \neq 0\}$ numerable y para toda biyección $G : \mathbb{N} \longrightarrow I_0$:
 
-     \[\sum_{i \in I_0} x_i = \sum_{n \in \mathbb{N}} x_{G(n)}\]
+     \[\sum_{n \in \mathbb{N}} x_n = \sum_{n \in \mathbb{N}} x_{G(n)}\]
 
-***** TODO Demostración
+***** Demostración
+****** Primera implicación
+Si es sumable cumple la condición de Cauchy y por tanto,
+su conjunto de elementos no nulos es numerable.
+
+Además, si suma $s$, fijado $\varepsilon$, tengo un conjunto finito $J$.
+Como $\{0,1,\dots,\max_{j \in J}\{G(j)\},\dots,m\} \supseteq G(J)$, se tiene:
+
+\[
+\left\| s - \sum_{i=0}^m x_{G(i)} \right\| \leq \varepsilon
+\]
+
+Por lo que la suma converge a $s$ para cualquier biyección.
+
+****** TODO Segunda implicación
+# Me gustaría probar que la convergencia incondicional da la convergencia
+# absoluta, y entonces usar directamente la convergencia absoluta para
+# probar que es sumable.
 
 **** Corolario: convergencia conmutativa
 Cuando $I = \mathbb{N}$, ser sumable equivale a converger conmutativamente,
@@ -8984,7 +9001,8 @@ esto es:
 \sum_{k \in \mathbb{N}} x_n = \sum_{k \in \mathbb{N}} x_{\sigma k}
 \]
 
-***** TODO Demostración
+***** Demostración
+Claro corolario del [[*Sumable es esencialmente numerable][teorema]] anterior.
 
 **** Corolario: suma de particiones
 En $X$ Banach, $I = \bigcup_{\lambda \in \Lambda} I_\lambda$ partición arbitraria nos da que si $\{x_i\}_{i \in I}$
@@ -9021,6 +9039,7 @@ En particular, absolutamente sumable implica sumabilidad en Banach, con:
 \left\|\sum x_i\right\| \leq \sum \|x_i\|
 \]
 
+***** TODO Demostración
 *** Familias ortonormales
 **** Suma ortogonal
 Sea $\{e_i\}_{i\in I}$ familia ortogonal en un espacio de Hilbert $H$. Entonces
