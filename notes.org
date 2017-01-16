@@ -10414,6 +10414,58 @@ respectivamente, por cada una de las siguientes matrices:
      \end{pmatrix}\]
 #+end_statement
 
+Usaremos que la [[http://math.stackexchange.com/a/586835/85067][norma de la matriz]] es la raíz del mayor valor propio
+de $M\overline{M^T}$.
+
+***** Primera matriz
+Reduciendo la matriz, tenemos como valores propios:
+
+\[\begin{aligned}
+\lambda_1 &= 1+i+\sqrt{1+3i}\\
+\lambda_2 &= 1+i-\sqrt{1+3i}
+\end{aligned}\]
+
+Calculamos:
+
+\[M\overline{M^T} = 
+\begin{pmatrix} 
+2 & 4 \\ 4 & 9 
+\end{pmatrix}\]
+
+A la que le podemos encontrar los valores propios:
+
+\[\lambda_1 = \frac{1}{2}(11-\sqrt{113})\]
+
+\[\lambda_2 = \frac{1}{2}(11+\sqrt{113})\]
+
+#+BEGIN_SRC sage
+M = Matrix([[0,1+i],[1,2+2*i]])
+(M*(M.transpose().conjugate())).eigenvalues()
+#+END_SRC
+
+#+RESULTS:
+: [-1/2*sqrt(113) + 11/2, 1/2*sqrt(113) + 11/2]
+: a^2 - 11*a + 18
+
+***** Segunda matriz
+Reduciendo la matriz, llegamos a los valores propios
+$\lambda_1=1,\lambda_2 = -1$.
+
+Y podemos aplicar lo mismo que en la anterior.
+
+#+BEGIN_SRC sage
+t,f = var('t f')
+assume(t,'real')
+assume(f,'real')
+M = Matrix([[cos(t), e^(i*f)*sin(t)],[e^(i*f)*sin(t),-cos(t)]])
+expand((M*(M.transpose().conjugate())).eigenvalues())
+#+END_SRC
+
+#+RESULTS:
+: 
+: [(cos(t)^2*e^(I*f) + (-I*e^(2*I*f) + I)*cos(t)*sin(t) + e^(I*f)*sin(t)^2)*e^(-I*f),
+:  (cos(t)^2*e^(I*f) + (I*e^(2*I*f) - I)*cos(t)*sin(t) + e^(I*f)*sin(t)^2)*e^(-I*f)]
+
 **** Ejercicio 5
 #+begin_statement
 Sea $T \in L(H)$ donde $H$ es un espacio de Hilbert de dimensión 3. Calcúlese
