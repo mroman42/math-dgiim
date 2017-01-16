@@ -8561,27 +8561,103 @@ se tiene $p(g) = p(p(g)) = 0$.
 **** Proyecciones ortogonales
 Se dice proyección ortogonal a una proyección $p$ en la que $\ker(p) \perp \im(p)$.
 
+**** Lemas al teorema de la proyección ortogonal
+Sea $H$ Hilbert y $M$ subespacio cerrado. Entonces:
+
+  1. $u-\pi_M(u) \in M^\perp$.
+  2. $\pi_M(\alpha u) = \alpha \pi_M(u)$.
+  3. $\pi_M(u + v) = \pi_M(u)+\pi_M(v)$.
+  4. $\pi_M(\pi_M(u)) = \pi_M(u)$.
+
+***** Demostración
+****** Punto 1
+Para cualquier $t \in \mathbb{R}$ y $m \in M$ tenemos:
+
+\[
+0 \leq 
+\| u - \pi u + tm \| - \| u - \pi u \| \leq
+2t\; Re \langle u-\pi u, m\rangle + t^2 \|m\|^2
+\]
+
+Pero para que esto sea cierto, debe ser $Re \langle u-\pi u, m \rangle = 0$.
+Tomando $im$ se tiene la parte imaginaria también nula, luego
+debe ser $\langle u-\pi u, m \rangle = 0$.
+
+****** Punto 2
+Tenemos:
+
+\[
+\| \alpha u - m \| 
+= |\alpha| \left\|u - \frac{m}{\alpha}\right\| \geq |\alpha| \|u- \pi u\|
+\]
+
+Dándose la igualdad con $m = \alpha \pi u$.
+
+****** Punto 3
+La ortogonalidad del primer punto:
+
+\[
+\|u + v - m\| = 
+\|(u -\pi u) + (v - \pi v) - \widetilde m\| =
+\|u - \pi u+  v - \pi v \| + \|\widetilde m\|
+\]
+
+Para el mínimo debe tenerse $\widetilde m = 0$.
+
+****** Punto 4
+Usando de nuevo la ortogonalidad del primer punto:
+
+\[
+\pi_M(u) - \pi_M\pi_M(u) \in M^\perp \cap M = \{0\}
+\]
+
 **** Teorema de la proyección ortogonal
-Sea $H$ espacio de Hilbert y $M$ subespacio cerrado. Entonces:
+Sea $H$ Hilbert y $M$ subespacio cerrado. Entonces:
 
   1. $H = M \oplus M^\perp$.
-  2. $\pi_M$, la proyección, da la aproximación óptima.
-  3. $\|x\|^2 = \|\pi_M(x)\|^2 + \| u - \pi_M(x) \|^2$.
+  2. La proyección a $M$ es la aproximación óptima.
+  3. $\|u\|^2 = \|\pi_M(u)\|^2 + \| u - \pi_M(u) \|^2$.
 
 Análogamente, $\pi_{M^\perp}$ da la aproximación óptima a $M^\perp$.
 
-***** TODO Demostración
+***** Demostración
+Por el [[*Lemas al teorema de la proyección ortogonal][lema]] sabemos que $\pi_M$ es una proyección. Como además tiene 
+$\ker(\pi_M) = M^\perp$ e a$\im(\pi_M) = M$, se tiene que es la buscada.
+
+Por ser ortogonales:
+
+\[
+\|u\|^2 = 
+\|u - \pi_M(u) + \pi_M(u)\|^2 =
+\|u-\pi_M(u)\|^2 + \|\pi_M(u)\|^2
+\]
+
+**** Nota: Unicidad de la descomposición ortogonal
+Sea $H = M \oplus N$ con $\langle m, n \rangle = 0$ para $m \in M,\; n \in N$. Se tiene que $N = M^\perp$.
+
+***** Demostración
+Tenemos $N \subseteq M^\perp$ y además, para $m+n \in M^\perp$, se tiene 
+$0 = \langle m, m+n \rangle = \|m\|^2$, luego $m = 0$.
 
 **** Corolario: clausura del doble ortogonal
 Para $H$ Hilbert, $M$ subespacio, $M^{\perp\perp} = \overline{M}$.
 
-***** TODO Demostración
+***** Demostración
+El espacio puede partirse de dos formas distintas como suma ortogonal 
+de cerrados:
+
+\[ H = \overline{M} \oplus \overline{M}^\perp \]
+\[ H = M^{\perp\perp} \oplus M^{\perp}\]
+
+Como $M^\perp = \overline{M}^\perp$, debe ser $\overline{M} = M^{\perp\perp}$.
+
 **** Corolario: caracterización de la densidad
 Para $H$ Hilbert, $M$ subespacio, $M$ es denso ssi $M^\perp = \{0\}$.
 
-***** TODO Demostración
+***** Demostración
+Si es denso, $M^\perp = \overline{M}^\perp = \{0\}$. 
+Si $M^\perp = \{0\}$, tenemos $H = M \oplus \{0\}$.
 
-*** Teorema de Riesz-Frechet
 **** Teorema de Lindestrauss-Tzafini
 Un espacio de Banach es Hilbert ssi todo subespacio cerrado suyo admite
 un complemento topológico. Es decir, para cada $M$ cerrado hay un $N$ cerrado
