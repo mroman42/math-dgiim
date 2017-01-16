@@ -9147,13 +9147,40 @@ En consecuencia se tiene:
 \|u\| = \sqrt{\sum_{i \in I} |\langle u,e_i \rangle|^2 + \|u - \sum_{i \in I} \langle u,e_i \rangle e_i\|^2}
 \]
 
-Además, equivalen:
+Y además, equivalen:
 
   1. $u \in M$
   2. $u = \sum \langle u,e_i \rangle e_i$
   3. $\|u\|^2 = \sum_{i \in I} |\langle u,e_i \rangle|^2$
 
-***** TODO Demostración
+***** Demostración
+****** Existe la suma
+Por desigualdad de Bessel, comprobando la igualdad de ambas sumas
+en los casos finitos, tenemos que existe la suma:
+
+\[
+\left\|\sum_{i \in I} \langle u,e_i \rangle e_i \right\|= 
+\sqrt{\sum_{i \in I} |\langle u,e_i \rangle|^2} \leq \|u\|
+\]
+
+****** Hay ortogonalidad
+Tomamos $m = \sum_{i \in I} \langle u,e_i \rangle e_i$, y comprobamos que $u - m \in M^\perp$. Como la
+familia ortonormal genera el espacio, basta comprobr que es ortonormal
+a ella:
+
+\[
+\langle u-m,e_k \rangle = 0
+\]
+
+Por tanto, tenemos una descomposición $u = m + (u-m)$ y por teorema
+de la [[*Teorema de la proyección ortogonal][proyección ortogonal]], $m$ es la mejor aproximación, y se tiene
+la igualdad dada.
+
+****** Equivalencias
+Cuando $u \in M$, él mismo es su mejor aproximación y su norma puede
+calcularse directamente. La igualdad de normas implica que la
+norma de $u-m$ sea $0$, haciendo $u \in M$.
+
 **** Existencia de familias ortonormales
 Existen sistemas ortonormales maximales.
 
