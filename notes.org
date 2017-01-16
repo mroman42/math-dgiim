@@ -7862,6 +7862,8 @@ Se verifica:
  1. $\forall x \in S_X: J_X(x)$ es lineal y de módulo $1$.
  2. $J_X : X \longrightarrow X^\ast^\ast$ es isométrica y lineal.
 
+***** TODO Demostración
+
 **** Completación de un espacio
 $X^\ast$ es completo para cualquier espacio normado $X$. 
 Cuando $X$ no es completo, $J_X$ no es sobreyectivo y podemos
@@ -8250,7 +8252,7 @@ cumpliendo:
   2. $\langle u,\alpha v + \beta w\rangle = \overline{\alpha}\langle u,v\rangle + \overline{\beta}\langle u,w\rangle$, conjugadalineal en la segunda variable.
   3. $\langle u,v \rangle = \overline{\langle v,u \rangle}$, hermítica.
   4. $\langle u,u \rangle \geq 0$, definida positiva.
-  5. $\langle u,u \rangle = 0$, no nula.
+  5. $\langle u,u \rangle = 0$ ssi $u=0$, no nula.
 
 ***** Observaciones
 Cuando $\mathbb{K}=\mathbb{R}$, 3 es conmutatividad; cuando $\mathbb{K}=\mathbb{C}$, implica que 4 está 
