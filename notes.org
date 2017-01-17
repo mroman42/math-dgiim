@@ -1913,7 +1913,8 @@ the homology:
       *R-módulos* a derecha. Forman la categoría $(R;R)\mathtt{-Mod}$.
 
 ***** Álgebra envolvente
-Sea $R$ una $K\text{-álgebra}$, llamamos *álgebra envolvente* a $R^e = R \otimes R^{op}$. Con el producto:
+Sea $R$ una $K\text{-álgebra}$, llamamos *álgebra envolvente* a $R^e = R \otimes R^{op}$.
+Con el producto:
 
 \[ (r_1 \otimes s_1)(r_2 \otimes s_2) = (r_1r_2) \otimes (s_2s_1)\]
 
@@ -10531,6 +10532,9 @@ Tenemos primero que:
 Usando que su norma es la raíz cuadrada de su mayor valor propio,
 tenemos un valor propio $16$. Sabiendo que no tiene inverso, un valor
 propio es $0$, y por la última condición, un valor propio es $2$.
+
+Por otro lado, por ser idempotente, si tiene algún valor propio es $1$
+ó $0$, así que las condiciones son exluyentes.
 
 **** Ejercicio 6
 #+begin_statement
