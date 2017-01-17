@@ -9167,14 +9167,16 @@ Por desigualdad de Bessel, comprobando la igualdad de ambas sumas
 en los casos finitos, tenemos que existe la suma:
 
 \[
-\left\|\sum_{i \in I} \langle u,e_i \rangle e_i \right\|= 
+\left\|\; \sum_{i \in I} \langle u,e_i \rangle e_i \;\right\|= 
 \sqrt{\sum_{i \in I} |\langle u,e_i \rangle|^2} \leq \|u\|
 \]
 
+Ya que es una suma de positivos acotada.
+
 ****** Hay ortogonalidad
 Tomamos $m = \sum_{i \in I} \langle u,e_i \rangle e_i$, y comprobamos que $u - m \in M^\perp$. Como la
-familia ortonormal genera el espacio, basta comprobr que es ortonormal
-a ella:
+familia ortonormal genera el espacio, basta comprobar que es 
+ortonormal a ella:
 
 \[
 \langle u-m,e_k \rangle = 0
@@ -10508,7 +10510,6 @@ La solución es:
   - $G_p(T^\ast T) = \{0,1,\dots,n\}$.
   - $G_p(T) = \{0\}$.
   - $\|T\| = \sqrt{n}$, $\|T^\ast T\| =n$.
-
 
 **** Ejercicio 7
 #+begin_statement
