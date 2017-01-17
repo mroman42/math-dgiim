@@ -9104,14 +9104,17 @@ $\{x_i\}$ es sumable con:
 \left\|\sum_{i \in I} x_i\right\| \leq \sum_{i \in I} |\alpha_i|
 \]
 
-***** Caso particular
+***** TODO Demostración
+**** Absolutamente sumable implica sumable
 En particular, absolutamente sumable implica sumabilidad en Banach, con:
 
 \[
 \left\|\sum x_i\right\| \leq \sum \|x_i\|
 \]
 
-***** TODO Demostración
+***** Demostración
+Trivialmente desde el [[*Criterio de Abel][criterio de Abel]].
+
 *** Familias ortonormales
 **** Suma ortogonal
 Sea $\{e_i\}_{i\in I}$ familia ortogonal en un espacio de Hilbert $H$. Entonces
@@ -9147,7 +9150,7 @@ Sea $H$ Hilbert, $\{e_i\}_{i \in I}$ familia ortonormal. Para $u \in H$ se tiene
 $\{\langle u,e_i \rangle e_i\}$ es sumable ssi $\{|\langle u,e_i \rangle|^2\}$ es sumable en $\mathbb{R}^+$.
 
 ***** Demostración
-Caso particular de lo anterior con $f(x) = \langle u,x \rangle$.
+Caso particular de lo [[*Suma ortogonal][anterior]] con $f(x) = \langle u,x \rangle$.
 
 **** Desigualdad de Bessel
 Sea $\{e_i\}_{i \in I}$ ortonormal en $H$ Hilbert, entonces:
@@ -9208,7 +9211,8 @@ en los casos finitos, tenemos que existe la suma:
 \sqrt{\sum_{i \in I} |\langle u,e_i \rangle|^2} \leq \|u\|
 \]
 
-Ya que es una suma de positivos acotada.
+Ya que es una suma de positivos acotada. Ambas sumas cumplen
+la misma condición de [[*Corolario: suma ortogonal con productos escalares][Cauchy]].
 
 ****** Hay ortogonalidad
 Tomamos $m = \sum_{i \in I} \langle u,e_i \rangle e_i$, y comprobamos que $u - m \in M^\perp$. Como la
@@ -9251,7 +9255,7 @@ llamada *Serie de Fourier*.
 El cardinal de las bases de Hilbert de un espacio es inveriante y
 se llama *dimensión Hilbertiana*.
 
-***** TODO Demostración
+***** Demostración
 [[http://math.stackexchange.com/questions/232166/showing-the-basis-of-a-hilbert-space-have-the-same-cardinality][Showing the basis of a Hilbert Space have the same cardinality]].
 
 **** Isomorfía entre espacios de igual dimensión
