@@ -8978,7 +8978,7 @@ Una familia $\{x_i\}_{i \in I}$ verifica la condición de Cauchy cuando:
 \left\|\; \sum_{i \in J} x_i \;\right\| < \varepsilon\]
 
 **** Toda sumable es Cauchy
-Si $\{x_i\}_{i \in I}$ es sumable, verifica la condición de Cauchy.
+Si $\{x_i\}_{i \in I}$ es sumable, verifica la condición de suma de Cauchy.
 
 ***** Demostración
 Suponiendo que suman $s$, podemos tomar $J_\varepsilon$ cumpliendo que, dado $J \cap J_\varepsilon = \varnothing$:
@@ -8998,16 +8998,45 @@ Y por tanto, aplicando Minkowski:
 2\varepsilon
 \]
 
+**** Toda Cauchy en un Hilbert es sumable
+Si $\{x_i\}_{i \in I} \in H$ Hilbert verifica la condición de suma de Cauchy, 
+es sumable.
+
+***** Demostración
+Primero tomamos la sucesión de Cauchy siguiente, que por complitud
+del espacio es convergente:
+
+\[
+\left\{
+\sum_{i \in J_{\frac{1}{n}}} x_i
+\right\}
+\longrightarrow
+s
+\]
+
+Tenemos, para $J \supseteq J_{\frac{1}{n}}$, para $n$ suficientemente grande, que:
+
+\[
+\left\|\sum_{i \in J} x_i - s \right\| \leq
+\left\|\sum_{i \in J} x_i - \sum_{i \in J_{\frac{1}{n}}} x_i \right\| +
+\left\|\sum_{i \in J_{\frac{1}{n}}} x_i - s \right\| \leq 
+\frac{1}{n} + \varepsilon
+\]
+
+Siendo por tanto sumable.
+
 **** Numerabilidad de familias de Cauchy
 Toda familia de Cauchy tiene $\{ i \in I \mid x_i \neq 0\}$ numerable.
 
 ***** Demostración
-Si verifica Cauchy, para cada $n$ podemos tomar, $J_n$ tal que para $J \cap J_n =\varnothing$:
+Si verifica Cauchy, para cada $n$ podemos tomar, $J_n$ tal que 
+para $J \cap J_n =\varnothing$:
 
 \[\left\| \sum_{J} x_i \right\| \leq \frac{1}{n}\]
 
 Si tenemos un $x \notin J_n$ para todo $n$, debe cumplir $\|x\| < \frac{1}{n}$, luego $x = 0$.
-Como $\bigcup_{n \in \mathbb{N}} J_n$ es numerable. El conjunto de elementos no nulos es numerable.
+Como $\bigcup_{n \in \mathbb{N}} J_n$ es numerable. El conjunto de elementos no nulos es 
+numerable.
 
 **** Sumable es esencialmente numerable
 En un espacio normado cualquiera equivalen:
