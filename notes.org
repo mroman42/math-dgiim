@@ -13395,7 +13395,33 @@ un $F : \mathbb{R}^2 \overset{\cong}\longrightarrow \mathbb{R}^2$ con:
 
 ****** TODO Demostración
 
-***** TODO Demostración
+***** Demostración
+Consideremos la relación de equivalencia $pRq$ cuando $\exists f : S \cong S$
+con $f(p) = q$. Veamos que $[p]$ es abierta por $p$ arbitrario y por
+tanto, $[p] = S$.
+
+****** La clase de equivalencia es abierta
+Dado $p$, tenemos $O$ disco [[*Base de las bolas regulares euclídeas][regular]] centrado en él y $O'$ disco 
+euclídeo cubriendo su clausura y cumpliendo:
+
+\[
+\exists \phi : O' \overset{\cong}\longrightarrow D(0,\varepsilon)
+\]
+
+con $\phi(O) = \overline{D(0,\varepsilon/2)}$. El lema nos da una $F_x(0) = x$.
+
+Definimos $D_0 = \phi^{-1}(D(0,\varepsilon)) \subset D'$, abierto cubriendo a $p$. Y para
+cualquier $y \in D_0$, definimos la función $G_y : S \cong S$ como:
+
+\[
+G_y(z) = \left\{\begin{array}{ll} 
+z & \mbox{if } z \notin O'  \\
+\phi^{-1} \circ F_{\phi(y)} \circ \phi& \mbox{if } z \in O'
+\end{array} 
+\right.
+\]
+
+Lo que nos da $D_0 \subseteq [p]$, haciéndolo abierto.
 
 **** Recubridor de una superficie
 Sea $\pi : \widetilde{X} \longrightarrow X$ recubridor:
@@ -13592,7 +13618,10 @@ La suma conexa de dos superficies topológicas conexas es conexa.
 Toda superficie topológica compacta es homeomorfa a un polígono con lados
 identificados 2 a 2.
 
-***** TODO Demostración
+***** Idea de demostración
+Dada $S$ compacta, por un teorema que no demostramos, $S \cong |K|$.
+Por [[*Teorema de Radó][Radó]], podemos triangularlo y por compacidad, tiene un número
+finito de caras. Ese polígono puede desplegarse.
 
 **** Región poligonal
 Un $P \subseteq \mathbb{R}^2$ es región poligonal si:
