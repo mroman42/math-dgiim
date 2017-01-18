@@ -13464,7 +13464,91 @@ dos símplices.
 ***** Recíproco falso
 No todo complejo simplicial es triangulación de una superficie.
 
-*** TODO 3.3. Suma convexa
+*** 3.3. Suma convexa
+**** Curva de Jordan
+Una curva de Jordan en $\mathbb{R}^n$ es una curva cerrada y simple.
+
+***** Definición equivalente
+Una curva de Jordan es la imagen de $f : \mathbb{S}^1 \longrightarrow \mathbb{R}^n$ que sea
+homeomorfismo sobre su imagen.
+
+**** Homeomorfismo que preserva la orientación
+Sean $C_1,C_2 \subseteq \mathbb{R}^2$ dos curvas de Jordan y $f : C_1 \overset{\cong}\longrightarrow C_2$ un homeomorfismo.
+Decimos que $f$ preserva la orientación si $\exists \alpha : [0,1] \longrightarrow C_1$ parametrización
+tal que $\alpha$ recorre $C_1$ en el sentido de las agujas del reloj y $f \circ \alpha$
+recorre $C_2$ en el sentido de las agujas del reloj.
+
+**** Teorema de Jordan-Schoenflies
+Sean $C_1,C_2$ curvas de Jordan con $f : C_1 \cong C_2$. Entonces existe una
+$F : \mathbb{R}^2 \cong \mathbb{R}^2$ con $F|_{C_1} = f$. Además, 
+
+  1. Si $f$ preserva la orientación y $U \subseteq \mathbb{R}$ es un subconjunto 
+     homeomorfo a $\mathbb{D}$ disco, con $U \supseteq C_1 \cup C_2$, entonces existe
+     un $F : \mathbb{R}^2 \longrightarrow \mathbb{R}^2$ con $F|_{C_1} = f$ y $F|_{\mathbb{R}\U} = Id$.
+  2. Si $f$ revierte la orientación y $U \subseteq \mathbb{R}^2$ con $U \supseteq C_1 \cup C_2$
+     con $U \cong \mathbb{D}$ disco, puedo tener $F$ con: $F|_{\mathbb{R}^2\U}(x,y) = (x,-y)$.
+
+***** TODO Demostración
+
+**** Teorema de la curva de Jordan
+Sea $C$ curva de Jordan en $\mathbb{R}^2$. Entonces, $\mathbb{R}^2\setminus C$ tiene exactamente
+dos componentes conexas, una de ellas acotada (*interior* de $C$) y
+la otra es no acotada (*exterior* de $C$).
+
+***** TODO Demostración
+
+**** Teorema de Jordan-Schonflies para la esfera
+Sean $C_1,C_2$ dos curvas de Jordan en $\mathbb{S}^2 \subseteq \mathbb{R}^3$ y $f : C_1 \overset{\cong}\longrightarrow C_2$.
+Entonces $\exists F : \mathbb{S}^2 \longrightarrow \mathbb{S}^2$ con $F|_{C_1} = f$.
+
+***** TODO Demostración
+
+**** Suma conexa
+Sean $S_1,S_2$ dos superficies convexas. Sean $D_1 \subseteq S_1$, $D_2 \subseteq S_2$ discos
+regulares euclídeos y sea $\varphi : \partial D_1 \longrightarrow \partial D_2$ homeomorfismo. Denotemos
+$S'_i = S_i \setminus D_i$. En $S'_1 \sqcup S_2'$ definimos $R_{\varphi}$ relación de equivalencia entre
+el borde y su imagen:
+
+\[ x\; R_\varphi \; \varphi(x)\quad \forall x \in \partial D_1\]
+
+Tenemos una superficie topológica conexa que independiente de los
+discos y el homeomorfismo. La llamamos *suma conexa*:
+
+\[
+S_1 \# S_2
+=
+S_1' \sqcup S_2' / R_\varphi
+\]
+
+**** La suma es independiente de los discos
+Para $D_1,D_3 \subseteq S'$ discos regulares euclídeos centrados en $p_1$, tenemos
+que:
+
+\[S_1 \setminus D_1 \cong S_1 \setminus D_3\]
+
+***** TODO Demostración
+**** La suma es independiente de los centros
+Los puntos en los que centramos la suma conexa. Tomando $p_1 \neq p_3 \in S_1$,
+con $D_1,D_3$ discos regulares euclídeos centrados en ellos:
+
+\[S_1 \setminus D_1 \cong S_3 \setminus D_3\]
+
+***** TODO Demostración
+**** La suma es independiente del homeomorfismo
+El homeomorfismo no influye. Dados \[
+\varphi, \xi : bD_1 \longrightarrow bD_2
+\] homeomorfismos,
+queremos ver:
+
+\[
+S_1 \sqcup S_2 / R_\varphi \cong S_1 \sqcup S_2 / R_\xi
+\]
+
+***** TODO Demostración
+
+**** La suma conexa de conexas es conexa
+La suma conexa de dos superficies topológicas conexas es conexa.
+
 *** 3.4. Presentación poligonal de superficies
 **** Polígono homeomorfo
 Toda superficie topológica compacta es homeomorfa a un polígono con lados
