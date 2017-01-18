@@ -13305,7 +13305,68 @@ X
 **** Clasificación de variedades topológicas en dimensión 1
 Toda variedad topológica 1-dimensional es homeomorfa a $\mathbb{R}$ o a $\mathbb{S}^1$.
 
-*** TODO 3.1. Variedades topológicas
+*** 3.1. Variedades topológicas
+**** Espacio localmente euclídeo
+Un espacio $X$ es localmente euclídeo cuando cada punto admite un
+entorno abierto homeomorfo a un abierto de $\mathbb{R}^n$.
+
+***** Definición equivalente
+Cada punto admite un entorno abierto homeomorfo a una bola 
+abierta de $\mathbb{R}^n$.
+
+***** Carta
+Cada entorno con su homeomorfismo forma una carta local $(U_x,\phi)$.
+
+***** Bola euclídea
+Carta homeomorfa a la bola unidad euclídea.
+
+**** Teorema de la invarianza de la dimensión
+Si $U \subseteq \mathbb{R}^n$ y $V \subseteq \mathbb{R}^m$ son abiertos homeomorfos, $n=m$.
+
+***** TODO Demostración
+
+**** Base de las cartas
+Los dominios de las cartas forman una base de la topología.
+
+***** TODO Demostración
+
+**** TODO Ejemplos de variedades topológicas
+**** Bola regular euclídea
+Sea $B \subseteq X$ una bola euclídea, es regular cuando:
+
+  1. Existe $B' \subseteq X$ bola euclídea con $\overline{B} \subseteq B'$.
+  2. Existe $r > 0$ y una carta $\phi : B' \longrightarrow B(0,2r)$ tal que $\phi(\overline{B}) = \overline{B(0,r)}$.
+
+**** TODO Existencia de bola regular euclídea
+**** Base de las bolas regulares euclídeas
+Las bolas regulares euclídeas forman una base de la topología de una
+variedad topológica.
+
+***** TODO Demostración
+
+**** Endomorfismo de superficies conexas
+Sea $S$ superficie conexa con $p,q \in S$. Entonces existe $f : S \overset{\cong}\longrightarrow S$
+con $f(p) = q$.
+
+***** Lema al endomorfismo
+Existe una constante $\varepsilon \in ]0,1]$ tal que dado $x \in B(0,\varepsilon)$, existe
+un $F : \mathbb{R}^2 \overset{\cong}\longrightarrow \mathbb{R}^2$ con:
+
+  1. $F(0) = x$.
+  2. $F|_{\mathbb{R}^2\setminus D(0,2)}$ es la identidad.
+
+****** TODO Demostración
+
+***** TODO Demostración
+
+**** Recubridor de una superficie
+Sea $\pi : \widetilde{X} \longrightarrow X$ recubridor:
+
+  1. Si $\widetilde X$ es una superficie y $A_\pi = \{(x,y) \in \widetilde{X} \times \widetilde{X} \mid \pi(x) = \pi(y) \}$
+     es cerrado, entonces $X$ es superficie.
+  2. Si $X$ es superficie, $\widetilde{X}$ es superficie.
+
+***** TODO Demostración
 *** 3.2. Complejos simpliciales
 **** P-símplice
 Sean $v_1,\dots,v_p \in \mathbb{R}^n$ afínmente independientes. Se define el *p-símplice*
