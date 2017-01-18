@@ -13320,31 +13320,69 @@ Cada entorno con su homeomorfismo forma una carta local $(U_x,\phi)$.
 ***** Bola euclídea
 Carta homeomorfa a la bola unidad euclídea.
 
+**** Variedad topológica
+Una variedad topológica es un espacio topológico cumpliendo:
+
+  1. Localmente euclídeo.
+  2. Hausdorff $T_2$.
+  3. Segundo axioma de numerabilidad 2AN.
+
+A una variedad de dimensión 2 la llamamos *superficie*.
+
+**** Ejemplos de variedades topológicas
+***** Los espacios euclídeos
+***** Las esferas n-dimensionales
+***** Recubridores de espacios localmente euclídeos
+***** Recubiertos por espacios localmente euclídeos
+
 **** Teorema de la invarianza de la dimensión
 Si $U \subseteq \mathbb{R}^n$ y $V \subseteq \mathbb{R}^m$ son abiertos homeomorfos, $n=m$.
+Por tanto cada variedad tiene una dimensión asignada.
 
 ***** TODO Demostración
+# Necesita de invariantes distintos al grupo fundamental.
+# Homologías seguramente. (?)
 
 **** Base de las cartas
 Los dominios de las cartas forman una base de la topología.
 
-***** TODO Demostración
+***** Demostración
+Usamos simplemente que la intersección de un abierto con
+una carta es una carta con el homeomorfismo restricción.
 
-**** TODO Ejemplos de variedades topológicas
+Dado un abierto, cada punto suyo tiene un entorno que es
+una carta. Al intersecarlo con el abierto da otra carta,
+y finalmente el abierto inicial es unión de todas las
+cartas en cada punto.
+
 **** Bola regular euclídea
 Sea $B \subseteq X$ una bola euclídea, es regular cuando:
 
   1. Existe $B' \subseteq X$ bola euclídea con $\overline{B} \subseteq B'$.
   2. Existe $r > 0$ y una carta $\phi : B' \longrightarrow B(0,2r)$ tal que $\phi(\overline{B}) = \overline{B(0,r)}$.
 
-**** TODO Existencia de bola regular euclídea
+***** Contraejemplos
+Una esfera sin un punto es una bola euclídea pero no una bola
+regular euclídea.
+
 **** Base de las bolas regulares euclídeas
 Las bolas regulares euclídeas forman una base de la topología de una
 variedad topológica.
 
-***** TODO Demostración
+***** Existencia de bola regular euclídea
+En una variedad topológica sea $p \in S$ y $U \subseteq S$ entorno de $p$ abierto.
+Existe una bola regular euclídea con $p \in B \subseteq U$.
 
-**** Endomorfismo de superficies conexas
+****** Demostración
+Es localmente euclídeo, luego localmente habrá una bola centrada
+en la imagen de $p$ y otra de mitad de radio. Su preimagen será
+regular euclídea.
+
+***** Demostración
+En cualquier entorno existe una bola regular euclídea entre
+el punto y el entorno.
+
+**** Autohomeomorfismo de superficies conexas
 Sea $S$ superficie conexa con $p,q \in S$. Entonces existe $f : S \overset{\cong}\longrightarrow S$
 con $f(p) = q$.
 
