@@ -13569,11 +13569,13 @@ Un $P \subseteq \mathbb{R}^2$ es región poligonal si:
 
 ***** TODO Ejemplos
 
-**** Superficie poligonal
+**** Superficie de una región poligonal
 Sea $P \subseteq \mathbb{R}^2$ región poligonal con un número de aristas. Si $R$ es relación 
 de equivalencia, identificando cada arista con exactamente otra arista
 mediante homeomorfismo simplicial, $P/R$ es una superficie topológica 
 compacta.
+
+***** TODO Demostración
 
 **** Presentación poligonal
 Llamamos presentación a una expresión de la forma:
@@ -13588,14 +13590,14 @@ Permitimos además los casos especiales:
   - $\langle \{a\}, a^{-1}a^{-1} \rangle$
   - $\langle \{a\}, a^{-1}a \rangle$
 
-**** Presentación de un complejo
+**** Presentación de un complejo simplicial
 Dado un complejo simplicial $K$ donde cada símplice es cara de un 2-símplice,
 tenemos una presentación poligonal asignando a cada 2-símplice una palabra
 de longitud 3.
 
 ***** TODO Ejemplo
 
-**** Realización geométrica
+**** Realización geométrica de una presentación
 Cada $P = \langle A; W_1,\dots,W_n \rangle$ determina $|P|$, una topología de la forma:
 
   1. Para cada $W_i$ tomamos un polígono $P_i$ de n-lados.
@@ -13603,7 +13605,7 @@ Cada $P = \langle A; W_1,\dots,W_n \rangle$ determina $|P|$, una topología de l
   3. Identificamos cada arista con la que tiene el mismo nombre en
      el sentido marcado por la inversa.
 
-Tomamos la uniónpor esta relación $|P| = \bigsqcup P_i / R$.
+Tomamos la unión por esta relación $|P| = \bigsqcup P_i / R$.
 
 **** Extensión a homeomorfismo
 Para $P_1,P_2$ polígonos convexos con el mismo número de aristas.
@@ -13655,7 +13657,6 @@ Anular dos lados adyacentes $W_1ee^{-1} \mapsto W_1$.
 
 ***** 9. Desdoblar
 Inversa de doblar.
-
 *** 3.5. Clasificación de superficies compactas I
 *** 3.6. Clasificación de superficies compactas II
 **** Grupo fundamental de la presentación
