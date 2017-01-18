@@ -8616,7 +8616,7 @@ Usando de nuevo la ortogonalidad del primer punto:
 \]
 
 **** Teorema de la proyección ortogonal
-Sea $H$ Hilbert y $M$ subespacio cerrado. Entonces:
+Para $H$ Hilbert y $M$ subespacio cerrado:
 
   1. $H = M \oplus M^\perp$.
   2. La proyección a $M$ es la aproximación óptima.
@@ -8626,7 +8626,7 @@ Análogamente, $\pi_{M^\perp}$ da la aproximación óptima a $M^\perp$.
 
 ***** Demostración
 Por el [[*Lemas al teorema de la proyección ortogonal][lema]] sabemos que $\pi_M$ es una proyección. Como además tiene 
-$\ker(\pi_M) = M^\perp$ e a$\im(\pi_M) = M$, se tiene que es la buscada.
+$\ker(\pi_M) = M^\perp$ e $\im(\pi_M) = M$, se tiene que es la buscada.
 
 Por ser ortogonales:
 
@@ -8721,6 +8721,7 @@ Debe ser un vector en $H^\perp = \{0\}$.
 
 ****** Unicidad: caso general
 Simplemente notando que $f(u) = \langle u,v \rangle = \langle u,w \rangle$ nos daría $\langle u,v-w \rangle = 0$.
+Un vector perpendicular a todo el espacio es nulo.
 
 **** Corolario: el dual es de Hilbert
 Si $H$ es Hilbert, $H^\ast$ con la norma de operadores es de Hilbert.
@@ -8930,6 +8931,9 @@ Sea $X$ normado con $\{x_i\}_{i \in I}$ familia con suma $x$:
   3. $\sum_{i \in I} Tx_i = Tx$, para $T$ lineal continua.
 
 ***** Demostración
+Nótese que cuando coinciden en subsumas finitas, deben coincidir
+en la suma total, por definición.
+
 ****** Punto 1
 Trivial por la definición.
 
@@ -9154,12 +9158,14 @@ $\{\langle u,e_i \rangle e_i\}$ es sumable ssi $\{|\langle u,e_i \rangle|^2\}$ e
 Caso particular de lo [[*Suma ortogonal][anterior]] con $f(x) = \langle u,x \rangle$.
 
 **** Desigualdad de Bessel
-Sea $\{e_i\}_{i \in I}$ ortonormal en $H$ Hilbert, entonces:
+Sea $\{e_i\}_{i \in I}$ ortonormal en $H$ Hilbert, entonces existe la suma siguiente
+y está acotada:
 
 \[
 \sum_{i \in I} |\langle u,e_i \rangle|^2 \leq
 \|u\|^2
 \]
+
 
 ***** Demostración
 En el caso finito:
