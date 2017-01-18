@@ -13416,14 +13416,16 @@ Colección de símplices $K$ en algún $\mathbb{R}^n$ cumpliendo:
   3. Todo punto en el símplice tiene un entorno abierto que corta a
      una cantidad finita de símplices en $\bigcup_{\tau \in K}\tau \subseteq \mathbb{R}^n$.
 
-Llamamos *dimensión* de $K$ a la dimensión del mayor símplice que contiene.
+Llamamos *dimensión* de $K$ a la dimensión del mayor símplice que 
+contiene.
 
-**** Subcomplejo simplicial
+***** Subcomplejo simplicial
 Llamamos subcomplejo simplicial a $K' \subseteq K$ complejo simplicial.
 
 **** Poliedro
-Dado $K$ complejo simplicial, llamamos *poliedro* de $K$ al espacio topológico
-formado por la unión de todos los símplices de $K$ con la topología inducida:
+Dado $K$ complejo simplicial, llamamos *poliedro* de $K$ al espacio 
+topológico formado por la unión de todos los símplices de $K$ con 
+la topología inducida:
 
 \[|K| = \bigcup_{\tau \in K} \tau \subseteq \mathbb{R}^n\]
 
@@ -13443,12 +13445,12 @@ si:
 Una aplicación simplicial homeomorfismo la llamamos 
 *homeomorfismo simplicial*.
 
-**** Homeomorfismos simpliciales
+***** Categoría de las aplicaciones simpliciales
 La inversa de un homeomorfismo simplicial es homeomorfismo simplicial;
 así como la identidad y la composición de funciones. Las aplicaciones
 simpliciales forman una categoría.
 
-***** TODO Demostración
+****** TODO Demostración
 
 **** Superficies triangulables
 Una superficie topológica $S$ se dice *triangulable* si existe algún 
