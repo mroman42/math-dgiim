@@ -9362,7 +9362,20 @@ G_p(T) =
 T - \lambda I \text{ no inyectivo}
 \}
 \]
+**** Extra: El espectro de un autoadjunto es real
+**** Extra: El espectro del adjunto es el conjugado en caso finito
+***** Contraejemplo caso infinito
+Pero en el caso general no. Un ejemplo es el siguiente:
 
+\[
+T(a_1,a_2,\dots) = (a_2,a_3,\dots)
+\]
+
+Que tiene cualquier valor en el espectro mientras su adjunto
+no tiene ningún valor propio.
+
+**** Extra: En el caso finito, el adjunto es la conjugada de la traspuesta
+**** Extra: [[https://en.wikipedia.org/wiki/Spectral_theorem][Teorema espectral]]
 ** Ejercicios
 *** 1. Espacios normados
 **** Ejercicio 3
@@ -10414,7 +10427,14 @@ Probar que existe un único $T\in L(H)$ tal que $Te_n = \alpha_ne_n$, para cada 
 y que $\|T\| = \alpha$. Calcular $T^\ast$ y $\|T^\ast\|$. Demostrar que $T$ es normal. ¿Qué
 condición ha de cumplir la sucesión dada para que el operador $T$ sea
 autoadjunto?¿y para que $T$ sea invertible?
+#+end_statement
 
+Expresando $u$ en serie de Fourier.
+
+Autoadjunto cuando $\alpha_i = \overline{\alpha_i}$ e invertible cuando $\alpha_i \neq 0$.
+
+**** Ejercicio 2.1
+#+begin_statement
 Sea $H = \mathbb{C}^3$ y sea $T \in L(H)$ el operador dado por:
 
 \[T(\alpha_1,\alpha_2,\alpha_3) = (\alpha_1+\alpha_2,\alpha_1+\alpha_3,\alpha_3+2\alpha_1)\]
@@ -10527,20 +10547,12 @@ expand((M*(M.transpose().conjugate())).eigenvalues())
 **** Ejercicio 5
 #+begin_statement
 Sea $T \in L(H)$ donde $H$ es un espacio de Hilbert de dimensión 3. 
-Calcúlese el espectro de $T$ sabiendo que $T$ es idempotente y autoadjunto,
+Calcúlese el espectro de $T$ sabiendo que $T$ es autoadjunto,
 que $\|T\| = 4$, que $T$ no tiene inverso, y que el rango de $T-2I$ es $2$.
 #+end_statement
 
-Tenemos primero que:
-
-\[TT^\ast = T^2 = T\]
-
-Usando que su norma es la raíz cuadrada de su mayor valor propio,
-tenemos un valor propio $16$. Sabiendo que no tiene inverso, un valor
-propio es $0$, y por la última condición, un valor propio es $2$.
-
-Por otro lado, por ser idempotente, si tiene algún valor propio es $1$
-ó $0$, así que las condiciones son exluyentes.
+Sabemos que un valor propio es $2$, que otro valor propio es $0$ por no
+tener inversa. Como la norma es la raíz 
 
 **** Ejercicio 6
 #+begin_statement
