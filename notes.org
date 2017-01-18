@@ -13367,6 +13367,7 @@ Sea $\pi : \widetilde{X} \longrightarrow X$ recubridor:
   2. Si $X$ es superficie, $\widetilde{X}$ es superficie.
 
 ***** TODO Demostración
+
 *** 3.2. Complejos simpliciales
 **** P-símplice
 Sean $v_1,\dots,v_p \in \mathbb{R}^n$ afínmente independientes. Se define el *p-símplice*
@@ -13385,14 +13386,7 @@ generado como:
 Llamamos a los $v_i$ *vértices* del p-símplice y al entero $p$ se le llama
 *dimensión* del p-símplice.
 
-**** Caras de un p-símplice
-Las *caras* de un p-símplice $\sigma$ son los k-símplices generados por $k+1$ 
-vértices. Se notan por $\tau < \sigma$.
-
-Llamamos *aristas* a las caras de dimensión 1 y *triángulos* a las caras de
-dimensión 2.
-
-**** P-símplice abierto
+***** P-símplice abierto
 Se define el *p-símplice abierto* como:
 
 \[
@@ -13407,7 +13401,14 @@ Se define el *p-símplice abierto* como:
 
 Observemos que en general no es igual al interior de un p-símplice.
 
-**** Complejo simplicial euclídeo
+***** Caras de un p-símplice
+Las *caras* de un p-símplice $\sigma$ son los k-símplices generados por $k+1$ 
+vértices. Se notan por $\tau < \sigma$.
+
+Llamamos *aristas* a las caras de dimensión 1 y *triángulos* a las 
+caras de dimensión 2.
+
+**** Complejo simplicial
 Colección de símplices $K$ en algún $\mathbb{R}^n$ cumpliendo:
 
   1. $\tau < \sigma, \sigma \in K \implies \tau \in K$.
