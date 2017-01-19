@@ -13440,11 +13440,11 @@ generado como:
 \[
 \langle v_0,\dots,v_p \rangle
 =
-\left\{
+\left\{\;
 \sum_{j=0}^p \lambda_jv_j 
 \;\middle|\;
 0 \leq \lambda_j \leq 1, \sum_{j=0}^p \lambda_j = 1
-\right\}
+\;\right\}
 \]
 
 Llamamos a los $v_i$ *vértices* del p-símplice y al entero $p$ se le llama
@@ -13467,7 +13467,7 @@ Observemos que en general no es igual al interior de un p-símplice.
 
 ***** Caras de un p-símplice
 Las *caras* de un p-símplice $\sigma$ son los k-símplices generados por $k+1$ 
-vértices. Se notan por $\tau < \sigma$.
+de sus vértices. Se notan por $\tau < \sigma$.
 
 Llamamos *aristas* a las caras de dimensión 1 y *triángulos* a las 
 caras de dimensión 2.
@@ -13487,17 +13487,24 @@ contiene.
 Llamamos subcomplejo simplicial a $K' \subseteq K$ complejo simplicial.
 
 **** Poliedro
-Dado $K$ complejo simplicial, llamamos *poliedro* de $K$ al espacio 
+Dado $K$ complejo simplicial, llamamos *poliedro* de $K$ al espacio
 topológico formado por la unión de todos los símplices de $K$ con 
 la topología inducida:
 
 \[|K| = \bigcup_{\tau \in K} \tau \subseteq \mathbb{R}^n\]
 
 **** Un compacto corta una cantidad finita de símplices
-Sea $G \subseteq |K|$ compacto, entonces $G$ corta a una cantidad finita de símplices
-de $K$. En particular $|K|$ compacto tiene una cantidad finita de símplices.
+Sea $G \subseteq |K|$ compacto, entonces $G$ corta a una cantidad finita de
+símplices de $K$. En particular $|K|$ compacto tiene una cantidad 
+finita de símplices.
 
-***** TODO Demostración
+***** Demostración
+Supongamos $\{\tau_n\}$, tomamos $\{p_n\} \in G \cap \tau_n$. Por compacidad habría 
+una parcial convergente $\{p_n\} \longrightarrow p_\infty \in G \subseteq |K|$.
+
+Pero por definición de complejo simplicial, este $p_\infty$ tiene un
+entorno que corta sólo a una cantidad finita de símplices y por
+tanto, de los $p_n$.
 
 **** Aplicaciones simpliciales
 Una $f : |K|\longrightarrow |L|$ entre complejos simpliciales es *aplicación simplicial* 
