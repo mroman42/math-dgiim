@@ -13513,6 +13513,7 @@ si:
   1. $f$ lleva símplices de $K$ en símplices de $L$.
   2. La restricción de $f$ a cada símplice es afín $Ax+b$.
 
+***** Homeomorfismos simpliciales
 Una aplicación simplicial homeomorfismo la llamamos 
 *homeomorfismo simplicial*.
 
@@ -13535,6 +13536,21 @@ dos símplices.
 ***** Recíproco falso
 No todo complejo simplicial es triangulación de una superficie.
 
+**** Caracterización de triangulaciones
+Un complejo simplicial $K$ de dimensión 2 es triangulación de una
+superficie ssi:
+
+  1. Todo símplice es cara de un 2-símplice.
+  2. Todo 1-símplice es cara de exactamente dos 2-símplices.
+  3. Si $\forall v \in K^{(0)}$ definimos $sf(v) = \{ \tau \in K \mid v < \tau \}$ y
+
+     \[ L(v) = \{ \tau \in K \mid \exists \sigma \in K : v < \sigma, \tau < \sigma, v \not< \tau
+     \}
+     \]
+
+     y tenemos que $|sf(v)| \cong \overline{D}$ y $|L(v)|$ es conexo.
+     # ¿Ein? No se entiende nada de los apuntes.
+
 *** 3.3. Suma convexa
 **** Curva de Jordan
 Una curva de Jordan en $\mathbb{R}^n$ es una curva cerrada y simple.
@@ -13545,45 +13561,69 @@ homeomorfismo sobre su imagen.
 
 **** Homeomorfismo que preserva la orientación
 Sean $C_1,C_2 \subseteq \mathbb{R}^2$ dos curvas de Jordan y $f : C_1 \overset{\cong}\longrightarrow C_2$ un homeomorfismo.
-Decimos que $f$ preserva la orientación si $\exists \alpha : [0,1] \longrightarrow C_1$ parametrización
+Decimos que $f$ *preserva la orientación* si $\exists \alpha : [0,1] \longrightarrow C_1$ parametrización
 tal que $\alpha$ recorre $C_1$ en el sentido de las agujas del reloj y $f \circ \alpha$
 recorre $C_2$ en el sentido de las agujas del reloj.
 
-**** Teorema de Jordan-Schoenflies
+**** Teorema de Jordan-Schönflies
 Sean $C_1,C_2$ curvas de Jordan con $f : C_1 \cong C_2$. Entonces existe una
 $F : \mathbb{R}^2 \cong \mathbb{R}^2$ con $F|_{C_1} = f$. Además, 
 
   1. Si $f$ preserva la orientación y $U \subseteq \mathbb{R}$ es un subconjunto 
      homeomorfo a $\mathbb{D}$ disco, con $U \supseteq C_1 \cup C_2$, entonces existe
-     un $F : \mathbb{R}^2 \longrightarrow \mathbb{R}^2$ con $F|_{C_1} = f$ y $F|_{\mathbb{R}\U} = Id$.
+     un $F : \mathbb{R}^2 \longrightarrow \mathbb{R}^2$ con $F|_{C_1} = f$ y $F|_{\mathbb{R}^2\setminus U} = Id$.
   2. Si $f$ revierte la orientación y $U \subseteq \mathbb{R}^2$ con $U \supseteq C_1 \cup C_2$
-     con $U \cong \mathbb{D}$ disco, puedo tener $F$ con: $F|_{\mathbb{R}^2\U}(x,y) = (x,-y)$.
+     con $U \cong \mathbb{D}$ disco, puedo tener $F$ con: $F|_{\mathbb{R}^2\setminus U}(x,y) = (x,-y)$.
 
-***** TODO Demostración
+***** Demostración
+No trivial
+
+****** Segundo punto desde el primero
+Si tengo $f : C_1 \cong C_2$, revirtiendo la orientación, puedo tomar
+la curva reflejada en el eje Y:
+
+\[\widetilde{C_2} = \{(x,y) \mid (x,-y) \in C_2 \}\]
+
+Y definir una $\widetilde{f} : C_1 \cong \widetilde{C_2}$ como $\widetilde{f} = (f_1,-f_2)$, que preserva la 
+orientación. El teorema nos da entonces una $\widetilde{F}$ desde la que podemos
+definir $F = (\tilde F_1, \tilde F_2)$, la buscada.
 
 **** Teorema de la curva de Jordan
 Sea $C$ curva de Jordan en $\mathbb{R}^2$. Entonces, $\mathbb{R}^2\setminus C$ tiene exactamente
 dos componentes conexas, una de ellas acotada (*interior* de $C$) y
 la otra es no acotada (*exterior* de $C$).
 
-***** TODO Demostración
+***** Demostración
+Dado un $f : C \cong \mathbb{S}^1$ homeomorfismo, por Jordan-Schönflies, tenemos
+una $F : \mathbb{R}^2 \cong \mathbb{R}^2$ extendiéndola, lo que nos da $\mathbb{R}^2\setminus C_1 \cong \mathbb{R}^2 \setminus \mathbb{S}^1$.
+
+***** Contraejemplo en dimensiones superiores: esfera de Alexander
+La [[https://es.wikipedia.org/wiki/Esfera_cornuda_de_Alexander][esfera cornuda de Alexander]] es una 2-esfera embebida en $\mathbb{R}^3$
+cuyo exterior no es homeomorfo al exterior de la 2-esfera en $\mathbb{R}^3$.
 
 **** Teorema de Jordan-Schonflies para la esfera
 Sean $C_1,C_2$ dos curvas de Jordan en $\mathbb{S}^2 \subseteq \mathbb{R}^3$ y $f : C_1 \overset{\cong}\longrightarrow C_2$.
 Entonces $\exists F : \mathbb{S}^2 \longrightarrow \mathbb{S}^2$ con $F|_{C_1} = f$.
 
-***** TODO Demostración
+***** Demostración
+Si tomamos $p \in \mathbb{S}^2 \setminus \{C_1 \cup C_2\}$, tenemos $\mathbb{S}^2 \setminus \{p\} \cong \mathbb{R}^2$ por la proyección
+estereográfica. Tomamos el $F$ que da el teorema de Jordan-Schönflies
+y lo componemos con la inversa de la proyección para tener el $F$.
+
+Dividimos en los dos casos para ver que el $F$ es continuo en el
+punto impropio.
 
 **** Suma conexa
 Sean $S_1,S_2$ dos superficies convexas. Sean $D_1 \subseteq S_1$, $D_2 \subseteq S_2$ discos
-regulares euclídeos y sea $\varphi : \partial D_1 \longrightarrow \partial D_2$ homeomorfismo. Denotemos
-$S'_i = S_i \setminus D_i$. En $S'_1 \sqcup S_2'$ definimos $R_{\varphi}$ relación de equivalencia entre
-el borde y su imagen:
+regulares euclídeos y sea $\varphi : \partial D_1 \longrightarrow \partial D_2$ homeomorfismo. 
+
+Denotemos $S'_i = S_i \setminus D_i$. En $S'_1 \sqcup S_2'$ definimos $R_{\varphi}$ relación de equivalencia 
+entre el borde y su imagen:
 
 \[ x\; R_\varphi \; \varphi(x)\quad \forall x \in \partial D_1\]
 
-Tenemos una superficie topológica conexa que independiente de los
-discos y el homeomorfismo. La llamamos *suma conexa*:
+Tenemos una superficie topológica conexa que es independiente de los
+discos y el homeomorfismo elegidos. La llamamos *suma conexa*:
 
 \[
 S_1 \# S_2
