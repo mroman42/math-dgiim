@@ -13790,7 +13790,125 @@ Anular dos lados adyacentes $W_1ee^{-1} \mapsto W_1$.
 
 ***** 9. Desdoblar
 Inversa de doblar.
+
+**** Transformaciones elementales preservan la realización
+Las transformaciones elementales de una presentación poligonal
+producen una presentación poligonal equivalente.
+
+***** Demostración
+****** Renombrar
+Trivialmente.
+****** TODO Subdividir/Consolidar
+****** TODO Reflejar
+****** TODO Cortar/Pegar
+****** TODO Doblar/Desdoblar
+
+**** Presentación poligonal de la suma
+Dadas $S_1,S_2$ con presentaciones $P_1 = \langle A_1; W_1 \rangle$ y $P_2 = \langle A_2;W_2 \rangle$ con
+$A_1 \cap A_2 = \varnothing$. Entonces una presentación de $S_1 \# S_2$ es:
+
+\[
+\langle A_1 \cup A_2 ; W_1 W_2 \rangle
+\]
+
+***** TODO Demostración
+**** Presentaciones modelo
+***** Esfera
+La presentación de la esfera $\mathbb{S}^2$ es:
+
+\[P_0 = \langle a \mid aa^{-1} \rangle\]
+
+***** Suma de toros
+La presentación de la suma de toros $\mathbb{T}^{\#n} = \mathbb{T} \# \overset{n}\dots \#\mathbb{T}$ es:
+
+\[
+P_n = \langle
+a_1,b_1,\dots,a_n,b_n 
+\mid 
+a_1b_1a_1^{-1}b_1^{-1}\dots a_nb_na_n^{-1}b_n^{-1} 
+\rangle
+\]
+
+***** Suma de planos proyectivos
+La presentación de la suma de planos proyectivos $\mathbb{RP}^{2\#n}$ es:
+
+\[ Q_n =
+\langle a_1,\dots,a_n \mid a_1a_1\dots a_na_n \rangle
+\]
+
 *** 3.5. Clasificación de superficies compactas I
+**** Aristas retorcidas y complementarias
+Un par de aristas en una presentación se dicen retorcidas si
+aparecen como $a$ y $a$; y complementarias si aparecen como $a$ y $a^{-1}$.
+
+**** Lema: suma de toro y plano proyectivo
+La suma conexa de un toro y un plano proyectivo es homeomorfa a la 
+suma conexa de 3 planos proyectivos.
+
+***** TODO Demostración
+**** Lema: botella de Klein
+**** Teorema de clasificación de presentaciones de superficies compactas
+Cualquier presentación poligonal de una superficie compacta y conexa
+es equivalente a una de las siguientes:
+
+  1. $P_0$, presentación de $\mathbb{S}^2$.
+  2. $P_n$, presentación de $\mathbb{T}^{\#n}$.
+  3. $Q_n$, presentación de $\mathbb{RP}^{2\#n}$.
+
+***** Demostración
+Sea $S$ superficie con presentación $P$.
+
+****** Paso 1: Reducir a una cara
+Como el cociente es arcoconexo, si hay más de una palabra, comparten
+entre sí alguna letra. Rotamos, reflejamos si es necesario y pegamos
+para tener una sola cara.
+
+****** Paso 2: Retirar complementarias adyacentes
+Dos lados adyacentes pueden retirarse.
+
+****** Paso 3: Colocar aristas retorcidas adyacentes
+Dada una palabra de la forma $WaVa$:
+
+  1. Cortamos: $Wab^{-1},bVa$.
+  2. Reflejamos y rotamos: $b^{-1}Wa, a^{-1}V^{-1}b^{-1}$.
+  3. Pegamos y rotamos: $b^{-1}b^{-1}WV^{-1}$.
+
+****** Paso 4: Identificar todos los vértices
+Fijado un vértice, puedo cortar un triángulo que lo contenga y
+volver a pegar por uno de sus lados para identificar otro vértice
+con él.
+
+****** Paso 5: Las complementarias tienen complementarias intercaladas
+Para un par de complementarias $a,a^{-1}$, hay otro par de complementarias
+intercalado como: $a \dots b \dots a^{-1} \dots b^{-1}$.
+
+Si no fuera así, tendríamos $aXa^{-1}Y$ sin forma de relacionar ningún
+vértice de $X$ con un vértice de $Y$.
+
+****** Paso 6: Las intercaladas pueden presentarse en bloques
+Si tenemos una palabra de la forma $WaXbYa^{-1}Zb^{-1}$:
+
+  1. Cortando antes de $b$ y pegando por $a$: $XcWZb^{-1}c^{-1}bY$.
+  2. Cortando antes de $c$ y pegando por $b$: $d^{-1}WZYXcdc^{-1}$.
+
+****** Paso 7: Nos queda suma de planos proyectivos y toros
+Nos acaba quedando una palabra de la forma: 
+
+\[aabb\dots cdc^{-1}d^{-1}\dots\]
+
+Suma conexa de toros y planos proyectivos. Por el [[*Lema: suma de toro y plano proyectivo][lema]],
+sabemos que será suma de toros o suma de planos proyectivos.
+
+**** Preclasificación de superficies compactas
+Toda superficie compacta y conexa es homeomorfa a una de las 
+siguientes:
+
+  1. $\mathbb{S}^2$
+  2. $\mathbb{T}^{\#n}$
+  3. $\mathbb{RP}^{2\#n}$
+
+***** TODO Demostración
+
 *** 3.6. Clasificación de superficies compactas II
 **** Grupo fundamental de la presentación
 Sea $S$ compacta y convexa determinada por la presentación $P$, entonces
@@ -13799,6 +13917,10 @@ su grupo fundamental tiene la misma presentación de $P$.
 Es decir cociente del libre por la clausura normal de las $W$:
 
 \[\Pi(S) = \frac{F(A)}{N_W}\]
+
+***** Demostración
+Aplicando Seifert-Van Kampen sobre una cara tenemos las aristas
+como generadores y las palabras como relaciones entre ellas.
 
 **** Conmutador
 Dado $G$ se define su conmutador $[G,G]$ como el subgrupo normal de $G$ que
@@ -13809,13 +13931,60 @@ contiene las clases de conjugación, de la forma:
 = 
 \langle aba^{-1}b^{-1} \mid a,b \in G \rangle\]
 
-**** Propiedades del conmutador
+**** Abelianizado
 El conmutador cumple:
 
   1. $[G,G] \cong \{e\}$ $\iff$ $G$ abeliano.
   2. $Ab(G) = G/[G,G]$ es abeliano, llamado el *abelianizado* de $G$.
 
+***** Demostración
+Primer punto trivial. Para el segundo, comprobamos $ab[G,G] = ba[G,G]$.
+
+**** Abelianizados de los grupos fundamentales de los modelos
+Los abelianizados de los grupos de los modelos son:
+
+  1. $Ab(\pi_1(\mathbb{S}^2)) = \{1\}$.
+  2. $Ab(\pi_1(\mathbb{T}^{\#n}) \cong \mathbb{Z}^{2n}$.
+  3. $Ab(\pi_1(\mathbb{RP}^{2\#n})) \cong \mathbb{Z}^{n-1} \times \mathbb{Z}_2$.
+
+Distintos entre sí.
+
 ***** TODO Demostración
+***** TODO Los productos de enteros son distintos
+***** TODO El producto por el cíclico de orden 2 los hace distintos
+**** Clasificación de superficies compactas
+Una superficie topológica compacta $S$ es homeomorfa a una sola
+de las siguientes:
+
+  1. $\mathbb{S}^2$.
+  2. $\mathbb{T}^{\#n}$.
+  3. $\mathbb{RP}^{2\#n}$.
+
+Dos superficies compactas son homeomorfas ssi sus grupos 
+fundamentales son isomorfos.
 
 *** 3.7. Característica de Euler y orientabilidad
+**** Género
+Se define el género de $S$ superficie compacta conexa:
+
+\[ g(S) =
+\left\{\begin{array}{ll} 
+0 & \mbox{if } S \cong \mathbb{S}^2 \\
+n & \mbox{if } S \cong \mathbb{T}^{\#n} \mbox{ ó } S \cong \mathbb{RP}^{2\#n}
+\end{array} 
+\right.
+\]
+
+**** Característica de Euler
+Se define la característica de Euler de $S$ superficie compacta conexa:
+
+\[\chi(P) = C-A+V\]
+
+donde $C,A,V$ son los números de caras, aristas y vértices.
+
+**** La Característica de Euler es invariante a transformaciones elementales
+La característica de Euler es invariante a transformaciones
+elementales.
+
+***** TODO Demostración
 
