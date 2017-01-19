@@ -13637,7 +13637,23 @@ que:
 
 \[S_1 \setminus D_1 \cong S_1 \setminus D_3\]
 
-***** TODO Demostración
+***** Demostración
+Sin pérdida de generalidad, $\overline{D_1} \subset D_3$. Sea $\psi$ el que hace bola [[*Bola regular euclídea][regular]]
+a $D_3$. Definimos:
+
+\[ C_3 = \psi(\partial D_3)\]
+\[C_1 = \psi(\partial D_1)\]
+
+Tomamos un $f : C_1 \cong C_3$ y Jordan-Schönflies nos da un $F$.
+
+Definimos ahora por partes $\widetilde F$ como:
+
+\[\widetilde{F}|_{D_3'} = \psi^{-1} \circ F \circ \psi\]
+\[\widetilde{F}|_{S_1 \setminus D_3'} = Id\]
+
+Comprobamos que está bien definida y es homeomorfismo, por lo que
+tenemos $\widetilde F : S_1\setminus D_1 \cong S_3 \setminus D_3$.
+
 **** La suma es independiente de los centros
 Los puntos en los que centramos la suma conexa. Tomando $p_1 \neq p_3 \in S_1$,
 con $D_1,D_3$ discos regulares euclídeos centrados en ellos:
