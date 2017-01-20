@@ -7558,9 +7558,47 @@ Dados $X,Y$ espacios normados:
  1. $(L(X,Y),\|.\|)$ es espacio normado.
  2. $\{T_n\}\longrightarrow T$ ssi $\{T_n\}\longrightarrow T$ uniformemente en $B_X$.
  3. Si $Y$ es de Banach, $L(X,Y)$ es de Banach.
- 4. Para $X \overset{T}\longrightarrow Y \overset{S}\longrightarrow Z$, se tiene $\|S \circ T\| = \|S\|\|T\|$.
+ 4. Para $X \overset{T}\longrightarrow Y \overset{S}\longrightarrow Z$, se tiene $\|S \circ T\| \leq \|S\|\|T\|$.
 
-***** TODO Demostración
+***** Demostración
+****** Primer punto
+La norma de operadores es norma porque hereda la desigualdad
+triangular y la linealidad de la norma del espacio. Nótese
+que si $\sup_{x \in B_X} \|Tx\|=0$, es porque $T = 0$.
+
+****** Segundo punto
+Nótese que la norma de operadores mide el supremo en la bola
+unidad y por homotecias se extiende al espacio.
+
+\[\begin{aligned}
+\{T_n\} \longrightarrow T 
+&\iff \{\|T_n-T\|\} \longrightarrow 0 
+\\&\iff 
+\sup_{x \in B_X}\{\|T_n(x) - T(x)\|\} \longrightarrow 0 
+\\&\iff 
+\sup_{x \in X}\left\{ \left\|T_n\left(\frac{x}{\|x\|}\right) - T\left(\frac{x}{\|x\|}\right) \right\|\right\}
+\longrightarrow 0
+\end{aligned}\]
+
+****** Tercer punto
+Sea $\{T_n\}$ Cauchy. Tenemos $\|T_p(x) - T_q(x)\| \leq \|T_p - T_q\|\|x\|$, por lo que
+sabemos $\{T_n(x)\}$ Cauchy; por complitud  $\{T_n(x)\} \longrightarrow T(x)$. Es lineal:
+
+\[T(\alpha x + \beta y) = 
+\lim \left( \alpha T_n(x) + \beta T_n(y) \right)
+\longrightarrow
+\alpha T(x) + \beta T(y)
+\]
+
+Tomando límites en la condición de Cauchy, vemos que es acotada
+la función $T_p - T$:
+
+\[\|T_p(x) - T(x)\| \leq \varepsilon\]
+
+Luego $T$ es lineal y continua. Y además, $\{T_n\} \longrightarrow T$.
+
+****** Cuarto punto
+$\|S \circ T (x)\| \leq \|S\|\|T\|\|x\|$
 
 **** Espacio dual topológico
 Sea $X$ normado, su *dual topológico* es el espacio
