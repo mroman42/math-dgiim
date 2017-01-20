@@ -7266,14 +7266,16 @@ que da la norma:
 Nótese el caso especial $l^n_\infty$ que da la norma del máximo.
 
 ***** Normas
-Todas estas normas lo son gracias a la [[*Desigualdad de Minkowski][desigualdad de 
-Minkowski]].
+Todas estas normas lo son gracias a la [[*Desigualdad de Minkowski][desigualdad de Minkowski]].
 
 ***** Equivalencia
-Todas las normas son equivalentes y generan el mismo espacio
-de Banach:
+Todas las normas son equivalentes y generan el mismo espacio de
+Banach:
 
 \[ \|x\|_\infty \leq \|x\|_p \leq \|x\|_1 \leq N \|x\|_\infty\]
+
+****** Demostración
+Aplicamos la desigualdad de las medias.
 
 **** Espacios de sucesiones
 Las *sucesiones* tales que su p-suma es convergente,
@@ -7287,7 +7289,7 @@ sobre *sucesiones acotadas*:
 
 \[{\cal \ell}_\infty = \left\{ x : \mathbb{N} \longrightarrow \mathbb{K}\ \left|\ x(n) \text{ acotada} \right\}\]
 
-***** Forma un subespacio vectorial
+***** Forman un subespacio vectorial
 Pasando la desigualdad de Minkowski al límite, tenemos:
 
 \[\left(\sum^\infty_{k=1} (a_k+b_k)^p \right)^{1/p} \leq 
@@ -7361,15 +7363,15 @@ Que da la *convergencia uniforme*.
 
 ***** TODO Es espacio de Banach
 ***** Anuladas en infinito
-Sea $L$ compacto y separado. Una función se *anula en 
-el infinito* cuando:
+Sea $L$ compacto y separado. Una función se *anula en el infinito*
+cuando:
 
 \[\forall \varepsilon: 
 \{t\in L \mid |f(t)|\geq\varepsilon\} 
 \text{ es compacto}\]
 
-Las funciones continuas que se anulan en el infinito 
-forman ${\cal C}_0(L)$, subespacio de ${\cal C}_b(L)$. Es espacio cerrado
+Las funciones continuas que se anulan en el infinito forman 
+${\cal C}_0(L)$, subespacio de ${\cal C}_b(L)$. Es espacio cerrado 
 y por tanto de Banach.
 
 ***** Funciones de soporte compacto
@@ -7395,13 +7397,13 @@ veces derivables con derivadas continuas, ${\cal C}^n([a,b],\mathbb{K}^d)$. Escr
 \[f^{k)} = \left(f^{k)}_1,f^{k)}_2,\dots,f^{k)}_d\right)\]
 
 Sobre él defimos una norma del supremo sobre cada derivada
-$\|f^{k)}\| = max \{\|f^{k)}_i\|_\infty\}$. La norma del espacio es la
-suma de la de cada una de las derivadas.
+$\|f^{k)}\| = max \{\|f^{k)}_i\|_\infty\}$. La norma del espacio es la suma de la de 
+cada una de las derivadas.
 
 \[ \|f\|_\infty = \sum \|f^{k)}\|_\infty\]
 
 ***** Es espacio de Banach
-Esto, por *Teorema de la convergencia uniforme* nos lleva a que una
+Esto, por el *teorema de la convergencia uniforme* nos lleva a que una
 sucesión de Cauchy converja de manera que respete la derivada. Este
 será un espacio de Banach.
 
@@ -7409,7 +7411,7 @@ será un espacio de Banach.
 Consideramos el *espacio de funciones p-integrables* como:
 
 \[ L_p(\Omega) =
-\left\{ f \in L(\Omega) \mid \int_\Omega |f(t)|^p dt < \infty \right\}
+\left\{ f \in L(\Omega) \;\middle|\; \int_\Omega |f(t)|^p dt < \infty \right\}
 \]
 
 Normándolas con:
@@ -7441,13 +7443,12 @@ Esto nos da la naturaleza de norma.
 Usando el Teorema de Riesz-Fisher.
 
 **** Espacios de funciones esencialmente acotadas
-Una función es *esencialmente acotada* cuando
-es $f : [0,1] \longrightarrow \mathbb{K}$:
+Una función es *esencialmente acotada* cuando es $f : [0,1] \longrightarrow \mathbb{K}$:
 
 \[\exists M: |f| \leq M \text{ c.p.d.}\]
 
-Al espacio de funciones esencialmente acotadas lo
-llamamos ${\cal L}_\infty[0,1]$ y le damos una seminorma:
+Al espacio de funciones esencialmente acotadas lo llamamos ${\cal L}_\infty[0,1]$ y 
+le damos una seminorma:
 
 \[\phi_\infty(f) = \inf\{ M
  \mid |f|\leq M \text{ c.p.d.}\}\]
@@ -7462,8 +7463,7 @@ Y por otro lado que:
 \[ \phi_\infty(f+g) \leq \phi_\infty(f) + \phi_\infty(g) \]
 
 ***** Estructura de espacio normado
-Podemos convertirlo en espacio normado si tomamos
-cociente sobre:
+Podemos convertirlo en espacio normado si tomamos cociente sobre:
 
 \[ N = \{ f \in {\cal L}_\infty[0,1] \mid
 \phi_\infty(f)=0 \} \]
