@@ -7482,21 +7482,23 @@ además son abiertos en su imagen. Hablamos igualmente de
 Dados $X_1,\dots,X_n$ espacios normados, podemos definir normas 
 sobre su producto cartesiano $\prod X_i$:
 
-- *Norma del máximo*: $\|x\|_\infty = \max\{\|x_i\|\}$
-- *Norma p*: $\|x\|_p = (\sum \|x_i\|^p)^{1/p}$
+ - *Norma del máximo*: $\|x\|_\infty = \max\{\|x_i\|\}$
+ - *Norma p*: $\|x\|_p = (\sum \|x_i\|^p)^{1/p}$
 
+***** Topología del producto
 La convergencia es trivialmente coordenada a coordenada, y
 las topologías asociadas son equivalentes a la topología
 producto. El espacio es completo ssi lo son las componentes.
 
 **** Cociente de un espacio normado
-Sea $M$ subespacio vectorial cerrado de $X$. Podemos hacer a
-$X/M$ normado con:
+Sea $M$ subespacio vectorial cerrado de $X$. Podemos hacer a $X/M$ 
+normado con:
 
 \[ \|x+M\| 
 = \inf\left\{ \|x - m\| \mid m \in M \right\} 
 = d(x,M)\]
 
+***** Topología del cociente
 Este espacio es de Banach ssi $X$ es de Banach. Y la topología
 coincide con la topología cociente.
 
@@ -7515,8 +7517,28 @@ Para $T : X \longrightarrow Y$ lineal entre espacios normados, equivalen:
 
 Y lo llamamos *operador lineal continuo*.
 
-***** TODO Demostración
+***** Demostración
+****** Lipschitzianidad
 La lipschitzianidad implica hasta la continuidad en $0$.
+
+****** Continuidad en 0 implica acotación
+Si hay continuidad en $0$ existe $\|x\| < \delta \implies \|Tx\| \leq 1$. Tenemos
+entonces:
+
+\[ \left\|\frac{\delta}{\|x\|}x\right\| = \delta \implies
+T\left( \frac{\delta}{\|x\|}x \right) \leq 1\]
+
+Luego $\|Tx\| \leq \|x\|/\delta$.
+
+****** Acotación
+La acotación implica todo lo demás excepto lipschitzianidad.
+
+****** Acotación de la esfera implica lipschitzianidad.
+Como tenemos $\frac{x-y}{\|x-y\|} \in S_X$, lo tenemos acotado por algún $\alpha$ y:
+
+\[T(x-y) \leq \alpha\|x-y\|\]
+
+Por lo tanto, es lispchiztiano.
 
 **** Norma de operadores
 Se define la *norma de operadores* como:
@@ -7529,13 +7551,14 @@ Se define la *norma de operadores* como:
 
 Y cumple que $\|Tx\| \leq \|T\|\|x\|$.
 
+***** TODO Está bien definida
 **** Cuatro teoremas sobre la norma de operadores
 Dados $X,Y$ espacios normados:
 
-1. $(L(X,Y),\|.\|)$ es espacio normado.
-2. $\{T_n\}\longrightarrow T$ ssi $\{T_n\}\longrightarrow T$ uniformemente en $B_X$.
-3. Si $Y$ es de Banach, $L(X,Y)$ es de Banach.
-4. Para $X \overset{T}\longrightarrow Y \overset{S}\longrightarrow Z$, se tiene $\|S \circ T\| = \|S\|\|T\|$.
+ 1. $(L(X,Y),\|.\|)$ es espacio normado.
+ 2. $\{T_n\}\longrightarrow T$ ssi $\{T_n\}\longrightarrow T$ uniformemente en $B_X$.
+ 3. Si $Y$ es de Banach, $L(X,Y)$ es de Banach.
+ 4. Para $X \overset{T}\longrightarrow Y \overset{S}\longrightarrow Z$, se tiene $\|S \circ T\| = \|S\|\|T\|$.
 
 ***** TODO Demostración
 
