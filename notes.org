@@ -14416,3 +14416,59 @@ Perdemos dos caras e identificamos 3 aristas y 3 vértices.
 #+attr_latex: :width 50px
 [[./images//sumatriangulacion2.png]]
 #+end_center
+*** Clasificación de superficies compactas
+**** Calcular la orientabilidad
+Un algoritmo que usa la caracterización de bicolorabilidad para
+determinar si una superficie es orientable o no:
+
+#+BEGIN_SRC haskell
+  import Text.ParserCombinators.Parsec
+  type Letra = (Char,Bool)
+  type Palabra = [Letra]
+  type Color = Bool
+  type Presentacion = [Palabra]
+  type Coloracion = [(Palabra,Color)]
+
+  orientable :: Presentacion -> Bool
+  orientable presentacion = any esBuenaColoracion (posiblesColoraciones presentacion)
+
+  posiblesColoraciones :: Presentacion -> [Coloracion]
+  posiblesColoraciones [] = [[]]
+  posiblesColoraciones (w:presentacion) =
+    map ([(w,False)] ++) (posiblesColoraciones presentacion) ++
+    map ([(w,True)] ++) (posiblesColoraciones presentacion)
+  
+  esBuenaColoracion :: Coloracion -> Bool
+  esBuenaColoracion c = compruebaColores $ concat $ map (\(w,l) -> map (\x -> (x,l)) w) c
+
+  compruebaColores :: [(Letra,Color)] -> Bool
+  compruebaColores [] = True
+  compruebaColores (vt : xs) = (all (\ut -> buenaArista ut vt) xs) && compruebaColores xs
+
+  buenaArista :: (Letra,Color) -> (Letra,Color) -> Bool
+  buenaArista ((x,u),v) ((y,w),z) = (x /= y) || (u == w && v /= z) || (u /= w && v == z)
+
+  main :: IO ()
+  main = return ()
+
+
+  esOrientable :: String -> Bool
+  esOrientable s = either undefined orientable (parse pres "" s) 
+
+  pres :: Parser Presentacion
+  pres = word `sepBy` (char ',')
+
+  word :: Parser Palabra
+  word = many letra
+
+  letra :: Parser Letra
+  letra = try letrainvertida <|> do
+    l <- letter
+    return (l,True)
+  
+  letrainvertida :: Parser Letra
+  letrainvertida = do
+    l <- letter
+    _ <- char '*'
+    return (l,False)
+#+END_SRC
