@@ -9352,7 +9352,10 @@ Uniendo las condiciones de densidad y ortogonalidad con la
 caracterización de inyectividad por núcleo nulo.
 
 **** Espectro
-El espectro de un operador es el conjunto de valores propios:
+El espectro de un operador es el conjunto de valores propios,
+llamamos:
+
+***** Espectro puntual
 
 \[
 G_p(T) =
@@ -9362,6 +9365,71 @@ G_p(T) =
 T - \lambda I \text{ no inyectivo}
 \}
 \]
+
+***** Espectro comprimido
+
+\[G_{com}(T) = 
+\{\lambda \in \mathbb{C} \mid T - \lambda I \mbox{ con imagen no densa}\}\]
+
+***** Espectro aproximado
+
+\[G_{ap}(T) =
+\{\lambda \in \mathbb{C} \mid T-\lambda I \mbox{ no acotado por debajo}\}
+\]
+
+***** Relación
+Equivalen ser invertible a tener imagen densa y estar acotado por 
+debajo. Así,
+
+\[G_p(T) = G_{com}(T) \cup G_{ap}(T)\]
+
+****** TODO Demostración
+
+**** Operador compacto
+Si $T \in L(H)$ es compacto si para cualquier acotada, la $\{T(u_n)\}$ tiene
+una parcial convergente.
+
+**** Rango de un operador
+El rango de $T$ es $n$ cuando puede escribirse con $u_i,w_i \in H$:
+
+\[T = \sum u_i \otimes w_i\]
+
+Es decir, como una matriz finita de ese rango.
+
+***** Operadores de rango finito son compactos
+Los operadores de rango finito son compactos.
+
+****** Demostración
+En dimensión finita las bolas son compactas. Al ser continuo,
+la sucesión imagen es siempre acotada y con parcial convergente.
+
+**** Teorema del núcleo
+Si $T \in L(H)$ compacto, $\ker(T - \lambda I)$ tiene dimensión finita.
+
+**** Teorema del rango
+Si $T \in L(H)$ compacto, $\im(T-\lambda I)$ es cerrado.
+
+**** Biyectividad en compactos
+Si $T \in L(H)$ compacto, para $\lambda \neq 0$, $T-\lambda I$ es inyectivo ssi es 
+sobreyectivo ssi es biyectivo.
+
+\[G(T) \setminus \{0\} 
+=
+G_p(T) \setminus \{0\}
+= 
+G_{ap}(T) \setminus \{0\}
+\]
+
+**** Diagonalización de autoadjuntos
+Sea $T \in L(H)$, compacto y autoadjunto, entonces es *diagonalizable*.
+Hay una base ortonormal con \[\lambda_n \longrightarrow 0\] de vectores propios, teniendo
+convergencia uniforme sobre los compactos:
+
+\[Tu = \sum \lambda_i \langle u,e_i \rangle e_i\]
+
+Teniendo $G_p(T) \setminus \{0\} = \{\lambda_1,\dots,\lambda_n\}$, y coincide la dimensión del 
+espacio propio y el número de veces que aparece $\lambda_i$.
+
 **** Extra: El espectro de un autoadjunto es real
 **** Extra: El espectro del adjunto es el conjugado en caso finito
 ***** Contraejemplo caso infinito
