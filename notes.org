@@ -9420,7 +9420,22 @@ G_p(T) \setminus \{0\}
 G_{ap}(T) \setminus \{0\}
 \]
 
-**** Diagonalización de autoadjuntos
+**** Alternativa de Fredholm
+Sea $T \in L(H)$ compacto y $\lambda \neq 0$. Consideramos las ecuaciones:
+
+  1. $(T - \lambda I)x = 0$.
+  2. $(T^\ast - \lambda I)z = 0$.
+  3. $(T-\lambda I)x = y$.
+  4. $(T^\ast - \lambda I)z = w$.
+
+Y sabemos que se cumple una de estas dos alternativas:
+
+  - O bien $x=0,z=0$ son las únicas soluciones de 1 y 2; en
+    cuyo caso 3 y 4 tienen solución única, dependiente continua.
+  - O bien hay soluciones $x,z$ no nulas de 1 y 2 y entonces
+    $Y \perp \ker(T^\ast - \lambda I)$ y $W \perp \ker(T-\lambda I)$.
+
+**** Diagonalización de autoadjuntos compactos
 Sea $T \in L(H)$, compacto y autoadjunto, entonces es *diagonalizable*.
 Hay una base ortonormal con \[\lambda_n \longrightarrow 0\] de vectores propios, teniendo
 convergencia uniforme sobre los compactos:
