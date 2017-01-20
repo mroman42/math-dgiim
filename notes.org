@@ -7102,22 +7102,23 @@ l.index(a^2+1)
 ** 1. Espacios normados
 *** Espacios normados
 **** Norma y seminorma
-*Norma*. Función $\|\_\| : X \longrightarrow \mathbb{R}$ verficando:
+*Norma*. Función $\|\cdot\| : X \longrightarrow \mathbb{R}$ verficando:
 
-- $\|x\| = 0 \Leftrightarrow x = 0$
-- $\|ax\| = |a| \|x\|$
-- $\|x+y\| \leq \|x\|+\|y\|$
+  - $\|x\| = 0 \Leftrightarrow x = 0$
+  - $\|ax\| = |a| \|x\|$
+  - $\|x+y\| \leq \|x\|+\|y\|$
 
 Cuando $\|x\| = 0$ no implica $x = 0$, se llama *seminorma*.
 
-**** Distancia de la norma
-Desde la norma se puede definir una *distancia* asociada $d(x,y) = \|x-y\|$, 
-que hace a $X$ un *espacio métrico*. La distancia cumple
+***** Distancia de la norma
+Desde la norma se puede definir una *distancia* asociada 
+$d(x,y) = \|x-y\|$, que hace a $X$ un *espacio métrico*. La distancia 
+cumple:
 
-- $d(x+a,y+a) = d(x,y)$
-- $d(\lambda a) = |\lambda| d(a)$
+  - $d(x+a,y+a) = d(x,y)$
+  - $d(\lambda a) = |\lambda| d(a)$
 
-**** Topología de la norma
+***** Topología de la norma
 La distancia hace a un espacio normado un *espacio topológico*
 con abiertos:
 
@@ -7127,7 +7128,9 @@ Dos normas que generan el mismo espacio topológico son
 *equivalentes*.
 
 **** Espacios vectoriales topológicos
-Cualquier espacio vectorial sobre $\mathbb{R}$ o $\mathbb{C}$ admite una norma.
+Cualquier espacio vectorial sobre $\mathbb{R}$ o $\mathbb{C}$ es normado.
+
+***** Demostración
 Dada una base \(\{e_i\}\) del espacio, podemos escribir $x = \sum \alpha_i e_i$ 
 y definirla como:
 
@@ -7139,13 +7142,13 @@ La norma es continua en su espacio por ser lipschitziana:
 \[ |\|x\| -  \|y\|| \leq \|x-y\| \]
 
 ***** Continuidad de suma y producto
-La suma y el producto por escalares son continuos, usando 
-que la convergencia en el producto equivale a la 
-convergencia por coordenadas.
+La suma y el producto por escalares son continuos, usando que la
+convergencia en el producto equivale a la convergencia por
+coordenadas.
 
 ***** Continuidad de homotecias y translaciones
-Como corolario, lo son las *homotecias* y *translaciones*, 
-todas las bolas cerradas son homeomorfas a la bola unidad.
+Como corolario, lo son las *homotecias* y *translaciones*, todas las
+bolas cerradas son homeomorfas a la bola unidad.
 
 **** Operaciones sobre conjuntos
 Para $X$ espacio normado:
@@ -7185,7 +7188,7 @@ La suma de dos cerrados puede no ser cerrado:
 \left\{\frac{1}{n} \mid n \in \mathbb{N}\right\}\]
 
 **** Conexión de espacios normados
-Todo espacio normado es *arcoconexo* y *localmente arcoconexo*; 
+Todo espacio normado es *arcoconexo* y *localmente arcoconexo*;
 por tanto *conexo*. De hecho, la bola unidad es *convexa*.
 
 **** Espacios de Banach
@@ -7193,11 +7196,12 @@ Un *espacio de Banach* es un espacio normado completo.
 
 *** Equivalencia de normas y desigualdades
 **** Equivalencia proporcional
-Dos normas $\|.\|$ y $\|.\|_\ast$ son equivalentes cuando:
+Dos normas $\|.\|$ y $\|.\|_\ast$ generan topologías equivalentes cuando:
 
 \[\exists m,M \in \mathbb{R^+}:\; m \|x\| \leq \|x\|_\ast \leq M \|x\|\]
 
-Como se demuestra por mutua inclusión de bolas.
+***** Demostración
+Se demuestra por mutua inclusión de bolas.
 
 **** Desigualdad de Young
 Para $a,b\in\mathbb{R}^+$ y $p>1$ con $\frac{1}{p}+\frac{1}{q} = 1$ se tiene:
@@ -7230,7 +7234,7 @@ Sumando cada desigualdad tenemos:
 \frac{1}{q\beta^q}\sum b_k^q = 1\]
 
 **** Desigualdad de Minkowski
-Para $a_1\dots a_nb_1\dots b_n \in \mathbb{R}^+_0$ con $\frac{1}{p} +\frac{1}{q} = 1$ se verifica:
+Para $a_1\dots a_nb_1\dots b_n \in \mathbb{R}^+_0$ se verifica:
 
 \[\left(\sum_{k=1}^n (a_k+b_k)^p \right)^{1/p} \leq 
 \left(\sum_{k=1}^n a_k^p \right)^{1/p} + 
@@ -7241,7 +7245,16 @@ Dicho de otra forma:
 \[\|a+b\|_p \leq \|a\|_p + \|b\|_p\]
 
 ***** Demostración
-Aplicando Hölder.
+Aplicando Hölder con $p$, $1 - 1/p$ para tener:
+
+\[\begin{aligned}
+\left( \sum_{k=1}^n (a_k+b_k)^p \right)^{1/p} 
+&=
+\left( \sum_{k=1}^n (a_k+b_k)(a_k+b_k)^{p-1} \right)^{1/p}
+\\&=
+\left( \left( \sum_{k=1}^n a_k^p \right)^{1/p} + \left( \sum_{k=1}^n b_k^p \right)^{1/p} \right)
+\left( \sum_{k=1}^n (a_k+b_k)^{\frac{p(p-1)}{p-1}} \right)^{1-1/p}
+\end{aligned}\]
 
 *** Ejemplos de espacios normados
 **** Espacios de dimensión finita
@@ -8904,7 +8917,7 @@ Llamamos suma de la familia a $\sum_{i \in I} x_i = x$.
 
 ***** Redes
 Nótese que esto es una generalización del concepto de sucesión.
-Las [[id:https://es.wikipedia.org/wiki/Red_(matem%25C3%25A1tica)][redes]] son una generalización de las secuencias para una
+Las [[https://es.wikipedia.org/wiki/Red_(matem%25C3%25A1tica)][redes]] son una generalización de las secuencias para una
 cantidad no numerable de elementos.
 
 # Quizá podríamos ver que toda red es Cauchy ssi es convergente.
