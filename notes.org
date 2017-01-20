@@ -13531,7 +13531,8 @@ Se define el *p-símplice abierto* como:
 \right\}
 \]
 
-Observemos que en general no es igual al interior de un p-símplice.
+Observemos que en general no es igual al interior de un p-símplice,
+que puede ser vacío en una dimensión alta.
 
 ***** Caras de un p-símplice
 Las *caras* de un p-símplice $\sigma$ son los k-símplices generados por $k+1$ 
@@ -13544,7 +13545,7 @@ caras de dimensión 2.
 Colección de símplices $K$ en algún $\mathbb{R}^n$ cumpliendo:
 
   1. $\tau < \sigma, \sigma \in K \implies \tau \in K$.
-  2. $\sigma,\tau \in K,\; \sigma \cap \tau \neq \varnothing$ $\implies$ $\sigma \cap \tau < \sigma$ ó $\sigma \cap \tau < \tau$.
+  2. $\sigma,\tau \in K,\; \sigma \cap \tau \neq \varnothing$ $\implies$ $\sigma \cap \tau < \sigma$ y $\sigma \cap \tau < \tau$.
   3. Todo punto en el símplice tiene un entorno abierto que corta a
      una cantidad finita de símplices en $\bigcup_{\tau \in K}\tau \subseteq \mathbb{R}^n$.
 
@@ -13610,14 +13611,13 @@ superficie ssi:
 
   1. Todo símplice es cara de un 2-símplice.
   2. Todo 1-símplice es cara de exactamente dos 2-símplices.
-  3. Si $\forall v \in K^{(0)}$ definimos $sf(v) = \{ \tau \in K \mid v < \tau \}$ y
+  3. Si $\forall v \in K^{(0)}$ definimos $st(v) = \{ \tau \in K \mid v < \tau \}$ y
 
      \[ L(v) = \{ \tau \in K \mid \exists \sigma \in K : v < \sigma, \tau < \sigma, v \not< \tau
      \}
      \]
 
-     y tenemos que $|sf(v)| \cong \overline{D}$ y $|L(v)|$ es conexo.
-     # ¿Ein? No se entiende nada de los apuntes.
+     y tenemos que $|st(v)| \cong \overline{D}$ y $|L(v)|$ es conexo.
 
 *** 3.3. Suma convexa
 **** Curva de Jordan
@@ -13783,8 +13783,8 @@ Llamamos presentación a una expresión de la forma:
 
 \[\langle A;\; W_1,\dots,W_n \rangle\]
 
-donde $W_i$ son palabras con todos los símbolos $\langle A \rangle$ de longitud mayor que 3.
-Permitimos además los casos especiales:
+donde $W_i$ son palabras con todos los símbolos $\langle A \rangle$ de longitud mayor 
+que 3. Permitimos además los casos especiales:
 
   - $\langle \{a\}, aa \rangle$
   - $\langle \{a\}, aa^{-1} \rangle$
