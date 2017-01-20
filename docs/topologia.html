@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2016-12-24 Sat 00:24 -->
+<!-- 2017-01-20 Fri 15:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Topología II</title>
@@ -190,6 +190,9 @@
 <script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
 <script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<p style="display:none"> \(\DeclareMathOperator{\im}{Im} \DeclareMathOperator{\coker}{Coker} \DeclareMathOperator{\spec}{Spec} \) </p>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -261,266 +264,695 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Topología II
-<br>
-<span class="subtitle">Theory</span>
-</h1>
+<h1 class="title">Topología II</h1>
 <div id="table-of-contents">
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0ffedc0">1. El grupo fundamental</a>
+<li><a href="#org9e5d953">1. El grupo fundamental</a>
 <ul>
-<li><a href="#org08185ba">1. Espacios conexos por arcos</a>
+<li><a href="#orgc5e9398">1. Espacios conexos por arcos</a>
 <ul>
-<li><a href="#org6a0b5cf">Arcoconexión</a></li>
-<li><a href="#org6d58987">Operaciones en arcos y arcoconexión como equivalencia</a></li>
-<li><a href="#org191153c">Arcoconexión y conexión</a>
+<li><a href="#org0742ddd">Arcoconexión</a></li>
+<li><a href="#org8219bfa">Operaciones en arcos y arcoconexión como equivalencia</a></li>
+<li><a href="#orge7e4cfa">Arcoconexión y conexión</a>
 <ul>
-<li><a href="#org28516f2">Demostración</a></li>
-<li><a href="#org518883f">Contraejemplo del recíproco</a></li>
+<li><a href="#org8ed08ec">Demostración</a></li>
+<li><a href="#org4fdde23">Contraejemplo del recíproco</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgdfb2932">2. Grupo fundamental</a>
+<li><a href="#org3bfdc24">2. Grupo fundamental</a>
 <ul>
-<li><a href="#org502cdcc">Homotopía de lazos</a></li>
-<li><a href="#orgd7d550b">Clases de homotopía</a></li>
-<li><a href="#org9e8646b">Producto de clases de homotopía</a></li>
-<li><a href="#org9e0815f">El grupo fundamental</a>
+<li><a href="#orgfeb0de1">Homotopía de lazos</a></li>
+<li><a href="#org5e063ac">Clases de homotopía</a></li>
+<li><a href="#orga899a4b">Producto de clases de homotopía</a></li>
+<li><a href="#org2406abd">El grupo fundamental</a>
 <ul>
-<li><a href="#org335a339">Asociatividad</a></li>
-<li><a href="#org8fbd20a">Elemento neutro</a></li>
-<li><a href="#orgd388798">Elemento inverso</a></li>
+<li><a href="#orgc96e6c9">Asociatividad</a></li>
+<li><a href="#org30082ce">Elemento neutro</a></li>
+<li><a href="#orga3f525d">Elemento inverso</a></li>
 </ul>
 </li>
-<li><a href="#org17cf081">El grupo fundamental como funtor</a>
+<li><a href="#org14bf0b1">El grupo fundamental como funtor</a>
 <ul>
-<li><a href="#org58f1f4d">Demostración</a></li>
+<li><a href="#org8c923d4">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org327f4fd">Homotopía de arcos</a>
+<li><a href="#orgda3eb69">Homotopía de arcos</a>
 <ul>
-<li><a href="#orgbe423e2">Propiedades</a></li>
+<li><a href="#org5d00665">Propiedades</a></li>
 </ul>
 </li>
-<li><a href="#org4405c98">Isomorfismo entre grupos fundamentales en distintos puntos</a>
+<li><a href="#org9366c83">Isomorfismo entre grupos fundamentales en distintos puntos</a>
 <ul>
-<li><a href="#org745c175">Demostración</a></li>
+<li><a href="#org8231456">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org0bfd636">El grupo fundamental del producto</a></li>
+<li><a href="#orgbaba304">El grupo fundamental del producto</a></li>
 </ul>
 </li>
-<li><a href="#org6b3783f">3. El grupo fundamental del círculo</a>
+<li><a href="#org2b1a4a3">3. El grupo fundamental del círculo</a>
 <ul>
-<li><a href="#org0d03ac7">Cálculo del grupo fundamental del círculo</a></li>
-<li><a href="#org6b725f5">Teorema fundamental del álgebra</a>
+<li><a href="#orgd5369df">Cálculo del grupo fundamental del círculo</a></li>
+<li><a href="#orgabef197">Teorema fundamental del álgebra</a>
 <ul>
-<li><a href="#org68ff3b4">Demostración</a></li>
+<li><a href="#orge7e2aa1">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org6fe6251">Lema al punto fijo de Brower</a>
+<li><a href="#orgcc72cae">Lema al punto fijo de Brower</a>
 <ul>
-<li><a href="#org7d98c01">Demostración</a></li>
+<li><a href="#org06f6d14">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org8718b94">Teorema del punto fijo de Brower</a>
+<li><a href="#orgd550154">Teorema del punto fijo de Brower</a>
 <ul>
-<li><a href="#org2f2b526">Demostración</a></li>
+<li><a href="#org2bebed6">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org160c0ab">Grupos topológicos</a></li>
-<li><a href="#org2db7397">Grupos topológicos y grupo fundamental</a></li>
+<li><a href="#orga9ef644">Grupos topológicos</a></li>
+<li><a href="#org7415d61">Grupos topológicos y grupo fundamental</a></li>
 </ul>
 </li>
-<li><a href="#org930205b">4. Tipo de homotopía. Equivalencias homotópicas</a>
+<li><a href="#org982c1cd">4. Tipo de homotopía. Equivalencias homotópicas</a>
 <ul>
-<li><a href="#org85e3a4f">Aplicaciones homotópicas</a></li>
-<li><a href="#org443e0df">Grupo fundamental entre dos puntos</a>
+<li><a href="#orgbfc8e18">Aplicaciones homotópicas</a></li>
+<li><a href="#org42f998a">Grupo fundamental entre dos puntos</a>
 <ul>
-<li><a href="#orga6fba68">Demostración</a></li>
+<li><a href="#org10d649e">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org6f8347e">Equivalencia homotópica</a></li>
-<li><a href="#org90bf572">Propiedades de la equivalencia homotópica</a></li>
-<li><a href="#orge268526">Conservación del grupo fundamental por equivalencia homotópica</a>
+<li><a href="#org05e7bfe">Equivalencia homotópica</a></li>
+<li><a href="#org8b66555">Propiedades de la equivalencia homotópica</a></li>
+<li><a href="#org20bb10b">Conservación del grupo fundamental por equivalencia homotópica</a>
 <ul>
-<li><a href="#orgd3d0e26">Demostración</a></li>
+<li><a href="#org7cb8d8c">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org147c36c">Lema a Borsuk-Ulam</a>
+<li><a href="#org29f19dc">Lema a Borsuk-Ulam</a>
 <ul>
-<li><a href="#org627742a"><span class="todo TODO">TODO</span> Demostración</a></li>
+<li><a href="#orgde79857"><span class="todo TODO">TODO</span> Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org60b4f80">Teorema de Borsuk-Ulam</a>
+<li><a href="#org79c5113">Teorema de Borsuk-Ulam</a>
 <ul>
-<li><a href="#orgf6b1ea1">Demostración</a></li>
+<li><a href="#orgf88daa3">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org712dfc9">Teorema del sandwich de jamón</a>
+<li><a href="#org3f754ff">Teorema del sandwich de jamón</a>
 <ul>
-<li><a href="#org0f0acfd"><span class="todo TODO">TODO</span> Demostración</a></li>
+<li><a href="#org7f4fccc"><span class="todo TODO">TODO</span> Demostración</a></li>
 </ul>
 </li>
-<li><a href="#org6f96822">Espacio proyectivo</a></li>
+<li><a href="#org68d6b64">Espacio proyectivo</a></li>
 </ul>
 </li>
-<li><a href="#org82fda6b">5. Teorema de Seifert-Van Kampen</a>
+<li><a href="#orgfff5566">5. Teorema de Seifert-Van Kampen</a>
 <ul>
-<li><a href="#orgee65764">Producto libre de grupos</a></li>
-<li><a href="#org9c84e7e">Subgrupo normal generado</a></li>
-<li><a href="#org8eb322b">Producto libre amalgamado</a></li>
-<li><a href="#orgeb48479">Teorema de Seifert-Van Kampen</a></li>
-<li><a href="#org970a9f8">Seifert-Van Kampen para intersección simplemente conexa</a></li>
-<li><a href="#org9137c28">Seifert-Van Kampen para abierto simplemente conexo</a></li>
+<li><a href="#org715d572">Producto libre de grupos</a></li>
+<li><a href="#org886e882">Subgrupo normal generado</a></li>
+<li><a href="#org74d8257">Producto libre amalgamado</a></li>
+<li><a href="#org11575b2">Teorema de Seifert-Van Kampen</a></li>
+<li><a href="#orgb079597">Seifert-Van Kampen para intersección simplemente conexa</a></li>
+<li><a href="#org4eef413">Seifert-Van Kampen para abierto simplemente conexo</a></li>
 </ul>
 </li>
-<li><a href="#orgc94f7cb">Extra: Teoría de categorías</a>
+<li><a href="#org5884ef1">Extra: Teoría de categorías</a>
 <ul>
-<li><a href="#org312b7e7">El grupo fundamental como funtor</a></li>
-<li><a href="#org21c918f">Producto categórico</a></li>
-<li><a href="#org55c37b3">Coproducto categórico</a></li>
-<li><a href="#org02edea9"><span class="todo TODO">TODO</span> Seifert-Van Kampen</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgc6db5ee">2. Recubridores</a>
-<ul>
-<li><a href="#org5b0ee3c">1. Introducción</a>
-<ul>
-<li><a href="#org2f86b7b">Localmente arcoconexo</a></li>
-<li><a href="#org20b0fe1">Recubridores</a></li>
-<li><a href="#org862a76e">Ejemplos de recubridores</a></li>
-<li><a href="#org9299063">Homeomorfismos locales</a></li>
-<li><a href="#org534a7ac">Propiedades de un recubridores</a>
-<ul>
-<li><a href="#orgb76cca5">Demostración</a></li>
+<li><a href="#org3b02b17">El grupo fundamental como funtor</a></li>
+<li><a href="#org925f984">Producto categórico</a></li>
+<li><a href="#org454c069">Coproducto categórico</a></li>
+<li><a href="#orga4ce6b5"><span class="todo TODO">TODO</span> Seifert-Van Kampen</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf540ad1">2. Grupo fundamental y levantamiento de aplicaciones al recubridor</a>
+<li><a href="#org09352d7">2. Recubridores</a>
 <ul>
-<li><a href="#org3a7bc5c">Levantamiento de arcos</a>
+<li><a href="#orgb212edf">1. Introducción</a>
 <ul>
-<li><a href="#orgf8c1e38">Existencia</a></li>
-<li><a href="#org0c6652d">Unicidad</a></li>
-</ul>
-</li>
-<li><a href="#org32931b2">Levantamiento de homotopías</a>
+<li><a href="#orgd015903">Localmente arcoconexo</a></li>
+<li><a href="#org221a846">Recubridores</a></li>
+<li><a href="#org64ea07b">Ejemplos de recubridores</a></li>
+<li><a href="#orgd50518e">Homeomorfismos locales</a></li>
+<li><a href="#orgc22fda7">Propiedades de un recubridores</a>
 <ul>
-<li><a href="#org982bb85">Existencia</a></li>
-<li><a href="#orgeee07ae"><span class="todo TODO">TODO</span> Unicidad</a></li>
-</ul>
-</li>
-<li><a href="#org9ab15fe">Hojas del recubridor</a>
-<ul>
-<li><a href="#org6f5d4fc">Demostración</a></li>
-</ul>
-</li>
-<li><a href="#orgf336a2d">Los recubridores crean monomorfismos</a>
-<ul>
-<li><a href="#org349f3bf">Demostración</a></li>
-</ul>
-</li>
-<li><a href="#orgf3c2c20">Conjugación y recubridores</a>
-<ul>
-<li><a href="#orgc7cfe13">Demostración</a></li>
-</ul>
-</li>
-<li><a href="#org8fe4a05">Levntamiento de aplicaciones</a>
-<ul>
-<li><a href="#orgbd7aa86">Demostración</a></li>
-</ul>
-</li>
-<li><a href="#org3e4c23a">Estructura de grupo topológico</a></li>
-</ul>
-</li>
-<li><a href="#orga15cb72">3.1. Isomorfismos de recubridores</a>
-<ul>
-<li><a href="#org91f859c">Homomorfismos</a></li>
-<li><a href="#org4cde635">Propiedades de los homomorfismos de recubridores</a></li>
-<li><a href="#orgdc9de15">Puntos fijos de los automorfismos de recubridores</a></li>
-<li><a href="#org9d6fc56">Existencia de homomorfismos</a></li>
-<li><a href="#org3ceb620">Existencia de isomorfismos</a></li>
-<li><a href="#org18713d2">Ejemplos de recubridores</a>
-<ul>
-<li><a href="#org610be6d">Espacios simplemente conexos</a></li>
-<li><a href="#org2a311fd">Circunferencia unidad</a></li>
-<li><a href="#org4178ef7">Espacio proyectivo</a></li>
-</ul>
-</li>
-<li><a href="#org957a4c2">Recubridores de recubridores</a></li>
-<li><a href="#orgf343a7f">Recubridores universales</a></li>
-</ul>
-</li>
-<li><a href="#org3126e0f">3.2. Automorfismos de recubridores</a>
-<ul>
-<li><a href="#org6439645">Acción del grupo fundamental</a>
-<ul>
-<li><a href="#org5eddc9c"><span class="todo TODO">TODO</span> Está bien definida</a></li>
-<li><a href="#org4cefe96"><span class="todo TODO">TODO</span> Es una acción transitiva</a></li>
-<li><a href="#orgeb1fb7d"><span class="todo TODO">TODO</span> Espacios homogéneos.</a></li>
-</ul>
-</li>
-<li><a href="#org61ad842">Índice y hojas del recubridor</a></li>
-<li><a href="#org6df5e38">Automorfismos del espacio homogéneo</a></li>
-<li><a href="#org19ba6d3">Automorfismos del espacio homogéneo y automorfismos de recubridores</a>
-<ul>
-<li><a href="#org0b0ab24">Demostración</a>
-<ul>
-<li><a href="#orgf117acd">La restricción es automorfismo en el espacio homogéneo</a></li>
-<li><a href="#org8b18dfa">Los automorfismos de recubridor respetan la acción de grupos</a></li>
-<li><a href="#org3de94c7">Es inyectiva</a></li>
-<li><a href="#org6887a36">Es sobreyectiva</a></li>
+<li><a href="#org031f59c">Demostración</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb868fd6">Identificación de automorfismos de un espacio homogéneo</a></li>
-<li><a href="#orgdeb9bc2">Identificación de automorfismos del recubridor</a></li>
-<li><a href="#org558cb78">Recubridores regulares</a></li>
-<li><a href="#org7d051c4">Propiedades de recubridores regulares</a></li>
-<li><a href="#orgd17acaa">Ejemplos de recubridores</a>
+<li><a href="#orgd9ae5dd">2. Grupo fundamental y levantamiento de aplicaciones al recubridor</a>
 <ul>
-<li><a href="#orge9a3f10">Circunferencia, recubridor universal</a></li>
-<li><a href="#org7a20954">Espacio proyectivo</a></li>
-<li><a href="#org5d9de5a">Circunferencia, otros recubridores</a></li>
+<li><a href="#org2bead79">Levantamiento de arcos</a>
+<ul>
+<li><a href="#org450e4b3">Existencia</a></li>
+<li><a href="#org1f3d573">Unicidad</a></li>
 </ul>
 </li>
-<li><a href="#org42b8d73">Teorema de Borsuk-Ulam</a></li>
+<li><a href="#orgf98454b">Levantamiento de homotopías</a>
+<ul>
+<li><a href="#org016f62e">Existencia</a></li>
+<li><a href="#orgaa17f27"><span class="todo TODO">TODO</span> Unicidad</a></li>
 </ul>
 </li>
-<li><a href="#org181bf63">4. Recubridores regulares y espacios cocientes</a>
+<li><a href="#org8b8aa14">Hojas del recubridor</a>
 <ul>
-<li><a href="#org6e9a7aa">Acción transitiva de automorfismos de recubridores regulares</a></li>
-<li><a href="#org0e5c360">Acciones discontinuas</a></li>
-<li><a href="#org50671c1">Recubrimiento de cocientes</a></li>
-<li><a href="#org65284ea">Espacios lente</a></li>
+<li><a href="#org6398224">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#orgceb6bbc">5. Existencia de espacios recubridores</a>
+<li><a href="#orga26de09">Los recubridores crean monomorfismos</a>
 <ul>
-<li><a href="#org6affac0">Caso del recubridor universal</a></li>
-<li><a href="#org286aa82">Espacios semilocalmente simplemente conexos</a>
-<ul>
-<li><a href="#orgf372c9d">Contraejemplo</a></li>
+<li><a href="#org6390304">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#orgeee02e1">Existencia del recubridor universal</a></li>
-<li><a href="#org58f506d">Teorema de existencia de recubridores</a>
+<li><a href="#org96e9eef">Conjugación y recubridores</a>
 <ul>
-<li><a href="#org8b99dd9">Demostración</a></li>
+<li><a href="#org9344fc5">Demostración</a></li>
 </ul>
 </li>
-<li><a href="#orgedc0780">Clasificación de recubridores del círculo</a></li>
-<li><a href="#org22b5567">Clasificación de recubridores del toro</a></li>
-<li><a href="#org02167f0">Clasificación de recubridores del cilindro</a></li>
-<li><a href="#org6137e14">Clasificación de recubridores de la cinta de Möbius.</a></li>
+<li><a href="#org1749b6c">Levntamiento de aplicaciones</a>
+<ul>
+<li><a href="#orgc97b23c">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0658709">Estructura de grupo topológico</a></li>
+</ul>
+</li>
+<li><a href="#org1ebf3ab">3.1. Isomorfismos de recubridores</a>
+<ul>
+<li><a href="#orgb3a51c1">Homomorfismos</a></li>
+<li><a href="#orgae28483">Propiedades de los homomorfismos de recubridores</a></li>
+<li><a href="#orgce83378">Puntos fijos de los automorfismos de recubridores</a></li>
+<li><a href="#orgef75022">Existencia de homomorfismos</a></li>
+<li><a href="#orgf26c6fd">Existencia de isomorfismos</a></li>
+<li><a href="#orgf8118a0">Ejemplos de recubridores</a>
+<ul>
+<li><a href="#org6512d26">Espacios simplemente conexos</a></li>
+<li><a href="#org9e34c18">Circunferencia unidad</a></li>
+<li><a href="#org2b1c5d2">Espacio proyectivo</a></li>
+</ul>
+</li>
+<li><a href="#orga47584d">Recubridores de recubridores</a></li>
+<li><a href="#org4fea565">Recubridores universales</a></li>
+</ul>
+</li>
+<li><a href="#orge5e55ac">3.2. Automorfismos de recubridores</a>
+<ul>
+<li><a href="#org572272c">Acción del grupo fundamental</a>
+<ul>
+<li><a href="#org3ba17d8"><span class="todo TODO">TODO</span> Está bien definida</a></li>
+<li><a href="#org622a9e9"><span class="todo TODO">TODO</span> Es una acción transitiva</a></li>
+<li><a href="#org4cb42b9"><span class="todo TODO">TODO</span> Espacios homogéneos.</a></li>
+</ul>
+</li>
+<li><a href="#org8b866c6">Índice y hojas del recubridor</a></li>
+<li><a href="#org85984ae">Automorfismos del espacio homogéneo</a></li>
+<li><a href="#orgf0e1c34">Automorfismos del espacio homogéneo y automorfismos de recubridores</a>
+<ul>
+<li><a href="#org2a36723">Demostración</a>
+<ul>
+<li><a href="#org035f7b3">La restricción es automorfismo en el espacio homogéneo</a></li>
+<li><a href="#org90590c9">Los automorfismos de recubridor respetan la acción de grupos</a></li>
+<li><a href="#org44a2a50">Es inyectiva</a></li>
+<li><a href="#org1ac8a5a">Es sobreyectiva</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1d6f8c8">Identificación de automorfismos de un espacio homogéneo</a></li>
+<li><a href="#orgbc97818">Identificación de automorfismos del recubridor</a></li>
+<li><a href="#org343c9ea">Recubridores regulares</a></li>
+<li><a href="#org9445b5c">Propiedades de recubridores regulares</a></li>
+<li><a href="#org211b471">Ejemplos de recubridores</a>
+<ul>
+<li><a href="#orgf6ead41">Circunferencia, recubridor universal</a></li>
+<li><a href="#org9010c98">Espacio proyectivo</a></li>
+<li><a href="#org6d28300">Circunferencia, otros recubridores</a></li>
+</ul>
+</li>
+<li><a href="#org9f6025f">Teorema de Borsuk-Ulam</a></li>
+</ul>
+</li>
+<li><a href="#org53d5e7a">4. Recubridores regulares y espacios cocientes</a>
+<ul>
+<li><a href="#orgd1ac5fd">Acción transitiva de automorfismos de recubridores regulares</a></li>
+<li><a href="#org4604409">Acciones discontinuas</a></li>
+<li><a href="#org5b18ba0">Recubrimiento de cocientes</a></li>
+<li><a href="#orgd656b6e">Espacios lente</a></li>
+</ul>
+</li>
+<li><a href="#org5de0fde">5. Existencia de espacios recubridores</a>
+<ul>
+<li><a href="#org57be76c">Caso del recubridor universal</a></li>
+<li><a href="#org936c159">Espacios semilocalmente simplemente conexos</a>
+<ul>
+<li><a href="#org5ef40e3">Contraejemplo</a></li>
+</ul>
+</li>
+<li><a href="#org882e442">Existencia del recubridor universal</a></li>
+<li><a href="#org009759f">Teorema de existencia de recubridores</a>
+<ul>
+<li><a href="#org87de243">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org068f4fe">Clasificación de recubridores del círculo</a></li>
+<li><a href="#orgaf03ae6">Clasificación de recubridores del toro</a></li>
+<li><a href="#org41f5d84">Clasificación de recubridores del cilindro</a></li>
+<li><a href="#org4b230a2">Clasificación de recubridores de la cinta de Möbius.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5453d0b">3. Superficies compactas</a>
+<ul>
+<li><a href="#orga434a55">3.0. Clasificación de variedades 1-dimensionales</a>
+<ul>
+<li><a href="#orgee5e894">Variedad 1-dimensional</a></li>
+<li><a href="#org9e85132">Ejemplos</a>
+<ul>
+<li><a href="#org2cc9b9e">Los reales y el círculo</a></li>
+<li><a href="#org8d6cfc0">Contraejemplo: lemniscata</a></li>
+<li><a href="#orgedd197e">Contraejemplo: folium</a></li>
+<li><a href="#orgad69c5d">Contraejemplo de 2AN</a></li>
+</ul>
+</li>
+<li><a href="#org7bfd05d">Clasificación de variedades topológicas en dimensión 1</a></li>
+</ul>
+</li>
+<li><a href="#org7b30d15">3.1. Variedades topológicas</a>
+<ul>
+<li><a href="#org6d5ac97">Espacio localmente euclídeo</a>
+<ul>
+<li><a href="#org4d977c6">Definición equivalente</a></li>
+<li><a href="#orgdba01cd">Carta</a></li>
+<li><a href="#org5b59adc">Bola euclídea</a></li>
+</ul>
+</li>
+<li><a href="#org8cee4c5">Variedad topológica</a></li>
+<li><a href="#org2d0c243">Ejemplos de variedades topológicas</a>
+<ul>
+<li><a href="#org352e8e9">Los espacios euclídeos</a></li>
+<li><a href="#orgd327f84">Las esferas n-dimensionales</a></li>
+<li><a href="#org34346fb">Recubridores de espacios localmente euclídeos</a></li>
+<li><a href="#orgc85c196">Recubiertos por espacios localmente euclídeos</a></li>
+</ul>
+</li>
+<li><a href="#org50f0dc5">Teorema de la invarianza de la dimensión</a>
+<ul>
+<li><a href="#org0a41148"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org6a496d2">Base de las cartas</a>
+<ul>
+<li><a href="#orgc70c5f1">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org6325d6d">Bola regular euclídea</a>
+<ul>
+<li><a href="#org7113dc8">Contraejemplos</a></li>
+</ul>
+</li>
+<li><a href="#org3c5b91b">Base de las bolas regulares euclídeas</a>
+<ul>
+<li><a href="#org491f153">Existencia de bola regular euclídea</a>
+<ul>
+<li><a href="#org056f588">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org6386705">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org5b8943f">Autohomeomorfismo de superficies conexas</a>
+<ul>
+<li><a href="#org5a6eec5">Lema al endomorfismo</a>
+<ul>
+<li><a href="#orgc180e00"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgaa97f4b">Demostración</a>
+<ul>
+<li><a href="#org9fb916b">La clase de equivalencia es abierta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb7d5d6b">Recubridor de una superficie</a>
+<ul>
+<li><a href="#org1cee534"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org135b1e3">3.2. Complejos simpliciales</a>
+<ul>
+<li><a href="#org3ecbb88">P-símplice</a>
+<ul>
+<li><a href="#org76009cc">P-símplice abierto</a></li>
+<li><a href="#orgf554c05">Caras de un p-símplice</a></li>
+</ul>
+</li>
+<li><a href="#org95da9b5">Complejo simplicial</a>
+<ul>
+<li><a href="#org8cbf461">Subcomplejo simplicial</a></li>
+</ul>
+</li>
+<li><a href="#org9528665">Poliedro</a></li>
+<li><a href="#orgde67599">Un compacto corta una cantidad finita de símplices</a>
+<ul>
+<li><a href="#org0a2e454">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgfb51d4e">Aplicaciones simpliciales</a>
+<ul>
+<li><a href="#orgc25227a">Homeomorfismos simpliciales</a></li>
+<li><a href="#orga2d25c6">Categoría de las aplicaciones simpliciales</a>
+<ul>
+<li><a href="#org863bef3"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org65cde81">Superficies triangulables</a></li>
+<li><a href="#orga255ad4">Teorema de Radó</a>
+<ul>
+<li><a href="#org332e05c">Recíproco falso</a></li>
+</ul>
+</li>
+<li><a href="#org3647eb9">Caracterización de triangulaciones</a></li>
+</ul>
+</li>
+<li><a href="#org8d7799b">3.3. Suma convexa</a>
+<ul>
+<li><a href="#orgcd9f980">Curva de Jordan</a>
+<ul>
+<li><a href="#orgabf1eda">Definición equivalente</a></li>
+</ul>
+</li>
+<li><a href="#orgb8482c4">Homeomorfismo que preserva la orientación</a></li>
+<li><a href="#org290a88e">Teorema de Jordan-Schönflies</a>
+<ul>
+<li><a href="#orgefc179f">Demostración</a>
+<ul>
+<li><a href="#orgf02e48b">Segundo punto desde el primero</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8bc54ee">Teorema de la curva de Jordan</a>
+<ul>
+<li><a href="#org2a45049">Demostración</a></li>
+<li><a href="#org9dfc80f">Contraejemplo en dimensiones superiores: esfera de Alexander</a></li>
+</ul>
+</li>
+<li><a href="#orgb2d3012">Teorema de Jordan-Schonflies para la esfera</a>
+<ul>
+<li><a href="#orga5af8af">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org579db82">Suma conexa</a></li>
+<li><a href="#org67276e2">La suma es independiente de los discos</a>
+<ul>
+<li><a href="#org76e3072">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org79e0791">La suma es independiente de los centros</a>
+<ul>
+<li><a href="#org5e99122"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org0500556">La suma es independiente del homeomorfismo</a>
+<ul>
+<li><a href="#org7085c1c"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org31d1f6e">La suma conexa de superficies conexas es superficie conexa</a>
+<ul>
+<li><a href="#org4698594"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5d96552">3.4. Presentación poligonal de superficies</a>
+<ul>
+<li><a href="#orgccd82d1">Polígono homeomorfo</a>
+<ul>
+<li><a href="#org3094d69">Idea de demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgcc6a179">Región poligonal</a>
+<ul>
+<li><a href="#org6a8cbf8"><span class="todo TODO">TODO</span> Ejemplos</a></li>
+</ul>
+</li>
+<li><a href="#org8f27b4b">Superficie de una región poligonal</a>
+<ul>
+<li><a href="#org320f48f"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org429606f">Presentación poligonal</a></li>
+<li><a href="#orgcb31c06">Presentación de un complejo simplicial</a>
+<ul>
+<li><a href="#org32b9e23"><span class="todo TODO">TODO</span> Ejemplo</a></li>
+</ul>
+</li>
+<li><a href="#org899b16b">Realización geométrica de una presentación</a></li>
+<li><a href="#orgf5cf165">Extensión a homeomorfismo</a>
+<ul>
+<li><a href="#org03ece71"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org39554dc">Presentación poligonal de una superficie</a></li>
+<li><a href="#orga6cf03c">Presentación de una superficie</a></li>
+<li><a href="#org8655733">Presentaciones topológicamente equivalentes</a></li>
+<li><a href="#org2e5e566">Transformaciones elementales de presentaciones poligonales</a>
+<ul>
+<li><a href="#org79a34eb">1. Renombrar</a></li>
+<li><a href="#org20e02d8">2. Subdividir</a></li>
+<li><a href="#orgd8b47a3">3. Consolidar</a></li>
+<li><a href="#orge1cbe04">4. Reflejar</a></li>
+<li><a href="#orgfab0dda">5. Rotar</a></li>
+<li><a href="#org9ad64f4">6. Cortar</a></li>
+<li><a href="#orgae2a15d">7. Pegar</a></li>
+<li><a href="#orga20678f">8. Doblar</a></li>
+<li><a href="#orgf05730a">9. Desdoblar</a></li>
+</ul>
+</li>
+<li><a href="#org889b389">Transformaciones elementales preservan la realización</a>
+<ul>
+<li><a href="#orgcd82dcb">Demostración</a>
+<ul>
+<li><a href="#orgb8f1e1d">Renombrar</a></li>
+<li><a href="#orga74c679"><span class="todo TODO">TODO</span> Subdividir/Consolidar</a></li>
+<li><a href="#org8eacb75"><span class="todo TODO">TODO</span> Reflejar</a></li>
+<li><a href="#orgf4b172b"><span class="todo TODO">TODO</span> Cortar/Pegar</a></li>
+<li><a href="#org1a14627"><span class="todo TODO">TODO</span> Doblar/Desdoblar</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge0f6078">Presentación poligonal de la suma</a>
+<ul>
+<li><a href="#orgf33497f"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org11338bb">Presentaciones modelo</a>
+<ul>
+<li><a href="#org2ccb372">Esfera</a></li>
+<li><a href="#orgf66e8b4">Suma de toros</a></li>
+<li><a href="#org6bdff65">Suma de planos proyectivos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9fcaa9b">3.5. Clasificación de superficies compactas I</a>
+<ul>
+<li><a href="#orgf305b28">Aristas retorcidas y complementarias</a></li>
+<li><a href="#orgf7f10ce">Lema: suma de toro y plano proyectivo</a>
+<ul>
+<li><a href="#org48a7e2e"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org87bf24e">Lema: botella de Klein</a></li>
+<li><a href="#org0b4f031">Teorema de clasificación de presentaciones de superficies compactas</a>
+<ul>
+<li><a href="#orgdfddeff">Demostración</a>
+<ul>
+<li><a href="#org29e2c76">Paso 1: Reducir a una cara</a></li>
+<li><a href="#org436b168">Paso 2: Retirar complementarias adyacentes</a></li>
+<li><a href="#org17405ba">Paso 3: Colocar aristas retorcidas adyacentes</a></li>
+<li><a href="#org558d614">Paso 4: Identificar todos los vértices</a></li>
+<li><a href="#org78675ff">Paso 5: Las complementarias tienen complementarias intercaladas</a></li>
+<li><a href="#org48e5294">Paso 6: Las intercaladas pueden presentarse en bloques</a></li>
+<li><a href="#org4ea1eeb">Paso 7: Nos queda suma de planos proyectivos y toros</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org7cd2b67">Preclasificación de superficies compactas</a>
+<ul>
+<li><a href="#org33fae03"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org58e2ec9">3.6. Clasificación de superficies compactas II</a>
+<ul>
+<li><a href="#orgacb7ed4">Grupo fundamental de la presentación</a>
+<ul>
+<li><a href="#orgdea61d5">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org32a8100">Conmutador</a></li>
+<li><a href="#org9beb0be">Abelianizado</a>
+<ul>
+<li><a href="#orgc1d78b2">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orgbce50cd">Abelianizados de los grupos fundamentales de los modelos</a>
+<ul>
+<li><a href="#org084e9d9"><span class="todo TODO">TODO</span> Demostración</a></li>
+<li><a href="#orgc730c74"><span class="todo TODO">TODO</span> Los productos de enteros son distintos</a></li>
+<li><a href="#orgc3197c1"><span class="todo TODO">TODO</span> El producto por el cíclico de orden 2 los hace distintos</a></li>
+</ul>
+</li>
+<li><a href="#orgf3fae24">Clasificación de superficies compactas</a></li>
+</ul>
+</li>
+<li><a href="#org517d6f8">3.7. Característica de Euler y orientabilidad</a>
+<ul>
+<li><a href="#org0247075">Género</a></li>
+<li><a href="#org9de5459">Característica de Euler</a></li>
+<li><a href="#org6d9218d">La característica de Euler es invariante a transformaciones</a>
+<ul>
+<li><a href="#org156a3a6"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org5cde929">Orientabilidad</a>
+<ul>
+<li><a href="#orgca6c554">Presentación orientable</a></li>
+</ul>
+</li>
+<li><a href="#org85b2f25">La orientabilidad de superficies compactas es un invariante</a></li>
+<li><a href="#org1463987">Bicolorabilidad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="extra">extra</span></span></a></li>
+<li><a href="#orgd8ab2c7">Bicolorabilidad invariante a transformaciones elementales&#xa0;&#xa0;&#xa0;<span class="tag"><span class="extra">extra</span></span></a>
+<ul>
+<li><a href="#org3424f0a">Demostración</a>
+<ul>
+<li><a href="#orgcdc1a9d">Renombrar</a></li>
+<li><a href="#orgbfe9576">Subdividir</a></li>
+<li><a href="#orgd184165">Consolidar</a></li>
+<li><a href="#org6685898">Reflejar</a></li>
+<li><a href="#org1905751">Rotar</a></li>
+<li><a href="#org87696f8">Cortar</a></li>
+<li><a href="#org515ceed">Pegar</a></li>
+<li><a href="#orge5297fc">Doblar</a></li>
+<li><a href="#orge585c67">Desdoblar</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga08d47c">Bicolorabilidad coincide con orientabilidad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="extra">extra</span></span></a>
+<ul>
+<li><a href="#org7de7bfd">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#orge643196">Algoritmo de bicolorabilidad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="extra">extra</span></span></a>
+<ul>
+<li><a href="#orgbd9b285">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9a5dfee">Ejercicios</a>
+<ul>
+<li><a href="#org1e4a38d">Relación de problemas 1</a>
+<ul>
+<li><a href="#orgb0004d8">Ejercicio 1</a></li>
+<li><a href="#org3c21dd6">Ejercicio 2</a>
+<ul>
+<li><a href="#orgc36b3c9">Punto 1</a></li>
+<li><a href="#org5cb33dc">Punto 2</a></li>
+</ul>
+</li>
+<li><a href="#org2b88906">Ejercicio 3</a></li>
+<li><a href="#org4bab370">Ejercicio 6</a></li>
+<li><a href="#org3f15e51">Ejercicio 7</a></li>
+<li><a href="#org52c4e90">Ejercicio 8</a></li>
+<li><a href="#orgabeb5b6">Ejercicio 9</a></li>
+<li><a href="#org5dca22c">Ejercicio 10</a></li>
+</ul>
+</li>
+<li><a href="#org5c857a6">Relación de problemas 2</a>
+<ul>
+<li><a href="#orgef7a2a0">Ejercicio 1</a>
+<ul>
+<li><a href="#org22f921b">Punto 1</a></li>
+<li><a href="#org73b71ef">Punto 2</a></li>
+<li><a href="#orgc9e5866">Punto 3</a></li>
+<li><a href="#org84f83e1">Punto 4</a></li>
+</ul>
+</li>
+<li><a href="#orged53b46">Ejercicio 2</a>
+<ul>
+<li><a href="#orgfcdcc33">Punto 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org55b011e">Ejercicios de clase</a>
+<ul>
+<li><a href="#org4d74d09">Cálculo del espacio proyectivo con Van-Kampen</a></li>
+</ul>
+</li>
+<li><a href="#org86f9591">Examen 13 enero 2016</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgea06381">Ejercicio 3</a>
+<ul>
+<li><a href="#org44d8546">Punto 1</a></li>
+<li><a href="#org65f5d91">Punto 2</a></li>
+<li><a href="#orgce75b01">Punto 3</a></li>
+<li><a href="#org957ed2d">Punto 4</a></li>
+<li><a href="#org72ade21">Punto 5</a></li>
+<li><a href="#org89464b7">Punto 6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9a8c8cb">Relación de problemas 3</a>
+<ul>
+<li><a href="#org2704f8e">Ejercicio 1</a></li>
+<li><a href="#org7cb8cc0">Ejercicio 3</a></li>
+<li><a href="#org55084fb">Ejercicio 4</a></li>
+<li><a href="#org9abe11f">Ejercicio 5</a></li>
+<li><a href="#org00cb787">Ejercicio 6</a></li>
+<li><a href="#orge9ae9b9">Ejercicio 7</a></li>
+<li><a href="#org7f1174b">Ejercicio 8</a></li>
+<li><a href="#orgb009965">Ejercicio 9</a></li>
+<li><a href="#org727a0ac">Ejercicio 10</a>
+<ul>
+<li><a href="#org4245e67">Superficie 1</a></li>
+<li><a href="#org6fccf7a">Superficie 3</a></li>
+</ul>
+</li>
+<li><a href="#orgb96504a">Ejercicio 12</a>
+<ul>
+<li><a href="#orgb1716cd">Triangulación 1</a></li>
+<li><a href="#org6644fc3">Triangulación 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orged33e42">Clasificación de superficies compactas</a>
+<ul>
+<li><a href="#org5a32f6f">Calcular la orientabilidad</a></li>
 </ul>
 </li>
 </ul>
@@ -528,15 +960,15 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-org0ffedc0" class="outline-2">
-<h2 id="org0ffedc0">1. El grupo fundamental</h2>
-<div class="outline-text-2" id="text-org0ffedc0">
-</div><div id="outline-container-org08185ba" class="outline-3">
-<h3 id="org08185ba">1. Espacios conexos por arcos</h3>
-<div class="outline-text-3" id="text-org08185ba">
-</div><div id="outline-container-org6a0b5cf" class="outline-4">
-<h4 id="org6a0b5cf">Arcoconexión</h4>
-<div class="outline-text-4" id="text-org6a0b5cf">
+<div id="outline-container-org9e5d953" class="outline-2">
+<h2 id="org9e5d953">1. El grupo fundamental</h2>
+<div class="outline-text-2" id="text-org9e5d953">
+</div><div id="outline-container-orgc5e9398" class="outline-3">
+<h3 id="orgc5e9398">1. Espacios conexos por arcos</h3>
+<div class="outline-text-3" id="text-orgc5e9398">
+</div><div id="outline-container-org0742ddd" class="outline-4">
+<h4 id="org0742ddd">Arcoconexión</h4>
+<div class="outline-text-4" id="text-org0742ddd">
 <p>
 <b>Arcoconexión</b>. Las curvas definen relación de equivalencia cuando unen dos puntos.
 </p>
@@ -552,9 +984,9 @@ Cada componente de esta partición es una <b>componente arcoconexa</b>. Un espac
 </div>
 </div>
 
-<div id="outline-container-org6d58987" class="outline-4">
-<h4 id="org6d58987">Operaciones en arcos y arcoconexión como equivalencia</h4>
-<div class="outline-text-4" id="text-org6d58987">
+<div id="outline-container-org8219bfa" class="outline-4">
+<h4 id="org8219bfa">Operaciones en arcos y arcoconexión como equivalencia</h4>
+<div class="outline-text-4" id="text-org8219bfa">
 <p>
 Las propiedades de la relación de equivalencia se cumplen por:
 </p>
@@ -575,18 +1007,18 @@ La composición de arcos se define como:
 </div>
 </div>
 
-<div id="outline-container-org191153c" class="outline-4">
-<h4 id="org191153c">Arcoconexión y conexión</h4>
-<div class="outline-text-4" id="text-org191153c">
+<div id="outline-container-orge7e4cfa" class="outline-4">
+<h4 id="orge7e4cfa">Arcoconexión y conexión</h4>
+<div class="outline-text-4" id="text-orge7e4cfa">
 <p>
 Un espacio <b>arcoconexo es conexo</b>. Un espacio <b>conexo localmente arcoconexo 
 es arcoconexo</b>, que es conexo y donde todo punto posee un entorno arcoconexo.
 </p>
 </div>
 
-<div id="outline-container-org28516f2" class="outline-5">
-<h5 id="org28516f2">Demostración</h5>
-<div class="outline-text-5" id="text-org28516f2">
+<div id="outline-container-org8ed08ec" class="outline-5">
+<h5 id="org8ed08ec">Demostración</h5>
+<div class="outline-text-5" id="text-org8ed08ec">
 <p>
 Dado un punto en un espacio arcoconexo, los caminos a los demás serán conexos y
 compartirán un punto, luego su unión será conexa. Por otro lado, en un localmente
@@ -597,9 +1029,9 @@ la conexión.
 </div>
 </div>
 
-<div id="outline-container-org518883f" class="outline-5">
-<h5 id="org518883f">Contraejemplo del recíproco</h5>
-<div class="outline-text-5" id="text-org518883f">
+<div id="outline-container-org4fdde23" class="outline-5">
+<h5 id="org4fdde23">Contraejemplo del recíproco</h5>
+<div class="outline-text-5" id="text-org4fdde23">
 <p>
 Hay un contraejemplo de espacio conexo no arcoconexo en el
 <a href="https://es.wikipedia.org/wiki/Seno_del_top%C3%B3logo">seno del topólogo</a>.
@@ -609,12 +1041,12 @@ Hay un contraejemplo de espacio conexo no arcoconexo en el
 </div>
 </div>
 
-<div id="outline-container-orgdfb2932" class="outline-3">
-<h3 id="orgdfb2932">2. Grupo fundamental</h3>
-<div class="outline-text-3" id="text-orgdfb2932">
-</div><div id="outline-container-org502cdcc" class="outline-4">
-<h4 id="org502cdcc">Homotopía de lazos</h4>
-<div class="outline-text-4" id="text-org502cdcc">
+<div id="outline-container-org3bfdc24" class="outline-3">
+<h3 id="org3bfdc24">2. Grupo fundamental</h3>
+<div class="outline-text-3" id="text-org3bfdc24">
+</div><div id="outline-container-orgfeb0de1" class="outline-4">
+<h4 id="orgfeb0de1">Homotopía de lazos</h4>
+<div class="outline-text-4" id="text-orgfeb0de1">
 <p>
 Un arco con \(f(0) = f(1) = x\) es un <b>lazo</b> alrededor de \(x\). Dos lazos son <b>homotópicos</b>
 y escribimos \(f \sim g\) cuando \(\exists H: [0,1] \times [0,1] \longrightarrow X\), cumpliendo:
@@ -633,9 +1065,9 @@ lo escribimos como \(H : f \simeq g\).
 </div>
 </div>
 
-<div id="outline-container-orgd7d550b" class="outline-4">
-<h4 id="orgd7d550b">Clases de homotopía</h4>
-<div class="outline-text-4" id="text-orgd7d550b">
+<div id="outline-container-org5e063ac" class="outline-4">
+<h4 id="org5e063ac">Clases de homotopía</h4>
+<div class="outline-text-4" id="text-org5e063ac">
 <p>
 La homotopía es una relación de equivalencia entre lazos:
 </p>
@@ -654,9 +1086,9 @@ Llamamos <b>clase de homotopía</b> \([f]\) a la clase de equivalencia de un laz
 </div>
 </div>
 
-<div id="outline-container-org9e8646b" class="outline-4">
-<h4 id="org9e8646b">Producto de clases de homotopía</h4>
-<div class="outline-text-4" id="text-org9e8646b">
+<div id="outline-container-orga899a4b" class="outline-4">
+<h4 id="orga899a4b">Producto de clases de homotopía</h4>
+<div class="outline-text-4" id="text-orga899a4b">
 <p>
 El producto de lazos está bien definido entre las clases de homotopía. Sean 
 \(H : f_1 \simeq f_2\) y \(G: g_1 \simeq g_2\); entonces definimos \(F: f_1 \ast g_1 \simeq f_2 \ast g_2\) como:
@@ -668,9 +1100,9 @@ El producto de lazos está bien definido entre las clases de homotopía. Sean
 </div>
 </div>
 
-<div id="outline-container-org9e0815f" class="outline-4">
-<h4 id="org9e0815f">El grupo fundamental</h4>
-<div class="outline-text-4" id="text-org9e0815f">
+<div id="outline-container-org2406abd" class="outline-4">
+<h4 id="org2406abd">El grupo fundamental</h4>
+<div class="outline-text-4" id="text-org2406abd">
 <p>
 Comprobamos que las clases de homotopía sobre un \(x\) forman un grupo con el producto:
 </p>
@@ -680,9 +1112,9 @@ Comprobamos que las clases de homotopía sobre un \(x\) forman un grupo con el p
 </p>
 </div>
 
-<div id="outline-container-org335a339" class="outline-5">
-<h5 id="org335a339">Asociatividad</h5>
-<div class="outline-text-5" id="text-org335a339">
+<div id="outline-container-orgc96e6c9" class="outline-5">
+<h5 id="orgc96e6c9">Asociatividad</h5>
+<div class="outline-text-5" id="text-orgc96e6c9">
 <p>
 Para la <b>asociatividad</b>, definimos \(H : (f \ast g) \ast h \simeq f \ast (g \ast h)\):
 </p>
@@ -696,9 +1128,9 @@ Para la <b>asociatividad</b>, definimos \(H : (f \ast g) \ast h \simeq f \ast (g
 </div>
 </div>
 
-<div id="outline-container-org8fbd20a" class="outline-5">
-<h5 id="org8fbd20a">Elemento neutro</h5>
-<div class="outline-text-5" id="text-org8fbd20a">
+<div id="outline-container-org30082ce" class="outline-5">
+<h5 id="org30082ce">Elemento neutro</h5>
+<div class="outline-text-5" id="text-org30082ce">
 <p>
 Como <b>elemento neutro</b> tomaremos el lazo constante \(f_x(t)=x\). Y definimos  
 \(H : f_x \ast f \simeq f\):
@@ -712,9 +1144,9 @@ Como <b>elemento neutro</b> tomaremos el lazo constante \(f_x(t)=x\). Y definimo
 </div>
 </div>
 
-<div id="outline-container-orgd388798" class="outline-5">
-<h5 id="orgd388798">Elemento inverso</h5>
-<div class="outline-text-5" id="text-orgd388798">
+<div id="outline-container-orga3f525d" class="outline-5">
+<h5 id="orga3f525d">Elemento inverso</h5>
+<div class="outline-text-5" id="text-orga3f525d">
 <p>
 Como <b>elemento inverso</b> tendremos el lazo \(\hat{f}(t) = f(1-t)\). Y definimos 
 \(H : f \ast \hat{f} \simeq f\):
@@ -730,9 +1162,9 @@ Como <b>elemento inverso</b> tendremos el lazo \(\hat{f}(t) = f(1-t)\). Y defini
 </div>
 </div>
 
-<div id="outline-container-org17cf081" class="outline-4">
-<h4 id="org17cf081">El grupo fundamental como funtor</h4>
-<div class="outline-text-4" id="text-org17cf081">
+<div id="outline-container-org14bf0b1" class="outline-4">
+<h4 id="org14bf0b1">El grupo fundamental como funtor</h4>
+<div class="outline-text-4" id="text-org14bf0b1">
 <p>
 Sea \(\Phi : (X,x) \longrightarrow (Y,y)\) <i>continua</i>, entonces tenemos una aplicación bien definida 
 por:
@@ -749,9 +1181,9 @@ los espacios topológicos punteados a la de los grupos.
 </p>
 </div>
 
-<div id="outline-container-org58f1f4d" class="outline-5">
-<h5 id="org58f1f4d">Demostración</h5>
-<div class="outline-text-5" id="text-org58f1f4d">
+<div id="outline-container-org8c923d4" class="outline-5">
+<h5 id="org8c923d4">Demostración</h5>
+<div class="outline-text-5" id="text-org8c923d4">
 <p>
 Sean \(H: f \simeq g\), veamos que \(\Phi\circ H: \Phi f \simeq \Phi g\). Tenemos que:
 </p>
@@ -770,18 +1202,18 @@ El que respeta el producto se tiene por \(\Phi\circ (f \ast g) = \Phi\circ f \as
 </div>
 </div>
 
-<div id="outline-container-org327f4fd" class="outline-4">
-<h4 id="org327f4fd">Homotopía de arcos</h4>
-<div class="outline-text-4" id="text-org327f4fd">
+<div id="outline-container-orgda3eb69" class="outline-4">
+<h4 id="orgda3eb69">Homotopía de arcos</h4>
+<div class="outline-text-4" id="text-orgda3eb69">
 <p>
 Decimos que dos arcos cumpliendo \(f(0)=g(0)\), \(f(1)=g(1)\) son homotópicos cuando 
 existe una función continua con características similares a la dada para lazos.
 </p>
 </div>
 
-<div id="outline-container-orgbe423e2" class="outline-5">
-<h5 id="orgbe423e2">Propiedades</h5>
-<div class="outline-text-5" id="text-orgbe423e2">
+<div id="outline-container-org5d00665" class="outline-5">
+<h5 id="org5d00665">Propiedades</h5>
+<div class="outline-text-5" id="text-org5d00665">
 <p>
 De demostración similar al caso de lazos:
 </p>
@@ -794,9 +1226,9 @@ De demostración similar al caso de lazos:
 </div>
 </div>
 
-<div id="outline-container-org4405c98" class="outline-4">
-<h4 id="org4405c98">Isomorfismo entre grupos fundamentales en distintos puntos</h4>
-<div class="outline-text-4" id="text-org4405c98">
+<div id="outline-container-org9366c83" class="outline-4">
+<h4 id="org9366c83">Isomorfismo entre grupos fundamentales en distintos puntos</h4>
+<div class="outline-text-4" id="text-org9366c83">
 <p>
 Sea un arco \(\gamma : [0,1] \longrightarrow X\) cumpliendo \(\gamma(0) = x\), \(\gamma(1)=y\). Entonces se tiene un 
 isomorfismo entre \(\Pi(X,x)\) y \(\Pi(X,y)\):
@@ -812,9 +1244,9 @@ arcoconexa.
 </p>
 </div>
 
-<div id="outline-container-org745c175" class="outline-5">
-<h5 id="org745c175">Demostración</h5>
-<div class="outline-text-5" id="text-org745c175">
+<div id="outline-container-org8231456" class="outline-5">
+<h5 id="org8231456">Demostración</h5>
+<div class="outline-text-5" id="text-org8231456">
 <p>
 Para ver que está bien definido basta notar:
 </p>
@@ -832,9 +1264,9 @@ porque tiene inversa \(G_\gamma([f]) = [\gamma\ast f\ast \tilde\gamma]\).
 </div>
 </div>
 
-<div id="outline-container-org0bfd636" class="outline-4">
-<h4 id="org0bfd636">El grupo fundamental del producto</h4>
-<div class="outline-text-4" id="text-org0bfd636">
+<div id="outline-container-orgbaba304" class="outline-4">
+<h4 id="orgbaba304">El grupo fundamental del producto</h4>
+<div class="outline-text-4" id="text-orgbaba304">
 <p>
 Dado el producto de dos espacios topológicos \(X\times Y\) con proyecciones \(\pi_1,\pi_2\). Tenemos
 un isomorfismo entre grupos fundamentales:
@@ -855,12 +1287,12 @@ Dado por:
 </div>
 </div>
 
-<div id="outline-container-org6b3783f" class="outline-3">
-<h3 id="org6b3783f">3. El grupo fundamental del círculo</h3>
-<div class="outline-text-3" id="text-org6b3783f">
-</div><div id="outline-container-org0d03ac7" class="outline-4">
-<h4 id="org0d03ac7">Cálculo del grupo fundamental del círculo</h4>
-<div class="outline-text-4" id="text-org0d03ac7">
+<div id="outline-container-org2b1a4a3" class="outline-3">
+<h3 id="org2b1a4a3">3. El grupo fundamental del círculo</h3>
+<div class="outline-text-3" id="text-org2b1a4a3">
+</div><div id="outline-container-orgd5369df" class="outline-4">
+<h4 id="orgd5369df">Cálculo del grupo fundamental del círculo</h4>
+<div class="outline-text-4" id="text-orgd5369df">
 <p>
 Usaremos la teoría de recubridores que se probará luego.
 </p>
@@ -908,18 +1340,18 @@ Siendo un homomorfismo del grupo fundamental del círculo con \(\mathbb{Z}\).
 </div>
 </div>
 
-<div id="outline-container-org6b725f5" class="outline-4">
-<h4 id="org6b725f5">Teorema fundamental del álgebra</h4>
-<div class="outline-text-4" id="text-org6b725f5">
+<div id="outline-container-orgabef197" class="outline-4">
+<h4 id="orgabef197">Teorema fundamental del álgebra</h4>
+<div class="outline-text-4" id="text-orgabef197">
 <p>
 <b>Teorema fundamental del álgebra</b>. Todo polinomio con coeficientes
 en \(\mathbb{C}\) de grado \(n\) tiene \(n\) raíces en \(\mathbb{C}\).
 </p>
 </div>
 
-<div id="outline-container-org68ff3b4" class="outline-5">
-<h5 id="org68ff3b4">Demostración</h5>
-<div class="outline-text-5" id="text-org68ff3b4">
+<div id="outline-container-orge7e2aa1" class="outline-5">
+<h5 id="orge7e2aa1">Demostración</h5>
+<div class="outline-text-5" id="text-orge7e2aa1">
 <p>
 Supongamos un \(P\) que no tuviera raíz en \(\mathbb{C}\).
 </p>
@@ -983,17 +1415,17 @@ Que es homotopía entre \(e^{2\pi int}\) y \(f_R(t)\). Luego \(deg(f_R) = n\).
 </div>
 </div>
 
-<div id="outline-container-org6fe6251" class="outline-4">
-<h4 id="org6fe6251">Lema al punto fijo de Brower</h4>
-<div class="outline-text-4" id="text-org6fe6251">
+<div id="outline-container-orgcc72cae" class="outline-4">
+<h4 id="orgcc72cae">Lema al punto fijo de Brower</h4>
+<div class="outline-text-4" id="text-orgcc72cae">
 <p>
 No existe aplicación continua \(f : D^2\longrightarrow \mathbb{S}\) tal que \(f|_\mathbb{S} = id\).
 </p>
 </div>
 
-<div id="outline-container-org7d98c01" class="outline-5">
-<h5 id="org7d98c01">Demostración</h5>
-<div class="outline-text-5" id="text-org7d98c01">
+<div id="outline-container-org06f6d14" class="outline-5">
+<h5 id="org06f6d14">Demostración</h5>
+<div class="outline-text-5" id="text-org06f6d14">
 <p>
 Estamos buscando una aplicación cumpliendo:
 </p>
@@ -1021,17 +1453,17 @@ Pero así es imposible obtener la identidad como composición.
 </div>
 </div>
 
-<div id="outline-container-org8718b94" class="outline-4">
-<h4 id="org8718b94">Teorema del punto fijo de Brower</h4>
-<div class="outline-text-4" id="text-org8718b94">
+<div id="outline-container-orgd550154" class="outline-4">
+<h4 id="orgd550154">Teorema del punto fijo de Brower</h4>
+<div class="outline-text-4" id="text-orgd550154">
 <p>
 Toda función continua \(f : D^2 \longrightarrow D^2\) tiene un punto fijo.
 </p>
 </div>
 
-<div id="outline-container-org2f2b526" class="outline-5">
-<h5 id="org2f2b526">Demostración</h5>
-<div class="outline-text-5" id="text-org2f2b526">
+<div id="outline-container-org2bebed6" class="outline-5">
+<h5 id="org2bebed6">Demostración</h5>
+<div class="outline-text-5" id="text-org2bebed6">
 <p>
 Si no lo hubiera, para cada \(x\) tomo \(f(x)\) y la intersección de la recta que los une
 con el círculo más cercana a \(x\). Tengo una aplicación cuya restricción es la 
@@ -1041,18 +1473,18 @@ identidad.
 </div>
 </div>
 
-<div id="outline-container-org160c0ab" class="outline-4">
-<h4 id="org160c0ab">Grupos topológicos</h4>
-<div class="outline-text-4" id="text-org160c0ab">
+<div id="outline-container-orga9ef644" class="outline-4">
+<h4 id="orga9ef644">Grupos topológicos</h4>
+<div class="outline-text-4" id="text-orga9ef644">
 <p>
 Un grupo topológico es un grupo en la categoría de espacios punteados. Esto es,
 tal que la función producto y la función inverso son continuas.
 </p>
 </div>
 </div>
-<div id="outline-container-org2db7397" class="outline-4">
-<h4 id="org2db7397">Grupos topológicos y grupo fundamental</h4>
-<div class="outline-text-4" id="text-org2db7397">
+<div id="outline-container-org7415d61" class="outline-4">
+<h4 id="org7415d61">Grupos topológicos y grupo fundamental</h4>
+<div class="outline-text-4" id="text-org7415d61">
 <p>
 El producto en un grupo topológico respeta clases de homotopía:
 </p>
@@ -1072,12 +1504,12 @@ Y además, actúa sobre ellas igual que la composición:
 </div>
 </div>
 
-<div id="outline-container-org930205b" class="outline-3">
-<h3 id="org930205b">4. Tipo de homotopía. Equivalencias homotópicas</h3>
-<div class="outline-text-3" id="text-org930205b">
-</div><div id="outline-container-org85e3a4f" class="outline-4">
-<h4 id="org85e3a4f">Aplicaciones homotópicas</h4>
-<div class="outline-text-4" id="text-org85e3a4f">
+<div id="outline-container-org982c1cd" class="outline-3">
+<h3 id="org982c1cd">4. Tipo de homotopía. Equivalencias homotópicas</h3>
+<div class="outline-text-3" id="text-org982c1cd">
+</div><div id="outline-container-orgbfc8e18" class="outline-4">
+<h4 id="orgbfc8e18">Aplicaciones homotópicas</h4>
+<div class="outline-text-4" id="text-orgbfc8e18">
 <p>
 Sean \(F,G : X \longrightarrow Y\) continuas. Las decimos <b>homotópicas</b> si existe 
 \(H : X \times [0,1] \longrightarrow Y\) tal que \(H(x,0) = F(x)\) y \(H(x,1) = G(x)\). Lo notamos
@@ -1086,9 +1518,9 @@ por \(H: F\simeq G\).
 </div>
 </div>
 
-<div id="outline-container-org443e0df" class="outline-4">
-<h4 id="org443e0df">Grupo fundamental entre dos puntos</h4>
-<div class="outline-text-4" id="text-org443e0df">
+<div id="outline-container-org42f998a" class="outline-4">
+<h4 id="org42f998a">Grupo fundamental entre dos puntos</h4>
+<div class="outline-text-4" id="text-org42f998a">
 <p>
 Entre cualesquiera puntos de dos funciones homotópicas \(F(x_0)\), \(G(x_0)\); tenemos un 
 arco \(\gamma = H(x_0,t)\). Se cumple que:
@@ -1103,9 +1535,9 @@ arco \(\gamma = H(x_0,t)\). Se cumple que:
 </p>
 </div>
 
-<div id="outline-container-orga6fba68" class="outline-5">
-<h5 id="orga6fba68">Demostración</h5>
-<div class="outline-text-5" id="text-orga6fba68">
+<div id="outline-container-org10d649e" class="outline-5">
+<h5 id="org10d649e">Demostración</h5>
+<div class="outline-text-5" id="text-org10d649e">
 <p>
 Sea \(f \in \Pi(X,x_0)\). Si defino la función \(\hat{H}(t,s) = H(f(t),s)\) tengo una homotopía como
 la siguiente:
@@ -1136,9 +1568,9 @@ Lo que me da \([Gf \circ \gamma] = [\gamma \circ Ff]\), y por tanto \([Gf] = [\g
 </div>
 </div>
 
-<div id="outline-container-org6f8347e" class="outline-4">
-<h4 id="org6f8347e">Equivalencia homotópica</h4>
-<div class="outline-text-4" id="text-org6f8347e">
+<div id="outline-container-org05e7bfe" class="outline-4">
+<h4 id="org05e7bfe">Equivalencia homotópica</h4>
+<div class="outline-text-4" id="text-org05e7bfe">
 <p>
 Una <b>equivalencia homotópica</b> es una aplicación continua \(F\), para la que
 existe \(G\) cumpliendo \(F \circ G \simeq G \circ F \simeq Id\).
@@ -1146,9 +1578,9 @@ existe \(G\) cumpliendo \(F \circ G \simeq G \circ F \simeq Id\).
 </div>
 </div>
 
-<div id="outline-container-org90bf572" class="outline-4">
-<h4 id="org90bf572">Propiedades de la equivalencia homotópica</h4>
-<div class="outline-text-4" id="text-org90bf572">
+<div id="outline-container-org8b66555" class="outline-4">
+<h4 id="org8b66555">Propiedades de la equivalencia homotópica</h4>
+<div class="outline-text-4" id="text-org8b66555">
 <p>
 Cumple:
 </p>
@@ -1161,9 +1593,9 @@ Cumple:
 </div>
 </div>
 
-<div id="outline-container-orge268526" class="outline-4">
-<h4 id="orge268526">Conservación del grupo fundamental por equivalencia homotópica</h4>
-<div class="outline-text-4" id="text-orge268526">
+<div id="outline-container-org20bb10b" class="outline-4">
+<h4 id="org20bb10b">Conservación del grupo fundamental por equivalencia homotópica</h4>
+<div class="outline-text-4" id="text-org20bb10b">
 <p>
 Sea \(F: X\longrightarrow Y\) equivalencia homotópica:
 </p>
@@ -1177,9 +1609,9 @@ Es un isomorfismo
 </p>
 </div>
 
-<div id="outline-container-orgd3d0e26" class="outline-5">
-<h5 id="orgd3d0e26">Demostración</h5>
-<div class="outline-text-5" id="text-orgd3d0e26">
+<div id="outline-container-org7cb8d8c" class="outline-5">
+<h5 id="org7cb8d8c">Demostración</h5>
+<div class="outline-text-5" id="text-org7cb8d8c">
 <p>
 Por ser equivalencia homotópica tengo que \(F \circ G \simeq Id\), luego se cumple:
 </p>
@@ -1215,9 +1647,9 @@ Demostrando ambas filas que \(F_\ast\) y \(G_\ast\) son isomorfismos.
 </div>
 </div>
 
-<div id="outline-container-org147c36c" class="outline-4">
-<h4 id="org147c36c">Lema a Borsuk-Ulam</h4>
-<div class="outline-text-4" id="text-org147c36c">
+<div id="outline-container-org29f19dc" class="outline-4">
+<h4 id="org29f19dc">Lema a Borsuk-Ulam</h4>
+<div class="outline-text-4" id="text-org29f19dc">
 <p>
 No existe \(F: \mathbb{S}^2 \longrightarrow \mathbb{S}^1\) continua respetando antípodas.
 </p>
@@ -1227,13 +1659,13 @@ No existe \(F: \mathbb{S}^2 \longrightarrow \mathbb{S}^1\) continua respetando a
 </p>
 </div>
 
-<div id="outline-container-org627742a" class="outline-5">
-<h5 id="org627742a"><span class="todo TODO">TODO</span> Demostración</h5>
+<div id="outline-container-orgde79857" class="outline-5">
+<h5 id="orgde79857"><span class="todo TODO">TODO</span> Demostración</h5>
 </div>
 </div>
-<div id="outline-container-org60b4f80" class="outline-4">
-<h4 id="org60b4f80">Teorema de Borsuk-Ulam</h4>
-<div class="outline-text-4" id="text-org60b4f80">
+<div id="outline-container-org79c5113" class="outline-4">
+<h4 id="org79c5113">Teorema de Borsuk-Ulam</h4>
+<div class="outline-text-4" id="text-org79c5113">
 <p>
 Sea \(F:\mathbb{S}^2 \longrightarrow \mathbb{R}^2\) continua, entonces:
 </p>
@@ -1243,9 +1675,9 @@ Sea \(F:\mathbb{S}^2 \longrightarrow \mathbb{R}^2\) continua, entonces:
 </p>
 </div>
 
-<div id="outline-container-orgf6b1ea1" class="outline-5">
-<h5 id="orgf6b1ea1">Demostración</h5>
-<div class="outline-text-5" id="text-orgf6b1ea1">
+<div id="outline-container-orgf88daa3" class="outline-5">
+<h5 id="orgf88daa3">Demostración</h5>
+<div class="outline-text-5" id="text-orgf88daa3">
 <p>
 Supongamos que no se cumpliera, definimos:
 </p>
@@ -1261,22 +1693,22 @@ Y entonces \(G\) sería continua respetando antípodas.
 </div>
 </div>
 
-<div id="outline-container-org712dfc9" class="outline-4">
-<h4 id="org712dfc9">Teorema del sandwich de jamón</h4>
-<div class="outline-text-4" id="text-org712dfc9">
+<div id="outline-container-org3f754ff" class="outline-4">
+<h4 id="org3f754ff">Teorema del sandwich de jamón</h4>
+<div class="outline-text-4" id="text-org3f754ff">
 <p>
 Sean \(A,B\subset \mathbb{R}^2\) compactos y conexos. Existe una recta dividiendo a ambos en dos
 trozos de igual área.
 </p>
 </div>
 
-<div id="outline-container-org0f0acfd" class="outline-5">
-<h5 id="org0f0acfd"><span class="todo TODO">TODO</span> Demostración</h5>
+<div id="outline-container-org7f4fccc" class="outline-5">
+<h5 id="org7f4fccc"><span class="todo TODO">TODO</span> Demostración</h5>
 </div>
 </div>
-<div id="outline-container-org6f96822" class="outline-4">
-<h4 id="org6f96822">Espacio proyectivo</h4>
-<div class="outline-text-4" id="text-org6f96822">
+<div id="outline-container-org68d6b64" class="outline-4">
+<h4 id="org68d6b64">Espacio proyectivo</h4>
+<div class="outline-text-4" id="text-org68d6b64">
 <p>
 En \(\mathbb{S}^n\) defino la ralación de equivalencia \(p \sim q\) ssi \(p = \pm q\). Definimos el 
 espacio proyectivo como el cociente bajo esta relación:
@@ -1289,12 +1721,12 @@ espacio proyectivo como el cociente bajo esta relación:
 </div>
 </div>
 
-<div id="outline-container-org82fda6b" class="outline-3">
-<h3 id="org82fda6b">5. Teorema de Seifert-Van Kampen</h3>
-<div class="outline-text-3" id="text-org82fda6b">
-</div><div id="outline-container-orgee65764" class="outline-4">
-<h4 id="orgee65764">Producto libre de grupos</h4>
-<div class="outline-text-4" id="text-orgee65764">
+<div id="outline-container-orgfff5566" class="outline-3">
+<h3 id="orgfff5566">5. Teorema de Seifert-Van Kampen</h3>
+<div class="outline-text-3" id="text-orgfff5566">
+</div><div id="outline-container-org715d572" class="outline-4">
+<h4 id="org715d572">Producto libre de grupos</h4>
+<div class="outline-text-4" id="text-org715d572">
 <p>
 Si definimos el <b>producto libre</b> de grupos en términos de palabras; podemos 
 llamar <b>grupo libre sobre un conjunto de generadores</b> al producto libre del 
@@ -1303,9 +1735,9 @@ grupo libre generado por cada uno de ellos.
 </div>
 </div>
 
-<div id="outline-container-org9c84e7e" class="outline-4">
-<h4 id="org9c84e7e">Subgrupo normal generado</h4>
-<div class="outline-text-4" id="text-org9c84e7e">
+<div id="outline-container-org886e882" class="outline-4">
+<h4 id="org886e882">Subgrupo normal generado</h4>
+<div class="outline-text-4" id="text-org886e882">
 <p>
 El <b>subgrupo normal generado</b> por un subgrupo \(B\) o por un conjunto de 
 generadores es:
@@ -1317,9 +1749,9 @@ generadores es:
 </div>
 </div>
 
-<div id="outline-container-org8eb322b" class="outline-4">
-<h4 id="org8eb322b">Producto libre amalgamado</h4>
-<div class="outline-text-4" id="text-org8eb322b">
+<div id="outline-container-org74d8257" class="outline-4">
+<h4 id="org74d8257">Producto libre amalgamado</h4>
+<div class="outline-text-4" id="text-org74d8257">
 <p>
 Sean tres grupos \(A\), \(G_1\), \(G_2\) y dos proyecciones de \(A\) en ellos, llamadas 
 \(\Phi_1,\Phi_2\). Definimos el <b>producto libre amalgamado</b> como:
@@ -1337,9 +1769,9 @@ Donde estamos dividiendo por \(N\), el subgrupo normal generado por
 </div>
 </div>
 
-<div id="outline-container-orgeb48479" class="outline-4">
-<h4 id="orgeb48479">Teorema de Seifert-Van Kampen</h4>
-<div class="outline-text-4" id="text-orgeb48479">
+<div id="outline-container-org11575b2" class="outline-4">
+<h4 id="org11575b2">Teorema de Seifert-Van Kampen</h4>
+<div class="outline-text-4" id="text-org11575b2">
 <p>
 Sea \(X\) espacio topológico con \(U,V\) abiertos arcoconexos no vacíos de \(X\) tales 
 que \(X = U \cup V\) y \(U\cap V\) son arcoconexos. Existe un isomorfismo:
@@ -1355,9 +1787,9 @@ donde se amalgama usando \(i_\ast\), \(j_\ast\), homomorfismos dados por las inc
 </div>
 </div>
 
-<div id="outline-container-org970a9f8" class="outline-4">
-<h4 id="org970a9f8">Seifert-Van Kampen para intersección simplemente conexa</h4>
-<div class="outline-text-4" id="text-org970a9f8">
+<div id="outline-container-orgb079597" class="outline-4">
+<h4 id="orgb079597">Seifert-Van Kampen para intersección simplemente conexa</h4>
+<div class="outline-text-4" id="text-orgb079597">
 <p>
 En las condiciones del teorema, con \(U\cap V\) simplemente conexo, se tiene:
 </p>
@@ -1368,9 +1800,9 @@ En las condiciones del teorema, con \(U\cap V\) simplemente conexo, se tiene:
 </div>
 </div>
 
-<div id="outline-container-org9137c28" class="outline-4">
-<h4 id="org9137c28">Seifert-Van Kampen para abierto simplemente conexo</h4>
-<div class="outline-text-4" id="text-org9137c28">
+<div id="outline-container-org4eef413" class="outline-4">
+<h4 id="org4eef413">Seifert-Van Kampen para abierto simplemente conexo</h4>
+<div class="outline-text-4" id="text-org4eef413">
 <p>
 En las condiciones del teorema, con \(V\) simplemente conexo, se tiene:
 </p>
@@ -1386,12 +1818,12 @@ Con \(N\) es el subgrupo normal generado por \(i_\ast(\Pi(U\cap V,x))\).
 </div>
 </div>
 
-<div id="outline-container-orgc94f7cb" class="outline-3">
-<h3 id="orgc94f7cb">Extra: Teoría de categorías</h3>
-<div class="outline-text-3" id="text-orgc94f7cb">
-</div><div id="outline-container-org312b7e7" class="outline-4">
-<h4 id="org312b7e7">El grupo fundamental como funtor</h4>
-<div class="outline-text-4" id="text-org312b7e7">
+<div id="outline-container-org5884ef1" class="outline-3">
+<h3 id="org5884ef1">Extra: Teoría de categorías</h3>
+<div class="outline-text-3" id="text-org5884ef1">
+</div><div id="outline-container-org3b02b17" class="outline-4">
+<h4 id="org3b02b17">El grupo fundamental como funtor</h4>
+<div class="outline-text-4" id="text-org3b02b17">
 <p>
 El grupo fundamental \(\Pi\) es un funtor entre las categorías:
 </p>
@@ -1408,9 +1840,9 @@ Estamos llamando \(f_\ast\) a los morfismos creados por el funtor, \(\Pi(f)\).
 </div>
 </div>
 
-<div id="outline-container-org21c918f" class="outline-4">
-<h4 id="org21c918f">Producto categórico</h4>
-<div class="outline-text-4" id="text-org21c918f">
+<div id="outline-container-org925f984" class="outline-4">
+<h4 id="org925f984">Producto categórico</h4>
+<div class="outline-text-4" id="text-org925f984">
 <p>
 El producto de dos espacios con un punto base es, usando la topología producto:
 </p>
@@ -1425,9 +1857,9 @@ El funtor lo lleva al producto de grupos.
 </div>
 </div>
 
-<div id="outline-container-org55c37b3" class="outline-4">
-<h4 id="org55c37b3">Coproducto categórico</h4>
-<div class="outline-text-4" id="text-org55c37b3">
+<div id="outline-container-org454c069" class="outline-4">
+<h4 id="org454c069">Coproducto categórico</h4>
+<div class="outline-text-4" id="text-org454c069">
 <p>
 El coproducto de dos espacios con un punto es la suma directa de los espacios
 identificando el punto. Intuitivamente, consiste pegar los dos espacios por ese
@@ -1453,20 +1885,20 @@ Nótese que esto es un caso particular de Seifert-Van Kampen.
 </div>
 </div>
 
-<div id="outline-container-org02edea9" class="outline-4">
-<h4 id="org02edea9"><span class="todo TODO">TODO</span> Seifert-Van Kampen</h4>
+<div id="outline-container-orga4ce6b5" class="outline-4">
+<h4 id="orga4ce6b5"><span class="todo TODO">TODO</span> Seifert-Van Kampen</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc6db5ee" class="outline-2">
-<h2 id="orgc6db5ee">2. Recubridores</h2>
-<div class="outline-text-2" id="text-orgc6db5ee">
-</div><div id="outline-container-org5b0ee3c" class="outline-3">
-<h3 id="org5b0ee3c">1. Introducción</h3>
-<div class="outline-text-3" id="text-org5b0ee3c">
-</div><div id="outline-container-org2f86b7b" class="outline-4">
-<h4 id="org2f86b7b">Localmente arcoconexo</h4>
-<div class="outline-text-4" id="text-org2f86b7b">
+<div id="outline-container-org09352d7" class="outline-2">
+<h2 id="org09352d7">2. Recubridores</h2>
+<div class="outline-text-2" id="text-org09352d7">
+</div><div id="outline-container-orgb212edf" class="outline-3">
+<h3 id="orgb212edf">1. Introducción</h3>
+<div class="outline-text-3" id="text-orgb212edf">
+</div><div id="outline-container-orgd015903" class="outline-4">
+<h4 id="orgd015903">Localmente arcoconexo</h4>
+<div class="outline-text-4" id="text-orgd015903">
 <p>
 Un espacio es <b>localmente arcoconexo</b> si todo punto posee una base de 
 entornos arcoconexos.
@@ -1479,9 +1911,9 @@ arcoconexos</i>.
 </div>
 </div>
 
-<div id="outline-container-org20b0fe1" class="outline-4">
-<h4 id="org20b0fe1">Recubridores</h4>
-<div class="outline-text-4" id="text-org20b0fe1">
+<div id="outline-container-org221a846" class="outline-4">
+<h4 id="org221a846">Recubridores</h4>
+<div class="outline-text-4" id="text-org221a846">
 <p>
 Un <b>recubridor</b> de \(X\) es un par \((Y,p)\) donde \(p : Y \longrightarrow X\) es continua; 
 cumpliendo que todo \(x\in X\) tiene un entorno abierto \(U\), llamado <b>entorno 
@@ -1491,9 +1923,9 @@ homeomórficamente por \(p\) sobre \(U\).
 </div>
 </div>
 
-<div id="outline-container-org862a76e" class="outline-4">
-<h4 id="org862a76e">Ejemplos de recubridores</h4>
-<div class="outline-text-4" id="text-org862a76e">
+<div id="outline-container-org64ea07b" class="outline-4">
+<h4 id="org64ea07b">Ejemplos de recubridores</h4>
+<div class="outline-text-4" id="text-org64ea07b">
 <p>
 Ejemplos básicos de recubridores son:
 </p>
@@ -1505,9 +1937,9 @@ Ejemplos básicos de recubridores son:
 </div>
 </div>
 
-<div id="outline-container-org9299063" class="outline-4">
-<h4 id="org9299063">Homeomorfismos locales</h4>
-<div class="outline-text-4" id="text-org9299063">
+<div id="outline-container-orgd50518e" class="outline-4">
+<h4 id="orgd50518e">Homeomorfismos locales</h4>
+<div class="outline-text-4" id="text-orgd50518e">
 <p>
 Un <b>homeomorfismo local</b> es una aplicación continua \(f : Y \longrightarrow X\) tal que para 
 todo \(y\in Y\) existe \(y \in V\in\tau_Y\) tal que \(f|_V\) es homeomorfismo.
@@ -1515,9 +1947,9 @@ todo \(y\in Y\) existe \(y \in V\in\tau_Y\) tal que \(f|_V\) es homeomorfismo.
 </div>
 </div>
 
-<div id="outline-container-org534a7ac" class="outline-4">
-<h4 id="org534a7ac">Propiedades de un recubridores</h4>
-<div class="outline-text-4" id="text-org534a7ac">
+<div id="outline-container-orgc22fda7" class="outline-4">
+<h4 id="orgc22fda7">Propiedades de un recubridores</h4>
+<div class="outline-text-4" id="text-orgc22fda7">
 <p>
 Sea \((Y,p)\) recubridores de \(X\). Entonces:
 </p>
@@ -1529,9 +1961,9 @@ Sea \((Y,p)\) recubridores de \(X\). Entonces:
 </ol>
 </div>
 
-<div id="outline-container-orgb76cca5" class="outline-5">
-<h5 id="orgb76cca5">Demostración</h5>
-<div class="outline-text-5" id="text-orgb76cca5">
+<div id="outline-container-org031f59c" class="outline-5">
+<h5 id="org031f59c">Demostración</h5>
+<div class="outline-text-5" id="text-org031f59c">
 <p>
 La sobreyectividad es trivial por la definición. Dado un abierto \(y\in O\); 
 tengo \(y \in V_y \cong U_x\) su entorno abierto, luego \(p(O\cap V_y)\) es abierto. De esta 
@@ -1550,12 +1982,12 @@ es abierto.
 </div>
 </div>
 
-<div id="outline-container-orgf540ad1" class="outline-3">
-<h3 id="orgf540ad1">2. Grupo fundamental y levantamiento de aplicaciones al recubridor</h3>
-<div class="outline-text-3" id="text-orgf540ad1">
-</div><div id="outline-container-org3a7bc5c" class="outline-4">
-<h4 id="org3a7bc5c">Levantamiento de arcos</h4>
-<div class="outline-text-4" id="text-org3a7bc5c">
+<div id="outline-container-orgd9ae5dd" class="outline-3">
+<h3 id="orgd9ae5dd">2. Grupo fundamental y levantamiento de aplicaciones al recubridor</h3>
+<div class="outline-text-3" id="text-orgd9ae5dd">
+</div><div id="outline-container-org2bead79" class="outline-4">
+<h4 id="org2bead79">Levantamiento de arcos</h4>
+<div class="outline-text-4" id="text-org2bead79">
 <p>
 Sea \((Y,p)\) recubridor con \(x_0\in X\) y \(y_0 \in p^{-1}(x_0)\). Sea \(f : [0,1]\longrightarrow X\) arco 
 continuo con \(f(0) = x_0\), entonces existe un único arco continuo \(\check{f}\) cumpliendo:
@@ -1573,9 +2005,9 @@ Llamado el <b>levantamiento</b> de \(f\).
 </ul>
 </div>
 
-<div id="outline-container-orgf8c1e38" class="outline-5">
-<h5 id="orgf8c1e38">Existencia</h5>
-<div class="outline-text-5" id="text-orgf8c1e38">
+<div id="outline-container-org450e4b3" class="outline-5">
+<h5 id="org450e4b3">Existencia</h5>
+<div class="outline-text-5" id="text-org450e4b3">
 <p>
 Tomo \(\{f^{-1}(U^x) \mid x\in X\}\), que recubre por abiertos a \([0,1]\). Sabemos que 
 existirá una partición del intervalo cumpliendo:
@@ -1593,9 +2025,9 @@ tomar cada \(y_i\) necesitamos usar la componente arcoconexa de la última \(\ch
 </div>
 </div>
 
-<div id="outline-container-org0c6652d" class="outline-5">
-<h5 id="org0c6652d">Unicidad</h5>
-<div class="outline-text-5" id="text-org0c6652d">
+<div id="outline-container-org1f3d573" class="outline-5">
+<h5 id="org1f3d573">Unicidad</h5>
+<div class="outline-text-5" id="text-org1f3d573">
 <p>
 Sean dos levantamientos \(g_1,g_2\). Su conjunto ecualizador es cerrado:
 </p>
@@ -1613,9 +2045,9 @@ curvas deben coincidir en él.
 </div>
 </div>
 
-<div id="outline-container-org32931b2" class="outline-4">
-<h4 id="org32931b2">Levantamiento de homotopías</h4>
-<div class="outline-text-4" id="text-org32931b2">
+<div id="outline-container-orgf98454b" class="outline-4">
+<h4 id="orgf98454b">Levantamiento de homotopías</h4>
+<div class="outline-text-4" id="text-orgf98454b">
 <p>
 Sea \((Y,p)\) recubridor con \(x_0\in X\) y \(y \in p^{-1}(x_0)\). Sea \(H : [0,1]\times[0,1] \longrightarrow X\) 
 continua con \(H(0,0) = x_0\), entonces existe una única aplicación
@@ -1634,9 +2066,9 @@ Llamada el <b>levantamiento</b> de \(H\).
 </ul>
 </div>
 
-<div id="outline-container-org982bb85" class="outline-5">
-<h5 id="org982bb85">Existencia</h5>
-<div class="outline-text-5" id="text-org982bb85">
+<div id="outline-container-org016f62e" class="outline-5">
+<h5 id="org016f62e">Existencia</h5>
+<div class="outline-text-5" id="text-org016f62e">
 <p>
 Tomamos las \(\{ H^{-1}(U^x) \mid x \in X \}\) y tenemos recubrimiento por abiertos de \([0,1]^2\). 
 Tendremos alguna partición cumpliendo:
@@ -1656,22 +2088,22 @@ por ser arcoconexa.
 </div>
 </div>
 
-<div id="outline-container-orgeee07ae" class="outline-5">
-<h5 id="orgeee07ae"><span class="todo TODO">TODO</span> Unicidad</h5>
+<div id="outline-container-orgaa17f27" class="outline-5">
+<h5 id="orgaa17f27"><span class="todo TODO">TODO</span> Unicidad</h5>
 </div>
 </div>
-<div id="outline-container-org9ab15fe" class="outline-4">
-<h4 id="org9ab15fe">Hojas del recubridor</h4>
-<div class="outline-text-4" id="text-org9ab15fe">
+<div id="outline-container-org8b8aa14" class="outline-4">
+<h4 id="org8b8aa14">Hojas del recubridor</h4>
+<div class="outline-text-4" id="text-org8b8aa14">
 <p>
 Sea \(p : Y\longrightarrow X\) recubridor. Los cardinales de los \(p^{-1}(x)\) son un invariante 
 llamado el <b>cardinal de hojas del recubridor</b>.
 </p>
 </div>
 
-<div id="outline-container-org6f5d4fc" class="outline-5">
-<h5 id="org6f5d4fc">Demostración</h5>
-<div class="outline-text-5" id="text-org6f5d4fc">
+<div id="outline-container-org6398224" class="outline-5">
+<h5 id="org6398224">Demostración</h5>
+<div class="outline-text-5" id="text-org6398224">
 <p>
 Puedo definir una biyección entre \(p^{-1}(x_1)\) y \(p^{-1}(x_2)\) tomando un arco entre 
 ellas \(\gamma\), y levantándolo en cada componente. Los arcos arriba me relacionan 
@@ -1682,17 +2114,17 @@ porque ella ya es un levantamiento y es único.
 </div>
 </div>
 
-<div id="outline-container-orgf336a2d" class="outline-4">
-<h4 id="orgf336a2d">Los recubridores crean monomorfismos</h4>
-<div class="outline-text-4" id="text-orgf336a2d">
+<div id="outline-container-orga26de09" class="outline-4">
+<h4 id="orga26de09">Los recubridores crean monomorfismos</h4>
+<div class="outline-text-4" id="text-orga26de09">
 <p>
 Sea \(p: Y \longrightarrow X\) recubridor, entonces \(p_\ast : \Pi(Y,y) \longrightarrow \Pi(X,x)\) es monomorfismo.
 </p>
 </div>
 
-<div id="outline-container-org349f3bf" class="outline-5">
-<h5 id="org349f3bf">Demostración</h5>
-<div class="outline-text-5" id="text-org349f3bf">
+<div id="outline-container-org6390304" class="outline-5">
+<h5 id="org6390304">Demostración</h5>
+<div class="outline-text-5" id="text-org6390304">
 <p>
 Supongamos \(p_\ast[h] = 0\); tengo una homotopía \(H : p \circ h \simeq f_x\) que puedo levantar tomando
 \(\check{H}(0,0)=y\) y sabiendo \(p \circ \check{H} = H\). Tengo:
@@ -1711,9 +2143,9 @@ ser levantamiento. Esto me da \(\check{H} : h \simeq f_y\).
 </div>
 </div>
 
-<div id="outline-container-orgf3c2c20" class="outline-4">
-<h4 id="orgf3c2c20">Conjugación y recubridores</h4>
-<div class="outline-text-4" id="text-orgf3c2c20">
+<div id="outline-container-org96e9eef" class="outline-4">
+<h4 id="org96e9eef">Conjugación y recubridores</h4>
+<div class="outline-text-4" id="text-org96e9eef">
 <p>
 Si \(p : Y \longrightarrow X\) es recubridor y \(x\in X\), entonces la familia de subgrupos:
 </p>
@@ -1727,9 +2159,9 @@ forma exactamente una clase de conjugación de subgrupos de \(\Pi(X,x)\).
 </p>
 </div>
 
-<div id="outline-container-orgc7cfe13" class="outline-5">
-<h5 id="orgc7cfe13">Demostración</h5>
-<div class="outline-text-5" id="text-orgc7cfe13">
+<div id="outline-container-org9344fc5" class="outline-5">
+<h5 id="org9344fc5">Demostración</h5>
+<div class="outline-text-5" id="text-org9344fc5">
 <p>
 Sea \(\gamma\) camino entre \(y_1,y_2 \in p^{-1}(x)\) con el isomorfismo \(F_\gamma([f]) = [\tilde\gamma \ast f \ast \gamma]\), construimos 
 el diagrama:
@@ -1783,9 +2215,9 @@ H &= \{[g]^{-1} \ast [p\circ h] \ast g \mid [h] \in \Pi(Y,y)\} \\
 </div>
 </div>
 
-<div id="outline-container-org8fe4a05" class="outline-4">
-<h4 id="org8fe4a05">Levntamiento de aplicaciones</h4>
-<div class="outline-text-4" id="text-org8fe4a05">
+<div id="outline-container-org1749b6c" class="outline-4">
+<h4 id="org1749b6c">Levntamiento de aplicaciones</h4>
+<div class="outline-text-4" id="text-org1749b6c">
 <p>
 Sea \(\Phi : Z \longrightarrow X\) continua con \(x_0 = \Phi(z_0)\), \(y_0 \in p^{-1}(x_0)\). Tenemos que
 \(\exists! \Psi : Z \longrightarrow Y\) continua cumpliendo:
@@ -1801,9 +2233,9 @@ ssi \(\Phi_\ast(\Pi(Z,z_0)) \subset p_\ast(\Pi(Y,y_0))\).
 </p>
 </div>
 
-<div id="outline-container-orgbd7aa86" class="outline-5">
-<h5 id="orgbd7aa86">Demostración</h5>
-<div class="outline-text-5" id="text-orgbd7aa86">
+<div id="outline-container-orgc97b23c" class="outline-5">
+<h5 id="orgc97b23c">Demostración</h5>
+<div class="outline-text-5" id="text-orgc97b23c">
 <p>
 Definimos:
 </p>
@@ -1857,9 +2289,9 @@ se tiene:
 </div>
 </div>
 
-<div id="outline-container-org3e4c23a" class="outline-4">
-<h4 id="org3e4c23a">Estructura de grupo topológico</h4>
-<div class="outline-text-4" id="text-org3e4c23a">
+<div id="outline-container-org0658709" class="outline-4">
+<h4 id="org0658709">Estructura de grupo topológico</h4>
+<div class="outline-text-4" id="text-org0658709">
 <p>
 Sea \(G\) un grupo topológico con neutro \(e\). Sea \((\check{G},p)\) un recubridor y 
 \(\check{e} \in p^{-1}(e)\). Entonces \(\check{G}\) admite una estructura de grupo topológico que tiene
@@ -1869,12 +2301,12 @@ a \(\check{e}\) como elemento neutro y a \(p\) como homomorfismo de grupos.
 </div>
 </div>
 
-<div id="outline-container-orga15cb72" class="outline-3">
-<h3 id="orga15cb72">3.1. Isomorfismos de recubridores</h3>
-<div class="outline-text-3" id="text-orga15cb72">
-</div><div id="outline-container-org91f859c" class="outline-4">
-<h4 id="org91f859c">Homomorfismos</h4>
-<div class="outline-text-4" id="text-org91f859c">
+<div id="outline-container-org1ebf3ab" class="outline-3">
+<h3 id="org1ebf3ab">3.1. Isomorfismos de recubridores</h3>
+<div class="outline-text-3" id="text-org1ebf3ab">
+</div><div id="outline-container-orgb3a51c1" class="outline-4">
+<h4 id="orgb3a51c1">Homomorfismos</h4>
+<div class="outline-text-4" id="text-orgb3a51c1">
 <p>
 Sean \((Y_1,p_1)\), \((Y_2,p_2)\) recubridores. Un <b>homomorfismo de recubridores</b> es
 \(\Phi : (Y_1,p_1) \longrightarrow (Y_2,p_2)\) continua con \(p_2 \circ \Phi = p_1\).
@@ -1889,9 +2321,9 @@ Y_1 \drar[swap]{p_1} \arrow{rr}{\Phi} & & Y_2 \dlar{p_2} \\
 </div>
 </div>
 
-<div id="outline-container-org4cde635" class="outline-4">
-<h4 id="org4cde635">Propiedades de los homomorfismos de recubridores</h4>
-<div class="outline-text-4" id="text-org4cde635">
+<div id="outline-container-orgae28483" class="outline-4">
+<h4 id="orgae28483">Propiedades de los homomorfismos de recubridores</h4>
+<div class="outline-text-4" id="text-orgae28483">
 <p>
 Los homomorfismos de recubridores cumplen:
 </p>
@@ -1910,9 +2342,9 @@ Llamamos \(Aut(Y,p)\) al <b>grupo de automorfismos</b> de un recubridor.
 </div>
 </div>
 
-<div id="outline-container-orgdc9de15" class="outline-4">
-<h4 id="orgdc9de15">Puntos fijos de los automorfismos de recubridores</h4>
-<div class="outline-text-4" id="text-orgdc9de15">
+<div id="outline-container-orgce83378" class="outline-4">
+<h4 id="orgce83378">Puntos fijos de los automorfismos de recubridores</h4>
+<div class="outline-text-4" id="text-orgce83378">
 <p>
 Sean dos homomorfismos de recubridores \(\Phi,\Psi\) con \(\Phi(y) = \Psi(y)\) en algún punto; 
 entonces \(\Phi = \Psi\). Por tanto, todo automorfismo distinto de la identidad actúa 
@@ -1921,9 +2353,9 @@ sin puntos fijos.
 </div>
 </div>
 
-<div id="outline-container-org9d6fc56" class="outline-4">
-<h4 id="org9d6fc56">Existencia de homomorfismos</h4>
-<div class="outline-text-4" id="text-org9d6fc56">
+<div id="outline-container-orgef75022" class="outline-4">
+<h4 id="orgef75022">Existencia de homomorfismos</h4>
+<div class="outline-text-4" id="text-orgef75022">
 <p>
 Existe un homomorfismo de recubridores \(\Phi : (Y_1,p_1) \longrightarrow (Y_2,p_2)\) con \(\Phi(y_1) = y_2\) ssi
 \(p_1_\ast(\Pi(Y_1,y_1)) \subseteq p_2_\ast(\Pi(Y_2,y_2))\). Es isomorfismo en el caso de igualdad.
@@ -1931,9 +2363,9 @@ Existe un homomorfismo de recubridores \(\Phi : (Y_1,p_1) \longrightarrow (Y_2,p
 </div>
 </div>
 
-<div id="outline-container-org3ceb620" class="outline-4">
-<h4 id="org3ceb620">Existencia de isomorfismos</h4>
-<div class="outline-text-4" id="text-org3ceb620">
+<div id="outline-container-orgf26c6fd" class="outline-4">
+<h4 id="orgf26c6fd">Existencia de isomorfismos</h4>
+<div class="outline-text-4" id="text-orgf26c6fd">
 <p>
 Dos recubridores son isomorfos ssi las clases de conjugación asociadas a sus 
 proyecciones al grupo fundamental son iguales:
@@ -1946,20 +2378,20 @@ proyecciones al grupo fundamental son iguales:
 </div>
 </div>
 
-<div id="outline-container-org18713d2" class="outline-4">
-<h4 id="org18713d2">Ejemplos de recubridores</h4>
-<div class="outline-text-4" id="text-org18713d2">
-</div><div id="outline-container-org610be6d" class="outline-5">
-<h5 id="org610be6d">Espacios simplemente conexos</h5>
-<div class="outline-text-5" id="text-org610be6d">
+<div id="outline-container-orgf8118a0" class="outline-4">
+<h4 id="orgf8118a0">Ejemplos de recubridores</h4>
+<div class="outline-text-4" id="text-orgf8118a0">
+</div><div id="outline-container-org6512d26" class="outline-5">
+<h5 id="org6512d26">Espacios simplemente conexos</h5>
+<div class="outline-text-5" id="text-org6512d26">
 <p>
 Sólo se admiten a sí mismos como recubridores.
 </p>
 </div>
 </div>
-<div id="outline-container-org2a311fd" class="outline-5">
-<h5 id="org2a311fd">Circunferencia unidad</h5>
-<div class="outline-text-5" id="text-org2a311fd">
+<div id="outline-container-org9e34c18" class="outline-5">
+<h5 id="org9e34c18">Circunferencia unidad</h5>
+<div class="outline-text-5" id="text-org9e34c18">
 <p>
 Grupo fundamental isomorfo a \(\mathbb{Z}\) y abeliano. Sus subgrupos son de la forma \(m\mathbb{Z}\),
 así que, salvo isomorfismos, sus recubridores son de la forma:
@@ -1972,9 +2404,9 @@ así que, salvo isomorfismos, sus recubridores son de la forma:
 </div>
 </div>
 
-<div id="outline-container-org4178ef7" class="outline-5">
-<h5 id="org4178ef7">Espacio proyectivo</h5>
-<div class="outline-text-5" id="text-org4178ef7">
+<div id="outline-container-org2b1c5d2" class="outline-5">
+<h5 id="org2b1c5d2">Espacio proyectivo</h5>
+<div class="outline-text-5" id="text-org2b1c5d2">
 <p>
 Como \(\mathbb{R}\mathbb{P}^n\) tiene grupo fundamental \(\mathbb{Z}_2\), tiene sólo a \((\mathbb{RP}^n,Id)\) y a \((\mathbb{S}^n,p)\) 
 como recubridores.
@@ -1983,9 +2415,9 @@ como recubridores.
 </div>
 </div>
 
-<div id="outline-container-org957a4c2" class="outline-4">
-<h4 id="org957a4c2">Recubridores de recubridores</h4>
-<div class="outline-text-4" id="text-org957a4c2">
+<div id="outline-container-orga47584d" class="outline-4">
+<h4 id="orga47584d">Recubridores de recubridores</h4>
+<div class="outline-text-4" id="text-orga47584d">
 <p>
 Sean \((Y_1,p_1)\), \((Y_2,p_2)\) dos recubridores, y sea \(\Phi : Y_1 \longrightarrow Y_2\) un homomorfismo de 
 recubridores. Entonces \((Y_1,\Phi)\) es un recubridor de \(Y_2\).
@@ -1993,9 +2425,9 @@ recubridores. Entonces \((Y_1,\Phi)\) es un recubridor de \(Y_2\).
 </div>
 </div>
 
-<div id="outline-container-orgf343a7f" class="outline-4">
-<h4 id="orgf343a7f">Recubridores universales</h4>
-<div class="outline-text-4" id="text-orgf343a7f">
+<div id="outline-container-org4fea565" class="outline-4">
+<h4 id="org4fea565">Recubridores universales</h4>
+<div class="outline-text-4" id="text-org4fea565">
 <p>
 Un recubridor \((\check{X},p)\) de \(X\) es <b>universal</b> si \(\check{X}\) es simplemente conexo.
 </p>
@@ -2003,12 +2435,12 @@ Un recubridor \((\check{X},p)\) de \(X\) es <b>universal</b> si \(\check{X}\) es
 </div>
 </div>
 
-<div id="outline-container-org3126e0f" class="outline-3">
-<h3 id="org3126e0f">3.2. Automorfismos de recubridores</h3>
-<div class="outline-text-3" id="text-org3126e0f">
-</div><div id="outline-container-org6439645" class="outline-4">
-<h4 id="org6439645">Acción del grupo fundamental</h4>
-<div class="outline-text-4" id="text-org6439645">
+<div id="outline-container-orge5e55ac" class="outline-3">
+<h3 id="orge5e55ac">3.2. Automorfismos de recubridores</h3>
+<div class="outline-text-3" id="text-orge5e55ac">
+</div><div id="outline-container-org572272c" class="outline-4">
+<h4 id="org572272c">Acción del grupo fundamental</h4>
+<div class="outline-text-4" id="text-org572272c">
 <p>
 Sea \((Y,p)\) un recubridor y \(x\) punto de \(X\) definimos la acción
 </p>
@@ -2023,19 +2455,19 @@ construyendo \(y \cdot \alpha\) como sigue: sea \(\alpha = [f]\), tomamos \(\che
 </p>
 </div>
 
-<div id="outline-container-org5eddc9c" class="outline-5">
-<h5 id="org5eddc9c"><span class="todo TODO">TODO</span> Está bien definida</h5>
+<div id="outline-container-org3ba17d8" class="outline-5">
+<h5 id="org3ba17d8"><span class="todo TODO">TODO</span> Está bien definida</h5>
 </div>
-<div id="outline-container-org4cefe96" class="outline-5">
-<h5 id="org4cefe96"><span class="todo TODO">TODO</span> Es una acción transitiva</h5>
+<div id="outline-container-org622a9e9" class="outline-5">
+<h5 id="org622a9e9"><span class="todo TODO">TODO</span> Es una acción transitiva</h5>
 </div>
-<div id="outline-container-orgeb1fb7d" class="outline-5">
-<h5 id="orgeb1fb7d"><span class="todo TODO">TODO</span> Espacios homogéneos.</h5>
+<div id="outline-container-org4cb42b9" class="outline-5">
+<h5 id="org4cb42b9"><span class="todo TODO">TODO</span> Espacios homogéneos.</h5>
 </div>
 </div>
-<div id="outline-container-org61ad842" class="outline-4">
-<h4 id="org61ad842">Índice y hojas del recubridor</h4>
-<div class="outline-text-4" id="text-org61ad842">
+<div id="outline-container-org8b866c6" class="outline-4">
+<h4 id="org8b866c6">Índice y hojas del recubridor</h4>
+<div class="outline-text-4" id="text-org8b866c6">
 <p>
 Sea \((Y,p)\) recubridor; su número de hojas es el índice del subgrupo  \(p_\ast(\Pi(Y,y))\) 
 en \(\Pi(X,x)\); donde \(y \in p^{-1}(x)\).
@@ -2043,9 +2475,9 @@ en \(\Pi(X,x)\); donde \(y \in p^{-1}(x)\).
 </div>
 </div>
 
-<div id="outline-container-org6df5e38" class="outline-4">
-<h4 id="org6df5e38">Automorfismos del espacio homogéneo</h4>
-<div class="outline-text-4" id="text-org6df5e38">
+<div id="outline-container-org85984ae" class="outline-4">
+<h4 id="org85984ae">Automorfismos del espacio homogéneo</h4>
+<div class="outline-text-4" id="text-org85984ae">
 <p>
 Un <b>automorfismo del espacio homogéneo</b> \(p^{-1}(x)\) es una biyección
 \(\varphi : p^{-1}(x) \longrightarrow p^{-1}(x)\) tal que:
@@ -2057,9 +2489,9 @@ Un <b>automorfismo del espacio homogéneo</b> \(p^{-1}(x)\) es una biyección
 </div>
 </div>
 
-<div id="outline-container-org19ba6d3" class="outline-4">
-<h4 id="org19ba6d3">Automorfismos del espacio homogéneo y automorfismos de recubridores</h4>
-<div class="outline-text-4" id="text-org19ba6d3">
+<div id="outline-container-orgf0e1c34" class="outline-4">
+<h4 id="orgf0e1c34">Automorfismos del espacio homogéneo y automorfismos de recubridores</h4>
+<div class="outline-text-4" id="text-orgf0e1c34">
 <p>
 Como dado un automorfismo de recubridores \(\Phi\in Aut(Y,p)\), tenemos que 
 \(\Phi(y\cdot \alpha) = \Phi(y)\cdot\alpha\), tenemos \(\Phi|_{p^{-1}(x)}\) un automorfismo del espacio homogéneo.
@@ -2071,21 +2503,21 @@ De hecho, es isomorfismo de grupos:
 </p>
 </div>
 
-<div id="outline-container-org0b0ab24" class="outline-5">
-<h5 id="org0b0ab24">Demostración</h5>
-<div class="outline-text-5" id="text-org0b0ab24">
-</div><div id="outline-container-orgf117acd" class="outline-6">
-<h6 id="orgf117acd">La restricción es automorfismo en el espacio homogéneo</h6>
-<div class="outline-text-6" id="text-orgf117acd">
+<div id="outline-container-org2a36723" class="outline-5">
+<h5 id="org2a36723">Demostración</h5>
+<div class="outline-text-5" id="text-org2a36723">
+</div><div id="outline-container-org035f7b3" class="outline-6">
+<h6 id="org035f7b3">La restricción es automorfismo en el espacio homogéneo</h6>
+<div class="outline-text-6" id="text-org035f7b3">
 <p>
 Sea \(y\in p^{-1}(x)\), tenemos \(p(\Phi(y)) = p(y) = x\), luego \(\Phi(y) \in p^{-1}(x)\).
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8b18dfa" class="outline-6">
-<h6 id="org8b18dfa">Los automorfismos de recubridor respetan la acción de grupos</h6>
-<div class="outline-text-6" id="text-org8b18dfa">
+<div id="outline-container-org90590c9" class="outline-6">
+<h6 id="org90590c9">Los automorfismos de recubridor respetan la acción de grupos</h6>
+<div class="outline-text-6" id="text-org90590c9">
 <p>
 Sea \([f]=\alpha\), y sea \(\check{f}\) su levantamiento en \(y\); si considero \(\Phi(\check{f})\) puedo 
 comprobar que \(\Phi(\check{f})(0) = \Phi(y)\) y que \(p \circ \Phi (\check{f}) = f\), luego es el levantamiento
@@ -2098,9 +2530,9 @@ de \(f\) en \(\Phi(y)\). Así:
 </div>
 </div>
 
-<div id="outline-container-org3de94c7" class="outline-6">
-<h6 id="org3de94c7">Es inyectiva</h6>
-<div class="outline-text-6" id="text-org3de94c7">
+<div id="outline-container-org44a2a50" class="outline-6">
+<h6 id="org44a2a50">Es inyectiva</h6>
+<div class="outline-text-6" id="text-org44a2a50">
 <p>
 Llamamos \(F = (\bullet |_{p^{-1}(x)})\). Sea \(\Phi\in\ker(F)\), entonces \(\Phi|_{p^{-1}(x)} = Id\); pero dos
 homomorfismos de recubridores coindiciendo en un punto son iguales.
@@ -2108,9 +2540,9 @@ homomorfismos de recubridores coindiciendo en un punto son iguales.
 </div>
 </div>
 
-<div id="outline-container-org6887a36" class="outline-6">
-<h6 id="org6887a36">Es sobreyectiva</h6>
-<div class="outline-text-6" id="text-org6887a36">
+<div id="outline-container-org1ac8a5a" class="outline-6">
+<h6 id="org1ac8a5a">Es sobreyectiva</h6>
+<div class="outline-text-6" id="text-org1ac8a5a">
 <p>
 Sea \(\varphi\in Aut(p^{-1}(x))\). Por el lema de existencia:
 </p>
@@ -2137,9 +2569,9 @@ H_{\varphi(y)}
 </div>
 </div>
 
-<div id="outline-container-orgb868fd6" class="outline-4">
-<h4 id="orgb868fd6">Identificación de automorfismos de un espacio homogéneo</h4>
-<div class="outline-text-4" id="text-orgb868fd6">
+<div id="outline-container-org1d6f8c8" class="outline-4">
+<h4 id="org1d6f8c8">Identificación de automorfismos de un espacio homogéneo</h4>
+<div class="outline-text-4" id="text-org1d6f8c8">
 <p>
 Dado \(E\) espacio homogéneo sobre \(G\), existe el isomorfismo:
 </p>
@@ -2155,9 +2587,9 @@ grupo en el que es normal.
 </div>
 </div>
 
-<div id="outline-container-orgdeb9bc2" class="outline-4">
-<h4 id="orgdeb9bc2">Identificación de automorfismos del recubridor</h4>
-<div class="outline-text-4" id="text-orgdeb9bc2">
+<div id="outline-container-orgbc97818" class="outline-4">
+<h4 id="orgbc97818">Identificación de automorfismos del recubridor</h4>
+<div class="outline-text-4" id="text-orgbc97818">
 <p>
 Aplicando las dos identificaciones anteriores:
 </p>
@@ -2168,9 +2600,9 @@ Aplicando las dos identificaciones anteriores:
 </div>
 </div>
 
-<div id="outline-container-org558cb78" class="outline-4">
-<h4 id="org558cb78">Recubridores regulares</h4>
-<div class="outline-text-4" id="text-org558cb78">
+<div id="outline-container-org343c9ea" class="outline-4">
+<h4 id="org343c9ea">Recubridores regulares</h4>
+<div class="outline-text-4" id="text-org343c9ea">
 <p>
 Un recubridor es <b>regular</b> cuando \(p_\ast(\Pi(Y,y))\) es subgrupo normal de 
 \(\Pi(X,x)\) siendo \(y \in p^{-1}(x)\). Equivalen, por conjugación:
@@ -2183,9 +2615,9 @@ Un recubridor es <b>regular</b> cuando \(p_\ast(\Pi(Y,y))\) es subgrupo normal d
 </div>
 </div>
 
-<div id="outline-container-org7d051c4" class="outline-4">
-<h4 id="org7d051c4">Propiedades de recubridores regulares</h4>
-<div class="outline-text-4" id="text-org7d051c4">
+<div id="outline-container-org9445b5c" class="outline-4">
+<h4 id="org9445b5c">Propiedades de recubridores regulares</h4>
+<div class="outline-text-4" id="text-org9445b5c">
 <p>
 Sea \((Y,p)\) un recubridor regular:
 </p>
@@ -2198,12 +2630,12 @@ el orden de \(\Pi(X,x)\).</li>
 </div>
 </div>
 
-<div id="outline-container-orgd17acaa" class="outline-4">
-<h4 id="orgd17acaa">Ejemplos de recubridores</h4>
-<div class="outline-text-4" id="text-orgd17acaa">
-</div><div id="outline-container-orge9a3f10" class="outline-5">
-<h5 id="orge9a3f10">Circunferencia, recubridor universal</h5>
-<div class="outline-text-5" id="text-orge9a3f10">
+<div id="outline-container-org211b471" class="outline-4">
+<h4 id="org211b471">Ejemplos de recubridores</h4>
+<div class="outline-text-4" id="text-org211b471">
+</div><div id="outline-container-orgf6ead41" class="outline-5">
+<h5 id="orgf6ead41">Circunferencia, recubridor universal</h5>
+<div class="outline-text-5" id="text-orgf6ead41">
 <p>
 Tenemos el recubridor \((\mathbb{R},p)\) de \(\mathbb{S}\), que tiene como automorfismos:
 </p>
@@ -2214,9 +2646,9 @@ Tenemos el recubridor \((\mathbb{R},p)\) de \(\mathbb{S}\), que tiene como autom
 </div>
 </div>
 
-<div id="outline-container-org7a20954" class="outline-5">
-<h5 id="org7a20954">Espacio proyectivo</h5>
-<div class="outline-text-5" id="text-org7a20954">
+<div id="outline-container-org9010c98" class="outline-5">
+<h5 id="org9010c98">Espacio proyectivo</h5>
+<div class="outline-text-5" id="text-org9010c98">
 <p>
 Siendo \((\mathbb{S}^n,p)\) un recubridor de dos hojas de \(\mathbb{RP}^n\), sus automorfismos 
 vienen dados por:
@@ -2228,9 +2660,9 @@ vienen dados por:
 </div>
 </div>
 
-<div id="outline-container-org5d9de5a" class="outline-5">
-<h5 id="org5d9de5a">Circunferencia, otros recubridores</h5>
-<div class="outline-text-5" id="text-org5d9de5a">
+<div id="outline-container-org6d28300" class="outline-5">
+<h5 id="org6d28300">Circunferencia, otros recubridores</h5>
+<div class="outline-text-5" id="text-org6d28300">
 <p>
 Sean los recubridores \((\mathbb{S}^1,p_n)\) de \(\mathbb{S}^1\). Sus grupos de automorfismos son:
 </p>
@@ -2243,9 +2675,9 @@ Sean los recubridores \((\mathbb{S}^1,p_n)\) de \(\mathbb{S}^1\). Sus grupos de 
 </div>
 </div>
 
-<div id="outline-container-org42b8d73" class="outline-4">
-<h4 id="org42b8d73">Teorema de Borsuk-Ulam</h4>
-<div class="outline-text-4" id="text-org42b8d73">
+<div id="outline-container-org9f6025f" class="outline-4">
+<h4 id="org9f6025f">Teorema de Borsuk-Ulam</h4>
+<div class="outline-text-4" id="text-org9f6025f">
 <p>
 No existe una aplicación continua \(F : \mathbb{S}^2 \longrightarrow \mathbb{S}^1\) respetando antípodas, es decir,
 \(F(-x) = -F(x)\).
@@ -2254,21 +2686,21 @@ No existe una aplicación continua \(F : \mathbb{S}^2 \longrightarrow \mathbb{S}
 </div>
 </div>
 
-<div id="outline-container-org181bf63" class="outline-3">
-<h3 id="org181bf63">4. Recubridores regulares y espacios cocientes</h3>
-<div class="outline-text-3" id="text-org181bf63">
-</div><div id="outline-container-org6e9a7aa" class="outline-4">
-<h4 id="org6e9a7aa">Acción transitiva de automorfismos de recubridores regulares</h4>
-<div class="outline-text-4" id="text-org6e9a7aa">
+<div id="outline-container-org53d5e7a" class="outline-3">
+<h3 id="org53d5e7a">4. Recubridores regulares y espacios cocientes</h3>
+<div class="outline-text-3" id="text-org53d5e7a">
+</div><div id="outline-container-orgd1ac5fd" class="outline-4">
+<h4 id="orgd1ac5fd">Acción transitiva de automorfismos de recubridores regulares</h4>
+<div class="outline-text-4" id="text-orgd1ac5fd">
 <p>
 \(Aut(Y,p)\) actúa transitivamente sobre \(p^{-1}(x)\) ssi \((Y,p)\) es regular.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0e5c360" class="outline-4">
-<h4 id="org0e5c360">Acciones discontinuas</h4>
-<div class="outline-text-4" id="text-org0e5c360">
+<div id="outline-container-org4604409" class="outline-4">
+<h4 id="org4604409">Acciones discontinuas</h4>
+<div class="outline-text-4" id="text-org4604409">
 <p>
 Un \(G \subset Homeo(Y)\) <b>actúa discontinuamente</b> si:
 </p>
@@ -2280,9 +2712,9 @@ Un \(G \subset Homeo(Y)\) <b>actúa discontinuamente</b> si:
 </div>
 </div>
 
-<div id="outline-container-org50671c1" class="outline-4">
-<h4 id="org50671c1">Recubrimiento de cocientes</h4>
-<div class="outline-text-4" id="text-org50671c1">
+<div id="outline-container-org5b18ba0" class="outline-4">
+<h4 id="org5b18ba0">Recubrimiento de cocientes</h4>
+<div class="outline-text-4" id="text-org5b18ba0">
 <p>
 Sea \(G \subset Homeo(Y)\) actuando propia y discontinuamente sobre \(Y\). Si
 \(p : Y \longrightarrow Y/G\) es proyección al cociente, \((Y,p)\) es recubridor regular de \(Y/G\), 
@@ -2291,9 +2723,9 @@ con \(Aut(Y,p) = G\).
 </div>
 </div>
 
-<div id="outline-container-org65284ea" class="outline-4">
-<h4 id="org65284ea">Espacios lente</h4>
-<div class="outline-text-4" id="text-org65284ea">
+<div id="outline-container-orgd656b6e" class="outline-4">
+<h4 id="orgd656b6e">Espacios lente</h4>
+<div class="outline-text-4" id="text-orgd656b6e">
 <p>
 Sean las aplicaciones \(\Phi_k : \mathbb{S}^{2n+1} \longrightarrow \mathbb{S}^{2n+1}\) definidas por:
 </p>
@@ -2314,12 +2746,12 @@ lente</b> al cociente:
 </div>
 </div>
 
-<div id="outline-container-orgceb6bbc" class="outline-3">
-<h3 id="orgceb6bbc">5. Existencia de espacios recubridores</h3>
-<div class="outline-text-3" id="text-orgceb6bbc">
-</div><div id="outline-container-org6affac0" class="outline-4">
-<h4 id="org6affac0">Caso del recubridor universal</h4>
-<div class="outline-text-4" id="text-org6affac0">
+<div id="outline-container-org5de0fde" class="outline-3">
+<h3 id="org5de0fde">5. Existencia de espacios recubridores</h3>
+<div class="outline-text-3" id="text-org5de0fde">
+</div><div id="outline-container-org57be76c" class="outline-4">
+<h4 id="org57be76c">Caso del recubridor universal</h4>
+<div class="outline-text-4" id="text-org57be76c">
 <p>
 Si \(X\) admite recubridor universal, toda clase de conjugación de subgrupos de
 \(\Pi(X,x)\) está asociada a un recubridor.
@@ -2327,18 +2759,18 @@ Si \(X\) admite recubridor universal, toda clase de conjugación de subgrupos de
 </div>
 </div>
 
-<div id="outline-container-org286aa82" class="outline-4">
-<h4 id="org286aa82">Espacios semilocalmente simplemente conexos</h4>
-<div class="outline-text-4" id="text-org286aa82">
+<div id="outline-container-org936c159" class="outline-4">
+<h4 id="org936c159">Espacios semilocalmente simplemente conexos</h4>
+<div class="outline-text-4" id="text-org936c159">
 <p>
 Todo \(x\) posee un entorno abierto y arcoconexo \(U_x\) tal que el homomorfismo 
 inducido por la inclusión \(\Pi(U_x,x) \longrightarrow \Pi(X,x)\) es trivial.
 </p>
 </div>
 
-<div id="outline-container-orgf372c9d" class="outline-5">
-<h5 id="orgf372c9d">Contraejemplo</h5>
-<div class="outline-text-5" id="text-orgf372c9d">
+<div id="outline-container-org5ef40e3" class="outline-5">
+<h5 id="org5ef40e3">Contraejemplo</h5>
+<div class="outline-text-5" id="text-org5ef40e3">
 <p>
 El espacio formado por infinitos círculos de radio cada vez menor y unidos 
 en un punto:
@@ -2356,27 +2788,27 @@ cumple que cualquier entorno del \((0,0)\) contiene un lazo no trivial.
 </div>
 </div>
 
-<div id="outline-container-orgeee02e1" class="outline-4">
-<h4 id="orgeee02e1">Existencia del recubridor universal</h4>
-<div class="outline-text-4" id="text-orgeee02e1">
+<div id="outline-container-org882e442" class="outline-4">
+<h4 id="org882e442">Existencia del recubridor universal</h4>
+<div class="outline-text-4" id="text-org882e442">
 <p>
 Un espacio semilocalmente simplemente conexo tiene recubridor universal.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org58f506d" class="outline-4">
-<h4 id="org58f506d">Teorema de existencia de recubridores</h4>
-<div class="outline-text-4" id="text-org58f506d">
+<div id="outline-container-org009759f" class="outline-4">
+<h4 id="org009759f">Teorema de existencia de recubridores</h4>
+<div class="outline-text-4" id="text-org009759f">
 <p>
 Sea \(X\) semilocalmente simplemente conexo. Para toda clase de conjugación de 
 subgrupos de \(\Pi(X,x)\), existe un recubridor que la tiene asociada.
 </p>
 </div>
 
-<div id="outline-container-org8b99dd9" class="outline-5">
-<h5 id="org8b99dd9">Demostración</h5>
-<div class="outline-text-5" id="text-org8b99dd9">
+<div id="outline-container-org87de243" class="outline-5">
+<h5 id="org87de243">Demostración</h5>
+<div class="outline-text-5" id="text-org87de243">
 <p>
 Sea \(C\) clase de conjugación de algún \(H < \Pi(X,x)\). Sea \(Y\) recubridor universal 
 de \(X\), que existe por ser semilocalmente simplemente conexo, cumpliendo 
@@ -2430,9 +2862,9 @@ tengo otro \(\beta \in H\), debe cumplir \(\phi(y) = y\cdot\beta\) para algún \
 </div>
 </div>
 
-<div id="outline-container-orgedc0780" class="outline-4">
-<h4 id="orgedc0780">Clasificación de recubridores del círculo</h4>
-<div class="outline-text-4" id="text-orgedc0780">
+<div id="outline-container-org068f4fe" class="outline-4">
+<h4 id="org068f4fe">Clasificación de recubridores del círculo</h4>
+<div class="outline-text-4" id="text-org068f4fe">
 <p>
 El círculo \(\mathbb{S}^1\) tiene como grupo fundamental a \(\mathbb{Z}\), que es abeliano y tiene como 
 subgrupos a \(n\mathbb{Z}\).
@@ -2446,9 +2878,9 @@ subgrupos a \(n\mathbb{Z}\).
 </div>
 </div>
 
-<div id="outline-container-org22b5567" class="outline-4">
-<h4 id="org22b5567">Clasificación de recubridores del toro</h4>
-<div class="outline-text-4" id="text-org22b5567">
+<div id="outline-container-orgaf03ae6" class="outline-4">
+<h4 id="orgaf03ae6">Clasificación de recubridores del toro</h4>
+<div class="outline-text-4" id="text-orgaf03ae6">
 <p>
 El toro \(\mathbb{S}^1\times\mathbb{S}^1\) tiene como grupo fundamental a \(\mathbb{Z}\times\mathbb{Z}\), que tiene como subgrupos 
 a los generados por un generador \(<(a,b)>\) o a los generados por dos, de la 
@@ -2464,9 +2896,9 @@ forma \(<(a,b),(0,d)>\).
 </div>
 </div>
 
-<div id="outline-container-org02167f0" class="outline-4">
-<h4 id="org02167f0">Clasificación de recubridores del cilindro</h4>
-<div class="outline-text-4" id="text-org02167f0">
+<div id="outline-container-org41f5d84" class="outline-4">
+<h4 id="org41f5d84">Clasificación de recubridores del cilindro</h4>
+<div class="outline-text-4" id="text-org41f5d84">
 <p>
 El cilindro \(\mathbb{S}\times\mathbb{R}\) tiene como grupo fundamental a \(\mathbb{Z}\), que es abeliano y tiene 
 como subgrupos a \(n\mathbb{Z}\).
@@ -2480,9 +2912,9 @@ como subgrupos a \(n\mathbb{Z}\).
 </div>
 </div>
 
-<div id="outline-container-org6137e14" class="outline-4">
-<h4 id="org6137e14">Clasificación de recubridores de la cinta de Möbius.</h4>
-<div class="outline-text-4" id="text-org6137e14">
+<div id="outline-container-org4b230a2" class="outline-4">
+<h4 id="org4b230a2">Clasificación de recubridores de la cinta de Möbius.</h4>
+<div class="outline-text-4" id="text-org4b230a2">
 <p>
 La cinta de Möbius tiene tipo de homotopía del círculo y por tanto grupo 
 fundamental \(\mathbb{Z}\). 
@@ -2500,10 +2932,2503 @@ un recubrimiento de dos hojas del <b>cilindro</b> a la banda de Möbius.</li>
 </div>
 </div>
 </div>
+<div id="outline-container-org5453d0b" class="outline-2">
+<h2 id="org5453d0b">3. Superficies compactas</h2>
+<div class="outline-text-2" id="text-org5453d0b">
+</div><div id="outline-container-orga434a55" class="outline-3">
+<h3 id="orga434a55">3.0. Clasificación de variedades 1-dimensionales</h3>
+<div class="outline-text-3" id="text-orga434a55">
+</div><div id="outline-container-orgee5e894" class="outline-4">
+<h4 id="orgee5e894">Variedad 1-dimensional</h4>
+<div class="outline-text-4" id="text-orgee5e894">
+<p>
+Una variedad topológica 1-dimensional es un espacio topológico que
+sea:
+</p>
+
+<ul class="org-ul">
+<li>Conexo.</li>
+<li>\(T_2\), <a href="https://en.wikipedia.org/wiki/Hausdorff_space">Hausdorff</a>.</li>
+<li>2AN, <a href="https://en.wikipedia.org/wiki/Second-countable_space">segundo axioma de numerabilidad</a>.</li>
+</ul>
+
+<p>
+y tal que:
+</p>
+
+<p>
+\[\forall x \in X : \exists x \in U_x \in \tau:\quad
+U_x \cong\: ]a,b[\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e85132" class="outline-4">
+<h4 id="org9e85132">Ejemplos</h4>
+<div class="outline-text-4" id="text-org9e85132">
+</div><div id="outline-container-org2cc9b9e" class="outline-5">
+<h5 id="org2cc9b9e">Los reales y el círculo</h5>
+<div class="outline-text-5" id="text-org2cc9b9e">
+<p>
+\(\mathbb{R}\) es variedad trivialmente. El círculo \(\mathbb{S}^1\) es también una variedad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8d6cfc0" class="outline-5">
+<h5 id="org8d6cfc0">Contraejemplo: lemniscata</h5>
+<div class="outline-text-5" id="text-org8d6cfc0">
+<p>
+Un espacio que se cruza consigo mismo formando una lemniscata
+es un contraejemplo. No hay abierto homeomorfo a un entorno del cruce.
+</p>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./images/lemniscata.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgedd197e" class="outline-5">
+<h5 id="orgedd197e">Contraejemplo: folium</h5>
+<div class="outline-text-5" id="text-orgedd197e">
+<p>
+Una curva inyectiva y continua que se aproxima a un punto sin contenerlo.
+Ninguno de los entornos del punto crítico tiene un entorno abierto
+homeomorfo a un intervalo.
+</p>
+
+<div class="org-center">
+
+<div class="figure">
+<p><img src="./images//folium.png" alt="folium.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad69c5d" class="outline-5">
+<h5 id="orgad69c5d">Contraejemplo de 2AN</h5>
+<div class="outline-text-5" id="text-orgad69c5d">
+<p>
+No existe una base numerable para el punto \((0,0)\) si usamos la
+topología que une la recta izquierda con cada una de las rectas
+derechas de forma separada, no podemos encontrar una base
+numerable.
+</p>
+
+<p>
+\[
+X
+=
+\{(x,0) \mid x<0\}
+\cup
+\left(
+\bigcup_{y \in \mathbb{R}\setminus\{0\}}
+\{(x,y) \mid x \geq 0\}
+\right)\]
+</p>
+
+<div class="org-center">
+
+<div class="figure">
+<p><img src="./images//2an.png" alt="2an.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7bfd05d" class="outline-4">
+<h4 id="org7bfd05d">Clasificación de variedades topológicas en dimensión 1</h4>
+<div class="outline-text-4" id="text-org7bfd05d">
+<p>
+Toda variedad topológica 1-dimensional es homeomorfa a \(\mathbb{R}\) o a \(\mathbb{S}^1\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7b30d15" class="outline-3">
+<h3 id="org7b30d15">3.1. Variedades topológicas</h3>
+<div class="outline-text-3" id="text-org7b30d15">
+</div><div id="outline-container-org6d5ac97" class="outline-4">
+<h4 id="org6d5ac97">Espacio localmente euclídeo</h4>
+<div class="outline-text-4" id="text-org6d5ac97">
+<p>
+Un espacio \(X\) es localmente euclídeo cuando cada punto admite un
+entorno abierto homeomorfo a un abierto de \(\mathbb{R}^n\).
+</p>
+</div>
+
+<div id="outline-container-org4d977c6" class="outline-5">
+<h5 id="org4d977c6">Definición equivalente</h5>
+<div class="outline-text-5" id="text-org4d977c6">
+<p>
+Cada punto admite un entorno abierto homeomorfo a una bola 
+abierta de \(\mathbb{R}^n\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdba01cd" class="outline-5">
+<h5 id="orgdba01cd">Carta</h5>
+<div class="outline-text-5" id="text-orgdba01cd">
+<p>
+Cada entorno con su homeomorfismo forma una carta local \((U_x,\phi)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5b59adc" class="outline-5">
+<h5 id="org5b59adc">Bola euclídea</h5>
+<div class="outline-text-5" id="text-org5b59adc">
+<p>
+Carta homeomorfa a la bola unidad euclídea.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8cee4c5" class="outline-4">
+<h4 id="org8cee4c5">Variedad topológica</h4>
+<div class="outline-text-4" id="text-org8cee4c5">
+<p>
+Una variedad topológica es un espacio topológico cumpliendo:
+</p>
+
+<ol class="org-ol">
+<li>Localmente euclídeo.</li>
+<li>Hausdorff \(T_2\).</li>
+<li>Segundo axioma de numerabilidad 2AN.</li>
+</ol>
+
+<p>
+A una variedad de dimensión 2 la llamamos <b>superficie</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d0c243" class="outline-4">
+<h4 id="org2d0c243">Ejemplos de variedades topológicas</h4>
+<div class="outline-text-4" id="text-org2d0c243">
+</div><div id="outline-container-org352e8e9" class="outline-5">
+<h5 id="org352e8e9">Los espacios euclídeos</h5>
+</div>
+<div id="outline-container-orgd327f84" class="outline-5">
+<h5 id="orgd327f84">Las esferas n-dimensionales</h5>
+</div>
+<div id="outline-container-org34346fb" class="outline-5">
+<h5 id="org34346fb">Recubridores de espacios localmente euclídeos</h5>
+</div>
+<div id="outline-container-orgc85c196" class="outline-5">
+<h5 id="orgc85c196">Recubiertos por espacios localmente euclídeos</h5>
+</div>
+</div>
+
+<div id="outline-container-org50f0dc5" class="outline-4">
+<h4 id="org50f0dc5">Teorema de la invarianza de la dimensión</h4>
+<div class="outline-text-4" id="text-org50f0dc5">
+<p>
+Si \(U \subseteq \mathbb{R}^n\) y \(V \subseteq \mathbb{R}^m\) son abiertos homeomorfos, \(n=m\).
+Por tanto cada variedad tiene una dimensión asignada.
+</p>
+</div>
+
+<div id="outline-container-org0a41148" class="outline-5">
+<h5 id="org0a41148"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org6a496d2" class="outline-4">
+<h4 id="org6a496d2">Base de las cartas</h4>
+<div class="outline-text-4" id="text-org6a496d2">
+<p>
+Los dominios de las cartas forman una base de la topología.
+</p>
+</div>
+
+<div id="outline-container-orgc70c5f1" class="outline-5">
+<h5 id="orgc70c5f1">Demostración</h5>
+<div class="outline-text-5" id="text-orgc70c5f1">
+<p>
+Usamos simplemente que la intersección de un abierto con
+una carta es una carta con el homeomorfismo restricción.
+</p>
+
+<p>
+Dado un abierto, cada punto suyo tiene un entorno que es
+una carta. Al intersecarlo con el abierto da otra carta,
+y finalmente el abierto inicial es unión de todas las
+cartas en cada punto.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6325d6d" class="outline-4">
+<h4 id="org6325d6d">Bola regular euclídea</h4>
+<div class="outline-text-4" id="text-org6325d6d">
+<p>
+Sea \(B \subseteq X\) una bola euclídea, es regular cuando:
+</p>
+
+<ol class="org-ol">
+<li>Existe \(B' \subseteq X\) bola euclídea con \(\overline{B} \subseteq B'\).</li>
+<li>Existe \(r > 0\) y una carta \(\phi : B' \longrightarrow B(0,2r)\) tal que \(\phi(\overline{B}) = \overline{B(0,r)}\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org7113dc8" class="outline-5">
+<h5 id="org7113dc8">Contraejemplos</h5>
+<div class="outline-text-5" id="text-org7113dc8">
+<p>
+Una esfera sin un punto es una bola euclídea pero no una bola
+regular euclídea.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3c5b91b" class="outline-4">
+<h4 id="org3c5b91b">Base de las bolas regulares euclídeas</h4>
+<div class="outline-text-4" id="text-org3c5b91b">
+<p>
+Las bolas regulares euclídeas forman una base de la topología de una
+variedad topológica.
+</p>
+</div>
+
+<div id="outline-container-org491f153" class="outline-5">
+<h5 id="org491f153">Existencia de bola regular euclídea</h5>
+<div class="outline-text-5" id="text-org491f153">
+<p>
+En una variedad topológica sea \(p \in S\) y \(U \subseteq S\) entorno de \(p\) abierto.
+Existe una bola regular euclídea con \(p \in B \subseteq U\).
+</p>
+</div>
+
+<div id="outline-container-org056f588" class="outline-6">
+<h6 id="org056f588">Demostración</h6>
+<div class="outline-text-6" id="text-org056f588">
+<p>
+Es localmente euclídeo, luego localmente habrá una bola centrada
+en la imagen de \(p\) y otra de mitad de radio. Su preimagen será
+regular euclídea.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6386705" class="outline-5">
+<h5 id="org6386705">Demostración</h5>
+<div class="outline-text-5" id="text-org6386705">
+<p>
+En cualquier entorno existe una bola regular euclídea entre
+el punto y el entorno.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5b8943f" class="outline-4">
+<h4 id="org5b8943f">Autohomeomorfismo de superficies conexas</h4>
+<div class="outline-text-4" id="text-org5b8943f">
+<p>
+Sea \(S\) superficie conexa con \(p,q \in S\). Entonces existe \(f : S \overset{\cong}\longrightarrow S\)
+con \(f(p) = q\).
+</p>
+</div>
+
+<div id="outline-container-org5a6eec5" class="outline-5">
+<h5 id="org5a6eec5">Lema al endomorfismo</h5>
+<div class="outline-text-5" id="text-org5a6eec5">
+<p>
+Existe una constante \(\varepsilon \in ]0,1]\) tal que dado \(x \in B(0,\varepsilon)\), existe
+un \(F : \mathbb{R}^2 \overset{\cong}\longrightarrow \mathbb{R}^2\) con:
+</p>
+
+<ol class="org-ol">
+<li>\(F(0) = x\).</li>
+<li>\(F|_{\mathbb{R}^2\setminus D(0,2)}\) es la identidad.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc180e00" class="outline-6">
+<h6 id="orgc180e00"><span class="todo TODO">TODO</span> Demostración</h6>
+</div>
+</div>
+
+<div id="outline-container-orgaa97f4b" class="outline-5">
+<h5 id="orgaa97f4b">Demostración</h5>
+<div class="outline-text-5" id="text-orgaa97f4b">
+<p>
+Consideremos la relación de equivalencia \(pRq\) cuando \(\exists f : S \cong S\)
+con \(f(p) = q\). Veamos que \([p]\) es abierta por \(p\) arbitrario y por
+tanto, \([p] = S\).
+</p>
+</div>
+
+<div id="outline-container-org9fb916b" class="outline-6">
+<h6 id="org9fb916b">La clase de equivalencia es abierta</h6>
+<div class="outline-text-6" id="text-org9fb916b">
+<p>
+Dado \(p\), tenemos \(O\) disco <a href="#org3c5b91b">regular</a> centrado en él y \(O'\) disco 
+euclídeo cubriendo su clausura y cumpliendo:
+</p>
+
+<p>
+\[
+\exists \phi : O' \overset{\cong}\longrightarrow D(0,\varepsilon)
+\]
+</p>
+
+<p>
+con \(\phi(O) = \overline{D(0,\varepsilon/2)}\). El lema nos da una \(F_x(0) = x\).
+</p>
+
+<p>
+Definimos \(D_0 = \phi^{-1}(D(0,\varepsilon)) \subset D'\), abierto cubriendo a \(p\). Y para
+cualquier \(y \in D_0\), definimos la función \(G_y : S \cong S\) como:
+</p>
+
+<p>
+\[
+G_y(z) = \left\{\begin{array}{ll} 
+z & \mbox{if } z \notin O'  \\
+\phi^{-1} \circ F_{\phi(y)} \circ \phi& \mbox{if } z \in O'
+\end{array} 
+\right.
+\]
+</p>
+
+<p>
+Lo que nos da \(D_0 \subseteq [p]\), haciéndolo abierto.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7d5d6b" class="outline-4">
+<h4 id="orgb7d5d6b">Recubridor de una superficie</h4>
+<div class="outline-text-4" id="text-orgb7d5d6b">
+<p>
+Sea \(\pi : \widetilde{X} \longrightarrow X\) recubridor:
+</p>
+
+<ol class="org-ol">
+<li>Si \(\widetilde X\) es una superficie y \(A_\pi = \{(x,y) \in \widetilde{X} \times \widetilde{X} \mid \pi(x) = \pi(y) \}\)
+es cerrado, entonces \(X\) es superficie.</li>
+<li>Si \(X\) es superficie, \(\widetilde{X}\) es superficie.</li>
+</ol>
+</div>
+
+<div id="outline-container-org1cee534" class="outline-5">
+<h5 id="org1cee534"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org135b1e3" class="outline-3">
+<h3 id="org135b1e3">3.2. Complejos simpliciales</h3>
+<div class="outline-text-3" id="text-org135b1e3">
+</div><div id="outline-container-org3ecbb88" class="outline-4">
+<h4 id="org3ecbb88">P-símplice</h4>
+<div class="outline-text-4" id="text-org3ecbb88">
+<p>
+Sean \(v_1,\dots,v_p \in \mathbb{R}^n\) afínmente independientes. Se define el <b>p-símplice</b>
+generado como:
+</p>
+
+<p>
+\[
+\langle v_0,\dots,v_p \rangle
+=
+\left\{\;
+\sum_{j=0}^p \lambda_jv_j 
+\;\middle|\;
+0 \leq \lambda_j \leq 1, \sum_{j=0}^p \lambda_j = 1
+\;\right\}
+\]
+</p>
+
+<p>
+Llamamos a los \(v_i\) <b>vértices</b> del p-símplice y al entero \(p\) se le llama
+<b>dimensión</b> del p-símplice.
+</p>
+</div>
+
+<div id="outline-container-org76009cc" class="outline-5">
+<h5 id="org76009cc">P-símplice abierto</h5>
+<div class="outline-text-5" id="text-org76009cc">
+<p>
+Se define el <b>p-símplice abierto</b> como:
+</p>
+
+<p>
+\[
+{\cal O}(\langle v_0,\dots,v_p \rangle)
+=
+\left\{
+\sum_{j=0}^p \lambda_jv_j 
+\;\middle|\;
+0 < \lambda_j \leq 1, \sum_{j=0}^p \lambda_j = 1
+\right\}
+\]
+</p>
+
+<p>
+Observemos que en general no es igual al interior de un p-símplice,
+que puede ser vacío en una dimensión alta.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf554c05" class="outline-5">
+<h5 id="orgf554c05">Caras de un p-símplice</h5>
+<div class="outline-text-5" id="text-orgf554c05">
+<p>
+Las <b>caras</b> de un p-símplice \(\sigma\) son los k-símplices generados por \(k+1\) 
+de sus vértices. Se notan por \(\tau < \sigma\).
+</p>
+
+<p>
+Llamamos <b>aristas</b> a las caras de dimensión 1 y <b>triángulos</b> a las 
+caras de dimensión 2.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org95da9b5" class="outline-4">
+<h4 id="org95da9b5">Complejo simplicial</h4>
+<div class="outline-text-4" id="text-org95da9b5">
+<p>
+Colección de símplices \(K\) en algún \(\mathbb{R}^n\) cumpliendo:
+</p>
+
+<ol class="org-ol">
+<li>\(\tau < \sigma, \sigma \in K \implies \tau \in K\).</li>
+<li>\(\sigma,\tau \in K,\; \sigma \cap \tau \neq \varnothing\) \(\implies\) \(\sigma \cap \tau < \sigma\) y \(\sigma \cap \tau < \tau\).</li>
+<li>Todo punto en el símplice tiene un entorno abierto que corta a
+una cantidad finita de símplices en \(\bigcup_{\tau \in K}\tau \subseteq \mathbb{R}^n\).</li>
+</ol>
+
+<p>
+Llamamos <b>dimensión</b> de \(K\) a la dimensión del mayor símplice que 
+contiene.
+</p>
+</div>
+
+<div id="outline-container-org8cbf461" class="outline-5">
+<h5 id="org8cbf461">Subcomplejo simplicial</h5>
+<div class="outline-text-5" id="text-org8cbf461">
+<p>
+Llamamos subcomplejo simplicial a \(K' \subseteq K\) complejo simplicial.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9528665" class="outline-4">
+<h4 id="org9528665">Poliedro</h4>
+<div class="outline-text-4" id="text-org9528665">
+<p>
+Dado \(K\) complejo simplicial, llamamos <b>poliedro</b> de \(K\) al espacio
+topológico formado por la unión de todos los símplices de \(K\) con 
+la topología inducida:
+</p>
+
+<p>
+\[|K| = \bigcup_{\tau \in K} \tau \subseteq \mathbb{R}^n\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgde67599" class="outline-4">
+<h4 id="orgde67599">Un compacto corta una cantidad finita de símplices</h4>
+<div class="outline-text-4" id="text-orgde67599">
+<p>
+Sea \(G \subseteq |K|\) compacto, entonces \(G\) corta a una cantidad finita de
+símplices de \(K\). En particular \(|K|\) compacto tiene una cantidad 
+finita de símplices.
+</p>
+</div>
+
+<div id="outline-container-org0a2e454" class="outline-5">
+<h5 id="org0a2e454">Demostración</h5>
+<div class="outline-text-5" id="text-org0a2e454">
+<p>
+Supongamos \(\{\tau_n\}\), tomamos \(\{p_n\} \in G \cap \tau_n\). Por compacidad habría 
+una parcial convergente \(\{p_n\} \longrightarrow p_\infty \in G \subseteq |K|\).
+</p>
+
+<p>
+Pero por definición de complejo simplicial, este \(p_\infty\) tiene un
+entorno que corta sólo a una cantidad finita de símplices y por
+tanto, de los \(p_n\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb51d4e" class="outline-4">
+<h4 id="orgfb51d4e">Aplicaciones simpliciales</h4>
+<div class="outline-text-4" id="text-orgfb51d4e">
+<p>
+Una \(f : |K|\longrightarrow |L|\) entre complejos simpliciales es <b>aplicación simplicial</b> 
+si:
+</p>
+
+<ol class="org-ol">
+<li>\(f\) lleva símplices de \(K\) en símplices de \(L\).</li>
+<li>La restricción de \(f\) a cada símplice es afín \(Ax+b\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc25227a" class="outline-5">
+<h5 id="orgc25227a">Homeomorfismos simpliciales</h5>
+<div class="outline-text-5" id="text-orgc25227a">
+<p>
+Una aplicación simplicial homeomorfismo la llamamos 
+<b>homeomorfismo simplicial</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga2d25c6" class="outline-5">
+<h5 id="orga2d25c6">Categoría de las aplicaciones simpliciales</h5>
+<div class="outline-text-5" id="text-orga2d25c6">
+<p>
+La inversa de un homeomorfismo simplicial es homeomorfismo simplicial;
+así como la identidad y la composición de funciones. Las aplicaciones
+simpliciales forman una categoría.
+</p>
+</div>
+
+<div id="outline-container-org863bef3" class="outline-6">
+<h6 id="org863bef3"><span class="todo TODO">TODO</span> Demostración</h6>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org65cde81" class="outline-4">
+<h4 id="org65cde81">Superficies triangulables</h4>
+<div class="outline-text-4" id="text-org65cde81">
+<p>
+Una superficie topológica \(S\) se dice <b>triangulable</b> si existe algún 
+complejo simplicial de dimensión \(2\) con \(S \cong |K|\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga255ad4" class="outline-4">
+<h4 id="orga255ad4">Teorema de Radó</h4>
+<div class="outline-text-4" id="text-orga255ad4">
+<p>
+Toda superficie admite una triangulación por un complejo simplicial
+euclídeo de dimensión 2 donde cada 1-símplice es cara de exactamente
+dos símplices.
+</p>
+</div>
+
+<div id="outline-container-org332e05c" class="outline-5">
+<h5 id="org332e05c">Recíproco falso</h5>
+<div class="outline-text-5" id="text-org332e05c">
+<p>
+No todo complejo simplicial es triangulación de una superficie.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3647eb9" class="outline-4">
+<h4 id="org3647eb9">Caracterización de triangulaciones</h4>
+<div class="outline-text-4" id="text-org3647eb9">
+<p>
+Un complejo simplicial \(K\) de dimensión 2 es triangulación de una
+superficie ssi:
+</p>
+
+<ol class="org-ol">
+<li>Todo símplice es cara de un 2-símplice.</li>
+<li>Todo 1-símplice es cara de exactamente dos 2-símplices.</li>
+<li><p>
+Si \(\forall v \in K^{(0)}\) definimos \(st(v) = \{ \tau \in K \mid v < \tau \}\) y
+</p>
+
+<p>
+\[ L(v) = \{ \tau \in K \mid \exists \sigma \in K : v < \sigma, \tau < \sigma, v \not< \tau
+     \}
+     \]
+</p>
+
+<p>
+y tenemos que \(|st(v)| \cong \overline{D}\) y \(|L(v)|\) es conexo.
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8d7799b" class="outline-3">
+<h3 id="org8d7799b">3.3. Suma convexa</h3>
+<div class="outline-text-3" id="text-org8d7799b">
+</div><div id="outline-container-orgcd9f980" class="outline-4">
+<h4 id="orgcd9f980">Curva de Jordan</h4>
+<div class="outline-text-4" id="text-orgcd9f980">
+<p>
+Una curva de Jordan en \(\mathbb{R}^n\) es una curva cerrada y simple.
+</p>
+</div>
+
+<div id="outline-container-orgabf1eda" class="outline-5">
+<h5 id="orgabf1eda">Definición equivalente</h5>
+<div class="outline-text-5" id="text-orgabf1eda">
+<p>
+Una curva de Jordan es la imagen de \(f : \mathbb{S}^1 \longrightarrow \mathbb{R}^n\) que sea
+homeomorfismo sobre su imagen.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb8482c4" class="outline-4">
+<h4 id="orgb8482c4">Homeomorfismo que preserva la orientación</h4>
+<div class="outline-text-4" id="text-orgb8482c4">
+<p>
+Sean \(C_1,C_2 \subseteq \mathbb{R}^2\) dos curvas de Jordan y \(f : C_1 \overset{\cong}\longrightarrow C_2\) un homeomorfismo.
+Decimos que \(f\) <b>preserva la orientación</b> si \(\exists \alpha : [0,1] \longrightarrow C_1\) parametrización
+tal que \(\alpha\) recorre \(C_1\) en el sentido de las agujas del reloj y \(f \circ \alpha\)
+recorre \(C_2\) en el sentido de las agujas del reloj.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org290a88e" class="outline-4">
+<h4 id="org290a88e">Teorema de Jordan-Schönflies</h4>
+<div class="outline-text-4" id="text-org290a88e">
+<p>
+Sean \(C_1,C_2\) curvas de Jordan con \(f : C_1 \cong C_2\). Entonces existe una
+\(F : \mathbb{R}^2 \cong \mathbb{R}^2\) con \(F|_{C_1} = f\). Además, 
+</p>
+
+<ol class="org-ol">
+<li>Si \(f\) preserva la orientación y \(U \subseteq \mathbb{R}\) es un subconjunto 
+homeomorfo a \(\mathbb{D}\) disco, con \(U \supseteq C_1 \cup C_2\), entonces existe
+un \(F : \mathbb{R}^2 \longrightarrow \mathbb{R}^2\) con \(F|_{C_1} = f\) y \(F|_{\mathbb{R}^2\setminus U} = Id\).</li>
+<li>Si \(f\) revierte la orientación y \(U \subseteq \mathbb{R}^2\) con \(U \supseteq C_1 \cup C_2\)
+con \(U \cong \mathbb{D}\) disco, puedo tener \(F\) con: \(F|_{\mathbb{R}^2\setminus U}(x,y) = (x,-y)\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgefc179f" class="outline-5">
+<h5 id="orgefc179f">Demostración</h5>
+<div class="outline-text-5" id="text-orgefc179f">
+<p>
+No trivial
+</p>
+</div>
+
+<div id="outline-container-orgf02e48b" class="outline-6">
+<h6 id="orgf02e48b">Segundo punto desde el primero</h6>
+<div class="outline-text-6" id="text-orgf02e48b">
+<p>
+Si tengo \(f : C_1 \cong C_2\), revirtiendo la orientación, puedo tomar
+la curva reflejada en el eje Y:
+</p>
+
+<p>
+\[\widetilde{C_2} = \{(x,y) \mid (x,-y) \in C_2 \}\]
+</p>
+
+<p>
+Y definir una \(\widetilde{f} : C_1 \cong \widetilde{C_2}\) como \(\widetilde{f} = (f_1,-f_2)\), que preserva la 
+orientación. El teorema nos da entonces una \(\widetilde{F}\) desde la que podemos
+definir \(F = (\tilde F_1, \tilde F_2)\), la buscada.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8bc54ee" class="outline-4">
+<h4 id="org8bc54ee">Teorema de la curva de Jordan</h4>
+<div class="outline-text-4" id="text-org8bc54ee">
+<p>
+Sea \(C\) curva de Jordan en \(\mathbb{R}^2\). Entonces, \(\mathbb{R}^2\setminus C\) tiene exactamente
+dos componentes conexas, una de ellas acotada (<b>interior</b> de \(C\)) y
+la otra es no acotada (<b>exterior</b> de \(C\)).
+</p>
+</div>
+
+<div id="outline-container-org2a45049" class="outline-5">
+<h5 id="org2a45049">Demostración</h5>
+<div class="outline-text-5" id="text-org2a45049">
+<p>
+Dado un \(f : C \cong \mathbb{S}^1\) homeomorfismo, por Jordan-Schönflies, tenemos
+una \(F : \mathbb{R}^2 \cong \mathbb{R}^2\) extendiéndola, lo que nos da \(\mathbb{R}^2\setminus C_1 \cong \mathbb{R}^2 \setminus \mathbb{S}^1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9dfc80f" class="outline-5">
+<h5 id="org9dfc80f">Contraejemplo en dimensiones superiores: esfera de Alexander</h5>
+<div class="outline-text-5" id="text-org9dfc80f">
+<p>
+La <a href="https://es.wikipedia.org/wiki/Esfera_cornuda_de_Alexander">esfera cornuda de Alexander</a> es una 2-esfera embebida en \(\mathbb{R}^3\)
+cuyo exterior no es homeomorfo al exterior de la 2-esfera en \(\mathbb{R}^3\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb2d3012" class="outline-4">
+<h4 id="orgb2d3012">Teorema de Jordan-Schonflies para la esfera</h4>
+<div class="outline-text-4" id="text-orgb2d3012">
+<p>
+Sean \(C_1,C_2\) dos curvas de Jordan en \(\mathbb{S}^2 \subseteq \mathbb{R}^3\) y \(f : C_1 \overset{\cong}\longrightarrow C_2\).
+Entonces \(\exists F : \mathbb{S}^2 \longrightarrow \mathbb{S}^2\) con \(F|_{C_1} = f\).
+</p>
+</div>
+
+<div id="outline-container-orga5af8af" class="outline-5">
+<h5 id="orga5af8af">Demostración</h5>
+<div class="outline-text-5" id="text-orga5af8af">
+<p>
+Si tomamos \(p \in \mathbb{S}^2 \setminus \{C_1 \cup C_2\}\), tenemos \(\mathbb{S}^2 \setminus \{p\} \cong \mathbb{R}^2\) por la proyección
+estereográfica. Tomamos el \(F\) que da el teorema de Jordan-Schönflies
+y lo componemos con la inversa de la proyección para tener el \(F\).
+</p>
+
+<p>
+Dividimos en los dos casos para ver que el \(F\) es continuo en el
+punto impropio.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org579db82" class="outline-4">
+<h4 id="org579db82">Suma conexa</h4>
+<div class="outline-text-4" id="text-org579db82">
+<p>
+Sean \(S_1,S_2\) dos superficies convexas. Sean \(D_1 \subseteq S_1\), \(D_2 \subseteq S_2\) discos
+regulares euclídeos y sea \(\varphi : \partial D_1 \longrightarrow \partial D_2\) homeomorfismo. 
+</p>
+
+<p>
+Denotemos \(S'_i = S_i \setminus D_i\). En \(S'_1 \sqcup S_2'\) definimos \(R_{\varphi}\) relación de equivalencia 
+entre el borde y su imagen:
+</p>
+
+<p>
+\[ x\; R_\varphi \; \varphi(x)\quad \forall x \in \partial D_1\]
+</p>
+
+<p>
+Tenemos una superficie topológica conexa que es independiente de los
+discos y el homeomorfismo elegidos. La llamamos <b>suma conexa</b>:
+</p>
+
+<p>
+\[
+S_1 \# S_2
+=
+S_1' \sqcup S_2' / R_\varphi
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org67276e2" class="outline-4">
+<h4 id="org67276e2">La suma es independiente de los discos</h4>
+<div class="outline-text-4" id="text-org67276e2">
+<p>
+Para \(D_1,D_3 \subseteq S'\) discos regulares euclídeos centrados en \(p_1\), tenemos
+que:
+</p>
+
+<p>
+\[S_1 \setminus D_1 \cong S_1 \setminus D_3\]
+</p>
+</div>
+
+<div id="outline-container-org76e3072" class="outline-5">
+<h5 id="org76e3072">Demostración</h5>
+<div class="outline-text-5" id="text-org76e3072">
+<p>
+Sin pérdida de generalidad, \(\overline{D_1} \subset D_3\). Sea \(\psi\) el que hace bola <a href="#org6325d6d">regular</a>
+a \(D_3\). Definimos:
+</p>
+
+<p>
+\[ C_3 = \psi(\partial D_3)\]
+\[C_1 = \psi(\partial D_1)\]
+</p>
+
+<p>
+Tomamos un \(f : C_1 \cong C_3\) y Jordan-Schönflies nos da un \(F\).
+</p>
+
+<p>
+Definimos ahora por partes \(\widetilde F\) como:
+</p>
+
+<p>
+\[\widetilde{F}|_{D_3'} = \psi^{-1} \circ F \circ \psi\]
+\[\widetilde{F}|_{S_1 \setminus D_3'} = Id\]
+</p>
+
+<p>
+Comprobamos que está bien definida y es homeomorfismo, por lo que
+tenemos \(\widetilde F : S_1\setminus D_1 \cong S_3 \setminus D_3\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org79e0791" class="outline-4">
+<h4 id="org79e0791">La suma es independiente de los centros</h4>
+<div class="outline-text-4" id="text-org79e0791">
+<p>
+Los puntos en los que centramos la suma conexa. Tomando \(p_1 \neq p_3 \in S_1\),
+con \(D_1,D_3\) discos regulares euclídeos centrados en ellos:
+</p>
+
+<p>
+\[S_1 \setminus D_1 \cong S_3 \setminus D_3\]
+</p>
+</div>
+
+<div id="outline-container-org5e99122" class="outline-5">
+<h5 id="org5e99122"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org0500556" class="outline-4">
+<h4 id="org0500556">La suma es independiente del homeomorfismo</h4>
+<div class="outline-text-4" id="text-org0500556">
+<p>
+El homeomorfismo no influye. Dados \[
+\varphi, \xi : bD_1 \longrightarrow bD_2
+\] homeomorfismos,
+queremos ver:
+</p>
+
+<p>
+\[
+S_1 \sqcup S_2 / R_\varphi \cong S_1 \sqcup S_2 / R_\xi
+\]
+</p>
+</div>
+
+<div id="outline-container-org7085c1c" class="outline-5">
+<h5 id="org7085c1c"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org31d1f6e" class="outline-4">
+<h4 id="org31d1f6e">La suma conexa de superficies conexas es superficie conexa</h4>
+<div class="outline-text-4" id="text-org31d1f6e">
+<p>
+La suma conexa de dos superficies topológicas conexas es una
+superficie topológica conexa.
+</p>
+</div>
+
+<div id="outline-container-org4698594" class="outline-5">
+<h5 id="org4698594"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5d96552" class="outline-3">
+<h3 id="org5d96552">3.4. Presentación poligonal de superficies</h3>
+<div class="outline-text-3" id="text-org5d96552">
+</div><div id="outline-container-orgccd82d1" class="outline-4">
+<h4 id="orgccd82d1">Polígono homeomorfo</h4>
+<div class="outline-text-4" id="text-orgccd82d1">
+<p>
+Toda superficie topológica compacta es homeomorfa a un polígono con lados
+identificados 2 a 2.
+</p>
+</div>
+
+<div id="outline-container-org3094d69" class="outline-5">
+<h5 id="org3094d69">Idea de demostración</h5>
+<div class="outline-text-5" id="text-org3094d69">
+<p>
+Dada \(S\) compacta, por un teorema que no demostramos, \(S \cong |K|\).
+Por <a href="#orga255ad4">Radó</a>, podemos triangularlo y por compacidad, tiene un número
+finito de caras. Ese polígono puede desplegarse.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc6a179" class="outline-4">
+<h4 id="orgcc6a179">Región poligonal</h4>
+<div class="outline-text-4" id="text-orgcc6a179">
+<p>
+Un \(P \subseteq \mathbb{R}^2\) es región poligonal si:
+</p>
+
+<ol class="org-ol">
+<li>Es compacta.</li>
+<li>Tiene por borde una curva poligonal (complejo de dimensión 1).</li>
+<li><p>
+Cada \(v \in \operatorname{b}(P)\) vértice admite entorno \(U \subseteq \mathbb{R}^2\) tal que:
+</p>
+
+<p>
+\[U \cap P = U \cap H_1 \cap H_2\]
+</p>
+
+<p>
+donde \(H_1,H_2\) son semiplanos cerrados con \(H_1 = H_2\) o \(\operatorname{b}H_1 \cap \operatorname{b}H_2 = \{v\}\).
+</p></li>
+</ol>
+</div>
+
+<div id="outline-container-org6a8cbf8" class="outline-5">
+<h5 id="org6a8cbf8"><span class="todo TODO">TODO</span> Ejemplos</h5>
+</div>
+</div>
+
+<div id="outline-container-org8f27b4b" class="outline-4">
+<h4 id="org8f27b4b">Superficie de una región poligonal</h4>
+<div class="outline-text-4" id="text-org8f27b4b">
+<p>
+Sea \(P \subseteq \mathbb{R}^2\) región poligonal con un número de aristas. Si \(R\) es relación 
+de equivalencia, identificando cada arista con exactamente otra arista
+mediante homeomorfismo simplicial, \(P/R\) es una superficie topológica 
+compacta.
+</p>
+</div>
+
+<div id="outline-container-org320f48f" class="outline-5">
+<h5 id="org320f48f"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org429606f" class="outline-4">
+<h4 id="org429606f">Presentación poligonal</h4>
+<div class="outline-text-4" id="text-org429606f">
+<p>
+Llamamos presentación a una expresión de la forma:
+</p>
+
+<p>
+\[\langle A;\; W_1,\dots,W_n \rangle\]
+</p>
+
+<p>
+donde \(W_i\) son palabras con todos los símbolos \(\langle A \rangle\) de longitud mayor 
+que 3. Permitimos además los casos especiales:
+</p>
+
+<ul class="org-ul">
+<li>\(\langle \{a\}, aa \rangle\)</li>
+<li>\(\langle \{a\}, aa^{-1} \rangle\)</li>
+<li>\(\langle \{a\}, a^{-1}a^{-1} \rangle\)</li>
+<li>\(\langle \{a\}, a^{-1}a \rangle\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcb31c06" class="outline-4">
+<h4 id="orgcb31c06">Presentación de un complejo simplicial</h4>
+<div class="outline-text-4" id="text-orgcb31c06">
+<p>
+Dado un complejo simplicial \(K\) donde cada símplice es cara de un
+2-símplice, tenemos una presentación poligonal asignando a cada
+2-símplice una palabra de longitud 3.
+</p>
+</div>
+
+<div id="outline-container-org32b9e23" class="outline-5">
+<h5 id="org32b9e23"><span class="todo TODO">TODO</span> Ejemplo</h5>
+</div>
+</div>
+
+<div id="outline-container-org899b16b" class="outline-4">
+<h4 id="org899b16b">Realización geométrica de una presentación</h4>
+<div class="outline-text-4" id="text-org899b16b">
+<p>
+Cada \(P = \langle A; W_1,\dots,W_n \rangle\) determina \(|P|\), una topología de la forma:
+</p>
+
+<ol class="org-ol">
+<li>Para cada \(W_i\) tomamos un polígono \(P_i\) de n-lados.</li>
+<li>Biyección entre lados y aristas de \(P_i\) en sentido antihorario.</li>
+<li>Identificamos cada arista con la que tiene el mismo nombre en
+el sentido marcado por la inversa.</li>
+</ol>
+
+<p>
+Tomamos la unión por esta relación \(|P| = \bigsqcup P_i / R\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5cf165" class="outline-4">
+<h4 id="orgf5cf165">Extensión a homeomorfismo</h4>
+<div class="outline-text-4" id="text-orgf5cf165">
+<p>
+Para \(P_1,P_2\) polígonos convexos con el mismo número de aristas.
+El \(f : \operatorname{b}P_1 \longrightarrow \operatorname{b}P_2\) homeomorfismo simplicial se extiende a un homeomorfismo
+\(F : P_1 \longrightarrow P_2\).
+</p>
+</div>
+
+<div id="outline-container-org03ece71" class="outline-5">
+<h5 id="org03ece71"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org39554dc" class="outline-4">
+<h4 id="org39554dc">Presentación poligonal de una superficie</h4>
+<div class="outline-text-4" id="text-org39554dc">
+<p>
+Una presentación \(\langle A; W_1,\dots,W_n \rangle\) es de una superficie si 
+cada símbolo de \(A\) aparece exactamente dos veces en los \(W_i\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga6cf03c" class="outline-4">
+<h4 id="orga6cf03c">Presentación de una superficie</h4>
+<div class="outline-text-4" id="text-orga6cf03c">
+<p>
+Si \(S\) es superficie compacta y \(|P| \cong S\), llamamos a \(P\) una
+<b>presentación</b> de \(S\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8655733" class="outline-4">
+<h4 id="org8655733">Presentaciones topológicamente equivalentes</h4>
+<div class="outline-text-4" id="text-org8655733">
+<p>
+Dos presentaciones \(P_1,P_2\) son topológicamente equivalentes si:
+</p>
+
+<p>
+\[ |P_1| \cong |P_2|\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e5e566" class="outline-4">
+<h4 id="org2e5e566">Transformaciones elementales de presentaciones poligonales</h4>
+<div class="outline-text-4" id="text-org2e5e566">
+<p>
+Dado \(\langle A; W_1,\dots,W_n \rangle\), podemos definir las siguientes transformaciones
+elementales.
+</p>
+</div>
+
+<div id="outline-container-org79a34eb" class="outline-5">
+<h5 id="org79a34eb">1. Renombrar</h5>
+<div class="outline-text-5" id="text-org79a34eb">
+<p>
+Cambiar un símbolo \(a \in A\) por \(e \notin A\) para cada palabra.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org20e02d8" class="outline-5">
+<h5 id="org20e02d8">2. Subdividir</h5>
+<div class="outline-text-5" id="text-org20e02d8">
+<p>
+Sustituir \(a \mapsto ae\) y \(a^{-1} \mapsto e^{-1}a^{-1}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd8b47a3" class="outline-5">
+<h5 id="orgd8b47a3">3. Consolidar</h5>
+<div class="outline-text-5" id="text-orgd8b47a3">
+<p>
+Inversa de subdividir.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge1cbe04" class="outline-5">
+<h5 id="orge1cbe04">4. Reflejar</h5>
+<div class="outline-text-5" id="text-orge1cbe04">
+<p>
+Cambiar orden de una palabra \(a_1\dots a_m \mapsto a_m^{-1}\dots a_1^{-1}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfab0dda" class="outline-5">
+<h5 id="orgfab0dda">5. Rotar</h5>
+<div class="outline-text-5" id="text-orgfab0dda">
+<p>
+Empezar una palabra en otro vértice \(a_1\dots a_m \mapsto a_2\dots a_ma_1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9ad64f4" class="outline-5">
+<h5 id="org9ad64f4">6. Cortar</h5>
+<div class="outline-text-5" id="text-org9ad64f4">
+<p>
+Partir dos palabras \(W_1W_2 \mapsto W_1e,e^{-1}W_2\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgae2a15d" class="outline-5">
+<h5 id="orgae2a15d">7. Pegar</h5>
+<div class="outline-text-5" id="text-orgae2a15d">
+<p>
+Inversa de cortar.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga20678f" class="outline-5">
+<h5 id="orga20678f">8. Doblar</h5>
+<div class="outline-text-5" id="text-orga20678f">
+<p>
+Anular dos lados adyacentes \(W_1ee^{-1} \mapsto W_1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf05730a" class="outline-5">
+<h5 id="orgf05730a">9. Desdoblar</h5>
+<div class="outline-text-5" id="text-orgf05730a">
+<p>
+Inversa de doblar.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org889b389" class="outline-4">
+<h4 id="org889b389">Transformaciones elementales preservan la realización</h4>
+<div class="outline-text-4" id="text-org889b389">
+<p>
+Las transformaciones elementales de una presentación poligonal
+producen una presentación poligonal equivalente.
+</p>
+</div>
+
+<div id="outline-container-orgcd82dcb" class="outline-5">
+<h5 id="orgcd82dcb">Demostración</h5>
+<div class="outline-text-5" id="text-orgcd82dcb">
+</div><div id="outline-container-orgb8f1e1d" class="outline-6">
+<h6 id="orgb8f1e1d">Renombrar</h6>
+<div class="outline-text-6" id="text-orgb8f1e1d">
+<p>
+Trivialmente.
+</p>
+</div>
+</div>
+<div id="outline-container-orga74c679" class="outline-6">
+<h6 id="orga74c679"><span class="todo TODO">TODO</span> Subdividir/Consolidar</h6>
+</div>
+<div id="outline-container-org8eacb75" class="outline-6">
+<h6 id="org8eacb75"><span class="todo TODO">TODO</span> Reflejar</h6>
+</div>
+<div id="outline-container-orgf4b172b" class="outline-6">
+<h6 id="orgf4b172b"><span class="todo TODO">TODO</span> Cortar/Pegar</h6>
+</div>
+<div id="outline-container-org1a14627" class="outline-6">
+<h6 id="org1a14627"><span class="todo TODO">TODO</span> Doblar/Desdoblar</h6>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge0f6078" class="outline-4">
+<h4 id="orge0f6078">Presentación poligonal de la suma</h4>
+<div class="outline-text-4" id="text-orge0f6078">
+<p>
+Dadas \(S_1,S_2\) con presentaciones \(P_1 = \langle A_1; W_1 \rangle\) y \(P_2 = \langle A_2;W_2 \rangle\) con
+\(A_1 \cap A_2 = \varnothing\). Entonces una presentación de \(S_1 \# S_2\) es:
+</p>
+
+<p>
+\[
+\langle A_1 \cup A_2 ; W_1 W_2 \rangle
+\]
+</p>
+</div>
+
+<div id="outline-container-orgf33497f" class="outline-5">
+<h5 id="orgf33497f"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org11338bb" class="outline-4">
+<h4 id="org11338bb">Presentaciones modelo</h4>
+<div class="outline-text-4" id="text-org11338bb">
+</div><div id="outline-container-org2ccb372" class="outline-5">
+<h5 id="org2ccb372">Esfera</h5>
+<div class="outline-text-5" id="text-org2ccb372">
+<p>
+La presentación de la esfera \(\mathbb{S}^2\) es:
+</p>
+
+<p>
+\[P_0 = \langle a \mid aa^{-1} \rangle\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf66e8b4" class="outline-5">
+<h5 id="orgf66e8b4">Suma de toros</h5>
+<div class="outline-text-5" id="text-orgf66e8b4">
+<p>
+La presentación de la suma de toros \(\mathbb{T}^{\#n} = \mathbb{T} \# \overset{n}\dots \#\mathbb{T}\) es:
+</p>
+
+<p>
+\[
+P_n = \langle
+a_1,b_1,\dots,a_n,b_n 
+\mid 
+a_1b_1a_1^{-1}b_1^{-1}\dots a_nb_na_n^{-1}b_n^{-1} 
+\rangle
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6bdff65" class="outline-5">
+<h5 id="org6bdff65">Suma de planos proyectivos</h5>
+<div class="outline-text-5" id="text-org6bdff65">
+<p>
+La presentación de la suma de planos proyectivos \(\mathbb{RP}^{2\#n}\) es:
+</p>
+
+<p>
+\[ Q_n =
+\langle a_1,\dots,a_n \mid a_1a_1\dots a_na_n \rangle
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9fcaa9b" class="outline-3">
+<h3 id="org9fcaa9b">3.5. Clasificación de superficies compactas I</h3>
+<div class="outline-text-3" id="text-org9fcaa9b">
+</div><div id="outline-container-orgf305b28" class="outline-4">
+<h4 id="orgf305b28">Aristas retorcidas y complementarias</h4>
+<div class="outline-text-4" id="text-orgf305b28">
+<p>
+Un par de aristas en una presentación se dicen retorcidas si
+aparecen como \(a\) y \(a\); y complementarias si aparecen como \(a\) y \(a^{-1}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf7f10ce" class="outline-4">
+<h4 id="orgf7f10ce">Lema: suma de toro y plano proyectivo</h4>
+<div class="outline-text-4" id="text-orgf7f10ce">
+<p>
+La suma conexa de un toro y un plano proyectivo es homeomorfa a la 
+suma conexa de 3 planos proyectivos.
+</p>
+</div>
+
+<div id="outline-container-org48a7e2e" class="outline-5">
+<h5 id="org48a7e2e"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org87bf24e" class="outline-4">
+<h4 id="org87bf24e">Lema: botella de Klein</h4>
+</div>
+<div id="outline-container-org0b4f031" class="outline-4">
+<h4 id="org0b4f031">Teorema de clasificación de presentaciones de superficies compactas</h4>
+<div class="outline-text-4" id="text-org0b4f031">
+<p>
+Cualquier presentación poligonal de una superficie compacta y conexa
+es equivalente a una de las siguientes:
+</p>
+
+<ol class="org-ol">
+<li>\(P_0\), presentación de \(\mathbb{S}^2\).</li>
+<li>\(P_n\), presentación de \(\mathbb{T}^{\#n}\).</li>
+<li>\(Q_n\), presentación de \(\mathbb{RP}^{2\#n}\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgdfddeff" class="outline-5">
+<h5 id="orgdfddeff">Demostración</h5>
+<div class="outline-text-5" id="text-orgdfddeff">
+<p>
+Sea \(S\) superficie con presentación \(P\).
+</p>
+</div>
+
+<div id="outline-container-org29e2c76" class="outline-6">
+<h6 id="org29e2c76">Paso 1: Reducir a una cara</h6>
+<div class="outline-text-6" id="text-org29e2c76">
+<p>
+Como el cociente es arcoconexo, si hay más de una palabra, comparten
+entre sí alguna letra. Rotamos, reflejamos si es necesario y pegamos
+para tener una sola cara.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org436b168" class="outline-6">
+<h6 id="org436b168">Paso 2: Retirar complementarias adyacentes</h6>
+<div class="outline-text-6" id="text-org436b168">
+<p>
+Dos lados adyacentes pueden retirarse.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org17405ba" class="outline-6">
+<h6 id="org17405ba">Paso 3: Colocar aristas retorcidas adyacentes</h6>
+<div class="outline-text-6" id="text-org17405ba">
+<p>
+Dada una palabra de la forma \(WaVa\):
+</p>
+
+<ol class="org-ol">
+<li>Cortamos: \(Wab^{-1},bVa\).</li>
+<li>Reflejamos y rotamos: \(b^{-1}Wa, a^{-1}V^{-1}b^{-1}\).</li>
+<li>Pegamos y rotamos: \(b^{-1}b^{-1}WV^{-1}\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org558d614" class="outline-6">
+<h6 id="org558d614">Paso 4: Identificar todos los vértices</h6>
+<div class="outline-text-6" id="text-org558d614">
+<p>
+Fijado un vértice, puedo cortar un triángulo que lo contenga y
+volver a pegar por uno de sus lados para identificar otro vértice
+con él.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org78675ff" class="outline-6">
+<h6 id="org78675ff">Paso 5: Las complementarias tienen complementarias intercaladas</h6>
+<div class="outline-text-6" id="text-org78675ff">
+<p>
+Para un par de complementarias \(a,a^{-1}\), hay otro par de complementarias
+intercalado como: \(a \dots b \dots a^{-1} \dots b^{-1}\).
+</p>
+
+<p>
+Si no fuera así, tendríamos \(aXa^{-1}Y\) sin forma de relacionar ningún
+vértice de \(X\) con un vértice de \(Y\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org48e5294" class="outline-6">
+<h6 id="org48e5294">Paso 6: Las intercaladas pueden presentarse en bloques</h6>
+<div class="outline-text-6" id="text-org48e5294">
+<p>
+Si tenemos una palabra de la forma \(WaXbYa^{-1}Zb^{-1}\):
+</p>
+
+<ol class="org-ol">
+<li>Cortando antes de \(b\) y pegando por \(a\): \(XcWZb^{-1}c^{-1}bY\).</li>
+<li>Cortando antes de \(c\) y pegando por \(b\): \(d^{-1}WZYXcdc^{-1}\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org4ea1eeb" class="outline-6">
+<h6 id="org4ea1eeb">Paso 7: Nos queda suma de planos proyectivos y toros</h6>
+<div class="outline-text-6" id="text-org4ea1eeb">
+<p>
+Nos acaba quedando una palabra de la forma: 
+</p>
+
+<p>
+\[aabb\dots cdc^{-1}d^{-1}\dots\]
+</p>
+
+<p>
+Suma conexa de toros y planos proyectivos. Por el <a href="#orgf7f10ce">lema</a>,
+sabemos que será suma de toros o suma de planos proyectivos.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7cd2b67" class="outline-4">
+<h4 id="org7cd2b67">Preclasificación de superficies compactas</h4>
+<div class="outline-text-4" id="text-org7cd2b67">
+<p>
+Toda superficie compacta y conexa es homeomorfa a una de las 
+siguientes:
+</p>
+
+<ol class="org-ol">
+<li>\(\mathbb{S}^2\)</li>
+<li>\(\mathbb{T}^{\#n}\)</li>
+<li>\(\mathbb{RP}^{2\#n}\)</li>
+</ol>
+</div>
+
+<div id="outline-container-org33fae03" class="outline-5">
+<h5 id="org33fae03"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org58e2ec9" class="outline-3">
+<h3 id="org58e2ec9">3.6. Clasificación de superficies compactas II</h3>
+<div class="outline-text-3" id="text-org58e2ec9">
+</div><div id="outline-container-orgacb7ed4" class="outline-4">
+<h4 id="orgacb7ed4">Grupo fundamental de la presentación</h4>
+<div class="outline-text-4" id="text-orgacb7ed4">
+<p>
+Sea \(S\) compacta y convexa determinada por la presentación \(P\), entonces
+su grupo fundamental tiene la misma presentación de \(P\).
+</p>
+
+<p>
+Es decir cociente del libre por la clausura normal de las \(W\):
+</p>
+
+<p>
+\[\Pi(S) = \frac{F(A)}{N_W}\]
+</p>
+</div>
+
+<div id="outline-container-orgdea61d5" class="outline-5">
+<h5 id="orgdea61d5">Demostración</h5>
+<div class="outline-text-5" id="text-orgdea61d5">
+<p>
+Aplicando Seifert-Van Kampen sobre una cara tenemos las aristas
+como generadores y las palabras como relaciones entre ellas.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org32a8100" class="outline-4">
+<h4 id="org32a8100">Conmutador</h4>
+<div class="outline-text-4" id="text-org32a8100">
+<p>
+Dado \(G\) se define su conmutador \([G,G]\) como el subgrupo normal de \(G\) que
+contiene las clases de conjugación, de la forma:
+</p>
+
+<p>
+\[
+[G,G] 
+= 
+\langle aba^{-1}b^{-1} \mid a,b \in G \rangle\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9beb0be" class="outline-4">
+<h4 id="org9beb0be">Abelianizado</h4>
+<div class="outline-text-4" id="text-org9beb0be">
+<p>
+El conmutador cumple:
+</p>
+
+<ol class="org-ol">
+<li>\([G,G] \cong \{e\}\) \(\iff\) \(G\) abeliano.</li>
+<li>\(Ab(G) = G/[G,G]\) es abeliano, llamado el <b>abelianizado</b> de \(G\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc1d78b2" class="outline-5">
+<h5 id="orgc1d78b2">Demostración</h5>
+<div class="outline-text-5" id="text-orgc1d78b2">
+<p>
+Primer punto trivial. Para el segundo, comprobamos \(ab[G,G] = ba[G,G]\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbce50cd" class="outline-4">
+<h4 id="orgbce50cd">Abelianizados de los grupos fundamentales de los modelos</h4>
+<div class="outline-text-4" id="text-orgbce50cd">
+<p>
+Los abelianizados de los grupos de los modelos son:
+</p>
+
+<ol class="org-ol">
+<li>\(Ab(\pi_1(\mathbb{S}^2)) = \{1\}\).</li>
+<li>\(Ab(\pi_1(\mathbb{T}^{\#n}) \cong \mathbb{Z}^{2n}\).</li>
+<li>\(Ab(\pi_1(\mathbb{RP}^{2\#n})) \cong \mathbb{Z}^{n-1} \times \mathbb{Z}_2\).</li>
+</ol>
+
+<p>
+Distintos entre sí.
+</p>
+</div>
+
+<div id="outline-container-org084e9d9" class="outline-5">
+<h5 id="org084e9d9"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+<div id="outline-container-orgc730c74" class="outline-5">
+<h5 id="orgc730c74"><span class="todo TODO">TODO</span> Los productos de enteros son distintos</h5>
+</div>
+<div id="outline-container-orgc3197c1" class="outline-5">
+<h5 id="orgc3197c1"><span class="todo TODO">TODO</span> El producto por el cíclico de orden 2 los hace distintos</h5>
+</div>
+</div>
+<div id="outline-container-orgf3fae24" class="outline-4">
+<h4 id="orgf3fae24">Clasificación de superficies compactas</h4>
+<div class="outline-text-4" id="text-orgf3fae24">
+<p>
+Una superficie topológica compacta \(S\) es homeomorfa a una sola
+de las siguientes:
+</p>
+
+<ol class="org-ol">
+<li>\(\mathbb{S}^2\).</li>
+<li>\(\mathbb{T}^{\#n}\).</li>
+<li>\(\mathbb{RP}^{2\#n}\).</li>
+</ol>
+
+<p>
+Dos superficies compactas son homeomorfas ssi sus grupos 
+fundamentales son isomorfos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org517d6f8" class="outline-3">
+<h3 id="org517d6f8">3.7. Característica de Euler y orientabilidad</h3>
+<div class="outline-text-3" id="text-org517d6f8">
+</div><div id="outline-container-org0247075" class="outline-4">
+<h4 id="org0247075">Género</h4>
+<div class="outline-text-4" id="text-org0247075">
+<p>
+Se define el género de \(S\) superficie compacta conexa:
+</p>
+
+<p>
+\[ g(S) =
+\left\{\begin{array}{ll} 
+0 & \mbox{if } S \cong \mathbb{S}^2 \\
+n & \mbox{if } S \cong \mathbb{T}^{\#n} \mbox{ ó } S \cong \mathbb{RP}^{2\#n}
+\end{array} 
+\right.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9de5459" class="outline-4">
+<h4 id="org9de5459">Característica de Euler</h4>
+<div class="outline-text-4" id="text-org9de5459">
+<p>
+Se define la característica de Euler de \(S\) superficie compacta conexa:
+</p>
+
+<p>
+\[\chi(P) = C-A+V\]
+</p>
+
+<p>
+donde \(C,A,V\) son los números de caras, aristas y vértices.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6d9218d" class="outline-4">
+<h4 id="org6d9218d">La característica de Euler es invariante a transformaciones</h4>
+<div class="outline-text-4" id="text-org6d9218d">
+<p>
+La característica de Euler es invariante a transformaciones
+elementales.
+</p>
+</div>
+
+<div id="outline-container-org156a3a6" class="outline-5">
+<h5 id="org156a3a6"><span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org5cde929" class="outline-4">
+<h4 id="org5cde929">Orientabilidad</h4>
+<div class="outline-text-4" id="text-org5cde929">
+<p>
+Una superficie es orientable si admite una presentación orientada.
+</p>
+</div>
+
+<div id="outline-container-orgca6c554" class="outline-5">
+<h5 id="orgca6c554">Presentación orientable</h5>
+<div class="outline-text-5" id="text-orgca6c554">
+<p>
+Una presentación poligonal es orientable si no tiene ningún par
+de aristas retorcidas.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org85b2f25" class="outline-4">
+<h4 id="org85b2f25">La orientabilidad de superficies compactas es un invariante</h4>
+<div class="outline-text-4" id="text-org85b2f25">
+<p>
+Una superficie compacta conexa es orientable ssi es homeomorfa a
+la esfera o a la suma de planos proyectivos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1463987" class="outline-4">
+<h4 id="org1463987">Bicolorabilidad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="extra">extra</span></span></h4>
+<div class="outline-text-4" id="text-org1463987">
+<p>
+Una presentación es <b>bicoloreable</b> si podemos colorear sus palabras
+con dos colores de forma que las dos ocurrencias de una arista:
+</p>
+
+<ul class="org-ul">
+<li>tengan distinto color y mismo signo</li>
+<li>o tengan el mismo color y distinto signo</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd8ab2c7" class="outline-4">
+<h4 id="orgd8ab2c7">Bicolorabilidad invariante a transformaciones elementales&#xa0;&#xa0;&#xa0;<span class="tag"><span class="extra">extra</span></span></h4>
+<div class="outline-text-4" id="text-orgd8ab2c7">
+<p>
+La bicolorabilidad es invariante a transformaciones elementales.
+</p>
+</div>
+
+<div id="outline-container-org3424f0a" class="outline-5">
+<h5 id="org3424f0a">Demostración</h5>
+<div class="outline-text-5" id="text-org3424f0a">
+</div><div id="outline-container-orgcdc1a9d" class="outline-6">
+<h6 id="orgcdc1a9d">Renombrar</h6>
+<div class="outline-text-6" id="text-orgcdc1a9d">
+<p>
+Trivialmente manteniendo la coloración.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbfe9576" class="outline-6">
+<h6 id="orgbfe9576">Subdividir</h6>
+<div class="outline-text-6" id="text-orgbfe9576">
+<p>
+Trivial por la misma coloración por cumplirlo la subdividida.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd184165" class="outline-6">
+<h6 id="orgd184165">Consolidar</h6>
+<div class="outline-text-6" id="text-orgd184165">
+<p>
+Trivial por cumplirlo ambas aristas involucradas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6685898" class="outline-6">
+<h6 id="org6685898">Reflejar</h6>
+<div class="outline-text-6" id="text-org6685898">
+<p>
+Cambiando la coloración de la palabra.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1905751" class="outline-6">
+<h6 id="org1905751">Rotar</h6>
+<div class="outline-text-6" id="text-org1905751">
+<p>
+Trivial, mantiene coloración.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org87696f8" class="outline-6">
+<h6 id="org87696f8">Cortar</h6>
+<div class="outline-text-6" id="text-org87696f8">
+<p>
+Manteniendo el mismo color en las dos palabras.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org515ceed" class="outline-6">
+<h6 id="org515ceed">Pegar</h6>
+<div class="outline-text-6" id="text-org515ceed">
+<p>
+Ambas palabras deben tener el mismo color.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge5297fc" class="outline-6">
+<h6 id="orge5297fc">Doblar</h6>
+<div class="outline-text-6" id="text-orge5297fc">
+<p>
+Anular dos lados adyacentes no cambia nada.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge585c67" class="outline-6">
+<h6 id="orge585c67">Desdoblar</h6>
+<div class="outline-text-6" id="text-orge585c67">
+<p>
+Las dos partes están en la misma palabra y tienen el mismo color.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga08d47c" class="outline-4">
+<h4 id="orga08d47c">Bicolorabilidad coincide con orientabilidad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="extra">extra</span></span></h4>
+<div class="outline-text-4" id="text-orga08d47c">
+<p>
+La bicolorabilidad coincide con la orientabilidad.
+</p>
+</div>
+
+<div id="outline-container-org7de7bfd" class="outline-5">
+<h5 id="org7de7bfd">Demostración</h5>
+<div class="outline-text-5" id="text-org7de7bfd">
+<p>
+Coincide en los modelos y por ende en todas las demás superficies.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge643196" class="outline-4">
+<h4 id="orge643196">Algoritmo de bicolorabilidad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="extra">extra</span></span></h4>
+<div class="outline-text-4" id="text-orge643196">
+<p>
+Podemos calcular la bicolorabilidad de una presentación simplemente
+eligiendo un color para la primera cara y coloreando a partir de
+ella.
+</p>
+</div>
+
+<div id="outline-container-orgbd9b285" class="outline-5">
+<h5 id="orgbd9b285">Demostración</h5>
+<div class="outline-text-5" id="text-orgbd9b285">
+<p>
+Asignado el color de la primera cara, queda determinado el color
+de todas las caras que contengan una arista de ella. Como toda
+cara está conectada a la inicial por conexión, toda cara queda
+determinada.
+</p>
+
+<p>
+Si esta coloración cumple las condiciones de bicolorabilidad,
+hemos encontrado una forma de bicolorear. Si no lo cumple, ninguna
+bicoloración es posible.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org9a5dfee" class="outline-2">
+<h2 id="org9a5dfee">Ejercicios</h2>
+<div class="outline-text-2" id="text-org9a5dfee">
+</div><div id="outline-container-org1e4a38d" class="outline-3">
+<h3 id="org1e4a38d">Relación de problemas 1</h3>
+<div class="outline-text-3" id="text-org1e4a38d">
+</div><div id="outline-container-orgb0004d8" class="outline-4">
+<h4 id="orgb0004d8">Ejercicio 1</h4>
+<div class="outline-text-4" id="text-orgb0004d8">
+<p>
+Trabajando en el grupo fundamental \(\Pi(X,x)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3c21dd6" class="outline-4">
+<h4 id="org3c21dd6">Ejercicio 2</h4>
+<div class="outline-text-4" id="text-org3c21dd6">
+</div><div id="outline-container-orgc36b3c9" class="outline-5">
+<h5 id="orgc36b3c9">Punto 1</h5>
+<div class="outline-text-5" id="text-orgc36b3c9">
+<p>
+Trivial trabajando en el grupo fundamental.
+</p>
+</div>
+</div>
+<div id="outline-container-org5cb33dc" class="outline-5">
+<h5 id="org5cb33dc">Punto 2</h5>
+<div class="outline-text-5" id="text-org5cb33dc">
+<p>
+La condición es \(\gamma\beta \in {\cal Z}(\Pi(X,x))\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b88906" class="outline-4">
+<h4 id="org2b88906">Ejercicio 3</h4>
+<div class="outline-text-4" id="text-org2b88906">
+<p>
+Calculamos usando Seifert-Van Kampen.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4bab370" class="outline-4">
+<h4 id="org4bab370">Ejercicio 6</h4>
+<div class="outline-text-4" id="text-org4bab370">
+<p>
+Por Seifert-Van Kampen haciendo tres grupos, uno con equivalencia homotópica al
+círculo y otro trivial. Sale \(\mathbb{Z}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3f15e51" class="outline-4">
+<h4 id="org3f15e51">Ejercicio 7</h4>
+<div class="outline-text-4" id="text-org3f15e51">
+<p>
+Equivalencia homotópica a un círculo en el que se identifican antípodas, que es
+homeomorfo a un círculo. Sale \(\mathbb{Z}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org52c4e90" class="outline-4">
+<h4 id="org52c4e90">Ejercicio 8</h4>
+<div class="outline-text-4" id="text-org52c4e90">
+<p>
+Por Van Kampen, teniendo un trozo con equivalencia homotópica a la esfera y otro
+que es un simple disco abierto. Grupo fundamental trivial.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgabeb5b6" class="outline-4">
+<h4 id="orgabeb5b6">Ejercicio 9</h4>
+<div class="outline-text-4" id="text-orgabeb5b6">
+<p>
+Por el Van Kampen que aplicamos en estos casos, es \(\mathbb{Z}_3\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5dca22c" class="outline-4">
+<h4 id="org5dca22c">Ejercicio 10</h4>
+<div class="outline-text-4" id="text-org5dca22c">
+<p>
+Homeomorfo al anterior.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5c857a6" class="outline-3">
+<h3 id="org5c857a6">Relación de problemas 2</h3>
+<div class="outline-text-3" id="text-org5c857a6">
+</div><div id="outline-container-orgef7a2a0" class="outline-4">
+<h4 id="orgef7a2a0">Ejercicio 1</h4>
+<div class="outline-text-4" id="text-orgef7a2a0">
+</div><div id="outline-container-org22f921b" class="outline-5">
+<h5 id="org22f921b">Punto 1</h5>
+<div class="outline-text-5" id="text-org22f921b">
+<p>
+Trivial
+</p>
+</div>
+</div>
+<div id="outline-container-org73b71ef" class="outline-5">
+<h5 id="org73b71ef">Punto 2</h5>
+<div class="outline-text-5" id="text-org73b71ef">
+<p>
+Subiendo la intersección del entorno abierto que es isomorfo a \(\mathbb{R}^n\) con el 
+entorno abierto que nos da el recubridor.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc9e5866" class="outline-5">
+<h5 id="orgc9e5866">Punto 3</h5>
+<div class="outline-text-5" id="text-orgc9e5866">
+<p>
+Probamos la caracterización, que es ser semilocalmente simplemente conexo. Cada
+punto tiene un entorno homeomorfo a un abierto de \(\mathbb{R}^n\), así que puedo tomar una bola
+abierta en el punto y que sea homeomorfa a un abierto en el punto en el que el
+grupo fundamental sea trivial.
+</p>
+</div>
+</div>
+<div id="outline-container-org84f83e1" class="outline-5">
+<h5 id="org84f83e1">Punto 4</h5>
+<div class="outline-text-5" id="text-org84f83e1">
+<p>
+Las esferas.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orged53b46" class="outline-4">
+<h4 id="orged53b46">Ejercicio 2</h4>
+<div class="outline-text-4" id="text-orged53b46">
+<div class="statement">
+<p>
+Sea \(\{a,b\}\) una base de \(\mathbb{R}^2\) y \(R\) la relación de equivalencia en \(\mathbb{R}^2\) dada por:
+</p>
+
+<p>
+\[ qRq' \text{ si }\ q'-q = ma+nb,\quad m,n\in\mathbb{Z}\]
+</p>
+
+<p>
+Sea \(T_{a,b}\) el espacio topológico cociente.
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orgfcdcc33" class="outline-5">
+<h5 id="orgfcdcc33">Punto 1</h5>
+<div class="outline-text-5" id="text-orgfcdcc33">
+<p>
+Usamos el recubrimiento de cocientes que surgen de acciones discontinuas para
+el grupo de acciones de los \(\phi_{n,m}(z) = z + (n,0) + (0,m)\) con \(n,m\in\mathbb{Z}\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org55b011e" class="outline-3">
+<h3 id="org55b011e">Ejercicios de clase</h3>
+<div class="outline-text-3" id="text-org55b011e">
+</div><div id="outline-container-org4d74d09" class="outline-4">
+<h4 id="org4d74d09">Cálculo del espacio proyectivo con Van-Kampen</h4>
+<div class="outline-text-4" id="text-org4d74d09">
+<p>
+Para calcular el grupo de \(\mathbb{R}\mathbb{P}^2\), lo definimos como una proyección desde la bola 
+cerrada \(C\) y tomamos abiertos en él.
+</p>
+
+<div class="org-center">
+
+<div class="figure">
+<p><img src="./pinta/rpvankampen.png" alt="rpvankampen.png" />
+</p>
+</div>
+</div>
+
+<p>
+Aplicaremos Van Kampen sobre los siguientes abiertos:
+</p>
+
+<p>
+\[ U = \pi(C-\{p\})\]
+\[ V = \pi(B(p,\epsilon))\]
+\[ U \cap V = \pi((C-\{p\}) \cap B(p,\epsilon)) = \pi (B(p,\epsilon)) - \{p\}\]
+</p>
+
+<p>
+Y tenemos que el grupo de \(V\) es trivial. Para calcular el grupo de \(U\) usaré que
+tiene el mismo tipo de homotopía que su borde, que es isomorfo a un círculo y
+por tanto tiene grupo fundamental \(\mathbb{Z}\).
+</p>
+
+<p>
+De la intersección tomaremos un generador \(f\) y lo llevaremos al borde para tener:
+</p>
+
+<p>
+\[ f \simeq \alpha \ast c \ast a \ast \tilde\alpha\]
+</p>
+
+<p>
+Que proyectando mientras sabemos que el generador de \(U\) es 
+\(g = [\pi(\alpha \ast c \ast \tilde\alpha)]\) nos da finalmente que:
+</p>
+
+<p>
+\[ [\pi(f)] \simeq 
+ [\pi(\alpha\ast c \ast\tilde\alpha \ast \alpha \ast a \ast \tilde\alpha)] \simeq
+ [g] \ast [g] \simeq 2[g]\]
+</p>
+
+<p>
+Y el cálculo del grupo nos da:
+</p>
+
+<p>
+\[\frac{<g>}{<2g>} \cong \mathbb{Z}_2\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org86f9591" class="outline-3">
+<h3 id="org86f9591">Examen 13 enero 2016</h3>
+<div class="outline-text-3" id="text-org86f9591">
+</div><div id="outline-container-orgea06381" class="outline-5">
+<h5 id="orgea06381">Ejercicio 3</h5>
+<div class="outline-text-5" id="text-orgea06381">
+</div><div id="outline-container-org44d8546" class="outline-6">
+<h6 id="org44d8546">Punto 1</h6>
+<div class="outline-text-6" id="text-org44d8546">
+<p>
+Sabemos que todos los \(\Phi_n\) son homeomorfismos. Dado un punto \((a,b)\) tomamos un
+disco abierto de radio \(1/4\) alrededor de él, y comprobamos que \((a+n,(-1)^nb)\)
+está siempre a distancia mayor a \(n\) y mayor a \(1/2\). Llamando a la bola \(V\), 
+tenemos:
+</p>
+
+<p>
+\[\phi(V) \cap V = \varnothing\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org65f5d91" class="outline-6">
+<h6 id="org65f5d91">Punto 2</h6>
+<div class="outline-text-6" id="text-org65f5d91">
+<p>
+Como \(G\) actúa propia y discontinuamente sobre \(\mathbb{R}^2\), tenemos que es un 
+recubridor regular.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgce75b01" class="outline-6">
+<h6 id="orgce75b01">Punto 3</h6>
+<div class="outline-text-6" id="text-orgce75b01">
+<p>
+Como \(G\) es ahora el grupo de automorfismos de un recubridor regular sobre \(M\),
+tenemos que:
+</p>
+
+<p>
+\[ G \cong \Pi(M,x)\]
+</p>
+
+<p>
+Con lo que su grupo fundamental es \(\mathbb{Z}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org957ed2d" class="outline-6">
+<h6 id="org957ed2d">Punto 4</h6>
+<div class="outline-text-6" id="text-org957ed2d">
+<p>
+Trivial desde lo anterior.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org72ade21" class="outline-6">
+<h6 id="org72ade21">Punto 5</h6>
+<div class="outline-text-6" id="text-org72ade21">
+<p>
+Podemos definir una función de \(C\) a \(M\) desde las representaciones en \(\mathbb{R}^2\),
+vemos luego que es identificación y que por tanto hay homeomorfismo entre
+la imagen y el cociente por la relación que define. Comprobamos que ese
+cociente es igual al que define el grupo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org89464b7" class="outline-6">
+<h6 id="org89464b7">Punto 6</h6>
+<div class="outline-text-6" id="text-org89464b7">
+<p>
+Tengo ya al cilindro como recubridor y al plano. Faltan las cintas de Möbius
+en el caso impar que se realizarán como en el ejercicio 5.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9a8c8cb" class="outline-3">
+<h3 id="org9a8c8cb">Relación de problemas 3</h3>
+<div class="outline-text-3" id="text-org9a8c8cb">
+</div><div id="outline-container-org2704f8e" class="outline-4">
+<h4 id="org2704f8e">Ejercicio 1</h4>
+<div class="outline-text-4" id="text-org2704f8e">
+<div class="statement">
+<p>
+Prueba que un espacio topológico conexo es arco-conexo si y sólo si
+cada punto tiene un entorno arco-conexo. Demuestra que todo espacio
+topologico localmente euclídeo es conexo si y sólo si es arco-conexo.
+</p>
+
+</div>
+
+<p>
+Si es arcoconexo, claramente se tiene localmente arcoconexo.  Si es
+localmente arcoconexo, una componente arcoconexa debe ser abierta y
+cerrada, porque cada punto al que se pueda llegar tiene un entorno al
+que se puede llegar. Y cada punto al que no se pueda llegar tiene un
+entorno al que no se pueda llegar.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7cb8cc0" class="outline-4">
+<h4 id="org7cb8cc0">Ejercicio 3</h4>
+<div class="outline-text-4" id="text-org7cb8cc0">
+<div class="statement">
+<p>
+Estudia si el subespacio topológico de \(\mathbb{R}^3\) dado por:
+</p>
+
+<p>
+\[ X = \{(x,y,z) \in \mathbb{R}^3 \mid z^2 = x^2+y^2\}\]
+</p>
+
+<p>
+es una superficie topológica.
+</p>
+
+</div>
+
+<p>
+Si \(z=0\) se tiene \(x,y = 0\), así, el único punto en ese plano es 
+el \(0\). Cualquier entorno suyo, si quitamos ese punto, tiene dos
+componentes conexas y no puede ser homeomorfo a un disco.
+</p>
+
+<p>
+El espacio no es localmente euclídeo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org55084fb" class="outline-4">
+<h4 id="org55084fb">Ejercicio 4</h4>
+<div class="outline-text-4" id="text-org55084fb">
+<p>
+Ambos son localmente euclídeos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9abe11f" class="outline-4">
+<h4 id="org9abe11f">Ejercicio 5</h4>
+<div class="outline-text-4" id="text-org9abe11f">
+<div class="statement">
+<p>
+Prueba que el p-simplex generado por \(\{a_1,\dots,a_n\}\) es la envolvente
+convexa del conjunto \(\{a_1,\dots,a_n\}\).
+</p>
+
+</div>
+
+<p>
+La envolvente convexa debe contener a todos los puntos y a sus
+combinaciones convexas, luego debe contener a todo el simplex.
+</p>
+
+<p>
+El simplex es convexo trivialmente:
+</p>
+
+<p>
+\[
+t \sum \lambda_i v_i + (1-t) \sum \lambda_i' v_i =
+\sum t \lambda_i v_i + \sum (1-t) \lambda_i' v_i
+\]
+</p>
+
+<p>
+Y entonces la suma de los coeficientes suma la unidad, usando
+que lo cumplen ambos elementos del símplice:
+</p>
+
+<p>
+\[
+\sum t\lambda_i + \sum (1-t)\lambda_i' = t + (1-t) = 1
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org00cb787" class="outline-4">
+<h4 id="org00cb787">Ejercicio 6</h4>
+<div class="outline-text-4" id="text-org00cb787">
+<div class="statement">
+<p>
+Dado un vértice de un complejo simplicial \(K\) se define la estrella 
+abierta de \(v\) como \(ost(v) = \{o(\sigma) \mid \sigma \in st(v)\}\). Prueba que \(ost(v)\) es un
+entorno abierto de \(v\) en \(|K|\) y la colección de todas las estrellas 
+abiertas es un recubrimiento abierto de \(|K|\).
+</p>
+
+</div>
+
+<p>
+Todo punto aquí pertenece a algún \(x \in o(\sigma), \sigma \in st(v)\). Una bola cerrada
+alrededor suya es compacta y sólo contiene a una cantidad finita de
+símplices. Un símplice \(\tau\) que contenga a \(x\) se corta con \(\sigma\), nos da
+\(\sigma \cap \tau < \sigma\). Tenemos dos casos:
+</p>
+
+<ul class="org-ul">
+<li>\(\sigma \cap \tau = \sigma\), entonces \(v \in \tau\).</li>
+<li>\(\sigma \cap \tau < \sigma\), que daría que \(x\) esté en una cara de \(\sigma\) y no pueda estar
+en \(o(\sigma)\).</li>
+</ul>
+
+<p>
+Así, no hay ningún vértice que no contenga a \(v\) tocando a \(x\). Todos están
+a distancia mayor que \(0\), y puedo tomar el mínimo de las distancias (que
+son un conjunto finito) y tener una bola cerrada que sólo corta símplices
+de la estrella. La bola abierta sólo cortará a los símplices abiertos.
+</p>
+
+
+<div class="figure">
+<p><img src="./images/starcomplex.png" alt="starcomplex.png" />
+</p>
+</div>
+
+<p>
+Imagen de <a href="http://math.stackexchange.com/questions/633307/definition-of-star-in-a-simplicial-complex">Math.SE: Definition of star in a simplicial complex</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge9ae9b9" class="outline-4">
+<h4 id="orge9ae9b9">Ejercicio 7</h4>
+<div class="outline-text-4" id="text-orge9ae9b9">
+<div class="statement">
+<p>
+Describe una triangulación del toro, el plano proyectivo y la botella
+de Klein.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7f1174b" class="outline-4">
+<h4 id="org7f1174b">Ejercicio 8</h4>
+<div class="outline-text-4" id="text-org7f1174b">
+<div class="statement">
+<p>
+Describe una triangulación del espacio topológico cociente que se
+obtiene cuando en un toro identificamos un meridiano a un punto.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb009965" class="outline-4">
+<h4 id="orgb009965">Ejercicio 9</h4>
+<div class="outline-text-4" id="text-orgb009965">
+<div class="statement">
+<p>
+Demuestra que la suma conexa de uno o más planos proyectivos contiene un
+subespacio que es homeomorfo a una banda de Möbius.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org727a0ac" class="outline-4">
+<h4 id="org727a0ac">Ejercicio 10</h4>
+<div class="outline-text-4" id="text-org727a0ac">
+<div class="statement">
+<p>
+Para cada una de las siguientes presentaciones de superficies calcula
+la característica de Euler y determina a cuál de las superficies modelo
+es homeomorfa:
+</p>
+
+<ol class="org-ol">
+<li>\(\langle a,b,c \mid abacb^{-1}c^{-1} \rangle\).</li>
+<li>\(\langle a,b,c \mid abca^{-1}b^{-1}c^{-1} \rangle\).</li>
+<li>\(\langle a,b,c,d,e,f \mid abc,bde,c^{-1}df,e^{-1}fa \rangle\).</li>
+</ol>
+
+</div>
+</div>
+
+<div id="outline-container-org4245e67" class="outline-5">
+<h5 id="org4245e67">Superficie 1</h5>
+<div class="outline-text-5" id="text-org4245e67">
+<p>
+Calculamos Euler:
+</p>
+
+<p>
+\[\chi(S) = 1 - 3 + \]
+</p>
+
+<p>
+Y vemos que no es orientable.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6fccf7a" class="outline-5">
+<h5 id="org6fccf7a">Superficie 3</h5>
+<div class="outline-text-5" id="text-org6fccf7a">
+<p>
+Calculamos Euler:
+</p>
+
+<p>
+\[\chi(S) = 4 - 5 + 3 = 2\]
+</p>
+
+<p>
+Y a la vez que sacamos los vértices comprobamos que es orientable.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb96504a" class="outline-4">
+<h4 id="orgb96504a">Ejercicio 12</h4>
+<div class="outline-text-4" id="text-orgb96504a">
+<div class="statement">
+<p>
+Prueba que la característica de Euler de la suma conexa de dos
+superficies compactas es igual a la suma de sus características de
+Euler menos dos.
+</p>
+
+</div>
+
+<p>
+Si unimos las dos mediante cualquier triangulación razonable:
+</p>
+</div>
+
+<div id="outline-container-orgb1716cd" class="outline-5">
+<h5 id="orgb1716cd">Triangulación 1</h5>
+<div class="outline-text-5" id="text-orgb1716cd">
+<p>
+Se pierden 2 caras para cortar, se pegan con 3 caras, y 3 aristas.
+</p>
+
+<div class="org-center">
+
+<div class="figure">
+<p><img src="./images//sumatriangulacion1.png" alt="sumatriangulacion1.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6644fc3" class="outline-5">
+<h5 id="org6644fc3">Triangulación 2</h5>
+<div class="outline-text-5" id="text-org6644fc3">
+<p>
+Perdemos dos caras e identificamos 3 aristas y 3 vértices.
+</p>
+
+<div class="org-center">
+
+<div class="figure">
+<p><img src="./images//sumatriangulacion2.png" alt="sumatriangulacion2.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orged33e42" class="outline-3">
+<h3 id="orged33e42">Clasificación de superficies compactas</h3>
+<div class="outline-text-3" id="text-orged33e42">
+</div><div id="outline-container-org5a32f6f" class="outline-4">
+<h4 id="org5a32f6f">Calcular la orientabilidad</h4>
+<div class="outline-text-4" id="text-org5a32f6f">
+<p>
+Un algoritmo que usa la caracterización de bicolorabilidad para
+determinar si una superficie es orientable o no:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #8ac6f2; font-weight: bold;">import</span> <span style="color: #92a65e; font-weight: bold;">Text.ParserCombinators.Parsec</span>
+<span style="color: #8ac6f2; font-weight: bold;">type</span> <span style="color: #92a65e; font-weight: bold;">Letra</span> <span style="color: #cae682;">=</span> (<span style="color: #92a65e; font-weight: bold;">Char</span>,<span style="color: #92a65e; font-weight: bold;">Bool</span>)
+<span style="color: #8ac6f2; font-weight: bold;">type</span> <span style="color: #92a65e; font-weight: bold;">Palabra</span> <span style="color: #cae682;">=</span> [<span style="color: #92a65e; font-weight: bold;">Letra</span>]
+<span style="color: #8ac6f2; font-weight: bold;">type</span> <span style="color: #92a65e; font-weight: bold;">Color</span> <span style="color: #cae682;">=</span> <span style="color: #92a65e; font-weight: bold;">Bool</span>
+<span style="color: #8ac6f2; font-weight: bold;">type</span> <span style="color: #92a65e; font-weight: bold;">Presentacion</span> <span style="color: #cae682;">=</span> [<span style="color: #92a65e; font-weight: bold;">Palabra</span>]
+<span style="color: #8ac6f2; font-weight: bold;">type</span> <span style="color: #92a65e; font-weight: bold;">Coloracion</span> <span style="color: #cae682;">=</span> [(<span style="color: #92a65e; font-weight: bold;">Palabra</span>,<span style="color: #92a65e; font-weight: bold;">Color</span>)]
+
+<span style="color: #cae682;">orientable</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">Presentacion</span> <span style="color: #cae682;">-&gt;</span> <span style="color: #92a65e; font-weight: bold;">Bool</span>
+<span style="color: #cae682;">orientable</span> presentacion <span style="color: #cae682;">=</span> any esBuenaColoracion (posiblesColoraciones presentacion)
+
+<span style="color: #cae682;">posiblesColoraciones</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">Presentacion</span> <span style="color: #cae682;">-&gt;</span> [<span style="color: #92a65e; font-weight: bold;">Coloracion</span>]
+<span style="color: #cae682;">posiblesColoraciones</span> <span style="color: #92a65e; font-weight: bold;">[]</span> <span style="color: #cae682;">=</span> [<span style="color: #92a65e; font-weight: bold;">[]</span>]
+<span style="color: #cae682;">posiblesColoraciones</span> (w<span style="color: #92a65e; font-weight: bold;">:</span>presentacion) <span style="color: #cae682;">=</span>
+  map ([(w,<span style="color: #92a65e; font-weight: bold;">False</span>)] <span style="color: #cae682;">++</span>) (posiblesColoraciones presentacion) <span style="color: #cae682;">++</span>
+  map ([(w,<span style="color: #92a65e; font-weight: bold;">True</span>)] <span style="color: #cae682;">++</span>) (posiblesColoraciones presentacion)
+
+<span style="color: #cae682;">esBuenaColoracion</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">Coloracion</span> <span style="color: #cae682;">-&gt;</span> <span style="color: #92a65e; font-weight: bold;">Bool</span>
+<span style="color: #cae682;">esBuenaColoracion</span> c <span style="color: #cae682;">=</span> compruebaColores <span style="color: #cae682;">$</span> concat <span style="color: #cae682;">$</span> map (<span style="color: #cae682;">\</span>(w,l) <span style="color: #cae682;">-&gt;</span> map (<span style="color: #cae682;">\</span>x <span style="color: #cae682;">-&gt;</span> (x,l)) w) c
+
+<span style="color: #cae682;">compruebaColores</span> <span style="color: #cae682;">::</span> [(<span style="color: #92a65e; font-weight: bold;">Letra</span>,<span style="color: #92a65e; font-weight: bold;">Color</span>)] <span style="color: #cae682;">-&gt;</span> <span style="color: #92a65e; font-weight: bold;">Bool</span>
+<span style="color: #cae682;">compruebaColores</span> <span style="color: #92a65e; font-weight: bold;">[]</span> <span style="color: #cae682;">=</span> <span style="color: #92a65e; font-weight: bold;">True</span>
+<span style="color: #cae682;">compruebaColores</span> (vt <span style="color: #92a65e; font-weight: bold;">:</span> xs) <span style="color: #cae682;">=</span> (all (<span style="color: #cae682;">\</span>ut <span style="color: #cae682;">-&gt;</span> buenaArista ut vt) xs) <span style="color: #cae682;">&amp;&amp;</span> compruebaColores xs
+
+<span style="color: #cae682;">buenaArista</span> <span style="color: #cae682;">::</span> (<span style="color: #92a65e; font-weight: bold;">Letra</span>,<span style="color: #92a65e; font-weight: bold;">Color</span>) <span style="color: #cae682;">-&gt;</span> (<span style="color: #92a65e; font-weight: bold;">Letra</span>,<span style="color: #92a65e; font-weight: bold;">Color</span>) <span style="color: #cae682;">-&gt;</span> <span style="color: #92a65e; font-weight: bold;">Bool</span>
+<span style="color: #cae682;">buenaArista</span> ((x,u),v) ((y,w),z) <span style="color: #cae682;">=</span> (x <span style="color: #cae682;">/=</span> y) <span style="color: #cae682;">||</span> (u <span style="color: #cae682;">==</span> w <span style="color: #cae682;">&amp;&amp;</span> v <span style="color: #cae682;">/=</span> z) <span style="color: #cae682;">||</span> (u <span style="color: #cae682;">/=</span> w <span style="color: #cae682;">&amp;&amp;</span> v <span style="color: #cae682;">==</span> z)
+
+<span style="color: #cae682;">main</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">IO</span> <span style="color: #92a65e; font-weight: bold;">()</span>
+<span style="color: #cae682;">main</span> <span style="color: #cae682;">=</span> return <span style="color: #92a65e; font-weight: bold;">()</span>
+
+
+<span style="color: #cae682;">esOrientable</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">String</span> <span style="color: #cae682;">-&gt;</span> <span style="color: #92a65e; font-weight: bold;">Bool</span>
+<span style="color: #cae682;">esOrientable</span> s <span style="color: #cae682;">=</span> either undefined orientable (parse pres <span style="color: #95e454;">""</span> s) 
+
+<span style="color: #cae682;">pres</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">Parser</span> <span style="color: #92a65e; font-weight: bold;">Presentacion</span>
+<span style="color: #cae682;">pres</span> <span style="color: #cae682;">=</span> word <span style="color: #cae682;">`sepBy`</span> (char <span style="color: #95e454;">','</span>)
+
+<span style="color: #cae682;">word</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">Parser</span> <span style="color: #92a65e; font-weight: bold;">Palabra</span>
+<span style="color: #cae682;">word</span> <span style="color: #cae682;">=</span> many letra
+
+<span style="color: #cae682;">letra</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">Parser</span> <span style="color: #92a65e; font-weight: bold;">Letra</span>
+<span style="color: #cae682;">letra</span> <span style="color: #cae682;">=</span> try letrainvertida <span style="color: #cae682;">&lt;|&gt;</span> <span style="color: #8ac6f2; font-weight: bold;">do</span>
+  l <span style="color: #cae682;">&lt;-</span> letter
+  return (l,<span style="color: #92a65e; font-weight: bold;">True</span>)
+
+<span style="color: #cae682;">letrainvertida</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">Parser</span> <span style="color: #92a65e; font-weight: bold;">Letra</span>
+<span style="color: #cae682;">letrainvertida</span> <span style="color: #cae682;">=</span> <span style="color: #8ac6f2; font-weight: bold;">do</span>
+  l <span style="color: #cae682;">&lt;-</span> letter
+  <span style="color: #8ac6f2; font-weight: bold;">_</span> <span style="color: #cae682;">&lt;-</span> char <span style="color: #95e454;">'*'</span>
+  return (l,<span style="color: #92a65e; font-weight: bold;">False</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Mario Román</p>
-<p class="date">Created: 2016-12-24 Sat 00:24</p>
+<p class="date">Created: 2017-01-20 Fri 15:07</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
