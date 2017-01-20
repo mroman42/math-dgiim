@@ -14253,3 +14253,151 @@ Y el cálculo del grupo nos da:
       Tengo ya al cilindro como recubridor y al plano. Faltan las cintas de Möbius
       en el caso impar que se realizarán como en el ejercicio 5.
       
+*** Relación de problemas 3
+**** Ejercicio 1
+#+begin_statement
+Prueba que un espacio topológico conexo es arco-conexo si y sólo si
+cada punto tiene un entorno arco-conexo. Demuestra que todo espacio
+topologico localmente euclídeo es conexo si y sólo si es arco-conexo.
+#+end_statement
+
+Si es arcoconexo, claramente se tiene localmente arcoconexo.  Si es
+localmente arcoconexo, una componente arcoconexa debe ser abierta y
+cerrada, porque cada punto al que se pueda llegar tiene un entorno al
+que se puede llegar. Y cada punto al que no se pueda llegar tiene un
+entorno al que no se pueda llegar.
+
+**** Ejercicio 3
+#+begin_statement
+Estudia si el subespacio topológico de $\mathbb{R}^3$ dado por:
+
+\[ X = \{(x,y,z) \in \mathbb{R}^3 \mid z^2 = x^2+y^2\}\]
+
+es una superficie topológica.
+#+end_statement
+
+Si $z=0$ se tiene $x,y = 0$, así, el único punto en ese plano es 
+el $0$. Cualquier entorno suyo, si quitamos ese punto, tiene dos
+componentes conexas y no puede ser homeomorfo a un disco.
+
+El espacio no es localmente euclídeo.
+
+**** Ejercicio 4
+Ambos son localmente euclídeos.
+
+**** Ejercicio 5
+#+begin_statement
+Prueba que el p-simplex generado por $\{a_1,\dots,a_n\}$ es la envolvente
+convexa del conjunto $\{a_1,\dots,a_n\}$.
+#+end_statement
+
+La envolvente convexa debe contener a todos los puntos y a sus
+combinaciones convexas, luego debe contener a todo el simplex.
+
+El simplex es convexo trivialmente:
+
+\[
+t \sum \lambda_i v_i + (1-t) \sum \lambda_i' v_i =
+\sum t \lambda_i v_i + \sum (1-t) \lambda_i' v_i
+\]
+
+Y entonces la suma de los coeficientes suma la unidad, usando
+que lo cumplen ambos elementos del símplice:
+
+\[
+\sum t\lambda_i + \sum (1-t)\lambda_i' = t + (1-t) = 1
+\]
+
+**** Ejercicio 6
+#+begin_statement
+Dado un vértice de un complejo simplicial $K$ se define la estrella 
+abierta de $v$ como $ost(v) = \{o(\sigma) \mid \sigma \in st(v)\}$. Prueba que $ost(v)$ es un
+entorno abierto de $v$ en $|K|$ y la colección de todas las estrellas 
+abiertas es un recubrimiento abierto de $|K|$.
+#+end_statement
+
+Todo punto aquí pertenece a algún $x \in o(\sigma), \sigma \in st(v)$. Una bola cerrada
+alrededor suya es compacta y sólo contiene a una cantidad finita de
+símplices. Un símplice $\tau$ que contenga a $x$ se corta con $\sigma$, nos da
+$\sigma \cap \tau < \sigma$. Tenemos dos casos:
+
+  - $\sigma \cap \tau = \sigma$, entonces $v \in \tau$.
+  - $\sigma \cap \tau < \sigma$, que daría que $x$ esté en una cara de $\sigma$ y no pueda estar
+    en $o(\sigma)$.
+
+Así, no hay ningún vértice que no contenga a $v$ tocando a $x$. Todos están
+a distancia mayor que $0$, y puedo tomar el mínimo de las distancias (que
+son un conjunto finito) y tener una bola cerrada que sólo corta símplices
+de la estrella. La bola abierta sólo cortará a los símplices abiertos.
+
+[[./images/starcomplex.png]]
+
+Imagen de [[http://math.stackexchange.com/questions/633307/definition-of-star-in-a-simplicial-complex][Math.SE: Definition of star in a simplicial complex]].
+
+**** Ejercicio 7
+#+begin_statement
+Describe una triangulación del toro, el plano proyectivo y la botella
+de Klein.
+#+end_statement
+
+**** Ejercicio 8
+#+begin_statement
+Describe una triangulación del espacio topológico cociente que se
+obtiene cuando en un toro identificamos un meridiano a un punto.
+#+end_statement
+
+**** Ejercicio 9
+#+begin_statement
+Demuestra que la suma conexa de uno o más planos proyectivos contiene un
+subespacio que es homeomorfo a una banda de Möbius.
+#+end_statement
+
+**** Ejercicio 10
+#+begin_statement
+Para cada una de las siguientes presentaciones de superficies calcula
+la característica de Euler y determina a cuál de las superficies modelo
+es homeomorfa:
+
+  1. $\langle a,b,c \mid abacb^{-1}c^{-1} \rangle$.
+  2. $\langle a,b,c \mid abca^{-1}b^{-1}c^{-1} \rangle$.
+  3. $\langle a,b,c,d,e,f \mid abc,bde,c^{-1}df,e^{-1}fa \rangle$.
+#+end_statement
+
+***** Superficie 1
+Calculamos Euler:
+
+\[\chi(S) = 1 - 3 + \]
+
+Y vemos que no es orientable.
+
+***** Superficie 3
+Calculamos Euler:
+
+\[\chi(S) = 4 - 5 + 3 = 2\]
+
+Y a la vez que sacamos los vértices comprobamos que es orientable.
+
+**** Ejercicio 12
+#+begin_statement
+Prueba que la característica de Euler de la suma conexa de dos
+superficies compactas es igual a la suma de sus características de
+Euler menos dos.
+#+end_statement
+
+Si unimos las dos mediante cualquier triangulación razonable:
+
+***** Triangulación 1
+Se pierden 2 caras para cortar, se pegan con 3 caras, y 3 aristas.
+
+#+begin_center
+#+attr_latex: :width 50px
+[[./images//sumatriangulacion1.png]]
+#+end_center
+
+***** Triangulación 2
+Perdemos dos caras e identificamos 3 aristas y 3 vértices.
+
+#+begin_center
+#+attr_latex: :width 50px
+[[./images//sumatriangulacion2.png]]
+#+end_center
