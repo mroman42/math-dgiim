@@ -9666,6 +9666,15 @@ la bola unidad y la distancia en norma:
 El teorema es que si algo converge en la bola unidad y converge en
 norma a distinto de $0$, converge a eso.
 
+**** Ejercicio 7
+#+begin_statement
+Probar que, en un espacio normado, el interior de un subespacio
+vectorial propio es vacío.
+#+end_statement
+
+Simplemente notando que si $B(m,r) \subseteq M$, entonces $B(0,1) \subseteq M$, y eso
+lleva a $X = M$.
+
 **** Ejercicio 16
 ***** Punto a
      Es de hecho una isometría por tenerse: 
