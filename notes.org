@@ -7722,30 +7722,57 @@ Y se tiene:
 **** Lema a Tychonoff
 Toda aplicación lineal desde $\ell_2^n$ es continua.
 
-***** TODO Demostración
+***** Demostración
+Comprobamos que está acotada. Dada una base finita y las coordenadas
+sobre ella:
+
+\[
+\|Tx\|
+=
+\left\|\sum_{k=1}^n T(e_k)x_k \right\| 
+\leq 
+\sum_{k=1}^n |x_k| \|T(e_k)\|
+\leq
+\|x\| \sum_{k=1}^n \|T(e_k)\|
+\]
+
 **** Teorema de Tychonoff
 Sea $X$ espacio normado. Toda biyección lineal de $\ell^n_2$ sobre $X$ es 
 isomorfismo topológico.
 
 ***** Demostración
-Por el lema sabemos que es continua. La esfera de $\ell^n_2$ es
-compacta; y podemos aplicar la caracterización de aplicaciones
-abiertas anterior.
+Por el lema es continua. La esfera de $\ell^n_2$ es compacta; y podemos 
+aplicar la caracterización de aplicaciones abiertas anterior.
 
-**** Corolarios al teorema
+**** Corolarios al teorema de Tychonoff
 Se cumple que:
 
- 1. $T:X\longrightarrow Y$ lineal con $dim(X) < \infty$ nos da $T$ lipschiztiana.
- 2. Dos espacios de dimensión finita son isomorfos ssi tienen igual
-    dimensión.
- 3. En un espacio de dimensión finita, todas las normas son
-    equivalentes.
- 4. Todo espacio de dimensión finita es Banach.
- 5. Todo subespacio de dimensión finita de espacio normado es cerrado.
- 6. Un subconjunto de un espacio normado de dimensión finita es
-    compacto ssi es cerrado y acotado.
+  1. $T:X\longrightarrow Y$ lineal con $dim(X) < \infty$ nos da $T$ lipschiztiana.
+  2. Dos espacios de dimensión finita son isomorfos ssi tienen igual
+     dimensión.
+  3. En un espacio de dimensión finita, todas las normas son
+     equivalentes.
+  4. Todo espacio de dimensión finita es Banach.
+  5. Todo subespacio de dimensión finita de espacio normado es cerrado.
+  6. Un subconjunto de un espacio normado de dimensión finita es
+     compacto ssi es cerrado y acotado.
 
-***** TODO Demostración
+***** Demostración
+****** Punto 1
+Tenemos $X \cong \ell^n_2 \longrightarrow Y$, [[*Lema a Tychonoff][continua]].
+
+****** TODO Punto 2
+
+**** Dual topológico en dimensión finita
+Sea $X$ normado de dimensión finita, su *dual topológico* es:
+
+\[X^\ast =
+\left\{ f:X \longrightarrow \mathbb{K} \mid
+f \text{ lineal } \right\}\]
+
+***** Demostración
+Toda lineal es continua si sale de dimensión finita.
+
 **** Compacidad relativa y precompacidad
 Llamamos $A$ *relativamente compacto* cuando $\overline{A}$ es compacto.
 Llamamos $A$ *precompacto* cuando, dado un $\varepsilon$, existen $x_1,\dots,x_n$:
@@ -7767,20 +7794,30 @@ Equivalen:
   1. $T$ es continua.
   2. $\ker T$ cerrado en $X$.
 
-***** TODO Demostración
+***** Demostración
+Cuando $\ker T$ es [[*Descomposición canónica: isomorfismo][cerrado]], $X/\ker T \cong TX$ dimensión finita. $\widehat T$ será
+continua.
 
 **** Corolario de caracterización de abiertas
 Sea $T : X \longrightarrow Y$ lineal con $X$ de dimensión finita.
 Equivalen:
 
-1. $T$ es abierta.
-2. $T$ es sobreyectiva.
+  1. $T$ es abierta.
+  2. $T$ es sobreyectiva.
+
+***** Demostración
+****** Primera implicación
+$TX$ sería abierto y [[*Corolarios al teorema de Tychonoff][cerrado]] a la vez.
+
+****** Segunda implicación
+$T$ es continua, luego $\ker T$ [[*Corolario de caracterización de continuas][cerrado]]. $\widehat T : X/\ker T \cong Y$ biyección lineal,
+que es por tanto isomorfismo topológico y abierta.
 
 **** Corolario de caracterización de la dimensión finita.
 Equivalen:
 
- 1. Todo cerrado y acotado es compacto.
- 2. Bola unidad compacta.
+  1. Todo cerrado y acotado es compacto.
+  2. Bola unidad compacta.
 
 *** Teorema de Riesz
 **** Lema al teorema de Riesz
@@ -7827,15 +7864,6 @@ Son equivalentes:
    
    Teniendo entonces $x \notin \bigcup B(x_i,\frac{1}{2})$, que nos lleva a 
    contradicción.
-
-**** Dual topológico en dimensión finita
-Sea $X$ normado de dimensión finita, su *dual topológico* es:
-
-\[X^\ast =
-\left\{ f:X \longrightarrow \mathbb{K} \mid
-f \text{ lineal } \right\}\]
-
-Ya que toda lineal también es continua.
 
 ** 2. Principios fundamentales del análisis funcional
 *** Teorema de Hahn-Banach
