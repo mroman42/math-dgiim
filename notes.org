@@ -4506,10 +4506,9 @@ lo llamamos cuerpo de Galois de orden $p^n$.
 
 *** Factorización de polinomios
 **** Clasificación de polinomios irreducibles
- #+begin_theorem
- Los factores irreducibles de $x^{p^n}-x$ son exactamente los polinomios irreducibles de
- $\mathbb{F}_p[X]$ cuyo grado divida a $n$.
- #+end_theorem
+Los factores irreducibles de $x^{p^n}-x$ son exactamente los polinomios 
+irreducibles de  $\mathbb{F}_p[X]$ cuyo grado divida a $n$.
+
 ** 8. Extensiones ciclotómicas
 *** Raíces de la unidad
 **** Subgrupos finitos del grupo multiplicativo
@@ -7499,8 +7498,12 @@ normado con:
 = d(x,M)\]
 
 ***** Topología del cociente
-Este espacio es de Banach ssi $X$ es de Banach. Y la topología
-coincide con la topología cociente.
+Este espacio es de Banach ssi $X$ es de Banach y $M$ completo. 
+La topología coincidirá con la topología cociente.
+
+***** Proyecciones
+La proyección $Q: X \longrightarrow X/M$ es lineal, sobreyectiva, abierta
+y continua.
 
 *** Operadores y funcionales lineales
 **** Operadores lineales continuos
@@ -7539,8 +7542,7 @@ Como tenemos $\frac{x-y}{\|x-y\|} \in S_X$, lo tenemos acotado por algún $\alph
 \[T(x-y) \leq \alpha\|x-y\|\]
 
 Por lo tanto, es lispchiztiano.
-
-**** Norma de operadores
+***** Norma de operadores
 Se define la *norma de operadores* como:
 
 \[\begin{aligned}
@@ -7551,7 +7553,7 @@ Se define la *norma de operadores* como:
 
 Y cumple que $\|Tx\| \leq \|T\|\|x\|$.
 
-***** TODO Está bien definida
+****** TODO Está bien definida
 **** Cuatro teoremas sobre la norma de operadores
 Dados $X,Y$ espacios normados:
 
@@ -7601,8 +7603,8 @@ Luego $T$ es lineal y continua. Y además, $\{T_n\} \longrightarrow T$.
 $\|S \circ T (x)\| \leq \|S\|\|T\|\|x\|$
 
 **** Espacio dual topológico
-Sea $X$ normado, su *dual topológico* es el espacio
-de funciones al cuerpo con la norma de operadores:
+Sea $X$ normado, su *dual topológico* es el espacio de funciones al
+cuerpo con la norma de operadores:
 
 \[ X^\ast = 
 L(X,\mathbb{K}) 
