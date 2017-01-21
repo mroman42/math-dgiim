@@ -4552,11 +4552,41 @@ El $Gal(\mathbb{F}_{p^m}/\mathbb{F}) \cong \mathbb{Z}_m$ tiene un único subgrup
 ser el grupo de Galois de un cuerpo de orden $m/n$, que tiene por
 Moore que ser $\mathbb{F}_{p^n}$.
 
-*** Factorización de polinomios
-**** Clasificación de polinomios irreducibles
-Los factores irreducibles de $x^{p^n}-x$ son exactamente los polinomios 
-irreducibles de  $\mathbb{F}_p[X]$ cuyo grado divida a $n$.
+*** 7.2. Factorización de polinomios
+**** 7.2.1. Listado de polinomios irreducibles
+Los factores irreducibles de $X^{p^n} - X$ son exactamente los polinomios
+irreducibles de $\mathbb{F}_p[X]$ con grado divisor de $n$.
 
+***** Demostración
+****** Los factores irreducibles tienen grado n
+Cuando $g(\alpha) = 0$, por ser factor tenemos $\alpha^{p^n} = \alpha$, luego $\alpha \in \mathbb{F}_{p^n}$.
+Así, $\mathbb{F}_{p^n} \supseteq \mathbb{F}_p(\alpha) \supseteq \mathbb{F}_p$, y por teorema del grado, $gr(g) = [\mathbb{F}_p(\alpha) : \mathbb{F}_p]$
+divide a $[\mathbb{F}_{p^n} : \mathbb{F}_p]$.
+
+****** Los irreducibles de grado divisor de n son factores
+Sea $g(\alpha) = 0$, tomamos $m = [\mathbb{F}_p(\alpha) : \mathbb{F}_p] = gr(g)$, y [[*7.1.8. Grupo de automorfismos relativo][sabemos]] que
+debe tenerse $\mathbb{F}_{p^m} \supset \mathbb{F}_p(\alpha)$. Por Moore $f(\alpha) = 0$ y $g \mid f$.
+
+**** 7.2.2. Número de mónicos irreducibles
+Para $n$ primo, el número de mónicos irreducibles de $\mathbb{F}_p[X]$ de grado $n$
+es $(p^n-p)/n \neq 0$.
+
+***** TODO Demostración
+
+**** 7.2.3. Raíces simples
+Para $f \in \mathbb{F}_p[X]$, $f_1 = f / mcd(f,f')$ tiene todas las raíces simples y
+$f(\alpha) = 0 \iff f_1(\alpha) = 0$.
+
+***** Demostración
+Calculando vemos que $f = \prod_i(X-\alpha_i)^{k_i}$ da $f_1 = \prod_{i} (X- \alpha_i)$.
+
+**** 7.2.4. Producto de factores irreducibles de grado n
+El producto de todos los factores irreducibles distintos de un $f$
+y cuyo grado divida a $n$ es $mcd(f, X^{p^n} - X)$.
+
+***** Demostración
+
+*** TODO 7.3. Ilustraciones
 ** 8. Extensiones ciclotómicas
 *** 8.1. Raíces de la unidad
 **** 8.1.1. Subgrupos finitos del grupo multiplicativo
