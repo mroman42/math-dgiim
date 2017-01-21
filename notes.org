@@ -7694,42 +7694,45 @@ abierto.
 **** Descomposición canónica: isomorfismo
 Sea $T: X\longrightarrow Y$ lineal con $\ker(T)$ cerrado. Se define:
 
-\[ \hat{T} : {X}/{\ker{T}} \longrightarrow Y\]
+\[\begin{tikzcd}
+X \rar{T} \dar[swap, two heads]{\pi} & Y \\
+X/\ker(T) \urar[swap,dashed]{\widehat T} & 
+\end{tikzcd}\]
 
-Cumpliendo $T = \hat{T}\circ\pi$. Y se tiene:
+Y se tiene:
 
   - $\hat{T}$ continua ssi $T$ continua. En cuyo caso $\|T\| = \|\hat{T}\|$.
   - $T$ abierta en $TX$ ssi $\hat{T}$ abierta en $TX$.
 
-***** Demostración
-
-*** Teorema de Tychonoff
+***** TODO Demostración
+*** Teorema de Tychonoff. Dimensión finita
 **** Lema a Tychonoff
 Toda aplicación lineal desde $\ell_2^n$ es continua.
 
+***** TODO Demostración
 **** Teorema de Tychonoff
-Sea $X$ espacio normado. Toda
-biyección lineal de $\ell^n_2$ sobre $X$ es isomorfismo topológico.
+Sea $X$ espacio normado. Toda biyección lineal de $\ell^n_2$ sobre $X$ es 
+isomorfismo topológico.
 
 ***** Demostración
-Por el lema sabemos que es continua.
-La esfera de $\ell^n_2$ es compacta; y podemos aplicar la 
-caracterización de aplicaciones abiertas anterior.
+Por el lema sabemos que es continua. La esfera de $\ell^n_2$ es
+compacta; y podemos aplicar la caracterización de aplicaciones
+abiertas anterior.
 
 **** Corolarios al teorema
 Se cumple que:
 
-1. $T:X\longrightarrow Y$ lineal con $dim(X) < \infty$ nos da $T$ lipschiztiana.
-2. Dos espacios de dimensión finita son isomorfos ssi 
-   tienen igual dimensión.
-3. En un espacio de dimensión finita, todas las normas son
-   equivalentes.
-4. Todo espacio de dimensión finita es Banach.
-5. Todo subespacio de dimensión finita de espacio normado es
-   cerrado
-6. Un subconjunto de un espacio normado de dimensión finita
-   es compacto ssi es cerrado y acotado.
+ 1. $T:X\longrightarrow Y$ lineal con $dim(X) < \infty$ nos da $T$ lipschiztiana.
+ 2. Dos espacios de dimensión finita son isomorfos ssi tienen igual
+    dimensión.
+ 3. En un espacio de dimensión finita, todas las normas son
+    equivalentes.
+ 4. Todo espacio de dimensión finita es Banach.
+ 5. Todo subespacio de dimensión finita de espacio normado es cerrado.
+ 6. Un subconjunto de un espacio normado de dimensión finita es
+    compacto ssi es cerrado y acotado.
 
+***** TODO Demostración
 **** Compacidad relativa y precompacidad
 Llamamos $A$ *relativamente compacto* cuando $\overline{A}$ es compacto.
 Llamamos $A$ *precompacto* cuando, dado un $\varepsilon$, existen $x_1,\dots,x_n$:
@@ -7740,17 +7743,16 @@ Llamamos $A$ *precompacto* cuando, dado un $\varepsilon$, existen $x_1,\dots,x_n
 Compacidad implica compacidad relativa, que a su vez implica
 precompacidad, que implica acotación.
 
-**** Corolario de Tychonoff de compacidad
-En un espacio normado de dimensión finita, un subconjuto
-es relativamente compacto ssi es acotado y ssi es 
-precompacto.
+***** Corolario de Tychonoff de compacidad
+En un espacio normado de dimensión finita, un subconjuto es
+relativamente compacto ssi es acotado y ssi es precompacto.
 
 **** Corolario de caracterización de continuas
-Sea $T : X \longrightarrow Y$ lineal con $TX$ de dimensión finita. 
+Sea $T : X \longrightarrow Y$ lineal con $TX$ de dimensión finita.
 Equivalen:
 
-1. $T$ es continua.
-2. $\ker T$ cerrado en $X$.
+  1. $T$ es continua.
+  2. $\ker T$ cerrado en $X$.
 
 ***** TODO Demostración
 
@@ -7814,8 +7816,7 @@ Son equivalentes:
    contradicción.
 
 **** Dual topológico en dimensión finita
-Sea $X$ normado de dimensión finita, su *dual topológico* 
-es:
+Sea $X$ normado de dimensión finita, su *dual topológico* es:
 
 \[X^\ast =
 \left\{ f:X \longrightarrow \mathbb{K} \mid
@@ -7828,8 +7829,8 @@ Ya que toda lineal también es continua.
 **** Funcionales sublineales
 Un funcional $p : X \longrightarrow \mathbb{R}$ se dice *sublineal* cuando:
 
-- $\forall t \in \mathbb{R}^+_0: p(tx) = tp(x)$
-- $p(x+y) \leq p(x)+p(y)$
+  - $\forall t \in \mathbb{R}^+_0: p(tx) = tp(x)$
+  - $p(x+y) \leq p(x)+p(y)$
 
 Si además $p(\alpha x) = |\alpha|p(x)$, se llama *seminorma*.
 
@@ -7941,6 +7942,17 @@ y $\alpha_1,\dots,\alpha_n \in \mathbb{K}$, entonces existe $f \in X^\ast$ tal q
 Puedo crear una función lineal, sobre $\langle x_1,\dots,x_n \rangle$ que lo cumpla.
 Por venir de dimensión finita será continua, así que podemos
 aplicar Hahn-Banach para obtener una extensión.
+
+**** Corolario L(X,Y) es Banach ssi Y es Banach
+El espacio $L(X,Y)$ con la norma de operadores es Banach ssi
+el espacio $Y$ es Banach.
+
+***** Demostración
+****** Primera implicación
+[[*Cuatro teoremas sobre la norma de operadores][Cuatro teoremas sobre la norma de operadores]]
+
+****** Segunda implicación
+[[http://math.stackexchange.com/questions/1023681/y-is-a-banach-space-if-bx-y-is-a-banach-space][Y is a Banach space if B(X,Y) is a Banach spacea]]
 
 *** Inyección canónica e isometrías
 **** Inyección canónica
