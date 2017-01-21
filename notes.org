@@ -7616,13 +7616,28 @@ f \text{ lineal y continua} \right\}
 Sea $M$ subespacio denso en $X$, para cada $T \in L(M,Y)$ existe
 un $S \in L(X,Y)$ tal que $S|_M = T$ y $\|S\| = \|T\|$
 
-***** TODO Demostración
+***** Demostración
+Podemos extenderla por continuidad, y comprobamos que es lineal:
+
+\[\begin{aligned}
+S(\alpha x_n + \beta y_n) = 
+T(\alpha x_n + \beta y_n) = 
+\alpha Tx_n + \beta Ty_n 
+\longrightarrow \alpha Sx_n + \beta Ty_n
+\end{aligned}\]
+
+Como la norma es continua y el supremo invariante a clausuras,
+hay igualdad entre las normas.
 
 **** Caracterización de operadores abiertos
-Sean $X,Y$ espacios normados, $T : X\longrightarrow Y$ lineal. Equivalen:
+Sea $T : X\longrightarrow Y$ lineal. Equivalen:
 
- - $T$ es abierta
- - $T(B_X)$ es entorno de $0$
+ - $T$ es abierta.
+ - $T(B_X)$ es entorno de $0$.
+
+***** Sobreyectividad
+Una función lineal y abierta debe ser sobreyectiva ya que la imagen
+es subespacio vectorial abierto, y por tanto el total.
 
 ***** Demostración
 Si es abierta, trivialmente $T(B_X)$ es abierto.
@@ -7631,12 +7646,12 @@ Sea $O \subseteq X$ abierto. Sea $x \in O$, con $B(x,r) \subseteq O$. Como $T(B_
 de $0$, tenemos $T(x) + T(B_X)r = T(B(x,r)) \subseteq T(O)$ entorno de $x$, por ser
 la translación y homotecia [[*Continuidad de homotecias y translaciones][homeomorfismos]].
 
-**** Funciones lineales abiertas
+**** Caracterización de operadores abiertos sobre la imagen
 Sea $T : X \longrightarrow Y$ lineal. Equivalen:
 
-- $T$ abierta sobre $TX$
-- $\exists r>0:\quad TX \cap rB_Y \subset TB_X$
-- $\exists\alpha>0: \forall y\in TX: \exists x\in X: 
+ - $T$ abierta sobre $TX$.
+ - $\exists r>0:\quad TX \cap rB_Y \subset TB_X$.
+ - $\exists\alpha>0: \forall y\in TX: \exists x\in X: 
   \quad \|x\| \leq \alpha\|y\|$, cumpliendo $Tx = y$.
 
 ***** Demostración
@@ -7648,9 +7663,9 @@ Por tanto, $\exists x: Tx = y \frac{\delta}{\|y\|}$. Tomamos $x' = x \frac{\|y\|
 que $T(x') = y$, y además que $\|x'\| = \|x\|\frac{\|y\|}{\delta} \leq \frac{\|y\|}{\delta}$.
 
 **** Descomposición canónica: proyección al cociente
-Sea $X$ un espacio normado, $M$ subespacio cerrado y $\pi$
-la proyección. Entonces $\pi \in L(X,X/M)$ es sobreyectiva y
-abierta con $\|\pi\| = 1$.
+Sea $X$ un espacio normado, $M$ subespacio cerrado y $\pi$ la proyección.
+Entonces $\pi \in L(X,X/M)$ es sobreyectiva y abierta, con $\|\pi\| = 1$ cuando
+$M \neq X$.
 
 ***** Demostración
 ****** Es continua
@@ -7668,8 +7683,8 @@ En particular,
 \[ \|x+M\| \leq \|\pi\| \inf\{\|x+m\|\} = \|\pi\|\|x+M\| \]
 
 ****** Sobreyectiva y abierta
-Trivialmente es sobreyectiva. Usamos la caracterización de [[*Caracterización de operadores abiertos][operadores
-abiertos]], comprobando que:
+Trivialmente es sobreyectiva. Usamos la caracterización de 
+[[*Caracterización de operadores abiertos][operadores abiertos]], comprobando que:
 
 \[\pi^{-1}(B(r,0)) = \{x \in X \mid \|x+m\| < r\} = \bigcup_{m \in M} B(r,m)\]
 
