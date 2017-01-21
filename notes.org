@@ -7952,9 +7952,8 @@ por ser extensión y:
 Sea $x_0 \in X$, entonces existe $f \in \mathbb{S}_{X^\ast}$, tal que $f(x_0) = \|x_0\|$.
 En consecuencia:
 
- 1. El dual topológico separa los puntos de $X$. Si $x \neq y$,
-    existe $f \in X^\ast: f(x) \neq f(y)$.
- 2. \[\forall x \in X: \|x\| = max\left\{ |f(x)| : f \in B_{X^\ast} \right\}\]
+ 1. Si $x \neq y$, existe $f \in X^\ast: f(x) \neq f(y)$.
+ 2. $\forall x \in X: \|x\| = max_{f \in B_{X^\ast}} \{ |f(x)| \}$
 
 ***** Demostración
 Podemos aplicar Hahn-Banach a $g : x_0\mathbb{K} \longrightarrow \mathbb{K}$ con $g(\lambda x_0) = \lambda \|x_0\|$,
@@ -7976,7 +7975,7 @@ Puedo crear una función lineal, sobre $\langle x_1,\dots,x_n \rangle$ que lo cu
 Por venir de dimensión finita será continua, así que podemos
 aplicar Hahn-Banach para obtener una extensión.
 
-**** Corolario L(X,Y) es Banach ssi Y es Banach
+**** Corolario: L(X,Y) es Banach ssi Y es Banach
 El espacio $L(X,Y)$ con la norma de operadores es Banach ssi
 el espacio $Y$ es Banach.
 
@@ -7993,51 +7992,45 @@ Se define $J_X(x_0) : X^\ast \longrightarrow \mathbb{K}$ como:
 
 \[J_X(x_0)(f) = f(x_0)\]
 
-**** Propiedades de la inyección
+***** La inyección es isométrica
 Se verifica:
 
   1. $\forall x \in S_X: J_X(x)$ es lineal y de módulo $1$.
   2. $J_X : X \longrightarrow X^{\ast\ast}$ es isométrica y lineal.
 
-***** TODO Demostración
+****** TODO Demostración
 **** Completación de un espacio
 $X^\ast$ es completo para cualquier espacio normado $X$. Cuando $X$ no es 
 completo, $J_X$ no es sobreyectivo y podemos completarlo como:
 
 \[ X \subset \overline{J_X(X)} \]
 
-Que lo será por ser cerrado en $X^{\ast\ast}$, que es completo.
+Que lo será por ser cerrado en $X^{\ast\ast}$, que sí es completo.
 
 **** Polar de un subespacio
 Dado $M \subset X$, el *polar* de $M$ se define como:
 
 \[M^0 = \left\{ f\in X^\ast \mid f(M) = \{0\} \right\}\]
 
-Si tenemos la restricción $S : X^\ast \longrightarrow M^\ast$, $M^0 = \ker S$.
+***** Definición equivalente
+Para la restricción $S : X^\ast \longrightarrow M^\ast$, $M^0 = \ker S$.
 
 **** Primer teorema de isometría
-Sea $X$ espacio normado y $M$ subespacio, tenemos una biyección
-lineal isométrica \[T : {X^\ast}/{M^0} \longrightarrow M^\ast \] dada por:
-
-\[T(f + M^0) = f|_M\]
+Sea $M \subseteq X$ subespacio, \[\cdot|_M : {X^\ast}/{M^0} \longrightarrow M^\ast \] es biyección lineal 
+isométrica.
 
 ***** Demostración
-Tenemos $\|T(f+M^0)\| \leq \|f+M^0\|$, y obtenemos igualdad gracias
-a Hahn-Banach.
+Tenemos $\|f|_M\| \leq \|f+M^0\|$, y hay igualdad por extensión 
+equinórmica.
 
 **** Segundo teorema de isometría
-Sea $X$ espacio normado y $M$ subespacio vectorial cerrado de $X$.
-La aplicación $T : (X/M)^\ast \longrightarrow M^0$ es una biyección lineal isométrica
-definida por:
-
-\[ T(f)(x) = f(x+M) \]
-
-Además $T = f \circ Q$ para $Q$ proyección.
+Sea $M\subseteq X$ subespacio vectorial cerrado. Para $\pi_{X/M}$ proyección, 
+$\_ \circ \pi : (X/M)^\ast \longrightarrow M^0$ es una biyección lineal isométrica.
 
 ***** Demostración
 Claramente es lineal. Tenemos que es lipschitziana por:
 
-\[ \|T(f)\| = \| f \circ Q \| \leq \|f\|\|Q\| = \|f\| \]
+\[ \|T(f)\| = \| f \circ \pi \| \leq \|f\|\|\pi\| = \|f\| \]
 
 Y por otro lado,
 
