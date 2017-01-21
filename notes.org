@@ -4627,6 +4627,75 @@ $n$ raíces.
  {1}{n=1}\]
 
 *** Extensiones ciclotómicas
+** 10. Extensiones cíclicas y radicales
+*** 10.1. Extensiones cíclicas
+**** 10.1.1. Extensión cíclica
+Una extensión es cíclica si es de Galois con grupo cíclico.
+
+**** 10.1.2. Teorema de Lagrange
+Sea $K$ cuerpo y $n$ un primo relativo a $car(K)$. Supongamos que existe
+una raíz n-ésima de la unidad en $K$:
+
+  1. Dada $E/K$ extensión cíclica de grado $n$, existe $\alpha \in E$ tal que
+     $E = K(\alpha)$ y $Irr(\alpha,K) = X^n-a$ para algún $a \in K$.
+  2. Para $a \in K$, con $\alpha$ raíz de $X^n-a$, se tiene $K(\alpha)/K$ cíclica
+     de grado $d \mid n$ y $\alpha^d \in K$.
+
+*** 10.2. Extensiones solubles y radicales
+**** 10.2.1. Extensión soluble
+Una extensión separable $F/K$ es soluble si hay una extensión $E/K$ de 
+Galois con grupo soluble y $K < F < E$.
+
+***** Definición equivalente
+Una extensión separable es soluble si su clausura normal tiene grupo
+de Galois soluble.
+
+**** 10.2.2. Extensión soluble por radicales
+Una extensión $F/K$ finita separable es soluble por radicales cuando
+$mcd([F:K],car(K)) = 1$ y hay una torre:
+
+\[K = E_0 < E_1 < \dots < E_m = E\]
+
+cumpliendo $F < E$ y siendo cada $E_{i+1}/E_i$ de una de estas dos formas:
+
+  1. $E_{i+1} = E_i(\zeta)$ raíz de la unidad.
+  2. $E_{i+1} = E_i(\alpha)$ raíz de un polinomio $X^n-a \in E_i[X]$, con 
+     $mcd(n,car(K)) = 1$.
+
+**** 10.2.3. Propiedades de las solubles por radicales
+Sea $F/K$ soluble por radicales:
+
+  1. Dada $L > K$, $FL/L$ es soluble por radicales.
+  2. Dada $L > F > K$, $L/K$ soluble por radicales ssi $F/K, L/F$ solubles
+     por radicales.
+  3. $F/K, L/K$ solubles por radicales da $FL/K$ soluble por radicales.
+
+***** TODO Demostración
+
+**** 10.2.4. Caracterización de solubilidad por radicales
+Sea $F/K$ separable finita. Es soluble por radicales ssi existe:
+
+\[L_0 < L_1 < \dots < L_m = L > F\]
+
+Con cada paso soluble por radicales y $L/K$ Galois.
+
+***** TODO Demostración
+
+**** 10.2.5. Teorema de Galois
+Sea $F/K$ separable finita. Es soluble por radicales ssi es soluble.
+
+***** TODO Demostración
+
+**** 10.2.6. Propiedades de las solubles
+Cumplen:
+
+  1. Dada $L > F > K$, $L/K$ soluble ssi $F/K,L/F$ solubles.
+  2. Dada $F/K$ soluble $L/K$ arbitraria, $FL/L$ es soluble.
+  3. Dadas $F/K,L/K$ solubles, $FL/K$ es soluble.
+
+***** TODO Demostración
+Aplicando el [[*10.2.5. Teorema de Galois][Teorema de Galois]] a las propiedades de [[*10.2.3. Propiedades de las solubles por radicales][solubles por 
+radicales]].
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
 *** La categoría CRing
