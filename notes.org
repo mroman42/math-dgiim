@@ -7107,7 +7107,19 @@ l.index(a^2+1)
   - $\|ax\| = |a| \|x\|$
   - $\|x+y\| \leq \|x\|+\|y\|$
 
-Cuando $\|x\| = 0$ no implica $x = 0$, se llama *seminorma*.
+***** Seminorma
+Cuando $\|x\| = 0$ no implica $x = 0$, se llama *seminorma*. Define
+una norma en un espacio cociente.
+
+  - $\|ax\| = |a| \|x\|$
+  - $\|x+y\| \leq \|x\|+\|y\|$
+
+***** Sublineal
+Cuando además $\|\alpha x\| = \alpha\|x\|$ sólo se cumple para reales positivos, 
+se llama funcional *sublineal*.
+
+  - $\|ax\| =  a \|x\|$ para $a \in \mathbb{R}^+$
+  - $\|x+y\| \leq \|x\|+\|y\|$
 
 ***** Distancia de la norma
 Desde la norma se puede definir una *distancia* asociada 
@@ -7125,6 +7137,14 @@ con abiertos:
 
 Dos normas que generan el mismo espacio topológico son 
 *equivalentes*.
+
+***** Equivalencia proporcional
+Dos normas $\|.\|$ y $\|.\|_\ast$ generan topologías equivalentes cuando:
+
+\[\exists m,M \in \mathbb{R^+}:\; m \|x\| \leq \|x\|_\ast \leq M \|x\|\]
+
+****** Demostración
+Se demuestra por mutua inclusión de bolas.
 
 **** Espacios vectoriales topológicos
 Cualquier espacio vectorial sobre $\mathbb{R}$ o $\mathbb{C}$ es normado.
