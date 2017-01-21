@@ -8217,8 +8217,8 @@ $X=F_n$.
 
 *** Teorema de la aplicación abierta
 **** Teorema de la aplicación abierta
-Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$ sobreyectiva. 
-Entonces, $T$ es abierta; y, por tanto, epimorfismo topológico.
+Sean $X,Y$ Banach con $T \in L(X,Y)$ sobreyectiva. 
+Entonces $T$ epimorfismo topológico (abierta).
 
 ***** Demostración
 ****** La imagen de bola tiene interior no vacío
@@ -8285,7 +8285,7 @@ Hemos probado $\overline{T(\frac{1}{2} B_X)} \subseteq T(B_X)$, y finalmente,
 Así que $T(B_X)$ es un entorno de $0$ y $T$ es abierta.
 
 **** Teorema de los isomorfismos de Banach
-Sean $X,Y$ espacios de Banach con $T \in L(X,Y)$, biyección. 
+Sean $X,Y$ Banach con $T \in L(X,Y)$ biyectiva.
 Entonces $T$ es isomorfismo topológico.
 
 ***** Demostración
@@ -8305,9 +8305,9 @@ Sean $\|\cdot\|_1, \|\cdot\|_2$ dos normas en un espacio de Banach. Si cumplen q
 Entonces son equivalentes.
 
 ***** Demostración
-Sea $T(x)=x$ biyección lineal entre las dos normas. Es 
-lipschitziana por la condición. Por el
-[[*Teorema de los isomorfismos de Banach][teorema de los isomorfismos de Banach]], es isomorfismo topológico.
+Sea $T(x)=x$ biyección lineal entre las dos normas. Es lipschitziana
+por la condición. Por el [[*Teorema de los isomorfismos de Banach][teorema de los isomorfismos de Banach]], es 
+isomorfismo topológico.
 
 *** Teorema de la gráfica cerrada
 **** Gráfica de una función
@@ -8321,7 +8321,7 @@ Una $T$ es lineal ssi $Graf(T)$ es subespacio vectorial, y
 cuando $f$ es continua en Hausdorff, $Graf(f)$ es cerrada.
 
 **** Teorema de la gráfica cerrada
-Sean $X,Y$ de Banach con $T : X \longrightarrow Y$ lineal. Si la gráfica 
+Sean $X,Y$ Banach con $T : X \longrightarrow Y$ lineal. Si la gráfica 
 de $T$ es cerrada, $T$ es continua.
 
 ***** Demostración
@@ -8342,7 +8342,7 @@ $T = \pi_2 \circ \Phi^{-1}$ es continua.
 Sean $X,Y$ normados con $T: X \longrightarrow Y$ lineal. Equivalen:
 
   - $T$ con gráfica cerrada.
-  - Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$.
+  - Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$. Cuasicontinuidad en 0.
  
 ***** TODO Demostración
 
@@ -14704,3 +14704,4 @@ determinar si una superficie es orientable o no:
     _ <- char '*'
     return (l,False)
 #+END_SRC
+
