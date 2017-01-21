@@ -4461,34 +4461,53 @@ de Galois con grupo $Gal(E_i/K) = G_i$, $E_i \cap (E_1\dots E_{i-1})$ y $E=E_1\d
 **** 7.1.1. Propiedades de un cuerpo finito
 Sea $F$ cuerpo finito con $|F| = q$,
 
- 1. $car(F) = p$ es un primo
- 2. El cuerpo primo es $\mathbb{Z}/p\mathbb{Z}$
- 3. $F/\mathbb{Z}_p$ es extensión finita
- 4. $[ F : \mathbb{Z}_p] = n$, entonces $|F| = p^n$
- 5. $F^\times$ es cíclico de orden $|F|-1$
+  1. $car(F) = p$ es un primo.
+  2. El cuerpo primo es $\mathbb{Z}/p\mathbb{Z}$.
+  3. $F/\mathbb{Z}_p$ es extensión finita.
+  4. $[ F : \mathbb{Z}_p] = n$, entonces $|F| = p^n$.
+  5. $F^\times$ es cíclico de orden $|F|-1$.
  
-***** TODO Demostración
+***** Demostración
+****** Punto 1
+No puede tener característica nula por ser finito, luego debe
+ser un primo.
+
+****** Punto 2
+Ya que tiene característica prima.
+
+****** Punto 3
+Ya que $F$ es finito.
+
+****** Punto 4
+Si tiene una base de $n$ elementos, debe tener $p^n$ combinaciones
+de elementos básicos.
+
+****** Punto 5
+Todo subgrupo finito del grupo multiplicativo de un cuerpo es 
+cíclico.
 
 **** 7.1.2. Clasificación de cuerpos finitos
 Dos cuerpos finitos del mismo cardinal son isomorfos. De hecho,
-son el cuerpo de descomposición de $X^{|F|} - X$.
+son el cuerpo de descomposición de $X^{|F|} - X$ sobre $\mathbb{Z}_p$.
 
-***** TODO Demostración
+***** Demostración
+Al ser cíclico $u^{q-1} = 1$ nos da $u^q-u = 0$ con todo el cuerpo
+como raíces.
 
 **** 7.1.3. Existencia de cuerpos finitos
 Dado $p$ primo, existe cuerpo de $p^n$ elementos.
 
 ***** Demostración
 Sea $f(x) = x^{p^n}-x$ polinomio en $\mathbb{Z}_p$. Su derivada es $-1$ y no tiene raíces, 
-luego tiene sólo raíces simples. Vemos que con sólo añadir las 
+luego tiene sólo raíces simples. Veamos que con sólo añadir las 
 raíces del polinomio, llega a ser cuerpo de descomposición.
 
-Sean $u,v \in S$, conjunto de raíces:
+Sean $u,v$ raíces:
 
-- $(u+v)^{p^n} - (u+v) = u^{p^n}-u+v^{p^n}-v = 0$
-- $(uv)^{p^n}-uv = u^{p^n}v^{p^n} - uv = 0$
-- $(-u)^q - (-u) = 0$
-- $(u^{-1})^q-u^{-1} = 0$
+ - $(u+v)^{p^n} - (u+v) = u^{p^n}-u+v^{p^n}-v = 0$
+ - $(uv)^{p^n}-uv = u^{p^n}v^{p^n} - uv = 0$
+ - $(-u)^q - (-u) = 0$
+ - $(u^{-1})^q-u^{-1} = 0$
 
 **** 7.1.4. Teorema de Moore
 Para cada $p^n$ existe exactamente un cuerpo con $p^n$ elementos; 
@@ -4504,15 +4523,52 @@ con el mismo cardinal son [[*7.1.2. Clasificación de cuerpos finitos][isomorfos
 Notamos por $GF(p^n)$ o $\mathbb{F}_{p^n}$ al único cuerpo con esa cardinalidad,
 lo llamamos cuerpo de Galois de orden $p^n$.
 
+**** 7.1.6. Cuerpo extensión
+Para $\mathbb{F}_q$ cuerpo finito, exíste un único cuerpo de extensión de grado $n$,
+que es $\mathbb{F}_{q^n}$.
+
+***** Demostración
+Por el teorema de Moore, $q = p^m$, y sólo hay uno de $p^{nm}$ elementos.
+
+**** 7.1.7. Grupo de automorfismos
+El grupo $Aut(\mathbb{F}_{p^n}) \cong \mathbb{Z}_n$ es cíclico y está generado por el [[*5.3.14. Endomorfismo de Frobenius][Endomorfismo de 
+Frobenius]].
+
+***** Demostración
+El cuerpo fijo bajo el endomorfismo de Frobenius son los $p$ 
+elementos cumpliendo $a^p = a$, es decir, el cuerpo base $\mathbb{F}_p$.
+
+El generado debe ser su grupo de Galois, ya que tiene orden $n$.
+
+**** 7.1.8. Grupo de automorfismos relativo
+Un $\mathbb{F}_{p^n}$ es subcuerpo de $\mathbb{F}_{p^m}$ ssi $n\;|\;m$. En este caso, $\mathbb{F}_{p^m}/\mathbb{F}_{p^n}$ es cíclica
+con $Gal(\mathbb{F}_{p^m}/\mathbb{F}_{p^n}) = \langle \phi^n \rangle$.
+
+***** Demostración
+****** Si es subcuerpo, divide
+Por Lagrange, $[\mathbb{F}_{p^n} : F] | [\mathbb{F}_{p^m} : F]$.
+
+****** Si divide, es subcuerpo
+El $Gal(\mathbb{F}_{p^m}/\mathbb{F}) \cong \mathbb{Z}_m$ tiene un único subgrupo de orden $n$. Y debe
+ser el grupo de Galois de un cuerpo de orden $m/n$, que tiene por
+Moore que ser $\mathbb{F}_{p^n}$.
+
 *** Factorización de polinomios
 **** Clasificación de polinomios irreducibles
 Los factores irreducibles de $x^{p^n}-x$ son exactamente los polinomios 
 irreducibles de  $\mathbb{F}_p[X]$ cuyo grado divida a $n$.
 
 ** 8. Extensiones ciclotómicas
-*** Raíces de la unidad
-**** Subgrupos finitos del grupo multiplicativo
- Todo subgrupo finito del grupo multiplicativo $K^\times$ es cíclico.
+*** 8.1. Raíces de la unidad
+**** 8.1.1. Subgrupos finitos del grupo multiplicativo
+Todo subgrupo finito del grupo multiplicativo $K^\times$ es cíclico.
+
+***** Demostración
+Si $n = mcm\{ord(\alpha) \mid \alpha \in G\} = \max\{ord(\alpha) \mid \alpha \in G\}$, tenemos que
+debe ser $n = |G|$. En caso contrario se tendría $X^n-1$ con más de
+$n$ raíces.
+
+**** 8.1.2. 
 
 **** Grupo de raíces n-ésimas
  Llamamos *grupo de raíces n-ésimas* de la unidad al grupo siguiente. Cualquier
