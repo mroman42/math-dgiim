@@ -7963,15 +7963,13 @@ Se define $J_X(x_0) : X^\ast \longrightarrow \mathbb{K}$ como:
 **** Propiedades de la inyección
 Se verifica:
 
- 1. $\forall x \in S_X: J_X(x)$ es lineal y de módulo $1$.
- 2. $J_X : X \longrightarrow X^\ast^\ast$ es isométrica y lineal.
+  1. $\forall x \in S_X: J_X(x)$ es lineal y de módulo $1$.
+  2. $J_X : X \longrightarrow X^{\ast\ast}$ es isométrica y lineal.
 
 ***** TODO Demostración
-
 **** Completación de un espacio
-$X^\ast$ es completo para cualquier espacio normado $X$. 
-Cuando $X$ no es completo, $J_X$ no es sobreyectivo y podemos
-completarlo como:
+$X^\ast$ es completo para cualquier espacio normado $X$. Cuando $X$ no es 
+completo, $J_X$ no es sobreyectivo y podemos completarlo como:
 
 \[ X \subset \overline{J_X(X)} \]
 
@@ -8260,8 +8258,8 @@ $T = \pi_2 \circ \Phi^{-1}$ es continua.
 **** Caracterización de la gráfica cerrada en espacios normados
 Sean $X,Y$ normados con $T: X \longrightarrow Y$ lineal. Equivalen:
 
-- $T$ con gráfica cerrada.
-- Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$.
+  - $T$ con gráfica cerrada.
+  - Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$.
  
 ***** TODO Demostración
 
@@ -8859,7 +8857,7 @@ Si $H$ es prehilbertiano, $H^{\ast\ast}$ es su completación.
 
 ***** Demostración
 Veremos que si $\widehat H$ es su completación, $H^\ast \cong \widehat{H}^\ast$, por lo que tendrá que
-tenerse $H^{\ast\ast} \cong \widehat{H}^\ast^\ast \cong \widehat{H}$.
+tenerse $H^{\ast\ast} \cong \widehat{H}^{\ast\ast} \cong \widehat{H}$.
 
 Pero $H^\ast \cong \widehat{H}^\ast$ es cierto simplemente porque la única extensión continua y
 la restricción serán inversas.
@@ -9565,28 +9563,67 @@ no tiene ningún valor propio.
 ** Ejercicios
 *** 1. Espacios normados
 **** Ejercicio 3
-    La sucesión no puede tener ninguna parcial convergente a $0$, porque si no, al 
-    ser de Cauchy, convergería a $0$. Por tanto, a partir de un cierto $n$, todos los 
-    términos deben alejarse de $0$ más de un determinado $\alpha$.
+La sucesión no puede tener ninguna parcial convergente a $0$, porque si no, 
+al ser de Cauchy, convergería a $0$. Por tanto, a partir de un cierto $n$, 
+todos los términos deben alejarse de $0$ más de un determinado $\alpha$.
 
-    Sean ahora $\|x - y\| \leq \epsilon$, por desigualdad triangular inversa tenemos:
+Sean ahora $\|x - y\| \leq \epsilon$, por desigualdad triangular inversa tenemos:
 
-    \[ \bigg|\|x\|-\|y\|\bigg| \leq \|x-y\| \leq \epsilon\]
+\[ \bigg|\|x\|-\|y\|\bigg| \leq \|x-y\| \leq \epsilon\]
 
-    Y por tanto:
+Y por tanto:
 
-    \[1 - \frac{\epsilon}{\|x\|} \leq \frac{\|x\|}{\|y\|} \leq 1 + \frac{\epsilon}{\|x\|}\]
+\[1 - \frac{\epsilon}{\|x\|} \leq \frac{\|x\|}{\|y\|} \leq 1 + \frac{\epsilon}{\|x\|}\]
 
-    Ahora, por otro lado, comprobaremos que podemos demostrar a la función 
-    $f(x) = \frac{x}{\|x\|}$ uniformemente continua:
+Ahora, por otro lado, comprobaremos que podemos demostrar a la función 
+$f(x) = \frac{x}{\|x\|}$ uniformemente continua:
 
-    \[ 
-    \bigg| \frac{x}{\|x\|} - \frac{y}{\|y\|} \bigg| =
-    \frac{1}{\|x\|} \|(x-y) + \left(1 - \frac{\|x\|}{\|y\|}y\right) \leq
-    \frac{\epsilon}{\|x\|} + \frac{\|y\|}{\|x\|} \left|1-\frac{\|x\|}{\|y\|}\right|
-    \]
+\[ 
+\bigg| \frac{x}{\|x\|} - \frac{y}{\|y\|} \bigg| =
+\frac{1}{\|x\|} \|(x-y) + \left(1 - \frac{\|x\|}{\|y\|}y\right) \leq
+\frac{\epsilon}{\|x\|} + \frac{\|y\|}{\|x\|} \left|1-\frac{\|x\|}{\|y\|}\right|
+\]
 
-    Pero como tenemos acotaciones uniformes de $\|x\|^{-1}$ y de $\frac{\|y\|}{\|x\|}$, hemos terminado.
+Pero como tenemos acotaciones uniformes de $\|x\|^{-1}$ y de $\frac{\|y\|}{\|x\|}$, hemos 
+terminado.
+**** Ejercicio 4
+#+begin_statement
+Sea $X$ espacio normado. Probar que equivalen:
+
+  1. $X$ completo.
+  2. $B_X$ completo.
+  3. $S_X$ completo.
+#+end_statement
+
+***** Primera y segunda implicaciones
+Cerrados dentro de un completo.
+
+***** Tercera implicación
+Sea $\{x_n\}$ una sucesión de Cauchy. Descartamos el caso $\{\|x_n\|\} \longrightarrow 0$, 
+que lleva a la convergencia a $0$. Podemos asumir $\|x_n\| \geq 0$ para
+alguna cola de la sucesión.
+
+La sucesión $\left\{\frac{x_n}{\|x_n\|}\right\}$ es de Cauchy (puede comprobarse acotando en el
+caso en el que hemos descartado el $0$). Por tanto converge. Nótese
+que las normas también son de Cauchy y también convergen. Así,
+podemos escribir un $x/\|x\|$ al que converja la sucesión sobre $S_X$.
+
+La distancia de cada elemento queda acotada por la distancia sobre
+la bola unidad y la distancia en norma:
+
+\[
+\|x_n-x\| \leq
+\|x_n\| 
+\left( 
+\left\| \frac{x_n}{\|x_n\|} - \frac{x}{\|x\|} \right\| +
+\left\| \frac{x}{\|x\|} - \frac{x}{\|x_n\|} \right\|
+\right)
+\leq
+\varepsilon
+\]
+
+El teorema es que si algo converge en la bola unidad y converge en
+norma a distinto de $0$, converge a eso.
 
 **** Ejercicio 16
 ***** Punto a
