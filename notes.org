@@ -3965,7 +3965,6 @@ separable sobre $K$.
 
 ***** Demostración
 La suma o producto de elementos separables [[http://math.stackexchange.com/a/82837/85067][es separable]].
-
 **** 5.3.10. Propiedades de extensiones separables
 Las extensiones separables cumplen:
 
@@ -8181,8 +8180,8 @@ $B$ cerrado. Existe $f \in X^\ast$ con $\alpha \in \mathbb{R}$ tal que:
 
 *** Lema de categoría de Baire
 **** Teorema de Baire
-Sea $E$ espacio métrico completo y sea $\forall n : G_n \subset E$ un abierto 
-denso. $\bigcap_{n \in \mathbb{N}} G_n$ es denso.
+Sea $E$ espacio métrico completo y $G_n \subset E$ abiertos densos.
+$\bigcap_{n \in \mathbb{N}} G_n$ es denso.
 
 ***** Demostración
 Empezando con un abierto $G$ y con $G_1$, puedo a cada paso tomar el 
@@ -8194,7 +8193,7 @@ aquí tenemos que converge $\{a_n\} \to a \in \bigcap \overline{B}(a_n,r_n) \cap
 Cauchy.
 
 **** Corolario al teorema de Baire
-Sean $F_n \subset E$ cerrados con:
+Sea $E$ espacio métrico completo y $F_n \subset E$ cerrados con:
 
 \[E = \bigcup_{n \in \mathbb{N}} F_n\]
 
