@@ -7867,17 +7867,9 @@ Son equivalentes:
 
 ** 2. Principios fundamentales del análisis funcional
 *** Teorema de Hahn-Banach
-**** Funcionales sublineales
-Un funcional $p : X \longrightarrow \mathbb{R}$ se dice *sublineal* cuando:
-
-  - $\forall t \in \mathbb{R}^+_0: p(tx) = tp(x)$
-  - $p(x+y) \leq p(x)+p(y)$
-
-Si además $p(\alpha x) = |\alpha|p(x)$, se llama *seminorma*.
-
 **** Versión analítica de Hahn-Banach
-Sea $X$ espacio vectorial sobre $\mathbb{K}$ con $p$ sublineal. Y 
-sea $M$ subespacio con un $g : M \longrightarrow \mathbb{K}$, verificando:
+Sea $M \subseteq X$ subespacio con $p$ sublineal y $g : M \longrightarrow \mathbb{K}$ lineal 
+verificando:
 
 \[Re(g(m)) \leq p(m)\]
 
@@ -7885,7 +7877,7 @@ Entonces existe $f : X \longrightarrow \mathbb{K}$ lineal extendiéndolo y verif
 
 \[Re(f(x)) \leq p(x)\]
 
-Cuando $p$ es seminorma, se tiene además que $|f(x)|\leq p(x)$.
+Cuando $p$ es [[*Seminorma][seminorma]], se tiene además que $|f(x)|\leq p(x)$.
 
 ***** Demostración
 ****** Primera extensión en los reales
@@ -7944,7 +7936,7 @@ apropiado:
 \[f(\alpha x) = |f(x)| = Re(f(\alpha x)) \leq p(\alpha x) = p(x)\]
 
 **** Extensión equinórmica de Hahn-Banach
-Sea $X$ espacio normado, $M$ subespacio vectorial, con $g \in M^\ast$. 
+Sea $M \subseteq X$ subespacio vectorial, con $g \in M^\ast$. 
 Existe $f\in X^\ast$ tal que $f|_M = g$ y $\|f\| = \|g\|$.
 
 ***** Demostración
