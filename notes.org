@@ -9339,7 +9339,7 @@ En un espacio normado cualquiera equivalen:
   1. $\{x_i\}_{i \in I}$ sumable.
   2. $I_0 = \{ i \in I \mid x_i \neq 0\}$ numerable y para toda biyección $G : \mathbb{N} \longrightarrow I_0$:
 
-     \[\sum_{n \in \mathbb{N}} x_n = \sum_{n \in \mathbb{N}} x_{G(n)}\]
+     \[\sum_{i \in I_0} x_i = \sum_{n \in \mathbb{N}} x_{G(n)}\]
 
 ***** Demostración
 ****** Primera implicación
@@ -9365,11 +9365,11 @@ Cuando $I = \mathbb{N}$, ser sumable equivale a converger conmutativamente,
 esto es:
 
 \[
-\sum_{k \in \mathbb{N}} x_n = \sum_{k \in \mathbb{N}} x_{\sigma k}
+\sum_{k \in \mathbb{N}} x_k = \sum_{k \in \mathbb{N}} x_{\sigma k}
 \]
 
 ***** Demostración
-Claro corolario del [[*Sumable es esencialmente numerable][teorema]] anterior.
+Por el [[*Sumable es esencialmente numerable][teorema]] anterior.
 
 **** Corolario: suma de particiones
 En $X$ Banach, $I = \bigcup_{\lambda \in \Lambda} I_\lambda$ partición arbitraria nos da que si $\{x_i\}_{i \in I}$
@@ -9455,7 +9455,6 @@ y está acotada:
 \sum_{i \in I} |\langle u,e_i \rangle|^2 \leq
 \|u\|^2
 \]
-
 
 ***** Demostración
 En el caso finito:
