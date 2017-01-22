@@ -9527,12 +9527,26 @@ la igualdad dada.
 Cuando $u \in M$, él mismo es su mejor aproximación y su norma puede
 calcularse directamente. La igualdad de normas implica que la
 norma de $u-m$ sea $0$, haciendo $u \in M$.
-
-**** Existencia de familias ortonormales
+**** Existencia de familias ortonormales maximales
 Existen sistemas ortonormales maximales.
 
 ***** Demostración
 Lema de Zorn.
+
+**** Caracterización de bases ortonormales
+En $H$ Hilbert equivalen:
+
+  1. $u = \sum \langle u,e_i \rangle e_i$ para cualquier $u$.
+  2. $\langle u,v \rangle = \sum \langle u,e_i \rangle \langle e_i,v \rangle$, identidad de Parseval.
+  3. $\|u\|^2 = \sum_{i \in I} |\langle u,e_i \rangle|^2$.
+  4. $\{e_i\}$ sistema ortonormal maximal.
+  5. $\forall e_i : v \perp e_i \implies v =0$.
+  6. $H = \overline{lin\{e_i\}}$
+
+***** Demostración
+Directamente desde el corolario de Bessel en el caso de $M$ denso,
+donde no hay ningún ortonormal a él. Podemos comprobar la implicación
+en cada uno de los puntos.
 
 *** Bases de Hilbert
 **** Base de Hilbert
