@@ -9703,8 +9703,8 @@ debajo. Así,
 
 \[G(T) = G_{com}(T) \cup G_{ap}(T)\]
 
-Además, en *dimensión finita*, equivalen inyectividad, sobreyectividad
-y biyectividad, luego:
+Además, en *dimensión finita* y en compactos, equivalen inyectividad, 
+sobreyectividad y biyectividad, luego:
 
 \[G(T) = G_p(T)\]
 
@@ -9776,14 +9776,27 @@ Y sabemos que se cumple una de estas dos alternativas:
     cuyo caso 3 y 4 tienen solución única, que además depende 
     continuamente.
   - O bien hay soluciones no nulas de 1 y 2 y entonces
-    $y \perp \ker(T^\ast - \lambda I)$ y $w \perp \ker(T-\lambda I)$ para tener solución.
+    $y \perp \ker(T^\ast - \lambda I)$ y $w \perp \ker(T-\lambda I)$ para tener solución no única.
 
+***** Alternativamente
 En resumen, para $T$ compacto:
 
   - $img(T - \lambda I) = \ker(T^\ast - \lambda I)^\perp$.
   - $img(T^\ast - \lambda I) = \ker(T-\lambda I)^\perp$.
 
-***** TODO Demostración
+Y ambas son nulas a la vez.
+
+***** Demostración
+****** Caso sin valor propio
+Si $\lambda \notin G(T)$, entonces es invertible, así como su inversa.
+
+****** Caso con valor propio
+Si $\lambda \in G(T)$, entonces $\ker(T-\lambda I) \neq 0$ y $\ker(T^\ast-\lambda I) \neq 0$, porque
+para compactos coinciden los espectros. Se tiene además:
+
+  - $y \in img(T - \lambda I) = (\ker(T^\ast-\lambda I)^\perp)$
+  - $w \in img(T^\ast - \lambda I) = (\ker(T-\lambda I)^\perp)$
+
 **** Diagonalización de autoadjuntos compactos
 Sea $T \in L(H)$, compacto y autoadjunto, entonces es *diagonalizable*.
 Hay una base ortonormal con \[\lambda_n \longrightarrow 0\] de vectores propios, teniendo
