@@ -9709,9 +9709,6 @@ y biyectividad, luego:
 \[G(T) = G_p(T)\]
 
 ****** TODO Demostración
-**** Operador compacto
-Si $T \in L(H)$ es compacto si para cualquier acotada, la $\{T(u_n)\}$ tiene
-una parcial convergente.
 
 **** Rango de un operador
 El rango de $T$ es $n$ cuando puede escribirse con $u_i,w_i \in H$:
@@ -9726,6 +9723,25 @@ Los operadores de rango finito son compactos.
 ****** Demostración
 En dimensión finita las bolas son compactas. Al ser continuo,
 la sucesión imagen es siempre acotada y con parcial convergente.
+
+**** Operador compacto
+Si $T \in L(H)$ es compacto si para cualquier acotada, la $\{T(u_n)\}$ tiene
+una parcial convergente.
+
+**** Compactos como límite de los de rango finito
+Los operadores de rango finito son compactos. De hecho, son su clausura.
+Si tenemos:
+
+ - \[KL(H) = \{T: H\longrightarrow H \mid \mbox{ compacto}\}\]
+ - \[FL(H) = \{T : H\longrightarrow H \mid \mbox{ rango finito}\}\]
+
+Se cumple $\overline{FL(H)} = KL(H)$.
+
+***** El adjunto de un compacto es compacto
+Si tenemos $T = \lim T_n$, con $T_n = \sum u_i \otimes w_i$. Podemos comprobar que
+el adjunto es límite de $T_n^\ast = \overline{\sum w_i \otimes u_i}$, de rango finito.
+
+***** TODO Demostración
 
 **** Teorema del núcleo
 Si $T \in L(H)$ compacto, $\ker(T - \lambda I)$ tiene dimensión finita.
@@ -9759,9 +9775,15 @@ Y sabemos que se cumple una de estas dos alternativas:
   - O bien $x=0,z=0$ son las únicas soluciones de 1 y 2; en
     cuyo caso 3 y 4 tienen solución única, que además depende 
     continuamente.
-  - O bien hay soluciones $x,z$ no nulas de 1 y 2 y entonces
+  - O bien hay soluciones no nulas de 1 y 2 y entonces
     $y \perp \ker(T^\ast - \lambda I)$ y $w \perp \ker(T-\lambda I)$ para tener solución.
 
+En resumen, para $T$ compacto:
+
+  - $img(T - \lambda I) = \ker(T^\ast - \lambda I)^\perp$.
+  - $img(T^\ast - \lambda I) = \ker(T-\lambda I)^\perp$.
+
+***** TODO Demostración
 **** Diagonalización de autoadjuntos compactos
 Sea $T \in L(H)$, compacto y autoadjunto, entonces es *diagonalizable*.
 Hay una base ortonormal con \[\lambda_n \longrightarrow 0\] de vectores propios, teniendo
@@ -9771,7 +9793,7 @@ convergencia uniforme sobre los compactos:
 
 Teniendo $G_p(T) \setminus \{0\} = \{\lambda_1,\dots,\lambda_n\}$, y coincide la dimensión del 
 espacio propio y el número de veces que aparece $\lambda_i$.
-
+*** Extra
 **** Extra: El espectro de un autoadjunto es real
 **** Extra: El espectro del adjunto es el conjugado en caso finito
 ***** Contraejemplo caso infinito
