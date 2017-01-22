@@ -9640,9 +9640,14 @@ Trivial por doble inclusión y por reflexividad del adjunto.
 Uniendo las condiciones de densidad y ortogonalidad con la 
 caracterización de inyectividad por núcleo nulo.
 
+*** Espectro y operadores compactos
 **** Espectro
 El espectro de un operador es el conjunto de valores propios,
 llamamos:
+
+***** Espectro
+
+\[G(T) = \{\lambda \in \mathbb{C} \mid T - \lambda I \mbox{ invertible}\}\]
 
 ***** Espectro puntual
 
@@ -9657,8 +9662,10 @@ T - \lambda I \text{ no inyectivo}
 
 ***** Espectro comprimido
 
-\[G_{com}(T) = 
-\{\lambda \in \mathbb{C} \mid T - \lambda I \mbox{ con imagen no densa}\}\]
+\[G_{com}(T) 
+= 
+\{\lambda \in \mathbb{C} \mid T - \lambda I \mbox{ con imagen no densa}\}
+\]
 
 ***** Espectro aproximado
 
@@ -9670,7 +9677,12 @@ T - \lambda I \text{ no inyectivo}
 Equivalen ser invertible a tener imagen densa y estar acotado por 
 debajo. Así,
 
-\[G_p(T) = G_{com}(T) \cup G_{ap}(T)\]
+\[G(T) = G_{com}(T) \cup G_{ap}(T)\]
+
+Además, en *dimensión finita*, equivalen inyectividad, sobreyectividad
+y biyectividad, luego:
+
+\[G(T) = G_p(T)\]
 
 ****** TODO Demostración
 
