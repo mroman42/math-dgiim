@@ -9636,9 +9636,6 @@ Además, tenemos doble acotación para los dos operadores:
 ****** Puntos 3, 4 y 5
 Trivialmente por linealidad, usando la unicidad de Riesz-Frechet.
 
-**** Operador autoadjunto
-Un operador $T \in L(H,H)$ es autoadjunto si $T^\ast = T$.
-
 **** Relación con el adjunto
 Sea $T \in L(H,H)$; se cumple:
 
@@ -9653,6 +9650,19 @@ Trivial por doble inclusión y por reflexividad del adjunto.
 ****** Punto 3
 Uniendo las condiciones de densidad y ortogonalidad con la 
 caracterización de inyectividad por núcleo nulo.
+
+**** Operador autoadjunto
+Un operador $T \in L(H,H)$ es autoadjunto si $T^\ast = T$.
+
+**** Propiedades de los autoadjuntos
+Para $T \in L(H)$:
+
+  1. $TT^\ast,T^\ast T, T+T^\ast$ son autoadjuntos.
+  2. $T$ autoadjunto da $\alpha T$ autoadjunto.
+  3. $\{ T = T^\ast\}$ es cerrado.
+  4. Todo operador se divide en dos partes real e imaginaria:
+
+     \[R = \frac{T+T^\ast}{2}\qquad S = \frac{T-T^\ast}{2}\]
 
 *** Espectro y operadores compactos
 **** Espectro
