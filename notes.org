@@ -9699,7 +9699,6 @@ y biyectividad, luego:
 \[G(T) = G_p(T)\]
 
 ****** TODO Demostración
-
 **** Operador compacto
 Si $T \in L(H)$ es compacto si para cualquier acotada, la $\{T(u_n)\}$ tiene
 una parcial convergente.
@@ -9721,9 +9720,11 @@ la sucesión imagen es siempre acotada y con parcial convergente.
 **** Teorema del núcleo
 Si $T \in L(H)$ compacto, $\ker(T - \lambda I)$ tiene dimensión finita.
 
+***** TODO Demostración
 **** Teorema del rango
 Si $T \in L(H)$ compacto, $\im(T-\lambda I)$ es cerrado.
 
+***** TODO Demostración
 **** Biyectividad en compactos
 Si $T \in L(H)$ compacto, para $\lambda \neq 0$, $T-\lambda I$ es inyectivo ssi es 
 sobreyectivo ssi es biyectivo.
@@ -9746,9 +9747,10 @@ Sea $T \in L(H)$ compacto y $\lambda \neq 0$. Consideramos las ecuaciones:
 Y sabemos que se cumple una de estas dos alternativas:
 
   - O bien $x=0,z=0$ son las únicas soluciones de 1 y 2; en
-    cuyo caso 3 y 4 tienen solución única, dependiente continua.
+    cuyo caso 3 y 4 tienen solución única, que además depende 
+    continuamente.
   - O bien hay soluciones $x,z$ no nulas de 1 y 2 y entonces
-    $Y \perp \ker(T^\ast - \lambda I)$ y $W \perp \ker(T-\lambda I)$.
+    $y \perp \ker(T^\ast - \lambda I)$ y $w \perp \ker(T-\lambda I)$ para tener solución.
 
 **** Diagonalización de autoadjuntos compactos
 Sea $T \in L(H)$, compacto y autoadjunto, entonces es *diagonalizable*.
