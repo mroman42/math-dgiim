@@ -8548,7 +8548,7 @@ producto escalar.
 
 **** Ejemplos de espacios prehilbertianos
 ***** Espacio euclídeo complejo
-Para el espacio $\mathbb{C}^n$,
+Para el espacio $\mathbb{C}^n$:
 
 \[\langle (x_1,\dots,x_n), (y_1,\dots,y_n) \rangle =
 \sum_{i=0}^n x_i\overline{y_i} \]
@@ -8589,6 +8589,8 @@ Para $H$ prehilbertiano, si notamos $\|u\| = \sqrt{\langle u,u \rangle}$,
 
 \[ |\langle u,v \rangle| \leq \|u\|\|v\|
 \]
+
+Con caso de igualdad $u = v$.
 
 ***** Demostración
 Elevando al cuadrado los dos números positivos:
@@ -8656,7 +8658,7 @@ Se tiene:
 &\leq \|u_n-u\|\|v\| + \|u\|\|v_n-v\| \longrightarrow 0
 \end{aligned}\]
 
-*** Espacios de Hilbert
+*** Identidades de polarización
 **** Identidades de polarización
 Sea $H$ prehilbertiano:
 
@@ -8710,13 +8712,14 @@ Se cumple que:
 
 Y tomando límites tenemos lo pedido.
 
+*** Espacios de Hilbert
 **** Espacios de Hilbert
 Un espacio prehibertiano completo es un espacio de Hilbert.
 Equivalentemente, un espacio de Banach con norma asociada a un producto
 escalar.
 
 **** Hilbert de dimensión finita
-Todo espacio prehilbertiano de dimensión finita es espacio de Hilbert.
+Todo prehilbertiano de dimensión finita es Hilbert.
 
 ***** Demostración
 Todo espacio normado de dimensión finita es de Banach.
@@ -8755,7 +8758,7 @@ Para $H$ hilbertiano, $S \subseteq H$; definimos el ortogonal de $S$ como:
 
 \[
 S^\perp = \left\{
-u \in H \mid \forall s \in S: \langle u,s \rangle = 0
+u \in H \mid \forall s \in S: u \perp s
 \right\}
 \]
 
@@ -8961,7 +8964,7 @@ X = M \overset{t}{\oplus} N
 ***** TODO Demostración
 
 *** Teorema de Riesz-Frechet
-**** Recordatorio: Teorema de Hahn-Banach
+**** Recordatorio: por Teorema de Hahn-Banach
 Sea $X$ espacio normado sobre $\mathbb{K}$. Entonces $\exists f: X \longrightarrow \mathbb{K}$ lineal y continua
 no nula. Además, dado $x \in X\setminus\{0\}$, tenemos $\exists f \in X^\ast: f(x) \neq 0$. De hecho,
 
@@ -9111,7 +9114,7 @@ Un conjunto es débilmente compacto si toda sucesión suya tiene una
 parcial débilmente convergente.
 
 **** Compacidad de la bola unidad
-Sea $H$ Hilbert, entonces la bola $B(0,1)$ es débilmente compacta.
+Sea $H$ Hilbert, entonces la bola $\overline{B(0,1)}$ es débilmente compacta.
 
 ***** TODO Demostración
 
@@ -9151,7 +9154,7 @@ que debe ser el total.
 Sabemos que existe una base $u_1,\dots,u_n$, podemos generar una base
 ortonormal tomando a cada paso:
 
-\[ e_i = u_i - \sum_{j < i} \langle u_j,e_j \rangle e_j}\]
+\[ e_i = u_i - \sum_{j < i} \langle u_i,e_j \rangle e_j\]
 
 Para tener una base ortogonal. Dividiendo por la norma para tener una
 base ortonormal.
