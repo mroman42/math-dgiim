@@ -4643,7 +4643,7 @@ Tenemos $d\mid n$ ssi $\mu_d \subset \mu_n$.
  {(-1)^r}{n = p_1p_2\dots p_n \text{ primos distintos}}
  {1}{n=1}\]
 
-*** Extensiones ciclotómicas
+*** 8.3. Extensiones ciclotómicas
 ** 10. Extensiones cíclicas y radicales
 *** 10.1. Extensiones cíclicas
 **** 10.1.1. Extensión cíclica
@@ -4713,6 +4713,35 @@ Cumplen:
 ***** TODO Demostración
 Aplicando el [[*10.2.5. Teorema de Galois][Teorema de Galois]] a las propiedades de [[*10.2.3. Propiedades de las solubles por radicales][solubles por 
 radicales]].
+
+** Lista de temas de teoría
+*** 1. Galois es normal y separable
+Si $E/K$ es una extensión finita, son equivalentes:
+
+  1. $E/K$ extensión de Galois.
+  2. $E/K$ extensión normal y separable.
+
+**** Demostración
+***** Primera implicación
+Como cada $\sigma \in G = Gal(E/K)$ nos da un $\sigma : E/K \longrightarrow \overline{K}/K$, se tiene, por 
+Teorema de Artin:
+
+\[
+[E:K]_S \geq |G| = [E:K] \geq [E:K]_S
+\]
+
+Por tanto, es separable. Además, cada homomorfismo de ese tipo está
+en $G$ luego es un automorfismo y el cuerpo queda fijo, siendo una
+extensión normal.
+
+***** Segunda implicación
+Sea $n = [E:K]_S = [E:K]$ por separabilidad. Cada uno de esos 
+homomorfismos nos da $\sigma : E/K \longrightarrow E/K$, luego $Gal(E/K) = G$ tiene
+orden $n$. Por Teorema de Artin:
+
+\[ [E : E^G] = n = [E:K]\]
+
+luego $[E^G : K] = 1$.
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
 *** La categoría CRing
