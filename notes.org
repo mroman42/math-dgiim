@@ -2661,7 +2661,7 @@ su derivada.
 El *discriminante* de un polinomio con raíces
 $\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
 
-\[\text{Discr}(p) = a^{2n-2} \prod_{i>j}(\alpha_i-\alpha_j)^2\]
+\[\text{Discr}(p) = a^{2n-2}_n \prod_{i<j}(\alpha_i-\alpha_j)^2\]
 
 **** Relación con la resultante
 \[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
