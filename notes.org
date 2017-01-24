@@ -4176,7 +4176,7 @@ Son distintos ssi son linealmente independientes sobre $F$.
 ****** Caso base
 Procedemos por inducción. Cuando $n=1$, es trivial.
 
-****** caso inductivo
+****** Caso inductivo
 Tomemos un subconjunto mínimo de linealmente dependientes, 
 $\sigma_1,\dots,\sigma_s$. Tendríamos $b_i \in F^\times$:
 
@@ -4243,10 +4243,9 @@ Trivialmente desde la definición de automorfismo de cuerpos.
 Para $G < Aut(E)$ finito, $[E : E^G] = |G|$.
 
 ***** Demostración
-Ya tenemos $n = |G| \leq [E : E^G]$. Supongamos la 
-desigualdad estricta con $u_1,\dots,u_{n+1} \in E$ independientes sobre $E^G$. 
-Y tenemos el sistema de $n+1$ incógnitas y $n$ ecuaciones, sobre los
-$\sigma_j$ de $G$:
+Ya tenemos $n = |G| \leq [E : E^G]$. Supongamos la desigualdad estricta 
+con $u_1,\dots,u_{n+1} \in E$ independientes sobre $E^G$. Y tenemos el sistema 
+de $n+1$ incógnitas y $n$ ecuaciones, sobre los $\sigma_j$ de $G$:
 
 \[ X_1\sigma_j(u_1) + \dots + X_{n+1}\sigma_j(u_{n+1}) = 0 \qquad
 j = 1,\dots,n\]
@@ -4263,7 +4262,7 @@ En particular, en el caso $\sigma_j = id$, tenemos:
 \[u_1 = b_2u_2 + \dots + b_{n+1}u_{n+1}\]
 
 que obliga a que uno de los coeficientes no esté en $E^G$. Supongamos 
-s.p.g. que $b_2 \notin G$, y sea $\tau \in G$ tal que $\tau(b_2) \neq b_2$. Si aplicamos ahora
+s.p.g. que $b_2 \notin E^G$, y sea $\tau \in G$ tal que $\tau(b_2) \neq b_2$. Si aplicamos ahora
 $\tau$ a cada una de las ecuaciones y restamos tenemos:
 
 \[0 = (b_2-\tau(b_2))\sigma_j(u_2) + \dots + (b_n-\tau(b_n)\sigma_j(u_{n+1}))
