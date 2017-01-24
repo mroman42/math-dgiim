@@ -4818,6 +4818,49 @@ extesión $F \supseteq K(\alpha) \supseteq K$, sabemos:
 Sabemos que una extensión es separable si lo son sus subextensiones. 
 Por hipótesis de inducción $[F : K(\alpha)]_S = [F : K(\alpha)]$ y por el caso base
 $[K(\alpha) : K]_S = [K(\alpha) : K]$, por ser ambas separables.
+*** 5. Teorema de Artin
+Sea $E$ cuerpo y $G \subseteq Aut(E)$ un subgrupo finito, prueba que
+$E^G = \{e \in E \mid \forall \sigma \in G: \sigma(e) = e\}$ es un subcuerpo y $[E : E^G] = |G|$.
+
+**** TODO Demostración
+
+*** 6. Lema de independencia de Dedekind
+Sea $F/K$ y $E/K$ extensiones de cuerpos, para cada familia no vacía ${\cal F}$ de
+elementos de $Hom(F/K,E/K)$ prueba que son equivalentes:
+
+  1. ${\cal F}$ es linealmente independiente en $Hom_K(F,E)$ sobre $E$.
+  2. Todos los elementos de ${\cal F}$ son distintos.
+
+**** TODO Demostración
+
+*** 7. Caracterización de cuerpo algebraicamente cerrado
+Para $K$ cuerpo, equivalen:
+
+  1. Todo polinomio no constante $f \in K[X]$ tiene al menos una raíz en $K$.
+  2. Todo polinomio no constante $f \in K[X]$ descompone en $K$.
+  3. Los polinomios no constantes irreducibles en $K[X]$ son de grado 1.
+  4. $K$ no tiene extensiones algebraicas propias.
+
+Los cuerpos que lo cumplen son *algebraicamente cerrados*.
+
+**** Demostración
+***** Primera implicación
+Si el polinomio tiene una raíz, puede descomponerse como $f = (X-\alpha)f'$.
+Si $f'$ es constante, tenemos una descomposición de $f$, si no lo es, podemos
+descomponerlo a su vez.
+
+***** Segunda implicación
+Un polinomio de grado distinto de $1$ descompone linealmente y por tanto
+no puede ser irreducible.
+
+***** Tercera implicación
+Sea $\alpha \in F/K$ algebraica. Como $Irr(\alpha,K)$ es de grado $1$, $\alpha \in K$. No puede
+ser una extensión propia.
+
+***** Cuarta implicación
+Si algún polinomio no tuviera ninguna raíz en $K$, entonces él o un
+divisor suyo serían irreducibles sin raíz en $K$. Con ellos se genera
+una extensión algebraica propia.
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
 *** La categoría CRing
