@@ -5098,7 +5098,26 @@ de descomposición del polinomio $X^n-1$, prueba que se verifica:
   2. $Gal(F/K)$ es isomorfo a un subgrupo del grupo multiplicativo de las
      unidades de $\mathbb{Z}_n$, por lo tanto su orden es un divisor de $\varphi(n)$.
 
-**** TODO Demostración
+**** Demostración
+***** Primer punto
+Es el cuerpo de descomposición de un polinomio, por lo tanto, es 
+normal. Además, trabajamos con la hipótesis de que $car(K) \nmid n$, por lo
+que el polinomio debe tener todas sus raíces distintas y ser separable.
+
+***** Segundo punto
+Nótese que si tenemos una raíz primitiva, todas las raíces de la unidad
+quedan generadas por ella, $F = K(\zeta)$, y cada elemento del grupo de Galois
+queda determinado por a qué otra raíz primitiva envía la $\zeta$.
+
+Sea $\sigma(\zeta) = \zeta^a$. Tenemos que $\sigma^{-1}(\zeta) = \zeta^b$ y que $\zeta^{ab} = \zeta$, luego debe ser $a \in \mathbb{Z}^\times_n$.
+Creamos entonces la función inyectiva $\Lambda(\sigma) = a$, que trivialmente es
+un homomorfismo inyectivo:
+
+  - $\Lambda(\sigma) = a \wedge \Lambda(\tau) = b \implies \Lambda(\sigma\tau) = ab$.
+  - $\Lambda(\sigma) = 1 \implies \sigma = id$.
+
+Y por Primer Teorema de isomorfía tenemos lo pedido. Comprobar que
+además divide a $\varphi(n)$ es trivial por ser el orden de $\mathbb{Z}_n^\times$.
 
 *** 10. Teorema de Moore
 Para cada $p^n$ potencia de primo, existe un cuerpo con $p^n$ elementos;
@@ -5193,7 +5212,7 @@ $\xi$ en $K$, prueba que se verifica:
   2. A la inversa, sea $a \in K$. Si $\alpha$ es una raíz de $X^n-a$, entonces $K(\alpha)/K$
      es una extensión cíclica de grado $d$, con $d\mid n$ y $a^d \in K$.
 
-**** TODO Demostración
+**** Demostración
 
 *** 14. Automorfismo de Frobenius
 Sea $K$ cuerpo de característica $p \neq 0$, prueba que son equivalentes:
