@@ -4973,6 +4973,45 @@ multiplicidad $m > 1$. Y entonces $f = (X-\alpha)^m g$ mientras:
 Por lo que no serían primos relativos en el cuerpo de descomposición,
 y por tanto, tampoco en $K$.
 # ¿Cómo se traspasa el no ser primos relativos arriba a abajo?
+
+*** 13. Teorema de Lagrange
+Sea $K$ un cuerp, $n$ un entero positivo que es primo con la característica
+de $K$, si ésta es no nula, y existe una raíz n-ésima primitiva de la unidad
+$\xi$ en $K$, prueba que se verifica:
+
+  1. Si $E/K$ es una extensión cíclica de grado $n$, existe $\alpha \in E$ tal que
+     $E = K(\alpha)$ e $Irr(\alpha,K) = X^n-a$ para algún $a \in K$.
+  2. A la inversa, sea $a \in K$. Si $\alpha$ es una raíz de $X^n-a$, entonces $K(\alpha)/K$
+     es una extensión cíclica de grado $d$, con $d\mid n$ y $a^d \in K$.
+
+**** TODO Demostración
+
+*** 14. Automorfismo de Frobenius
+Sea $K$ cuerpo de característica $p \neq 0$, prueba que son equivalentes:
+
+  1. Todo polinomio irreducible no constante $f \in K[X]$ tiene todas sus 
+     raíces simples.
+  2. El endomorfismo de Frobenius es automorfismo.
+
+**** Demostración
+***** Primera implicación
+Dado $a \in K$. Sea $X^p-a$, con una raíz $\alpha$ en un cuerpo de descomposición.
+Tenemos $X^p-a = (X-\alpha)^p$. Como todos los irreducibles tienen raíces
+simples, el único irreducible factor del polinomio puede ser $X-\alpha$.
+
+Así $\alpha \in K$ y $a = \alpha^p$, siendo Frobenius sobreyectivo.
+
+***** Segunda implicación
+Para que un irreducible tenga raíz múltiple, debe dividir a su derivada,
+que debe ser de grado menor, luego debe ser $0$. El polinomio debe ser
+entonces de la forma $f(x^p)$ para que al derivarlo se anule.
+
+Cuando Frobenius es automorfismo, podemos escribir:
+
+\[f(x^p) = \sum a_i x^{ip} = \left( \sum \sqrt[p]{a_i} x^i \right)^{p}\]
+
+Lo que contraviene irreducibilidad. Todos los polinomios deben tener
+raíces simples.
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
 *** La categoría CRing
