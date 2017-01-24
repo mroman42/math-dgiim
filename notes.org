@@ -4865,6 +4865,154 @@ Cumplen:
 Aplicando el [[*10.2.5. Teorema de Galois][Teorema de Galois]] a las propiedades de [[*10.2.3. Propiedades de las solubles por radicales][solubles por 
 radicales]].
 
+** 11. Polinomios de grado 3 y 4
+*** 11.1. El grupo de un polinomio
+**** 11.1.1. Grupo de un polinomio
+Llamamos grupo del polinomio $f$ al grupo $Gal(f/K)$, dado por las 
+permutaciones de raíces del polinomio que da el grupo de Galois sobre
+su cuerpo de descomposición. Se tiene:
+
+\[Gal(f/K) \lhook\joinrel\relbar\joinrel\rightarrow S_n\]
+
+*** 11.2. Los teoremas clasificatorios
+**** 11.2.1. Ceros bajo la misma órbita
+Sea un polinomio con raíces simples factorizado $f = f_1f_2\dots f_r \in K[X]$.
+Dos ceros $\alpha_i,\alpha_j$ son raíces del mismo $f_k$ ssi están en la misma órbita
+bajo $Gal(f/K)$.
+
+***** Demostración
+Si están en la misma órbita, hay morfismo que lleva una en otra, luego
+son conjugadas y tienen el mismo irreducible. Si son conjugadas existe
+el morfismo que lleva una en otra y están bajo la misma órbita.
+
+**** 11.2.2. Criterio de irreducibilidad de Galois
+El polinomio $f$ es irreducible sobre $K$ ssi $Gal(f/K)$ es un subgrupo
+transitivo de $S_n$.
+
+***** Demostración
+Serán todas sus raíces del mismo irreducible ssi sólo hay una órbita.
+
+**** 11.2.3. Discriminante fijo bajo permutaciones pares
+Supongamos que $f$ no tiene raíces múltiples y sea $car(K) \neq 2$. Sea:
+
+\[\delta = \prod_{i < j} (\alpha_i - \alpha_j)\]
+
+El cuerpo fijo bajo las permutaciones pares de $Gal(f/K)$ es $K(\delta)$.
+
+***** Relación con el discriminante
+Observamos que $(a_n^{n-1}\delta)^2 = Disc(f)$.
+
+***** Demostración
+Llamamos $F$ al cuerpo fijo bajo las permutaciones pares.
+Para cualquier permutación impar $\rho(\delta) = -\delta$ y para cualquiera
+par $\sigma(\delta) = \delta$, así que $K \subset K(\delta) \subset F$. Tenemos dos casos:
+
+  - $K = F$, que daría el resultado.
+  - $K \neq F$, donde por Galois, $G \neq G^+$ y debería tenerse $[G : G^+] = 2$,
+    luego $[F : K] = 2$. Pero como una permutación impar cambia el signo
+    del determinante, que no es nulo por definición, $\delta \notin K$, y por
+    tanto $F = K(\delta)$.
+
+Nótese que en $car(K)=2$, el cambio de signo no hubiera movido a $\delta$.
+
+**** 11.2.4. Determinante marcando paridad
+El grupo de un polinomio es sólo par $Gal(f/K) < A_n$ ssi $\sqrt{Disc(f)} \in K$.
+
+***** Demostración
+Es lo que marca la distinción de casos en la anterior demostración.
+
+*** 11.3. Polinomios de grado pequeño
+**** 11.3.1. Polinomios de grado 2
+En un polinomio de grado 2 el discriminante vale $b^2 - 4ac$. Hay sólo
+dos posibilidades:
+
+  - $\sqrt{b^2-4ac} \in K$, entonces $Gal(f/K) = 1$, y tiene dos raíces en el 
+    cuerpo. 
+  - $\sqrt{b^2-4ac} \notin K$, entonces $Gal(f/K) = S_2$, y el polinomio es 
+    irreducible.
+
+El cuerpo de descomposición es $E = K\left(\sqrt{Disc(f)}\right)$.
+
+***** Demostración
+Nótese que en ambos casos el cuerpo que dejan fijo las permutaciones
+pares es todo el cuerpo de descomposición del polinomio.
+
+**** 11.3.2. Polinomios de grado 3
+Un polinomio mónico $f = X^3+b_2X^2+b_1X +b_0$ puede:
+
+  - Ser reducible, con algún factor lineal que nos lleva al caso de
+    grado 2.
+  - Ser irreducible.
+
+En el caso irreducible:
+
+  - $\sqrt{Disc(f)} \notin K$ ssi $Gal(f/K)=S_3$.
+  - $\sqrt{Disc(f)} \in K$ ssi $Gal(f/K) = A_3$.
+
+**** 11.3.3. Polinomios de grado 4
+Tenemos un polinomio de grado 4 dado por:
+
+\[
+f = X^4 + a_3X^3+ a_2X^2 + a_1X + a_0 = \prod_{i=1}^4 (X - \alpha_i)
+\]
+
+***** Cuártica reducible
+Pueden darse dos casos:
+
+  1. Se descompone en polinomios de grado 3 y 1; y tenemos una cúbica
+     como en el caso anterior.
+  2. Se descompone en $f = f_1f_2$, por lo que debe ser subgrupo de
+     $\langle (1\ 2),(3\ 4) \rangle$. Se distinguen dos casos usando discriminante:
+
+     - $H = \langle (1\ 2)(3\ 4) \rangle$ cuando el discriminante está
+       en el cuerpo $\sqrt{Disc(f_1)Disc(f_2)} \in K$.
+
+     - $H = \langle (1\ 2),(3\ 4)\rangle$ cuando el discriminante no está
+       en el cuerpo $\sqrt{Disc(f_1)Disc(f_2)} \notin K$.
+
+***** Cuártica irreducible
+El grupo es uno de los grupos transitivos de $S_4$:
+
+\[\begin{tikzcd}
+& S_4 \dlar[no head]\drar[no head] & & \\
+A_4 \drar[no head] & & D_4 \dlar[no head]\drar[no head] & \\
+& V & & C_4
+\end{tikzcd}\]
+
+Para ayudarnos a resolver el polinomio debemos creamos su 
+*resolvente cúbica*, dados:
+
+  - $\beta_1 = \alpha_2\alpha_3 + \alpha_1\alpha_4$
+  - $\beta_2 = \alpha_1\alpha_3 + \alpha_2\alpha_4$
+  - $\beta_3 = \alpha_1\alpha_2 + \alpha_3\alpha_4$
+
+El polinomio que los tiene como raíces es de grado 3 y tiene
+el mismo determinante. Puede calcularse con polinomios simétricos:
+
+\[\begin{aligned}
+g &= (X-\beta_1)(X-\beta_2)(X-\beta_3) \\
+  &= X^3 - a_2X^2 + (a_1a_3 - 4a_0)X + (4a_2a_0 - a_3^2a_0 - a_1^2)
+\end{aligned}\]
+
+Nótese que $H < D_4$ o conjugado si $\beta_2 \in K$ o alguno de los otros.
+Usando eso y que el discriminante nos da las permutaciones pares:
+
+\[\begin{array}{ccc|c}
+\sqrt{Disc(g)} & \beta_i & Gal(g/K) & Gal(f/K) \\
+\hline
+\notin K & \notin K & S_3 & S_4 \\
+\in K & \notin K & A_3 & A_4 \\
+\in K & \in K & 1 & V \\
+\notin K & \in K & S_3 & D_4,C_4
+\end{array}\]
+
+****** Distinción de los últimos casos
+Observamos que $D_4 \cap A_4 = V$ es transitivo pero $C_4 \cap A_4 = \langle (13)(24) \rangle$ 
+no lo es. Así que $Gal(f/K) = D_4$ ssi $f$ es irreducible sobre
+$K\left(\sqrt{Disc(f)}\right)$.
+
+*** TODO 11.4. Cómo resolver una ecuación soluble
+
 ** A. Norma y traza
 *** Norma y traza
 **** Norma
