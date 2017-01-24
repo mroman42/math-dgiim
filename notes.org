@@ -4097,9 +4097,12 @@ dobles.
 ****** Implicación 4 a 1 en característica p
 Para que un irreducible divida a la derivada, que debe ser de grado
 menor, se debe tener que sea $0$. El polinomio original debe ser
-de la forma  $f(x^p)$ para que al derivarlo se anule.
+de la forma $f(x^p)$ para que al derivarlo se anule.
 
-Cuando Frobenius es automorfismo, podemos escribir $f(x^p) = (g(x))^p$,
+Cuando Frobenius es automorfismo, podemos escribir:
+
+\[f(x^p) = \sum a_i x^{ip} = \left(\sum \sqrt[p]{a_i} x^i\right)^p\]
+
 contraviniendo irreducibilidad. Todos los polinomios deben tener
 raíces simples.
 
@@ -4149,6 +4152,7 @@ Se cumple:
  2. En característica $p$ prima, un irreducible tiene raíces múltiples
     ssi $f(x) = g(x^p)$.
 
+***** TODO Demostración
 **** 5.4.7. Polinomio separable
 Un polinomio $f \in K[X]$ se llama separable $K$ si sus factores 
 irreducibles tienen sólo raíces simples.
