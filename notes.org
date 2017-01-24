@@ -3273,9 +3273,8 @@ extensión cumpliendo lo pedido:
 Para el elemento $u = x + (f_1)$.
 
 **** 4.1.2. Extensión de un homomorfismo
-Dadas extensiones $F_1/K_1, F_2/K_2$, decimos que $\tau : F_1 \longrightarrow F_2$ 
-es una extensión de $\sigma : K_1 \longrightarrow K_2$, ambos homomorfismos de 
-cuerpos, cuando $\tau|_{K_1} = \sigma$.
+Dadas extensiones $F_1/K_1, F_2/K_2$, decimos que $\tau : F_1 \longrightarrow F_2$ es una extensión
+de $\sigma : K_1 \longrightarrow K_2$, ambos homomorfismos de cuerpos, cuando $\tau|_{K_1} = \sigma$.
 
 **** 4.1.3. Isomorfismo extendido a polinomios
 Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos. Existe una única extensión a
@@ -3286,8 +3285,8 @@ Por la propiedad universal por el anillo de polinomios. Las imágenes
 de todos los elementos están fijas excepto la de $X$ y sus múltiplos.
 
 **** 4.1.4. Isomorfismos respetan irreducibilidad
-Sea $f_1 \in K_1[X]$ irreducible sobre $K_1$, entonces $\sigma(f)$ es irreducible sobre
-$K_2$; donde $\sigma$ es la [[*4.1.3. Isomorfismo extendido a polinomios][extensión]] a polinomios de un isomorfismo.
+Sea $f_1 \in K_1[X]$ irreducible sobre $K_1$, entonces $\sigma(f)$ es irreducible 
+sobre $K_2$; donde $\sigma$ es la [[*4.1.3. Isomorfismo extendido a polinomios][extensión]] a polinomios de un isomorfismo.
 
 ***** Demostración
 Si tuviéramos $f_1 = gh$ dos polinomios no triviales, su grado se 
@@ -3472,20 +3471,6 @@ sobre $F$ que la llevara a su conjugada, contravendríamos maximalidad.
 
 Ahora, todo $f$ de la familia descompondría en $F$ y por $\sigma$, se las
 llevarían a $F_2$.
-
-**** DONE Descomposición
-Un polinomio $f \in K[X]$ *descompone* en una extensión $E$ si
-factoriza como polinomios lineales en $E[X]$. Llamamos *cuerpo de
-descomposición* a un cuerpo extensión de $K$ minimal en el que
-descompone.
-
-Propiedades:
-
- - Sea $E$ cuerpo de descomposición, entonces $E = K(\alpha_1,\alpha_2,\dots,\alpha_n)$, 
-   siendo una extensión finita con grado acotado por $n!$.
- - Todo polinomio tiene cuerpo de descomposición sobre $K$, ya que 
-   podemos tomar una clausura algebraica y crear $K(\alpha_1,\dots,\alpha_n)$ con
-   sus raíces.
 
 *** 4.2. Clausura algebraica
 **** 4.2.1. Algebraicamente cerrado
