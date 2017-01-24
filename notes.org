@@ -3955,7 +3955,7 @@ La extensión finita $E/K$ es separable ssi $[E:K]_s = [E:K]$.
 
 ***** Demostración
 Usamos la idea de la demostración de la relación con el grado.
-En el caso simple tenemos $[K(u):K]_S = [K(u):K]$ sólo cuando la
+En el caso simple tenemos $[K(u):K]_S = [K(u):K]$ solo cuando la
 multiplicidad de cada raíz es uno. En el caso compuesto exigimos
 eso a cada paso.
 
@@ -3965,6 +3965,7 @@ separable sobre $K$.
 
 ***** Demostración
 La suma o producto de elementos separables [[http://math.stackexchange.com/a/82837/85067][es separable]].
+
 **** 5.3.10. Propiedades de extensiones separables
 Las extensiones separables cumplen:
 
@@ -4011,22 +4012,8 @@ demostramos [[*5.3.9. Extensión por un conjunto separable][anteriormente]].
 Sea $E/K$ una extensión finita. Es simple ssi el conjunto de
 cuerpos intermedios $\{ F \mid K \subset F \subset E\}$ es finito.
 
-***** Demostración: si hay finitos subcuerpos es simple
-****** Cuerpo base finito
-Como la extensión es finita, tenemos que hay finitos elementos.
-El grupo multiplicativo de un cuerpo es [[http://mathoverflow.net/a/54741/45365][cíclico]], luego es simple.
-
-****** Cuerpo base infinito
-Siendo $E = K(a_1,a_2,\dots,a_n)$, nos limitamos a probar $K(a,b)$ simple.
-Consideramos las $K(a+xb)$ para $x \in F$. Como los elementos de $F$ son 
-infinitos y las extensiones intermedias finitas, se tienen $x \neq y$
-tales que $K(a+xb) = K(a+yb)$, y por tanto:
-
-\[
-b = \frac{ a +bx - (a + by)}{x-y} \in K(a+bx)
-\]
-
-***** Demostración: si es simple, hay finitos subcuerpos
+***** Demostración
+****** Primera implicación
 Sea $K(\alpha)$ simple, como es finita es algebraica, y $Irr(a,K)$ tiene 
 finitos divisores en la clausura. 
 
@@ -4037,6 +4024,22 @@ en el que el irreducible de $\alpha$ sea $p$ contendrá a $K[|p|]$, pero como:
 \[ [K(\alpha): E] = [K(\alpha) : K[|p|]] \]
 
 Se tendrá forzosamente $E = K[|p|]$.
+
+****** Segunda implicación
+******* Cuerpo base finito
+Como la extensión es finita, tenemos que hay finitos elementos.
+El grupo multiplicativo de un cuerpo finito es [[http://mathoverflow.net/a/54741/45365][cíclico]], luego es 
+simple.
+
+******* Cuerpo base infinito
+Siendo $E = K(a_1,a_2,\dots,a_n)$, nos limitamos a probar $K(a,b)$ simple.
+Consideramos las $K(a+xb)$ para $x \in F$. Como los elementos de $F$ son 
+infinitos y las extensiones intermedias finitas, se tienen $x \neq y$
+tales que $K(a+xb) = K(a+yb)$, y por tanto:
+
+\[
+b = \frac{ a +bx - (a + by)}{x-y} \in K(a+bx)
+\]
 
 ***** Contraejemplo:
 Hay extensiones finitas de cuerpos que no son simples
