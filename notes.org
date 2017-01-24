@@ -4919,6 +4919,60 @@ Sean $u = u^{p^n}$ y $v = v^{p^n}$:
   - $(-u)^{p^n} - (-u) = 0$
   - $(u^{-1})^{p^n} - u^{-1} = 0$
 
+*** 11. Teorema 90 de Hilbert
+Sea $E/K$ extensión cíclica de grado $n$ con grupo $G = Gal(E/K) = \langle \sigma\rangle$, y
+sea $\beta \in E$, prueba que son equivalentes:
+
+  1. $N_{E/K}(\beta) = 1$
+  2. Existe $0 \neq \alpha \in E$ tal que $\beta = \frac{\alpha}{\sigma(\alpha)}$.
+
+**** Demostración
+***** Primera implicación
+Los automorfismos $1,\sigma,\dots,\sigma^n$ son distintos y por tanto linealmente
+independientes, luego no es la aplicación cero:
+
+\[
+\tau 
+= 
+1 + \beta\sigma + (\beta \sigma(\beta))\sigma^2 + 
+\dots +
+(\beta \sigma(\beta)\dots \sigma^{n-2}\beta) \sigma^{n-1}
+\]
+
+Y existe $\tau(\theta) \neq 0$. Evaluando $\sigma(\tau(\theta))$ y multiplicando por $\beta$ nos queda
+que $\beta \sigma(\tau(\theta)) = \tau(\theta)$.
+
+***** Segunda implicación
+Usando que la norma es homomorfismo:
+
+\[
+N_{E/K}(\beta) = \frac{N_{E/K}(\alpha)}{N_{E/K}(\sigma(\alpha))} = 1
+\]
+
+*** 12. Raíces simples y derivada
+Sea $f \in K[X]$ no constante. Equivalen:
+
+  1. Todas las raíces de $f$ son simples.
+  2. $f$ y $Df$ son primos relativos.
+
+**** Demostración
+***** Primera implicación
+En el cuerpo de descomposición de $f$ podemos escribir:
+
+\[Df(X) = a \sum 
+(X-\alpha_1)\dots(X-\alpha_{i-1})(X-\alpha_{i+1})\dots(X-\alpha_n)\]
+
+Que claramente no comparte ningún factor primo $(X-\alpha_i)$ de $f$.
+
+***** Segunda implicación
+En el cuerpo de descomposición de $f$ podemos tomar una raíz de 
+multiplicidad $m > 1$. Y entonces $f = (X-\alpha)^m g$ mientras:
+
+\[ Df = (X-\alpha)^m Dg+ m(X-\alpha)^{m-1}g\]
+
+Por lo que no serían primos relativos en el cuerpo de descomposición,
+y por tanto, tampoco en $K$.
+# ¿Cómo se traspasa el no ser primos relativos arriba a abajo?
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
 *** La categoría CRing
