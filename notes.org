@@ -7888,7 +7888,15 @@ Y lo dotamos de la *norma del supremo*:
 
 Que da la *convergencia uniforme*.
 
-***** TODO Es espacio de Banach
+***** Es espacio de Banach
+Si tenemos $\{f_n\}$ de Cauchy, $\{f_n(x)\}$ es de Cauchy y converge a $f(x)$.
+Como tenemos algún $n$ para el que $\forall p\geq n: \|f_n-f_p\|_\infty \leq \varepsilon$, entonces:
+
+\[|f_n(x)-f_p(x)| \leq \|f_n-f_p\|_\infty \leq \varepsilon\]
+
+Y tomando límite en $p$ se tiene $|f_n(x) - f(x)| \leq \varepsilon$, luego
+$\|f_n-f\|_{\infty} \leq \varepsilon$.
+
 ***** Anuladas en infinito
 Sea $L$ compacto y separado. Una función se *anula en el infinito*
 cuando:
@@ -8615,8 +8623,8 @@ Definimos $f(x) = f_0(x) - if_0(ix)$, y entonces es lineal en los
 complejos cumpliendo lo pedido.
 
 **** Separación de convexos (para un abierto)
-Sean $A,B \subset X$ convexos con $A \cap B = \varnothing$ con $A$ abierto.
-Existe $f \in X^\ast$ con $\alpha \in \mathbb{R}$ tal que:
+Sean $A,B \subset X$ convexos con $A \cap B = \varnothing$ con $A$ abierto. Existe $f \in X^\ast$ 
+con $\alpha \in \mathbb{R}$ tal que:
 
 \[ Re(f(a)) < \alpha \leq Re(f(b)) \quad \forall a \in A, b \in B\]
 
