@@ -4776,6 +4776,48 @@ Entonces:
 \[
 b = \frac{(a+bx) - (a+by)}{x-y} \in K(a+bx) = K(a,b)
 \]
+
+*** 3. Caracterizaciones de extensiones normales
+Para $E/K$ extensión finita equivalen:
+
+  1. $E/K$ es una extensión normal. Es cuerpo de descomposición de un
+     polinomio.
+  2. Para cada $\sigma : E/K \longrightarrow \overline{K}/K$, donde $\overline{K}$ es una clausura algebraica,
+     se tiene $\sigma(E) = E$.
+  3. Todo polinomio irreducible $f \in K[X]$ con una raíz en $E$ descompone
+     en $E$.
+
+**** Demostración
+*** 4. Caracterización de la separabilidad
+Sea $F/K$ una extensión finita y $\overline{K}$ una clausura algebraica de $K$ conteniendo
+a $F$, entonces son equivalentes:
+
+  1. $F/K$ es separable.
+  2. $|Hom(F/K,\overline{K}/K)| = [F:K]$.
+
+**** Demostración
+Llamamos $[F:K]_S = |Hom(F/K,\overline{K}/K)|$.
+
+***** Caso simple
+En un caso simple $K(\alpha) / K$ cada homomorfismo a la clausura queda
+determinado por la imagen de $\alpha$, que debe ser a un elemento conjugado.
+Tenemos que todas las raíces de $Irr(u,K)$ tienen la misma multiplicidad
+$m$, luego si es de grado $n$ habrá $n/m$ raíces distintas.
+
+Se da la igualdad sólo si cada uno de los elementos es distinto,
+esto es, si la extensión es separable.
+
+***** Caso compuesto
+Procedemos por inducción sobre el grado. Si tomamos un elemento en la
+extesión $F \supseteq K(\alpha) \supseteq K$, sabemos:
+
+\[
+[F : K]_S = [F : K(\alpha)]_S [K(\alpha) : K]_S
+\]
+
+Sabemos que una extensión es separable si lo son sus subextensiones. 
+Por hipótesis de inducción $[F : K(\alpha)]_S = [F : K(\alpha)]$ y por el caso base
+$[K(\alpha) : K]_S = [K(\alpha) : K]$, por ser ambas separables.
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
 *** La categoría CRing
