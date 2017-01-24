@@ -10096,7 +10096,10 @@ la sucesión imagen es siempre acotada y con parcial convergente.
 Si $T \in L(H)$ es compacto si para cualquier acotada, la $\{T(u_n)\}$ tiene
 una parcial convergente.
 
-**** Compactos como límite de los de rango finito
+***** Caracterización de compactos
+Un $T$ es compacto ssi $T(\overline{B(0,1)})$ es compacto.
+
+***** Compactos como límite de los de rango finito
 Los operadores de rango finito son compactos. De hecho, son su clausura.
 Si tenemos:
 
@@ -10105,11 +10108,17 @@ Si tenemos:
 
 Se cumple $\overline{FL(H)} = KL(H)$.
 
+****** TODO Demostración
+
 ***** El adjunto de un compacto es compacto
 Si tenemos $T = \lim T_n$, con $T_n = \sum u_i \otimes w_i$. Podemos comprobar que
 el adjunto es límite de $T_n^\ast = \overline{\sum w_i \otimes u_i}$, de rango finito.
 
-***** TODO Demostración
+**** Teorema de la aplicación espectral
+Para $H$ Hilbert, un polinomio no constante puede aplicarse a operadores
+para tener:
+
+\[G(p(T)) = \{p(\lambda) \mid \lambda \in G(T)\}\]
 
 **** Teorema del núcleo
 Si $T \in L(H)$ compacto, $\ker(T - \lambda I)$ tiene dimensión finita.
@@ -10134,17 +10143,17 @@ G_{ap}(T) \setminus \{0\}
 Sea $T \in L(H)$ compacto y $\lambda \neq 0$. Consideramos las ecuaciones:
 
   1. $(T - \lambda I)x = 0$.
-  2. $(T^\ast - \lambda I)z = 0$.
+  2. $(T^\ast - \overline{\lambda} I)z = 0$.
   3. $(T-\lambda I)x = y$.
-  4. $(T^\ast - \lambda I)z = w$.
+  4. $(T^\ast - \overline{\lambda} I)z = w$.
 
 Y sabemos que se cumple una de estas dos alternativas:
 
   - O bien $x=0,z=0$ son las únicas soluciones de 1 y 2; en
     cuyo caso 3 y 4 tienen solución única, que además depende 
     continuamente.
-  - O bien hay soluciones no nulas de 1 y 2 y entonces
-    $y \perp \ker(T^\ast - \lambda I)$ y $w \perp \ker(T-\lambda I)$ para tener solución no única.
+  - O bien hay soluciones no nulas de 1 y 2 y entonces 3 tiene
+    solución si $y \perp \ker(T^\ast - \overline{\lambda} I)$ y 4 tiene solución si $w \perp \ker(T-\lambda I)$.
 
 ***** Alternativamente
 En resumen, para $T$ compacto:
@@ -10152,11 +10161,11 @@ En resumen, para $T$ compacto:
   - $img(T - \lambda I) = \ker(T^\ast - \lambda I)^\perp$.
   - $img(T^\ast - \lambda I) = \ker(T-\lambda I)^\perp$.
 
-Y ambas son nulas a la vez.
+Y si uno es nulo ambos lo son.
 
 ***** Demostración
 ****** Caso sin valor propio
-Si $\lambda \notin G(T)$, entonces es invertible, así como su inversa.
+Si $\lambda \notin G(T)$, entonces es invertible, así como su adjunta.
 
 ****** Caso con valor propio
 Si $\lambda \in G(T)$, entonces $\ker(T-\lambda I) \neq 0$ y $\ker(T^\ast-\lambda I) \neq 0$, porque
@@ -10174,6 +10183,7 @@ convergencia uniforme sobre los compactos:
 
 Teniendo $G_p(T) \setminus \{0\} = \{\lambda_1,\dots,\lambda_n\}$, y coincide la dimensión del 
 espacio propio y el número de veces que aparece $\lambda_i$.
+
 *** Extra
 **** Extra: El espectro de un autoadjunto es real
 **** Extra: El espectro del adjunto es el conjugado en caso finito
