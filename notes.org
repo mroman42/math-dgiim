@@ -4973,7 +4973,44 @@ $[K(\alpha) : K]_S = [K(\alpha) : K]$, por ser ambas separables.
 Sea $E$ cuerpo y $G \subseteq Aut(E)$ un subgrupo finito, prueba que
 $E^G = \{e \in E \mid \forall \sigma \in G: \sigma(e) = e\}$ es un subcuerpo y $[E : E^G] = |G|$.
 
-**** TODO Demostración
+**** Demostración
+***** Es un subcuerpo
+Por definición de morfismo de cuerpos.
+
+***** Igualdad
+Sabemos por Lema de Dedekind que $n = |G| \leq [E:E^G]$. Supongamos la
+desigualdad estricta con $u_1,\dots,u_{n+1}$ independientes sobre $E^G$ y
+creamos el siguiente sistema de $n+1$ incógnitas y $n$ ecuaciones:
+
+\[
+X_1\sigma_j(u_1) + \dots + X_{n+1}\sigma_j(u_{n+1}) = 0
+\qquad
+j = 1,\dots,n
+\]
+
+Sea $a_1,\dots,a_{n+1}$ solución no trivial con número mínimo de elementos
+no nulos. Suponemos s.p.g. que $a_1 \neq 0$, despejamos:
+
+\[\sigma_j(u_1) = b_2\sigma_j(u_2) + \dots + b_{n+1}\sigma_j(u_{n+1})\]
+
+En particular, cuando $\sigma_j = id$:
+
+\[
+u_1 = b_2u_2 + \dots + b_{n+1}u_{n+1}
+\]
+
+Por lo que alguno de los coeficientes no está en $E^G$ si queremos
+mantener la independencia lineal. Sea $b_2 \notin E^G$ y $\tau(b_2) \neq b_2$. Si aplicamos
+$\tau$ a cada una de las ecuaciones y restamos nos queda:
+
+\[
+0 = (b_2-\tau(b_2))\sigma_j(u_2) + \dots + (b_n-\tau(b_n)\sigma_j(u_{n+1}))
+\qquad
+j = 1,\dots,n
+\]
+
+Esta solución es no trivial pero tiene más elementos nulos que la
+anterior, llevando a contradicción.
 
 *** 6. Lema de independencia de Dedekind
 Sea $F/K$ y $E/K$ extensiones de cuerpos, para cada familia no vacía ${\cal F}$ de
@@ -4982,7 +5019,28 @@ elementos de $Hom(F/K,E/K)$ prueba que son equivalentes:
   1. ${\cal F}$ es linealmente independiente en $Hom_K(F,E)$ sobre $E$.
   2. Todos los elementos de ${\cal F}$ son distintos.
 
-**** TODO Demostración
+**** Demostración
+Demostraremos que, en general $\sigma_1,\dots,\sigma_m : G \longrightarrow F^\times$ homomorfismos desde un
+grupo $G$ son distintos ssi son linealmente independientes sobre $F$. El caso
+$m = 1$ es trivial, y, en otro caso, podemos tomar un subconjunto mínimo
+de linealmente dependientes:
+
+\[
+\sigma_s = b_1\sigma_1 + b_2\sigma_2 + \dots + b_{s-1}\sigma_{s-1}
+\]
+
+Sea $y$ tal que $\sigma_1(y) \neq \sigma_s(y)$. Evaluamos en $xy$, multiplicamos por $\sigma_s(y)$
+por otro lado y restamos para tener:
+
+\[
+0 = b_1(\sigma_1(y)-\sigma_s(y))\sigma_1 + 
+\dots + 
+b_{s-1}(\sigma_{s-1}(y)-\sigma_{s-1}(y))\sigma_{s-1}
+\]
+
+Contraviniendo minimalidad de los linealmente independientes. Nótese
+que el añadirles $0$ para tener $\sigma_1,\dots,\sigma_m : F_1 \longrightarrow F_2$ no los vuelve
+linealmente dependientes.
 
 *** 7. Caracterización de cuerpo algebraicamente cerrado
 Para $K$ cuerpo, equivalen:
