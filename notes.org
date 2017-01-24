@@ -4765,6 +4765,50 @@ una raíz n-ésima de la unidad en $K$:
   2. Para $a \in K$, con $\alpha$ raíz de $X^n-a$, se tiene $K(\alpha)/K$ cíclica
      de grado $d \mid n$ y $\alpha^d \in K$.
 
+***** Demostración
+****** Primer punto
+Sea $E = K(u)$, $Gal(E/K) = \langle\sigma\rangle$ y $\zeta$ raíz n-ésima primitiva de la 
+unidad. Llamamos *resolvente de Lagrange* a:
+
+\[
+\alpha = 
+u + \zeta\sigma(u) + \zeta^2\sigma^2(u) + \dots + \zeta^{n-1}\sigma^{n-1}(u)
+\]
+
+Y por independencia lineal de los homomorfismos, sabemos $\alpha \neq 0$.
+Aplicando $\sigma$ obtenemos:
+
+\[\begin{aligned}
+\sigma(\alpha) &= 
+\zeta^{n-1}\sigma^n(u) + \sigma(u) + 
+\zeta\sigma^2(u) + \dots + \zeta^{n-2}\sigma^{n-1}(u)
+\\&=
+\zeta^{-1}\alpha
+\end{aligned}\]
+
+Luego $\sigma^{i}(\alpha) = \zeta^{-i}\alpha$ y $\alpha$ tiene $n$ conjugados. Como $[K(\alpha):K] \geq n$,
+tenemos $E = K(\alpha)$. Además $\sigma(\alpha^n) = (\zeta\alpha)^n = \alpha^n$, luego $a = \alpha^n$ es
+fijo bajo $\sigma$ y debe ser $a \in K$.
+
+****** Segundo punto
+******* Es de Galois
+Todas las $\zeta^i\alpha$ son raíces disintas, luego $K(\alpha)$ es el cuerpo de
+descomposición del polinomio $X^n-a$ y es normal y separable por
+ser $n$ primo relativo a $car(K)$.
+
+******* Es cíclica
+Cada $\sigma \in Gal(K(\alpha)/K)$ se escribe como $\sigma(\alpha) = \omega_\sigma\alpha$ para alguna raíz
+de la unidad, ya que debe llevar $\alpha$ en otra raíz y queda determinado
+por ella. Así $\sigma \longrightarrow \omega_\sigma$ es un monomorfismo en el grupo de las raíces 
+n-ésimas, que sólo tiene como subgrupos cíclicos de orden $d \mid n$. 
+
+Si $Gal(K(\alpha)/K)$ es cíclico de orden $d$ generado por $\langle\sigma\rangle$, entonces $\omega_\sigma$ 
+es raíz d-ésima primitiva de la unidad. Entonces:
+
+\[\sigma(\alpha^d) = (\omega_\sigma\alpha)^d = \alpha^d\]
+
+Quedando fijo sobre el grupo de Galois, $\alpha^d \in K$.
+
 *** 10.2. Extensiones solubles y radicales
 **** 10.2.1. Extensión soluble
 Una extensión separable $F/K$ es soluble si hay una extensión $E/K$ de 
