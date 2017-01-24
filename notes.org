@@ -4622,27 +4622,135 @@ Tenemos $d\mid n$ ssi $\mu_d \subset \mu_n$.
 
 ***** TODO Demostración
 *** 8.2. Polinomios ciclotómicos
-**** Definición
- Se llama *polinomio ciclotómico* al polinomio:
+**** 8.2.1. Polinomio ciclotómico
+Se llama *polinomio ciclotómico* al polinomio:
 
- \[\Phi_n = \prod_{\zeta \text{ primitiva}} (X -\zeta)\]
+\[\Phi_n = \prod_{\zeta \text{ primitiva}} (X -\zeta)\]
 
- Se cumple que $\operatorname{grad}(\Phi_n) = \phi(n)$.
+**** 8.2.2. Grado del polinomio ciclotómico
+Se cumple que $\operatorname{grad}(\Phi_n) = \phi(n)$.
 
-**** Cálculo de los polinomios ciclotómicos
- Tenemos que:
+***** Demostración
+El grupo de las raíces n-ésimas es cíclico y de orden $n$, y tendrá
+exactamente $\phi(n)$ generadores.
 
- \[\Phi_n  = \frac{X^n-1}{\prod_{d|n, d\neq n} \phi_d}\]
+**** 8.2.3. Lema al cálculo de polinomios ciclotómicos
+Tenemos:
 
-**** Función de Möbius
- Se define $\mu : \mathbb{N} \longrightarrow \mathbb{Z}$ como:
+\[X^n-1 = \prod_{d \mid n} \Phi_d\]
 
- \[\mu(n) = \threepartdef
- {0}{\exists p: \text{ primo con } p^2|n}
- {(-1)^r}{n = p_1p_2\dots p_n \text{ primos distintos}}
- {1}{n=1}\]
+***** TODO Demostración
+**** 8.2.4. Cálculo de los polinomios ciclotómicos
+ Tenemos:
 
+ \[\Phi_n  = \frac{X^n-1}{\prod_{d|n, d\neq n} \Phi_d}\]
+
+***** Demostración
+Aplicando la fórmula [[*8.2.3. Lema al cálculo de polinomios ciclotómicos][anterior]].
+
+**** 8.2.7. El polinomio ciclotómico es mónico
+El polinomio ciclotómico es mónico $\Phi_n$ y tiene coeficientes en el
+anillo primo.
+
+***** TODO Demostración
+**** 8.2.8. Función de Möbius
+Se define la *función de Möbius*, $\mu : \mathbb{N} \longrightarrow \mathbb{Z}$, como:
+
+\[\mu(n) = \threepartdef
+{0}{\exists p: \text{ primo con } p^2|n}
+{(-1)^r}{n = p_1p_2\dots p_n \text{ primos distintos}}
+{1}{n=1}\]
+
+**** 8.2.8. Función de Möbius en la unidad
+La función de Möbius verifica que:
+
+\[ \sum_{d \mid n} \mu(d) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } n=1  \\
+0 & \mbox{if } n \neq 1 
+\end{array}
+\right.
+\]
+
+***** TODO Demostración
 *** 8.3. Extensiones ciclotómicas
+**** 8.3.1. Extensión ciclotómica
+Llamamos n-ésima extensión ciclotómica de $K$ a $K(\zeta)/K$, donde
+$\zeta$ es una raíz primitiva de la unidad en la clausura.
+
+**** 8.3.2. Grado en los racionales
+En los racionales, $[\mathbb{Q}(\zeta) : \mathbb{Q}] = \phi(n)$.
+
+***** TODO Demostración
+
+**** 8.3.3. Irreducibilidad racional del polinomio ciclotómico
+$\Phi_n$ es irreducible en $\mathbb{Z}[X]$ (y en $\mathbb{Q}[X]$).
+
+***** TODO Contraejemplo general
+***** TODO Demostración
+**** 8.3.4. Irreducibilidad en cuerpo base primo
+El cuerpo $\mathbb{F}_p$ contiene una raíz n-ésima primitiva de la unidad
+ssi $p \equiv_n 1$.
+
+***** TODO Demostración
+
+**** 8.3.5. Primos congruentes a 1
+Para todo $n$ existen infinitos primos congruentes a $1$ módulo $n$.
+
+***** TODO Demostración
+
+**** 8.3.6. Torre de extensiones ciclotómicas
+Sean $n \mid m$, entonces $\mathbb{Q}(\zeta_n) \subset \mathbb{Q}(\zeta_m)$.
+
+***** TODO Demostración
+
+**** 8.3.7. Producto de extensiones ciclotómicas
+Sean $n,m$ y raíces primitivas distintas:
+
+\[\mathbb{Q}(\zeta_n)\mathbb{Q}(\zeta_m) = \mathbb{Q}(\zeta_{mcm(n,m)})\]
+
+***** TODO Demostración
+
+**** 8.3.8. Intersección de extensiones ciclotómicas
+Sean $n,m$ primos relativos, $\mathbb{Q}(\zeta_n) \cap \mathbb{Q}(\zeta_m) = \mathbb{Q}$.
+
+***** TODO Demostración
+
+*** 8.4. Grupos de Galois
+**** 8.4.1. Extensión ciclotómica es de Galois
+La extensión ciclotómica $K(\zeta)/K$ es una extensión de Galois.
+
+***** Demostración
+Es normal porque está generada por $X^n-1$, ya que la raíz primitiva
+genera a todas sus raíces. Como trabajamos con la hipótesis de que
+$car(K) \nmid n$, todas las raíces de la unidad son distintas y el polinomio
+es separable.
+
+**** 8.4.2. Grupo de galois de la extensión ciclotómica
+El grupo de Galois de la extensión ciclotómica es un subgrupo
+de un multiplicativo, $Gal(K(\zeta)/K) < \mathbb{Z}_n^\times$.
+
+***** Demostración
+Todo $\sigma \in Gal(K(\zeta)/K)$ está determinado por su efecto sobre $\sigma(\zeta) = \zeta^a$,
+que debe llevar una raíz primitiva en otra. Comprobamos que $\Lambda(\sigma) = a$
+es un homomorfismo inyectivo y aplicamos Primer teorema de Isomorfía:
+
+\[\Lambda(\sigma) = a;\; \Lambda(\tau) = b; 
+\qquad
+\tau\sigma(\zeta) = \zeta^{ab}\]
+
+Donde $a \in \mathbb{Z}^\times_n$ porque debe poder invertirse por otra función.
+
+**** 8.4.3. Grupo abeliano de la extensión ciclotómica
+En general $Gal(K(\zeta)/K)$ es abeliano.
+
+***** Demostración
+Es subgrupo de un abeliano.
+
+**** 8.4.4. Grupo de la extensión ciclotómica en los racionales
+Tenemos $Gal(\mathbb{Q}(\zeta)/\mathbb{Q}) \cong \mathbb{Z}_n^\times$.
+
+***** TODO Demostración
 ** 10. Extensiones cíclicas y radicales
 *** 10.1. Extensiones cíclicas
 **** 10.1.1. Extensión cíclica
