@@ -3068,11 +3068,11 @@ y por tanto ser asociado de $f$, que lo genera.
 **** 3.2.16. Propiedades de los polinomios irreducibles
 Sea $F/K$ extensión con $u \in F$ algebraico. Se cumple:
 
- 1. $K(u) = K[u]$
- 2. $K[u] \cong K[X]/(Irr(u,K))$
- 3. $[K(u):K]$ es igual al grado de $Irr(u,K)$.
- 4. $\{1,u,u^2,\dots,u^{n-1}\}$ es una base de $K[u]$ sobre $K$.
- 5. $f(u)=0$ ssi $Irr(u,K) \mid f$.
+  1. $K(u) = K[u]$
+  2. $K[u] \cong K[X]/(Irr(u,K))$
+  3. $[K(u):K]$ es igual al grado de $Irr(u,K)$.
+  4. $\{1,u,u^2,\dots,u^{n-1}\}$ es una base de $K[u]$ sobre $K$.
+  5. $f(u)=0$ ssi $Irr(u,K) \mid f$.
 
 Llamamos *grado* del elemento $u$ al grado de $Irr(u,K)$.
 
@@ -3259,48 +3259,10 @@ cerrada.
      $\phi : F/K \longrightarrow F/K$ que es isomorfismo.
 
 ** 4. Cuerpos de descomposición
-*** DONE Extensión de homomorfismos
-*Extensión de un homomorfismo*. $\tau : F_1 \longrightarrow F_2$ es extensión de 
-$\sigma : K_1 \longrightarrow K_2$ cuando son dos extensiones $F/K$ y se cumple
-que $\tau |_K_1 = \sigma$.
-
-Cuando $\sigma = 1$, llamamos a $\tau$ *homomorfismo sobre K*.
-
-**** Automorfismos de una extensión
-*Automorfismos de una extensión*. Sea $\sigma : F/K \longrightarrow F/K$, entonces,
-$\sigma$ es automorfismo.
-
-***** Demostración
-Para $u\in F$, tomamos $K(u_1,\dots,u_k)$ la extensión finita generada por todas 
-las raíces del irreducible sobre $u$. Como $\sigma$ respeta raíces, puede restringirse
-a esta extensión; y será inyectivo en ella por ser morfismo de cuerpos.
-
-Como esta extensión es finita y esto es una aplicación lineal, la aplicación 
-restringida es sobreyectiva.
-
-**** Número de extensiones
-#+begin_theorem
-*Número de extensiones*. Teniendo $u_1$ de irreducible a $f_1$, hay tantas
-extensiones $\tau : K_1[u_1] \longrightarrow F_2$ como raíces tenga su imagen $f_2$; ya que están 
-completamente determinadas por la imagen de $u_1$.
-#+end_theorem
-#+begin_proofs
-Existe un único isomorfismo llevando $\tau(u_1) = u_2$, tomando este diagrama de
-isomorfismos:
-
-\[ \begin{tikzcd}
-K_1(u) \rar{\tau} & K_2(u) \\
-\frac{K_1[X]}{(f_1)} \uar{p_1} \rar{\overline\sigma} &
-\frac{K_2[X]}{(f_2)} \uar{p_2}
-\end{tikzcd} \]
-
-Donde $\sigma$ es inducido por el isomorfismo de extensión a polinomios.
-#+end_proofs
-
 *** 4.1. Cuerpo de descomposición
 **** 4.1.1. Teorema de Kronecker
-Sea $f$ de grado no nulo sobre $K$, entonces existe
-una extensión $F/K$ tal que existe $u \in F$ con $f(u) = 0$.
+Sea $f$ de grado no nulo sobre $K$, entonces existe una extensión $F/K$ 
+tal que existe $u \in F$ con $f(u) = 0$.
 
 ***** Demostración
 Puedo descomponer en irreducibles $f = f_1f_2\dots f_m$; y tener una 
