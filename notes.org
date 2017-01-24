@@ -2592,9 +2592,9 @@ donde $f_\sigma (X_i) = X_{\sigma i}$. Llamamos $Sim(A[X_1\dots X_n])$ al subani
 simétricos.
 
 **** Componentes homogéneas
-Llamamos *componente homogénea* a cada sumando homogéneo maximal de un 
-polinomio. Un polinomio es simétrico si y sólo si cada una de sus componentes 
-lo es.
+Llamamos *componente homogénea* a cada sumando homogéneo maximal de un
+polinomio. Un polinomio es simétrico si y sólo si cada una de sus
+componentes lo es.
 
 **** Polinomios simétricos elementales
 Los polinomios simétricos elementales son aquellos de la forma:
@@ -2621,12 +2621,12 @@ La unicidad se obtiene con $0 = h(e_1\dots e_r) - k(e_1\dots e_r) =
 l(e_1 \dots e_r)$.
 
 *** 1.2. Polinomios alternados
-**** Polinomio alternado
+**** 1.2.1. Polinomio alternado
 Un polinomio $f$ es alternado cuando para toda permutación se tiene
 $\sigma(f) = sign(\sigma) f$.
 
 *** 1.3. La resultante
-**** Resultante
+**** 1.3.2. Resultante
 Dados dos polinomios $f,g$ en un cuerpo $K$ en el que descomponen 
 podemos escribirlos como:
 
@@ -2638,7 +2638,7 @@ raíz común, y se define como:
 
 \[ R(f,g) = a_n^m b_m^n \prod^n_{i=1} \prod^m_{j=1} (\alpha_i - \beta_j)\]
 
-**** TODO Propiedades de la resultante
+**** TODO 1.3.3. Propiedades de la resultante
 La resultante de dos polinomios $f,g$ cumple:
 
  1. $R(f,g) = 0$ ssi tienen una raíz común.
@@ -2649,27 +2649,32 @@ La resultante de dos polinomios $f,g$ cumple:
  6. $R(X^k,f) = a_0^k$; con $R(f,X^k) = (-1)^{nk}a_0^k$
 
 *** 1.4. Discriminante
-**** Raíces múltiples
+**** 1.4.1. Raíces múltiples
 Podemos usar la resultante para caracterizar los polinomios
 con raíces múltiples, que son aquellos que comparten raíz con
 su derivada.
-# Duda: ¿Una raíz doble se comparte con la derivada siempre?
 
 \[ R(f,f') = a_n^{n-1} \prod f'(\alpha_j)\]
 
-**** El discriminante
-El *discriminante* de un polinomio con raíces
-$\alpha_1, \dots, \alpha_n$ en una clausura algebraica es:
+**** 1.4.1. El discriminante
+El *discriminante* de un polinomio con raíces $\alpha_1, \dots, \alpha_n$ en una 
+clausura algebraica es:
 
 \[\text{Discr}(p) = a^{2n-2}_n \prod_{i<j}(\alpha_i-\alpha_j)^2\]
 
-**** Relación con la resultante
+**** 1.4.1. Relación con la resultante
 \[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
 
+**** 1.4.2. Propiedades del discriminante
+El determinante cumple:
+
+  1. $f_1,f_2 \in F[X] \implies D(f_1f_2) = D(f_1)D(f_2)R(f_1,f_2)^2$.
+  2. $f_1,\dots,f_r \in F[X] \implies D(f_1\dots f_r) = D(f_1)\dots D(f_r)R^2$ con $R \in F$.
+
 *** 1.5. Métodos de cálculo
-**** Método modular
-**** Por el algoritmo de Euclides
-**** Resultante de Euler-Sylvester-Cayley
+**** TODO 1.5.2. Método modular
+**** TODO 1.5.3. Por el algoritmo de Euclides
+**** 1.5.4. Resultante de Euler-Sylvester-Cayley
 Definimos la resultante de Euler-Sylvester-Cayley:
 
 \[
@@ -2702,7 +2707,7 @@ X^{n-2}g &= 0 \\
 Por Teorema de Rouché, este sistema tiene solución ssi 
 el determinante de los coeficientes es cero.
 
-**** Resultante como determinante
+**** 1.5.5. Resultante como determinante
 La *resultante* de dos polinomios $p,q$ es el determinante solución de 
 $pq' - qp' = 0$ dados $p$ y $q$.
 
@@ -3030,7 +3035,7 @@ $F = K(S)$.
 
 **** 3.2.14. Extensión finitamente generada
 Una extensión $F/K$ es finitamente generada cuando tiene un
-conjunto finito de generadores. $F = K(u_1,u_2,\dots,u_n)$.
+conjunto finito de generadores, $F = K(u_1,u_2,\dots,u_n)$.
 
 **** 3.2.15. Extensiones simples y elementos primitivos
 Una extensión $F/K$ se llama simple cuando $F = K(u)$. Al $u$
