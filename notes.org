@@ -4861,6 +4861,64 @@ ser una extensión propia.
 Si algún polinomio no tuviera ninguna raíz en $K$, entonces él o un
 divisor suyo serían irreducibles sin raíz en $K$. Con ellos se genera
 una extensión algebraica propia.
+*** 8. Teorema de Kronecker
+Sea $f \in K[X]$ un polinomio no constante, entonces existe una extensión
+$F/K$ en la que $f(X)$ tiene al menos una raíz.
+
+**** Demostración
+Podemos descomponer en polinomios irreducibles $f = f_1 f_2\dots f_{n}$ y crear
+la extensión siguiente con la inclusión trivial de $K$, que es cuerpo
+por ser $(f_1)$ un ideal maximal:
+
+\[
+F = \frac{K[X]}{(f_1)} \supset K
+\]
+
+Y donde $X + (f_1)$ es raíz del polinomio original por ser raíz de la
+inclusión de $f_1$:
+
+
+\[
+f_1(X+(f_1)) = f_1 + (f_1) = 0
+\]
+*** 9. Extensiones ciclotómicas de Galois
+Sea $n$ entero positivo, $K$ un cuerpo y $F/K$ una extensión ciclotómica, cuerpo
+de descomposición del polinomio $X^n-1$, prueba que se verifica:
+
+  1. $F/K$ es una extensión de Galois.
+  2. $Gal(F/K)$ es isomorfo a un subgrupo del grupo multiplicativo de las
+     unidades de $\mathbb{Z}_n$, por lo tanto su orden es un divisor de $\varphi(n)$.
+
+**** TODO Demostración
+
+*** 10. Teorema de Moore
+Para cada $p^n$ potencia de primo, existe un cuerpo con $p^n$ elementos;
+que es el cuerpo de descomposición de $x^{p^n}-x$ sobre $\mathbb{F}_p$. Además,
+todo cuerpo finito de $p^n$ elementos es isomorfo a él.
+
+**** Demostración
+Dos cuerpos finitos con el mismo cardinal son isomorfos y que además
+existe siempre un cuerpo de $p^n$ elementos.
+
+***** Dos cuerpos finitos del mismo cardinal son isomorfos
+Todo subgrupo finito del grupo multiplicativo de un cuerpo es cíclico,
+luego $F^\times$ será cíclico de orden $p^n-1$, y sus elementos cumplen el 
+polinomio:
+
+\[x^{p^n-1} - 1 = 0\]
+
+Así, $x^{p^n} - x$ tiene exactamente como raíces los $p^n$ elementos de $F$.
+
+***** Existe un cuerpo con ese número de elementos
+El polinomio $x^{p^n}-x$ tiene derivada $-1$, y por tanto, sólo raíces
+simples. Añadiéndolas a $\mathbb{F}_p$, se tiene ya un cuerpo de descomposición.
+Sean $u = u^{p^n}$ y $v = v^{p^n}$:
+
+  - $(u+v)^{p^n} - (u+v) = 0$
+  - $(uv)^{p^n} - uv = 0$
+  - $(-u)^{p^n} - (-u) = 0$
+  - $(u^{-1})^{p^n} - u^{-1} = 0$
+
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
 *** La categoría CRing
