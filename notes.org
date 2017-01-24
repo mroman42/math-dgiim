@@ -4865,7 +4865,81 @@ Cumplen:
 Aplicando el [[*10.2.5. Teorema de Galois][Teorema de Galois]] a las propiedades de [[*10.2.3. Propiedades de las solubles por radicales][solubles por 
 radicales]].
 
-** Lista de temas de teoría
+** A. Norma y traza
+*** Norma y traza
+**** Norma
+Se define la *norma* de $\alpha$ relativa a $F/K$ separable como:
+
+\[N_{F/K} = \prod \{\sigma_i(\alpha) \mid 1\leq i\leq n\} \]
+
+para los $n$ homomorfismos que da $[F:K]_S$.
+
+**** Traza
+Se define la *traza* de $\alpha$ relativa a $F/K$ separable como:
+
+\[T_{F/K} = \sum \{\sigma_i(\alpha) \mid 1 \leq i \leq n\}\]
+
+para los $n$ homormorfismos que da $[F : K]_S$.
+
+**** Norma y traza están en el normal
+Si $F/K$ es de Galois, $N_{F/K}(\alpha), T_{F/K}(\alpha) \in F$.
+
+***** Demostración
+Al ser de Galois, los homomorfismos tienen imágenes en $F$.
+
+**** Propiedades de norma y traza
+Sea $F/K$ finita y separable de grado $n$:
+
+  1. $N(\alpha\beta) = N(\alpha)N(\beta)$
+  2. $T(\alpha+\beta) = T(\alpha) + T(\beta)$
+  3. $N(a\alpha) = a^nN(\alpha)$ para cada $a \in K$
+  4. $T(a\alpha) = naT(\alpha)$ para cada $a \in K$
+  5. $N(\alpha) \in K$ para cada $\alpha \in F$
+  6. $T(\alpha) \in K$ para cada $\alpha \in F$
+
+***** Demostración
+****** Puntos 1 y 2
+Simplemente por ser homomorfismos los que componen la suma y el
+producto.
+
+****** Puntos 3 y 4
+Los homomorfismos dejan fijos los elementos del cuerpo.
+
+****** TODO Puntos 5 y 6
+Para $E$ una clausura normal $Gal(E/K)$ actúa sobre $\frac{Gal(E/K)}{Gal(F/K)}$.
+
+**** Fórmulas de transitividad
+Para una torre $K \subset F \subset E$ y $E/K$ finita y separable:
+
+  1. $N_{F/K}(N_{E/F}(\alpha)) = N_{E/K}(\alpha)$
+  2. $T_{F/K}(T_{E/F}(\alpha)) = T_{E/K}(\alpha)$
+
+***** TODO Demostración
+**** Elemento de traza no nula
+Sea $F/K$ finita y separable, existe $\alpha \in F$ tal que $T_{F/K}(\alpha) \neq 0$.
+
+***** TODO Demostración
+
+**** Discriminante de una extensión
+Sea $F/K$ extensión finita y separable. Dados $\alpha_1,\dots,\alpha_n \in F$ equivalen:
+
+  1. $\{\alpha_1,\dots,\alpha_n\}$ base de $F$ como espacio vectorial sobre $K$.
+  2. Son linealmente independientes sobre $F$ los elementos:
+
+     \[\begin{aligned}
+     \beta_1 &= (\sigma_1(\alpha_1), \dots, \sigma_1(\alpha_n)) \\
+     \vdots &\\
+     \beta_n &= (\sigma_n(\alpha_1), \dots, \sigma_n(\alpha_n)) \\
+     \end{aligned}\]
+
+  3. El determinante de la matriz $(T_{F/K}(\alpha_i\alpha_j))_{ij}$ es no nulo.
+
+A este determinante lo llamamos *discriminante de la extensión* relativo
+a la base $\alpha_1,\dots,\alpha_n$.
+
+***** TODO Demostración
+
+** B. Lista de temas de teoría
 *** 1. Galois es normal y separable
 Si $E/K$ es una extensión finita, son equivalentes:
 
