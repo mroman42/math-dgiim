@@ -4742,6 +4742,40 @@ orden $n$. Por Teorema de Artin:
 \[ [E : E^G] = n = [E:K]\]
 
 luego $[E^G : K] = 1$.
+
+*** 2. Teorema del elemento primitivo de Steinitz
+En $F/K$ extensión finita equivalen:
+
+  1. $F/K$ tiene elemento primitivo.
+  2. Existe un número finito de cuerpos intermedios.
+
+**** Demostración
+***** Primera implicación
+Sea $F = K(\alpha)$. $Irr(\alpha,K)$, tiene un número finito de factores. Para 
+cada uno de ellos, $p$, definimos el subcuerpo generado por sus 
+coeficientes $K[|p|]$. Cualquier cuerpo intermedio $E$ en el que $Irr(\alpha,E)$
+contendrá a los coeficientes, $E \supset K[|p|]$, pero además:
+
+\[ [K(\alpha) : K[|p|] = [K(\alpha) : E]\]
+
+Luego $E = K[|p|]$ y sólo hay finitos cuerpos intermedios.
+
+***** Segunda implicación
+****** Caso de cuerpo base finito
+Como la extensión es finita, sólo habrá finitos elementos en ella.
+El grupo multiplicativo de cualquier cuerpo es simple, así que tendrá
+un elemento primitivo.
+
+****** Caso de cuerpo base infinito
+Nos limitamos a probar $K(a,b)$ simple. Si consideramos los subcuerpos
+de la forma $K(a+bx)$ para cada $x\in F$, como sólo habrá finitos,
+deberán coincidir algunos dos $K(a+bx) = K(a+by)$ con $x\neq y$. 
+
+Entonces:
+
+\[
+b = \frac{(a+bx) - (a+by)}{x-y} \in K(a+bx) = K(a,b)
+\]
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
 *** La categoría CRing
