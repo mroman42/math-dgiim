@@ -3791,20 +3791,6 @@ Una extensión con una raíz $u$ contendría a $K(u)$, y como todas
 las raíces se expresan como polinomios de $u$, contendría a todas
 las raíces y $f$ descompondría en polinomios lineales.
 
-**** DONE Caracterización de extensiones normales en torres
- #+begin_theorem
- Sea $K\subset F \subset E$ extensiones finitas, $E$ extensión normal. Equivalen:
-
-   - $F/K$ es normal.
-   - Para cada $\sigma : E/K \longrightarrow E/K$, se tiene $\sigma(F) = F$.
- #+end_theorem
-
- Sea $F/K$ normal, podemos cambiar el dominio y codominio para tener un
- $\sigma : F/K \longrightarrow \overline{K}/K$. Por ser $F$ normal, $\sigma(F) = F$.
-
- Sea $\sigma : F/K \longrightarrow \overline{K}/K$, podemos extenderla finitamente hasta $E$ como $\overline\sigma$. Como $E/K$ es
- normal, $\overline\sigma(E) = E$; y así tengo un $\overline\sigma : E/K \longrightarrow E/K$, que me da $\sigma(F)=\overline\sigma(F) = F$.
-
 *** 5.3. Extensiones separables
 **** 5.3.1. Elemento separable
 Un elemento algebraico $u$ es separable en $K$ si $Irr(u,K)$ no tiene 
@@ -3826,8 +3812,8 @@ $Irr(u,F) \mid Irr(u,K)$, y si el segundo no tiene raíces múltiples,
 no puede tenerlas el primero.
 
 **** 5.3.4. Grado separable
-El *grado separable* es cardinal del conjunto de homomorfismos de
-$F/K \longrightarrow \overline{K}/K$.
+El *grado separable* es cardinal del conjunto de homomorfismos
+de $F/K \longrightarrow \overline{K}/K$.
 
 \[ [F : K]_s = \#\{F/K \longrightarrow \overline{K}/K\}\]
 
@@ -3920,8 +3906,8 @@ La suma o producto de elementos separables [[http://math.stackexchange.com/a/828
 **** 5.3.10. Propiedades de extensiones separables
 Las extensiones separables cumplen:
 
- 1. Para $K \subset F \subset E$, se tiene $E/K$ separable ssi 
-    $E/F$ y $F/K$ separables.
+ 1. Para $K \subset F \subset E$, se tiene $E/K$ separable ssi $E/F$ y $F/K$ 
+    separables.
  2. Sea $E/K$ algebraica separable y $H/K$ extensión, entonces $EH/H$ 
     es separable.
  3. Sean $E/K$ y $F/K$ separables, entonces $EF/K$ es separable.
