@@ -5463,31 +5463,6 @@ El cuerpo de descomposición de un polinomio separable debe ser normal
 por cuerpo de descomposición y separable porque todos los elementos
 que lo generan lo son y la suma y producto de separables es separable.
 
-*** DONE Correspondencia de Galois
-Sea $E/K$ una extensión de Galois, y sea $G = Gal(E/K)$. Si $H_1,H_2$ son los
-subgrupos de $G$ que corresponden a los cuerpos intermedios $F_1$ y $F_2$ 
-respectivamente. Son equivalentes:
-
-  1. $H_1,H_2$ subgrupos de $G$ conjugados.
-  2. $F_1,F_2$ cuerpos conjugados con $\sigma \in Gal(E/K)$ tal que $F_1 = \sigma(F_2)$.
-
-Como consecuencia si $F$ es un cuerpo intermedio equivalen:
-
-  1. $F/K$ extensión de Galois.
-  2. $Gal(E/F)$ subgrupo normal de $G$.
-
-Además, existe un isomorfismo $Gal(F/K) \cong G/ Gal(E/F)$.
-
-**** Demostración
-***** Primera implicación
-Sea $H_2 = \sigma^{-1} H_1 \sigma$. Para $x \in F_2$ se tiene $\sigma(x) = h\sigma(x)$, $\sigma(F_2) \subseteq F_1$; 
-análogamente se tiene $\sigma^{-1}(F_1) \subseteq F_2$, llegando a $\sigma(F_2) = F_1$.
-
-***** Segunda implicación
-Sea $F_1 = \sigma(F_2)$. Para $x\in F_2, h \in H_1$ tenemos $h(\sigma(x)) = \sigma(x)$, luego
-$\sigma^{-1}H_1 \sigma \subseteq H_2$. Análogamente $\sigma H_2 \sigma^{-1} \subseteq H_2$, por lo que son conjugados.
-
-***** TODO Corolarios
 
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
