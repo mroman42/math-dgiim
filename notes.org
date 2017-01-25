@@ -9198,9 +9198,9 @@ $T = \pi_2 \circ \Phi^{-1}$ es continua.
 **** Caracterización de la gráfica cerrada en espacios normados
 Sean $X,Y$ normados con $T: X \longrightarrow Y$ lineal. Equivalen:
 
-  - $T$ con gráfica cerrada.
-  - Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$. Cuasicontinuidad en 0.
- 
+- $T$ con gráfica cerrada.
+- Si $\{x_n\} \longrightarrow 0$ y $\{Tx_n\}\longrightarrow y$; entonces $y=0$. Cuasicontinuidad en 0.
+
 ***** TODO Demostración
 
 *** Teorema de Banach-Steinhaus
@@ -9226,9 +9226,9 @@ que $\exists a: \exists r: a + rB_X \subseteq F_n$. Para $T \in {\cal A}$ se tie
 
 \[\begin{aligned}
 \|Tx\| =& \frac{1}{r} \| T(a+rx) - Ta\| \\
-     \leq& \frac{1}{r} (\| T(a+rx) \| + \|Ta\|) \\
-     \leq& \frac{N}{r} + \|Ta\|\frac{1}{r} \\ 
-     \leq& \frac{N}{r} + M(a)\frac{1}{r}
+\leq& \frac{1}{r} (\| T(a+rx) \| + \|Ta\|) \\
+\leq& \frac{N}{r} + \|Ta\|\frac{1}{r} \\ 
+\leq& \frac{N}{r} + M(a)\frac{1}{r}
 \end{aligned}\]
 
 Acotación independiente de $X$.
@@ -9261,8 +9261,8 @@ y ser lineal, $T$ es continua.
 **** Corolario a Banach-Steinhaus para el dual
 Sea $X$ espacio de Banach y $A \subseteq X^\ast$, equivalen:
 
- 1. $A$ acotado, $\exists M>0: \forall f \in A: \|f\| \leq M$
- 2. $A$ puntualmente acotado, $\forall x\in X: \{f(x) \mid f \in A\}$ acotado.
+1. $A$ acotado, $\exists M>0: \forall f \in A: \|f\| \leq M$
+2. $A$ puntualmente acotado, $\forall x\in X: \{f(x) \mid f \in A\}$ acotado.
 
 ***** Demostración
 Por [[*Teorema de Banach-Steinhaus para funcionales][teorema Banach-Steinhaus]] con $X^\ast = L(X,\mathbb{K})$ se tiene
@@ -9274,8 +9274,8 @@ tenerse:
 **** Corolario a Banach-Steinhaus para el doble dual
 Sea $X$ espacio normado con $A \subseteq X$. Equivalen:
 
- 1. $A$ acotado.
- 2. $\{ f(x) \mid x \in A\}$ acotado para cualquier $f \in X^\ast$.
+1. $A$ acotado.
+2. $\{ f(x) \mid x \in A\}$ acotado para cualquier $f \in X^\ast$.
 
 ***** Demostración
 Sabemos $J_X$ isometría, luego $J_X(A)$ está acotado. Como 
