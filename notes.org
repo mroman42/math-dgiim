@@ -4001,11 +4001,11 @@ a $\phi(u) = u^p$.
 **** 5.3.15. Cuerpos perfectos
 Para $K$ cuerpo equivalen:
 
- 1. Todo $f \in K[X]$ irreducible tiene raíces simples.
- 2. Toda $E/K$ algebraica es separable.
- 3. Toda $E/K$ finita es separable.
- 4. $car(K)=0$ ó $car(K)=p$, y el endomorfismo de Frobenius es 
-    sobreyectivo.
+  1. Todo $f \in K[X]$ irreducible tiene raíces simples.
+  2. Toda $E/K$ algebraica es separable.
+  3. Toda $E/K$ finita es separable.
+  4. $car(K)=0$ ó $car(K)=p$, y el endomorfismo de Frobenius es 
+     sobreyectivo.
 
 Y en ese caso, llamamos a $K$ *cuerpo perfecto*.
 
@@ -4046,9 +4046,9 @@ raíces simples.
 **** 5.3.17. Ejemplos de cuerpos perfectos
 Son perfectos:
 
- 1. Todo cuerpo de característica cero.
- 2. Todo cuerpo finito.
- 3. Todo cuerpo algebraicamente cerrado.
+  1. Todo cuerpo de característica cero.
+  2. Todo cuerpo finito.
+  3. Todo cuerpo algebraicamente cerrado.
     
 ***** Demostración
 ****** Punto 1
@@ -5063,8 +5063,8 @@ En $F/K$ extensión finita equivalen:
 ***** Primera implicación
 Sea $F = K(\alpha)$. $Irr(\alpha,K)$, tiene un número finito de factores. Para 
 cada uno de ellos, $p$, definimos el subcuerpo generado por sus 
-coeficientes $K[|p|]$. Cualquier cuerpo intermedio $E$ en el que $Irr(\alpha,E)$
-contendrá a los coeficientes, $E \supset K[|p|]$, pero además:
+coeficientes $K[|p|]$. Cualquier cuerpo intermedio $E$ en el que
+$Irr(\alpha,E)=p$, contendrá a los coeficientes $E \supset K[|p|]$, pero además:
 
 \[ [K(\alpha) : K[|p|] = [K(\alpha) : E]\]
 
@@ -5111,7 +5111,7 @@ Llamamos $[F:K]_S = |Hom(F/K,\overline{K}/K)|$.
 ***** Caso simple
 En un caso simple $K(\alpha) / K$ cada homomorfismo a la clausura queda
 determinado por la imagen de $\alpha$, que debe ser a un elemento conjugado.
-Tenemos que todas las raíces de $Irr(u,K)$ tienen la misma multiplicidad
+Tenemos que todas las raíces de $Irr(\alpha,K)$ tienen la misma multiplicidad
 $m$, luego si es de grado $n$ habrá $n/m$ raíces distintas.
 
 Se da la igualdad sólo si cada uno de los elementos es distinto,
@@ -5128,6 +5128,7 @@ extesión $F \supseteq K(\alpha) \supseteq K$, sabemos:
 Sabemos que una extensión es separable si lo son sus subextensiones. 
 Por hipótesis de inducción $[F : K(\alpha)]_S = [F : K(\alpha)]$ y por el caso base
 $[K(\alpha) : K]_S = [K(\alpha) : K]$, por ser ambas separables.
+
 *** 5. Teorema de Artin
 Sea $E$ cuerpo y $G \subseteq Aut(E)$ un subgrupo finito, prueba que
 $E^G = \{e \in E \mid \forall \sigma \in G: \sigma(e) = e\}$ es un subcuerpo y $[E : E^G] = |G|$.
@@ -5160,10 +5161,11 @@ u_1 = b_2u_2 + \dots + b_{n+1}u_{n+1}
 
 Por lo que alguno de los coeficientes no está en $E^G$ si queremos
 mantener la independencia lineal. Sea $b_2 \notin E^G$ y $\tau(b_2) \neq b_2$. Si aplicamos
-$\tau$ a cada una de las ecuaciones y restamos nos queda:
+$\tau$ a cada una de las ecuaciones y restamos nos queda, sabiendo
+que $\tau G = G$:
 
 \[
-0 = (b_2-\tau(b_2))\sigma_j(u_2) + \dots + (b_n-\tau(b_n)\sigma_j(u_{n+1}))
+0 = (b_2-\tau(b_2))\sigma_j(u_2) + \dots + (b_n-\tau(b_n))\sigma_j(u_{n+1})
 \qquad
 j = 1,\dots,n
 \]
@@ -5199,7 +5201,7 @@ b_{s-1}(\sigma_{s-1}(y)-\sigma_{s-1}(y))\sigma_{s-1}
 
 Contraviniendo minimalidad de los linealmente independientes. Nótese
 que el añadirles $0$ para tener $\sigma_1,\dots,\sigma_m : F_1 \longrightarrow F_2$ no los vuelve
-linealmente dependientes.
+linealmente dependientes o iguales.
 
 *** 7. Caracterización de cuerpo algebraicamente cerrado
 Para $K$ cuerpo, equivalen:
@@ -5229,6 +5231,7 @@ ser una extensión propia.
 Si algún polinomio no tuviera ninguna raíz en $K$, entonces él o un
 divisor suyo serían irreducibles sin raíz en $K$. Con ellos se genera
 una extensión algebraica propia.
+
 *** 8. Teorema de Kronecker
 Sea $f \in K[X]$ un polinomio no constante, entonces existe una extensión
 $F/K$ en la que $f(X)$ tiene al menos una raíz.
