@@ -5393,6 +5393,31 @@ $\xi$ en $K$, prueba que se verifica:
      es una extensión cíclica de grado $d$, con $d\mid n$ y $a^d \in K$.
 
 **** Demostración
+***** Primer punto
+Sea $E = K(u)$ con $Gal(E/K) = \langle \sigma \rangle$ y $\zeta$ la raíz n-ésima primitiva de la
+unidad. Creamos el *resolvente de Lagrange*:
+
+\[
+\alpha 
+= 
+u + \zeta\sigma(u) + \zeta^2\sigma^2(u) + \dots + \zeta^{n-1}\sigma^{n-1}(u)
+\]
+
+Que sabemos que no es nula por independencia lineal de homomorfismos
+distintos, y que cumple que: $\sigma(\alpha) = \zeta^{-1}\alpha$. Luego $\sigma^i(\alpha) = \zeta^{-i}\alpha$, que son
+las $n$ raíces conjugadas de $\alpha$. Además $\sigma(\alpha^n) = \alpha^n$, por lo que $\alpha^n$ es un
+punto fijo bajo $\sigma$ y debe ser $\alpha^n \in K$.
+
+***** Segundo punto
+****** Es extensión de Galois
+Todas las $\zeta^i \alpha$ son raíces distintas, luego $K(\alpha)$ es el cuerpo de 
+descomposición del polinomio $X^n-\alpha$ y es normal y separable por ser
+$n$ un primo relativo de $car(K)$.
+
+****** Es cíclica
+Cualquier automorfismo debe llevar una raíz del polinomio en otra y
+queda determinado por ella. Así, es de la forma $\sigma(\alpha) = \omega_\sigma \alpha$ para alguna 
+raíz de la unidad.
 
 *** 14. Automorfismo de Frobenius
 Sea $K$ cuerpo de característica $p \neq 0$, prueba que son equivalentes:
