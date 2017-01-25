@@ -5098,6 +5098,23 @@ Para $E/K$ extensión finita equivalen:
      en $E$.
 
 **** Demostración
+***** Implicación 1 a 2
+Como es una extensión finita será de la forma $E = K(\alpha_1,\dots,\alpha_n)$.
+La imagen de la raíz de un polinomio deberá ser una conjugada suya,
+luego $\sigma(E) \subseteq E$. Como además un endomorfismo entre extensiones
+algebraicas es automorfismo, $\sigma(E) = E$.
+
+***** Implicación 2 a 3
+Si una raíz del polinomio está, existen homomorfismos que la llevan
+en cada una de las conjugadas. Como cumplen $\sigma(E) = E$, se tiene que
+todas las conjugadas están en $E$ y el polinomio descompone.
+
+***** Implicación 3 a 1
+La extensión finita es de la forma $E = K(\alpha_1,\dots,\alpha_n)$. Podemos tomar
+los irreducibles de cada uno de los $\alpha_i$ y multiplicarlos. Como si una
+raíz está en el cuerpo todas lo están, el cuerpo de descomposición
+de ese producto está contenido en $E$. Como tiene a todos sus $\alpha_i$, es $E$.
+
 *** 4. Caracterización de la separabilidad
 Sea $F/K$ una extensión finita y $\overline{K}$ una clausura algebraica de $K$ conteniendo
 a $F$, entonces son equivalentes:
@@ -5248,10 +5265,10 @@ F = \frac{K[X]}{(f_1)} \supset K
 Y donde $X + (f_1)$ es raíz del polinomio original por ser raíz de la
 inclusión de $f_1$:
 
-
 \[
 f_1(X+(f_1)) = f_1 + (f_1) = 0
 \]
+
 *** 9. Extensiones ciclotómicas de Galois
 Sea $n$ entero positivo, $K$ un cuerpo y $F/K$ una extensión ciclotómica, cuerpo
 de descomposición del polinomio $X^n-1$, prueba que se verifica:
@@ -5262,7 +5279,7 @@ de descomposición del polinomio $X^n-1$, prueba que se verifica:
 
 **** Demostración
 ***** Primer punto
-Es el cuerpo de descomposición de un polinomio, por lo tanto, es 
+Es el cuerpo de descomposición de un polinomio, por lo tanto, es
 normal. Además, trabajamos con la hipótesis de que $car(K) \nmid n$, por lo
 que el polinomio debe tener todas sus raíces distintas y ser separable.
 
@@ -5361,11 +5378,12 @@ multiplicidad $m > 1$. Y entonces $f = (X-\alpha)^m g$ mientras:
 \[ Df = (X-\alpha)^m Dg+ m(X-\alpha)^{m-1}g\]
 
 Por lo que no serían primos relativos en el cuerpo de descomposición,
-y por tanto, tampoco en $K$.
-# ¿Cómo se traspasa el no ser primos relativos arriba a abajo?
+y por tanto, tampoco en $K$; ya que tenemos:
+
+\[ Irr(\alpha,K) \mid f, Df\]
 
 *** 13. Teorema de Lagrange
-Sea $K$ un cuerp, $n$ un entero positivo que es primo con la característica
+Sea $K$ un cuerpo, $n$ un entero positivo que es primo con la característica
 de $K$, si ésta es no nula, y existe una raíz n-ésima primitiva de la unidad
 $\xi$ en $K$, prueba que se verifica:
 
