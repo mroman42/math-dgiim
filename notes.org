@@ -4386,7 +4386,7 @@ Cuando además tenemos $E_1 \cap E_2 = K$, $\lambda$ es un isomorfismo.
 ***** TODO Demostración
 **** 6.4.9. Extensión del producto
 Sean $E_i/K$ extensiones contenidas en un $L$ con grupos de Galois
-$G_1,G_2,\dots,G_n$. Si cumplena demás $E_i \cap (E_1E_2\dots E_{i-1}) = K$, entonces:
+$G_1,G_2,\dots,G_n$. Si cumplendemás $E_i \cap (E_1E_2\dots E_{i-1}) = K$, entonces:
 
 \[Gal(E_1E_2\dots E_n/K) \cong G_1 \times G_2 \times \dots \times G_n\]
 
@@ -4527,7 +4527,7 @@ Calculando vemos que $f = \prod_i(X-\alpha_i)^{k_i}$ da $f_1 = \prod_{i} (X- \al
 El producto de todos los factores irreducibles distintos de un $f$
 y cuyo grado divida a $n$ es $mcd(f, X^{p^n} - X)$.
 
-***** Demostración
+***** TODO Demostración
 
 *** TODO 7.3. Ilustraciones
 ** 8. Extensiones ciclotómicas
@@ -4610,6 +4610,13 @@ La función de Möbius verifica que:
 \]
 
 ***** TODO Demostración
+
+**** 8.2.10. Reglas de cálculo de polinomios ciclotómicos
+1. Si $p$ es primo $\Phi_p(X) = X^{p-1} + X^{p-2} + \dots + X + 1$.
+2. $\Phi_{p^e}(x) = \Phi_p(x^{p^{e-1}})$
+3. $\Phi_{p_1^{e_1}p_2^{e_2}\dots p_r^{e_r}}(x) = \Phi_{p_1\dots p_r}(x^{p_1^{e_1-1}\dots p_r^{e_r-1}})$
+4. $\Phi_n = \prod_{d\mid n} (x^{n/d}-1)^{\mu(d)}$
+
 *** 8.3. Extensiones ciclotómicas
 **** 8.3.1. Extensión ciclotómica
 Llamamos n-ésima extensión ciclotómica de $K$ a $K(\zeta)/K$, donde
@@ -4629,18 +4636,20 @@ $\Phi_n$ es irreducible en $\mathbb{Z}[X]$ (y en $\mathbb{Q}[X]$).
 El cuerpo $\mathbb{F}_p$ contiene una raíz n-ésima primitiva de la unidad
 ssi $p \equiv_n 1$.
 
-***** TODO Demostración
+***** Demostración
+Si contiene una raíz n-ésima primitiva, debe cumplir $\zeta^n = 1$, y a su
+vez tener orden $p-1$, luego $n \mid p-1$. Si $n\mid p-1$, como $\mathbb{Z}_p^\times$ es
+cíclico, tiene un elemento de orden $n$, que será raíz primitiva de la
+unidad.
 
 **** 8.3.5. Primos congruentes a 1
 Para todo $n$ existen infinitos primos congruentes a $1$ módulo $n$.
 
 ***** TODO Demostración
-
 **** 8.3.6. Torre de extensiones ciclotómicas
 Sean $n \mid m$, entonces $\mathbb{Q}(\zeta_n) \subset \mathbb{Q}(\zeta_m)$.
 
 ***** TODO Demostración
-
 **** 8.3.7. Producto de extensiones ciclotómicas
 Sean $n,m$ y raíces primitivas distintas:
 
@@ -4652,7 +4661,6 @@ Sean $n,m$ y raíces primitivas distintas:
 Sean $n,m$ primos relativos, $\mathbb{Q}(\zeta_n) \cap \mathbb{Q}(\zeta_m) = \mathbb{Q}$.
 
 ***** TODO Demostración
-
 *** 8.4. Grupos de Galois
 **** 8.4.1. Extensión ciclotómica es de Galois
 La extensión ciclotómica $K(\zeta)/K$ es una extensión de Galois.
@@ -4688,6 +4696,15 @@ Es subgrupo de un abeliano.
 Tenemos $Gal(\mathbb{Q}(\zeta)/\mathbb{Q}) \cong \mathbb{Z}_n^\times$.
 
 ***** TODO Demostración
+
+**** 8.4.11. Teorema de Kronecker-Weber
+Toda extensión abeliana de $\mathbb{Q}$ está contenida en una extensión 
+ciclotómica.
+
+**** 8.4.12. Existencia de extensiones
+Sea $G$ un grupo abeliano finito arbitrario. Existe una extensión $K/\mathbb{Q}$
+tal que $Gal(K/\mathbb{Q}) \cong G$.
+
 ** 10. Extensiones cíclicas y radicales
 *** 10.1. Extensiones cíclicas
 **** 10.1.1. Extensión cíclica
@@ -5072,9 +5089,9 @@ Luego $E = K[|p|]$ y sólo hay finitos cuerpos intermedios.
 
 ***** Segunda implicación
 ****** Caso de cuerpo base finito
-Como la extensión es finita, sólo habrá finitos elementos en ella.
-El grupo multiplicativo de cualquier cuerpo es simple, así que tendrá
-un elemento primitivo.
+Como la extensión es finita, sólo habrá finitos elementos en ella. El
+grupo multiplicativo de cualquier cuerpo es simple, así que tendrá un
+elemento primitivo.
 
 ****** Caso de cuerpo base infinito
 Nos limitamos a probar $K(a,b)$ simple. Si consideramos los subcuerpos
@@ -5384,7 +5401,7 @@ y por tanto, tampoco en $K$; ya que tenemos:
 
 *** 13. Teorema de Lagrange
 Sea $K$ un cuerpo, $n$ un entero positivo que es primo con la característica
-de $K$, si ésta es no nula, y existe una raíz n-ésima primitiva de la unidad
+de $K$ (o es nula) y existe una raíz n-ésima primitiva de la unidad
 $\xi$ en $K$, prueba que se verifica:
 
   1. Si $E/K$ es una extensión cíclica de grado $n$, existe $\alpha \in E$ tal que
@@ -5462,7 +5479,6 @@ tendría algún factor con alguna raíz que no sería separable.
 El cuerpo de descomposición de un polinomio separable debe ser normal
 por cuerpo de descomposición y separable porque todos los elementos
 que lo generan lo son y la suma y producto de separables es separable.
-
 
 * Álgebra Conmutativa y Computacional
 ** 1. Anillos e ideales
