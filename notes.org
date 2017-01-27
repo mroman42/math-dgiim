@@ -12354,7 +12354,7 @@ por $X_i \leadsto \chi^2(k_i)$, entonces:
 
 \[\sum_{i=1}^n X_i \leadsto \chi^2 \left(\sum_{i=1}^n k_i \right)\]
 
-**** Relación con la distribución normal
+**** Relación con la normal
 Dadas variables independientes $X_i \leadsto {\cal N}(0,1)$,
 
  \[\sum_{i=1}^n X^2_i \leadsto \chi^2(n)\]
@@ -12372,7 +12372,7 @@ como:
 
 **** TODO Gráfica de la función de densidad
 *** Distribución t de Student
-**** T de Student
+**** Definición
 Dadas dos variables independientes $X \leadsto {\cal N}(0,1)$ e $Y \leadsto \chi^2(n)$, 
 tenemos:
 
@@ -12440,44 +12440,201 @@ La distribución está tabulada y las tablas incluyen aproximaciones
 para valores grandes de $n$ y $m$.
 
 **** TODO Gráfica de la función de densidad
+** 1. Introducción a la inferencia estadística. Estadísticos muestrales.
+*** Planteamiento de un problema de inferencia
+**** Modelo estadístico
+Un modelo estadístico $(X,{\cal P})$ consta de:
+
+  - $X : (\Omega, {\cal A},{\cal P}) \longrightarrow (\mathbb{R},{\cal B},P_X)$ variable aleatoria que describe el 
+    objeto de estudio.
+  - ${\cal P}$ familia de distribuciones que pueden ser la de $X$.
+
+**** Modelo estadístico paramétrico
+Cuando se conoce la forma funcional de $P_X$ y sólo desconocemos un 
+parámetro tenemos una familia paramétrica de distribuciones $F(x,\theta)$ 
+para $\theta$.
+
+**** Modelo estadístico no paramétrico
+Cuando la forma funcional de $P_X$ es desconocida.
+
+**** Muestra aleatoria simple
+Una muestra aleatoria simple es un vector $(X_1,\dots,X_n)$
+de variables independientes idénticamente distribuidas. 
+
+***** Realización muestral
+Una realización muestral a un valor concreto obtenido al 
+observar la muestra.
+
+***** Espacio muestral
+Conjunto de todas las posibles realizaciones.
+
+*** Función de distribución empírica
+**** Función de distribución muestral
+La *función de distribución empírica* es una función de 
+distribución razonable que podemos obtener desde una 
+realización muestral.
+
+ \[F^\ast_{X_1,\dots,X_n}(x) = \frac{1}{n} \sum_{i=1}^n \mathbf{1}_{(X_i < x)} \]
+
+**** Propiedades de la función de distribución empírica
+Fijado un $x \in \mathbb{R}$, $F^\ast(x)$ es una variable aleatoria siguiendo por 
+definición una binomial:
+
+\[ nF^\ast(x) \longrightarrow {\cal B}(n, F(x))\]
+
+Calculamos su *esperanza* y *varianza* desde Bernoulli como:
+
+ - Esperanza: $E[F^\ast(x)] = F(x)$
+ - Varianza: $Var[F^\ast(x)] = \frac{F(x) (1-F(x))}{n}$
+
+Aplicando entonces el Teorema Central del Límite:
+
+\[ \frac{F^\ast(x) - F(x)}{\sqrt{\frac{F(x)(1-F(x))}{n}}} \leadsto {\cal N}(0,1) \]
+
+**** Teorema de Glivenko-Cantelli
+Las funciones de distribución muestrales convergen 
+casi seguramente y uniformemente a la teórica.
+
+\[ P\left\{ \lim_{n \rightarrow \infty} 
+\sup_{x \in \mathbb{R}} |F^\ast_n(x) - F(x)| = 0\right\} = 1\]
+
+***** Equivalentemente
+Con probabilidad 1 se tiene que, al tomar sucesivas observaciones 
+independientes y considerar las correspondientes funciones de 
+distribución muestrales:
+
+\[\forall x \in \mathbb{R}: \forall \epsilon>0: \exists n_\epsilon : \forall n \geq n_\epsilon:
+\quad F^\ast_n(x) - \epsilon < F_X(x) < F^\ast_n(x) + \epsilon\]
+
+***** Demostración
+[[http://matematicas.unex.es/~nogales/estadisticamatematica/TGC.pdf][Teorema de Glivenko-Cantelli]].
+
+*** Estadísticos muestrales
+**** Estadístico muestral
+Dada una muestra aleatoria simple, un *estadístico muestral* es una 
+función sobre ella $T : (\mathbb{R}^n,{\cal B}^n)\longrightarrow (\mathbb{R}^k,{\cal B}^k)$ medible e independiente 
+de cualquier parámetro desconocido.
+
+**** Momentos muestrales no centrados
+Para cada $k \in \mathbb{N}$:
+
+\[A_k = \frac{1}{n}\sum_{i=1}^n X_i^k\]
+
+**** Momentos muestrales centrados
+Para cada $k \in \mathbb{N}$:
+
+\[B_k = \frac{1}{n}\sum_{i=1}^n(X_i - \overline{X})^k\]
+
+**** Media muestral
+Caso particular,
+
+\[A_1 = \frac{1}{n}\sum_{i=1}^n X_i = \overline{X}\]
+
+**** Varianza muestral
+Caso particular,
+
+\[B_2 = \frac{1}{n}\sum_{i=1}^n(X_i - \overline{X})^2\]
+
+**** Cuasivarianza muestral
+
+\[S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i-\overline{X})^2\]
+
+** 2. Muestreo de poblaciones normales
 *** Muestreo de la normal
 **** Lema de Fisher
 Sea $(X_1,\dots,X_n)$ una muestra aleatoria simple con $X \leadsto {\cal N}(\mu,\sigma^2)$.
 Los estadísticos $\overline{X}$ y $S^2$ son independientes.
 
-***** TODO Demostración 
-**** Distribuciones del muestreo de una normal unidimensional
-***** Inferir la media con varianza conocida
+***** TODO Demostración
 
-\[\frac
-{\overline{X}-\mu}
-{\sigma/\sqrt{n}}
+**** Inferencia de la media con varianza conocida
+Sea $X \leadsto {\cal N}(\mu,\sigma^2)$, y $\overline{X}$ su media muestral:
+
+\[
+\frac{\overline{X}-\mu}{\sigma/\sqrt{n}} \leadsto {\cal N}(0,1)
+\]
+
+***** Demostración
+Usando las propiedades de la suma de normales y la linealidad de la
+esperanza y cuadracidad de la varianza tenemos:
+
+\[
+\overline{X} \leadsto {\cal N}(\mu,\sigma^2/n)
+\]
+
+Desde donde simplemente normalizamos.
+
+**** Inferencia de la varianza con media conocida
+Sea $X \leadsto {\cal N}(\mu,\sigma^2)$, entonces:
+
+\[
+\sum_{i=1}^n \left(\frac{X_i-\mu}{\sigma}\right)^2
 \leadsto
-{\cal N}(0,1)\]
+\chi^2(n)
+\]
 
-***** Inferir la media con varianza desconocida
+***** Demostración
+Usando que la suma de cuadrados de normales estándar es una
+distribución chi cuadrado.
 
-\[\frac
-{\overline{X} - \mu}
-{S/\sqrt{n}}
+**** Inferencia de la varianza con media desconocida
+Sea $X \leadsto {\cal N}(\mu,\sigma^2)$ con $S^2$ su cuasivarianza muestral, entonces:
+
+\[
+\frac{(n-1)S^2}{\sigma^2} \leadsto \chi^2(n-1)
+\]
+
+***** Demostración
+Usamos la independencia entre $X-\overline{X}$ y $\overline{X}-\mu$ para escribir:
+
+\[
+\sum_{i=1}^n (X_i - \mu)^2
+=
+\sum_{i=1}^n (X_i - \overline{X})^2 +
+\sum_{i=1}^n (\overline{X} - \mu)^2
+\]
+
+Ahora bien, sabemos que:
+
+\[
+\sum_{i=1}^n \left(\frac{X_i - \mu}{\sigma}\right)^2
 \leadsto
-t(n-1)\]
+\chi^2(n)
+\]
 
-***** Inferir la varianza con media conocida
-
-\[\frac
-{\sum^n_{i=1}(X_i - \mu)^2}
-{\sigma^2}
+\[
+n\left(\frac{\overline{X} - \mu}{\sigma}\right)^2}
 \leadsto
-\chi^2(n)\]
+\chi^2(1)
+\]
 
-***** Inferir la varianza con media desconocida
+Y desde aquí, por unicidad de las funciones generadoras de momentos
+se tiene:
 
-\[\frac
-{(n-1)S^2}
-{\sigma^2}
+\[
+\sum_{i=1}^n \frac{(X_i-\overline{X})^2}{\sigma^2}
 \leadsto
-\chi^2(n-1)\]
+\chi^2(n-1)
+\]
+
+**** Inferencia de la media con varianza desconocida
+Sea $X \leadsto {\cal N}(\mu,\sigma^2)$ con $\overline{X}$ su media muestral y $S^2$ su cuasivarianza muestral,
+entonces:
+
+\[
+\frac{\overline{X}-\mu}{S/\sqrt{n}} \leadsto t(n-1)
+\]
+
+***** Demostración
+Por la definición de t de Student, sabiendo:
+
+\[
+\frac{\overline{X} - \mu}{S/\sqrt{n}}
+=
+\frac{\frac{\overline{X} - \mu}{\sigma/\sqrt{n}}}{\sqrt{\frac{(n-1)S^2}{\sigma^2}/n-1}}
+\leadsto
+t(n-1)
+\]
 
 *** Muestreo de dos normales
 **** Extensión del lema de Fisher
