@@ -11975,6 +11975,32 @@ Diagonalizar (si es posible) los operadores dados (respectivamente) por:
  # Conjuntos creíbles
 
 ** Prerrequisitos
+*** Distribuciones
+**** Función generatriz de momentos
+Se define para una variable aleatoria $X$ con función de distribución
+$f$ como:
+
+\[
+M_X(t) = 
+\mathbb{E}(e^{tX}) =
+\int_\Omega e^{tx}f(x) \;dx
+\]
+
+**** Función característica
+Se define para una variable aleatoria $X$ con función de distribución
+$f$:
+
+\[
+\varphi_X(t) = \mathbb{E}[e^{itX}] = \int_\Omega e^{itx}f(x)\;dx
+\]
+
+***** Cálculo de momentos
+Se cumple que:
+
+\[
+\varphi_X^{(n)}(0) = i^n\mathbb{E}[X^n]
+\]
+
 *** Varianza
 **** Varianza
 La varianza se define equivalentemente como:
