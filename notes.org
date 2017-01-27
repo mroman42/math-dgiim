@@ -12645,7 +12645,7 @@ Los vectores $(\overline{X},\overline{Y})$ y $(S^2_1,S^2_2)$ son independientes.
 **** TODO Distribuciones del muestreo de dos normales unidimensionales
 
 ** 3. Suficiencia y completitud
-*** Estadísticos suficientes y completos
+*** Estadísticos suficientes
 **** Estadístico suficiente
 Un estadístico $t$ es *suficiente* para un parámetro $\theta$ cuando una vez 
 conocido no puede obtenerse más información de sobre $\theta$ de los datos;
@@ -12660,8 +12660,8 @@ al estadístico es independiente del parámetro $\theta$:
  \[\Pr(x|t,\theta) = \Pr(x|t)\]
 
 **** Teorema de factorización de Fisher-Neyman
-*Teorema de factorización de Fisher-Neyman*. $T$ es suficiente para $\theta$
-ssi existen funciones no negativas $g$,$h$ tales que:
+$T$ es suficiente para una familia $\theta \in \Theta$ ssi existen funciones no negativas
+$g$,$h$ tales que la distribución $f_\theta$ es:
 
 \[f_\theta(x) = h(x)g_\theta(T(x))\]
 
@@ -12669,19 +12669,43 @@ Donde $g_\theta$ sólo depende de $x$ a través de $T$ y $h$ no depende de $\the
 
 ***** TODO Demostración
 **** Propiedades de los estadísticos suficientes
-*Propiedades de los estadísticos suficientes*.
+Los estadísticos suficientes cumplen:
 
   1. Si $T$ es suficiente para $\{P_\theta \mid \theta \in \Theta\}$, lo es para $\{P_\theta \mid \theta \in \Theta' \subset \Theta\}$.
-  2. Si $T$ es suficiente y $T = h(U)$, $U$ es suficiente.
+  2. Si $T$ es suficiente y $T = h'(U)$, $U$ es suficiente.
   3. Toda transformación biunívoca de suficiente es suficiente.
 
-***** TODO Demostración
+***** Demostración
+****** Punto 1
+Si cumple la factorización para un conjunto, lo cumple para también
+un subconjunto.
+
+****** Punto 2
+Por el teorema de factorización:
+
+\[f_\theta(x) = h(x)g_\theta(h'(U(x)))\]
+
+****** Punto 3
+Trivial desde lo anterior usando la inversa.
+
+*** Estadísticos completos
+**** Familia de distribuciones completa
+Una familia $\{P_\theta \mid \theta \in \Theta\}$ es completa si dada $X \leadsto P_\theta$ se tiene que
+para cada $g$ medible:
+
+\[
+E_\theta[g(X)] = 0,\;\forall\theta\in\Theta
+\implies
+P_\theta(g(X) = 0) = 1,\;\forall\theta\in\Theta
+\]
+
 **** Estadístico completo
-Un estadístico es *completo* cuando para cualquier función medible $g$,
+Un estadístico $T$ es *completo* cuando para cualquier función medible $g$,
 se tiene:
 
-\[ E_\theta [g(T)] = 0 \; \forall\theta\in\Theta \quad \Rightarrow \quad
-    P_\theta(g(T) = 0) = 1\; \forall\theta\in\Theta\]
+\[ E_\theta [g(T)] = 0, \; \forall\theta\in\Theta
+\implies
+P_\theta(g(T) = 0) = 1,\; \forall\theta\in\Theta\]
 
 *** Suficiencia y completitud en familias exponenciales
 **** Familia exponencial k-paramétrica
