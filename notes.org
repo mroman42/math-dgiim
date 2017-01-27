@@ -13387,6 +13387,130 @@ de rango máximo.
 
 ***** TODO Demostración
 
+** A. Inferencia Bayesiana
+# ##
+# Este capítulo se ha escrito desde los apuntes de estadística
+# de Andrés Herrera, Nuria Rodríguez, Javier Poyatos, María del Mar Ruiz y 
+# Juan Luis Suárez.
+#
+# Pueden consultarse los apuntes originales en:
+#   https://github.com/andreshp/math-notes/tree/master/StatisticalInference
+# ##
+
+*** A.1. Introducción
+**** Ley de la probabilidad total
+La ley de la probabilidad total establece, para $A_i$ una partición del
+espacio de sucesos:
+
+\[
+P(B) = \sum_{i=1}^n P(B|A_i)P(A_i)
+\]
+
+**** Teorema de Bayes
+Para un espacio de probabilidad $(\Omega,{\cal A},P)$, si tenemos una partición dada
+por $A_1,\dots,A_n$ con probabilidad no nula:
+
+\[P(A_i|B) 
+=
+\frac{P(A_i \cap B)}{P(B)} 
+= 
+\frac{P(B|A_i)P(A_i)}{P(B)}
+\]
+
+**** Distribución a priori
+Sea $X$ variable aleatoria con distribución $f(x|\theta)$, con $\theta \in \Theta$. A una 
+distribución $\pi(\theta)$ establecida con información previa sobre $\theta$ se le
+llama *distribución a priori*.
+
+**** Distribución condicionada
+Dada una muestra $\tilde{X} = (X_1,\dots,X_n)$ y una distribución a priori $\pi(\theta)$,
+tenemos una distribución conjunta con función de densidad:
+
+\[
+f(\tilde x,\theta) = f(\tilde x|\theta)\pi(\theta)
+\]
+
+**** Distribución marginal
+La distribución marginal de $\tilde X$ la definimos como:
+
+\[
+m(\tilde x) 
+= 
+\int_{\Omega} f(\tilde x,\theta) d\theta
+=
+\int_{\Omega} f(\tilde x|\theta) \pi(\theta) d\theta
+\]
+
+**** Distribución a posteriori
+Dada una relaización de la muestra y una distribución a priori, definimos
+una distribución a posteriori como:
+
+\[
+\pi(\theta|\tilde x) = 
+\frac{f(\tilde x|\theta)\pi(\theta)}{m(\tilde x)} =
+\frac{f(\tilde x|\theta)\pi(\theta)}{\int_\Omega f(\tilde x|\theta)\pi(\theta) d\theta}
+\]
+
+*** A.2. Estadística clásica
+*** A.3. Familias conjugadas
+**** Familia conjugada
+Sea ${\cal F} = \{\pi_i(\theta) \mid i \in I\}$ una familia de distribuciones a priori. Se llama
+*conjugada* respecto a una familia de densidades $P = \{f(x|\theta) \mid \theta \in \Theta\}$ si
+para cada $\pi(\theta) \in {\cal F}$ y $f(x\mid \theta) \in P$, se tiene que $\pi(\theta\mid \tilde x) \in {\cal F}$.
+
+**** Lema de caracterización de familias conjugadas
+Para $\pi(\theta),\Pi(\theta) \in {\cal F}$, equivalen:
+
+  1. $f(\tilde x|\theta)\pi(\theta) \propto \Pi(\theta)$
+  2. $\pi(\theta|\tilde x) = \Pi(\theta)$
+
+***** Demostración
+****** Primera implicación
+Por definición:
+
+\[
+\pi(\theta|\tilde x) 
+=
+\frac{f(\tilde x|\theta)\pi(\theta)}{\int_\Omega f(\tilde x|\theta)\pi(\theta) d\theta}
+=
+\frac{M\Pi(\theta)}{M \int_\Omega \Pi(\theta) d\theta}
+=
+\Pi(\theta)
+\]
+
+Usando que $\int_\Omega \Pi = 1$ por ser distribución.
+
+****** Segunda implicación
+Por definición:
+
+\[
+f(\tilde x|\theta)\pi(\theta) = \Pi(\theta)\int_\Omega f(\tilde x|\theta)\pi(\theta) d\theta
+\]
+
+**** Ejemplos de familias conjugadas
+***** Beta
+La familia de distribuciones Beta es una familia conjugada para:
+
+  - distribuciones de Bernoulli.
+  - distribuciones binomiales.
+  - distribuciones binomiales negativas.
+
+***** Gamma
+La familia de distribuciones Gamma es una familia conjugada para
+distribuciones de Poisson.
+
+***** Normales
+La familia de distribuciones normales es conjugada para las 
+distribuciones normales de varianza conocida.
+
+***** Dirichlet
+La familia de distribuciones de Dirichlet es conjugada para la
+familia de distribuciones multinomiales.
+
+*** A.4. Distribuciones objetivas
+*** A.5. Convergencia de distribuciones a posteriori
+*** A.6. Test de hipóesis bayesianos
+*** A.7. Probabilidades subjetivas
 ** Ejercicios
 *** Tema 1. Introducción a la inferencia estadística
 **** Ejercicio 1
