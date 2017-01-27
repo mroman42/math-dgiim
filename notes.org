@@ -12075,107 +12075,73 @@ Nótese que asumimos una conmutatividad de las integrales discretas.
 ***** Demostración en el caso continuo
 Puede consultarse la [[https://en.wikipedia.org/wiki/Law_of_total_expectation#Proof_in_the_general_case][Ley de la esperanza total]].
 
-** 1. Introducción a la inferencia estadística. Estadísticos muestrales.
-*** Planteamiento de un problema de inferencia
-**** Modelo estadístico
-Un modelo estadístico $(X,{\cal P})$ consta de:
+** Distribuciones discretas
+*** Distribución uniforme
+**** Definición
+Se define sobre un conjunto finito de valores $\{x_i\}$ con la misma 
+probabilidad como:
 
-  - $X : (\Omega, {\cal A},{\cal P}) \longrightarrow (\mathbb{R},{\cal B},P_X)$ variable aleatoria que describe el 
-    objeto de estudio.
-  - ${\cal P}$ familia de distribuciones que pueden ser la de $X$.
+\[f(x_i|n) = \frac{1}{n}\]
 
-**** Modelo estadístico paramétrico
-Cuando se conoce la forma funcional de $P_X$ y sólo desconocemos un 
-parámetro tenemos una familia paramétrica de distribuciones $F(x,\theta)$ 
-para $\theta$.
+**** Función generatriz de momentos
 
-**** Modelo estadístico no paramétrico
-Cuando la forma funcional de $P_X$ es desconocida.
+*** Distribución de Poisson
+**** Definición
+Definimos la distribución de Poisson $Poi(\lambda)$ como:
 
-**** Muestra aleatoria simple
-Una muestra aleatoria simple es un vector $(X_1,\dots,X_n)$
-de variables independientes idénticamente distribuidas. 
+\[
+f(n|\lambda) = \frac{e^{-\lambda}\lambda^n}{n!}
+\]
 
-***** Realización muestral
-Una realización muestral a un valor concreto obtenido al 
-observar la muestra.
+***** Es una distribución
+Comprobamos que suma la unidad:
 
-***** Espacio muestral
-Conjunto de todas las posibles realizaciones.
+\[
+\sum_{n=1}^\infty f(n|\lambda) =
+\sum_{n=1}^\infty e^{-\lambda}\frac{\lambda^n}{n!} = 1
+\]
 
-*** Función de distribución empírica
-**** Función de distribución muestral
-La *función de distribución empírica* es una función de 
-distribución razonable que podemos obtener desde una 
-realización muestral.
+**** Función generatriz de momentos
+La función generatriz se calcula como:
 
- \[F^\ast_{X_1,\dots,X_n}(x) = \frac{1}{n} \sum_{i=1}^n \mathbf{1}_{(X_i < x)} \]
+\[
+M_X(t) = \sum_{n=1}^\infty e^{-\lambda}\frac{(e^t\lambda)^n}{n!}
+= e^{\lambda(e^t-1)}
+\]
 
-**** Propiedades de la función de distribución empírica
-Fijado un $x \in \mathbb{R}$, $F^\ast(x)$ es una variable aleatoria siguiendo por 
-definición una binomial:
+***** Esperanza
+Desde la función generadora:
 
-\[ nF^\ast(x) \longrightarrow {\cal B}(n, F(x))\]
+\[
+\mathbb{E}[X] = \frac{\partial M_X}{\partial t}(0) = \lambda
+\]
 
-Calculamos su *esperanza* y *varianza* desde Bernoulli como:
+***** Varianza
+Desde la función generadora:
 
- - Esperanza: $E[F^\ast(x)] = F(x)$
- - Varianza: $Var[F^\ast(x)] = \frac{F(x) (1-F(x))}{n}$
+\[
+Var(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \lambda
+\]
 
-Aplicando entonces el Teorema Central del Límite:
+*** Distribución binomial
+**** Definición
+Determina la probabilidad de $x$ aciertos en $n$ experimentos de Bernoulli.
+La función de distribución de $B(x|n,p)$ es:
 
-\[ \frac{F^\ast(x) - F(x)}{\sqrt{\frac{F(x)(1-F(x))}{n}}} \leadsto {\cal N}(0,1) \]
+\[
+f(x|n,p) = {n \choose x}p^x (1-p)^{n-x}
+\]
 
-**** Teorema de Glivenko-Cantelli
-Las funciones de distribución muestrales convergen 
-casi seguramente y uniformemente a la teórica.
+*** Distribución multinomial
+**** Definición
+Deriva de una binomial con $k$ salidas distintas de probabilidades $p_1,\dots,p_k$
+como:
 
-\[ P\left\{ \lim_{n \rightarrow \infty} 
-\sup_{x \in \mathbb{R}} |F^\ast_n(x) - F(x)| = 0\right\} = 1\]
+\[
+f(X|p_1,\dots,p_k) = \frac{n!}{X_1!X_2!\dots X_n!}p^{X_1}p^{X_2}\dots p^{X_k}
+\]
 
-***** Equivalentemente
-Con probabilidad 1 se tiene que, al tomar sucesivas observaciones 
-independientes y considerar las correspondientes funciones de 
-distribución muestrales:
-
-\[\forall x \in \mathbb{R}: \forall \epsilon>0: \exists n_\epsilon : \forall n \geq n_\epsilon:
-\quad F^\ast_n(x) - \epsilon < F_X(x) < F^\ast_n(x) + \epsilon\]
-
-***** Demostración
-[[http://matematicas.unex.es/~nogales/estadisticamatematica/TGC.pdf][Teorema de Glivenko-Cantelli]].
-
-*** Estadístico muestral
-**** Estadístico muestral
-Dada una muestra aleatoria simple, un *estadístico muestral* es una 
-función sobre ella $T : (\mathbb{R}^n,{\cal B}^n)\longrightarrow (\mathbb{R}^k,{\cal B}^k)$ medible e independiente 
-de cualquier parámetro desconocido.
-
-**** Estadísticos de interés
-***** Momentos muestrales no centrados
-Para cada $k \in \mathbb{N}$:
-
-\[A_k = \frac{1}{n}\sum_{i=1}^n X_i^k\]
-
-***** Momentos muestrales centrados
-Para cada $k \in \mathbb{N}$:
-
-\[B_k = \frac{1}{n}\sum_{i=1}^n(X_i - \overline{X})^k\]
-
-***** Media muestral
-Caso particular,
-
-\[A_1 = \frac{1}{n}\sum_{i=1}^n X_i = \overline{X}\]
-
-***** Varianza muestral
-Caso particular,
-
-\[B_2 = \frac{1}{n}\sum_{i=1}^n(X_i - \overline{X})^2\]
-
-***** Cuasivarianza muestral
-
-1\[S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i-\overline{X})^2\]
-
-** 2. Distribuciones. Muestreo de poblaciones normales
+** Distribuciones continuas
 *** Distribución normal
 **** Definición
 Definimos la distribución normal ${\cal N}(\mu,\sigma^2)$ como aquella con función de
