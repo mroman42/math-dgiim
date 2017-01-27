@@ -12735,10 +12735,51 @@ exp\left\{
 Teniéndose además:
 
  1. $(\sum_i T_1(X_i), \dots \sum_i T_k(X_i))$ estadístico *suficiente* para $\theta$.
- 2. Para $k \leq n$, cuando $(Q_1(\Theta), \dots Q_k(\Theta))$ contiene un abierto; entonces
+ 2. Si $k \leq n$, y $(Q_1(\Theta), \dots Q_k(\Theta))$ contiene un abierto;
     $(\sum_i T_1(X_i), \dots \sum_i T_k(X_i))$ es *completo*.
 
 ***** TODO Demostración
+
+**** Ejemplo: la normal para la media
+La familia $\{{\cal N}(\mu,\sigma^2) \mid \mu \in \mathbb{R}\}$ es uniparamétrica escribiendo la función
+de distribución como:
+
+\[
+f_\theta(x) = 
+exp\left\{
+log\left(\frac{1}{\sqrt{2\pi\sigma^2}}\right) -
+\left( \frac{x^2}{2\sigma^2} - 2\frac{x\mu}{2\sigma^2} + \frac{\mu^2}{2\sigma^2} \right)
+\right\}
+\]
+
+De aquí tenemos el $T(x) = x$ suficiente para $\mu$. Y con para una muestra 
+tenemos $T(x_1,\dots,x_n) = x_1 + \dots + x_n$.
+
+**** Ejemplo: la normal para la varianza
+La familia $\{{\cal N}(\mu,\sigma^2) \mid \sigma\in\mathbb{R}\}$ es uniparamétrica escribiendo la función
+de distribución como:
+
+\[
+f_\theta(x) = 
+exp\left\{
+log\left(\frac{1}{\sqrt{2\pi\sigma^2}}\right) -
+\frac{1}{2\sigma^2}\left(x^2 - 2x\mu + \mu^2 \right)
+\right\}
+\]
+
+Así $T(x) = \sum_{i=1}^n (x_i - \mu)^2$ es suficiente. Además es completo porque
+tenemos que $Q(\sigma) = -\frac{1}{2\sigma^2}$ tiene en la imagen un intervalo abierto.
+
+**** Ejemplo: distribución de Poisson
+La familia de Poisson $\{Poi(\lambda) \mid \lambda \in \mathbb{R}\}$ tiene como estimador suficiente 
+del parámetro a la suma de las muestras. Tenemos:
+
+\[
+f_\lambda(x) = \frac{1}{\prod x_i!} e^{-n\lambda} \lambda^{\sum x_i}
+\]
+
+Luego por Fisher-Neyman, sabemos que $\sum x_i$ es suficiente.
+
 ** 4. Estimación puntual
 *** Planteamiento del problema de estimación
 **** Estimador puntual
