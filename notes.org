@@ -13093,19 +13093,73 @@ cota de Fréchet-Cramer-Raó en todo punto:
 
 **** Caracterización de estimadores eficientes
 Sea $\{P_\theta \mid \theta \in \Theta\}$ regular, con $0 < I_X(\theta) < \infty$ y $g(\theta)$ función paramétrica
-derivable y no constante. Un estimador $T$ es eficiente ssi existe un $a(\theta)$
+derivable y *no constante*. Un estimador $T$ es eficiente ssi existe un $a(\theta)$
 cumpliendo:
 
   1. \[P_\theta\left(\frac{d}{d\theta} \ln f^n_\theta(X_1,\dots,X_n) = a(\theta)[T(X_1,\dots,X_n) - g(\theta)]\right) = 1\]
   2. \[I_{X_1,\dots,X_n}(\theta) = a(\theta)g'(\theta)\]
 
 ***** Demostración
+****** Primera implicación
+Si tenemos un $T$ eficiente, tomamos el $T$ de la cota y $g'(\theta)\neq 0$,
+de ahí tenemos la primera igualdad.
+
+**** Ejemplo: distribución binomial
+Dada la familia de distribuciones $\{B(k_0,p) \mid p \in (0,1)\}$, veremos que es
+regular.
+
+***** Es regular
+El intervalo $p \in (0,1)$ es abierto y $\chi = (0,\dots,k_0)$.
+
+Si la expresamos exponencialmente es más fácil calcular su derivada
+y relacionarla con una esperanza:
+
+\[
+f_p(x)
+= 
+\exp\left\{\log{k_0\choose x} + x \log p + (k_0-x)\log (1-p)\right\}
+\]
+
+Tenemos:
+
+\[
+\sum_\chi \frac{\partial f_p(x)}{\partial p}
+=
+\sum_\chi \frac{x-pk_0}{p(1-p)} f_p(x)
+=
+\mathbb{E}\left[\frac{X-pk_0}{p(1-p)} \right] = 0
+\]
+
+***** Función de información
+Desde la derivada podemos calcular la función de información:
+
+\[
+I_{X_1,\dots,X_n}(p) = \frac{nk_0}{p(1-p)}
+\]
+
+***** Caracterización del estimador eficiente
+Calcularemos para usar la caracterización:
+
+\[
+\frac{\partial}{\partial p} \ln f_p(x_1,\dots,x_n)
+=
+\sum \frac{\partial}{\partial p} f_p(x_i)
+=
+n\frac{\overline{x}-pk_0}{p(1-p)}
+\]
+
+Así, para cumplir la caracterización, tiene sentido tomar:
+
+  - $g(p) = pk_0$
+  - $T(X_1,\dots,X_n) = \overline{X}$
+  - $a(p) = \frac{n}{p(1-p)}$
+
 *** Estimación de máxima verosimilitud
 **** Función de verosimilitud
 Para cada realización muestral se define la función de verosimilitud
 de la realización, $L_{x_1,\dots,x_n} : \Theta \longrightarrow \mathbb{R}^+_0$, como:
 
-\[L(\theta) = f_\theta^n(x_1,\dots,x_n)\]
+\[L(\theta) = f_\theta(x_1,\dots,x_n)\]
 
 **** Estimador de máxima verosimilitud
 Tenemos $\hat\theta$ estimador de máxima verosimilitud de $\theta$ cuando la estimación
@@ -13114,11 +13168,45 @@ asociada a cada realización muestral maximiza la verosimilitud:
 \[L_{x_1,\dots,x_n}\left(\hat\theta(x_1,\dots,x_n)\right)
 = \max_{\theta \in \Theta} L_{x_1,\dots,x_n}(\theta)\]
 
+**** Ecuación de máxima verosimilitud
+El procedimiento habitual para hallar el estimador de máxima 
+verosimilitud es derivar e igualar:
+
+\[
+\frac{\partial}{\partial\theta_j} \ln L_{X_1,\dots,X_n}(\theta_1,\dots,\theta_k)
+= 0
+\]
+
+Nótese que esto sólo nos da un punto crítico.
+
+**** Propiedades del estimador de máxima verosimilitud
+Un estimador de máxima verosimilitud $\hat\theta$ de $\theta$ cumple:
+
+  1. Consistencia:
+
+     \[\lim_{n \to \infty}\hat\theta(x_1,\dots,x_n) = \theta\]
+
+  2. Normalidad asintótica. Para $n$ suficientemente grande, sus errores
+     pueden aproximarse por una normal:
+
+     \[\sqrt{n}(\hat\theta(x_1,\dots,x_n) - \theta) \leadsto {\cal N}(0,1/I_X(\theta))\]
+
+***** TODO Demostración
+
 **** Relación con estadísticos suficientes
 Si $\{P_\theta \mid \theta \in \Theta\}$ admite estadístico suficiente $T$, entonces $\hat\theta$ es función
 de $T$.
 
-***** TODO Demostración
+***** Demostración
+Por Teorema de factorización de Fisher-Neyman, tenemos que la
+función de distribución se escribirá como:
+
+\[
+f_\theta(x) = h(x)g_\theta(T)
+\]
+
+Entonces para maximizarla habrá que maximizar $g_\theta(T)$.
+
 **** Relación con estimadores eficientes
 Si $T$ es estimador eficiente de $\theta$, entonces $T$ es el único estimador 
 máximo verosímil de $\theta$.
