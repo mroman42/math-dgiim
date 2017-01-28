@@ -13532,6 +13532,7 @@ con $H_0 : \theta = \theta_0$ y $H_1 : \theta = \theta_1$.
 
 ***** TODO Demostración
 
+*** TODO Descripción mediante p-valores
 *** Test de la razón de verosimilitudes
 **** Test de la razón de verosimilitudes
 Sea $(X_1,\dots,X_n) \in \chi^n$ una muestra aleatoria simple de $X \leadsto \{P_\theta \mid \theta \in \Theta_0 \cup \Theta_1\}$.
@@ -13580,7 +13581,7 @@ región de confianza para $\theta$ a nivel de confianza $1-\alpha$.
 *** Ejemplos
 **** Contrastes sobre la media de una normal con varianza conocida
 ***** Hipótesis: valor de la media
-Si tomamos $H_0:\mu=\mu_0$ y $H_1:\mu\neq\mu_0$, podemos definir un [[*Test de la razón de verosimilitudes][TRV]] como:
+Si tomamos $H_0:\mu=\mu_0$ y $H_1:\mu\neq\mu_0$, podemos crear un [[*Test de la razón de verosimilitudes][TRV]] como:
 
 \[
 \varphi(X_1,\dots,X_n) =
@@ -13613,9 +13614,38 @@ Y podemos tomar raíces para tener otro test equivalente que, al
 seguir una distribución normal, podemos ajustar para tener el
 parámetro $\alpha$ pedido.
 
-***** TODO Hipótesis: media menor que un valor
-***** TODO Hipótesis: media mayor que un valor
+***** Hipótesis: media menor que un valor
+Si tomamos $H_0 : \mu \leq \mu_0$ y $H_1 : \mu > \mu_0$, podemos crear un TRV como:
+
+\[
+\varphi(X_1,\dots,X_n) = 
+\left\{\begin{array}{ll} 
+1 & \mbox{if  } \frac{\overline{X}-\mu_0}{\sigma_0/\sqrt{n}} > z_\alpha \\
+0 & \mbox{if  } \frac{\overline{X}-\mu_0}{\sigma_0/\sqrt{n}} \leq z_\alpha \\
+\end{array} 
+\right.
+\]
+
+****** Cálculo
+Si en este caso calculamos la $\lambda$ tenemos que:
+
+\[
+\lambda(x_1,\dots,x_n) = 
+\frac{\sup_{\mu\leq\mu_0} L(\mu)}{L(\overline{x})} =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } \frac{\overline{x}-\mu_0}{\sigma_0/\sqrt{n}} \leq 0 \\
+\frac{L(\mu_0)}{L(\overline{x})} 
+& \mbox{if } \frac{\overline{x}-\mu_0}{\sigma_0/\sqrt{n}} \geq 0 \\
+\end{array} 
+\right.
+\]
+
 **** Contrastes sobre la varianza de una normal con media conocida
+***** Hipótesis: valor de la varianza
+Si tomamos $H_0 : \sigma^2 = \sigma_0^2$ y $H_1 : \sigma^2 \neq \sigma_0^2$, creamos un TRV como:
+
+****** Cálculo
+
 
 ** 7. Teoría general de modelos lineales
 *** Modelo lineal general y modelo de Gauss Markov
