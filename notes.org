@@ -12146,7 +12146,7 @@ Deriva de una binomial con $k$ salidas distintas de probabilidades $p_1,\dots,p_
 como:
 
 \[
-f(X|p_1,\dots,p_k) = \frac{n!}{X_1!X_2!\dots X_n!}p^{X_1}p^{X_2}\dots p^{X_k}
+f(X|n,p_1,\dots,p_k) = \frac{n!}{X_1!X_2!\dots X_n!}p^{X_1}p^{X_2}\dots p^{X_k}
 \]
 
 ** Distribuciones continuas
@@ -12411,7 +12411,22 @@ Tenemos que $\exists E[T^k] \iff k < n$. Cuando existen, se tiene
 Tabulada para $n$ pequeños y aproximada por ${\cal N}(0,1)$ para valores
 grandes.
 
-**** TODO Gráfica de la función de densidad
+**** Gráfica de la función de densidad
+#+BEGIN_SRC R :file images/normal.png :results graphics
+  library(ggplot2)
+  library(ggfortify)
+  gg = NULL
+  for (i in c(1,2,3,4,5)) {
+      gg = ggdistribution(dt, seq(-3, 3, 0.1),
+                          df=i,
+                          colour=topo.colors(5)[i], p=gg)
+  }
+  print(gg + labs(title = "T de Student, variando n."))
+#+END_SRC
+
+#+RESULTS:
+[[file:images/normal.png]]
+
 *** Distribución F de Snedecor
 **** Definición
 *F de Snedecor*. Dadas dos variables independientes $X \leadsto \chi^2(n)$ e
