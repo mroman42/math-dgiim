@@ -13313,10 +13313,10 @@ Un pivote es una función $T(X_1,\dots,X_n,\theta)$ tal que fijado cualquier $\t
 $T(X_1,\dots,X_n,\theta)$ es una variable con distribución independiente de $\theta$.
 
 **** Intervalos obtenidos mediante el método pivotal
-Dado un pivote estrictamente monótono respecto a $\theta$, y dos valores $\lambda_1,\lambda_2$,
-tales que para cualquier $\theta$:
+Dado un pivote $T$ estrictamente monótono respecto a $\theta$, y dos valores
+$\lambda_1,\lambda_2$, tales que:
 
-\[P_\theta(\lambda_1 < T(X_1,\dots,X_n) < \lambda_2) \geq 1 - \alpha\]
+\[P_\theta(\lambda_1 < T < \lambda_2) \geq 1 - \alpha\]
 
 Tomamos las soluciones $\hat\theta_1, \hat\theta_2$, cumpliendo $T(X_1,\dots,\hat\theta_1) = \lambda_1$ y
 $T(X_1,\dots,\hat\theta_2) = \lambda_2$; y ellas forman un intervalo de confianza:
@@ -13338,9 +13338,10 @@ distribución. Un pivote es:
 
 \[T(X_1,\dots,X_n,\theta) = F^S_\theta(S(X_1,\dots,X_n)) \leadsto U(0,1)\]
 
+***** TODO Demostración
 *** Ejemplos de intervalos de confianza
 **** Intervalo para la media de una normal con varianza conocida
-Sea $X \leadsto {\cal N}(\mu,\sigma^2_0)$. Un intervalo de confianza para $\mu$ de menor longitud
+Sea $X \leadsto {\cal N}(\mu,\sigma^2_0)$. El intervalo para $\mu$ de menor longitud
 media uniforme a nivel de confianza $1-\alpha$ será:
 
 \[\left(
