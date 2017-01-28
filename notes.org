@@ -13042,11 +13042,50 @@ insesgado en una función derivable $g(\theta)$, se tiene:
      a(\theta)[T(X_1,\dots,X_n) - g(\theta)]
      \right) = 1\]
 
-***** TODO Demostración
+***** Demostración
+****** Primer punto
+Llamamos primero:
+
+\[V_\theta = \frac{\partial}{\partial\theta} \ln f_\theta(x_1,\dots,x_n)\]
+
+Tenemos que:
+
+  - $Var_\theta(V_\theta) = I_{X_1,\dots,X_n}(\theta)$
+  - $\mathbb{E}(V_\theta) = 0$
+  - $Cov(T,V_\theta) = \mathbb{E}[TV_\theta] - \mathbb{E}[T]\mathbb{E}[V]$
+
+Calculando:
+
+\[\begin{aligned}
+Cov(T,V_\theta) 
+&=
+\int_{\chi^n} 
+T(x_1,\dots,x_n)
+\left(\frac{\partial}{\partial\theta} \ln f_\theta(x_1,\dots,x_n)\right)
+f_\theta(x_1,\dots,x_n)\;dx 
+\\&=
+\int_{\chi^n} 
+T(x_1,\dots,x_n)
+\left(\frac{\partial}{\partial\theta} f_\theta(x_1,\dots,x_n)\right)\;dx 
+\\&=
+\frac{\partial}{\partial\theta} \int_{\chi^n} 
+T(x_1,\dots,x_n)
+\left(f_\theta(x_1,\dots,x_n)\right)\;dx 
+\\&=
+\frac{\partial}{\partial\theta} g(\theta)
+\end{aligned}\]
+
+Y finalmente aplicamos la desigualdad de Cauchy-Schwartz a la 
+covarianza entre $T,V_\theta$ para tener:
+
+\[
+Cov(T,V_\theta) \leq Var[T]Var[V_\theta]
+\]
+    
 **** Estimador eficiente
 Sea $\{P_\theta \mid \theta \in \Theta\}$ regular, con la función de información acotada 
 $0 < I_X(\theta) < \infty$ y $g(\theta)$ función paramétrica derivable. Un estimador $T$ de $g(\theta)$ 
-es eficiente si es insesgado, regular, y su varianza alcanza la
+es *eficiente* si es insesgado, regular, y su varianza alcanza la
 cota de Fréchet-Cramer-Raó en todo punto:
 
 \[Var_\theta[T] = \frac{(g'(\theta))^2}{I_{X_1,\dots,X_n}(\theta)},
