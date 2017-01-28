@@ -12075,6 +12075,14 @@ Nótese que asumimos una conmutatividad de las integrales discretas.
 ***** Demostración en el caso continuo
 Puede consultarse la [[https://en.wikipedia.org/wiki/Law_of_total_expectation#Proof_in_the_general_case][Ley de la esperanza total]].
 
+*** Desigualdades
+**** Desigualdad de Chebyshev
+Para una variable aleatoria $X$ de segundo orden:
+
+\[
+P(|X-\mathbb{E}[X]| \geq a) \leq \frac{Var(X)}{a^2}
+\]
+
 ** Distribuciones discretas
 *** Distribución uniforme
 **** Definición
