@@ -12985,11 +12985,22 @@ La función de información tiene como propiedades:
   2. En el caso $I_X(\theta) = 0$, $f_\theta(X)$ no depende de $\theta$.
   3. \[E_\theta \left[\frac{d}{d\theta} \ln f_\theta(X) \right] = 0\].
   4. \[ Var_\theta \left[\frac{d}{d\theta} \ln f_\theta(X) \right] = I_X(\theta) \].
-  5. \[E_\theta \left[\frac{d}{d\theta} \ln f^n_\theta(X_1,\dots,X_n) \right] = 0\].
+  5. \[E_\theta \left[\frac{d}{d\theta} \ln f_\theta(X_1,\dots,X_n) \right] = 0\].
   6. \[ Var_\theta \left[\frac{d}{d\theta} \ln f_\theta(X_1,\dots,X_n) \right] = I_{X_1,\dots,X_n}(\theta) \].
   7. Aditividad, $I_{X_1,\dots,X_n}(\theta) = nI_X(\theta)$.
  
-***** TODO Demostración
+***** Demostración
+****** Punto 3
+Derivando y asumiendo las condiciones de regularidad:
+
+\[
+\mathbb{E}_\theta\left[\frac{\partial}{\partial\theta} \ln f_\theta(x)\right]
+=
+\int_\chi \left(\frac{\partial}{\partial\theta} \ln f_\theta(x)\right) f_\theta(x)\; dx
+=
+\int_\chi \frac{\partial}{\partial\theta} f_\theta(x)\;dx
+= 0
+\]
 
 **** Estadístico regular
 Un estadístico $T$ es regular en el sentido de Fréchet-Cramer-Raó, si
@@ -13009,16 +13020,17 @@ O, siendo una distribución continua:
 \frac{d}{d\theta}
 E_\theta[T] &=
 \frac{d}{d\theta} 
-\int_{x \in \chi^n} T(x)f^n_\theta(x) \;dx \\&= 
-\int_{x \in \chi^n} T(x) \frac{d}{d\theta} f^n_\theta(x) \;dx
+\int_{x \in \chi^n} T(x)f_\theta(x) \;dx \\&= 
+\int_{x \in \chi^n} T(x) \frac{d}{d\theta} f_\theta(x) \;dx
 \end{aligned}\]
 
 **** Cota de Fréchet-Cramer-Raó
-Si $\{P_\theta \mid \theta \in \Theta\}$ es *regular*, la función de información se 
-acota $0 < I_X(\theta) < \infty$, y $T$ es un estadístico regular, de segundo orden e
+Si $\{P_\theta \mid \theta \in \Theta\}$ es regular, la función de información se acota
+$0 < I_X(\theta) < \infty$, y $T$ es un estadístico regular, de segundo orden e
 insesgado en una función derivable $g(\theta)$, se tiene:
 
   1. \[Var_\theta[T] \geq \frac{g'(\theta)^2}{I_{X_1,\dots,X_n}(\theta)}\]
+
   2. Para todo $\theta \in \Theta$ tal que $g'(\theta) \neq 0$:
 
      \[Var_\theta[T] = \frac{g'(\theta)^2}{I_{X_1,\dots,X_n}(\theta)}\]
