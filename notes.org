@@ -13551,10 +13551,72 @@ donde se define:
 {\sup_{\theta \in \Theta} L_{x_1,\dots,x_n}(\theta)}
 \]
 
-siendo $L$ la función de verosimilitud y $c$ una constante que se determina
-imponiendo el tamaño o nivel de significación requerido.
+siendo $L$ la función de verosimilitud y $c \in (0,1]$ una constante que se 
+determina imponiendo el tamaño o nivel de significación requerido.
 
-*** TODO Dualidad entre tests de hipótesis y regiones de confianza
+*** Dualidad entre tests de hipótesis y regiones de confianza
+**** Dualidad
+Sea $X \leadsto \{P_\theta \mid \theta \in \Theta\}$. Para cada $\theta_0 \in \Theta$ consideramos un conjunto $A(\theta_0) \subseteq \chi^n$
+y para cada relización se define:
+
+\[
+\varphi_{\theta_0}(x_1,\dots,x_n) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } (x_1,\dots,x_n) \notin A(\theta_0) \\
+0 & \mbox{if } (x_1,\dots,x_n) \in A(\theta_0) \\
+\end{array} 
+\right.
+\]
+
+Y con esto se define:
+
+\[
+S(x_1,\dots,x_n) = \{\theta\in \Theta \mid (x_1,\dots,x_n) \in A(\theta)\}
+\]
+
+Cada uno de los tests $\varphi_{\theta_0}$ tiene nivel de significación $\alpha$ ssi $S$ es una
+región de confianza para $\theta$ a nivel de confianza $1-\alpha$.
+
+*** Ejemplos
+**** Contrastes sobre la media de una normal con varianza conocida
+***** Hipótesis: valor de la media
+Si tomamos $H_0:\mu=\mu_0$ y $H_1:\mu\neq\mu_0$, podemos definir un [[*Test de la razón de verosimilitudes][TRV]] como:
+
+\[
+\varphi(X_1,\dots,X_n) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } \left| \frac{\overline{X}-\mu_0}{\sigma_0/\sqrt{n}} \right| > z_{\alpha/2} \\
+0 & \mbox{if } \left| \frac{\overline{X}-\mu_0}{\sigma_0/\sqrt{n}} \right| \leq z_{\alpha/2} \\
+\end{array} 
+\right.
+\]
+
+****** Cálculo
+Sabiendo que la función de verosimilitud es:
+
+\[
+L_{x_1,\dots,x_n}(\mu) = 
+\frac{1}{(\sigma_0^2)^{n/2}(2\pi)^{n/2}}
+e^{-\sum_{i=1}^n (x_i-\mu)^2/2\sigma_0^2}
+\]
+
+Calculamos el test:
+
+\[
+\lambda = 
+\frac{\sup_{\mu = \mu_0} L(\mu)}{\sup_{\mu\in\mathbb{R}} L(\mu)} = 
+\frac{L(\mu_0)}{L(\overline{x})} =
+\exp\left\{\frac{-n(\overline{x}-\mu_0)^2}{2\sigma^2_0}\right\}
+\]
+
+Y podemos tomar raíces para tener otro test equivalente que, al
+seguir una distribución normal, podemos ajustar para tener el
+parámetro $\alpha$ pedido.
+
+***** TODO Hipótesis: media menor que un valor
+***** TODO Hipótesis: media mayor que un valor
+**** Contrastes sobre la varianza de una normal con media conocida
+
 ** 7. Teoría general de modelos lineales
 *** Modelo lineal general y modelo de Gauss Markov
 **** Modelo lineal general
