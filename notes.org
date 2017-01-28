@@ -13231,10 +13231,21 @@ Si $\hat\theta$ es estimador máximo verosímil de $\theta$, entonces $g(\hat\th
 máximo verosímil de $g(\theta)$.
 
 ***** TODO Demostración
+Se cumple:
+
+\[
+M(\lambda') = sup_{\theta \in g^{-1}(\lambda')} L(\theta)
+\leq
+sup_{\theta \in \Theta} L(\theta)
+=
+L(\hat\theta)
+=
+M(g(\hat\theta))
+\]
 
 *** Método de los momentos
 **** Descripción
-El estimador máximo verosímil de una función dependiente en los momentos
+El estimador de una función dependiente en los momentos
 poblacionales es el mismo dependiendo en los momentos muestrales.
 
 \[g(\theta) = h(m_{\theta,1},\dots,m_{\theta,k}) 
@@ -13251,7 +13262,6 @@ Definimos los momentos muestrales como:
 
 \[A_j = \frac{1}{n}\sum_{i=1}^n X^j_i\]
 
-***** TODO Demostración
 *** Método de mínimos cuadrados
 **** Descripción
 Si $X_i$ son las observaciones aleatorias de una magnitud $\varphi(t,\theta)$ con
@@ -13285,7 +13295,7 @@ E_\theta[I_2(X_1,\dots,X_n) - I_1(X_1,\dots,X_n)]
 E_\theta[I_2'(X_1,\dots,X_n) - I_1'(X_1,\dots,X_n)]
 \]
 
-**** Intervalos obtenidos mediante desigualdad de Chevychev
+**** Intervalos mediante desigualdad de Chevychev
 Si $T$ es estimador insesgado de $\theta$ con varianza uniformemente acotada:
 
   - $E_\theta[T(X_1,\dots,X_n)] = \theta$
@@ -13294,7 +13304,7 @@ Si $T$ es estimador insesgado de $\theta$ con varianza uniformemente acotada:
 Por lo que por Chevychev tenemos, dado $k>0$, un intervalo de confianza
 para $\theta$ al nivel de confianza $1 - c/k^2$:
 
-\[(T(X_1,\dots,X_n) - k,\  T(X_1,\dots,X_n) + k)\]
+\[P\left(T - k \leq \theta \leq  T + k \right) \geq 1 - c/k^2\]
 
 ***** TODO Demostración
 
