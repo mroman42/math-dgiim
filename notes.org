@@ -13299,7 +13299,7 @@ media uniforme a nivel de confianza $1-\alpha$ será:
 \overline{X}+z_{\alpha/2}\frac{\sigma_0}{\sqrt{n}}
 \right)\]
 
-Siendo $z_{\alpha/2}$ el que cumple, con $Z \leadsto {\cal N}(0,1)$, que \[P\left(Z \leq z_{\alpha/2}\right) = \alpha/2\].
+donde $z_{\alpha/2}$ cumple que \[P\left(Z \leq z_{\alpha/2}\right) = \alpha/2\] con $Z \leadsto {\cal N}(0,1)$.
 
 ***** Pivote
 Usamos como pivote a la normalizada:
@@ -13360,7 +13360,74 @@ distintos para cumplir la restricción, tenemos $\lambda_1 = -\lambda_2$.
 La restricción nos fuerza a $\Phi(\lambda_2) - \Phi(-\lambda_2) = 1 - \alpha$, luego estamos
 buscando el $z_{\alpha/2}$ que cumple, para una normalizada $Z$, $P(Z > z_{\alpha/2}) = \alpha/2$.
 
-**** TODO Intervalo para la media de una normal con varianza desconocida
+**** Intervalo para la media de una normal con varianza desconocida
+Sea $X \leadsto {\cal N}(\mu,\sigma^2)$. El intervalo para $\mu$ de menor longitud media uniforme
+a nivel de confianza $1-\alpha$ será:
+
+\[
+\left(
+\overline{X} - t_{n-1;\alpha/2}\frac{S}{\sqrt{n}},\,
+\overline{X} + t_{n-1;\alpha/2}\frac{S}{\sqrt{n}}
+\right)
+\]
+
+donde $t_{n-1;\alpha/2}$ cumple que $P(Z \leq t_{n-1;\alpha/2}) = \alpha/2$ con $Z \leadsto T(n-1)$.
+
+***** Pivote
+Usaremos como pivote la t de Student:
+
+\[
+T = \frac{\overline{X}-\mu}{S/\sqrt{n}} \leadsto t(n-1)
+\]
+
+***** Intervalos candidatos
+Usando el pivote tenemos el siguiente intervalo de confianza:
+
+\[
+1 - \alpha > 
+P_\mu\left(
+\lambda_1 < 
+\frac{\overline{X} - \mu}{S / \sqrt{n}} <
+\lambda_2
+\right)
+=
+P_\mu\left(
+\overline{X} - \lambda_2\frac{S}{\sqrt{n}} <
+\mu <
+\overline{X} - \lambda_1\frac{S}{\sqrt{n}}
+\right)
+\]
+
+Donde, si $\Phi$ es la función de distribución de $t(n-1)$, tenemos
+que $1-\alpha = \Phi(\lambda_2)-\Phi(\lambda_1)$.
+
+***** Longitud media
+Queremos minimizar la longitud esperada del intervalo:
+
+\[
+\mathbb{E}\left[
+\left(\overline{X}-\lambda_1\frac{S}{\sqrt{n}}\right) - 
+\left(\overline{X}-\lambda_2\frac{S}{\sqrt{n}}\right)
+\right]
+=
+(\lambda_2-\lambda_1)\mathbb{E}\left[
+\frac{S}{\sqrt{n}}
+\right]
+\]
+
+Buscamos por tanto minimizar $\lambda_2-\lambda_1$.
+
+***** Minimización
+Usamos multiplicadores de Lagrange para definir:
+
+\[F(\lambda_1,\lambda_2) = \lambda_2-\lambda_1 + \lambda(\Phi(\lambda_2) - \Phi(\lambda_1) - (1-\alpha))\]
+
+De donde deducimos $\Phi'(\lambda_1) = \Phi'(\lambda_2)$. Como la t de Student es simétrica
+y monótona en cada mitad, tenemos $\lambda_1 = -\lambda_2$.
+
+***** Conclusión
+Buscamos entonces el $t_{\alpha/2}$ que cumple $P(Z > t_{\alpha/2}) = \alpha/2$.
+
 **** TODO Intervalo para la varianza de una normal con media conocida
 **** TODO Intervalo para la varianza de una normal con varianza conocida
 **** TODO Intervalo para la diferencia de medias de normales de varianza dada
