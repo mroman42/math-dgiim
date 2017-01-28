@@ -12935,22 +12935,34 @@ E[S|T] - E[Q|T] = 0
 
 Por lo tanto, ambos son el UMVUE.
 
+**** Cálculo del UMVUE
+Dado $T$ suficiente y completo. Para calcular el UMVUE de $g(\theta)$ podemos:
+
+  1. Buscar un estimador insesgado y de segundo orden cualquiera de $g(\theta)$.
+     Entonces $\mathbb{E}[S|T]$ será el UMVUE.
+  2. Buscar $h(T)$ tal que $\mathbb{E}_\theta[h(T)] = g(\theta)$, un estimador insesgado que es
+     sólo función de $T$. Se cumplirá $\mathbb{E}[h(T)|T] = h(T)$.
+
 *** Estimación eficiente
 **** Condiciones de regularidad de Fréchet-Cramer-Rao
-Una familia de distribuciones es *regular en el sentido de 
-Fréchet-Cramer-Rao* si cumple que, siendo $\{P_\theta \; \theta\in\Theta\}$:
+Una familia $\{P_\theta \mid \theta\in\Theta\}$ es *regular* en el sentido de Fréchet-Cramer-Rao
+si cumple que:
 
- - $\Theta$ es intervalo abierto de $\mathbb{R}$.
- - $\forall \theta,\theta'\in\Theta : \{x \mid f_\theta(x) > 0\} = \{x \mid f_{\theta'}(x) > 0\}$
- - Tenemos $f_\theta(x)$ derivable respecto a $\theta$ para todo $x\in\chi$ con:
+  1. $\Theta$ es intervalo abierto de $\mathbb{R}$.
+  2. $\forall \theta,\theta'\in\Theta : \{x \mid f_\theta(x) > 0\} = \{x \mid f_{\theta'}(x) > 0\} = \chi$
+  3. Tenemos $f_\theta(x)$ derivable respecto a $\theta$ para todo $x \in \chi$ con:
 
-   \[ \int_\chi \frac{d f_\theta(x)}{d\theta} dx = 
-   \frac{d}{d\theta} \int_\chi f_\theta(x) dx = 
-   0, \quad \forall \theta\in\Theta\]
+     \[ \int_\chi \frac{d f_\theta(x)}{d\theta} dx = 
+     \frac{d}{d\theta} \int_\chi f_\theta(x) dx = 
+     0, \quad \forall \theta\in\Theta\]
    
-   O, cuando la distribución es discreta:
+     O, cuando la distribución es discreta:
    
-   \[\sum_\chi \frac{d f_\theta(x)}{d\theta} = \frac{d}{d\theta}\sum_\chi f_\theta(x) = 0\]
+     \[\sum_\chi \frac{d f_\theta(x)}{d\theta}
+     = 
+     \frac{d}{d\theta}\sum_\chi f_\theta(x)
+     = 
+     0\]
 
 **** Función de información de Fisher
 Si $\{P_\theta : \theta \in \Theta\}$ es regular, definimos la *función de información* asociada
