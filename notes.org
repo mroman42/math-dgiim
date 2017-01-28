@@ -12806,7 +12806,7 @@ Luego por Fisher-Neyman, sabemos que $\sum x_i$ es suficiente.
 ** 4. Estimación puntual
 *** Planteamiento del problema de estimación
 **** Estimador puntual
-Un *estimador puntual* de $\theta$ es un estadístico $T$ tomando valores en el 
+Un estimador puntual de $\theta$ es un estadístico $T$ tomando valores en el 
 dominio del parámetro, $\Theta$.
 
 **** Función de pérdida y de riesgo
@@ -12817,7 +12817,7 @@ un parámetro si su verdadero valor es otro.
 La *función de riesgo* es la que asocia a cada valor del parámetro la 
 pérdida media asociada al estimador.
 
-\[ R^L_T(\theta) = E_\theta [L(\theta,T)]\]
+\[ R^L_T(\theta) = E_\theta [L(\theta,T)] \]
 
 **** Estimador óptimo
 El *estimador óptimo*, $T$, dada una función de pérdida, es el que minimiza 
@@ -12825,6 +12825,7 @@ uniformemente la función de riesgo:
 
 \[ R^L_T(\theta) \leq R^L_{T''}(\theta),\quad \forall \theta \in \Theta,\; \forall T''\]
 
+**** Ejemplo de estimador óptimo
 *** Estimación de menor error cuadrático
 **** Función de pérdida cuadrática
 La función de pérdida cuadrática, ${\cal L}(\theta, t) = (t - \theta)^2$, hace a la función de 
@@ -12847,8 +12848,13 @@ cualquier otro estimador insesgado $T'$ se tiene que:
 \[ Var_\theta[T] \leq Var_\theta[T']\]
 
 ***** De segundo orden
-# ¿Seguro? No parece estar escrito en ningún sitio.
-Lo llamamos de segundo orden cuando existe la varianza.
+Lo llamamos de segundo orden cuando existe el momento de segundo orden:
+
+\[
+\exists \mathbb{E}_\theta[T^2(X_1,\dots,X_n)]
+\quad
+\forall \theta \in \Theta
+\]
 
 **** Propiedades del UMVUE
 El estimador UMVUE cumple:
