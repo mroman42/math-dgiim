@@ -12335,7 +12335,7 @@ Dadas variables independientes $X_i \leadsto {\cal N}(0,1)$,
 
 ***** TODO Demostración
 
-**** Aproximación
+**** Teorema central del límite de Lèvy
 Para valores pequeños, pueden usarse tablas. Para valores grandes
 de $n$, podemos aproximarla mediante el Teorema Central del Límite
 como:
@@ -12344,7 +12344,6 @@ como:
 
 ***** TODO Demostración
 
-**** TODO Gráfica de la función de densidad
 *** Distribución t de Student
 **** Definición
 Dadas dos variables independientes $X \leadsto {\cal N}(0,1)$ e $Y \leadsto \chi^2(n)$, 
@@ -12574,7 +12573,7 @@ Sea $X \leadsto {\cal N}(\mu,\sigma^2)$ con $S^2$ su cuasivarianza muestral, ent
 \]
 
 ***** Demostración
-Usamos la independencia entre $X-\overline{X}$ y $\overline{X}-\mu$ para escribir:
+Usamos la independencia entre $X_i-\overline{X}$ y $\overline{X}-\mu$ para escribir:
 
 \[
 \sum_{i=1}^n (X_i - \mu)^2
