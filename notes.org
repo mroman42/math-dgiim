@@ -12163,6 +12163,14 @@ Desde la función generadora:
 Var(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \lambda
 \]
 
+**** Suma de Poisson
+Para $X \leadsto Poi(\lambda_1)$, $Y \leadsto Poi(\lambda_2)$ independientes, su suma es sigue la
+distribución con el parámetro suma.
+
+\[
+X + Y \leadsto Poi(\lambda_1+\lambda_2)
+\]
+
 *** Distribución binomial
 **** Definición
 Determina la probabilidad de $x$ aciertos en $n$ experimentos de Bernoulli.
