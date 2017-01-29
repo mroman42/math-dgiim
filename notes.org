@@ -12397,6 +12397,13 @@ Y sobre convexidad y concavidad se tiene:
 
 ***** TODO Demostración
 
+**** Suma de Gammas
+Para $X \leadsto \Gamma(\alpha_1,\beta)$, $Y \leadsto \Gamma(\alpha_2,\beta)$, independientes:
+
+\[
+X+Y \leadsto \Gamma(\alpha_1+\alpha_2,\beta)
+\]
+
 *** Distribución Beta
 **** Función Beta
 Se define la función beta $\beta : (0,\infty) \longrightarrow (0,\infty)$ como:
@@ -12445,7 +12452,7 @@ Al parámetro $k$ se le llama *número de grados de libertad*.
 
  \[f(x) = \frac{1}{\Gamma(\frac{k}{2})2^{k/2}} x^{k/2-1}e^{-x/2}\]
 
-****** Demostración
+****** TODO Demostración
 **** Función generatriz de momentos
 
 \[M_X(t) = \frac{1}{(1-2t)^{k/2}}\], para $t < 1/2$.
