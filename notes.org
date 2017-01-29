@@ -13822,9 +13822,76 @@ de rango máximo.
 
 ***** TODO Demostración
 
-** A. Inferencia Bayesiana
+*** Modelo estimado
+**** Modelo estimado
+Siendo $\widehat\beta$ el estimador de mínimos cuadrados, llamamos:
+
+  - Modelo estimado: $\widehat Y = X\widehat\beta$
+  - Residuos mínimo-cuadráticos: $R = Y - X\widehat\beta$
+
+**** Propiedades del modelo estimado
+El modelo estimado cumple:
+
+  1. $\widehat Y_i$ es el estimador lineal insesgado de mínima varianza de $E[Y_i]$.
+  2. Los residuos son centrados $E[R_i] = 0$.
+  3. El vector de residuos es ortogonal al vector estimado:
+
+     \[X^TR = 0,\quad \widehat{Y}^TR = 0\]
+
+**** Varianza residual
+Siendo $r$ el rango de $X$, la *varianza residual* es un estimador
+insesgado de $\sigma^2$:
+
+\[
+S^2_R = \frac{1}{n-r}\sum_{i=1}^n R_i^2 = \frac{1}{n-r}\|Y-X\widehat\beta\|^2
+\]
+
+*** Inferencia bajo hipótesis de normalidad
+**** Hipótesis de normalidad
+La hipótesis de normalidad asume que los errores se distribuyen
+bajo una distribución normal:
+
+\[
+Y_i = \sum_{j=1}^k x_{ij}\beta_j + \varepsilon_i 
+\leadsto 
+{\cal N}\left(\sum_{j=1}^k x_{ij}\beta_j, \sigma^2 \right)
+\]
+
+Para $Y_1,\dots,Y_n$ independientes.
+
+***** Equivalentemente
+Podemos expresar los errores como:
+
+\[\varepsilon \leadsto {\cal N}(0,\sigma^2)\]
+
+**** Función de máxima verosimilitud
+La función de máxima verosimilitud bajo la hipótesis de normalidad queda
+como:
+
+\[
+L_y(\beta,\sigma^2) = 
+\frac{1}{(2\pi)^{n/2}\sigma^n}
+\exp\left\{
+-\frac{\sum_{i=1}^n(y_i - \sum_{j=1}^k x_{ij}\beta_j)^2}{2\sigma^2}
+\right\}
+\]
+
+**** Estimadores máximo verosímiles de efectos
+Los estimadores máximo verosímiles de $\beta$ son $\widehat\beta$, estimadores de mínimos
+cuadrados.
+
+***** TODO Demostración
+
+**** Estimador máximo verosímil de la varianza
+El estimador máximo verosímil de la varianza es:
+
+\[
+\widehat\sigma^2 = \frac{1}{n}\sum_{i=1}^n R_i^2 = \frac{n-r}{n}S^2_R
+\]
+
+** 8. Inferencia Bayesiana
 # ##
-# Este capítulo se ha escrito desde los apuntes de estadística
+# Este capítulo se ha escrito siguiendo los apuntes de estadística
 # de Andrés Herrera, Nuria Rodríguez, Javier Poyatos, María del Mar Ruiz y 
 # Juan Luis Suárez.
 #
@@ -13832,7 +13899,7 @@ de rango máximo.
 #   https://github.com/andreshp/math-notes/tree/master/StatisticalInference
 # ##
 
-*** A.1. Introducción
+*** 8.1. Introducción
 **** Ley de la probabilidad total
 La ley de la probabilidad total establece, para $A_i$ una partición del
 espacio de sucesos:
@@ -13877,7 +13944,7 @@ m(\tilde x)
 \]
 
 **** Distribución a posteriori
-Dada una relaización de la muestra y una distribución a priori, definimos
+Dada una realización de la muestra y una distribución a priori, definimos
 una distribución a posteriori como:
 
 \[
@@ -13886,8 +13953,8 @@ una distribución a posteriori como:
 \frac{f(\tilde x|\theta)\pi(\theta)}{\int_\Omega f(\tilde x|\theta)\pi(\theta) d\theta}
 \]
 
-*** A.2. Estadística clásica
-*** A.3. Familias conjugadas
+*** 8.2. Estadística clásica
+*** 8.3. Familias conjugadas
 **** Familia conjugada
 Sea ${\cal F} = \{\pi_i(\theta) \mid i \in I\}$ una familia de distribuciones a priori. Se llama
 *conjugada* respecto a una familia de densidades $P = \{f(x|\theta) \mid \theta \in \Theta\}$ si
