@@ -13989,6 +13989,14 @@ Por definición:
 f(\tilde x|\theta)\pi(\theta) = \Pi(\theta)\int_\Omega f(\tilde x|\theta)\pi(\theta) d\theta
 \]
 
+**** Caracterización de familias conjugadas
+Una familia de distribuciones a priori ${\cal F}$ es conjugada respecto a ${\cal P}$ ssi
+el producto de cualesquiera dos distribuciones de ambas familias vuelve
+a ser una distribución de la familia de distribuciones a priori.
+
+\[\forall f \in {\cal P}, \pi \in{\cal P}: \exists k:\quad 
+kf(x|\theta)\pi(\theta) \in {\cal F}\]
+
 **** Ejemplos de familias conjugadas
 ***** Beta
 La familia de distribuciones Beta es una familia conjugada para:
@@ -14009,10 +14017,10 @@ distribuciones normales de varianza conocida.
 La familia de distribuciones de Dirichlet es conjugada para la
 familia de distribuciones multinomiales.
 
-*** A.4. Distribuciones objetivas
-*** A.5. Convergencia de distribuciones a posteriori
-*** A.6. Test de hipóesis bayesianos
-*** A.7. Probabilidades subjetivas
+*** 8.4. Distribuciones objetivas
+*** 8.5. Convergencia de distribuciones a posteriori
+*** 8.6. Test de hipóesis bayesianos
+*** 8.7. Probabilidades subjetivas
 ** Ejercicios
 *** Tema 1. Introducción a la inferencia estadística
 **** Ejercicio 1
