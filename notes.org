@@ -13547,36 +13547,61 @@ con $H_0 : \theta = \theta_0$ y $H_1 : \theta = \theta_1$.
   1. Cualquier test de la forma:
 
      \[
-     \varphi(X_1,\dots,X_n) = 
+     \varphi(\tilde X) = 
      \threepartdef
-     {1}
-     {f_1^n(X_1,\dots,X_n) > kf_0^n(X_1,\dots,X_n)}
-     {\gamma(X_1,\dots,X_n)}
-     {f_1^n(X_1,\dots,X_n) = kf_0^n(X_1,\dots,X_n)}
-     {0}
-     {f_1^n(X_1,\dots,X_n) < kf_0^n(X_1,\dots,X_n)}
+     {1}{f_1(\tilde X) > kf_0(\tilde X)}
+     {\gamma(\tilde X)}{f_1(\tilde X) = kf_0(\tilde X)}
+     {0}{f_1(\tilde X) < kf_0(\tilde X)}
      \]
      
      con $k \in \mathbb{R}^+_0$ y $\gamma(X_1,\dots,X_n) \in [0,1]$, es de máxima potencia entre todos
-     los de nivel de significación $\alpha = E_{\theta_0}[\varphi(X_1,\dots,X_n)]$, su tamaño.
+     los de nivel de significación $\alpha = E_{\theta_0}[\varphi]$, su tamaño.
      
   2. Para todo $\alpha \in (0,1]$ existe un test de la forma anterior con
      $\gamma(X_1,\dots,X_n) = \gamma$ constante y tamaño $\alpha$.
 
-  3. Si $\varphi'$ es de máxima potencia al nivel de significación
-     $\alpha = E_{\theta_0}[\varphi'(X_1,\dots,X_n)]$, entonces $\varphi'(X_1,\dots,X_n)$ es de la forma anterior
-     con probabilidad 1 bajo $P_{\theta_0}$ y $P_{\theta_1}$.
+  3. Si $\varphi'$ es de máxima potencia al nivel de significación $\alpha = E_{\theta_0}[\varphi']$, 
+     entonces $\varphi'$ es de la forma anterior con probabilidad 1 bajo $P_{\theta_0}$ y $P_{\theta_1}$.
 
   4. El test de máxima potencia entre todos los de nivel de significación
      0 es:
      
      \[
-     \varphi_0(X_1,\dots,X_n) = \twopartdef
-     {1}{f^n_0(X_1,\dots,X_n) = 0}
-     {0}{f^n_0(X_1,\dots,X_n) > 0}
+     \varphi_0(\tilde X) = \twopartdef
+     {1}{f_0(\tilde X) = 0}
+     {0}{f_0(\tilde X) > 0}
      \]
 
-***** TODO Demostración
+***** Demostración
+****** Punto 1
+Dado otro test $\varphi'$, como toma valores en $[0,1]$ tenemos que:
+
+\[
+(\varphi-\varphi')(f_1-kf_0) \geq 0
+\]
+
+Podemos entonces integrar para tener:
+
+\[
+\int (\varphi(x)-\varphi'(x))(f_1(x)-kf_0(x)) \;dx \geq 0
+\]
+
+Conociendo las funciones de potencia $\int \varphi f_i = \beta_\varphi(\theta_i)$ y $\int \varphi' f_i = \beta_{\varphi'}(\theta_i)$ , 
+tenemos:
+
+\[
+\beta_{\varphi}(\theta_1) - \beta_{\varphi'}(\theta_1) +
+k(\beta_{\varphi'}(\theta_0) - \beta_{\varphi}(\theta_0))
+\geq 0\]
+
+Usando ahora que $\beta_{\varphi'}(\theta_0) \leq \beta_\varphi(\theta_0) = \alpha$, tenemos que $\beta_\varphi(\theta_1) \geq \beta_{\varphi'}(\theta_1)$.
+Así, nuestro test es el más potente uniformemente.
+
+****** Punto 3
+Cuando es de máxima potencia, se da el caso de igualdad en la última
+ecuación, que lleva el caso de igualdad a la integral. Como es una
+integral de términos positivos, debe ser distinta de cero sólo en
+un conjunto de medida nula.
 
 *** TODO Descripción mediante p-valores
 *** Test de la razón de verosimilitudes
@@ -13686,12 +13711,11 @@ Si en este caso calculamos la $\lambda$ tenemos que:
 \right.
 \]
 
-**** Contrastes sobre la varianza de una normal con media conocida
+**** TODO Contrastes sobre la varianza de una normal con media conocida
 ***** Hipótesis: valor de la varianza
 Si tomamos $H_0 : \sigma^2 = \sigma_0^2$ y $H_1 : \sigma^2 \neq \sigma_0^2$, creamos un TRV como:
 
 ****** Cálculo
-
 
 ** 7. Teoría general de modelos lineales
 *** Modelo lineal general y modelo de Gauss Markov
