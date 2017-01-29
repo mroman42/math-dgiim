@@ -14399,6 +14399,42 @@ qnorm(1-0.01)
 #+RESULTS:
 : [1] 2.326348
 
+**** Ejercicio 7
+#+begin_statement
+Dada una muestra aleatoria simple $(X_1,\dots,X_n)$ de una variable $X$, obtener
+la distribución en el muestreo de $\overline{X}$ en los casos:
+
+  1. $X \leadsto B(1,p)$
+  2. $X\leadsto P(\lambda)$
+  3. $X \leadsto exp(\lambda)$
+#+end_statement
+
+***** Punto 1
+Por independencia y suma de binomiales:
+
+\[
+\overline{X} \leadsto \frac{1}{n}B(n,p)
+\]
+
+Nótese que deja de ser una binomial.
+
+***** Punto 2
+Por independencia y suma de Poisson:
+
+\[
+\overline{X} \leadsto \frac{1}{n}Poi(n\lambda)
+\]
+
+***** Punto 3
+Por independencia y suma de Gammas:
+
+\[
+\overline{X} = \frac{1}{n}\Gamma(n,\lambda)
+\]
+
+**** Ejercicio 10
+Desde la distribución de la estimación de la normal.
+
 *** Tema 2. Distribuciones en el muestreo de poblaciones normales
 **** Ejercicio 1
 #+begin_statement
@@ -14513,6 +14549,9 @@ q = qnorm(1-0.05)
 
 #+RESULTS:
 : 1082.21738163816
+
+**** Ejercicio 7
+Comprobando sumas se llega a que siguen una Poisson.
 
 *** Tema 3. Suficiencia y complitud
 **** Ejercicio 1
