@@ -13753,12 +13753,12 @@ Las condiciones sobre el vector de errores equivalen a exigir:
   - $E[\varepsilon] = 0$
   - $E[\varepsilon\varepsilon^T] = \sigma^2 I_{n \times n}$
 
-**** Objetivo del modelo
+***** Objetivo del modelo
 Inferir $\beta$ y $\sigma^2$ a partir de observaciones del vector $Y$.
 
 *** Estimación de mínimos cuadrados del vector de efectos
 **** Modelo
-Partimos del modelo de Gauss-Markov, y queremos minimizar la suma de
+En el modelo de Gauss-Markov queremos minimizar la suma de
 cuadrados de los errores:
 
 \[S^2(\beta) = 
@@ -13769,9 +13769,9 @@ cuadrados de los errores:
 Para minimizarlo, calculamos la derivada:
 
 \[\frac{\partial}{\partial \beta_h} S^2(\beta) = 
--2 \sum^n_{i=1} \left(
+-2 x_{ih} \sum^n_{i=1} \left(
 Y_i - \sum^k_{j=1} x_{ij}\beta_j
-\right) x_{ih} = 0
+\right) = 0
 \]
 
 Y obtenemos las ecuaciones normales siguientes:
@@ -13791,6 +13791,7 @@ Llamamos $\widehat\beta$ al estimador de mínimos cuadrados de $\beta$.
   - Unicidad: garantizada cuando el modelo es de rango máximo por tenerse
     la solución \[\widehat\beta(Y) = (X^TX)^{-1}X^TY\].
 
+*** Funciones estimables
 **** Función lineal estimable
 Una $\psi(\beta) = a_1\beta_1 + \dots + a_k\beta_k$ es estimable si admite un estimador insesgado,
 lineal en las componentes de $Y$. Es decir:
@@ -13800,9 +13801,8 @@ lineal en las componentes de $Y$. Es decir:
 tal que $E[\widehat\psi(Y)] = \psi(\beta)$.
 
 **** Teorema de Gauss-Markov
-Si $\psi(\beta) = a_1\beta_1 + \dots + a_k\beta_k$ es estimable, admite un único estimador lineal
-insesgado uniformemente de mínima varianza en la clase de estimadores
-lineales insesgados. Dicho estimador es:
+Si $\psi(\beta) = a_1\beta_1 + \dots + a_k\beta_k$ es estimable, admite un único UMVUE. 
+Dicho estimador es:
 
 \[\widehat\psi(Y) = a_1\widehat\beta_1(Y) + \dots + a_k\widehat\beta_k(Y) \]
 
