@@ -12445,22 +12445,10 @@ tenemos:
 \right)^{-\frac{n+1}{2}}
 \], $t \in \mathbb{R}$
 
-***** TODO Demostración
+****** TODO Demostración
 
-**** Momentos
-Tenemos que $\exists E[T^k] \iff k < n$. Cuando existen, se tiene
-
- - $E[T] = 0$
- - $Var[T] = \frac{n}{n-2}$
-
-***** TODO Demostración
-
-**** Aproximación
-Tabulada para $n$ pequeños y aproximada por ${\cal N}(0,1)$ para valores
-grandes.
-
-**** Gráfica de la función de densidad
-#+BEGIN_SRC R :file images/normal.png :results graphics
+***** Gráfica de la función de densidad
+#+BEGIN_SRC R :file images/tstudent.png :results graphics
   library(ggplot2)
   library(ggfortify)
   gg = NULL
@@ -12473,7 +12461,19 @@ grandes.
 #+END_SRC
 
 #+RESULTS:
-[[file:images/normal.png]]
+[[file:images/tstudent.png]]
+
+**** Momentos
+Tenemos que $\exists E[T^k] \iff k < n$. Cuando existen, se tiene
+
+ - $E[T] = 0$
+ - $Var[T] = \frac{n}{n-2}$
+
+***** TODO Demostración
+
+**** Aproximación por la normal
+Tabulada para $n$ pequeños y aproximada por ${\cal N}(0,1)$ para valores
+grandes.
 
 *** Distribución F de Snedecor
 **** Definición
@@ -12482,7 +12482,23 @@ $Y \leadsto \chi^2(m)$, su cociente nos da:
 
 \[F = \frac{X/m}{Y/n} \leadsto F(m,n)\]
 
-**** Función de densidad
+***** Gráfica de la función de densidad
+#+BEGIN_SRC R :file images/fsnedecor.png :results graphics
+  library(ggplot2)
+  library(ggfortify)
+  gg = NULL
+  for (i in c(1,2,3,4,5)) {
+      gg = ggdistribution(df, seq(0, 2, 0.04),
+                          df1=i, df2=i-1,
+                          colour=topo.colors(5)[i], p=gg)
+  }
+  print(gg + labs(title = "F de Snedecor, variando n y m."))
+#+END_SRC
+
+#+RESULTS:
+[[file:images/fsnedecor.png]]
+
+***** Función de densidad
 
 \[g(t)
 = \frac
@@ -12492,7 +12508,7 @@ $Y \leadsto \chi^2(m)$, su cociente nos da:
 t^{m/2-1}
 \left(1+\frac{m}{n}t\right)^{-\frac{m+n}{2}}\], para $t>0$.
 
-***** TODO Demostración
+****** TODO Demostración
 
 **** Momentos
 Tenemos que $\exists E[T^k] \iff k < n/2$.
@@ -12510,7 +12526,6 @@ Tenemos que $\exists E[T^k] \iff k < n/2$.
 La distribución está tabulada y las tablas incluyen aproximaciones 
 para valores grandes de $n$ y $m$.
 
-**** TODO Gráfica de la función de densidad
 ** 1. Introducción a la inferencia estadística. Estadísticos muestrales.
 *** Planteamiento de un problema de inferencia
 **** Modelo estadístico
@@ -12564,7 +12579,7 @@ Aplicando entonces el Teorema Central del Límite:
 
 **** Teorema de Glivenko-Cantelli
 Las funciones de distribución muestrales convergen 
-casi seguramente y uniformemente a la teórica.
+casi seguramente uniformemente a la teórica.
 
 \[ P\left\{ \lim_{n \rightarrow \infty} 
 \sup_{x \in \mathbb{R}} |F^\ast_n(x) - F(x)| = 0\right\} = 1\]
