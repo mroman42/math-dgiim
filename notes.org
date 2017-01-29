@@ -12997,6 +12997,48 @@ Derivando y asumiendo las condiciones de regularidad:
 \int_\chi \frac{\partial}{\partial\theta} f_\theta(x)\;dx
 = 0
 \]
+**** Función de información bajo Cramer-Raó
+Bajo las hipótesis de regularidad fuertes de Fréchet-Cramer-Raó:
+
+\[
+I(\theta) = E_{\theta}\left[
+-\frac{\partial^2}{\partial\theta^2} \log f_\theta(X)
+\right]
+\]
+
+Es decir, debemos exigir que:
+
+\[
+\int_X \frac{\partial^2}{\partial\theta^2} f_\theta(x) dx =
+\frac{\partial^2}{\partial\theta^2} \int_X  f_\theta(x) dx
+\]
+
+***** Demostración
+Notando primero la siguiente igualdad:
+
+\[
+\frac{\partial^2}{\partial\theta^2}\log f_\theta(x) =
+\frac{1}{f_\theta(x)}\frac{\partial^2}{\partial\theta^2}f_\theta(x) -
+\left(\frac{\partial}{\partial\theta}\log f_\theta(x)\right)^2
+\]
+
+Y simplemente tomamos esperanzas, sabiendo que por las condiciones de
+regularidad:
+
+\[
+\mathbb{E}\left[
+\frac{1}{f_\theta(x)}
+\frac{\partial^2}{\partial\theta^2} f_\theta(x)
+\right]
+=
+\frac{\partial^2}{\partial\theta^2}
+\int_X f_\theta(x)\;dx 
+= 
+\frac{\partial^2}{\partial\theta^2}
+1
+=
+0
+\]
 
 **** Estadístico regular
 Un estadístico $T$ es regular en el sentido de Fréchet-Cramer-Raó, si
