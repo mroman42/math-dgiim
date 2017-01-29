@@ -12039,6 +12039,82 @@ Para una variable aleatoria $X$ de segundo orden:
 P(|X-\mathbb{E}[X]| \geq a) \leq \frac{Var(X)}{a^2}
 \]
 
+*** Convergencia
+**** Convergencia casi segura
+Una sucesión de variables aleatorias converge de forma casi segura a
+otra $X_n \overset{c.s.}\longrightarrow X$ cuando el conjunto de sucesos que lo hacen tiene 
+probabilidad 1.
+
+\[
+P\left(\lim_{n\to\infty} X_n = X\right) = 1
+\]
+
+**** Convergencia en probabilidad
+Una sucesión de variables aleatorias converge en probabilidad a
+otra $X_n \overset{P}\longrightarrow X$ cuando:
+
+\[
+\lim_{n\to\infty} P\left(|X_n-X| \geq \varepsilon\right) = 0
+\]
+
+para cualquier $\varepsilon$.
+
+***** Equivalentemente
+Si consideramos su complemento:
+
+\[
+\lim_{n\to\infty} P(|X_n-X| < \varepsilon) = 1
+\]
+
+**** Convergencia en distribución
+Una sucesión de variables aleatorias converge en ley o en distribución 
+a otra $X_n \overset{d}\longrightarrow X$, si se tiene que, dadas sus funciones de distribución,
+convergen en los puntos en los que es continua:
+
+\[
+\forall x: F \mbox{ continua en } x:
+\quad
+\lim_{n\to\infty} F_n(x) = F(x)
+\]
+
+***** Equivalentemente
+Se tiene $X_n\overset{d}\longrightarrow X$ si para cualquier $t$ real:
+
+\[
+\lim_{n\to\infty} E\left[ e^{tX_n} \right] = E\left[e^{tX}\right]
+\]
+
+**** Implicaciones
+La convergencia casi segura implica la convergencia en probabilidad, que
+implica a su vez la convergencia en distribución.
+
+***** TODO Demostración
+
+**** Ley débil de los grandes números
+Si $X_1,X_2,\dots$ es una sucesión infinita de variables aleatorias 
+independientes con la misma esperanza y varianza, entonces:
+
+\[
+\overline{X}_n = \frac{1}{n}(X_1+\dots+X_n)
+\]
+
+converge en probabilidad a $\mu$:
+
+\[
+\lim_{n\to\infty} P(|\overline{X}_n - \mu| \geq \varepsilon) = 0
+\]
+
+**** Ley fuerte de los grandes números
+Si $X_1,X_2,\dots$ es una sucesión infinita de variables aleatorias 
+independientes e idénticamente distribuidas con $E\left[|X_i|\right] < \infty$ y
+valor esperado $\mu$, entonces:
+
+\[
+P\left(
+\lim_{n\to\infty} \overline{X}_n = \mu
+\right) = 1
+\]
+
 ** Distribuciones discretas
 *** Distribución uniforme
 **** Definición
