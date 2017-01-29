@@ -12268,7 +12268,7 @@ Se define la función gamma $\Gamma : (0,\infty) \longrightarrow (0,\infty)$ com
 
 \[\Gamma(\alpha) = \int^\infty_0 t^{\alpha-1}e^{-t} dt\]
 
-***** La integral existe
+***** La integral está definida
 Por un lado, $t^{a-1}e^{-t} < t^{a-1}$, integrable en $[0,b]$. Por otro lado,
 
 \[\lim_{t \to \infty} \frac{t^{\alpha-1}e^{-t}}{e^{-t/2}} = 0\]
@@ -12372,7 +12372,7 @@ Es un caso particular de la distribución gamma, $X \leadsto \chi^2(k) = \Gamma(
 Al parámetro $k$ se le llama *número de grados de libertad*.
 
 ***** Gráfica de la función de densidad
-#+BEGIN_SRC R :file images/normal.png :results graphics
+#+BEGIN_SRC R :file images/chi.png :results graphics
   library(ggplot2)
   library(ggfortify)
   gg = NULL
@@ -12385,7 +12385,7 @@ Al parámetro $k$ se le llama *número de grados de libertad*.
 #+END_SRC
 
 #+RESULTS:
-[[file:images/normal.png]]
+[[file:images/chi.png]]
 
 ***** Función de densidad
 
@@ -12394,15 +12394,16 @@ Al parámetro $k$ se le llama *número de grados de libertad*.
 ****** Demostración
 **** Función generatriz de momentos
 
-\[M_X(t) = \frac{1}{(1-2t)^{n/2}}\], para $t < 1/2$.
+\[M_X(t) = \frac{1}{(1-2t)^{k/2}}\], para $t < 1/2$.
 
 ***** TODO Demostración
-**** Esperanza y varianza
+***** Esperanza y varianza
 
  - $E[X] = k$
  - $Var[X] = 2k$
 
-***** TODO Demostración
+****** Demostración
+Se calculan desde la función generatriz.
 
 **** Propiedad de reproductividad
 Si tengo una serie de variables independientes distribuidas 
@@ -12433,7 +12434,7 @@ tenemos:
 
 \[ T = \frac{X}{\sqrt{Y/n}} \leadsto t(n) \]
 
-**** Función de densidad
+***** Función de densidad
 
 \[ f(t) 
 = \frac
