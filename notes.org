@@ -12275,6 +12275,47 @@ Trivialmente integrando:
 -\left[ e^{-\lambda x} \right]^\infty_0 = 1
 \]
 
+**** Suma de exponenciales
+La suma de variables exponenciales es una distribución Gamma:
+
+**** Caso particular de la distribución Gamma
+La exponencial es un caso particular de la distribución Gamma:
+
+\[
+Exp(\lambda) = \Gamma(1,\lambda)
+\]
+
+*** Distribución de Dirichlet
+**** Distribución de Dirichlet
+Dado un vector de reales $\alpha_1,\alpha_2,\dots,\alpha_n$, definimos la distribución $Dir(\alpha)$ 
+como la que tiene función de densidad:
+
+\[
+f(x) = \frac{1}{B(\alpha)} \prod_{i=1}^K x_i^{\alpha_i-1}
+\]
+
+donde,
+
+\[
+B(\alpha) =
+\frac
+{\prod_{i=1}^K \Gamma(\alpha_i)}
+{\Gamma\left(\sum_{i=1}^K \alpha_i\right)}
+\]
+
+**** Momentos
+***** Esperanza
+
+\[
+E[X_i] = \frac{\alpha_i}{\sum_k \alpha_k}
+\]
+
+***** Varianza
+
+\[
+Var[X_i] = \frac{\alpha_i(\alpha_0-\alpha_i)}{\alpha_0^2(\alpha_0+1)}
+\]
+
 *** Distribución Gamma
 **** Función Gamma
 Se define la función gamma $\Gamma : (0,\infty) \longrightarrow (0,\infty)$ como:
