@@ -14060,9 +14060,58 @@ La familia de distribuciones de Dirichlet es conjugada para la
 familia de distribuciones multinomiales.
 
 *** 8.4. Distribuciones objetivas
+**** Distribución de Jeffreys
+Para una familia $\{f(x|\theta) \mid \theta\in\Theta\}$, la distribución de Jeffreys se define 
+como:
+
+\[\pi^J(\theta) \propto \sqrt{{\cal I}_X(\theta)}\]
+
+para la información de Fisher.
+
 *** 8.5. Convergencia de distribuciones a posteriori
+**** Convergencia en un espacio paramétrico discreto
+Sea $\Theta = \{\theta_1,\dots,\theta_k\}$, cuando el tamaño de la muestra diverge, la distribución
+a posteriori degenera en $\theta_0$.
+
+\[
+\pi(\theta\mid X_1,\dots,X_n) 
+\overset{P_{\theta_0}}{\underset{n \to \infty}\longrightarrow} \theta_0
+\]
+
+***** TODO Demostración
+
 *** 8.6. Test de hipóesis bayesianos
-*** 8.7. Probabilidades subjetivas
+**** Probabilidad a posteriori de un modelo
+Dados dos modelos $M_1 : \{f_{\theta_1}(x), \pi(\theta_1|M_1), \pi(M_1)\}$ y $M_2 : \{f_{\theta_2}(x), \pi(\theta_2|M_2), \pi(M_2)\}$,
+la probabilidad de que se cumpla el primero condicionada a una muestra es:
+
+\[
+\pi(M_1|x) = \frac{\pi(M_1)m(x|M_1)}{\pi(M_1)m(x|M_1) + \pi(M_2)m(x|M_2)}
+\]
+
+***** Modelos
+Cada modelo $M : \{f(x|\theta,M), \pi(\theta|M), \pi(M)\}$ viene dado por:
+
+  1. Una función de distribución condicionada a cada parámetro $\theta$.
+  2. Una probabilidad para cada parámetro, condicionada al modelo.
+  3. Probabilidad de que se cumpla el modelo.
+
+Necesitamos $\pi(M_1)+\pi(M_2) = 1$ en el caso de comparar esos dos modelos.
+
+**** Factor de Bayes
+Dados dos modelos $M_1 : \{f_{\theta_1}(x), \pi(\theta_1|M_1), \pi(M_1)\}$ y $M_2 : \{f_{\theta_2}(x), \pi(\theta_2|M_2), \pi(M_2)\}$,
+Definimos el factor de Bayes como:
+
+\[
+B_{21}(x) = \frac{m(x|M_2)}{m(x|M_1)}
+\]
+
+cociente entre distribuciones marginales.
+
+Cuanto más alto es, más baja es la probabilidad a posteriori del modelo $M_1$.
+
+**** TODO Método de Leamer
+*** TODO 8.7. Probabilidades subjetivas
 ** Ejercicios
 *** Tema 1. Introducción a la inferencia estadística
 **** Ejercicio 1
