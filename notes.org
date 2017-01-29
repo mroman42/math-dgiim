@@ -12630,8 +12630,39 @@ Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma
 Los vectores $(\overline{X},\overline{Y})$ y $(S^2_1,S^2_2)$ son independientes.
 
 ***** TODO Demostración
-**** TODO Distribuciones del muestreo de dos normales unidimensionales
+**** Inferencia sobre las varianzas con media conocida
+Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$ independientes con muestras de
+tamaños $n_1$ y $n_2$:
 
+\[
+\frac
+{\sum_{i=1}^{n_1}(X_i-\mu_1)^2 / n_1\sigma_1^2}
+{\sum_{i=1}^{n_1}(X_i-\mu_2)^2 / n_2\sigma_2^2}
+\leadsto
+F(n_1,n_2)
+\]
+
+***** Demostración
+Desde la definición de la F de Snedecor, sabiendo que cada factor
+es una chi cuadrada.
+
+**** Inferencia sobre las varianzas con media desconocida
+Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$ independientes:
+
+\[
+\frac
+{S_1^2/\sigma_1^2}
+{S_2^2/\sigma_2^2}
+\leadsto
+F(n-1,m-1)
+\]
+
+***** Demostración
+Aplicando la definición de F de Snedecor y sabiendo que son dos
+distribuciones chi cuadrado.
+
+**** TODO Inferencia sobre las medias con varianzas conocidas
+**** TODO Inferencia sobre las varianzas con medias conocidas
 ** 3. Suficiencia y completitud
 *** Estadísticos suficientes
 **** Estadístico suficiente
