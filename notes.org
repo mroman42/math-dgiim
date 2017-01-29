@@ -12289,11 +12289,27 @@ función de densidad:
 Es un caso particular de la distribución gamma, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
 Al parámetro $k$ se le llama *número de grados de libertad*.
 
-**** Función de densidad
+***** Gráfica de la función de densidad
+#+BEGIN_SRC R :file images/normal.png :results graphics
+  library(ggplot2)
+  library(ggfortify)
+  gg = NULL
+  for (i in c(1,2,3,4,5)) {
+      gg = ggdistribution(dchisq, seq(0, 6, 0.1),
+                          df = i,
+                          colour=topo.colors(5)[i], p=gg)
+  }
+  print(gg + labs(title = "Distribución χ²(n), variando n."))
+#+END_SRC
+
+#+RESULTS:
+[[file:images/normal.png]]
+
+***** Función de densidad
 
  \[f(x) = \frac{1}{\Gamma(\frac{k}{2})2^{k/2}} x^{k/2-1}e^{-x/2}\]
 
-***** TODO Demostración
+****** Demostración
 **** Función generatriz de momentos
 
 \[M_X(t) = \frac{1}{(1-2t)^{n/2}}\], para $t < 1/2$.
