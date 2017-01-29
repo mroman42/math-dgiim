@@ -11936,9 +11936,15 @@ M_X(t) =
 \int_\Omega e^{tx}f(x) \;dx
 \]
 
+***** Cálculo de momentos
+Se cumple que:
+
+\[
+\mathbb{E}[X^n] = \frac{\partial^n}{\partial t^n} M_X(0)
+\]
+
 **** Función característica
-Se define para una variable aleatoria $X$ con función de distribución
-$f$:
+Se define para una variable aleatoria $X$ con función de distribución $f$:
 
 \[
 \varphi_X(t) = \mathbb{E}[e^{itX}] = \int_\Omega e^{itx}f(x)\;dx
