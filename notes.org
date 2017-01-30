@@ -16203,7 +16203,29 @@ de equivalencia, identificando cada arista con exactamente otra arista
 mediante homeomorfismo simplicial, $P/R$ es una superficie topológica 
 compacta.
 
-***** TODO Demostración
+***** Demostración
+****** Compacta
+Sabemos que $P$ es compacta, como $p$ es continua y sobreyectiva,
+tenemos $P/R$ compacto.
+
+****** Localmente euclídea
+Consideramos tres casos:
+
+******* Interior del polígono
+Tenemos que la proyección es homeomorfismo local.
+
+******* TODO Interior de las aristas
+Tenemos $q_i \in a_i$ identificadas por un homeomorfismo simplicial.
+Podemos crear un disco centrado en $\mathbb{R}^2$ uniendo dos discos.
+
+******* Vértices
+Trabajamos dependiendo de con cuántos puntos esté identificado
+$p^{-1}(x) = \{v_1,\dots,v_k\}$. Sean $D_i$ discos abiertos en $\mathbb{R}^2$ para cada 
+vértice cumpliendo $\overline{D_i} \cap \overline{D_j} = \varnothing$ y llamamos $U_i = D_i$.
+
+****** TODO Segundo axioma de numerabilidad
+
+****** TODO Espacio de Hausdorff
 
 **** Presentación poligonal
 Llamamos presentación a una expresión de la forma:
