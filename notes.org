@@ -15690,7 +15690,7 @@ Toda variedad topológica 1-dimensional es homeomorfa a $\mathbb{R}$ o a $\mathb
 
 *** 3.1. Variedades topológicas
 **** Espacio localmente euclídeo
-Un espacio $X$ es localmente euclídeo cuando cada punto admite un
+Un espacio $X$ es *localmente euclídeo* cuando cada punto admite un
 entorno abierto homeomorfo a un abierto de $\mathbb{R}^n$.
 
 ***** Definición equivalente
@@ -15698,7 +15698,7 @@ Cada punto admite un entorno abierto homeomorfo a una bola
 abierta de $\mathbb{R}^n$.
 
 ***** Carta
-Cada entorno con su homeomorfismo forma una carta local $(U_x,\phi)$.
+Cada entorno con su homeomorfismo forma una *carta local* $(U_x,\phi)$.
 
 ***** Bola euclídea
 Carta homeomorfa a la bola unidad euclídea.
@@ -15712,12 +15712,19 @@ Una variedad topológica es un espacio topológico cumpliendo:
 
 A una variedad de dimensión 2 la llamamos *superficie*.
 
+***** Axioma de Hausdorff
+Todo par de puntos distintos tienen entornos que los separan. Es decir,
+para $x \neq y$, existen $U_x \cap V_y = \varnothing$.
+
+***** Segundo axioma de numerabilidad
+Un espacio es 2AN si tiene una base numerable. Es decir, existe un
+conjunto $\{U_n\}_{n \in \mathbb{N}}$ tal que todo abierto es unión de ellos.
+
 **** Ejemplos de variedades topológicas
 ***** Los espacios euclídeos
 ***** Las esferas n-dimensionales
 ***** Recubridores de espacios localmente euclídeos
 ***** Recubiertos por espacios localmente euclídeos
-
 **** Teorema de la invarianza de la dimensión
 Si $U \subseteq \mathbb{R}^n$ y $V \subseteq \mathbb{R}^m$ son abiertos homeomorfos, $n=m$.
 Por tanto cada variedad tiene una dimensión asignada.
