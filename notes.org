@@ -15821,6 +15821,8 @@ Sea $\pi : \widetilde{X} \longrightarrow X$ recubridor:
   2. Si $X$ es superficie, $\widetilde{X}$ es superficie.
 
 ***** TODO Demostración
+La aplicación recubridora es localmente homeomorfismo, por lo
+que lleva en ambas direcciones el ser localmente euclídeo.
 
 *** 3.2. Complejos simpliciales
 **** P-símplice
@@ -15915,8 +15917,8 @@ simpliciales forman una categoría.
 
 ****** TODO Demostración
 
-**** Superficies triangulables
-Una superficie topológica $S$ se dice *triangulable* si existe algún 
+**** Superficies triangulables 
+Una superficie topológica $S$ se dice *triangulable* si existe algún
 complejo simplicial de dimensión $2$ con $S \cong |K|$.
 
 **** Teorema de Radó
@@ -15993,7 +15995,7 @@ cuyo exterior no es homeomorfo al exterior de la 2-esfera en $\mathbb{R}^3$.
 
 **** Teorema de Jordan-Schonflies para la esfera
 Sean $C_1,C_2$ dos curvas de Jordan en $\mathbb{S}^2 \subseteq \mathbb{R}^3$ y $f : C_1 \overset{\cong}\longrightarrow C_2$.
-Entonces $\exists F : \mathbb{S}^2 \longrightarrow \mathbb{S}^2$ con $F|_{C_1} = f$.
+Entonces $\exists F : \mathbb{S}^2 \cong \mathbb{S}^2$ con $F|_{C_1} = f$.
 
 ***** Demostración
 Si tomamos $p \in \mathbb{S}^2 \setminus \{C_1 \cup C_2\}$, tenemos $\mathbb{S}^2 \setminus \{p\} \cong \mathbb{R}^2$ por la proyección
