@@ -16245,8 +16245,6 @@ Dado un complejo simplicial $K$ donde cada símplice es cara de un
 2-símplice, tenemos una presentación poligonal asignando a cada
 2-símplice una palabra de longitud 3.
 
-***** TODO Ejemplo
-
 **** Realización geométrica de una presentación
 Cada $P = \langle A; W_1,\dots,W_n \rangle$ determina $|P|$, una topología de la forma:
 
@@ -16315,10 +16313,47 @@ producen una presentación poligonal equivalente.
 ***** Demostración
 ****** Renombrar
 Trivialmente.
+
 ****** TODO Subdividir/Consolidar
-****** TODO Reflejar
-****** TODO Cortar/Pegar
-****** TODO Doblar/Desdoblar
+****** Reflejar
+Una aplicación que lleve cada arista en la inversa del mismo nombre
+respetará vértices.
+
+****** Cortar/Pegar
+Probaremos que $\langle A; W_1W_2 \rangle \cong \langle A\cup \{e\} ; W_1e,e^{-1}W_2 \rangle$. Llamamos $P'$ al 
+símplice generado por la primera y $P_1,P_2$ a los generados por las
+segundas. Sea $f$ una aplicación simplicial que une la arista de corte:
+
+\[\begin{tikzcd}
+P_1 \sqcup P_2 \dar{p} \rar{f} & 
+P' \dar{p'}
+\\
+\lvert P\rvert \rar{\widetilde f} &
+\lvert P' \rvert
+\end{tikzcd}\]
+
+Sabemos que $f$ baja al cociente de manera continua y $\widetilde f$ es cerrada
+por ir de un compacto a un cerrado. Además es biyectiva y por
+tanto homeomorfismo.
+
+En caso de que hubiera más de dos palabras podríamos extenderla
+por la identidad y seguir el mismo razonamiento.
+
+****** Doblar/Desdoblar
+******* Caso triangular
+Definimos una aplicación simplicial respetando el nombre de las
+aristas:
+
+#+begin_center
+#+attr_latex: :width 50px
+[[./images//doblartransformacion.png]]
+#+end_center
+
+Esa aplicación simplicial baja de forma continua y genera una
+aplicación biyectiva entre compacto y cerrado.
+
+******* Caso general
+Podemos cortar o subdividir para llegar al caso triangular.
 
 **** Presentación poligonal de la suma
 Dadas $S_1,S_2$ con presentaciones $P_1 = \langle A_1; W_1 \rangle$ y $P_2 = \langle A_2;W_2 \rangle$ con
@@ -16328,7 +16363,34 @@ $A_1 \cap A_2 = \varnothing$. Entonces una presentación de $S_1 \# S_2$ es:
 \langle A_1 \cup A_2 ; W_1 W_2 \rangle
 \]
 
-***** TODO Demostración
+***** Demostración
+Desdoblamos y cortamos para llegar a la presentación:
+
+\[
+\langle W_1c^{-1}b^{-1}a^{-1}, abc \rangle
+\]
+
+De donde salen dos complejos simpliciales $P$ y $Q$. El segundo de
+ellos se proyecta a un disco regular euclídeo.
+
+\[ D_1 = p'(\mathring Q) \subseteq |P'| \]
+
+Mientras que el primero se proyecta al polígono sin un disco cuyo
+borde es $bD_1 = p(c^{-1}b^{-1}a^{-1})$.
+
+\[
+p'(P) \cong S_1 \setminus D_1
+\]
+
+Aplicando el mismo argumento a $W_2$, llegamos a una presentación de
+$S_2\setminus D_2$, que al identificar ambos bordes permite unirlos pegando
+y doblando:
+
+\[
+\langle W_1c^{-1}b^{-1}a^{-1}, abc W_2 \rangle \cong
+\langle W_1W_2 \rangle
+\]
+
 **** Presentaciones modelo
 ***** Esfera
 La presentación de la esfera $\mathbb{S}^2$ es:
