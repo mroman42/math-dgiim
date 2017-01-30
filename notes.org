@@ -12587,7 +12587,7 @@ Tenemos que $\exists E[T^k] \iff k < n/2$.
 La distribución está tabulada y las tablas incluyen aproximaciones 
 para valores grandes de $n$ y $m$.
 
-** 1. Introducción a la inferencia estadística. Estadísticos muestrales.
+** 1. Introducción a la inferencia estadística. Estadísticos muestrales
 *** Planteamiento de un problema de inferencia
 **** Modelo estadístico
 Un modelo estadístico $(X,{\cal P})$ consta de:
@@ -14690,6 +14690,16 @@ m3 = m1*(1-3*p+3*m1+2*p^2 - 3*n*p^2 + n^2*p^2)
 #+RESULTS:
 : (n^2*p^3 - 2*n^2*p^2 - 3*n*p^3 + n^2*p + 5*n*p^2 + 2*p^3 - 2*n*p - 3*p^2 + p)/n^2
 
+**** Ejercicio 7
+***** Punto 1
+Se comprueba que es familia exponencial uniparamétrica. Con
+$T(X) = X$ y por tanto con $\sum_i T(X_i)$ como estadístico suficiente.
+Además, es completo porque $Q(\Theta)$ tiene un abierto en su imagen.
+
+***** DONE Punto 2
+
+**** Ejercicio 8
+***** DONE Punto 1
 * Topología II
 ** 1. El grupo fundamental
 *** 1. Espacios conexos por arcos
