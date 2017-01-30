@@ -16008,7 +16008,7 @@ simpliciales forman una categoría.
 
 ****** TODO Demostración
 
-**** Superficies triangulables 
+**** Superficies triangulables
 Una superficie topológica $S$ se dice *triangulable* si existe algún
 complejo simplicial de dimensión $2$ con $S \cong |K|$.
 
@@ -16612,8 +16612,12 @@ siguientes:
   3. $\mathbb{RP}^{2\#n}$
 
 ***** Demostración
+Cada superficie compacta es triangulable por [[*Teorema de Radó][Radó]], con cada 1-símplice
+siendo cara de dos 2-símplices. Todo complejo simplicial tiene después
+una [[*Presentación de un complejo simplicial][presentación poligonal]]. La compacidad da la finitud.
+
 Podemos reducir su [[*Teorema de clasificación de presentaciones de superficies compactas][presentación]] a una de las de estas superficies
-mediante transformaciones equivalentes.
+mediante transformaciones equivalentes. 
 
 *** 3.6. Clasificación de superficies compactas II
 **** Grupo fundamental de la presentación
