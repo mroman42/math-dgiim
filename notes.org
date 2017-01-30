@@ -122,7 +122,98 @@
      Conmutative monads.
 **** 4.4. Conclusion
 *** TODO 5. Parsers
-** P?=NP - Scott Aaronson
+** TODO P?=NP - Scott Aaronson
+** Classification of Surfaces - Chen Hui George Tao
+*** 1. Introducción
+Vamos a demostrar que todas las superficies compactas son homeomorfas
+a la esfera, la suma conexa de toros o la suma conexa de planos proyectivos.
+
+*** 2. Superficies
+**** Superficies
+Una *superficie* es una 2-variedad. Un espacio Hausdorff contable
+localmente homeomorfo a $\mathbb{R}^2$.
+
+**** Idea del artículo
+Dado un polígono, si identificamos las aristas en pares, tendremos una
+superficie. Veremos que toda superficie se construye a partir de un
+polígono con las aristas identificadas.
+
+*** 3.1. Triangulaciones. Complejos simpliciales
+**** Simplex
+Dados $v_0,\dots,v_k$ en posición general, el *simplex* que generan es el
+conjunto de combinaciones convexas bajo la topología inducida.
+
+**** Complejo simplicial euclídeo
+Un *complejo simplicial* es una colección $K$ de símplices cumpliendo:
+
+  1. Si $\sigma \in K$, cada cara suya está en $K$.
+  2. Si $\sigma,\tau \in K$, $\sigma \cap \tau$ es vacía o una cara de ambas.
+  3. Cada punto tiene un entorno que interseca a sólo finitos símplices.
+
+**** Poliedro
+La unión de todos los símplices de $K$ es un espacio simplicial llamado
+su *poliedro*, $|K|$.
+
+**** Homomorfismo simplicial
+Función continua entre dos poliedros cuya restricción a cada simplex
+es afín. Es *isomorfismo simplicial* cuando es homeomorfismo.
+
+*** 3.2. Triangulaciones
+**** Triangulación
+Una triangulación es un homeomorfismo entre un espacio topológico
+y un espacio simplicial euclídeo.
+
+**** Teorema de Radó
+Toda superficie es un poliedro de un complejo simplicial 2-dimensional.
+Donde además, cada 1-símplex es cada de dos 2-símplex.
+
+*** 4.1. Presentación poligonal. Polígonos
+**** Región poligonal
+Compacto $P$ del plano cuya frontera es un 1-símplex cumpliendo:
+
+  1. Cada $q$ que no es vértice tiene un entorno $U$ tal que $P \cap U$ es
+     intersección de $U$ con un plano.
+  2. Cada $q$ que es vértice tiene un entorno $U$ tal que $P \cap U$ es
+     intersección de $U$ con dos planos con fronteras intersecando en $q$.
+
+**** Una región poligonal relacionada a pares es una superficie compacta
+Sea $P$ región poligonal. Dada una relación que identifique cada 
+arista con exactamente otra por isomorfismo simplicial, el
+espacio cociente resultante es una superficie compacta.
+
+*** 4.2. Presentación poligonal. Suma conexa de superficies
+**** Suma conexa
+Dadas superficies $M_1,M_2$, bolas regulares $B_1,B_2$, y un homeomorfismo
+$f : dM_2' \longrightarrow dM_1'$. El espacio que identifica cada punto con su imagen
+es la *suma conexa*.
+
+**** Suma conexa de superficies conexas
+La suma conexa de superficies conexas es una superficie conexa.
+
+*** 4.3. Presentación poligonal
+**** Presentación poligonal
+Una *presentación poligonal* es un conjunto finito con finitas palabras
+$W_1,\dots,W_k$, cada una de longitud 3 o mayor.
+
+**** Realización geométrica de una presentación poligonal
+La *realización geométrica* de una presentación poligonal se construye:
+
+  1. Cada palabra $W_i$ da $P_i$, región poligonal de $k$ lados construída del
+     polígono regular modelo.
+  2. Damos una biyección de cada símbolo con los lados de $P_i$ en orden.
+  3. Unimos disjuntamente los $P_i$ e identificamos aristas con el mismo
+     nombre y homeomorfismos afines.
+
+**** Presentación de superficie
+Presentación poligonal donde cada símbolo ocurre exactamente dos veces.
+
+**** Presentaciones topológicamente equivalentes
+Dos presentaciones son equivalentes si tienen la misma realización 
+geométrica.
+
+**** Toda superficie compacta tiene una presentación poligonal
+Toda superficie compacta tiene una presentación poligonal.
+
 ** Koszul Pairs and applications - Pascual Jara, Dragoş Ştefan
 *** Introduction
 **** Koszul ring
