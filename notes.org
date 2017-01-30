@@ -16420,12 +16420,46 @@ La presentación de la suma de planos proyectivos $\mathbb{RP}^{2\#n}$ es:
 Un par de aristas en una presentación se dicen retorcidas si
 aparecen como $a$ y $a$; y complementarias si aparecen como $a$ y $a^{-1}$.
 
+**** Lema: botella de Klein
+La botella de Klein $K$ es homeomorfa a la suma conexa de dos planos
+proyectivos.
+
+***** Demostración
+Simplemente comprobando que sus presentaciones son equivalentes:
+
+\[
+\langle abab^{-1} \rangle \cong \langle ccbb \rangle
+\]
+
 **** Lema: suma de toro y plano proyectivo
 La suma conexa de un toro y un plano proyectivo es homeomorfa a la 
 suma conexa de 3 planos proyectivos.
 
-***** TODO Demostración
-**** Lema: botella de Klein
+***** Demostración
+Comprobando que sus presentaciones son equivalentes:
+
+\[
+\langle aba^{-1}b^{-1}cc \rangle \cong \langle aabbcc \rangle
+\]
+
+Podemos usar el [[*Lema: botella de Klein][lema]] anterior y ver que:
+
+\[\begin{aligned}
+\langle abab^{-1}cc \rangle 
+&=
+\langle cabd^{-1},dab^{-1}c \rangle 
+\\&=
+\langle abd^{-1}ba^{-1}d^{-1} \rangle
+\\&=
+\langle a^{-1}d^{-1}abe,e^{-1}d^{-1}b \rangle
+\\&=
+\langle a^{-1}d^{-1}abe,e^{-1}d^{-1}b \rangle
+\\&=
+\langle a^{-1}d^{-1}abe,b^{-1}de \rangle
+\\&=
+\langle ea^{-1}d^{-1}ade \rangle
+\end{aligned}\]
+
 **** Teorema de clasificación de presentaciones de superficies compactas
 Cualquier presentación poligonal de una superficie compacta y conexa
 es equivalente a una de las siguientes:
@@ -16479,14 +16513,16 @@ Suma conexa de toros y planos proyectivos. Por el [[*Lema: suma de toro y plano 
 sabemos que será suma de toros o suma de planos proyectivos.
 
 **** Preclasificación de superficies compactas
-Toda superficie compacta y conexa es homeomorfa a una de las 
+Toda superficie compacta y conexa es homeomorfa a al menos una de las 
 siguientes:
 
   1. $\mathbb{S}^2$
   2. $\mathbb{T}^{\#n}$
   3. $\mathbb{RP}^{2\#n}$
 
-***** TODO Demostración
+***** Demostración
+Podemos reducir su [[*Teorema de clasificación de presentaciones de superficies compactas][presentación]] a una de las de estas superficies
+mediante transformaciones equivalentes.
 
 *** 3.6. Clasificación de superficies compactas II
 **** Grupo fundamental de la presentación
