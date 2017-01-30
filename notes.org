@@ -16052,7 +16052,20 @@ con $D_1,D_3$ discos regulares euclídeos centrados en ellos:
 
 \[S_1 \setminus D_1 \cong S_3 \setminus D_3\]
 
-***** TODO Demostración
+***** Demostración
+Ya tenemos que hay un [[*Autohomeomorfismo de superficies conexas][automorfismo]] que centra un punto en otro.
+Como los discos regulares son base de la topología, existirá un
+$\overline{D_3''} \subseteq D_3$ y suficientemente pequeño para que $F(D_3'') \subseteq D_1$.
+
+Como $F(D_3'')$ es disco regular euclídeo:
+
+\[
+S_1/D_3 \cong 
+S_1/D_3'' \cong
+S_1/F(D_3'') \cong
+S_1/D_1
+\]
+
 **** La suma es independiente del homeomorfismo
 El homeomorfismo no influye. Dados \[
 \varphi, \xi : bD_1 \longrightarrow bD_2
@@ -16063,13 +16076,98 @@ queremos ver:
 S_1 \sqcup S_2 / R_\varphi \cong S_1 \sqcup S_2 / R_\xi
 \]
 
-***** TODO Demostración
+***** Demostración
+Suponemos s.p.g. que $\xi \circ \varphi^{-1}$ preserva la orientación. Como $D_2$ es disco
+regular euclídeo, hay un $D_2' \subset S_2$ euclídeo con $\psi_2 : D_2' \longrightarrow \mathbb{D}(0,2)$:
+
+\[
+\psi_2(D_2') = \overline{\mathbb{D}(0,1)}
+\]
+
+Llamamos:
+
+  1. $C = \psi_2(bD_2) = \mathbb{S}^1$, curva de Jordan.
+  2. $f = \psi_2 \circ \xi \circ \varphi^{-1} \circ \psi_2^{-1} : C \cong C$.
+  3. $U = \mathbb{D}(0,3/2)$.
+
+Por [[*Teorema de Jordan-Schönflies][Jordan-Schönflies]], tenemos un $F : \mathbb{R}^2 \cong \mathbb{R}^2$ con $F|_G = f$, $F|_{\mathbb{R}^2-U} = Id$.
+
+Definimos ahora $\widetilde F : S_2 \cong S_2$ cumpliendo $\widetilde F|_{D_2'} = \psi_2^{-1} \circ F \circ \psi$ y teniendo
+también $\widetilde F|_{S_2-D_2'} = Id$.
+
+Finalmente definimos $\widehat F : S_1 \sqcup S_2 \cong S_1' \sqcup S_2'$ con $\widehat F|_{S_1'} = Id, \widehat F|_{S_2'} = \widetilde F$.
+El siguiente diagrama nos da el homeomorfismo:
+
+\[\begin{tikzcd}
+S_1' \sqcup S_2'           \rar{\widehat F}\dar{p_\xi}& 
+S_1' \sqcup S_2'           \dar{p_\varphi} \\
+S_1' \sqcup S_2'/R_\varphi \rar[dashed] & 
+S_1' \sqcup S_2'/R_\xi
+\end{tikzcd}\]
+
+Ya que dados dos puntos $x,y$, si están fuera del borde su relación es
+trivial, y si están en el borde cumplen $y = \varphi(x)$:
+
+  - $\widehat F(x) = x \in bD_1 \subseteq S_1'$
+  - $\widehat F(y) = \widetilde F(y) \in bD_2 \subseteq S_2'$
+
+Luego basta comprobar que:
+
+\[\widetilde F(y) = 
+\widetilde F(\varphi(x)) =
+\psi_2^{-1} (F(\psi_2(\varphi(x)))) =
+\psi_2^{-1} (f(\psi_2(\varphi(x)))) =
+\xi (x)
+\]
 
 **** La suma conexa de superficies conexas es superficie conexa
 La suma conexa de dos superficies topológicas conexas es una
 superficie topológica conexa.
 
-***** TODO Demostración
+***** Demostración
+Sean $S_1,S_2,D_1,D_2,\varphi$ las superficies y los discos que definen
+la suma conexa:
+
+\[
+S_1 \# S_2 =
+S_1' \sqcup S_2' / R_\varphi
+\]
+
+****** Es localmente euclídea
+******* Fuera de los discos
+En los puntos fuera de los discos, es trivial por ser $S_1,S_2$
+localmente euclídeas. Sea $p : S_1' \sqcup S_2' \longrightarrow S_1 \# S_2$, como es un 
+homeomorfismo fuera del borde, llamamos:
+
+\[
+V_i = p(S_i' - bD_i') \subseteq S_1 \# S_2
+\]
+
+Y como tenemos por otro lado:
+
+\[
+p^{-1}(V_i) = S_i'-bD_i = (S_i-\overline{D_i})\cap S_i'
+\]
+
+Llegamos a que $p^{-1}(V_i)$ es abierto en $S_i'$ y por tanto $V_i$ es abierto
+en $S_1 \# S_2$. Tenemos $V_i \cong S_i' - bD_i$ localmente euclídeo.
+
+******* TODO En los discos
+Sea $q \in p(bD_1) = p(bD_2)$. Como son discos regulares euclídeos, se
+tienen $D_1',D_2'$ con cartas $\psi_i(D_1') = \mathbb{D}(0,2)$, $\psi(D_1) = \overline{\mathbb{D}(0,1)}$.
+
+Pegamos ambos discos y comprobamos que son homeomorfos a un abierto
+del plano.
+
+****** Cumple Hausdorff
+El único caso no trivial es el de $x \in V_0$, $y \in V_1 - V_0$. Como podemos tomar
+$V_0$ abitrariamente pequeño, tenemos s.p.g. $y \notin \overline{V_0}$. Así, hay un abierto de $y$
+que no corta a $\overline{V_0}$, y como $V_0$ era un abierto, hay otro abierto de $x$ que
+queda dentro de él.
+
+****** Cumple axioma de numerabilidad
+El que exista una proyección abierta, continua y sobreyectiva desde un
+espacio 2AN hace al espacio 2AN.
 
 *** 3.4. Presentación poligonal de superficies
 **** Polígono homeomorfo
