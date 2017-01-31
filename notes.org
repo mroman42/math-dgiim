@@ -256,13 +256,102 @@ La *realización geométrica* de una presentación poligonal se construye:
 **** Presentación de superficie
 Presentación poligonal donde cada símbolo ocurre exactamente dos veces.
 
+***** La realización de una presentación de superficie es superficie compacta
+Hemos probado antes que en este caso, obteníamos una [[*Una región poligonal relacionada a pares es una superficie compacta][superficie compacta]]
+en la realización.
+
 **** Presentaciones topológicamente equivalentes
 Dos presentaciones son equivalentes si tienen la misma realización 
 geométrica.
 
-**** Toda superficie compacta tiene una presentación poligonal
-Toda superficie compacta tiene una presentación poligonal.
+**** Toda superficie compacta tiene una presentación de superficie
+Toda superficie compacta tiene una presentación de superficie.
 
+***** Demostración
+Dada una superficie $M$, por triangulación es homeomorfa a un complejo
+simplicial donde cada arista es cara de dos símplices. Dado un complejo
+simplicial podemos construir una presentación donde:
+
+  - Cada 2-símplex es una palabra de longitud 3.
+  - Dos aristas se llaman igual si vienen del mismo símplex.
+
+La presentación entonces nos da dos proyecciones desde los polígonos
+hasta la realización de la presentación y al símplex.
+
+  - $\pi_K : P_1\sqcup\dots\sqcup P_n \longrightarrow |K|$
+  - $\pi_{\cal P} : P_1\sqcup\dots\sqcup P_n \longrightarrow |{\cal P}|$
+
+****** Ambas proyecciones identifican los mismos puntos
+Es claro que identifican las mismas aristas por construcción.
+Debemos comprobar que identifican los mismos vértices. Sea $v$
+un vértice, que debe estar en una arista que debe estar en dos 
+2-símplex $\sigma,\sigma'$. Definimos una relación entre 2-símplices si
+comparten una arista. Para comprobar que los vértices se mantienen
+por una proyección entre aristas, comprobaremos que hay una sola
+clase de equivalencia.
+
+Si hubiera dos clases de equivalencia $\{\sigma_i\},\{\tau_i\}$, podemos tomar una
+bola suficientemente pequeña (por la condición de finitud de los
+complejos simpliciales) para que interseque sólo a símplices 
+conteniendo a $v$. Esto nos da una bola homeomorfa a $\mathbb{R}^2$, luego
+$U \setminus \{v\}$ es conexo. Podríamos quitar el $v$ en los complejos simpliciales
+de ambas clases de equivalencia y serían disconexas.
+
+**** Extensión de isomorfismo de bordes
+Sean $P_1,P_2$ polígonos convexos con $f : bP_1 \longrightarrow bP_2$ isomorfismo simplicial,
+entonces se extiende a un homeomorfismo $F : P_1 \longrightarrow P_2$.
+
+***** Demostración
+Cualquier punto en el interior forma uniéndose con los vértices un
+complejo simplicial. Los poliedros de ambos son homeomorfos porque
+los complejos simpliciales lo son.
+
+**** Las transformaciones elementales dan realizaciones equivalentes
+Las transformaciones elementales de las presentaciones dan lugar a
+superficies topológicamente equivalentes
+
+***** Reflexión
+Claramente una aplicación afín de reflexión nos da lo buscado.
+
+***** Rotación
+La rotación es una aplicación afín que nos da lo buscado.
+
+***** Cortar
+Tomamos las dos proyecciones de presentación antes y después de
+cortar y comprobamos que identifican los mismos puntos.
+
+***** Doblar
+Tomamos las dos proyecciones y añadimos las aristas que faltan para
+comprobar que identifican los mismos puntos.
+
+**** Presentación de la suma conexa
+La presentación de la suma conexa es la unión de las palabras.
+
+***** Demostración
+Dadas $W_1,W_2$, cortamos un disco como $W_1c^{-1}b^{-1}a^{-1}$ y $abcW_2$ e 
+identificamos las aristas dadas.
+
+*** 5. Teorema de clasificación
+**** Lema: Botella de Klein
+**** Lema: Suma de toro y plano proyectivo
+**** Teorema de clasificación
+Toda superficie compacta conexa es homeomorfa a una de las siguientes:
+
+  - $\mathbb{S}^2$
+  - $\mathbb{T}^{\#n}$
+  - $\mathbb{RP}^{2\#n}$
+
+***** Demostración
+Tomamos transformación desde la presentación hasta llegar a la
+presentación de un modelo.
+
+****** Paso 1: Una sola cara
+****** Paso 2: Sin pares complementarios adyacentes
+****** Paso 3: Todos los pares retorcidos adyacentes
+****** Paso 4: Identificamos todos los vértices en un punto
+****** Paso 5: Comprobamos que los complementarios están entrelazados
+****** Paso 6: Llevamos los complementarios juntos
+****** Paso 7: Comprobamos que es una presentación modelo
 ** Koszul Pairs and applications - Pascual Jara, Dragoş Ştefan
 *** Introduction
 **** Koszul ring
@@ -16643,6 +16732,8 @@ Si tenemos una palabra de la forma $WaXbYa^{-1}Zb^{-1}$:
 
   1. Cortando antes de $b$ y pegando por $a$: $XcWZb^{-1}c^{-1}bY$.
   2. Cortando antes de $c$ y pegando por $b$: $d^{-1}WZYXcdc^{-1}$.
+
+Luego tenemos: $WaXbYa^{-1}Zb^{-1} \longrightarrow WZYXcdc^{-1}d^{-1}$.
 
 ****** Paso 7: Nos queda suma de planos proyectivos y toros
 Nos acaba quedando una palabra de la forma: 
