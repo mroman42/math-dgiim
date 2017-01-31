@@ -16799,9 +16799,32 @@ Los abelianizados de los grupos de los modelos son:
 
 Distintos entre sí.
 
-***** TODO Demostración
-***** TODO Los productos de enteros son distintos
-***** TODO El producto por el cíclico de orden 2 los hace distintos
+***** Demostración
+****** Grupo abelianizado del toro
+Podemos definir una función sobre el grupo libre:
+
+  - \[\varphi(a_i) = (0,\dots,\overset{i}1,\dots,0)\]
+  - \[\varphi(b_i) = (0,\dots,\overset{n-i}1,\dots,0)\]
+
+Y comprobar que respeta las relaciones de abelianidad y de la
+palabra. Además de dar un homomorfismo invertible.
+
+****** Grupo abelianizado del plano proyectivo
+Volvemos a definir sobre el grupo libre:
+
+  - \[\varphi(a_i) = (0,\dots,\overset{i}1,\dots,0,0)\]
+  - \[\varphi(a_n) = (-1,\dots,-1,1)\]
+
+Volvemos a comprobar que tiene una inversa después de bajarla al
+cociente.
+
+***** Los productos de enteros son distintos
+Trivial. Puede comprobarse dividiendo y por inducción.
+
+***** El producto por el cíclico de orden 2 los hace distintos
+Claramente, el producto por el cíclico de orden 2 añade un elemento de
+orden 2 al grupo que antes no estaba.
+
 **** Clasificación de superficies compactas
 Una superficie topológica compacta $S$ es homeomorfa a una sola
 de las siguientes:
@@ -16836,7 +16859,10 @@ donde $C,A,V$ son los números de caras, aristas y vértices.
 La característica de Euler es invariante a transformaciones
 elementales.
 
-***** TODO Demostración
+***** Demostración
+Podemos comprobar que cada transformación elemental preserva la
+característica aunque añada caras, aristas o vértices.
+
 **** Orientabilidad
 Una superficie es orientable si admite una presentación orientada.
 
@@ -16906,6 +16932,22 @@ determinada.
 Si esta coloración cumple las condiciones de bicolorabilidad,
 hemos encontrado una forma de bicolorear. Si no lo cumple, ninguna
 bicoloración es posible.
+**** Clasificación por invariantes                                 :extra:
+Tabla de clasificación de superficies compactas por invariantes:
+
+|------------+--------+----------+----------------|
+| Superficie | Género | C. Euler | Orientabilidad |
+|------------+--------+----------+----------------|
+| S          | 0      | 2        | Orientable     |
+| T^n        | n      | 2-2n     | Orientable     |
+| RP^n       | n      | 2-n      | No orientable  |
+|------------+--------+----------+----------------|
+
+Y podemos calcular el género desde la orientabilidad y la característica:
+
+  - $S$ orientable: $g(S) = \frac{1}{2}(2-\chi(S))$
+  - $S$ no orientable: $g(S) = 2-\chi(S)$
+
 ** Ejercicios
 *** Relación de problemas 1
 **** Ejercicio 1
