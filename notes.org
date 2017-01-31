@@ -167,6 +167,10 @@ y un espacio simplicial euclídeo.
 Toda superficie es un poliedro de un complejo simplicial 2-dimensional.
 Donde además, cada 1-símplex es cada de dos 2-símplex.
 
+***** Demostración
+La demostración es larga. La idea es recubrir toda la superficie con
+discos regulares y usar el Teorema de Schonflies.
+
 *** 4.1. Presentación poligonal. Polígonos
 **** Región poligonal
 Compacto $P$ del plano cuya frontera es un 1-símplex cumpliendo:
@@ -180,6 +184,30 @@ Compacto $P$ del plano cuya frontera es un 1-símplex cumpliendo:
 Sea $P$ región poligonal. Dada una relación que identifique cada 
 arista con exactamente otra por isomorfismo simplicial, el
 espacio cociente resultante es una superficie compacta.
+
+***** Demostración
+Sea $M = P/\sim$, con proyección $\pi:P \longrightarrow M$. Por compacidad, $\pi(P) = M$
+es compacto. Podemos dividir los puntos de $M$ en:
+
+****** Puntos en una cara
+Como la proyección es homeomorfismo local en el interior del polígono,
+tenemos que son localmente euclídeos.
+
+****** Puntos en una arista
+Claramente, existe un entorno sin vértices. Por definición de la
+relación, el punto está identificado con exactamente otro y podemos
+usar los entornos $V_1,V_2$ que son discos de intersecciones con planos.
+
+Ahora creamos aplicaciones afines $\alpha_1,\alpha_2$ que peguen las dos partes del 
+disco en $\mathbb{R}^2$ y las usamos para construir una proyección de $V_1\cup V_2$ a
+$\mathbb{R}^2$. Por tener la misma relación de equivalencia que $\pi$, los espacios
+cocientes son homeomorfos, y podemos ver que el punto tiene un
+entorno euclídeo en este espacio.
+
+****** Vértices
+Repetimos exactamente lo mismo que hemos hecho con la arista pero
+sabiendo que cada identificación del vértice nos da un ángulo que
+debemos pegar después en $\mathbb{R}^2$.
 
 *** 4.2. Presentación poligonal. Suma conexa de superficies
 **** Suma conexa
