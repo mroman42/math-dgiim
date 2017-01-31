@@ -218,6 +218,27 @@ es la *suma conexa*.
 **** Suma conexa de superficies conexas
 La suma conexa de superficies conexas es una superficie conexa.
 
+***** Demostración
+Debemos ver que es localmente euclídea y Hausdorff. Tomamos como
+proyección:
+
+\[
+\pi : M_1' \sqcup M_2' \longrightarrow M_1\# M_2
+\]
+
+Y tenemos dos tipos de puntos.
+
+****** Puntos en el interior
+Los puntos que no tocan al disco de unión tienen a la proyección
+localmente homeomorfa en ellos y por eso son localmente euclídeos.
+
+****** Puntos en el borde
+Tomamos un entorno de ambos puntos tal que contengan los mismos
+puntos identificados del borde. Los proyectamos a $\mathbb{R}^2$ pegando
+ambos bordes y nos damos cuenta de que es la misma relación de
+equivalencia que daría $\pi$, luego son espacios homeomorfos y el
+punto en ellos, llevado al $0$, es localmente euclídeo.
+
 *** 4.3. Presentación poligonal
 **** Presentación poligonal
 Una *presentación poligonal* es un conjunto finito con finitas palabras
