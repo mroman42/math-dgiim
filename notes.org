@@ -16872,9 +16872,14 @@ Sea $\pi : \widetilde{X} \longrightarrow X$ recubridor:
      es cerrado, entonces $X$ es superficie.
   2. Si $X$ es superficie, $\widetilde{X}$ es superficie.
 
-***** TODO Demostración
+***** Demostración
+****** Localmente euclídea
 La aplicación recubridora es localmente homeomorfismo, por lo
 que lleva en ambas direcciones el ser localmente euclídeo.
+
+****** TODO Hausdorff
+
+****** TODO Axioma de numerabilidad
 
 *** 3.2. Complejos simpliciales
 **** P-símplice
@@ -16994,6 +16999,9 @@ superficie ssi:
      \]
 
      y tenemos que $|st(v)| \cong \overline{D}$ y $|L(v)|$ es conexo.
+
+***** Demostración
+No se explica en la asignatura.
 
 *** 3.3. Suma convexa
 **** Curva de Jordan
@@ -17250,7 +17258,7 @@ Un polígono no convexo no cumple la propiedad 3 en cualquier
 vértice que no esté en la envolvente.
 
 **** Superficie de una región poligonal
-Sea $P \subseteq \mathbb{R}^2$ región poligonal con un número de aristas. Si $R$ es relación 
+Sea $P \subseteq \mathbb{R}^2$ región poligonal con un número par de aristas. Si $R$ es relación 
 de equivalencia, identificando cada arista con exactamente otra arista
 mediante homeomorfismo simplicial, $P/R$ es una superficie topológica 
 compacta.
