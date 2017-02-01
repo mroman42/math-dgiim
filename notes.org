@@ -165,7 +165,7 @@ y un espacio simplicial euclídeo.
 
 **** Teorema de Radó
 Toda superficie es un poliedro de un complejo simplicial 2-dimensional.
-Donde además, cada 1-símplex es cada de dos 2-símplex.
+Donde además, cada 1-símplex es cara de dos 2-símplex.
 
 ***** Demostración
 La demostración es larga. La idea es recubrir toda la superficie con
@@ -16777,9 +16777,9 @@ conjunto $\{U_n\}_{n \in \mathbb{N}}$ tal que todo abierto es unión de ellos.
 Si $U \subseteq \mathbb{R}^n$ y $V \subseteq \mathbb{R}^m$ son abiertos homeomorfos, $n=m$.
 Por tanto cada variedad tiene una dimensión asignada.
 
-***** TODO Demostración
-# Necesita de invariantes distintos al grupo fundamental.
-# Homologías seguramente. (?)
+***** Demostración
+Puede demostrarse comprobando grupos de homología distintos para una
+bola a la que retiramos un punto.
 
 **** Base de las cartas
 Los dominios de las cartas forman una base de la topología.
@@ -16797,7 +16797,7 @@ cartas en cada punto.
 Sea $B \subseteq X$ una bola euclídea, es regular cuando:
 
   1. Existe $B' \subseteq X$ bola euclídea con $\overline{B} \subseteq B'$.
-  2. Existe $r > 0$ y una carta $\phi : B' \longrightarrow B(0,2r)$ tal que $\phi(\overline{B}) = \overline{B(0,r)}$.
+  2. Existe $r > 0$ y una carta $\phi : B' \longrightarrow \mathbb{D}(0,2)$ tal que $\phi(\overline{B}) = \overline{\mathbb{D}(0,1)}$.
 
 ***** Contraejemplos
 Una esfera sin un punto es una bola euclídea pero no una bola
@@ -16831,8 +16831,12 @@ un $F : \mathbb{R}^2 \overset{\cong}\longrightarrow \mathbb{R}^2$ con:
   1. $F(0) = x$.
   2. $F|_{\mathbb{R}^2\setminus D(0,2)}$ es la identidad.
 
-****** TODO Demostración
+****** Demostración
+Tenemos funciones infinitamente diferenciables y no nulas que nos
+permiten crear funciones que muevan un punto en otro dejando todo
+el resto del plano igual.
 
+******* TODO Construcción explícita
 ***** Demostración
 Consideremos la relación de equivalencia $pRq$ cuando $\exists f : S \cong S$
 con $f(p) = q$. Veamos que $[p]$ es abierta por $p$ arbitrario y por
