@@ -15752,12 +15752,13 @@ Además, es completo porque $Q(\Theta)$ tiene un abierto en su imagen.
 ** 1. El grupo fundamental
 *** 1. Espacios conexos por arcos
 **** Arcoconexión
-*Arcoconexión*. Las curvas definen relación de equivalencia cuando unen dos puntos.
+*Arcoconexión*. Las curvas definen relación de equivalencia cuando
+unen dos puntos.
 
  \[\exists f\ \text{arco}: f(0) = x, f(1) = y \Rightarrow x \sim y\]
 
-Cada componente de esta partición es una *componente arcoconexa*. Un espacio es
-*arcoconexo* cuando tiene una sola componente.
+Cada componente de esta partición es una *componente arcoconexa*. Un
+espacio es *arcoconexo* cuando tiene una sola componente.
 
 **** Operaciones en arcos y arcoconexión como equivalencia
 Las propiedades de la relación de equivalencia se cumplen por:
@@ -17926,7 +17927,7 @@ Y el cálculo del grupo nos da:
 #+begin_statement
 Prueba que un espacio topológico conexo es arco-conexo si y sólo si
 cada punto tiene un entorno arco-conexo. Demuestra que todo espacio
-topologico localmente euclídeo es conexo si y sólo si es arco-conexo.
+topológico localmente euclídeo es conexo si y sólo si es arco-conexo.
 #+end_statement
 
 Si es arcoconexo, claramente se tiene localmente arcoconexo.  Si es
@@ -17955,7 +17956,7 @@ Ambos son localmente euclídeos.
 
 **** Ejercicio 5
 #+begin_statement
-Prueba que el p-simplex generado por $\{a_1,\dots,a_n\}$ es la envolvente
+Prueba que el p-símplex generado por $\{a_1,\dots,a_n\}$ es la envolvente
 convexa del conjunto $\{a_1,\dots,a_n\}$.
 #+end_statement
 
@@ -18008,11 +18009,18 @@ Describe una triangulación del toro, el plano proyectivo y la botella
 de Klein.
 #+end_statement
 
+Nótese que la triangulación debe cumplir los requisitos de los complejos
+simpliciales, especialmente, que cada intersección debe ser vacía o cara
+de ambos factores.
+
 **** Ejercicio 8
 #+begin_statement
 Describe una triangulación del espacio topológico cociente que se
 obtiene cuando en un toro identificamos un meridiano a un punto.
 #+end_statement
+
+Nótese primero que esto no es una superficie compacta porque el punto
+en el que hemos identificado el meridiano no es localmente euclídeo.
 
 **** Ejercicio 9
 #+begin_statement
