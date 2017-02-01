@@ -17274,14 +17274,19 @@ Consideramos tres casos:
 ******* Interior del polígono
 Tenemos que la proyección es homeomorfismo local.
 
-******* TODO Interior de las aristas
+******* Interior de las aristas
 Tenemos $q_i \in a_i$ identificadas por un homeomorfismo simplicial.
-Podemos crear un disco centrado en $\mathbb{R}^2$ uniendo dos discos.
+Podemos crear un disco centrado en $\mathbb{R}^2$ uniendo dos discos y que
+la relación que define esa proyección sea la misma que la que
+define la equivalencia de aristas.
 
 ******* Vértices
 Trabajamos dependiendo de con cuántos puntos esté identificado
 $p^{-1}(x) = \{v_1,\dots,v_k\}$. Sean $D_i$ discos abiertos en $\mathbb{R}^2$ para cada 
 vértice cumpliendo $\overline{D_i} \cap \overline{D_j} = \varnothing$ y llamamos $U_i = D_i$.
+
+Creamos un disco uniendo todos las partes de disco y comprobamos
+que la relación que defina sea la misma que la de la proyección.
 
 ****** TODO Segundo axioma de numerabilidad
 
@@ -17317,16 +17322,16 @@ Tomamos la unión por esta relación $|P| = \bigsqcup P_i / R$.
 
 **** Extensión a homeomorfismo
 Para $P_1,P_2$ polígonos convexos con el mismo número de aristas.
-El $f : \operatorname{b}P_1 \longrightarrow \operatorname{b}P_2$ homeomorfismo simplicial se extiende a un homeomorfismo
-$F : P_1 \longrightarrow P_2$.
+El $f : \operatorname{b}P_1 \longrightarrow \operatorname{b}P_2$ homeomorfismo simplicial se extiende a un 
+homeomorfismo $F : P_1 \longrightarrow P_2$.
 
 ***** TODO Demostración
 
-**** Presentación poligonal de una superficie
-Una presentación $\langle A; W_1,\dots,W_n \rangle$ es de una superficie si 
+**** Presentación de superficie
+Una presentación $\langle A; W_1,\dots,W_n \rangle$ es de superficie si 
 cada símbolo de $A$ aparece exactamente dos veces en los $W_i$.
 
-**** Presentación de una superficie
+**** Presentación asociada a una superficie
 Si $S$ es superficie compacta y $|P| \cong S$, llamamos a $P$ una
 *presentación* de $S$.
 
@@ -17482,7 +17487,11 @@ aparecen como $a$ y $a$; y complementarias si aparecen como $a$ y $a^{-1}$.
 
 **** Lema: botella de Klein
 La botella de Klein $K$ es homeomorfa a la suma conexa de dos planos
-proyectivos.
+proyectivos:
+
+\[
+K \cong \mathbb{RP}^2 \# \mathbb{RP}^2
+\]
 
 ***** Demostración
 Simplemente comprobando que sus presentaciones son equivalentes:
@@ -17493,7 +17502,11 @@ Simplemente comprobando que sus presentaciones son equivalentes:
 
 **** Lema: suma de toro y plano proyectivo
 La suma conexa de un toro y un plano proyectivo es homeomorfa a la 
-suma conexa de 3 planos proyectivos.
+suma conexa de 3 planos proyectivos:
+
+\[
+\mathbb{T} \cong \mathbb{RP}^2 \# \mathbb{RP}^2 \# \mathbb{RP}^2
+\]
 
 ***** Demostración
 Comprobando que sus presentaciones son equivalentes:
