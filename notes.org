@@ -17024,7 +17024,7 @@ $F : \mathbb{R}^2 \cong \mathbb{R}^2$ con $F|_{C_1} = f$. Además,
 
   1. Si $f$ preserva la orientación y $U \subseteq \mathbb{R}$ es un subconjunto 
      homeomorfo a $\mathbb{D}$ disco, con $U \supseteq C_1 \cup C_2$, entonces existe
-     un $F : \mathbb{R}^2 \longrightarrow \mathbb{R}^2$ con $F|_{C_1} = f$ y $F|_{\mathbb{R}^2\setminus U} = Id$.
+     un $F : \mathbb{R}^2 \cong \mathbb{R}^2$ con $F|_{C_1} = f$ y $F|_{\mathbb{R}^2\setminus U} = Id$.
   2. Si $f$ revierte la orientación y $U \subseteq \mathbb{R}^2$ con $U \supseteq C_1 \cup C_2$
      con $U \cong \mathbb{D}$ disco, puedo tener $F$ con: $F|_{\mathbb{R}^2\setminus U}(x,y) = (x,-y)$.
 
@@ -17480,7 +17480,6 @@ La presentación de la suma de planos proyectivos $\mathbb{RP}^{2\#n}$ es:
 \[ Q_n =
 \langle a_1,\dots,a_n \mid a_1a_1\dots a_na_n \rangle
 \]
-
 *** 3.5. Clasificación de superficies compactas I
 **** Aristas retorcidas y complementarias
 Un par de aristas en una presentación se dicen retorcidas si
@@ -17603,7 +17602,6 @@ una [[*Presentación de un complejo simplicial][presentación poligonal]]. La co
 
 Podemos reducir su [[*Teorema de clasificación de presentaciones de superficies compactas][presentación]] a una de las de estas superficies
 mediante transformaciones equivalentes. 
-
 *** 3.6. Clasificación de superficies compactas II
 **** Grupo fundamental de la presentación
 Sea $S$ compacta y convexa determinada por la presentación $P$, entonces
@@ -17777,6 +17775,7 @@ determinada.
 Si esta coloración cumple las condiciones de bicolorabilidad,
 hemos encontrado una forma de bicolorear. Si no lo cumple, ninguna
 bicoloración es posible.
+
 **** Clasificación por invariantes                                 :extra:
 Tabla de clasificación de superficies compactas por invariantes:
 
@@ -18028,6 +18027,9 @@ Demuestra que la suma conexa de uno o más planos proyectivos contiene un
 subespacio que es homeomorfo a una banda de Möbius.
 #+end_statement
 
+Podemos obtener en la presentación poligonal, uniendo con una banda
+dos aristas identificadas, una banda de Möbius.
+
 **** Ejercicio 10
 #+begin_statement
 Para cada una de las siguientes presentaciones de superficies calcula
@@ -18042,9 +18044,12 @@ es homeomorfa:
 ***** Superficie 1
 Calculamos Euler:
 
-\[\chi(S) = 1 - 3 + \]
+\[\chi(S) = 1 - 3 + 1\]
 
-Y vemos que no es orientable.
+Y vemos que no es orientable. Es $\mathbb{RP}^{2\#3}$.
+
+***** Superficie 2
+Es un toro.
 
 ***** Superficie 3
 Calculamos Euler:
