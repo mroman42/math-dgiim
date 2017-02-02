@@ -6609,7 +6609,8 @@ imagen.
 *** Ideales primos y maximales
 **** Definición
 $P$ es ideal *primo* si no es el total y $xy\in P \Rightarrow x \in P \vee y \in P$.
-$P$ es ideal *maximal* si $M \neq R$ y es maximal en el retículo de ideales sin $R$.
+$P$ es ideal *maximal* si $M \neq R$ y es maximal en el retículo de ideales 
+sin $R$.
 
 **** Caracterización de ideales primos y maximales
 En relación a su cociente en el anillo:
@@ -6638,13 +6639,6 @@ maximal).
  - Si $\Pi$ es primo en $\im f$, entonces $f^{-1}(\Pi)$ es primo, ya demostrado.
  - Si $\ker f \subset \Pi$ es primo, entonces $f(\Pi)$ es primo en $\im f$.
 
-*** Teorema de Krull
-**** Subconjunto multiplicativamente cerrado
-Es un subconjunto $S$ con:
-
- - $1 \in S$
- - $x,y\in S \implies xy \in S$
-
 **** Teorema de Krull
 Dados $\alpha \subseteq R$ ideal y $S$ multiplicativamente cerrado con $\alpha\cap S = \varnothing$, 
 existe un ideal $M$ tal que:
@@ -6654,6 +6648,13 @@ existe un ideal $M$ tal que:
   - $M$ es maximal respecto a estas condiciones.
 
 Además, $M$ es un ideal primo.
+
+***** Subconjunto multiplicativamente cerrado
+Es un subconjunto $S$ con:
+
+ - $1 \in S$
+ - $x,y\in S \implies xy \in S$
+
 
 ***** Demostración
 Dada una cadena de ideales cumpliendo la condición su unión también 
