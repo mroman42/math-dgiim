@@ -7731,7 +7731,7 @@ $\varphi : K^n \times K^n \longrightarrow K^n$ dada por $\varphi(u,v) = v-u$.
 A partir de cada polinomio $F \in K[X_1,\dots,X_n]$, tenemos definida una función
 polinómica $F^\ast : \mathbb{A}^n(K) \longrightarrow K$.
 
-**** Álgebra de funciones polinómicas
+***** Álgebra de funciones polinómicas
 Al conjunto de funciones polinómicas lo denotamos por $P(\mathbb{A}^n(K))$.
 Forma una K-álgebra con las operaciones usuales:
 
@@ -7957,7 +7957,7 @@ La función $\mathbb{{I}}$ considerada como:
 
 Es inyectiva, se tiene $\mathbb{V}\mathbb{I} = 1$ y en general no se tiene $\mathbb{I}\mathbb{V} = 1$.
 
-*** DONE Anillos de coordenadas
+*** Anillos de coordenadas
 **** Teorema de los ceros de Hilbert
 Sea $K$ algebraicamente cerrado. Entonces para cualquier ideal
 $J \subseteq K[X_1,\dots,X_n]$, se verifica que:
@@ -7972,8 +7972,8 @@ Y por tanto hay una biyección entre ideales radicales y variedades.
 
 ***** TODO Demostración
 **** Morfismos de variedades afines
-Un *morfismo entre variedades* de $\mathbb{A}^n$ y $\mathbb{A}^m$ es una aplicación $f : V \longrightarrow W$ tal
-que existen polinomios $F_1,\dots,F_n$ tales que:
+Un *morfismo entre variedades* de $\mathbb{A}^n$ y $\mathbb{A}^m$ es una aplicación $f : V \longrightarrow W$ 
+tal que existen polinomios $F_1,\dots,F_n$ tales que:
 
 \[f(a) = (F_1(a),F_2(a),\dots,F_n(a)) \quad \forall a \in V\]
 
