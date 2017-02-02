@@ -7207,7 +7207,7 @@ definimos inductivamente como:
 
      \[\Delta^i = (a_i + \mathbb{N}^n) \setminus \bigcup_{j < i} \Delta^j \]
 
-  3. Todos los demás elementos
+  3. Todos los demás elementos:
 
      \[ \overline{\Delta} = \mathbb{N}^n \setminus \bigcup_{j \leq k} \Delta^j\]
 
@@ -8220,6 +8220,37 @@ Si $x\notin M$ maximal, $(x)+M = R$. Luego $1-xy \in M$, y un maximal
 no puede contener una unidad.
 
 *** 3. Algoritmo de la división en K[X1,…,Xn].
+**** Partición de generadores
+Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
+definimos inductivamente como:
+
+  1. Los elementos que genera el primer generador:
+
+     \[\Delta^1 = a_1 + \mathbb{N}^n\]
+
+  2. Los elementos que aporta cada nuevo generador:
+
+     \[
+     \Delta^i = (a_i+\mathbb{N}^n) \setminus \bigcup_{j<i} \Delta^j
+     \]
+
+  3. Todos los demás elementos:
+
+     \[
+     \overline{\Delta} = \mathbb{N}^n \setminus \bigcup_{j \leq k} \Delta^j
+     \]
+
+**** Teorema de la división
+Dado un orden monomial y una lista de polinomios $\{G_1,\dots,G_t\}$; consideramos
+la partición $\Delta_1,\dots,\Delta_n,\overline{\Delta}$ dada por los generadores $exp(G_i)$. Tenemos que,
+para cada $F \in K[X_1,\dots,X_n]$, existen $Q_1,\dots,Q_t,R$ únicos tales que:
+
+  1. $F = Q_1G_1+\dots+Q_tG_t+R$.
+  2. $R=0$ ó $N(R) \subset \overline{\Delta}$.
+  3. $exp(G_i)+N(Q_i) \subseteq \Delta^i$.
+
+***** TODO Demostración
+
 *** 4. IDEALES MONOMIALES.
 *** 5. BASES DE GROEBNER. APLICACIONES.
 *** 6. VARIEDADES ALGEBRAICAS AFINES. CORRESPONDENCIA IDEAL-VARIEDAD.
