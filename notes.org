@@ -7350,9 +7350,9 @@ y en particular, $X^\beta$ debe serlo.
 **** Monomios en ideal monomial
 Sea $I = (X^\alpha \mid \alpha\in A)$ monomial, equivalen:
 
- 1. $F \in I$.
- 2. Todo monomio de $F$ está en $I$.
- 3. $F$ es combinación lineal de monomios de $I$.
+  1. $F \in I$.
+  2. Todo monomio de $F$ está en $I$.
+  3. $F$ es combinación lineal de monomios de $I$.
 
 Y además, si para cualquier polinomio todos sus monomios están en
 el ideal, es monomial.
@@ -8290,9 +8290,108 @@ F - tl(F) = \sum Q_i'G_i + R'
 Y tomamos entonces $R=R'+tl(F)$, que sigue cumpliendo las 
 condiciones.
 
-*** 4. IDEALES MONOMIALES.
-*** 5. BASES DE GROEBNER. APLICACIONES.
-*** 6. VARIEDADES ALGEBRAICAS AFINES. CORRESPONDENCIA IDEAL-VARIEDAD.
+*** 4. Ideales monomiales.
+**** Ideales monomiales
+Un *ideal monomial* está generado por monomios, es de la forma:
+
+\[
+I = (X^{\alpha}\mid \alpha \in A)
+\]
+
+para algún $A \subseteq \mathbb{N}$.
+
+**** Monomios en un ideal monomial
+Sea $I = (X^\alpha \mid \alpha \in A)$ monomial, equivalen:
+
+  1. $F\in I$.
+  2. Todo monomio de $F$ está en $I$.
+  3. $F$ es combinación lineal de monomios de $I$.
+
+Y además, si para cualquier polinomio de un ideal todos sus monomios 
+están en el ideal, es monomial.
+
+***** Demostración
+****** Primera implicación
+Si $F \in I$, será de la forma:
+
+\[
+F = \sum F_iX^\alpha
+\]
+
+Como los monomios son una K-base del espacio, todo monomio de la
+suma será múltiplo de algún $X^\alpha$.
+
+****** Segunda y tercera implicaciones
+Triviales desde lo anterior.
+
+****** Caracterización de ideales monomiales
+Nótese que podemos tomar todos los polinomios del ideal y generarlo
+como: $(X^\alpha \mid \alpha \in Exp(I))$.
+
+**** Lema de Dickson para ideales monomiales
+Todo ideal monomial tiene un sistema de generadores finito y 
+formado por monomios.
+
+***** Demostración
+Como el exponente de un ideal es siempre monoideal, podemos aplicar
+el lema de Dickson para darle un sistema de generadores $Exp(I)=G+\mathbb{N}^n$.
+Dado un exponente $\alpha \in Exp(I)$, tenemos $X^\alpha\in I$, luego tomamos como
+sistema de generadores:
+
+\[
+(X^\alpha \mid \alpha \in G)
+\]
+
+Dado cualquier $F\in I$, cada monomio suyo estará en $I$, luego será 
+generado por este sistema.
+
+*** 5. Bases de Gröbner. Aplicaciones.
+**** Base de Gröbner
+Una *base de Gröbner* de un ideal $I$ es un conjunto $\mathbb{G} = \{G_1,\dots,G_n\} \subseteq I$
+cumpliendo $Exp(I) = \{exp(G_1),\dots,exp(G_n)\} + \mathbb{N}^n$.
+
+**** Propiedades de bases de Gröbner
+Las bases de Gröbner en $K[X_1,\dots,X_n]$ cumplen:
+
+  1. Todo ideal no nulo tiene base de Gröbner.
+  2. Toda base de Gröbner de un ideal es base de generadores del ideal.
+  3. *Teorema de la base de Hilbert*: todo ideal es finitamente generado.
+
+***** Demostración
+****** Primer punto
+Todo ideal tiene $Exp(I)$ monoideal, y por tanto tiene un sistema de
+generadores. Tomamos polinomios que tengan como exponente estos
+generadores y tenemos una base de Gröbner.
+
+****** Segundo punto
+Por algoritmo de la división, todo polinomio del ideal se divide
+entre ellos dando un resto tal que $exp(R) \in \overline{\Delta} \cap Exp(I) = \varnothing$. Por
+tanto, $R=0$.
+
+****** Tercer punto
+Todo ideal está generado por su base de Gröbner, que es finita.
+
+**** Caracterización de las bases de Gröbner
+Sea $I$ ideal no nulo, equivalen:
+
+  1. $\mathbb{G}$ es base de Gröbner de $I$.
+  2. $R(F,\mathbb{G}) = 0$, para todo $F\in I$.
+
+***** Demostración
+****** Primera implicación
+Como $exp(R) \in Exp(I)\cap\overline{\Delta}$, tenemos $exp(R) = 0$.
+
+****** Segunda implicación
+Por teorema de la división, todo $F \in I$ es de la forma:
+
+\[
+F = \sum_{i=0}^n Q_iG_i
+\]
+
+Donde $exp(Q_iG_i) \in \Delta^i$, y como forman una partición disjunta, se
+tiene que el $exp(F) = \max\{exp(Q_iG_i)\} \notin \overline{\Delta}$. Por tanto $Exp(I)\cap\overline{\Delta} = \varnothing$.
+
+*** 6. Variedades algebraicas afines. Correspondencia ideal-variedad.
 *** 7. ANILLO DE COORDENADAS DE UNA VARIEDAD. APLICACIONES POLINÓMICAS.
 ** Ejercicios
 *** Relación 1
