@@ -6736,7 +6736,7 @@ Un anillo es *reducido* si $\operatorname{Nil}(R) = 0$. Los dominios de integrid
 Además, podemos reducir un anillo dividiendo por su nilradical $R/\operatorname{Nil}(R)$.
 
 **** Espectro
-El *espectro* de un anillo R es la intersección de sus ideales primos:
+El *espectro* de un anillo R es el conjunto de sus ideales primos:
 
 \[\spec(R) = \{\pi\in R \mid \pi \text{ es un ideal primo}\}\]
 
@@ -6747,8 +6747,8 @@ El nilradical de $R$ es la intersección de los ideales del espectro:
 
 ***** Demostración
 Sea $x^n = 0$, entonces $x^n \in \pi, \forall \pi \in \operatorname{Spec}(R)$; y, por primalidad, $x \in \pi$.
-Sea $x \notin \operatorname{Nil}(R)$, entonces $S = \{1,x,x^2,\dots\}$ es multiplicativamente cerrado con
-$S \cap \operatorname{Nil}(R) = \varnothing$. Por Krull, tenemos un $\pi$ tal que $\pi \cap S = \varnothing$.
+Sea $x \notin \operatorname{Nil}(R)$, entonces $S = \{1,x,x^2,\dots\}$ es multiplicativamente cerrado 
+con $S \cap \operatorname{Nil}(R) = \varnothing$. Por Krull, tenemos un $\pi$ tal que $\pi \cap S = \varnothing$.
 
 **** Radical de un ideal
 Se define como:
@@ -6774,14 +6774,15 @@ Se define el *radical de Jacobson* como:
 
 \[{\cal J}(R) = \bigcap_{{\cal M} \text{ maximal}} {\cal M}\]
 
+***** Caracterización del radical de Jacobson
 Tenemos que $x \in {\cal J}(R)$ ssi $1-xy \in U(R)$ para cualquier $y$.
 
-***** Demostración
-Un elemento $1-xy$ para $x \in {\cal J}(R)$ no puede estar en ningún ideal maximal, porque
-estaría entonces el $1$. Por corolario de Krull, debe ser unidad.
+****** Demostración
+Un elemento $1-xy$ para $x \in {\cal J}(R)$ no puede estar en ningún ideal maximal, 
+porque estaría entonces el $1$. Por corolario de Krull, debe ser unidad.
 
-Supongamos $x \notin M$, entonces $(x) + M = R$, y por tanto $1-xy \in M$. Pero un maximal
-no puede contener una unidad.
+Supongamos $x \notin M$, entonces $(x) + M = R$, y por tanto $1-xy \in M$. Pero 
+un maximal no puede contener una unidad.
 
 *** Ideales residuales y anulador
 **** Definición
