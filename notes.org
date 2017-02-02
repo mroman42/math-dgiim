@@ -8116,6 +8116,67 @@ Supongamos $h(y_i + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$ y $h(G + \mathbb{I}(W)) 
 
    Además, en tal caso, $F+\mathbb{I}(V) = h(R(F;G) + \mathbb{I}(W))$.
 
+** Temas de teoría
+*** 1. Ideales maximales y primos. Teorema de Krull.
+**** Ideales primos y maximales
+Un ideal propio $P$ es:
+
+  - Primo, si $xy \in P \implies x \in P, y \in P$.
+  - Maximal, si es maximal en el retículo de ideales.
+ 
+***** Caracterización de ideales primos y maximales 
+Un ideal $P$ propio es:
+
+  - Primo ssi $R/P$ es dominio de integridad.
+  - Maximal ssi $R/P$ es un cuerpo.
+ 
+****** Demostración: primos
+Véase que es equivalente a pedir que a $(x+P)(y+P) \neq 0$ equivalga
+$x+P = 0$ ó $y+P = 0$.
+
+****** Demostración: maximales
+Ser maximal equivale a que no podamos añadir ningún elemento sin
+llegar al ideal total. Esto es, si intentamos añadir $y$, tendremos
+algún $z$ tal que $(y+P)(z+P) = 1+P$, que es equivalente a la
+condición de cuerpo.
+
+**** Teorema de Krull
+Dados $\alpha \subset R$ ideal y $S$ multiplicativamente cerrado con $\alpha\cap S=\varnothing$,
+existe un ideal $M$ tal que:
+
+  - $\alpha \subset M$
+  - $M \cap S = \varnothing$
+  - $M$ es maximal respecto a esta condición.
+
+Además, $M$ es un ideal primo.
+
+***** Multiplicativamente cerrado
+Un subconjunto $S$ es multiplicativamente cerrado si:
+
+  - $1 \in S$
+  - $a,b \in S \implies ab \in S$
+
+***** Demostración
+Dada una cadena de ideales que cumple $\alpha \subset I$ y $I \cap S = \varnothing$, su unión
+también lo cumple y es cota de la cadena. Aplicando lema de Zorn,
+sabemos que debe haber un ideal maximal $M$ respecto a las condiciones.
+
+Supongamos $xy \in M$ pero $x,y \notin M$. Por maximalidad, $(M+(x)) \cap S$ y
+$(M+(y)) \cap S$ son no vacíos y existen $xz,yt \in S$. Entonces tenemos 
+que $xzyt \in M \cap S$, contradicción.
+
+***** Corolario al teorema de Krull
+Todo ideal tiene un ideal maximal que lo contiene.
+
+****** Demostración
+Tomando $S = \{1\}$.
+
+*** 2. NILRADICAL Y RADICAL DE JACOBSON.
+*** 3. ALGORITMO DE LA DIVISIÓN EN K[X1,…,Xn].
+*** 4. IDEALES MONOMIALES.
+*** 5. BASES DE GROEBNER. APLICACIONES.
+*** 6. VARIEDADES ALGEBRAICAS AFINES. CORRESPONDENCIA IDEAL-VARIEDAD.
+*** 7. ANILLO DE COORDENADAS DE UNA VARIEDAD. APLICACIONES POLINÓMICAS.
 ** Ejercicios
 *** Relación 1
 **** Ejercicio 1
