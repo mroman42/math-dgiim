@@ -6641,25 +6641,33 @@ maximal).
 *** Teorema de Krull
 **** Subconjunto multiplicativamente cerrado
 Es un subconjunto $S$ con:
+
  - $1 \in S$
- - $x,y\in S \Rightarrow xy \in S$
+ - $x,y\in S \implies xy \in S$
 
 **** Teorema de Krull
-Sea $\alpha \cap S = \varnothing$, entonces existe un ideal $M \supset \alpha$ tal que $M \cap S = \varnothing$ y maximal respecto
-a esta condición. Además, $M$ es un ideal primo.
+Dados $\alpha \subseteq R$ ideal y $S$ multiplicativamente cerrado con $\alpha\cap S = \varnothing$, 
+existe un ideal $M$ tal que:
+
+  - $\alpha \subset M$ 
+  - $M \cap S = \varnothing$
+  - $M$ es maximal respecto a estas condiciones.
+
+Además, $M$ es un ideal primo.
 
 ***** Demostración
-Dada una cadena de ideales cumpliendo la condición su unión también la cumple
-y es cota de la cadena. Aplicando lema de Zorn obtenemos un maximal.
+Dada una cadena de ideales cumpliendo la condición su unión también 
+la cumple y es cota de la cadena. Aplicando lema de Zorn obtenemos 
+un maximal.
 
-Para ver que es primo tengamos $xy\in M$, los dos no pueden estar en $S$. Si $x \notin S$;
-entonces $xz \notin S$, ya que se tiene $xzy \in M$; tomamos $M + (x) \supset M$, y contravendríamos
-la maximalidad de $M$.
+Supongamos $xy \in M$, pero $x,y \notin M$. Entonces $M+(x) \cap S \neq \varnothing$ y
+$M + (y) \cap S \neq \varnothing$ por maximalidad, y deben existir $xz,yt \in S$; luego
+se tendría $xzyt \in M \cap S$, contradicción.
 
 **** Corolario al teorema de Krull
-Tomando $S=\{1\}$ tenemos que; dado un ideal, existe un ideal maximal que lo contiene.
-En particular, todo elemento no unidad está contenido en un ideal maximal,
-tomando $S = (x)$.
+Tomando $S=\{1\}$ tenemos que; dado un ideal, existe un ideal maximal que 
+lo contiene. En particular, todo elemento no unidad está contenido en un 
+ideal maximal, tomando $S = (x)$.
 
 *** Anillos locales
 **** Inclusión en ideales primos
