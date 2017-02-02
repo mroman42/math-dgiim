@@ -8249,7 +8249,46 @@ para cada $F \in K[X_1,\dots,X_n]$, existen $Q_1,\dots,Q_t,R$ únicos tales que:
   2. $R=0$ ó $N(R) \subset \overline{\Delta}$.
   3. $exp(G_i)+N(Q_i) \subseteq \Delta^i$.
 
-***** TODO Demostración
+***** Demostración
+Procedemos por inducción sobre $exp(F)$ con el orden monomial que
+tenemos. Distinguimos siempre según si aparece en $\Delta_i$ o en $\overline{\Delta}$.
+Nótese que en cada caso debemos comprobar que se cumplen trivialmente
+las condiciones del teorema.
+
+****** Caso base
+******* Aparece en algún elemento de la partición
+Si $exp(F) \in \Delta^i$, entonces forzosamente $exp(G_i)=0$. Entonces
+tomamos $Q_i = F/G_i$ y $Q_j=0$ para $j \neq i$.
+
+******* Aparece en el resto de la partición
+Simplemente tomamos $R=F$.
+
+****** Caso inductivo
+Sabiendo ahora que podemos dividir todo $G$ con $exp(G) < exp(F)$.
+
+******* Aparece en algún elemento de la partición
+Si $exp(F) \in \Delta^i$ entonces $exp(F) = exp(G_i) + \gamma$. Tomando $H=X^\gamma G$,
+aplicamos inducción sobre:
+
+\[
+F -\frac{cl(F)}{cl(H)}H = F' = \sum Q_i'G_i+R'
+\]
+
+Ahora tomamos $Q_i = Q_i'+\frac{cl(F)}{cl(H)}X^\gamma$ y $Q_j = Q_j'$, para llegar a:
+
+\[
+F = \sum Q_iG_i+R'
+\]
+
+******* Aparece en el resto de la partición
+Aplicamos inducción sobre:
+
+\[
+F - tl(F) = \sum Q_i'G_i + R'
+\]
+
+Y tomamos entonces $R=R'+tl(F)$, que sigue cumpliendo las 
+condiciones.
 
 *** 4. IDEALES MONOMIALES.
 *** 5. BASES DE GROEBNER. APLICACIONES.
