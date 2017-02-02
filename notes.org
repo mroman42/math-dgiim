@@ -8172,8 +8172,54 @@ Todo ideal tiene un ideal maximal que lo contiene.
 ****** Demostración
 Tomando $S = \{1\}$.
 
-*** 2. NILRADICAL Y RADICAL DE JACOBSON.
-*** 3. ALGORITMO DE LA DIVISIÓN EN K[X1,…,Xn].
+*** 2. Nilradical y radical de Jacobson.
+**** Nilradical
+El *nilradical* es el ideal dado por los elementos nilpotentes:
+
+\[
+\operatorname{Nil}(R) = \{x \in R \mid \exists n : x^n = 0\}
+\]
+
+***** Es un ideal
+Trivial usando el binomio de Newton.
+
+**** Caracterización del Nilradical
+El nilradical es la intersección de ideales del espectro, los ideales
+primos del anillo.
+
+\[
+\operatorname{Nil}(R) = \bigcap_{{\cal \pi}\text{ primo}} \pi
+\]
+
+***** Demostración
+****** Nilpotente en la intersección
+Si $x^n = 0 \in \pi$, por primalidad, $x \in \pi$ para cualquier ideal primo.
+
+****** En la intersección es nilpotente
+Si $x \notin \operatorname{Nil}(R)$, $S=\{1,x,x^2,\dots\}$ es multiplicativamente cerrado con
+$S \cap \operatorname{Nil}(R) = \varnothing$, y por Krull, existe un primo con $\pi \cap S = \varnothing$.
+
+**** Radical de Jacobson
+El *radical de Jacobson* es el dado por:
+
+\[
+{\cal J}(R) = \bigcap_{{\cal M} \text{ maximal}} {\cal M}
+\]
+
+**** Caracterización del radical de Jacobson
+Tenemos que $x \in {\cal J}(R)$ ssi $1-xy \in U(R)$ para cualquier $y$.
+
+***** Demostración
+****** Primera implicación
+Si $x \in {\cal J}(R)$, entonces $1-xy$ no puede estar en ningún ideal maximal,
+porque estaría también el $1$. Pero todo elemento no unidad está en un
+ideal maximal por teorema de Krull.
+
+****** Segunda implicación
+Si $x\notin M$ maximal, $(x)+M = R$. Luego $1-xy \in M$, y un maximal
+no puede contener una unidad.
+
+*** 3. Algoritmo de la división en K[X1,…,Xn].
 *** 4. IDEALES MONOMIALES.
 *** 5. BASES DE GROEBNER. APLICACIONES.
 *** 6. VARIEDADES ALGEBRAICAS AFINES. CORRESPONDENCIA IDEAL-VARIEDAD.
