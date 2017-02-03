@@ -7805,7 +7805,7 @@ también.
 Todo ideal en el anillo de polinomios es finitamente [[*Propiedades de bases de Gröbner][generado]]
 gracias a las bases de Gröbner.
 
-**** Variedad de una familia de ideales
+**** Propiedades de las variedades
 Las variedades dadas por ideales cumplen:
 
   1. \[\mathbb{V}\left(
@@ -7846,7 +7846,7 @@ polinomios constantes no nulos en cualquier cuerpo.
 **** Topología de Zariski
 Las variedades son los cerrados de una topología sobre $\mathbb{A}^n(K)$.
 
-\[\{
+1\[\{
 V \subseteq \mathbb{A}^n(K) 
 \mid
 V \text{ es variedad algebraica afín}
@@ -7888,6 +7888,7 @@ a_0 + a_1\alpha_1 + a_2\alpha_2 + \dots + a_n\alpha_n = 0
 
 La intersección finita de hiperplanos es una variedad afín lineal.
 
+*** Teorema de los ceros de Hilbert
 **** Representaciones paramétricas
 Una *representación paramétrica racional* de $\mathbb{V}(F_1,\dots,F_t)$ es un conjunto
 de funciones $G_i,H_i \in K[X_1,\dots,X_n]$ cumpliendo:
@@ -7919,7 +7920,7 @@ Sabemos que es variedad porque puede expresarse como:
 Y podemos darle además una representación paramétrica racional
 no trivial:
 
-**** Ideal de una variedad
+**** Ideal de un conjunto
 Sea $S \subseteq \mathbb{A}^n(K)$. Definimos el ideal asociado a $S$ como:
 
 \[
