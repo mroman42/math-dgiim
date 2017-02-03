@@ -16510,8 +16510,43 @@ Intervalo de $(170.75, 179.75)$.
 Da un $n \geq 865$.
 **** Ejercicio 5
 Se llega a $t = 2.1788$.
-**** Ejercicio 7
 
+**** Ejercicio 7
+***** Primer punto
+Calculamos:
+
+  - $\overline{X} = 37.2$
+  - $\overline{Y} = 16.88$
+  - $S_X^2 = 482.137$
+  - $S_Y^2 = 208.517$
+  - $n_1 = 6$
+  - $n_2 = 5$
+
+Y tenemos un intervalo de confianza para el cociente de varianzas.
+Calculando primero desde las tablas (?), con $\alpha = 0.95$:
+
+  - $F_{1-\alpha/2} =$
+  - $F_{\alpha/2} =$
+**** Ejercicio 9
+Tomamos el estimador:
+
+\[
+T = \frac{1}{n}\sum_{i=1}^n X_i
+\]
+
+Si partimos de la desigualdad de Chebyshev con la cota $c = 1/n$ a la
+varianza, llegamos a $k = 1/\sqrt{n\alpha}$, que nos da el intervalo:
+
+\[
+\left(
+\frac{1}{n} \sum X_i + \frac{1}{\sqrt{n\alpha}}
+,\quad
+\frac{1}{n} \sum X_i - \frac{1}{\sqrt{n\alpha}}
+\right)
+\]
+
+Con la confianza $\alpha$.
+*** Tema 6. Contraste de hipotésis
 * Topología II
 ** 1. El grupo fundamental
 *** 1. Espacios conexos por arcos
