@@ -15317,14 +15317,91 @@ longitud media uniforme a nivel de confianza $1-\alpha$ es:
 donde,
 
 \[
-S_p = \frac{(n_1-1)S_1^2+(n_2-1)S^2_2}{n_1+n_2-2}
+S_p = \sqrt{\frac{(n_1-1)S_1^2+(n_2-1)S^2_2}{n_1+n_2-2}}
 \]
 
 y donde $t_{n_1+n_2-2;\alpha/2}$ cumple que $P(Z > t_{\alpha/2}) = \alpha/2$ con $Z \leadsto t(n_1+n_2-2)$.
 
 ***** Pivote
+Tomamos como pivote a la función:
+
+
+\[
+\frac{(\overline{X}-\overline{Y}) - (\mu_1-\mu_2)}
+{
+S_p
+\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+}
+\leadsto
+t(n_1+n_2-2)
+\]
+
+***** Intervalos candidatos
+Usando el pivote tenemos el siguiente invervalo de confianza:
+
+\[
+1-\alpha = P\left(
+\overline{X}-\overline{Y} - \lambda_1S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+\leq
+\mu_1-\mu_2
+\leq
+\overline{X}-\overline{Y} + \lambda_2S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+\right)
+\]
+
+Donde, si $\Phi$ es la función de distribución de $t(n_1+n_2-2)$, tenemos
+que $1-\alpha = \Phi(\lambda_2) - \Phi(\lambda_1)$. Buscamos minimizar $\lambda_2-\lambda_1$.
+
+***** Minimización
+Usaremos minimizadores de Lagrange para deducir de nuevo que
+$\Phi'(\lambda_1) = \Phi'(\lambda_2)$, por monotonía y simetricidad, $\lambda_1=\lambda_2$.
+
+***** Conclusión
+Buscamos entonces el $t_{\alpha/2}$ que cumple $P(Z > t_{\alpha/2}) = \alpha/2$.
 
 **** TODO Intervalo para el cociente de varianzas de normales de media dada
+**** Intervalo para el cociente de varianzas de normales de media desconocida
+Sean $X \leadsto {\cal N}(\mu_1,\sigma^2_1)$, $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$. El intervalo para $\sigma^2_1/\sigma^2_2$ de menor
+longitud media uniforme a nivel de confianza $1-\alpha$ es:
+
+\[
+\left(
+F\frac{S_1^2}{S_2^2}
+,
+F\frac{S_1^2}{S_2^2}
+\right)
+\]
+
+donde, $F_{n_2-1,n_1-1; 1-\alpha/2}$ cumple que $P(T > F_{\alpha/2}) = \alpha/2$ con $Z \leadsto F(n_2-1,n_1-1)$.
+
+***** Pivote
+Tomamos como pivote a la función:
+
+\[
+\frac{S_2^2/\sigma_2^2}{S_1^2/\sigma_1^2}
+\leadsto
+F(n_2-1,n_1-1)
+\]
+
+***** Intervalos candidatos
+Usando el pivote llegamos al siguiente intervalo de confianza:
+
+\[
+1-\alpha = P
+\left(
+\frac{\sigma_1^2}{\sigma_2^2}\lambda_1
+\leq
+\frac{S_2^2}{S_1^2}
+\leq
+\frac{\sigma_1^2}{\sigma_2^2}\lambda_2
+\right)
+\]
+
+Donde, si $\Phi$ es la función de distribución de $F(n_2-1,n_1-1)$, tenemos
+que $1-\alpha = \Phi(\lambda_2) - \Phi(\lambda_1)$. Buscamos minimizar $\lambda_2-\lambda_1$.
+
+***** TODO Minimización
+***** TODO Conclusión
 ** 6. Contraste de hipótesis
 *** Planteamiento del problema
 **** Problema de contraste de hipótesis
