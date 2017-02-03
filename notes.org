@@ -14403,8 +14403,46 @@ F(n-1,m-1)
 Aplicando la definición de F de Snedecor y sabiendo que son dos
 distribuciones chi cuadrado.
 
-**** TODO Inferencia sobre las medias con varianzas conocidas
-**** TODO Inferencia sobre las varianzas con medias conocidas
+**** Inferencia sobre diferencia de medias con varianzas conocidas
+Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$ independientes:
+
+\[
+\frac{(\overline{X}-\overline{Y}) - (\mu_1-\mu_2)}
+{
+\sqrt{\frac{(n_1-1)S^2_1}{\sigma_1^2} + \frac{(n_2-1)S^2_2}{\sigma_2^2}}
+\sqrt{\frac{\sigma_1^2/n_1 + \sigma_2^2/n_2}{n_1+n_2-2}}
+}
+\leadsto
+t(n_1+n_2-2)
+\]
+
+***** Demostración
+El numerador sigue una distribución ${\cal N}(0,\sigma^2_1/n_1+\sigma^2_2/n_2)$, así que lo
+dividimos para una normal estándar. Cada uno de los sumandos de
+la otra raíz forma una chi cuadrada, que al sumarse da $\chi(n_1+n_2-2)$.
+
+Usamos entonces la definición de t de Student.
+
+**** Inferencia sobre diferencia de medias con varianzas iguales
+Sean $X \leadsto {\cal N}(\mu_1,\sigma^2)$, $Y \leadsto {\cal N}(\mu_2,\sigma^2)$ independientes:
+
+\[
+\frac{(\overline{X}-\overline{Y}) - (\mu_1-\mu_2)}
+{
+\sqrt{\frac{(n_1-1)S^2_1+ (n_2-1)S^2_2}{n_1+n_2-2}}
+\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+}
+\leadsto
+t(n_1+n_2-2)
+\]
+
+***** Demostración
+El numerador sigue una ${\cal N}(0,\sigma^2(1/n_1+1/n_2))$. Podemos dividirlo por
+la raíz de la varianza e incluir otra varianza en la raíz de las
+cuasivarianzas muestrales para tener una $\chi^2(n_1+n_2-2)$.
+
+Aplicamos definición de t de Student.
+
 ** 3. Suficiencia y completitud
 *** Estadísticos suficientes
 **** Estadístico suficiente
@@ -15129,7 +15167,7 @@ media uniforme a nivel de confianza $1-\alpha$ será:
 \overline{X}+z_{\alpha/2}\frac{\sigma_0}{\sqrt{n}}
 \right)\]
 
-donde $z_{\alpha/2}$ cumple que \[P\left(Z \leq z_{\alpha/2}\right) = \alpha/2\] con $Z \leadsto {\cal N}(0,1)$.
+donde $z_{\alpha/2}$ cumple que \[P\left(Z > z_{\alpha/2}\right) = \alpha/2\] con $Z \leadsto {\cal N}(0,1)$.
 
 ***** Pivote
 Usamos como pivote a la normalizada:
