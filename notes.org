@@ -8118,29 +8118,63 @@ del tipo $f : \mathbb{A}^1(\mathbb{R}) \longrightarrow W$:
 \]
 
 Que es claro que es polinómica. Tenemos $f$ biyectiva. Pero vemos que no
-es homomorfismo de variedades.
+es isoomorfismo de variedades:
 
 \[\widetilde{f} : \frac{K[X,Y]}{(X^3-Y^2)} \longrightarrow K[T]\]
 
-Pero $\tilde{f}$ no es sobreyectiva porque $T \notin \im(\tilde{f})$.
-**** Calculando núcleos e imágenes de morfismos de anillos de coordenadas
-Sea $h : K[W] \longrightarrow K[V]$ un morfismo de K-álgebras.
-Supongamos $h(y_i + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$ y $h(G + \mathbb{I}(W)) = G(F_1,\dots,F_n) + \mathbb{I}(V)$.
+Ya que $\tilde{f}$ no es sobreyectiva porque $T \notin \im(\tilde{f})$.
 
-1. Sea $A = K[X_1,\dots,X_n]$ y sea $C$ el ideal de $A$ generado por:
+**** Núcleos e imágenes de morfismos de anillos de coordenadas
+Sea $h : K[W] \longrightarrow K[V]$ un morfismo de K-álgebras dado por
+$h(Y_i + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$.
 
-   \[\{Y_1-F_1,\dots,Y_m-F_m\} \cup \{\text{sistema de generdaores de } \mathbb{I}(V)\}\]
+  1. Sea $A = K[X_1,\dots,X_n]$ y sea $C$ el ideal de $A$ generado por:
 
-   Entonces $\ker(h) = ((C \cap K[Y_1,\dots,Y_m]) + \mathbb{I}(W)) / \mathbb{I}(W)$.
+     \[\{Y_1-F_1,\dots,Y_m-F_m\} \cup \{\text{sistema de generadores de } \mathbb{I}(V)\}\]
 
-2. Sea $\mathbb{G}$ una base de Gröbner reducida de $C$ con orden lexicográfico.
+     Entonces $\ker(h) = ((C \cap K[Y_1,\dots,Y_m]) + \mathbb{I}(W)) / \mathbb{I}(W)$.
 
-   \[F + \mathbb{I}(V) \in \im(h) 
+  2. Sea $\mathbb{G}$ una base de Gröbner reducida de $C$ con orden lexicográfico:
+
+     \[F + \mathbb{I}(V) \in \im(h) 
    \iff
    R(F;\mathbb{G}) \in K[Y_1,\dots,Y_n]
    \]
 
-   Además, en tal caso, $F+\mathbb{I}(V) = h(R(F;G) + \mathbb{I}(W))$.
+     Además, en tal caso, $F+\mathbb{I}(V) = h(R(F;G) + \mathbb{I}(W))$.
+
+**** Corolario: caracterización de inyectividad y sobreyectividad
+Se cumple:
+
+  1. $h$ inyectiva $\iff$ $C \cap K[Y_1,\dots,Y_m] \subseteq \mathbb{I}(W)$.
+  2. $h$ sobreyectiva $\iff$ existe un $M_i$ tal que $X_i-M_i \in \mathbb{G}$.
+
+***** TODO Demostración
+**** Representación paramétrica polinomial
+Una *representación paramétrica polinomial* de $V$ es un conjunto de
+polinomios cumpliendo:
+
+\[
+U = \left\{
+F_1(t_1,\dots,t_k),
+F_2(t_1,\dots,t_k),
+\dots,
+F_n(t_1,\dots,t_k)
+\mid 
+t_1,\dots,t_m \in K
+\right\}
+\subseteq V
+\]
+
+**** Clausura de Zariski
+La clausura de $U$, representación paramétrica polinomial, es:
+
+\[
+\overline{U} =
+\mathbb{V}(J \cap K[X_1,\dots,X_n])
+\]
+
+donde $J = (X_1-F_1,\dots,X_m-F_m) \subseteq K[X_1,\dots,X_n,T_1,\dots,T_n]$.
 
 ** Temas de teoría
 *** 1. Ideales maximales y primos. Teorema de Krull.
