@@ -13763,6 +13763,14 @@ La función de distribución de $B(x|n,p)$ es:
 f(x|n,p) = {n \choose x}p^x (1-p)^{n-x}
 \]
 
+***** Esperanza
+
+\[\mathbb{E}[X] = np\]
+
+***** Varianza
+
+\[Var[X] = np(1-p)\]
+
 *** Distribución multinomial
 **** Definición
 Deriva de una binomial con $k$ salidas distintas de probabilidades $p_1,\dots,p_k$
@@ -15359,20 +15367,78 @@ $\Phi'(\lambda_1) = \Phi'(\lambda_2)$, por monotonía y simetricidad, $\lambda_1
 ***** Conclusión
 Buscamos entonces el $t_{\alpha/2}$ que cumple $P(Z > t_{\alpha/2}) = \alpha/2$.
 
-**** TODO Intervalo para el cociente de varianzas de normales de media dada
+**** Intervalo para el cociente de varianzas de normales de media dada
+Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$, $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$. El intervalo para $\sigma_1^2/\sigma_2^2$ de menor
+longitud media uniforme a nivel de confianza $1-\alpha$ es:
+
+\[
+\left(
+F_{n_2,n_1;1-\alpha/2}
+\frac{\sum_{i=1}^{n_1} (X_i-\mu_1)^2/n_1}{\sum_{i=1}^{n_2} (Y_i-\mu_2)^2/n_2}
+,
+F_{n_2,n_1;\alpha/2}
+\frac{\sum_{i=1}^{n_1} (X_i-\mu_1)^2/n_1}{\sum_{i=1}^{n_2} (Y_i-\mu_2)^2/n_2}
+\right)
+\]
+
+donde, $F_{n_2,n_1;\alpha/2}$ cumple que $P(Z > F_{\alpha/2}) = \alpha/2$ con $Z \leadsto F(n_2,n_1)$.
+
+***** Pivote
+Tomamos como pivote a la función:
+
+\[
+\frac
+{\sum_{i=1}^{n_2} (Y_i-\mu_2)^2 / n_2\sigma_2^2}
+{\sum_{i=1}^{n_2} (X_i-\mu_1)^2 / n_1\sigma_1^2}
+\leadsto
+F(n_2,n_1)
+\]
+
+***** Intervalos candidatos
+Usando el pivote tenemos el siguiente intervalo de confianza:
+
+\[
+1 - \alpha = P
+\left(
+\lambda_1\frac
+{\frac{1}{n_1}\sum_{i=1}^{n_1} (X_i-\mu_1)^2}
+{\frac{1}{n_2}\sum_{i=1}^{n_2} (Y_i-\mu_2)^2}
+\leq
+\frac{\sigma^2_1}{\sigma^2_2}
+\leq
+\lambda_2\frac
+{\frac{1}{n_1}\sum_{i=1}^{n_1} (X_i-\mu_1)^2}
+{\frac{1}{n_2}\sum_{i=1}^{n_2} (Y_i-\mu_2)^2}
+\right)
+\]
+
+Donde, si $\Phi$ es la función de distribución de $F(n_1,n_2)$, tenemos que
+$1-\alpha = \Phi(\lambda_2)-\Phi(\lambda_1)$. Buscamos minimizar $\lambda_2-\lambda_1$.
+
+***** Minimización
+Por el mismo razonamiento con multiplicadores de Lagrange, llegamos
+a $\Phi'(\lambda_2) = \Phi'(\lambda_1)$. Nótese que en este caso la distribución no es
+simétrica.
+
+***** Conclusión
+Buscamos entonces:
+
+  - el $F_{n_2,n_1;1-\alpha/2}$ que cumple $P(Z > F) = 1-\alpha/2$.
+  - el $F_{n_2,n_1;\alpha/2}$ que cumple $P(Z>F) = \alpha/2$.
+
 **** Intervalo para el cociente de varianzas de normales de media desconocida
 Sean $X \leadsto {\cal N}(\mu_1,\sigma^2_1)$, $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$. El intervalo para $\sigma^2_1/\sigma^2_2$ de menor
 longitud media uniforme a nivel de confianza $1-\alpha$ es:
 
 \[
 \left(
-F\frac{S_1^2}{S_2^2}
+F_{n_2-1,n_1-1; 1-\alpha/2}\frac{S_1^2}{S_2^2}
 ,
-F\frac{S_1^2}{S_2^2}
+F_{n_2-1,n_1-1; \alpha/2}\frac{S_1^2}{S_2^2}
 \right)
 \]
 
-donde, $F_{n_2-1,n_1-1; 1-\alpha/2}$ cumple que $P(T > F_{\alpha/2}) = \alpha/2$ con $Z \leadsto F(n_2-1,n_1-1)$.
+donde, $F_{n_2-1,n_1-1; 1-\alpha/2}$ cumple que $P(Z > F_{\alpha/2}) = \alpha/2$ con $Z \leadsto F(n_2-1,n_1-1)$.
 
 ***** Pivote
 Tomamos como pivote a la función:
@@ -15400,8 +15466,18 @@ Usando el pivote llegamos al siguiente intervalo de confianza:
 Donde, si $\Phi$ es la función de distribución de $F(n_2-1,n_1-1)$, tenemos
 que $1-\alpha = \Phi(\lambda_2) - \Phi(\lambda_1)$. Buscamos minimizar $\lambda_2-\lambda_1$.
 
-***** TODO Minimización
-***** TODO Conclusión
+***** Minimización
+Por el mismo razonamiento con multiplicadores de Lagrange, llegamos
+a $\Phi'(\lambda_2) = \Phi'(\lambda_1)$. Nótese que en este caso la distribución no es
+simétrica.
+
+***** Conclusión
+Buscamos entonces:
+
+  - el $F_{n_2-1,n_1-1;1-\alpha/2}$ que cumple $P(Z > F) = 1-\alpha/2$.
+  - el $F_{n_2-1,n_1-1;\alpha/2}$ que cumple $P(Z>F) = \alpha/2$.
+
+*** TODO Intervalos unilaterales
 ** 6. Contraste de hipótesis
 *** Planteamiento del problema
 **** Problema de contraste de hipótesis
