@@ -15299,7 +15299,28 @@ Buscamos entonces el $t_{\alpha/2}$ que cumple $P(Z > t_{\alpha/2}) = \alpha/2$.
 **** TODO Intervalo para la varianza de una normal con media conocida
 **** TODO Intervalo para la varianza de una normal con varianza conocida
 **** TODO Intervalo para la diferencia de medias de normales de varianza dada
-**** TODO Intervalo para la diferencia de medias de normales de varianza igual
+**** Intervalo para la diferencia de medias de normales de varianza igual
+Sean $X \leadsto {\cal N}(\mu_1,\sigma^2)$, $Y \leadsto {\cal N}(\mu_2, \sigma^2)$. El intervalo para $\mu_1-\mu_2$ de menor
+longitud media uniforme a nivel de confianza $1-\alpha$ es:
+
+\[
+\left(
+\overline{X}-\overline{Y} - t_{n_1+n_2-2;\alpha/2}S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+,\quad
+\overline{X}-\overline{Y} + t_{n_1+n_2-2;\alpha/2}S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+\right)
+\]
+
+donde,
+
+\[
+S_p = \frac{(n_1-1)S_1^2+(n_2-1)S^2_2}{n_1+n_2-2}
+\]
+
+y donde $t_{n_1+n_2-2;\alpha/2}$ cumple que $P(Z > t_{\alpha/2}) = \alpha/2$ con $Z \leadsto t(n_1+n_2-2)$.
+
+***** Pivote
+
 **** TODO Intervalo para el cociente de varianzas de normales de media dada
 ** 6. Contraste de hipótesis
 *** Planteamiento del problema
