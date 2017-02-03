@@ -14437,6 +14437,9 @@ t(n_1+n_2-2)
 \]
 
 ***** Demostración
+Desde el caso anterior, tomando las varianzas iguales.
+
+***** Demostración alternativa
 El numerador sigue una ${\cal N}(0,\sigma^2(1/n_1+1/n_2))$. Podemos dividirlo por
 la raíz de la varianza e incluir otra varianza en la raíz de las
 cuasivarianzas muestrales para tener una $\chi^2(n_1+n_2-2)$.
@@ -15252,7 +15255,7 @@ T = \frac{\overline{X}-\mu}{S/\sqrt{n}} \leadsto t(n-1)
 Usando el pivote tenemos el siguiente intervalo de confianza:
 
 \[
-1 - \alpha > 
+1 - \alpha =
 P_\mu\left(
 \lambda_1 < 
 \frac{\overline{X} - \mu}{S / \sqrt{n}} <
@@ -16352,7 +16355,9 @@ Intervalo de $(170.75, 179.75)$.
 
 ***** Segundo punto
 Da un $n \geq 865$.
-**** Ejercicio 3
+**** Ejercicio 5
+Se llega a $t = 2.1788$.
+**** Ejercicio 7
 
 * Topología II
 ** 1. El grupo fundamental
