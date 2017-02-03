@@ -8020,16 +8020,15 @@ K[V] = \frac{K[X_1,\dots,X_n]}{\mathbb{I}(V)}
 
 Estos anillos son K-álgebras.
 
-**** Ejemplos de anillo de coordenadas
-Sea $V = \mathbb{V}(X^3-y^2) \subseteq \mathbb{A}^2(K)$. 
+***** Ejemplos de anillo de coordenadas
+Sea $V = \mathbb{V}(X^3-Y^2) \subseteq \mathbb{A}^2(K)$. 
 
-***** En característica 0
-Si $car(K)=0$, entonces $\mathbb{I}(V) = (X^3-Y^2)$.
-Entonces:
+****** En característica 0
+Si $car(K)=0$, entonces $\mathbb{I}(V) = (X^3-Y^2)$. Entonces:
 
 \[K[V] = \frac{K[X_1,\dots,X_n]}{(X^3-Y^2)\]
 
-***** En característica 2
+****** En característica 2
 En característica 2 tenemos $V = \{(0,0),(1,1)\}$, luego
 $\mathbb{I}(V) = \mathbb{I}(\{(0,0\} \cup \{(1,1)\}) = (X,Y) \cap (X-1,Y-1)$, y en este caso:
 
@@ -8043,76 +8042,75 @@ $\mathbb{I}(V) = \mathbb{I}(\{(0,0\} \cup \{(1,1)\}) = (X,Y) \cap (X-1,Y-1)$, y 
 \mathbb{F}_2 \times \mathbb{F}_2
 \]
 
-**** Propiedades de los morfismos de variedades
+**** Funtor entre anillos de coordenadas y aplicaciones polinómicas
 Sea $V \subseteq \mathbb{A}^n(K)$ y $W \subseteq \mathbb{A}^m(K)$ variedades algebraicas afines.
 
-  1. Toda $f : V \longrightarrow W$ aplicación polinómica define un homomorfismo de
+  1. Toda aplicación polinómica $f : V \longrightarrow W$ define un homomorfismo de
      K-álgebras $\tilde{f} : K[W] \longrightarrow K[V]$.
   2. Para cada homomorfismo de K-álgebras $h : K[W] \longrightarrow K[V]$ existe una
      única aplicación polinómica $f : V \longrightarrow W$ única tal que $\tilde{f} = h$.
-  3. Si $V_1 \overset{f}\longrightarrow V_2 \overset{g}\longrightarrow V_3$ son aplicaciones polinómicas, tenemos que
-     la composición se respeta: $\widetilde{f} \circ \widetilde{g} = \widetilde{g \circ f}$.
-  4. Dada una aplicación polinómica entre variedades, $f$ es isomorfismo
-     ssi $\widetilde{f}$ es isomorfismo.
+  3. Si $V_1 \overset{f}\longrightarrow V_2 \overset{g}\longrightarrow V_3$ son aplicaciones polinómicas, $\widetilde{f} \circ \widetilde{g} = \widetilde{g \circ f}$.
+  4. $f$ es isomorfismo ssi $\widetilde{f}$ es isomorfismo.
 
 Es decir, hay un funtor contravariante entre ambas categorías.
 
-***** DONE Demostración
+***** Demostración
 ****** Punto 1
-Sea $f(a) = (F_1(a),\dots,F_m(a))$.
+Sea $f(a) = (F_1(a),\dots,F_m(a))$. Por propiedad universal del anillo de
+polinomios tenemos un $f'$ cumpliendo $f'(Y_j) = F_j$:
 
 \[\begin{tikzcd}
 K \rar[hook]\drar[hook]& K[Y_1,\dots,Y_n] \dar{\exists! f'} \\
 & K[X_1,\dots,X_n]
 \end{tikzcd}\]
 
-donde $f'$ es el único morfismo de K-álgebras tal que $f'(Y_j) = F_j$.
-
-Supongamos que $G \in \mathbb{I}(W)$, veamos que $f'(G) \in \mathbb{I}(V)$. Como sabemos que
-$V = \mathbb{V}\mathbb{I}(V)$. Sea $a \in V$, entonces $f(a) \in W = \mathbb{V}\mathbb{I}(W)$ y se anula en todos
-los polinomios de $\mathbb{I}(W)$, en particular $G(f(a))=0$.
+Comprobamos que baja al cociente. Para $G \in \mathbb{I}(W)$, veamos que $f'(G) \in \mathbb{I}(V)$.
+Sea $a \in V$, entonces $f(a) \in W$ y por tanto:
 
 \[ f'(G)(a) = G(F_1(a),\dots,F_n(a)) = G(f(a)) = 0\]
 
-Acabamos de ver que está bien definido con:
+Acabamos de ver que está bien definida una función:
 
 \[\widetilde{f}(G + \mathbb{I}(W)) = G(F_1,\dots,F_n)+\mathbb{I}(V)\]
+
 ****** Punto 2
 ******* Existencia
-Dada $h$, tenemos que:
+Dada $h$, calculamos:
 
-\[\begin{aligned}
-h(Y_1+\mathbb{I}(W)) &= F_1 + \mathbb{I}(V) \\
-h(Y_2+\mathbb{I}(W)) &= F_2 + \mathbb{I}(V) \\
-\dots\\
-h(Y_m+\mathbb{I}(W)) &= F_m + \mathbb{I}(V) \\
-\end{aligned}\]
+\[h(Y_i + \mathbb{I}(W)) = F_i + \mathbb{I}(V)\]
 
 Y definimos $f : V \longrightarrow \mathbb{A}^m(K)$ como:
 
 \[f(a) = (F_1(a),\dots,F_m(a))\]
 
-Si $a \in V$, veremos que $f(a) \in W$. Sea $G \in \mathbb{I}(W)$, entonces 
-$G+\mathbb{I}(W) = 0 + \mathbb{I}(W)$, luego $0 = h(G+\mathbb{I}(W)) = G(F_1,\dots,F_n) + \mathbb{I}(V)$.
-Pero $G(F_1,\dots,F_n)(a) = G(f(a)) = 0$.
+******** Bien definida
+Si $a \in V$, veremos que $f(a) \in W = \mathbb{VI}(W)$. Para $G \in \mathbb{I}(W)$:
 
-Por tanto, tengo una $f: V\longrightarrow W$ polinómica por definición.
+\[h(0) = h(G+\mathbb{I}(W)) = G(F_1,\dots,F_n) + \mathbb{I}(V)\]
 
-Si $h(y_j + \mathbb{I}(W) = F_j'+\mathbb{I}(V)$, entonces $F_j + \mathbb{I}(V) = F_j' + \mathbb{I}(V)$ ssi
-$F_j - F_j' \in \mathbb{I}(V)$, lo que da $(F_j-F_j')(a) = 0$ y $F_j(a) = F_j'(a)$ para cualquier
-$a$. Es claro por tanto que $\widetilde{f} = h$.
+Luego $G(f(a)) = G(F_1,\dots,F_n)(a) + 0 = 0$, tenemos una función
+polinómica $f : V \longrightarrow W$.
+
+******** Cumple el requisito
+Si $h(Y_j + \mathbb{I}(W) = F_j'+\mathbb{I}(V)$, entonces $F_j + \mathbb{I}(V) = F_j' + \mathbb{I}(V)$.
+Y $F_j(a) = F_j'(a)$ para cualquier $a$. Es claro por tanto que $\widetilde{f} = h$.
 
 ******* Unicidad
-Supongamos una $g : V \longrightarrow W$ tal que $\widetilde{g} = h$. Sean
-$G_1,\dots,G_n \in K[X_1,\dots,X_n]$ tales que $g(a) = (G_1(a),\dots,G_m(a))$. Entonces
-$\widetilde{g} : K[W] \longrightarrow K[V]$:
+Supongamos una $g : V \longrightarrow W$ tal que $\widetilde{g} = h$ con $g(a) = (G_1(a),\dots,G_m(a))$.
+Entonces $\widetilde{g} : K[W] \longrightarrow K[V]$:
 
 \[\tilde{g}(Y_j + \mathbb{I}(W)) = G_j + \mathbb{I}(V)\]
 \[h(Y_j + \mathbb{I}(W)) = F_j + \mathbb{I}(V)\]
 
 Por lo tanto $G_j - F_j \in \mathbb{I}(V)$ para cualquier $j$.
 
-**** Ejemplo de polinómica biyectiva no isomorfismo
+****** Punto 3
+Por construcción.
+
+****** Punto 4
+Por el punto anterior, comprobando que el funtor respeta la identidad.
+
+***** Ejemplo de polinómica biyectiva no isomorfismo
 Sea $V = \mathbb{A}^1(\mathbb{R})$ y $W = \mathbb{V}(X^3-Y^2) \subseteq \mathbb{A}^2(\mathbb{R})$. Tenemos una aplicación
 del tipo $f : \mathbb{A}^1(\mathbb{R}) \longrightarrow W$:
 
