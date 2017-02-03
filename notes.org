@@ -7942,30 +7942,50 @@ Los ideales y sus variedades cumplen:
   4. $\mathbb{I}(S) = \mathbb{I}\mathbb{V}\mathbb{I}(S)$ y $\mathbb{V}(J) = \mathbb{V}\mathbb{I}\mathbb{V}(J)$.
   5. $\mathbb{I}(S)$ es ideal radical.
   6. Cuando $V \subseteq \mathbb{A}^n(K)$ es variedad afín, $V = \mathbb{V}\mathbb{I}(V)$.
-  7. $V_1 \subseteq V_2 \iff \mathbb{I}(V_1) \supseteq \mathbb{I}(V_2)$ y $V_1 \subsetneq V_2 \iff \mathbb{I}(V_1) \supsetneq \mathbb{I}(V_2)$.
-  8. $\mathbb{I}(V_1 \cup V_2) = \mathbb{I}(V_1) \cap \mathbb{I}(V_2)$
+  7. $V_1 \subseteq V_2 \iff \mathbb{I}(V_1) \supseteq \mathbb{I}(V_2)$.
+  8. $\mathbb{I}(S_1 \cup S_2) = \mathbb{I}(S_1) \cap \mathbb{I}(S_2)$.
   9. $V_1 \cup V_2 = \mathbb{V}(\mathbb{I}(V_1)\mathbb{I}(V_2)) = \mathbb{V}(\mathbb{I}(V_1) \cap \mathbb{I}(V_2))$.
-  10. \[\bigcap_{\lambda \in \Lambda} V_\lambda = \mathbb{V}\left(\sum_{\lambda\in\Lambda} \mathbb{I}(V_\lambda)\right)\]
-
-***** TODO Demostración
-
-**** El ideal de una variedad es radical
-Para cualquier $S$, tenemos $\sqrt{\mathbb{I}(S)} = \mathbb{I}(S)$.
+  10. \[\bigcap_{\lambda \in \Lambda} V_\lambda = \mathbb{V}\left(\sum_{\lambda\in\Lambda} \mathbb{I}(V_\lambda)\right)\].
 
 ***** Demostración
+****** Punto 1, 2 y 3
+Triviales desde la definición. Nótese que las inclusiones vienen
+dadas directamente.
 
-**** TODO Todo ideal radical es de esa forma
+****** Punto 4
+Uniendo las dos inclusiones anteriores.
+
+****** Punto 5
+Si $f^n \in \mathbb{I}(S)$ entonces para cualquier punto en $S$ se cumple $f^n(s) = 0$, 
+lo que lleva a $f(s) = 0$.
+
+****** Punto 6
+Al igual que el punto 4 uniendo las dos inclusiones anteriores.
+
+****** Punto 7
+Usando la igualdad y por definición se tiene.
+
+****** Punto 8
+Trivial por definición.
+
+****** Punto 9
+La unión de variedades es variedad y se tiene por la igualdad y por 
+el punto anterior.
+
+****** Punto 10
+Por propiedades de las variedades y la igualdad.
+
+**** No todo ideal radical es de esa forma
 La función $\mathbb{{I}}$ considerada como:
 
-\[ \mathbb{I} : \{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\}
+\[ \mathbb{I} : \left\{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\right\}
 \longrightarrow
-\{ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}\}\]
+\left\{ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}\right\}\]
 
 Es inyectiva, se tiene $\mathbb{V}\mathbb{I} = 1$ y en general no se tiene $\mathbb{I}\mathbb{V} = 1$.
 
-*** Anillos de coordenadas
 **** Teorema de los ceros de Hilbert
-Sea $K$ algebraicamente cerrado. Entonces para cualquier ideal
+Cuando $K$ es algebraicamente cerrado, para cualquier ideal
 $J \subseteq K[X_1,\dots,X_n]$, se verifica que:
 
 \[\mathbb{I}\mathbb{V}(J) = \sqrt{J}\]
@@ -7976,8 +7996,9 @@ Y por tanto hay una biyección entre ideales radicales y variedades.
 \cong
 \{ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}\}\]
 
-***** TODO Demostración
-**** Morfismos de variedades afines
+***** TODO Demostración                                           :extra:
+*** Anillos de coordenadas
+**** Aplicaciones polinómicas
 Un *morfismo entre variedades* de $\mathbb{A}^n$ y $\mathbb{A}^m$ es una aplicación $f : V \longrightarrow W$ 
 tal que existen polinomios $F_1,\dots,F_n$ tales que:
 
@@ -7985,7 +8006,7 @@ tal que existen polinomios $F_1,\dots,F_n$ tales que:
 
 Los llamamos también *aplicaciones polinómicas*.
 
-**** Isomorfismos de variedades afines
+***** Isomorfismos de variedades afines
 Un isomorfismo entre variedades afines es un morfismo entre variedades
 cuya inversa es un morfismo entre variedades.
 
