@@ -6887,15 +6887,15 @@ Una *R-álgebra*, $S$ es un anillo con estructura de R-módulo, tal que:
 \[\forall r\in R, x,y\in S:\; (rx)y = r(xy) = x(ry)\]
 
 **** Homomorfismo de estructura
-Equivalentemente, una R-álgebra es un anillo $S$ junto a un *homomorfismo 
-de estructura* $\lambda : R \longrightarrow S$. 
+Equivalentemente, una R-álgebra es un anillo $S$ junto a un 
+*homomorfismo de estructura* $\lambda : R \longrightarrow S$.
 
 ***** Equivalencia
 Nótese que puedo pasar de una a otra definición tomando $\lambda(r) = r1$.
 
 **** Homomorfismos de R-álgebras
-Un homormorfismo de R-álgebras $f : S_1 \longrightarrow S_2$ es un homomorfismo de anillos
-que sea también homomorfismo de R-módulos.
+Un homormorfismo de R-álgebras $f : S_1 \longrightarrow S_2$ es un homomorfismo de 
+anillos que sea también homomorfismo de R-módulos.
 
 \[ f(rs) = rf(s) \]
 
@@ -7722,7 +7722,7 @@ H = T(F)^e + (1-T)(G)^e = (TF,(1-T)G)
 \]
 
 ** 3. Variedades afines
-*** Variedades afines
+*** Funciones polinómicas
 **** Espacio afín de un álgebra
 Llamamos $\mathbb{A}^n(K)$ al espacio afín sobre $K^n$ con la función afín
 $\varphi : K^n \times K^n \longrightarrow K^n$ dada por $\varphi(u,v) = v-u$.
@@ -7763,13 +7763,18 @@ La función dada por un polinomio no nulo puede ser nula. Por ejemplo:
 
 Dan lugar a la misma función en $\mathbb{F}_2$, pero son polinomios distintos.
 
-**** Isomorfismo en cuerpos infinitos
+**** Isomorfismo de los polinomios en cuerpos infinitos
 Sea $K$ cuerpo infinito. Sus polinomios verifican:
 
   1. $F^\ast = 0 \iff F = 0$.
   2. $F^\ast=G^\ast \iff F = G$.
 
-***** TODO Demostración
+***** Demostración
+Un polinomio que de la función constante $0$ en un cuerpo infinito 
+debería tener infinitas raíces. Eso sólo puede darlo el polinomio
+constantemente $0$.
+
+*** Variedades afines
 **** Variedad de un polinomio
 Dado $F \in K[X_1,\dots,X_n]$, denotamos por $\mathbb{V}(F)$ al conjunto de sus ceros:
 
