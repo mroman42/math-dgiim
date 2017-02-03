@@ -7853,7 +7853,7 @@ V \text{ es variedad algebraica afín}
 \}\]
 
 ***** Demostración
-Desde las propiedades de una [[*Variedad de una familia de ideales][familia de ideales]] tenemos que la 
+Desde las propiedades de una [[*Variedad de un ideal][variedad]] tenemos que la 
 intersección arbitraria y la unión finita de variedades son variedad.
 Además, lo son el vacío y el total.
 
@@ -14372,7 +14372,7 @@ Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma
 Los vectores $(\overline{X},\overline{Y})$ y $(S^2_1,S^2_2)$ son independientes.
 
 ***** TODO Demostración
-**** Inferencia sobre las varianzas con media conocida
+**** Inferencia sobre cociente de varianzas con media conocida
 Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$ independientes con muestras de
 tamaños $n_1$ y $n_2$:
 
@@ -14388,7 +14388,7 @@ F(n_1,n_2)
 Desde la definición de la F de Snedecor, sabiendo que cada factor
 es una chi cuadrada.
 
-**** Inferencia sobre las varianzas con media desconocida
+**** Inferencia sobre cociente de varianzas con media desconocida
 Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$ independientes:
 
 \[
