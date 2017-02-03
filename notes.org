@@ -8451,7 +8451,150 @@ Donde $exp(Q_iG_i) \in \Delta^i$, y como forman una partición disjunta, se
 tiene que el $exp(F) = \max\{exp(Q_iG_i)\} \notin \overline{\Delta}$. Por tanto $Exp(I)\cap\overline{\Delta} = \varnothing$.
 
 *** 6. Variedades algebraicas afines. Correspondencia ideal-variedad.
-*** 7. ANILLO DE COORDENADAS DE UNA VARIEDAD. APLICACIONES POLINÓMICAS.
+**** Variedades algebraicas afines
+Dado un ideal ${\cal F} \subseteq K[X_1,\dots,X_n]$, denotamos:
+
+\[
+\mathbb{V}({\cal F}) = \left\{ (a_1,\dots,a_n) \mid 
+\forall F \in {\cal F}: F(a) = 0 \right\}
+\]
+
+Y llamamos *variedad algebraica afín* a los conjuntos de esta forma.
+
+**** Topología de Zariski
+Las variedades son los cerrados de una topología sobre $\mathbb{A}^n(K)$, ya
+que cumplen:
+
+  1. \[\bigcap_{\lambda\in\Lambda} \mathbb{V}(J_\lambda) =
+     \mathbb{V}\left(\sum_{\lambda\in\Lambda} J_\lambda\right)}\]
+
+  2. $\mathbb{V}(J_1) \cup \mathbb{V}(J_2) = \mathbb{V}(J_1J_2) = \mathbb{V}(J_1\cap J_2)$
+
+  3. $\mathbb{V}(0) = \mathbb{A}^n(K)$
+
+  4. $\mathbb{V}(K[X_1,\dots,X_n]) = \varnothing$
+
+***** Demostración
+****** Punto 1
+Nótese que un punto se anula para un conjunto de ideales ssi
+se anula para todas sus combinaciones lineales.
+
+****** Punto 2
+Si $x \notin \mathbb{V}(J_1) \cup \mathbb{V}(J_2)$, entonces existen polinomios en cada ideal
+que no lo anulan, y su producto da $x \notin \mathbb{V}(J_1J_2)$ y $x \notin \mathbb{V}(J_1\cap J_2)$.
+
+El resto de inclusiones son triviales.
+
+****** Punto 3
+El polinomio $0$ anula todos los puntos.
+
+****** Punto 4
+Ningún punto es raíz de todos los polinomios. Existen los 
+polinomios constantes no nulos en particular.
+
+**** Correspondencia ideal-variedad
+Se define el *ideal de un conjunto* como:
+
+\[
+\mathbb{I}(S) = 
+\left\{
+F \in K[X_1,\dots,X_n]
+\mid
+\forall a \in S: F(a) = 0
+\right\}
+\]
+
+Los ideales y variedades cumplen:
+
+  1. $\mathbb{I}(\varnothing) = K[X_1,\dots,X_n]$.
+
+  2. $\mathbb{I}(S_1\cup S_2) = \mathbb{I}(S_1) \cap \mathbb{I}(S_2)$.
+
+  3. $S_1 \subseteq S_2 \implies \mathbb{I}(S_1) \supseteq \mathbb{I}(S_2)$.
+
+  4. $\mathbb{I}(S)$ es ideal radical.
+
+  5. $S \subseteq \mathbb{VI}(S)$ y $J \subseteq \mathbb{IV}(J)$.
+
+  6. $\mathbb{I}(S) = \mathbb{IVI}(S)$ y $\mathbb{V}(J) = \mathbb{VIV}(J)$.
+
+  7. Cuando $V \subseteq \mathbb{A}^n(K)$ es variedad afín, $V = \mathbb{VI}(V)$.
+
+  8. $V_1 \subseteq V_2 \iff \mathbb{I}(V_1) \supseteq \mathbb{I}(V_2)$.
+
+  9. $V_1\cup V_2 = \mathbb{V}(\mathbb{I}(V_1)\mathbb{I}(V_2)) = \mathbb{V}(\mathbb{I}(V_1) \cap \mathbb{I}(V_2))$.
+
+  10. \[\bigcap_{\lambda\in\Lambda} V_\lambda = \mathbb{V}\left(\sum_{\lambda\in\Lambda} \mathbb{I}(V_\lambda)\right)\]
+
+***** Demostración
+****** Puntos 1, 2 y 3
+Triviales por definición.
+
+****** Punto 4
+Notamos que $f^n(s)=0 \implies f(s) = 0$.
+
+****** Puntos 5, 6 y 7
+Desde la definición se tienen las desigualdades. Uniendo ambas nos
+da la igualdad. El siguiente es un caso particular.
+
+****** Punto 8
+Trivial por definición y por la igualdad anterior.
+
+****** Punto 9
+La unión de variedades es variedad, aplicamos $\mathbb{VI}$ y las propiedades
+anteriores.
+
+****** Punto 10
+La intersección es variedad y volvermos a aplicar $\mathbb{VI}$.
+
+**** Teorema de los ceros de Hilbert
+En general las funciones $\mathbb{I}, \mathbb{V}$ dan una correspondencia no biyectiva
+entre ideales radicales y variedades, con $\mathbb{VI} = id$. Cuando $K$ es además
+*algebraicamente cerrado*, se tiene $\mathbb{IV}(J) = \sqrt{J}$, y hay biyección:
+
+\[
+\left\{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\right\}
+\cong
+\left\{
+J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}
+\right\}
+\]
+
+*** 7. Anillo de coordenadas de una variedad. Aplicaciones polinómicas.
+**** Aplicaciones polinómicas
+Una aplicación polinomial o morfismo entre variedades es una aplicación
+$f : V \longrightarrow W$, variedades de $\mathbb{A}^n$ y $\mathbb{A}^m$, de la forma:
+
+\[
+f(a) = (F_1(a),F_2(a),\dots,F_m(a))
+\]
+
+donde los $F_1,\dots,F_m \subseteq K[X_1,\dots,X_n]$ son polinomios.
+
+**** Anillo de coordenadas
+El anillo de coordenadas de una variedad $V \subseteq \mathbb{A}^n(K)$ es la K-álgebra:
+
+\[
+K[V] = \frac{K[X_1,\dots,X_n]}{\mathbb{I}(V)}
+\]
+
+**** Relación entre aplicaciones polinómicas y anillos de coordenadas
+Para $V \subseteq \mathbb{A}^n(K), W \subseteq \mathbb{A}^m(K)$ variedades,
+
+  1. Toda aplicación polinómica $f : V \longrightarrow W$ induce un homomorfismo de
+     K-álgebras $\widetilde f : K[W] \longrightarrow K[V]$ cumpliendo $\widetilde f(G+\mathbb{I}(W)) = G(f) + \mathbb{I}(V)$.
+
+  2. Cada homomorfismo $h : K[W] \longrightarrow K[V]$ induce una única aplicación
+     polinómica $h' : V \longrightarrow W$ tal que $\tilde{h}' = h$.
+
+  3. Dadas aplicaciones polinómicas $V_1 \overset{f}\longrightarrow V_2 \overset{g}\longrightarrow V_3$, $\widetilde{f} \circ \widetilde{g} = \widetilde{g \circ f}$.
+
+  4. $f$ es isomorfismo ssi $\widetilde f$ es isomorfismo.
+
+Es decir, hay un funtor contravariante entre ambas categorías.
+
+***** Demostración
+
 ** Ejercicios
 *** Relación 1
 **** Ejercicio 1
