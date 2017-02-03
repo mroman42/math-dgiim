@@ -8594,6 +8594,53 @@ Para $V \subseteq \mathbb{A}^n(K), W \subseteq \mathbb{A}^m(K)$ variedades,
 Es decir, hay un funtor contravariante entre ambas categorías.
 
 ***** Demostración
+****** Punto 1
+Dado $f(a) = (F_1(a),\dots,F_m(a))$, por propiedad universal del anillo de
+polinomios definimos $f'(Y_j) = F_j$. Para $G \in \mathbb{I}(W)$, si tomamos $a \in V$,
+se tiene $f(a) \in W$, y por tanto:
+
+\[
+f'(G)(a) = G(F_1(a),\dots,F_n(a)) = G(f(a)) = 0
+\]
+
+Así, está bien definida la función:
+
+\[
+\widetilde f (G + \mathbb{I}(W)) = G(F_1,\dots,F_m) + \mathbb{I}(V)
+\]
+
+****** Punto 2
+******* Existencia
+Dada $h$, llamamos $h(Y_i+\mathbb{I}(W)) = F_i$, y definimos $f(a) = (F_1(a),\dots,F_m(a))$.
+Está bien definida porque para $G \in \mathbb{I}(W)$,
+
+\[
+h(0) = h(G) = G(F_1,\dots,F_m) + \mathbb{I}(V)
+\]
+
+Luego $G(f(a)) = G(F_1,\dots,F_m)(a) + 0 = 0$, y $a \in \mathbb{VI}(W) = W$. Es claro
+además que $\widetilde f = h$, por estar definida como ella en una base de los
+polinomios.
+
+******* Unicidad
+Supongamos $\widetilde g = h$ con $g(a) = (G_1(a),\dots,G_m(a))$, entonces:
+
+\[\widetilde g(Y_j+\mathbb{I}(W)) = G_j + \mathbb{I}(V)\]
+\[h(Y_j+\mathbb{I}(W)) = F_j + \mathbb{I}(V)\]
+
+Por lo tanto, $G_j-F_j \in \mathbb{I}(V)$, para cualquier $j$.
+
+****** Punto 3
+Por construcción. Sean:
+
+  - $f(a) = (F_1(a),\dots,F_m(a))$
+  - $g(a) = (G_1(a),\dots,G_m(a))$
+  - $f \circ g (a) = (G_1(F_1(a),\dots), \dots, G_m(F_1,\dots))$
+
+Entonces comprobamos que: $\widetilde{g \circ f}(H) = \widetilde f  \circ \widetilde{g} (H)$.
+
+****** Punto 4
+Por el punto anterior y viendo simplemente que $\widetilde{id} = id$.
 
 ** Ejercicios
 *** Relación 1
