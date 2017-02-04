@@ -16059,6 +16059,21 @@ una distribución a posteriori como:
 \]
 
 *** 8.2. Estadística clásica
+Se destacan las siguientes diferencias con la estadística clásica.
+En la estadística clásica:
+
+  1. La probabilidad se limita a sucesos con frecuencias relativas.
+  2. El parámetro $\theta$ es fijo, completamente desconocido.
+  3. Se usan estimadores de máxima verosimilitud o insesgados.
+  4. Los tests de hipótesis se construyen fijando un tamaño $\alpha$.
+
+Mientras que en la estadística bayesiana:
+  
+  1. La probabilidad se puede establecer previa a cualquier suceso.
+  2. El parámetro $\theta$ es una variable aleatoria.
+  3. El método de muestreo es irrelevante.
+  4. Podemos calcular la probabilidad de que una hipótesis sea cierta.
+
 *** 8.3. Familias conjugadas
 **** Familia conjugada
 Sea ${\cal F} = \{\pi_i(\theta) \mid i \in I\}$ una familia de distribuciones a priori. Se llama
@@ -16097,7 +16112,8 @@ f(\tilde x|\theta)\pi(\theta) = \Pi(\theta)\int_\Omega f(\tilde x|\theta)\pi(\th
 **** Caracterización de familias conjugadas
 Una familia de distribuciones a priori ${\cal F}$ es conjugada respecto a ${\cal P}$ ssi
 el producto de cualesquiera dos distribuciones de ambas familias vuelve
-a ser una distribución de la familia de distribuciones a priori.
+a ser una distribución de la familia de distribuciones a priori, salvo
+alguna constante.
 
 \[\forall f \in {\cal P}, \pi \in{\cal P}: \exists k:\quad 
 kf(x|\theta)\pi(\theta) \in {\cal F}\]
