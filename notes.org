@@ -16126,17 +16126,41 @@ La familia de distribuciones Beta es una familia conjugada para:
   - distribuciones binomiales.
   - distribuciones binomiales negativas.
 
+Se tiene:
+
+  - $X \leadsto B(n,\theta)$
+  - $\theta \leadsto \beta(p,q)$
+  - $\theta|x \leadsto \beta(x+p,n-x+q)$
+
 ***** Gamma
 La familia de distribuciones Gamma es una familia conjugada para
 distribuciones de Poisson.
+
+Se tiene:
+
+  - $X\leadsto Poi(\theta)$
+  - $\theta \leadsto \Gamma(\alpha,\beta)$
+  - $\theta|\tilde x \leadsto \Gamma(\sum x_i + \alpha, n + \beta)$
 
 ***** Normales
 La familia de distribuciones normales es conjugada para las 
 distribuciones normales de varianza conocida.
 
+Se tiene:
+
+  - $X \leadsto {\cal N}(\mu,\sigma^2)$
+  - $\mu \leadsto {\cal N}(\eta,\tau)$
+  - $\mu|\tilde x \leadsto {\cal N}\left(\frac{n\overline{x}\tau^2+\sigma^2\eta}{n\tau^2+\sigma^2}, \frac{\sigma^2\tau^2}{n\tau^2+\sigma^2}\right)$
+
 ***** Dirichlet
 La familia de distribuciones de Dirichlet es conjugada para la
 familia de distribuciones multinomiales.
+
+Se tiene:
+
+  - $X_1,\dots,X_n \leadsto Multi(\theta_1,\dots,\theta_k)$
+  - $\theta_1,\dots,\theta_k \leadsto Dir(\alpha_1,\dots,\alpha_k)$
+  - $\theta_1,\dots,\theta_n|x_1,\dots,x_n \leadsto Dir(x_1+\alpha_1,\dots,x_k+\alpha_k)$
 
 *** 8.4. Distribuciones objetivas
 **** Distribución de Jeffreys
