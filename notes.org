@@ -14301,8 +14301,26 @@ esperanza y cuadracidad de la varianza tenemos:
 \]
 
 Desde donde simplemente normalizamos.
+**** A2. Inferencia de la media con varianza desconocida
+Sea $X \leadsto {\cal N}(\mu,\sigma^2)$ con $\overline{X}$ su media muestral y $S^2$ su cuasivarianza muestral,
+entonces:
 
-**** Inferencia de la varianza con media conocida
+\[
+\frac{\overline{X}-\mu}{S/\sqrt{n}} \leadsto t(n-1)
+\]
+
+***** Demostración
+Por la definición de t de Student, sabiendo:
+
+\[
+\frac{\overline{X} - \mu}{S/\sqrt{n}}
+=
+\frac{\frac{\overline{X} - \mu}{\sigma/\sqrt{n}}}{\sqrt{\frac{(n-1)S^2}{\sigma^2}/n-1}}
+\leadsto
+t(n-1)
+\]
+
+**** B1. Inferencia de la varianza con media conocida
 Sea $X \leadsto {\cal N}(\mu,\sigma^2)$, entonces:
 
 \[
@@ -14353,25 +14371,6 @@ se tiene:
 \sum_{i=1}^n \frac{(X_i-\overline{X})^2}{\sigma^2}
 \leadsto
 \chi^2(n-1)
-\]
-
-**** Inferencia de la media con varianza desconocida
-Sea $X \leadsto {\cal N}(\mu,\sigma^2)$ con $\overline{X}$ su media muestral y $S^2$ su cuasivarianza muestral,
-entonces:
-
-\[
-\frac{\overline{X}-\mu}{S/\sqrt{n}} \leadsto t(n-1)
-\]
-
-***** Demostración
-Por la definición de t de Student, sabiendo:
-
-\[
-\frac{\overline{X} - \mu}{S/\sqrt{n}}
-=
-\frac{\frac{\overline{X} - \mu}{\sigma/\sqrt{n}}}{\sqrt{\frac{(n-1)S^2}{\sigma^2}/n-1}}
-\leadsto
-t(n-1)
 \]
 
 *** Muestreo de dos normales
