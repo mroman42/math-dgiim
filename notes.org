@@ -16174,14 +16174,67 @@ para la información de Fisher.
 *** 8.5. Convergencia de distribuciones a posteriori
 **** Convergencia en un espacio paramétrico discreto
 Sea $\Theta = \{\theta_1,\dots,\theta_k\}$, cuando el tamaño de la muestra diverge, la distribución
-a posteriori degenera en $\theta_0$.
+a posteriori degenera en $\theta_0$, el valor verdadero del parámetro.
 
 \[
 \pi(\theta\mid X_1,\dots,X_n) 
 \overset{P_{\theta_0}}{\underset{n \to \infty}\longrightarrow} \theta_0
 \]
 
-***** TODO Demostración
+***** Demostración
+Dada una distribución a priori $\pi$, llamamos $\pi(\theta_j) = p_j \in [0,1]$. Llamamos
+$\theta_t$ al verdadero parámetro, y tomamos $X_1,\dots,X_n$ con la distribución
+dada por $f(x|\theta_t)$.
+
+\[
+\pi(\theta_i|X_1,\dots,X_n)
+=
+\frac
+{\displaystyle p_i\prod_{j=1}^n f(X_j|\theta_i)}
+{\displaystyle \sum_{r=1}^k\left(\prod_{j=1}^n f(X_j|\theta_r) \right) p_r}
+\]
+
+Si multiplicamos por $\prod_{j=1}^n f(X_j|\theta_t)$ tenemos:
+
+\[
+\pi(\theta_i|X_1,\dots,X_n)
+=
+\frac
+{\displaystyle p_i\prod_{j=1}^n \frac{f(X_j|\theta_i)}{f(X_j|\theta_t)}}
+{\displaystyle \sum_{r=1}^k\left(
+\prod_{j=1}^n \frac{f(X_j|\theta_r)}{f(X_j|\theta_t)}
+\right) p_r}
+\]
+
+Tomando logaritmos estudiamos las variables aleatorias $Z_j = \log\frac{f(X_j|\theta_i)}{f(X_j|\theta_t)}$,
+que son i.i.d. y por la Ley fuerte de los grandes números, tenemos que
+converge casi seguramente respecto a la probabilidad que define $\theta_t$:
+
+\[
+\frac{1}{n}\sum_{j=1}^n \log\frac{f(X_j|\theta_i)}{f(X_j|\theta_t)}
+\longrightarrow
+\mathbb{E}\left[\log \frac{f(X_j|\theta_i)}{f(X_j|\theta_t)} \right]
+\]
+
+Que además sabemos (no trivialmente) que es negativo. Tenemos entonces
+por continuidad del logaritmo que:
+
+\[
+\prod_{j=1}^n \frac{f(X_j|\theta_i)}{f(X_j|\theta_t)}
+\longrightarrow
+0
+\]
+
+Aplicando esto a la probabilidad a posteriori tenemos que sólo converge
+a uno en el valor $\theta_t$ y converge a cero en todos los demás.
+
+**** Nota: Influencia de la distribución a priori
+Nótese que la distribución a priori ha sido independiente de la 
+convergencia a la distribución a posteriori degenerada.
+
+**** Nota: Estimadores bayesianos
+Los modelos bayesianos asignan probabilidad 1 a la hipótesis correcta
+cuando el tamaño de la muestra diverge.
 
 *** 8.6. Test de hipóesis bayesianos
 **** Probabilidad a posteriori de un modelo
