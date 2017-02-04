@@ -15306,10 +15306,92 @@ y monótona en cada mitad, tenemos $\lambda_1 = -\lambda_2$.
 ***** Conclusión
 Buscamos entonces el $t_{\alpha/2}$ que cumple $P(Z > t_{\alpha/2}) = \alpha/2$.
 
-**** TODO Intervalo para la varianza de una normal con media conocida
-**** TODO Intervalo para la varianza de una normal con varianza conocida
-**** TODO Intervalo para la diferencia de medias de normales de varianza dada
-**** Intervalo para la diferencia de medias de normales de varianza igual
+**** B1. Intervalo para la varianza de una normal con media conocida
+Sea $X \leadsto {\cal N}(\mu,\sigma^2)$. El intervalo para $\sigma^2$ de menor longitud media uniforme
+a nivel de confianza $1-\alpha$ es:
+
+\[
+\left(
+\frac{\sum_{i=1}^n(X_i-\mu)^2}{\chi^2_{n;\alpha/2}}
+,\quad
+\frac{\sum_{i=1}^n(X_i-\mu)^2}{\chi^2_{n;1-\alpha/2}}
+\right)
+\]
+
+Donde $\chi^2_{n;\alpha/2}$ cumple que $P(Z > \chi^2_{n;\alpha/2}) = \alpha/2$ para $Z \leadsto \chi^2(n)$.
+
+***** Pivote
+Tomamos como pivote a la función:
+
+\[
+\sum_{i=1}^n \left(\frac{X_i - \mu}{\sigma}\right)^2
+\leadsto
+\chi(n)
+\]
+
+***** Intervalos candidatos
+Usando el pivote tenemos el siguiente intervalo de confianza:
+
+\[
+1-\alpha = P\left(
+\frac{\sum_{i=1}^n (X_i-\mu)^2}{\lambda_2}
+\leq
+\sigma^2
+\leq
+\frac{\sum_{i=1}^n (X_i-\mu)^2}{\lambda_1}
+\right)
+\]
+
+Donde, si $\Phi$ es la función de distribución de $\chi(n)$, tenemos que
+$1-\alpha = \Phi(\lambda_2)-\Phi(\lambda_1)$. Buscamos minimizar $1/\lambda_1-1/\lambda_2$.
+
+***** Minimización
+Usamos minimizadores de Lagrange. Definimos:
+
+\[
+F(\lambda_1,\lambda_2) = 
+\frac{1}{\lambda_2}-\frac{1}{\lambda_1} + 
+\lambda(\Phi(\lambda_2)-\Phi(\lambda_1) - (1-\alpha))
+\]
+
+Calculando las derivadas parciales tenemos:
+
+\[
+\lambda\Phi'(\lambda_2) - \frac{1}{\lambda_2^2} = 0
+\]
+\[
+\lambda\Phi'(\lambda_1) - \frac{1}{\lambda_1^2} = 0
+\]
+
+Y por tanto se minimiza cuando $\Phi(\lambda_1)/\Phi(\lambda_2) = \lambda_2^2/\lambda_1^2$. En la práctica
+se usa el intervalo de colas iguales.
+
+***** Conclusión
+El intervalo de colas iguales nos da $\lambda_1 = \chi^2_{n;1-\alpha/2}$ y $\lambda_2 = \chi^2_{n;\alpha/2}$.
+
+**** B2. Intervalo para la varianza de una normal con media desconocida
+Sea $X \leadsto {\cal N}(\mu,\sigma^2)$. El intervalo para $\sigma^2$ de menor longitud media uniforme
+a nivel de confianza $1-\alpha$ es:
+
+\[
+\left(
+\frac{(n-1)S^2}{\chi^2_{n-1;\alpha/2}}
+,\quad
+\frac{(n-1)S^2}{\chi^2_{n-1;1-\alpha/2}}
+\right)
+\]
+
+Donde $\chi^2_{n-1;\alpha/2}$ cumple que $P(Z > \chi^2_{n-1;\alpha/2}) = \alpha/2$ para $Z \leadsto \chi^2(n-1)$.
+
+***** Pivote
+Tomamos como pivote:
+
+\[
+\frac{(n-1)S^2}{\sigma^2} \leadsto \chi^2(n-1)
+\]
+
+**** TODO C1. Intervalo para la diferencia de medias de normales de varianza dada
+**** C2. Intervalo para la diferencia de medias de normales de varianza igual
 Sean $X \leadsto {\cal N}(\mu_1,\sigma^2)$, $Y \leadsto {\cal N}(\mu_2, \sigma^2)$. El intervalo para $\mu_1-\mu_2$ de menor
 longitud media uniforme a nivel de confianza $1-\alpha$ es:
 
@@ -15366,7 +15448,7 @@ $\Phi'(\lambda_1) = \Phi'(\lambda_2)$, por monotonía y simetricidad, $\lambda_1
 ***** Conclusión
 Buscamos entonces el $t_{\alpha/2}$ que cumple $P(Z > t_{\alpha/2}) = \alpha/2$.
 
-**** Intervalo para el cociente de varianzas de normales de media dada
+**** D1. Intervalo para el cociente de varianzas de normales de media dada
 Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$, $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$. El intervalo para $\sigma_1^2/\sigma_2^2$ de menor
 longitud media uniforme a nivel de confianza $1-\alpha$ es:
 
@@ -15425,7 +15507,7 @@ Buscamos entonces:
   - el $F_{n_2,n_1;1-\alpha/2}$ que cumple $P(Z > F) = 1-\alpha/2$.
   - el $F_{n_2,n_1;\alpha/2}$ que cumple $P(Z>F) = \alpha/2$.
 
-**** Intervalo para el cociente de varianzas de normales de media desconocida
+**** D2. Intervalo para el cociente de varianzas de normales de media desconocida
 Sean $X \leadsto {\cal N}(\mu_1,\sigma^2_1)$, $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$. El intervalo para $\sigma^2_1/\sigma^2_2$ de menor
 longitud media uniforme a nivel de confianza $1-\alpha$ es:
 
@@ -15493,14 +15575,14 @@ El *test de hipótesis* es un estadístico $\varphi$ tomando valores en $[0,1]$,
 da la posibilidad de rechazar $H_0$ dada una realización muestral. Se 
 llama:
 
- - *Test no aleatorizado*, si toma valores $0,1$.
- - *Test aleatorizado*, si toma valor distinto de $0,1$.
+  - *Test no aleatorizado*, si toma valores $0,1$.
+  - *Test aleatorizado*, si toma valor distinto de $0,1$.
 
 **** Tipos de errores de un test de hipótesis
 Hay dos tipos de erorres:
 
- - *Error de tipo 1*: Rechazar $H_0$ siendo cierta. Falso negativo.
- - *Error de tipo 2*: Aceptar $H_0$ siendo falsa. Falso positivo.
+  - *Error de tipo 1*: Rechazar $H_0$ siendo cierta. Falso negativo.
+  - *Error de tipo 2*: Aceptar $H_0$ siendo falsa. Falso positivo.
 
 **** Función de potencia de un test
 Dado un test $\varphi$, su función de potencia $\beta_\varphi : \Theta \longrightarrow [0,1]$ se define:
