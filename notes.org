@@ -16628,6 +16628,195 @@ varianza, llegamos a $k = 1/\sqrt{n\alpha}$, que nos da el intervalo:
 
 Con la confianza $\alpha$.
 *** Tema 6. Contraste de hipotésis
+**** Ejercicio 1
+#+begin_statement
+Se toma una observación de una variable con distribución de Poisson para
+contrastar que la media vale 1 frente a que vale 2.
+
+  1. Construir un test no aleatorizado con nivel de significación 0.05 
+     para el contraste planteado. Calcular las probabilidades de cometer
+     error de tipo 1 y de tipo 2, el tamaño y la potencia del test frente
+     a la hipótesis alternativa.
+  2. ¿Cómo debe aleatorizarse el test para alcanzar el tamaño 0.05?¿Cuál
+     es la potencia de este test?
+#+end_statement
+
+Usaremos el lema de Neyman-Pearson para crear un test donde el problema
+de contraste es: $H_0 : \lambda = 2$, $H_1 : \lambda = 1$, para una distribución $Poi(\lambda)$.
+
+\[
+\varphi(X) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } f_1(X) \geq kf_0(X) \\
+0 & \mbox{if } f_1(X) < kf_0(X)
+\end{array} 
+\right.
+\]
+
+Sabemos que este test tendrá tamaño $\mathbb{E}_{\lambda=2}[\varphi]$, calculamos:
+
+\[f_1(x) = \frac{1}{ex!}\]
+
+\[
+f_0(x) = \frac{2^x}{e^2x!}
+\]
+
+La condición $f_1(X) \geq kf_0(X)$ equivale a:
+
+\[
+x \leq \log_2 \frac{e}{k}
+\]
+
+Siendo $\Phi$ la función de distribución de una Poisson $Poi(2)$, que es la 
+distribución que sigue aquí $x$, tenemos, consultando las tablas:
+
+\[
+\mathbb{E}_{\lambda=2}[\varphi] = 
+\Phi\left(\log_2\frac{e}{k}\right) = 
+0.05
+\]
+
+# Tenemos que resolver esto y no parece que en las tablas se dé nada
+# sensato. Repasar el ejercicio.
+**** Ejercicio 2
+#+begin_statement
+Una urna contiene 10 bolas, blancas y negras. Para contrastar que el 
+número de bolas blancas es 5 frente a que dicho número es 6 ó 7, se
+extraen tres bolas con reemplazamiento y se rechaza $H_0$ sólo si se 
+obtienen 2 ó 3 bolas blancas. Calcular el tamaño de este test y la
+potencia frente a alternativas.
+#+end_statement
+
+***** Tamaño del test
+Llamamos $X$ a la variable dada por cada extracción, siendo 1 si es blanca
+y 0 si es negra. Vemos que $X \leadsto B(1,\theta/10)$. Tenemos como hipótesis la
+hipótesis nula $H_0 : \theta = 5$ y la alternativa $H_1 : \theta \in \{6,7\}$. Nuestro test está
+definido por:
+
+\[
+\varphi(X_1,X_2,X_3) = 
+\left\{\begin{array}{ll} 
+1 & \mbox{if } \sum X_i = 2,3 \\
+0 & \mbox{if } \sum X_i = 0,1
+\end{array} 
+\right.
+\]
+
+Calculamos el tamaño sabiendo que $Z = \sum X_i \leadsto B(3,\theta/10)$:
+
+\[
+\sup_{\theta = 5} \beta_\varphi(\theta) = E_{\theta=5}[\varphi]
+=
+P(Z = 2) + P(Z=3) = \frac{1}{2}
+\]
+
+***** Potencia frente alternativas
+Calculamos:
+
+\[\beta_\varphi(6)\]
+\[\beta_\varphi(7)\]
+
+**** Ejercicio 4
+#+begin_statement
+Sea $(X_1,\dots,X_n)$ muestra aleatoria simple de una variable con distribución
+${\cal N}(\mu,\sigma^2_0)$. Deducir el test más potente de tamaño arbitrario para contrastar
+hipótesis simples sobre $\mu$.
+#+end_statement
+
+Aplicaremos Neyman-Pearson para crear un test con dos hipótesis,
+$H_0 : \mu =\mu_0$, $H_1:\mu =\mu_1$, de la forma:
+
+\[
+\varphi(X) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } f_1(X) > kf_0(X) \\
+\gamma(X) & \mbox{if } f_1(X) = kf_0(X)\\
+0& \mbox{if } f_1(X) < kf_0(X)
+\end{array} 
+\right.
+\]
+
+Que será el de mayor potencia con nivel de significación $E_{\mu_0}[\varphi]$.
+Calculamos la significación sabiendo que la condición $f_1 > kf_0$ nos
+da:
+
+\[
+f_1(X) = \frac{1}{(2\pi\sigma)^{n/2}} e^{-\sum \frac{(x_i-\mu_1)^2}{2\sigma^2}}
+\]
+
+\[
+f_0(X) = \frac{1}{(2\pi\sigma)^{n/2}} e^{-\sum \frac{(x_i-\mu_0)^2}{2\sigma^2}}
+\]
+
+Simplificando la condición:
+
+\[
+\sum x_i > \frac{\log k - (\mu_0^2-\mu_1^2)}{2(\mu_1-\mu_0)} = k'
+\]
+
+Y usamos la normal con $P(Z \geq z_\alpha) = \alpha$ para obtener el valor necesario para
+$k'$ si queremos un test de tamaño $\alpha$:
+
+\[
+k' = z_\alpha\sigma/\sqtr{n} + \mu_0
+\]
+
+El test más potente de tamaño $\alpha$ es entonces:
+
+\[
+\varphi(X) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } \sum x_i > k' \\
+0& \mbox{if } \sum x_i \leq k'
+\end{array} 
+\right.
+\]
+
+**** Ejercicio 5
+Deducir el test más potente de tamaño $\alpha$ para contrastar $H_0:\theta=\theta_0$
+frente a $H_1:\theta=\theta_1$ y calcular su potencia. ¿Cuál es el test óptimo fijado
+un nivel de significación arbitrario?
+
+**** Ejercicio 8
+Minimizando y calculando se llega a:
+
+\[
+\lambda(X) =
+\frac{1}{\theta_0^n} e^{(1-1/\theta_0)\sum x_i}
+\]
+
+**** Ejercicio 13
+#+begin_statement
+Un profesor asegura que tiene un nuevo método de enseñanza mejor que el
+usado tradicionalmente. Para comprobar si tiene razón se selecciona de
+forma aleatoria e independiente dos grupos de alumnos, A y B, utilizándose
+el nuevo método en el grupo A y el tradicional con el B. A final de curso
+se hace un examen a los alumnos, obteniéndose las siguientes puntuaciones.
+
+  - Grupo A: 6, 5, 4, 7, 3, 5.5, 6, 7, 6
+  - Grupo B: 5, 4, 5, 6, 4, 6, 5, 3, 7
+
+Supuesto que las puntuaciones de cada grupo siguen una distribución normal,
+¿proporcionan estos datos evidencia para rechazar el nuevo método, con
+un nivel de significación 0.05?
+#+end_statement
+
+Usaremos la dualidad entre intervalos de confianza y tests de hipótesis
+para buscar si el 0 está en un intervalo de confianza 0.95 de la diferencia
+de ambas medias. Las varianzas son desconocidas pero las suponemos iguales.
+
+El intervalo para $\mu_1-\mu_2$ de menor longitud media uniforme a nivel de
+confianza $1-\alpha$ es:
+
+\[
+\left(
+\overline{X}-\overline{Y} - t_{n_1+n_2-2;\alpha/2}S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+,\quad
+\overline{X}-\overline{Y} + t_{n_1+n_2-2;\alpha/2}S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+\right)
+\]
+
+Y simplemente calculamos.
 * Topología II
 ** 1. El grupo fundamental
 *** 1. Espacios conexos por arcos
