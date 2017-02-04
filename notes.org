@@ -13747,7 +13747,7 @@ Var(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \lambda
 \]
 
 **** Suma de Poisson
-Para $X \leadsto Poi(\lambda_1)$, $Y \leadsto Poi(\lambda_2)$ independientes, su suma es sigue la
+Para $X \leadsto Poi(\lambda_1)$, $Y \leadsto Poi(\lambda_2)$ independientes, su suma sigue la
 distribución con el parámetro suma.
 
 \[
@@ -14285,7 +14285,7 @@ Los estadísticos $\overline{X}$ y $S^2$ son independientes.
 
 ***** TODO Demostración
 
-**** Inferencia de la media con varianza conocida
+**** A1. Inferencia de la media con varianza conocida
 Sea $X \leadsto {\cal N}(\mu,\sigma^2)$, y $\overline{X}$ su media muestral:
 
 \[
@@ -14315,7 +14315,7 @@ Sea $X \leadsto {\cal N}(\mu,\sigma^2)$, entonces:
 Usando que la suma de cuadrados de normales estándar es una
 distribución chi cuadrado.
 
-**** Inferencia de la varianza con media desconocida
+**** B2. Inferencia de la varianza con media desconocida
 Sea $X \leadsto {\cal N}(\mu,\sigma^2)$ con $S^2$ su cuasivarianza muestral, entonces:
 
 \[
@@ -15169,7 +15169,7 @@ distribución. Un pivote es:
 
 ***** TODO Demostración
 *** Ejemplos de intervalos de confianza
-**** Intervalo para la media de una normal con varianza conocida
+**** A1. Intervalo para la media de una normal con varianza conocida
 Sea $X \leadsto {\cal N}(\mu,\sigma^2_0)$. El intervalo para $\mu$ de menor longitud
 media uniforme a nivel de confianza $1-\alpha$ será:
 
@@ -15239,7 +15239,7 @@ distintos para cumplir la restricción, tenemos $\lambda_1 = -\lambda_2$.
 La restricción nos fuerza a $\Phi(\lambda_2) - \Phi(-\lambda_2) = 1 - \alpha$, luego estamos
 buscando el $z_{\alpha/2}$ que cumple, para una normalizada $Z$, $P(Z > z_{\alpha/2}) = \alpha/2$.
 
-**** Intervalo para la media de una normal con varianza desconocida
+**** A2. Intervalo para la media de una normal con varianza desconocida
 Sea $X \leadsto {\cal N}(\mu,\sigma^2)$. El intervalo para $\mu$ de menor longitud media uniforme
 a nivel de confianza $1-\alpha$ será:
 
