@@ -7812,11 +7812,12 @@ gracias a las bases de Gröbner.
 **** Propiedades de las variedades
 Las variedades dadas por ideales cumplen:
 
-  1. \[\mathbb{V}\left(
+  1. \[\bigcap_{\lambda \in \Lambda} \mathbb{V}(J_\lambda)
+     = \mathbb{V}\left(
      \sum_{\lambda \in \Lambda} J_\lambda
-     \right) = \bigcap_{\lambda \in \Lambda} \mathbb{V}(J_\lambda)\]
+     \right)\]
 
-  2. $\mathbb{V}(J_1J_2) = \mathbb{V}(J_1) \cup \mathbb{V}(J_2) = \mathbb{V}(J_1 \cap J_2)$
+  2. $\mathbb{V}(J_1) \cup \mathbb{V}(J_2) = \mathbb{V}(J_1J_2) = \mathbb{V}(J_1 \cap J_2)$
 
   3. $\mathbb{V}(0) = \mathbb{A}^n(K)$
 
@@ -7850,7 +7851,7 @@ polinomios constantes no nulos en cualquier cuerpo.
 **** Topología de Zariski
 Las variedades son los cerrados de una topología sobre $\mathbb{A}^n(K)$.
 
-1\[\{
+\[\{
 V \subseteq \mathbb{A}^n(K) 
 \mid
 V \text{ es variedad algebraica afín}
@@ -8122,7 +8123,7 @@ del tipo $f : \mathbb{A}^1(\mathbb{R}) \longrightarrow W$:
 \]
 
 Que es claro que es polinómica. Tenemos $f$ biyectiva. Pero vemos que no
-es isoomorfismo de variedades:
+es isomorfismo de variedades con $\widetilde f(X) = T^2$, $\widetilde f(X) = T^3$:
 
 \[\widetilde{f} : \frac{K[X,Y]}{(X^3-Y^2)} \longrightarrow K[T]\]
 
@@ -8130,13 +8131,13 @@ Ya que $\tilde{f}$ no es sobreyectiva porque $T \notin \im(\tilde{f})$.
 
 **** Núcleos e imágenes de morfismos de anillos de coordenadas
 Sea $h : K[W] \longrightarrow K[V]$ un morfismo de K-álgebras dado por
-$h(Y_i + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$.
+$h(Y_j + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$.
 
-  1. Sea $A = K[X_1,\dots,X_n]$ y sea $C$ el ideal de $A$ generado por:
+  1. Sea el ideal de $K[X_1,\dots,X_n,Y_1,\dots,Y_n]$ dado por
+     $C = (Y_1-F_1,\dots,Y_m-F_m) + \mathbb{I}(V)$, entonces:
 
-     \[\{Y_1-F_1,\dots,Y_m-F_m\} \cup \{\text{sistema de generadores de } \mathbb{I}(V)\}\]
-
-     Entonces $\ker(h) = ((C \cap K[Y_1,\dots,Y_m]) + \mathbb{I}(W)) / \mathbb{I}(W)$.
+     \[\ker(h) = 
+     ((C \cap K[Y_1,\dots,Y_m]) + \mathbb{I}(W)) / \mathbb{I}(W)\]
 
   2. Sea $\mathbb{G}$ una base de Gröbner reducida de $C$ con orden lexicográfico:
 
@@ -8151,7 +8152,7 @@ $h(Y_i + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$.
 Se cumple:
 
   1. $h$ inyectiva $\iff$ $C \cap K[Y_1,\dots,Y_m] \subseteq \mathbb{I}(W)$.
-  2. $h$ sobreyectiva $\iff$ existe un $M_i$ tal que $X_i-M_i \in \mathbb{G}$.
+  2. $h$ sobreyectiva $\iff$ existen $M_i \in K[Y_1,\dots,Y_m]$ tal que $X_i-M_i \in \mathbb{G}$.
 
 ***** TODO Demostración
 **** Representación paramétrica polinomial
@@ -8226,6 +8227,8 @@ Un ideal $P$ propio es:
   - Primo ssi $R/P$ es dominio de integridad.
   - Maximal ssi $R/P$ es un cuerpo.
  
+Así, tenemos que primo implica maximal.
+
 ****** Demostración: primos
 Véase que es equivalente a pedir que a $(x+P)(y+P) \neq 0$ equivalga
 $x+P = 0$ ó $y+P = 0$.
