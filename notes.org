@@ -8182,13 +8182,45 @@ donde $J = (X_1-F_1,\dots,X_m-F_m) \subseteq K[X_1,\dots,X_n,T_1,\dots,T_n]$.
 
 ** Temas de teoría
 *** 1. Ideales maximales y primos. Teorema de Krull.
+**** Ideales                                                       :extra:
+Un ideal de $R$ es un subconjunto cerrado para la suma y
+el producto por elementos $R$.
+
+***** Anillo cociente
+Para un $R$ anillo con $\alpha$ ideal, se define el *anillo cociente*:
+
+\[
+R/\alpha = \{x+\alpha\mid x \in R\}
+\]
+
+Obtenido por la relación $x \sim y \iff x-y\in\alpha$, con la suma y el
+producto proyectados.
+**** Retículo de ideales                                           :extra:
+Los ideales forman un retículo con la suma y la intersección.
+Se tiene:
+
+  - $I,J \subseteq I + J$
+  - $I \cap J \subseteq I,J$
+
+***** Son ideales
+Claramente son cerrados para la suma y el producto externo por serlo
+ambos.
+
+**** Anillo cociente                                               :extra:
+Dado $R$ anillo con $\alpha$ ideal, tomamos la relación de equivalencia 
+$x \sim y \iff x-y\in\alpha$, para obtener el ideal:
+
+\[
+R/\alpha = \{x+\alpha \mid x \in R\}
+\]
+
 **** Ideales primos y maximales
 Un ideal propio $P$ es:
 
-  - Primo, si $xy \in P \implies x \in P, y \in P$.
+  - Primo, si $xy \in P \implies x \in P \vee y \in P$.
   - Maximal, si es maximal en el retículo de ideales.
  
-***** Caracterización de ideales primos y maximales 
+***** Caracterización de ideales primos y maximales
 Un ideal $P$ propio es:
 
   - Primo ssi $R/P$ es dominio de integridad.
@@ -8230,11 +8262,11 @@ $(M+(y)) \cap S$ son no vacíos y existen $xz,yt \in S$. Entonces tenemos
 que $xzyt \in M \cap S$, contradicción.
 
 ***** Corolario al teorema de Krull
-Todo ideal tiene un ideal maximal que lo contiene.
+Todo ideal tiene un ideal maximal que lo contiene. Además, todo elemento
+no unidad tiene un ideal maximal que lo contiene.
 
 ****** Demostración
 Tomando $S = \{1\}$.
-
 *** 2. Nilradical y radical de Jacobson.
 **** Nilradical
 El *nilradical* es el ideal dado por los elementos nilpotentes:
