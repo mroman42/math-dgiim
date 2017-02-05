@@ -13884,16 +13884,38 @@ P\left(
 \]
 
 ** Distribuciones discretas
-*** Distribución uniforme
+*** 1. Distribución uniforme
 **** Definición
 Se define sobre un conjunto finito de valores $\{x_i\}$ con la misma 
 probabilidad como:
 
 \[f(x_i|n) = \frac{1}{n}\]
+*** 2. Distribución binomial
+**** Definición
+Determina la probabilidad de $x$ aciertos en $n$ experimentos de Bernoulli.
+La función de distribución de $B(x|n,p)$ es:
 
-**** Función generatriz de momentos
+\[
+f(x|n,p) = {n \choose x}p^x (1-p)^{n-x}
+\]
 
-*** Distribución de Poisson
+***** Esperanza
+
+\[\mathbb{E}[X] = np\]
+
+***** Varianza
+
+\[Var[X] = np(1-p)\]
+*** 3. Distribución multinomial
+**** Definición
+Deriva de una binomial con $k$ salidas distintas de probabilidades $p_1,\dots,p_k$
+como:
+
+\[
+f(X|n,p_1,\dots,p_k) = \frac{n!}{X_1!X_2!\dots X_n!}p^{X_1}p^{X_2}\dots p^{X_k}
+\]
+
+*** 4. Distribución de Poisson
 **** Definición
 Definimos la distribución de Poisson $Poi(\lambda)$ como:
 
@@ -13938,35 +13960,8 @@ distribución con el parámetro suma.
 \[
 X + Y \leadsto Poi(\lambda_1+\lambda_2)
 \]
-
-*** Distribución binomial
-**** Definición
-Determina la probabilidad de $x$ aciertos en $n$ experimentos de Bernoulli.
-La función de distribución de $B(x|n,p)$ es:
-
-\[
-f(x|n,p) = {n \choose x}p^x (1-p)^{n-x}
-\]
-
-***** Esperanza
-
-\[\mathbb{E}[X] = np\]
-
-***** Varianza
-
-\[Var[X] = np(1-p)\]
-
-*** Distribución multinomial
-**** Definición
-Deriva de una binomial con $k$ salidas distintas de probabilidades $p_1,\dots,p_k$
-como:
-
-\[
-f(X|n,p_1,\dots,p_k) = \frac{n!}{X_1!X_2!\dots X_n!}p^{X_1}p^{X_2}\dots p^{X_k}
-\]
-
 ** Distribuciones continuas
-*** Distribución normal
+*** 1. Distribución normal
 **** Definición
 Definimos la distribución normal ${\cal N}(\mu,\sigma^2)$ como aquella con función de
 densidad:
