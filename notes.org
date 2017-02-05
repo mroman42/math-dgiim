@@ -8434,6 +8434,7 @@ F - tl(F) = \sum Q_i'G_i + R'
 
 Y tomamos entonces $R=R'+tl(F)$, que sigue cumpliendo las 
 condiciones.
+
 *** 4. Ideales monomiales.
 **** Ideales monomiales
 Un *ideal monomial* está generado por monomios, es de la forma:
@@ -8749,6 +8750,10 @@ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}
 \]
 
 *** 7. Anillo de coordenadas de una variedad. Aplicaciones polinómicas.
+**** Espacio afín de un álgebra                                    :extra:
+Llamamos $\mathbb{A}^n(K)$ al espacio afín sobre $K^n$ con la función afín
+$\varphi : K^n \times K^n \longrightarrow K^n$ dada por $\varphi(u,v) = v-u$.
+
 **** Aplicaciones polinómicas
 Una aplicación polinomial o morfismo entre variedades es una aplicación
 $f : V \longrightarrow W$, variedades de $\mathbb{A}^n$ y $\mathbb{A}^m$, de la forma:
@@ -8830,6 +8835,7 @@ Entonces comprobamos que: $\widetilde{g \circ f}(H) = \widetilde f  \circ \widet
 ****** Punto 4
 Por el punto anterior y viendo simplemente que $\widetilde{id} = id$.
 
+**** TODO Caracterización de núcleos e imágenes
 ** Ejercicios
 *** Relación 1
 **** Ejercicio 1
