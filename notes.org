@@ -6732,13 +6732,14 @@ Sus elementos se llaman *nilpotentes*:
 El nilradical es un ideal.
 
 **** Anillo reducido
-Un anillo es *reducido* si $\operatorname{Nil}(R) = 0$. Los dominios de integridad son reducidos. 
-Además, podemos reducir un anillo dividiendo por su nilradical $R/\operatorname{Nil}(R)$.
+Un anillo es *reducido* si $\operatorname{Nil}(R) = 0$. Los dominios de integridad son 
+reducidos. Además, podemos reducir un anillo dividiendo por su 
+nilradical $R/\operatorname{Nil}(R)$.
 
 **** Espectro
 El *espectro* de un anillo R es el conjunto de sus ideales primos:
 
-\[\spec(R) = \{\pi\in R \mid \pi \text{ es un ideal primo}\}\]
+\[\spec(R) = \{\pi\subset R \mid \pi \text{ es un ideal primo}\}\]
 
 **** Caracterización del nilradical
 El nilradical de $R$ es la intersección de los ideales del espectro:
@@ -6786,7 +6787,8 @@ un maximal no puede contener una unidad.
 
 *** Ideales residuales y anulador
 **** Definición
-Definimos el *ideal residual* (a veces llamado *cociente*) de dos ideales como:
+Definimos el *ideal residual* (a veces llamado *cociente*) de dos 
+ideales como:
 
 \[ (\alpha : \beta) = \{x\in R\mid x\beta \subset\alpha\}\]
 
@@ -6855,9 +6857,9 @@ R \uar{\exists! f} \urar{p_i}
 
 Tenemos que:
 
- 1. Si los $\alpha_i$ son primos entre sí, $\prod \alpha_i = \bigcap \alpha_i$.
- 2. La $f$ es sobreyectiva ssi los $\alpha_i$ son primos entre sí.
- 3. La $f$ es inyectiva ssi $\bigcap \alpha_i = 0$. De hecho, $\ker(f) = \bigcap \alpha_i$.
+  1. Si los $\alpha_i$ son primos entre sí, $\prod \alpha_i = \bigcap \alpha_i$.
+  2. La $f$ es sobreyectiva ssi los $\alpha_i$ son primos entre sí.
+  3. La $f$ es inyectiva ssi $\bigcap \alpha_i = 0$. De hecho, $\ker(f) = \bigcap \alpha_i$.
 
 ***** Demostración
 1. El caso $n=2$ es conocido. En el caso $n>2$, aplicamos la hipótesis
@@ -7174,6 +7176,9 @@ Dados $F,G \in K[X_1,\dots,X_n]$ no nulos:
   3. Si $exp(F) < exp(G)$; entonces $exp(F+G) = exp(G)$.
 
 ***** Demostración
+En el fondo, parte sólo de la observación de que son K-espacios 
+vectoriales y tienen de base a los distintos monomios.
+
 ****** Punto 1
 Primero notamos que si estamos en un cuerpo, el producto de dos
 polinomios tendrá en su diagrama de Newton a la suma de cualesquiera
@@ -7192,8 +7197,6 @@ La suma tendrá como mucho los exponentes de $F$ y de $G$. Pero además,
 conserva los exponentes que sólo estuvieran en uno de los dos con los
 coeficientes intactos.
 
-En el fondo, parte sólo de la observación de que son K-espacios 
-vectoriales y tienen de base a los distintos monomios.
 
 **** Partición de generadores
 Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
@@ -7541,6 +7544,7 @@ $F \in \mathbb{G}$ tal que $exp(F) \in \{exp(G) \mid G \in \mathbb{G}, F \neq G 
 es también una base de Gröbner de $I$.
 
 ***** Demostración
+# Esto no parece necesario. Es trivial desde la definición.
 Si $R(F;\mathbb{G}\setminus \{F\})$ está en $\overline\Delta$, que es el mismo que generarían
 con $F$. Pero como está en el ideal, debería ser $0$.
 
@@ -7604,7 +7608,7 @@ Trivialmente, si todo el diagrama de Newton está fuera de lo que
 generan los demás; el exponente está fuera de lo que generan los demás.
 
 **** Existencia y unicidad de la base reducida
-Todo ideal no nulo $I$ tiene una única base de Gröbner reducida
+Todo ideal no nulo $I$ tiene una única base de Gröbner reducida.
 
 ***** Demostración
 ****** Existencia
