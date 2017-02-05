@@ -8431,7 +8431,6 @@ F - tl(F) = \sum Q_i'G_i + R'
 
 Y tomamos entonces $R=R'+tl(F)$, que sigue cumpliendo las 
 condiciones.
-
 *** 4. Ideales monomiales.
 **** Ideales monomiales
 Un *ideal monomial* está generado por monomios, es de la forma:
@@ -8486,6 +8485,32 @@ sistema de generadores:
 
 Dado cualquier $F\in I$, cada monomio suyo estará en $I$, luego será 
 generado por este sistema.
+
+**** Exponente de un ideal                                         :extra:
+El exponente de un ideal es el conjunto de exponentes de sus polinomios:
+
+\[
+Exp(I) = \{
+exp(F) \mid 0\neq F \in I
+\} \subseteq \mathbb{N}^n
+\]
+
+El exponente es un monoideal, es decir, $Exp(I) + \mathbb{N}^n = Exp(I)$.
+
+***** Demostración
+Nótese que tenemos $exp(X^\gamma F) = \gamma + exp(F)$.
+
+**** Lema de Dickson                                               :extra:
+Para $S \subseteq \mathbb{N}^n$ no vacío, existe $G \subseteq S$ finito tal que $S \subseteq G + \mathbb{N}^n$.
+
+***** Monoideal
+Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E+\mathbb{N}^n$.
+
+***** Sistemas de generadores
+Si $E$ es monoideal, existe un $G \subset E$ finito con $E = G + \mathbb{N}^n$. Llamamos
+a $G$ sistema de generadores de $E$.
+
+Esto es debido al lema de Dickson.
 
 *** 5. Bases de Gröbner. Aplicaciones.
 **** Base de Gröbner
