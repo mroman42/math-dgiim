@@ -8278,6 +8278,11 @@ El *nilradical* es el ideal dado por los elementos nilpotentes:
 ***** Es un ideal
 Trivial usando el binomio de Newton.
 
+***** Anillo reducido
+Un anillo se dice reducido si $\operatorname{Nil}(R) = 0$. Los dominios de integridad son
+trivialmente reducidos. Además, podemos reducir un anillo dividiéndolo
+por su nilradical, $R/\operatorname{Nil}(R)$.
+
 **** Caracterización del Nilradical
 El nilradical es la intersección de ideales del espectro, los ideales
 primos del anillo.
@@ -8293,6 +8298,23 @@ Si $x^n = 0 \in \pi$, por primalidad, $x \in \pi$ para cualquier ideal primo.
 ****** En la intersección es nilpotente
 Si $x \notin \operatorname{Nil}(R)$, $S=\{1,x,x^2,\dots\}$ es multiplicativamente cerrado con
 $S \cap \operatorname{Nil}(R) = \varnothing$, y por Krull, existe un primo con $\pi \cap S = \varnothing$.
+
+**** Radical de un ideal                                           :extra:
+El *radical de un ideal* se define como:
+
+\[
+\sqrt{\alpha} = \{x \in R \mid x^n \in \alpha\}
+\]
+
+Cuando $\alpha = \sqrt{\alpha}$, lo llamamos *ideal radical*.
+
+***** Caracterización
+Tenemos que $\operatorname{Nil}(R/\alpha) = \sqrt{\alpha}/\alpha$ por construcción. De esa forma además 
+llegamos a caracterizar al radical como:
+
+\[
+\sqrt{\alpha} = \bigcap_{\alpha \subset \pi \in \operatorname{Spec}(R)} \pi
+\]
 
 **** Radical de Jacobson
 El *radical de Jacobson* es el dado por:
@@ -8315,6 +8337,31 @@ Si $x\notin M$ maximal, $(x)+M = R$. Luego $1-xy \in M$, y un maximal
 no puede contener una unidad.
 
 *** 3. Algoritmo de la división en K[X1,…,Xn].
+**** Órdenes monomiales                                            :extra:
+Un orden monomial $\leq$ en $\mathbb{N}^n$ es un orden compatible, monótono y total.
+
+  1. *Compatible:* si $x\leq y$, entonces $\gamma+x \leq \gamma+y$.
+  2. *Monótono:* $0 \leq x$.
+  3. *Total:* o bien $x \leq y$, o bien $y \leq x$.
+
+**** Componentes de la división                                    :extra:
+Definimos los siguientes componentes para un polinomio
+expresado como $p = \sum a_\alpha X^\alpha$:
+
+  - ${\cal N}(p) = \{\alpha \in \mathbb{N}^n \mid a_\alpha \neq 0\}$, diagrama de Newton.
+  - $exp(p) = \max\{\alpha \in \mathbb{N}^n \mid a_\alpha \neq 0\}$, exponente.
+  - $tl(p) = a_{exp(p)}X^{exp(p)}$, término líder.
+
+***** Propiedades del exponente
+Dados $F,G \in K[X_1,\dots,X_n]$ no nulos, se cumple:
+
+  1. $exp(FG) = exp(F)+exp(G)$
+  2. $exp(F+G) \leq \max\{exp(F),exp(G)\}$
+  3. Si $exp(F) < exp(G)$, entonces $exp(F+G) = exp(G)$.
+
+****** Demostración
+Se demuestran usando que los polinomios forman un K-espacio vectorial
+teniendo de base a los monomios.
 **** Partición de generadores
 Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
 definimos inductivamente como:
