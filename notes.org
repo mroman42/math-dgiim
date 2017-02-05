@@ -14030,8 +14030,165 @@ Si $X \leadsto {\cal N}(\mu,\sigma^2)$, entonces $kX \leadsto {\cal N}(k\mu,k\si
 Sean $X,Y$ independientes. Si $X+Y$ es normal, $X$ e $Y$ son normales.
 
 ***** TODO Demostración
+*** 2. Distribución χ² de Pearson
+**** Distribución chi cuadrado
+Es un caso particular de la distribución gamma, $X \leadsto \chi^2(k) = \Gamma(k/2,1/2)$.
+Al parámetro $k$ se le llama *número de grados de libertad*.
 
-*** Distribución exponencial
+***** Gráfica de la función de densidad
+#+BEGIN_SRC R :file images/chi.png :results graphics
+  library(ggplot2)
+  library(ggfortify)
+  gg = NULL
+  for (i in c(1,2,3,4,5)) {
+      gg = ggdistribution(dchisq, seq(0, 6, 0.1),
+                          df = i,
+                          colour=topo.colors(5)[i], p=gg)
+  }
+  print(gg + labs(title = "Distribución χ²(n), variando n."))
+#+END_SRC
+
+#+RESULTS:
+[[file:images/chi.png]]
+
+***** Función de densidad
+
+ \[f(x) = \frac{1}{\Gamma(\frac{k}{2})2^{k/2}} x^{k/2-1}e^{-x/2}\]
+
+****** TODO Demostración
+**** Función generatriz de momentos
+
+\[M_X(t) = \frac{1}{(1-2t)^{k/2}}\], para $t < 1/2$.
+
+***** TODO Demostración
+***** Esperanza y varianza
+
+ - $E[X] = k$
+ - $Var[X] = 2k$
+
+****** Demostración
+Se calculan desde la función generatriz.
+
+**** Propiedad de reproductividad
+Si tengo una serie de variables independientes distribuidas 
+por $X_i \leadsto \chi^2(k_i)$, entonces:
+
+\[\sum_{i=1}^n X_i \leadsto \chi^2 \left(\sum_{i=1}^n k_i \right)\]
+
+**** Relación con la normal
+Dadas variables independientes $X_i \leadsto {\cal N}(0,1)$,
+
+ \[\sum_{i=1}^n X^2_i \leadsto \chi^2(n)\]
+
+***** TODO Demostración
+
+**** Teorema central del límite de Lèvy
+Para valores pequeños, pueden usarse tablas. Para valores grandes
+de $n$, podemos aproximarla mediante el Teorema Central del Límite
+como:
+
+\[ \chi^2(n) \approx {\cal N}(n,2n)\]
+
+***** TODO Demostración                                           :extra:
+*** 3. Distribución t de Student
+**** Definición 
+Dadas dos variables independientes $X \leadsto {\cal N}(0,1)$ e $Y \leadsto \chi^2(n)$,
+tenemos:
+
+\[ T = \frac{X}{\sqrt{Y/n}} \leadsto t(n) \]
+
+***** Función de densidad
+
+\[ f(t) 
+= \frac
+{\Gamma\left(\frac{n+1}{2}\right)}
+{\Gamma\left(\frac{n}{2}\right) \sqrt{n\pi}} 
+\left(
+1 + \frac{t^2}{n}
+\right)^{-\frac{n+1}{2}}
+\], $t \in \mathbb{R}$
+
+****** TODO Demostración
+
+***** Gráfica de la función de densidad
+#+BEGIN_SRC R :file images/tstudent.png :results graphics
+  library(ggplot2)
+  library(ggfortify)
+  gg = NULL
+  for (i in c(1,2,3,4,5)) {
+      gg = ggdistribution(dt, seq(0, 3, 0.1),
+                          df=i,
+                          colour=topo.colors(5)[i], p=gg)
+  }
+  print(gg + labs(title = "T de Student, variando n."))
+#+END_SRC
+
+#+RESULTS:
+[[file:images/tstudent.png]]
+
+**** Momentos
+Tenemos que $\exists E[T^k] \iff k < n$. Cuando existen, se tiene
+
+ - $E[T] = 0$
+ - $Var[T] = \frac{n}{n-2}$
+
+***** TODO Demostración
+
+**** Aproximación por la normal
+Tabulada para $n$ pequeños y aproximada por ${\cal N}(0,1)$ para valores
+grandes.
+*** 4. Distribución F de Snedecor
+**** Definición
+*F de Snedecor*. Dadas dos variables independientes $X \leadsto \chi^2(m)$ e
+$Y \leadsto \chi^2(n)$, su cociente nos da:
+
+\[F = \frac{X/m}{Y/n} \leadsto F(m,n)\]
+
+***** Gráfica de la función de densidad
+#+BEGIN_SRC R :file images/fsnedecor.png :results graphics
+  library(ggplot2)
+  library(ggfortify)
+  gg = NULL
+  for (i in c(1,2,3,4,5)) {
+      gg = ggdistribution(df, seq(0, 2, 0.04),
+                          df1=i, df2=i-1,
+                          colour=topo.colors(5)[i], p=gg)
+  }
+  print(gg + labs(title = "F de Snedecor, variando n y m."))
+#+END_SRC
+
+#+RESULTS:
+[[file:images/fsnedecor.png]]
+
+***** Función de densidad
+
+\[g(t)
+= \frac
+{\Gamma(\frac{m+n}{2})}
+{\Gamma(\frac{m}{2})\Gamma(\frac{n}{2})}
+\left(\frac{m}{n}\right)^{\frac{m}{2}}
+t^{m/2-1}
+\left(1+\frac{m}{n}t\right)^{-\frac{m+n}{2}}\], para $t>0$.
+
+****** TODO Demostración
+
+**** Momentos
+Tenemos que $\exists E[T^k] \iff k < n/2$.
+
+ - $n > 2 \Rightarrow \exists E[F] = \frac{n}{n-2}$
+ - $n > 4 \Rightarrow \exists Var[F] = \frac{n^2(2m+2n-4)}{m(n-2)^2(n-4)}$
+
+***** TODO Demostración
+
+**** Propiedades
+\[ F \leadsto F(m,n) \iff F^{-1} \leadsto F(n,m)\]
+\[T \leadsto t(n) \iff T^2 \leadsto F(1,n)\]
+
+**** Aproximación
+La distribución está tabulada y las tablas incluyen aproximaciones 
+para valores grandes de $n$ y $m$.
+
+*** 5. Distribución exponencial
 **** Distribución exponencial
 Dado un $\lambda>0$, definimos la distribución exponencial, $\operatorname{Exp}(\lambda)$, como aquella
 con función de densidad:
@@ -14055,8 +14212,7 @@ La exponencial es un caso particular de la distribución Gamma:
 \[
 Exp(\lambda) = \Gamma(1,\lambda)
 \]
-
-*** Distribución de Dirichlet
+*** 6. Distribución de Dirichlet
 **** Distribución de Dirichlet
 Dado un vector de reales $\alpha_1,\alpha_2,\dots,\alpha_n$, definimos la distribución $Dir(\alpha)$ 
 como la que tiene función de densidad:
@@ -14086,8 +14242,7 @@ E[X_i] = \frac{\alpha_i}{\sum_k \alpha_k}
 \[
 Var[X_i] = \frac{\alpha_i(\alpha_0-\alpha_i)}{\alpha_0^2(\alpha_0+1)}
 \]
-
-*** Distribución Gamma
+*** 7. Distribución Gamma
 **** Función Gamma
 Se define la función gamma $\Gamma : (0,\infty) \longrightarrow (0,\infty)$ como:
 
@@ -14173,8 +14328,7 @@ Para $X \leadsto \Gamma(\alpha_1,\beta)$, $Y \leadsto \Gamma(\alpha_2,\beta)$, i
 \[
 X+Y \leadsto \Gamma(\alpha_1+\alpha_2,\beta)
 \]
-
-*** Distribución Beta
+*** 8. Distribución Beta
 **** Función Beta
 Se define la función beta $\beta : (0,\infty) \longrightarrow (0,\infty)$ como:
 
