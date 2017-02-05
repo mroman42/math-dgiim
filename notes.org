@@ -8521,7 +8521,7 @@ cumpliendo $Exp(I) = \{exp(G_1),\dots,exp(G_n)\} + \mathbb{N}^n$.
 Las bases de Gröbner en $K[X_1,\dots,X_n]$ cumplen:
 
   1. Todo ideal no nulo tiene base de Gröbner.
-  2. Toda base de Gröbner de un ideal es base de generadores del ideal.
+  2. Toda base de Gröbner de un ideal genera al ideal.
   3. *Teorema de la base de Hilbert*: todo ideal es finitamente generado.
 
 ***** Demostración
@@ -8557,6 +8557,83 @@ F = \sum_{i=0}^n Q_iG_i
 
 Donde $exp(Q_iG_i) \in \Delta^i$, y como forman una partición disjunta, se
 tiene que el $exp(F) = \max\{exp(Q_iG_i)\} \notin \overline{\Delta}$. Por tanto $Exp(I)\cap\overline{\Delta} = \varnothing$.
+
+**** Base de Gröbner minimal                                       :extra:
+Una base de Gröbner de $I$ se dice minimal si, para cualquier $F \in \mathbb{G}$:
+
+  1. $cl(F) = 1$
+  2. $exp(F) \notin \{exp(G) \mid G\in\mathbb{G}, G\neq F\} + \mathbb{N}^n$
+
+***** Retirar polinomios
+Sea $\mathbb{G}$ base de Gröbner con un ideal no nulo y sea un $F \in \mathbb{G}$ que no
+cumple la segunda condición de minimalidad. Tenemos que $\mathbb{G}\setminus\{F\}$ es
+también base de Gröbner, ya sus exponentes siguen generando $Exp(I)$.
+
+**** Base de Gröbner reducida                                      :extra:
+Una base de Gröbner $\mathbb{G}$ de $I$ es reducida cuando para cualquier $\forall F\in\mathbb{G}$:
+
+  1. $cl(F) = 1$
+  2. ${\cal N}(F) \cap \{exp(G) \mid G \in \mathbb{G}, G \neq F\} + \mathbb{N}^n = \varnothing$
+
+Toda base de Gröbner reducida es minimal y todo ideal no nulo $I$ tiene una
+única base de Gröbner reducida.
+
+***** Demostración: existencia
+Dada una base de Gröbner, podemos llegar a una base de Gröbner minimal
+retirando polinomios. Y dada una base minimal, podemos llegar a una base
+reducida dividiendo cada polinomio por todos los demás y sustituyéndolo
+por su resto, que tiene el mismo exponente por ser la anterior una base
+minimal.
+
+***** Demostración: unicidad
+Si hubiera dos bases reducidas, tomaríamos los dos elementos con el mismo
+exponente en cada una de ellas, y dividiríamos su resto $F-F' \in I$, que
+debe dar resto $0$:
+
+\[R(F-F';\mathbb{G}) = F-F'
+\]
+
+Ya que por ser una base reducida, ${\cal N}(F-F') \subseteq \overline{\Delta}$.
+
+**** Aplicaciones: Problema de pertenencia
+Sea $I$ ideal con un sistema de generadores. Podemos calcular si $F \in I$
+calculando una base de Gröbner del ideal y usando:
+
+\[F \in I \iff R(F,\mathbb{G}) = 0\]
+
+**** Aplicaciones: Igualdad de ideales
+Dados dos ideales $I,J$ con sus sistemas de generadores. Podemos comprobar
+que serán iguales calculando sus bases de Gröbner reducidas, que por
+unicidad, deben ser iguales.
+
+**** Aplicaciones: Ideal de eliminación
+Dado $I$ ideal no nulo. Definimos el j-ésimo ideal de eliminación como:
+
+\[
+I_j = I \cap K[X_{j+1},\dots,X_n]
+\]
+
+Si $\mathbb{G}$ era base de Gröbner con el orden lexicográfico de $I$, entonces:
+
+\[
+\mathbb{G}_j = \mathbb{G} \cap I_j
+\]
+
+es base de Gröbner de $I_j$.
+
+***** Cálculo de la intersección
+Sean $I,J$ ideales no nulos de $K[X_1,\dots,X_n]$ y sea:
+
+\[
+H = TI + (1-T)J \subseteq K[T,X_1,\dots,X_n]
+\]
+
+considerando los ideales extendidos. Entonces su intersección es el
+primer ideal de eliminación de $H$:
+
+\[
+I \cap J = H \cap K[X_1,\dots,X_n]
+\]
 
 *** 6. Variedades algebraicas afines. Correspondencia ideal-variedad.
 **** Variedades algebraicas afines
