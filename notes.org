@@ -19950,7 +19950,78 @@ y el centro es de esa forma:
 \lambda I \mid \lambda \in K
 \right\}
 \]
+
 * Taller de Geometría y Topología
+** 1. Construcciones con regla y compás 
+*** 1.1. Construcciones posibles
+**** 1.1.0. Construcciones elementales
+Axiomáticamente consideramos realizables las siguientes construcciones
+elementales:
+
+  1. Dados dos puntos, puede construirse un *segmento* entre ellos.
+  2. Todo segmento puede extenderse.
+  3. Dados dos puntos, puede construirse un *círculo* con centro y radio.
+  4. Dadas dos rectas secantes, puede construirse su *punto* de corte.
+  5. Dados círculo y rectas, puede construirse su *punto* de corte.
+  6. Dados círculos tangentes, pueden construirse *puntos* de corte.
+
+***** Equivalencia de compases                                    :extra:
+Asumimos un compás colapsable, pero podríamos usar uno no colapsable
+con el mismo efecto, por la [[https://en.wikipedia.org/wiki/Compass_equivalence_theorem][equivalencia de compases]].
+
+**** 1.1.1. Construcciones básicas
+***** 1. Triángulo equilátero sobre un segmento
+***** 2. Copiar un segmento
+***** 3. Cortar segmento de otro dado
+***** 4. Bisecar ángulo
+***** 5. Mediatriz de un segmento
+***** 6. Perpendicular a través de un punto en una recta
+***** 7. Perpendicular a través de un punto fuera de una recta
+***** 8. Triángulo con longitudes de lados dada
+***** 9. Copiar un segmento a un segmento dado
+***** 10. Copiar un ángulo a un rayo
+***** 14. Paralela a una recta a través de un punto exterior
+**** 1.1.2. Construcciones involucrando razones geométricas
+***** 15. Cortar un segmento en n partes iguales
+***** 16. Cortar un segmento en un racional
+***** 17. Media geométrica de dos segmentos
+**** 1.1.3. Construcciones involucrando áreas
+***** 19. Paralelogramo con igual área que un triángulo dado
+**** 1.1.4. Circunferencias destacadas
+***** 24. Centro de una circunferencia
+***** 25. Circunferencia inscrita a un triángulo
+Usando bisectrices.
+***** 26. Circunferencia circunscrita a un triángulo
+*** 1.2. Construcciones imposibles
+**** 1.2.1. Elementos constructibles o realizables
+Un real $x$ es constructible cuando podemos construir puntos $C,D$ tales que
+$\overline{CD} = x$.
+
+***** Subcuerpo de números constructibles
+Los números constructibles forman un subcuerpo de $\mathbb{R}$. Llamamos $\mathfrak{C}$ al
+cuerpo de los constructibles.
+
+****** TODO Demostración
+***** Los racionales son constructibles
+Todo subcuerpo de $\mathbb{R}$ debe contener a los racionales.
+
+***** Las raíces de constructible son constructibles
+Si $x \in\mathfrak{C}$, entonces $\sqrt{|x|} \in \mathfrak{C}$.
+
+**** 1.2.1. Extensión cuadrática
+Dado $\mathbb{K}$ subcuerpo de $\mathbb{R}$ llamamos a:
+
+\[
+\mathbb{K}(\sqrt{e}) = \{ a+ b\sqrt{e} \mid a,b\in\mathbb{K}\}
+\]
+
+una extensión cuadrática de $\mathbb{K}$.
+
+**** 1.2.1. Teorema de Descartes
+Un número real es constructible ssi está en alguna extensión cuadrática
+iterada de $\mathbb{Q}$.
+
+***** TODO Demostración
 * Teoría de Números y Criptografía
 * Álgebra moderna
 * Empresa y Sociedad
