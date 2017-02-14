@@ -15273,6 +15273,10 @@ verosimilitud es derivar e igualar:
 
 Nótese que esto sólo nos da un punto crítico.
 
+***** Demostración
+Usando simplemente que el logaritmo es creciente y la caracterización
+de los máximos.
+
 **** Propiedades del estimador de máxima verosimilitud
 Un estimador de máxima verosimilitud $\hat\theta$ de $\theta$ cumple:
 
@@ -15309,7 +15313,7 @@ máximo verosímil de $\theta$.
 
 **** Función de verosimilitud de una función paramétrica
 Se define la función de verosimilitud de $g : \Theta \longrightarrow \Lambda$ asociada a
-una realización, $M_{x_1,\dots,x_n} : \Theta \longrightarrow \mathbb{R}^+_0$, como:
+una realización, $M_{x_1,\dots,x_n} : \Lambda \longrightarrow \mathbb{R}^+_0$, como:
 
 \[M_{x_1,\dots,x_n}(\lambda)
 = \sup_{\theta \in g^{-1}(\lambda)} L_{x_1,\dots,x_n}(\theta) \]
@@ -16083,11 +16087,138 @@ Si en este caso calculamos la $\lambda$ tenemos que:
 \right.
 \]
 
-**** TODO Contrastes sobre la varianza de una normal con media conocida
+***** Hipótesis: media mayor que un valor
+Si tomamos $H_0 : \mu \geq \mu_0$ y $H_1 : \mu < \mu_0$, podemos crear un TRV como:
+
+\[
+\varphi(x_1,\dots,x_n) = 
+\left\{\begin{array}{ll} 
+1 & \mbox{if } \frac{\overline{x}-\mu_0}{\sigma_0/\sqrt{n}} < z_{1-\alpha} \\
+0 & \mbox{if } \frac{\overline{x}-\mu_0}{\sigma_0/\sqrt{n}} \geq z_{1-\alpha}
+\end{array} 
+\right.
+\]
+
+****** Cálculo
+Si en este caso calculamos la $\lambda$ tenemos que:
+
+\[
+\lambda(x_1,\dots,x_n) 
+=
+\frac{\sup_{\mu\geq\mu_0} L(\mu)}{L(\overline{x})}
+=
+\left\{\begin{array}{ll} 
+1& \mbox{if } \overline{x} \geq \mu_0 \\
+\frac{L(\mu_0)}{L(\overline{x})}& \mbox{if } \overline{x} \leq \mu_0
+\end{array} 
+\right.
+\]
+
+Dándonos un test:
+
+\[
+\varphi(x_1,\dots,x_n) = 
+\left\{\begin{array}{ll} 
+1 & \mbox{if } \lambda(x_1,\dots,x_n) < c \\
+0 & \mbox{if } \lambda(x_1,\dots,x_n) \geq c
+\end{array} 
+\right.
+=
+\left\{\begin{array}{ll} 
+0 & \mbox{if } \overline{x} \geq \mu_0 \\
+1 & \mbox{if } \frac{L(\mu_0)}{L(\overline x)} < c \\
+0 & \mbox{if } \frac{L(\mu_0)}{L(\overline x)} \geq c
+\end{array} 
+\right.
+\]
+
+Las dos primeras condiciones colapsan cuando tomamos la raíz y
+comparamos con ella:
+
+\[
+\varphi(x_1,\dots,x_n) = 
+\left\{\begin{array}{ll} 
+1 & \mbox{if } \frac{\overline{x}-\mu_0}{\sigma_0/\sqrt{n}} < c \\
+0 & \mbox{if } \frac{\overline{x}-\mu_0}{\sigma_0/\sqrt{n}} \geq \min(0,c)
+\end{array} 
+\right.
+\]
+
+Ahora ajustamos la $c$ para que nos dé la significancia $\alpha$:
+
+\[
+\alpha = 
+\sup_{\mu \geq \mu_0} 
+P\left( \frac{\overline{X}-\mu_0}{\sigma_0/\sqrt{n}} < c' \right)
+=
+\sup_{\mu \geq \mu_0}
+P\left( \frac{\overline{X}-\mu}{\sigma_0/\sqrt{n}} < \frac{\mu_0-\mu}{\sigma_0/\sqrt{n}} + c' \right)
+\]
+
+Tomamos entonces como $c' = z_{1 - \alpha}$. Nótese que es negativo.
+
+**** Contrastes sobre la varianza de una normal con media conocida
 ***** Hipótesis: valor de la varianza
 Si tomamos $H_0 : \sigma^2 = \sigma_0^2$ y $H_1 : \sigma^2 \neq \sigma_0^2$, creamos un TRV como:
 
+\[
+\varphi(x_1,\dots,x_n) = 
+\left\{\begin{array}{ll} 
+1& \mbox{if } \frac{\sum^n_{i=1} (x_i-\mu_0)^2}{\sigma_0^2} < \chi^2_{n;1-\alpha/2} 
+   \mbox{ ó } \frac{\sum^n_{i=1} (x_i-\mu_0)^2}{\sigma_0^2} > \chi^2_{n;\alpha/2} \\
+0& \mbox{if } \chi^2_{n;1-\alpha/2} \leq \frac{\sum^n_{i=1} (x_i-\mu_0)^2}{\sigma_0^2} \leq \chi^2_{n;\alpha/2}
+\end{array} 
+\right.
+\]
+
 ****** Cálculo
+Sabiendo que la función de verosimilitud es:
+
+\[
+L_{x_1,\dots,x_n}(\sigma) = 
+\frac{1}{(\sigma^2)^{n/2}(2\pi)^{n/2}}
+e^{-\sum_{i=1}^n (x_i-\mu)^2/2\sigma^2}
+\]
+
+Usamos que el estimador máximo verosímil de $\sigma^2$ es:
+
+\[
+\widehat\sigma^2 = \frac{\sum_{i=1}^n (x_i-\mu_0)^2}{n}
+\]
+
+Calculamos el test:
+
+\[
+\lambda = 
+\frac{\sup_{\sigma = \sigma_0} L(\sigma)}{\sup_{\sigma\in\mathbb{R}} L(\sigma)} = 
+\frac{L(\sigma_0)}{L(\widehat\sigma)} =
+\left(\frac{\widehat\sigma^2}{\sigma_0^2}\right)^{n/2}
+\exp\left\{
+\frac{-n\widehat\sigma_0^2}{2\sigma_0^2}+\frac{n}{2}
+\right\}
+\]
+
+La función $xe^{-x}$ tiene un máximo antes de ir hacia $-\infty$ por ambos
+lados. Así, podemos escribir:
+
+\[
+\varphi(x_1,\dots,x_n) = 
+\left\{\begin{array}{ll} 
+1& \mbox{if } \frac{\sum^n_{i=1} (x_i-\mu_0)^2}{\sigma_0^2} < c_1 
+   \mbox{ ó } \frac{\sum^n_{i=1} (x_i-\mu_0)^2}{\sigma_0^2} > c_2 \\
+0& \mbox{if } c_1 \leq \frac{\sum^n_{i=1} (x_i-\mu_0)^2}{\sigma_0^2} \leq c_2
+\end{array} 
+\right.
+\]
+
+Nótese que sigue una distribución $\chi^2(n)$ como suma de $n$ normales.
+
+**** Contrastes sobre la varianza de una normal con media desconocida
+Se tendrá como estimador máximo verosímil a:
+
+\[
+\widehat\sigma^2 = \frac{\sum_{i=1}^n (x_i-\overline{x})^2}{n}
+\]
 
 ** 7. Teoría general de modelos lineales
 *** Modelo lineal general y modelo de Gauss Markov
