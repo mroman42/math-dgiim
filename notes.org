@@ -19878,4 +19878,90 @@ determinar si una superficie es orientable o no:
     _ <- char '*'
     return (l,False)
 #+END_SRC
+* Grupos y Representaciones
+** Ejercicios
+*** Ejercicio 1
+#+begin_statement
+Comprobar que $K$ es una K-álgebra.
+#+end_statement
 
+Tenemos que $K$ es un espacio vectorial sobre sí mismo y su propio
+producto es una aplicación bilineal sobre $K$, ya que cumple:
+
+  - $(a+b)c = ac+bc$, por axiomas de anillo.
+  - $a(b+c) = ab+ac$, por axiomas de anillo.
+  - $a(bc) = (ab)c = b(ac)$, el producto es conmutativo y asociativo.
+
+Además es un álgebra asociativa y unital.
+
+*** Ejercicio 2
+#+begin_statement
+Calcular el centro $Z(M_n(K))$.
+#+end_statement
+
+Supongamos $A \in Z(M_n(K))$, si tomamos las matrices que sólo tienen una 
+entrada unidad y el resto ceros $E_{ij} = (\delta_{ij})_{i,j}$. Así, tenemos:
+
+\[
+E_{ii}A = \begin{pmatrix}
+0 & \dots & 0 \\
+^{i)} a_{i1} & \dots & a_{in} \\
+0 & \dots & 0 \\
+\end{pmatrix}
+\qquad
+AE_{ii} = \begin{pmatrix}
+0 & ^{i)}a_{1i} & 0 \\
+\vdots & \vdots & \vdots \\
+0 & a_{ni} & 0 \\
+\end{pmatrix}
+\]
+
+Por lo tanto $a_{ij} = 0$ para $i \neq j$. Además,
+
+\[
+E_{ij}A = \begin{pmatrix}
+0 & ^{j)}\dots & 0 \\
+^{i)} \dots & a_{ii} & \dots \\
+0 & \dots & 0 \\
+\end{pmatrix}
+\qquad
+AE_{ij} = \begin{pmatrix}
+0 & ^{j)}\dots & 0 \\
+^{i)}\dots & a_{jj} & \dots \\
+0 & \dots & 0 \\
+\end{pmatrix}
+\]
+
+Por tanto, $A = \lambda I$. Se cumple que $(\lambda I) B = \lambda (I B) = \lambda B = \lambda (B I) = B (\lambda I)$,
+y el centro es de esa forma:
+
+\[
+\left\{
+\lambda I \mid \lambda \in K
+\right\}
+\]
+* Taller de Geometría y Topología
+* Teoría de Números y Criptografía
+* Álgebra moderna
+* Empresa y Sociedad
+** Detalles de la asignatura
+Matilde Ruiz, departamento de Organización de Empresas.
+[[matilderuiz@ugr.es][(matilderuiz@ugr.es]])
+
+*** Evaluación:
+- 70% Pruebas objetivas: la prueba final de junio y los exámenes parciales.
+- 30% Actividades prácticas: participación, ejercicios y asistencia.
+
+** 1. La empresa y dirección de empresas
+*** Áreas de una empresa
+La empresa además opera dentro de un entorno.
+
+**** Producción
+**** Dirección
+**** Márketing
+**** Finanzas
+**** Recursos Humanos
+** 2. Teorías de la empresa y del empresario
+** 3. Entorno de la empresa
+** 4. La dirección estratégica
+** 5. La dirección financiera
