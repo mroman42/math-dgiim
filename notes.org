@@ -20024,6 +20024,54 @@ iterada de $\mathbb{Q}$.
 ***** TODO Demostración
 * Teoría de Números y Criptografía
 * Álgebra moderna
+** 1. Construcción de anillos
+*** 1.1. Anillos
+**** Anillos
+***** Anillos conmutativos
+***** Propiedades en anillos
+**** Morfismos de anillos
+***** Categoría de los anillos
+***** Isomorfismos de anillos
+**** Subanillos
+**** Retículo de subanillos
+**** Ideales
+**** Ideales extendidos y contraidos
+**** Retículo de ideales
+**** Ejemplo: Matrices infinitas
+**** Ejemplo: Álgebra de Weyl
+Se llama *álgebra de Weyl* al anillo de operadores en los polinomios
+generado por $X$ (multiplicación por la indeterminada) y $\frac{\partial}{\partial x}$ (diferenciación);
+con la composición como producto.
+
+***** Caracterización
+El álgebra de Weyl es isomorfa a:
+
+\[
+\frac{K[X,Y]}{(YX-XY-1)}ñ
+\]
+
+**** Ejemplo: Álgebra de un monoide
+Dado un monoide multiplicativo $M$, definimos $R[M]$ como los polinomios que
+usan como exponentes los elementos de $M$. Es decir,
+
+\[
+\sum_i r_i[m_i]
+\]
+
+Y forma un álgebra definiendo:
+
+  - Suma: $\sum_i r_i[m_i] + \sum_i r_i'[m_i] = \sum_i (r_i+r_i')[m_i]$
+  - Producto: $\left(\sum_i r_i[m_i]\right)\left(\sum_i r_i'[m_i]\right) = \sum_k \left(\sum_{m_im_j=m_k} (r_ir_j')[m_k]\right)$
+
+***** Generaliza al anillo de polinomios
+Nótese que generaliza al anillo de polinomios en una variable cuando 
+el monoide es $\mathbb{N}$, y que generaliza al anillo de polinomios en varias 
+variables cuando el monoide es $\mathbb{N}^n$.
+
+**** TODO Monoide libre
+
+*** 1.2. Construcción de anillos
+
 * Empresa y Sociedad
 ** Detalles de la asignatura
 Matilde Ruiz, departamento de Organización de Empresas.
