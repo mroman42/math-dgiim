@@ -6576,8 +6576,8 @@ Se define para $\alpha, \beta$ ideales como:
 \[ \alpha\beta = \left\{ xy \mid x\in\alpha, y\in\beta \right\}\]
 
 **** Ideales primos relativos
-Dos ideales son *primos relativos* cuando $\alpha+\beta = R$. Cuando son primos relativos
-se cumple que $\alpha\beta = \alpha \cap \beta$.
+Dos ideales son *primos relativos* cuando $\alpha+\beta = R$. Cuando son 
+primos relativos se cumple que $\alpha\beta = \alpha \cap \beta$.
 
 *** Anillo cociente
 **** Definición
@@ -6655,7 +6655,6 @@ Es un subconjunto $S$ con:
  - $1 \in S$
  - $x,y\in S \implies xy \in S$
 
-
 ***** Demostración
 Dada una cadena de ideales cumpliendo la condición su unión también 
 la cumple y es cota de la cadena. Aplicando lema de Zorn obtenemos 
@@ -6672,7 +6671,7 @@ ideal maximal, tomando $S = (x)$.
 
 *** Anillos locales
 **** Inclusión en ideales primos
-Sean ideales $\alpha_1,\dots,\alpha_n$ y $\pi$ un ideal primo. Si $\bigcap \alpha_i \subset \pi$, entonces
+Sean ideales $\alpha_1,\dots,\alpha_n$ y $\pi$ un ideal primo. Si $\bigcap \alpha_i \subset \pi$, entonces,
 
 $\exists i: \alpha_i \subset \pi$.
 
@@ -6681,7 +6680,8 @@ Supongamos que $\forall i: \alpha_i \nsubseteq \Pi$; entonces tenemos $x_i \in \
 está en $\Pi$, pero su producto debe estar, contraviniendo que sea primo.
 
 **** Inclusión de ideales primos
-Sean ideales primos $\pi_1,\dots,\pi_n$, (salvo quizá 2) y $\alpha$ un ideal. Si $\alpha \subset \bigcup \pi_i$, entonces,
+Sean ideales primos $\pi_1,\dots,\pi_n$, (salvo quizá 2) y $\alpha$ un ideal. Si $\alpha \subset \bigcup \pi_i$, 
+entonces,
 
 $\exists i: \alpha \subset \pi_i$.
 
@@ -6786,7 +6786,7 @@ Supongamos $x \notin M$, entonces $(x) + M = R$, y por tanto $1-xy \in M$. Pero
 un maximal no puede contener una unidad.
 
 *** Ideales residuales y anulador
-**** Definición
+**** Ideales residuales
 Definimos el *ideal residual* (a veces llamado *cociente*) de dos 
 ideales como:
 
