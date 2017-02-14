@@ -14676,6 +14676,36 @@ la raíz de la varianza e incluir otra varianza en la raíz de las
 cuasivarianzas muestrales para tener una $\chi^2(n_1+n_2-2)$.
 
 Aplicamos definición de t de Student.
+**** Inferencia sobre cociente de varianzas con media conocida
+Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$ independientes con muestras de
+tamaños $n_1$ y $n_2$:
+
+\[
+\frac
+{\sum_{i=1}^{n_1}(X_i-\mu_1)^2 / n_1\sigma_1^2}
+{\sum_{i=1}^{n_2}(X_i-\mu_2)^2 / n_2\sigma_2^2}
+\leadsto
+F(n_1,n_2)
+\]
+
+***** Demostración
+Desde la definición de la F de Snedecor, sabiendo que cada factor
+es una chi cuadrada.
+
+**** Inferencia sobre cociente de varianzas con media desconocida
+Sean $X \leadsto {\cal N}(\mu_1,\sigma_1^2)$ y $Y \leadsto {\cal N}(\mu_2,\sigma_2^2)$ independientes:
+
+\[
+\frac
+{S_1^2/\sigma_1^2}
+{S_2^2/\sigma_2^2}
+\leadsto
+F(n-1,m-1)
+\]
+
+***** Demostración
+Aplicando la definición de F de Snedecor y sabiendo que son dos
+distribuciones chi cuadrado.
 
 ** 3. Suficiencia y completitud
 *** Estadísticos suficientes
@@ -14820,8 +14850,12 @@ Un estimador puntual de $\theta$ es un estadístico $T$ tomando valores en el
 dominio del parámetro, $\Theta$.
 
 **** Función de pérdida y de riesgo
-La *función de pérdida*, $L(\theta,T)$, nos dice la pérdida asociada a estimar 
+La *función de pérdida*, $L(\theta,t)$, nos dice la pérdida asociada a estimar 
 un parámetro si su verdadero valor es otro.
+
+\[
+L : \Theta \times \Theta \longrightarrow \Theta
+\]
 
 **** Función de riesgo
 La *función de riesgo* es la que asocia a cada valor del parámetro la 
@@ -14835,7 +14869,7 @@ uniformemente la función de riesgo:
 
 \[ R^L_T(\theta) \leq R^L_{T''}(\theta),\quad \forall \theta \in \Theta,\; \forall T''\]
 
-**** Ejemplo de estimador óptimo
+**** TODO Ejemplo de estimador óptimo
 *** Estimación de menor error cuadrático
 **** Función de pérdida cuadrática
 La función de pérdida cuadrática, ${\cal L}(\theta, t) = (t - \theta)^2$, hace a la función de 
@@ -14992,11 +15026,17 @@ E_\theta\left[\left( \frac{d}{d\theta}\ln(f_\theta(X_1,\dots,X_n))
 La función de información tiene como propiedades:
 
   1. $I_X(\theta) \geq 0$.
+
   2. En el caso $I_X(\theta) = 0$, $f_\theta(X)$ no depende de $\theta$.
+
   3. \[E_\theta \left[\frac{d}{d\theta} \ln f_\theta(X) \right] = 0\].
+
   4. \[ Var_\theta \left[\frac{d}{d\theta} \ln f_\theta(X) \right] = I_X(\theta) \].
+
   5. \[E_\theta \left[\frac{d}{d\theta} \ln f_\theta(X_1,\dots,X_n) \right] = 0\].
+
   6. \[ Var_\theta \left[\frac{d}{d\theta} \ln f_\theta(X_1,\dots,X_n) \right] = I_{X_1,\dots,X_n}(\theta) \].
+
   7. Aditividad, $I_{X_1,\dots,X_n}(\theta) = nI_X(\theta)$.
  
 ***** Demostración
@@ -15011,6 +15051,7 @@ Derivando y asumiendo las condiciones de regularidad:
 \int_\chi \frac{\partial}{\partial\theta} f_\theta(x)\;dx
 = 0
 \]
+
 **** Función de información bajo Cramer-Raó
 Bajo las hipótesis de regularidad fuertes de Fréchet-Cramer-Raó:
 
@@ -15149,6 +15190,7 @@ derivable y *no constante*. Un estimador $T$ es eficiente ssi existe un $a(\thet
 cumpliendo:
 
   1. \[P_\theta\left(\frac{d}{d\theta} \ln f^n_\theta(X_1,\dots,X_n) = a(\theta)[T(X_1,\dots,X_n) - g(\theta)]\right) = 1\]
+
   2. \[I_{X_1,\dots,X_n}(\theta) = a(\theta)g'(\theta)\]
 
 ***** Demostración
