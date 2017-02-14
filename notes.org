@@ -16513,11 +16513,11 @@ el producto de cualesquiera dos distribuciones de ambas familias vuelve
 a ser una distribución de la familia de distribuciones a priori, salvo
 alguna constante.
 
-\[\forall f \in {\cal P}, \pi \in{\cal P}: \exists k:\quad 
+\[\forall f \in {\cal P}, \pi \in{\cal F}: \exists k:\quad 
 kf(x|\theta)\pi(\theta) \in {\cal F}\]
 
 **** Ejemplos de familias conjugadas
-***** Beta
+***** Beta para Bernoulli
 La familia de distribuciones Beta es una familia conjugada para:
 
   - distribuciones de Bernoulli.
@@ -16530,7 +16530,7 @@ Se tiene:
   - $\theta \leadsto \beta(p,q)$
   - $\theta|x \leadsto \beta(x+p,n-x+q)$
 
-***** Gamma
+***** Gamma para Poisson
 La familia de distribuciones Gamma es una familia conjugada para
 distribuciones de Poisson.
 
@@ -16540,7 +16540,7 @@ Se tiene:
   - $\theta \leadsto \Gamma(\alpha,\beta)$
   - $\theta|\tilde x \leadsto \Gamma(\sum x_i + \alpha, n + \beta)$
 
-***** Normales
+***** Normales para normales con varianza conocida
 La familia de distribuciones normales es conjugada para las 
 distribuciones normales de varianza conocida.
 
@@ -16550,7 +16550,7 @@ Se tiene:
   - $\mu \leadsto {\cal N}(\eta,\tau)$
   - $\mu|\tilde x \leadsto {\cal N}\left(\frac{n\overline{x}\tau^2+\sigma^2\eta}{n\tau^2+\sigma^2}, \frac{\sigma^2\tau^2}{n\tau^2+\sigma^2}\right)$
 
-***** Dirichlet
+***** Dirichlet para multinomiales
 La familia de distribuciones de Dirichlet es conjugada para la
 familia de distribuciones multinomiales.
 
@@ -16578,6 +16578,9 @@ a posteriori degenera en $\theta_0$, el valor verdadero del parámetro.
 \pi(\theta\mid X_1,\dots,X_n) 
 \overset{P_{\theta_0}}{\underset{n \to \infty}\longrightarrow} \theta_0
 \]
+
+Nótese que los $\theta_i$ deben generar distribuciones distintas para aplicar
+este resultado.
 
 ***** Demostración
 Dada una distribución a priori $\pi$, llamamos $\pi(\theta_j) = p_j \in [0,1]$. Llamamos
@@ -17073,6 +17076,7 @@ Pero ahora, por Lehmann-Scheffé, tenemos que el UMVUE será:
 \[\mathbb{E}[M\mid T] = \frac{T(T-1)\dots(T-k+1)}{n(n-1)\dots(n-k+1)}\]
 
 Que es un UMVUE.
+
 ***** Punto 2.
 Supongamos un estimador $Q$ que fuera insesgado para $p^q$. Tendríamos:
 
