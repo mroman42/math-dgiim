@@ -17105,6 +17105,16 @@ m3 = m1*(1-3*p+3*m1+2*p^2 - 3*n*p^2 + n^2*p^2)
 #+RESULTS:
 : (n^2*p^3 - 2*n^2*p^2 - 3*n*p^3 + n^2*p + 5*n*p^2 + 2*p^3 - 2*n*p - 3*p^2 + p)/n^2
 
+**** Ejercicio 3
+#+begin_statement
+Sea $(X_1,\dots,X_n)$ una muestra aleatoria simple de una variable
+$X \leadsto \{{\cal P}(\lambda)\mid \lambda > 0\}$. Encontrar, si existe, el UMVUE para $\lambda^s$, siendo
+$s \in \mathbb{N}$ arbitrario.
+#+end_statement
+
+Por familia uniparamétrica demostramos $T = \sum X_i$ suficiente y completo.
+Probando llegamos a que $\frac{1}{n^s}T(T-1)\dots(T-s)$ es insesgado.
+
 **** Ejercicio 7
 ***** Punto 1
 Se comprueba que es familia exponencial uniparamétrica. Con
@@ -17252,6 +17262,88 @@ Calculamos:
 \[\beta_\varphi(6)\]
 \[\beta_\varphi(7)\]
 
+**** Ejercicio 3
+#+begin_statement
+Sea $(X_1,\dots,X_n)$ una muestra aleatoria simple de una variable aleatoria
+con distribución de Poisson de parámetro $\lambda$. Encontrar el test más potente
+de tamaño $\alpha$ para resolver el problema de contraste:
+
+\[
+H_0 : \lambda = \lambda_0
+\]
+\[
+H_1 : \lambda = \lambda_1
+\]
+
+Aplicación: En una centralita telegónica el número de llamadas por minuto
+sigue una distribución de Poisson. Si en cinco minutos se han recibido 12
+llamadas, ¿puede aceptarse que el número medio de llamadas por minuto es
+1.5, frente a que dicho número es 2, al nivel de significación 0.05?
+Calcular la potencia del test obtenido.
+#+end_statement
+
+***** Desarrollo teórico
+Por Neyman-Pearson, el test más potente de tamaño $\alpha$ será de la forma:
+
+\[
+\varphi(x_1,\dots,x_n) = \left\{\begin{array}{ll} 
+1 & \mbox{if } f_1(x_1,\dots,x_n) > kf_0(x_1,\dots,x_n) \\
+\gamma & \mbox{if } f_1(x_1,\dots,x_n) = kf_0(x_1,\dots,x_n) \\
+0 & \mbox{if } f_1(x_1,\dots,x_n) < kf_0(x_1,\dots,x_n)
+\end{array} 
+\right.
+\]
+
+La desigualdad es equivalente a:
+
+\[
+\frac{e^{-n\lambda_1}\lambda_1^{\sum x_i}}{\prod x_i!} 
+> 
+k \frac{e^{-n\lambda_0}\lambda_0^{\sum x_i}}{\prod x_i!} 
+\]
+
+\[
+k = \frac
+{n(\lambda_0-\lambda_1)-c}
+{\log\left(\lambda_0/\lambda_1\right)}
+> \sum x_i
+\leadsto
+Poi(n\lambda_0)
+\]
+
+Por tanto podemos tomar una distribución de Poisson siendo $\rho_\alpha$ el valor
+que da $\alpha$ en la función de distribución y tener:
+
+\[
+c = n(\lambda_0-\lambda_1) + \rho_\alpha\log(\lambda_0/\lambda_1)
+\]
+
+Tenemos por tanto un test de la forma:
+
+\[
+\varphi(x_1,\dots,x_n) = \left\{\begin{array}{ll} 
+1 & \mbox{if } \sum x_i < \rho_\alpha \\
+0 & \mbox{if } \sum x_i \geq \rho_\alpha
+\end{array} 
+\right.
+\]
+
+El tamaño del test entonces será $\alpha$.
+
+***** Aplicación
+En este caso tenemos $\sum x_i = 12$, para $n=5$. Para nivel de significación
+$\alpha = 0.05$, tenemos $P(Poi(10) > \rho_{0.05}) = 0.05$.
+
+Tenemos:
+
+\[
+P(Poi(10) > 14) = 0.05
+\]
+
+Y como $12 < 14$, se el test da la hipótesis alternativa.
+# Esto hay que comprobarlo, que lo he hecho muy rápido y creo que le
+# dado la vuelta.
+
 **** Ejercicio 4
 #+begin_statement
 Sea $(X_1,\dots,X_n)$ muestra aleatoria simple de una variable con distribución
@@ -17308,10 +17400,27 @@ El test más potente de tamaño $\alpha$ es entonces:
 \right.
 \]
 
-**** Ejercicio 5
+**** DONE Ejercicio 5
+#+begin_statement
 Deducir el test más potente de tamaño $\alpha$ para contrastar $H_0:\theta=\theta_0$
 frente a $H_1:\theta=\theta_1$ y calcular su potencia. ¿Cuál es el test óptimo fijado
 un nivel de significación arbitrario?
+#+end_statement
+
+**** Ejercicio 6
+#+begin_statement
+Deducir el test más potente de tamaño arbitrario para contrastar $H_0 : \theta = \theta_0$
+frente a $H_1 : \theta = \theta_1$, basándose en una muestra de tamaño $n$ de una variable
+aleatoria con función de densidad
+
+
+\[
+f_\theta(x) = \frac{\theta}{x^2}, \quad x > \theta
+\]
+
+Deducir el test óptimo para un nivel de significación arbitrario.
+#+end_statement
+
 
 **** Ejercicio 8
 Minimizando y calculando se llega a:
@@ -17320,6 +17429,32 @@ Minimizando y calculando se llega a:
 \lambda(X) =
 \frac{1}{\theta_0^n} e^{(1-1/\theta_0)\sum x_i}
 \]
+
+**** Ejercicio 9
+#+begin_statement
+En base a una observación $X \leadsto B(n,p)$, deducir el test de razón de 
+verosimilitudes para contrastar la hipótesis de que el parámetro $p$ no
+supera un determinado valor, $p_0$.
+#+end_statement
+
+**** Ejercicio 10
+#+begin_statement
+Sea $X$ variable con función de densidad
+
+\[
+f_\theta(x) = \theta x^{\theta-1},\quad 0<x<1
+\]
+
+Basándose en una observación de $X$, deducir el test de razón de 
+verosimilitudes de tamaño arbitrario para contrastar:
+
+\[
+H_0 : \theta \leq \theta_0
+\]
+\[
+H_1 : \theta > \theta_0
+\]
+#+end_statement
 
 **** Ejercicio 13
 #+begin_statement
