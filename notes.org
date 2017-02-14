@@ -7679,7 +7679,7 @@ Sean $I,J$ dos ideales no nulos de $K[X_1,\dots,X_n]$. Sea:
 \[ H = TI^e + (1-T)J^e \subseteq K[T,X_1,\dots,X_n]\]
 
 Entonces $I\cap J = H \cap K[X_1,\dots,X_n]$, primer ideal de eliminación de $H$.
-Esto nos permite calcular la intersección usando bases de Gröbner
+Esto nos permite calcular la intersección usando bases de Gröbner.
 
 ***** TODO Demostración
 Si está en $I\cap J$ tenemos $TF + (1-T)F = F \in H$. Si está en 
@@ -8002,7 +8002,7 @@ Y por tanto hay una biyección entre ideales radicales y variedades.
 ***** TODO Demostración                                           :extra:
 *** Anillos de coordenadas
 **** Aplicaciones polinómicas
-Un *morfismo entre variedades* de $\mathbb{A}^n$ y $\mathbb{A}^m$ es una aplicación $f : V \longrightarrow W$ 
+Un *morfismo entre variedades* de $\mathbb{A}^n$ y $\mathbb{A}^m$ es una aplicación $f : V \longrightarrow W$
 tal que existen polinomios $F_1,\dots,F_n$ tales que:
 
 \[f(a) = (F_1(a),F_2(a),\dots,F_n(a)) \quad \forall a \in V\]
@@ -8153,24 +8153,19 @@ Se cumple:
   2. $h$ sobreyectiva $\iff$ existen $M_i \in K[Y_1,\dots,Y_m]$ tal que $X_i-M_i \in \mathbb{G}$.
 
 ***** TODO Demostración
-**** Representación paramétrica polinomial
-Una *representación paramétrica polinomial* de $V$ es un conjunto de
-polinomios cumpliendo:
+**** Clausura de Zariski
+Dada una variedad $V$ y una representación paramétrica polinomial suya:
 
 \[
 U = \left\{
-F_1(t_1,\dots,t_k),
-F_2(t_1,\dots,t_k),
-\dots,
-F_n(t_1,\dots,t_k)
-\mid 
-t_1,\dots,t_m \in K
+(F_1(t_1,\dots,t_k),F_2(t_1,\dots,t_k), \dots, F_n(t_1,\dots,t_k))
+\mid
+t_1,t_2,\dots,t_k \in K
 \right\}
 \subseteq V
 \]
 
-**** Clausura de Zariski
-La clausura de $U$, representación paramétrica polinomial, es:
+su clausura en la topología de Zariski es:
 
 \[
 \overline{U} =
@@ -8268,6 +8263,14 @@ no unidad tiene un ideal maximal que lo contiene.
 
 ****** Demostración
 Tomando $S = \{1\}$.
+
+**** Inclusión en ideales primos                                   :extra:
+Sean ideales $\alpha_1,\dots,\alpha_n$ y $\pi$ un ideal primo. Si $\bigcap \alpha_i \subseteq \pi$, entonces,
+
+\[
+\exists \alpha_i \subseteq \pi
+\]
+
 *** 2. Nilradical y radical de Jacobson.
 **** Nilradical
 El *nilradical* es el ideal dado por los elementos nilpotentes:
@@ -8345,6 +8348,9 @@ Un orden monomial $\leq$ en $\mathbb{N}^n$ es un orden compatible, monótono y t
   2. *Monótono:* $0 \leq x$.
   3. *Total:* o bien $x \leq y$, o bien $y \leq x$.
 
+El orden lexicográfico, el orden lexicográfico graduado y el orden 
+lexicográfico graduado inverso son órdenes monomiales.
+
 **** Componentes de la división                                    :extra:
 Definimos los siguientes componentes para un polinomio
 expresado como $p = \sum a_\alpha X^\alpha$:
@@ -8363,6 +8369,7 @@ Dados $F,G \in K[X_1,\dots,X_n]$ no nulos, se cumple:
 ****** Demostración
 Se demuestran usando que los polinomios forman un K-espacio vectorial
 teniendo de base a los monomios.
+
 **** Partición de generadores
 Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
 definimos inductivamente como:
@@ -8385,7 +8392,7 @@ definimos inductivamente como:
 
 **** Teorema de la división
 Dado un orden monomial y una lista de polinomios $\{G_1,\dots,G_t\}$; consideramos
-la partición $\Delta_1,\dots,\Delta_n,\overline{\Delta}$ dada por los generadores $exp(G_i)$. Tenemos que,
+la partición $\Delta_1,\dots,\Delta_t,\overline{\Delta}$ dada por los generadores $exp(G_i)$. Tenemos que,
 para cada $F \in K[X_1,\dots,X_n]$, existen $Q_1,\dots,Q_t,R$ únicos tales que:
 
   1. $F = Q_1G_1+\dots+Q_tG_t+R$.
