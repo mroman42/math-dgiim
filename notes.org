@@ -6810,17 +6810,16 @@ Dado un homomorfismo $f$ llamamos *ideal contraído* de $\beta$ al ideal:
 Para $f : S \longrightarrow R$ homomorfismo y $\alpha,\beta$ ideales:
 
   1. $\alpha \subset \alpha^e^c$, y $\beta \supset \beta^c^e$.
-  2. $\alpha^e = \alpha^e^c^e$, y $\beta^c = \beta^c^e^c$
-  3. Hay una biyección con $(-)^e,(-)^c$ entre ideales contraídos y extendidos, que 
-     además pueden escribirse como $\{\alpha \subset R \mid \alpha = \alpha^e^c\}$
-     y $\{\beta \subset S \mid \beta = \beta^c^e\}$.
+  2. $\alpha^e = \alpha^e^c^e$, y $\beta^c = \beta^c^e^c$.
+  3. Hay una biyección con $(-)^e,(-)^c$ entre ideales contraídos y extendidos, 
+     que además pueden escribirse como $\{\alpha \subset R \mid \alpha = \alpha^e^c\}$ y $\{\beta \subset S \mid \beta = \beta^c^e\}$.
 
 ***** Demostración
-Pueden escribirse así porque si tengo $\beta = \alpha^e$, entonces $\beta^c^e = \alpha^e^c^e = \alpha^e = \beta$. La biyección
-es trivial desde la definición y las proposiciones anteriores.
+Pueden escribirse así porque si tengo $\beta = \alpha^e$, entonces $\beta^c^e = \alpha^e^c^e = \alpha^e = \beta$. 
+La biyección es trivial desde la definición y las proposiciones anteriores.
 
 *** Producto directo de anillos
-**** Definición
+**** Producto directo
 Para $R_1,R_2,\dots,R_n$ tomamos como su producto directo a:
 
 \[R_1\times \dots \times R_n = \prod_{i=1}^n R_i\]
@@ -6847,7 +6846,7 @@ R_1 & R_2 &  & R_3 & \dots
 \end{tikzcd} \]
 
 **** Teorema Chino del Resto
-En la situación la propiedad universal sobre el cociente por unos
+En la situación de la propiedad universal sobre el cociente por unos
 ideales $\alpha_1,\dots,\alpha_n$:
 
 \[ \begin{tikzcd}
@@ -6884,7 +6883,7 @@ a una operación $\cdot : (R,M) \longrightarrow M$ verificando:
   - $1x = x$
 
 **** R-álgebras
-Una *R-álgebra*, $S$ es un anillo con estructura de R-módulo, tal que:
+Una *R-álgebra* $S$ es un anillo con estructura de R-módulo, tal que:
 
 \[\forall r\in R, x,y\in S:\; (rx)y = r(xy) = x(ry)\]
 
@@ -6990,7 +6989,7 @@ Definimos $\alpha \geq_{invgrlex} \beta$ cuando $\sum \alpha > \sum \beta$ ó se
 y para el primer $\alpha_i \neq \beta_i$ a la derecha, se tiene $\alpha_i < \beta_i$.
 
 **** Preórdenes
-Un preorden es una relación binaria transitiva y reflexiva. 
+Un preorden es una relación binaria transitiva y reflexiva.
 Equivalentemente, es un orden sin la antisimetría.
 
 **** Relación de equivalencia en preódenes
@@ -7011,11 +7010,11 @@ x \equiv_1 y \wedge x \sqsubseteq_2 y
 **** Propiedades del producto
 El producto de preórdenes cumple:
 
- 1. $\sqsubseteq_{12}$ es un preorden.
- 2. $\sqsubseteq_2$ orden $\Rightarrow$ $\sqsubseteq_{12}$ orden
- 3. $\sqsubseteq_1,\sqsubseteq_2$ totales $\Rightarrow$ $\sqsubseteq_{12}$ total
- 4. $\sqsubseteq_1,\sqsubseteq_2$ compatible $\Rightarrow$ $\sqsubseteq_{12}$ compatible
- 5. $\sqsubseteq_1,\sqsubseteq_2$ monótono $\Rightarrow$ $\sqsubseteq_{12}$ monótono
+  1. $\sqsubseteq_{12}$ es un preorden.
+  2. $\sqsubseteq_2$ orden $\Rightarrow$ $\sqsubseteq_{12}$ orden
+  3. $\sqsubseteq_1,\sqsubseteq_2$ totales $\Rightarrow$ $\sqsubseteq_{12}$ total
+  4. $\sqsubseteq_1,\sqsubseteq_2$ compatible $\Rightarrow$ $\sqsubseteq_{12}$ compatible
+  5. $\sqsubseteq_1,\sqsubseteq_2$ monótono $\Rightarrow$ $\sqsubseteq_{12}$ monótono
 
 ***** Demostración
 ****** Punto 1
@@ -7196,7 +7195,6 @@ también en $F+G$.
 La suma tendrá como mucho los exponentes de $F$ y de $G$. Pero además,
 conserva los exponentes que sólo estuvieran en uno de los dos con los
 coeficientes intactos.
-
 
 **** Partición de generadores
 Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
@@ -7504,10 +7502,10 @@ donde $\alpha = exp(F)$, $\beta = exp(G)$, y $\gamma_i = \max\{\alpha_i,\beta_i\
 Sea $I$ ideal no nulo de $K[X_1,\dots,X_n]$ y $\mathbb{G} = \{G_1,\dots,G_n\}$ un sistema de
 generadores. Equivalen:
 
- 1. $\mathbb{G}$ es base de Gröbner.
- 2. Para cualquier ordenación de $\mathbb{G}$, se tiene $R({\cal S}(G_i,G_j); \mathbb{G}) = 0$
-    para cualesquiera $i \neq j$.
- 3. Para alguna ordenación de $\mathbb{G}$, se tiene $R(S(G_i,G_j); \mathbb{G}) = 0$.
+  1. $\mathbb{G}$ es base de Gröbner.
+  2. Para cualquier ordenación de $\mathbb{G}$, se tiene $R({\cal S}(G_i,G_j); \mathbb{G}) = 0$
+     para cualesquiera $i \neq j$.
+  3. Para alguna ordenación de $\mathbb{G}$, se tiene $R(S(G_i,G_j); \mathbb{G}) = 0$.
 
 ***** Demostración
 ****** Primera implicación
