@@ -8565,6 +8565,24 @@ F = \sum_{i=0}^n Q_iG_i
 Donde $exp(Q_iG_i) \in \Delta^i$, y como forman una partición disjunta, se
 tiene que el $exp(F) = \max\{exp(Q_iG_i)\} \notin \overline{\Delta}$. Por tanto $Exp(I)\cap\overline{\Delta} = \varnothing$.
 
+**** Cálculo de bases de Gröbner                                   :extra:
+Las bases de Gröbner de un ideal pueden calcularse a partir de sus
+generadores utilizando el Algoritmo de Buchberger, que añade a cada
+paso los restos de las semizigias de los generadores a la base.
+
+***** Teorema de Buchberger
+Dado un sistema de generadores $\mathbb{G} = \{G_1,\dots,G_n\}$ de una base de Gröbner,
+equivalen:
+
+  1. $\mathbb{G}$ es base de Gröbner.
+  2. Para alguna ordenación de $\mathbb{G}$, se tiene $R(S(G_i,G_j);\mathbb{G}) = 0$ para $i\neq j$.
+
+***** Semizigia
+Definimos la semizigia de dos polinomios como:
+
+\[{\cal S}(F,G) 
+= \frac{1}{cl(F)}X^{\gamma-\alpha}F - \frac{1}{cl(G)}X^{\gamma-\beta}G\]
+
 **** Base de Gröbner minimal                                       :extra:
 Una base de Gröbner de $I$ se dice minimal si, para cualquier $F \in \mathbb{G}$:
 
@@ -8575,7 +8593,6 @@ Una base de Gröbner de $I$ se dice minimal si, para cualquier $F \in \mathbb{G}
 Sea $\mathbb{G}$ base de Gröbner con un ideal no nulo y sea un $F \in \mathbb{G}$ que no
 cumple la segunda condición de minimalidad. Tenemos que $\mathbb{G}\setminus\{F\}$ es
 también base de Gröbner, ya sus exponentes siguen generando $Exp(I)$.
-
 **** Base de Gröbner reducida                                      :extra:
 Una base de Gröbner $\mathbb{G}$ de $I$ es reducida cuando para cualquier $\forall F\in\mathbb{G}$:
 
@@ -8643,6 +8660,22 @@ I \cap J = H \cap K[X_1,\dots,X_n]
 \]
 
 *** 6. Variedades algebraicas afines. Correspondencia ideal-variedad.
+**** R-álgebras                                                    :extra:
+Dado un anillo $R$, un R-módulo es un grupo abeliano $M$ junto a una
+operación $\cdot : (R,M) \longrightarrow M$ verificando:
+
+  - $r(x+y) = rx+ry$
+  - $(r+s)x = rx + sx$
+  - $r(sx) = (rs)x$
+  - $1x = x$
+
+Una *R-álgebra* $S$ es un anillo con estructura compatible de R-módulo,
+tal que:
+
+\[
+\forall r \in R; x,y \in S: (rx)y = r(xy) = x(ry)
+\]
+
 **** Variedades algebraicas afines
 Dado un ideal ${\cal F} \subseteq K[X_1,\dots,X_n]$, denotamos:
 
