@@ -8786,7 +8786,7 @@ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}
 \]
 
 *** 7. Anillo de coordenadas de una variedad. Aplicaciones polinómicas.
-**** Espacio afín de un álgebra                                    :extra:
+**** Espacio afín de un cuerpo                                     :extra:
 Llamamos $\mathbb{A}^n(K)$ al espacio afín sobre $K^n$ con la función afín
 $\varphi : K^n \times K^n \longrightarrow K^n$ dada por $\varphi(u,v) = v-u$.
 
@@ -8847,7 +8847,7 @@ Está bien definida porque para $G \in \mathbb{I}(W)$,
 h(0) = h(G) = G(F_1,\dots,F_m) + \mathbb{I}(V)
 \]
 
-Luego $G(f(a)) = G(F_1,\dots,F_m)(a) + 0 = 0$, y $a \in \mathbb{VI}(W) = W$. Es claro
+Luego $G(f(a)) = G(F_1,\dots,F_m)(a) + 0 = 0$, y $f(a) \in \mathbb{VI}(W) = W$. Es claro
 además que $\widetilde f = h$, por estar definida como ella en una base de los
 polinomios.
 
@@ -8864,14 +8864,76 @@ Por construcción. Sean:
 
   - $f(a) = (F_1(a),\dots,F_m(a))$
   - $g(a) = (G_1(a),\dots,G_m(a))$
-  - $f \circ g (a) = (G_1(F_1(a),\dots), \dots, G_m(F_1,\dots))$
+  - $g \circ f (a) = (G_1(F_1(a),\dots), \dots, G_m(F_1,\dots))$
 
 Entonces comprobamos que: $\widetilde{g \circ f}(H) = \widetilde f  \circ \widetilde{g} (H)$.
 
 ****** Punto 4
 Por el punto anterior y viendo simplemente que $\widetilde{id} = id$.
 
-**** TODO Caracterización de núcleos e imágenes
+**** Caracterización de núcleos e imágenes                         :extra:
+Sea $h : K[W] \longrightarrow K[V]$ un morfismo de K-álgebras dado por $h(Y_j) = F_j$.
+
+  1. Sea $C = (Y_1-F_1,\dots,Y_m-C_m) + \mathbb{I}(V)$ ideal de $K[X_1,\dots,X_n,Y_1,\dots,Y_m]$
+     se tiene:
+
+     \[
+     \ker(h) = ((C\cap K[Y_1,\dots,Y_m]) + \mathbb{I}(W))/\mathbb{I}(W)
+     \]
+     
+  2. Sea $\mathbb{G}$ Gröbner reducida de $C$ con orden lexicográfico:
+
+     \[F + \mathbb{I}(V) \in \im(h) \iff
+     R(F;\mathbb{G}) \in K[Y_1,\dots,Y_m]\]
+     
+     Además, en tal caso, $F + \mathbb{I}(V) = h(R(F;G)+\mathbb{I}(W))$.
+
+***** Demostración
+****** Primer punto
+******* Primera implicación
+Sea $G \in \ker(h)$, entonces $G(F_1,\dots,F_m) = h(G) = 0+\mathbb{I}(V) \in C$.
+Dividimos ahora $H = G - G(F_1,\dots,F_m)$ entre $Y_1-Y_1,\dots,Y_m-C_m$
+pero con orden lexicográfico $Y_1>\dots >Y_m>X_1> \dots>X_n$:
+
+\[
+H = \sum_{i=1}^m (Y_i-F_i) Q_i + R
+\]
+
+Como ${\cal N}(R) \subseteq \overline\Delta$, $R \in K[X_1,\dots,X_m]$, pero:
+
+\[
+H(F_1,\dots,F_m) = G(F_1,\dots,F_m) - G(F_1,\dots,F_m) = 0 = R
+\]
+
+Luego $H \in C$, y $G \in C \cap K[Y_1,\dots,Y_m]$.
+
+******* Segunda implicación
+Si escribimos $\mathbb{I}(V) = (H_1,\dots,H_s)$, tenemos entonces:
+
+\[
+G = \sum (Y_i-F_i)T_i + \sum H_jR_j
+\]
+
+luego:
+
+\[
+G(F_1,\dots,F_m) = \sum_{j=1}^s H_jR_j(X_1,\dots,X_n,F_1,\dots,F_m) 
+\in \mathbb{I}(V)
+\]
+
+Y por tanto tenemos $G \in \ker(H)$:
+
+\[
+h(G) = G(F_1,\dots,F_m) + \mathbb{I}(V) = 0
+\]
+
+****** TODO Segundo punto
+***** Inyectividad y sobreyectividad
+Se tiene desde lo anterior que:
+
+  1. $h$ inyectiva ssi $C \cap K[Y_1,\dots,Y_m] \subseteq \mathbb{I}(W)$.
+  2. $h$ sobreyectiva ssi $\exists M_i \in K[Y_1,\dots,Y_m]$ tal que $X_i-M_i \in \mathbb{G}$.
+
 ** Ejercicios
 *** Relación 1
 **** Ejercicio 1
@@ -13710,32 +13772,6 @@ Diagonalizar (si es posible) los operadores dados (respectivamente) por:
 # M.D. Ruiz Medina para la asignatura de Inferencia Estadística del grado
 # de matemáticas de la Universidad de Granada.
 # ##
-
-** DONE Apuntes en clase
-*** Distribuciones continuas
-**** Distribución uniforme
-*Distribución uniforme*. Sobre un intervalo $[a,b]$, definida por:
-
-\[f(x|a,b) = \frac{1}{b-a}\]
-
-\[EX = \int^b_a \frac{x}{b-a}dx = \frac{b+a}{2}\]
-\[Var X = \int_a^b \frac{(x-\frac{b+a}{2})^2}{b-a} dx = \frac{(b-a)^2}{12}\]
-
-**** Distribución de Dirichlet
- #+begin_definition
- *Distribución de Dirichlet*. 
-
- \[f(x_1\dots x_n| \alpha_1, \dots \alpha_k,\alpha_{k+1}) = 
- \frac{\Gamma(\alpha_1+\dots+\alpha_{k+1})}
- {\Gamma(\alpha_1)\dots \Gamma(\alpha_{k+1})}
- x_1^{\alpha_1-1} \dots x_{k}^{\alpha_{k-1}-1}
- \]
- #+end_definition
-
- # Esperanza
- # Integral de dirichlet
- # Subvector
- # Dirichlet ordenada
 
 ** Prerrequisitos
 *** Distribuciones
