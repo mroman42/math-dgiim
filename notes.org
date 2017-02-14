@@ -8441,6 +8441,32 @@ Y tomamos entonces $R=R'+tl(F)$, que sigue cumpliendo las
 condiciones.
 
 *** 4. Ideales monomiales.
+**** Exponente de un ideal                                         :extra:
+El exponente de un ideal es el conjunto de exponentes de sus polinomios:
+
+\[
+Exp(I) = \{
+exp(F) \mid 0\neq F \in I
+\} \subseteq \mathbb{N}^n
+\]
+
+El exponente es un monoideal, es decir, $Exp(I) + \mathbb{N}^n = Exp(I)$.
+
+***** Demostración
+Nótese que tenemos $exp(X^\gamma F) = \gamma + exp(F)$.
+
+**** Lema de Dickson y sistemas generadores                        :extra:
+Para $S \subseteq \mathbb{N}^n$ no vacío, existe $G \subseteq S$ finito tal que $S \subseteq G + \mathbb{N}^n$.
+
+***** Monoideal
+Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E+\mathbb{N}^n$.
+
+***** Sistemas de generadores
+Si $E$ es monoideal, existe un $G \subset E$ finito con $E = G + \mathbb{N}^n$. Llamamos
+a $G$ sistema de generadores de $E$.
+
+Esto es debido al lema de Dickson.
+
 **** Ideales monomiales
 Un *ideal monomial* está generado por monomios, es de la forma:
 
@@ -8477,7 +8503,6 @@ Triviales desde lo anterior.
 ****** Caracterización de ideales monomiales
 Nótese que podemos tomar todos los polinomios del ideal y generarlo
 como: $(X^\alpha \mid \alpha \in Exp(I))$.
-
 **** Lema de Dickson para ideales monomiales
 Todo ideal monomial tiene un sistema de generadores finito y 
 formado por monomios.
@@ -8494,33 +8519,6 @@ sistema de generadores:
 
 Dado cualquier $F\in I$, cada monomio suyo estará en $I$, luego será 
 generado por este sistema.
-
-**** Exponente de un ideal                                         :extra:
-El exponente de un ideal es el conjunto de exponentes de sus polinomios:
-
-\[
-Exp(I) = \{
-exp(F) \mid 0\neq F \in I
-\} \subseteq \mathbb{N}^n
-\]
-
-El exponente es un monoideal, es decir, $Exp(I) + \mathbb{N}^n = Exp(I)$.
-
-***** Demostración
-Nótese que tenemos $exp(X^\gamma F) = \gamma + exp(F)$.
-
-**** Lema de Dickson                                               :extra:
-Para $S \subseteq \mathbb{N}^n$ no vacío, existe $G \subseteq S$ finito tal que $S \subseteq G + \mathbb{N}^n$.
-
-***** Monoideal
-Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E+\mathbb{N}^n$.
-
-***** Sistemas de generadores
-Si $E$ es monoideal, existe un $G \subset E$ finito con $E = G + \mathbb{N}^n$. Llamamos
-a $G$ sistema de generadores de $E$.
-
-Esto es debido al lema de Dickson.
-
 *** 5. Bases de Gröbner. Aplicaciones.
 **** Base de Gröbner
 Una *base de Gröbner* de un ideal $I$ es un conjunto $\mathbb{G} = \{G_1,\dots,G_n\} \subseteq I$
