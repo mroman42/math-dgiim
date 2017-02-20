@@ -20313,8 +20313,59 @@ el monoide es $\mathbb{N}$, y que generaliza al anillo de polinomios en varias
 variables cuando el monoide es $\mathbb{N}^n$.
 
 **** TODO Monoide libre
-
 *** 1.2. Construcción de anillos
+**** Anillo cociente
+***** Proyección
+**** Propiedad universal del anillo cociente
+**** Primer teorema de isomorfía
+**** Segundo teorema de isomorfía
+**** Tercer teorema de isomorfía
+**** Producto directo
+**** Caracterización del producto por ortogonales centrales idempotentes
+**** Anillo opuesto
+**** Centro
+**** Propiedad universal del anillo de un monoide
+**** Anillo de polinomios
+**** Propiedad universal del anillo de polinomios
+*** 1.3. Módulos
+**** R-módulos
+***** Caracterización por anillo opuesto
+**** Morfismo de R-módulos
+**** Submódulos
+***** Ideales como submódulos 
+**** Módulo cociente
+**** Propiedad universal del módulo cociente
+**** Retículo de submódulos
+***** Intersección de submódulos
+***** Suma de submódulos
+**** Submódulos maximales
+*** 1.4. La categoría Mod-R
+**** Caracterización de monomorfismos y epimorfismos
+**** Primer teorema de isomorfía
+**** Segundo teorema de isomorfía
+**** Tercer teorema de isomorfía
+**** Producto directo
+**** Suma directa
+**** Límites
+**** Colímites
+**** Ejemplos de límite
+**** Cambios de anillo
+https://en.wikipedia.org/wiki/Change_of_rings
+** Ejercicios
+*** Ejercicio de clase 1
+#+begin_statement
+Demostrar que los ideales biláteros de $M_n(A)$ son de la forma:
+
+\[\begin{pmatrix}
+I & \dots & I \\
+  & \vdots & \\
+I  & \dots & I
+\end{pmatrix}\]
+#+end_statement
+
+Tenemos que si $N \in J$ ideal, $E_{ik} N E_{kj} = n_{ij}E_{ij} \in J$. Así, todas las
+entradas de la matriz forman un ideal. Es el mismo para cada entrada
+porque podemos mover una entrada en otra.
 
 * Empresa y Sociedad
 ** Detalles de la asignatura
