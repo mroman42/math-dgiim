@@ -2640,6 +2640,209 @@ The ith face map $\epsilon^n_i : \Delta^{n-1} \longrightarrow \Delta^n$ is defin
 We have $id = id \circ id' = id'$ and $\varphi^{-1} = \varphi' \circ \varphi \circ \varphi^{-1} = \varphi'$.
 
 ** 2. Hom and Tensor
+*** 2.1. Modules
+**** Representation of a ring
+A *representation* of $R$ is an homomorphism $\varphi : R \longrightarrow End_\mathbb{Z}(M)$.
+
+***** Equivalence of representations and modules
+The product of a R-module is a representation, and every
+representation gives an R-module.
+
+****** Equivalence of types
+Type of a representation:
+
+\[R \longrightarrow End(M)\]
+
+Type of an R-module product:
+
+\[R \times M \longrightarrow M\]
+
+Both types are equivalent.
+
+**** Example: Group ring
+Given $G$, a group, and $R$, a ring; we define the group ring, $RG$ to be
+the set of functions $G \longrightarrow R$ of finite support, with the operations:
+
+  - Sum of functions: $(f+g)(a) = f(a)+g(a)$
+  - Convolution (product): $(f\cdot g)(a) = \sum_{uv = a} f(u)g(v)$
+  - Product by a scalar on $R$: $(kf)(a) = kf(a)$
+
+It defines a ring and an R-module.
+
+***** Inclusion of the group
+The group can be included on $RG$ with the indicator function $y \mapsto 1_{(=y)}$,
+defined as:
+
+\[
+y(a) = 1_{(=y)}(a) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } a = y  \\
+0 & \mbox{if } a \neq y
+\end{array} 
+\right.
+\]
+
+A function that only outputs $1$ when its input is $y$.
+
+****** Preservation of the product
+
+\[
+1_{(=y)}\cdot 1_{(=z)} (a)
+=
+\sum_{u\cdot v = a} 1_{u=y}1_{v=z}
+=
+1_{a=yz}
+\]
+
+**** Additive functors
+A functor $T : \mathtt{RMod} \longrightarrow \mathtt{Ab}$ is called *additive* if, for every pair of R-maps,
+$f,g$, we have:
+
+\[
+T(f+g) = Tf + Tg
+\]
+
+***** Properties of additive functors
+Let $T : \mathtt{RMod} \longrightarrow \mathtt{Ab}$ be an additive functor:
+
+  1. $T(0) = 0$, the zero map.
+  2. $T(\{0\}) = \{0\}$, the zero group.
+
+****** Proof
+******* First property
+$T0 = T(0+0) = T0+T0$, and then $T0 = 0$.
+
+******* Second property
+$Hom(A,\{0\})$ only has one element.
+
+**** Homomorphisms of r-modules are abelian groups
+Given $A,B$ R-modules, $Hom_{R-mod}(A,B)$ is an abelian group with the
+componentwise sum.
+
+**** Hom as an additive functor
+$Hom_{R-mod}(A,-)$ is an additive functor.
+
+***** TODO Central case
+
+**** TODO Hom as a contravariant functor
+**** Submodules
+Given $M$, an R-module, a *submodule* $N \subseteq M$ is an additive subgroup
+closed under scalar multiplication.
+
+***** Examples of submodules
+****** Subgroups
+A submodule of a Z-module (abelian group) is a subgroup.
+
+**** Quotient of modules
+**** Kernels, images and cokernels
+**** First Isomorphism Theorem
+**** Second Isomorphism Theorem
+**** Third Isomorphism Theorem
+**** Correspondence Theorem
+**** Simple module
+A proper R-module $M$ is simple if it has no proper submodules.
+
+***** Characterization
+$M$ is simple iff $M \cong R/I$, where $I$ is a maximal left ideal.
+
+****** TODO Proof
+
+**** Exact sequences
+**** Zero-ended exact sequences
+**** Short exact sequences
+**** External direct sum
+***** Properties of the external direct sum
+**** Internal direct sum
+**** Direct summands and complements
+***** Retractions
+**** Direct product
+***** Direct sum
+***** Projections
+***** Injections
+**** Free modules
+***** Basis
+***** Free abelian groups
+**** Basis
+***** Invariant basis number
+***** Rank
+**** Left exactness
+*** 2.2. Tensor products
+**** Bilinearity
+***** Biadditivity
+**** Tensor product
+***** Uniqueness
+***** Existence
+**** Tensor functors
+**** Universal property of the tensor product
+**** Commutativity
+**** Enveloping algebra
+**** Right exactness
+**** Tensor and direct sum
+**** Four Lemma I
+**** Four Lemma II
+**** Five Lemma
+**** Divisible abelian group
+*** 2.2.1. Adjoint isomorphisms
+**** Adjoint isomorphisms
+**** Right exactness
+** 3. Special Modules
+*** 3.1. Projective modules
+**** Exact functor
+**** Lifting on free modules
+**** Lifting
+**** Projective modules
+**** Characterization of projective modules
+**** Projective modules and direct summands
+**** Kaplansky theorem
+**** Projective basis
+**** Schnauel's Lemma
+**** Ascending chaing condition
+**** Noetherian rings
+**** Characterization of noetherian rings
+**** Hilbert basis theorem
+*** 3.2. Injective modules
+**** Injective module
+**** Characterization of injective modules
+**** Product of injective modules
+**** Baer criterion
+**** Divisible modules
+**** Bass-Papp theorem
+**** Characterization by short exact sequences
+**** Essential extension
+**** Characterizacion by essential extensions
+**** Injective envelope
+**** Eckmann-Schöpf
+*** 3.3. Flat modules
+**** Flat module
+**** Direct sum of flat modules
+**** Finitely generated submodules and flat modules
+**** Torsion module
+**** Torsion-free module
+***** PID module
+***** Flat modules
+**** Character module
+**** Lambek theorem
+**** Villamayor theorem
+**** Left coherent ring
+**** Chase theorem
+*** 3.3.1. Purity
+**** Pure exact sequence
+***** Pure submodule
+**** Characterization of flatness
+**** Cohn theorem
+** 4. Specific Rings
+*** 4.2. Von Neumann Regular Rings
+**** Von Neumann Regular ring
+A ring $R$ is *Von Neumann regular* if:
+
+\[
+\forall r \in R: \exists r' \in R: rr'r = r
+\]
+
+***** Boolean rings
+A ring is boolean if every element is idempotent. Every boolean ring
+is a commutative Von Neumann regular ring.
+
 ** 5. Setting the stage
 *** 5.4. Sheaves
 **** Protosheaves
