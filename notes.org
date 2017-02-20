@@ -1979,7 +1979,7 @@ H_n({\cal C}') \rar & H_{n-1}({\cal A}')
 
 *** 8. Proj, inj and flat modules
 **** Definitions
-An $R$-module $D$ is:
+An R-module $D$ is:
 
  1. *Projective* if $Hom(D, -)$ is exact.
  2. *Injective* if $Hom(-,D)$ is exact.
@@ -2082,13 +2082,12 @@ again the projectivity of $P_{n+1}$.
 P_{n+1}' \rar[two heads] & \im d_{n+1}'
 \end{tikzcd} \]
 
-
 **** TODO Homotopic resolutions
 *** 11. Derived functors Ext and Tor
 **** Right derived functors
 Let $F$ be additive, covariant and left-exact. Let 
-$0 \longrightarrow M \longrightarrow E^\bullet$ be an injective resolution with $M$ deleted; then $F(E^\bullet)$ is a complex,
-and we define:
+$0 \longrightarrow M \longrightarrow E^\bullet$ be an injective resolution with $M$ deleted; then $F(E^\bullet)$ 
+is a complex, and we define:
 
 \[R^i F(M) = H^i(F(E^\bullet)) = 
 \frac{\ker \{F(E_i) \longrightarrow F(E_{i+1})\}}
@@ -2099,16 +2098,16 @@ That is, if we take the injective resolution:
 \[ 0 \longrightarrow M \longrightarrow E_0 \longrightarrow E_1 
 \longrightarrow \dots\]
 
-Delete $M$ and apply $F$ to get a (non neccesarily exact) complex where we can compute 
-the homology:
+Delete $M$ and apply $F$ to get a (non neccesarily exact) complex where 
+we can compute the homology:
 
 \[ 0 \longrightarrow F(E_0) \longrightarrow F(E_1)
 \longrightarrow F(E_2) \longrightarrow \dots\]
 
 **** Left derived functors
 Let $F$ be additive, contravariant and left-exact. Let 
-$P^\bullet \longrightarrow M \longrightarrow 0$ be a projective resolution with $M$ deleted; then $F(E^\bullet)$ is a complex,
-and we define:
+$P^\bullet \longrightarrow M \longrightarrow 0$ be a projective resolution with $M$ deleted; 
+then $F(P^\bullet)$ is a complex, and we define:
 
 \[R^i F(M) = H^i(F(P^\bullet)) = 
 \frac{\ker \{F(P_i) \longrightarrow F(P_{i+1})\}}
@@ -2119,11 +2118,15 @@ That is, if we take the injective resolution:
 \[\dots \longrightarrow P_2\longrightarrow P_1\longrightarrow P_0
 \longrightarrow M \longrightarrow 0\]
 
-Delete $M$ and apply $F$ to get a (non neccesarily exact) complex where we can compute 
-the homology:
+Delete $M$ and apply $F$ to get a (non neccesarily exact) complex 
+where we can compute the homology:
 
 \[ 0 \longrightarrow F(P_0) \longrightarrow F(P_1)
 \longrightarrow F(P_2) \longrightarrow \dots\]
+
+*** 12. Computations of some standard Ext and Tor examples
+** Algebraic Geometry
+*** 1. Intro to Algebraic Geometry
 * Jara - Apuntes
 ** XIII. Homología de Hochschild
 *** 3. Cohomología de Hochschild
@@ -2567,7 +2570,7 @@ Knowing that $G(g \circ f)(p) = (Gg \circ Gf) (p)$.
 A covariant functor $F: {\cal C} \longrightarrow \mathtt{Set}$ is representable if $F \cong Hom(A,-)$
 for some $A$.
 
-**** 1.2.44. Yoneda Corollary 
+**** 1.2.44. Yoneda Corollary
 For $A,B \in obj({\cal C})$:
 
   1. If $\eta \in Nat(Hom(A,-),Hom(B,-))$, then $\eta = (\_ \circ \psi)$ for some unique $\psi$.
