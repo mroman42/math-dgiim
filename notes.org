@@ -20157,6 +20157,44 @@ y el centro es de esa forma:
 \right\}
 \]
 
+*** Ejercicio 3
+#+begin_statement
+Comprobar que $Im(u) \subseteq Z(A)$, siendo $u : K \longrightarrow A$, $u(\alpha) = \alpha 1_A$.
+#+end_statement
+
+Usando la bilinealidad:
+
+\[
+u(\alpha) a =
+(\alpha 1) a =
+\alpha (1a) =
+1 (\alpha a) =
+(\alpha a) 1 =
+a (\alpha 1)
+\]
+
+*** Ejercicio 4
+#+begin_statement
+Supongamos $A$ anillo y $K$ cuerpo. Dado un homomorfismo de anillos $u : K \longrightarrow A$,
+demostrar que $A$ es una K-álgebra si defino su estructura de K-espacio 
+vectorial como sigue:
+
+\[
+\forall\alpha \in K, a \in A:\quad \alpha a = u(\alpha) a
+\]
+
+Es decir, podemos definir alternativamente un álgebra sobre $K$ como un
+homomorfismo de anillos $u : K \longrightarrow Z(A)$, el *homomorfismo de estructura*.
+#+end_statement
+
+Debemos comprobar que la multiplicación del anillo es bilineal sobre la
+estructura de espacio vectorial:
+
+  - $(a+b)c = ac+bc$
+  - $a(b+c) = ab+ac$
+  - $(\alpha a)c = (u(\alpha) a) c = a u(\alpha) c$
+
+Por lo que forma un K-álgebra.
 * Taller de Geometría y Topología
 ** 1. Construcciones con regla y compás 
 *** 1.1. Construcciones posibles
@@ -20256,7 +20294,7 @@ El álgebra de Weyl es isomorfa a:
 \frac{K[X,Y]}{(YX-XY-1)}ñ
 \]
 
-**** Ejemplo: Álgebra de un monoide
+**** Ejemplo: Anillo de un monoide
 Dado un monoide multiplicativo $M$, definimos $R[M]$ como los polinomios que
 usan como exponentes los elementos de $M$. Es decir,
 
