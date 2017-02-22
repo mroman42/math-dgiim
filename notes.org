@@ -20085,18 +20085,87 @@ determinar si una superficie es orientable o no:
     return (l,False)
 #+END_SRC
 * Grupos y Representaciones
-** 1. Álgebras de dimensión finita. Representaciones matriciales
-*** 1.1. Definición. Ejemplos
-*** 1.2. Subálgebras y homomorfismos
-*** 1.3. Divisores de cero y unidades
-*** 1.4. Módulos y representaciones
-*** 1.5. Submódulos y cocientes. Teorema de Jordan-Hölder
-*** 1.6. Módulos semisimples. Representaciones completamente reducibles
-*** 1.7. Álgebras semisimples. Teorema de Artin-Wedderburn
-*** 1.8. Álgebras simples. Teorema de Frobenius
-** 2. Representaciones de grupos finitos: teoría de caracteres
+** 1. Álgebras y módulos
+*** 1.1. Noción de álgebra
+**** Álgebra
+Un *álgebra* sobre un cuerpo $K$ es un K-espacio vectorial dotado de una
+aplicación bilineal $(\cdot) : K \times K \longrightarrow K$. La bilinealidad se expresa como:
+
+  1. $(a+b)c = ac+bc$
+  2. $a(b+c) = ab+ac$
+  3. $(\alpha a)b = \alpha(ab) = a(\alpha b)$
+
+***** Álgebra asociativa
+Un álgebra es *asociativa* si $(ab)c = a(bc)$.
+
+***** Álgebra conmutativa
+Un álgebra es *conmutativa* si $ab = ba$.
+
+***** Subálgebra
+Una *subálgebra* es un subespacio vectorial de un álgebra cerrado
+para el producto.
+
+**** Centro de un álgebra
+Se define el *centro* de un álgebra asociativa como:
+
+\[
+Z(A) = \{c \in A \mid ac = ca \forall a \in A \}
+\]
+
+**** Ideales
+Un subespacio vectorial de álgebra, $I \subseteq A$ es *ideal* si el producto por
+cualquier elemento está en el ideal $ai,ia \in I$.
+
+***** Cociente
+Sobre el K-espacio vectorial cociente por un ideal $A/I$, podemos definir
+una K-álgebra mediante $(a+I)(b+I) = ab+I$.
+
+****** TODO Buena definición
+
+**** Homomorfismos de K-álgebras
+Una aplicación lineal entre álgebras $f : A \longrightarrow A'$ es homomorfismo de
+K-álgebras si respeta el producto:
+
+\[
+f(ab) = f(a)f(b)
+\]
+
+***** Isomorfismo de K-álgebras
+Cuando un homormofismo de K-álgebras es biyectivo, se llama *isomorfismo*
+y su inversa es también homomorfismo de K-álgebras.
+
+**** Primer teorema de isomorfía
+Si $f : A \longrightarrow A'$ es homomorfismo de K-álgebras, $Im f$ es subálgebra y $\ker f$
+es ideal. Además, tenemos un isomorfismo de K-álgebras canónico:
+
+\[
+\widehat f : A/\ker f \longrightarrow \im f
+\]
+
+dado por $\widehat f(a+\ker f) = f(a)$.
+
+***** TODO Demostración
+
+**** Álgebras unitales
+Una K-álgebra asociativa es unital si existe un neutro para el producto.
+
+\[
+1_Aa = a = a1_A; \quad 1_A \neq 0
+\]
+
+***** Homormofisos de álgebras unitales
+A los homomorfismos de álgebras unitales se les pide respetar
+la unidad.
+
+**** Inclusión del cuerpo en el álgebra
+Sea $A$ una K-álgebra, la inclusión $u : K \longrightarrow A$ es homomorfismo inyectivo
+de K-álgebras. Como consecuencia $\im u \subseteq Z(A)$, y es una K-subálgebra.
+
+***** TODO Demostración
+
+*** 1.2. La representación regular. Unidades y divisores de cero
 ** Ejercicios
-*** Ejercicio 1
+*** Ejercicio 0.1                                                   :extra:
 #+begin_statement
 Comprobar que $K$ es una K-álgebra.
 #+end_statement
