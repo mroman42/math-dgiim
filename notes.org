@@ -20664,6 +20664,86 @@ estructura de espacio vectorial:
   - $(\alpha a)c = (u(\alpha) a) c = a u(\alpha) c$
 
 Por lo que forma un K-álgebra.
+
+*** Ejercicio 0.5
+#+begin_statement
+Comprobar que $Z(\mathbb{H}) = \mathbb{R}$.
+#+end_statement
+
+Supongamos un elemento en el centro $z = a+bi+cj+dk$, debería conmutar con
+$i,j$, así que:
+
+\[
+0 = zi-iz = (ai-b-ck+dj) - (ai-b+ck-dj) = 2(dj-ck)
+\]
+\[
+0 = zj-jz = (aj+bk-c-di) - (aj-bk-c+di) = 2(bk-di)
+\]
+
+De donde tenemos $b=c=d=0$, y por tanto, el elemento debe estar en $\mathbb{R}$.
+
+*** Ejercicio 0.6
+#+begin_statement
+Dados $q,p\in \mathbb{H}$, escritos como suma de vector y escalar, se tiene la fórmula:
+
+\[
+(a+v)(b+w) = ab + aw + bv - v\cdot w + v \wedge w
+\]
+#+end_statement
+
+Los tres primeros términos se tienen porque el producto escalar coincide
+con el producto de un real por un cuaternión. Los dos últimos términos se
+tienen como sigue. Si tomamos $v = xi+yj+zk$, $w = oi+pj+qk$; y los
+interpretamos como vectores como $v = (x\ y\ z)$, $w = (o\ p\ q)$:
+
+\[
+vw = (-xo-yp-qz) + (pxk-qxj - oyk+qyi + ozj-pzi)
+\]
+
+Y comprobamos que:
+
+\[(x\ y\ z)(o\ p\ q) = xo+yp+zq\]
+
+\[\begin{vmatrix}
+i&j&k \\
+x&y&z \\
+o&p&q \\
+\end{vmatrix}
+=
+pxk-qxj - oyk+qyi + ozj-pzi
+\]
+
+*** Ejercicio 0.8
+#+begin_statement
+Definir un submódulo.
+#+end_statement
+
+Un submódulo debe tener estructura de módulo y una inclusión al módulo
+del que es submódulo. Exigimos entonces, para que tenga estructura de módulo,
+que sea cerrado respecto a la suma y al producto por elementos del álgebra.
+Nótese que dentro de los elementos del álgebra están los elementos del 
+cuerpo base del álgebra.
+
+** Ejercicios de los apuntes
+*** Ejercicio 4
+#+begin_statement
+Demostrar que, realmente, $End_K(V)$, con las operaciones recién descritas
+(suma, producto escalar y composición), es una K-álgebra.
+#+end_statement
+
+La suma se define por $(f+g)(v) = f(v)+g(v)$, lo que da un grupo abeliano
+con el neutro $0(v) = 0$; además, con $(\alpha f)(v) = \alpha f(v)$, nos da un espacio
+vectorial.
+
+Comprobamos además que la composición es bilineal:
+
+  1. $((f+g)\circ h)(v) = f(h(v)) + g(h(v)) = (f\circ h + g\circ h)(v)$
+  2. $(f\circ (g+h))(v) = f(g(v)) + f(h(v)) = (f\circ g + f\circ h)(v)$
+  3. $(\alpha f \circ g)(v) = \alpha (f\circ g)(v)) = f(\alpha g(v)) = (f \circ \alpha g)(v)$
+
+Donde en el primer y segundo punto usamos la definición de suma; y
+en el tercer punto usamos la linealidad de la función para conmutar
+el elemento del cuerpo y la aplicación de la función.
 * Taller de Geometría y Topología
 ** 1. Construcciones con regla y compás 
 *** 1.1. Construcciones posibles
@@ -20821,20 +20901,31 @@ variables cuando el monoide es $\mathbb{N}^n$.
 **** Cambios de anillo
 https://en.wikipedia.org/wiki/Change_of_rings
 ** Ejercicios
-*** Ejercicio de clase 1
+*** Semana 1
 #+begin_statement
-Demostrar que los ideales biláteros de $M_n(A)$ son de la forma:
-
-\[\begin{pmatrix}
-I & \dots & I \\
-  & \vdots & \\
-I  & \dots & I
-\end{pmatrix}\]
+Prueba que los ideales (biláteros) del anillo $M_n(R)$ son de la forma
+$M_R(\mathfrak{a})$, para un ideal (bilátero) $\mathfrak{a} \subseteq R$.
 #+end_statement
 
-Tenemos que si $N \in J$ ideal, $E_{ik} N E_{kj} = n_{ij}E_{ij} \in J$. Así, todas las
-entradas de la matriz forman un ideal. Es el mismo para cada entrada
-porque podemos mover una entrada en otra.
+Llamamos $E_{ij}$ a la matriz que tiene todas sus entradas nulas excepto
+la entrada $i,j$. Dada $N$, una matriz con elementos $N = (n_{ij})_{i,j}$, el
+producto de matrices es:
+
+\[
+E_{ia}NE_{bj} = n_{ab}E_{ij}
+\]
+
+Es decir, si una matriz $N$ está en un ideal bilátero $J$, todas las 
+matrices de la forma $n_{ab}E_{ij}$ estarán también en el ideal.
+
+Esto nos da por un lado que los elementos que aparecen en matrices 
+del ideal forman un ideal $I$, si $a,b$ están en el ideal, $(a+\alpha b)E_{ij}$ 
+estará en el ideal. Y además, cualquier matriz de la forma $xE_{ij}$ para
+$x \in I$ está en el ideal. Así, el ideal es de la forma:
+
+\[
+J = M_R(\mathfrak{a})
+\]
 
 * Empresa y Sociedad
 ** Detalles de la asignatura
