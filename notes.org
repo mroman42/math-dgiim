@@ -2177,6 +2177,324 @@ multiplication is defined as $x \circ y = yx$.
 The *enveloping algebra* of an R-algebra is:
 
 \[ A^e = A^\ast \otimes A\]
+* Saunders Mac Lane - Categories for the Working Mathematician
+** 1. Categories, Functors and Natural Transformations
+*** 1. Axioms for categories
+**** Metagraph
+Objects $a,b,c,\dots$ and arrows $f,g,h,\dots$, with two operations:
+
+  - *Domain*, $dom(f) = a$
+  - *Codomain*, $cod(f) = b$
+
+That we write as $f : a \to b$.
+
+**** Metacategory
+A metagraph with two additional operations:
+
+  - *Identity*: $id_a : a \to a$
+  - *Composition*: for a pair of arrows $dom(g) = cod(f)$, it defines a
+    new arrow $g \circ f : dom(f) \to cod(g)$.
+
+    \[\begin{tikzcd}
+    & b \drar{g} & \\
+    a \arrow{rr}{g\circ f} \urar{f} & & c
+    \end{tikzcd}\]
+
+Subject to the following axioms:
+
+  - *Associativity*: Given objects and arrows in this configuration:
+    
+    $a \overset{f}\to b \overset{g}\to c \overset{k}\to d$
+
+    We have the equality: $k \circ (g \circ f) = (k \circ g) \circ f$.
+
+  - *Unit law*: composition with the identity arrow is neutral.
+
+***** Metacategory of Sets
+***** Metacategory of Groups
+***** Arrow-only axioms
+*** 2. Categories
+**** Category
+An interpretation of a metacategory within set theory.
+
+***** Diagram scheme (directed graphs)
+A category is a graph with identity and composition functions.
+
+**** Examples of categories
+***** Basic examples
+****** The empty category
+****** 1, the category with one object and one identity
+****** 2, the category a -> b with two objects
+****** 3, a triangle category
+****** Parallel arrows
+
+***** Discrete categories
+Where every arrow is an identity.
+
+***** Monoids and groups
+A category with one object.
+
+***** Matrices
+Objects: positive integers.
+Arrows: $m\times n$ matrices.
+
+***** Sets of sets
+***** Preorder
+****** Partial orders
+****** Linear orders
+***** Ordinal numbers
+***** Simplicial category
+***** Large categories
+*** 3. Functors
+**** Functor
+A morphism of categories. A functor $T : {\cal C} \to {\cal B}$ is given by:
+
+  - The *object function*, $T : Obj({\cal C}) \to Obj({\cal B})$.
+  - The *arrow function*, $T : (c \to c') \to (Tc \to Tc')$
+
+With the axioms:
+
+  - $T(1_c) = 1_{Tc}$
+  - $T(f\circ g) = Tg \circ Tf$
+
+**** Examples
+***** The powerset functor
+***** Homology groups
+***** General linear group
+***** Commutators
+***** Forgetful functors
+**** Composition of functors, the metacategory Cat
+We can define composition of functors, and also functors as isomorphisms.
+
+***** Isomorphisms
+A functor is an isomorphism iff there is a functor $S : B \to C$ for 
+which both composites are the identity $S \circ T = Id = T \circ S$.
+
+***** Full functor
+Every $g : c \to c'$ of $B$ is of the form $Tf : Tc \to Tc'$. In other words,
+the arrow function (the map!) is injective.
+
+***** Faithful functor
+The equality $Tf_1 = Tf_2$ implies $f_1 = f_2$. In other words, the arrow
+function is surjective.
+
+***** Subcategories
+A subcategory gives us an inclusion functor.
+
+*** 4. Natural transformations
+**** Natural transformation
+Given two functors $S,T : C \to B$, a natural transformation $\tau : S \xrightarrow{.} T$
+is a function assigning every $c \in C$ an arrow $Sc \to Tc$ and yielding
+a commutative diagram:
+
+\[\begin{tikzcd}
+c \dar{f} & & Sc \rar{\tau_c}\dar{Sf} & Tc \dar{Tf} \\
+c' & & Sc' \rar{\tau_{c'}} & Tc'
+\end{tikzcd}\]
+
+We say that $\tau_c$ is natural in $c$.
+
+***** Translation of pictures
+A natural transformation translates a diagram from $S$ to $T$.
+
+\[\begin{tikzcd}
+a \arrow{dd}{h}\drar{f} &   & & S a \arrow{dd}{S h}\drar{S f} \arrow{rrr}{\tau a} &     & & T a \arrow{dd}{T h}\drar{T f} &     \\
+  & b \dlar{g} & &     & S b \dlar{S g} \arrow{rrr}{\tau b} & &     & T b \dlar{T g} \\
+c &   & & S c \arrow{rrr}{\tau c} &     & & T c &     \\
+\end{tikzcd}\]
+
+**** Natural isomorphisms
+A natural transformation is a morphism of functors. We call 
+*natural isomorphism* to a natural transformation where every 
+component $\tau_c$ is invertible. We write it as:
+
+$\tau : S \cong T$
+
+The inverses form another natural transformation.
+
+**** Examples
+***** Determinant
+Natural transformation between two functors
+$GL, {\cal U}() : \mathtt{CRng} \longrightarrow \mathtt{Grp}$.
+
+***** Identity and factor-commutator functor
+
+***** Double character group
+Defined as $D(G) = Hom(G, \mathbb{R}/\mathbb{Z})$, it is a contravariant functor when 
+we define $(Df) t = t \circ f$. But the twice iterated functor $D^2$ is a 
+covariant one.
+
+There is a natural transformation between $Id$ and $D^2$.
+
+\[
+\tau_G(g) t = t(g)
+\]
+
+It is easy (with lambda calculus, for example) to check that this
+diagram commutes.
+
+***** Double dual of a finite vectorial space
+
+***** Inclusion and cardinality of ordinals
+
+*** 5. Monics, epis and zeros
+**** Isomorphism
+An arrow $e : a \to b$ is an isomorphism if there is an arrow $e^{-1} : b \to a$
+such that $e'e = 1$ and $ee' = 1$.
+
+***** Isomorphic objects
+Two objects are isomorphic if there is an isomorphism between them.
+
+**** Monic and epi
+An arrow is *monic* if it is left cancellable, it is *epi* if it is
+right cancellable.
+
+***** Retractions and sections
+A left inverse is called a *retraction*, while a right inverse is
+called a *section*.
+
+**** Splits and idempotents
+When $gh = 1$, $g$ is a split epi, $h$ is a split monic and the composite
+$hg$ is an idempotent. An arrow is idempotent if $f^2 = f$, and it is said
+to split when there exist arrows $g$ and $h$.
+
+**** Terminal objects and initial objects
+An object $t$ is terminal if for every $a$ there is exactly one arrow $a \to t$.
+An object $s$ is initial if for every $a$ there is exactly one arrow $s \to a$.
+An object $z$ is null if it is both initial and terminal.
+
+***** Zero arrow
+There is an unique arrow $a \to z \to b$ called the *zero* arrow. Any 
+composite with it is itself a zero arrow.
+
+**** Groupoids
+A category where every arrow is invertible.
+
+***** The fundamental groupoid
+***** Group of homomorphisms
+In a groupoid, each object determines a group, $hom(x,x)$.
+If there is an arrow $f : x \to x'$, the groups $hom(x,x)$ and $hom(x',x')$
+are isomorphic under conjugation $g \mapsto fgf^{-1}$.
+
+***** Connected groupoid
+A *connected groupoid* is deteremined by a group and the set of
+all objects.
+
+*** TODO 6. Foundations
+
+** Exercises
+*** 1.3. Functors
+**** Exercise 1
+#+begin_statement
+Show how each of the following constructions can be regarded as a functor:
+
+ - the field of quotients of an integral domain.
+ - the Lie algebra of a Lie group.
+#+end_statement
+
+***** Field of quotients
+Given two integral domains and a ring homomorphism $f : R \to S$, we
+define an homomorphism between its fields of quotients as:
+
+\[
+\widetilde{f}\left(\frac{a}{b}\right)
+=
+\frac{f(a)}{f(b)}
+\]
+
+We can prove it is well-defined using that $ab=cd$ implies
+$f(a)f(b) = f(c)f(d)$, and then:
+
+\[
+\widetilde{f}\left(\frac{a}{b}\right)
+=
+\frac{f(a)}{f(b)}
+=
+\frac{f(c)}{f(d)}
+=
+\widetilde{f}\left(\frac{c}{d}\right)
+\]
+
+And it respects sums and products:
+
+\[
+\widetilde{f}\left(\frac{a}{b} + \frac{c}{d}\right)
+=
+\widetilde{f}\left(\frac{ad+cb}{bd}\right)
+=
+\frac{f(a)f(d)+f(c)f(d)}{f(b)f(d)}
+=
+\frac{f(a)}{f(b)}+\frac{f(c)}{f(d)}
+\]
+
+\[
+\widetilde{f}\left(\frac{ac}{bd}\right) =
+\frac{f(a)f(c)}{f(b)f(d)}
+\]
+
+So it is a field homomorphism.
+
+***** TODO Lie algebra
+Given $\phi : G \to H$, a Lie group homomorphism, we can compute its first
+derivative at the identity $\phi^*$.
+**** TODO Exercise 2
+#+begin_statement
+Show that functors $1 \to C$, $2 \to C$, and $3 \to C$ correspond respectively to
+objects, arrows, and composable pairs of arrows in $C$.
+#+end_statement
+**** TODO Exercise 3
+#+begin_statement
+Interpret "functor" in the following special types of categories:
+
+  1. A functor between two preorders is a function $T$ which is monotonic
+     (i.e. $p \leq p'$ implies $Tp \leq Tp'$).
+  2. A functor between two groups (one-object categories) is a morphism
+     of groups.
+  3. If $G$ is a group, a functor $G \to \mathtt{Set}$ is a permutation representation
+     of $G$, while $G \to Matr_K$ is a matrix representation of $G$.
+#+end_statement
+**** TODO Exercise 4
+#+begin_statement
+Prove that there is no functor $\mathtt{Grp} \to \mathtt{Ab}$ sending each group $G$ to its
+center. (Consider $S_2 \to S_3 \to S_2$, the symmetric groups).
+#+end_statement
+**** TODO Exercise 5
+#+begin_statement
+Find two different functors $T : \mathtt{Grp} \to \mathtt{Grp}$ with object function $T(G) = G$
+the identity for every group $G$.
+#+end_statement
+*** 1.4. Natural transformations
+**** Exercise 1
+#+begin_statement
+Let $S$ be a fixed set, and $X^S$ the set of all functions $h : S \longrightarrow X$.
+Show that $X \mapsto X^S$ is the object function of a functor $\mathtt{Set} \longrightarrow \mathtt{Set}$,
+and that evaluation $e_X : X^S \times S \longrightarrow X$ defined by $e(h,s) = h(s)$, the
+value of the function $h$ at $s \in S$ is a natural transformation.
+#+end_statement
+
+We define the functor $\_^S$ on arrows as follows. Given a $f : X \to Y$
+and a $g : S \longrightarrow X$:
+
+\[
+f^S(g) = f \circ g
+\]
+
+And it follows the functor laws.
+
+We can see that evaluation is a natural transformation with the
+naturality square:
+
+\[\begin{tikzcd}
+X^S \times S \dar{e_X}\rar{f^S,id} & Y^S \times S \dar{e_Y}\\
+X \rar{f} & Y
+\end{tikzcd}\]
+
+Which commutes on its elements:
+
+\[\begin{tikzcd}
+(f,s) \dar{e_X}\rar{g^S,id} & (g\circ f, s) \dar{e_Y}\\
+f(s) \rar{f} & g(f(s))
+\end{tikzcd}\]
 * Rotman - An introduction to homological algebra
 ** 1. Introduction
 *** 1.1. Simplicial Homology
