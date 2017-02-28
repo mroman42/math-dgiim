@@ -20486,8 +20486,86 @@ de K-álgebras. Como consecuencia $\im u \subseteq Z(A)$, y es una K-subálgebra
 ***** TODO Demostración
 
 *** 1.2. La representación regular. Unidades y divisores de cero
-** Ejercicios
-*** Ejercicio 0.1                                                   :extra:
+**** Espacio de endomorfismos
+Sea $V$ un K-espacio vectorial, sus endomorfismos lineales tienen estructura
+de K-álgebra con la composición como producto:
+
+\[
+End_K(V) = \{ f : V \longrightarrow V \mid f \text{ es lineal}\}
+\]
+
+***** Demostración
+La suma se define por $(f+g)(v) = f(v)+g(v)$, lo que da un grupo abeliano
+con el neutro $0(v) = 0$; además, con $(\alpha f)(v) = \alpha f(v)$, nos da un espacio
+vectorial.
+
+Comprobamos además que la composición es bilineal:
+
+  1. $((f+g)\circ h)(v) = f(h(v)) + g(h(v)) = (f\circ h + g\circ h)(v)$
+  2. $(f\circ (g+h))(v) = f(g(v)) + f(h(v)) = (f\circ g + f\circ h)(v)$
+  3. $(\alpha f \circ g)(v) = \alpha (f\circ g)(v)) = f(\alpha g(v)) = (f \circ \alpha g)(v)$
+
+Donde en el primer y segundo punto usamos la definición de suma; y
+en el tercer punto usamos la linealidad de la función para conmutar
+el elemento del cuerpo y la aplicación de la función.
+
+**** Inclusión en los endomorfismos
+Sea $A$ cualquier K-álgebra. La aplicación $\lambda : A \longrightarrow End_K(A)$ que asigna
+a cada $a \in A$ la aplicación $\lambda_a : A \longrightarrow A$ definida por $\lambda_a(b) = ab$ para
+todo $b \in A$ es un homomorfismo inyectivo de K-álgebras.
+
+***** Caso finito
+Toda K-álgebra de dimensión finita es isomorfa a una subálgebra de
+matrices con coeficientes en $K$.
+
+***** Demostración
+****** Es homormorfismo
+Por los axiomas de K-álgebra, $\lambda_a$ es siempre lineal. Además, la propia
+$\lambda$ es lineal por tenerse:
+
+\[
+\lambda_{a+\alpha b}(c) = (a+\alpha b)c = ac + \alpha bc = 
+\lambda_a(c) + \alpha\lambda_b(c) = (\lambda_a+\alpha\lambda_b)(c)
+\]
+
+Además, es multiplicativa por asociatividad:
+
+\[
+\lambda_{ab}(c) = (ab)c = a(bc) = \lambda_a \circ \lambda_b (c)
+\]
+
+****** Es inyectiva
+Si $\lambda_a = 0$, se tiene $a = \lambda_a(1) = 0$.
+
+**** Álgebra opuesta
+El álgebra opuesta $A^{op}$ es la propia $A$ con el producto dado por:
+
+\[
+a \cdot b = ba
+\]
+
+**** Unidades y divisores de cero
+Un $a \in A$ no nulo es *unidad* si existe $a^{-1} \in A$ tal que $aa^{-1} = 1 = a^{-1}a$.
+El conjunto de las unidades, $U(A)$ forma un grupo con el producto.
+
+***** Divisor de cero
+Un $a \in A$ no nulo es *divisor de cero* si $\exists b: ab = 0$ ó $ba = 0$.
+
+***** Caracterización de unidades en dimensión finita
+Sea $a \in A$ no nulo en $A$ k-álgebra de dimensión finita:
+
+1. Equivalen:
+   - $a \in U(A)$
+   - $\exists b \in A : ab = 1$
+   - $\exists b \in A : ba = 1$
+
+2. Equivalen:
+   - $a \notin U(A)$
+   - $\exists b \in A: ab = 0$
+   - $\exists c \in A : ca = 0$
+
+** Ejercicios de clase
+*** Ejercicio 0.1
 #+begin_statement
 Comprobar que $K$ es una K-álgebra.
 #+end_statement
@@ -20501,7 +20579,7 @@ producto es una aplicación bilineal sobre $K$, ya que cumple:
 
 Además es un álgebra asociativa y unital.
 
-*** TODO Ejercicio 1
+*** Ejercicio 0.2
 #+begin_statement
 Calcular el centro del álgebra de matrices $M_n(K)$.
 #+end_statement
@@ -20548,8 +20626,7 @@ y el centro es de esa forma:
 \right\}
 \]
 
-*** TODO Ejercicio 2
-*** TODO Ejercicio 3
+*** Ejercicio 0.3
 #+begin_statement
 Comprobar que $Im(u) \subseteq Z(A)$, siendo $u : K \longrightarrow A$, $u(\alpha) = \alpha 1_A$.
 #+end_statement
@@ -20565,7 +20642,7 @@ u(\alpha) a =
 a (\alpha 1)
 \]
 
-*** Ejercicio 4
+*** Ejercicio 0.4
 #+begin_statement
 Supongamos $A$ anillo y $K$ cuerpo. Dado un homomorfismo de anillos $u : K \longrightarrow A$,
 demostrar que $A$ es una K-álgebra si defino su estructura de K-espacio 
