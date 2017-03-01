@@ -2380,8 +2380,38 @@ are isomorphic under conjugation $g \mapsto fgf^{-1}$.
 A *connected groupoid* is deteremined by a group and the set of
 all objects.
 
-*** TODO 6. Foundations
+*** 6. Foundations
+**** Universe
+An universe is a set $U$ with the closure properties:
 
+  1. $x \in u \in U \implies x \in U$.
+  2. e$u,v \in U \implies \{u,v\},(u,v),u\times v \in U$.
+  3. $x \in U \implies {\cal P}x, \cup x \in U$.
+  4. $\omega \in U$ where $\omega = \{0,1,2,\dots\}$.
+  5. $f : a \to b$ surjective and $a \in U$, $b \subseteq U$ implies $b \in U$.
+
+**** Small sets
+Fixed an universe, we call a set $u \in U$ a *small set*. The universe is
+the set of all small sets. $\mathtt{Set}$ denotes the category of small sets.
+
+***** Small structures
+A small group is a small set with a group structure. $\mathtt{Grp}$ denotes the
+category of small groups.
+
+***** Small categories
+A category is small if the set of its arrows and objects are both small
+sets. $\mathtt{Set}$ is not a small category.
+
+*** 7. Large categories
+**** Abelian groups
+**** Rings
+**** Modules over a ring
+**** Bimodules
+**** Topological spaces with continuous maps
+**** Topological spaces with homotopy classes
+**** Pointed sets
+**** Binary relations
+**** Concrete categories
 ** Exercises
 *** 1.3. Functors
 **** Exercise 1
