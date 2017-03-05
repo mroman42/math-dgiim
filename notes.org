@@ -20604,17 +20604,50 @@ Un $a \in A$ no nulo es *divisor de cero* si $\exists b: ab = 0$ ó $ba = 0$.
 Sea $a \in A$ no nulo en $A$ k-álgebra de dimensión finita:
 
 1. Equivalen:
+
    - $a \in U(A)$
    - $\exists b \in A : ab = 1$
    - $\exists b \in A : ba = 1$
 
 2. Equivalen:
+
    - $a \notin U(A)$
    - $\exists b \in A: ab = 0$
    - $\exists c \in A : ca = 0$
 
+****** Demostración primer punto
+Si $ab = 1$, $\lambda_a$ es sobreyectiva y $\lambda_b$ es inyectiva. Por ser de dimensión
+finita ambas son isomorfismos. Se aplica sobre el álgebra opuesta para
+llegar a la otra implicación.
+
+****** Demostración segundo punto
+Ssi $ab = 0$, $\lambda_a$ no es inyectiva, y por tanto no puede ser unidad.
+
+*** 1.3. Representaciones y módulos
+**** Representación
+Una *representación* de un álgebra $A$ es un homomorfismo de k-álgebras
+$\mu : A \longrightarrow End_K(V)$, donde $V$ es el k-espacio vectorial de representación.
+
+***** Representación fiel
+Se llama representación *fiel* cuando $\mu$ es inyectiva.
+
+***** Representación regular
+La inclusión en los endomorfismos es una *representación fiel* que
+llamamos representación regular.
+
+**** Módulos de un álgebra
+Dada $A$ álgebra, un A-módulo por la izquierda es un espacio vectorial $V$
+con un producto bilineal $A \times V \to V$ cumpliendo $(ab)v = a(bv)$ y $1v = v$.
+
+***** Equivalencia de módulos y representaciones
+Sean $A$ una k-álgebra y $V$ es un k-espacio vectorial. Hay una biyección
+entre el conjunto de representaciones de $A$ sobre $V$ y los A-módulos
+por la izquierda sobre $V$.
+
+****** TODO Demostración
+
 ** Ejercicios de clase
-*** Ejercicio 0.1
+*** Ejercicio 1
 #+begin_statement
 Comprobar que $K$ es una K-álgebra.
 #+end_statement
@@ -20628,7 +20661,7 @@ producto es una aplicación bilineal sobre $K$, ya que cumple:
 
 Además es un álgebra asociativa y unital.
 
-*** Ejercicio 0.2
+*** Ejercicio 2
 #+begin_statement
 Calcular el centro del álgebra de matrices $M_n(K)$.
 #+end_statement
@@ -20675,7 +20708,7 @@ y el centro es de esa forma:
 \right\}
 \]
 
-*** Ejercicio 0.3
+*** Ejercicio 3
 #+begin_statement
 Comprobar que $Im(u) \subseteq Z(A)$, siendo $u : K \longrightarrow A$, $u(\alpha) = \alpha 1_A$.
 #+end_statement
@@ -20691,7 +20724,7 @@ u(\alpha) a =
 a (\alpha 1)
 \]
 
-*** Ejercicio 0.4
+*** Ejercicio 4
 #+begin_statement
 Supongamos $A$ anillo y $K$ cuerpo. Dado un homomorfismo de anillos $u : K \longrightarrow A$,
 demostrar que $A$ es una K-álgebra si defino su estructura de K-espacio 
@@ -20714,7 +20747,7 @@ estructura de espacio vectorial:
 
 Por lo que forma un K-álgebra.
 
-*** Ejercicio 0.5
+*** Ejercicio 5
 #+begin_statement
 Comprobar que $Z(\mathbb{H}) = \mathbb{R}$.
 #+end_statement
@@ -20731,7 +20764,7 @@ $i,j$, así que:
 
 De donde tenemos $b=c=d=0$, y por tanto, el elemento debe estar en $\mathbb{R}$.
 
-*** Ejercicio 0.6
+*** Ejercicio 6
 #+begin_statement
 Dados $q,p\in \mathbb{H}$, escritos como suma de vector y escalar, se tiene la fórmula:
 
@@ -20762,7 +20795,17 @@ o&p&q \\
 pxk-qxj - oyk+qyi + ozj-pzi
 \]
 
-*** Ejercicio 0.8
+*** TODO Ejercicio 7
+#+begin_statement
+Demostrar que un grupo abeliano $(V,+)$ junto a una acción $A\times V \to V$ es
+un módulo ssi verifica las cuatro condiciones siguientes:
+
+  1. $(a+a')v = av + a'v$
+  2. $a(v+v') = av+av'$
+  3. $a(a'v) = (aa')v$
+  4. $1v = v$
+#+end_statement
+*** Ejercicio 8
 #+begin_statement
 Definir un submódulo.
 #+end_statement
