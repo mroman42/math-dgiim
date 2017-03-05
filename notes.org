@@ -5,7 +5,7 @@
 #+LANGUAGE: es
 #+STARTUP: indent
 #+SETUPFILE: math.setup
-# #+SETUPFILE: html.setup
+#+SETUPFILE: html.setup
 
 * Papers & articles
 ** TODO Dependent types at work - Ana Bove, Peter Dybjer
@@ -20461,15 +20461,21 @@ Se define el *centro* de un álgebra asociativa como:
 Z(A) = \{c \in A \mid ac = ca \forall a \in A \}
 \]
 
-**** Ideales
+**** Ideales y cocientes
 Un subespacio vectorial de álgebra, $I \subseteq A$ es *ideal* si el producto por
 cualquier elemento está en el ideal $ai,ia \in I$.
 
-***** Cociente
+***** Cociente por un ideal
 Sobre el K-espacio vectorial cociente por un ideal $A/I$, podemos definir
 una K-álgebra mediante $(a+I)(b+I) = ab+I$.
 
-****** TODO Buena definición
+****** Buena definición
+Supongamos que $a+I = a'+I$ y que $b+I = b'+I$, entonces 
+tenemos que:
+
+\[
+ab- a'b' = a(b-b') - (a-a')b' \in I
+\]
 
 **** Homomorfismos de K-álgebras
 Una aplicación lineal entre álgebras $f : A \longrightarrow A'$ es homomorfismo de
@@ -20493,10 +20499,23 @@ es ideal. Además, tenemos un isomorfismo de K-álgebras canónico:
 
 dado por $\widehat f(a+\ker f) = f(a)$.
 
-***** TODO Demostración
+***** Demostración
+Comprobamos que está bien definido, ya que si $a + \ker f = b + \ker f$,
+se tiene que $\widehat f(a+\ker f) - \widehat f(b + \ker f) = f(a-b) = 0$.
+
+La función es lineal y preserva el producto por la definición de
+producto con la que hemos dotado al ideal. Ahora, comprobamos que
+es inyectivo por tenerse:
+
+\[
+\widehat f(a+\ker f) = 
+\widehat f(b+\ker f) \implies f(a-b) =
+0 \implies a-b \in I
+\]
 
 **** Álgebras unitales
-Una K-álgebra asociativa es *unital* si existe un neutro para el producto.
+Una K-álgebra asociativa es *unital* si existe un neutro para el 
+producto.
 
 \[
 1_Aa = a = a1_A; \quad 1_A \neq 0
