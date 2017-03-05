@@ -20816,7 +20816,85 @@ que sea cerrado respecto a la suma y al producto por elementos del álgebra.
 Nótese que dentro de los elementos del álgebra están los elementos del 
 cuerpo base del álgebra.
 
+*** Ejercicio 9
+#+begin_statement
+Sea $N_1,\dots,N_m \in {\cal L}(M)$. Demostrar que:
+
+\[
+N_1+\dots+N_m
+=
+\{m_1+\dots+m_n \mid m_i \in N_i \}
+\]
+#+end_statement
+
+Primero notamos que es un módulo, ya que:
+
+ - $a(m_1+\dots+m_n) = am_1+\dots+am_n$
+ - $(m_1+\dots+m_n)+(m'_1+\dots+m'_n) = (m_1+m'_1) + \dots + (m_n+m'_n)$
+
+Después notamos que si un módulo contiene a $N_1,\dots,N_m$ debe contener
+todas las sumas de sus elementos por ser cerrado para la suma. Así,
+este es el mínimo módulo conteniendo a $N_i$.
+
+*** Ejercicio 10
+#+begin_statement
+¿Para qué valores del ángulo el giro en el plano da sólo submódulos propios?
+Es decir, ¿cuándo es $\mathbb{R}^2$ simple como $\mathbb{R}[T]$ módulo con $T$ giro?
+#+end_statement
+
+Sea $M$ un submódulo de $\mathbb{R}^2$ con $v \not\in M$. Si $T(v),v$ son linealmente 
+independientes, el espacio $\langle Tv,v \rangle$ será $\mathbb{R}^2$ y no podrá existir un módulo
+propio. En otro caso, $\langle v \rangle$ será un módulo propio.
+
+Para tener $Tv,v$ independientes, es necesario tener un giro múltiplo de $\pi$.
+
 ** Ejercicios de los apuntes
+*** Ejercicio 2
+#+begin_statement
+Escribir la demostración de la Proposición 1.7.
+#+end_statement
+
+Notamos primero que $\widehat f$ es el mismo que obtendríamos aplicando el
+primer teorema de Isomorfía entre espacios vectoriales. Así, sabemos
+que está bien definido y que es una función lineal biyectiva.
+
+Comprobaremos simplemente que preserva el producto, probando así que
+es un isomorfismo de k-álgebras; pero esto es trivial por la estructura
+de álgebra con la que hemos dotado al cociente:
+
+\[
+\widehat f((a+I)(b+I)) = 
+\widehat f(ab+I) = f(ab) = f(a)f(b) 
+= \widehat f(a+I) \widehat f(b+I)
+\]
+
+*** Ejercicio 3
+#+begin_statement
+Supongamos que $K$ es un cuerpo, y $A$ es un anillo (no necesariamente
+conmutativo). Sea $u : K \to A$ un homomorfismo de anillos tal que
+$Im(u) \subseteq Z(A)$, donde $Z(A)$ denota el centro de $A$, definido de manera
+obvia. Comprobar que si definimos la acción de $K$ sobre $A$ dada por
+$\alpha a = u(\alpha) a$, para todo $\alpha \in K, a \in A$, entonces $A$ es una k-álgebra.
+#+end_statement
+
+Comprobamos primero que $A$ es un k-espacio vectorial. Con su suma es
+un grupo abeliano, y por ser el producto sobre ella distributivo y
+el homomorfismo de anillos unital y asociativo:
+
+ - $u(\alpha)(a+b) = u(\alpha)a + u(\alpha)b$
+ - $u(1)a = 1a = a$
+ - $u(\alpha)u(\beta)(a+b) = u(\alpha\beta)(a+b)$
+ - $u(\alpha+\beta)a = u(\alpha)a + u(\beta)a$
+
+Ahora comprobaremos simplemente que el producto del anillo es una
+operación bilineal en este espacio vectorial.
+
+  - $(a+b)c = ac+bc$
+  - $a(b+c) = ab+ac$
+  - $(\alpha a)c = (u(\alpha) a) c = a u(\alpha) c$
+
+Donde hemos usado distributividad del producto y que $u(\alpha) \in Z(A)$.
+
 *** Ejercicio 4
 #+begin_statement
 Demostrar que, realmente, $End_K(V)$, con las operaciones recién descritas
@@ -20836,6 +20914,17 @@ Comprobamos además que la composición es bilineal:
 Donde en el primer y segundo punto usamos la definición de suma; y
 en el tercer punto usamos la linealidad de la función para conmutar
 el elemento del cuerpo y la aplicación de la función.
+
+*** TODO Ejercicio 5
+#+begin_statement
+Comprobar todas las afirmaciones hechas en el Ejemplo 11.
+#+end_statement
+
+*** TODO Ejercicio 6
+#+begin_statement
+Expresar el cuerpo $\mathbb{Q}(\sqrt{2})$ como una $\mathbb{Q}$ subálgebra de un álgebra de matrices
+sobre $\mathbb{Q}$.
+#+end_statement
 * Taller de Geometría y Topología
 ** 1. Construcciones con regla y compás 
 *** 1.1. Construcciones posibles
