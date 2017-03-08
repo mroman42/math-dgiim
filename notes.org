@@ -2179,7 +2179,7 @@ The *enveloping algebra* of an R-algebra is:
 \[ A^e = A^\ast \otimes A\]
 * Saunders Mac Lane - Categories for the Working Mathematician
 ** 1. Categories, Functors and Natural Transformations
-*** 1. Axioms for categories
+*** 1.1. Axioms for categories
 **** Metagraph
 Objects $a,b,c,\dots$ and arrows $f,g,h,\dots$, with two operations:
 
@@ -2213,7 +2213,7 @@ Subject to the following axioms:
 ***** Metacategory of Sets
 ***** Metacategory of Groups
 ***** Arrow-only axioms
-*** 2. Categories
+*** 1.2. Categories
 **** Category
 An interpretation of a metacategory within set theory.
 
@@ -2245,7 +2245,7 @@ Arrows: $m\times n$ matrices.
 ***** Ordinal numbers
 ***** Simplicial category
 ***** Large categories
-*** 3. Functors
+*** 1.3. Functors
 **** Functor
 A morphism of categories. A functor $T : {\cal C} \to {\cal B}$ is given by:
 
@@ -2281,7 +2281,7 @@ function is surjective.
 ***** Subcategories
 A subcategory gives us an inclusion functor.
 
-*** 4. Natural transformations
+*** 1.4. Natural transformations
 **** Natural transformation
 Given two functors $S,T : C \to B$, a natural transformation $\tau : S \xrightarrow{.} T$
 is a function assigning every $c \in C$ an arrow $Sc \to Tc$ and yielding
@@ -2337,7 +2337,7 @@ diagram commutes.
 
 ***** Inclusion and cardinality of ordinals
 
-*** 5. Monics, epis and zeros
+*** 1.5. Monics, epis and zeros
 **** Isomorphism
 An arrow $e : a \to b$ is an isomorphism if there is an arrow $e^{-1} : b \to a$
 such that $e'e = 1$ and $ee' = 1$.
@@ -2380,7 +2380,7 @@ are isomorphic under conjugation $g \mapsto fgf^{-1}$.
 A *connected groupoid* is deteremined by a group and the set of
 all objects.
 
-*** 6. Foundations
+*** 1.6. Foundations
 **** Universe
 An universe is a set $U$ with the closure properties:
 
@@ -2402,7 +2402,7 @@ category of small groups.
 A category is small if the set of its arrows and objects are both small
 sets. $\mathtt{Set}$ is not a small category.
 
-*** 7. Large categories
+*** 1.7. Large categories
 **** Abelian groups
 **** Rings
 **** Modules over a ring
@@ -2412,6 +2412,78 @@ sets. $\mathtt{Set}$ is not a small category.
 **** Pointed sets
 **** Binary relations
 **** Concrete categories
+*** 1.8. Hom-Sets
+**** Hom-set
+For objects $a,b \in C$, the *hom-set* is the set of all arrows between them:
+
+\[
+hom(a,b) = \{ f \mid f : a \to b \}
+\]
+
+***** Redefinition of a category
+A small category is given by:
+
+  1. Set of objects $a,b,\dots$
+  2. Hom-set between two objects $hom(a,b)$
+  3. Composition function $hom(b,c)\times hom(a,b) \to hom(a,c)$
+  4. Identity function for every object, $id \in hom(a,a)$
+
+The distributivity can be seen as commutativity of the following
+diagram:
+
+\[\begin{tikzcd}
+hom(c,d)\times hom(b,c)\times hom(a,b) \rar\dar &
+hom(b,d)\times hom(a,b) \dar \\
+hom(c,d)\times hom(a,c) \rar &
+hom(a,d)
+\end{tikzcd}\]
+
+**** Preadditive category
+A category $A$ where each hom-set $hom(a,b)$ is an additive abelian group
+for which composition is bilinear:
+
+\[
+(g+g')\circ(f+f') = g\circ f + g\circ f' + g' \circ f + g' \circ f'
+\]
+
+**** Preadditive category as an enriched category
+A preadditive category is given by:
+
+  1. Set of objects $a,b,\dots$
+  2. Hom-set, an abelian group between two objects $hom(a,b)$
+  3. A bilinear composition $hom(b,c) \otimes hom(a,b) \to hom(a,c)$
+  4. Identity morphism for every object, $\mathbb{Z} \to hom(a,a)$
+
+We can see the similitude with the definition of a category by hom-sets.
+Categories created in this way are called *enriched categories*.
+
+** 2. Constructions on categories
+*** 2.1. Duality
+**** Elementary theory of an abstract category (ETAC)
+A theory with statements involving:
+
+  - Domains: $a = dom(f)$
+  - Codomains: $b = codom(f)$
+  - Composition: $h = g \circ f$
+
+A *sentence* is a statement with all variables quantified, using
+the logical connectives and quantifiers.
+
+***** Dual of an statement
+A dual is formed by making the following replacements:
+
+  - $a = dom(f)$ changes to $a = codom(f)$
+  - $h = g \circ f$ changes to $h = f \circ g$
+  - Logic is unchanged.
+
+**** A table of dualities
+\begin{tabular}{l|r}
+Statement & Dual statement \\
+\hline
+$f : a \to b$ & $f : b \to a$ \\
+
+\end{tabular}
+
 ** Exercises
 *** 1.3. Functors
 **** Exercise 1
@@ -21157,8 +21229,122 @@ que tiene como objetivo maximizar el beneficio. Según la empresa,
 su objetivo es "escuchar a los clientes para ofrecerles las propuestas
 de moda que desean".
 
-*** Eficiencia y eficacia
+**** Definición de empresa
+***** Previas
+Definiciones previas de empresa.
 
+- Unidad técnico-económica que combina elementos humanos y financieros.
+- Una organización con ánimo de lucro.
+- Unidad de decisión.
+- Sistema en el que se coordinan factores de producción.
+- Conjunto de factores de producción.
+
+***** Definición
+La empresa es una organización que transforma un conjunto de recursos
+físicos, monetarios y cognitivos en bienes y/o servicios, con el objetivo
+principal de obtener beneficios.
+
+***** ¿Es el beneficio el único objetivo?
+Que sí. Pero dicen por aquí que no, eh, cuidao.
+
+****** Friedman
+Sí, maximizarlo a tope respetando leyes ya si eso.
+# El Friedman ahí a tope
+
+****** Freeman
+No, hay que satisfacer a los stakeholders.
+
+***** La empresa social
+Organizaciones con ánimo de lucro y sin ánimo de lucro pueden tener un
+fin fundamental con beneficio social, medioambiental o político.
+
+# A saber qué es esto.
+# Esta asignatura no es sumar dos más dos.
+
+****** Ejemplos
+ - Plataformas sociales: Ashoka y SocialEmprende
+ - DBS
+
+# Ojo que tenemos una cosa que es el rincón crítico.
+
+**** Clasificación de empresas
+***** Forma jurídica
+Responsabilidad limitada/ilimitada, solidaria/mancomunada. Tipo de personalidad
+jurídica NIF/CIF.
+
+****** Responsabilidad ilimitada
+Ilimitada: se responde con todo el patrimonio ante las posibles
+pérdidas de la empresa. Existe cuando se realiza la actividad con
+su propia persona como personalidad jurídica.
+
+Se dividen en *participaciones sociales*. Nace con vocación de socios
+estables que sólo son objeto de transmisión si da visto bueno una
+junta de socios (o si es a familiares o socios).
+
+****** Responsabilidad limitada
+Trámites más costosos y lentos. No se responde con el
+patrimonio frente a posibles pérdidas. Hay que tributar sobre
+impuesto de sociedades en lugar de IRPF. 3000€ mínimos iniciales.
+
+****** Responsabilidad solidaria
+Se reparte entre los socios.
+
+****** Responsabilidad mancomunada
+Cada socio responde por su parte.
+
+****** Emprendedor de responsabilidad limitada
+La única diferencia es que la responsabilidad pasa a limitarse.
+Aun así, no tiene CIF y paga el IRPF.
+
+***** Formas societarias
+****** Sociedad colectiva
+La responsabilidad es ilimitada y solidaria, pero sólo participan
+del beneficio por la parte que han aportado de capital y trabajo.
+
+****** Sociedad comanditaria
+Hay socios comanditarios, que sólo ponen capital y no trabajan
+en la empresa. Tienen la responsabilidad limitada a su capital.
+
+****** Sociedad anónima
+60000€ mínimos iniciales. Son el único tipo de sociedad que puede
+cotizar en bolsa. Partes alícuotas para dividir el capital, llamadas
+*acciones*. Una acción suele representar un voto en la empresa.
+
+****** Sociedad de responsabilidad limitada unitaria (SLU)
+****** Sociedad de responsabilidad limitada nueva empresa (SLNE)
+Se da de alta en un procedimiento telemático de 48 horas. Se utilizan
+modelos genéricos para constituir la empresa.
+
+****** Sociedades cooperativas (SC)
+Uniones de trabajo asociado. Los trabajadores tienen un objetivo común
+fuerte. Tienen regulación estatal y económica. Las andaluzas se llaman
+(SCA). Exenciones fiscales dependientes de la comunidad autónoma.
+
+Cada persona tiene un voto. (Dice JC que enverdá no)
+
+El beneficio se llama /retorno/. Las reservas (la parte del beneficio
+que no se distribuye entre los socios), suelen ser más grandes. Suelen
+tener una reserva obligatoria para invertir en la formación de los
+socios.
+
+******* Ejemplo: cooperativa Mondragón
+
+***** Por tamaño
+La cifra de facturación son los ingresos. El *volumen de negocio* es el
+total de ingresos por ventas contabilizadas.
+
+Se dividen en: grandes, medianas, pequeñas y microempresas. El 99.9%
+de empresas en España son PYMEs (pequeñas y medianas empresas).
+
+****** Balance general anual
+El total del activo debe ser igual que el pasivo.
+
+ - *Activo*: bienes y derechos de la empresa.
+ - *Pasivo*: obligaciones de pago de la empresa. Capital, reservas y
+   obligaciones.
+
+*** Notas sueltas
+**** Eficiencia y eficacia
 
 ** 2. Teorías de la empresa y del empresario
 ** 3. Entorno de la empresa
