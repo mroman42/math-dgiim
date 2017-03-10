@@ -2477,13 +2477,133 @@ A dual is formed by making the following replacements:
   - $h = g \circ f$ changes to $h = f \circ g$
   - Logic is unchanged.
 
-**** A table of dualities
+***** Table of dualities
 \begin{tabular}{l|r}
 Statement & Dual statement \\
 \hline
 $f : a \to b$ & $f : b \to a$ \\
-
+$a = \operatorname{dom} f$ & $a = \operatorname{cod} f$ \\
+$h = g \circ f$ & $h = f \circ g$ \\
+$f$ mono & $f$ epi
 \end{tabular}
+
+**** Duality principle
+The dual of each of the axioms for a category is also an axiom. Therefore,
+if $\Sigma$ is a consequence of the axioms, so is its dual statement.
+
+**** Duality and functors
+The elementary theory of one functor has the axioms of two categories
+$A,B$, and the properties of a functor $T$ between them. The duality for
+a statement involving several categories reverses the arrows in each
+category, but does not reverse the functors.
+
+*** 2.2. Contravariance and opposites
+**** Opposite category
+The objects of $C^{op}$ are the objects of $C$; and, for each arrow $f : a \to b$ of
+$C$, the corresponding $f^{op} : b \to a$ is defined with the composition:
+
+\[
+f^{op} \circ g^{op} = (g\circ f)^{op}
+\]
+
+***** Opposite functors
+If $T : C \to B$ is a functor, we can create an opposite functor
+$T^{op} : C^{op} \to B^{op}$. The assignment $C \to C^{op}$ defines a covariant functor
+$\mathtt{Cat} \to \mathtt{Cat}$.
+
+**** Contravariant functors
+A functor $S : C^{op} \to B$ can be seen as a *contravariant* functor $S : C \to B$.
+
+\[
+S(f^{op}\circ g^{op}) = (Sf^{op})(Sg^{op}) = S((g\circ f)^{op})
+\]
+
+***** Examples: Hom-sets
+For each object $a \in C$, the *contravariant hom-functor* $hom(a,-)$ and
+the *covariant hom-functor* $hom(-,a)$ are defined.
+
+***** Examples: Sheafs
+Given $X$, a topological space. Its open sets define a category by 
+inclusion, $\mathtt{Open}(X)$. Let ${\cal C}(U)$ denote the set of continuous functions
+$h : U \to \mathbb{R}$, the assignment $h \mapsto h|_V$ is a function ${\cal C}(U)\to{\cal C}(V)$ for
+each $V \subset U$; and this gives us a contravariant functor.
+
+***** Examples: R-Modules
+$\mathtt{ModR} : \mathtt{Rng} \to \mathtt{Cat}$ is a contravariant functor. If $\rho : R \longrightarrow S$ is a morphism
+of rings, given $B$ an S-module, we can define $(Mod\rho) B = B\rho$ by pull-back.
+
+*** 2.3. Products of categories
+**** Product of two categories
+Given $B,C$ two categories, we construct a category $B \times C$ with:
+
+  - Objects: pairs of objects $(b,c)$
+  - Arrows: pairs of arrows $(f,g)$
+
+and the composition is given by the composites in $B$ and $C$:
+
+\[
+(f',g') \circ (f,g) = (f' \circ f,g' \circ g)
+\]
+
+We can define projection functors $P : B\times C \to B$, $Q : B\times C \to C$. Given
+any category $D$ and two functors $B \overset{R}\longleftarrow D \overset{T}\longrightarrow C$, there is an unique 
+functor $F : D \to B\times C$ with $PF = R, QF = T$.
+
+\[\begin{tikzcd}
+& D \drar{T}\dlar[swap]{R} \dar[dashed]{\exists! F} & \\
+B & B\times C \rar[swap]{Q}\lar{P} & C
+\end{tikzcd}\]
+
+**** Product of functors
+Two functors $U : B \to B'$, $V : C\to C'$ have a product:
+
+\[
+U\times V : B\times C \to B'\times C'
+\]
+
+That can be described as the unique functor making the following
+diagram commutative:
+
+\[\begin{tikzcd}
+B \dar{U} &
+B \times C  \rar{Q}\lar[swap]{P} \dar[dashed]{U \times V}&
+C \dar{V} \\
+B' &
+B' \times C' \rar[swap]{Q'}\lar{P'}&
+C'
+\end{tikzcd}\]
+
+***** Product as a functor
+The product of categories can be seen as a functor:
+
+\[
+\times : \mathtt{Cat} \times \mathtt{Cat} \to \mathtt{Cat}
+\]
+
+***** Bifunctors
+Our definition of product category gives an automatic definition for
+a *bifunctor*, a functor of two variables.
+
+**** Bifunctor determined by its currifications
+Let $B,C,D$ be categories. For all objects $c \in C, b \in B$, let $L_c : B \to D$
+and $M_b : C \to D$ be functors such that $M_b(c) = L_c(b)$.
+
+There exists a bifuctor $S : B\times C \to D$ such that $S(-,c) = L_c$
+and $S(b,-) = M_b$ iff for every pair of arrows:
+
+\[
+M_{b'}g \circ L_c f = L_{c'}f \circ M_b g
+\]
+
+so we can define the value of $S(f,g)$ uniquely.
+
+***** TODO Proof
+
+**** Natural transformations between bifunctors
+Given bifunctors $S,S'$, the function $\alpha$ is a natural transformation
+$\alpha : S \Rightarrow S'$ iff $\alpha(b,c)$ is natural in $b$ and natural in $c$.
+
+***** TODO Proof
 
 ** Exercises
 *** 1.3. Functors
