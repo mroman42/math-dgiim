@@ -21181,6 +21181,224 @@ $x \in I$ está en el ideal. Así, el ideal es de la forma:
 J = M_R(\mathfrak{a})
 \]
 
+*** Semana 2
+#+begin_statement
+Prueba que $A[|X|]$, el anillo de las series formales de potencias en una
+indeterminada $X$, es isomorfo al límite inverso del sistema de anillos
+dirigido inferiormente $(\{\frac{A[X]}{(X^n)}\}, \{f_{n,m}\}_{n \geq m})$, donde $f_{n,m} : \frac{A[X]}{(X^n)} \to \frac{A[X]}{(X^m)}$ es
+el homomorfismo de anillos definido por $f_{n,m}(\overline{X}) = \overline{X}$, si $n \geq m$.
+#+end_statement
+
+**** Subanillo isomorfo
+Empezamos definiendo un subanillo del producto de los anillos $\frac{A[X]}{(X^n)}$.
+Nótese que es subanillo por ser las funciones $f_{i,j}$ morfismos de anillos:
+
+\[
+H = \left\{
+(p_i)_i \in \prod_i \frac{A[X]}{(X^i)}
+\;\middle|\;
+f_{i,j}(m_i) = m_j
+\right\}
+\]
+
+Comprobaremos que es isomorfo a $A[|X|]$; para ello definimos la función
+siguiente:
+
+\[
+g(a_0+a_1X+a_2X^2+\dots) = (a_0,a_0+a_1X,a_0+a_1X+a_2X^2,\dots)
+\]
+
+Es trivialmente inyectiva porque si $p \neq q$, se diferenciarán en el primer
+polinomio en el que tengan un coeficiente distinto. Es trivialmente
+sobreyectiva porque si tengo un elemento de la forma $(u_0,u_1,\dots) \in H$,
+se debe tener $u_n = u_{n-1} + a_n X_n$, para $u_{n-1}$ de grado $n-1$. Esto asegura
+que el elemento será de la forma:
+
+\[
+(a_0,a_0+a_1X, a_0+a_1X+a_2X^2,\dots) = g(a_0+a_1X+a_2X^2+\dots)
+\]
+
+**** Límite inverso
+Para probar que es límite inverso, probaremos que si existiera un $Z$ con
+morfismos $\phi_n : Z \to \frac{A[X]}{(X^n)}$ cumpliendo $\phi_m = f_{n,m} \circ \phi_n$, existiría un único 
+morfismo $Z \to H$ haciendo conmutar el diagrama:
+
+\[\begin{tikzcd}
+\frac{A[X]}{(X^0)} \rar &
+\frac{A[X]}{(X^1)} \arrow{rr} &&
+\frac{A[X]}{(X^2)} \rar &
+\dots \\
+&&
+H \arrow{ull} \ular \urar \arrow{urr}
+& & \\
+& &
+Z
+\arrow[bend left]{uull} \arrow[bend left]{uul}
+\arrow[bend right]{uurr} \arrow[bend right]{uur}
+\uar[dashed]{!\exists}
+&&
+\end{tikzcd}\]
+
+Ahora bien, dado $Z$ y los morfismos $\phi_n$, por propiedad universal del
+producto directo, tenemos que existe un único morfismo $h: Z \to \prod_i \frac{A[X]}{(X^i)}$,
+cumpliendo además que $\phi_n = \pi_n \circ h$. Aplicando $f_{n,m}$ tenemos:
+
+\[
+f_{n,m} \circ \pi_n \circ h = f_{n,m} \circ \phi_n =
+\phi_m = \pi_m\circ h
+\]
+
+Lo que nos da que $im(h) \subseteq H$ y por tanto el morfismo buscado, que hereda
+la unicidad.
+
+** Trabajos
+*** Funtores adjuntos
+**** Transformación natural
+Dados dos funtores $S,T : A \to B$, una *transformación natural*, que
+notaremos como $\tau : S \Longrightarrow T$ es una función asignando
+a cada objeto $a \in A$ un morfismo $Sa \to Ta$ y cumpliendo el
+siguiente diagrama conmutativo:
+
+\[\begin{tikzcd}
+a \dar{f} & & Sa \rar{\tau_a}\dar{Sf} & Ta \dar{Tf} \\
+a' & & Sa' \rar{\tau_{a'}} & Ta'
+\end{tikzcd}\]
+
+En este caso, decimos que $\tau_a$ es /natural en/ $a$.
+
+***** Isomorfismos naturales
+Llamamos *isomorfismo natural* a la transformación natural en la que
+cada componente $\tau_a$ tiene una inversa. Podemos definir una transformación
+natural inversa $\tau^{-1}$ que tiene por componentes a cada una de las inversas.
+
+**** Definición de funtores adjuntos
+Dadas $A,B$ categorías, una *adjunción* de $A$ a $B$ la forman dos funtores
+$F,G : A \to B$ y una familia de isomorfismos $\varphi_{a,b} : Hom(Fa,b) \cong Hom(a,Gb)$
+naturales tanto en $a$ como en $b$; es decir, los siguientes cuadrados 
+conmutan:
+
+\[\begin{tikzcd}
+Hom(Fa,b) \rar{\varphi_{a,b}} \dar[swap]{f_\ast} & 
+Hom(a,Gb) \dar{(Gf)_\ast} \\
+Hom(Fa,b') \rar{\varphi_{a,b'}} &
+Hom(a,Gb')
+\end{tikzcd}\]
+
+\[\begin{tikzcd}
+Hom(Fa,b) \rar{\varphi_{a,b}} \dar[swap]{(Fg)^\ast} & 
+Hom(a,Gb) \dar{g^\ast} \\
+Hom(Fa',b) \rar{\varphi_{a,b'}} &
+Hom(a',Gb)
+\end{tikzcd}\]
+
+**** Unidad y counidad de la adjunción
+***** Definición por unidad y counidad de la adjunción
+Una adjunción viene definida por dos functores:
+
+\[ \begin{tikzcd}
+{\cal A} \arrow[bend left]{r}{F} & {\cal B} \arrow[bend left]{l}{G}
+\end{tikzcd}
+\]
+
+Y dos transformaciones naturales: la *unidad* $\eta : 1_{\cal A} \Longrightarrow GF$ y la
+*counidad* $\varepsilon : FG \Longrightarrow 1_{\cal B}$, cumpliendo que las composiciones siguientes
+son la identidad:
+
+ - $F \overset{F \eta} \Longrightarrow FGF \overset{\varepsilon F}\Longrightarrow F$
+ - $G \overset{\eta G} \Longrightarrow GFG \overset{G \varepsilon}\Longrightarrow G$
+
+***** Equivalencia de definiciones: desde familia de isomorfismos a unidades
+****** Ecuaciones desde la naturalidad
+Supongamos que tenemos la familia de transformaciones naturales
+$\varphi_{a,b} : Hom(Fa,b) \to Hom(a,Gb)$. Particularizaremos los cuadrados de
+naturalidad en los dos casos $b = Fa$ y $a = Gb$ para crear la unidad y
+la counidad.
+
+\[\begin{tikzcd}
+Hom(Fa,Fa) \arrow{d}[swap]{(Ff)^\ast} \arrow{r}{\varphi} & 
+Hom(a,GFa) \arrow{d}{(f)^\ast} \\
+Hom(Fa', Fa) \arrow{r}{\varphi} &
+Hom(a',GFa)
+\end{tikzcd}\]
+
+Si tomamos la identidad $1_{Fa}$ y llamamos $\eta_a = \varphi(1_{Fa})$, tenemos que
+$\eta \circ f = \varphi(Ff)$ por conmutatividad.
+
+Si damos la vuelta al isomorfismo $\varphi$ para tomar $\varphi^{-1}$ y repetimos el mismo
+proceso:
+
+\[\begin{tikzcd}
+Hom(FGb,b) \arrow{d}[swap]{(Ff)^\ast} & 
+Hom(Gb,Gb) \arrow{d}{(f)^\ast} \lar[swap]{\varphi} \\
+Hom(FGb', b) &
+Hom(Gb',Gb) \lar{\varphi}
+\end{tikzcd}\]
+
+Si tomamos la identidad $1_{Gb}$ y llamamos $\varepsilon_b = \varphi(1_{Gb})$, tenemos que
+$\varepsilon \circ Ff = \varphi(f)$.
+
+Aplicamos el mismo proceso al segundo cuadrado natural.
+
+\[\begin{tikzcd}
+Hom(Fa,Fa) \arrow{d}[swap]{g_\ast} \arrow{r}{\varphi} & 
+Hom(a,GFa) \arrow{d}{(Gg)_\ast} \\
+Hom(Fa, Fa') \arrow{r}{\varphi} &
+Hom(a,GFa')
+\end{tikzcd}\]
+
+Y volvemos a tomar la identidad para tener $\varphi(g) = Gg \circ \eta$. Volviendo a
+dar la vuelta a los isomorfismos llegamos a:
+
+\[\begin{tikzcd}
+Hom(FGb,b) \arrow{d}[swap]{(g)_\ast} & 
+Hom(Gb,Gb) \arrow{d}{(Gg)_\ast} \lar[swap]{\varphi} \\
+Hom(FGb,b') &
+Hom(Gb,Gb') \lar{\varphi}
+\end{tikzcd}\]
+
+Que nos da, tomando la identidad, $\varphi(Gg) = g \circ \varepsilon$.
+
+****** Comprobar naturalidad de la unidad y counidad
+Una vez tenemos definidas la unidad y la counidad, podemos comprobar
+su naturalidad de $\varepsilon$:
+
+\[\begin{aligned}
+\eta     \circ f        &= \varphi(Ff) \\
+\epsilon \circ Ff       &= \varphi(f) \\
+Gg       \circ \eta     &= \varphi(g) \\
+g        \circ \epsilon &= \varphi(Gg) 
+\end{aligned}\]
+
+La naturalidad de $\eta$ se deduce desde ahí por la conmutatividad del
+siguiente diagrama, por $\eta \circ f = GFf \circ \eta$:
+
+\[ \begin{tikzcd}
+GFa  \arrow{r}{GFf} & 
+GFb \\
+a \arrow{u}[swap]{\eta_X} \arrow{r}[swap]{f} & 
+b \arrow{u}{\eta_Y}
+\end{tikzcd}
+\] 
+
+La naturalidad de $\varepsilon$ se deduce de la misma manera de las ecuaciones por
+la conmutatividad del siguiente diagrama, por $g \circ\varepsilon = \varepsilon\circ FGg$:
+
+\[ \begin{tikzcd}
+FGX \arrow{d}[swap]{\epsilon_X} \arrow{r}{FGg} & FGY \arrow{d}{\epsilon_Y}\\
+X \arrow{r}[swap]{g} & Y
+\end{tikzcd}
+\]
+
+# TRIÁNGULOS DE NATURALIDAD
+
+***** TODO Equivalencia de definiciones: desde unidades a familia de isomorfismos
+***** TODO Unicidad del adjunto
+***** TODO Continuidad
+***** TODO Mónadas
+**** Ejemplos
+***** Módulos libres
+***** Conexiones de Galois
+
 * Empresa y Sociedad
 ** Detalles de la asignatura
 Matilde Ruiz, departamento de Organización de Empresas.
