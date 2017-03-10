@@ -1747,15 +1747,15 @@ Hom_D(FX,Y') \arrow{r}{\beta_{Y'}}& Hom_C(X,GY')
 \] 
 #+end_definition
 
-Esta definición es equivalente intuitivamente a la anterior porque podemos crear $\eta$ y $\epsilon$
-desde las identidades usando las siguientes transformaciones naturales: 
+Esta definición es equivalente intuitivamente a la anterior porque
+podemos crear $\eta$ y $\epsilon$ desde las identidades usando las
+siguientes transformaciones naturales:
 
 \[Hom_D(FX,FX) \cong Hom_C(X,GFX)\]
 
 \[Hom_D(FGY,Y) \cong Hom_C(GY,GY)\]
 
 *** Adjuntions 3
-
 Podemos presentar ejemplos de adjunciones.
 Los *funtores libres y de olvido* suelen ser adjuntos. Entre $Set$ y $Monoid$ tenemos:
 
@@ -1824,7 +1824,6 @@ conjuntos de morfismos, es decir, tenemos:
 Si tomamos ahora los dos cuadrados naturales que teníamos por este 
 isomorfismo y tomamos en ellos los casos particulares $Y = FX$ primero,
 y $X = GY$ después:
-
 
 \[ \begin{tikzcd}
 Hom_D(FX,FX) \arrow{d}[swap]{\_ \circ Ff} \arrow{r}{(-)} & Hom_C(X,GFX) \arrow{d}{\_\circ f}\\
@@ -1907,8 +1906,10 @@ Teniendo finalmente que:
 G\epsilon \circ \eta &= \overline{\epsilon} = 1
 \end{aligned} \]
 
-El otro sentido de la demostración se tiene llegando primero a las cuatro ecuaciones,
-y usándolas para definir el isomorfismo $(-)$. Falta entonces demostrar su naturalidad.
+El otro sentido de la demostración se tiene llegando primero a las
+cuatro ecuaciones, y usándolas para definir el isomorfismo
+$(-)$. Falta entonces demostrar su naturalidad.
+
 * Harpreet Bedi's channel
 ** Sheaves and coho
 *** Preseaves and sheaves
