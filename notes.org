@@ -2605,6 +2605,27 @@ $\alpha : S \Rightarrow S'$ iff $\alpha(b,c)$ is natural in $b$ and natural in $
 
 ***** TODO Proof
 
+*** 2.4. Functor categories
+**** Composition of natural transformations
+Given functors $R,S,T : C \to B$ and natural transformations $\tau : S\to T$
+and $\sigma : R \to S$, their compositions define composite arrows which are
+the components of the composite natural transformation $\tau \circ \sigma$.
+
+\[\begin{tikzcd}
+Rc \rar{Rf}\dar{\sigma_c}\arrow[dd,bend right=90]{(\tau \circ \sigma)_c} &
+Rc' \dar{\sigma_{c'}} \arrow[dd,bend left=90]{(\tau\circ\sigma)_{c'}} \\
+Sc \rar{Sf}\dar{\tau_c}  &
+Sc' \dar{\tau_{c'}} \\
+Tc \rar{Tf}  &  Tc' 
+\end{tikzcd}\]
+
+***** Proof
+Naturality of the external square follows from the commutativity of the
+two internal squares.
+
+**** Functor category
+Given categories $B,C$, let $B^C$
+
 ** Exercises
 *** 1.3. Functors
 **** Exercise 1
