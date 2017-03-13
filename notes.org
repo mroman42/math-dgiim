@@ -21710,3 +21710,56 @@ El total del activo debe ser igual que el pasivo.
 ** 3. Entorno de la empresa
 ** 4. La dirección estratégica
 ** 5. La dirección financiera
+* Affine group schemes seminar
+** I. Álgebras de Hopf
+*** 1. Definiciones
+**** Álgebra de Hopf
+Un *álgebra de Hopf* es una biálgebra (álgebra y coálgebra) con un 
+antiautomorfismo llamado /antípoda/.
+
+***** Explícitamente
+Tenemos $(H, m, \eta, \Delta, \varepsilon, S)$ como componentes del álgebra de Hopf sobre
+un cuerpo $k$, donde:
+
+ - $H$ es el álgebra.
+ - $m : H \otimes H \to H$ es el producto.
+ - $\eta : k \to H$ es la unidad.
+ - $\Delta : H \to H \otimes H$ es la comultiplicación.
+ - $\varepsilon : H \to k$ es la counidad.
+ - $S : H \to H$ la antípoda.
+
+Bajo ciertas condiciones de compatibilidad.
+
+**** Group-like elements
+Elementos no nulos cumpliendo $\Delta(x) = x \otimes x$. Forman un grupo con la inversa
+dada por la antípoda.
+
+** II. Introduction to affine group schemes
+*** 1. Definition and examples
+**** Affine group scheme
+An *affine group scheme* over $k$ is a representable functor $\mathtt{Alg}_k \to \mathtt{Grp}$.
+More precisely, the composition of the functor with $\mathtt{Grp}\to\mathtt{Set}$ is
+representable.
+
+**** Connection with affine algebraic varieties
+If $V$ is an affine algebraic variety, the we can define the corresponding
+affine scheme as $Alg_k(K[V], -)$, where $K[V]$ is the coordinate algebra.
+
+**** Algebraic affine scheme
+An affine scheme is said to be *algebraic* if its representing object is
+finitely generated as a k-algebra.
+
+** III. Esquemas diagonalizables y constantes
+*** 1. Introducción
+**** Álgebra grupo
+Dado un grupo $G$ y un cuerpo $k$, el álgebra grupo $k[G]$ está formada como el
+espacio vectorial libre sobre $G$ con el producto que induce el grupo.
+
+***** Estructura de álgebra de Hopf
+Este álgebra tiene estructura de álgebra de Hopf si extendemos linealmente
+las siguientes aplicaciones:
+
+  - $\Delta(x) = x \otimes x$
+  - $\varepsilon(x) = 1$
+  - $S(x) = x^{-1}$
+
