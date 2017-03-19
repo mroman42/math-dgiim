@@ -21211,6 +21211,92 @@ iterada de $\mathbb{Q}$.
 
 ***** TODO Demostración
 * Teoría de Números y Criptografía
+** Factorización
+*** Métodos básicos de factorización
+**** Fuerza bruta
+Probando a dividir cada número hasta $\sqrt{n}$.
+
+**** Método de Fermat
+Escribimos un número como diferencia de cuadrados para factorizarlo como
+$n = t^2 - s^2 = (t+s)(t-s)$.
+
+***** Soluciones en congruencias no triviales
+Si $(t,s)$ es una solución no trivial de $x^2 \equiv y^2$, entonces $gcd(n,t+s)\neq 1$
+y $gcd(n,t-s) \neq 1$.
+
+*** Método de factor base
+Una *base* es un conjunto $B = \{p_0 = -1,p_1,\dots,p_h\}$ donde $p_0,p_1,\dots,p_n$
+son enteros primos.
+
+**** Conjunto de candidatos B-números
+Un conjunto de candidatos B-números es $\mathbb{Z}_n$ escribiendo la
+mitad de números más grandes dentro de la base, como:
+
+\[
+\mathbb{Z}_n =
+\{0,1\dots,-2,-1\}
+\]
+
+Llamamos $\operatorname{abmod}$ a la clase de equivalencia del número en el conjunto 
+de candidatos.
+
+**** B-número
+Un número $b$ es B-número respecto de $n$ si $\operatorname{abmod}(b^2,n)$ factoriza por los 
+elementos de la base $B$.
+
+**** Alfa-vectores
+Dado $b$ un B-número, con:
+
+\[
+\operatorname{abmod}(b^2,n) = p_0^{e_0}\dots p_h^{e_h}
+\]
+
+definimos el *α-vector* como $\alpha vect(b) = (e_0,e_1,\dots,e_h)$.
+
+**** TODO Idea del algoritmo
+Sea $S_0 = \{\alpha_0,\dots,\alpha_r\}$ un α-vector del conjunto de B-números.
+
+*** Métodos de elección de la base B y los B-números
+**** Algoritmo: voy a tener suerte
+Se eligen los $h \in \mathbb{N}$ primeros números primos. Escogemos dos índices
+$k_{max} \leq i_{max}$ y calculamos:
+
+  - $\lfloor \sqrt{n}\rfloor, \lfloor \sqrt{2n}\rfloor, \dots, \lfloor \sqrt{k_{max}n}\rfloor$
+  - $\lfloor \sqrt{n}\rfloor+1, \lfloor \sqrt{2n}\rfloor+1, \dots, \lfloor \sqrt{k_{max}n}\rfloor+1$
+  - $\dots$
+  - $\lfloor \sqrt{n}\rfloor + i_{max}, \lfloor \sqrt{2n}\rfloor+i_{max}, \dots, \lfloor \sqrt{k_{max}n}\rfloor+i_{max}$
+
+Entre estos, buscamos B-números y calculamos los α-vectores 
+correspondientes.
+
+**** Algoritmo: voy a forzar la suerte
+*** Fracciones continuas
+**** Fracción continua
+Notamos una fracción continua como:
+
+\[
+[a_0,a_1,a_2,\dots] =
+a_0 + \frac{1}{a_1+\frac{1}{a_2+\dots}}
+\]
+
+**** Propiedades de las fracciones continuas
+Las fracciones continuas cumplen:
+
+  1. Todo racional se expresa como fracción continua finita.
+  2. Todo real se expresa como fracción continua.
+  3. Se cumple la fórmula:
+
+     \[\frac{a+\sqrt{d}}{b} = [a_0,[a_1,\dots,a_r]]\]
+
+     Si notamos $[a_0,[a_1,\dots,a_r]] = [a_0,a_1,\dots,a_r,a_1,\dots,a_r,\dots]$.
+
+**** Cálculo de la fracción continua de un real
+Sea $x \in \mathbb{R}$, tomamos $a_0 = \lfloor x \rfloor$ y podemos escribir recursivamente la 
+fracción continua como:
+
+\[
+x = a_0 + \frac{1}{x_1^{-1}}
+\]
 * Álgebra moderna
 ** 1. Construcción de anillos
 *** 1.1. Anillos
@@ -21705,6 +21791,19 @@ El total del activo debe ser igual que el pasivo.
 
 *** Notas sueltas
 **** Eficiencia y eficacia
+
+*** Trabajos
+**** Clasificación de organizaciones
+***** Covirán
+Cooperativa (de detallistas)
+[[https://www.coviran.es/quienes-somos/historia][ 
+ - Historia]]
+
+***** BQ
+Mundo Reader S.L. es una sociedad limitada.
+
+***** Pepephone
+Sociedad Limitada. [[https://es.wikipedia.org/wiki/Pepephone][Pepephone - Wikipedia, la enciclopedia libre]]
 
 ** 2. Teorías de la empresa y del empresario
 ** 3. Entorno de la empresa
