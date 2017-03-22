@@ -20905,6 +20905,40 @@ Sea $M$ un módulo dimensión finita con $N,L \in {\cal L}(M)$. Entonces:
 
 ***** TODO Demostración
 
+*** 1.5. Independencia lineal y sumas directas internas
+**** Familia independiente
+Una familia $\{N_i \mid i \in I\} \subset {\cal L}(M)$ es *independiente* si se verifica:
+
+\[
+N_j \cap \sum_{j\neq i} N_i = \{0\}
+\]
+
+**** Suma directa interna
+Dada una familia independiente $\sum_{i\in I} N_i \subset M$ se llama *suma directa interna*.
+
+**** Relación de sumas directas
+Existe un único homomorfismo de módulos $\theta : \bigoplus_{i\in I} N_i \to \sum_{i\in I} N_i$, tal que
+$\theta\iota_i(m) = m$.
+
+**** Caracterización de familia equivalente
+Equivalen:
+
+ 1. La familia $\{N_i\mid i\in I\}$ es independiente.
+ 2. Toda subfamilia $F \subset \{N_i\mid i\in I\}$ es independiente.
+ 3. La expresión de cada $m = \sum_{i\in I} m_i$ con $m_i\in N_i$ es única.
+ 4. Si $0 = \sum_{i\in I} m_i$, entonces $m_i = 0$.
+ 5. El homomorfismo canónico $\theta : \bigoplus_{i\in I} N_i \to \sum_{i\in I} N_i$ es inyectivo e isomorfismo.
+ 6. Para $J_1,J_2 \subset I$ con $J_1\cap J_2 = \varnothing$ se tiene $\sum_{i\in J_1} N_i \cap \sum_{i\in J_2} N_i = \{0\}$.
+
+**** Ampliar familia independiente
+Sea $\{N_i \mid i\in I\} \subset {\cal L}(M)$ es familia independiente y tenemos:
+
+\[
+N \cap \bigoplus_{i\in I} N_i = \{0\}
+\]
+
+Entonces, $\{N_i \mid i \in I\} \cup \{N\}$ es independiente.
+
 ** Ejercicios de clase
 *** Ejercicio 1
 #+begin_statement
