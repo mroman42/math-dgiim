@@ -1,6 +1,7 @@
 #+TITLE: Math Notes
 #+AUTHOR: Mario Román
 #+EMAIL: mromang08@gmail.com
+
 #+OPTIONS: num:nil broken-links:mark
 #+LANGUAGE: es
 #+STARTUP: indent
@@ -20859,6 +20860,50 @@ entre el conjunto de representaciones de $A$ sobre $V$ y los A-módulos
 por la izquierda sobre $V$.
 
 ****** TODO Demostración
+
+*** 1.4. Módulos simples. Teorema de Jordan-Hölder
+**** Módulo simple
+Un módulo $M$ se dice simple si no tiene submódulos propios.
+
+**** Submódulo maximal
+Un submódulo propio $N < M$ es *maximal* si lo es en ${\cal L}(M)$.
+
+***** Caracterización por simplicidad
+Por tercer teorema de isomorfía, esto equivale a que $M/N$ es simple.
+
+**** Serie de composición
+Una cadena de submódulos $0 \subset M_1 \subset M_2 \subset \dots \subset M$ es una *serie de composición*
+de $M$ si cada $M_{i-1}$ es maximal en $M_i$.
+
+**** Teorema de Jordan-Hölder
+Sea $M$ un $A$ módulo de /dimensión finita/ como $K$ espacio vectorial con
+dos series de composición:
+
+\[0 = M_0 \subset M_1 \subset\dots\subset M_n = M\]
+\[0 = N_0 \subset N_1 \subset\dots\subset N_m = M\]
+
+Entonces $n=m$ y existe una permutación con $M_i/M_{i-1} \cong N_{\sigma(i)}/N_{\sigma(i)-1}$.
+
+***** TODO Demostración
+
+**** Factores de composición
+Los módulos $M_i/M_{i-1}$ se llaman *factores de composición* de $M$ y están
+únicamente determinados salvo isomorfismo y reordenación.
+
+**** Longitud de un módulo
+El número de factores de composición es la *longitud* del módulo $\ell(M)$.
+
+**** Longitud y cociente
+Si $M$ es de dimensión finita y $N \in {\cal L}(M)$. Entonces $\ell(M)=\ell(N)+\ell(M/N)$.
+
+***** TODO Demostración
+
+**** Longitud, suma e intersección
+Sea $M$ un módulo dimensión finita con $N,L \in {\cal L}(M)$. Entonces:
+
+\[\ell(N+L) + \ell(N\cap L) = \ell(N)+\ell(L)\]
+
+***** TODO Demostración
 
 ** Ejercicios de clase
 *** Ejercicio 1
