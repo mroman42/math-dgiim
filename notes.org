@@ -20666,8 +20666,8 @@ Un álgebra es *asociativa* si $(ab)c = a(bc)$.
 Un álgebra es *conmutativa* si $ab = ba$.
 
 ***** Subálgebra
-Una *subálgebra* es un subespacio vectorial de un álgebra cerrado
-para el producto.
+Una *subálgebra* es un subespacio vectorial de un álgebra cerrado para
+el producto.
 
 **** Centro de un álgebra
 Se define el *centro* de un álgebra asociativa como:
@@ -20676,17 +20676,17 @@ Se define el *centro* de un álgebra asociativa como:
 Z(A) = \{c \in A \mid ac = ca \forall a \in A \}
 \]
 
-**** Ideales y cocientes
+**** Ideal de un álgebra
 Un subespacio vectorial de álgebra, $I \subseteq A$ es *ideal* si el producto por
 cualquier elemento está en el ideal $ai,ia \in I$.
 
-***** Cociente por un ideal
+**** Cociente por un ideal
 Sobre el K-espacio vectorial cociente por un ideal $A/I$, podemos definir
 una K-álgebra mediante $(a+I)(b+I) = ab+I$.
 
-****** Buena definición
-Supongamos que $a+I = a'+I$ y que $b+I = b'+I$, entonces 
-tenemos que:
+***** Buena definición
+Supongamos que $a+I = a'+I$ y que $b+I = b'+I$, entonces tenemos 
+que:
 
 \[
 ab- a'b' = a(b-b') - (a-a')b' \in I
@@ -20715,6 +20715,19 @@ es ideal. Además, tenemos un isomorfismo de K-álgebras canónico:
 dado por $\widehat f(a+\ker f) = f(a)$.
 
 ***** Demostración
+****** La imagen es subálgebra
+Trivialmente, la imagen es espacio vectorial y $f(a)f(b) = f(ab)$.
+
+****** El núcleo es un ideal
+El núcleo es subespacio vectorial y además,
+
+\[
+f(ak) = f(a)f(k) = 0 = f(k)f(b) = f(kb)
+\]
+
+para cualquier $f(k) = 0$.
+
+****** Isomorfismo de álgebras
 Comprobamos que está bien definido, ya que si $a + \ker f = b + \ker f$,
 se tiene que $\widehat f(a+\ker f) - \widehat f(b + \ker f) = f(a-b) = 0$.
 
@@ -20729,7 +20742,7 @@ es inyectivo por tenerse:
 \]
 
 **** Álgebras unitales
-Una K-álgebra asociativa es *unital* si existe un neutro para el 
+Una K-álgebra asociativa es *unital* si existe un neutro para el
 producto.
 
 \[
@@ -20737,8 +20750,10 @@ producto.
 \]
 
 ***** Homormofisos de álgebras unitales
-A los homomorfismos de álgebras unitales se les pide respetar
-la unidad.
+A los homomorfismos de álgebras unitales se les pide respetar la
+unidad. Para $f : A \to B$:
+
+\[f(1_A) = 1_B\]
 
 ***** Asunción posterior
 En el curso trabajaremos siempre con álgebras asociativas y unitales.
