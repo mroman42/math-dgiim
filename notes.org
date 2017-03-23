@@ -20939,6 +20939,42 @@ N \cap \bigoplus_{i\in I} N_i = \{0\}
 
 Entonces, $\{N_i \mid i \in I\} \cup \{N\}$ es independiente.
 
+***** TODO Demostración
+
+**** Existencia de base en suma de simples
+Sea $M' = \sum_{i\in I} M_i \subset M$ una suma de submódulos simples y $N \subseteq M'$ submódulo
+propio. Existe $J \subseteq I$ tal que $\{M_i \mid i \in S\}$ es independiente $N \cap (\bigoplus_{i\in J} M_i) = 0$,
+y $M'=N\oplus \bigoplus_{i\in J} M_i$.
+
+***** TODO Demostración
+
+**** Existencia de base para espacio vectorial finitamente generado
+Sea $_DV$ espacio vectorial por la izquierda sobre anillo de división $D$.
+Para todo sistema de generadores no nulos $\{v_i\mid i\in I\}$ de $V$ existe un 
+subconjunto tal que $V = \bigoplus_{j\in J} Dv_j$.
+
+Todo espacio vectorial finitamente generado sobre $D$ tiene una base.
+
+*** TODO 1.6. Independencia en familias infinitas
+*** 1.7. Clasificación de las álgebras de división reales de dimensión finita
+**** Lema de clasificación de álgebras de división
+Sea $D$ álgebra real de dimensión finita mayor que $1$. Entonces:
+
+\[
+V = \{a \in D : a^2 \leq 0\} = \{a\in D\mid tr(a) = 0\}
+\]
+
+Luego es un subespacio vectorial con $D = \mathbb{R} \oplus V$. Además la dimensión de $D$
+es par.
+
+***** TODO Demostración
+
+**** Teorema de Frobenius
+Sea $D$ álgebra de división real de dimensión finita. Entonces $D$ es isomorfa
+a $\mathbb{R}$, $\mathbb{C}$, o $\mathbb{H}$.
+
+***** TODO Demostración
+
 ** Ejercicios de clase
 *** Ejercicio 1
 #+begin_statement
