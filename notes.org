@@ -20762,12 +20762,42 @@ En el curso trabajaremos siempre con álgebras asociativas y unitales.
 Sea $A$ una K-álgebra, la inclusión $u : K \longrightarrow A$ es homomorfismo inyectivo
 de K-álgebras. Como consecuencia $\im u \subseteq Z(A)$, y es una K-subálgebra.
 
-***** TODO Demostración
+***** Demostración
+****** Es homomorfismo
+La inclusión definida por $u(k) = k1_A$ es lineal por tenerse:
+
+\[
+u(\gamma\alpha+\beta) =
+(\gamma\alpha+\beta)1 =
+\gamma(\alpha 1) + \beta 1 =
+\gamma u(\alpha) + u(\beta)
+\]
+
+Y además es multiplicativa:
+
+\[
+u(\alpha)u(\beta) = (\alpha 1)(\beta 1) = \alpha\beta 11 = u(\alpha\beta)
+\]
+
+Y trivialmente unital por $u(1) = 1$.
+
+****** Es inyectivo
+Si $u(k) = u(k')$ entonces $k-k' = 0$.
+
+****** Es subálgebra del centro
+Aplicando bilinealidad de la multiplicación:
+
+\[u(\alpha) a = 
+(\alpha 1)a = 
+\alpha (1a) = 
+\alpha (a1) = 
+a(\alpha 1) =
+au(\alpha)\]
 
 *** 1.2. La representación regular. Unidades y divisores de cero
-**** Espacio de endomorfismos
-Sea $V$ un K-espacio vectorial, sus endomorfismos lineales tienen estructura
-de K-álgebra con la composición como producto:
+**** Álgebra de endomorfismos
+Los endomorfismos de un K-espacio vectorial forman una K-álgebra con la
+composición:
 
 \[
 End_K(V) = \{ f : V \longrightarrow V \mid f \text{ es lineal}\}
