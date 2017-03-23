@@ -20959,13 +20959,20 @@ N_j \cap \sum_{j\neq i} N_i = \{0\}
 \]
 
 **** Suma directa interna
-Dada una familia independiente $\sum_{i\in I} N_i \subset M$ se llama *suma directa interna*.
+Dada una familia independiente, $\sum_{i\in I} N_i \subset M$ se llama *suma directa interna*.
 
-**** Relación de sumas directas
+**** Suma directa externa e interna
 Existe un único homomorfismo de módulos $\theta : \bigoplus_{i\in I} N_i \to \sum_{i\in I} N_i$, tal que
-$\theta\iota_i(m) = m$.
+$\theta\iota_i(m) = m$ para cualquier $m \in N_i$.
 
-**** Caracterización de familia equivalente
+***** Demostración
+Extendiendo por linealidad la condición, el único homomorfismo posible es:
+
+\[
+\theta((m_i)_{i \in I}) = \sum_{i \in I} m_i
+\]
+
+**** Caracterización de familia independiente
 Equivalen:
 
  1. La familia $\{N_i\mid i\in I\}$ es independiente.
