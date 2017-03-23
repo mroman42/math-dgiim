@@ -20982,6 +20982,37 @@ Equivalen:
  5. El homomorfismo canónico $\theta : \bigoplus_{i\in I} N_i \to \sum_{i\in I} N_i$ es inyectivo e isomorfismo.
  6. Para $J_1,J_2 \subset I$ con $J_1\cap J_2 = \varnothing$ se tiene $\sum_{i\in J_1} N_i \cap \sum_{i\in J_2} N_i = \{0\}$.
 
+En este caso, notaremos la suma directa interna también por $\bigoplus_{i \in I} N_i$.
+
+***** Demostración
+****** Implicación 1 a 2
+Trivial por definición de independencia.
+
+****** Implicación 2 a 3
+Esto equivale a que cada $\sum_{i \in I} m_i = 0$ lleva a $m_i = 0$. Pero si hubiera
+algún $m_j$ no nulo, sería $m_j = - \sum_{i \in I, i\neq j} m_i$, contraviniendo independencia.
+
+****** Implicación 3 a 4
+Trivial por la unicidad.
+
+****** Implicación 4 a 5
+Desde lo anterior, se tiene que tiene núcleo trivial y por tanto es
+inyectivo. Además, es sobreyectivo porque genera trivialmente todos los
+elementos de $\sum N_i$. Es por tanto una biyección e isomorfismo.
+
+****** Implicación 5 a 6
+Si no fuera así, existirían subconjuntos $J_1,J_2$ cumpliendo:
+
+\[
+\sum_{i \in J_1} m_i = \sum_{i \in J_2} n_i
+\]
+
+Nótese que entonces la función $\theta$ daría la misma imagen para ambos
+subconjuntos, contraviniendo inyectividad.
+
+****** Implicación 6 a 1
+Trivial por el caso de $J_2$ con un elemento.
+
 **** Ampliar familia independiente
 Sea $\{N_i \mid i\in I\} \subset {\cal L}(M)$ es familia independiente y tenemos:
 
@@ -20991,21 +21022,41 @@ N \cap \bigoplus_{i\in I} N_i = \{0\}
 
 Entonces, $\{N_i \mid i \in I\} \cup \{N\}$ es independiente.
 
-***** TODO Demostración
+***** Demostración
+Si $n + \sum n_i = 0$, tenemos $n \in \bigoplus N_i \cap N$ y, por tanto, $n = 0$. Por 
+independencia de la familia $\sum n_i = 0$, se llega a $n_i = 0$.
 
 **** Existencia de base en suma de simples
-Sea $M' = \sum_{i\in I} M_i \subset M$ una suma de submódulos simples y $N \subseteq M'$ submódulo
-propio. Existe $J \subseteq I$ tal que $\{M_i \mid i \in S\}$ es independiente $N \cap (\bigoplus_{i\in J} M_i) = 0$,
-y $M'=N\oplus \bigoplus_{i\in J} M_i$.
+Sea $N \subsetneq \sum_{i\in I} M_i$ suma de submódulos simples. Existe $\{M_i \mid i \in J \subseteq I\} \cup \{N\}$ 
+independiente con:
 
-***** TODO Demostración
+\[
+N \oplus \left( 
+\bigoplus_{i \in J} M_i
+\right) = \sum_{i \in I} M_i
+\]
+
+***** Demostración
+Tomamos el conjunto $\Gamma$ de los subconjuntos $J \subseteq I$ tales que $\{M_i \mid i \in J\} \cup \{N\}$
+es independiente. Veamos que es no vacío. Si para todo $N \cap M_i \neq 0$, 
+debe tenerse por simplicidad $M_i \subset N$ y por tanto $\sum M_i \subset N$. Así, debe
+existir algún $M_i$ para el que $N \cap M_i = 0$.
+
+Tomamos el maximal $J$. Para cualquier índice $i \in I -J$, se tiene entonces
+por maximalidad que $M_i \cap (N + \bigoplus_{j \in J} M_j) \neq 0$, pero eso implica por simplicidad
+que $M_i \subseteq N + \bigoplus_{j\in J} M_j$.
 
 **** Existencia de base para espacio vectorial finitamente generado
-Sea $_DV$ espacio vectorial por la izquierda sobre anillo de división $D$.
+Sea $_DV$ espacio vectorial izquierdo sobre el anillo de división $D$.
 Para todo sistema de generadores no nulos $\{v_i\mid i\in I\}$ de $V$ existe un 
 subconjunto tal que $V = \bigoplus_{j\in J} Dv_j$.
 
 Todo espacio vectorial finitamente generado sobre $D$ tiene una base.
+
+***** Demostración
+Un anillo de división es simple. Como $Dv_j \cong D$, tenemos que es un 
+espacio suma de simples, luego [[*Existencia de base en suma de simples][existe un conjunto]] de independientes que
+genera el espacio.
 
 *** TODO 1.6. Independencia en familias infinitas
 *** 1.7. Clasificación de las álgebras de división reales de dimensión finita
