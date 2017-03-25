@@ -22093,3 +22093,90 @@ las siguientes aplicaciones:
   - $\varepsilon(x) = 1$
   - $S(x) = x^{-1}$
 
+* ZFC
+Utilizando lógica de primer orden.
+
+\[
+\wedge, \implies, \iff, \forall, \exists
+\]
+
+Además de:
+
+- Un conjunto infinito numerable de variables: $x_1,x_2,\dots$
+- Sólo puede cuantificarse sobre variables.
+- Reglas para fórmulas bien formadas.
+
+Símbolos propios de la teoría de conjuntos:
+
+- $=, \in$
+
+Se usa internamente la axiomática de la lógica de primer orden.
+
+** Axiomas de la igualdad
+La igualdad es relación de equivalencia. Es
+
+ 1. Reflexiva, $\forall x: x=x$.
+ 2. Transitiva, $\forall x,y,z: x=y \wedge x=y \implies x=z$.
+ 3. Simétrica, $\forall x,y : x=y \iff y=x$.
+ 4. Sustitución, $\forall x,y: x=y \implies \varphi \iff \varphi'$ donde $\varphi'$ sale de sustituir $x$.
+
+** Números como conjuntos
+Algunas teorías consideran elementos que no tienen elementos dentro.
+En nuestro caso usaremos conjuntos para representar todos los objetos
+matemáticos.
+
+*** Números naturales
+Definimos:
+
+ - $0 = \varnothing$
+ - $S(x) = x \cup \{x\}$
+
+*** Otra construcción posible
+Definiendo:
+
+ - $\varnothing$
+ - $S(x) = \{x\}$
+
+*** Construcción de funciones
+Para definir una función, usamos su gráfico:
+
+\[\{(a,b) \in A \times B \mid f(a) = b\}\]
+
+** Restricciones
+No podemos hablar todavía del conjunto de todos los conjuntos. Dentro
+de ZFC no podemos hablar de cosas como $Obj(\mathtt{Set})$.
+
+** Axiomas
+Tomamos como ciertos:
+
+*** 0. Axioma de existencia
+$\exists x : x=x$
+
+*** 1. Axioma de extensionalidad
+$\forall x,y:(\forall z: z\in x \implies z \in y) \implies x = y$
+
+De paso definimos la inclusión:
+
+\[
+x \subseteq y := \forall z: z\in x \implies z \in y
+\]
+
+Y este axioma es equivalente a la antisimetría de la inclusión.
+
+*** 2. Comprensión
+\[
+\forall A: \exists B: \forall z:\left( \varphi(z) \vee z \in A\right) \iff z \in B
+\]
+
+Puede usarse para demostrar que existe el conjunto vacío. O que
+no existe el conjunto universal.
+
+**** Paradoja de Russell
+Supongamos el universal $U$. Podríamos definir:
+
+\[
+R = \{x \in U \mid x \notin x\}
+\]
+
+Tanto $R \in R$ como $R \notin R$. Para evitarla podríamos haber usado
+estratificación.
