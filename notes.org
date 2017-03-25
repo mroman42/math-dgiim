@@ -2131,43 +2131,66 @@ where we can compute the homology:
 ** Algebraic Geometry
 *** 1. Intro to Algebraic Geometry
 * Jara - Apuntes
-** XIII. Homología de Hochschild
-*** 3. Cohomología de Hochschild
-**** Resolución proyectiva
-***** R;R módulo
-      Sea $R$ una $K\text{-álgebra}$; un $(R;R)$ *módulo* es un $R$ módulo a izquierda y derecha 
-      verificando la *relación de compatibilidad*:
+** Homología de Hochschild
+*** R;R módulos
+**** R;R módulo
+Sea $R$ una $K\text{-álgebra}$; un $(R;R)$ *módulo* es un $R$ módulo a
+izquierda y derecha verificando la *relación de compatibilidad*:
 
-      \[r_1(mr_2) = (r_1m)r_2\]
+\[r_1(mr_2) = (r_1m)r_2\]
 
-      En particular, se tiene,
+En particular, se tiene,
 
-      \[km = mk \quad \forall k \in K\]
+\[km = mk \quad \forall k \in K\]
 
-      Un *homomorfismo de R;R-módulos* es un homomorfismo de R-módulos a izquierda y
-      *R-módulos* a derecha. Forman la categoría $(R;R)\mathtt{-Mod}$.
+Un *homomorfismo de R;R-módulos* es un homomorfismo de R-módulos a izquierda y
+R-módulos a derecha. Forman la categoría $(R;R)\mathtt{-Mod}$.
 
-***** Álgebra envolvente
+**** Álgebra envolvente
 Sea $R$ una $K\text{-álgebra}$, llamamos *álgebra envolvente* a $R^e = R \otimes R^{op}$.
 Con el producto:
 
 \[ (r_1 \otimes s_1)(r_2 \otimes s_2) = (r_1r_2) \otimes (s_2s_1)\]
 
-***** Caracterización de R;R-módulos
+**** Caracterización de R;R-módulos
 Para cada $K\text{-álgebra}$, $R$, las categorías siguientes son isomorfas:
 
   - $(R;R)\text{-Mod}$
   - $R^e\text{-Mod}$
   - $\text{Mod-}R^e$
 
-**** Cohomología de Hochschild
-***** Definición 
+***** Demostración
+Nótese primero que a $R^e$ le damos estructura de álgebra con el
+producto:
+
+\[
+(r_1\otimes s_1)(r_2\otimes s_2) = (r_1r_2\otimes s_2s_1)
+\]
+
+****** Primera implicación
+Si tenemos $M$ un $(R;R)$ módulo, podemos darle estructura de $R^e$ módulo
+con: $(r\otimes s)m = rms$. Que esta estructura es compatible con el producto
+se comprueba trivialmente con:
+
+\[
+(a\otimes b)(c \otimes d)m = acmdb = (ac \otimes bd)m
+\]
+
+****** Segunda implicación
+Si tenemos $M$ un $R^e$ módulo, podemos darle estructura de $R;R$ módulo
+tomando: $rms = (r\otimes s) m$. La relación de compatibilidad se tiene por
+el mismo proceso anterior.
+
+*** Cohomología de Hochschild
+**** Definición
 Sea $R$ una $K\text{-álgebra}$ y $M$ un $(R;R)\text{-módulo}$, llamamos:
 
-  - *cohomología de Hochschild* de $R$ en $M$ a 
-    $HH^{\bullet}(R,M) = \operatorname{Ext}^\bullet_{R^e}(R,M)$.
-  - *homología de Hochschild* de $R$ en $M$ a 
-    $HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)$.
+  - *Cohomología de Hochschild* de $R$ en $M$ a $HH^{\bullet}(R,M) = \operatorname{Ext}^\bullet_{R^e}(R,M)$.
+  - *Homología de Hochschild* de $R$ en $M$ a $HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)$.
+
+**** Notas
+1. [[https://sbseminar.wordpress.com/2007/07/22/hochschild-homology/][Hochschild homology | Secret Blogging Seminar]]
+
 * Pierce - Associative Algebras
 ** 10. Separable Algebras
 *** 10.1. Bimodules
