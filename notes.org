@@ -1901,7 +1901,6 @@ G \arrow{r}{\eta_{GX}} \arrow{dr}{id} & GFG \arrow{d}{G\epsilon_X} \\
 
 Teniendo finalmente que:
 
-
 \[ \begin{aligned}
 \epsilon \circ F\eta &= \overline{\eta} = 1 \\
 G\epsilon \circ \eta &= \overline{\epsilon} = 1
@@ -5004,7 +5003,8 @@ Rc \rar{Rf}\dar{\sigma_c}\arrow[dd,bend right=90]{(\tau \circ \sigma)_c} &
 Rc' \dar{\sigma_{c'}} \arrow[dd,bend left=90]{(\tau\circ\sigma)_{c'}} \\
 Sc \rar{Sf}\dar{\tau_c}  &
 Sc' \dar{\tau_{c'}} \\
-Tc \rar{Tf}  &  Tc' 
+Tc \rar{Tf} & 
+Tc'   \\
 \end{tikzcd}\]
 
 Nótese que la naturalidad se preserva, ya que si los dos cuadrados
@@ -5016,12 +5016,9 @@ naturales $\tau : S \Longrightarrow T$ y $\tau' : S' \Longrightarrow T'$, podemo
 natural entre los funtores compuestos, $\tau' \ast \tau$:
 
 \[\begin{tikzcd}
-S'Sx \ar{rr}{(\tau' \ast \tau)_x}\dar
-&&
-T'Tx \dar
-\\
-S'Sy \ar{rr}{(\tau' \ast \tau)_y}
-&&
+S'Sx \arrow{rr}{(\tau' \ast \tau)_x} \dar &&
+T'Tx \dar \\
+S'Sy \arrow{rr}{(\tau' \ast \tau)_y} &&
 T'Ty
 \end{tikzcd}\]
 
@@ -5054,6 +5051,8 @@ como componentes identidades en cada objeto.
 Una *adjunción* entre categorías ${\cal A}$ y ${\cal B}$ es un par de funtores $F:{\cal A} \to {\cal B}$ y
 $G: {\cal B} \to {\cal A}$ con una familia de isomorfismos $\varphi_{a,b} : Hom(Fa,b) \cong Hom(a,Gb)$
 que determinan transformaciones naturales en ambas componentes.
+
+Notamos al par de funtores adjuntos como $F \dashv G$.
 
 ***** Condiciones de naturalidad
 Las condiciones de naturalidad de esa familia de isomorfismos equivalenx
@@ -5108,8 +5107,8 @@ Hom(a',GFa)
 Si tomamos la identidad $1_{Fa}$ y llamamos $\eta_a = \varphi(1_{Fa})$, tenemos que
 $\eta \circ f = \varphi(Ff)$ por conmutatividad.
 
-Si damos la vuelta al isomorfismo $\varphi$ para tomar $\varphi^{-1}$ y repetimos el mismo
-proceso:
+Si damos la vuelta al isomorfismo $\varphi$ para tomar $\varphi^{-1}$, llamarlo de la
+misma forma y repetir el mismo proceso:
 
 \[\begin{tikzcd}
 Hom(FGb,b) \arrow{d}[swap]{(Ff)^\ast} & 
@@ -5118,6 +5117,8 @@ Hom(FGb', b) &
 Hom(Gb',Gb) \lar{\varphi}
 \end{tikzcd}\]
 
+Nótese que aquí usamos $\varphi$ para notar un isomorfismo y su inversa;
+dependerá sólo del contexto determinar cuál estamos usando.
 Si tomamos la identidad $1_{Gb}$ y llamamos $\varepsilon_b = \varphi(1_{Gb})$, tenemos que
 $\varepsilon \circ Ff = \varphi(f)$.
 
@@ -5142,18 +5143,18 @@ Hom(Gb,Gb') \lar{\varphi}
 
 Que nos da, tomando la identidad, $\varphi(Gg) = g \circ \varepsilon$.
 
-****** Comprobar naturalidad de la unidad y counidad
+****** Naturalidad de la unidad y counidad
 Una vez tenemos definidas la unidad y la counidad, podemos comprobar
-su naturalidad de $\varepsilon$:
+su naturalidad desde las ecuaciones que hemos obtenido:
 
 \[\begin{aligned}
 \eta     \circ f        &= \varphi(Ff) \\
+g        \circ \epsilon &= \varphi(Gg) \\
 \epsilon \circ Ff       &= \varphi(f) \\
 Gg       \circ \eta     &= \varphi(g) \\
-g        \circ \epsilon &= \varphi(Gg) 
 \end{aligned}\]
 
-La naturalidad de $\eta$ se deduce desde ahí por la conmutatividad del
+Y la naturalidad de $\eta$ se deduce desde ahí por la conmutatividad del
 siguiente diagrama, por $\eta \circ f = GFf \circ \eta$:
 
 \[ \begin{tikzcd}
