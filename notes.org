@@ -5174,16 +5174,215 @@ X \arrow{r}[swap]{g} & Y
 \end{tikzcd}
 \]
 
-# TRIÁNGULOS DE NATURALIDAD
+****** Condición de composición
+Por último tenemos los dos triángulos siguientes, cuya conmutatividad
+equivale a la condición de que la composición debía ser la identidad.
 
-**** TODO Equivalencia de definiciones: desde unidades a familia de isomorfismos
-**** TODO Unicidad del adjunto
-**** TODO Continuidad
-**** TODO Mónadas
+\[ \begin{tikzcd}
+F \arrow{r}{F \eta_X} \arrow{dr}{id} & FGF \arrow{d}{\epsilon_{FX}} \\
+ & F
+\end{tikzcd}   
+\]     \[ \begin{tikzcd}
+G \arrow{r}{\eta_{GX}} \arrow{dr}{id} & GFG \arrow{d}{G\epsilon_X} \\
+ & G
+\end{tikzcd}
+\]
+
+Para ello usamos las identidades anteriores comprobando que:
+
+ - $\epsilon \circ F\eta = \varphi(\eta) = 1$
+ - $G\epsilon \circ \eta = \varphi(\epsilon) = 1$
+
+***** Equivalencia de definiciones: desde unidades a familia de isomorfismos
+****** Definición de isomorfismos
+Por las condiciones sobre la composición de unidad y counidad,
+tenemos:
+
+ - $\varepsilon \circ F\eta = 1$
+ - $G\varepsilon \circ \eta = 1$
+
+Y por las condiciones de naturalidad de ambas transformaciones, se
+tiene:
+
+ - $\eta \circ f = GFf \circ \eta$
+ - $g \circ \varepsilon = \varepsilon \circ FGg$
+
+Definimos el isomorfismo y su inversa, que seguimos notando igual,
+como:
+
+ - $\varphi(f) = \varepsilon \circ Ff$
+ - $\varphi(g) = Gg \circ \eta$
+
+Se comprueba trivialmente que es isomorfismo por las condiciones
+anteriores. Tenemos así las igualdades:
+
+\[\begin{aligned}
+\eta     \circ f        &= \varphi(Ff) \\
+g        \circ \epsilon &= \varphi(Gg) \\
+\epsilon \circ Ff       &= \varphi(f) \\
+Gg       \circ \eta     &= \varphi(g) \\
+\end{aligned}\]
+
+****** Naturalidad del isomorfismo
+Demostraremos que el isomorfismo es natural en cada una de sus
+componentes. La naturalidad aquí se deduce de que la definición
+de $\varphi$ nos da las siguientes ecuaciones para cualesquiera $f,g$:
+
+  - $\varphi(g\circ f) = Gg \circ \varphi(f)$
+  - $\varphi(Ff \circ g) = f \circ \varphi(g)$
+
+Que nos dan la naturalidad de $\varphi$ en ambas componentes.
+
+**** Unicidad del adjunto
+Si tenemos funtores $F : {\cal A} \to {\cal B}$ y $G,G' : {\cal B} \to {\cal A}$ y son ambos adjuntos por la
+derecha al primero, $F \dashv G, F \dashv G'$; entonces existe un isomorfismo natural
+$\tau : G \cong G'$.
+
+***** Demostración
+****** Definiendo el isomorfismo natural
+Por ser ambas adjunciones, tenemos un isomorfismo natural en ambas
+variables $X,Y$ dado por $\varphi : Hom(X,GY) \cong Hom(X,G'Y)$, ya que
+ambos eran isomorfos a $Hom(FX,Y)$.
+
+Tomamos para cada $A$, la componente de nuestro isomorfismo natural
+en $A$ como $\tau_A = \varphi_A(id_{GA})$.
+
+****** Naturalidad
+Aplicamos dos veces la naturalidad de $\varphi$ para tener, dado un
+$f : A \to B$:
+
+\[\begin{tikzcd}
+Hom(GA,GA)\rar{\varphi} \dar[swap]{f^\ast} & Hom(GA,G'A) \dar{(Gf)^\ast} \\
+Hom(GA,GB)\rar{\varphi} & Hom(GA,G'B)
+\end{tikzcd}\]
+
+Obtenemos, tomando la identidad, que $G'f \circ \tau = \varphi(Gf)$.
+
+\[\begin{tikzcd}
+Hom(GB,GB)\rar{\varphi} \dar[swap]{(Gf)_\ast} & Hom(GB,GB') \dar{(Gf)_\ast} \\
+Hom(GA,GB)\rar{\varphi} & Hom(GA,G'B)
+\end{tikzcd}\]
+
+Obtenemos, tomando de nuevo la identidad, que $\tau \circ Gf = \varphi(Gf)$. Y
+uniendo ambas igualdades tenemoos la condición de naturalidad de
+la transformación $\tau$. Por ser la imagen por un isomorfismo natural
+del isomorfismo identidad, todas sus componentes son isomorfismos.
+
+**** Continuidad
+Todo funtor que es un adjunto derecho (equivalentemente, que tiene
+un adjunto izquierdo) es *continuo*; es decir, preserva límites
+categóricos.
+
+Por otro lado, todo functor que es un adjunto izquierdo es *cocontinuo*
+y preserva colímites categóricos.
+
 **** Ejemplos
 ***** Módulos libres
-***** Conexiones de Galois
+****** Funtor de olvido
+Un *funtor de olvido* es aquel que proyecta estructuras en una
+categoría de estructuras más generales, "olvidando" en el proceso
+parte de su estructura. En nuestro caso particular de R-módulos,
+tenemos el funtor de olvido que lleva cada módulo a su conjunto
+subyacente y cada homomorfismo a su aplicación de conjuntos:
 
+\[
+U : R\mathtt{-Mod} \longrightarrow \mathtt{Set}
+\]
+
+****** Funtor libre
+Sobre cada conjunto puede generarse un R-módulo libre, y cada
+aplicación de conjuntos puede extenderse directamente por linealidad
+a todo el módulo libre:
+
+\[
+F : \mathtt{Set} \longrightarrow R\mathtt{-mod}
+\]
+
+Teniéndose $F(S) = <S>$ y $F(f)\left(\sum rx\right) = \sum rf(x)$.
+
+****** Adjunción
+Hay una adjunción entre el funtor libre y el funtor de olvido
+$F \dashv U$, ya que tenemos la correspondencia natural entre homomorfismos
+dada por, para un conjunto $X$ y un R-módulo $M$:
+
+\[
+Hom(FX,M) \cong Hom(X,UM)
+\]
+
+Que hace corresponder a cada aplicación entre conjuntos su extensión
+lineal, que está biunívocamente determinada.
+
+La naturalidad se tiene por tenerse para cada $x \in X$:
+
+ - $\varphi(g\circ f)(x) = g(f(x)) = Ug \circ f(x)$
+ - $\varphi(Ff \circ g)(x) = Ff(g(x)) = f(\varphi(g)(x))$
+
+***** Otros funtores libres y de olvido
+De la misma forma que funciona el funtor de olvido entre
+módulos y conjuntos, funciona con otras estructuras algebraicas,
+como por ejemplo:
+
+ - Grupos a conjuntos.
+ - Grupos abelianos a grupos.
+ - K-álgebras a K-módulos.
+
+***** Funtor diagonal
+****** Categoría producto
+Dada una categoría ${\cal C}$ con productos y coproductos ($\mathtt{Set}$, por ejemplo) 
+definimos ${\cal C}\times{\cal C}$ como la categoría que tiene como objetos a pares de 
+objetos de ${\cal C}$ y morfismos a pares de morfismos que se componen componente
+a componente:
+
+\[
+(f,g)\circ(h,i) = (f\circ h, g\circ i)
+\]
+
+****** Funtor diagonal
+Tenemos un funtor $\Delta : {\cal C} \to {\cal C}\times{\cal C}$ que lleva cada objeto $A$ a $A\times A$
+y cada morfismo $f$ a $(f,f)$.
+
+****** Producto como adjunto derecho
+Si definimos el *funtor producto*, $\times : {\cal C}\times{\cal C} \to {\cal C}$, lleva $(A,B)$ en $A\times B$
+y cada par de morfismos $f : A \to C$ y $g : B \to D$, en el morfismo producto
+x$f \times g : A\times B \to C \times D$, dado por el único que hace conmutar:
+
+\[\begin{tikzcd}
+& A\times B \dlar[swap]{\pi}\drar{\pi}\dar[dashed] & \\
+A\dar[swap]{f} & C \times D \dlar[swap]{\pi}\drar{\pi} & B\dar{g} \\
+C & & D \\
+\end{tikzcd}\]
+
+Este funtor es adjunto derecho al funtor diagonal. Nótese que se
+tiene:
+
+\[
+Hom(\Delta A, (B,C)) \cong Hom(A, B \times C)
+\]
+
+Y utilizamos la propiedad universal del producto para llevar dos
+morfismos $A \to B$ y $A \to C$ a un morfismo al producto $A \to B \times C$.
+Y puede comprobarse la naturalidad.
+
+****** Coproducto como adjunto izquierdo
+Si definimos el *funtor coproducto* $\coprod : {\cal C}\times{\cal C} \to {\cal C}$, lleva $(A,B)$ en
+$A \coprod B$ y cada par de morfismos $f : A \to C$ y $g : B \to D$, en el morfismo
+coproducto, dado por el único que hace conmutar:
+
+\[\begin{tikzcd}
+A\dar{f}\drar{i} & & B\dar{g}\dlar[swap]{i} \\
+C\drar{i} & A \coprod B \dar[dashed] &D\dlar[swap]{i} \\
+& C \coprod D &
+\end{tikzcd}\]
+
+Y este funtor es adjunto izquierdo al funtor diagonal. Teniéndose
+el isomorfismo siguiente y la naturalidad por la propiedad universal
+del coproducto:
+
+\[
+Hom\left(A \coprod B, C\right) \cong Hom((A, B), \Delta C)
+\]
+
+*** Retículos
 * Empresa y Sociedad
 ** Detalles de la asignatura
 Matilde Ruiz, departamento de Organización de Empresas.
