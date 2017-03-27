@@ -2,9 +2,10 @@
 #+AUTHOR: Mario Román
 #+EMAIL: mromang08@gmail.com
 
-#+OPTIONS: num:nil broken-links:mark
+#+OPTIONS: broken-links:mark
 #+LANGUAGE: es
 #+STARTUP: indent
+#+SETUPFILE: essay.setup
 #+SETUPFILE: math.setup
 #+SETUPFILE: html.setup
 
@@ -4977,6 +4978,7 @@ la unicidad.
 ** Trabajos
 *** Funtores adjuntos
 **** Transformaciones naturales
+#+begin_definition
 Dados dos funtores $S,T : A \to B$, una *transformación natural* $\tau : S \Longrightarrow T$ 
 es una función asignando a cada objeto $a \in A$ un morfismo $Sa \to Ta$ y 
 cumpliendo el siguiente diagrama conmutativo:
@@ -4987,30 +4989,35 @@ a' & & Sa' \rar{\tau_{a'}} & Ta'
 \end{tikzcd}\]
 
 En este caso, decimos que $\tau_a$ es /natural en/ $a$.
+#+end_definition
 
-***** Isomorfismos naturales
+#+begin_definition
 Llamamos *isomorfismo natural* a la transformación natural en la que
 cada componente $\tau_a$ tiene una inversa. Podemos definir una transformación
 natural inversa $\tau^{-1}$ que tiene por componentes a cada una de las inversas.
+#+end_definition
 
 ***** Composición vertical de transformaciones naturales
+#+begin_definition
 Dados funtores $R,S,T : {\cal A} \to {\cal B}$ y transformaciones naturales $\tau : S \Longrightarrow T$
 y $\sigma : R \Longrightarrow S$, podemos componerlas componente a componente para formar
-una *transformación natural composición* $\tau \circ \sigma$.
+una *transformación naturalcomposición vertical* $\tau \circ \sigma$.
 
 \[\begin{tikzcd}
-Rc \rar{Rf}\dar{\sigma_c}\arrow[dd,bend right=90]{(\tau \circ \sigma)_c} &
-Rc' \dar{\sigma_{c'}} \arrow[dd,bend left=90]{(\tau\circ\sigma)_{c'}} \\
-Sc \rar{Sf}\dar{\tau_c}  &
-Sc' \dar{\tau_{c'}} \\
-Tc \rar{Tf} & 
-Tc'   \\
-\end{tikzcd}\]
+Rc \rar{Rf}\dar{\sigma_c}\arrow[dd,bend right=90] &
+Rc' \dar{\sigma_{c'}} \arrow[dd,bend left=90] \\
+Sc \rar{Sf} \dar{\tau_c} & Sc' \dar{\tau_{c'}} \\
+Tc \rar{Tf} & Tc' 
+\end{tikzcd}
+\]
+
+#+end_definition
 
 Nótese que la naturalidad se preserva, ya que si los dos cuadrados
 pequeños son conmutativos, conmuta todo el diagrama.
 
 ***** Composición horizontal de transformaciones naturales
+#+begin_definition
 Dados funtores $S,T : {\cal A} \longrightarrow {\cal B}$ y $S',T' : {\cal B} \longrightarrow {\cal C}$ y dadas transformaciones
 naturales $\tau : S \Longrightarrow T$ y $\tau' : S' \Longrightarrow T'$, podemos crear una transformación
 natural entre los funtores compuestos, $\tau' \ast \tau$:
@@ -5022,61 +5029,62 @@ S'Sy \arrow{rr}{(\tau' \ast \tau)_y} &&
 T'Ty
 \end{tikzcd}\]
 
-Donde cada componente se crea aprovechando la siguiente igualdad:
+Cada componente se crea aprovechando la siguiente igualdad:
 
 \[
 (\tau' \ast \tau) = T'\tau \circ \tau' = \tau' \circ S'\tau
 \]
+#+end_definition
 
 Y puede comprobarse que constituye una transformación natural.
 
-****** Notación
-En las ocasiones en las que sea obvio, omitiremos el símbolo explícito
-de composición.
-
 ***** Categoría de los funtores
-Dadas ${\cal A},{\cal B}$ categorías, los funtores entre ellas forman una categoría
-que llamaremos $Funct({\cal A},{\cal B})$ y que tiene como morfismos a las 
-transformaciones naturales con la composición vertical:
+#+begin_definition
+Dadas ${\cal A},{\cal B}$ categorías, los funtores entre ellas forman una *categoría de funtores* 
+que llamaremos $Funct({\cal A},{\cal B})$ y que tiene como morfismos a las transformaciones 
+naturales con la composición vertical:
 
 \[
 Nat(S,T) = \{ \tau \mid \tau : S \Longrightarrow T \}
 \]
+#+end_definition
 
 Nótese que la composición es asociativa y que consta de una identidad
 en la transformación natural de cada funtor consigo mismo que tiene
 como componentes identidades en cada objeto.
 
 **** Definición de funtores adjuntos por naturalidad
+#+begin_definition
 Una *adjunción* entre categorías ${\cal A}$ y ${\cal B}$ es un par de funtores $F:{\cal A} \to {\cal B}$ y
 $G: {\cal B} \to {\cal A}$ con una familia de isomorfismos $\varphi_{a,b} : Hom(Fa,b) \cong Hom(a,Gb)$
 que determinan transformaciones naturales en ambas componentes.
+#+end_definition
 
-Notamos al par de funtores adjuntos como $F \dashv G$.
+Notamos al par de funtores adjuntos como $F \dashv G$. Llamamos a $F$ adjunto
+izquierdo y a $G$ adjunto derecho.
 
 ***** Condiciones de naturalidad
-Las condiciones de naturalidad de esa familia de isomorfismos equivalenx
+Las condiciones de naturalidad de esa familia de isomorfismos equivalen
 a que los siguientes diagramas conmuten:
 
-\[\begin{tikzcd}
+\[\begin{tabular}{cc} \begin{tikzcd}
 Hom(Fa,b) \rar{\varphi_{a,b}} \dar[swap]{f_\ast} & 
 Hom(a,Gb) \dar{(Gf)_\ast} \\
 Hom(Fa,b') \rar{\varphi_{a,b'}} &
 Hom(a,Gb')
-\end{tikzcd}\]
-
-\[\begin{tikzcd}
+\end{tikzcd} &
+\begin{tikzcd}
 Hom(Fa,b) \rar{\varphi_{a,b}} \dar[swap]{(Fg)^\ast} & 
 Hom(a,Gb) \dar{g^\ast} \\
 Hom(Fa',b) \rar{\varphi_{a,b'}} &
 Hom(a',Gb)
-\end{tikzcd}\]
+\end{tikzcd} \end{tabular}\]
 
 Nótese que cada uno de ellos expresa la naturalidad entre los dos bifuntores
 cuando se fija un argumento. Es decir, hay dos isomorfismos naturales:
 
- - $Hom(F-,b) \Longrightarrow Hom(-,Gb)$
- - $Hom(Fa,-) \Longrightarrow Hom(a,G-)$
+ 1) $Hom(F-,b) \Longrightarrow Hom(-,Gb)$
+ 2) $Hom(Fa,-) \Longrightarrow Hom(a,G-)$
 
 **** Definición por unidad y counidad
 Una *adjunción* entre categorías ${\cal A}$ y ${\cal B}$ es un par de funtores $F:{\cal A} \to {\cal B}$ y
