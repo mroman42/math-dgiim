@@ -9,3 +9,4 @@ Studying over these notes, I have started to write the following Wikipedia artic
 * [Wikipedia - Mónada (teoría de categorías)](https://es.wikipedia.org/wiki/M%C3%B3nada_(teor%C3%ADa_de_categor%C3%ADas))
 * [Wikipedia - Funtor Tor](https://es.wikipedia.org/wiki/Funtor_Tor)
 * [Wikipedia - Módulo simple](https://es.wikipedia.org/wiki/M%C3%B3dulo_simple)
+* [Wikipedia - Homología de Hochschild](https://es.wikipedia.org/wiki/Homolog%C3%ADa_de_Hochschild)
