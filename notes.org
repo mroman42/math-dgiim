@@ -3,6 +3,7 @@
 #+EMAIL: mromang08@gmail.com
 
 #+OPTIONS: broken-links:mark
+#+OPTIONS: toc:nil
 #+LANGUAGE: es
 #+STARTUP: indent
 #+SETUPFILE: essay.setup
@@ -5020,8 +5021,71 @@ R-módulo derecha $M$ se define $Me = \{me \mid m \in M\}$, y $Mf = \{mf \mid m 
  3. Prueba que $h : M \longrightarrow Me \times Mf$, definido $h(m) = (me,mf)$, es un isomorfismo
     de R-módulos derecha, donde la estructura de $Me \times Mf$ está dada vía $\lambda$.
     Observa que $Me$ y $Mf$ son subgrupos de $M$, pero no necesariamente submódulos.
+
+$\quad$
 #+end_statement
 
+***** Punto 1
+Siendo $me \in Me$, tenemos que $me(ere) = (mer)e \in Me$, donde usamos que
+$M$ es módulo a derecha. De la misma forma se cumple para $f$, que es
+idempotente.
+
+***** Punto 2
+Simplemente tenemos que comprobar que la aplicación de multiplicar por
+la matriz es lineal en $(m_1,m_2)$, y además, que los elementos vuelven
+a estar en $Me \times Mf$ por escribirse como:
+
+ - $(m_1em_{11})e + (m_2fm_{21})e$
+ - $(m_1em_{12})f + (m_2fm_{22})f$
+
+Usando de nuevo que $M$ es módulo a derecha.
+
+***** Punto 3
+Tenemos que cada elemento se escribe de forma única como $m = me+mf$.
+Si tuviéramos otra suma $m = ae + bf$, se tendría $me=ae$ y $mf=bf$ al
+multiplicar por cada uno de los idempotentes.
+
+Tenemos por tanto una biyección, que además es lineal y preserva la
+multiplicación por la derecha:
+
+\[
+(mre,mrf) = (me,mf)\begin{pmatrix}ere&erf\\fre&frf\end{pmatrix}
+\]
+
+Observamos que $Me$ y $Mf$ son cerrados para la suma. Pero no tienen por
+qué ser cerrados como módulo. Nótese que puede darse el caso de que
+$mer \notin Me$, como ocurre en las matrices, donde hay idempotentes no
+centrales:
+
+\[ e\begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 \\ 0 & 0
+\end{pmatrix} \begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix} = \begin{pmatrix}
+a & b \\ 0 & 0
+\end{pmatrix}\]
+
+Que no puede pertenecer al $Me$ porque cambia al multiplicarla a la derecha
+por $e$.
+*** Semana 4
+**** Ejercicio 1.7.
+#+begin_statement
+Si $K$ es un cuerpo, se considera el anillo:
+
+\[
+R = \begin{pmatrix}
+K & K \\ 0 & K
+\end{pmatrix}
+\]
+
+ 1) Estudia los ideales derecha de $R$.
+ 2) Estudia los ideales izquierda de $R$.
+ 3) Estudia los ideales biláteros de $R$.
+
+Ver también ejercicios anteriores.
+#+end_statement
 ** Trabajos
 *** Funtores adjuntos
 **** Transformaciones naturales
