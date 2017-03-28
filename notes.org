@@ -4975,6 +4975,53 @@ f_{n,m} \circ \pi_n \circ h = f_{n,m} \circ \phi_n =
 Lo que nos da que $im(h) \subseteq H$ y por tanto el morfismo buscado, que hereda
 la unicidad.
 
+*** Semana 3
+**** Ejercicio 1.5.
+#+begin_statement
+Sea $R$ un anillo y $0 \neq e \in R$ un elemento idempotente; llamamos $f = 1-e$.
+
+ 1. Prueba que $eRe$ y $fRf$ son anillos.
+ 2. Prueba que $eRf$ es un $(eRe;fRf)$ módulo, y $fRe$ es un $(fRf,eRe)$ módulo.
+ 3. Prueba que existe un homomorfismo inyectivo de anillos
+
+    $\lambda : R \longrightarrow 
+    \begin{pmatrix}
+    eRe & eRf \\
+    fRe & fRf 
+    \end{pmatrix}$, definido: $\lambda(r) = \begin{pmatrix} ere&erf\\fre&frf \end{pmatrix}$ para cada $r \in R$.
+
+ 4. Prueba que existe un isomorfismo de grupos abelianos
+    $Hom_R(eR_R,fR_R) \cong fRe$, y un isomorfismo de anillos $End_R(eR_R) \cong eRe$.
+ 5. Prueba que:
+
+    \[
+    R \overset{\beta}\cong End_R(R_R) = 
+    End_R((eR\oplus fR)_R) \cong \begin{pmatrix} eRe&eRf\\fRe&fRf \end{pmatrix}
+    \]
+
+    siendo $\beta(r)(x) = rx$. Como consecuencia $\lambda$ es un isomorfismo de anillos.
+#+end_statement
+
+**** Ejercicio 1.6.
+#+begin_statement
+Sea $R$ un anillo, $0\neq e \in R$ un elemento idempotente, y $f = 1 - e$. Para cada
+R-módulo derecha $M$ se define $Me = \{me \mid m \in M\}$, y $Mf = \{mf \mid m \in M\}$.
+
+ 1. Prueba que $Me$ es un $eRe$ módulo derecha y $Mf$ un $fRf$ módulo derecha.
+ 2. Prueba que $Me \times Mf$ es un $\begin{pmatrix}eRe&eRf\\fRe&fRf\end{pmatrix}$ módulo derecha con estructura
+    dada por,
+
+    \[
+    (m_1e, m_2f)
+    \begin{pmatrix}em_{11}e&em_{12}f\\fm_{21}e&fm_{22}ff\end{pmatrix} =
+    (m_1em_{11}e + m_2fm_{21}e, m_1em_{12}f + m_2fm_{22}f)
+    \]
+
+ 3. Prueba que $h : M \longrightarrow Me \times Mf$, definido $h(m) = (me,mf)$, es un isomorfismo
+    de R-módulos derecha, donde la estructura de $Me \times Mf$ está dada vía $\lambda$.
+    Observa que $Me$ y $Mf$ son subgrupos de $M$, pero no necesariamente submódulos.
+#+end_statement
+
 ** Trabajos
 *** Funtores adjuntos
 **** Transformaciones naturales
