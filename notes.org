@@ -5001,7 +5001,121 @@ Sea $R$ un anillo y $0 \neq e \in R$ un elemento idempotente; llamamos $f = 1-e$
     \]
 
     siendo $\beta(r)(x) = rx$. Como consecuencia $\lambda$ es un isomorfismo de anillos.
+
+$\quad$
 #+end_statement
+
+***** Punto 1
+Por propiedad distributiva, son cerrados con la misma suma que $R$. Son
+trivialmente cerrados con el producto y nos falta comprobar que contiene
+un elemento unidad, que es $e$ y es neutro gracias a ser idempotente:
+
+\[
+e(ere) = ere = (ere)e
+\]
+
+Nótese que $f$ es también idempotente y se repite el razonamiento.
+
+***** Punto 2
+Comprobamos que $eRf$ es cerrado para la suma, y además:
+
+ - $(ese)(erf) = e(ser)f$
+ - $(erf)(ftf) = e(rft)f$
+
+Por lo que es un módulo a izquierda para $eRe$ y a derecha para $fRf$.
+
+Nótese que el caso de $fRe$ es simétrico.
+
+***** Punto 3
+Nótese que $\lambda$ preserva sumas trivialmente. Debemos comprobar que respeta
+la unidad y el producto. Notamos primero gracias a que $ef=0$ tenemos:
+
+\[
+\lambda(1) = \begin{pmatrix}e&0\\0&f\end{pmatrix}
+\]
+
+Que se comprueba trivialmente que es el uno de su anillo, ya que es neutro
+respecto al producto:
+
+\[\begin{pmatrix}e&0\\0&f\end{pmatrix}\begin{pmatrix}er_1e&er_2f\\fr_3e&fr_4f\end{pmatrix} =\begin{pmatrix}er_1e&er_2f\\fr_3e&fr_4f\end{pmatrix}\]
+
+Por último comprobamos que el producto se preserva:
+
+\[\begin{pmatrix}ere&erf\\fre&frf\end{pmatrix}\begin{pmatrix} ese & esf \\ fse & fsf \end{pmatrix}
+= \begin{pmatrix}erse&ersf\\frse&frsf\end{pmatrix}\]
+
+Donde usamos crucialmente que $erese+erfse=er(e+f)se=erse$.
+
+***** Punto 4
+****** Isomorfismo de grupos abelianos
+Suponiendo que se consideran los homomorfismos como módulos a derecha
+de $R$, podemos llevar cada homormofismo $\lambda$ a $\lambda(e)e$ y cada elemento $fre$
+al homomorfismo $\psi(x) = (fre)x$.
+
+Comprobamos que esto da una biyección para elemento cualquiera $fre \in fRe$
+y $\lambda \in Hom(eR,fR)$ comprobando que la composición es la identidad:
+
+\[
+fre \mapsto \psi_{fre} \mapsto \psi_{fre}(e)e = freee = fre
+\]
+\[
+\lambda(ex) \mapsto \lambda(e)e \mapsto \lambda(e)e(ex) = \lambda(ex)
+\]
+
+Donde hemos usado en el último paso que $\lambda$ es homomorfismo de R-módulos
+a derecha. Que esto preserva la suma es trivial.
+
+****** Isomorfismo de anillos
+En este caso tenemos un isomorfismo de grupos abelianos dado por el
+caso anterior. Además, es operación multiplicativa al tenerse:
+
+\[
+(\psi\circ\varphi)(e)e = \psi(e)\varphi(e)e
+\]
+
+Por ser homomorfismos de módulos a derecha. Y es unital por tenerse:
+
+\[
+id(e)e = e
+\]
+
+***** Punto 5
+****** Primer isomorfismo
+Trivialmente $\beta$ es inyectivo porque $\beta(r)$ aplica la unidad en $r$.
+Que es sobreyectivo es trivial porque cada función está determinada
+por dónde lleva la unidad. Por ser homomorfismo de R-módulos:
+
+\[
+\varphi(r) = \varphi(1)r
+\]
+
+****** Segundo isomorfismo
+Nótese que dada una $\varphi \in End_R(eR\oplus fR)$, podemos descomponer su aplicación
+a cualquier elemento como:
+
+\[
+\varphi(er+fr) = \varphi(er)+\varphi(fr) = e\varphi(er)+f\varphi(er)+
+e\varphi(fr)+f\varphi(fr)
+\]
+
+Por lo que queda determinada por dos endomorfismos entre $eR$ y $fR$ y
+dos homomorfismos de $eR$ a $fR$ y de $fR$ a $eR$; y se puede escribir como:
+
+\[
+\varphi(ex+fy) = \begin{pmatrix}f_1&f_2\\f_3&f_4\end{pmatrix}\begin{pmatrix}ex\\fy\end{pmatrix}
+\]
+
+Con los isomorfismos anteriores tenemos lo buscado.
+
+****** Isomorfismo de anillos
+Notamos trivialmente que el isomorfismo así determinado es $\lambda$.
+Dado $r$, podemos ver que se divide como:
+
+\[
+rx = erex + erfx + frex + frfx
+\]
+
+Donde cada elemento pertenece al buscado.
 
 **** Ejercicio 1.6.
 #+begin_statement
