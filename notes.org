@@ -4899,7 +4899,8 @@ variables cuando el monoide es $\mathbb{N}^n$.
 ***** Intersección de submódulos
 ***** Suma de submódulos
 **** Submódulos maximales
-*** 1.4. La categoría Mod-R
+*** 1.4. Categorías y funtores
+*** 1.5. La categoría Mod-R
 **** Caracterización de monomorfismos y epimorfismos
 **** Primer teorema de isomorfía
 **** Segundo teorema de isomorfía
@@ -4911,6 +4912,64 @@ variables cuando el monoide es $\mathbb{N}^n$.
 **** Ejemplos de límite
 **** Cambios de anillo
 https://en.wikipedia.org/wiki/Change_of_rings
+** 2. Construcción de módulos
+*** 2.1. Producto tensor
+**** Aplicaciones bilineales
+Sean $M$ un R-módulo derecho y $N$ un R-módulo izquierdo. Un homomorfismo de
+grupos es R-bilineal si:
+
+  - $\varphi(m_1+m_2,n) = \varphi(m_1,n) + \varphi(m_2,n)$
+  - $\varphi(m,n_1+n_2) = \varphi(m,n_1) + \varphi(m,n_2)$
+  - $\varphi(mr,n) = \varphi(m,rn)$
+
+**** Producto tensor
+Construimos el grupo producto tensor como el grupo libre generado por
+los elementos del producto cartesiano, dividido por el grupo generado 
+por las relaciones de bilinealidad:
+
+\[
+M \otimes_R N = \frac{\langle
+(m,n) \mid m \in M, n \in N
+\rangle}{B}
+\]
+
+Donde $B$ está generado por:
+
+  - $(m_1+m_2,n) - (m_1,n) - (m_2,n)$
+  - $(m,n_1+n_2) - (m,n_1) - (m,n_2)$
+  - $(mr,n)-(m,rn)$
+
+Nótese que además tenemos la proyección $b : M \times N \to M \otimes N$.
+
+**** Propiedad universal del producto tensor
+Sean $M_R, _RN$ módulos con $f : M \times N \to X$ bilineal, existe un
+único homomorfismo de grupos $\overline{f} : M \oplus_R N \to X$ tal que conmuta:
+
+\[\begin{tikzcd}
+M \times N \rar{b}\drar[swap]{f} & 
+M \otimes_R N \dar[dashed]{\exists! \overline{f}} \\
+& X
+\end{tikzcd}\]
+
+***** TODO Demostración
+
+**** Neutro del producto tensor
+Se cumple $M \otimes R \cong M$ y $R \otimes N \cong N$.
+
+**** TODO Producto tensor en anillos conmutativos
+**** Producto tensor de álgebras
+Si $R,S$ son dos A-álgebras, su producto tensor lo es con el producto
+dado por:
+
+\[
+(r_1 \otimes s_1)(r_2 \otimes s_2) = (r_1r_2)\otimes(s_1s_2)
+\]
+
+***** TODO Inclusiones en el producto tensor de álgebras
+
+**** TODO Producto tensor de álgebras como coproducto
+
+*** 2.2. Módulos biláteros
 ** Ejercicios
 *** Semana 1
 #+begin_statement
