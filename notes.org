@@ -2189,6 +2189,8 @@ Sea $R$ una $K\text{-álgebra}$ y $M$ un $(R;R)\text{-módulo}$, llamamos:
   - *Cohomología de Hochschild* de $R$ en $M$ a $HH^{\bullet}(R,M) = \operatorname{Ext}^\bullet_{R^e}(R,M)$.
   - *Homología de Hochschild* de $R$ en $M$ a $HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)$.
 
+# Es interesante estudiar entonces cuál es la resolución en módulos
+# proyectivos de R en R^e.
 **** Notas
 1. [[https://sbseminar.wordpress.com/2007/07/22/hochschild-homology/][Hochschild homology | Secret Blogging Seminar]]
 
@@ -4796,13 +4798,43 @@ fracción continua como:
 x = a_0 + \frac{1}{x_1^{-1}}
 \]
 * Álgebra moderna
-** 1. Construcción de anillos
+** TODO 1. Construcción de anillos
 *** 1.1. Anillos
 **** Anillos
+Un *anillo* es $(R,+,\times,1)$ siendo:
+
+ 1) $(R,+)$ un grupo aditivo abeliano.
+ 2) $(R,\times,1)$ monoide multiplicativo.
+ 3) $\times$ distributivo con $+$.
+
+Llamamos $0$ al elemento neutro de la suma.
+
 ***** Anillos conmutativos
+Llamamos *anillo conmutativo* a un anillo con $\times$ conmutativo.
+
 ***** Propiedades en anillos
+Sea $r_1,r_2 \in R$ anillo:
+
+ - $0r=0=r0$
+ - $r_1(-r_2) = -r_1r_2 = (-r_1)r_2$
+ - $r(r_1-r_2) = rr_1-rr_2$
+ - $r_1+r_2=r_2+r_1$
+
+****** Demostración
+Usando distributividad se prueban trivialmente.
+
 **** Morfismos de anillos
+Un $f : R \to S$ es homomorfismo de anillos cuando:
+
+  - $f(r_1+r_2) = f(r_1)+f(r_2)$
+  - $f(r_1r_2) = f(r_1)f(r_2)$
+  - $f(1) = 1$
+
 ***** Categoría de los anillos
+La composición de dos morfismos de anillos es morfismo de anillos y
+la identidad es morfismo de anillos. Los anillos unitales forman así
+una categoría $\mathtt{Ring}$.
+
 ***** Isomorfismos de anillos
 **** Subanillos
 **** Retículo de subanillos
