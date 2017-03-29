@@ -5482,6 +5482,7 @@ cuando se fija un argumento. Es decir, hay dos isomorfismos naturales:
  2) $Hom(Fa,-) \Longrightarrow Hom(a,G-)$
 
 **** Definición por unidad y counidad
+#+begin_theorem
 Una *adjunción* entre categorías ${\cal A}$ y ${\cal B}$ es un par de funtores $F:{\cal A} \to {\cal B}$ y
 $G: {\cal B} \to {\cal A}$ con dos transformaciones naturales:
 
@@ -5492,6 +5493,9 @@ Cumpliendo que las composiciones siguientes dan la identidad:
 
  - $F \overset{F \eta} \Longrightarrow FGF \overset{\varepsilon F}\Longrightarrow F$
  - $G \overset{\eta G} \Longrightarrow GFG \overset{G \varepsilon}\Longrightarrow G$
+#+end_theorem
+
+Demostraremos que esta definición es equivalente a la anterior.
 
 ***** Equivalencia de definiciones: desde familia de isomorfismos a unidades
 ****** Ecuaciones desde la naturalidad
@@ -5637,12 +5641,16 @@ de $\varphi$ nos da las siguientes ecuaciones para cualesquiera $f,g$:
 Que nos dan la naturalidad de $\varphi$ en ambas componentes.
 
 **** Unicidad del adjunto
-Si tenemos funtores $F : {\cal A} \to {\cal B}$ y $G,G' : {\cal B} \to {\cal A}$ y son ambos adjuntos por la
+#+begin_theorem
+El adjunto es esencialmente único, es decir,
+si tenemos funtores $F : {\cal A} \to {\cal B}$ y $G,G' : {\cal B} \to {\cal A}$ y son ambos adjuntos por la
 derecha al primero, $F \dashv G, F \dashv G'$; entonces existe un isomorfismo natural
 $\tau : G \cong G'$.
+#+end_theorem
 
-***** Demostración
-****** Definiendo el isomorfismo natural
+#+begin_proof
+/Paso 1: Definiendo el isomorfismo natural./
+
 Por ser ambas adjunciones, tenemos un isomorfismo natural en ambas
 variables $X,Y$ dado por $\varphi : Hom(X,GY) \cong Hom(X,G'Y)$, ya que
 ambos eran isomorfos a $Hom(FX,Y)$.
@@ -5650,7 +5658,8 @@ ambos eran isomorfos a $Hom(FX,Y)$.
 Tomamos para cada $A$, la componente de nuestro isomorfismo natural
 en $A$ como $\tau_A = \varphi_A(id_{GA})$.
 
-****** Naturalidad
+/Paso 2: Probando la naturalidad./
+
 Aplicamos dos veces la naturalidad de $\varphi$ para tener, dado un
 $f : A \to B$:
 
@@ -5670,7 +5679,7 @@ Obtenemos, tomando de nuevo la identidad, que $\tau \circ Gf = \varphi(Gf)$. Y
 uniendo ambas igualdades tenemoos la condición de naturalidad de
 la transformación $\tau$. Por ser la imagen por un isomorfismo natural
 del isomorfismo identidad, todas sus componentes son isomorfismos.
-
+#+end_proof
 **** Continuidad
 Todo funtor que es un adjunto derecho (equivalentemente, que tiene
 un adjunto izquierdo) es *continuo*; es decir, preserva límites
