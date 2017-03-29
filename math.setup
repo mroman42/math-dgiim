@@ -5,6 +5,7 @@
 #+latex_header: \newtheorem{theorem}{Teorema}
 #+latex_header: \newtheorem{fact}{Proposición}
 #+latex_header: \newtheorem{definition}{Definición}
+#+latex_header: \renewcommand*{\proofname}{Demostración}
 #+latex_header: \newtheorem{proofs}{Demostración}
 #+latex_header: \newenvironment{statement}{\noindent\rule[0.5ex]{\linewidth}{1pt}\begin{em}}{\end{em}\newline\noindent\rule[0.5ex]{\linewidth}{1pt}}
 #+latex_header: \DeclareMathOperator{\im}{Im}
