@@ -5515,7 +5515,7 @@ cuando se fija un argumento. Es decir, hay dos isomorfismos naturales:
  2) $Hom(Fa,-) \Longrightarrow Hom(a,G-)$
 
 **** Definición por unidad y counidad
-#+begin_theorem
+#+begin_definition 
 Una *adjunción* entre categorías ${\cal A}$ y ${\cal B}$ es un par de funtores $F:{\cal A} \to {\cal B}$ y
 $G: {\cal B} \to {\cal A}$ con dos transformaciones naturales:
 
@@ -5526,12 +5526,19 @@ Cumpliendo que las composiciones siguientes dan la identidad:
 
  - $F \overset{F \eta} \Longrightarrow FGF \overset{\varepsilon F}\Longrightarrow F$
  - $G \overset{\eta G} \Longrightarrow GFG \overset{G \varepsilon}\Longrightarrow G$
-#+end_theorem
+#+end_definition
 
 Demostraremos que esta definición es equivalente a la anterior.
 
 ***** Equivalencia de definiciones: desde familia de isomorfismos a unidades
-****** Ecuaciones desde la naturalidad
+#+begin_theorem
+Dada una adjunción en términos de una familia de isomorfismos, podemos
+construir una adjunción en términos de unidad y counidad.
+#+end_theorem
+
+#+begin_proof
+/Paso 1: Construcción de la unidad y la counidad./
+
 Supongamos que tenemos la familia de transformaciones naturales
 $\varphi_{a,b} : Hom(Fa,b) \to Hom(a,Gb)$. Particularizaremos los cuadrados de
 naturalidad en los dos casos $b = Fa$ y $a = Gb$ para crear la unidad y
@@ -5583,7 +5590,8 @@ Hom(Gb,Gb') \lar{\varphi}
 
 Que nos da, tomando la identidad, $\varphi(Gg) = g \circ \varepsilon$.
 
-****** Naturalidad de la unidad y counidad
+/Paso 2: Naturalidad de la unidad y la counidad./
+
 Una vez tenemos definidas la unidad y la counidad, podemos comprobar
 su naturalidad desde las ecuaciones que hemos obtenido:
 
@@ -5594,38 +5602,31 @@ g        \circ \epsilon &= \varphi(Gg) \\
 Gg       \circ \eta     &= \varphi(g) \\
 \end{aligned}\]
 
-Y la naturalidad de $\eta$ se deduce desde ahí por la conmutatividad del
-siguiente diagrama, por $\eta \circ f = GFf \circ \eta$:
+Y la naturalidad de $\eta$ y $\varepsilon$ se deduce desde ahí por la conmutatividad de los
+siguientes diagramas, con $\eta \circ f = GFf \circ \eta$ y $g \circ\varepsilon = \varepsilon\circ FGg$:
 
-\[ \begin{tikzcd}
+\[\begin{tabular}{cc}\begin{tikzcd}
 GFa  \arrow{r}{GFf} & 
 GFb \\
 a \arrow{u}[swap]{\eta_X} \arrow{r}[swap]{f} & 
 b \arrow{u}{\eta_Y}
-\end{tikzcd}
-\] 
-
-La naturalidad de $\varepsilon$ se deduce de la misma manera de las ecuaciones por
-la conmutatividad del siguiente diagrama, por $g \circ\varepsilon = \varepsilon\circ FGg$:
-
-\[ \begin{tikzcd}
+\end{tikzcd} & \begin{tikzcd}
 FGX \arrow{d}[swap]{\epsilon_X} \arrow{r}{FGg} & FGY \arrow{d}{\epsilon_Y}\\
 X \arrow{r}[swap]{g} & Y
-\end{tikzcd}
-\]
+\end{tikzcd}\end{tabular}\]
 
-****** Condición de composición
+/Paso 3: Comprobar la condición de composición./
+
 Por último tenemos los dos triángulos siguientes, cuya conmutatividad
 equivale a la condición de que la composición debía ser la identidad.
 
-\[ \begin{tikzcd}
+\[\begin{tabular}{cc} \begin{tikzcd}
 F \arrow{r}{F \eta_X} \arrow{dr}{id} & FGF \arrow{d}{\epsilon_{FX}} \\
  & F
-\end{tikzcd}   
-\]     \[ \begin{tikzcd}
+\end{tikzcd} & \begin{tikzcd}
 G \arrow{r}{\eta_{GX}} \arrow{dr}{id} & GFG \arrow{d}{G\epsilon_X} \\
  & G
-\end{tikzcd}
+\end{tikzcd}\end{tabular}
 \]
 
 Para ello usamos las identidades anteriores comprobando que:
@@ -5633,25 +5634,41 @@ Para ello usamos las identidades anteriores comprobando que:
  - $\epsilon \circ F\eta = \varphi(\eta) = 1$
  - $G\epsilon \circ \eta = \varphi(\epsilon) = 1$
 
+$\quad$
+#+end_proof
+
 ***** Equivalencia de definiciones: desde unidades a familia de isomorfismos
-****** Definición de isomorfismos
+#+begin_theorem
+Dada una adjunción en términos de unidad y counidad, podemos construir
+una adjunción en términos de familia de isomorfismos.
+#+end_theorem
+
+#+begin_proof
+/Paso 1: Definición de los isomorfismos./
+
 Por las condiciones sobre la composición de unidad y counidad,
 tenemos:
 
- - $\varepsilon \circ F\eta = 1$
- - $G\varepsilon \circ \eta = 1$
+\[\begin{aligned}
+\varepsilon \circ F\eta &= 1 \\
+G\varepsilon \circ \eta &= 1
+\end{aligned}\]
 
 Y por las condiciones de naturalidad de ambas transformaciones, se
 tiene:
 
- - $\eta \circ f = GFf \circ \eta$
- - $g \circ \varepsilon = \varepsilon \circ FGg$
+\[\begin{aligned}
+\eta \circ f &= GFf \circ \eta \\
+g \circ \varepsilon &= \varepsilon \circ FGg
+\end{aligned}\]
 
 Definimos el isomorfismo y su inversa, que seguimos notando igual,
 como:
 
- - $\varphi(f) = \varepsilon \circ Ff$
- - $\varphi(g) = Gg \circ \eta$
+\[\begin{aligned}
+\varphi(f) &= \varepsilon \circ Ff \\
+\varphi(g) &= Gg \circ \eta
+\end{aligned}\]
 
 Se comprueba trivialmente que es isomorfismo por las condiciones
 anteriores. Tenemos así las igualdades:
@@ -5663,7 +5680,8 @@ g        \circ \epsilon &= \varphi(Gg) \\
 Gg       \circ \eta     &= \varphi(g) \\
 \end{aligned}\]
 
-****** Naturalidad del isomorfismo
+/Paso 2: Naturalidad de los isomorfismos./
+
 Demostraremos que el isomorfismo es natural en cada una de sus
 componentes. La naturalidad aquí se deduce de que la definición
 de $\varphi$ nos da las siguientes ecuaciones para cualesquiera $f,g$:
@@ -5672,6 +5690,7 @@ de $\varphi$ nos da las siguientes ecuaciones para cualesquiera $f,g$:
   - $\varphi(Ff \circ g) = f \circ \varphi(g)$
 
 Que nos dan la naturalidad de $\varphi$ en ambas componentes.
+#+end_proof
 
 **** Unicidad del adjunto
 #+begin_theorem
@@ -5696,30 +5715,29 @@ en $A$ como $\tau_A = \varphi_A(id_{GA})$.
 Aplicamos dos veces la naturalidad de $\varphi$ para tener, dado un
 $f : A \to B$:
 
-\[\begin{tikzcd}
+\[\begin{tabular}{cc}
+\begin{tikzcd}
 Hom(GA,GA)\rar{\varphi} \dar[swap]{f^\ast} & Hom(GA,G'A) \dar{(Gf)^\ast} \\
 Hom(GA,GB)\rar{\varphi} & Hom(GA,G'B)
-\end{tikzcd}\]
-
-Obtenemos, tomando la identidad, que $G'f \circ \tau = \varphi(Gf)$.
-
-\[\begin{tikzcd}
+\end{tikzcd} & \begin{tikzcd}
 Hom(GB,GB)\rar{\varphi} \dar[swap]{(Gf)_\ast} & Hom(GB,GB') \dar{(Gf)_\ast} \\
 Hom(GA,GB)\rar{\varphi} & Hom(GA,G'B)
-\end{tikzcd}\]
+\end{tikzcd}\end{tabular}\]
 
-Obtenemos, tomando de nuevo la identidad, que $\tau \circ Gf = \varphi(Gf)$. Y
-uniendo ambas igualdades tenemoos la condición de naturalidad de
-la transformación $\tau$. Por ser la imagen por un isomorfismo natural
-del isomorfismo identidad, todas sus componentes son isomorfismos.
+Obtenemos, tomando de la identidad en ambos diagramas, que $\tau \circ Gf = \varphi(Gf)$
+y que $G'f \circ \tau = \varphi(Gf)$. Y uniendo ambas igualdades tenemos la condición de
+naturalidad de la transformación $\tau$. Por ser la imagen por un isomorfismo 
+natural del isomorfismo identidad, todas sus componentes son isomorfismos.
 #+end_proof
 **** Continuidad
+#+begin_theorem
 Todo funtor que es un adjunto derecho (equivalentemente, que tiene
 un adjunto izquierdo) es *continuo*; es decir, preserva límites
 categóricos.
 
 Por otro lado, todo functor que es un adjunto izquierdo es *cocontinuo*
 y preserva colímites categóricos.
+#+end_theorem
 
 **** Ejemplos
 ***** Módulos libres
@@ -5773,6 +5791,7 @@ como por ejemplo:
 
 ***** Funtor diagonal
 ****** Categoría producto
+#+begin_definition
 Dada una categoría ${\cal C}$ con productos y coproductos ($\mathtt{Set}$, por ejemplo) 
 definimos ${\cal C}\times{\cal C}$ como la categoría que tiene como objetos a pares de 
 objetos de ${\cal C}$ y morfismos a pares de morfismos que se componen componente
@@ -5781,10 +5800,10 @@ a componente:
 \[
 (f,g)\circ(h,i) = (f\circ h, g\circ i)
 \]
+#+end_definition
 
-****** Funtor diagonal
-Tenemos un funtor $\Delta : {\cal C} \to {\cal C}\times{\cal C}$ que lleva cada objeto $A$ a $A\times A$
-y cada morfismo $f$ a $(f,f)$.
+En la categoría producto, tenemos un *funtor diagonal* $\Delta : {\cal C} \to {\cal C}\times{\cal C}$, que 
+lleva cada objeto $A$ a $A\times A$ y cada morfismo $f$ a $(f,f)$.
 
 ****** Producto como adjunto derecho
 Si definimos el *funtor producto*, $\times : {\cal C}\times{\cal C} \to {\cal C}$, lleva $(A,B)$ en $A\times B$
