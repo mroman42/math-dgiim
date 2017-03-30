@@ -4981,12 +4981,78 @@ r(ms)=(rm)s
 **** TODO Módulos a dos lados balanceados y fieles
 **** TODO Propiedad universal del producto tensor como módulo a dos lados
 *** 2.3. El retículo de submódulos
-**** TODO Categoría de los conjuntos parcialmente ordenados
-**** TODO Submódulos como conjuntos parcialmente ordenados
-**** TODO Retículos
-**** TODO Propiedades del retículo
-**** TODO Retículo abstracto
-***** TODO Homomorfismo de retículos abstractos
+**** Categoría de los conjuntos parcialmente ordenados
+Tomamos la *categoría de los conjuntos parcialmente ordenados* ${\cal P}$, siendo 
+sus morfismos las aplicaciones crecientes:
+
+\[
+x \leq y \implies f(x) \leq f(y)
+\]
+
+***** Submódulos como conjuntos parcialmente ordenados
+Existe el funtor covariante retículo ${\cal L} : \mathtt{Mod-}R \to {\cal P}$ que lleva cada módulo 
+en su retículo de submódulos y cada homomorfismo de módulos lo aplica sobre
+cada submódulo del retículo:
+
+\[
+{\cal L}(f)(N) = f(N)
+\]
+
+Y existe el funtor contravariante retículo ${\cal L} : \mathtt{Mod-}R \to {\cal P}$ que lleva cada
+módulo en su retículo y cada homomorfismo de módulos lo aplica de manera
+inversa sobre cada submódulo del retículo:
+
+\[
+{\cal L}(f)(N) = f^{-1}(N)
+\]
+
+**** Retículos
+Un *retículo* es un conjunto parcialmente ordenado donde todo par de
+elementos tiene supremo e ínfimo, llamados $a \vee b$ y $a \wedge b$.
+
+**** Propiedades del retículo
+En todo retículo $({\cal L}, \leq)$ se verifican:
+
+ 1) Idempotencia, $a \vee a = a$
+ 2) Conmutatividad, $a \vee b = b \vee a$
+ 3) Asociatividad, $a \vee (b \vee c) = (a \vee b) \vee c$
+ 4) Absorción, $a \vee (a \wedge c) = a$
+
+Y sus duales:
+
+ 1) Idempotencia, $a \wedge a = a$
+ 2) Conmutatividad, $a \wedge b = b \wedge a$
+ 3) Asociatividad, $a \wedge (b \wedge c) = (a \wedge b) \wedge c$
+ 4) Absorción, $a \wedge (a \vee c) = a$
+
+**** Retículo abstracto
+Llamamos *retículo abstracto* a un conjunto $L$ con operaciones $\vee,\wedge$ que
+cumplen las propiedades de retículo.
+
+***** Orden en un retículo abstracto
+Un retículo abstracto determina una relación de orden, y además
+se cumple en él:
+
+\[
+a \vee b = b \iff a \wedge b = a
+\]
+
+****** TODO Demostración
+******* Relación de orden
+******* Propiedad
+***** Homomorfismo de retículos abstractos
+Un homomorfismo de retículos abstractos es una aplicación preservando
+supremos e ínfimos.
+
+\[
+f(a\wedge b) = f(a) \wedge f(b) \qquad f(a\vee b) = f(a) \vee f(b)
+\]
+
+***** Categoría de retículos abstractos
+La categoría de retículos abstractos contiene a los retículos y los
+homomorfismos de retículos entre ellos. Es una categoría isomorfa
+a la categoría de conjuntos parcialmente ordenados.
+
 **** TODO Retículo de submódulos de un módulo
 **** TODO Retículos acotados
 **** TODO Retículos modulares
