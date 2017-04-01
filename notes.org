@@ -5100,7 +5100,25 @@ cada familia $\{ N_i \mid i \in I\}$:
 **** TODO Compacidad
 **** TODO Módulos noetherianos
 **** TODO Módulos noetherianos: propiedades
-*** 2.6. Módulos noetherianos
+*** TODO 2.6. Módulos noetherianos
+** 3. Sumas directas y productos directos de módulos
+*** 3.1. Biproducto de módulos
+**** Biproducto de módulos
+Se llama *biproducto de módulos* a la terna $(M_1\oplus M_2, \{p_1,p_2\}, \{q_1,q_2\})$,
+con las proyecciones e inclusiones de producto y coproducto.
+
+***** Propiedades del biproducto
+Las composiciones de proyecciones e inyecciones cumplen:
+
+ - $p_1q_1 = id_1$
+ - $p_2q_2 = id_2$
+ - $p_1q_2 = 0$
+ - $p_2q_1 = 0$
+ - $q_1p_1 + q_2p_2 = id$
+
+*** TODO 3.2. Independencia y sumas directas
+*** TODO 3.3. Módulos libres
+*** TODO 3.4. Descomposición de anillos
 ** Ejercicios
 *** Semana 1
 #+begin_statement
@@ -5607,10 +5625,10 @@ Hom(a',Gb)
 \end{tikzcd} \end{tabular}\]
 
 Nótese que cada uno de ellos expresa la naturalidad entre los dos bifuntores
-cuando se fija un argumento. Es decir, hay dos isomorfismos naturales:
+cuando se fija un argumento. Es decir, hay dos isomorfismos naturales
 
- 1) $Hom(F-,b) \Longrightarrow Hom(-,Gb)$
- 2) $Hom(Fa,-) \Longrightarrow Hom(a,G-)$
+ 1) $Hom(F-,b) \Longrightarrow Hom(-,Gb)$.
+ 2) $Hom(Fa,-) \Longrightarrow Hom(a,G-)$.
 
 **** Definición por unidad y counidad
 #+begin_definition 
@@ -5729,8 +5747,10 @@ G \arrow{r}{\eta_{GX}} \arrow{dr}{id} & GFG \arrow{d}{G\epsilon_X} \\
 
 Para ello usamos las identidades anteriores comprobando que:
 
- - $\epsilon \circ F\eta = \varphi(\eta) = 1$
- - $G\epsilon \circ \eta = \varphi(\epsilon) = 1$
+\[\begin{aligned}
+\epsilon \circ F\eta &= \varphi(\eta) = 1 \\
+G\epsilon \circ \eta &= \varphi(\epsilon) = 1
+\end{aligned}\]
 
 $\quad$
 #+end_proof
