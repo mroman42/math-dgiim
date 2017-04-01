@@ -5804,8 +5804,10 @@ Demostraremos que el isomorfismo es natural en cada una de sus
 componentes. La naturalidad aquí se deduce de que la definición
 de $\varphi$ nos da las siguientes ecuaciones para cualesquiera $f,g$:
 
-  - $\varphi(g\circ f) = Gg \circ \varphi(f)$
-  - $\varphi(Ff \circ g) = f \circ \varphi(g)$
+\[\begin{aligned}
+\varphi(g\circ f)   &= Gg \circ \varphi(f) \\
+\varphi(Ff \circ g) &= f \circ \varphi(g)
+\end{aligned}\]
 
 Que nos dan la naturalidad de $\varphi$ en ambas componentes.
 #+end_proof
@@ -5849,17 +5851,65 @@ natural del isomorfismo identidad, todas sus componentes son isomorfismos.
 #+end_proof
 **** Continuidad
 #+begin_theorem
-Todo funtor que es un adjunto derecho (equivalentemente, que tiene
-un adjunto izquierdo) es *continuo*; es decir, preserva límites
-categóricos.
-
-Por otro lado, todo functor que es un adjunto izquierdo es *cocontinuo*
-y preserva colímites categóricos.
+Todo funtor que es un adjunto derecho (equivalentemente, que tiene un
+adjunto izquierdo) es *continuo*; es decir, preserva límites
+categóricos. Por otro lado, todo functor que es un adjunto izquierdo
+es *cocontinuo* y preserva colímites categóricos.
 #+end_theorem
+
+#+begin_proof
+Sea $a$ el límite de un funtor en la categoría $A$ y sea $G : A \to B$ un
+funtor con adjunto a la izquierda $F \dashv G$. Comprobaremos que si existiera
+otro cono desde $x$, descompondría de forma única por $Ga$, haciéndolo límite.
+
+\[\begin{tabular}{ccc}\begin{tikzcd}
+a \dar[d]\dar[d,shift left=1, bend left]\dar[d,shift right=1, bend right] \\
+\dots
+\end{tikzcd} &
+$\Longrightarrow$
+&
+\begin{tikzcd}
+x
+\arrow[in=70, out=290]{dd}
+\arrow[bend left, shift left=1]{dd}
+\arrow[bend right, shift right=1]{dd} \\
+Ga 
+\dar[d]\dar[d,shift left=1, bend left]
+\dar[d,shift right=1, bend right] \\
+G\dots
+\end{tikzcd}\end{tabular}\]
+
+Pero entonces, por la adjunción, por cada $x \to Gi$ tenemos un $Fx \to i$, y estas
+aplicaciones generan un cono que conmuta con el diagrama por tenerse
+
+\[\begin{tabular}{ccc}\begin{tikzcd}[column sep=0.5em]
+& x \dlar[swap]{\alpha}\drar{\beta} & \\
+Gi \arrow{rr}{Gf} & & Gj
+\end{tikzcd} &
+$\Longrightarrow$
+&
+\begin{tikzcd}[column sep=0.5em]
+& Fx \dlar[swap]{\overline{\alpha}}\drar{\overline{\beta}} & \\
+i \arrow{rr}{f} & & j
+\end{tikzcd}\end{tabular}\]
+
+y por las condiciones de naturalidad de la transformación
+$Hom(F-,-) \cong Hom(-,G-)$ tenemos que
+
+\[
+\beta = Gf \circ \varphi(\alpha) = 
+\varphi(f \circ \overline{\alpha}) = \varphi(\overline{\beta})
+.\]
+
+Así, como $a$ es límite, tenemos un único $Hom(Fx,a)$ que hace conmutar a los
+diagramas. Como sólo existe uno, sólo existe un $Hom(x,Ga)$, lo que conlleva
+que sea $Ga$ efectivamente el límite.
+
+El caso de cocontinuidad se obtiene aplicándolo a la categoría dual.
+#+end_proof
 
 **** Ejemplos
 ***** Módulos libres
-****** Funtor de olvido
 Un *funtor de olvido* es aquel que proyecta estructuras en una
 categoría de estructuras más generales, "olvidando" en el proceso
 parte de su estructura. En nuestro caso particular de R-módulos,
