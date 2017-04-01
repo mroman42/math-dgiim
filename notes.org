@@ -5920,19 +5920,19 @@ subyacente y cada homomorfismo a su aplicación de conjuntos:
 U : R\mathtt{-Mod} \longrightarrow \mathtt{Set}
 \]
 
-****** Funtor libre
 Sobre cada conjunto puede generarse un R-módulo libre, y cada
 aplicación de conjuntos puede extenderse directamente por linealidad
-a todo el módulo libre:
+a todo el módulo libre. Esto nos da el *funtor de módulo libre*:
 
 \[
 F : \mathtt{Set} \longrightarrow R\mathtt{-mod}
 \]
 
-Teniéndose $F(S) = <S>$ y $F(f)\left(\sum rx\right) = \sum rf(x)$.
+Definido como, 
 
-****** Adjunción
-Hay una adjunción entre el funtor libre y el funtor de olvido
+\[F(S) = <S> \qquad F(f)\left(\sum rx\right) = \sum rf(x)\]
+
+Hay una *adjunción* entre el funtor libre y el funtor de olvido
 $F \dashv U$, ya que tenemos la correspondencia natural entre homomorfismos
 dada por, para un conjunto $X$ y un R-módulo $M$:
 
@@ -5945,8 +5945,10 @@ lineal, que está biunívocamente determinada.
 
 La naturalidad se tiene por tenerse para cada $x \in X$:
 
- - $\varphi(g\circ f)(x) = g(f(x)) = Ug \circ f(x)$
- - $\varphi(Ff \circ g)(x) = Ff(g(x)) = f(\varphi(g)(x))$
+\[\begin{aligned}
+\varphi(g\circ f)(x) = g(f(x)) =& Ug \circ f(x) \\
+\varphi(Ff \circ g)(x) = Ff(g(x)) =& f(\varphi(g)(x))
+\end{aligned}\]
 
 ***** Otros funtores libres y de olvido
 De la misma forma que funciona el funtor de olvido entre
@@ -6014,7 +6016,29 @@ del coproducto:
 Hom\left(A \coprod B, C\right) \cong Hom((A, B), \Delta C)
 \]
 
+***** Tensor-Hom
+Existe una adjunción entre los funtores *tensor y Hom*. Si $R,S$ son dos
+anillos y fijamos un (R;S)-módulo $X$, tenemos los dos funtores
+
+\[\begin{aligned}
+F : \mathtt{Mod-}R \longrightarrow \mathtt{Mod-}S
+&\qquad&
+F(Y) = Y \otimes_R X\\
+G : \mathtt{Mod-}S \longrightarrow \mathtt{Mod-}R
+&\qquad&
+G(Z) = \mathrm{Hom}(X,Z)
+\end{aligned}\]
+
+y tenemos el isomorfismo natural
+
+\[
+\mathrm{Hom}_{S}(Y \otimes_{R} X, Z) \cong
+\mathrm{Hom}_{R}(Y, \mathrm{Hom}_{S}(X,Z))
+\]
+
+dado por $\widehat{f}(y)(x) = f(y \otimes x)$.
 *** Retículos
+*** Módulos libres
 * Empresa y Sociedad
 ** Detalles de la asignatura
 Matilde Ruiz, departamento de Organización de Empresas.
