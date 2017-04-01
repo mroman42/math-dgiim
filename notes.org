@@ -4798,7 +4798,7 @@ fracción continua como:
 x = a_0 + \frac{1}{x_1^{-1}}
 \]
 * Álgebra moderna
-** TODO 1. Construcción de anillos
+** 1. Construcción de anillos
 *** 1.1. Anillos
 **** Anillos
 Un *anillo* es $(R,+,\times,1)$ siendo:
@@ -4899,7 +4899,7 @@ variables cuando el monoide es $\mathbb{N}^n$.
 ***** Intersección de submódulos
 ***** Suma de submódulos
 **** Submódulos maximales
-*** 1.4. Categorías y funtores
+*** TODO 1.4. Categorías y funtores
 *** 1.5. La categoría Mod-R
 **** Caracterización de monomorfismos y epimorfismos
 **** Primer teorema de isomorfía
@@ -4912,7 +4912,7 @@ variables cuando el monoide es $\mathbb{N}^n$.
 **** Ejemplos de límite
 **** Cambios de anillo
 https://en.wikipedia.org/wiki/Change_of_rings
-** TODO 2. Construcción de módulos
+** 2. Construcción de módulos
 *** 2.1. Producto tensor
 **** Aplicaciones bilineales
 Sean $M$ un R-módulo derecho y $N$ un R-módulo izquierdo. Un homomorfismo de
@@ -5053,10 +5053,42 @@ La categoría de retículos abstractos contiene a los retículos y los
 homomorfismos de retículos entre ellos. Es una categoría isomorfa
 a la categoría de conjuntos parcialmente ordenados.
 
-**** TODO Retículo de submódulos de un módulo
-**** TODO Retículos acotados
-**** TODO Retículos modulares
-**** TODO Retículos completos
+**** Retículo de submódulos de un módulo
+Los submódulos forman un retículo con:
+
+  - $N \vee N' = N + N'$
+  - $N \wedge N' = N \cap N'$
+
+**** Retículos acotados
+Un retículo con cero y uno se llama acotado, donde:
+
+  - El elemento cero cumple: $a \wedge 0 = 0$
+  - El elemento uno cumple:  $a \vee 1 = 1$
+
+**** Retículos modulares
+Llamamos retículo modular al que cumple la *ley modular*:
+
+\[
+N_1 \vee (N_2 \wedge N_3) = (N_1 \vee N_2) \wedge N_3
+\]
+
+***** El retículo de submódulos es modular
+Los submódulos forman retículos modulares.
+
+****** TODO Demostración
+
+**** Retículos completos
+Un retículo en el que existe el supremo e ínfimo de cualquier familia de
+submódulos se dice *completo*.
+
+***** El retículo de submódulos es completo
+El retículo de submódulos es completo, siendo el supremo e ínfimo de
+cada familia $\{ N_i \mid i \in I\}$:
+
+  - $\bigvee N_i = \sum N_i$
+
+  - $\bigwedge N_i = \bigcap N_i$
+
 **** TODO Retículos superiormente continuos y compactamente generados
 *** 2.5. Módulos finitamente generados
 **** TODO Módulos finitamente generados
