@@ -5518,7 +5518,41 @@ R = \begin{pmatrix}\mathbb{Q}&\mathbb{R}\\0&\mathbb{R}\end{pmatrix}
 
  1) Prueba que $R$ es un anillo artiniano derecha y noetheriano derecha.
  2) Prueba que $R$ no es un anillo artiniano izqierda ni noetheriano izquierda.
+
+$\quad$
 #+end_statement
+
+***** Ideales derecha
+Los ideales a la derecha son los siguientes:
+
+- $\begin{pmatrix} 0 & 0 \\ 0 & \mathbb{R} \end{pmatrix}$
+
+- $\begin{pmatrix} 0 & \mathbb{R} \\ 0 & \mathbb{R} \end{pmatrix}$
+
+- $\begin{pmatrix} \mathbb{Q} & \mathbb{R} \\ 0 & 0 \end{pmatrix}$
+
+- $\begin{pmatrix} \mathbb{Q} & \mathbb{R} \\ 0 & \mathbb{R} \end{pmatrix}$
+
+Habiendo sólo una cantidad finita de ideales, el anillo será artiniano
+y noetheriano.
+
+***** Ideales izquierda
+Considerando de nuevo los casos y teniendo esta vez en cuenta que el
+primer coeficiente está en $\mathbb{Q}$.
+
+- $\begin{pmatrix} \mathbb{Q} & \mathbb{K} \\ 0 & 0 \end{pmatrix}$, para cualquier $\mathbb{K}$ extensión de cuerpos $\mathbb{Q}\subset \mathbb{K}\subset\mathbb{R}$.
+
+- $\begin{pmatrix} 0 & \mathbb{R} \\ 0 & \mathbb{R} \end{pmatrix}$
+
+- $\begin{pmatrix} \mathbb{Q} & \mathbb{R} \\ 0 & \mathbb{R} \end{pmatrix}$
+
+Comprobamos que no es artiniano ni noetheriano porque podemos crear
+cadenas que rompen la condición de cadena ascendente y descendente.
+Sabiendo que los reales tienen dimensión infinita sobre los racionales
+como espacio vectorial, creamos ambas cadenas añadiendo y retirando
+progresivamente vectores de la base.
+
+
 ** Trabajos
 *** Funtores adjuntos
 **** Transformaciones naturales
