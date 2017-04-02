@@ -4896,6 +4896,180 @@ Un número real es constructible ssi está en alguna extensión cuadrática
 iterada de $\mathbb{Q}$.
 
 ***** TODO Demostración
+
+** Ejercicios
+*** Formas del universo
+**** Ejercicio 1
+#+begin_statement
+Como seres de dimensión 3 en un mundo de tres dimensiones es fácil
+dibujar y entender posibles formas de Planilandia pero no de nuestro
+propio Universo. Imaginar la forma de nuestro Universo en alguna de
+las siguientes situaciones:
+
+ * Hacemos una expedición a una galaxia remota. Al llegar a ella
+   descubrimos estar de vuelta en la tierra.
+
+ * Un astrónomo acaba de descubrir que los mismos objetos se
+   encuentran en posiciones distintas del Universo.
+
+ * Buscando ondas de radio que detecten señales extraterrestres,
+   detectamos una señal que procede de una galaxia lejana.
+   Investigamos y vemos que se trata de la señal de un programa de TV
+   emitido hace 50 años.
+
+A las posibles formas de nuestro Universo les llamaremos
+variedades de dimensión 3 y su estudio constituye la Topología
+3-dimensional.
+#+end_statement
+
+**** Ejercicio 2
+#+begin_statement
+1. ¿Cuáles de las siguientes superficies tienen la misma topología?
+2. En Planilandia CP descubrió que dos caminos cerrados partiendo del mismo
+   punto en direcciones opuestas no tienen por qué volver a cruzarse en un
+   punto diferente. ¿Es esta propiedad geométrica o topológica?
+3. Describir superficies con la misma topología pero diferente geometría.
+#+end_statement
+
+**** Ejercicio 3
+#+begin_statement
+Distingue según su topología intrínseca y extrínseca.
+
+ * ¿Puedes forrar un cilidro con parte de una hoja de papel sin deformarla?,
+   ¿y un cono?, ¿y un trozo de esfera?
+ * ¿Coḿo pueden los planilandeses que vivan en mundos como los de la figura
+   conocer que sus geometrías intrínsecas son diferentes? ¿Qué pueden decir
+   acerca de sus topologías extrínsecas e intrínsecas?
+
+$\quad$
+#+end_statement
+
+**** Ejercicio 4
+#+begin_statement
+  * Justifica que el toro llano y la superficie de un donut son
+    topológicamente equivalentes.
+
+  * Consigue en la siguiente figura un de un toro llano tres =X=
+    en línea.
+
+    |---+---+---|
+    |   | O | X |
+    | X |   | O |
+    |   |   |   |
+    |---+---+---|
+
+  * Cuáles de las posiciones siguientes serían equivalentes al jugar
+    unas "tres en línea" sobre un toro llano.
+
+  * En el siguiente tablero de ajedrez sobre un toro llano, ¿qué figuras
+    están amenazadas por el caballo blanco?
+
+  * ¿Qué figuras están amenazadas por el caballo y la reina blancos?
+
+  * Las siguientes figuras muestran un toro llano de tres dimensiones.
+    Explica cómo se construye e imagina qué verías al mirar en una dirección
+    concreta.
+$\quad$
+#+end_statement
+
+**** Ejercicio 5
+#+begin_statement
+Jugando en la botella de Klein:
+
+  * ¿Cuáles de las siguientes posiciones ganan en el juego del tres en
+    raya dentro de una botella de Klein?
+  * Analiza cómo hacer tres en línea en la siguiente figura.
+#+end_statement
+
+**** Ejercicio 6
+#+begin_statement
+Actividades:
+
+ * Si un planilandés vivieno en un plano proyectivo cruza el ecuador,
+   ¿vuelve como su imagen especular?
+ * Una familia de planilandeses vive en un plano proyectivo. Planean
+   edificar dos gasolineras separadas cuanto más mejor. ¿Dónde deberían
+   construirlas?
+ * CP conoce que vive en una esfera o en un plano proyectivo. ¿Cómo
+   podría saber cuál de los dos es su mundo?
+ * Un segundo planilandés sabe que su Universo es un plano proyectivo o
+   una botella de Klein, ¿qué podría hacer para conocer de cuál de los dos
+   se trata?
+
+$\quad$
+#+end_statement
+
+**** Ejercicio 7
+#+begin_statement
+Haciendo sumas conexas:
+
+ * Deducir que si a una cinta de Möbius le pagamos un disco por el borde,
+   obteneos un plano proyectivo.
+ * Corrobora las palabras de Klein: "La cinta de Möbius es divina, si pegas
+   dos por su borde obtienes mi botella".
+ * Construye usando papel la suma conexa de una cinta de Möbius a un toro
+   y a una botella de Klein.
+ * Muestra que la suma conexa de un toro con un plano proyectivo es 
+   topológicamente equivalente a la suma conexa de una botella de Klein con
+   un plano proyectivo.
+ * Establece una correspondencia por equivalencia topológica entre las
+   superficies de los conjuntos A y B:
+
+   \[
+   A = \{
+   \mathbb{T}^2\#\mathbb{S}^2,
+   \mathbb{P}^2\#\mathbb{P}^2\#\mathbb{P}^2,
+   \mathbb{B}^2,
+   \mathbb{S}^2\#\mathbb{S}^2\#\mathbb{S}^2,
+   \mathbb{P}^2\#\mathbb{T}^2,
+   \mathbb{B}^2\#\mathbb{T}^2\#\mathbb{P}^2
+   \}
+   \]
+
+   \[
+   B = \{
+   \mathbb{P}^2\#\mathbb{P}^2,
+   \mathbb{B}^2\#\mathbb{P}^2,
+   \mathbb{S}^2\#\mathbb{S}^2,
+   \mathbb{P}^2\#\mathbb{P}^2\#\mathbb{P}^2\#\mathbb{B}^2,
+   \mathbb{T}^2,
+   \mathbb{T}^2\#\mathbb{P}^2
+   \}
+   \]
+#+end_statement
+
+** Modelo del hiperboloide
+*** Modelo
+**** Forma cuadrática de Minkowski
+En el espacio $n+1$ dimensional $\mathbb{R}^{n+1}$, se define la forma cuadrática de
+Minkowski como:
+
+\[
+Q(x_0,x_1,\dots,x_n) = x_0^2 - x_1^2 - \dots - x_n^2
+\]
+
+Usando las identidades de polarización, podemos calcular su polarización
+como:
+
+\[
+B(x,y) = x_0y_0 - x_1y_1 - \dots - x_ny_n
+\]
+
+**** Hiperboloide
+Los puntos de $\mathbb{R}^{n+1}$ que cumplen $Q(x) = 1$ forman un hiperboloide de dos hojas,
+o dos componentes conexas. Los puntos de nuestro modelo serán los de la
+componente positiva, a la que llamaremos $S$.
+
+**** Distancia hiperbólica
+La distancia entre dos puntos $u,v \in S$ viene dada por la fórmula:
+
+\[
+d(u,v) = \mathrm{arcosh}(B(u,v))
+\]
+
+**** Geodésicas
+Las geodésicas del modelo vienen dadas por intersecciones del hiperboloide
+con subespacios lineales bidimensionales, que nunca serán vacíos.
 * Teoría de Números y Criptografía
 ** Factorización
 *** Métodos básicos de factorización
