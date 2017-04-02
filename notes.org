@@ -4798,8 +4798,35 @@ de $\theta$ es este módulo simple.
 Sea $M$ un $A$ módulo. Demostrar que $M$ es simple si, y sólo si, $M = Am$ para
 todo $0 \neq m \in M$.
 #+end_statement
+*** Ejercicio 19
+#+begin_statement
+Demostrar que si $R$ es un dominio de integridad conmutativo, entonces $R$ no
+tiene idempotentes no triviales.
+#+end_statement
+
+Si $e^2=e$, entonces $e(e-1) = 0$; lo que, en un dominio de integridad implica
+que $e = 0$ ó $e-1 = 0$.
+
+Nótese que no hemos usado la conmutatividad.
+
+*** Ejercicio 20
+#+begin_statement
+Dar un CCIO para $R = M_n(k)$.
+#+end_statement
+
+Sean $E_{ii}$ las matrices nulas excepto por un $1$ en la entrada $i,i$. Se comprueba
+trivialmente que $E_{ii}E_{jj} = 0$ para cualesquiera $i \neq j$, y que $E_{ii}^2 = 1$. Forman
+además un conjunto completo por tenerse:
+
+\[
+I = E_{11} + E_{22} + \dots + E_{nn}
+\]
+*** Ejercicio 21
+#+begin_statement
+Comprobar las afirmaciones realizadas en el Ejemplo 17.
+#+end_statement
 * Taller de Geometría y Topología
-** 1. Construcciones con regla y compás 
+** 1. Construcciones con regla y compás
 *** 1.1. Construcciones posibles
 **** 1.1.0. Construcciones elementales
 Axiomáticamente consideramos realizables las siguientes construcciones
