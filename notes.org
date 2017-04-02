@@ -5940,6 +5940,7 @@ diagramas. Como sólo existe uno, sólo existe un $Hom(x,Ga)$, lo que conlleva
 que sea $Ga$ efectivamente el límite.
 
 El caso de cocontinuidad se obtiene aplicándolo a la categoría dual.
+cite:lane78categories
 #+end_proof
 
 **** Ejemplos
@@ -6051,8 +6052,8 @@ Hom\left(A \coprod B, C\right) \cong Hom((A, B), \Delta C)
 \]
 
 ***** Tensor-Hom
-Existe una adjunción entre los funtores *tensor y Hom*. Si $R,S$ son dos
-anillos y fijamos un (R;S)-módulo $X$, tenemos los dos funtores
+Existe una adjunción entre los funtores *tensor y Hom*. cite:kan58adjoint
+Si $R,S$ son dos anillos y fijamos un (R;S)-módulo $X$, tenemos los dos funtores
 
 \[\begin{aligned}
 F : \mathtt{Mod-}R \longrightarrow \mathtt{Mod-}S
@@ -6071,6 +6072,9 @@ y tenemos el isomorfismo natural
 \]
 
 dado por $\widehat{f}(y)(x) = f(y \otimes x)$.
+
+bibliographystyle:unsrt
+bibliography:math.bib
 *** Retículos
 *** Módulos libres
 * Empresa y Sociedad
