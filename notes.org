@@ -4347,6 +4347,165 @@ a $\mathbb{R}$, $\mathbb{C}$, o $\mathbb{H}$.
 
 ***** TODO Demostración
 
+*** TODO 1.8. Idempotentes y anillos de matrices
+**** Idempotente
+Un elemento de un álgebra $e \in R$ se llama *idempotente* si $e^2 = e$.
+Son idempotentes triviales $0$ y $1$.
+
+**** Conjunto completo de idempotentes ortogonales (CCIO)
+Un conjunto de idempotentes no triviales $\{e_1,\dots,e_n\}$ es conjunto completo de
+idempotentes ortogonales si:
+
+\[
+1 = e_1 + \dots + e_n
+\]
+
+Y además, $e_ie_j = 0$ para $i \neq j$.
+
+**** Descomposición de un CCIO
+Sea $\{e_1,\dots,e_n\}$ un CCIO para $R$. Entonces $R = Re_1 \oplus \dots \oplus Re_n$.
+
+***** Demostración
+Cualquier elemento de $R$ se expresa como:
+
+\[
+r = r(e_1+e_2+\dots+e_n)
+\]
+
+Y la suma es directa porque si se tiene $x \in Re_j \cap \left(\sum_{i\neq j} Re_i \right)$, entonces:
+
+\[
+x = xe_j = \left(\sum_{i\neq j} xe_i\right)e_j = 0
+\]
+
+**** Descomposición en un CCIO
+Sea $R = I_1 \oplus \dots \oplus I_n$ descomposición por ideales a izquierda no triviales.
+Entonces, si $1 = e_1 + \dots + e_n$, $\{e_1,\dots,e_n\}$ forman un CCIO con $I_i = Re_i$.
+
+***** Demostración
+Si $x \in I_j$, $x = x\sum e_i$ y se tiene,
+
+\[x - xe_j = 
+\sum_{i\neq j} xe_i \in I_j \cap \left(\sum_{i\neq j} I_i\right) = 
+\{0\}.\]
+
+Así, hemos demostrado que
+
+\[
+I_j = \{ x \in R \mid xe_j = x\} = Re_i
+\]
+
+y qe por tanto, $e_i^2 = e_i$. Por eso se tiene $\sum_{i\neq j} e_ie_j = 0$ y por independencia
+lineal, se llega a $e_ie_j = 0$.
+
+**** Matrices de descomposición
+Llamamos al conjunto de matrices siguiente,
+
+\[
+Mat(e_iRe_j) = \left\{(r_{ij}) \mid r_{ij} \in e_iRe_j\right\}
+\]
+
+que es un subespacio vectorial multiplicativamente cerrado de $M_n(R)$. La
+matriz diagonal
+
+\[\begin{pmatrix}
+e_1 & 0 & \dots & 0\\
+0 & e_2 & \dots & 0 \\
+\vdots & & & \vdots \\
+0 & 0 & \dots & e_n
+\end{pmatrix}
+\]
+
+es elemento neutro multiplicativo.
+
+***** Demostración
+Se comprueba trivialmente por tenerse:
+
+\[
+(e_ire_k)(e_kr'e_j) = e_i(re_kr')e_j \in e_iRe_j
+\]
+
+Multiplicando se comprueba además que la diagonal es la unidad
+multiplicativa.
+
+**** Descomposición en matrices
+La aplicación $\phi \colon R \to Mat(e_iRe_j)$ dada por $\phi(r) = (e_ire_j)_{ij}$ es un isomorfismo
+de K-álgebras.
+
+***** Demostración
+****** Es homomorfismo de álgebras
+Por definición es lineal. Si calculamos la componente $(i,j)$ de
+$\phi(r)\phi(s)$, tenemos
+
+\[
+\sum_k e_ire_ke_kse_j =
+\sum_k e_ire_kse_j =
+e_ir \left(\sum_k e_k\right) se_j =
+e_irse_j
+\]
+
+que es la componente $(i,j)$ de $\phi(rs)$. Además, $\phi(1)$ es claramente la unidad.
+
+****** Es isomorfismo
+Supongamos que $\phi(r)=0$, entonces se tiene
+
+\[
+r = \left(\sum_i e_i\right)r \left( \sum_{j} e_{j} \right)
+= \sum_{i,j} e_{i}re_{j} = 0
+\]
+
+y la función es inyectiva. Para comprobar que es sobreyectiva, simplemente
+tomamos una matriz $(r_{ij})$ de la forma, y comprobamos que por ortogonalidad
+e idempotencia se tiene
+
+\[
+\phi \left( \sum_{i,j} r_{ij} \right) = (r_{ij})
+\]
+
+*** TODO 1.9. El álgebra de enfomorfismos de un módulo semisimple
+**** Complemento
+Para $N \subseteq M$ submódulo, un *complemento* de $N$ es un $X$ tal que
+
+\[
+M = N \oplus X.
+\]
+
+En caso de que tenga complemento lo llamamos *sumando directo*.
+
+**** Módulos semisimples
+Un módulo de dimensión finita se dice *semisimple* si todo submódulo
+es un sumando directo.
+
+**** Caracterización de semisimples
+Sea $M$ módulo con dimensión finita como K-espacio vectorial. Equivalen:
+
+  1) $M$ es semisimple.
+  2) $M$ descompone como suma directa finita de submódulos simples.
+  3) $M$ es suma finita de submódulos simples.
+
+***** TODO Demostración
+
+**** Lema de Schur
+Sean $M,M'$ simples con $f\colon M \to M'$ homomorfismo de módulos. Se tiene $f=0$
+o $f$ isomorfismo.
+
+***** Corolario: anillo de endomorfismos de un módulo simple
+El anillo de los endomorfismos de un módulo simple es un anillo de
+división.
+
+***** TODO Demostración
+
+*** 1.10. Álgebras semisimples de dimensión finita
+**** Álgebras semisimples
+Un álgebra $A$ de dimensión finita es semisimple si todo A-módulo de
+dimensión finita es semisimple.
+
+**** Caracterización de álgebras semisimples
+Un álgebra de dimensión finita es semisimple si y sólo si es semisimple
+como A-módulo.
+
+***** TODO Demostración
+
 ** Ejercicios de clase
 *** Ejercicio 1
 #+begin_statement
