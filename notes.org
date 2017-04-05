@@ -4496,6 +4496,9 @@ a $\mathbb{R}$, $\mathbb{C}$, o $\mathbb{H}$.
 
 ***** TODO Demostración
 
+**** Corolario de Frobenius
+La única álgebra de división compleja de dimensión finita es $\mathbb{C}$.
+
 *** TODO 1.8. Idempotentes y anillos de matrices
 **** Idempotente
 Un elemento de un álgebra $e \in R$ se llama *idempotente* si $e^2 = e$.
@@ -4529,7 +4532,8 @@ x = xe_j = \left(\sum_{i\neq j} xe_i\right)e_j = 0
 
 **** Descomposición en un CCIO
 Sea $R = I_1 \oplus \dots \oplus I_n$ descomposición por ideales a izquierda no triviales.
-Entonces, si $1 = e_1 + \dots + e_n$, $\{e_1,\dots,e_n\}$ forman un CCIO con $I_i = Re_i$.
+Entonces, si $1 = e_1 + \dots + e_n$, para $e_i\in I_i$, $\{e_1,\dots,e_n\}$ forman un CCIO 
+con $I_i = Re_i$.
 
 ***** Demostración
 Si $x \in I_j$, $x = x\sum e_i$ y se tiene,
@@ -4544,7 +4548,7 @@ Así, hemos demostrado que
 I_j = \{ x \in R \mid xe_j = x\} = Re_i
 \]
 
-y qe por tanto, $e_i^2 = e_i$. Por eso se tiene $\sum_{i\neq j} e_ie_j = 0$ y por independencia
+y que por tanto, $e_i^2 = e_i$. Por eso se tiene $\sum_{i\neq j} e_ie_j = 0$ y por independencia
 lineal, se llega a $e_ie_j = 0$.
 
 **** Matrices de descomposición
