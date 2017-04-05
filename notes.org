@@ -4615,6 +4615,33 @@ e idempotencia se tiene
 \phi \left( \sum_{i,j} r_{ij} \right) = (r_{ij})
 \]
 
+**** Descomposición de endomorfismos
+Sea $M = M_1 \oplus M_2 \oplus \dots \oplus M_n$ un A-módulo con $M_i \cong N$. Se tiene
+
+\[
+\mathrm{End}(M) = M_n(\mathrm{End}(N)).
+\]
+
+***** TODO Demostración
+
+**** Descomposición en ideales biláteros
+Sea $R = I_1\oplus I_2\oplus \dots \oplus I_n$ descompuesto en ideales biláteros. Sea $\left\{ e_1,\dots,e_n \right\}$
+su CCIO asociado. Entonces $e_i \in Z(R)$, idempotente central.
+
+**** Descomposición en álgebras
+Sea $\{e_1,\dots,e_n\}$ un CCIO centrales de $R$. Entonces $Re_i$ es un álgebra con unidad
+y tenemos un isomorfismo de álgebras $R \cong Re_1\times Re_2 \times \dots \times Re_n$ definido
+por $r \mapsto (re_1,\dots,re_n)$.
+
+**** Idempotente central primitivo
+Un idempotente central es *primitivo* si $Re$ no es suma directa de dos ideales
+propios de $R$.
+
+**** Descomposión en centrales primitivos
+Si $R$ tiene un CCIO centrales primitivos, este conjunto es único.
+
+***** TODO Demostración
+
 *** TODO 1.9. El álgebra de enfomorfismos de un módulo semisimple
 **** Complemento
 Para $N \subseteq M$ submódulo, un *complemento* de $N$ es un $X$ tal que
@@ -4648,7 +4675,33 @@ división.
 
 ***** TODO Demostración
 
-*** 1.10. Álgebras semisimples de dimensión finita
+**** Submódulos y cocientes de semisimples
+Si $M$ es un semisimple de dimensión finita, entonces todo submódulo de $M$
+y todo cociente de $M$ es semisimple.
+
+***** TODO Demostración
+**** Unicidad de la descomposición en simples
+Sea $M = M_1\oplus \dots \oplus M_n = N_1 \oplus \dots \oplus N_m$ semisimple descompuesto como suma
+directa de simples. Entonces $n=m$ y se tiene $M_i \cong N_{\sigma i}$ para alguna 
+permutación.
+
+***** TODO Demostración
+
+**** Componentes isotópicas de un módulo
+Sea $M = M_1\oplus \dots \oplus M_n$ descomposición finita en módulos simples. Podemos
+escoger módulos simples $\Sigma_1,\dots,\Sigma_t$ y una partición $\{1,\dots,n\} = \Lambda_1 \cup \dots \cup \Lambda_t$
+tal que $M_i \cong \Sigma_j$ si y sólo si $i \in \Lambda_j$.
+
+Podemos tomar $M_{\Lambda_j} = \bigoplus_{i\in \Lambda_j} M_i$ para descomponer en *componentes isotópicas*
+
+\[
+M = M_{\Lambda_1}\oplus \dots \oplus M_{\Lambda_t}
+\]
+
+y llamar a $n_j$ la *multiplicidad* $\Sigma_j$ en $M$. Las componentes con su multiplicidad
+son invarriantes llamados *estructura del módulo*.
+
+*** TODO 1.10. Álgebras semisimples de dimensión finita
 **** Álgebras semisimples
 Un álgebra $A$ de dimensión finita es semisimple si todo A-módulo de
 dimensión finita es semisimple.
