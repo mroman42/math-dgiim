@@ -2189,10 +2189,49 @@ Sea $R$ una $K\text{-álgebra}$ y $M$ un $(R;R)\text{-módulo}$, llamamos:
   - *Cohomología de Hochschild* de $R$ en $M$ a $HH^{\bullet}(R,M) = \operatorname{Ext}^\bullet_{R^e}(R,M)$.
   - *Homología de Hochschild* de $R$ en $M$ a $HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)$.
 
-# Es interesante estudiar entonces cuál es la resolución en módulos
-# proyectivos de R en R^e.
 **** Notas
 1. [[https://sbseminar.wordpress.com/2007/07/22/hochschild-homology/][Hochschild homology | Secret Blogging Seminar]]
+
+**** Resolución estándar
+Para cada k-álgebra $R$ se tiene $(P_{\bullet},d_{\bullet})$ resolución proyectiva de $R$ en 
+$(R;R)\mathrm{-mod}$. Se llama *resolución estándar* de $R$, definiendo
+
+ - $P = R \otimes (R^{\otimes n}) \otimes R$
+ - $d_{n} = \sum_{i=0}^n (-1)^id^i_n$
+
+donde tomamos
+
+\[
+d_n^i(a_0 \otimes \dots \otimes a_{n+1}) =
+a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}
+\]
+
+**** Complejo de cocadenas
+Para el cálculo de la cohomología tenemos un complejo de cocadenas
+
+\[
+\mathrm{Hom}_K(K,M) \overset{b^0} \longrightarrow
+\mathrm{Hom}_K(R,M) \overset{b^1} \longrightarrow
+\mathrm{Hom}_K(R^{\otimes 2},M) \overset{b^2} \longrightarrow
+\dots.
+\]
+
+Donde están definidas las $b^{n}$ como
+
+ - $b^0(m)(a) = am-ma$
+ - $b^n = \sum^{n+1}_{i=0}(-1)^ib_i^n$
+
+para unas aplicaciones auxiliares $b_i^n$ definidas como
+
+\[
+b^n_i(f)(a_1\otimes \dots \otimes a_{n+1}) =
+\left\{\begin{array}{ll} 
+a_1f(a_2\otimes\dots\otimes a_{n+1})& \mbox{if } i=0  \\
+f(a_1\otimes\dots\otimes a_ia_{i+1}\otimes\dots\otimes a_{n+1}}& \mbox{if } i=1,\dots,n \\
+f(a_1\otimes\dots\otimes a_n)a_{n+1}& \mbox{if } i=n+1
+\end{array} 
+\right.
+\]
 
 *** Desde Weibel
 **** Identidades simpliciales
