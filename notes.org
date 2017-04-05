@@ -6008,7 +6008,7 @@ Ver también ejercicios anteriores.
 #+end_statement
 
 ***** Ideales derecha
-La multiplicación por un elemento del cuerpo es:
+La multiplicación por un elemento del ideal sería:
 
 \[\begin{pmatrix}
 a & b \\ 0 & d
@@ -6019,23 +6019,22 @@ k_1a & k_2a+k_3b \\ 0 & k_3d
 \end{pmatrix}\]
 
 Estudiando cada combinación de $a,b,d$ nulos o no nulos, se obtienen
-los ideales siguientes. Nótese que aprovechamos que un cuerpo no tiene
-ideales propios para considerar sólo estos casos:
+los ideales siguientes:
 
- - $\begin{pmatrix}K & K \\ 0 & K\end{pmatrix}$
+ - El ideal total, $\begin{pmatrix}K & K \\ 0 & K\end{pmatrix}$.
 
- - $\begin{pmatrix}K & K \\ 0 & 0\end{pmatrix}$
+ - Suponiendo $a=0$, $\langle\begin{pmatrix}0 & k \\ 0 & 1\end{pmatrix}\rangle$.
 
- - $\begin{pmatrix}0 & K \\ 0 & K\end{pmatrix}$
+ - Suponiendo $a=0,d=0$, $\begin{pmatrix}0 & K \\ 0 & 0\end{pmatrix}$.
 
- - $\begin{pmatrix}0 & K \\ 0 & 0\end{pmatrix}$
+ - Suponiendo $a=0,b=0$, $\begin{pmatrix}0 & 0 \\ 0 & K\end{pmatrix}$.
 
- - $\begin{pmatrix}0 & 0 \\ 0 & K\end{pmatrix}$
+ - Suponiendo $d=0$, $\begin{pmatrix}K & K \\ 0 & 0\end{pmatrix}$.
 
- - $\begin{pmatrix}0 & 0 \\ 0 & 0\end{pmatrix}$
+ - El ideal trivial, $\begin{pmatrix}0 & 0 \\ 0 & 0\end{pmatrix}$.
 
 ***** Ideales izquierda
-La multiplicación por un elemento del cuerpo es:
+La multiplicación por un elemento del ideal es:
 
 \[\begin{pmatrix}
 k_1 & k_2 \\ 0 & k_3
@@ -6046,33 +6045,24 @@ k_1a & k_1b+k_2d \\ 0 & k_3d
 \end{pmatrix}\]
 
 Estudiando cada combinación de $a,b,d$ nulos o no nulos, se obtienen
-los ideales siguientes. Nótese que aprovechamos que un cuerpo no tiene
-ideales propios para considerar sólo estos casos:
+los ideales siguientes:
 
- - $\begin{pmatrix}K & K \\ 0 & K\end{pmatrix}$
+ - El ideal total, $\begin{pmatrix}K & K \\ 0 & K\end{pmatrix}$.
 
- - $\begin{pmatrix}K & K \\ 0 & 0\end{pmatrix}$
+ - Suponiendo $d=0$, $\begin{pmatrix}K & K \\ 0 & 0\end{pmatrix}$.
 
- - $\begin{pmatrix}0 & K \\ 0 & K\end{pmatrix}$
+ - Suponiendo $a=0$, $\begin{pmatrix}0 & K \\ 0 & K\end{pmatrix}$.
 
- - $\begin{pmatrix}0 & K \\ 0 & 0\end{pmatrix}$
+ - Suponiendo $a=0,d=0$, $\begin{pmatrix}0 & K \\ 0 & 0\end{pmatrix}$.
 
- - $\begin{pmatrix}K & 0 \\ 0 & 0\end{pmatrix}$
+ - Suponiendo $a=0,b=0$ $\begin{pmatrix}K & 0 \\ 0 & 0\end{pmatrix}$.
 
- - $\begin{pmatrix}0 & 0 \\ 0 & 0\end{pmatrix}$
+ - El ideal trivial, $\begin{pmatrix}0 & 0 \\ 0 & 0\end{pmatrix}$.
 
 ***** Ideales biláteros
-Buscamos los ideales a izquierda y derecha:
+Buscamos los ideales que lo son a izquierda y derecha:
 
- - $\begin{pmatrix}K & K \\ 0 & K\end{pmatrix}$
-
- - $\begin{pmatrix}K & K \\ 0 & 0\end{pmatrix}$
-
- - $\begin{pmatrix}0 & K \\ 0 & K\end{pmatrix}$
-
- - $\begin{pmatrix}0 & K \\ 0 & 0\end{pmatrix}$
-
- - $\begin{pmatrix}0 & 0 \\ 0 & 0\end{pmatrix}$
+$\begin{pmatrix}K & K \\ 0 & K\end{pmatrix}$ $\begin{pmatrix}K & K \\ 0 & 0\end{pmatrix}$ $\begin{pmatrix}0 & K \\ 0 & K\end{pmatrix}$ $\begin{pmatrix}0 & K \\ 0 & 0\end{pmatrix}$ $\begin{pmatrix}0 & 0 \\ 0 & 0\end{pmatrix}$
 
 **** Ejercicio 1.8.
 #+begin_statement
@@ -6089,11 +6079,11 @@ $\quad$
 #+end_statement
 
 ***** Ideales derecha
-Los ideales a la derecha son los siguientes:
+Los ideales no triviales a la derecha son los siguientes:
 
 - $\begin{pmatrix} 0 & 0 \\ 0 & \mathbb{R} \end{pmatrix}$
 
-- $\begin{pmatrix} 0 & \mathbb{R} \\ 0 & \mathbb{R} \end{pmatrix}$
+- $\langle\begin{pmatrix} 0 & k \\ 0 & 1 \end{pmatrix}\rangle$
 
 - $\begin{pmatrix} \mathbb{Q} & \mathbb{R} \\ 0 & 0 \end{pmatrix}$
 
