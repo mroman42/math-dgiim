@@ -2333,6 +2333,112 @@ La homología de Hochschild se define como la de los k-módulos:
 HH_n(R,M) = H_nC(M\otimes R^{\otimes\ast})
 \]
 
+*** Ejemplos de cálculo de cohomología de Hoschild
+**** TODO Derivaciones y derivaciones externas
+** Álgebras separables
+*** Álgebras separables
+**** Dimensión de Hochschild
+Definimos $\mathrm{Hdim}(R)$ como el menor $n$ tal que $HH^{n+1}(R,M) = 0$ para cualquier
+módulo $M$. Si no existe, decimos que hay dimensión de Hochschild infinita.
+
+**** Álgebras separables
+Las álgebras de dimensión de Hochschild $0$ se llaman *separables*. Se
+tiene $R$ un $R^e-\mathrm{mod}$ izquierda proyectivo.
+
+**** Caracterización de álgebras separables
+Para una k-álgebra R equivalen:
+
+  1) Existen $a_i,b_i \in R$ con $\sum_{i=1}^na_ib_i=1$ y $\sum_{i=1}^n ra_i\otimes b_i = \sum_{i=1}^n a_i \otimes b_ir$.
+  2) Dimensión de Hochschild de $R$ cero.
+  3) $\mathrm{Der(R,M)} = \mathrm{Der}_{int}(R,M)$ para cada $M$ y $n \geq 1$.
+
+Llamamos $e = \sum_{i=1}^n a_i\otimes b_i \in R^e$ *idempotente de separabilidad*.
+
+**** Teorema de Zelinsky
+Toda k-álgebra separable es un k-espacio vectorial de dimensión finita.
+
+*** Álgebras semisimples
+**** Álgebra semisimple
+Una k-álgebra es semisimple si cada módulo a la izquierda suyo es proyectivo.
+
+**** Separable es semisimple
+Toda k-álgebra separable es semisimple.
+
+***** TODO Demostración
+
+**** Álgebras separables sobre cuerpos algebraicamente cerrados
+Una k-álgebra separable en un cuerpo de característica cero es de la forma:
+
+\[
+R \cong
+M_{n_1}(K) \times \dots \times M_{n_t}(K)
+\]
+
+**** Traza
+Llamamos *traza* de $\varphi \in \mathrm{End}(R)$ a la suma de su diagonal. Tenemos
+
+ - una aplicación $\tau(r) = \mathrm{Tr}(\lambda(r))$ k-lineal.
+ - una aplicación $\sigma(r,s) = \tau(rs)$ k-bilineal simétrica.
+
+Cuando $R$ es k-álgebra separable, $\sigma$ es no degenerada.
+
+**** Caracterización de álgebras separables
+Para una k-álgebra $R$ equivalen
+
+ 1) $R$ una k-álgebra separable.
+ 2) $\mathrm{dim}_{k}(R) < \infty$ y $\sigma$ es forma bilineal simétrica no degenerada.
+ 3) Existe un único idempotente de separabilidad simétrico.
+
+*** Álgebras formalmente lisas
+**** Extensiones de Hochschild
+Para $\pi : S \longrightarrow R$ homomorfismo sobreyectivo con $\ker(\pi)^2=0$,
+
+\[
+0 \longrightarrow 
+\mathsf{a}= \mathrm{ker}(\pi) \longrightarrow
+S \longrightarrow
+R \longrightarrow
+0
+\]
+
+es una *extensión de Hochschild* de $R$ por $\mathsf{a}$.
+
+**** Estructura de R;R-módulo de la extensión
+Si $0 \longrightarrow \mathsf{a} \overset{\pi}\longrightarrow S \longrightarrow R \longrightarrow 0$ es una extensión de Hochschild, entonces
+$\mathsf{a}$ es un R;R-módulo.
+
+***** Demostración
+Consideramos una inversa del homomorfismo sobreyectivo $\pi \circ \psi = id$.
+Definimos el producto como
+
+ - $ax = \psi(a)x$
+ - $xa = x\psi(a)$
+
+y comprobamos que $a(bx) = (ab)x$. Se tiene en efecto que
+
+\[
+\psi(a)\psi(b) - \psi(ab) \in \mathrm{ker}(\pi) = \mathsf{a}
+\]
+
+**** Extensiones equivalentes
+Dos extensiones de Hochschild son equivalentes si existe un diagrama
+conmutativo
+
+\[\begin{tikzcd}
+0 \rar & M \arrow[d,equal] \rar & S_1\dar{\varphi}\rar{\pi_{1}} & R \rar\dar[equal] & 0 \\
+0 \rar & M \rar & S_2\rar{\pi_{2}} & R \rar & 0
+\end{tikzcd}\]
+
+para $\varphi$ un homomorfismo de k-álgebras.
+
+**** Álgebra formalmente lisa
+Un álgebra $R$ es formalmente lisa si su dimensión de Hochschild es menor o
+igual que 1. Equivalentemente, $HH^2(R,M) = 0$ para cualquier $M$. Como
+consecuencia, toda extensión de Hochschild es trivial.
+
+**** Producto de separable y formalmente lisa
+Si $S$ es separable y $R$ es formalmente lisa, $R \otimes S$ es formalmente lisa.
+
 * ZFC
 Utilizando lógica de primer orden.
 
