@@ -6108,7 +6108,6 @@ Sabiendo que los reales tienen dimensión infinita sobre los racionales
 como espacio vectorial, creamos ambas cadenas añadiendo y retirando
 progresivamente vectores de la base.
 
-
 ** Trabajos
 *** Funtores adjuntos
 **** Transformaciones naturales
@@ -6633,6 +6632,62 @@ bibliographystyle:unsrt
 bibliography:math.bib
 *** Retículos
 *** Módulos libres
+# Págs 167 Aluffi -> Definición de módulos libres
+# Págs 349 Aluffi -> Clasificación de módulos libres sobre PIDs
+# Págs 359 Aluffi -> Endomorfismos de módulos libres
+
+**** Definición de módulo libre
+#+begin_definition 
+Definimos el *R-módulo libre* cite:aluffi09_rings sobre $A$ como un módulo $F^R(A)$ 
+con una inclusión $j : A \to F^R(A)$ como aquel que cumple que para cualquier 
+aplicación $f : A \to M$ a un R-módulo, existe un homomorfismo de R-módulos
+$\varphi:F^R(A) \to M$ que hace conmutar el diagrama
+
+\[\begin{tikzcd}
+F^R(A) \rar{\varphi} & M \\
+A \uar{j}\urar[swap]{f} &
+\end{tikzcd}\]
+#+end_definition
+
+Sabemos por ser una propiedad universal que si existe, será único salvo
+isomorfías y que $j\colon A \to F^R(A)$ será inyectivo.
+
+***** TODO Construcción
+#+begin_definition
+Dado un conjunto $A$, definimos la *suma directa indexada* sobre él como
+las aplicaciones de soporte finito
+
+\[
+N^{\oplus A}
+=
+\left\{ \alpha\colon A \to N 
+\mid 
+\alpha(a) \neq 0 \text{ sólo para un número finito de elementos} \right\}
+\]
+
+a las que les damos estructura de R-módulo con $(r\alpha)a = r\alpha(a)$.
+#+end_definition
+
+Además, existe una inclusión $j\colon A \to R^{\oplus A}$ definida como
+
+\[
+j(a)(x) = \left\{\begin{array}{ll} 
+1 & \mbox{if } x = a  \\
+0 & \mbox{if } x \neq a 
+\end{array} 
+\right. .
+\]
+
+#+begin_theorem
+El así definido es el módulo libre sobre $A$. Es decir, $F^R(A) \cong R^{\oplus A}$.
+#+end_theorem
+
+#+begin_proof
+#+end_proof
+
+**** Referencias
+bibliographystyle:unsrt
+bibliography:math.bib
 * Empresa y Sociedad
 ** Detalles de la asignatura
 Matilde Ruiz, departamento de Organización de Empresas.
