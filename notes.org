@@ -4087,7 +4087,7 @@ el producto.
 Se define el *centro* de un álgebra asociativa como:
 
 \[
-Z(A) = \{c \in A \mid ac = ca \forall a \in A \}
+Z(A) = \{c \in A \mid ac = ca,\; \forall a \in A \}
 \]
 
 **** Ideal de un álgebra
@@ -4119,7 +4119,7 @@ Cuando un homormofismo de K-álgebras es biyectivo, se llama *isomorfismo*
 y su inversa es también homomorfismo de K-álgebras.
 
 **** Primer teorema de isomorfía
-Si $f : A \longrightarrow A'$ es homomorfismo de K-álgebras, $Im f$ es subálgebra y $\ker f$
+Si $f : A \longrightarrow A'$ es homomorfismo de K-álgebras, $\mathrm{Im} f$ es subálgebra y $\ker f$
 es ideal. Además, tenemos un isomorfismo de K-álgebras canónico:
 
 \[
@@ -4147,13 +4147,15 @@ se tiene que $\widehat f(a+\ker f) - \widehat f(b + \ker f) = f(a-b) = 0$.
 
 La función es lineal y preserva el producto por la definición de
 producto con la que hemos dotado al ideal. Ahora, comprobamos que
-es inyectivo por tenerse:
+es inyectiva por tenerse:
 
 \[
 \widehat f(a+\ker f) = 
 \widehat f(b+\ker f) \implies f(a-b) =
 0 \implies a-b \in I
 \]
+
+Es trivialmente sobreyectiva.
 
 **** Álgebras unitales
 Una K-álgebra asociativa es *unital* si existe un neutro para el
@@ -4165,9 +4167,7 @@ producto.
 
 ***** Homormofisos de álgebras unitales
 A los homomorfismos de álgebras unitales se les pide respetar la
-unidad. Para $f : A \to B$:
-
-\[f(1_A) = 1_B\]
+unidad. Para $f : A \to B$, $f(1_A) = 1_B$.
 
 ***** Asunción posterior
 En el curso trabajaremos siempre con álgebras asociativas y unitales.
@@ -4196,7 +4196,7 @@ u(\alpha)u(\beta) = (\alpha 1)(\beta 1) = \alpha\beta 11 = u(\alpha\beta)
 Y trivialmente unital por $u(1) = 1$.
 
 ****** Es inyectivo
-Si $u(k) = u(k')$ entonces $k-k' = 0$.
+Si $u(k) = u(k')$ entonces $(k-k')1_A = 0$.
 
 ****** Es subálgebra del centro
 Aplicando bilinealidad de la multiplicación:
@@ -4274,20 +4274,22 @@ El conjunto de las unidades, $U(A)$ forma un grupo con el producto.
 ***** Divisor de cero
 Un $a \in A$ no nulo es *divisor de cero* si $\exists b: ab = 0$ ó $ba = 0$.
 
-***** Caracterización de unidades en dimensión finita
-Sea $a \in A$ no nulo en $A$ k-álgebra de dimensión finita:
+***** Clasificación en unidades y divisores de cero en dimensión finita
+Sea $a \in A$ no nulo para $A$ k-álgebra de /dimensión finita/:
 
 1. Equivalen:
 
    - $a \in U(A)$
    - $\exists b \in A : ab = 1$
-   - $\exists b \in A : ba = 1$
+   - $\exists c \in A : ca = 1$
 
 2. Equivalen:
 
    - $a \notin U(A)$
    - $\exists b \in A: ab = 0$
    - $\exists c \in A : ca = 0$
+
+Es decir, todo elemento no nulo es una unidad o un divisor de cero.
 
 ****** Demostración primer punto
 Si $ab = 1$, $\lambda_a$ es sobreyectiva y $\lambda_b$ es inyectiva. Por ser de dimensión
