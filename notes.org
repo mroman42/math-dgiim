@@ -5039,6 +5039,19 @@ Para tener $Tv,v$ independientes, es necesario tener un giro múltiplo de $\pi$.
 Escribir la demostración de la Proposición 1.7.
 #+end_statement
 
+**** La imagen es subálgebra
+Trivialmente, la imagen es espacio vectorial y $f(a)f(b) = f(ab)$.
+
+**** El núcleo es un ideal
+El núcleo es subespacio vectorial y además,
+
+\[
+f(ak) = f(a)f(k) = 0 = f(k)f(b) = f(kb)
+\]
+
+para cualquier $f(k) = 0$.
+
+**** Isomorfía
 Notamos primero que $\widehat f$ es el mismo que obtendríamos aplicando el
 primer teorema de Isomorfía entre espacios vectoriales. Así, sabemos
 que está bien definido y que es una función lineal biyectiva.
@@ -5050,7 +5063,7 @@ de álgebra con la que hemos dotado al cociente:
 \[
 \widehat f((a+I)(b+I)) = 
 \widehat f(ab+I) = f(ab) = f(a)f(b) 
-= \widehat f(a+I) \widehat f(b+I)
+= \widehat f(a+I) \widehat f(b+I).
 \]
 
 *** Ejercicio 3
@@ -5100,15 +5113,229 @@ Donde en el primer y segundo punto usamos la definición de suma; y
 en el tercer punto usamos la linealidad de la función para conmutar
 el elemento del cuerpo y la aplicación de la función.
 
-*** TODO Ejercicio 5
+*** Ejercicio 5
 #+begin_statement
 Comprobar todas las afirmaciones hechas en el Ejemplo 11.
 #+end_statement
 
-*** TODO Ejercicio 6
+**** Estructura del espacio cociente
+Sabemos que cada ideal no nulo lo genera un polinomio por ser un
+Dominio de Ideales Principales, que además podemos suponer mónico por ser $K$ 
+un cuerpo. Como además los polinomios forman un dominio euclídeo con el
+grado como función euclídea, podemos escribir cualquier polinomio $t$ como
+
+\[
+t(X) = r(X) + p(X)q(X), \text{ para } \mathrm{deg}(r) < n,
+\]
+
+y por tanto, ${\cal B} = \left\{ 1+I, x+I,\dots, x^{n-1}+I \right\}$ es un sistema generador. Sabemos
+que es linealmente independiente porque si no lo fuese, tendríamos una
+relación lineal que daría lugar a que un polinomio de grado menor que $n$
+estuviera en el ideal. Así, ${\cal B}$ es base.
+
+**** Matriz compañera
+Podemos comprobar que la matriz compañera es la que representa a $\lambda_{x+I}$
+por tenerse que $(x+I)(x^{i-1}+I) = (x^{i}+I)$ para $i < n$ y que
+
+\[x^{n}+I = p_0-p_1x-\dots-p_{n-1}x^{n-1} + I\]
+
+Sabemos ahora que $\lambda : A \to \mathrm{End}(A)$ es un homomorfismo inyectivo de álgebras
+que lleva $\lambda_{x+I} = \tilde N(p)$ y que por ser inyectivo preserva la independencia
+lineal de la base. Así, la imagen de los elementos de la base es una base
+de la imagen, y tenemos que el álgebra $A$ es isomorfa a la subálgebra de
+$M_n(K)$
+
+\[
+\left\{ a_0I+a_1\tilde N(p) + \dots + a_{n-1}\tilde N(p)^{n-1} \mid
+a_0,a_1,\dots,a_{n-1} \in K \right\} \subseteq M_n(K).
+\]
+
+*** Ejercicio 6
 #+begin_statement
 Expresar el cuerpo $\mathbb{Q}(\sqrt{2})$ como una $\mathbb{Q}$ subálgebra de un álgebra de matrices
 sobre $\mathbb{Q}$.
+#+end_statement
+
+Empezamos notando que
+
+\[
+\mathbb{Q}\left(\sqrt{2}\right) = \frac{\mathbb{Q}}{(X^2-2)},
+\]
+
+y que podemos por tanto aplicar el razonamiento del ejemplo 11 para saber
+que si la matriz compañera del polinomio $p(x) = x^2-2$ es
+
+\[\tilde N(p) = \begin{pmatrix}
+0 & 2 \\
+1 & 1
+\end{pmatrix},\]
+
+el álgebra será isomorfa a la subálgebra de $M_2(\mathbb{Q})$ dada por
+
+\[
+\left\{ aI + b\tilde N(p) \mid a,b \in \mathbb{Q} \right\}.
+\]
+
+*** Ejercicio 7
+#+begin_statement
+Sea
+
+\[\mathbb{H} = \left\{ \begin{pmatrix}
+\alpha & -\overline{\beta} \\
+\beta & \overline{\alpha}
+\end{pmatrix} \mid \alpha,\beta \in \mathbb{C} \right\}\]
+
+  1. Demostrar que $\mathbb{H}$ es una subálgebra real de $M_2(\mathbb{C})$ y que $Z(\mathbb{H}) = \mathbb{R}$.
+  2. Demostrar que todo elemento no nulo de $\mathbb{H}$ es una unidad.
+  3. Demostrar que las matrices
+
+     \[\mathbf{1} = \begin{pmatrix}1 & 0 \\0 & 1\end{pmatrix},\; 
+     \mathbf{i} = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix},\;
+     \mathbf{j} = \begin{pmatrix}i & 0 \\ 0 & -i\end{pmatrix},\;
+     \mathbf{k} = \begin{pmatrix}0 & i \\ i & 0\end{pmatrix}
+     \]
+
+     forman una base de $\mathbb{H}$ como espacio vectorial real.
+  4. Comprobar las identidades
+
+     \[
+     i^2=j^2=k^2=-1,\; ij=k,\; jk=i,\; ki=j
+     \]
+
+El álgebra así construida se llama álgebra de los cuaterniones de Hamilton.
+#+end_statement
+
+**** Primer punto
+Comprobamos que es cerrada bajo el producto por reales
+
+\[\lambda\begin{pmatrix}
+\alpha & -\overline{\beta} \\
+\beta & \overline{\alpha}
+\end{pmatrix} = \begin{pmatrix}
+\lambda\alpha & -\lambda\overline{\beta} \\
+\lambda\beta & \lambda\overline{\alpha}
+\end{pmatrix} = \begin{pmatrix}
+\lambda\alpha & -\overline{\lambda\beta} \\
+\lambda\beta & \overline{\lambda\alpha}
+\end{pmatrix}
+\]
+
+y que es cerrada bajo su producto
+
+\[\begin{pmatrix}
+\alpha & -\overline{\beta} \\
+\beta & \overline{\alpha}
+\end{pmatrix}\begin{pmatrix}
+\gamma & -\overline{\delta} \\
+\delta & \overline{\gamma}
+\end{pmatrix} = \begin{pmatrix}
+\alpha\gamma-\overline{\beta}\delta & -\overline{\delta}\alpha-\overline{\beta}\overline{\gamma} \\
+\beta\gamma+\overline{\alpha}\delta & -\overline{\delta}\beta + \overline{\gamma}\overline{\alpha}
+\end{pmatrix} = \begin{pmatrix}
+\alpha\gamma-\overline{\beta}\delta & -\left(\overline{\beta\gamma+\overline{\alpha}\delta}\right)\\
+\beta\gamma+\overline{\alpha}\delta & \overline{\alpha\gamma-\overline{\beta}\delta}
+\end{pmatrix}.
+\]
+
+Además, si tomamos una matriz en el centro, debe cumplir
+
+\[\begin{aligned}\begin{pmatrix}
+a & -\overline{b} \\
+b & \overline{a}
+\end{pmatrix}\begin{pmatrix}
+c & -\overline{d} \\
+d & \overline{c}
+\end{pmatrix} = \begin{pmatrix}
+ac-\overline{b}d & -a\overline{d}-\overline{bc} \\
+bc+\overline{a}d & \overline{ac} - b\overline{d}
+\end{pmatrix} &=\\ =\begin{pmatrix}
+ac-b\overline{d} & -\overline{b}c-\overline{da} \\
+ad+\overline{c}b & \overline{ac}-\overline{b}d
+\end{pmatrix} &= \begin{pmatrix}
+c & -\overline{d} \\
+d & \overline{c}
+\end{pmatrix}\begin{pmatrix}
+a & -\overline{b} \\
+b & \overline{a}
+\end{pmatrix},\end{aligned}
+\]
+
+así que $\overline{b}d = b\overline{d}$ y $\overline{a}d+bc = ad + \overline{c}d$. Tomando $c=0$ y $d=1$ llegamos a que
+$a,b \in \mathbb{R}$; y tomando $d = i$, que $b=0$. Así, las únicas matrices en el centro
+serán las que representan a los reales, de la forma
+
+\[\left\{\begin{pmatrix}\lambda & 0 \\ 0 & \lambda
+\end{pmatrix}\mid \lambda \in \mathbb{R}\right\}\]
+
+**** Segundo punto
+Simplemente comprobar que cada elemento tiene una inversa a derecha
+
+\[\begin{pmatrix}
+a & -\overline{b} \\ b & \overline{a}
+\end{pmatrix}\begin{pmatrix}
+\frac{\overline{a}}{a\overline{a}+b\overline{b}} & 
+\frac{\overline{b}}{a\overline{a}+b\overline{b}} \\ 
+\frac{-b}{a\overline{a}+b\overline{b}} & 
+\frac{a}{a\overline{a}+b\overline{b}}
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 \\ 0 & 1
+\end{pmatrix}\]
+
+usando que si $a\overline{a}+b\overline{b} = 0$, es porque $a=b=0$ y el elemento es nulo.
+
+**** Tercer punto
+Sabiendo que los complejos son un espacio vectorial de dimensión $2$
+con base $\{1,i\}$, podemos escribir los elementos de $\mathbb{H}$ como
+
+\[\begin{pmatrix}
+a+bi & -c+di \\
+c+di & a-bi
+\end{pmatrix} = a\begin{pmatrix}
+1 & 0 \\ 0 & 1
+\end{pmatrix}+
+b\begin{pmatrix}
+i & 0 \\ 0 & -i
+\end{pmatrix}+
+c\begin{pmatrix}
+0 & 1 \\ -1 & 0
+\end{pmatrix}+
+d\begin{pmatrix}
+0 & i \\ i & 0
+\end{pmatrix}\]
+
+que trivialmente es una descomposición única por independencia lineal.
+
+**** Cuarto punto
+Podemos comprobar trivialmente los cálculos.
+
+*** Ejercicio 8
+#+begin_statement
+Dado un A-módulo $V$, demostrar que $\mathrm{Ann}_A(V) = \left\{ a \in A \mid av=0\; \forall v\in V \right\}$ es un
+ideal de $A$. Dotar a $V$ de estructura de $A/\mathrm{Ann}_{A}(V)\text{-módulo}$ fiel (es decir,
+la representación correspondiente es fiel).
+#+end_statement
+
+Si $a \in \mathrm{Ann}_A(V)$ tenemos que para cualquier $r \in A$ y $v \in V$, $rav = r0 = 0$ y 
+$(ar)v = a(rv) = 0$. Podemos dotar a $V$ de estructura de módulo en el cociente
+como
+
+\[
+\left( a+ \mathrm{Ann}(V) \right)v = av.
+\]
+
+Esta representación es fiel porque si tenemos $\forall v\in V\colon av = bv$, entonces
+se tiene $a-b \in \mathrm{Ann}(V)$.
+
+*** TODO Ejercicio 9
+#+begin_statement
+Dar una demostración del Lema 1.25.
+#+end_statement
+
+*** TODO Ejercicio 10
+#+begin_statement
+Dados $A\text{-módulos}$ por la izquierda $M,N$ y una aplicación $f\colon M \to N$,
+demostrar que $f$ es homomorfismo de $A\text{-módulos}$ si, y sólo si,
+$f(am+a'm') = af(m) + a'f(m')$ para todo $a,a'\in A;\; m,m'\in M$.
 #+end_statement
 *** TODO Ejercicio 12
 #+begin_statement
@@ -5805,6 +6032,35 @@ Las composiciones de proyecciones e inyecciones cumplen:
 *** TODO 3.3. Módulos libres
 *** TODO 3.4. Descomposición de anillos
 ** Ejercicios
+*** Aparte                                                         :borrar:
+Tenemos que $\mathbb{Z}_2^{\mathbb{N}}$ es semisimple como módulo sobre $\mathbb{Z}$
+pero que no lo es como módulo sobre sí mismo.
+
+**** Sobre Z
+Tenemos que será semisimple.
+
+Si damos un módulo el complementario saldrá (?).
+
+¿Si por ejemplo tomo el módulo de los cofinitos, ese
+tiene complementario? Creo que sí. Podemos tomar alguno,
+pero deberíamos tener una clasificación de cuáles son sus
+simples.
+
+Todo elemento genera un simple porque sólo tiene dos elementos.
+¡Pero así es suma de simples! no suma directa. (11)+(10)=(01)
+
+**** Sobre sí mismo
+No será semisimple.
+
+Los cofinitos por ejemplo no parecen tener complementario.
+Cualquier elemento en el complementario se podría multiplicar
+para hacerse cofinito.
+
+No es suma de sus simples. Aquí tengo claro que sus simples
+son los unitarios. Cualquier otro puede multiplicarse y
+convertirse en unitario. Así que los simples generan los
+cofinitos al sumarse, pero esos no son todos.
+
 *** Semana 1
 #+begin_statement
 Prueba que los ideales (biláteros) del anillo $M_n(R)$ son de la forma
