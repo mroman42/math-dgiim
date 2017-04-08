@@ -3176,12 +3176,17 @@ So it is a field homomorphism.
 ***** TODO Lie algebra
 Given $\phi : G \to H$, a Lie group homomorphism, we can compute its first
 derivative at the identity $\phi^*$.
-**** TODO Exercise 2
+**** Exercise 2
 #+begin_statement
 Show that functors $1 \to C$, $2 \to C$, and $3 \to C$ correspond respectively to
 objects, arrows, and composable pairs of arrows in $C$.
 #+end_statement
-**** TODO Exercise 3
+
+A functor $F\colon 1 \to C$ is determined by $F1$. A functor $F\colon 2 \to C$ is determined
+by $F(1\leq 2)\colon F1 \to F2$. A functor $F\colon 3 \to C$ is determined by $F(1\leq 2)$ and
+$F(2\leq 3)$, which must be composable in $F2$.
+
+**** Exercise 3
 #+begin_statement
 Interpret "functor" in the following special types of categories:
 
@@ -3192,16 +3197,54 @@ Interpret "functor" in the following special types of categories:
   3. If $G$ is a group, a functor $G \to \mathtt{Set}$ is a permutation representation
      of $G$, while $G \to Matr_K$ is a matrix representation of $G$.
 #+end_statement
-**** TODO Exercise 4
+
+***** First statement
+A functor must be a monotonic function, as it has to send $(p\leq p')$ into
+a morphism between $Tp$ and $Tp'$. This morphism exists if and only if 
+$Tp \leq Tp'$.
+
+***** Second statement
+It respects the identity and the group operation, as functors respect
+the identity and the composition.
+
+***** Third statement
+A functor $F\colon G \to \mathtt{Set}$ is determined by $FG$ and the assignment of every
+element of $G$ to a set automorphism, that is, an element of the permutation
+group of the set.
+
+The functor $F\colon G \to \mathtt{Matr}_K$ selects a dimension $n$, and sends every element
+of the group to an invertible matrix $M_{n\times n}$.
+
+**** Exercise 4
 #+begin_statement
 Prove that there is no functor $\mathtt{Grp} \to \mathtt{Ab}$ sending each group $G$ to its
 center. (Consider $S_2 \to S_3 \to S_2$, the symmetric groups).
 #+end_statement
-**** TODO Exercise 5
+
+A functor must preserve identities and composition. We have the following
+diagram in $\mathtt{Grp}$,
+
+\[\begin{tikzcd}
+S_2 \rar[hook]\arrow[rr,bend left, "id"] & S_3 \rar & S_2
+\end{tikzcd}\]
+
+that cannot be translated into $\mathtt{Ab}$ by this functor
+
+\[\begin{tikzcd}
+S_2 \rar & \{id\} \rar &  S_2
+\end{tikzcd}\]
+
+as we know that the identity is not the zero morphism.
+
+**** Exercise 5
 #+begin_statement
 Find two different functors $T : \mathtt{Grp} \to \mathtt{Grp}$ with object function $T(G) = G$
 the identity for every group $G$.
 #+end_statement
+
+The identity functor and a functor sending every morphism to the zero 
+morphism.
+
 *** 1.4. Natural transformations
 **** Exercise 1
 #+begin_statement
