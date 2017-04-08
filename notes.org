@@ -4546,14 +4546,38 @@ El número de factores de composición es la *longitud* del módulo $\ell(M)$.
 **** Longitud y cociente
 Si $M$ es de dimensión finita y $N \in {\cal L}(M)$. Entonces $\ell(M)=\ell(N)+\ell(M/N)$.
 
-***** TODO Demostración
+***** Demostración
+Si tenemos series de composición
+
+\[
+0 \subset N_1 \subset N_2 \subset \dots \subset N
+\qquad
+\frac{N}{N} \subset \frac{M_1}{N} \subset \dots \subset \frac{M}{N}
+\]
+
+podemos aplicar el tercer teorema de isomorfía para tener
+$M_j/M_{j-1} \cong \frac{M_j/N}{M_{j-1}/N}$ simple, y por tanto, una serie de composición
+
+\[
+0 \subset N_1 \subset \dots \subset N \subset M_1 \subset \dots \subset M.
+\]
+
+Como consecuencia, $\ell(M)=\ell(N)+\ell(M/N)$.
 
 **** Longitud, suma e intersección
 Sea $M$ un módulo dimensión finita con $N,L \in {\cal L}(M)$. Entonces:
 
 \[\ell(N+L) + \ell(N\cap L) = \ell(N)+\ell(L)\]
 
-***** TODO Demostración
+***** Demostración
+Aplicamos el [[*Segundo teorema de isomorfía para módulos][segundo teorema de isomorfía]] y la [[*Longitud y cociente][longitud de un cociente]]
+para tener
+
+\[
+\frac{L+N}{L} \cong \frac{N}{L \cap N},
+\]
+
+y por tanto $\ell(L+N) - \ell(L) = \ell(N) - \ell(L \cap N)$.
 
 *** 1.5. Independencia lineal y sumas directas internas
 **** Familia independiente
@@ -4690,7 +4714,7 @@ a $\mathbb{R}$, $\mathbb{C}$, o $\mathbb{H}$.
 **** Corolario de Frobenius
 La única álgebra de división compleja de dimensión finita es $\mathbb{C}$.
 
-*** TODO 1.8. Idempotentes y anillos de matrices
+*** 1.8. Idempotentes y anillos de matrices
 **** Idempotente
 Un elemento de un álgebra $e \in R$ se llama *idempotente* si $e^2 = e$.
 Son idempotentes triviales $0$ y $1$.
@@ -4892,6 +4916,7 @@ M = M_{\Lambda_1}\oplus \dots \oplus M_{\Lambda_t}
 y llamar a $n_j$ la *multiplicidad* $\Sigma_j$ en $M$. Las componentes con su multiplicidad
 son invarriantes llamados *estructura del módulo*.
 
+**** TODO Estructura de los endomorfismos
 *** TODO 1.10. Álgebras semisimples de dimensión finita
 **** Álgebras semisimples
 Un álgebra $A$ de dimensión finita es *semisimple* si todo A-módulo de
