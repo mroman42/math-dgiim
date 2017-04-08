@@ -4384,9 +4384,30 @@ Sea $M$ un $A\text{-módulo}$,
 
 ****** TODO Demostración
 
-**** TODO Homomorfismo de módulos
-**** TODO Cociente de módulos
-**** TODO Primer teorema de isomorfía para módulos
+**** Homomorfismo de módulos
+Un aplicación entre $A\text{-módulos}$ $f\colon M \to N$ es *homomorfismo de módulos*
+si $f(am) = af(m)$ para $a \in A, m \in M$.
+
+**** Cociente de módulos
+Sea $L < M$ un submódulo. El cociente $M/L$ tiene estructura de módulo con
+
+\[a(m+L) = am+L
+\]
+
+y la suma inducida en el cociente.
+
+**** Primer teorema de isomorfía para módulos
+Para $f\colon M \to N$ homomorfismo de módulos, $\mathrm{ker}(f)$ e $\mathrm{im}(f)$ son submódulos
+y hay un isomorfismo $\widehat f\colon M/ \mathrm{ker}(f) \to \mathrm{im}(f)$ dado por
+
+\[
+\widehat f(m+ \mathrm{ker}(f)) = f(m)
+\]
+
+***** Demostración
+Aplicamos primero el primer teorema de isomorfía en grupos. Y comprobamos
+que además $\widehat f$ es $A\text{-lineal}$ por ser $f$ isomorfismo de módulos.
+
 **** Bases y módulos libres
 Un conjunto de generadores de un $A\text{-módulo}$ $M$ es *base* si cada $m \in M$
 se escribe únicamente como
@@ -4420,9 +4441,40 @@ Para $M$ un $A\text{-módulo}$,
 
 ***** TODO Demostración
 
-**** TODO Segundo teorema de isomorfía para módulos
+**** Segundo teorema de isomorfía para módulos
+Sean $L,N \in {\cal L}(M)$ submódulos. Existe un isomorfismo
 
-**** TODO Tercer teorema de isomorfía para módulos
+\[
+\frac{L+N}{L} \cong \frac{N}{L \cap N}.
+\]
+
+***** Demostración
+Aplicamos el primer teorema de isomorfía a la función 
+
+\[
+f\colon N \to \frac{L+N}{L}
+\]
+
+dada por $f(n) = n+L$. Es sobreyectiva y tiene como núcleo a $L \cap N$.
+
+**** Tercer teorema de isomorfía para módulos
+Sean $L \subseteq N \in {\cal L}(M)$. Existe un isomorfismo
+
+\[
+\frac{M/L}{N/L}\cong \frac{M}{N}
+\]
+
+Además, hay una biyección creciente entre submódulos de $M$ conteniendo
+a $L$ y ${\cal L}(M/L)$.
+
+***** Demostración
+Aplicamos priemr teorema de isomorfía a la aplicación
+
+\[
+f \colon M/L \to N/L
+\]
+
+dada por $f(m+L) = m+N$.
 
 *** 1.4. Módulos simples. Teorema de Jordan-Hölder
 **** Módulo simple
@@ -4447,7 +4499,42 @@ dos series de composición:
 
 Entonces $n=m$ y existe una permutación con $M_i/M_{i-1} \cong N_{\sigma(i)}/N_{\sigma(i)-1}$.
 
-***** TODO Demostración
+***** Demostración
+Usaremos inducción sobre $n$. En el caso $n=1$, $M$ es simple y no tiene
+submódulos propios, luego todas sus series de composición son la misma.
+En otro caso, no es simple y $n,m>1$.
+
+****** Caso 1
+Si $M_{n-1}=N_{n-1}$, aplicamos a ambos la hipótesis de inducción y
+ampliamos la permutación obtenida.
+
+****** Caso 2
+Si $M_{n-1} \neq N_{n-1}$, $M_{n-1}+N_{m-1} = M$ por maximalidad, y su intersección
+tiene una serie de composición
+
+\[
+0 \subset L_1 \subset \dots \subset L_{k-1} \subset N_{m-1} \cap M_{n-1}
+\]
+
+que además puede extenderse de dos formas a $M_{n-1}$ y $N_{m-1}$, sabiendo por 
+segundo teorema de isomorfía que
+
+\[
+\frac{M_{n-1}}{N_{m-1}\cap M_{n-1}} \cong \frac{M}{N_{m-1}}
+\quad\text{ y que }\quad
+\frac{N_{n-1}}{N_{m-1}\cap M_{n-1}} \cong \frac{M}{M_{m-1}}
+\]
+
+son simples. Aplicando la hipótesis de inducción dos veces, tenemos
+dos permutaciones que nos dan
+
+\[
+L_i/L_{i-1} \cong M_{\tau i}/M_{\tau i - 1}
+\quad\text{ y que }\quad
+L_i/L_{i-1} \cong N_{\sigma i}/M_{\sigma i - 1}.
+\]
+
+Combinándolas tenemos lo pedido.
 
 **** Factores de composición
 Los módulos $M_i/M_{i-1}$ se llaman *factores de composición* de $M$ y están
