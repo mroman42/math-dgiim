@@ -5457,11 +5457,121 @@ estructura de $\mathbb{R}[X]$ módulo definida por $T_\theta$ sobre $\mathbb{R}^
 de $\theta$ es este módulo simple.
 #+end_statement
 
-*** Ejercicio 13
+*** TODO Ejercicio 13
 #+begin_statement
 Sea $M$ un $A$ módulo. Demostrar que $M$ es simple si, y sólo si, $M = Am$ para
 todo $0 \neq m \in M$.
 #+end_statement
+*** Ejercicio 14
+#+begin_statement
+Consideramos $T\colon \mathbb{R}^3 \to \mathbb{R}^3$ una aplicación lineal, y la estructura de $\mathbb{R}[X]\text{-módulo}$
+correspondiente sobre $\mathbb{R}^3$. Discutir los posibles valores de la longitud de
+$\mathbb{R}^3$ como $\mathbb{R}[X]\text{-módulo}$. Poner un ejemplo de $T$ para el que se alcance cada longitud.
+#+end_statement
+
+La longitud debe ser como máximo $3$, su dimensión como espacio vectorial
+sobre $\mathbb{R}$. Estudiaremos los casos posibles.
+
+**** Longitud 1
+Probaremos que no puede tenerse una cadena de longitud $1$; es decir, que
+$\mathbb{R}^3$ sea simple. Toda aplicación lineal $T$ nos da una ecuación polinómica
+
+\[ | T - \lambda I | = 0
+\]
+
+de grado $3$ con coeficientes reales, que debe tener al menos una solución
+en los reales. Esto nos da un vector propio y por tanto un subespacio que
+queda fijo por la acción de $T$; es decir, un submódulo.
+
+**** Longitud 2
+Tomamos $T$ la aplicación que gira un plano mientras deja fija la recta
+ortogonal a él; específicamente,
+
+\[T = \begin{pmatrix}
+0 & 1 & 0 \\
+-1 & 0 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+nos da el subespacio $\left\langle e_3 \right\rangle$ fijo bajo su acción. Por otro lado, el
+submódulo $\left\langle e_1,e_2 \right\rangle$ es propio; la rotación no dejará ninguna
+recta fija, no hay vectores propios. Así, tenemos una serie de
+composición
+
+\[
+0 \subset \left\langle e_1,e_2 \right\rangle \subset \mathbb{R}^3.
+\]
+
+**** Longitud 3
+Simplemente tomando la identidad y retirando a cada paso una dimensión
+del espacio vectorial
+
+\[
+0 \subset \left\langle e_1 \right\rangle
+\subset \left\langle e_1,e_2 \right\rangle
+\subset \left\langle e_1,e_2,e_3 \right\rangle.
+\]
+
+*** Ejercicio 15
+#+begin_statement
+Sea $\mathbb{P}_{n}$ el espacio vectorial real de las funciones polinómicas en una variable
+de grado menor o igual que $n$. Sea $T\colon \mathbb{P}_n \to \mathbb{P}_n$ la aplicación lineal que asigna
+a cada polinomio su derivada. Calcular una serie de composición de $\mathbb{P}_n$ visto
+como $\mathbb{R}[X]\text{-módulo}$ via $T$.
+#+end_statement
+
+Tenemos una base del espacio vectorial dada por $\left\{ 1,x,\dots,x^n \right\}$, podemos generar
+una serie de composición donde vemos que cada uno es un submódulo cerrado para
+la derivación y que cada cociente es simple por ser de dimensión $1$ en los reales
+como
+
+\[
+0 \subset 
+\left\langle 1 \right\rangle \subset
+\left\langle 1,x \right\rangle \subset 
+\dots \subset
+\left\langle 1,x,\dots,x^n \right\rangle.
+\]
+
+*** Ejercicio 16
+#+begin_statement
+En las condiciones del Ejercicio 15, calcular todos los $\mathbb{R}[X]\text{-submódulos}$ de $\mathbb{P}_n$.
+#+end_statement
+
+Probaremos que los únicos submódulos de $\mathbb{P}_n$ son de la forma $\left\langle 1,x,x^2,\dots,x^k \right\rangle$.
+Si tomamos un polinomio en un submódulo podemos suponerlo mónico por estar
+en un cuerpo; y como además es de característica $0$, sus derivadas serán cada
+una de un grado menor. Así, dado $p = x^k+ \dots +a_1x + a_0 \in \mathbb{P}_n$ tendremos
+
+\[\begin{aligned}
+p =& x^k+& a_{k-1}x^{k-1} +& \dots &+& a_1x &+& a_0 \\
+\partial p =&  &ka_{k-1}x^{k-1}+& \dots &+& 2a_2x &+ &a_1 \\
+\dots \\
+\partial^n p =&  && && && k! \\
+\end{aligned}\]
+
+Lo que constituye una base del espacio de polinomios de dimensión $k$ 
+equivalente a $\left\langle 1,x,x^2,\dots,x^k \right\rangle$ gracias a que estamos en un cuerpo. Así,
+cada submódulo será el submódulo de los polinomios de grado menor o igual
+a $k$ para $k$ el grado de su polinomio de mayor grado.
+
+*** TODO Ejercicio 17
+#+begin_statement
+Supongamos $T \colon V \to V$ un endomorfismo $K\text{-lineal}$, donde $V$ es un espacio vectorial
+de dimensión finita que consideramos, como de costumbre, como $K[X]\text{-módulo}$.
+Supongamos que el polinomio mínimo $m(X)$ de $T$ es irreducible en $K[X]$ (ver
+Ejemplo 14 para el concepto de polinomio mínimo). Demostrar que existen 
+$K[X]\text{-submódulos}$ simples $V_1,\dots,V_t$ de $V$ tal que $V = V_1\oplus \dots \oplus V_{t}$ como
+$K[X]\text{-módulo}$.
+#+end_statement
+
+*** TODO Ejercicio 18
+#+begin_statement
+En las condiciones del Ejercicio 17, demostrar que el polinomio característico
+de $T$ es $m(X)^t$.
+#+end_statement
+
 *** Ejercicio 19
 #+begin_statement
 Demostrar que si $R$ es un dominio de integridad conmutativo, entonces $R$ no
@@ -5485,9 +5595,20 @@ además un conjunto completo por tenerse:
 \[
 I = E_{11} + E_{22} + \dots + E_{nn}
 \]
-*** Ejercicio 21
+*** TODO Ejercicio 21
 #+begin_statement
 Comprobar las afirmaciones realizadas en el Ejemplo 17.
+#+end_statement
+*** TODO Ejercicio 24
+#+begin_statement
+Sea $M$ un módulo semisimple de dimensión finita con estructura
+$\left( n_1,\Sigma_1 \right),\dots,(n_t,\Sigma_t)$. Si $N$ es un submódulo de $M$, demostrar que su estructura
+es $\left( m_1,\Sigma_1 \right),\dots,(m_t,\Sigma_t)$ para ciertos $m_j \leq n_j$ (admitimos que $m_j=0$ significa
+que $\Sigma_j$ no aparece en la estructura de $M$).
+#+end_statement
+*** TODO Ejercicio 25
+#+begin_statement
+Establecer un enunciado análogo al del Ejercicio 24 para cada cociente de $M$.
 #+end_statement
 * Taller de Geometría y Topología
 ** 1. Construcciones con regla y compás
