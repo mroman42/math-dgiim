@@ -1,86 +1,86 @@
 # -*- mode: org; coding: utf-8 -*-
-#+latex_header: \usepackage{amsmath}
-#+latex_header: \usepackage{amsthm}
-#+latex_header: \usepackage{tikz-cd}
+#+SETUPFILE: math.setup
 
 * Cálculo I
 *** Teorema de Bolzano-Weierstrass                                  :drill:
-    SCHEDULED: <2016-10-28 Fri>
-    :PROPERTIES:
-    :ID:       55318435-09ab-44ac-8d7d-0f15b16d7020
-    :DRILL_LAST_INTERVAL: 10.352
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 2
-    :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 4.5
-    :DRILL_EASE: 2.6
-    :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2016-10-18 Tue 13:10]
-    :END:
+SCHEDULED: <2016-10-28 Fri>
+:PROPERTIES:
+:ID:       55318435-09ab-44ac-8d7d-0f15b16d7020
+:DRILL_LAST_INTERVAL: 10.352
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2016-10-18 Tue 13:10]
+:END:
 
-Enunciado.
+Teorema de Bolzano-Weierstrass.
 
-**** Answer
+**** Enunciado
 Toda sucesión *acotada* en $\mathbb{R}^n$ es convergente.
 
-*** Espacio completo 						      :drill:
-    SCHEDULED: <2017-02-11 Sat>
-    :PROPERTIES:
-    :ID:       b9f8e947-4653-442b-8b5a-3466e79d4e76
-    :DRILL_LAST_INTERVAL: 11.0911
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 3
-    :DRILL_FAILURE_COUNT: 1
-    :DRILL_AVERAGE_QUALITY: 3.333
-    :DRILL_EASE: 2.7
-    :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2017-01-31 Tue 23:00]
-    :END:
-Definición
-**** Answer
+*** Espacio completo                                                :drill:
+SCHEDULED: <2017-02-11 Sat>
+:PROPERTIES:
+:ID:       b9f8e947-4653-442b-8b5a-3466e79d4e76
+:DRILL_LAST_INTERVAL: 11.0911
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-01-31 Tue 23:00]
+:END:
+
+Espacios completos
+
+**** Definición de espacio completo
 Toda *sucesión de Cauchy* converge en él.
 
 *** Sucesión de Cauchy                                              :drill:
-    SCHEDULED: <2016-10-18 Tue>
-    :PROPERTIES:
-    :ID:       84ed9a91-c566-4315-92dd-134dcec0d8c8
-    :DRILL_LAST_INTERVAL: 3.86
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
-    :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 3.0
-    :DRILL_EASE: 2.36
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 19:34]
-    :END:
-Definición.
+SCHEDULED: <2016-10-18 Tue>
+:PROPERTIES:
+:ID:       84ed9a91-c566-4315-92dd-134dcec0d8c8
+:DRILL_LAST_INTERVAL: 3.86
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2016-10-14 Fri 19:34]
+:END:
 
-**** Answer
+Definición de sucesión de Cauchy
+
+**** Definición
 Dado un $\epsilon$, la distancia de dos cualesquiera a partir de un término es
 menor.
 
  \[\forall \epsilon > 0 : \exists n : \forall p,q > n :\quad d(x_p, x_q) < \epsilon \]
 
-**** Notes
-Convergente implica Cauchy.
-*** Criterio de D'Alembert 					      :drill:
-    SCHEDULED: <2016-10-18 Tue>
-    :PROPERTIES:
-    :ID:       74d86f1a-d9c7-43f8-8ec3-7ee8f4e524a3
-    :DRILL_LAST_INTERVAL: 4.14
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
-    :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 5.0
-    :DRILL_EASE: 2.6
-    :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 20:08]
-    :END:
+**** Relación con sucesión convergente
+Toda sucesión convergente es de Cauchy.
 
+*** Criterio de D'Alembert                                          :drill:
+:PROPERTIES:
+:ID:       74d86f1a-d9c7-43f8-8ec3-7ee8f4e524a3
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 0
+:DRILL_LAST_REVIEWED: [2017-04-08 Sat 19:50]
+:END:
+    
 Enunciado
 
-**** Answer
-
+**** Enunciado del criterio de D'Alembert
 Para $\sum^\infty_{k=1} a_k$ serie con $a_k > 0$, sea:
 
 \[\lim_{k \rightarrow \infty} \frac{a_{k+1}}{a_k} = L\]
@@ -90,7 +90,7 @@ Entonces:
 - Si $L<1$, la serie converge
 - Si $L>1$, la serie no converge
 - Si $L=1$, no se afirma nada
-*** Criterio de Leibniz 					      :drill:
+*** Criterio de Leibniz                                             :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
     :ID:       0f3505a9-6f38-4cab-987d-72e299cdd2b1
@@ -120,7 +120,7 @@ Así se prueba convergencia de la serie armónica alternada:
 
 \[\sum^\infty_{n=1} \frac{(-1)^{n+1}}{n} = \ln 2\]
 
-*** Desigualdad triangular inversa 				      :drill:
+*** Desigualdad triangular inversa                                  :drill:
     :PROPERTIES:
     :ID:       d28adbd9-793f-4fcc-b9c0-41b0ed51efb1
     :END:
@@ -341,17 +341,17 @@ Cuando conmutan $XY = YX$, conmutan $e^Xe^Y = e^Ye^X$.
 * Teoría de categorías
 * Álgebra homológica
 *** Módulo plano 						      :drill:
-    SCHEDULED: <2016-10-18 Tue>
+    SCHEDULED: <2017-04-18 Tue>
     :PROPERTIES:
     :ID:       00a02e67-5516-47ea-ab08-abf574aeb407
-    :DRILL_LAST_INTERVAL: 4.0
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_LAST_INTERVAL: 10.352
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
     :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 4.0
-    :DRILL_EASE: 2.5
-    :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2016-10-14 Fri 22:26]
+    :DRILL_AVERAGE_QUALITY: 4.5
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2017-04-08 Sat 19:49]
     :END:
 Definición
 **** Definición
@@ -402,3 +402,37 @@ a un morfismo $M \longrightarrow Q$, en el de la /inyectividad/:
 **** No unicidad
 No requerimos a los morfismos creados ser únicos.
 ¡Esto no es una propiedad universal!
+* Grupos y representaciones
+*** Primer teorema de isomorfía para álgebras                       :drill:
+Enunciar el primer teorema de isomorfía para álgebras.
+
+**** Enunciado
+Si $f : A \longrightarrow A'$ es homomorfismo de K-álgebras, $\mathrm{Im} f$ es subálgebra y $\ker f$
+es ideal. Además, tenemos un isomorfismo de K-álgebras canónico:
+
+\[
+\widehat f : A/\ker f \longrightarrow \im f
+\]
+
+dado por $\widehat f(a+\ker f) = f(a)$.
+
+*** Clasificación de unidades y divisores de cero en dimensión finita :drill:
+Enunciar el teorema de clasificación en unidades y divisores de
+cero en un álgebra de dimensión finita.
+
+**** Teorema de clasificación
+Sea $a \in A$ no nulo para $A$ k-álgebra de /dimensión finita/:
+
+1. Equivalen:
+
+   - $a \in U(A)$
+   - $\exists b \in A : ab = 1$
+   - $\exists c \in A : ca = 1$
+
+2. Equivalen:
+
+   - $a \notin U(A)$
+   - $\exists b \in A: ab = 0$
+   - $\exists c \in A : ca = 0$
+
+Es decir, todo elemento no nulo es una unidad o un divisor de cero.
