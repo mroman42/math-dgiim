@@ -5593,7 +5593,7 @@ de $\theta$ es este módulo simple.
 Sea $M$ un $A$ módulo. Demostrar que $M$ es simple si, y sólo si, $M = Am$ para
 todo $0 \neq m \in M$.
 #+end_statement
-*** Ejercicio 14
+*** Ejercicio 14 (★)
 #+begin_statement
 Consideramos $T\colon \mathbb{R}^3 \to \mathbb{R}^3$ una aplicación lineal, y la estructura de $\mathbb{R}[X]\text{-módulo}$
 correspondiente sobre $\mathbb{R}^3$. Discutir los posibles valores de la longitud de
@@ -5665,7 +5665,7 @@ como
 \left\langle 1,x,\dots,x^n \right\rangle.
 \]
 
-*** Ejercicio 16
+*** Ejercicio 16 (★★)
 #+begin_statement
 En las condiciones del Ejercicio 15, calcular todos los $\mathbb{R}[X]\text{-submódulos}$ de $\mathbb{P}_n$.
 #+end_statement
@@ -5687,7 +5687,7 @@ equivalente a $\left\langle 1,x,x^2,\dots,x^k \right\rangle$ gracias a que estam
 cada submódulo será el submódulo de los polinomios de grado menor o igual
 a $k$ para $k$ el grado de su polinomio de mayor grado.
 
-*** TODO Ejercicio 17
+*** TODO Ejercicio 17 (★★)
 #+begin_statement
 Supongamos $T \colon V \to V$ un endomorfismo $K\text{-lineal}$, donde $V$ es un espacio vectorial
 de dimensión finita que consideramos, como de costumbre, como $K[X]\text{-módulo}$.
@@ -5697,7 +5697,10 @@ $K[X]\text{-submódulos}$ simples $V_1,\dots,V_t$ de $V$ tal que $V = V_1\oplus 
 $K[X]\text{-módulo}$.
 #+end_statement
 
-*** TODO Ejercicio 18
+# Es un espacio vectorial sobre un cociente de K[X], quizá
+# eso se pueda usar.
+
+*** TODO Ejercicio 18 (★★)
 #+begin_statement
 En las condiciones del Ejercicio 17, demostrar que el polinomio característico
 de $T$ es $m(X)^t$.
@@ -5730,6 +5733,20 @@ I = E_{11} + E_{22} + \dots + E_{nn}
 #+begin_statement
 Comprobar las afirmaciones realizadas en el Ejemplo 17.
 #+end_statement
+*** TODO Ejercicio 22
+#+begin_statement
+Sea $\left\{ e_1,\dots,e_n \right\}$ un ccio para $R$. Demostrar que los idempotentes $e_1,\dots,e_n$ son
+centrales si, y sólo si, $e_iRe_j = 0$ para todo $i \neq j$.
+#+end_statement
+
+*** TODO Ejercicio 23 (★)
+#+begin_statement
+Sean $M$ y $N$ módulos semisimples con descomposiciones como sumas directas
+de submódulos simples $M = S_1 \oplus \dots \oplus S_t$ y $N = T_1\oplus \dots \oplus T_s$. Supongamos que
+$S_i$ no es isomorfo a $T_j$ para todo $i = 1,\dots,t$, $j = 1,\dots,s$. Demostrar que
+todo homomorfismo de módulos de $M$ a $N$ es cero.
+#+end_statement
+
 *** TODO Ejercicio 24
 #+begin_statement
 Sea $M$ un módulo semisimple de dimensión finita con estructura
