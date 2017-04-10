@@ -5081,7 +5081,7 @@ AE_{ij} = \begin{pmatrix}
 \]
 
 Por tanto, $A = \lambda I$. Se cumple que $(\lambda I) B = \lambda (I B) = \lambda B = \lambda (B I) = B (\lambda I)$,
-y el centro es de esa forma:
+y el centro es de la forma
 
 \[
 \left\{
@@ -5230,6 +5230,11 @@ propio. En otro caso, $\langle v \rangle$ será un módulo propio.
 Para tener $Tv,v$ independientes, es necesario tener un giro múltiplo de $\pi$.
 
 ** Ejercicios de los apuntes
+*** Ejercicio 1 (★)
+#+begin_statement
+Calcular el centro del álgebra de matrices $M_n(K)$.
+#+end_statement
+
 *** Ejercicio 2
 #+begin_statement
 Escribir la demostración de la Proposición 1.7.
@@ -5309,7 +5314,7 @@ Donde en el primer y segundo punto usamos la definición de suma; y
 en el tercer punto usamos la linealidad de la función para conmutar
 el elemento del cuerpo y la aplicación de la función.
 
-*** Ejercicio 5
+*** Ejercicio 5 (★)
 #+begin_statement
 Comprobar todas las afirmaciones hechas en el Ejemplo 11.
 #+end_statement
@@ -5522,10 +5527,45 @@ como
 Esta representación es fiel porque si tenemos $\forall v\in V\colon av = bv$, entonces
 se tiene $a-b \in \mathrm{Ann}(V)$.
 
-*** TODO Ejercicio 9
+*** Ejercicio 9
 #+begin_statement
 Dar una demostración del Lema 1.25.
 #+end_statement
+
+**** Primer punto
+Es claro que el menor submódulo que contenga a $N_1 \cup \dots \cup N_m$ debe contener
+en particular a todas las sumas y por tanto
+
+\[
+\left\{ n_1+\dots+n_m \mid n_i \in N_i \right\} \subseteq N_1 + \dots + N_m.
+\]
+
+Si además probamos que es un submódulo, tendremos que debe ser el menor
+conteniendo a la unión. Es cerrado para la suma por tenerse
+
+\[
+(n_1+\dots+n_m)+(n'_1+\dots+n'_m) =
+(n_1+n'_1)+\dots+(n_m+n_m')
+\]
+
+y cerrado para el producto por elementos del anillo por tenerse
+
+\[
+a(n_1+\dots+n_m) = an_1+\dots+an_m.
+\]
+
+**** Segundo punto
+De la misma forma, es claro que el menor submódulo conteniendo a $X$ debe
+contener al menor módulo conteniendo a cada uno de sus elementos, y por
+tanto al menor submódulo conteniendo a todos esos submódulos. Sabemos
+entonces que
+
+\[
+RX \supseteq Rm_1 + \dots + Rm_n.
+\]
+
+Pero además, una suma de módulos es un submódulo, así que este es el menor
+submódulo que contiene a $X$.
 
 *** TODO Ejercicio 10
 #+begin_statement
@@ -5533,6 +5573,13 @@ Dados $A\text{-módulos}$ por la izquierda $M,N$ y una aplicación $f\colon M \t
 demostrar que $f$ es homomorfismo de $A\text{-módulos}$ si, y sólo si,
 $f(am+a'm') = af(m) + a'f(m')$ para todo $a,a'\in A;\; m,m'\in M$.
 #+end_statement
+*** TODO Ejercicio 11
+#+begin_statement
+Demostrar que un conjunto de generadores $\{m_i \mid i \in I\}$ de un módulo $_RM$ es una
+base si, y sólo si, la igualdad $\sum_{i\in I}r_im_i = 0$ para $r_i \in R$ implica $r_i = 0$ para
+todo $i \in I$.
+#+end_statement
+
 *** TODO Ejercicio 12
 #+begin_statement
 Sea $\theta \in \mathbb{R}$ y $T_\theta : \mathbb{R}^2\to\mathbb{R}^2$ el endomorfismo que gira los vectores un ángulo $\theta$
