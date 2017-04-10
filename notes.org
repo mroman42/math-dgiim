@@ -4900,7 +4900,7 @@ Si $R$ tiene un CCIO centrales primitivos, este conjunto es único.
 
 ***** TODO Demostración
 
-*** TODO 1.9. El álgebra de enfomorfismos de un módulo semisimple
+*** 1.9. El álgebra de enfomorfismos de un módulo semisimple
 **** Complemento
 Para $N \subseteq M$ submódulo, un *complemento* de $N$ es un $X$ tal que
 
@@ -4959,8 +4959,16 @@ M = M_{\Lambda_1}\oplus \dots \oplus M_{\Lambda_t}
 y llamar a $n_j$ la *multiplicidad* $\Sigma_j$ en $M$. Las componentes con su multiplicidad
 son invarriantes llamados *estructura del módulo*.
 
-**** TODO Estructura de los endomorfismos
-*** TODO 1.10. Álgebras semisimples de dimensión finita
+**** Estructura de los endomorfismos
+Sea $M$ con estructura $(\Sigma_1,n_1),\dots,(\Sigma_t,n_t)$ entonces $\Delta_j= \mathrm{End}(\Sigma_j)$ es una
+$K\text{-álgebra}$ de dimensión finita y hay un isomorfismo
+
+\[ \mathrm{End}(M) \cong
+\mathrm{M}_{n_1}(\Delta_1) \times \dots \times \mathrm{M}_{n_t}(\Delta_t)
+\]
+
+***** TODO Demostración
+*** 1.10. Álgebras semisimples de dimensión finita
 **** Álgebras semisimples
 Un álgebra $A$ de dimensión finita es *semisimple* si todo A-módulo de
 dimensión finita es semisimple.
@@ -4985,6 +4993,39 @@ Dada $\Delta$ álgebra de división finito-dimensional, $M_n(\Delta)$ es un álg
 semisimple con estructura $(n, \Sigma)$ para $\Delta \cong \mathrm{End}(\Sigma)^{op}$. Además, $M_n(\Delta)^{op} \cong M_n(\Delta^{op})$.
 
 ***** TODO Demostración
+
+**** Teorema de Wedderburn
+#+begin_statement
+Una $K\text{-álgebra}$ de dimensión finita es semisimple ssi es isomorfa a un
+álgebra de la forma
+
+\[ \mathrm{M}_{n_1}(\Delta_1) \times \dots \times \mathrm{M}_{n_t}(\Delta_t).
+\]
+
+de forma única para algunas $\Delta_1,\dots,\Delta_t$.
+#+end_statement
+
+***** TODO Demostración
+
+**** Centro de álgebra semisimple de dimensión finita
+Si $A$ es semisimple de dimensión finita, $Z(A)$ es producto finito de cuerpos
+extensión finita de $k$. El número de factores es el número de $A\text{-módulos}$ simples
+no isomorfos en la estructura de $A$.
+
+***** TODO Demostración
+**** Semisimplicidad del álgebra opuesta
+Si $A$ es semisimple, entonces $A^{op}$ es semisimple.
+
+***** TODO Demostración
+
+**** Teorema de Molien
+Un álgebra compleja $A$ de dimensión finita es semisimple ssi es
+isomorfa a exactamente una de la forma
+
+\[ \mathrm{M}_{n_1}(\mathbb{C}) \times \dots \mathrm{M}_{n_t}(\mathbb{C})
+\]
+
+cumpliendo $\mathrm{dim}_{\mathbb{C}}(A) = n_1^2+\dots+n_t^2$.
 
 ** Ejercicios de clase
 *** Ejercicio 1
