@@ -5758,6 +5758,40 @@ que $\Sigma_j$ no aparece en la estructura de $M$).
 #+begin_statement
 Establecer un enunciado análogo al del Ejercicio 24 para cada cociente de $M$.
 #+end_statement
+*** TODO Ejercicio 26
+#+begin_statement
+Dada una $K\text{-álgebra}$ $A$, demostrar que la aplicación $\rho\colon A \to \mathrm{End}(A)^{op}$ definida
+por $\rho(a)(a') = a'a$ es un isomorfismo de $K\text{-álgebras}$.
+#+end_statement
+
+*** TODO Ejercicio 27 (★)
+#+begin_statement
+Sea $B$ un álgebra. Demostrar que la aplicación que asigna a cada matriz
+su traspuesta da un isomorfismo de álgebras $M_n(B)^{op} \cong M_n(B^{op})$.
+#+end_statement
+
+*** TODO Ejercicio 28
+#+begin_statement
+Sea $\varphi\colon R \to S$ un isomorfismo de $K\text{-álgebras}$, e $I,J$ ideales por la izquierda
+de $R$. Demostrar que $\varphi(I),\varphi(J)$ son ideales por la izquierda de $S$ y que dado
+cualquier homomorfismo de $R\text{-módulos}$ $f \colon I \to J$, la aplicación $\widehat f\colon \varphi(I) \to \varphi(J)$
+definida por $\widehat f(y) = \varphi f \varphi^{-1}(y)$ para $y \in \varphi(I)$ es un homomorfismo de $S\text{-módulos}$.
+#+end_statement
+
+*** TODO Ejercicio 29
+#+begin_statement
+Sean $R_1,\dots,R_n$ $K\text{-álgebras}$ y $R = R_1\times \dots \times R_n$. Los ideales por la izquierda
+de $R$ son de la forma $I_1\times \dots\times I_n$, con $I_i$ ideal por la izquierda de $R_i$ para
+$i = 1,\dots,n$. Análoga descripción tienen los ideales biláteros de $R$.
+#+end_statement
+
+*** TODO Ejercicio 30 (★)
+#+begin_statement
+Sea $A$ un álgebra simple finito-dimensional. Demostrar que $R = \mathrm{M}(A)$ es un
+álgebra simple de dimensión finita. Demostrar que asimismo que si $\Sigma$ es un
+$A\text{-módulo}$ simple y $M$ es un $R\text{-módulo}$ simple, entonces $\mathrm{End}(\Sigma)$ y $\mathrm{End}(M)$
+son álgebras isomorfas.
+#+end_statement
 * Taller de Geometría y Topología
 ** 1. Construcciones con regla y compás
 *** 1.1. Construcciones posibles
