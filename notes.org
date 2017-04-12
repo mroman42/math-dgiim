@@ -5776,7 +5776,7 @@ ortogonal a él; específicamente,
 \]
 
 nos da el subespacio $\left\langle e_3 \right\rangle$ fijo bajo su acción. Por otro lado, el
-submódulo $\left\langle e_1,e_2 \right\rangle$ es propio; la rotación no dejará ninguna
+submódulo $\left\langle e_1,e_2 \right\rangle \cong \mathbb{R}^3/ \left\langle e_3 \right\rangle$ es simple; la rotación no dejará ninguna
 recta fija, no hay vectores propios. Así, tenemos una serie de
 composición
 
@@ -5827,7 +5827,7 @@ una de un grado menor. Así, dado $p = x^k+ \dots +a_1x + a_0 \in \mathbb{P}_n$ 
 
 \[\begin{aligned}
 p =& x^k+& a_{k-1}x^{k-1} +& \dots &+& a_1x &+& a_0 \\
-\partial p =&  &ka_{k-1}x^{k-1}+& \dots &+& 2a_2x &+ &a_1 \\
+\partial p =&  &kx^{k-1}+& \dots &+& 2a_2x &+ &a_1 \\
 \dots \\
 \partial^n p =&  && && && k! \\
 \end{aligned}\]
@@ -5847,8 +5847,8 @@ $K[X]\text{-submódulos}$ simples $V_1,\dots,V_t$ de $V$ tal que $V = V_1\oplus 
 $K[X]\text{-módulo}$.
 #+end_statement
 
-Como $m(X)$ es irreducible, el ideal que genera, $(m(X))$, es maximal, y por
-tanto el cociente
+Como $m(X)$ es irreducible y estamos en un DIP el ideal que genera,
+$(m(X))$, es maximal, y por tanto el cociente
 
 \[
 k \cong \frac{K[X]}{(m(X))}
@@ -5905,7 +5905,8 @@ ser de la forma $m(X)^s$.
 
 Ahora comprobaremos que $s=t$. En efecto, tenemos que si $\mathrm{gr}(m) = n$,
 entonces, por construcción, $\mathrm{dim}_Kk=n$ y por ser $V_i \cong k$, tenemos
-$\mathrm{dim}_{K}(V) = tn$; que debe ser el grado del polinomio característico.
+$\mathrm{dim}_{K}(V) = tn$; que debe ser el grado del polinomio característico,
+a la vez que debe ser $sn$.
 
 *** Ejercicio 19
 #+begin_statement
@@ -5987,6 +5988,9 @@ f &= (q_1+\dots+q_t) \circ f \circ (p_1+\dots+p_s) \\
 
 ya que $q_i\circ f\circ p_j\colon S_i\to T_i$ debe ser nulo o isomorfismo por el Lema de Schur
 y hemos supuesto que no es isomorfismo.
+
+# Nótese que no es exactamente esto, sino que hay que partir q en sus
+# componentes para igualar a cero.
 
 *** TODO Ejercicio 24
 #+begin_statement
