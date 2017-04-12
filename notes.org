@@ -4777,6 +4777,11 @@ Se define la *suma directa externa* $\bigoplus_{i\in I} N_i$ como el subconjunto
 cartesiano formado por las tuplas con un número finito de valores no nulos.
 
 *** 1.7. Clasificación de las álgebras de división reales de dimensión finita
+**** Determinante, traza, polinomio característico y mínimo
+Dada $a \in D$ en un álgebra de división sobre $k$, consideramos su *traza*,
+su *determinante*, su *polinomio característico* y su *polinomio mínimo*
+como los del endomorfismo lineal multiplicación, $\lambda_a \colon D \to D$.
+
 **** Lema de clasificación de álgebras de división
 Sea $D$ álgebra real de dimensión finita mayor que $1$. Entonces:
 
@@ -4784,10 +4789,43 @@ Sea $D$ álgebra real de dimensión finita mayor que $1$. Entonces:
 V = \{a \in D : a^2 \leq 0\} = \{a\in D\mid tr(a) = 0\}
 \]
 
-Luego es un subespacio vectorial con $D = \mathbb{R} \oplus V$. Además la dimensión de $D$
-es par.
+Luego es un subespacio vectorial con $D = \mathbb{R} \oplus V$. Además, la dimensión real
+de $D$ es par.
 
-***** TODO Demostración
+***** Demostración
+Llamamos $n = \mathrm{dim}_{\mathbb{R}}(D)$ y dado $a \in D$ consideramos su polinomio 
+característico
+
+\[
+p(X) = (X-r_1)\dots (X-r_k)q_1(X)\dots q_m(X)
+\]
+
+descompuesto en factores lineales y cuadráticos. Por Cayley-Hamilton,
+tenemos que $p(a) = 0$, luego debe anularse algún polinomio,
+
+  * si $(a-r_i) = 0$ entonces $a \in \mathbb{R}$, y si $a^2 \leq 0$, nos da $a = 0$.
+  * si $a \in D \setminus \mathbb{R}$, tendremos algún $q_j(a) = 0$ como polinomio mínimo de $a$.
+
+Por Ejercicio 18 tenemos $p = q^t$, con $2t=n$ en este caso. Por irreducibilidad
+se tiene $q = (X-z)(X-\overline{z})$ para algún complejo, así que
+
+\[\begin{aligned}
+q(X) &= X^2 - 2 \mathrm{Re}(z) X + |z|^2 \\
+p(X) &= X^{2t} - 2 \mathrm{Re}(z)t X^{2t-1} + \dots \\
+p(X) &= X^{2t} - \mathrm{tr}(a) X^{2t-1} + \dots \\
+\end{aligned}
+\]
+
+desde el desarrollo de $q$ y la definición de la traza como coeficiente del
+polinomio característico.
+
+Sustituyendo en la primera ecuación desde la última tenemos que
+
+\[
+a^2 - \frac{\mathrm{tr}(a)}{t}a + |z|^2 = 0,
+\]
+
+y que por tanto $a^2 \in \mathbb{R}^-$ si y sólo si $\mathrm{tr}(a) = 0$.
 
 **** Teorema de Frobenius
 Sea $D$ álgebra de división real de dimensión finita. Entonces $D$ es isomorfa
