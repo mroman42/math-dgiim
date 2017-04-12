@@ -1,0 +1,3969 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2017-04-12 Wed 14:02 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grupos y Representaciones</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<p style="display:none"> \(\DeclareMathOperator{\im}{Im} \DeclareMathOperator{\coker}{Coker} \DeclareMathOperator{\spec}{Spec} \) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Grupos y Representaciones</h1>
+<div id="outline-container-orgfca2204" class="outline-2">
+<h2 id="orgfca2204"><span class="section-number-2">1</span> 1. Álgebras y módulos</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgf829a33" class="outline-3">
+<h3 id="orgf829a33"><span class="section-number-3">1.1</span> 1.1. Noción de álgebra</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-org33e07cb" class="outline-4">
+<h4 id="org33e07cb"><span class="section-number-4">1.1.1</span> Álgebra</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Un <b>álgebra</b> sobre un cuerpo \(K\) es un K-espacio vectorial dotado de una
+aplicación bilineal \((\cdot) : K \times K \longrightarrow K\). La bilinealidad se expresa como:
+</p>
+
+<ol class="org-ol">
+<li>\((a+b)c = ac+bc\)</li>
+<li>\(a(b+c) = ab+ac\)</li>
+<li>\((\alpha a)b = \alpha(ab) = a(\alpha b)\)</li>
+</ol>
+</div>
+
+<div id="outline-container-org5f0c290" class="outline-5">
+<h5 id="org5f0c290"><span class="section-number-5">1.1.1.1</span> Álgebra asociativa</h5>
+<div class="outline-text-5" id="text-1-1-1-1">
+<p>
+Un álgebra es <b>asociativa</b> si \((ab)c = a(bc)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4bd79ea" class="outline-5">
+<h5 id="org4bd79ea"><span class="section-number-5">1.1.1.2</span> Álgebra conmutativa</h5>
+<div class="outline-text-5" id="text-1-1-1-2">
+<p>
+Un álgebra es <b>conmutativa</b> si \(ab = ba\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org04e8205" class="outline-5">
+<h5 id="org04e8205"><span class="section-number-5">1.1.1.3</span> Subálgebra</h5>
+<div class="outline-text-5" id="text-1-1-1-3">
+<p>
+Una <b>subálgebra</b> es un subespacio vectorial de un álgebra cerrado para
+el producto.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0867222" class="outline-4">
+<h4 id="org0867222"><span class="section-number-4">1.1.2</span> Centro de un álgebra</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+Se define el <b>centro</b> de un álgebra asociativa como:
+</p>
+
+<p>
+\[
+Z(A) = \{c \in A \mid ac = ca,\; \forall a \in A \}
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge8e028a" class="outline-4">
+<h4 id="orge8e028a"><span class="section-number-4">1.1.3</span> Ideal de un álgebra</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+Un subespacio vectorial de álgebra, \(I \subseteq A\) es <b>ideal</b> si el producto por
+cualquier elemento está en el ideal \(ai,ia \in I\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf47915" class="outline-4">
+<h4 id="orgaf47915"><span class="section-number-4">1.1.4</span> Cociente por un ideal</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+Sobre el K-espacio vectorial cociente por un ideal \(A/I\), podemos definir
+una K-álgebra mediante \((a+I)(b+I) = ab+I\).
+</p>
+</div>
+
+<div id="outline-container-orgf11e89e" class="outline-5">
+<h5 id="orgf11e89e"><span class="section-number-5">1.1.4.1</span> Buena definición</h5>
+<div class="outline-text-5" id="text-1-1-4-1">
+<p>
+Supongamos que \(a+I = a'+I\) y que \(b+I = b'+I\), entonces tenemos 
+que:
+</p>
+
+<p>
+\[
+ab- a'b' = a(b-b') - (a-a')b' \in I
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org339da66" class="outline-4">
+<h4 id="org339da66"><span class="section-number-4">1.1.5</span> Homomorfismos de K-álgebras</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<p>
+Una aplicación lineal entre álgebras \(f : A \longrightarrow A'\) es homomorfismo de
+K-álgebras si respeta el producto:
+</p>
+
+<p>
+\[
+f(ab) = f(a)f(b)
+\]
+</p>
+</div>
+
+<div id="outline-container-org9cb80ff" class="outline-5">
+<h5 id="org9cb80ff"><span class="section-number-5">1.1.5.1</span> Isomorfismo de K-álgebras</h5>
+<div class="outline-text-5" id="text-1-1-5-1">
+<p>
+Cuando un homormofismo de K-álgebras es biyectivo, se llama <b>isomorfismo</b>
+y su inversa es también homomorfismo de K-álgebras.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4c8227c" class="outline-4">
+<h4 id="org4c8227c"><span class="section-number-4">1.1.6</span> Primer teorema de isomorfía</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<p>
+Si \(f : A \longrightarrow A'\) es homomorfismo de K-álgebras, \(\mathrm{Im} f\) es subálgebra y \(\ker f\)
+es ideal. Además, tenemos un isomorfismo de K-álgebras canónico:
+</p>
+
+<p>
+\[
+\widehat f : A/\ker f \longrightarrow \im f
+\]
+</p>
+
+<p>
+dado por \(\widehat f(a+\ker f) = f(a)\).
+</p>
+</div>
+
+<div id="outline-container-org7aa3711" class="outline-5">
+<h5 id="org7aa3711"><span class="section-number-5">1.1.6.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-1-6-1">
+</div><div id="outline-container-org203ae56" class="outline-6">
+<h6 id="org203ae56"><span class="section-number-6">1.1.6.1.1</span> La imagen es subálgebra</h6>
+<div class="outline-text-6" id="text-1-1-6-1-1">
+<p>
+Trivialmente, la imagen es espacio vectorial y \(f(a)f(b) = f(ab)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf053d9e" class="outline-6">
+<h6 id="orgf053d9e"><span class="section-number-6">1.1.6.1.2</span> El núcleo es un ideal</h6>
+<div class="outline-text-6" id="text-1-1-6-1-2">
+<p>
+El núcleo es subespacio vectorial y además,
+</p>
+
+<p>
+\[
+f(ak) = f(a)f(k) = 0 = f(k)f(b) = f(kb)
+\]
+</p>
+
+<p>
+para cualquier \(f(k) = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org724a820" class="outline-6">
+<h6 id="org724a820"><span class="section-number-6">1.1.6.1.3</span> Isomorfismo de álgebras</h6>
+<div class="outline-text-6" id="text-1-1-6-1-3">
+<p>
+Comprobamos que está bien definido, ya que si \(a + \ker f = b + \ker f\),
+se tiene que \(\widehat f(a+\ker f) - \widehat f(b + \ker f) = f(a-b) = 0\).
+</p>
+
+<p>
+La función es lineal y preserva el producto por la definición de
+producto con la que hemos dotado al ideal. Ahora, comprobamos que
+es inyectiva por tenerse:
+</p>
+
+<p>
+\[
+\widehat f(a+\ker f) = 
+\widehat f(b+\ker f) \implies f(a-b) =
+0 \implies a-b \in I
+\]
+</p>
+
+<p>
+Es trivialmente sobreyectiva.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org545dda8" class="outline-4">
+<h4 id="org545dda8"><span class="section-number-4">1.1.7</span> Álgebras unitales</h4>
+<div class="outline-text-4" id="text-1-1-7">
+<p>
+Una K-álgebra asociativa es <b>unital</b> si existe un neutro para el
+producto.
+</p>
+
+<p>
+\[
+1_Aa = a = a1_A; \quad 1_A \neq 0
+\]
+</p>
+</div>
+
+<div id="outline-container-org45e73e9" class="outline-5">
+<h5 id="org45e73e9"><span class="section-number-5">1.1.7.1</span> Homormofisos de álgebras unitales</h5>
+<div class="outline-text-5" id="text-1-1-7-1">
+<p>
+A los homomorfismos de álgebras unitales se les pide respetar la
+unidad. Para \(f : A \to B\), \(f(1_A) = 1_B\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf70838b" class="outline-5">
+<h5 id="orgf70838b"><span class="section-number-5">1.1.7.2</span> Asunción posterior</h5>
+<div class="outline-text-5" id="text-1-1-7-2">
+<p>
+En el curso trabajaremos siempre con álgebras asociativas y unitales.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3666e9a" class="outline-4">
+<h4 id="org3666e9a"><span class="section-number-4">1.1.8</span> Inclusión del cuerpo en el álgebra</h4>
+<div class="outline-text-4" id="text-1-1-8">
+<p>
+Sea \(A\) una K-álgebra, la inclusión \(u : K \longrightarrow A\) es homomorfismo inyectivo
+de K-álgebras. Como consecuencia \(\im u \subseteq Z(A)\), y es una K-subálgebra.
+</p>
+</div>
+
+<div id="outline-container-org9e9a699" class="outline-5">
+<h5 id="org9e9a699"><span class="section-number-5">1.1.8.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-1-8-1">
+</div><div id="outline-container-org1e0ed5a" class="outline-6">
+<h6 id="org1e0ed5a"><span class="section-number-6">1.1.8.1.1</span> Es homomorfismo</h6>
+<div class="outline-text-6" id="text-1-1-8-1-1">
+<p>
+La inclusión definida por \(u(k) = k1_A\) es lineal por tenerse:
+</p>
+
+<p>
+\[
+u(\gamma\alpha+\beta) =
+(\gamma\alpha+\beta)1 =
+\gamma(\alpha 1) + \beta 1 =
+\gamma u(\alpha) + u(\beta)
+\]
+</p>
+
+<p>
+Y además es multiplicativa:
+</p>
+
+<p>
+\[
+u(\alpha)u(\beta) = (\alpha 1)(\beta 1) = \alpha\beta 11 = u(\alpha\beta)
+\]
+</p>
+
+<p>
+Y trivialmente unital por \(u(1) = 1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbffb21d" class="outline-6">
+<h6 id="orgbffb21d"><span class="section-number-6">1.1.8.1.2</span> Es inyectivo</h6>
+<div class="outline-text-6" id="text-1-1-8-1-2">
+<p>
+Si \(u(k) = u(k')\) entonces \((k-k')1_A = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd052ab3" class="outline-6">
+<h6 id="orgd052ab3"><span class="section-number-6">1.1.8.1.3</span> Es subálgebra del centro</h6>
+<div class="outline-text-6" id="text-1-1-8-1-3">
+<p>
+Aplicando bilinealidad de la multiplicación:
+</p>
+
+<p>
+\[u(\alpha) a = 
+(\alpha 1)a = 
+\alpha (1a) = 
+\alpha (a1) = 
+a(\alpha 1) =
+au(\alpha)\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7cd5889" class="outline-3">
+<h3 id="org7cd5889"><span class="section-number-3">1.2</span> 1.2. La representación regular. Unidades y divisores de cero</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-org25743fa" class="outline-4">
+<h4 id="org25743fa"><span class="section-number-4">1.2.1</span> Álgebra de endomorfismos</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+Los endomorfismos de un K-espacio vectorial forman una K-álgebra con la
+composición:
+</p>
+
+<p>
+\[
+End_K(V) = \{ f : V \longrightarrow V \mid f \text{ es lineal}\}
+\]
+</p>
+</div>
+
+<div id="outline-container-orgd5d7eae" class="outline-5">
+<h5 id="orgd5d7eae"><span class="section-number-5">1.2.1.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-2-1-1">
+<p>
+La suma se define por \((f+g)(v) = f(v)+g(v)\), lo que da un grupo abeliano
+con el neutro \(0(v) = 0\); además, con \((\alpha f)(v) = \alpha f(v)\), nos da un espacio
+vectorial.
+</p>
+
+<p>
+Comprobamos además que la composición es bilineal:
+</p>
+
+<ol class="org-ol">
+<li>\(((f+g)\circ h)(v) = f(h(v)) + g(h(v)) = (f\circ h + g\circ h)(v)\)</li>
+<li>\((f\circ (g+h))(v) = f(g(v)) + f(h(v)) = (f\circ g + f\circ h)(v)\)</li>
+<li>\((\alpha f \circ g)(v) = \alpha (f\circ g)(v)) = f(\alpha g(v)) = (f \circ \alpha g)(v)\)</li>
+</ol>
+
+<p>
+Donde en el primer y segundo punto usamos la definición de suma; y
+en el tercer punto usamos la linealidad de la función para conmutar
+el elemento del cuerpo y la aplicación de la función.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org419d3d4" class="outline-4">
+<h4 id="org419d3d4"><span class="section-number-4">1.2.2</span> Inclusión en los endomorfismos</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+Sea \(A\) cualquier K-álgebra. La aplicación \(\lambda : A \longrightarrow End_K(A)\) que asigna
+a cada \(a \in A\) la aplicación \(\lambda_a : A \longrightarrow A\) definida por \(\lambda_a(b) = ab\) para
+todo \(b \in A\) es un homomorfismo inyectivo de K-álgebras.
+</p>
+</div>
+
+<div id="outline-container-org54fd0fd" class="outline-5">
+<h5 id="org54fd0fd"><span class="section-number-5">1.2.2.1</span> Caso finito</h5>
+<div class="outline-text-5" id="text-1-2-2-1">
+<p>
+Toda K-álgebra de dimensión finita es isomorfa a una subálgebra de
+matrices con coeficientes en \(K\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga17f193" class="outline-5">
+<h5 id="orga17f193"><span class="section-number-5">1.2.2.2</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-2-2-2">
+</div><div id="outline-container-org00bcb58" class="outline-6">
+<h6 id="org00bcb58"><span class="section-number-6">1.2.2.2.1</span> Es homormorfismo</h6>
+<div class="outline-text-6" id="text-1-2-2-2-1">
+<p>
+Por los axiomas de K-álgebra, \(\lambda_a\) es siempre lineal. Además, la propia
+\(\lambda\) es lineal por tenerse:
+</p>
+
+<p>
+\[
+\lambda_{a+\alpha b}(c) = (a+\alpha b)c = ac + \alpha bc = 
+\lambda_a(c) + \alpha\lambda_b(c) = (\lambda_a+\alpha\lambda_b)(c)
+\]
+</p>
+
+<p>
+Además, es multiplicativa por asociatividad:
+</p>
+
+<p>
+\[
+\lambda_{ab}(c) = (ab)c = a(bc) = \lambda_a \circ \lambda_b (c)
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5cac20b" class="outline-6">
+<h6 id="org5cac20b"><span class="section-number-6">1.2.2.2.2</span> Es inyectiva</h6>
+<div class="outline-text-6" id="text-1-2-2-2-2">
+<p>
+Si \(\lambda_a = 0\), se tiene \(a = \lambda_a(1) = 0\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org989dd42" class="outline-4">
+<h4 id="org989dd42"><span class="section-number-4">1.2.3</span> Álgebra opuesta</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+El álgebra opuesta \(A^{op}\) es la propia \(A\) con el producto dado por:
+</p>
+
+<p>
+\[
+a \cdot b = ba
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org619a808" class="outline-4">
+<h4 id="org619a808"><span class="section-number-4">1.2.4</span> Unidades y divisores de cero</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+Un \(a \in A\) no nulo es <b>unidad</b> si existe \(a^{-1} \in A\) tal que \(aa^{-1} = 1 = a^{-1}a\).
+El conjunto de las unidades, \(U(A)\) forma un grupo con el producto.
+</p>
+</div>
+
+<div id="outline-container-orge166b44" class="outline-5">
+<h5 id="orge166b44"><span class="section-number-5">1.2.4.1</span> Divisor de cero</h5>
+<div class="outline-text-5" id="text-1-2-4-1">
+<p>
+Un \(a \in A\) no nulo es <b>divisor de cero</b> si \(\exists b: ab = 0\) ó \(ba = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd31a571" class="outline-5">
+<h5 id="orgd31a571"><span class="section-number-5">1.2.4.2</span> Clasificación en unidades y divisores de cero en dimensión finita</h5>
+<div class="outline-text-5" id="text-1-2-4-2">
+<p>
+Sea \(a \in A\) no nulo para \(A\) k-álgebra de <i>dimensión finita</i>:
+</p>
+
+<ol class="org-ol">
+<li>Equivalen:
+
+<ul class="org-ul">
+<li>\(a \in U(A)\)</li>
+<li>\(\exists b \in A : ab = 1\)</li>
+<li>\(\exists c \in A : ca = 1\)</li>
+</ul></li>
+
+<li>Equivalen:
+
+<ul class="org-ul">
+<li>\(a \notin U(A)\)</li>
+<li>\(\exists b \in A: ab = 0\)</li>
+<li>\(\exists c \in A : ca = 0\)</li>
+</ul></li>
+</ol>
+
+<p>
+Es decir, todo elemento no nulo es una unidad o un divisor de cero.
+</p>
+</div>
+
+<div id="outline-container-org3184dbd" class="outline-6">
+<h6 id="org3184dbd"><span class="section-number-6">1.2.4.2.1</span> Demostración primer punto</h6>
+<div class="outline-text-6" id="text-1-2-4-2-1">
+<p>
+Si \(ab = 1\), \(\lambda_a\) es sobreyectiva y \(\lambda_b\) es inyectiva. Por ser de dimensión
+finita ambas son isomorfismos. Se aplica sobre el álgebra opuesta para
+llegar a la otra implicación.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org36415d8" class="outline-6">
+<h6 id="org36415d8"><span class="section-number-6">1.2.4.2.2</span> Demostración segundo punto</h6>
+<div class="outline-text-6" id="text-1-2-4-2-2">
+<p>
+Ssi \(ab = 0\), \(\lambda_a\) no es inyectiva, y por tanto no puede ser unidad.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2cbb50d" class="outline-5">
+<h5 id="org2cbb50d"><span class="section-number-5">1.2.4.3</span> Clasificación por el determinante</h5>
+<div class="outline-text-5" id="text-1-2-4-3">
+<p>
+Si en un álgebra de dimensión finita tomamos la representación regular
+\(\lambda: A \to \mathrm{End}(A)\); podemos usar el determinante para decidir si \(a \in A\) es
+una unidad.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge16b953" class="outline-4">
+<h4 id="orge16b953"><span class="section-number-4">1.2.5</span> Álgebra de división</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+Un álgebra \(A\) es un <b>álgebra de división</b> si \(U(A) = A \setminus \{0\}\). Los cuerpos
+son álgebras de división conmutativas.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf0b8a94" class="outline-3">
+<h3 id="orgf0b8a94"><span class="section-number-3">1.3</span> 1.3. Representaciones y módulos</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-orgdd1509c" class="outline-4">
+<h4 id="orgdd1509c"><span class="section-number-4">1.3.1</span> Representación</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+Una <b>representación</b> de un álgebra \(A\) es un homomorfismo de k-álgebras
+\(\mu : A \longrightarrow End_K(V)\), donde \(V\) es el k-espacio vectorial de representación.
+</p>
+</div>
+
+<div id="outline-container-org4255281" class="outline-5">
+<h5 id="org4255281"><span class="section-number-5">1.3.1.1</span> Representación fiel</h5>
+<div class="outline-text-5" id="text-1-3-1-1">
+<p>
+Se llama representación <b>fiel</b> cuando \(\mu\) es inyectiva.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgead6ccd" class="outline-5">
+<h5 id="orgead6ccd"><span class="section-number-5">1.3.1.2</span> Representación regular</h5>
+<div class="outline-text-5" id="text-1-3-1-2">
+<p>
+La inclusión en los endomorfismos \(A \to \mathrm{End}(A)\) es una <b>representación fiel</b>
+que llamamos representación regular.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2eda51b" class="outline-4">
+<h4 id="org2eda51b"><span class="section-number-4">1.3.2</span> Módulos de un álgebra</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+Dada \(A\) álgebra, un A-módulo por la izquierda es un espacio vectorial \(V\)
+con un producto bilineal \(A \times V \to V\) cumpliendo \((ab)v = a(bv)\) y \(1v = v\).
+</p>
+</div>
+
+<div id="outline-container-org19cf9fb" class="outline-5">
+<h5 id="org19cf9fb"><span class="section-number-5">1.3.2.1</span> Submódulos</h5>
+<div class="outline-text-5" id="text-1-3-2-1">
+<p>
+Llamamos <b>submódulo a izquierda</b> a un subconjunto \(N\) de un módulo que 
+sea subgrupo aditivo y que cumpla \(an \in N\) para \(n \in N\). Los submódulos
+de un álgebra se llaman <b>ideales a izquierda</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org97598df" class="outline-5">
+<h5 id="org97598df"><span class="section-number-5">1.3.2.2</span> Retículo de submódulos</h5>
+<div class="outline-text-5" id="text-1-3-2-2">
+<p>
+Llamamos \({\cal L}(M)\) a la familia de submódulos de \(A\). Forman un retículo bajo
+la suma y la intersección.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga9d56bf" class="outline-5">
+<h5 id="orga9d56bf"><span class="section-number-5">1.3.2.3</span> Submódulo generado</h5>
+<div class="outline-text-5" id="text-1-3-2-3">
+<p>
+El submódulo generado por un conjunto de elementos es el menor submódulo
+que los contiene.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbaa75d9" class="outline-4">
+<h4 id="orgbaa75d9"><span class="section-number-4">1.3.3</span> Equivalencia de módulos y representaciones</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+Sean \(A\) una k-álgebra y \(V\) un k-espacio vectorial. Hay una biyección
+entre el conjunto de representaciones de \(A\) sobre \(V\) y los A-módulos
+por la izquierda sobre \(V\).
+</p>
+</div>
+
+<div id="outline-container-org9b1f0fd" class="outline-5">
+<h5 id="org9b1f0fd"><span class="section-number-5">1.3.3.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-3-3-1">
+<p>
+Si tenemos una representación \(\mu\colon A \to \mathrm{End}(V)\), definimos el A-módulo
+dado por \(av = \mu(a)(v)\). Si tenemos una estructura de A-módulo podemos
+construir la representación \(\mu(a)(v) = av\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaf9de6b" class="outline-4">
+<h4 id="orgaf9de6b"><span class="section-number-4">1.3.4</span> Suma directa de módulos</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<p>
+Llamamos <b>suma directa</b> de los módulos \(M_1,\dots,M_n\) al módulo sobre su
+producto cartesiano con las operaciones
+</p>
+
+<ul class="org-ul">
+<li>\((m_1,\dots,m_n) + (m_1',\dots,m_n') = (m_1+m_1',\dots,m_n+m_n')\)</li>
+<li>\(a(m_1,\dots,m_n) = (am_1,\dots,am_n)\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2fd608e" class="outline-4">
+<h4 id="org2fd608e"><span class="section-number-4">1.3.5</span> Teorema de Cayley-Hamilton</h4>
+<div class="outline-text-4" id="text-1-3-5">
+<p>
+Todo endomorfismo de un espacio vectorial de dimensión finita satisface
+su ecuación característica.
+</p>
+</div>
+
+<div id="outline-container-org179a851" class="outline-5">
+<h5 id="org179a851"><span class="section-number-5">1.3.5.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-3-5-1">
+<p>
+Sea \(T\) un endomorfismo en un espacio \(V\) con base \(\{v_1,\dots,v_n\}\), definido por
+la matriz siguiente
+</p>
+
+<p>
+\[C =\begin{pmatrix}
+a_{11} & a_{12} & \dots \\
+a_{21} & a_{22} & \dots \\
+\vdots & \vdots & \ddots \\
+\end{pmatrix}.
+\]
+</p>
+
+<p>
+Si consideramos la matriz \(\Delta = (TI_n - C)^t\) en \(K[X]\), tenemos que
+</p>
+
+<p>
+\[\Delta\begin{pmatrix}
+v_1 \\ v_2 \\ \vdots \\ v_n
+\end{pmatrix} = \begin{pmatrix}
+Tv_1 - \sum_{j=1}^n a_{j1}v_j \\
+Tv_2 - \sum_{j=1}^n a_{j2}v_j \\
+\vdots \\
+Tv_n - \sum_{j=1}^n a_{jn}v_j  
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 0 \\ \vdots \\ 0
+\end{pmatrix}.
+\]
+</p>
+
+<p>
+Multiplicando ahora por su matriz adjunta, se tiene que
+</p>
+
+<p>
+\[
+\widetilde \Delta\Delta\begin{pmatrix}
+v_1 \\ v_2 \\ \vdots \\ v_n
+\end{pmatrix} = \begin{pmatrix}
+\mathrm{det}(\Delta)v_1 \\ \mathrm{det}(\Delta)v_2 \\ \vdots \\ \mathrm{det}(\Delta)v_n
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 0 \\ \vdots \\ 0
+\end{pmatrix}.
+\]
+</p>
+
+<p>
+Luego, por ser una base, \(\mathrm{det}(\Delta)v = 0\) para cualquier \(v \in V\). Tenemos
+entonces que \(T\) satisface la ecuación polinómica
+</p>
+
+<p>
+\[ \mathrm{det}(TI_n - C) = \mathrm{det}(\Delta^t) = \mathrm{det}(\Delta) = 0.
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge7c48d7" class="outline-4">
+<h4 id="orge7c48d7"><span class="section-number-4">1.3.6</span> Submódulo finitamente generado</h4>
+<div class="outline-text-4" id="text-1-3-6">
+<p>
+Un \(A\text{-módulo}\) \(M\) es <b>finitamente generado</b> si existe \(X \subseteq M\) subconjunto
+finito que lo genera, \(M = RX\).
+</p>
+</div>
+
+<div id="outline-container-org867d2e1" class="outline-5">
+<h5 id="org867d2e1"><span class="section-number-5">1.3.6.1</span> Submódulo cíclico</h5>
+<div class="outline-text-5" id="text-1-3-6-1">
+<p>
+Un módulo generado por un elemento se llama <b>cíclico</b>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd2fd6b6" class="outline-4">
+<h4 id="orgd2fd6b6"><span class="section-number-4">1.3.7</span> Suma de módulos</h4>
+<div class="outline-text-4" id="text-1-3-7">
+<p>
+Dados submódulos \(N_1,\dots,N_m \leq M\), su suma es el menor submódulo que contiene
+a todos ellos.
+</p>
+</div>
+
+<div id="outline-container-org3029dae" class="outline-5">
+<h5 id="org3029dae"><span class="section-number-5">1.3.7.1</span> Caracterización de la suma</h5>
+<div class="outline-text-5" id="text-1-3-7-1">
+<p>
+Sea \(M\) un \(A\text{-módulo}\),
+</p>
+
+<ol class="org-ol">
+<li><p>
+Dados submódulos \(N_1,\dots,N_m\) de \(M\), tenemos que
+</p>
+
+<p>
+\[
+    N_1+\dots+N_m = \left\{ n_1+\dots+n_m \mid n_i \in N_i \right\}.
+    \]
+</p></li>
+
+<li>Dado \(X = \{m_1,\dots,m_n\} \subseteq M\), tenemos que \(RX= Rm_1 + \dots + Rm_{n}\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc588a48" class="outline-6">
+<h6 id="orgc588a48"><span class="section-number-6">1.3.7.1.1</span> <span class="todo TODO">TODO</span> Demostración</h6>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org96c5303" class="outline-4">
+<h4 id="org96c5303"><span class="section-number-4">1.3.8</span> Homomorfismo de módulos</h4>
+<div class="outline-text-4" id="text-1-3-8">
+<p>
+Un aplicación entre \(A\text{-módulos}\) \(f\colon M \to N\) es <b>homomorfismo de módulos</b>
+si \(f(am) = af(m)\) para \(a \in A, m \in M\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgce10f30" class="outline-4">
+<h4 id="orgce10f30"><span class="section-number-4">1.3.9</span> Cociente de módulos</h4>
+<div class="outline-text-4" id="text-1-3-9">
+<p>
+Sea \(L < M\) un submódulo. El cociente \(M/L\) tiene estructura de módulo con
+</p>
+
+<p>
+\[a(m+L) = am+L
+\]
+</p>
+
+<p>
+y la suma inducida en el cociente.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org05d116c" class="outline-4">
+<h4 id="org05d116c"><span class="section-number-4">1.3.10</span> Primer teorema de isomorfía para módulos</h4>
+<div class="outline-text-4" id="text-1-3-10">
+<p>
+Para \(f\colon M \to N\) homomorfismo de módulos, \(\mathrm{ker}(f)\) e \(\mathrm{im}(f)\) son submódulos
+y hay un isomorfismo \(\widehat f\colon M/ \mathrm{ker}(f) \to \mathrm{im}(f)\) dado por
+</p>
+
+<p>
+\[
+\widehat f(m+ \mathrm{ker}(f)) = f(m)
+\]
+</p>
+</div>
+
+<div id="outline-container-org00237a1" class="outline-5">
+<h5 id="org00237a1"><span class="section-number-5">1.3.10.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-3-10-1">
+<p>
+Aplicamos primero el primer teorema de isomorfía en grupos. Y comprobamos
+que además \(\widehat f\) es \(A\text{-lineal}\) por ser \(f\) isomorfismo de módulos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdd6e7cd" class="outline-4">
+<h4 id="orgdd6e7cd"><span class="section-number-4">1.3.11</span> Bases y módulos libres</h4>
+<div class="outline-text-4" id="text-1-3-11">
+<p>
+Un conjunto de generadores de un \(A\text{-módulo}\) \(M\) es <b>base</b> si cada \(m \in M\)
+se escribe únicamente como
+</p>
+
+<p>
+\[
+m = \sum_{i=1}^n a_im_i
+\]
+</p>
+</div>
+
+<div id="outline-container-org22fc04e" class="outline-5">
+<h5 id="org22fc04e"><span class="section-number-5">1.3.11.1</span> Módulo libre</h5>
+<div class="outline-text-5" id="text-1-3-11-1">
+<p>
+Un módulo que admite una base se llama <b>módulo libre</b>. Un ejemplo de
+módulo libre es \(A^n\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2563410" class="outline-4">
+<h4 id="org2563410"><span class="section-number-4">1.3.12</span> Caracterización de bases</h4>
+<div class="outline-text-4" id="text-1-3-12">
+<p>
+Un subconjunto \(B \subseteq M\) no vacío finito es base si, y sólo si, para 
+cualquier aplicación \(f\colon B \to N\) existe un único homomorfismo de
+\(R\text{-módulos}\) \(\overline{f} \colon M \to N\) con \(\overline{f}_{|B} = f\).
+</p>
+
+<p>
+\[\begin{tikzcd}
+B \rar[hook]\drar[dashed, swap]{\exists! \overline{f}} & M \dar{f}\\
+  & N
+\end{tikzcd}\]
+</p>
+</div>
+
+<div id="outline-container-org7000bbd" class="outline-5">
+<h5 id="org7000bbd"><span class="section-number-5">1.3.12.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org9020cec" class="outline-4">
+<h4 id="org9020cec"><span class="section-number-4">1.3.13</span> Caracterización de finitamente generados</h4>
+<div class="outline-text-4" id="text-1-3-13">
+<p>
+Para \(M\) un \(A\text{-módulo}\),
+</p>
+
+<ol class="org-ol">
+<li>Si \(M\) admite un conjunto de generadores \(\left\{ m_1,\dots,m_n \right\}\), entonces
+\(M \cong A^n/L\) para cierto submódulo \(L\).</li>
+<li>Si \(M\) es libre con base \(\left\{ m_1,\dots,m_n \right\}\), entonces \(M \cong A^n\).</li>
+</ol>
+</div>
+
+<div id="outline-container-orgca60ddf" class="outline-5">
+<h5 id="orgca60ddf"><span class="section-number-5">1.3.13.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgf38d5e4" class="outline-4">
+<h4 id="orgf38d5e4"><span class="section-number-4">1.3.14</span> Segundo teorema de isomorfía para módulos</h4>
+<div class="outline-text-4" id="text-1-3-14">
+<p>
+Sean \(L,N \in {\cal L}(M)\) submódulos. Existe un isomorfismo
+</p>
+
+<p>
+\[
+\frac{L+N}{L} \cong \frac{N}{L \cap N}.
+\]
+</p>
+</div>
+
+<div id="outline-container-org1d438ef" class="outline-5">
+<h5 id="org1d438ef"><span class="section-number-5">1.3.14.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-3-14-1">
+<p>
+Aplicamos el primer teorema de isomorfía a la función 
+</p>
+
+<p>
+\[
+f\colon N \to \frac{L+N}{L}
+\]
+</p>
+
+<p>
+dada por \(f(n) = n+L\). Es sobreyectiva y tiene como núcleo a \(L \cap N\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f2f1c9" class="outline-4">
+<h4 id="org4f2f1c9"><span class="section-number-4">1.3.15</span> Tercer teorema de isomorfía para módulos</h4>
+<div class="outline-text-4" id="text-1-3-15">
+<p>
+Sean \(L \subseteq N \in {\cal L}(M)\). Existe un isomorfismo
+</p>
+
+<p>
+\[
+\frac{M/L}{N/L}\cong \frac{M}{N}
+\]
+</p>
+
+<p>
+Además, hay una biyección creciente entre submódulos de \(M\) conteniendo
+a \(L\) y \({\cal L}(M/L)\).
+</p>
+</div>
+
+<div id="outline-container-org7d8d24b" class="outline-5">
+<h5 id="org7d8d24b"><span class="section-number-5">1.3.15.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-3-15-1">
+<p>
+Aplicamos priemr teorema de isomorfía a la aplicación
+</p>
+
+<p>
+\[
+f \colon M/L \to N/L
+\]
+</p>
+
+<p>
+dada por \(f(m+L) = m+N\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6f39632" class="outline-3">
+<h3 id="org6f39632"><span class="section-number-3">1.4</span> 1.4. Módulos simples. Teorema de Jordan-Hölder</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-orgde657c9" class="outline-4">
+<h4 id="orgde657c9"><span class="section-number-4">1.4.1</span> Módulo simple</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+Un módulo \(M\) se dice simple si no tiene submódulos propios.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org533e55e" class="outline-4">
+<h4 id="org533e55e"><span class="section-number-4">1.4.2</span> Submódulo maximal</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+Un submódulo propio \(N < M\) es <b>maximal</b> si lo es en \({\cal L}(M)\).
+</p>
+</div>
+
+<div id="outline-container-org2c60e90" class="outline-5">
+<h5 id="org2c60e90"><span class="section-number-5">1.4.2.1</span> Caracterización por simplicidad</h5>
+<div class="outline-text-5" id="text-1-4-2-1">
+<p>
+Por tercer teorema de isomorfía, esto equivale a que \(M/N\) es simple.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41bd3a0" class="outline-4">
+<h4 id="org41bd3a0"><span class="section-number-4">1.4.3</span> Serie de composición</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<p>
+Una cadena de submódulos \(0 \subset M_1 \subset M_2 \subset \dots \subset M\) es una <b>serie de composición</b>
+de \(M\) si cada \(M_{i-1}\) es maximal en \(M_i\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb257c06" class="outline-4">
+<h4 id="orgb257c06"><span class="section-number-4">1.4.4</span> Teorema de Jordan-Hölder</h4>
+<div class="outline-text-4" id="text-1-4-4">
+<p>
+Sea \(M\) un \(A\) módulo de <i>dimensión finita</i> como \(K\) espacio vectorial con
+dos series de composición:
+</p>
+
+<p>
+\[0 = M_0 \subset M_1 \subset\dots\subset M_n = M\]
+\[0 = N_0 \subset N_1 \subset\dots\subset N_m = M\]
+</p>
+
+<p>
+Entonces \(n=m\) y existe una permutación con \(M_i/M_{i-1} \cong N_{\sigma(i)}/N_{\sigma(i)-1}\).
+</p>
+</div>
+
+<div id="outline-container-org941ccbd" class="outline-5">
+<h5 id="org941ccbd"><span class="section-number-5">1.4.4.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-4-4-1">
+<p>
+Usaremos inducción sobre \(n\). En el caso \(n=1\), \(M\) es simple y no tiene
+submódulos propios, luego todas sus series de composición son la misma.
+En otro caso, no es simple y \(n,m>1\).
+</p>
+</div>
+
+<div id="outline-container-org8b3866f" class="outline-6">
+<h6 id="org8b3866f"><span class="section-number-6">1.4.4.1.1</span> Caso 1</h6>
+<div class="outline-text-6" id="text-1-4-4-1-1">
+<p>
+Si \(M_{n-1}=N_{n-1}\), aplicamos a ambos la hipótesis de inducción y
+ampliamos la permutación obtenida.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3616799" class="outline-6">
+<h6 id="org3616799"><span class="section-number-6">1.4.4.1.2</span> Caso 2</h6>
+<div class="outline-text-6" id="text-1-4-4-1-2">
+<p>
+Si \(M_{n-1} \neq N_{n-1}\), \(M_{n-1}+N_{m-1} = M\) por maximalidad, y su intersección
+tiene una serie de composición
+</p>
+
+<p>
+\[
+0 \subset L_1 \subset \dots \subset L_{k-1} \subset N_{m-1} \cap M_{n-1}
+\]
+</p>
+
+<p>
+que además puede extenderse de dos formas a \(M_{n-1}\) y \(N_{m-1}\), sabiendo por 
+segundo teorema de isomorfía que
+</p>
+
+<p>
+\[
+\frac{M_{n-1}}{N_{m-1}\cap M_{n-1}} \cong \frac{M}{N_{m-1}}
+\quad\text{ y que }\quad
+\frac{N_{n-1}}{N_{m-1}\cap M_{n-1}} \cong \frac{M}{M_{m-1}}
+\]
+</p>
+
+<p>
+son simples. Aplicando la hipótesis de inducción dos veces, tenemos
+dos permutaciones que nos dan
+</p>
+
+<p>
+\[
+L_i/L_{i-1} \cong M_{\tau i}/M_{\tau i - 1}
+\quad\text{ y que }\quad
+L_i/L_{i-1} \cong N_{\sigma i}/M_{\sigma i - 1}.
+\]
+</p>
+
+<p>
+Combinándolas tenemos lo pedido.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0991c09" class="outline-4">
+<h4 id="org0991c09"><span class="section-number-4">1.4.5</span> Factores de composición</h4>
+<div class="outline-text-4" id="text-1-4-5">
+<p>
+Los módulos \(M_i/M_{i-1}\) se llaman <b>factores de composición</b> de \(M\) y están
+únicamente determinados salvo isomorfismo y reordenación.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge74d5f3" class="outline-4">
+<h4 id="orge74d5f3"><span class="section-number-4">1.4.6</span> Longitud de un módulo</h4>
+<div class="outline-text-4" id="text-1-4-6">
+<p>
+El número de factores de composición es la <b>longitud</b> del módulo \(\ell(M)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb619f07" class="outline-4">
+<h4 id="orgb619f07"><span class="section-number-4">1.4.7</span> Longitud y cociente</h4>
+<div class="outline-text-4" id="text-1-4-7">
+<p>
+Si \(M\) es de dimensión finita y \(N \in {\cal L}(M)\). Entonces \(\ell(M)=\ell(N)+\ell(M/N)\).
+</p>
+</div>
+
+<div id="outline-container-org5742e76" class="outline-5">
+<h5 id="org5742e76"><span class="section-number-5">1.4.7.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-4-7-1">
+<p>
+Si tenemos series de composición
+</p>
+
+<p>
+\[
+0 \subset N_1 \subset N_2 \subset \dots \subset N
+\qquad
+\frac{N}{N} \subset \frac{M_1}{N} \subset \dots \subset \frac{M}{N}
+\]
+</p>
+
+<p>
+podemos aplicar el tercer teorema de isomorfía para tener
+\(M_j/M_{j-1} \cong \frac{M_j/N}{M_{j-1}/N}\) simple, y por tanto, una serie de composición
+</p>
+
+<p>
+\[
+0 \subset N_1 \subset \dots \subset N \subset M_1 \subset \dots \subset M.
+\]
+</p>
+
+<p>
+Como consecuencia, \(\ell(M)=\ell(N)+\ell(M/N)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org74457bc" class="outline-4">
+<h4 id="org74457bc"><span class="section-number-4">1.4.8</span> Longitud, suma e intersección</h4>
+<div class="outline-text-4" id="text-1-4-8">
+<p>
+Sea \(M\) un módulo dimensión finita con \(N,L \in {\cal L}(M)\). Entonces:
+</p>
+
+<p>
+\[\ell(N+L) + \ell(N\cap L) = \ell(N)+\ell(L)\]
+</p>
+</div>
+
+<div id="outline-container-org3483ceb" class="outline-5">
+<h5 id="org3483ceb"><span class="section-number-5">1.4.8.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-4-8-1">
+<p>
+Aplicamos el <a href="#orgf38d5e4">segundo teorema de isomorfía</a> y la <a href="#orgb619f07">longitud de un cociente</a>
+para tener
+</p>
+
+<p>
+\[
+\frac{L+N}{L} \cong \frac{N}{L \cap N},
+\]
+</p>
+
+<p>
+y por tanto \(\ell(L+N) - \ell(L) = \ell(N) - \ell(L \cap N)\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb86e815" class="outline-3">
+<h3 id="orgb86e815"><span class="section-number-3">1.5</span> 1.5. Independencia lineal y sumas directas internas</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-org7d8a3df" class="outline-4">
+<h4 id="org7d8a3df"><span class="section-number-4">1.5.1</span> Familia independiente</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+Una familia \(\{N_i \mid i \in I\} \subset {\cal L}(M)\) es <b>independiente</b> si se verifica:
+</p>
+
+<p>
+\[
+N_j \cap \sum_{j\neq i} N_i = \{0\}
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org586978e" class="outline-4">
+<h4 id="org586978e"><span class="section-number-4">1.5.2</span> Suma directa interna</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+Dada una familia independiente, \(\sum_{i\in I} N_i \subset M\) se llama <b>suma directa interna</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6f6895e" class="outline-4">
+<h4 id="org6f6895e"><span class="section-number-4">1.5.3</span> Suma directa externa e interna</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+Existe un único homomorfismo de módulos \(\theta : \bigoplus_{i\in I} N_i \to \sum_{i\in I} N_i\), tal que
+\(\theta\iota_i(m) = m\) para cualquier \(m \in N_i\).
+</p>
+</div>
+
+<div id="outline-container-orgc060692" class="outline-5">
+<h5 id="orgc060692"><span class="section-number-5">1.5.3.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-5-3-1">
+<p>
+Extendiendo por linealidad la condición, el único homomorfismo posible es:
+</p>
+
+<p>
+\[
+\theta((m_i)_{i \in I}) = \sum_{i \in I} m_i
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1524525" class="outline-4">
+<h4 id="org1524525"><span class="section-number-4">1.5.4</span> Caracterización de familia independiente</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>La familia \(\{N_i\mid i\in I\}\) es independiente.</li>
+<li>Toda subfamilia <i>finita</i> \(F \subset \{N_i\mid i\in I\}\) es independiente.</li>
+<li>La expresión de cada \(m = \sum_{i\in I} m_i\) con \(m_i\in N_i\) es única.</li>
+<li>Si \(0 = \sum_{i\in I} m_i\), entonces \(m_i = 0\).</li>
+<li>El homomorfismo canónico \(\theta : \bigoplus_{i\in I} N_i \to \sum_{i\in I} N_i\) es inyectivo e isomorfismo.</li>
+<li>Para \(J_1,J_2 \subset I\) con \(J_1\cap J_2 = \varnothing\) se tiene \(\sum_{i\in J_1} N_i \cap \sum_{i\in J_2} N_i = \{0\}\).</li>
+</ol>
+
+<p>
+En este caso, notaremos la suma directa interna también por \(\bigoplus_{i \in I} N_i\).
+</p>
+</div>
+
+<div id="outline-container-orgbf4662e" class="outline-5">
+<h5 id="orgbf4662e"><span class="section-number-5">1.5.4.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-5-4-1">
+</div><div id="outline-container-org5634ee3" class="outline-6">
+<h6 id="org5634ee3"><span class="section-number-6">1.5.4.1.1</span> Implicación 1 a 2</h6>
+<div class="outline-text-6" id="text-1-5-4-1-1">
+<p>
+Trivial por definición de independencia.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org21da006" class="outline-6">
+<h6 id="org21da006"><span class="section-number-6">1.5.4.1.2</span> Implicación 2 a 3</h6>
+<div class="outline-text-6" id="text-1-5-4-1-2">
+<p>
+Esto equivale a que cada \(\sum_{i \in I} m_i = 0\) lleva a \(m_i = 0\). Pero si hubiera
+algún \(m_j\) no nulo, sería \(m_j = - \sum_{i \in I, i\neq j} m_i\), contraviniendo independencia.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org187ba30" class="outline-6">
+<h6 id="org187ba30"><span class="section-number-6">1.5.4.1.3</span> Implicación 3 a 4</h6>
+<div class="outline-text-6" id="text-1-5-4-1-3">
+<p>
+Trivial por la unicidad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0a0126c" class="outline-6">
+<h6 id="org0a0126c"><span class="section-number-6">1.5.4.1.4</span> Implicación 4 a 5</h6>
+<div class="outline-text-6" id="text-1-5-4-1-4">
+<p>
+Desde lo anterior, se tiene que tiene núcleo trivial y por tanto es
+inyectivo. Además, es sobreyectivo porque genera trivialmente todos los
+elementos de \(\sum N_i\). Es por tanto una biyección e isomorfismo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7c3dfbd" class="outline-6">
+<h6 id="org7c3dfbd"><span class="section-number-6">1.5.4.1.5</span> Implicación 5 a 6</h6>
+<div class="outline-text-6" id="text-1-5-4-1-5">
+<p>
+Si no fuera así, existirían subconjuntos \(J_1,J_2\) cumpliendo:
+</p>
+
+<p>
+\[
+\sum_{i \in J_1} m_i = \sum_{i \in J_2} n_i
+\]
+</p>
+
+<p>
+Nótese que entonces la función \(\theta\) daría la misma imagen para ambos
+subconjuntos, contraviniendo inyectividad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86825b2" class="outline-6">
+<h6 id="org86825b2"><span class="section-number-6">1.5.4.1.6</span> Implicación 6 a 1</h6>
+<div class="outline-text-6" id="text-1-5-4-1-6">
+<p>
+Trivial por el caso de \(J_2\) con un elemento.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb094bd4" class="outline-4">
+<h4 id="orgb094bd4"><span class="section-number-4">1.5.5</span> Ampliar familia independiente</h4>
+<div class="outline-text-4" id="text-1-5-5">
+<p>
+Sea \(\{N_i \mid i\in I\} \subset {\cal L}(M)\) es familia independiente y tenemos:
+</p>
+
+<p>
+\[
+N \cap \bigoplus_{i\in I} N_i = \{0\}
+\]
+</p>
+
+<p>
+Entonces, \(\{N_i \mid i \in I\} \cup \{N\}\) es independiente.
+</p>
+</div>
+
+<div id="outline-container-orgb19ec03" class="outline-5">
+<h5 id="orgb19ec03"><span class="section-number-5">1.5.5.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-5-5-1">
+<p>
+Si \(n + \sum n_i = 0\), tenemos \(n \in \bigoplus N_i \cap N\) y, por tanto, \(n = 0\). Por 
+independencia de la familia \(\sum n_i = 0\), se llega a \(n_i = 0\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaaccc42" class="outline-4">
+<h4 id="orgaaccc42"><span class="section-number-4">1.5.6</span> Suma directa en suma de simples</h4>
+<div class="outline-text-4" id="text-1-5-6">
+<p>
+Sea \(N \subset \sum_{i\in I} M_i\) suma de submódulos simples. Existe \(\{M_i \mid i \in J \subseteq I\} \cup \{N\}\) 
+independiente con:
+</p>
+
+<p>
+\[
+N \oplus \left( 
+\bigoplus_{i \in J} M_i
+\right) = \sum_{i \in I} M_i
+\]
+</p>
+</div>
+
+<div id="outline-container-org8f0cef8" class="outline-5">
+<h5 id="org8f0cef8"><span class="section-number-5">1.5.6.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-5-6-1">
+<p>
+Tomamos el conjunto \(\Gamma\) de los subconjuntos \(J \subseteq I\) tales que \(\{M_i \mid i \in J\} \cup \{N\}\)
+es independiente. Veamos que es no vacío. Si para todo \(N \cap M_i \neq 0\), 
+debe tenerse por simplicidad \(M_i \subset N\) y por tanto \(\sum M_i \subset N\). Así, debe
+existir algún \(M_i\) para el que \(N \cap M_i = 0\).
+</p>
+
+<p>
+Tomamos el maximal \(J\). Para cualquier índice \(i \in I -J\), se tiene entonces
+por maximalidad que \(M_i \cap (N + \bigoplus_{j \in J} M_j) \neq 0\), pero eso implica por simplicidad
+que \(M_i \subseteq N + \bigoplus_{j\in J} M_j\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1f9b54c" class="outline-4">
+<h4 id="org1f9b54c"><span class="section-number-4">1.5.7</span> Existencia de base para espacio vectorial finitamente generado</h4>
+<div class="outline-text-4" id="text-1-5-7">
+<p>
+Sea \(_DV\) espacio vectorial izquierdo sobre el anillo de división \(D\).
+Para todo sistema de generadores no nulos \(\{v_i\mid i\in I\}\) de \(V\) existe un 
+subconjunto tal que \(V = \bigoplus_{j\in J} Dv_j\).
+</p>
+
+<p>
+Todo espacio vectorial finitamente generado sobre \(D\) tiene una base.
+</p>
+</div>
+
+<div id="outline-container-orgefefa65" class="outline-5">
+<h5 id="orgefefa65"><span class="section-number-5">1.5.7.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-5-7-1">
+<p>
+Un anillo de división es simple. Como \(Dv_j \cong D\), tenemos que es un 
+espacio suma de simples, luego <a href="#orgaaccc42">existe un conjunto</a> de independientes que
+genera el espacio.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcde6f65" class="outline-3">
+<h3 id="orgcde6f65"><span class="section-number-3">1.6</span> 1.6. Independencia en familias infinitas</h3>
+<div class="outline-text-3" id="text-1-6">
+</div><div id="outline-container-org2494228" class="outline-4">
+<h4 id="org2494228"><span class="section-number-4">1.6.1</span> Suma directa externa infinita</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+Se define la <b>suma directa externa</b> \(\bigoplus_{i\in I} N_i\) como el subconjunto del producto
+cartesiano formado por las tuplas con un número finito de valores no nulos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2387ebc" class="outline-3">
+<h3 id="org2387ebc"><span class="section-number-3">1.7</span> 1.7. Clasificación de las álgebras de división reales de dimensión finita</h3>
+<div class="outline-text-3" id="text-1-7">
+</div><div id="outline-container-org187c641" class="outline-4">
+<h4 id="org187c641"><span class="section-number-4">1.7.1</span> Lema de clasificación de álgebras de división</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<p>
+Sea \(D\) álgebra real de dimensión finita mayor que \(1\). Entonces:
+</p>
+
+<p>
+\[
+V = \{a \in D : a^2 \leq 0\} = \{a\in D\mid tr(a) = 0\}
+\]
+</p>
+
+<p>
+Luego es un subespacio vectorial con \(D = \mathbb{R} \oplus V\). Además la dimensión de \(D\)
+es par.
+</p>
+</div>
+
+<div id="outline-container-org1e5f17a" class="outline-5">
+<h5 id="org1e5f17a"><span class="section-number-5">1.7.1.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org06fa8da" class="outline-4">
+<h4 id="org06fa8da"><span class="section-number-4">1.7.2</span> Teorema de Frobenius</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<p>
+Sea \(D\) álgebra de división real de dimensión finita. Entonces \(D\) es isomorfa
+a \(\mathbb{R}\), \(\mathbb{C}\), o \(\mathbb{H}\).
+</p>
+</div>
+
+<div id="outline-container-org1f45b8a" class="outline-5">
+<h5 id="org1f45b8a"><span class="section-number-5">1.7.2.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org874ac39" class="outline-4">
+<h4 id="org874ac39"><span class="section-number-4">1.7.3</span> Corolario de Frobenius</h4>
+<div class="outline-text-4" id="text-1-7-3">
+<p>
+La única álgebra de división compleja de dimensión finita es \(\mathbb{C}\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcbf39df" class="outline-3">
+<h3 id="orgcbf39df"><span class="section-number-3">1.8</span> 1.8. Idempotentes y anillos de matrices</h3>
+<div class="outline-text-3" id="text-1-8">
+</div><div id="outline-container-org1e5305d" class="outline-4">
+<h4 id="org1e5305d"><span class="section-number-4">1.8.1</span> Idempotente</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<p>
+Un elemento de un álgebra \(e \in R\) se llama <b>idempotente</b> si \(e^2 = e\).
+Son idempotentes triviales \(0\) y \(1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb43f796" class="outline-4">
+<h4 id="orgb43f796"><span class="section-number-4">1.8.2</span> Conjunto completo de idempotentes ortogonales (CCIO)</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<p>
+Un conjunto de idempotentes no triviales \(\{e_1,\dots,e_n\}\) es conjunto completo de
+idempotentes ortogonales si:
+</p>
+
+<p>
+\[
+1 = e_1 + \dots + e_n
+\]
+</p>
+
+<p>
+Y además, \(e_ie_j = 0\) para \(i \neq j\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8c43a8f" class="outline-4">
+<h4 id="org8c43a8f"><span class="section-number-4">1.8.3</span> Descomposición de un CCIO</h4>
+<div class="outline-text-4" id="text-1-8-3">
+<p>
+Sea \(\{e_1,\dots,e_n\}\) un CCIO para \(R\). Entonces \(R = Re_1 \oplus \dots \oplus Re_n\).
+</p>
+</div>
+
+<div id="outline-container-org1e7a326" class="outline-5">
+<h5 id="org1e7a326"><span class="section-number-5">1.8.3.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-8-3-1">
+<p>
+Cualquier elemento de \(R\) se expresa como:
+</p>
+
+<p>
+\[
+r = r(e_1+e_2+\dots+e_n)
+\]
+</p>
+
+<p>
+Y la suma es directa porque si se tiene \(x \in Re_j \cap \left(\sum_{i\neq j} Re_i \right)\), entonces:
+</p>
+
+<p>
+\[
+x = xe_j = \left(\sum_{i\neq j} xe_i\right)e_j = 0
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0816d62" class="outline-4">
+<h4 id="org0816d62"><span class="section-number-4">1.8.4</span> Descomposición en un CCIO</h4>
+<div class="outline-text-4" id="text-1-8-4">
+<p>
+Sea \(R = I_1 \oplus \dots \oplus I_n\) descomposición por ideales a izquierda no triviales.
+Entonces, si \(1 = e_1 + \dots + e_n\), para \(e_i\in I_i\), \(\{e_1,\dots,e_n\}\) forman un CCIO 
+con \(I_i = Re_i\).
+</p>
+</div>
+
+<div id="outline-container-org26dae37" class="outline-5">
+<h5 id="org26dae37"><span class="section-number-5">1.8.4.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-8-4-1">
+<p>
+Si \(x \in I_j\), \(x = x\sum e_i\) y se tiene,
+</p>
+
+<p>
+\[x - xe_j = 
+\sum_{i\neq j} xe_i \in I_j \cap \left(\sum_{i\neq j} I_i\right) = 
+\{0\}.\]
+</p>
+
+<p>
+Así, hemos demostrado que
+</p>
+
+<p>
+\[
+I_j = \{ x \in R \mid xe_j = x\} = Re_i
+\]
+</p>
+
+<p>
+y que por tanto, \(e_i^2 = e_i\). Por eso se tiene \(\sum_{i\neq j} e_ie_j = 0\) y por independencia
+lineal, se llega a \(e_ie_j = 0\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org07c71b9" class="outline-4">
+<h4 id="org07c71b9"><span class="section-number-4">1.8.5</span> Matrices de descomposición</h4>
+<div class="outline-text-4" id="text-1-8-5">
+<p>
+Llamamos al conjunto de matrices siguiente,
+</p>
+
+<p>
+\[
+Mat(e_iRe_j) = \left\{(r_{ij}) \mid r_{ij} \in e_iRe_j\right\}
+\]
+</p>
+
+<p>
+que es un subespacio vectorial multiplicativamente cerrado de \(M_n(R)\). La
+matriz diagonal
+</p>
+
+<p>
+\[\begin{pmatrix}
+e_1 & 0 & \dots & 0\\
+0 & e_2 & \dots & 0 \\
+\vdots & & & \vdots \\
+0 & 0 & \dots & e_n
+\end{pmatrix}
+\]
+</p>
+
+<p>
+es elemento neutro multiplicativo.
+</p>
+</div>
+
+<div id="outline-container-org0ebb14f" class="outline-5">
+<h5 id="org0ebb14f"><span class="section-number-5">1.8.5.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-8-5-1">
+<p>
+Se comprueba trivialmente por tenerse:
+</p>
+
+<p>
+\[
+(e_ire_k)(e_kr'e_j) = e_i(re_kr')e_j \in e_iRe_j
+\]
+</p>
+
+<p>
+Multiplicando se comprueba además que la diagonal es la unidad
+multiplicativa.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1d2db11" class="outline-4">
+<h4 id="org1d2db11"><span class="section-number-4">1.8.6</span> Descomposición en matrices</h4>
+<div class="outline-text-4" id="text-1-8-6">
+<p>
+La aplicación \(\phi \colon R \to Mat(e_iRe_j)\) dada por \(\phi(r) = (e_ire_j)_{ij}\) es un isomorfismo
+de K-álgebras.
+</p>
+</div>
+
+<div id="outline-container-orgb470113" class="outline-5">
+<h5 id="orgb470113"><span class="section-number-5">1.8.6.1</span> Demostración</h5>
+<div class="outline-text-5" id="text-1-8-6-1">
+</div><div id="outline-container-org29a6b61" class="outline-6">
+<h6 id="org29a6b61"><span class="section-number-6">1.8.6.1.1</span> Es homomorfismo de álgebras</h6>
+<div class="outline-text-6" id="text-1-8-6-1-1">
+<p>
+Por definición es lineal. Si calculamos la componente \((i,j)\) de
+\(\phi(r)\phi(s)\), tenemos
+</p>
+
+<p>
+\[
+\sum_k e_ire_ke_kse_j =
+\sum_k e_ire_kse_j =
+e_ir \left(\sum_k e_k\right) se_j =
+e_irse_j
+\]
+</p>
+
+<p>
+que es la componente \((i,j)\) de \(\phi(rs)\). Además, \(\phi(1)\) es claramente la unidad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb709f0d" class="outline-6">
+<h6 id="orgb709f0d"><span class="section-number-6">1.8.6.1.2</span> Es isomorfismo</h6>
+<div class="outline-text-6" id="text-1-8-6-1-2">
+<p>
+Supongamos que \(\phi(r)=0\), entonces se tiene
+</p>
+
+<p>
+\[
+r = \left(\sum_i e_i\right)r \left( \sum_{j} e_{j} \right)
+= \sum_{i,j} e_{i}re_{j} = 0
+\]
+</p>
+
+<p>
+y la función es inyectiva. Para comprobar que es sobreyectiva, simplemente
+tomamos una matriz \((r_{ij})\) de la forma, y comprobamos que por ortogonalidad
+e idempotencia se tiene
+</p>
+
+<p>
+\[
+\phi \left( \sum_{i,j} r_{ij} \right) = (r_{ij})
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org00d9589" class="outline-4">
+<h4 id="org00d9589"><span class="section-number-4">1.8.7</span> Descomposición de endomorfismos</h4>
+<div class="outline-text-4" id="text-1-8-7">
+<p>
+Sea \(M = M_1 \oplus M_2 \oplus \dots \oplus M_n\) un A-módulo con \(M_i \cong N\). Se tiene
+</p>
+
+<p>
+\[
+\mathrm{End}(M) = M_n(\mathrm{End}(N)).
+\]
+</p>
+</div>
+
+<div id="outline-container-org42f4ce9" class="outline-5">
+<h5 id="org42f4ce9"><span class="section-number-5">1.8.7.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgea2a99f" class="outline-4">
+<h4 id="orgea2a99f"><span class="section-number-4">1.8.8</span> Descomposición en ideales biláteros</h4>
+<div class="outline-text-4" id="text-1-8-8">
+<p>
+Sea \(R = I_1\oplus I_2\oplus \dots \oplus I_n\) descompuesto en ideales biláteros. Sea \(\left\{ e_1,\dots,e_n \right\}\)
+su CCIO asociado. Entonces \(e_i \in Z(R)\), idempotente central.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org492c33f" class="outline-4">
+<h4 id="org492c33f"><span class="section-number-4">1.8.9</span> Descomposición en álgebras</h4>
+<div class="outline-text-4" id="text-1-8-9">
+<p>
+Sea \(\{e_1,\dots,e_n\}\) un CCIO centrales de \(R\). Entonces \(Re_i\) es un álgebra con unidad
+y tenemos un isomorfismo de álgebras \(R \cong Re_1\times Re_2 \times \dots \times Re_n\) definido
+por \(r \mapsto (re_1,\dots,re_n)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3e72a0" class="outline-4">
+<h4 id="orgd3e72a0"><span class="section-number-4">1.8.10</span> Idempotente central primitivo</h4>
+<div class="outline-text-4" id="text-1-8-10">
+<p>
+Un idempotente central es <b>primitivo</b> si \(Re\) no es suma directa de dos ideales
+propios de \(R\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga9c2af1" class="outline-4">
+<h4 id="orga9c2af1"><span class="section-number-4">1.8.11</span> Descomposión en centrales primitivos</h4>
+<div class="outline-text-4" id="text-1-8-11">
+<p>
+Si \(R\) tiene un CCIO centrales primitivos, este conjunto es único.
+</p>
+</div>
+
+<div id="outline-container-orgdb50eb0" class="outline-5">
+<h5 id="orgdb50eb0"><span class="section-number-5">1.8.11.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaa3c1cf" class="outline-3">
+<h3 id="orgaa3c1cf"><span class="section-number-3">1.9</span> 1.9. El álgebra de enfomorfismos de un módulo semisimple</h3>
+<div class="outline-text-3" id="text-1-9">
+</div><div id="outline-container-org2ce2932" class="outline-4">
+<h4 id="org2ce2932"><span class="section-number-4">1.9.1</span> Complemento</h4>
+<div class="outline-text-4" id="text-1-9-1">
+<p>
+Para \(N \subseteq M\) submódulo, un <b>complemento</b> de \(N\) es un \(X\) tal que
+</p>
+
+<p>
+\[
+M = N \oplus X.
+\]
+</p>
+
+<p>
+En caso de que tenga complemento lo llamamos <b>sumando directo</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbc143cb" class="outline-4">
+<h4 id="orgbc143cb"><span class="section-number-4">1.9.2</span> Módulos semisimples</h4>
+<div class="outline-text-4" id="text-1-9-2">
+<p>
+Un módulo de dimensión finita se dice <b>semisimple</b> si todo submódulo
+es un sumando directo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org55cc9ac" class="outline-4">
+<h4 id="org55cc9ac"><span class="section-number-4">1.9.3</span> Caracterización de semisimples</h4>
+<div class="outline-text-4" id="text-1-9-3">
+<p>
+Sea \(M\) módulo con dimensión finita como K-espacio vectorial. Equivalen:
+</p>
+
+<ol class="org-ol">
+<li>\(M\) es semisimple.</li>
+<li>\(M\) descompone como suma directa finita de submódulos simples.</li>
+<li>\(M\) es suma finita de submódulos simples.</li>
+</ol>
+</div>
+
+<div id="outline-container-org5f68aec" class="outline-5">
+<h5 id="org5f68aec"><span class="section-number-5">1.9.3.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgcb02e75" class="outline-4">
+<h4 id="orgcb02e75"><span class="section-number-4">1.9.4</span> Lema de Schur</h4>
+<div class="outline-text-4" id="text-1-9-4">
+<p>
+Sean \(M,M'\) simples con \(f\colon M \to M'\) homomorfismo de módulos. Se tiene \(f=0\)
+o \(f\) isomorfismo.
+</p>
+</div>
+
+<div id="outline-container-org19e8fd5" class="outline-5">
+<h5 id="org19e8fd5"><span class="section-number-5">1.9.4.1</span> Corolario: anillo de endomorfismos de un módulo simple</h5>
+<div class="outline-text-5" id="text-1-9-4-1">
+<p>
+El anillo de los endomorfismos de un módulo simple es un anillo de
+división.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd6ba3d4" class="outline-5">
+<h5 id="orgd6ba3d4"><span class="section-number-5">1.9.4.2</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org4bceb1a" class="outline-4">
+<h4 id="org4bceb1a"><span class="section-number-4">1.9.5</span> Submódulos y cocientes de semisimples</h4>
+<div class="outline-text-4" id="text-1-9-5">
+<p>
+Si \(M\) es un semisimple de dimensión finita, entonces todo submódulo de \(M\)
+y todo cociente de \(M\) es semisimple.
+</p>
+</div>
+
+<div id="outline-container-org0e471d0" class="outline-5">
+<h5 id="org0e471d0"><span class="section-number-5">1.9.5.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org36f2e7f" class="outline-4">
+<h4 id="org36f2e7f"><span class="section-number-4">1.9.6</span> Unicidad de la descomposición en simples</h4>
+<div class="outline-text-4" id="text-1-9-6">
+<p>
+Sea \(M = M_1\oplus \dots \oplus M_n = N_1 \oplus \dots \oplus N_m\) semisimple descompuesto como suma
+directa de simples. Entonces \(n=m\) y se tiene \(M_i \cong N_{\sigma i}\) para alguna 
+permutación.
+</p>
+</div>
+
+<div id="outline-container-org5b61e16" class="outline-5">
+<h5 id="org5b61e16"><span class="section-number-5">1.9.6.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgbdca627" class="outline-4">
+<h4 id="orgbdca627"><span class="section-number-4">1.9.7</span> Componentes isotópicas de un módulo</h4>
+<div class="outline-text-4" id="text-1-9-7">
+<p>
+Sea \(M = M_1\oplus \dots \oplus M_n\) descomposición finita en módulos simples. Podemos
+escoger módulos simples \(\Sigma_1,\dots,\Sigma_t\) y una partición \(\{1,\dots,n\} = \Lambda_1 \cup \dots \cup \Lambda_t\)
+tal que \(M_i \cong \Sigma_j\) si y sólo si \(i \in \Lambda_j\).
+</p>
+
+<p>
+Podemos tomar \(M_{\Lambda_j} = \bigoplus_{i\in \Lambda_j} M_i\) para descomponer en <b>componentes isotópicas</b>
+</p>
+
+<p>
+\[
+M = M_{\Lambda_1}\oplus \dots \oplus M_{\Lambda_t}
+\]
+</p>
+
+<p>
+y llamar a \(n_j\) la <b>multiplicidad</b> \(\Sigma_j\) en \(M\). Las componentes con su multiplicidad
+son invarriantes llamados <b>estructura del módulo</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad3ea97" class="outline-4">
+<h4 id="orgad3ea97"><span class="section-number-4">1.9.8</span> Estructura de los endomorfismos</h4>
+<div class="outline-text-4" id="text-1-9-8">
+<p>
+Sea \(M\) con estructura \((\Sigma_1,n_1),\dots,(\Sigma_t,n_t)\) entonces \(\Delta_j= \mathrm{End}(\Sigma_j)\) es una
+\(K\text{-álgebra}\) de dimensión finita y hay un isomorfismo
+</p>
+
+<p>
+\[ \mathrm{End}(M) \cong
+\mathrm{M}_{n_1}(\Delta_1) \times \dots \times \mathrm{M}_{n_t}(\Delta_t)
+\]
+</p>
+</div>
+
+<div id="outline-container-orgbda7eff" class="outline-5">
+<h5 id="orgbda7eff"><span class="section-number-5">1.9.8.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd5afe24" class="outline-3">
+<h3 id="orgd5afe24"><span class="section-number-3">1.10</span> 1.10. Álgebras semisimples de dimensión finita</h3>
+<div class="outline-text-3" id="text-1-10">
+</div><div id="outline-container-org8fb6726" class="outline-4">
+<h4 id="org8fb6726"><span class="section-number-4">1.10.1</span> Álgebras semisimples</h4>
+<div class="outline-text-4" id="text-1-10-1">
+<p>
+Un álgebra \(A\) de dimensión finita es <b>semisimple</b> si todo A-módulo de
+dimensión finita es semisimple.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga43e3b1" class="outline-4">
+<h4 id="orga43e3b1"><span class="section-number-4">1.10.2</span> Caracterización de álgebras semisimples</h4>
+<div class="outline-text-4" id="text-1-10-2">
+<p>
+Un álgebra de dimensión finita es semisimple si y sólo si es semisimple
+como A-módulo.
+</p>
+</div>
+
+<div id="outline-container-org283d6d9" class="outline-5">
+<h5 id="org283d6d9"><span class="section-number-5">1.10.2.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgda95862" class="outline-4">
+<h4 id="orgda95862"><span class="section-number-4">1.10.3</span> Estructura de los módulos de un álgebra semisimple</h4>
+<div class="outline-text-4" id="text-1-10-3">
+<p>
+Sea \(A\) es un álgebra semisimple con estructura \((n_1,\Sigma_1),\dots,(n_t,\Sigma_t)\), entonces
+todo A-módulo finito tiene estructura \((m_1,\Sigma_1),\dots,(m_t,\Sigma_t)\).
+</p>
+</div>
+
+<div id="outline-container-orgcf99e1d" class="outline-5">
+<h5 id="orgcf99e1d"><span class="section-number-5">1.10.3.1</span> Módulos simples</h5>
+<div class="outline-text-5" id="text-1-10-3-1">
+<p>
+En particular, todo módulo simple es isomorfo a un \(\Sigma_j\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org64a7807" class="outline-5">
+<h5 id="org64a7807"><span class="section-number-5">1.10.3.2</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org1660268" class="outline-4">
+<h4 id="org1660268"><span class="section-number-4">1.10.4</span> Álgebra de matrices sobre anillo de división es semisimple</h4>
+<div class="outline-text-4" id="text-1-10-4">
+<p>
+Dada \(\Delta\) álgebra de división finito-dimensional, \(M_n(\Delta)\) es un álgebra 
+semisimple con estructura \((n, \Sigma)\) para \(\Delta \cong \mathrm{End}(\Sigma)^{op}\). Además, \(M_n(\Delta)^{op} \cong M_n(\Delta^{op})\).
+</p>
+</div>
+
+<div id="outline-container-orgefa9695" class="outline-5">
+<h5 id="orgefa9695"><span class="section-number-5">1.10.4.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-orgcea48ed" class="outline-4">
+<h4 id="orgcea48ed"><span class="section-number-4">1.10.5</span> Teorema de Wedderburn</h4>
+<div class="outline-text-4" id="text-1-10-5">
+<div class="statement">
+<p>
+Una \(K\text{-álgebra}\) de dimensión finita es semisimple ssi es isomorfa a un
+álgebra de la forma
+</p>
+
+<p>
+\[ \mathrm{M}_{n_1}(\Delta_1) \times \dots \times \mathrm{M}_{n_t}(\Delta_t).
+\]
+</p>
+
+<p>
+de forma única para algunas \(\Delta_1,\dots,\Delta_t\).
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-org2666066" class="outline-5">
+<h5 id="org2666066"><span class="section-number-5">1.10.5.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org2d437c3" class="outline-4">
+<h4 id="org2d437c3"><span class="section-number-4">1.10.6</span> Centro de álgebra semisimple de dimensión finita</h4>
+<div class="outline-text-4" id="text-1-10-6">
+<p>
+Si \(A\) es semisimple de dimensión finita, \(Z(A)\) es producto finito de cuerpos
+extensión finita de \(k\). El número de factores es el número de \(A\text{-módulos}\) simples
+no isomorfos en la estructura de \(A\).
+</p>
+</div>
+
+<div id="outline-container-orge5a7dd6" class="outline-5">
+<h5 id="orge5a7dd6"><span class="section-number-5">1.10.6.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+<div id="outline-container-org840839c" class="outline-4">
+<h4 id="org840839c"><span class="section-number-4">1.10.7</span> Semisimplicidad del álgebra opuesta</h4>
+<div class="outline-text-4" id="text-1-10-7">
+<p>
+Si \(A\) es semisimple, entonces \(A^{op}\) es semisimple.
+</p>
+</div>
+
+<div id="outline-container-orgc224eac" class="outline-5">
+<h5 id="orgc224eac"><span class="section-number-5">1.10.7.1</span> <span class="todo TODO">TODO</span> Demostración</h5>
+</div>
+</div>
+
+<div id="outline-container-org9bc9ae0" class="outline-4">
+<h4 id="org9bc9ae0"><span class="section-number-4">1.10.8</span> Teorema de Molien</h4>
+<div class="outline-text-4" id="text-1-10-8">
+<p>
+Un álgebra compleja \(A\) de dimensión finita es semisimple ssi es
+isomorfa a exactamente una de la forma
+</p>
+
+<p>
+\[ \mathrm{M}_{n_1}(\mathbb{C}) \times \dots \mathrm{M}_{n_t}(\mathbb{C})
+\]
+</p>
+
+<p>
+cumpliendo \(\mathrm{dim}_{\mathbb{C}}(A) = n_1^2+\dots+n_t^2\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org734b193" class="outline-2">
+<h2 id="org734b193"><span class="section-number-2">2</span> Ejercicios de clase</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-org078b9ac" class="outline-3">
+<h3 id="org078b9ac"><span class="section-number-3">2.1</span> Ejercicio 1</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="statement">
+<p>
+Comprobar que \(K\) es una K-álgebra.
+</p>
+
+</div>
+
+<p>
+Tenemos que \(K\) es un espacio vectorial sobre sí mismo y su propio
+producto es una aplicación bilineal sobre \(K\), ya que cumple:
+</p>
+
+<ul class="org-ul">
+<li>\((a+b)c = ac+bc\), por axiomas de anillo.</li>
+<li>\(a(b+c) = ab+ac\), por axiomas de anillo.</li>
+<li>\(a(bc) = (ab)c = b(ac)\), el producto es conmutativo y asociativo.</li>
+</ul>
+
+<p>
+Además es un álgebra asociativa y unital.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgce8c153" class="outline-3">
+<h3 id="orgce8c153"><span class="section-number-3">2.2</span> Ejercicio 2</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="statement">
+<p>
+Calcular el centro del álgebra de matrices \(M_n(K)\).
+</p>
+
+</div>
+
+<p>
+Supongamos \(A \in Z(M_n(K))\), si tomamos las matrices que sólo tienen una 
+entrada unidad y el resto ceros \(E_{ij} = (\delta_{ij})_{i,j}\). Así, tenemos:
+</p>
+
+<p>
+\[
+E_{ii}A = \begin{pmatrix}
+0 & \dots & 0 \\
+^{i)} a_{i1} & \dots & a_{in} \\
+0 & \dots & 0 \\
+\end{pmatrix}
+\qquad
+AE_{ii} = \begin{pmatrix}
+0 & ^{i)}a_{1i} & 0 \\
+\vdots & \vdots & \vdots \\
+0 & a_{ni} & 0 \\
+\end{pmatrix}
+\]
+</p>
+
+<p>
+Por lo tanto \(a_{ij} = 0\) para \(i \neq j\). Además,
+</p>
+
+<p>
+\[
+E_{ij}A = \begin{pmatrix}
+0 & ^{j)}\dots & 0 \\
+^{i)} \dots & a_{ii} & \dots \\
+0 & \dots & 0 \\
+\end{pmatrix}
+\qquad
+AE_{ij} = \begin{pmatrix}
+0 & ^{j)}\dots & 0 \\
+^{i)}\dots & a_{jj} & \dots \\
+0 & \dots & 0 \\
+\end{pmatrix}
+\]
+</p>
+
+<p>
+Por tanto, \(A = \lambda I\). Se cumple que \((\lambda I) B = \lambda (I B) = \lambda B = \lambda (B I) = B (\lambda I)\),
+y el centro es de la forma
+</p>
+
+<p>
+\[
+\left\{
+\lambda I \mid \lambda \in K
+\right\}
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org510e496" class="outline-3">
+<h3 id="org510e496"><span class="section-number-3">2.3</span> Ejercicio 3</h3>
+<div class="outline-text-3" id="text-2-3">
+<div class="statement">
+<p>
+Comprobar que \(Im(u) \subseteq Z(A)\), siendo \(u : K \longrightarrow A\), \(u(\alpha) = \alpha 1_A\).
+</p>
+
+</div>
+
+<p>
+Usando la bilinealidad:
+</p>
+
+<p>
+\[
+u(\alpha) a =
+(\alpha 1) a =
+\alpha (1a) =
+1 (\alpha a) =
+(\alpha a) 1 =
+a (\alpha 1)
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac93640" class="outline-3">
+<h3 id="orgac93640"><span class="section-number-3">2.4</span> Ejercicio 4</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="statement">
+<p>
+Supongamos \(A\) anillo y \(K\) cuerpo. Dado un homomorfismo de anillos \(u : K \longrightarrow A\),
+demostrar que \(A\) es una K-álgebra si defino su estructura de K-espacio 
+vectorial como sigue:
+</p>
+
+<p>
+\[
+\forall\alpha \in K, a \in A:\quad \alpha a = u(\alpha) a
+\]
+</p>
+
+<p>
+Es decir, podemos definir alternativamente un álgebra sobre \(K\) como un
+homomorfismo de anillos \(u : K \longrightarrow Z(A)\), el <b>homomorfismo de estructura</b>.
+</p>
+
+</div>
+
+<p>
+Debemos comprobar que la multiplicación del anillo es bilineal sobre la
+estructura de espacio vectorial:
+</p>
+
+<ul class="org-ul">
+<li>\((a+b)c = ac+bc\)</li>
+<li>\(a(b+c) = ab+ac\)</li>
+<li>\((\alpha a)c = (u(\alpha) a) c = a u(\alpha) c\)</li>
+</ul>
+
+<p>
+Por lo que forma un K-álgebra.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd1a178a" class="outline-3">
+<h3 id="orgd1a178a"><span class="section-number-3">2.5</span> Ejercicio 5</h3>
+<div class="outline-text-3" id="text-2-5">
+<div class="statement">
+<p>
+Comprobar que \(Z(\mathbb{H}) = \mathbb{R}\).
+</p>
+
+</div>
+
+<p>
+Supongamos un elemento en el centro \(z = a+bi+cj+dk\), debería conmutar con
+\(i,j\), así que:
+</p>
+
+<p>
+\[
+0 = zi-iz = (ai-b-ck+dj) - (ai-b+ck-dj) = 2(dj-ck)
+\]
+\[
+0 = zj-jz = (aj+bk-c-di) - (aj-bk-c+di) = 2(bk-di)
+\]
+</p>
+
+<p>
+De donde tenemos \(b=c=d=0\), y por tanto, el elemento debe estar en \(\mathbb{R}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc111717" class="outline-3">
+<h3 id="orgc111717"><span class="section-number-3">2.6</span> Ejercicio 6</h3>
+<div class="outline-text-3" id="text-2-6">
+<div class="statement">
+<p>
+Dados \(q,p\in \mathbb{H}\), escritos como suma de vector y escalar, se tiene la fórmula:
+</p>
+
+<p>
+\[
+(a+v)(b+w) = ab + aw + bv - v\cdot w + v \wedge w
+\]
+</p>
+
+</div>
+
+<p>
+Los tres primeros términos se tienen porque el producto escalar coincide
+con el producto de un real por un cuaternión. Los dos últimos términos se
+tienen como sigue. Si tomamos \(v = xi+yj+zk\), \(w = oi+pj+qk\); y los
+interpretamos como vectores como \(v = (x\ y\ z)\), \(w = (o\ p\ q)\):
+</p>
+
+<p>
+\[
+vw = (-xo-yp-qz) + (pxk-qxj - oyk+qyi + ozj-pzi)
+\]
+</p>
+
+<p>
+Y comprobamos que:
+</p>
+
+<p>
+\[(x\ y\ z)(o\ p\ q) = xo+yp+zq\]
+</p>
+
+<p>
+\[\begin{vmatrix}
+i&j&k \\
+x&y&z \\
+o&p&q \\
+\end{vmatrix}
+=
+pxk-qxj - oyk+qyi + ozj-pzi
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org58391da" class="outline-3">
+<h3 id="org58391da"><span class="section-number-3">2.7</span> <span class="todo TODO">TODO</span> Ejercicio 7</h3>
+<div class="outline-text-3" id="text-2-7">
+<div class="statement">
+<p>
+Demostrar que un grupo abeliano \((V,+)\) junto a una acción \(A\times V \to V\) es
+un módulo ssi verifica las cuatro condiciones siguientes:
+</p>
+
+<ol class="org-ol">
+<li>\((a+a')v = av + a'v\)</li>
+<li>\(a(v+v') = av+av'\)</li>
+<li>\(a(a'v) = (aa')v\)</li>
+<li>\(1v = v\)</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org993aa23" class="outline-3">
+<h3 id="org993aa23"><span class="section-number-3">2.8</span> Ejercicio 8</h3>
+<div class="outline-text-3" id="text-2-8">
+<div class="statement">
+<p>
+Definir un submódulo.
+</p>
+
+</div>
+
+<p>
+Un submódulo debe tener estructura de módulo y una inclusión al módulo
+del que es submódulo. Exigimos entonces, para que tenga estructura de módulo,
+que sea cerrado respecto a la suma y al producto por elementos del álgebra.
+Nótese que dentro de los elementos del álgebra están los elementos del 
+cuerpo base del álgebra.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd25dcd3" class="outline-3">
+<h3 id="orgd25dcd3"><span class="section-number-3">2.9</span> Ejercicio 9</h3>
+<div class="outline-text-3" id="text-2-9">
+<div class="statement">
+<p>
+Sea \(N_1,\dots,N_m \in {\cal L}(M)\). Demostrar que:
+</p>
+
+<p>
+\[
+N_1+\dots+N_m
+=
+\{m_1+\dots+m_n \mid m_i \in N_i \}
+\]
+</p>
+
+</div>
+
+<p>
+Primero notamos que es un módulo, ya que:
+</p>
+
+<ul class="org-ul">
+<li>\(a(m_1+\dots+m_n) = am_1+\dots+am_n\)</li>
+<li>\((m_1+\dots+m_n)+(m'_1+\dots+m'_n) = (m_1+m'_1) + \dots + (m_n+m'_n)\)</li>
+</ul>
+
+<p>
+Después notamos que si un módulo contiene a \(N_1,\dots,N_m\) debe contener
+todas las sumas de sus elementos por ser cerrado para la suma. Así,
+este es el mínimo módulo conteniendo a \(N_i\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf2521bf" class="outline-3">
+<h3 id="orgf2521bf"><span class="section-number-3">2.10</span> Ejercicio 10</h3>
+<div class="outline-text-3" id="text-2-10">
+<div class="statement">
+<p>
+¿Para qué valores del ángulo el giro en el plano da sólo submódulos propios?
+Es decir, ¿cuándo es \(\mathbb{R}^2\) simple como \(\mathbb{R}[T]\) módulo con \(T\) giro?
+</p>
+
+</div>
+
+<p>
+Sea \(M\) un submódulo de \(\mathbb{R}^2\) con \(v \not\in M\). Si \(T(v),v\) son linealmente 
+independientes, el espacio \(\langle Tv,v \rangle\) será \(\mathbb{R}^2\) y no podrá existir un módulo
+propio. En otro caso, \(\langle v \rangle\) será un módulo propio.
+</p>
+
+<p>
+Para tener \(Tv,v\) independientes, es necesario tener un giro múltiplo de \(\pi\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd7bf8bc" class="outline-3">
+<h3 id="orgd7bf8bc"><span class="section-number-3">2.11</span> <span class="todo TODO">TODO</span> Ejercicio 11 (★★)</h3>
+<div class="outline-text-3" id="text-2-11">
+<div class="statement">
+<p>
+Calcular todos los \(\mathbb{R}[X]\text{-módulos}\) de \(\mathbb{P}_n\) para la acción de derivación.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbfc053f" class="outline-3">
+<h3 id="orgbfc053f"><span class="section-number-3">2.12</span> Ejercicio 12?</h3>
+<div class="outline-text-3" id="text-2-12">
+<div class="statement">
+<p>
+Sean \(M = S_1\oplus \dots \oplus S_t\), \(N = T_1\oplus \dots \oplus T_n\) con \(S_i,T_i\) simples y cumpliendo
+\(S_i \not\cong T_j\). Probar que todo homomorfismo de módulos \(f \colon M \to N\) es \(0\).
+</p>
+
+</div>
+
+<p>
+Similar al <a href="#orgb07cdf8">ejercicio 23</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0d37269" class="outline-2">
+<h2 id="org0d37269"><span class="section-number-2">3</span> Ejercicios de los apuntes</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-org0759f4e" class="outline-3">
+<h3 id="org0759f4e"><span class="section-number-3">3.1</span> Ejercicio 1 (★)</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="statement">
+<p>
+Calcular el centro del álgebra de matrices \(M_n(K)\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2987d9c" class="outline-3">
+<h3 id="org2987d9c"><span class="section-number-3">3.2</span> Ejercicio 2</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="statement">
+<p>
+Escribir la demostración de la Proposición 1.7.
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-org160722e" class="outline-4">
+<h4 id="org160722e"><span class="section-number-4">3.2.1</span> La imagen es subálgebra</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+Trivialmente, la imagen es espacio vectorial y \(f(a)f(b) = f(ab)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb8915ed" class="outline-4">
+<h4 id="orgb8915ed"><span class="section-number-4">3.2.2</span> El núcleo es un ideal</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+El núcleo es subespacio vectorial y además,
+</p>
+
+<p>
+\[
+f(ak) = f(a)f(k) = 0 = f(k)f(b) = f(kb)
+\]
+</p>
+
+<p>
+para cualquier \(f(k) = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd757272" class="outline-4">
+<h4 id="orgd757272"><span class="section-number-4">3.2.3</span> Isomorfía</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+Notamos primero que \(\widehat f\) es el mismo que obtendríamos aplicando el
+primer teorema de Isomorfía entre espacios vectoriales. Así, sabemos
+que está bien definido y que es una función lineal biyectiva.
+</p>
+
+<p>
+Comprobaremos simplemente que preserva el producto, probando así que
+es un isomorfismo de k-álgebras; pero esto es trivial por la estructura
+de álgebra con la que hemos dotado al cociente:
+</p>
+
+<p>
+\[
+\widehat f((a+I)(b+I)) = 
+\widehat f(ab+I) = f(ab) = f(a)f(b) 
+= \widehat f(a+I) \widehat f(b+I).
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9c1b7a1" class="outline-3">
+<h3 id="org9c1b7a1"><span class="section-number-3">3.3</span> Ejercicio 3</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="statement">
+<p>
+Supongamos que \(K\) es un cuerpo, y \(A\) es un anillo (no necesariamente
+conmutativo). Sea \(u : K \to A\) un homomorfismo de anillos tal que
+\(Im(u) \subseteq Z(A)\), donde \(Z(A)\) denota el centro de \(A\), definido de manera
+obvia. Comprobar que si definimos la acción de \(K\) sobre \(A\) dada por
+\(\alpha a = u(\alpha) a\), para todo \(\alpha \in K, a \in A\), entonces \(A\) es una k-álgebra.
+</p>
+
+</div>
+
+<p>
+Comprobamos primero que \(A\) es un k-espacio vectorial. Con su suma es
+un grupo abeliano, y por ser el producto sobre ella distributivo y
+el homomorfismo de anillos unital y asociativo:
+</p>
+
+<ul class="org-ul">
+<li>\(u(\alpha)(a+b) = u(\alpha)a + u(\alpha)b\)</li>
+<li>\(u(1)a = 1a = a\)</li>
+<li>\(u(\alpha)u(\beta)(a+b) = u(\alpha\beta)(a+b)\)</li>
+<li>\(u(\alpha+\beta)a = u(\alpha)a + u(\beta)a\)</li>
+</ul>
+
+<p>
+Ahora comprobaremos simplemente que el producto del anillo es una
+operación bilineal en este espacio vectorial.
+</p>
+
+<ul class="org-ul">
+<li>\((a+b)c = ac+bc\)</li>
+<li>\(a(b+c) = ab+ac\)</li>
+<li>\((\alpha a)c = (u(\alpha) a) c = a u(\alpha) c\)</li>
+</ul>
+
+<p>
+Donde hemos usado distributividad del producto y que \(u(\alpha) \in Z(A)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcd81720" class="outline-3">
+<h3 id="orgcd81720"><span class="section-number-3">3.4</span> Ejercicio 4</h3>
+<div class="outline-text-3" id="text-3-4">
+<div class="statement">
+<p>
+Demostrar que, realmente, \(End_K(V)\), con las operaciones recién descritas
+(suma, producto escalar y composición), es una K-álgebra.
+</p>
+
+</div>
+
+<p>
+La suma se define por \((f+g)(v) = f(v)+g(v)\), lo que da un grupo abeliano
+con el neutro \(0(v) = 0\); además, con \((\alpha f)(v) = \alpha f(v)\), nos da un espacio
+vectorial.
+</p>
+
+<p>
+Comprobamos además que la composición es bilineal:
+</p>
+
+<ol class="org-ol">
+<li>\(((f+g)\circ h)(v) = f(h(v)) + g(h(v)) = (f\circ h + g\circ h)(v)\)</li>
+<li>\((f\circ (g+h))(v) = f(g(v)) + f(h(v)) = (f\circ g + f\circ h)(v)\)</li>
+<li>\((\alpha f \circ g)(v) = \alpha (f\circ g)(v)) = f(\alpha g(v)) = (f \circ \alpha g)(v)\)</li>
+</ol>
+
+<p>
+Donde en el primer y segundo punto usamos la definición de suma; y
+en el tercer punto usamos la linealidad de la función para conmutar
+el elemento del cuerpo y la aplicación de la función.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8535b78" class="outline-3">
+<h3 id="org8535b78"><span class="section-number-3">3.5</span> Ejercicio 5 (★)</h3>
+<div class="outline-text-3" id="text-3-5">
+<div class="statement">
+<p>
+Comprobar todas las afirmaciones hechas en el Ejemplo 11.
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-org893ff28" class="outline-4">
+<h4 id="org893ff28"><span class="section-number-4">3.5.1</span> Estructura del espacio cociente</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+Sabemos que cada ideal no nulo lo genera un polinomio por ser un
+Dominio de Ideales Principales, que además podemos suponer mónico por ser \(K\) 
+un cuerpo. Como además los polinomios forman un dominio euclídeo con el
+grado como función euclídea, podemos escribir cualquier polinomio \(t\) como
+</p>
+
+<p>
+\[
+t(X) = r(X) + p(X)q(X), \text{ para } \mathrm{deg}(r) < n,
+\]
+</p>
+
+<p>
+y por tanto, \({\cal B} = \left\{ 1+I, x+I,\dots, x^{n-1}+I \right\}\) es un sistema generador. Sabemos
+que es linealmente independiente porque si no lo fuese, tendríamos una
+relación lineal que daría lugar a que un polinomio de grado menor que \(n\)
+estuviera en el ideal. Así, \({\cal B}\) es base.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org30dedf7" class="outline-4">
+<h4 id="org30dedf7"><span class="section-number-4">3.5.2</span> Matriz compañera</h4>
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+Podemos comprobar que la matriz compañera es la que representa a \(\lambda_{x+I}\)
+por tenerse que \((x+I)(x^{i-1}+I) = (x^{i}+I)\) para \(i < n\) y que
+</p>
+
+<p>
+\[x^{n}+I = p_0-p_1x-\dots-p_{n-1}x^{n-1} + I\]
+</p>
+
+<p>
+Sabemos ahora que \(\lambda : A \to \mathrm{End}(A)\) es un homomorfismo inyectivo de álgebras
+que lleva \(\lambda_{x+I} = \tilde N(p)\) y que por ser inyectivo preserva la independencia
+lineal de la base. Así, la imagen de los elementos de la base es una base
+de la imagen, y tenemos que el álgebra \(A\) es isomorfa a la subálgebra de
+\(M_n(K)\)
+</p>
+
+<p>
+\[
+\left\{ a_0I+a_1\tilde N(p) + \dots + a_{n-1}\tilde N(p)^{n-1} \mid
+a_0,a_1,\dots,a_{n-1} \in K \right\} \subseteq M_n(K).
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9458358" class="outline-3">
+<h3 id="org9458358"><span class="section-number-3">3.6</span> Ejercicio 6</h3>
+<div class="outline-text-3" id="text-3-6">
+<div class="statement">
+<p>
+Expresar el cuerpo \(\mathbb{Q}(\sqrt{2})\) como una \(\mathbb{Q}\) subálgebra de un álgebra de matrices
+sobre \(\mathbb{Q}\).
+</p>
+
+</div>
+
+<p>
+Empezamos notando que
+</p>
+
+<p>
+\[
+\mathbb{Q}\left(\sqrt{2}\right) = \frac{\mathbb{Q}}{(X^2-2)},
+\]
+</p>
+
+<p>
+y que podemos por tanto aplicar el razonamiento del ejemplo 11 para saber
+que si la matriz compañera del polinomio \(p(x) = x^2-2\) es
+</p>
+
+<p>
+\[\tilde N(p) = \begin{pmatrix}
+0 & 2 \\
+1 & 1
+\end{pmatrix},\]
+</p>
+
+<p>
+el álgebra será isomorfa a la subálgebra de \(M_2(\mathbb{Q})\) dada por
+</p>
+
+<p>
+\[
+\left\{ aI + b\tilde N(p) \mid a,b \in \mathbb{Q} \right\}.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5313f8" class="outline-3">
+<h3 id="orgf5313f8"><span class="section-number-3">3.7</span> Ejercicio 7</h3>
+<div class="outline-text-3" id="text-3-7">
+<div class="statement">
+<p>
+Sea
+</p>
+
+<p>
+\[\mathbb{H} = \left\{ \begin{pmatrix}
+\alpha & -\overline{\beta} \\
+\beta & \overline{\alpha}
+\end{pmatrix} \mid \alpha,\beta \in \mathbb{C} \right\}\]
+</p>
+
+<ol class="org-ol">
+<li>Demostrar que \(\mathbb{H}\) es una subálgebra real de \(M_2(\mathbb{C})\) y que \(Z(\mathbb{H}) = \mathbb{R}\).</li>
+<li>Demostrar que todo elemento no nulo de \(\mathbb{H}\) es una unidad.</li>
+<li><p>
+Demostrar que las matrices
+</p>
+
+<p>
+\[\mathbf{1} = \begin{pmatrix}1 & 0 \\0 & 1\end{pmatrix},\; 
+     \mathbf{i} = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix},\;
+     \mathbf{j} = \begin{pmatrix}i & 0 \\ 0 & -i\end{pmatrix},\;
+     \mathbf{k} = \begin{pmatrix}0 & i \\ i & 0\end{pmatrix}
+     \]
+</p>
+
+<p>
+forman una base de \(\mathbb{H}\) como espacio vectorial real.
+</p></li>
+<li><p>
+Comprobar las identidades
+</p>
+
+<p>
+\[
+     i^2=j^2=k^2=-1,\; ij=k,\; jk=i,\; ki=j
+     \]
+</p></li>
+</ol>
+
+<p>
+El álgebra así construida se llama álgebra de los cuaterniones de Hamilton.
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orgaf603bb" class="outline-4">
+<h4 id="orgaf603bb"><span class="section-number-4">3.7.1</span> Primer punto</h4>
+<div class="outline-text-4" id="text-3-7-1">
+<p>
+Comprobamos que es cerrada bajo el producto por reales
+</p>
+
+<p>
+\[\lambda\begin{pmatrix}
+\alpha & -\overline{\beta} \\
+\beta & \overline{\alpha}
+\end{pmatrix} = \begin{pmatrix}
+\lambda\alpha & -\lambda\overline{\beta} \\
+\lambda\beta & \lambda\overline{\alpha}
+\end{pmatrix} = \begin{pmatrix}
+\lambda\alpha & -\overline{\lambda\beta} \\
+\lambda\beta & \overline{\lambda\alpha}
+\end{pmatrix}
+\]
+</p>
+
+<p>
+y que es cerrada bajo su producto
+</p>
+
+<p>
+\[\begin{pmatrix}
+\alpha & -\overline{\beta} \\
+\beta & \overline{\alpha}
+\end{pmatrix}\begin{pmatrix}
+\gamma & -\overline{\delta} \\
+\delta & \overline{\gamma}
+\end{pmatrix} = \begin{pmatrix}
+\alpha\gamma-\overline{\beta}\delta & -\overline{\delta}\alpha-\overline{\beta}\overline{\gamma} \\
+\beta\gamma+\overline{\alpha}\delta & -\overline{\delta}\beta + \overline{\gamma}\overline{\alpha}
+\end{pmatrix} = \begin{pmatrix}
+\alpha\gamma-\overline{\beta}\delta & -\left(\overline{\beta\gamma+\overline{\alpha}\delta}\right)\\
+\beta\gamma+\overline{\alpha}\delta & \overline{\alpha\gamma-\overline{\beta}\delta}
+\end{pmatrix}.
+\]
+</p>
+
+<p>
+Además, si tomamos una matriz en el centro, debe cumplir
+</p>
+
+<p>
+\[\begin{aligned}\begin{pmatrix}
+a & -\overline{b} \\
+b & \overline{a}
+\end{pmatrix}\begin{pmatrix}
+c & -\overline{d} \\
+d & \overline{c}
+\end{pmatrix} = \begin{pmatrix}
+ac-\overline{b}d & -a\overline{d}-\overline{bc} \\
+bc+\overline{a}d & \overline{ac} - b\overline{d}
+\end{pmatrix} &=\\ =\begin{pmatrix}
+ac-b\overline{d} & -\overline{b}c-\overline{da} \\
+ad+\overline{c}b & \overline{ac}-\overline{b}d
+\end{pmatrix} &= \begin{pmatrix}
+c & -\overline{d} \\
+d & \overline{c}
+\end{pmatrix}\begin{pmatrix}
+a & -\overline{b} \\
+b & \overline{a}
+\end{pmatrix},\end{aligned}
+\]
+</p>
+
+<p>
+así que \(\overline{b}d = b\overline{d}\) y \(\overline{a}d+bc = ad + \overline{c}d\). Tomando \(c=0\) y \(d=1\) llegamos a que
+\(a,b \in \mathbb{R}\); y tomando \(d = i\), que \(b=0\). Así, las únicas matrices en el centro
+serán las que representan a los reales, de la forma
+</p>
+
+<p>
+\[\left\{\begin{pmatrix}\lambda & 0 \\ 0 & \lambda
+\end{pmatrix}\mid \lambda \in \mathbb{R}\right\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org60cc931" class="outline-4">
+<h4 id="org60cc931"><span class="section-number-4">3.7.2</span> Segundo punto</h4>
+<div class="outline-text-4" id="text-3-7-2">
+<p>
+Simplemente comprobar que cada elemento tiene una inversa a derecha
+</p>
+
+<p>
+\[\begin{pmatrix}
+a & -\overline{b} \\ b & \overline{a}
+\end{pmatrix}\begin{pmatrix}
+\frac{\overline{a}}{a\overline{a}+b\overline{b}} & 
+\frac{\overline{b}}{a\overline{a}+b\overline{b}} \\ 
+\frac{-b}{a\overline{a}+b\overline{b}} & 
+\frac{a}{a\overline{a}+b\overline{b}}
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 \\ 0 & 1
+\end{pmatrix}\]
+</p>
+
+<p>
+usando que si \(a\overline{a}+b\overline{b} = 0\), es porque \(a=b=0\) y el elemento es nulo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b134a4" class="outline-4">
+<h4 id="org6b134a4"><span class="section-number-4">3.7.3</span> Tercer punto</h4>
+<div class="outline-text-4" id="text-3-7-3">
+<p>
+Sabiendo que los complejos son un espacio vectorial de dimensión \(2\)
+con base \(\{1,i\}\), podemos escribir los elementos de \(\mathbb{H}\) como
+</p>
+
+<p>
+\[\begin{pmatrix}
+a+bi & -c+di \\
+c+di & a-bi
+\end{pmatrix} = a\begin{pmatrix}
+1 & 0 \\ 0 & 1
+\end{pmatrix}+
+b\begin{pmatrix}
+i & 0 \\ 0 & -i
+\end{pmatrix}+
+c\begin{pmatrix}
+0 & 1 \\ -1 & 0
+\end{pmatrix}+
+d\begin{pmatrix}
+0 & i \\ i & 0
+\end{pmatrix}\]
+</p>
+
+<p>
+que trivialmente es una descomposición única por independencia lineal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga0b052a" class="outline-4">
+<h4 id="orga0b052a"><span class="section-number-4">3.7.4</span> Cuarto punto</h4>
+<div class="outline-text-4" id="text-3-7-4">
+<p>
+Podemos comprobar trivialmente los cálculos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6527083" class="outline-3">
+<h3 id="org6527083"><span class="section-number-3">3.8</span> Ejercicio 8</h3>
+<div class="outline-text-3" id="text-3-8">
+<div class="statement">
+<p>
+Dado un A-módulo \(V\), demostrar que \(\mathrm{Ann}_A(V) = \left\{ a \in A \mid av=0\; \forall v\in V \right\}\) es un
+ideal de \(A\). Dotar a \(V\) de estructura de \(A/\mathrm{Ann}_{A}(V)\text{-módulo}\) fiel (es decir,
+la representación correspondiente es fiel).
+</p>
+
+</div>
+
+<p>
+Si \(a \in \mathrm{Ann}_A(V)\) tenemos que para cualquier \(r \in A\) y \(v \in V\), \(rav = r0 = 0\) y 
+\((ar)v = a(rv) = 0\). Podemos dotar a \(V\) de estructura de módulo en el cociente
+como
+</p>
+
+<p>
+\[
+\left( a+ \mathrm{Ann}(V) \right)v = av.
+\]
+</p>
+
+<p>
+Esta representación es fiel porque si tenemos \(\forall v\in V\colon av = bv\), entonces
+se tiene \(a-b \in \mathrm{Ann}(V)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6150aaf" class="outline-3">
+<h3 id="org6150aaf"><span class="section-number-3">3.9</span> Ejercicio 9</h3>
+<div class="outline-text-3" id="text-3-9">
+<div class="statement">
+<p>
+Dar una demostración del Lema 1.25.
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orgb18ff1a" class="outline-4">
+<h4 id="orgb18ff1a"><span class="section-number-4">3.9.1</span> Primer punto</h4>
+<div class="outline-text-4" id="text-3-9-1">
+<p>
+Es claro que el menor submódulo que contenga a \(N_1 \cup \dots \cup N_m\) debe contener
+en particular a todas las sumas y por tanto
+</p>
+
+<p>
+\[
+\left\{ n_1+\dots+n_m \mid n_i \in N_i \right\} \subseteq N_1 + \dots + N_m.
+\]
+</p>
+
+<p>
+Si además probamos que es un submódulo, tendremos que debe ser el menor
+conteniendo a la unión. Es cerrado para la suma por tenerse
+</p>
+
+<p>
+\[
+(n_1+\dots+n_m)+(n'_1+\dots+n'_m) =
+(n_1+n'_1)+\dots+(n_m+n_m')
+\]
+</p>
+
+<p>
+y cerrado para el producto por elementos del anillo por tenerse
+</p>
+
+<p>
+\[
+a(n_1+\dots+n_m) = an_1+\dots+an_m.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfaa9cfc" class="outline-4">
+<h4 id="orgfaa9cfc"><span class="section-number-4">3.9.2</span> Segundo punto</h4>
+<div class="outline-text-4" id="text-3-9-2">
+<p>
+De la misma forma, es claro que el menor submódulo conteniendo a \(X\) debe
+contener al menor módulo conteniendo a cada uno de sus elementos, y por
+tanto al menor submódulo conteniendo a todos esos submódulos. Sabemos
+entonces que
+</p>
+
+<p>
+\[
+RX \supseteq Rm_1 + \dots + Rm_n.
+\]
+</p>
+
+<p>
+Pero además, una suma de módulos es un submódulo, así que este es el menor
+submódulo que contiene a \(X\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgca7719a" class="outline-3">
+<h3 id="orgca7719a"><span class="section-number-3">3.10</span> Ejercicio 10</h3>
+<div class="outline-text-3" id="text-3-10">
+<div class="statement">
+<p>
+Dados \(A\text{-módulos}\) por la izquierda \(M,N\) y una aplicación \(f\colon M \to N\),
+demostrar que \(f\) es homomorfismo de \(A\text{-módulos}\) si, y sólo si,
+\(f(am+a'm') = af(m) + a'f(m')\) para todo \(a,a'\in A;\; m,m'\in M\).
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-org68ccdd1" class="outline-4">
+<h4 id="org68ccdd1"><span class="section-number-4">3.10.1</span> Si es homomorfismo de módulos cumple la regla</h4>
+<div class="outline-text-4" id="text-3-10-1">
+<p>
+Aplicando primero linealidad y luego dos veces la condición de homomorfismo
+de módulos tenemos
+</p>
+
+<p>
+\[
+f(am+a'm') = f(am)+f(a'm') = af(m) + a'f(m').
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e04aea" class="outline-4">
+<h4 id="org7e04aea"><span class="section-number-4">3.10.2</span> Si cumple la regla, es homomorfismo de módulos</h4>
+<div class="outline-text-4" id="text-3-10-2">
+<p>
+La linealidad la comprobamos tomando \(a=a'=1\), la unidad del álgebra,
+</p>
+
+<p>
+\[
+f(m+m') = f(1m+1m') = 1f(m) + 1f(m') = f(m) + f(m').
+\]
+</p>
+
+<p>
+Y la condición de homomorfismo de módulos se comprueba tomando \(a' = m'=0\),
+</p>
+
+<p>
+\[
+f(am) = f(am+0) = af(m) + 0f(0) = af(m).
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb18c25" class="outline-3">
+<h3 id="orgeb18c25"><span class="section-number-3">3.11</span> Ejercicio 11</h3>
+<div class="outline-text-3" id="text-3-11">
+<div class="statement">
+<p>
+Demostrar que un conjunto de generadores \(\{m_i \mid i \in I\}\) de un módulo \(_RM\) es una
+base si, y sólo si, la igualdad \(\sum_{i\in I}r_im_i = 0\) para \(r_i \in R\) implica \(r_i = 0\) para
+todo \(i \in I\).
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-org6676948" class="outline-4">
+<h4 id="org6676948"><span class="section-number-4">3.11.1</span> Si es una base, se tiene la condición</h4>
+<div class="outline-text-4" id="text-3-11-1">
+<p>
+Si tenemos una base \(\{m_i \mid i \in I\}\), en particular el \(0\) se escribe de forma 
+única como \(0 = \sum_{i\in I} 0m_i\). Así, cualquier otra forma de escribir \(0 = \sum_{i\in I} r_i m_i\)
+nos da \(r_i = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7f69ecb" class="outline-4">
+<h4 id="org7f69ecb"><span class="section-number-4">3.11.2</span> Si se tiene la condición, es una base</h4>
+<div class="outline-text-4" id="text-3-11-2">
+<p>
+Si tenemos la condición y tenemos dos formas distintas de escribir un
+elemento, tendríamos en particular
+</p>
+
+<p>
+\[
+\sum_{i\in I} r_im_i = m = \sum_{i\in I}s_im_i
+\quad\text{ y }\quad
+\sum_{i \in I} (r_i-s_i)m_i = 0.
+\]
+</p>
+
+<p>
+Lo que nos llevaría a \(r_i = s_i\) para cumplir la condición.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5283810" class="outline-3">
+<h3 id="org5283810"><span class="section-number-3">3.12</span> Ejercicio 12</h3>
+<div class="outline-text-3" id="text-3-12">
+<div class="statement">
+<p>
+Sea \(\theta \in \mathbb{R}\) y \(T_\theta : \mathbb{R}^2\to\mathbb{R}^2\) el endomorfismo que gira los vectores un ángulo \(\theta\)
+en sentido contrario de las agujas del reloj. Consideremos la correspondiente
+estructura de \(\mathbb{R}[X]\) módulo definida por \(T_\theta\) sobre \(\mathbb{R}^2\). Discutir para qué valores
+de \(\theta\) es este módulo simple.
+</p>
+
+</div>
+
+<p>
+Supongamos un \(v \in M\), subespacio vectorial. Como \(Tv \in M\), tenemos dos casos,
+</p>
+
+<ul class="org-ul">
+<li>si \(Tv,v\) son linealmente dependientes, se tiene \(Tv = \lambda v\) y por tanto debe
+tenerse \(\theta = k\pi\) para algún \(k \in \mathbb{Z}\). El módulo no sería simple, ya que se
+tendría \(T^2v = v\).</li>
+<li>si no son linealmente dependientes, se tiene un espacio de dimensión al
+menos \(2\), que debe ser por tanto el total. El módulo sería simple.</li>
+</ul>
+
+<p>
+Es decir, salvo en el caso \(\theta = k\pi\), el módulo es simple.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgafbff40" class="outline-3">
+<h3 id="orgafbff40"><span class="section-number-3">3.13</span> Ejercicio 13</h3>
+<div class="outline-text-3" id="text-3-13">
+<div class="statement">
+<p>
+Sea \(M\) un \(A\text{-módulo}\). Demostrar que \(M\) es simple si, y sólo si, \(M = Am\) para
+todo \(0 \neq m \in M\).
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orgd1103aa" class="outline-4">
+<h4 id="orgd1103aa"><span class="section-number-4">3.13.1</span> Supongamos M simple</h4>
+<div class="outline-text-4" id="text-3-13-1">
+<p>
+Entonces \(Am\) es un submódulo no nulo, que debe ser por tanto \(M\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org041c54f" class="outline-4">
+<h4 id="org041c54f"><span class="section-number-4">3.13.2</span> Supongamos la caracterización</h4>
+<div class="outline-text-4" id="text-3-13-2">
+<p>
+Sea un submódulo de \(M\) que contiene a algún elemento no nulo \(m\). Por
+las propiedades de submódulo, debe contener también a todo \(Am = M\).
+Así, no existen submódulos propios.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7720122" class="outline-3">
+<h3 id="org7720122"><span class="section-number-3">3.14</span> Ejercicio 14 (★)</h3>
+<div class="outline-text-3" id="text-3-14">
+<div class="statement">
+<p>
+Consideramos \(T\colon \mathbb{R}^3 \to \mathbb{R}^3\) una aplicación lineal, y la estructura de \(\mathbb{R}[X]\text{-módulo}\)
+correspondiente sobre \(\mathbb{R}^3\). Discutir los posibles valores de la longitud de
+\(\mathbb{R}^3\) como \(\mathbb{R}[X]\text{-módulo}\). Poner un ejemplo de \(T\) para el que se alcance cada longitud.
+</p>
+
+</div>
+
+<p>
+La longitud debe ser como máximo \(3\), su dimensión como espacio vectorial
+sobre \(\mathbb{R}\). Estudiaremos los casos posibles.
+</p>
+</div>
+
+<div id="outline-container-org342b7d0" class="outline-4">
+<h4 id="org342b7d0"><span class="section-number-4">3.14.1</span> Longitud 1</h4>
+<div class="outline-text-4" id="text-3-14-1">
+<p>
+Probaremos que no puede tenerse una cadena de longitud \(1\); es decir, que
+\(\mathbb{R}^3\) sea simple. Toda aplicación lineal \(T\) nos da una ecuación polinómica
+</p>
+
+<p>
+\[ | T - \lambda I | = 0
+\]
+</p>
+
+<p>
+de grado \(3\) con coeficientes reales, que debe tener al menos una solución
+en los reales. Esto nos da un vector propio y por tanto un subespacio que
+queda fijo por la acción de \(T\); es decir, un submódulo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc1a5054" class="outline-4">
+<h4 id="orgc1a5054"><span class="section-number-4">3.14.2</span> Longitud 2</h4>
+<div class="outline-text-4" id="text-3-14-2">
+<p>
+Tomamos \(T\) la aplicación que gira un plano mientras deja fija la recta
+ortogonal a él; específicamente,
+</p>
+
+<p>
+\[T = \begin{pmatrix}
+0 & 1 & 0 \\
+-1 & 0 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\]
+</p>
+
+<p>
+nos da el subespacio \(\left\langle e_3 \right\rangle\) fijo bajo su acción. Por otro lado, el
+submódulo \(\left\langle e_1,e_2 \right\rangle\) es propio; la rotación no dejará ninguna
+recta fija, no hay vectores propios. Así, tenemos una serie de
+composición
+</p>
+
+<p>
+\[
+0 \subset \left\langle e_1,e_2 \right\rangle \subset \mathbb{R}^3.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org80d3ab1" class="outline-4">
+<h4 id="org80d3ab1"><span class="section-number-4">3.14.3</span> Longitud 3</h4>
+<div class="outline-text-4" id="text-3-14-3">
+<p>
+Simplemente tomando la identidad y retirando a cada paso una dimensión
+del espacio vectorial
+</p>
+
+<p>
+\[
+0 \subset \left\langle e_1 \right\rangle
+\subset \left\langle e_1,e_2 \right\rangle
+\subset \left\langle e_1,e_2,e_3 \right\rangle.
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org188307e" class="outline-3">
+<h3 id="org188307e"><span class="section-number-3">3.15</span> Ejercicio 15</h3>
+<div class="outline-text-3" id="text-3-15">
+<div class="statement">
+<p>
+Sea \(\mathbb{P}_{n}\) el espacio vectorial real de las funciones polinómicas en una variable
+de grado menor o igual que \(n\). Sea \(T\colon \mathbb{P}_n \to \mathbb{P}_n\) la aplicación lineal que asigna
+a cada polinomio su derivada. Calcular una serie de composición de \(\mathbb{P}_n\) visto
+como \(\mathbb{R}[X]\text{-módulo}\) via \(T\).
+</p>
+
+</div>
+
+<p>
+Tenemos una base del espacio vectorial dada por \(\left\{ 1,x,\dots,x^n \right\}\), podemos generar
+una serie de composición donde vemos que cada uno es un submódulo cerrado para
+la derivación y que cada cociente es simple por ser de dimensión \(1\) en los reales
+como
+</p>
+
+<p>
+\[
+0 \subset 
+\left\langle 1 \right\rangle \subset
+\left\langle 1,x \right\rangle \subset 
+\dots \subset
+\left\langle 1,x,\dots,x^n \right\rangle.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1fae4dc" class="outline-3">
+<h3 id="org1fae4dc"><span class="section-number-3">3.16</span> Ejercicio 16 (★★)</h3>
+<div class="outline-text-3" id="text-3-16">
+<div class="statement">
+<p>
+En las condiciones del Ejercicio 15, calcular todos los \(\mathbb{R}[X]\text{-submódulos}\) de \(\mathbb{P}_n\).
+</p>
+
+</div>
+
+<p>
+Probaremos que los únicos submódulos de \(\mathbb{P}_n\) son de la forma \(\left\langle 1,x,x^2,\dots,x^k \right\rangle\).
+Si tomamos un polinomio en un submódulo podemos suponerlo mónico por estar
+en un cuerpo; y como además es de característica \(0\), sus derivadas serán cada
+una de un grado menor. Así, dado \(p = x^k+ \dots +a_1x + a_0 \in \mathbb{P}_n\) tendremos
+</p>
+
+<p>
+\[\begin{aligned}
+p =& x^k+& a_{k-1}x^{k-1} +& \dots &+& a_1x &+& a_0 \\
+\partial p =&  &ka_{k-1}x^{k-1}+& \dots &+& 2a_2x &+ &a_1 \\
+\dots \\
+\partial^n p =&  && && && k! \\
+\end{aligned}\]
+</p>
+
+<p>
+Lo que constituye una base del espacio de polinomios de dimensión \(k\) 
+equivalente a \(\left\langle 1,x,x^2,\dots,x^k \right\rangle\) gracias a que estamos en un cuerpo. Así,
+cada submódulo será el submódulo de los polinomios de grado menor o igual
+a \(k\) para \(k\) el grado de su polinomio de mayor grado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org07785cb" class="outline-3">
+<h3 id="org07785cb"><span class="section-number-3">3.17</span> Ejercicio 17 (★★)</h3>
+<div class="outline-text-3" id="text-3-17">
+<div class="statement">
+<p>
+Supongamos \(T \colon V \to V\) un endomorfismo \(K\text{-lineal}\), donde \(V\) es un espacio vectorial
+de dimensión finita que consideramos, como de costumbre, como \(K[X]\text{-módulo}\).
+Supongamos que el polinomio mínimo \(m(X)\) de \(T\) es irreducible en \(K[X]\) (ver
+Ejemplo 14 para el concepto de polinomio mínimo). Demostrar que existen 
+\(K[X]\text{-submódulos}\) simples \(V_1,\dots,V_t\) de \(V\) tal que \(V = V_1\oplus \dots \oplus V_{t}\) como
+\(K[X]\text{-módulo}\).
+</p>
+
+</div>
+
+<p>
+Como \(m(X)\) es irreducible, el ideal que genera, \((m(X))\), es maximal, y por
+tanto el cociente
+</p>
+
+<p>
+\[
+k \cong \frac{K[X]}{(m(X))}
+\]
+</p>
+
+<p>
+es un cuerpo. Y \(V\) es un \(k\text{-espacio vectorial}\) ya que por el primer teorema de 
+isomorfía tenemos que \(K[X] \to \mathrm{End}_K(V)\) descompone en una proyección y una
+inyección
+</p>
+
+<p>
+\[\begin{tikzcd}
+K[X] \rar[two heads] & 
+\displaystyle\frac{K[X]}{(m(X))} \rar[hook] &
+\mathrm{End}_K(V).
+\end{tikzcd}\]
+</p>
+
+<p>
+Ahora, si \(V\) tiene una base finita como \(K\text{-espacio vectorial}\), sabiendo que \(K \subseteq k\),
+tenemos que \(V\) tiene un sistema de generadores finito como \(k\text{-espacio vectorial}\).
+Por el Corolario 1.45 existe entonces un subconjunto de ese sistema de 
+generadores tal que
+</p>
+
+<p>
+\[
+V = \bigoplus_{j \in J} kv_j = V_1 \oplus \dots \oplus V_t.
+\]
+</p>
+
+<p>
+Nótese que cada uno de ellos es un submódulo simple por ser isomorfos a \(k\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7caf4e9" class="outline-3">
+<h3 id="org7caf4e9"><span class="section-number-3">3.18</span> Ejercicio 18 (★★)</h3>
+<div class="outline-text-3" id="text-3-18">
+<div class="statement">
+<p>
+En las condiciones del Ejercicio 17, demostrar que el polinomio característico
+de \(T\) es \(m(X)^t\).
+</p>
+
+</div>
+
+<p>
+Por Cayley-Hamilton, sabemos que \(T\) cumple su ecuación característica, y por
+tanto, \(m(X)\) divide a su polinomio característico. 
+</p>
+
+<p>
+Por otro lado, supongamos que tenemos un factor irreducible \(p\) del
+polinomio característico; este tendrá alguna raíz \(\lambda\) en la clausura
+algebraica de \(K\). Es decir, tendremos un vector propio con coeficientes
+en \(\overline{K}\) cumpliendo \(Tv = \lambda v\).
+</p>
+
+<p>
+Si aplicamos el polinomio mínimo evaluado en \(T\) a ese vector tendremos
+</p>
+
+<p>
+\[
+0 = m(T)v = m(\lambda)v,
+\]
+</p>
+
+<p>
+así que \(\lambda\) es una raíz de \(m\) en la clausura algebraica. Ahora, como el
+polinomio irreducible de \(\lambda\) en \(K\) sigue siendo \(p\), concluimos que \(p \mid m\).
+</p>
+
+<p>
+En general, hemos demostrado que todo factor irreducible del polinomio
+característico divide al polinomio mínimo. Cuando además el polinomio
+mínimo es irreducible, se tiene que el polinomio característico debe
+ser de la forma \(m(X)^s\).
+</p>
+
+<p>
+Ahora comprobaremos que \(s=t\). En efecto, tenemos que si \(\mathrm{gr}(m) = n\),
+entonces, por construcción, \(\mathrm{dim}_Kk=n\) y por ser \(V_i \cong k\), tenemos
+\(\mathrm{dim}_{K}(V) = tn\); que debe ser el grado del polinomio característico.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcf98fca" class="outline-3">
+<h3 id="orgcf98fca"><span class="section-number-3">3.19</span> Ejercicio 19</h3>
+<div class="outline-text-3" id="text-3-19">
+<div class="statement">
+<p>
+Demostrar que si \(R\) es un dominio de integridad conmutativo, entonces \(R\) no
+tiene idempotentes no triviales.
+</p>
+
+</div>
+
+<p>
+Si \(e^2=e\), entonces \(e(e-1) = 0\); lo que, en un dominio de integridad implica
+que \(e = 0\) ó \(e-1 = 0\).
+</p>
+
+<p>
+Nótese que no hemos usado la conmutatividad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86506e0" class="outline-3">
+<h3 id="org86506e0"><span class="section-number-3">3.20</span> Ejercicio 20</h3>
+<div class="outline-text-3" id="text-3-20">
+<div class="statement">
+<p>
+Dar un CCIO para \(R = M_n(k)\).
+</p>
+
+</div>
+
+<p>
+Sean \(E_{ii}\) las matrices nulas excepto por un \(1\) en la entrada \(i,i\). Se comprueba
+trivialmente que \(E_{ii}E_{jj} = 0\) para cualesquiera \(i \neq j\), y que \(E_{ii}^2 = 1\). Forman
+además un conjunto completo por tenerse:
+</p>
+
+<p>
+\[
+I = E_{11} + E_{22} + \dots + E_{nn}
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgb5a84e1" class="outline-3">
+<h3 id="orgb5a84e1"><span class="section-number-3">3.21</span> <span class="todo TODO">TODO</span> Ejercicio 21</h3>
+<div class="outline-text-3" id="text-3-21">
+<div class="statement">
+<p>
+Comprobar las afirmaciones realizadas en el Ejemplo 17.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgf128477" class="outline-3">
+<h3 id="orgf128477"><span class="section-number-3">3.22</span> Ejercicio 22</h3>
+<div class="outline-text-3" id="text-3-22">
+<div class="statement">
+<p>
+Sea \(\left\{ e_1,\dots,e_n \right\}\) un ccio para \(R\). Demostrar que los idempotentes \(e_1,\dots,e_n\) son
+centrales si, y sólo si, \(e_iRe_j = 0\) para todo \(i \neq j\).
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orga52f0b4" class="outline-4">
+<h4 id="orga52f0b4"><span class="section-number-4">3.22.1</span> Si son centrales, cumplen la condición</h4>
+<div class="outline-text-4" id="text-3-22-1">
+<p>
+Si son centrales, se tiene que, para cualquier \(r \in R\),
+</p>
+
+<p>
+\[
+e_ire_j = re_ie_j = 0
+\]
+</p>
+
+<p>
+por ortogonalidad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgffe08ec" class="outline-4">
+<h4 id="orgffe08ec"><span class="section-number-4">3.22.2</span> Si cumplen la condición, son centrales</h4>
+<div class="outline-text-4" id="text-3-22-2">
+<p>
+Sabiendo que cumplen que \(e_ire_j = 0\) para cualquier \(r \in R\), tenemos
+</p>
+
+<p>
+\[
+e_ir = e_ir\left(\sum_j e_j\right) = \sum_j e_ire_j = e_ire_i = \sum_j e_jre_i = re_i
+\]
+</p>
+
+<p>
+por ser completos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb07cdf8" class="outline-3">
+<h3 id="orgb07cdf8"><span class="section-number-3">3.23</span> Ejercicio 23 (★)</h3>
+<div class="outline-text-3" id="text-3-23">
+<div class="statement">
+<p>
+Sean \(M\) y \(N\) módulos semisimples con descomposiciones como sumas directas
+de submódulos simples \(M = S_1 \oplus \dots \oplus S_t\) y \(N = T_1\oplus \dots \oplus T_s\). Supongamos que
+\(S_i\) no es isomorfo a \(T_j\) para todo \(i = 1,\dots,t\), \(j = 1,\dots,s\). Demostrar que
+todo homomorfismo de módulos de \(M\) a \(N\) es cero.
+</p>
+
+</div>
+
+<p>
+Desde el ejemplo 17, sabemos que, en los endomorfismos de un módulo suma
+directa, la composición de inclusión y proyección en las distintas componentes
+nos da un ccio. Vamos a llamar \(q_i \colon M \to M\) al endomorfismo que proyecta e
+incluye en la componente \(i\text{-ésima}\); y vamos a llamar \(p_j \colon N\to N\) al que hace
+lo mismo en la componente \(j\text{-ésima}\) de \(N\). Sabemos que
+</p>
+
+<p>
+\[
+q_1 + \dots + q_t = \mathrm{id}
+\quad\text{ y que }\quad
+p_1 + \dots + p_s = \mathrm{id}.
+\]
+</p>
+
+<p>
+Ahora, calculamos que
+</p>
+
+<p>
+\[\begin{aligned}
+f &= (q_1+\dots+q_t) \circ f \circ (p_1+\dots+p_s) \\
+  &= \sum_{i=1}^t\sum_{j=1}^s q_i\circ f\circ p_j = 0,
+\end{aligned}\]
+</p>
+
+<p>
+ya que \(q_i\circ f\circ p_j\colon S_i\to T_i\) debe ser nulo o isomorfismo por el Lema de Schur
+y hemos supuesto que no es isomorfismo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac1018e" class="outline-3">
+<h3 id="orgac1018e"><span class="section-number-3">3.24</span> <span class="todo TODO">TODO</span> Ejercicio 24</h3>
+<div class="outline-text-3" id="text-3-24">
+<div class="statement">
+<p>
+Sea \(M\) un módulo semisimple de dimensión finita con estructura
+\(\left( n_1,\Sigma_1 \right),\dots,(n_t,\Sigma_t)\). Si \(N\) es un submódulo de \(M\), demostrar que su estructura
+es \(\left( m_1,\Sigma_1 \right),\dots,(m_t,\Sigma_t)\) para ciertos \(m_j \leq n_j\) (admitimos que \(m_j=0\) significa
+que \(\Sigma_j\) no aparece en la estructura de \(M\)).
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgf2996d2" class="outline-3">
+<h3 id="orgf2996d2"><span class="section-number-3">3.25</span> <span class="todo TODO">TODO</span> Ejercicio 25</h3>
+<div class="outline-text-3" id="text-3-25">
+<div class="statement">
+<p>
+Establecer un enunciado análogo al del Ejercicio 24 para cada cociente de \(M\).
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org5bfbdaa" class="outline-3">
+<h3 id="org5bfbdaa"><span class="section-number-3">3.26</span> <span class="todo TODO">TODO</span> Ejercicio 26</h3>
+<div class="outline-text-3" id="text-3-26">
+<div class="statement">
+<p>
+Dada una \(K\text{-álgebra}\) \(A\), demostrar que la aplicación \(\rho\colon A \to \mathrm{End}(A)^{op}\) definida
+por \(\rho(a)(a') = a'a\) es un isomorfismo de \(K\text{-álgebras}\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga1c19e6" class="outline-3">
+<h3 id="orga1c19e6"><span class="section-number-3">3.27</span> <span class="todo TODO">TODO</span> Ejercicio 27 (★)</h3>
+<div class="outline-text-3" id="text-3-27">
+<div class="statement">
+<p>
+Sea \(B\) un álgebra. Demostrar que la aplicación que asigna a cada matriz
+su traspuesta da un isomorfismo de álgebras \(M_n(B)^{op} \cong M_n(B^{op})\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge744565" class="outline-3">
+<h3 id="orge744565"><span class="section-number-3">3.28</span> <span class="todo TODO">TODO</span> Ejercicio 28</h3>
+<div class="outline-text-3" id="text-3-28">
+<div class="statement">
+<p>
+Sea \(\varphi\colon R \to S\) un isomorfismo de \(K\text{-álgebras}\), e \(I,J\) ideales por la izquierda
+de \(R\). Demostrar que \(\varphi(I),\varphi(J)\) son ideales por la izquierda de \(S\) y que dado
+cualquier homomorfismo de \(R\text{-módulos}\) \(f \colon I \to J\), la aplicación \(\widehat f\colon \varphi(I) \to \varphi(J)\)
+definida por \(\widehat f(y) = \varphi f \varphi^{-1}(y)\) para \(y \in \varphi(I)\) es un homomorfismo de \(S\text{-módulos}\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb6495df" class="outline-3">
+<h3 id="orgb6495df"><span class="section-number-3">3.29</span> <span class="todo TODO">TODO</span> Ejercicio 29</h3>
+<div class="outline-text-3" id="text-3-29">
+<div class="statement">
+<p>
+Sean \(R_1,\dots,R_n\) \(K\text{-álgebras}\) y \(R = R_1\times \dots \times R_n\). Los ideales por la izquierda
+de \(R\) son de la forma \(I_1\times \dots\times I_n\), con \(I_i\) ideal por la izquierda de \(R_i\) para
+\(i = 1,\dots,n\). Análoga descripción tienen los ideales biláteros de \(R\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org223009b" class="outline-3">
+<h3 id="org223009b"><span class="section-number-3">3.30</span> <span class="todo TODO">TODO</span> Ejercicio 30 (★)</h3>
+<div class="outline-text-3" id="text-3-30">
+<div class="statement">
+<p>
+Sea \(A\) un álgebra simple finito-dimensional. Demostrar que \(R = \mathrm{M}(A)\) es un
+álgebra simple de dimensión finita. Demostrar que asimismo que si \(\Sigma\) es un
+\(A\text{-módulo}\) simple y \(M\) es un \(R\text{-módulo}\) simple, entonces \(\mathrm{End}(\Sigma)\) y \(\mathrm{End}(M)\)
+son álgebras isomorfas.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2017-04-12 Wed 14:02</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
