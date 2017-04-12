@@ -5621,20 +5621,59 @@ RX \supseteq Rm_1 + \dots + Rm_n.
 Pero además, una suma de módulos es un submódulo, así que este es el menor
 submódulo que contiene a $X$.
 
-*** TODO Ejercicio 10
+*** Ejercicio 10
 #+begin_statement
 Dados $A\text{-módulos}$ por la izquierda $M,N$ y una aplicación $f\colon M \to N$,
 demostrar que $f$ es homomorfismo de $A\text{-módulos}$ si, y sólo si,
 $f(am+a'm') = af(m) + a'f(m')$ para todo $a,a'\in A;\; m,m'\in M$.
 #+end_statement
-*** TODO Ejercicio 11
+
+**** Si es homomorfismo de módulos cumple la regla
+Aplicando primero linealidad y luego dos veces la condición de homomorfismo
+de módulos tenemos
+
+\[
+f(am+a'm') = f(am)+f(a'm') = af(m) + a'f(m').
+\]
+
+**** Si cumple la regla, es homomorfismo de módulos
+La linealidad la comprobamos tomando $a=a'=1$, la unidad del álgebra,
+
+\[
+f(m+m') = f(1m+1m') = 1f(m) + 1f(m') = f(m) + f(m').
+\]
+
+Y la condición de homomorfismo de módulos se comprueba tomando $a' = m'=0$,
+
+\[
+f(am) = f(am+0) = af(m) + 0f(0) = af(m).
+\]
+
+*** Ejercicio 11
 #+begin_statement
 Demostrar que un conjunto de generadores $\{m_i \mid i \in I\}$ de un módulo $_RM$ es una
 base si, y sólo si, la igualdad $\sum_{i\in I}r_im_i = 0$ para $r_i \in R$ implica $r_i = 0$ para
 todo $i \in I$.
 #+end_statement
 
-*** TODO Ejercicio 12
+**** Si es una base, se tiene la condición
+Si tenemos una base $\{m_i \mid i \in I\}$, en particular el $0$ se escribe de forma 
+única como $0 = \sum_{i\in I} 0m_i$. Así, cualquier otra forma de escribir $0 = \sum_{i\in I} r_i m_i$
+nos da $r_i = 0$.
+
+**** Si se tiene la condición, es una base
+Si tenemos la condición y tenemos dos formas distintas de escribir un
+elemento, tendríamos en particular
+
+\[
+\sum_{i\in I} r_im_i = m = \sum_{i\in I}s_im_i
+\quad\text{ y }\quad
+\sum_{i \in I} (r_i-s_i)m_i = 0.
+\]
+
+Lo que nos llevaría a $r_i = s_i$ para cumplir la condición.
+
+*** Ejercicio 12
 #+begin_statement
 Sea $\theta \in \mathbb{R}$ y $T_\theta : \mathbb{R}^2\to\mathbb{R}^2$ el endomorfismo que gira los vectores un ángulo $\theta$
 en sentido contrario de las agujas del reloj. Consideremos la correspondiente
@@ -5642,11 +5681,30 @@ estructura de $\mathbb{R}[X]$ módulo definida por $T_\theta$ sobre $\mathbb{R}^
 de $\theta$ es este módulo simple.
 #+end_statement
 
-*** TODO Ejercicio 13
+Supongamos un $v \in M$, subespacio vectorial. Como $Tv \in M$, tenemos dos casos,
+
+  * si $Tv,v$ son linealmente dependientes, se tiene $Tv = \lambda v$ y por tanto debe
+    tenerse $\theta = k\pi$ para algún $k \in \mathbb{Z}$. El módulo no sería simple, ya que se
+    tendría $T^2v = v$.
+  * si no son linealmente dependientes, se tiene un espacio de dimensión al
+    menos $2$, que debe ser por tanto el total. El módulo sería simple.
+
+Es decir, salvo en el caso $\theta = k\pi$, el módulo es simple.
+
+*** Ejercicio 13
 #+begin_statement
-Sea $M$ un $A$ módulo. Demostrar que $M$ es simple si, y sólo si, $M = Am$ para
+Sea $M$ un $A\text{-módulo}$. Demostrar que $M$ es simple si, y sólo si, $M = Am$ para
 todo $0 \neq m \in M$.
 #+end_statement
+
+**** Supongamos M simple
+Entonces $Am$ es un submódulo no nulo, que debe ser por tanto $M$.
+
+**** Supongamos la caracterización
+Sea un submódulo de $M$ que contiene a algún elemento no nulo $m$. Por
+las propiedades de submódulo, debe contener también a todo $Am = M$.
+Así, no existen submódulos propios.
+
 *** Ejercicio 14 (★)
 #+begin_statement
 Consideramos $T\colon \mathbb{R}^3 \to \mathbb{R}^3$ una aplicación lineal, y la estructura de $\mathbb{R}[X]\text{-módulo}$
@@ -5741,7 +5799,7 @@ equivalente a $\left\langle 1,x,x^2,\dots,x^k \right\rangle$ gracias a que estam
 cada submódulo será el submódulo de los polinomios de grado menor o igual
 a $k$ para $k$ el grado de su polinomio de mayor grado.
 
-*** TODO Ejercicio 17 (★★)
+*** Ejercicio 17 (★★)
 #+begin_statement
 Supongamos $T \colon V \to V$ un endomorfismo $K\text{-lineal}$, donde $V$ es un espacio vectorial
 de dimensión finita que consideramos, como de costumbre, como $K[X]\text{-módulo}$.
@@ -5751,14 +5809,65 @@ $K[X]\text{-submódulos}$ simples $V_1,\dots,V_t$ de $V$ tal que $V = V_1\oplus 
 $K[X]\text{-módulo}$.
 #+end_statement
 
-# Es un espacio vectorial sobre un cociente de K[X], quizá
-# eso se pueda usar.
+Como $m(X)$ es irreducible, el ideal que genera, $(m(X))$, es maximal, y por
+tanto el cociente
 
-*** TODO Ejercicio 18 (★★)
+\[
+k \cong \frac{K[X]}{(m(X))}
+\]
+
+es un cuerpo. Y $V$ es un $k\text{-espacio vectorial}$ ya que por el primer teorema de 
+isomorfía tenemos que $K[X] \to \mathrm{End}_K(V)$ descompone en una proyección y una
+inyección
+
+\[\begin{tikzcd}
+K[X] \rar[two heads] & 
+\displaystyle\frac{K[X]}{(m(X))} \rar[hook] &
+\mathrm{End}_K(V).
+\end{tikzcd}\]
+
+Ahora, si $V$ tiene una base finita como $K\text{-espacio vectorial}$, sabiendo que $K \subseteq k$,
+tenemos que $V$ tiene un sistema de generadores finito como $k\text{-espacio vectorial}$.
+Por el Corolario 1.45 existe entonces un subconjunto de ese sistema de 
+generadores tal que
+
+\[
+V = \bigoplus_{j \in J} kv_j = V_1 \oplus \dots \oplus V_t.
+\]
+
+Nótese que cada uno de ellos es un submódulo simple por ser isomorfos a $k$.
+
+*** Ejercicio 18 (★★)
 #+begin_statement
 En las condiciones del Ejercicio 17, demostrar que el polinomio característico
 de $T$ es $m(X)^t$.
 #+end_statement
+
+Por Cayley-Hamilton, sabemos que $T$ cumple su ecuación característica, y por
+tanto, $m(X)$ divide a su polinomio característico. 
+
+Por otro lado, supongamos que tenemos un factor irreducible $p$ del
+polinomio característico; este tendrá alguna raíz $\lambda$ en la clausura
+algebraica de $K$. Es decir, tendremos un vector propio con coeficientes
+en $\overline{K}$ cumpliendo $Tv = \lambda v$.
+
+Si aplicamos el polinomio mínimo evaluado en $T$ a ese vector tendremos
+
+\[
+0 = m(T)v = m(\lambda)v,
+\]
+
+así que $\lambda$ es una raíz de $m$ en la clausura algebraica. Ahora, como el
+polinomio irreducible de $\lambda$ en $K$ sigue siendo $p$, concluimos que $p \mid m$.
+
+En general, hemos demostrado que todo factor irreducible del polinomio
+característico divide al polinomio mínimo. Cuando además el polinomio
+mínimo es irreducible, se tiene que el polinomio característico debe
+ser de la forma $m(X)^s$.
+
+Ahora comprobaremos que $s=t$. En efecto, tenemos que si $\mathrm{gr}(m) = n$,
+entonces, por construcción, $\mathrm{dim}_Kk=n$ y por ser $V_i \cong k$, tenemos
+$\mathrm{dim}_{K}(V) = tn$; que debe ser el grado del polinomio característico.
 
 *** Ejercicio 19
 #+begin_statement
