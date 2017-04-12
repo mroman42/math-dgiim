@@ -5896,19 +5896,59 @@ I = E_{11} + E_{22} + \dots + E_{nn}
 #+begin_statement
 Comprobar las afirmaciones realizadas en el Ejemplo 17.
 #+end_statement
-*** TODO Ejercicio 22
+*** Ejercicio 22
 #+begin_statement
 Sea $\left\{ e_1,\dots,e_n \right\}$ un ccio para $R$. Demostrar que los idempotentes $e_1,\dots,e_n$ son
 centrales si, y sólo si, $e_iRe_j = 0$ para todo $i \neq j$.
 #+end_statement
 
-*** TODO Ejercicio 23 (★)
+**** Si son centrales, cumplen la condición
+Si son centrales, se tiene que, para cualquier $r \in R$,
+
+\[
+e_ire_j = re_ie_j = 0
+\]
+
+por ortogonalidad.
+
+**** Si cumplen la condición, son centrales
+Sabiendo que cumplen que $e_ire_j = 0$ para cualquier $r \in R$, tenemos
+
+\[
+e_ir = e_ir\left(\sum_j e_j\right) = \sum_j e_ire_j = e_ire_i = \sum_j e_jre_i = re_i
+\]
+
+por ser completos.
+
+*** Ejercicio 23 (★)
 #+begin_statement
 Sean $M$ y $N$ módulos semisimples con descomposiciones como sumas directas
 de submódulos simples $M = S_1 \oplus \dots \oplus S_t$ y $N = T_1\oplus \dots \oplus T_s$. Supongamos que
 $S_i$ no es isomorfo a $T_j$ para todo $i = 1,\dots,t$, $j = 1,\dots,s$. Demostrar que
 todo homomorfismo de módulos de $M$ a $N$ es cero.
 #+end_statement
+
+Desde el ejemplo 17, sabemos que, en los endomorfismos de un módulo suma
+directa, la composición de inclusión y proyección en las distintas componentes
+nos da un ccio. Vamos a llamar $q_i \colon M \to M$ al endomorfismo que proyecta e
+incluye en la componente $i\text{-ésima}$; y vamos a llamar $p_j \colon N\to N$ al que hace
+lo mismo en la componente $j\text{-ésima}$ de $N$. Sabemos que
+
+\[
+q_1 + \dots + q_t = \mathrm{id}
+\quad\text{ y que }\quad
+p_1 + \dots + p_s = \mathrm{id}.
+\]
+
+Ahora, calculamos que
+
+\[\begin{aligned}
+f &= (q_1+\dots+q_t) \circ f \circ (p_1+\dots+p_s) \\
+  &= \sum_{i=1}^t\sum_{j=1}^s q_i\circ f\circ p_j = 0,
+\end{aligned}\]
+
+ya que $q_i\circ f\circ p_j\colon S_i\to T_i$ debe ser nulo o isomorfismo por el Lema de Schur
+y hemos supuesto que no es isomorfismo.
 
 *** TODO Ejercicio 24
 #+begin_statement
