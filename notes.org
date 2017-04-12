@@ -4401,7 +4401,48 @@ producto cartesiano con las operaciones
 Todo endomorfismo de un espacio vectorial de dimensión finita satisface
 su ecuación característica.
 
-***** TODO Demostración
+***** Demostración
+Sea $T$ un endomorfismo en un espacio $V$ con base $\{v_1,\dots,v_n\}$, definido por
+la matriz siguiente
+
+\[C =\begin{pmatrix}
+a_{11} & a_{12} & \dots \\
+a_{21} & a_{22} & \dots \\
+\vdots & \vdots & \ddots \\
+\end{pmatrix}.
+\]
+
+Si consideramos la matriz $\Delta = (TI_n - C)^t$ en $K[X]$, tenemos que
+
+\[\Delta\begin{pmatrix}
+v_1 \\ v_2 \\ \vdots \\ v_n
+\end{pmatrix} = \begin{pmatrix}
+Tv_1 - \sum_{j=1}^n a_{j1}v_j \\
+Tv_2 - \sum_{j=1}^n a_{j2}v_j \\
+\vdots \\
+Tv_n - \sum_{j=1}^n a_{jn}v_j  
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 0 \\ \vdots \\ 0
+\end{pmatrix}.
+\]
+
+Multiplicando ahora por su matriz adjunta, se tiene que
+
+\[
+\widetilde \Delta\Delta\begin{pmatrix}
+v_1 \\ v_2 \\ \vdots \\ v_n
+\end{pmatrix} = \begin{pmatrix}
+\mathrm{det}(\Delta)v_1 \\ \mathrm{det}(\Delta)v_2 \\ \vdots \\ \mathrm{det}(\Delta)v_n
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 0 \\ \vdots \\ 0
+\end{pmatrix}.
+\]
+
+Luego, por ser una base, $\mathrm{det}(\Delta)v = 0$ para cualquier $v \in V$. Tenemos
+entonces que $T$ satisface la ecuación polinómica
+
+\[ \mathrm{det}(TI_n - C) = \mathrm{det}(\Delta^t) = \mathrm{det}(\Delta) = 0.
+\]
 
 **** Submódulo finitamente generado
 Un $A\text{-módulo}$ $M$ es *finitamente generado* si existe $X \subseteq M$ subconjunto
@@ -4698,8 +4739,8 @@ Entonces, $\{N_i \mid i \in I\} \cup \{N\}$ es independiente.
 Si $n + \sum n_i = 0$, tenemos $n \in \bigoplus N_i \cap N$ y, por tanto, $n = 0$. Por 
 independencia de la familia $\sum n_i = 0$, se llega a $n_i = 0$.
 
-**** Existencia de base en suma de simples
-Sea $N \subsetneq \sum_{i\in I} M_i$ suma de submódulos simples. Existe $\{M_i \mid i \in J \subseteq I\} \cup \{N\}$ 
+**** Suma directa en suma de simples
+Sea $N \subset \sum_{i\in I} M_i$ suma de submódulos simples. Existe $\{M_i \mid i \in J \subseteq I\} \cup \{N\}$ 
 independiente con:
 
 \[
@@ -4727,7 +4768,7 @@ Todo espacio vectorial finitamente generado sobre $D$ tiene una base.
 
 ***** Demostración
 Un anillo de división es simple. Como $Dv_j \cong D$, tenemos que es un 
-espacio suma de simples, luego [[*Existencia de base en suma de simples][existe un conjunto]] de independientes que
+espacio suma de simples, luego [[*Suma directa en suma de simples][existe un conjunto]] de independientes que
 genera el espacio.
 
 *** 1.6. Independencia en familias infinitas
@@ -5228,6 +5269,19 @@ independientes, el espacio $\langle Tv,v \rangle$ será $\mathbb{R}^2$ y no podr
 propio. En otro caso, $\langle v \rangle$ será un módulo propio.
 
 Para tener $Tv,v$ independientes, es necesario tener un giro múltiplo de $\pi$.
+
+*** TODO Ejercicio 11 (★★)
+#+begin_statement
+Calcular todos los $\mathbb{R}[X]\text{-módulos}$ de $\mathbb{P}_n$ para la acción de derivación.
+#+end_statement
+
+*** Ejercicio 12?
+#+begin_statement
+Sean $M = S_1\oplus \dots \oplus S_t$, $N = T_1\oplus \dots \oplus T_n$ con $S_i,T_i$ simples y cumpliendo
+$S_i \not\cong T_j$. Probar que todo homomorfismo de módulos $f \colon M \to N$ es $0$.
+#+end_statement
+
+Similar al [[*Ejercicio 23 (★)][ejercicio 23]].
 
 ** Ejercicios de los apuntes
 *** Ejercicio 1 (★)
