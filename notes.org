@@ -5742,7 +5742,7 @@ Sea un submódulo de $M$ que contiene a algún elemento no nulo $m$. Por
 las propiedades de submódulo, debe contener también a todo $Am = M$.
 Así, no existen submódulos propios.
 
-*** Ejercicio 14 (★)
+*** Ejercicio 14 (*)
 #+begin_statement
 Consideramos $T\colon \mathbb{R}^3 \to \mathbb{R}^3$ una aplicación lineal, y la estructura de $\mathbb{R}[X]\text{-módulo}$
 correspondiente sobre $\mathbb{R}^3$. Discutir los posibles valores de la longitud de
@@ -5752,7 +5752,7 @@ $\mathbb{R}^3$ como $\mathbb{R}[X]\text{-módulo}$. Poner un ejemplo de $T$ para
 La longitud debe ser como máximo $3$, su dimensión como espacio vectorial
 sobre $\mathbb{R}$. Estudiaremos los casos posibles.
 
-**** Longitud 1
+*Longitud 1.*
 Probaremos que no puede tenerse una cadena de longitud $1$; es decir, que
 $\mathbb{R}^3$ sea simple. Toda aplicación lineal $T$ nos da una ecuación polinómica
 
@@ -5763,7 +5763,7 @@ de grado $3$ con coeficientes reales, que debe tener al menos una solución
 en los reales. Esto nos da un vector propio y por tanto un subespacio que
 queda fijo por la acción de $T$; es decir, un submódulo.
 
-**** Longitud 2
+*Longitud 2.*
 Tomamos $T$ la aplicación que gira un plano mientras deja fija la recta
 ortogonal a él; específicamente,
 
@@ -5783,7 +5783,7 @@ composición
 0 \subset \left\langle e_1,e_2 \right\rangle \subset \mathbb{R}^3.
 \]
 
-**** Longitud 3
+*Longitud 3.*
 Simplemente tomando la identidad y retirando a cada paso una dimensión
 del espacio vectorial
 
@@ -5814,7 +5814,7 @@ como
 \left\langle 1,x,\dots,x^n \right\rangle.
 \]
 
-*** Ejercicio 16 (★★)
+*** Ejercicio 16 (**)
 #+begin_statement
 En las condiciones del Ejercicio 15, calcular todos los $\mathbb{R}[X]\text{-submódulos}$ de $\mathbb{P}_n$.
 #+end_statement
@@ -5836,7 +5836,7 @@ equivalente a $\left\langle 1,x,x^2,\dots,x^k \right\rangle$ gracias a que estam
 cada submódulo será el submódulo de los polinomios de grado menor o igual
 a $k$ para $k$ el grado de su polinomio de mayor grado.
 
-*** Ejercicio 17 (★★)
+*** Ejercicio 17 (**)
 #+begin_statement
 Supongamos $T \colon V \to V$ un endomorfismo $K\text{-lineal}$, donde $V$ es un espacio vectorial
 de dimensión finita que consideramos, como de costumbre, como $K[X]\text{-módulo}$.
@@ -5874,7 +5874,7 @@ V = \bigoplus_{j \in J} kv_j = V_1 \oplus \dots \oplus V_t.
 
 Nótese que cada uno de ellos es un submódulo simple por ser isomorfos a $k$.
 
-*** Ejercicio 18 (★★)
+*** Ejercicio 18 (**)
 #+begin_statement
 En las condiciones del Ejercicio 17, demostrar que el polinomio característico
 de $T$ es $m(X)^t$.
@@ -5958,7 +5958,7 @@ e_ir = e_ir\left(\sum_j e_j\right) = \sum_j e_ire_j = e_ire_i = \sum_j e_jre_i =
 
 por ser completos.
 
-*** Ejercicio 23 (★)
+*** Ejercicio 23 (*)
 #+begin_statement
 Sean $M$ y $N$ módulos semisimples con descomposiciones como sumas directas
 de submódulos simples $M = S_1 \oplus \dots \oplus S_t$ y $N = T_1\oplus \dots \oplus T_s$. Supongamos que
