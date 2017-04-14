@@ -7740,6 +7740,104 @@ El así definido es el módulo libre sobre $A$. Es decir, $F^R(A) \cong R^{\oplu
 #+begin_proof
 #+end_proof
 
+**** Independencia lineal y bases
+#+begin_definition
+Decimos que un conjunto indexado $i \colon I \to M$ es *linealmente independiente*
+(respectivamente *sistema generador*) si el homomorfismo natural desde su
+módulo libre, $\varphi\colon F^{R}(I) \to M$, haciendo conmutar
+
+\[\begin{tikzcd}
+F^{R}(I) \rar{\varphi} & M \\
+I \uar{j}\urar[swap]{i} &
+\end{tikzcd}\]
+
+es inyectivo (respectivamente sobreyectivo). cite:aluffi09_linear
+#+end_definition
+
+#+begin_definition
+Un conjunto indexado $I \to M$ es una base cuando es linealmente
+independiente y genera $M$.
+#+end_definition
+
+#+begin_lemma
+Un conjunto indexado $B \to M$ es una base si y sólo si el homomorfismo
+natural desde su módulo libre es un isomorfismo $R^{\oplus B} \cong M$. Así, un
+$R\text{-módulo}$ es libre si y sólo si admite una base.
+#+end_lemma
+
+#+begin_proof
+Trivial si combinamos las definiciones de linealmente independiente y
+sistema generador.
+#+end_proof
+
+**** TODO Caso de los espacios vectoriales
+**** Clasificación de módulos libres en dominios de integridad
+#+begin_theorem
+Sea $M$ un $R\text{-módulo}$ libre para $R$ dominio de integridad con
+$B$ un conjunto linealmente independiente maximal. Para cualquier $S$
+linealmente independiente,
+
+\[ \# S \leq \# B.
+\]
+
+En particular, cualesquiera dos conjuntos linealmente independientes
+maximales tienen la misma cardinalidad.
+#+end_theorem
+
+# Completar la parte de cuerpos de fracciones.
+#+begin_proof
+Empezamos tomando cuerpos de fracciones y pasamos a considrear el caso
+de $R$ un cuerpo y $M$ un espacio vectorial.
+
+Comprobaremos que podemos ir reemplazando elementos de $B$ por
+elementos de $S$ sucesivamente para ir creando sucesivos $B'$ y
+seguir manteniendo independencia lineal y la maximalidad. Si tomamos
+$B' \cup \{v\}$ para algún $v \in S$, por maximalidad tenemos una
+dependencia lineal
+
+\[
+c_0v + c_1b_1 + \dots + c_tb_t = 0
+\]
+
+con $c_0 \neq 0$ para no contravenir la independencia de $B$; además, no sólo
+pueden existir elementos no nulos de $S$, porque contravendría su independencia.
+Debe existir un $c_1 \neq 0$ con $b_1 \in B' \setminus S$ y podemos intercambiar $b_1$ por $v$
+teniendo de nuevo un conjunto linealmente independiente maximal, ya que
+
+\[
+v = -c_0^{-1}c_1b_1 - \dots - c_0^{-1}c_tb_t.
+\]
+
+Si aplicamos inducción transfinita bajo una buena ordenación de $S$, podemos
+asegurar que se llega a un conjunto de cardinalidad $\#B$ que contiene a
+los elementos de $S$.
+#+end_proof
+
+#+begin_corollary
+Para $R$ un dominio de integridad y dos conjuntos $A,B$,
+
+\[
+F^R(A) \cong F^R(B) \iff A \cong B.
+\]
+#+end_corollary
+
+#+begin_corollary
+Para $R$ un dominio de integridad se satisface la propiedad IBN
+
+\[
+R^m \cong R^n \iff m = n.
+\]
+#+end_corollary
+
+**** Clasificación de módulos libres en dominios de ideales principales
+#+begin_proposition
+Sea $R$ un dominio de ideales principales y $F$ un módulo libre sobre él.
+Todo submódulo $M \subset F$ será libre.
+#+end_proposition
+
+#+begin_proof
+#+end_proof
+
 **** Referencias
 bibliographystyle:unsrt
 bibliography:math.bib
