@@ -3,9 +3,8 @@
 #+EMAIL: mromang08@gmail.com
 
 #+OPTIONS: broken-links:mark
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil num:nil
 #+LANGUAGE: es
-#+STARTUP: indent
 #+SETUPFILE: essay.setup
 #+SETUPFILE: math.setup
 #+SETUPFILE: html.setup
@@ -4583,6 +4582,10 @@ dos series de composición:
 
 Entonces $n=m$ y existe una permutación con $M_i/M_{i-1} \cong N_{\sigma(i)}/N_{\sigma(i)-1}$.
 
+***** Factores de composición
+Los módulos $M_i/M_{i-1}$ se llaman *factores de composición* de $M$ y están
+únicamente determinados salvo isomorfismo y reordenación.
+
 ***** Demostración
 Usaremos inducción sobre $n$. En el caso $n=1$, $M$ es simple y no tiene
 submódulos propios, luego todas sus series de composición son la misma.
@@ -4619,10 +4622,6 @@ L_i/L_{i-1} \cong N_{\sigma i}/M_{\sigma i - 1}.
 \]
 
 Combinándolas tenemos lo pedido.
-
-**** Factores de composición
-Los módulos $M_i/M_{i-1}$ se llaman *factores de composición* de $M$ y están
-únicamente determinados salvo isomorfismo y reordenación.
 
 **** Longitud de un módulo
 El número de factores de composición es la *longitud* del módulo $\ell(M)$.
