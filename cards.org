@@ -421,9 +421,9 @@ es ideal. Además, tenemos un isomorfismo de K-álgebras canónico:
 
 dado por $\widehat f(a+\ker f) = f(a)$.
 
-*** Clasificación de unidades y divisores de cero en dimensión finita :drill:
-Enunciar el teorema de clasificación en unidades y divisores de
-cero en un álgebra de dimensión finita.
+*** Clasificación de unidades y divisores de cero en dim finita     :drill:
+Clasificar en unidades y divisores de cero los elementos de un álgebra
+de dimensión *finita*.
 
 **** Teorema de clasificación
 Sea $a \in A$ no nulo para $A$ k-álgebra de /dimensión finita/:
@@ -441,3 +441,24 @@ Sea $a \in A$ no nulo para $A$ k-álgebra de /dimensión finita/:
    - $\exists c \in A : ca = 0$
 
 Es decir, todo elemento no nulo es una unidad o un divisor de cero.
+*** Teorema de Jordan-Hölder                                        :drill:
+
+Enunciar el Teorema de Jordan-Hölder sobre series de composición.
+
+**** Enunciado
+Sea $M$ un $A$ módulo de /dimensión finita/ como $K$ espacio vectorial con
+dos series de composición:
+
+\[0 = M_0 \subset M_1 \subset\dots\subset M_n = M\]
+\[0 = N_0 \subset N_1 \subset\dots\subset N_m = M\]
+
+Entonces $n=m$ y existe una permutación con $M_i/M_{i-1} \cong N_{\sigma(i)}/N_{\sigma(i)-1}$.
+
+*** Teorema de Frobenius                                            :drill:
+
+Enunciar el Teorema de Frobenius de clasficiación de álgebras de
+división.
+
+**** Enunciado
+Sea $D$ álgebra de división real de dimensión finita. Entonces $D$ es
+isomorfa a $\mathbb{R}$, $\mathbb{C}$, o $\mathbb{H}$.
