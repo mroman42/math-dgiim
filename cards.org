@@ -41,17 +41,17 @@ Espacios completos
 Toda *sucesión de Cauchy* converge en él.
 
 *** Sucesión de Cauchy                                              :drill:
-SCHEDULED: <2016-10-18 Tue>
+SCHEDULED: <2017-04-24 Mon>
 :PROPERTIES:
 :ID:       84ed9a91-c566-4315-92dd-134dcec0d8c8
-:DRILL_LAST_INTERVAL: 3.86
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.1096
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2016-10-14 Fri 19:34]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2017-04-15 Sat 18:53]
 :END:
 
 Definición de sucesión de Cauchy
@@ -66,19 +66,20 @@ menor.
 Toda sucesión convergente es de Cauchy.
 
 *** Criterio de D'Alembert                                          :drill:
+SCHEDULED: <2017-04-19 Wed>
 :PROPERTIES:
 :ID:       74d86f1a-d9c7-43f8-8ec3-7ee8f4e524a3
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 0
-:DRILL_LAST_REVIEWED: [2017-04-08 Sat 19:50]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2017-04-15 Sat 18:52]
 :END:
     
-Enunciado
+Enunciado del criterio de D'Alembert.
 
 **** Enunciado del criterio de D'Alembert
 Para $\sum^\infty_{k=1} a_k$ serie con $a_k > 0$, sea:
@@ -87,9 +88,10 @@ Para $\sum^\infty_{k=1} a_k$ serie con $a_k > 0$, sea:
 
 Entonces:
 
-- Si $L<1$, la serie converge
-- Si $L>1$, la serie no converge
-- Si $L=1$, no se afirma nada
+- si $L<1$, la serie converge.
+- si $L>1$, la serie no converge.
+- si $L=1$, no se afirma nada.
+
 *** Criterio de Leibniz                                             :drill:
     SCHEDULED: <2016-10-18 Tue>
     :PROPERTIES:
@@ -103,22 +105,23 @@ Entonces:
     :DRILL_LAST_QUALITY: 5
     :DRILL_LAST_REVIEWED: [2016-10-14 Fri 20:06]
     :END:
-Enunciado
 
-**** Answer
+Enunciado del Criterio de Leibniz.
 
+**** Respuesta
 Una serie alternada,
 
 \[\sum_{n=1}^\infty (-1)^na_n\]
 
 Converge cuando la sucesión $a_n$ es:
- - monótona decreciente y
- - convergente a $0$
 
-**** Note
+ - monótona decreciente y
+ - convergente a $0$.
+
+**** Ejemplo de uso
 Así se prueba convergencia de la serie armónica alternada:
 
-\[\sum^\infty_{n=1} \frac{(-1)^{n+1}}{n} = \ln 2\]
+\[\sum^\infty_{n=1} \frac{(-1)^{n+1}}{n} = \ln 2.\]
 
 *** Desigualdad triangular inversa                                  :drill:
     :PROPERTIES:
