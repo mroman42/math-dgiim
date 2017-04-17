@@ -7830,13 +7830,144 @@ R^m \cong R^n \iff m = n.
 #+end_corollary
 
 **** Clasificación de módulos libres en dominios de ideales principales
+#+begin_lemma
+Sea $R$ un dominio de ideales principales y $F$ un módulo libre finitamente
+generado sobre él. Entonces existen $a\in R, x\in F, y\in M$ con $y = ax$ y
+$M' \subseteq M,F' \subset F$ con $M' = F' \cap M$ submódulos cumpliendo
+
+\[
+F = \left\langle x \right\rangle \oplus F',
+\qquad
+M = \left\langle y \right\rangle \oplus M'.
+\]
+#+end_lemma
+
+#+begin_proof
+La familia de ideales $\left\{ \varphi \in \mathrm{Hom}(F,R) \mid \varphi(M) \right\}$ es no vacía. Como los PID son
+noetherianos, tiene un elemento maximal $\alpha(M) = (a)$, para algún $\alpha(y) = a$.
+
+Dado cualquier $\varphi(y)$, si tomamos el generador $(b) = (a,\varphi(y))$ tenemos que
+
+\[
+b = ra + s\varphi(y)
+\]
+
+y que si definimos $\psi = r\alpha + s\varphi$, tenemos $b = \psi(y) \in \psi(M)$, luego
+$(a) \subseteq (b) \subseteq \psi(M)$, y por maximalidad, $a \mid \varphi(y)$.
+
+Si vemos $y = \left( s_1,\dots,s_n \right)$ como elemento de $F\cong R^{\oplus n}$, tenemos $a \mid \pi_i(y) = s_i$,
+así que sabemos $s_i = ar_i$, y definimos
+
+\[
+x = \left( r_1,\dots,r_n \right).
+\]
+
+Ahora tomamos $F' = \mathrm{ker}(\alpha)$ y comprobamos las sumas directas.
+#+end_proof
+
 #+begin_proposition
-Sea $R$ un dominio de ideales principales y $F$ un módulo libre sobre él.
-Todo submódulo $M \subset F$ será libre.
+Sea $R$ un dominio de ideales principales y $F$ un módulo libre finitamente
+generado sobre él. Todo submódulo $M \subset F$ será libre.
 #+end_proposition
 
 #+begin_proof
+Aplicamos el lema anterior a los sucesivos $M^{(i)}$ que genere. Tendremos
+que eventualmente $M^{(i)} = 0$, ya que los $y^{(i)}$ son independientes y $F$ es
+finitamente generado.
 #+end_proof
+
+***** Resoluciones en PIDs
+#+begin_proposition
+Sea $R$ dominio de integridad. Será dominio de ideales principales si y sólo
+si para cualquier epimorfismo a un módulo finitamente generado
+
+\[
+R^{m_0} \overset{\pi_0} \longrightarrow M \longrightarrow 0,
+\]
+
+existe un módulo libre haciendo exacta la secuencia
+
+\[
+0 \longrightarrow 
+R^{m_1} \overset{\pi_1} \longrightarrow
+R^{m_0} \overset{\pi_0} \longrightarrow
+M \longrightarrow
+0.\]
+#+end_proposition
+
+**** Anillo de endomorfismos
+#+begin_proposition
+Los endomorfismos de un $R\text{-módulo}$ $F$, $\mathrm{End}(F)$ forman un álgebra con la
+composición.
+#+end_proposition
+
+***** Semejanza
+#+begin_definition
+Dos matrices $A,B \in {\cal M}_n(R)$ son *semejantes* si representan el mismo
+endomorfismo $F \to F$, diferenciándose en la elección de la base.
+#+end_definition
+
+#+begin_proposition
+Dos matrices $A,B$ son semejantes si y sólo si
+
+\[
+B = PAP^{-1}.
+\]
+#+end_proposition
+# Sacar demostración de página 360.
+
+#+begin_definition
+Dos endomorfismos $\alpha,\beta \colon F \to F$ son *semejantes* si existe un
+automorfismo $\pi \colon F \to F$ cumpliendo
+
+\[
+\beta = \pi \circ \alpha \circ \pi^{-1}.
+\] cite:aluffi09_linear
+#+end_definition
+
+***** Semejanza y acciones de anillos de polinomios
+#+begin_proposition
+Una transformación lineal de $F$ es exactamente lo mismo que una estructura
+como $R[X]\text{-módulo}$ compatible con la estructura de $R\text{-módulo}$.
+#+end_proposition
+
+Si tenemos una transformación lineal $\alpha$, podemos definir la acción de
+un polinomio como
+
+\[
+\left( r_mt^m + \dots + r_1t + r_0 \right)(v) =
+r_{m}\alpha^m(v) + \dots r_1\alpha(v) + r_0v.
+\]
+
+Y por la propiedad universal del anillo de polinomios, toda estructura
+de $R[t]\text{-módulo}$ quedará determinada por el endomorfismo que asignemos a $t$.
+
+#+begin_lemma
+Dadas transformaciones lineales $\alpha,\beta$ de $F$; las estructuras como $R[t]\text{-módulo}$
+son isomorfas si y sólo si $\alpha$ y $\beta$ son semejantes.
+#+end_lemma
+#+begin_proof
+Si llamamos $F_{\alpha}$, $F_{\beta}$ a las dos estructuras como $R[t]\text{-módulo}$, tendremos que
+un isomorfismo $\pi\colon F_{\alpha}\to F_{\beta}$ será lo mismo que una transformación invertible
+$\pi\colon F \to F$ cumpliendo $\beta = \pi\circ\alpha\circ\pi^{-1}$.
+
+Nótese de hecho que un isomorfismo entre módulos debe comportarse como
+
+\[
+\pi\circ\alpha (v) = \pi(tv) = t\pi(v) = \beta\circ\pi(v),
+\]
+
+por lo que $\pi\circ\alpha = \beta\circ\pi$ es la condición que lo distingue de cualquier
+otra transformación lineal.
+#+end_proof
+
+#+begin_corollary
+Hay una correspondencia biyectiva entre clases de semejanza de transformaciones
+lineales de un $R\text{-módulo}$ libre $F$ y clases de isomorfía de estructuras de
+$R[t]\text{-módulo}$ en $F$.
+#+end_corollary
+
+Nótese que esto se expande a las matrices en el caso finito-dimensional.
 
 **** Referencias
 bibliographystyle:unsrt
