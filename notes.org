@@ -2438,6 +2438,44 @@ consecuencia, toda extensión de Hochschild es trivial.
 **** Producto de separable y formalmente lisa
 Si $S$ es separable y $R$ es formalmente lisa, $R \otimes S$ es formalmente lisa.
 
+** Anillos graduados
+*** Álgebra aumentada
+Una $K\text{-álgebra}$ $R$ es *aumentada* si existe un $R\text{-módulo}$ $M$ con un 
+epimorfismo $\varepsilon\colon R \to M$.
+
+**** Álgebra aumentada tensor
+Si $\varepsilon\colon R \to M$ es un álgebra aumentada, $\varepsilon\otimes S\colon R\otimes_K S \longrightarrow M \otimes_K S$ es
+un álgebra aumentada.
+
+*** Módulos y álgebras graduadas
+**** Módulo graduado
+Un $K\text{-módulo}$ graduado es aquel que se escribe como suma directa,
+
+\[
+M = \bigoplus_{n \in \mathbb{N}} M_n.
+\]
+
+***** Elemento homogéneo
+Un elemento es homogéneo de grado $n$ si pertenece a $M_n$.
+
+***** Homomorfismo graduado
+Un homomorfismo $f\colon M \to N$ tal que $f(M_n) \subseteq f(N_n)$.
+
+***** Álgebra graduada
+Un $K\text{-módulo}$ graduado $R = \bigoplus R_i$ cumpliendo
+
+\[
+R_rR_t \subseteq R_{r+t}.
+\]
+
+**** Ejemplos de álgebras graduadas
+***** Graduación trivial
+***** Graduación del anillo de polinomios
+***** Graduación del anillo de endomorfismos
+**** Homomorfismos graduados
+Un homomorfismo graduado de grado $t \in \mathbb{N}$ es aquel homomorfismo $f\colon M \to N$
+cumpliendo $f(M_r) \subseteq f(M_{r+t})$.
+
 * ZFC
 Utilizando lógica de primer orden.
 
