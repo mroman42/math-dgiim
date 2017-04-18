@@ -2536,7 +2536,6 @@ La diferencial la definimos mediante
 1 \oplus \overline{a_0} \oplus \dots \oplus \overline{a_r}.
 \]
 
-
 * ZFC
 Utilizando lógica de primer orden.
 
@@ -4929,10 +4928,42 @@ y que por tanto $a^2 \in \mathbb{R}^-$ si y sólo si $\mathrm{tr}(a) = 0$.
 Sea $D$ álgebra de división real de dimensión finita. Entonces $D$ es isomorfa
 a $\mathbb{R}$, $\mathbb{C}$, o $\mathbb{H}$.
 
-***** TODO Demostración
+***** Demostración
+Si $D \not\cong \mathbb{R}$, aplicamos el [[*Lema de clasificación de álgebras de división][lema de clasificación]] para tener $D$ de dimensión
+par con $D = \mathbb{R}\oplus V$. Consideramos
+
+\[
+B(a,b) = \frac{ab+ba}{2}
+= \frac{1}{2}\left( (a+b)^2-a^2-b^2 \right) \in \mathbb{R},
+\]
+
+una forma bilineal simétrica definida negativa. Podemos diagonalizarla
+para obtener una base donde $B(e_i,e_j) = 0$ si $i\neq j$ y $B(e_i,e_i) = -1$, es decir,
+por definición de $B$,
+
+\[
+e_i^2 = -1
+\quad\text{ y }\quad
+e_ie_j = -e_je_i.
+\]
+
+En el caso $t=1$, tenemos $\mathbb{C}$. En el caso $t>1$, tenemos además la restricción
+de que si tomamos $u = e_1e_2e_j$, se cumple
+
+\[
+u^2 = -e_1e_2e_1e_je_2e_j = 1,
+\]
+
+luego $0 = (u-1)(u+1)$ en un anillo de división nos da $e_j = \pm e_1e_2$, así que
+debe tenerse $t=2$, con base $\left\{ 1,e_1,e_2,e_1e_2 \right\}$. En este caso, se comprueba que
+hay un isomorfismo $\mathbb{H} \cong D$.
 
 **** Corolario de Frobenius
 La única álgebra de división compleja de dimensión finita es $\mathbb{C}$.
+
+***** Demostración
+Nótese que en particular sería un álgebra de división real y no podría
+ser $\mathbb{H}$ porque no tiene a los complejos como centro.
 
 *** 1.8. Idempotentes y anillos de matrices
 **** Idempotente
