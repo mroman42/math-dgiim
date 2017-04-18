@@ -5108,7 +5108,7 @@ Si $R$ tiene un CCIO centrales primitivos, este conjunto es único.
 
 ***** TODO Demostración
 
-*** 1.9. El álgebra de enfomorfismos de un módulo semisimple
+*** TODO 1.9. El álgebra de enfomorfismos de un módulo semisimple
 **** Complemento
 Para $N \subseteq M$ submódulo, un *complemento* de $N$ es un $X$ tal que
 
@@ -5126,10 +5126,22 @@ es un sumando directo.
 Sea $M$ módulo con dimensión finita como K-espacio vectorial. Equivalen:
 
   1) $M$ es semisimple.
-  2) $M$ descompone como suma directa finita de submódulos simples.
+  2) $M$ es suma directa finita de submódulos simples.
   3) $M$ es suma finita de submódulos simples.
 
-***** TODO Demostración
+***** Demostración
+****** Primera implicación
+Tomamos una familia maximal de submódulos simples linealmente
+independientes. Si el complemento de su suma no fuera nulo, entonces
+contendría algún submódulo simple (por finitud) que sería linealmente
+independiente, contraviniendo maximalidad.
+
+****** Segunda implicación
+Trivial.
+
+****** Tercera implicación
+Trivial porque podemos tomar [[*Suma directa en suma de simples][suma directa en suma de simples]] para
+encontrar el complemento.
 
 **** Lema de Schur
 Sean $M,M'$ simples con $f\colon M \to M'$ homomorfismo de módulos. Se tiene $f=0$
@@ -5139,14 +5151,36 @@ o $f$ isomorfismo.
 El anillo de los endomorfismos de un módulo simple es un anillo de
 división.
 
-***** TODO Demostración
+***** Demostración
+Si no es nula, el núcleo es un submódulo propio, luego debe ser inyectiva.
+La imagen entonces será un submódulo propio no nulo y será sobreyectiva.
 
 **** Submódulos y cocientes de semisimples
 Si $M$ es un semisimple de dimensión finita, entonces todo submódulo de $M$
 y todo cociente de $M$ es semisimple.
 
-***** TODO Demostración
-**** Unicidad de la descomposición en simples
+***** Demostración
+Si existe un epimorfismo de módulos $M \to N$, se tiene $N$ semisimple.
+Cualquier cociente tendrá la proyección como epimorfismo hacia él y
+cualquier submódulo $N \subseteq M$ será cociente por su complemento como
+
+\[
+\frac{M}{X} =
+\frac{N \oplus X}{X} \cong
+\frac{N}{N \cap X} \cong N.
+\]
+
+****** El epimorfismo da la semisimplicidad
+Por [[*Lema de Schur][Lema de Schur]], se tiene que la imagen de un simple será simple o
+nula. Así, podemos escribir
+
+\[
+N = \sum_{i\in I} f(M_i)
+\]
+
+y tendremos que es suma de simples y por [[*Caracterización de semisimples][caracterización]], semisimple.
+
+**** TODO Unicidad de la descomposición en simples
 Sea $M = M_1\oplus \dots \oplus M_n = N_1 \oplus \dots \oplus N_m$ semisimple descompuesto como suma
 directa de simples. Entonces $n=m$ y se tiene $M_i \cong N_{\sigma i}$ para alguna 
 permutación.
