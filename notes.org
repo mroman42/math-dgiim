@@ -2476,6 +2476,67 @@ R_rR_t \subseteq R_{r+t}.
 Un homomorfismo graduado de grado $t \in \mathbb{N}$ es aquel homomorfismo $f\colon M \to N$
 cumpliendo $f(M_r) \subseteq f(M_{r+t})$.
 
+** Módulos diferenciales
+*** Diferencial
+Un homomorfismo graduado de grado uno, $\delta\colon M \to M$ se llama *diferencial*
+si $\delta\circ\delta = 0$.
+
+*** DG-módulo
+Un par $(M,\delta)$ formado por un $K\text{-módulo}$ graduado $M$ y un diferencial $\delta$.
+
+**** Homomorfismo de DG-módulos
+Un homomorfismo de DG-módulos $f \colon (M,\delta_1) \to (N,\delta_2)$ es un homomorfismo
+de módulos graduados cumpliendo
+
+\[
+f\delta_1 = \delta_2 f.
+\]
+
+*** Álgebra graduada diferencial
+Una $K\text{-álgebra}$ graduada $R$ con un diferencial $\delta\colon R\to R$ que verifica:
+
+  * $(R,\delta)$ es un DG-módulo.
+  * $\delta(ab) = \delta(a)b + (-1)^{|b|}a\delta(b)$.
+
+Es lo que conocemos como *álgebra graduada diferencial*, o DG-álgebra.
+
+**** Aritmética en álgebras graduadas I
+Dada una DG-álgebra $(R,\delta)$,
+
+ 1) Para elementos homogéneos $h_1,\dots,h_n$ se verifica
+
+    \[ \delta(h_1\dots h_n) =
+    \sum_{i=1}^t (-1)^{|h_1|+\dots+|h_{i-1}|}h_1\dots \delta(h_i)\dots h_t.
+    \]
+
+ 2) Para elementos $a_0,\dots,a_n \in R_0$ se verifica
+
+    \[\delta(a_0 \delta(a_1)\dots \delta(a_n)) =
+    \delta(a_0)\delta(a_1)\dots\delta(a_n).
+    \]
+
+**** TODO Aritmética en álgebras graduadas II
+
+** La DG-álgebra Omega
+*** DG-álgebra omega
+Definimos
+
+\[
+\Omega_S^nR = 
+R \otimes_S \overline{R}^{\otimes n}
+\quad\text{ y, en total, }\quad
+\Omega_SR = \bigoplus_{n\in \mathbb{N}} \Omega_S^n R.
+\]
+
+La diferencial la definimos mediante
+
+\[
+\delta(a_0\oplus \overline{a_1} \oplus\dots\oplus \overline{a_r})
+=
+1 \oplus \overline{a_0} \oplus \dots \oplus \overline{a_r}.
+\]
+
+
 * ZFC
 Utilizando lógica de primer orden.
 
