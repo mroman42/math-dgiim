@@ -2948,8 +2948,8 @@ called a *section*.
 
 **** Splits and idempotents
 When $gh = 1$, $g$ is a split epi, $h$ is a split monic and the composite
-$hg$ is an idempotent. An arrow is idempotent if $f^2 = f$, and it is said
-to split when there exist arrows $g$ and $h$.
+$hg$ is an idempotent. An arrow is *idempotent* if $f^2 = f$, and it is said
+to split when there exist arrows $g$ and $h$ such that $f = hg$ and $gh = 1$.
 
 **** Terminal objects and initial objects
 An object $t$ is terminal if for every $a$ there is exactly one arrow $a \to t$.
