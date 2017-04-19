@@ -341,7 +341,7 @@ Esta serie converge para cualquier matriz $X$.
 **** Preservación de la conmutación
 
 Cuando conmutan $XY = YX$, conmutan $e^Xe^Y = e^Ye^X$.
-* Teoría de categorías
+* Category theory
 * Álgebra homológica
 *** Módulo plano 						      :drill:
 SCHEDULED: <2017-04-18 Tue>
@@ -524,3 +524,14 @@ Definición y caracterización de *álgebra semisimple*.
    *complemento*.
 2) Es *suma directa* finita de módulos simples.
 3) Es *suma* finita de módulos simples.
+*** Teorema de Wedderburn                                           :drill:
+Teorema de Wedderburn sobre descomposición de álgebras semisimples.
+
+**** Enunciado
+Una $K\text{-álgebra}$ de dimensión finita es semisimple ssi es isomorfa a un
+álgebra de la forma
+
+\[ \mathrm{M}_{n_1}(\Delta_1) \times \dots \times \mathrm{M}_{n_t}(\Delta_t).
+\]
+
+de forma única para algunas $\Delta_1,\dots,\Delta_t$, anillos de división
