@@ -3374,6 +3374,129 @@ Which commutes on its elements:
 (f,s) \dar{e_X}\rar{g^S,id} & (g\circ f, s) \dar{e_Y}\\
 f(s) \rar{f} & g(f(s))
 \end{tikzcd}\]
+
+**** Exercise 2
+#+begin_statement
+If $H$ is a fixed group, show that $G \mapsto H \times G$ defines a functor
+$H \times - \colon \mathtt{Grp}\to \mathtt{Grp}$ and that each morphism $f \colon H \to K$ of groups defines
+a natural transformation $H \times -\; \dot\to \; K \times -$.
+#+end_statement
+
+The functor will send a morphism $f \colon G \to G'$ to $\mathrm{id}\times f\colon H\times G \to H \times G'$.
+The naturality condition is satisfied if the following diagram commutes
+
+\[\begin{tikzcd}
+H \times G \dar{\mathrm{id}\times f} \rar{g\times\mathrm{id}} & 
+K \times G \dar{\mathrm{id}\times f} \\
+H \times G' \rar{g\times\mathrm{id}} & 
+K \times G'
+\end{tikzcd}\]
+
+but it is trivial to check commutativity.
+
+**** Exercise 3
+#+begin_statement
+If $B$ and $C$ are groups (regarded as categories with one object each) and
+$S,T \colon B \to C$ are functors (homomorphisms of groups), show that there is a
+natural transformation $S \dot\to T$ if and only if $S$ and $T$ are conjugate; i.e.
+if and only if there is an element $h \in C$ with $Tg = h(Sg)h^{-1}$ for all
+$g \in B$.
+#+end_statement
+
+If the only object in $B$ is $b$, then $Sb = Tb = c$ must be the only object
+in $c$. Naturality gives us
+
+\[\begin{tikzcd}
+c\rar{\varphi} \dar[swap]{Sf} & c \dar{Tf} \\
+c\rar{\varphi} & c
+\end{tikzcd}\]
+
+so we know that $Sf \circ \varphi = \varphi \circ Tf$, and this is the conjugate condition.
+
+**** Exercise 4
+#+begin_statement
+For functors $S,T \colon C \to P$ where $C$ is a category and $P$ a preorder, show
+that there is a natural transformation $S \dot\to T$ (which is then unique) if
+and only if $Sc \leq Tc$ for every object $c \in C$.
+#+end_statement
+
+To define a natural transformation, we must have a familiy of morphisms
+
+\[
+Sc \to Tc \quad\forall c \in C,
+\]
+
+but this morphism exists if and only if $Sc \leq Tc$ for every object. If the
+morphisms exist, the naturality condition is trivial, as there will be
+an unique morphism between two objects and all squares will commute.
+
+**** Exercise 5
+#+begin_statement
+Show that every natural transformation $\tau\colon S \dot\to T$ defines a function
+(also called $\tau$) which sends each arrow $f\colon c \to c'$ of $C$ to an arrow
+$\tau f\colon Sc \to Tc'$ of $B$ in such a way that $Tg \circ \tau f = \tau(gf) = \tau g\circ Sf$ for
+each composable pair $(g,f)$. Conversely, show that every such function $\tau$ 
+comes from a unique natural transformation with $\tau_c = \tau(1_c)$. (This gives 
+an arrows only description of a natural transformation.)
+#+end_statement
+
+Given $f\colon c \to c'$, we apply the naturality condition and take $\tau$ to be the
+diagonal
+
+\[\begin{tikzcd}
+Sc \drar{\tau f} \rar{\tau} \dar[swap]{Sf} & Tc \dar{Tf} \\
+Sc'\rar{\tau} & Tc'
+\end{tikzcd}\]
+
+i.e. we have defined $\tau f = Tf\circ \tau_c = \tau_{c'} \circ Sf$. The condition holds now 
+trivially, as we know that
+
+\[
+Tg \circ \tau f = Tg\circ Tf\circ \tau_c = \tau(gf) = \tau_{c'}\circ Sg\circ Sf
+= \tau g \circ Sf.
+\]
+
+**** TODO Exercise 6
+#+begin_statement
+Let $F$ be a field. Show that te category of all finite-dimensional vector
+spaces over $F$ (with morphisms all lineal transformations) is equivalent
+to the category $\mathtt{Matr}$.
+#+end_statement
+*** 1.5. Monics, epis and zeros
+**** Exercise 1
+#+begin_statement
+Find a category with an arrow which is both epi and monic, but not 
+invertible (e.g., dense subset of a topological space).
+#+end_statement
+
+In the $\mathtt{Top}$ category of topological spaces with continuous functions,
+we can include a dense subset in its base space. This inclusion will
+be a monomorphism (as it is injective) and an epimorphism as we know
+that, if $i \colon U \subset V$ is our inclusion,
+
+\[ f\circ i = i \circ g \implies f|_{U} = g|_{U},\]
+
+and because it is a dense subset, by continuity, $f = g$.
+
+But it has not to be an isomorphism. In fact, it won't be if $U$ is a
+proper subset.
+
+**** Exercise 2
+#+begin_statement
+Prove that the composite of monics is monic, and likewise for epis.
+#+end_statement
+
+If $f,g$ are monics, we can apply the definition twice to get
+
+\[
+f \circ g \circ a = f \circ g \circ b \implies
+g \circ a = g\circ b \implies
+a = b.
+\]
+
+The same proof can be applied in reverse.
+
+**** Exercise 3
 * Rotman - An introduction to homological algebra
 ** 1. Introduction
 *** 1.1. Simplicial Homology
