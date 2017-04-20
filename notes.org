@@ -3201,7 +3201,7 @@ $\alpha : S \Rightarrow S'$ iff $\alpha(b,c)$ is natural in $b$ and natural in $
 **** Composition of natural transformations
 Given functors $R,S,T : C \to B$ and natural transformations $\tau : S\to T$
 and $\sigma : R \to S$, their compositions define composite arrows which are
-the components of the composite natural transformation $\tau \circ \sigma$.
+the components of the composite natural transformation $\tau \cdot \sigma$.
 
 \[\begin{tikzcd}
 Rc \rar{Rf}\dar{\sigma_c}\arrow[dd,bend right=90]{(\tau \circ \sigma)_c} &
@@ -3216,7 +3216,86 @@ Naturality of the external square follows from the commutativity of the
 two internal squares.
 
 **** Functor category
-Given categories $B,C$, let $B^C$
+Given categories $B,C$, let $B^C = \mathrm{Funct}(C,B)$ be the *functor category*,
+with objects the functors $T\colon C \to B$ and morphisms the natural 
+transformations
+
+\[ \mathrm{Nat}(S,T) = \left\{ \tau\mid \tau\colon S \dot\to T \right\}.
+\]
+
+***** Example: Category of arrows
+The category $\mathrm{Funct}(B,2)$ is called the *category of arrows* of $B$. Its
+objects are arrows $f\colon a \to b$ and its morphisms are commutative squares
+
+\[\begin{tikzcd}
+a\rar{h} \dar[swap]{f} & a' \dar{f'} \\
+b\rar{k} & b'
+\end{tikzcd}\]
+
+***** Example: Actions on a set
+If $M$ is a monoid, $\mathrm{Funct}(M, \mathtt{Set})$ is the category with objects the actions
+of $M$ on some sets and arrows the morphisms of such actions.
+
+***** TODO Example: Group with operators
+**** Example: Group representations
+Given $K$ a commutative ring, the functor category $\mathrm{Funct}(G, K\mathtt{-mod})$ is the 
+category of linear representations of $G$.
+
+***** Objects
+Every functor $T \colon G \to K\mathtt{-mod}$ is determined by a $K\text{-module}$ $V$ and
+a morphism of groups $T\colon G \to \text{Aut}(V)$.
+
+***** Natural transformations
+A natural transformation $\sigma\colon T \to S$ is given by a single module
+homomorphism $\sigma\colon V \to V'$, such that
+
+\[\begin{tikzcd}
+V\rar{\sigma} \dar[swap]{Tg} & V' \dar{T'g} \\
+V\rar{\sigma} & V'
+\end{tikzcd}\]
+
+and it is called an *intertwining* operator.
+
+*** 2.5. The category of all categories
+**** Horizontal composition of natural transformations
+Given functors $S,T \colon C \to B$ and $S',T'\colon B \to A$ and natural transformations
+
+\[\begin{tikzcd}
+C 
+\rar[shift left=7pt, ""{name=UL, below}]{S} 
+\rar[shift right=7pt, ""name=LL][swap]{T\vphantom{'}} &
+B 
+\rar[shift left=7pt, ""{name=UR, below}]{S'}
+\rar[shift right=7pt, ""name=LR][swap]{T'} &
+A\\
+\ar[from=UL, to=LL, "\tau", shorten <= -2pt, shorten >= -2pt]
+\ar[from=UR, to=LR, "\tau\smash{'}", shorten <= -2pt, shorten >= -2pt]
+\end{tikzcd}\]
+
+we can define the horizontal composite $\tau' \circ \tau \colon S'S \to T'T$ as the diagonal
+of the square
+
+\[\begin{tikzcd}
+S'Sc\rar{\tau'_{Sc}} \dar[swap]{S'\tau_c} & T'Sc \dar{T' \tau_c} \\
+S'Tc\rar{\tau'_{Tc}} & T'Tc
+\end{tikzcd}\]
+
+explicitely, as $\tau' \circ \tau = T' \tau \circ \tau' = \tau' \circ S'\tau$.
+
+***** Naturality of the composition
+It is natural as the following diagram is the composition of two
+naturality squares
+
+\[\begin{tikzcd}
+S'Sc \rar{S'\tau} \dar{S'Sf} &
+S'Tc \rar{\tau'}  \dar{S'Tf} &
+T'Tc \dar{T'Tf} \\
+S'Sb \rar{S'\tau} &
+S'Tb \rar{\tau'} &
+T'Tb
+\end{tikzcd}\]
+
+defined respectively by the naturality of $S'\tau$ and $\tau'$.
 
 ** Exercises
 *** 1.3. Functors
