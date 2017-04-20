@@ -3576,6 +3576,40 @@ a = b.
 The same proof can be applied in reverse.
 
 **** Exercise 3
+#+begin_statement
+If a composite $g\circ f$ is monic, so is $f$. Is this true of $g$?
+#+end_statement
+
+No, $f$ could be a zero morphism and $g$ could still give $g\circ h = g\circ h'$ for
+two $h \neq h'$.
+
+**** Exercise 4
+#+begin_statement
+Show that the inclusion $\mathbb{Z} \to \mathbb{Q}$ is epi in the category $\mathtt{Rng}$.
+#+end_statement
+
+If $f \circ i = g \circ i$, then $f|_{\mathbb{Z}} = g|_{\mathbb{Z}$, and we can extend the morphisms uniquely
+to the ring $\mathbb{Q}$, as the ring morphisms have to preserve inverses.
+
+**** TODO Exercise 5
+#+begin_statement
+In $\mathtt{Grp}$ prove that every epi is surjective (Hint. If $\varphi\colon G\to H$ has image
+$M$ not $H$, use the factor group $H/M$ if $M$ has index 2. Otherwise, let
+$\mathrm{Perm}\ H$ be the group of all permutations of the set $H$, choose three
+different cosets $M,Mu$ and $Mv$ of $M$, define $\sigma \in \mathrm{Perm}\ H$ by
+$\sigma(xu) = xv$, $\sigma(xv) = xu$ for $x \in M$, and $\sigma$ otherwise the identity.
+Let $\psi\colon H \to \mathrm{Perm}\ H$ send each $h$ to left multiplication $\psi_h$ by $h$, while
+$\psi'_h = \sigma^{-1}\psi_h\sigma$. Then $\psi\varphi = \psi'\varphi$, but $\psi \neq \psi'$).
+#+end_statement
+
+**** TODO Exercise 6
+#+begin_statement
+In $\mathtt{Set}$, show that all idempotents split.
+#+end_statement
+
+Given $f \colon A \to A$ idempotent, we can define the set $\mathrm{img}\ f$, and two functions
+$g \colon A \to \mathrm{img}\ f$, $h\colon \mathrm{img}\ f \to A$ defined naturally and satisfiying the conditions.
+Notice that $g$ is an epimorphism and $h$ a monomorphism.
 * Rotman - An introduction to homological algebra
 ** 1. Introduction
 *** 1.1. Simplicial Homology
