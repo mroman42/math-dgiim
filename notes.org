@@ -3297,6 +3297,176 @@ T'Tb
 
 defined respectively by the naturality of $S'\tau$ and $\tau'$.
 
+**** Identities
+The identity functor is the identity for the horizontal and vertical
+compositions. We can use the symbol of the functor to denote it like
+$S \colon S \dot\to S$.
+
+***** Horizontal composition
+With this notation, we can then define the horizontal composition
+as
+
+\[
+\tau'\circ \tau = 
+(T' \circ \tau) \cdot (\tau'\circ S) =
+(\tau' \circ T) \cdot (S'\circ \tau).
+\]
+
+**** Interchange law
+Given three categories and four transformations
+
+\[\begin{tikzcd}
+C 
+\rar[shift left=15pt, ""{name=UL, below}]{} 
+\rar[""name=L]
+\rar[shift right=15pt, ""name=LL][swap]{} &
+B 
+\rar[shift left=15pt, ""{name=UR, below}]{}
+\rar[""name=R]
+\rar[shift right=15pt, ""name=LR][swap]{} &
+A\\
+\ar[from=UL, to=L, "\sigma", shorten <= -2pt, shorten >= -2pt]
+\ar[from=L, to=LL, "\tau", shorten <= 2pt, shorten >= -2pt]
+\ar[from=UR, to=R, "\sigma\smash{'}", shorten <= -2pt, shorten >= -2pt]
+\ar[from=R, to=LR, "\tau\smash{'}", shorten <= 2pt, shorten >= -2pt]
+\end{tikzcd}\]
+
+the vertical and horizontal composites follow the interchange law
+
+\[
+(\tau'\cdot \sigma') \circ (\tau \cdot \sigma) = 
+(\tau'\circ \tau) \cdot (\sigma'\circ \sigma).
+\]
+
+***** TODO Proof
+
+**** Double category
+A *double category* is a set of arrows for two different compositions
+which together satisfy the [[*Interchange law][interchange law]].
+
+***** 2-category
+A *2-category* is a double category in thich every identity for the
+first composition is also an identity for the second one.
+
+***** Example: commutative squares in Set
+The category of commutative squares in Set is a double category but
+not a 2-category.
+
+**** Interchange law for operations
+Two binary operations $\cdot,\circ$ are said to satisfy the interchange law when
+
+\[
+(a' \cdot b') \circ (a \cdot b) = (a' \circ a) \cdot (b'\circ b).
+\]
+
+***** Example: matrices
+The usual product of matrices $\circ$ satisfies the interchange law with the
+square-composition of matrices
+
+\[
+\tau \cdot \sigma = \begin{pmatrix}
+\tau & 0\\
+0 & \sigma
+\end{pmatrix}.
+\]
+
+****** Proof
+Trivial by definition.
+
+**** Functor category as a functor
+The functor category can be regarded as a functor
+
+\[\mathrm{Func} \colon \mathtt{Cat}^{op}\times \mathtt{Cat} \to \mathtt{Cat}.
+\]
+
+sending an arrow, consisting of two functors $F,G$, to $F^{G}$, a functor
+defined as
+
+  * $F^GS = F \circ S \circ G$, on objects.
+  * $F^{G}\tau = F \circ \tau \circ G$, on arrows.
+
+***** Analogue with the hom-functor
+Note that this is the categorical analogue of the hom-functor
+
+\[\mathrm{Hom} \colon \mathtt{Set}^{op}\times \mathtt{Set} \to \mathtt{Set}.
+\]
+
+*** 2.6. Comma categories
+**** Category of objects under an object
+Given $b \in C$, the category of *objects under* it, $(b \downarrow C)$, is the category
+with objects all pairs $(f\colon b \to c, c)$, and arrows $h\colon (f,c) \to (f',c')$ for those
+arrows such that $h\circ f = f'$.
+
+***** Displayed notation
+Objects are of the form
+
+\[\begin{tikzcd}
+b \rar{f} & c
+\end{tikzcd}\]
+
+morphisms are of the form
+
+\[\begin{tikzcd}
+& c \arrow[dd, "h"] \\[-15pt]
+b \urar{f}\drar[swap]{f'}& \\[-15pt]
+& c'
+\end{tikzcd}\]
+
+and the composition is the composition of two commutative triangles
+in that form.
+
+**** Category of objects over an object
+The category of *objects over* $a$, $(C \downarrow a)$ can be defined similarly in
+displayed notation as objects of the form
+
+\[\begin{tikzcd}
+c \rar{f} & a
+\end{tikzcd}\]
+
+and morphisms
+
+\[\begin{tikzcd}
+c \arrow[dd, "h"] \drar{f} &  \\[-15pt]
+& b \\[-15pt]
+c' \urar[swap]{f'} &
+\end{tikzcd}\]
+
+**** Comma category
+Given categories and functors $E \overset{T}\longrightarrow C \overset{S}\longleftarrow D$, the comma category
+$(T\downarrow S)$ has objects
+
+\[\begin{tikzcd}
+Te \rar{f} & Sd
+\end{tikzcd}\]
+
+and arrows commutative squares
+
+\[\begin{tikzcd}
+Te\rar{Tk} \dar[swap]{f} & Te' \dar{f'} \\
+Sd\rar{Sh} & Sd'
+\end{tikzcd}\]
+
+The composite is the yuxtaposition of squares.
+
+***** Categories of objects under/over and object
+Those are particular cases when the object is seen as a functor
+from the unital category $b \colon 1 \to C$.
+
+*** 2.7. Graphs and free categories
+**** TODO Forgetful functor from categories to graphs
+**** Free category
+Let $G$ be a small graph. There is a small category $C$ called its free
+category satisfying the following universal property
+
+\[\begin{tikzcd}
+G \rar{P} \drar[swap]{D} & UC\dar[dashed]{\exists! UD'} \\
+& UB
+\end{tikzcd}\]
+
+which is equivalent to $P\colon G \to UC$ being initial in $(G \downarrow U)$.
+
+
+*** TODO 2.8. Quotient categories
 ** Exercises
 *** 1.3. Functors
 **** Exercise 1
