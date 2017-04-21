@@ -3780,6 +3780,28 @@ In $\mathtt{Set}$, show that all idempotents split.
 Given $f \colon A \to A$ idempotent, we can define the set $\mathrm{img}\ f$, and two functions
 $g \colon A \to \mathrm{img}\ f$, $h\colon \mathrm{img}\ f \to A$ defined naturally and satisfiying the conditions.
 Notice that $g$ is an epimorphism and $h$ a monomorphism.
+*** 2.6. Comma categories
+**** Exercise 1
+#+begin_statement
+If $K$ is a commutative ring, show that the comma category $(K \downarrow \mathtt{CRng})$ is
+the usual category of all small commutative $K\text{-algebras}$.
+#+end_statement
+
+A $K\text{-algebra}$ can be defined as an inclusion from $K$ on a ring, morphisms
+of algebras must preserve this inclusion.
+
+# A more detailed proof would be interesting.
+
+**** Exercise 2
+#+begin_statement
+If $t$ is a terminal object in $C$, prove that $(C \downarrow t)$ is isomorphic to $C$.
+#+end_statement
+
+By definition of terminal object, there will be only an arrow 
+$\ast \colon u \to t$ for any $u \in C$. Every morphism will create a commutative 
+diagram because of the unicity of the morphisms.
+
+*** 2.7. Graphs and free categories
 * Rotman - An introduction to homological algebra
 ** 1. Introduction
 *** 1.1. Simplicial Homology
