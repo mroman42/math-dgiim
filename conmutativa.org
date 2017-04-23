@@ -70,13 +70,13 @@ con los ideales que lo contienen, $\beta \supset \alpha$. Son siempre de la form
 *** Primer Teorema de Isomorfía
 Para cualquier homomorfismo de anillos $f$:
 
-\[ R/\ker(f) \cong \im(f)\]
+\[ R/\ker(f) \cong \mathrm{img}(f)\]
 
 Y además, los ideales están en correspondencia biyectiva por $f_\ast$ y $f^{-1}$:
 
 \[ \{ \alpha \mid \ker(f)\subset\alpha \} 
 \longleftrightarrow 
-\{ \beta \mid \beta \subset \im(f)\}\]
+\{ \beta \mid \beta \subset \mathrm{img}(f)\}\]
 
 **** Demostración
 Trivial desde la descomposición de morfismos en una categoría arbitraria.
@@ -110,11 +110,11 @@ maximal).
 **** Demostración
 *1* es trivial. *2* tenemos que demostrarlo en cuatro pasos:
 
- - Si $M$ es maximal en $\im f$, entonces $f^{-1}(M)$ es maximal entre los 
+ - Si $M$ es maximal en $\mathrm{img} f$, entonces $f^{-1}(M)$ es maximal entre los 
    ideales que contienen a $\ker f$.
- - Si $M$ es maximal, entonces $f(M)$ es maximal en $\im f$.
- - Si $\Pi$ es primo en $\im f$, entonces $f^{-1}(\Pi)$ es primo, ya demostrado.
- - Si $\ker f \subset \Pi$ es primo, entonces $f(\Pi)$ es primo en $\im f$.
+ - Si $M$ es maximal, entonces $f(M)$ es maximal en $\mathrm{img} f$.
+ - Si $\Pi$ es primo en $\mathrm{img} f$, entonces $f^{-1}(\Pi)$ es primo, ya demostrado.
+ - Si $\ker f \subset \Pi$ es primo, entonces $f(\Pi)$ es primo en $\mathrm{img} f$.
 
 *** Teorema de Krull
 Dados $\alpha \subseteq R$ ideal y $S$ multiplicativamente cerrado con $\alpha\cap S = \varnothing$, 
@@ -310,7 +310,7 @@ el uno del anillo, que en este caso es $(1,\dots,1)$. Cumplen además:
 
  - $p_k \circ u_k = \delta_{kj}id$
  - $\sum u_i \circ p_i = id$
- - $\ker(p_j) = \sum \im(u_j)$
+ - $\ker(p_j) = \sum \mathrm{img}(u_j)$
 
 *** Propiedad universal
 El producto con las proyecciones es el *producto categórico* de la
@@ -1602,7 +1602,7 @@ es isomorfismo de variedades con $\widetilde f(X) = T^2$, $\widetilde f(X) = T^3
 
 \[\widetilde{f} : \frac{K[X,Y]}{(X^3-Y^2)} \longrightarrow K[T]\]
 
-Ya que $\tilde{f}$ no es sobreyectiva porque $T \notin \im(\tilde{f})$.
+Ya que $\tilde{f}$ no es sobreyectiva porque $T \notin \mathrm{img}(\tilde{f})$.
 
 *** Núcleos e imágenes de morfismos de anillos de coordenadas
 Sea $h : K[W] \longrightarrow K[V]$ un morfismo de K-álgebras dado por
@@ -1616,7 +1616,7 @@ $h(Y_j + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$.
 
   2. Sea $\mathbb{G}$ una base de Gröbner reducida de $C$ con orden lexicográfico:
 
-     \[F + \mathbb{I}(V) \in \im(h) 
+     \[F + \mathbb{I}(V) \in \mathrm{img}(h) 
    \iff
    R(F;\mathbb{G}) \in K[Y_1,\dots,Y_n]
    \]
@@ -2360,7 +2360,7 @@ Sea $h : K[W] \longrightarrow K[V]$ un morfismo de K-álgebras dado por $h(Y_j) 
      
   2. Sea $\mathbb{G}$ Gröbner reducida de $C$ con orden lexicográfico:
 
-     \[F + \mathbb{I}(V) \in \im(h) \iff
+     \[F + \mathbb{I}(V) \in \mathrm{img}(h) \iff
      R(F;\mathbb{G}) \in K[Y_1,\dots,Y_m]\]
      
      Además, en tal caso, $F + \mathbb{I}(V) = h(R(F;G)+\mathbb{I}(W))$.
