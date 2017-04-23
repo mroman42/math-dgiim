@@ -1,0 +1,340 @@
+#+TITLE: Categories for the working mathematician
+#+DESCRIPTION: Exercises on the Saunders MacLane's book
+
+#+SETUPFILE: config.setup
+#+LANGUAGE: en
+
+* 1. Categories, functors and natural transformations
+** 1.3. Functors
+*** Exercise 1
+#+begin_statement
+Show how each of the following constructions can be regarded as a functor:
+
+ - the field of quotients of an integral domain.
+ - the Lie algebra of a Lie group.
+#+end_statement
+
+**** Field of quotients
+Given two integral domains and a ring homomorphism $f : R \to S$, we
+define an homomorphism between its fields of quotients as:
+
+\[
+\widetilde{f}\left(\frac{a}{b}\right)
+=
+\frac{f(a)}{f(b)}
+\]
+
+We can prove it is well-defined using that $ab=cd$ implies
+$f(a)f(b) = f(c)f(d)$, and then:
+
+\[
+\widetilde{f}\left(\frac{a}{b}\right)
+=
+\frac{f(a)}{f(b)}
+=
+\frac{f(c)}{f(d)}
+=
+\widetilde{f}\left(\frac{c}{d}\right)
+\]
+
+And it respects sums and products:
+
+\[
+\widetilde{f}\left(\frac{a}{b} + \frac{c}{d}\right)
+=
+\widetilde{f}\left(\frac{ad+cb}{bd}\right)
+=
+\frac{f(a)f(d)+f(c)f(d)}{f(b)f(d)}
+=
+\frac{f(a)}{f(b)}+\frac{f(c)}{f(d)}
+\]
+
+\[
+\widetilde{f}\left(\frac{ac}{bd}\right) =
+\frac{f(a)f(c)}{f(b)f(d)}
+\]
+
+So it is a field homomorphism.
+
+**** TODO Lie algebra
+Given $\phi : G \to H$, a Lie group homomorphism, we can compute its first
+derivative at the identity $\phi^*$.
+*** Exercise 2
+#+begin_statement
+Show that functors $1 \to C$, $2 \to C$, and $3 \to C$ correspond respectively to
+objects, arrows, and composable pairs of arrows in $C$.
+#+end_statement
+
+A functor $F\colon 1 \to C$ is determined by $F1$. A functor $F\colon 2 \to C$ is determined
+by $F(1\leq 2)\colon F1 \to F2$. A functor $F\colon 3 \to C$ is determined by $F(1\leq 2)$ and
+$F(2\leq 3)$, which must be composable in $F2$.
+
+*** Exercise 3
+#+begin_statement
+Interpret "functor" in the following special types of categories:
+
+  1. A functor between two preorders is a function $T$ which is monotonic
+     (i.e. $p \leq p'$ implies $Tp \leq Tp'$).
+  2. A functor between two groups (one-object categories) is a morphism
+     of groups.
+  3. If $G$ is a group, a functor $G \to \mathtt{Set}$ is a permutation representation
+     of $G$, while $G \to Matr_K$ is a matrix representation of $G$.
+#+end_statement
+
+**** First statement
+A functor must be a monotonic function, as it has to send $(p\leq p')$ into
+a morphism between $Tp$ and $Tp'$. This morphism exists if and only if 
+$Tp \leq Tp'$.
+
+**** Second statement
+It respects the identity and the group operation, as functors respect
+the identity and the composition.
+
+**** Third statement
+A functor $F\colon G \to \mathtt{Set}$ is determined by $FG$ and the assignment of every
+element of $G$ to a set automorphism, that is, an element of the permutation
+group of the set.
+
+The functor $F\colon G \to \mathtt{Matr}_K$ selects a dimension $n$, and sends every element
+of the group to an invertible matrix $M_{n\times n}$.
+
+*** Exercise 4
+#+begin_statement
+Prove that there is no functor $\mathtt{Grp} \to \mathtt{Ab}$ sending each group $G$ to its
+center. (Consider $S_2 \to S_3 \to S_2$, the symmetric groups).
+#+end_statement
+
+A functor must preserve identities and composition. We have the following
+diagram in $\mathtt{Grp}$,
+
+\[\begin{tikzcd}
+S_2 \rar[hook]\arrow[rr,bend left, "id"] & S_3 \rar & S_2
+\end{tikzcd}\]
+
+that cannot be translated into $\mathtt{Ab}$ by this functor
+
+\[\begin{tikzcd}
+S_2 \rar & \{id\} \rar &  S_2
+\end{tikzcd}\]
+
+as we know that the identity is not the zero morphism.
+
+*** Exercise 5
+#+begin_statement
+Find two different functors $T : \mathtt{Grp} \to \mathtt{Grp}$ with object function $T(G) = G$
+the identity for every group $G$.
+#+end_statement
+
+The identity functor and a functor sending every morphism to the zero 
+morphism.
+
+** 1.4. Natural transformations
+*** Exercise 1
+#+begin_statement
+Let $S$ be a fixed set, and $X^S$ the set of all functions $h : S \longrightarrow X$.
+Show that $X \mapsto X^S$ is the object function of a functor $\mathtt{Set} \longrightarrow \mathtt{Set}$,
+and that evaluation $e_X : X^S \times S \longrightarrow X$ defined by $e(h,s) = h(s)$, the
+value of the function $h$ at $s \in S$ is a natural transformation.
+#+end_statement
+
+We define the functor $\_^S$ on arrows as follows. Given a $f : X \to Y$
+and a $g : S \longrightarrow X$:
+
+\[
+f^S(g) = f \circ g
+\]
+
+And it follows the functor laws.
+
+We can see that evaluation is a natural transformation with the
+naturality square:
+
+\[\begin{tikzcd}
+X^S \times S \dar{e_X}\rar{f^S,id} & Y^S \times S \dar{e_Y}\\
+X \rar{f} & Y
+\end{tikzcd}\]
+
+Which commutes on its elements:
+
+\[\begin{tikzcd}
+(f,s) \dar{e_X}\rar{g^S,id} & (g\circ f, s) \dar{e_Y}\\
+f(s) \rar{f} & g(f(s))
+\end{tikzcd}\]
+
+*** Exercise 2
+#+begin_statement
+If $H$ is a fixed group, show that $G \mapsto H \times G$ defines a functor
+$H \times - \colon \mathtt{Grp}\to \mathtt{Grp}$ and that each morphism $f \colon H \to K$ of groups defines
+a natural transformation $H \times -\; \dot\to \; K \times -$.
+#+end_statement
+
+The functor will send a morphism $f \colon G \to G'$ to $\mathrm{id}\times f\colon H\times G \to H \times G'$.
+The naturality condition is satisfied if the following diagram commutes
+
+\[\begin{tikzcd}
+H \times G \dar{\mathrm{id}\times f} \rar{g\times\mathrm{id}} & 
+K \times G \dar{\mathrm{id}\times f} \\
+H \times G' \rar{g\times\mathrm{id}} & 
+K \times G'
+\end{tikzcd}\]
+
+but it is trivial to check commutativity.
+
+*** Exercise 3
+#+begin_statement
+If $B$ and $C$ are groups (regarded as categories with one object each) and
+$S,T \colon B \to C$ are functors (homomorphisms of groups), show that there is a
+natural transformation $S \dot\to T$ if and only if $S$ and $T$ are conjugate; i.e.
+if and only if there is an element $h \in C$ with $Tg = h(Sg)h^{-1}$ for all
+$g \in B$.
+#+end_statement
+
+If the only object in $B$ is $b$, then $Sb = Tb = c$ must be the only object
+in $c$. Naturality gives us
+
+\[\begin{tikzcd}
+c\rar{\varphi} \dar[swap]{Sf} & c \dar{Tf} \\
+c\rar{\varphi} & c
+\end{tikzcd}\]
+
+so we know that $Sf \circ \varphi = \varphi \circ Tf$, and this is the conjugate condition.
+
+*** Exercise 4
+#+begin_statement
+For functors $S,T \colon C \to P$ where $C$ is a category and $P$ a preorder, show
+that there is a natural transformation $S \dot\to T$ (which is then unique) if
+and only if $Sc \leq Tc$ for every object $c \in C$.
+#+end_statement
+
+To define a natural transformation, we must have a familiy of morphisms
+
+\[
+Sc \to Tc \quad\forall c \in C,
+\]
+
+but this morphism exists if and only if $Sc \leq Tc$ for every object. If the
+morphisms exist, the naturality condition is trivial, as there will be
+an unique morphism between two objects and all squares will commute.
+
+*** Exercise 5
+#+begin_statement
+Show that every natural transformation $\tau\colon S \dot\to T$ defines a function
+(also called $\tau$) which sends each arrow $f\colon c \to c'$ of $C$ to an arrow
+$\tau f\colon Sc \to Tc'$ of $B$ in such a way that $Tg \circ \tau f = \tau(gf) = \tau g\circ Sf$ for
+each composable pair $(g,f)$. Conversely, show that every such function $\tau$ 
+comes from a unique natural transformation with $\tau_c = \tau(1_c)$. (This gives 
+an arrows only description of a natural transformation.)
+#+end_statement
+
+Given $f\colon c \to c'$, we apply the naturality condition and take $\tau$ to be the
+diagonal
+
+\[\begin{tikzcd}
+Sc \drar{\tau f} \rar{\tau} \dar[swap]{Sf} & Tc \dar{Tf} \\
+Sc'\rar{\tau} & Tc'
+\end{tikzcd}\]
+
+i.e. we have defined $\tau f = Tf\circ \tau_c = \tau_{c'} \circ Sf$. The condition holds now 
+trivially, as we know that
+
+\[
+Tg \circ \tau f = Tg\circ Tf\circ \tau_c = \tau(gf) = \tau_{c'}\circ Sg\circ Sf
+= \tau g \circ Sf.
+\]
+
+*** TODO Exercise 6
+#+begin_statement
+Let $F$ be a field. Show that te category of all finite-dimensional vector
+spaces over $F$ (with morphisms all lineal transformations) is equivalent
+to the category $\mathtt{Matr}$.
+#+end_statement
+** 1.5. Monics, epis and zeros
+*** Exercise 1
+#+begin_statement
+Find a category with an arrow which is both epi and monic, but not 
+invertible (e.g., dense subset of a topological space).
+#+end_statement
+
+In the $\mathtt{Top}$ category of topological spaces with continuous functions,
+we can include a dense subset in its base space. This inclusion will
+be a monomorphism (as it is injective) and an epimorphism as we know
+that, if $i \colon U \subset V$ is our inclusion,
+
+\[ f\circ i = i \circ g \implies f|_{U} = g|_{U},\]
+
+and because it is a dense subset, by continuity, $f = g$.
+
+But it has not to be an isomorphism. In fact, it won't be if $U$ is a
+proper subset.
+
+*** Exercise 2
+#+begin_statement
+Prove that the composite of monics is monic, and likewise for epis.
+#+end_statement
+
+If $f,g$ are monics, we can apply the definition twice to get
+
+\[
+f \circ g \circ a = f \circ g \circ b \implies
+g \circ a = g\circ b \implies
+a = b.
+\]
+
+The same proof can be applied in reverse.
+
+*** Exercise 3
+#+begin_statement
+If a composite $g\circ f$ is monic, so is $f$. Is this true of $g$?
+#+end_statement
+
+No, $f$ could be a zero morphism and $g$ could still give $g\circ h = g\circ h'$ for
+two $h \neq h'$.
+
+*** Exercise 4
+#+begin_statement
+Show that the inclusion $\mathbb{Z} \to \mathbb{Q}$ is epi in the category $\mathtt{Rng}$.
+#+end_statement
+
+If $f \circ i = g \circ i$, then $f|_{\mathbb{Z}} = g|_{\mathbb{Z}$, and we can extend the morphisms uniquely
+to the ring $\mathbb{Q}$, as the ring morphisms have to preserve inverses.
+
+*** TODO Exercise 5
+#+begin_statement
+In $\mathtt{Grp}$ prove that every epi is surjective (Hint. If $\varphi\colon G\to H$ has image
+$M$ not $H$, use the factor group $H/M$ if $M$ has index 2. Otherwise, let
+$\mathrm{Perm}\ H$ be the group of all permutations of the set $H$, choose three
+different cosets $M,Mu$ and $Mv$ of $M$, define $\sigma \in \mathrm{Perm}\ H$ by
+$\sigma(xu) = xv$, $\sigma(xv) = xu$ for $x \in M$, and $\sigma$ otherwise the identity.
+Let $\psi\colon H \to \mathrm{Perm}\ H$ send each $h$ to left multiplication $\psi_h$ by $h$, while
+$\psi'_h = \sigma^{-1}\psi_h\sigma$. Then $\psi\varphi = \psi'\varphi$, but $\psi \neq \psi'$).
+#+end_statement
+
+*** TODO Exercise 6
+#+begin_statement
+In $\mathtt{Set}$, show that all idempotents split.
+#+end_statement
+
+Given $f \colon A \to A$ idempotent, we can define the set $\mathrm{img}\ f$, and two functions
+$g \colon A \to \mathrm{img}\ f$, $h\colon \mathrm{img}\ f \to A$ defined naturally and satisfiying the conditions.
+Notice that $g$ is an epimorphism and $h$ a monomorphism.
+* 2. Constructions on categories
+** 2.6. Comma categories
+*** Exercise 1
+#+begin_statement
+If $K$ is a commutative ring, show that the comma category $(K \downarrow \mathtt{CRng})$ is
+the usual category of all small commutative $K\text{-algebras}$.
+#+end_statement
+
+A $K\text{-algebra}$ can be defined as an inclusion from $K$ on a ring, morphisms
+of algebras must preserve this inclusion.
+
+# A more detailed proof would be interesting.
+
+*** Exercise 2
+#+begin_statement
+If $t$ is a terminal object in $C$, prove that $(C \downarrow t)$ is isomorphic to $C$.
+#+end_statement
+
+By definition of terminal object, there will be only an arrow 
+$\ast \colon u \to t$ for any $u \in C$. Every morphism will create a commutative 
+diagram because of the unicity of the morphisms.
