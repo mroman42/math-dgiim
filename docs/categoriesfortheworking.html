@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-04-23 Sun 20:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Categories for the working mathematician</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<meta name="description" content="Exercises on the Saunders MacLane's book"
+ />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Categories for the working mathematician</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgae626b7">1. Categories, functors and natural transformations</a>
+<ul>
+<li><a href="#org83900ba">1.3. Functors</a>
+<ul>
+<li><a href="#org17cc008">Exercise 1</a>
+<ul>
+<li><a href="#org206d85d">Field of quotients</a></li>
+<li><a href="#org2be6cd0"><span class="todo TODO">TODO</span> Lie algebra</a></li>
+</ul>
+</li>
+<li><a href="#orga2cde25">Exercise 2</a></li>
+<li><a href="#org93cbe3f">Exercise 3</a>
+<ul>
+<li><a href="#org0b20ff1">First statement</a></li>
+<li><a href="#org129cd29">Second statement</a></li>
+<li><a href="#org7f4c103">Third statement</a></li>
+</ul>
+</li>
+<li><a href="#orgce85534">Exercise 4</a></li>
+<li><a href="#orgaea6c4d">Exercise 5</a></li>
+</ul>
+</li>
+<li><a href="#org7127352">1.4. Natural transformations</a>
+<ul>
+<li><a href="#orgcb1cb26">Exercise 1</a></li>
+<li><a href="#org163a9e8">Exercise 2</a></li>
+<li><a href="#orgca47324">Exercise 3</a></li>
+<li><a href="#org96f6da1">Exercise 4</a></li>
+<li><a href="#orge986bfb">Exercise 5</a></li>
+<li><a href="#org2b61ae9"><span class="todo TODO">TODO</span> Exercise 6</a></li>
+</ul>
+</li>
+<li><a href="#orgd422a52">1.5. Monics, epis and zeros</a>
+<ul>
+<li><a href="#orgd3a37ee">Exercise 1</a></li>
+<li><a href="#org737a29d">Exercise 2</a></li>
+<li><a href="#orga6da8f4">Exercise 3</a></li>
+<li><a href="#org6cf606e">Exercise 4</a></li>
+<li><a href="#org7209a13"><span class="todo TODO">TODO</span> Exercise 5</a></li>
+<li><a href="#orgc821546"><span class="todo TODO">TODO</span> Exercise 6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgcea4c74">2. Constructions on categories</a>
+<ul>
+<li><a href="#org4af18d3">2.6. Comma categories</a>
+<ul>
+<li><a href="#orga95f8c2">Exercise 1</a></li>
+<li><a href="#org5d6eae3">Exercise 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgae626b7" class="outline-2">
+<h2 id="orgae626b7">1. Categories, functors and natural transformations</h2>
+<div class="outline-text-2" id="text-orgae626b7">
+</div><div id="outline-container-org83900ba" class="outline-3">
+<h3 id="org83900ba">1.3. Functors</h3>
+<div class="outline-text-3" id="text-org83900ba">
+</div><div id="outline-container-org17cc008" class="outline-4">
+<h4 id="org17cc008">Exercise 1</h4>
+<div class="outline-text-4" id="text-org17cc008">
+<div class="statement">
+<p>
+Show how each of the following constructions can be regarded as a functor:
+</p>
+
+<ul class="org-ul">
+<li>the field of quotients of an integral domain.</li>
+<li>the Lie algebra of a Lie group.</li>
+</ul>
+
+</div>
+</div>
+
+<div id="outline-container-org206d85d" class="outline-5">
+<h5 id="org206d85d">Field of quotients</h5>
+<div class="outline-text-5" id="text-org206d85d">
+<p>
+Given two integral domains and a ring homomorphism \(f : R \to S\), we
+define an homomorphism between its fields of quotients as:
+</p>
+
+<p>
+\[
+\widetilde{f}\left(\frac{a}{b}\right)
+=
+\frac{f(a)}{f(b)}
+\]
+</p>
+
+<p>
+We can prove it is well-defined using that \(ab=cd\) implies
+\(f(a)f(b) = f(c)f(d)\), and then:
+</p>
+
+<p>
+\[
+\widetilde{f}\left(\frac{a}{b}\right)
+=
+\frac{f(a)}{f(b)}
+=
+\frac{f(c)}{f(d)}
+=
+\widetilde{f}\left(\frac{c}{d}\right)
+\]
+</p>
+
+<p>
+And it respects sums and products:
+</p>
+
+<p>
+\[
+\widetilde{f}\left(\frac{a}{b} + \frac{c}{d}\right)
+=
+\widetilde{f}\left(\frac{ad+cb}{bd}\right)
+=
+\frac{f(a)f(d)+f(c)f(d)}{f(b)f(d)}
+=
+\frac{f(a)}{f(b)}+\frac{f(c)}{f(d)}
+\]
+</p>
+
+<p>
+\[
+\widetilde{f}\left(\frac{ac}{bd}\right) =
+\frac{f(a)f(c)}{f(b)f(d)}
+\]
+</p>
+
+<p>
+So it is a field homomorphism.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2be6cd0" class="outline-5">
+<h5 id="org2be6cd0"><span class="todo TODO">TODO</span> Lie algebra</h5>
+<div class="outline-text-5" id="text-org2be6cd0">
+<p>
+Given \(\phi : G \to H\), a Lie group homomorphism, we can compute its first
+derivative at the identity \(\phi^*\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga2cde25" class="outline-4">
+<h4 id="orga2cde25">Exercise 2</h4>
+<div class="outline-text-4" id="text-orga2cde25">
+<div class="statement">
+<p>
+Show that functors \(1 \to C\), \(2 \to C\), and \(3 \to C\) correspond respectively to
+objects, arrows, and composable pairs of arrows in \(C\).
+</p>
+
+</div>
+
+<p>
+A functor \(F\colon 1 \to C\) is determined by \(F1\). A functor \(F\colon 2 \to C\) is determined
+by \(F(1\leq 2)\colon F1 \to F2\). A functor \(F\colon 3 \to C\) is determined by \(F(1\leq 2)\) and
+\(F(2\leq 3)\), which must be composable in \(F2\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org93cbe3f" class="outline-4">
+<h4 id="org93cbe3f">Exercise 3</h4>
+<div class="outline-text-4" id="text-org93cbe3f">
+<div class="statement">
+<p>
+Interpret "functor" in the following special types of categories:
+</p>
+
+<ol class="org-ol">
+<li>A functor between two preorders is a function \(T\) which is monotonic
+(i.e. \(p \leq p'\) implies \(Tp \leq Tp'\)).</li>
+<li>A functor between two groups (one-object categories) is a morphism
+of groups.</li>
+<li>If \(G\) is a group, a functor \(G \to \mathtt{Set}\) is a permutation representation
+of \(G\), while \(G \to Matr_K\) is a matrix representation of \(G\).</li>
+</ol>
+
+</div>
+</div>
+
+<div id="outline-container-org0b20ff1" class="outline-5">
+<h5 id="org0b20ff1">First statement</h5>
+<div class="outline-text-5" id="text-org0b20ff1">
+<p>
+A functor must be a monotonic function, as it has to send \((p\leq p')\) into
+a morphism between \(Tp\) and \(Tp'\). This morphism exists if and only if 
+\(Tp \leq Tp'\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org129cd29" class="outline-5">
+<h5 id="org129cd29">Second statement</h5>
+<div class="outline-text-5" id="text-org129cd29">
+<p>
+It respects the identity and the group operation, as functors respect
+the identity and the composition.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7f4c103" class="outline-5">
+<h5 id="org7f4c103">Third statement</h5>
+<div class="outline-text-5" id="text-org7f4c103">
+<p>
+A functor \(F\colon G \to \mathtt{Set}\) is determined by \(FG\) and the assignment of every
+element of \(G\) to a set automorphism, that is, an element of the permutation
+group of the set.
+</p>
+
+<p>
+The functor \(F\colon G \to \mathtt{Matr}_K\) selects a dimension \(n\), and sends every element
+of the group to an invertible matrix \(M_{n\times n}\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce85534" class="outline-4">
+<h4 id="orgce85534">Exercise 4</h4>
+<div class="outline-text-4" id="text-orgce85534">
+<div class="statement">
+<p>
+Prove that there is no functor \(\mathtt{Grp} \to \mathtt{Ab}\) sending each group \(G\) to its
+center. (Consider \(S_2 \to S_3 \to S_2\), the symmetric groups).
+</p>
+
+</div>
+
+<p>
+A functor must preserve identities and composition. We have the following
+diagram in \(\mathtt{Grp}\),
+</p>
+
+<p>
+\[\begin{tikzcd}
+S_2 \rar[hook]\arrow[rr,bend left, "id"] & S_3 \rar & S_2
+\end{tikzcd}\]
+</p>
+
+<p>
+that cannot be translated into \(\mathtt{Ab}\) by this functor
+</p>
+
+<p>
+\[\begin{tikzcd}
+S_2 \rar & \{id\} \rar &  S_2
+\end{tikzcd}\]
+</p>
+
+<p>
+as we know that the identity is not the zero morphism.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaea6c4d" class="outline-4">
+<h4 id="orgaea6c4d">Exercise 5</h4>
+<div class="outline-text-4" id="text-orgaea6c4d">
+<div class="statement">
+<p>
+Find two different functors \(T : \mathtt{Grp} \to \mathtt{Grp}\) with object function \(T(G) = G\)
+the identity for every group \(G\).
+</p>
+
+</div>
+
+<p>
+The identity functor and a functor sending every morphism to the zero 
+morphism.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7127352" class="outline-3">
+<h3 id="org7127352">1.4. Natural transformations</h3>
+<div class="outline-text-3" id="text-org7127352">
+</div><div id="outline-container-orgcb1cb26" class="outline-4">
+<h4 id="orgcb1cb26">Exercise 1</h4>
+<div class="outline-text-4" id="text-orgcb1cb26">
+<div class="statement">
+<p>
+Let \(S\) be a fixed set, and \(X^S\) the set of all functions \(h : S \longrightarrow X\).
+Show that \(X \mapsto X^S\) is the object function of a functor \(\mathtt{Set} \longrightarrow \mathtt{Set}\),
+and that evaluation \(e_X : X^S \times S \longrightarrow X\) defined by \(e(h,s) = h(s)\), the
+value of the function \(h\) at \(s \in S\) is a natural transformation.
+</p>
+
+</div>
+
+<p>
+We define the functor \(\_^S\) on arrows as follows. Given a \(f : X \to Y\)
+and a \(g : S \longrightarrow X\):
+</p>
+
+<p>
+\[
+f^S(g) = f \circ g
+\]
+</p>
+
+<p>
+And it follows the functor laws.
+</p>
+
+<p>
+We can see that evaluation is a natural transformation with the
+naturality square:
+</p>
+
+<p>
+\[\begin{tikzcd}
+X^S \times S \dar{e_X}\rar{f^S,id} & Y^S \times S \dar{e_Y}\\
+X \rar{f} & Y
+\end{tikzcd}\]
+</p>
+
+<p>
+Which commutes on its elements:
+</p>
+
+<p>
+\[\begin{tikzcd}
+(f,s) \dar{e_X}\rar{g^S,id} & (g\circ f, s) \dar{e_Y}\\
+f(s) \rar{f} & g(f(s))
+\end{tikzcd}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org163a9e8" class="outline-4">
+<h4 id="org163a9e8">Exercise 2</h4>
+<div class="outline-text-4" id="text-org163a9e8">
+<div class="statement">
+<p>
+If \(H\) is a fixed group, show that \(G \mapsto H \times G\) defines a functor
+\(H \times - \colon \mathtt{Grp}\to \mathtt{Grp}\) and that each morphism \(f \colon H \to K\) of groups defines
+a natural transformation \(H \times -\; \dot\to \; K \times -\).
+</p>
+
+</div>
+
+<p>
+The functor will send a morphism \(f \colon G \to G'\) to \(\mathrm{id}\times f\colon H\times G \to H \times G'\).
+The naturality condition is satisfied if the following diagram commutes
+</p>
+
+<p>
+\[\begin{tikzcd}
+H \times G \dar{\mathrm{id}\times f} \rar{g\times\mathrm{id}} & 
+K \times G \dar{\mathrm{id}\times f} \\
+H \times G' \rar{g\times\mathrm{id}} & 
+K \times G'
+\end{tikzcd}\]
+</p>
+
+<p>
+but it is trivial to check commutativity.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgca47324" class="outline-4">
+<h4 id="orgca47324">Exercise 3</h4>
+<div class="outline-text-4" id="text-orgca47324">
+<div class="statement">
+<p>
+If \(B\) and \(C\) are groups (regarded as categories with one object each) and
+\(S,T \colon B \to C\) are functors (homomorphisms of groups), show that there is a
+natural transformation \(S \dot\to T\) if and only if \(S\) and \(T\) are conjugate; i.e.
+if and only if there is an element \(h \in C\) with \(Tg = h(Sg)h^{-1}\) for all
+\(g \in B\).
+</p>
+
+</div>
+
+<p>
+If the only object in \(B\) is \(b\), then \(Sb = Tb = c\) must be the only object
+in \(c\). Naturality gives us
+</p>
+
+<p>
+\[\begin{tikzcd}
+c\rar{\varphi} \dar[swap]{Sf} & c \dar{Tf} \\
+c\rar{\varphi} & c
+\end{tikzcd}\]
+</p>
+
+<p>
+so we know that \(Sf \circ \varphi = \varphi \circ Tf\), and this is the conjugate condition.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org96f6da1" class="outline-4">
+<h4 id="org96f6da1">Exercise 4</h4>
+<div class="outline-text-4" id="text-org96f6da1">
+<div class="statement">
+<p>
+For functors \(S,T \colon C \to P\) where \(C\) is a category and \(P\) a preorder, show
+that there is a natural transformation \(S \dot\to T\) (which is then unique) if
+and only if \(Sc \leq Tc\) for every object \(c \in C\).
+</p>
+
+</div>
+
+<p>
+To define a natural transformation, we must have a familiy of morphisms
+</p>
+
+<p>
+\[
+Sc \to Tc \quad\forall c \in C,
+\]
+</p>
+
+<p>
+but this morphism exists if and only if \(Sc \leq Tc\) for every object. If the
+morphisms exist, the naturality condition is trivial, as there will be
+an unique morphism between two objects and all squares will commute.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge986bfb" class="outline-4">
+<h4 id="orge986bfb">Exercise 5</h4>
+<div class="outline-text-4" id="text-orge986bfb">
+<div class="statement">
+<p>
+Show that every natural transformation \(\tau\colon S \dot\to T\) defines a function
+(also called \(\tau\)) which sends each arrow \(f\colon c \to c'\) of \(C\) to an arrow
+\(\tau f\colon Sc \to Tc'\) of \(B\) in such a way that \(Tg \circ \tau f = \tau(gf) = \tau g\circ Sf\) for
+each composable pair \((g,f)\). Conversely, show that every such function \(\tau\) 
+comes from a unique natural transformation with \(\tau_c = \tau(1_c)\). (This gives 
+an arrows only description of a natural transformation.)
+</p>
+
+</div>
+
+<p>
+Given \(f\colon c \to c'\), we apply the naturality condition and take \(\tau\) to be the
+diagonal
+</p>
+
+<p>
+\[\begin{tikzcd}
+Sc \drar{\tau f} \rar{\tau} \dar[swap]{Sf} & Tc \dar{Tf} \\
+Sc'\rar{\tau} & Tc'
+\end{tikzcd}\]
+</p>
+
+<p>
+i.e. we have defined \(\tau f = Tf\circ \tau_c = \tau_{c'} \circ Sf\). The condition holds now 
+trivially, as we know that
+</p>
+
+<p>
+\[
+Tg \circ \tau f = Tg\circ Tf\circ \tau_c = \tau(gf) = \tau_{c'}\circ Sg\circ Sf
+= \tau g \circ Sf.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2b61ae9" class="outline-4">
+<h4 id="org2b61ae9"><span class="todo TODO">TODO</span> Exercise 6</h4>
+<div class="outline-text-4" id="text-org2b61ae9">
+<div class="statement">
+<p>
+Let \(F\) be a field. Show that te category of all finite-dimensional vector
+spaces over \(F\) (with morphisms all lineal transformations) is equivalent
+to the category \(\mathtt{Matr}\).
+</p>
+
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd422a52" class="outline-3">
+<h3 id="orgd422a52">1.5. Monics, epis and zeros</h3>
+<div class="outline-text-3" id="text-orgd422a52">
+</div><div id="outline-container-orgd3a37ee" class="outline-4">
+<h4 id="orgd3a37ee">Exercise 1</h4>
+<div class="outline-text-4" id="text-orgd3a37ee">
+<div class="statement">
+<p>
+Find a category with an arrow which is both epi and monic, but not 
+invertible (e.g., dense subset of a topological space).
+</p>
+
+</div>
+
+<p>
+In the \(\mathtt{Top}\) category of topological spaces with continuous functions,
+we can include a dense subset in its base space. This inclusion will
+be a monomorphism (as it is injective) and an epimorphism as we know
+that, if \(i \colon U \subset V\) is our inclusion,
+</p>
+
+<p>
+\[ f\circ i = i \circ g \implies f|_{U} = g|_{U},\]
+</p>
+
+<p>
+and because it is a dense subset, by continuity, \(f = g\).
+</p>
+
+<p>
+But it has not to be an isomorphism. In fact, it won't be if \(U\) is a
+proper subset.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org737a29d" class="outline-4">
+<h4 id="org737a29d">Exercise 2</h4>
+<div class="outline-text-4" id="text-org737a29d">
+<div class="statement">
+<p>
+Prove that the composite of monics is monic, and likewise for epis.
+</p>
+
+</div>
+
+<p>
+If \(f,g\) are monics, we can apply the definition twice to get
+</p>
+
+<p>
+\[
+f \circ g \circ a = f \circ g \circ b \implies
+g \circ a = g\circ b \implies
+a = b.
+\]
+</p>
+
+<p>
+The same proof can be applied in reverse.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga6da8f4" class="outline-4">
+<h4 id="orga6da8f4">Exercise 3</h4>
+<div class="outline-text-4" id="text-orga6da8f4">
+<div class="statement">
+<p>
+If a composite \(g\circ f\) is monic, so is \(f\). Is this true of \(g\)?
+</p>
+
+</div>
+
+<p>
+No, \(f\) could be a zero morphism and \(g\) could still give \(g\circ h = g\circ h'\) for
+two \(h \neq h'\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6cf606e" class="outline-4">
+<h4 id="org6cf606e">Exercise 4</h4>
+<div class="outline-text-4" id="text-org6cf606e">
+<div class="statement">
+<p>
+Show that the inclusion \(\mathbb{Z} \to \mathbb{Q}\) is epi in the category \(\mathtt{Rng}\).
+</p>
+
+</div>
+
+<p>
+If \(f \circ i = g \circ i\), then \(f|_{\mathbb{Z}} = g|_{\mathbb{Z}\), and we can extend the morphisms uniquely
+to the ring \(\mathbb{Q}\), as the ring morphisms have to preserve inverses.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7209a13" class="outline-4">
+<h4 id="org7209a13"><span class="todo TODO">TODO</span> Exercise 5</h4>
+<div class="outline-text-4" id="text-org7209a13">
+<div class="statement">
+<p>
+In \(\mathtt{Grp}\) prove that every epi is surjective (Hint. If \(\varphi\colon G\to H\) has image
+\(M\) not \(H\), use the factor group \(H/M\) if \(M\) has index 2. Otherwise, let
+\(\mathrm{Perm}\ H\) be the group of all permutations of the set \(H\), choose three
+different cosets \(M,Mu\) and \(Mv\) of \(M\), define \(\sigma \in \mathrm{Perm}\ H\) by
+\(\sigma(xu) = xv\), \(\sigma(xv) = xu\) for \(x \in M\), and \(\sigma\) otherwise the identity.
+Let \(\psi\colon H \to \mathrm{Perm}\ H\) send each \(h\) to left multiplication \(\psi_h\) by \(h\), while
+\(\psi'_h = \sigma^{-1}\psi_h\sigma\). Then \(\psi\varphi = \psi'\varphi\), but \(\psi \neq \psi'\)).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc821546" class="outline-4">
+<h4 id="orgc821546"><span class="todo TODO">TODO</span> Exercise 6</h4>
+<div class="outline-text-4" id="text-orgc821546">
+<div class="statement">
+<p>
+In \(\mathtt{Set}\), show that all idempotents split.
+</p>
+
+</div>
+
+<p>
+Given \(f \colon A \to A\) idempotent, we can define the set \(\mathrm{img}\ f\), and two functions
+\(g \colon A \to \mathrm{img}\ f\), \(h\colon \mathrm{img}\ f \to A\) defined naturally and satisfiying the conditions.
+Notice that \(g\) is an epimorphism and \(h\) a monomorphism.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcea4c74" class="outline-2">
+<h2 id="orgcea4c74">2. Constructions on categories</h2>
+<div class="outline-text-2" id="text-orgcea4c74">
+</div><div id="outline-container-org4af18d3" class="outline-3">
+<h3 id="org4af18d3">2.6. Comma categories</h3>
+<div class="outline-text-3" id="text-org4af18d3">
+</div><div id="outline-container-orga95f8c2" class="outline-4">
+<h4 id="orga95f8c2">Exercise 1</h4>
+<div class="outline-text-4" id="text-orga95f8c2">
+<div class="statement">
+<p>
+If \(K\) is a commutative ring, show that the comma category \((K \downarrow \mathtt{CRng})\) is
+the usual category of all small commutative \(K\text{-algebras}\).
+</p>
+
+</div>
+
+<p>
+A \(K\text{-algebra}\) can be defined as an inclusion from \(K\) on a ring, morphisms
+of algebras must preserve this inclusion.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5d6eae3" class="outline-4">
+<h4 id="org5d6eae3">Exercise 2</h4>
+<div class="outline-text-4" id="text-org5d6eae3">
+<div class="statement">
+<p>
+If \(t\) is a terminal object in \(C\), prove that \((C \downarrow t)\) is isomorphic to \(C\).
+</p>
+
+</div>
+
+<p>
+By definition of terminal object, there will be only an arrow 
+\(\ast \colon u \to t\) for any \(u \in C\). Every morphism will create a commutative 
+diagram because of the unicity of the morphisms.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Mario Román</p>
+<p class="date">Created: 2017-04-23 Sun 20:19</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
