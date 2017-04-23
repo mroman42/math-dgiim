@@ -1,0 +1,3388 @@
+#+TITLE: Álgebra conmutativa y computacional
+#+AUTHOR: Mario Román
+#+EMAIL: mromang08@gmail.com
+
+#+SETUPFILE: config.setup
+#+LANGUAGE: es
+
+
+* 1. Anillos e ideales
+** La categoría CRing
+*** Categoría
+Consideramos la categoría de los *anillos conmutativos*, que consta de
+los anillos conmutativos como objetos y de los homomorfismos de
+anillos; respetando suma, producto y unidad; como morfismos.
+
+*** Z es objeto inicial
+El anillo $\mathbb{Z}$ es inicial en =CRing=. El homomorfismo único
+queda unívocamente definido con $f(1) = 1$ y $f(n) = nf(1)$.
+
+*** Subanillos
+*Subanillo*. Subconjunto cerrado para la suma y el producto
+conteniendo a 1.
+
+*** Monomorfismos y epimorfismos
+En =CRing= coinciden la inyectividad con ser monomorfismo y la
+sobreyectividad con ser epimorfismo.
+
+** Ideales
+*** Definición
+Un *ideal* es un subconjunto cerrado para la suma y el producto de cualquier 
+elemento desde $R$.
+
+*** Retículo de ideales
+Los ideales forman un retículo con la suma y la intersección.
+Dos ideales son *primos relativos* cuando suman el anillo.
+
+*** Generación de ideales
+Llamamos $(X)$ al *ideal generado* por $X$; el menor ideal que 
+contiene a $X$:
+
+\[ (X) = \bigcap_{X \subset \alpha \text{, ideal}} \alpha\]
+
+Lo llamamos *ideal finitamente generado* cuando $X$ es finito,
+cumpliéndose:
+
+\[ (X) = \left\{ \sum^{finita} r_ix_i \mid r_i \in R, x_i \in X\right\}\]
+
+E *ideal principal* cuando $X$ tiene un sólo elemento.
+
+*** Producto de ideales
+Se define para $\alpha, \beta$ ideales como:
+
+\[ \alpha\beta = \left\{ xy \mid x\in\alpha, y\in\beta \right\}\]
+
+*** Ideales primos relativos
+Dos ideales son *primos relativos* cuando $\alpha+\beta = R$. Cuando son 
+primos relativos se cumple que $\alpha\beta = \alpha \cap \beta$.
+
+** Anillo cociente
+*** Definición
+Sea $R$ anillo y $\alpha \subset R$ ideal, tomamos la relación de equivalencia
+$x \sim y \Leftrightarrow x-y \in \alpha$, para obtener:
+
+\[ R/\alpha = \{x+\alpha \mid x\in R\}\]
+
+*** Ideales del anillo cociente
+Los ideales del anillo cociente sobre $\alpha$ están en correspondencia biyectiva
+con los ideales que lo contienen, $\beta \supset \alpha$. Son siempre de la forma $\beta/\alpha$.
+
+*** Primer Teorema de Isomorfía
+Para cualquier homomorfismo de anillos $f$:
+
+\[ R/\ker(f) \cong \im(f)\]
+
+Y además, los ideales están en correspondencia biyectiva por $f_\ast$ y $f^{-1}$:
+
+\[ \{ \alpha \mid \ker(f)\subset\alpha \} 
+\longleftrightarrow 
+\{ \beta \mid \beta \subset \im(f)\}\]
+
+**** Demostración
+Trivial desde la descomposición de morfismos en una categoría arbitraria.
+Además, se comprueba que $f^{-1}$ preserva ideales y que $f_\ast$ preserva ideales en su 
+imagen.
+
+** Ideales primos y maximales
+*** Definición
+$P$ es ideal *primo* si no es el total y $xy\in P \Rightarrow x \in P \vee y \in P$.
+$P$ es ideal *maximal* si $M \neq R$ y es maximal en el retículo de ideales 
+sin $R$.
+
+*** Caracterización de ideales primos y maximales
+En relación a su cociente en el anillo:
+
+ - $P$ es primo ssi $R/P$ es un dominio de integridad no trivial.
+ - $M$ es maximal ssi $M/P$ es un cuerpo no trivial.
+
+**** Demostración trivial
+*** Preservación de ideales primos y maximales
+Dado un homomorfismo $f$,
+
+ 1. Si $\Pi$ es ideal primo, entonces $f^{-1}(\Pi)$ es ideal primo.
+ 2. La imagen y preimagen de ideales preserva primos y maximales 
+    entre el núcleo y sobre la imagen del anillo.
+
+Como consecuencia los ideales primos (resp. maximales) de un
+anillo $R/\alpha$, son los ideales de la forma $\Pi/\alpha$ con $\alpha\subset\Pi$ primo (resp.
+maximal).
+
+**** Demostración
+*1* es trivial. *2* tenemos que demostrarlo en cuatro pasos:
+
+ - Si $M$ es maximal en $\im f$, entonces $f^{-1}(M)$ es maximal entre los 
+   ideales que contienen a $\ker f$.
+ - Si $M$ es maximal, entonces $f(M)$ es maximal en $\im f$.
+ - Si $\Pi$ es primo en $\im f$, entonces $f^{-1}(\Pi)$ es primo, ya demostrado.
+ - Si $\ker f \subset \Pi$ es primo, entonces $f(\Pi)$ es primo en $\im f$.
+
+*** Teorema de Krull
+Dados $\alpha \subseteq R$ ideal y $S$ multiplicativamente cerrado con $\alpha\cap S = \varnothing$, 
+existe un ideal $M$ tal que:
+
+  - $\alpha \subset M$ 
+  - $M \cap S = \varnothing$
+  - $M$ es maximal respecto a estas condiciones.
+
+Además, $M$ es un ideal primo.
+
+**** Subconjunto multiplicativamente cerrado
+Es un subconjunto $S$ con:
+
+ - $1 \in S$
+ - $x,y\in S \implies xy \in S$
+
+**** Demostración
+Dada una cadena de ideales cumpliendo la condición su unión también 
+la cumple y es cota de la cadena. Aplicando lema de Zorn obtenemos 
+un maximal.
+
+Supongamos $xy \in M$, pero $x,y \notin M$. Entonces $M+(x) \cap S \neq \varnothing$ y
+$M + (y) \cap S \neq \varnothing$ por maximalidad, y deben existir $xz,yt \in S$; luego
+se tendría $xzyt \in M \cap S$, contradicción.
+
+*** Corolario al teorema de Krull
+Tomando $S=\{1\}$ tenemos que; dado un ideal, existe un ideal maximal que 
+lo contiene. En particular, todo elemento no unidad está contenido en un 
+ideal maximal, tomando $S = (x)$.
+
+** Anillos locales
+*** Inclusión en ideales primos
+Sean ideales $\alpha_1,\dots,\alpha_n$ y $\pi$ un ideal primo. Si $\bigcap \alpha_i \subset \pi$, entonces,
+
+$\exists i: \alpha_i \subset \pi$.
+
+**** Demostración
+Supongamos que $\forall i: \alpha_i \nsubseteq \Pi$; entonces tenemos $x_i \in \alpha_i - \Pi$ tales que ninguno
+está en $\Pi$, pero su producto debe estar, contraviniendo que sea primo.
+
+*** Inclusión de ideales primos
+Sean ideales primos $\pi_1,\dots,\pi_n$, (salvo quizá 2) y $\alpha$ un ideal. Si $\alpha \subset \bigcup \pi_i$, 
+entonces,
+
+$\exists i: \alpha \subset \pi_i$.
+
+**** Demostración
+En el caso $n=2$, supongamos $\alpha \subset \pi_1 \cup \pi_2$; y tomemos $x \in \alpha, x\in\pi_1$, $y\in\alpha, y\in\pi_2$.
+Entonces tendría $x+y \in \alpha$, pero no estaría en $\pi_1 \cup \pi_2$. Nótese que no usamos
+todavía que sean primos.
+
+En el caso inductivo, aplico la hipótesis de inducción para obtener, para cada $k$:
+
+\[\exists x_k \in \alpha : x_k \notin \bigcup_{i\neq k} \pi_i\]
+
+Luego debe tenerse $x_k \in \alpha_k$; sea ahora $x = x_1x_2\dots x_{n-1}+x_n \in \alpha$; 
+luego $\exists r: x\in\alpha_r$. Si $r=n$, tendríamos $x_1x_2\dots x_{n-1} \in \alpha_r$, y por primalidad debería
+estar alguno; si no, tendríamos $x_n \in \alpha_r$.
+
+*** Definición de anillo local
+Un *anillo local* es aquel con un único ideal maximal. A $R/M$ se le llama 
+*cuerpo residual*.
+
+*** Caracterización de anillos locales
+Un anillo $R$ es local ssi $\{x\in R \mid x \text{ no unidad}\}$ es un ideal.
+
+Sea $M$ ideal propio:
+
+ - $R$ es local con maximal $M$ ssi $R-M \subset {\cal U}(R)$.
+ - Si $M$ es maximal y $\{1+x \mid x\in M\}\subset {\cal U}(R)$ entonces es $R$ local y $M$ su maximal.
+
+**** Demostración
+1. Una no unidad debe estar contenida en el único maximal que hay, que no contiene
+   a las unidades y además es ideal.
+   Por otro lado, por Krull, el ideal de las no unidades debería estar contenido
+   en un ideal maximal que tampoco tuviera unidades, luego debe ser él mismo.
+2. Por la caracterización anterior tenemos una implicación. Sea $R-M \subset {\cal U}(R)$,
+   si tenemos $M \not\subset \beta$, entonces tendríamos un $x \in \beta,x \notin M$, luego $x \in {\cal U}(R)$
+   y entonces $\beta = R$. Si tenemos otro $M'$ maximal, entonces $\exists x\in M': x \notin M$,
+   pero eso me vuelve a dar $M' = R$. Luego $M$ es el único ideal y maximal.
+3. Por la caracterización anterior tenemos una implicación. Sea $x \notin R-M$,
+   tenemos por maximalidad: $rx+m = 1$, luego $rx = 1-m \in {\cal U}(R)$.
+   En conclusión, $R-M \subset {\cal U}(R)$ y es local.
+
+** Radicales
+*** Nilradical
+Sus elementos se llaman *nilpotentes*:
+
+\[\operatorname{Nil}(R) = \{x \in R \mid \exists n: x^n = 0\}\]
+
+El nilradical es un ideal.
+
+*** Anillo reducido
+Un anillo es *reducido* si $\operatorname{Nil}(R) = 0$. Los dominios de integridad son 
+reducidos. Además, podemos reducir un anillo dividiendo por su 
+nilradical $R/\operatorname{Nil}(R)$.
+
+*** Espectro
+El *espectro* de un anillo R es el conjunto de sus ideales primos:
+
+\[\spec(R) = \{\pi\subset R \mid \pi \text{ es un ideal primo}\}\]
+
+*** Caracterización del nilradical
+El nilradical de $R$ es la intersección de los ideales del espectro:
+
+\[ \operatorname{Nil}(R) = \bigcap_{\pi \in \operatorname{Spec}(R)} \pi\]
+
+**** Demostración
+Sea $x^n = 0$, entonces $x^n \in \pi, \forall \pi \in \operatorname{Spec}(R)$; y, por primalidad, $x \in \pi$.
+Sea $x \notin \operatorname{Nil}(R)$, entonces $S = \{1,x,x^2,\dots\}$ es multiplicativamente cerrado 
+con $S \cap \operatorname{Nil}(R) = \varnothing$. Por Krull, tenemos un $\pi$ tal que $\pi \cap S = \varnothing$.
+
+*** Radical de un ideal
+Se define como:
+
+\[\sqrt{\alpha} = \{x \in R \mid \exists n \geq 1 : x^n \in \alpha\}\]
+
+Tenemos que $\operatorname{Nil}(R/\alpha) = \sqrt{\alpha}/\alpha$. Cuando $\alpha = \sqrt{\alpha}$ decimos que es *ideal radical*.
+Se caracteriza como:
+
+\[\sqrt{\alpha} = \bigcap_{\alpha \subset \pi \in Spec(R)} \pi\]
+
+**** Demostración
+Tenemos claramente $\pi^{-1}(\operatorname{Nil}(R/\alpha)) = \sqrt{\alpha}$, pero entonces:
+
+\[\sqrt{\alpha} = 
+\pi^{-1}(\operatorname{Nil}(R/\alpha))=
+\pi^{-1} \left( 
+\bigcap_{\alpha \subset \pi \in \operatorname{Spec}(R/\alpha)} \pi/\alpha 
+\right) = \bigcap_{\alpha \subset \pi \in \operatorname{Spec}(R)} \pi\]
+
+*** Radical de Jacobson
+Se define el *radical de Jacobson* como:
+
+\[{\cal J}(R) = \bigcap_{{\cal M} \text{ maximal}} {\cal M}\]
+
+**** Caracterización del radical de Jacobson
+Tenemos que $x \in {\cal J}(R)$ ssi $1-xy \in U(R)$ para cualquier $y$.
+
+***** Demostración
+Un elemento $1-xy$ para $x \in {\cal J}(R)$ no puede estar en ningún ideal maximal, 
+porque estaría entonces el $1$. Por corolario de Krull, debe ser unidad.
+
+Supongamos $x \notin M$, entonces $(x) + M = R$, y por tanto $1-xy \in M$. Pero 
+un maximal no puede contener una unidad.
+
+** Ideales residuales y anulador
+*** Ideales residuales
+Definimos el *ideal residual* (a veces llamado *cociente*) de dos 
+ideales como:
+
+\[ (\alpha : \beta) = \{x\in R\mid x\beta \subset\alpha\}\]
+
+*** Anulador
+\[\operatorname{Ann}(\beta) = \{x \in R \mid x\beta = 0\} = (0 : \beta)\]
+
+** Ideales contraídos y extendidos
+*** Ideal extendido
+Dado un homomorfismo $f : R \longrightarrow S$ llamamos *ideal extendido* de $\alpha$ al ideal:
+
+\[ \alpha^e = (f(\alpha)) = \left\{ \sum s_i f(x_i) \mid s_i \in S, x_i \in \alpha\right\}\]
+
+*** Ideal contraído
+Dado un homomorfismo $f$ llamamos *ideal contraído* de $\beta$ al ideal:
+
+\[ \beta^c = f(\beta) \]
+
+*** Biyección entre ideales
+Para $f : S \longrightarrow R$ homomorfismo y $\alpha,\beta$ ideales:
+
+  1. $\alpha \subset \alpha^e^c$, y $\beta \supset \beta^c^e$.
+  2. $\alpha^e = \alpha^e^c^e$, y $\beta^c = \beta^c^e^c$.
+  3. Hay una biyección con $(-)^e,(-)^c$ entre ideales contraídos y extendidos, 
+     que además pueden escribirse como $\{\alpha \subset R \mid \alpha = \alpha^e^c\}$ y $\{\beta \subset S \mid \beta = \beta^c^e\}$.
+
+**** Demostración
+Pueden escribirse así porque si tengo $\beta = \alpha^e$, entonces $\beta^c^e = \alpha^e^c^e = \alpha^e = \beta$. 
+La biyección es trivial desde la definición y las proposiciones anteriores.
+
+** Producto directo de anillos
+*** Producto directo
+Para $R_1,R_2,\dots,R_n$ tomamos como su producto directo a:
+
+\[R_1\times \dots \times R_n = \prod_{i=1}^n R_i\]
+
+con las operaciones definidas componente a componente.
+
+*** Proyecciones e inclusiones
+Las *proyecciones*, $p_k$, a cualquier factor son homomorfismos.
+Las *inclusiones*, $u_k$, *no* son homomorfismos, ya que no respetan
+el uno del anillo, que en este caso es $(1,\dots,1)$. Cumplen además:
+
+ - $p_k \circ u_k = \delta_{kj}id$
+ - $\sum u_i \circ p_i = id$
+ - $\ker(p_j) = \sum \im(u_j)$
+
+*** Propiedad universal
+El producto con las proyecciones es el *producto categórico* de la
+categoría de los anillos:
+
+\[ \begin{tikzcd}
+& & S \dar[dashed]{\exists!} \arrow[bend right]{ddll} \arrow[bend right]{ddl} \arrow[bend left]{ddr} \arrow[bend left]{ddrr} & &\\
+& & \prod R \arrow{dll}[swap]{\pi_1} \arrow{dl}{\pi_2} \arrow{dr}[swap]{\pi_3} \arrow{drr} & & \\
+R_1 & R_2 &  & R_3 & \dots
+\end{tikzcd} \]
+
+*** Teorema Chino del Resto
+En la situación de la propiedad universal sobre el cociente por unos
+ideales $\alpha_1,\dots,\alpha_n$:
+
+\[ \begin{tikzcd}
+\prod_{i=1}^n R/\alpha_i \rar{\pi_i} &  R/\alpha_i \\
+R \uar{\exists! f} \urar{p_i}
+\end{tikzcd} \]
+
+Tenemos que:
+
+  1. Si los $\alpha_i$ son primos entre sí, $\prod \alpha_i = \bigcap \alpha_i$.
+  2. La $f$ es sobreyectiva ssi los $\alpha_i$ son primos entre sí.
+  3. La $f$ es inyectiva ssi $\bigcap \alpha_i = 0$. De hecho, $\ker(f) = \bigcap \alpha_i$.
+
+**** Demostración
+1. El caso $n=2$ es conocido. En el caso $n>2$, aplicamos la hipótesis
+   de inducción a $\alpha_1\alpha_2\dots\alpha_{n-1}$ y a $\alpha_n$, que se demuestran primos relativos.
+2. Doble implicación:
+   - Si $f$ es sobreyectiva, existe $f(x) = (1,0,0,\dots)$, que me da $x \in \alpha_i$
+     para cualquier $i$, y además, $x-1 \in \alpha_1$; luego $1 \in \alpha_i+\alpha_1$.
+   - Si son primos relativos, existen $x_i + y_i = 1$ con $x_i \in \alpha_1$, $y_i \in \alpha_i$.
+     $y = y_2y_3\dots y_n = 1 + x$, con $x \in \alpha_1$; luego $y \equiv_{\alpha_1} 1$ pero $y \equiv_{\alpha_i} 0$; luego
+     puedo crear una base del anillo.
+3. Trivial.
+
+* 2. Bases de Gröbner
+** R-álgebras
+*** R-módulo
+Dado $R$ anillo. Un *R-módulo* (izquierdo) es un grupo abeliano $M$ junto
+a una operación $\cdot : (R,M) \longrightarrow M$ verificando:
+
+  - $r(x+y) = rx+ry$
+  - $(r+s)x = rx+sx$
+  - $r(sx) = (rs)x$
+  - $1x = x$
+
+*** R-álgebras
+Una *R-álgebra* $S$ es un anillo con estructura de R-módulo, tal que:
+
+\[\forall r\in R, x,y\in S:\; (rx)y = r(xy) = x(ry)\]
+
+*** Homomorfismo de estructura
+Equivalentemente, una R-álgebra es un anillo $S$ junto a un 
+*homomorfismo de estructura* $\lambda : R \longrightarrow S$.
+
+**** Equivalencia
+Nótese que puedo pasar de una a otra definición tomando $\lambda(r) = r1$.
+
+*** Homomorfismos de R-álgebras
+Un homormorfismo de R-álgebras $f : S_1 \longrightarrow S_2$ es un homomorfismo de 
+anillos que sea también homomorfismo de R-módulos.
+
+\[ f(rs) = rf(s) \]
+
+*** Anillo de polinomios
+Definimos el anillo de polinomios en varias variables recursivamente:
+
+\[ R[X_1,X_2,\dots,X_n] = R[X_1,X_2,\dots,X_{n-1}][X_n] \]
+
+Y forma una R-álgebra con la inclusión desde $R$.
+
+*** Propiedad universal del anillo de polinomios
+Sea $S$ anillo y $f : R \longrightarrow S$ homomorfismo de anillos. Sean $s_1,\dots,s_n \in S$
+elementos arbitrarios; entonces existe un único homomorfismo de 
+R-álgebras $f_{s_1,\dots,s_n} : R[X_1,\dots,X_n] \longrightarrow S$ tal que:
+
+\[ \begin{tikzcd}
+R \rar[hook]{i} \drar[swap]{f} & R[X_1,X_2,\dots,X_n] \dar[dashed]{f_{s_1,\dots,s_n}} \\
+  & S
+\end{tikzcd} \]
+
+Llevando $f(X_i) = s_i$.
+
+**** TODO Demostración
+
+*** R-álgebras finitamente generadas
+Una R-álgebra $S$ es finitamente generada si existe un epimorfismo de
+R-álgebras $f : R[X_1,\dots,X_n] \longrightarrow S$.
+
+** Órdenes monomiales
+*** Representación recursiva de un polinomio
+Llamamos representación recursiva a la siguiente:
+
+\[
+F = \sum_{j=0}^t F_j X^j_n
+\]
+
+donde $F_j \in K[X_1,\dots,X_{n-1}]$. Nótese que es la representación natural una
+vez asumimos la definición recursiva del anillo de polinomios.
+
+*** Representación distributiva de un polinomio
+Llamamos representación distributiva a la siguiente:
+
+\[ p = \sum a_{(\alpha_1,\dots,\alpha_n)} 
+X_1^{\alpha_1} X_2^{\alpha_2} \dots X_n^{\alpha_n} \]
+
+Si escribimos los monomios como $X^{\alpha}$ para cada $\alpha \in \mathbb{N}^n$, nos
+queda:
+
+\[p = \sum_{\alpha \in \mathbb{N}^n} a_\alpha X^\alpha\]
+
+*** Base de los polinomios
+Los monomios forman una K-base vectorial del espacio de polinomios:
+
+\[\{ X^\alpha \mid \alpha \in \mathbb{N}^n \}\]
+
+**** Demostración
+Son claramente sistema de generadores y, por definición, un polinomio
+con algún coeficiente no nulo no puede ser nunca nulo. Nótese que puede
+haber cuerpos donde los polinomios evalúen a cero en cualquier punto
+del cuerpo, como $X(X-1)$ en $\mathbb{F}_2$, pero ese polinomio no se considera 
+nulo.
+
+*** Grado de un monomio
+El grado de un monomio $X^\alpha$ con $\alpha \in \mathbb{N}^n$ es la suma:
+
+\[gr(X^\alpha) = \sum^n_{i=1} \alpha_i\]
+
+*** Órdenes compatibles
+Un orden $\leq$ en $\mathbb{N}^n$ es compatible si:
+
+\[\alpha \leq \beta \Longrightarrow \alpha + \gamma \geq \beta + \gamma\]
+
+*** Órdenes monótonos
+Un orden $\leq$ es monótono si:
+
+\[ 0 \leq \alpha \]
+
+*** Órdenes monomiales
+Un orden monomial es compatible, monótono y total.
+
+*** Orden lexicográfico
+Definimos $\alpha \geq_{lex} \beta$ cuando para el primer $\alpha_i \neq \beta_i$, se tiene $\alpha_i \geq \beta_i$.
+
+*** Orden lexicográfico graduado
+Definimos $\alpha \geq_{grlex} \beta$ cuando $\sum \alpha > \sum \beta$ ó se da la igualdad
+y se tiene $\alpha \geq_{lex} \beta$.
+
+*** Orden lexicográfico graduado inverso
+Definimos $\alpha \geq_{invgrlex} \beta$ cuando $\sum \alpha > \sum \beta$ ó se da la igualdad
+y para el primer $\alpha_i \neq \beta_i$ a la derecha, se tiene $\alpha_i < \beta_i$.
+
+*** Preórdenes
+Un preorden es una relación binaria transitiva y reflexiva.
+Equivalentemente, es un orden sin la antisimetría.
+
+*** Relación de equivalencia en preódenes
+Dado un preorden $\sqsubseteq$, se define la relación de equivalencia $x \equiv y$,
+que se tiene cuando $x \sqsubseteq y \wedge y \sqsubseteq x$.
+
+*** Producto lexicográfico de preórdenes
+Definimos el producto lexicográfico de dos preórdenes $\sqsubseteq_1,\sqsubseteq_2$
+como:
+
+\[x \sqsubseteq_{12} y = \left\{
+\begin{array}{l} 
+x \sqsubseteq_1 y \wedge y \not\sqsubseteq_1 x \\ 
+\text{  ó} \\
+x \equiv_1 y \wedge x \sqsubseteq_2 y
+\end{array}\right.\]
+
+*** Propiedades del producto
+El producto de preórdenes cumple:
+
+  1. $\sqsubseteq_{12}$ es un preorden.
+  2. $\sqsubseteq_2$ orden $\Rightarrow$ $\sqsubseteq_{12}$ orden
+  3. $\sqsubseteq_1,\sqsubseteq_2$ totales $\Rightarrow$ $\sqsubseteq_{12}$ total
+  4. $\sqsubseteq_1,\sqsubseteq_2$ compatible $\Rightarrow$ $\sqsubseteq_{12}$ compatible
+  5. $\sqsubseteq_1,\sqsubseteq_2$ monótono $\Rightarrow$ $\sqsubseteq_{12}$ monótono
+
+**** Demostración
+***** Punto 1
+Es reflexivo trivialmente. La transitividad se obtiene analizando 
+por casos.
+
+***** Punto 2
+Cuando $x \equiv_{12} y$, se tiene $x \equiv_1 y$ y por tanto $x \equiv_2 y$; lo que llevaría
+a $x = y$.
+
+***** Punto 3
+Si ambos son totales, suponemos s.p.g. que $x \sqsubseteq_1 y$. Si no tuviéramos
+que $y \sqsubseteq_1 x$, entonces $x \equiv_1 y$ y como son totales, podemos suponer s.p.g
+que $x \sqsubseteq_2 y$, llgando a $x \sqsubseteq_{12} y$.
+
+***** Punto 4
+# No parece obvio si no son órdenes. Además, tenemos definido lo que
+# es ser compatible o monótono sólo para órdenes.
+
+***** Punto 5
+Tenemos $0 \sqsubseteq_1 x$; si tuviéramos $x \sqsubseteq_1 0$, entonces $x \equiv_1 0$; pero como
+sabemos que $0 \sqsubseteq_2 x$, tenemos finalmente $0 \sqsubseteq_{12} x$.
+
+*** Los órdenes son monomiales
+Los órdenes $\leq_{lex},\leq_{grlex},\leq_{invgrlex}$ son monomiales.
+
+**** Demostración
+***** El orden lexicográfico es monomial
+Una forma de definir el orden lexicográfico es con el signo del primer
+elemento de la resta. Sabemos que es total. La monotonía y la 
+compatibilidad se tienen por:
+
+\[(\alpha+\gamma)-(\beta+\gamma) = (\alpha-\beta)\]
+
+Tenemos que $\alpha - 0 = \alpha$, positivo.
+
+***** El resto de órdenes son monomiales
+Simplemente notando que el grado es un preorden y que son [[*Propiedades del producto][producto]]
+de preorden con el lexicográfico o con un lexicográfico inverso.
+
+** Lema de Dickson
+*** Lema de Dickson
+Para $S \subseteq \mathbb{N}^n$ no vacío, existe $G \subseteq S$ finito tal que $S \subseteq G + \mathbb{N}^n$.
+
+**** Demostración
+***** Caso base
+Cuando $n=1$, como los naturales están bien ordenados, podemos tomar
+el mínimo
+
+***** Caso inductivo
+Tomamos un $y \in S$, y tenemos dos casos, o bien $x \in \{y\} + \mathbb{N}^n$, o bien
+se tiene $x \in S_{i|j}$ para $j < y_i$. Donde definimos:
+
+\[
+S_{i|j} 
+= 
+\{ x \in S \mid x_i = j\}
+\]
+
+Y una familia de conjuntos:
+
+\[
+S_{i|j}'
+=
+\{ 
+x \in \mathbb{N}^n
+\mid
+x_i=0, (x_1,\dots,j,\dots,x_n) \in S
+\}
+\]
+
+Que por hipótesis de inducción dejando nula a cada paso una de las
+coordenadas, dan lugar a $G_{i|j}' \subseteq S_{i|j}'$ finito con $S'_{i|j} = G_{i|j}'+\mathbb{N}^{n-1}$.
+
+\[
+G_{i|j} = 
+\{x \in S_{i|j} \mid (x_1,\dots,0,\dots,x_n) \in G'_{ij} \}
+\]
+
+Sea ahora $x \in S_{i|j}$. Si hacemos un cero en $i$, se tiene 
+$(x_1,\dots,0,\dots,x_n) \in S'_{i|j} \subseteq G_{i|j}'+ \mathbb{N}^{n-1}$. Luego
+
+\[\begin{aligned}
+(x_1,\dots,0,\dots,x_n) &= z + \alpha \\
+(x_1,\dots,j,\dots,x_n) &= (z_1,\dots,j,\dots,z_n) + (\alpha_1,\dots,0,\dots,\alpha_n)
+\end{aligned}\]
+
+Por lo tanto, $S_{i|j} \subseteq G_{i|j} + \mathbb{N}^{n}$; y tenemos finalmente $S \subseteq G + \mathbb{N}^n$ si
+definimos:
+
+\[G = \{y\} \cup \bigcup_{i,j<y_i} G_{i|j}\]
+
+Tenemos que cada uno de ellos es finito.
+
+*** Orden monomial es buen orden
+Todo orden monomial en $\mathbb{N}^n$ es buen orden.
+
+**** Demostración
+Por Dickson, cualquier subconjunto tiene un $G$ finito con $S \subseteq G + \mathbb{N}^n$.
+El mínimo de $G$ existe por finitud y ser orden total. Es el mínimo de
+$S$ porque cualquier otro $s \in S$ cumple $s = g + \gamma$ para $g \in G$, lo que lleva
+por monotonía y compatibilidad, a $s \geq g$.
+
+*** Monoideales
+Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E + \mathbb{N}^n$.
+
+*** Sistemas de generadores
+Si $E$ es monoideal, existe $G \subset E$ finito con $E = G + \mathbb{N}^n$.
+Llamamos a $G$ sistema de generadores de $E$.
+
+**** Demostración
+Por Dickson tenemos $E \subset G + \mathbb{N}^n$, luego $E = E + \mathbb{N}^n = G + \mathbb{N}^n$. 
+
+*** Sistema de generadores minimal
+Un sistema de generadores es minimal si ningún subconjunto
+suyo es sistema de generadores.
+
+*** Unicidad del sistema de generadores minimal
+El sistema de generadores minimal de un monoideal es único.
+
+**** Demostración
+Supongamos que hubiera dos $G,G'$, con $\beta \in G' \setminus G$. Entonces tendría una
+representación con $g \in G, g' \in G', \gamma \neq 0$ como:
+
+\[
+\beta = g + \gamma = g' + \delta + \gamma
+\]
+
+Con lo cual, $\beta \in G'\setminus \{\beta\} + \mathbb{N}^n$, contraviniendo minimalidad.
+
+** División de polinomios
+*** Diagrama de Newton
+El conjunto de exponentes para un polinomio $p = \sum a_\alpha x^\alpha$:
+
+\[N(p) = \{\alpha\in\mathbb{N}^n \mid a_\alpha \neq 0\}\]
+
+*** Exponente
+El exponente de un polinomio, fijado un orden monomial, es el máximo
+exponente de su diagrama:
+
+\[exp(p) = \max \{\alpha\in\mathbb{N}^n \mid a_\alpha \neq 0\} \]
+
+*** Grado total
+Definimos el grado total, fijado un orden monomial, como el máximo
+grado de los exponentes:
+
+\[Grtot(p) = \max \{gr(\alpha) \mid a_\alpha \neq 0\} \]
+
+*** Término líder
+Llamamos término líder al que aporta el exponente, $a_{Exp(p)}X^{Exp(p)}$.
+Su coeficiente líder es $a_{Exp(p)}$ y su monomio líder, $X^{Exp(p)}$.
+
+*** Propiedades del exponente
+Dados $F,G \in K[X_1,\dots,X_n]$ no nulos: 
+
+  1. $exp(FG) = exp(F) + exp(G)$.
+  2. $exp(F+G) \leq \max\{exp(F),exp(G)\}$.
+  3. Si $exp(F) < exp(G)$; entonces $exp(F+G) = exp(G)$.
+
+**** Demostración
+En el fondo, parte sólo de la observación de que son K-espacios 
+vectoriales y tienen de base a los distintos monomios.
+
+***** Punto 1
+Primero notamos que si estamos en un cuerpo, el producto de dos
+polinomios tendrá en su diagrama de Newton a la suma de cualesquiera
+exponentes de ambos polinomios. Supongamos la suma máxima $\gamma + \delta$, y
+la suma de los máximos $\alpha+\beta$. Usamos que son máximos y orden monomial
+para tener:
+
+\[\alpha + \beta \geq \gamma + \delta\]
+
+***** Punto 2
+Si un exponente no aparece en $F$ ni en $G$, tendrá coeficiente nulo
+también en $F+G$.
+
+***** Punto 3
+La suma tendrá como mucho los exponentes de $F$ y de $G$. Pero además,
+conserva los exponentes que sólo estuvieran en uno de los dos con los
+coeficientes intactos.
+
+*** Partición de generadores
+Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
+definimos inductivamente como:
+
+  1. Los elementos que genera el primer generador: 
+
+     \[\Delta^1 = a_1 + \mathbb{N}^n\]
+
+  2. Los elementos nuevos que aporta cada nuevo generador:
+
+     \[\Delta^i = (a_i + \mathbb{N}^n) \setminus \bigcup_{j < i} \Delta^j \]
+
+  3. Todos los demás elementos:
+
+     \[ \overline{\Delta} = \mathbb{N}^n \setminus \bigcup_{j \leq k} \Delta^j\]
+
+*** Teorema de la división
+Dado un orden monomial y una lista de polinomios $G_i$; consideramos la
+partición $\Delta_1,\dots,\overline{\Delta}$ dada por los exponentes $exp(G_i)$. Tenemos que para
+cada $F \in K[X_1,\dots,X_n]$, existen $Q_1,\dots,Q_t,R$ únicos tales:
+
+  1. $F = Q_1G_1 + \dots + Q_tG_t + R$.
+  2. $R = 0$ ó $N(R) \subseteq \overline\Delta$.
+  3. $exp(G_i) + N(Q_i) \subseteq \Delta^i$.
+
+**** Demostración
+***** Caso base
+Aplicamos inducción a $exp(F)$ aprovechando el [[*Orden monomial es buen orden][buen orden]]. Sea 
+$exp(F) = (0,\dots,0)$.
+
+****** Aparece en algún elemento de la partición
+Si $exp(F) \in \Delta^i$, entonces forzosamente $exp(G_i)=0$. Entonces tomamos
+$Q_i = {F}/{G_i}$, y $Q_j=0$ para $j \neq i$.
+
+****** Sólo aparece en el resto de la partición
+Simplemente tomamos $R = F$.
+
+***** Caso inductivo
+Sabiendo que se tiene el resultado para todo $G$ con $exp(G) < exp(F)$,
+tenemos de nuevo dos casos.
+
+****** Aparece en algún elemento de la partición
+Si $exp(F) \in \Delta^i$, entonces $exp(F) = exp(G) + \gamma$. Tomando $H=X^\gamma G$,
+aplicamos inducción sobre:
+
+\[F - \frac{cl(F)}{cl(H)} H 
+=
+F'
+= 
+\sum Q'_iG_i + R'
+\]
+
+Pero si tomamos $Q_i = Q_i' + \frac{cl(F)}{cl(H)} X^\gamma$ y $Q_j = Q_j'$ para todos los demás:
+
+\[F = \sum Q_i G_i + R\]
+
+****** Sólo aparece en el resto de la partición
+Aplicamos hipótesis de inducción sobre:
+
+\[F-tl(F) = F' = \sum Q_i'G_i + R'\]
+
+Entonces tomamos $R = R' + tl(F)$ y se tiene:
+
+\[F = \sum Q_i'G_i + R\]
+
+*** Ejemplo de división
+Dividimos $F = X^4Y^2+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4$ entre los polinomios:
+
+  - $G_1 = X^3Y-2X^2Z^2$
+  - $G_2 = X^2Y^3+XZ^3$
+  - $G_3 = XY^2Z - X^2YZ - 3XYZ^2$
+
+Usando el orden lexicográfico.
+
+**** Exponentes
+Con el orden dado, tenemos exponentes:
+
+  - $exp(G_1) = (3,1,0)$
+  - $exp(G_2) = (2,3,0)$
+  - $exp(G_3) = (2,1,1)$
+
+Con ellos creamos las particiones $\Delta_i$.
+
+**** Desarrollo
+A cada paso tomamos el exponente mayor, lo encuadramos en un subconjunto
+de la partición y dividimos para el siguiente elemento.
+
+\[F = X^4Y^2+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\]
+
+Tenemos $(4,2,0) \in \Delta_1$, así que restamos $XYG_1$:
+
+\[F = 2X^3YZ^2+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\]
+
+Tenemos $(3,1,2) \in \Delta_1$, así que restamos $2Z^2G_1$:
+
+\[F = 4X^2Z^4+X^2Y^3Z-2XY^2Z^3-3X^2YZ^4\]
+
+Tenemos $(2,3,1) \in \Delta_2$, así que restamos $ZG_2$:
+
+\[F = 4X^2Z^4 - 2XY^2Z^3 - 3X^2YZ^4 - XZ^4\]
+
+Tenemos $(2,1,4) \in \Delta_3$, así que restamos $3Z^3G_3$:
+
+\[F = 4X^2Z^4 - 2XY^2Z^3 - XZ^4 - 3XY^2Z^4 + 9XYZ^5\]
+
+Tenemos $(2,0,4) \in \overline\Delta$, así que tomamos lo demás como resto. Nos acabará
+quedando que:
+
+\[R = 4X^2Z^4 - 2XY^2Z^3 - XZ^4 - 3XY^2Z^4 + 9XYZ^5\]
+
+Por lo tanto:
+
+\[F = (XY+2Z^2)G_1 + ZG_2 + 3Z^3G_3 + R\]
+
+**** Cálculo en Sage
+Calculamos el resto de la división en sage. Nótese cómo se ve afectado
+por el orden de los polinomios que escojamos para la división.
+
+#+BEGIN_SRC sage
+  R.<x,y,z> = PolynomialRing(QQ, 3, 'xyz', order='lex')
+  f = x^4*y^2 + x^2*y^3*z - 2*x*y^2*z^3 - 3*x^2*y*z^4
+  g1 = x^3*y - 2*x^2*z^2
+  g2 = x^2*y^3 + x*z^3
+  g3 = x*y^2*z - x^2*y*z - 3*x*y*z^2
+  f.reduce(Ideal([g1])).reduce(Ideal([g2])).reduce(Ideal([g3]))
+  f.reduce(Ideal([g3])).reduce(Ideal([g2])).reduce(Ideal([g1]))
+#+END_SRC
+
+#+RESULTS:
+: 4*x^2*z^4 - 3*x*y^2*z^4 - 2*x*y^2*z^3 + 9*x*y*z^5 - x*z^4
+: x^2*y^3*z - 3*x^2*y*z^4 + 4*x^2*z^4 - 2*x*y^2*z^3
+
+** Ideales monomiales
+*** Ideales monomiales
+Un ideal es monomial si está generado por monomios. Es decir, si es de la 
+forma:
+
+\[ I = (X^\alpha \mid \alpha\in A)\]
+
+Para algún $A \subset \mathbb{N}^n$.
+
+*** Pertenencia a ideal monomial
+Si $X^\beta \in (X^\alpha \mid \alpha\in A)$ es de la forma: $X^\beta = FX^\alpha$.
+
+**** Demostración
+Los monomios forman una K-base del espacio. Como:
+
+\[X^\beta = \sum F_iX^\alpha\]
+
+Todo monomio de la expresión de la derecha es divisible por algún $X^\alpha$,
+y en particular, $X^\beta$ debe serlo.
+
+*** Monomios en ideal monomial
+Sea $I = (X^\alpha \mid \alpha\in A)$ monomial, equivalen:
+
+  1. $F \in I$.
+  2. Todo monomio de $F$ está en $I$.
+  3. $F$ es combinación lineal de monomios de $I$.
+
+Y además, si para cualquier polinomio todos sus monomios están en
+el ideal, es monomial.
+
+**** Demostración
+Los monomios forman una K-base del espacio. Como:
+
+\[F = \sum F_iX^\alpha\]
+
+Todo monomio de $F$ debe ser múltiplo de algún $X^\alpha$.
+
+El resto de implicaciones son triviales. Nótese que podemos escribir
+el ideal como $(X^\alpha \mid \alpha \in Exp(I))$.
+
+*** Exponente de un ideal
+Dado un ideal $I$ no nulo, definimos su exponente como el subconjunto:
+
+\[Exp(I) = \{Exp(F) \mid 0\neq F \in I\} \subseteq \mathbb{N}^n\]
+
+*** El exponente es monoideal
+$Exp(I)$ es un monoideal de $\mathbb{N}^n$.
+
+**** Demostración
+Sea $F \in I$, tenemos $X^\alpha F \in I$ para cualquier $\alpha$ y:
+
+\[exp(X^\alpha F) = \alpha + exp(F)\]
+
+Gracias a que los órdenes son compatibles.
+
+*** Lema de Dickson para ideales monomiales
+Todo ideal monomial tiene un sistema de generadores finito y formado
+por monomios.
+
+**** Demostración
+Como $Exp(I)$ es [[*Monoideales][monoideal]], tiene [[*Sistemas de generadores][sistema de generadores]] $Exp(I) = G + \mathbb{N}^n$.
+Dado un exponente $\alpha \in Exp(I)$, [[*Monomios en ideal monomial][tenemos]] $X^\alpha \in I$, luego tomamos como sistema
+de generadores:
+
+\[ (X^\alpha \mid \alpha \in G) \]
+
+Dado cualquier $F \in I$, sus monomios estarán en $I$ y serán múltiplo
+de ellos.
+
+*** Corolario de generación de ideales
+Sean $I,J \subseteq K[X_1,\dots,X_n]$ ideales monomiales:
+
+\[I=J \iff Exp(I)=Exp(J)\]
+
+**** Demostración
+Si tienen el mismo exponente, tienen el mismo generador.
+
+*** Unicidad del sistema de generadores minimal
+Sea $I$ monomial no nulo. Existe un único sistema de generadores minimal
+formado por monomios, es decir, ningún subconjunto suyo es generador.
+
+**** Demostración
+Dado $G$ el [[*Unicidad del sistema de generadores minimal][único]] sistema generador minimal de $Exp(I)$. Entonces, sus
+monomios generan al ideal y si:
+
+\[H \subseteq (X^\alpha\mid \alpha \in G)\]
+
+genera al ideal, en particular se tendría $Exp(I) = H + \mathbb{N}^n$, contraviniendo
+minimalidad.
+
+*** Otros sistemas de generadores
+Sea $G = \{\alpha_1,\dots,\alpha_n\}$ sistema de generadores de $Exp(I)$. Si $exp(F_i)=\alpha_i$,
+entonces $\{F_1,\dots,F_n\}$ es sistema de generadores de $I$.
+
+**** Demostración
+Para $F\in I$, por [[*Teorema de la división][división]] tenemos:
+
+\[F = \sum Q_iF_i + R\]
+
+Como $R\in I$, $exp(R) \in Exp(I)$ y debe tenerse $R = 0$.
+
+** Bases de Gröbner
+*** Bases de Gröbner
+Sea $I \subseteq K[X_1,\dots,X_n]$ un ideal no nulo. Una base de Gröbner es un conjunto
+$\mathbb{G} = \{G_1,\dots,G_n\} \subseteq I$ cumpliendo $Exp(I) = \{exp(G_1),\dots,exp(G_n)\} + \mathbb{N}^n$.
+
+*** Propiedades de bases de Gröbner
+Las bases de Gröbner en $K[X_1,\dots,X_n]$ cumplen:
+
+  1. Todo ideal no nulo tiene una base de Gröbner.
+  2. Toda base de Gröbner de un ideal es base de generadores del ideal.
+  3. *Teorema de la base de Hilbert*: todo ideal es finitamente generado.
+
+**** Demostración 
+***** Punto 1
+Sabemos que $Exp(I)$ es [[*El exponente es monoideal][monoideal]] y por tanto tiene un sistema de
+[[*Sistemas de generadores][generadores]]. Existen entonces polinomios cumpliendo:
+
+\[Exp(I) = \{exp(G_1),\dots,exp(G_n)\} + \mathbb{N}^n\]
+
+Que forman una base de Gröbner
+
+***** Punto 2
+Por el algoritmo de la [[*Teorema de la división][división]], tenemos que todo polinomio del ideal
+se divide entre ellos dando un resto tal que $exp(R) \in \overline{\Delta} \cap Exp(I) = \varnothing$.
+Por tanto, $R=0$.
+
+***** Punto 3
+Todo ideal está generado por su base de Gröbner, que es finita.
+
+*** Resto en bases de Gröbner
+Sea $I$ ideal con bases de Gröbner $\mathbb{G},\mathbb{G}'$. Para $F \in K[X_1,\dots,X_n]$:
+
+\[R(F;\mathbb{G}) = R(F;\mathbb{G}')\]
+
+**** Demostración
+Tenemos que, al coincidir los exponentes:
+
+\[Exp(I) = \bigcup_{i=1}^t \Delta^i\]
+
+Por lo tanto, $\overline{\Delta} = \overline{\Delta}'$, y tenemos ${\cal N}(R-R') \subseteq {\cal N}(R) \cup {\cal N}(R') \subseteq \overline{\Delta}$.
+Pero como $R-R' \in I$, y tenemos $exp(R-R') \in Exp(I)$, debe ser nulo.
+
+*** Caracterización de bases de Gröbner
+Sea $I$ ideal no nulo, equivalen:
+
+  1. $\mathbb{G}$ es base de Gröbner de $I$.
+  2. $R(F,\mathbb{G}) = 0$, para todo $F \in I$.
+
+**** Demostración
+***** Primer punto al segundo
+Tenemos $exp(R) \in Exp(I) \cap \overline{\Delta}$, luego debe ser $exp(R) = 0$.
+
+***** Segundo punto al primero
+Por la división, cualquier $F \in I$ es de la forma:
+
+\[ F = \sum_{i=0}^n Q_iG_i\]
+
+Donde $exp(Q_iG_i) \in \Delta^i$, y como forman una partición disjunta, se tiene 
+que el $exp(F) = max\{exp(Q_iG_i)\} \notin \overline{\Delta}$. Por tanto $Exp(I) \cap \overline{\Delta} = \varnothing$.
+
+*** Semizigia
+Sean $F,G \in K[X_1,\dots,X_n]$ no nulos. Definimos el S-polinomial o *semizigia*
+como el siguiente polinomio:
+
+\[{\cal S}(F,G) 
+= \frac{1}{cl(F)}X^{\gamma-\alpha}F - \frac{1}{cl(G)}X^{\gamma-\beta}G\]
+
+donde $\alpha = exp(F)$, $\beta = exp(G)$, y $\gamma_i = \max\{\alpha_i,\beta_i\}$, para $\gamma = (\gamma_1,\dots,\gamma_n)$.
+
+*** Teorema de Buchberger
+Sea $I$ ideal no nulo de $K[X_1,\dots,X_n]$ y $\mathbb{G} = \{G_1,\dots,G_n\}$ un sistema de
+generadores. Equivalen:
+
+  1. $\mathbb{G}$ es base de Gröbner.
+  2. Para cualquier ordenación de $\mathbb{G}$, se tiene $R({\cal S}(G_i,G_j); \mathbb{G}) = 0$
+     para cualesquiera $i \neq j$.
+  3. Para alguna ordenación de $\mathbb{G}$, se tiene $R(S(G_i,G_j); \mathbb{G}) = 0$.
+
+**** Demostración
+***** Primera implicación
+Trivialmente por la [[*Caracterización de bases de Gröbner][caracterización]] una vez que vemos que las 
+semizigias son combinaciones lineales.
+
+***** Tercera implicación
+No es trivial. Puede consultarse [[http://people.math.aau.dk/~diego/Libro.pdf][aquí]].
+
+*** Algoritmo de Buchberger
+Sea $I$ ideal no nulo y $\mathbb{G} = (G_1,\dots,G_n)$ sistema de generadores. Es posible 
+construir una base de Gröbner con los siguientes pasos:
+
+  1. $\mathbb{G}_0 = \{G_1,\dots,G_n\}$
+  2. $\mathbb{G}_{n+1} = \mathbb{G}_n \cup \{R(S(F,G);\mathbb{G}_n) \neq 0 \mid F,G \in \mathbb{G}_n, F \neq G\}$
+
+Entonces cuando $\mathbb{G}_i = \mathbb{G}_{i+1}$, podemos asegurar que $\mathbb{G}_i$ es base de Gröbner del
+ideal $I$.
+
+**** Demostración
+Cuando el algoritmo termina, la base que tenemos es claramente de 
+Gröbner debido a la caracterización que nos da [[*Teorema de Buchberger][Buchberger]].
+
+Hay que demostrar que el algoritmo termina en algún punto. Esto se
+deduce de el hecho de que, dado un monoideal, el conjunto de monoideales
+que lo contienen es finito. Pero si un elemento es resto de una división
+por $\mathbb{G}$ no nulo, no puede estar en el monoideal generado por los exponentes.
+Así, al añadirlo tendremos un monoideal generado mayor, y esto sólo puede
+hacerse un número finito de pasos.
+
+*** Retirando un polinomio de una base de Gröbner
+Sea $\mathbb{G}$ una base de Gröbner de un ideal no nulo $I \subseteq K[X_1,\dots,X_n]$ y sea
+$F \in \mathbb{G}$ tal que $exp(F) \in \{exp(G) \mid G \in \mathbb{G}, F \neq G \}+\mathbb{N}^n$. Entonces, $\mathbb{G}\setminus\{F\}$
+es también una base de Gröbner de $I$.
+
+**** Demostración
+# Esto no parece necesario. Es trivial desde la definición.
+Si $R(F;\mathbb{G}\setminus \{F\})$ está en $\overline\Delta$, que es el mismo que generarían
+con $F$. Pero como está en el ideal, debería ser $0$.
+
+Por lo tanto $F$ está generado por $\mathbb{G}$, que es generadora y por tanto,
+base de Gröbner.
+
+*** Base de Gröbner minimal
+Una base de Gröbner de un ideal no nulo $I \subseteq K[X_1,\dots,X_n]$ se dice minimal
+si:
+
+  1. $cl(F) = 1,\quad\forall F\in\mathbb{G}$.
+  2. $exp(F) \notin \{exp(G) \mid G \in \mathbb{G}, G \neq F\} + \mathbb{N}^n$.
+
+Es claro que todo ideal tiene una base de Gröbner minimal, simplemente
+[[*Retirando un polinomio de una base de Gröbner][retirando]] polinomios.
+
+*** Caracterización de bases minimales
+Sea $\mathbb{G}$ un sistema de generadores de $I$. Equivalen:
+
+  1. $\mathbb{G}$ es una base de Gröbner minimal de $I$.
+  2. $\{exp(G_1),\dots,exp(G_t)\}$ es sistema minimal de generadores de $Exp(I)$
+     y se tiene $cl(G_i) = 1$.
+
+Los términos líderes de los polinomios de una base de
+Gröbner minimal están determinados de forma única y, además, dos bases
+de Gröbner minimales tienen el mismo número de elementos.
+
+**** Demostración
+***** Primera implicación
+Si no fuera sistema minimal, un subconjunto suyo lo sería y generaría
+también $Exp(I)$. Pero entonces, podemos quitar elementos de la base
+de Gröbner y seguirían generando lo mismo; contraviniendo minimalidad.
+
+***** Segunda implicación
+Si no fuera minimal, algún $exp(F)$ sería generado por los demás,
+y por tanto los exponentes no formarían un sistema mnimal.
+
+Nótese que hay que considerar los coeficientes líderes para que sean
+$1$.
+
+***** Unicidad
+Como el sistema minimal de generadores de $Exp(I)$ es único, los
+términos líderes de los polinomios de una base de Gröbner minimal
+deben ser únicos.
+
+***** Cardinalidad invariante
+Dos bases minimales darían lugar a dos sistemas minimales de 
+generadores, que deben ser iguales y tener la misma cardinalidad.
+
+*** Base de Gröbner reducida
+Una base de Gröbner $\mathbb{G}$ de $I$ es reducida si para cualquier $\forall F \in \mathbb{G}$:
+
+  1. $cl(F) = 1$.
+  2. ${\cal N}(F) \cap \{exp(G) \mid G \in \mathbb{G}, G \neq F\} + \mathbb{N}^n = \varnothing$.
+
+*** Una base de Gröbner reducida es minimal
+Toda base de Gröbner reducida es minimal.
+
+**** Demostración
+Trivialmente, si todo el diagrama de Newton está fuera de lo que
+generan los demás; el exponente está fuera de lo que generan los demás.
+
+*** Existencia y unicidad de la base reducida
+Todo ideal no nulo $I$ tiene una única base de Gröbner reducida.
+
+**** Demostración
+***** Existencia
+Dada una base de Gröbner minimal, $F \in \mathbb{G}$, veremos que podemos tomar
+otra base minimal en la que ${\cal N}(F)$ no esté en los exponentes que 
+generan los demás. Si dividimos $F$ entre los demás polinomios
+de la base de Gröbner:
+
+\[
+F = \sum Q_iG_i + F'
+\]
+
+Como $exp(F) = \max(\max\{Q_iG_i\},exp(F'))$ y sabemos que por ser minimal
+tiene que ser distinto del exponente de los $Q_iG_i$; luego
+$exp(F) = exp(F')$.
+
+Entonces sustituyendo $F$ por $F'$ tenemos otra base de Gröbner minimal
+en la que $F$ está reducido. Podemos repetir esto para todos los 
+elementos obteniendo una base reducida.
+
+***** Unicidad
+Sean bases de Gröbner reducidas $\mathbb{G}$ y $\mathbb{G}'$. Sea $F \in \mathbb{G}$ y sea $F' \in \mathbb{G}'$ el
+que tiene el mismo exponente. Tenemos que si intentamos dividir
+por $\mathbb{G}$, por ser ambas reducidas:
+
+\[{\cal N}(F-F') \subseteq \overline{\Delta}\]
+
+Entonces $R(F-F';\mathbb{G}) = F-F'$, pero como $F - F' \in I$, debe 
+ser $F - F' = 0$.
+
+** Teoría de eliminación
+*** Ideal de eliminación
+Sea $I$ ideal no nulo. Definimos el j-ésimo ideal de eliminación como:
+
+\[ I_j = I \cap K[X_{j+1},\dots,X_n]\]
+
+*** Base del ideal de eliminación
+Sea $I$ ideal no nulo y $\mathbb{G}$ base de Gröbner del orden lexicográfico
+dado por $X_1 > X_2 > \dots > X_n$. Entonces:
+
+\[\mathbb{G}_j = \mathbb{G} \cap I_j\]
+
+es base de Gröbner de $I_j$.
+
+**** Demostración
+Sea $F \in I_j$, veremos que $exp(F) = exp(G) + \gamma$ para algún $G \in \mathbb{G}_j$.
+Tenemos ya $exp(F) = exp(G) + \gamma$ para $G \in \mathbb{G}$. Como el exponente de $F$ es
+nulo en las $j$ primeras variables, entonces $exp(G)$ también lo hace.
+Como estamos usando orden lexicográfico ${\cal N}(G)$ entero se anula en las
+$j$ primeras variables. Luego $G \in \mathbb{G}$.
+
+*** Extensión de un ideal
+Sea $I$ ideal de $K[X_1,\dots,X_n]$. Un sistema de generadores suyo es
+también sistema de generadores de:
+
+\[
+I^e = \left\{
+\sum_{i=1}^k Q_iF_i \;\middle|\; Q_i \in K[T,X_1,\dots,X_n], F_i \in I
+\right\}
+\]
+
+en el espacio $K[T,X_1,\dots,X_n]$.
+
+**** Demostración
+Trivialmente por ser generador de $I$.
+
+*** Cálculo de la intersección
+Sean $I,J$ dos ideales no nulos de $K[X_1,\dots,X_n]$. Sea:
+
+\[ H = TI^e + (1-T)J^e \subseteq K[T,X_1,\dots,X_n]\]
+
+Entonces $I\cap J = H \cap K[X_1,\dots,X_n]$, primer ideal de eliminación de $H$.
+Esto nos permite calcular la intersección usando bases de Gröbner.
+
+**** TODO Demostración
+Si está en $I\cap J$ tenemos $TF + (1-T)F = F \in H$. Si está en 
+$H \cap K[X_1,\dots,X_n]$, entonces es de la forma:
+
+\[TF+(1-T)G = G + (F-G)T\]
+
+Y por tanto debe tenerse $F = G \in I \cap J$.
+
+*** Cociente de ideales
+Dados $I,J$ ideales no nulos, definimos el ideal cociente como:
+
+\[(I : J) 
+= 
+\{F \in K[X_1,\dots,X_n] \mid FJ \subset I\}
+=
+\bigcap_{i=1}^n (I : G_i)\]
+
+Siendo $J = (G_1,\dots,G_n)$.
+
+**** Demostración
+Trivialmente, si incluye al ideal $J$ incluye a todos sus generadores.
+Si está en la intersección incluye a todos los generadores por tanto
+a todo el ideal.
+
+*** Caracterización del cociente
+Para $G \in K[X_1,\dots,X_n]$ se verifica que $G(I:G) = I \cap (G)$. Luego:
+
+\[(I:G) = \frac{1}{G}(I \cap (G))\]
+
+*** Máximo común divisor y mínimo común múltiplo
+Sean $F,G \in K[X_1,\dots,X_n]$ con $D = \operatorname{mcd}(F,G)$ y $M = \text{mcm}(F,G)$. Entonces:
+
+  1. $(F) \cap (G) = (M)$
+  2. $D = \frac{FG}{M}$
+
+Nótese que la intersección puede calcularse como el primer ideal de
+eliminación de:
+
+\[
+H = T(F)^e + (1-T)(G)^e = (TF,(1-T)G)
+\]
+
+* 3. Variedades afines
+** Funciones polinómicas
+*** Espacio afín de un álgebra
+Llamamos $\mathbb{A}^n(K)$ al espacio afín sobre $K^n$ con la función afín
+$\varphi : K^n \times K^n \longrightarrow K^n$ dada por $\varphi(u,v) = v-u$.
+
+*** Funciones polinómicas
+A partir de cada polinomio $F \in K[X_1,\dots,X_n]$, tenemos definida una función
+polinómica $F^\ast : \mathbb{A}^n(K) \longrightarrow K$.
+
+**** Álgebra de funciones polinómicas
+Al conjunto de funciones polinómicas lo denotamos por $P(\mathbb{A}^n(K))$.
+Forma una K-álgebra con las operaciones usuales:
+
+\[\begin{aligned}
+(F^\ast+G^\ast)(a_1,\dots,a_n) 
+&= 
+F^\ast(a_1,\dots,a_n)+G^\ast(a_1,\dots,a_n)
+\\
+(F^\ast G^\ast)(a_1,\dots,a_n) 
+&= 
+F^\ast(a_1,\dots,a_n)G^\ast(a_1,\dots,a_n)
+\\
+(\alpha F^\ast)(a_1,\dots,a_n) 
+&= 
+\alpha F^\ast(a_1,\dots,a_n)
+\end{aligned}\]
+
+*** Epimorfismo de los polinomios a las funciones polinómicas
+Por definición se tiene un epimorfismo $\Delta : K[X_1,\dots,X_n] \longrightarrow P(\mathbb{A}^n(K))$ 
+dado por:
+
+\[\Delta(F) = F^\ast\]
+
+**** No es inyectivo en general
+La función dada por un polinomio no nulo puede ser nula. Por ejemplo:
+
+\[F = X(X+1)\]
+\[G = 0\]
+
+Dan lugar a la misma función en $\mathbb{F}_2$, pero son polinomios distintos.
+
+*** Isomorfismo de los polinomios en cuerpos infinitos
+Sea $K$ cuerpo infinito. Sus polinomios verifican:
+
+  1. $F^\ast = 0 \iff F = 0$.
+  2. $F^\ast=G^\ast \iff F = G$.
+
+**** Demostración
+Un polinomio que de la función constante $0$ en un cuerpo infinito 
+debería tener infinitas raíces. Eso sólo puede darlo el polinomio
+constantemente $0$.
+
+** Variedades afines
+*** Variedad de un polinomio
+Dado $F \in K[X_1,\dots,X_n]$, denotamos por $\mathbb{V}(F)$ al conjunto de sus ceros:
+
+\[\mathbb{V}(F) = \Big\{(a_1,\dots,a_n) \in \mathbb{A}^n(K) \;\Big|\; F(a)=0 \Big\}\]
+
+Dado un ideal ${\cal F}$, denotamos por $\mathbb{V}({\cal F})$ al conjunto de sus ceros:
+
+\[\mathbb{V}({\cal F})
+=
+\Big\{(a_1,\dots,a_n) \in \mathbb{A}^n(K) \;\Big|\; F(a)=0\; \forall F \in {\cal F} \Big\}\]
+
+*** Variedad algebraica afín
+Un conjunto es una *variedad algebraica afín* cuando existe
+${\cal F} \subseteq K[X_1,\dots,X_n]$ tal que es de la forma $\mathbb{V}({\cal F})$.
+
+*** Variedad de un ideal
+Sea ${\cal F} \subseteq K[X_1,\dots,X_n]$ y sea ${\cal I} = ({\cal F})$ el ideal generado. Se tiene:
+
+  1. $\mathbb{V}({\cal F}) = \mathbb{V}({\cal I})$
+  2. $\exists F_1,\dots,F_t : \mathbb{V}({\cal F}) = \mathbb{V}(F_1,\dots,F_t)$
+
+**** Demostración
+***** Punto 1
+Si los generadores se anulan en un punto, sus combinaciones lineales
+también.
+
+***** Punto 2
+Todo ideal en el anillo de polinomios es finitamente [[*Propiedades de bases de Gröbner][generado]]
+gracias a las bases de Gröbner.
+
+*** Propiedades de las variedades
+Las variedades dadas por ideales cumplen:
+
+  1. \[\bigcap_{\lambda \in \Lambda} \mathbb{V}(J_\lambda)
+     = \mathbb{V}\left(
+     \sum_{\lambda \in \Lambda} J_\lambda
+     \right)\]
+
+  2. $\mathbb{V}(J_1) \cup \mathbb{V}(J_2) = \mathbb{V}(J_1J_2) = \mathbb{V}(J_1 \cap J_2)$
+
+  3. $\mathbb{V}(0) = \mathbb{A}^n(K)$
+
+  4. $\mathbb{V}(K[X_1,\dots,X_n]) = \varnothing$
+
+**** Demostración
+***** Punto 1
+Si un punto se anula para todos los polinomios de cada $J_\lambda$, en
+particular está en cada $\mathbb{V}(J_\lambda)$. Si está en cada $\mathbb{V}(J_\lambda)$, se anula
+para todos sus polinomios y por tanto para sus combinaciones
+lineales.
+
+***** Punto 2
+Si $x \notin \mathbb{V}(J_1) \cup \mathbb{V}(J_2)$, entonces existirían polinomios en cada ideal
+para los que no sería cero, y no sería cero de su producto, luego
+$x \notin \mathbb{V}(J_1J_2)$.
+
+El resto de los contenidos son triviales, viendo:
+
+\[\mathbb{V}(J_1) \cup \mathbb{V}(J_2) \subseteq
+\mathbb{V}(J_1\cap J_2) \subseteq
+\mathbb{V}(J_1J_2)\]
+
+***** Punto 3
+Todos los puntos son raíces del constante $0$.
+
+***** Punto 4
+Ningún punto es raíz de todos los polinomios, porque existen los
+polinomios constantes no nulos en cualquier cuerpo.
+
+*** Topología de Zariski
+Las variedades son los cerrados de una topología sobre $\mathbb{A}^n(K)$.
+
+\[\{
+V \subseteq \mathbb{A}^n(K) 
+\mid
+V \text{ es variedad algebraica afín}
+\}\]
+
+**** Demostración
+Desde las propiedades de una [[*Variedad de un ideal][variedad]] tenemos que la 
+intersección arbitraria y la unión finita de variedades son variedad.
+Además, lo son el vacío y el total.
+
+*** Ejemplos
+**** Puntos discretos
+Dado un conjunto discreto de puntos:
+
+\[\{(a_1,\dots,a_n)\} = \mathbb{V}(X_1-a_1,\dots,X_n-a_n)\]
+
+**** Hipersuperficies
+Toda variedad generada por un polinomio no constante:
+
+\[
+\mathbb{V}(F) = \Big\{ 
+\alpha \in \mathbb{A}^n(K) \mid F(\alpha) = 0
+\Big\}
+\]
+
+Toda variedad afín es una intersección finita de hipersuperficies.
+
+**** Hiperplano
+La variedad de un polinomio de grado total 1 es un hiperplano.
+Para $F = a_0 + a_1X_1 +a_2X_2 + \dots + a_nX_n$, tenemos:
+
+\[
+\mathbb{V}(F) = \Big\{
+\alpha \in \mathbb{A}^n(K) 
+\mid 
+a_0 + a_1\alpha_1 + a_2\alpha_2 + \dots + a_n\alpha_n = 0
+\Big\}
+\]
+
+La intersección finita de hiperplanos es una variedad afín lineal.
+
+** Teorema de los ceros de Hilbert
+*** Representaciones paramétricas
+Una *representación paramétrica racional* de $\mathbb{V}(F_1,\dots,F_t)$ es un conjunto
+de funciones $G_i,H_i \in K[X_1,\dots,X_n]$ cumpliendo:
+
+\[\left\{ 
+\frac{G_1}{H_1}(t_1,\dots,t_n),
+\frac{G_2}{H_2}(t_1,\dots,t_n),
+\dots,
+\frac{G_n}{H_n}(t_1,\dots,t_n)
+\;\middle|\;
+t_1,\dots,t_n \in \mathbb{K}
+\right\}
+\subseteq
+V\]
+
+Cuando $H_i = 1$, la llamamos *representación polinomial*.
+
+**** Ejemplos
+***** Representación no racional del círculo
+El círculo es una variedad de la que puede darse una representación
+no paramétrica.
+
+\[V = \{(sen(t), cos(t)) \midt \in \mathbb{R}\}\]
+
+Sabemos que es variedad porque puede expresarse como:
+
+\[ V = \mathbb{V}(X^2+Y^2-1) \]
+
+Y podemos darle además una representación paramétrica racional
+no trivial:
+
+*** Ideal de un conjunto
+Sea $S \subseteq \mathbb{A}^n(K)$. Definimos el ideal asociado a $S$ como:
+
+\[
+\mathbb{I}(S)
+=
+\Big\{F \in K[X_1,\dots,X_n] \mid \forall a \in S: F(a) = 0\Big\}
+\]
+
+**** Es ideal
+Trivialmente sabiendo que se conservan los ceros por suma y producto
+externo.
+
+*** Propiedades de variedades e ideales
+Los ideales y sus variedades cumplen:
+
+  1. $S_1 \subseteq S_2 \implies \mathbb{I}(S_1) \supseteq \mathbb{I}(S_2)$.
+  2. $\mathbb{I}(\varnothing) = K[X_1,\dots,X_n]$.
+  3. $S \subseteq \mathbb{V}\mathbb{I}(S)$ y $J \subseteq \mathbb{I}\mathbb{V}(J)$.
+  4. $\mathbb{I}(S) = \mathbb{I}\mathbb{V}\mathbb{I}(S)$ y $\mathbb{V}(J) = \mathbb{V}\mathbb{I}\mathbb{V}(J)$.
+  5. $\mathbb{I}(S)$ es ideal radical.
+  6. Cuando $V \subseteq \mathbb{A}^n(K)$ es variedad afín, $V = \mathbb{V}\mathbb{I}(V)$.
+  7. $V_1 \subseteq V_2 \iff \mathbb{I}(V_1) \supseteq \mathbb{I}(V_2)$.
+  8. $\mathbb{I}(S_1 \cup S_2) = \mathbb{I}(S_1) \cap \mathbb{I}(S_2)$.
+  9. $V_1 \cup V_2 = \mathbb{V}(\mathbb{I}(V_1)\mathbb{I}(V_2)) = \mathbb{V}(\mathbb{I}(V_1) \cap \mathbb{I}(V_2))$.
+  10. \[\bigcap_{\lambda \in \Lambda} V_\lambda = \mathbb{V}\left(\sum_{\lambda\in\Lambda} \mathbb{I}(V_\lambda)\right)\].
+
+**** Demostración
+***** Punto 1, 2 y 3
+Triviales desde la definición. Nótese que las inclusiones vienen
+dadas directamente.
+
+***** Punto 4
+Uniendo las dos inclusiones anteriores.
+
+***** Punto 5
+Si $f^n \in \mathbb{I}(S)$ entonces para cualquier punto en $S$ se cumple $f^n(s) = 0$, 
+lo que lleva a $f(s) = 0$.
+
+***** Punto 6
+Al igual que el punto 4 uniendo las dos inclusiones anteriores.
+
+***** Punto 7
+Usando la igualdad y por definición se tiene.
+
+***** Punto 8
+Trivial por definición.
+
+***** Punto 9
+La unión de variedades es variedad y se tiene por la igualdad y por 
+el punto anterior.
+
+***** Punto 10
+Por propiedades de las variedades y la igualdad.
+
+*** No todo ideal radical es de esa forma
+La función $\mathbb{{I}}$ considerada como:
+
+\[ \mathbb{I} : \left\{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\right\}
+\longrightarrow
+\left\{ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}\right\}\]
+
+Es inyectiva, se tiene $\mathbb{V}\mathbb{I} = 1$ y en general no se tiene $\mathbb{I}\mathbb{V} = 1$.
+
+*** Teorema de los ceros de Hilbert
+Cuando $K$ es algebraicamente cerrado, para cualquier ideal
+$J \subseteq K[X_1,\dots,X_n]$, se verifica que:
+
+\[\mathbb{I}\mathbb{V}(J) = \sqrt{J}\]
+
+Y por tanto hay una biyección entre ideales radicales y variedades.
+
+\[ \{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\}
+\cong
+\{ J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}\}\]
+
+**** TODO Demostración                                             :extra:
+** Anillos de coordenadas
+*** Aplicaciones polinómicas
+Un *morfismo entre variedades* de $\mathbb{A}^n$ y $\mathbb{A}^m$ es una aplicación $f : V \longrightarrow W$
+tal que existen polinomios $F_1,\dots,F_n$ tales que:
+
+\[f(a) = (F_1(a),F_2(a),\dots,F_n(a)) \quad \forall a \in V\]
+
+Los llamamos también *aplicaciones polinómicas*.
+
+**** Isomorfismos de variedades afines
+Un isomorfismo entre variedades afines es un morfismo entre variedades
+cuya inversa es un morfismo entre variedades.
+
+*** Anillo de coordenadas
+Sea $V \subset \mathbb{A}^n(K)$ una variedad algebraica afín. Definimos el anillo de 
+coordenadas de $V$ como:
+
+\[
+K[V] = \frac{K[X_1,\dots,X_n]}{\mathbb{I}(V)}
+\]
+
+Estos anillos son K-álgebras.
+
+**** Ejemplos de anillo de coordenadas
+Sea $V = \mathbb{V}(X^3-Y^2) \subseteq \mathbb{A}^2(K)$. 
+
+***** En característica 0
+Si $car(K)=0$, entonces $\mathbb{I}(V) = (X^3-Y^2)$. Entonces:
+
+\[K[V] = \frac{K[X_1,\dots,X_n]}{(X^3-Y^2)\]
+
+***** En característica 2
+En característica 2 tenemos $V = \{(0,0),(1,1)\}$, luego
+$\mathbb{I}(V) = \mathbb{I}(\{(0,0\} \cup \{(1,1)\}) = (X,Y) \cap (X-1,Y-1)$, y en este caso:
+
+\[\mathbb{F}_2[V]
+= 
+\frac{\mathbb{F}_2[X,Y]}{(X,Y) \cap (X-1,Y-1)}
+= 
+\frac{\mathbb{F}_2[X,Y]}{(X,Y)} +
+\frac{\mathbb{F}_2[X,Y]}{(X-1,Y-1)}
+=
+\mathbb{F}_2 \times \mathbb{F}_2
+\]
+
+*** Funtor entre anillos de coordenadas y aplicaciones polinómicas
+Sea $V \subseteq \mathbb{A}^n(K)$ y $W \subseteq \mathbb{A}^m(K)$ variedades algebraicas afines.
+
+  1. Toda aplicación polinómica $f : V \longrightarrow W$ define un homomorfismo de
+     K-álgebras $\tilde{f} : K[W] \longrightarrow K[V]$.
+  2. Para cada homomorfismo de K-álgebras $h : K[W] \longrightarrow K[V]$ existe una
+     única aplicación polinómica $f : V \longrightarrow W$ única tal que $\tilde{f} = h$.
+  3. Si $V_1 \overset{f}\longrightarrow V_2 \overset{g}\longrightarrow V_3$ son aplicaciones polinómicas, $\widetilde{f} \circ \widetilde{g} = \widetilde{g \circ f}$.
+  4. $f$ es isomorfismo ssi $\widetilde{f}$ es isomorfismo.
+
+Es decir, hay un funtor contravariante entre ambas categorías.
+
+**** Demostración
+***** Punto 1
+Sea $f(a) = (F_1(a),\dots,F_m(a))$. Por propiedad universal del anillo de
+polinomios tenemos un $f'$ cumpliendo $f'(Y_j) = F_j$:
+
+\[\begin{tikzcd}
+K \rar[hook]\drar[hook]& K[Y_1,\dots,Y_n] \dar{\exists! f'} \\
+& K[X_1,\dots,X_n]
+\end{tikzcd}\]
+
+Comprobamos que baja al cociente. Para $G \in \mathbb{I}(W)$, veamos que $f'(G) \in \mathbb{I}(V)$.
+Sea $a \in V$, entonces $f(a) \in W$ y por tanto:
+
+\[ f'(G)(a) = G(F_1(a),\dots,F_n(a)) = G(f(a)) = 0\]
+
+Acabamos de ver que está bien definida una función:
+
+\[\widetilde{f}(G + \mathbb{I}(W)) = G(F_1,\dots,F_n)+\mathbb{I}(V)\]
+
+***** Punto 2
+****** Existencia
+Dada $h$, calculamos:
+
+\[h(Y_i + \mathbb{I}(W)) = F_i + \mathbb{I}(V)\]
+
+Y definimos $f : V \longrightarrow \mathbb{A}^m(K)$ como:
+
+\[f(a) = (F_1(a),\dots,F_m(a))\]
+
+******* Bien definida
+Si $a \in V$, veremos que $f(a) \in W = \mathbb{VI}(W)$. Para $G \in \mathbb{I}(W)$:
+
+\[h(0) = h(G+\mathbb{I}(W)) = G(F_1,\dots,F_n) + \mathbb{I}(V)\]
+
+Luego $G(f(a)) = G(F_1,\dots,F_n)(a) + 0 = 0$, tenemos una función
+polinómica $f : V \longrightarrow W$.
+
+******* Cumple el requisito
+Si $h(Y_j + \mathbb{I}(W) = F_j'+\mathbb{I}(V)$, entonces $F_j + \mathbb{I}(V) = F_j' + \mathbb{I}(V)$.
+Y $F_j(a) = F_j'(a)$ para cualquier $a$. Es claro por tanto que $\widetilde{f} = h$.
+
+****** Unicidad
+Supongamos una $g : V \longrightarrow W$ tal que $\widetilde{g} = h$ con $g(a) = (G_1(a),\dots,G_m(a))$.
+Entonces $\widetilde{g} : K[W] \longrightarrow K[V]$:
+
+\[\tilde{g}(Y_j + \mathbb{I}(W)) = G_j + \mathbb{I}(V)\]
+\[h(Y_j + \mathbb{I}(W)) = F_j + \mathbb{I}(V)\]
+
+Por lo tanto $G_j - F_j \in \mathbb{I}(V)$ para cualquier $j$.
+
+***** Punto 3
+Por construcción.
+
+***** Punto 4
+Por el punto anterior, comprobando que el funtor respeta la identidad.
+
+**** Ejemplo de polinómica biyectiva no isomorfismo
+Sea $V = \mathbb{A}^1(\mathbb{R})$ y $W = \mathbb{V}(X^3-Y^2) \subseteq \mathbb{A}^2(\mathbb{R})$. Tenemos una aplicación
+del tipo $f : \mathbb{A}^1(\mathbb{R}) \longrightarrow W$:
+
+\[ f(a) = (a^2,a^3)
+\]
+
+Que es claro que es polinómica. Tenemos $f$ biyectiva. Pero vemos que no
+es isomorfismo de variedades con $\widetilde f(X) = T^2$, $\widetilde f(X) = T^3$:
+
+\[\widetilde{f} : \frac{K[X,Y]}{(X^3-Y^2)} \longrightarrow K[T]\]
+
+Ya que $\tilde{f}$ no es sobreyectiva porque $T \notin \im(\tilde{f})$.
+
+*** Núcleos e imágenes de morfismos de anillos de coordenadas
+Sea $h : K[W] \longrightarrow K[V]$ un morfismo de K-álgebras dado por
+$h(Y_j + \mathbb{I}(W)) = F_j+\mathbb{I}(V)$.
+
+  1. Sea el ideal de $K[X_1,\dots,X_n,Y_1,\dots,Y_n]$ dado por
+     $C = (Y_1-F_1,\dots,Y_m-F_m) + \mathbb{I}(V)$, entonces:
+
+     \[\ker(h) = 
+     ((C \cap K[Y_1,\dots,Y_m]) + \mathbb{I}(W)) / \mathbb{I}(W)\]
+
+  2. Sea $\mathbb{G}$ una base de Gröbner reducida de $C$ con orden lexicográfico:
+
+     \[F + \mathbb{I}(V) \in \im(h) 
+   \iff
+   R(F;\mathbb{G}) \in K[Y_1,\dots,Y_n]
+   \]
+
+     Además, en tal caso, $F+\mathbb{I}(V) = h(R(F;G) + \mathbb{I}(W))$.
+
+*** Corolario: caracterización de inyectividad y sobreyectividad
+Se cumple:
+
+  1. $h$ inyectiva $\iff$ $C \cap K[Y_1,\dots,Y_m] \subseteq \mathbb{I}(W)$.
+  2. $h$ sobreyectiva $\iff$ existen $M_i \in K[Y_1,\dots,Y_m]$ tal que $X_i-M_i \in \mathbb{G}$.
+
+**** TODO Demostración
+*** Clausura de Zariski
+Dada una variedad $V$ y una representación paramétrica polinomial suya:
+
+\[
+U = \left\{
+(F_1(t_1,\dots,t_k),F_2(t_1,\dots,t_k), \dots, F_n(t_1,\dots,t_k))
+\mid
+t_1,t_2,\dots,t_k \in K
+\right\}
+\subseteq V
+\]
+
+su clausura en la topología de Zariski es:
+
+\[
+\overline{U} =
+\mathbb{V}(J \cap K[X_1,\dots,X_n])
+\]
+
+donde $J = (X_1-F_1,\dots,X_m-F_m) \subseteq K[X_1,\dots,X_n,T_1,\dots,T_n]$.
+
+* Temas de teoría
+** 1. Ideales maximales y primos. Teorema de Krull.
+*** Ideales                                                         :extra:
+Un ideal de $R$ es un subconjunto cerrado para la suma y
+el producto por elementos $R$.
+
+**** Anillo cociente
+Para un $R$ anillo con $\alpha$ ideal, se define el *anillo cociente*:
+
+\[
+R/\alpha = \{x+\alpha\mid x \in R\}
+\]
+
+Obtenido por la relación $x \sim y \iff x-y\in\alpha$, con la suma y el
+producto proyectados.
+*** Retículo de ideales                                             :extra:
+Los ideales forman un retículo con la suma y la intersección.
+Se tiene:
+
+  - $I,J \subseteq I + J$
+  - $I \cap J \subseteq I,J$
+
+**** Son ideales
+Claramente son cerrados para la suma y el producto externo por serlo
+ambos.
+
+*** Anillo cociente                                                 :extra:
+Dado $R$ anillo con $\alpha$ ideal, tomamos la relación de equivalencia 
+$x \sim y \iff x-y\in\alpha$, para obtener el ideal:
+
+\[
+R/\alpha = \{x+\alpha \mid x \in R\}
+\]
+
+*** Ideales primos y maximales
+Un ideal propio $P$ es:
+
+  - Primo, si $xy \in P \implies x \in P \vee y \in P$.
+  - Maximal, si es maximal en el retículo de ideales.
+ 
+**** Caracterización de ideales primos y maximales
+Un ideal $P$ propio es:
+
+  - Primo ssi $R/P$ es dominio de integridad.
+  - Maximal ssi $R/P$ es un cuerpo.
+ 
+Así, tenemos que primo implica maximal.
+
+***** Demostración: primos
+Véase que es equivalente a pedir que a $(x+P)(y+P) \neq 0$ equivalga
+$x+P = 0$ ó $y+P = 0$.
+
+***** Demostración: maximales
+Ser maximal equivale a que no podamos añadir ningún elemento sin
+llegar al ideal total. Esto es, si intentamos añadir $y$, tendremos
+algún $z$ tal que $(y+P)(z+P) = 1+P$, que es equivalente a la
+condición de cuerpo.
+
+*** Teorema de Krull
+Dados $\alpha \subset R$ ideal y $S$ multiplicativamente cerrado con $\alpha\cap S=\varnothing$,
+existe un ideal $M$ tal que:
+
+  - $\alpha \subset M$
+  - $M \cap S = \varnothing$
+  - $M$ es maximal respecto a esta condición.
+
+Además, $M$ es un ideal primo.
+
+**** Multiplicativamente cerrado
+Un subconjunto $S$ es multiplicativamente cerrado si:
+
+  - $1 \in S$
+  - $a,b \in S \implies ab \in S$
+
+**** Demostración
+Dada una cadena de ideales que cumple $\alpha \subset I$ y $I \cap S = \varnothing$, su unión
+también lo cumple y es cota de la cadena. Aplicando lema de Zorn,
+sabemos que debe haber un ideal maximal $M$ respecto a las condiciones.
+
+Supongamos $xy \in M$ pero $x,y \notin M$. Por maximalidad, $(M+(x)) \cap S$ y
+$(M+(y)) \cap S$ son no vacíos y existen $xz,yt \in S$. Entonces tenemos 
+que $xzyt \in M \cap S$, contradicción.
+
+**** Corolario al teorema de Krull
+Todo ideal tiene un ideal maximal que lo contiene. Además, todo elemento
+no unidad tiene un ideal maximal que lo contiene.
+
+***** Demostración
+Tomando $S = \{1\}$.
+
+*** Inclusión en ideales primos                                     :extra:
+Sean ideales $\alpha_1,\dots,\alpha_n$ y $\pi$ un ideal primo. Si $\bigcap \alpha_i \subseteq \pi$, entonces,
+
+\[
+\exists \alpha_i \subseteq \pi
+\]
+
+** 2. Nilradical y radical de Jacobson.
+*** Nilradical
+El *nilradical* es el ideal dado por los elementos nilpotentes:
+
+\[
+\operatorname{Nil}(R) = \{x \in R \mid \exists n : x^n = 0\}
+\]
+
+**** Es un ideal
+Trivial usando el binomio de Newton.
+
+**** Anillo reducido
+Un anillo se dice reducido si $\operatorname{Nil}(R) = 0$. Los dominios de integridad son
+trivialmente reducidos. Además, podemos reducir un anillo dividiéndolo
+por su nilradical, $R/\operatorname{Nil}(R)$.
+
+*** Caracterización del Nilradical
+El nilradical es la intersección de ideales del espectro, los ideales
+primos del anillo.
+
+\[
+\operatorname{Nil}(R) = \bigcap_{{\cal \pi}\text{ primo}} \pi
+\]
+
+**** Demostración
+***** Nilpotente en la intersección
+Si $x^n = 0 \in \pi$, por primalidad, $x \in \pi$ para cualquier ideal primo.
+
+***** En la intersección es nilpotente
+Si $x \notin \operatorname{Nil}(R)$, $S=\{1,x,x^2,\dots\}$ es multiplicativamente cerrado con
+$S \cap \operatorname{Nil}(R) = \varnothing$, y por Krull, existe un primo con $\pi \cap S = \varnothing$.
+
+*** Radical de un ideal                                             :extra:
+El *radical de un ideal* se define como:
+
+\[
+\sqrt{\alpha} = \{x \in R \mid x^n \in \alpha\}
+\]
+
+Cuando $\alpha = \sqrt{\alpha}$, lo llamamos *ideal radical*.
+
+**** Caracterización
+Tenemos que $\operatorname{Nil}(R/\alpha) = \sqrt{\alpha}/\alpha$ por construcción. De esa forma además 
+llegamos a caracterizar al radical como:
+
+\[
+\sqrt{\alpha} = \bigcap_{\alpha \subset \pi \in \operatorname{Spec}(R)} \pi
+\]
+
+*** Radical de Jacobson
+El *radical de Jacobson* es el dado por:
+
+\[
+{\cal J}(R) = \bigcap_{{\cal M} \text{ maximal}} {\cal M}
+\]
+
+*** Caracterización del radical de Jacobson
+Tenemos que $x \in {\cal J}(R)$ ssi $1-xy \in U(R)$ para cualquier $y$.
+
+**** Demostración
+***** Primera implicación
+Si $x \in {\cal J}(R)$, entonces $1-xy$ no puede estar en ningún ideal maximal,
+porque estaría también el $1$. Pero todo elemento no unidad está en un
+ideal maximal por teorema de Krull.
+
+***** Segunda implicación
+Si $x\notin M$ maximal, $(x)+M = R$. Luego $1-xy \in M$, y un maximal
+no puede contener una unidad.
+
+** 3. Algoritmo de la división en K[X1,…,Xn].
+*** Órdenes monomiales                                              :extra:
+Un orden monomial $\leq$ en $\mathbb{N}^n$ es un orden compatible, monótono y total.
+
+  1. *Compatible:* si $x\leq y$, entonces $\gamma+x \leq \gamma+y$.
+  2. *Monótono:* $0 \leq x$.
+  3. *Total:* o bien $x \leq y$, o bien $y \leq x$.
+
+El orden lexicográfico, el orden lexicográfico graduado y el orden 
+lexicográfico graduado inverso son órdenes monomiales.
+
+*** Componentes de la división                                      :extra:
+Definimos los siguientes componentes para un polinomio
+expresado como $p = \sum a_\alpha X^\alpha$:
+
+  - ${\cal N}(p) = \{\alpha \in \mathbb{N}^n \mid a_\alpha \neq 0\}$, diagrama de Newton.
+  - $exp(p) = \max\{\alpha \in \mathbb{N}^n \mid a_\alpha \neq 0\}$, exponente.
+  - $tl(p) = a_{exp(p)}X^{exp(p)}$, término líder.
+
+**** Propiedades del exponente
+Dados $F,G \in K[X_1,\dots,X_n]$ no nulos, se cumple:
+
+  1. $exp(FG) = exp(F)+exp(G)$
+  2. $exp(F+G) \leq \max\{exp(F),exp(G)\}$
+  3. Si $exp(F) < exp(G)$, entonces $exp(F+G) = exp(G)$.
+
+***** Demostración
+Se demuestran usando que los polinomios forman un K-espacio vectorial
+teniendo de base a los monomios.
+
+*** Partición de generadores
+Dada una lista de elementos $a_1,\dots,a_k$, tenemos una partición que
+definimos inductivamente como:
+
+  1. Los elementos que genera el primer generador:
+
+     \[\Delta^1 = a_1 + \mathbb{N}^n\]
+
+  2. Los elementos que aporta cada nuevo generador:
+
+     \[
+     \Delta^i = (a_i+\mathbb{N}^n) \setminus \bigcup_{j<i} \Delta^j
+     \]
+
+  3. Todos los demás elementos:
+
+     \[
+     \overline{\Delta} = \mathbb{N}^n \setminus \bigcup_{j \leq k} \Delta^j
+     \]
+
+*** Teorema de la división
+Dado un orden monomial y una lista de polinomios $\{G_1,\dots,G_t\}$; consideramos
+la partición $\Delta_1,\dots,\Delta_t,\overline{\Delta}$ dada por los generadores $exp(G_i)$. Tenemos que,
+para cada $F \in K[X_1,\dots,X_n]$, existen $Q_1,\dots,Q_t,R$ únicos tales que:
+
+  1. $F = Q_1G_1+\dots+Q_tG_t+R$.
+  2. $R=0$ ó $N(R) \subset \overline{\Delta}$.
+  3. $exp(G_i)+N(Q_i) \subseteq \Delta^i$.
+
+**** Demostración
+Procedemos por inducción sobre $exp(F)$ con el orden monomial que
+tenemos. Distinguimos siempre según si aparece en $\Delta_i$ o en $\overline{\Delta}$.
+Nótese que en cada caso debemos comprobar que se cumplen trivialmente
+las condiciones del teorema.
+
+***** Caso base
+****** Aparece en algún elemento de la partición
+Si $exp(F) \in \Delta^i$, entonces forzosamente $exp(G_i)=0$. Entonces
+tomamos $Q_i = F/G_i$ y $Q_j=0$ para $j \neq i$.
+
+****** Aparece en el resto de la partición
+Simplemente tomamos $R=F$.
+
+***** Caso inductivo
+Sabiendo ahora que podemos dividir todo $G$ con $exp(G) < exp(F)$.
+
+****** Aparece en algún elemento de la partición
+Si $exp(F) \in \Delta^i$ entonces $exp(F) = exp(G_i) + \gamma$. Tomando $H=X^\gamma G$,
+aplicamos inducción sobre:
+
+\[
+F -\frac{cl(F)}{cl(H)}H = F' = \sum Q_i'G_i+R'
+\]
+
+Ahora tomamos $Q_i = Q_i'+\frac{cl(F)}{cl(H)}X^\gamma$ y $Q_j = Q_j'$, para llegar a:
+
+\[
+F = \sum Q_iG_i+R'
+\]
+
+****** Aparece en el resto de la partición
+Aplicamos inducción sobre:
+
+\[
+F - tl(F) = \sum Q_i'G_i + R'
+\]
+
+Y tomamos entonces $R=R'+tl(F)$, que sigue cumpliendo las 
+condiciones.
+
+** 4. Ideales monomiales.
+*** Exponente de un ideal                                           :extra:
+El exponente de un ideal es el conjunto de exponentes de sus polinomios:
+
+\[
+Exp(I) = \{
+exp(F) \mid 0\neq F \in I
+\} \subseteq \mathbb{N}^n
+\]
+
+El exponente es un monoideal, es decir, $Exp(I) + \mathbb{N}^n = Exp(I)$.
+
+**** Demostración
+Nótese que tenemos $exp(X^\gamma F) = \gamma + exp(F)$.
+
+*** Lema de Dickson y sistemas generadores                          :extra:
+Para $S \subseteq \mathbb{N}^n$ no vacío, existe $G \subseteq S$ finito tal que $S \subseteq G + \mathbb{N}^n$.
+
+**** Monoideal
+Un subconjunto $E \subseteq \mathbb{N}^n$ es monoideal cuando $E = E+\mathbb{N}^n$.
+
+**** Sistemas de generadores
+Si $E$ es monoideal, existe un $G \subset E$ finito con $E = G + \mathbb{N}^n$. Llamamos
+a $G$ sistema de generadores de $E$.
+
+Esto es debido al lema de Dickson.
+
+*** Ideales monomiales
+Un *ideal monomial* está generado por monomios, es de la forma:
+
+\[
+I = (X^{\alpha}\mid \alpha \in A)
+\]
+
+para algún $A \subseteq \mathbb{N}$.
+
+*** Monomios en un ideal monomial
+Sea $I = (X^\alpha \mid \alpha \in A)$ monomial, equivalen:
+
+  1. $F\in I$.
+  2. Todo monomio de $F$ está en $I$.
+  3. $F$ es combinación lineal de monomios de $I$.
+
+Y además, si para cualquier polinomio de un ideal todos sus monomios 
+están en el ideal, es monomial.
+
+**** Demostración
+***** Primera implicación
+Si $F \in I$, será de la forma:
+
+\[
+F = \sum F_iX^\alpha
+\]
+
+Como los monomios son una K-base del espacio, todo monomio de la
+suma será múltiplo de algún $X^\alpha$.
+
+***** Segunda y tercera implicaciones
+Triviales desde lo anterior.
+
+***** Caracterización de ideales monomiales
+Nótese que podemos tomar todos los polinomios del ideal y generarlo
+como: $(X^\alpha \mid \alpha \in Exp(I))$.
+*** Lema de Dickson para ideales monomiales
+Todo ideal monomial tiene un sistema de generadores finito y 
+formado por monomios.
+
+**** Demostración
+Como el exponente de un ideal es siempre monoideal, podemos aplicar
+el lema de Dickson para darle un sistema de generadores $Exp(I)=G+\mathbb{N}^n$.
+Dado un exponente $\alpha \in Exp(I)$, tenemos $X^\alpha\in I$, luego tomamos como
+sistema de generadores:
+
+\[
+(X^\alpha \mid \alpha \in G)
+\]
+
+Dado cualquier $F\in I$, cada monomio suyo estará en $I$, luego será 
+generado por este sistema.
+** 5. Bases de Gröbner. Aplicaciones.
+*** Base de Gröbner
+Una *base de Gröbner* de un ideal $I$ es un conjunto $\mathbb{G} = \{G_1,\dots,G_n\} \subseteq I$
+cumpliendo $Exp(I) = \{exp(G_1),\dots,exp(G_n)\} + \mathbb{N}^n$.
+
+*** Propiedades de bases de Gröbner
+Las bases de Gröbner en $K[X_1,\dots,X_n]$ cumplen:
+
+  1. Todo ideal no nulo tiene base de Gröbner.
+  2. Toda base de Gröbner de un ideal genera al ideal.
+  3. *Teorema de la base de Hilbert*: todo ideal es finitamente generado.
+
+**** Demostración
+***** Primer punto
+Todo ideal tiene $Exp(I)$ monoideal, y por tanto tiene un sistema de
+generadores. Tomamos polinomios que tengan como exponente estos
+generadores y tenemos una base de Gröbner.
+
+***** Segundo punto
+Por algoritmo de la división, todo polinomio del ideal se divide
+entre ellos dando un resto tal que $exp(R) \in \overline{\Delta} \cap Exp(I) = \varnothing$. Por
+tanto, $R=0$.
+
+***** Tercer punto
+Todo ideal está generado por su base de Gröbner, que es finita.
+
+*** Caracterización de las bases de Gröbner
+Sea $I$ ideal no nulo, equivalen:
+
+  1. $\mathbb{G}$ es base de Gröbner de $I$.
+  2. $R(F,\mathbb{G}) = 0$, para todo $F\in I$.
+
+**** Demostración
+***** Primera implicación
+Como $exp(R) \in Exp(I)\cap\overline{\Delta}$, tenemos $exp(R) = 0$.
+
+***** Segunda implicación
+Por teorema de la división, todo $F \in I$ es de la forma:
+
+\[
+F = \sum_{i=0}^n Q_iG_i
+\]
+
+Donde $exp(Q_iG_i) \in \Delta^i$, y como forman una partición disjunta, se
+tiene que el $exp(F) = \max\{exp(Q_iG_i)\} \notin \overline{\Delta}$. Por tanto $Exp(I)\cap\overline{\Delta} = \varnothing$.
+
+*** Cálculo de bases de Gröbner                                     :extra:
+Las bases de Gröbner de un ideal pueden calcularse a partir de sus
+generadores utilizando el Algoritmo de Buchberger, que añade a cada
+paso los restos de las semizigias de los generadores a la base.
+
+**** Teorema de Buchberger
+Dado un sistema de generadores $\mathbb{G} = \{G_1,\dots,G_n\}$ de una base de Gröbner,
+equivalen:
+
+  1. $\mathbb{G}$ es base de Gröbner.
+  2. Para alguna ordenación de $\mathbb{G}$, se tiene $R(S(G_i,G_j);\mathbb{G}) = 0$ para $i\neq j$.
+
+**** Semizigia
+Definimos la semizigia de dos polinomios como:
+
+\[{\cal S}(F,G) 
+= \frac{1}{cl(F)}X^{\gamma-\alpha}F - \frac{1}{cl(G)}X^{\gamma-\beta}G\]
+
+*** Base de Gröbner minimal                                         :extra:
+Una base de Gröbner de $I$ se dice minimal si, para cualquier $F \in \mathbb{G}$:
+
+  1. $cl(F) = 1$
+  2. $exp(F) \notin \{exp(G) \mid G\in\mathbb{G}, G\neq F\} + \mathbb{N}^n$
+
+**** Retirar polinomios
+Sea $\mathbb{G}$ base de Gröbner con un ideal no nulo y sea un $F \in \mathbb{G}$ que no
+cumple la segunda condición de minimalidad. Tenemos que $\mathbb{G}\setminus\{F\}$ es
+también base de Gröbner, ya sus exponentes siguen generando $Exp(I)$.
+*** Base de Gröbner reducida                                        :extra:
+Una base de Gröbner $\mathbb{G}$ de $I$ es reducida cuando para cualquier $\forall F\in\mathbb{G}$:
+
+  1. $cl(F) = 1$
+  2. ${\cal N}(F) \cap \{exp(G) \mid G \in \mathbb{G}, G \neq F\} + \mathbb{N}^n = \varnothing$
+
+Toda base de Gröbner reducida es minimal y todo ideal no nulo $I$ tiene una
+única base de Gröbner reducida.
+
+**** Demostración: existencia
+Dada una base de Gröbner, podemos llegar a una base de Gröbner minimal
+retirando polinomios. Y dada una base minimal, podemos llegar a una base
+reducida dividiendo cada polinomio por todos los demás y sustituyéndolo
+por su resto, que tiene el mismo exponente por ser la anterior una base
+minimal.
+
+**** Demostración: unicidad
+Si hubiera dos bases reducidas, tomaríamos los dos elementos con el mismo
+exponente en cada una de ellas, y dividiríamos su resto $F-F' \in I$, que
+debe dar resto $0$:
+
+\[R(F-F';\mathbb{G}) = F-F'
+\]
+
+Ya que por ser una base reducida, ${\cal N}(F-F') \subseteq \overline{\Delta}$.
+
+*** Aplicaciones: Problema de pertenencia
+Sea $I$ ideal con un sistema de generadores. Podemos calcular si $F \in I$
+calculando una base de Gröbner del ideal y usando:
+
+\[F \in I \iff R(F,\mathbb{G}) = 0\]
+
+*** Aplicaciones: Igualdad de ideales
+Dados dos ideales $I,J$ con sus sistemas de generadores. Podemos comprobar
+que serán iguales calculando sus bases de Gröbner reducidas, que por
+unicidad, deben ser iguales.
+
+*** Aplicaciones: Ideal de eliminación
+Dado $I$ ideal no nulo. Definimos el j-ésimo ideal de eliminación como:
+
+\[
+I_j = I \cap K[X_{j+1},\dots,X_n]
+\]
+
+Si $\mathbb{G}$ era base de Gröbner con el orden lexicográfico de $I$, entonces:
+
+\[
+\mathbb{G}_j = \mathbb{G} \cap I_j
+\]
+
+es base de Gröbner de $I_j$.
+
+**** Cálculo de la intersección
+Sean $I,J$ ideales no nulos de $K[X_1,\dots,X_n]$ y sea:
+
+\[
+H = TI + (1-T)J \subseteq K[T,X_1,\dots,X_n]
+\]
+
+considerando los ideales extendidos. Entonces su intersección es el
+primer ideal de eliminación de $H$:
+
+\[
+I \cap J = H \cap K[X_1,\dots,X_n]
+\]
+
+** 6. Variedades algebraicas afines. Correspondencia ideal-variedad.
+*** R-álgebras                                                      :extra:
+Dado un anillo $R$, un R-módulo es un grupo abeliano $M$ junto a una
+operación $\cdot : (R,M) \longrightarrow M$ verificando:
+
+  - $r(x+y) = rx+ry$
+  - $(r+s)x = rx + sx$
+  - $r(sx) = (rs)x$
+  - $1x = x$
+
+Una *R-álgebra* $S$ es un anillo con estructura compatible de R-módulo,
+tal que:
+
+\[
+\forall r \in R; x,y \in S: (rx)y = r(xy) = x(ry)
+\]
+
+*** Variedades algebraicas afines
+Dado un ideal ${\cal F} \subseteq K[X_1,\dots,X_n]$, denotamos:
+
+\[
+\mathbb{V}({\cal F}) = \left\{ (a_1,\dots,a_n) \mid 
+\forall F \in {\cal F}: F(a) = 0 \right\}
+\]
+
+Y llamamos *variedad algebraica afín* a los conjuntos de esta forma.
+
+*** Topología de Zariski
+Las variedades son los cerrados de una topología sobre $\mathbb{A}^n(K)$, ya
+que cumplen:
+
+  1. \[\bigcap_{\lambda\in\Lambda} \mathbb{V}(J_\lambda) =
+     \mathbb{V}\left(\sum_{\lambda\in\Lambda} J_\lambda\right)}\]
+
+  2. $\mathbb{V}(J_1) \cup \mathbb{V}(J_2) = \mathbb{V}(J_1J_2) = \mathbb{V}(J_1\cap J_2)$
+
+  3. $\mathbb{V}(0) = \mathbb{A}^n(K)$
+
+  4. $\mathbb{V}(K[X_1,\dots,X_n]) = \varnothing$
+
+**** Demostración
+***** Punto 1
+Nótese que un punto se anula para un conjunto de ideales ssi
+se anula para todas sus combinaciones lineales.
+
+***** Punto 2
+Si $x \notin \mathbb{V}(J_1) \cup \mathbb{V}(J_2)$, entonces existen polinomios en cada ideal
+que no lo anulan, y su producto da $x \notin \mathbb{V}(J_1J_2)$ y $x \notin \mathbb{V}(J_1\cap J_2)$.
+
+El resto de inclusiones son triviales.
+
+***** Punto 3
+El polinomio $0$ anula todos los puntos.
+
+***** Punto 4
+Ningún punto es raíz de todos los polinomios. Existen los 
+polinomios constantes no nulos en particular.
+
+*** Correspondencia ideal-variedad
+Se define el *ideal de un conjunto* como:
+
+\[
+\mathbb{I}(S) = 
+\left\{
+F \in K[X_1,\dots,X_n]
+\mid
+\forall a \in S: F(a) = 0
+\right\}
+\]
+
+Los ideales y variedades cumplen:
+
+  1. $\mathbb{I}(\varnothing) = K[X_1,\dots,X_n]$.
+
+  2. $\mathbb{I}(S_1\cup S_2) = \mathbb{I}(S_1) \cap \mathbb{I}(S_2)$.
+
+  3. $S_1 \subseteq S_2 \implies \mathbb{I}(S_1) \supseteq \mathbb{I}(S_2)$.
+
+  4. $\mathbb{I}(S)$ es ideal radical.
+
+  5. $S \subseteq \mathbb{VI}(S)$ y $J \subseteq \mathbb{IV}(J)$.
+
+  6. $\mathbb{I}(S) = \mathbb{IVI}(S)$ y $\mathbb{V}(J) = \mathbb{VIV}(J)$.
+
+  7. Cuando $V \subseteq \mathbb{A}^n(K)$ es variedad afín, $V = \mathbb{VI}(V)$.
+
+  8. $V_1 \subseteq V_2 \iff \mathbb{I}(V_1) \supseteq \mathbb{I}(V_2)$.
+
+  9. $V_1\cup V_2 = \mathbb{V}(\mathbb{I}(V_1)\mathbb{I}(V_2)) = \mathbb{V}(\mathbb{I}(V_1) \cap \mathbb{I}(V_2))$.
+
+  10. \[\bigcap_{\lambda\in\Lambda} V_\lambda = \mathbb{V}\left(\sum_{\lambda\in\Lambda} \mathbb{I}(V_\lambda)\right)\]
+
+**** Demostración
+***** Puntos 1, 2 y 3
+Triviales por definición.
+
+***** Punto 4
+Notamos que $f^n(s)=0 \implies f(s) = 0$.
+
+***** Puntos 5, 6 y 7
+Desde la definición se tienen las desigualdades. Uniendo ambas nos
+da la igualdad. El siguiente es un caso particular.
+
+***** Punto 8
+Trivial por definición y por la igualdad anterior.
+
+***** Punto 9
+La unión de variedades es variedad, aplicamos $\mathbb{VI}$ y las propiedades
+anteriores.
+
+***** Punto 10
+La intersección es variedad y volvermos a aplicar $\mathbb{VI}$.
+
+*** Teorema de los ceros de Hilbert
+En general las funciones $\mathbb{I}, \mathbb{V}$ dan una correspondencia no biyectiva
+entre ideales radicales y variedades, con $\mathbb{VI} = id$. Cuando $K$ es además
+*algebraicamente cerrado*, se tiene $\mathbb{IV}(J) = \sqrt{J}$, y hay biyección:
+
+\[
+\left\{ V \in \mathbb{A}^n(K) \mid V \text{ es v.a.}\right\}
+\cong
+\left\{
+J \subseteq K[X_1,\dots,X_n] \mid J = \sqrt{J}
+\right\}
+\]
+
+** 7. Anillo de coordenadas de una variedad. Aplicaciones polinómicas.
+*** Espacio afín de un cuerpo                                       :extra:
+Llamamos $\mathbb{A}^n(K)$ al espacio afín sobre $K^n$ con la función afín
+$\varphi : K^n \times K^n \longrightarrow K^n$ dada por $\varphi(u,v) = v-u$.
+
+*** Aplicaciones polinómicas
+Una aplicación polinomial o morfismo entre variedades es una aplicación
+$f : V \longrightarrow W$, variedades de $\mathbb{A}^n$ y $\mathbb{A}^m$, de la forma:
+
+\[
+f(a) = (F_1(a),F_2(a),\dots,F_m(a))
+\]
+
+donde los $F_1,\dots,F_m \subseteq K[X_1,\dots,X_n]$ son polinomios.
+
+*** Anillo de coordenadas
+El anillo de coordenadas de una variedad $V \subseteq \mathbb{A}^n(K)$ es la K-álgebra:
+
+\[
+K[V] = \frac{K[X_1,\dots,X_n]}{\mathbb{I}(V)}
+\]
+
+*** Relación entre aplicaciones polinómicas y anillos de coordenadas
+Para $V \subseteq \mathbb{A}^n(K), W \subseteq \mathbb{A}^m(K)$ variedades,
+
+  1. Toda aplicación polinómica $f : V \longrightarrow W$ induce un homomorfismo de
+     K-álgebras $\widetilde f : K[W] \longrightarrow K[V]$ cumpliendo $\widetilde f(G+\mathbb{I}(W)) = G(f) + \mathbb{I}(V)$.
+
+  2. Cada homomorfismo $h : K[W] \longrightarrow K[V]$ induce una única aplicación
+     polinómica $h' : V \longrightarrow W$ tal que $\tilde{h}' = h$.
+
+  3. Dadas aplicaciones polinómicas $V_1 \overset{f}\longrightarrow V_2 \overset{g}\longrightarrow V_3$, $\widetilde{f} \circ \widetilde{g} = \widetilde{g \circ f}$.
+
+  4. $f$ es isomorfismo ssi $\widetilde f$ es isomorfismo.
+
+Es decir, hay un funtor contravariante entre ambas categorías.
+
+**** Demostración
+***** Punto 1
+Dado $f(a) = (F_1(a),\dots,F_m(a))$, por propiedad universal del anillo de
+polinomios definimos $f'(Y_j) = F_j$. Para $G \in \mathbb{I}(W)$, si tomamos $a \in V$,
+se tiene $f(a) \in W$, y por tanto:
+
+\[
+f'(G)(a) = G(F_1(a),\dots,F_n(a)) = G(f(a)) = 0
+\]
+
+Así, está bien definida la función:
+
+\[
+\widetilde f (G + \mathbb{I}(W)) = G(F_1,\dots,F_m) + \mathbb{I}(V)
+\]
+
+***** Punto 2
+****** Existencia
+Dada $h$, llamamos $h(Y_i+\mathbb{I}(W)) = F_i$, y definimos $f(a) = (F_1(a),\dots,F_m(a))$.
+Está bien definida porque para $G \in \mathbb{I}(W)$,
+
+\[
+h(0) = h(G) = G(F_1,\dots,F_m) + \mathbb{I}(V)
+\]
+
+Luego $G(f(a)) = G(F_1,\dots,F_m)(a) + 0 = 0$, y $f(a) \in \mathbb{VI}(W) = W$. Es claro
+además que $\widetilde f = h$, por estar definida como ella en una base de los
+polinomios.
+
+****** Unicidad
+Supongamos $\widetilde g = h$ con $g(a) = (G_1(a),\dots,G_m(a))$, entonces:
+
+\[\widetilde g(Y_j+\mathbb{I}(W)) = G_j + \mathbb{I}(V)\]
+\[h(Y_j+\mathbb{I}(W)) = F_j + \mathbb{I}(V)\]
+
+Por lo tanto, $G_j-F_j \in \mathbb{I}(V)$, para cualquier $j$.
+
+***** Punto 3
+Por construcción. Sean:
+
+  - $f(a) = (F_1(a),\dots,F_m(a))$
+  - $g(a) = (G_1(a),\dots,G_m(a))$
+  - $g \circ f (a) = (G_1(F_1(a),\dots), \dots, G_m(F_1,\dots))$
+
+Entonces comprobamos que: $\widetilde{g \circ f}(H) = \widetilde f  \circ \widetilde{g} (H)$.
+
+***** Punto 4
+Por el punto anterior y viendo simplemente que $\widetilde{id} = id$.
+
+*** Caracterización de núcleos e imágenes                           :extra:
+Sea $h : K[W] \longrightarrow K[V]$ un morfismo de K-álgebras dado por $h(Y_j) = F_j$.
+
+  1. Sea $C = (Y_1-F_1,\dots,Y_m-C_m) + \mathbb{I}(V)$ ideal de $K[X_1,\dots,X_n,Y_1,\dots,Y_m]$
+     se tiene:
+
+     \[
+     \ker(h) = ((C\cap K[Y_1,\dots,Y_m]) + \mathbb{I}(W))/\mathbb{I}(W)
+     \]
+     
+  2. Sea $\mathbb{G}$ Gröbner reducida de $C$ con orden lexicográfico:
+
+     \[F + \mathbb{I}(V) \in \im(h) \iff
+     R(F;\mathbb{G}) \in K[Y_1,\dots,Y_m]\]
+     
+     Además, en tal caso, $F + \mathbb{I}(V) = h(R(F;G)+\mathbb{I}(W))$.
+
+**** Demostración
+***** Primer punto
+****** Primera implicación
+Sea $G \in \ker(h)$, entonces $G(F_1,\dots,F_m) = h(G) = 0+\mathbb{I}(V) \in C$.
+Dividimos ahora $H = G - G(F_1,\dots,F_m)$ entre $Y_1-Y_1,\dots,Y_m-C_m$
+pero con orden lexicográfico $Y_1>\dots >Y_m>X_1> \dots>X_n$:
+
+\[
+H = \sum_{i=1}^m (Y_i-F_i) Q_i + R
+\]
+
+Como ${\cal N}(R) \subseteq \overline\Delta$, $R \in K[X_1,\dots,X_m]$, pero:
+
+\[
+H(F_1,\dots,F_m) = G(F_1,\dots,F_m) - G(F_1,\dots,F_m) = 0 = R
+\]
+
+Luego $H \in C$, y $G \in C \cap K[Y_1,\dots,Y_m]$.
+
+****** Segunda implicación
+Si escribimos $\mathbb{I}(V) = (H_1,\dots,H_s)$, tenemos entonces:
+
+\[
+G = \sum (Y_i-F_i)T_i + \sum H_jR_j
+\]
+
+luego:
+
+\[
+G(F_1,\dots,F_m) = \sum_{j=1}^s H_jR_j(X_1,\dots,X_n,F_1,\dots,F_m) 
+\in \mathbb{I}(V)
+\]
+
+Y por tanto tenemos $G \in \ker(H)$:
+
+\[
+h(G) = G(F_1,\dots,F_m) + \mathbb{I}(V) = 0
+\]
+
+***** TODO Segundo punto
+**** Inyectividad y sobreyectividad
+Se tiene desde lo anterior que:
+
+  1. $h$ inyectiva ssi $C \cap K[Y_1,\dots,Y_m] \subseteq \mathbb{I}(W)$.
+  2. $h$ sobreyectiva ssi $\exists M_i \in K[Y_1,\dots,Y_m]$ tal que $X_i-M_i \in \mathbb{G}$.
+
+* Ejercicios
+** Relación 1
+*** Ejercicio 1
+#+begin_statement
+Sea $R$ un anillo conmutativo. Demostrar:
+
+ 1. Los elementos $0$ y $1$ están determinados de forma única.
+ 2. Para cada elemento $x\in R$, el opuesto $-x$ y el inverso si existe $x^{-1}$, están
+    determinados de forma única.
+ 3. El conjunto ${\cal U}(R)$ de las unidades de $R$ es un grupo abeliano.
+
+$\quad$
+#+end_statement
+**** Punto 1
+Supongamos que hubiera dos elementos neutros de cualquier tipo:
+
+\[e = e \otimes e' = e'\]
+
+**** Punto 2
+Supongamos que hubiera dos inversos $x,y$ de cualquier tipo:
+
+\[x = x \otimes (a \otimes y) = (x \otimes a) \otimes y = y\]
+
+**** Punto 3
+El anillo es conmutativo. Así que el grupo de las unidades con el producto será
+abeliano.
+
+*** TODO Ejercicio 2
+#+begin_statement
+Sea $R$ anillo conmutativo. Demostrar:
+
+  1. $x0=0$ para todo $x\in R$.
+  2. $R$ tiene más de un elemento ssi $0\neq 1$.
+  3. $(-x)y = -(xy) = x(-y)$ para cualesquiera $x,y \in R$.
+  4. $(nx)y = n(xy) = x(ny)$ para cualesquiera $x,y \in R$ y todo $n \in \mathbb{Z}$.
+  5. $(nx)(my) = (nm)(xy)$ para cualesquiera $x,y \in R$ y $n,m \in \mathbb{Z}$.
+  6. $\left(\sum_{i=1}^n x_i\right) \left(\sum^m_{j=1} y_j\right) = \left(\sum^{n,m}_{i=1,j=1} x_iy_j\right)$, para $x_i,y_j \in R$ y $n,m > 0$.
+  7. $(x+y)^n = \sum_{i=0}^n {n \choose i} x y^{n-i}$, para cualesquiera $x,y \in R$ y $n,m \geq 0$.
+  8. $(xy)^n = x^ny^n$ y $(x^n)^m = x^{nm}$, para cualesquiera $x,y\in R$ y $n,m \geq 0$.
+$\quad$
+#+end_statement
+*** Ejercicio 3
+#+begin_statement
+Sea $X$ un conjunto, en ${\cal P}(X)$ se consideran las opearciones
+
+\[A+B := (A\cup B) \setminus (A\cap B)\]
+\[AB := A \cap B\]
+
+para cualesquiera $A,B \in {\cal P}(X)$.
+
+Prueba que ${\cal P}(X)$, con las operaciones anteriores y elemento uno igual a $X$, es un
+anillo conmutativo. ¿Cuál es el elemento cero?. Observa que este anillo es un 
+*anillo de Boole*, es decir $A^2=A$ para $A\in{\cal P}(X)$ y que por tanto $2A = 0$.
+#+end_statement
+
+Demostramos que ${\cal P}(X)$ con la suma forma un grupo abeliano. Cada conjunto es su
+inverso, es conmutativo y tiene al conjunto vacío como neutro. La asociatividad
+se comprueba viendo que pertenecer a $A+B+C$ es pertenecer a uno o a los tres.
+
+Que es conmutativo se tiene por:
+
+\[0 = (A+B)^2 - (A+B) = AB + BA\]
+\[0 = A+A\]
+
+*** Ejercicio 4
+#+begin_statement
+Dado un anillo $R = (R,+,\times,1)$, definir sobre $R$ dos operaciones $\oplus,\otimes$ de forma
+que $(R,\oplus,\otimes,0)$ sea un anillo con elemento $1$ como cero.
+#+end_statement
+Nos sirve tomar:
+
+\[a \oplus b = a+b-1\]
+\[a \otimes b = a + b - ab\]
+
+Debemos comprobar las propiedades.
+
+*** TODO Ejercicio 7
+*** Ejercicio 8
+#+begin_statement
+¿Se deduce la condición $f(1) = 1$ en la definición de homomorfismo de anillos de 
+las dos condiciones $f(x+y) = f(x)+f(y)$ y $f(xy) = f(x)f(y)$?
+#+end_statement
+Una inclusión en la suma directa de dos anillos cumple lo pedido pero no cumple
+que $i(1) = 1$.
+
+\[i : R \longrightarrow R \oplus S,\quad i(r) = (r,0)\]
+
+*** Ejercicio 9
+#+begin_statement
+Prueba que los elementos nilpotentes de un anillo forman un ideal.
+#+end_statement
+Sean $n^p = 0$ y $m^q = 0$, dos nilpotentes. Tenemos que $(n+m)^{p+q} = 0$, por binomio de 
+Newton, y que $(rn)^p = 0$ por conmutatividad.
+*** Ejercicio 10
+#+begin_statement
+Demuestra que todo dominio de integridad finito es un cuerpo.
+#+end_statement
+Dado $x \in R$, considero el endomorfismo $(\lambda a. xa)$. Por ser dominio de integridad, es
+inyectivo, y siendo inyectivo y finito, es sobreyectivo. Luego $\exists a : xa = 1$.
+*** Ejercicio 11
+#+begin_statement
+Demuestra que todo dominio de integridad con un número finito de ideales es un
+cuerpo.
+#+end_statement
+Dado $x\in R$, considero una aplicación que lleva un ideal $I$ en $(x)I$. Tenemos que es
+inyectiva por ser dominio de integridad. De hecho, sean $i \in I$ con $(x)I = (x)J$:
+
+\[xi = rxj = xrj \Rightarrow i = rj\]
+
+Luego $I\subset J$, simétricamente $I =J$. Por ser inyectiva y ser de número finito, es
+biyectiva, luego $\exists I: (x)I = (1)$.
+*** Ejercicio 12
+Sea una cadena de ideales $\Pi \subset \beta\subset R$, con $x \in \beta$, $x \notin \Pi$.
+Entonces $x(x^{n-1}-1) = 0 \in \Pi$, y debe tenerse $x^{n-1}-1 \in \Pi \subset \beta$.
+Con eso, debe ser $\beta = R$.
+
+*** Ejercicio 13
+ Por definición de *radical*, tenemos que cuando es radical es intersección de 
+ anillos primos.
+
+ Sea $\alpha$ intersección de ideales primos, será en particular intersección de ideales
+ primos más algunos que lo contienen.
+
+*** Ejercicio 14
+ Sea $x$ idempotente y sea $M$ el maximal de $R$. 
+
+ - Sea $x \notin M$, entonces debe ser $x$ una
+   unidad; por ser $R$ local. Siendo unidad $x^2 = x$ nos da $x=1$.
+
+ - Sea $x \in M$. Sabemos ${\cal J}(R) = M$, luego $x$ está en el radical de Jacobson.
+   Esto quiere decir que $1-xy \in U(R)$ para cualquier $y \in R$. En particular $1-x$
+   está en las unidades del anillo. Como $x(1-x) = 0$, se tiene $x = 0$.
+
+*** Ejercicio 15
+ Aplicaremos Zorn, viendo que todo conjunto totalmente ordenado tiene cota inferior.
+
+ Sea una cadena de ideales primos $\Pi_i$, entonces sea $ab \in \bigcap \Pi_i$, entonces, supongamos que
+ $a$ no perteneciera a la intersección, entonces, por primalidad, si $b \notin \Pi_j$, tampoco
+ pertenecería a ninguno por debajo de él; y $a$ debería pertenecer a todos ellos y
+ por tanto a la intersección.
+
+*** Ejercicio 16
+**** Punto 1
+ Tenemos que $0 = (2x)^2 - 2x = 4x - 2x= 2x$.
+
+**** Punto 2
+ Si $\pi$ es primo, entonces $R/\pi$ es dominio de integridad. Sea $m \in R/\pi$, tenemos que
+ $m(m-1) = 0$, luego $m=0$ ó $m=1$. Así, sólo puede ser isomorfo a $\mathbb{Z}_2$
+ y cuerpo. $\pi$ es maximal.
+
+ Además, la primera parte se obtiene también por caso particular del ejercicio 12.
+
+**** Punto 3
+ Definimos la operación $a \oplus b = a+b+ab$ y comprobamos que $(a,b) = (a \oplus b)$, ya que
+ $a (a\oplus b) =a$ y $b(a\oplus b) = b$. Por inducción, cada ideal generado por varios lo podemos
+ generar por un elemento.
+
+*** Ejercicio 17
+Tenemos que los divisores de cero ya forman un ideal primo.
+*** TODO Ejercicio 18
+ Esto es equivalente a decir, ya que estamos en un anillo de ideales principales,
+ que $X^3-Y^2$ es irreducible.
+
+*** Ejercicio 19
+ Vemos que $\alpha$ es ideal. Supongamos que fuera principal, debería estar generado
+ por uno de mínimo grado. Si está generado por una constante, como contiene a $(2)$,
+ debe estar generado por $(2)$, pero no es el caso porque no contendría a $x+2$.
+
+*** TODO Ejercicio 21
+*** Ejercicio 24
+1. => 2. Sea $R$ con un ideal primo, y sea $a \in R$ no unidad. Tengo $a \in M$ para algún 
+   maximal, que debe ser el único ideal primo que hay. Aplicando Krull a  
+   $S = \{1,a,a^2\dots\}$ contra el ideal $(0)$ tendría un ideal no conteniendo 
+   a $S$ pero primo, lo que es imposible, así que $S$ tiene intersección no vacía 
+   con $(0)$.
+2. => 3. Trivial.
+3. => 1. Si $R/{\cal N}$ es un cuerpo, ${\cal N}$ es maximal. Si hubiera otro ideal primo, 
+   lo meteríamosen su maximal ${\cal M}$ y; si hubiera $m \in {\cal M}-{\cal N}$, se 
+   tendría $(m) \cup {\cal M} = R$. Entonces $km+n = 1$, luego $km$ es unidad y ${\cal M} = R$.
+
+*** TODO Ejercicio 25
+*** Ejercicio 26
+ Nótese que si $x$ es nilpotente, también lo es $ux$ para $u$ unidad.
+ Sea $x^n = 0$. Tenemos que:
+
+ \[(1+x)(1-x+x^2-\dots+x^{n-1}) = 1 + (-x)^n = 1\]
+
+ Luego es unidad. Dada suma de unidad y nilpotente, podemos escribirla como:
+
+ \[(u+x) = u(1+u^{-1}x)\]
+
+ Producto de unidades.
+
+*** Ejercicio 27
+**** Punto 1
+ Por un lado, si todos los $a_i$ fueran nilpotentes se tendrían $a_iX^i$ nilpotentes.
+ Y como la suma de unidad por nilpotente es unidad, la suma total es unidad.
+
+ Sea $\sum b_iX^i$ el inverso de un polinomio $f(x) = \sum a_iX^i$. Es obvio que $a_0$ es unidad
+ porque $a_0b_0 = 1$. Veamos por inducción que  $a^{r+1}_nb_{m-r} = 0$.
+
+  - *Caso base:* $a_nb_m = 0$ por ser coeficiente del grado máximo.
+  - *Caso de inducción*: El coeficiente de grado $n+m-1$ sería:
+    $a_nb_{m-1} + a_{n-1}b_n = 0$, luego $a_n(a_nb_{m-1} + a_{n-1}b_m) = a_n^2b_{m-1} = 0$; y aplicaríamos
+    inducción en los siguientes casos de forma similar.
+
+ En particular, para $r=n$ tenemos que $a_n^{n+1}b_0 = 0$, luego $a_n$ es nilpotente.
+ Ahora hacemos inducción sobre el grado. También es nilpotente $a_nX^n$, y 
+ entonces tenemos que el polinomio siguiente también es unidad, pero de menor grado 
+ que el original:
+
+ \[f - a_nX^n = \sum^{n-1} a_iX^i \in {\cal U}(R[X])\]
+
+**** Punto 2
+ Tenemos que las $a_iX^i$ son nilpotentes; y la suma de nilpotentes es trivialmente
+ nilpotente. 
+
+ Hacia el otro lado, hacemos inducción sobre $grd(f)$:
+
+  - Si $grd(f) = 0$, entonces $f = a_0$.
+  - Sea $f = a_0 + \dots + a_nX^n$, tenemos que que si $f$ es nilpotente a la potencia $m$:
+    \[ 0 = f^m = \sum_{j=0}^m {m \choose j}(a_0+\dots+a_n-1X^{n-1})^j(a_nX^n)^{m-j} = a_n^mX^{nm} + \dots\]
+    Luego $a^m_n = 0$. El polinomio total es suma de esto y un polinomio de grado menor,
+    que por inducción es nilpotente.
+
+**** Punto 3. Teorema de MaCoy.
+ Una implicación es trivial por definición.
+
+ Sea $f$ divisor de cero. Tomamos un polinomio $g = \sum b_iX^i$ de grado mínimo con
+
+ $fg = 0$. Entonces $a_nb_m = 0$, y por tanto $a_ng$ anularía también a $f$ pero tendría grado
+ menor que $m$, luego debería ser $a_ng = 0$. Ahora procedemos por inducción, y se 
+ volvería a tener $a_{n-r}g = 0$.
+
+ Si $a_{n-r}g = 0$ para cualquier $r$, entonces:
+
+ \[ 0 = \sum a_{n-r}b_i X^i\]
+
+ Así que $a_{n-r}b_0 = 0$ y se concluye $fb_0 = 0$.
+
+*** Ejercicio 30
+#+begin_statement
+Calcular el radical de cualquier ideal de $\mathbb{Z}$.
+#+end_statement
+Dado $(n\mathbb{Z})$ y escribiendo $n = p_1^{e_1}\dots p_n^{e_n}$, podemos ver que un número que perteneciera
+a su radical debería ser tal que:
+
+\[ p_1^{e_1}\dots p_n^{e_n} | (q_1^{f_1}\dots q_n^{f_n})^k\]
+
+Para algún $k$, lo que equivale a que $e_i \leq kf_i$. Es decir, necesitamos sólo $f_i \neq 0$.
+En conclusión, $\sqrt{n\mathbb{Z}} = (p_1p_2\dots p_n)\mathbb{Z}$, ideal del producto de sus factores primos.
+
+*** Ejercicio 31
+#+begin_statement
+Demostrar los siguientes resultados para radicales de ideales de un anillo $R$:
+
+  1. $\sqrt{\sqrt{\alpha}} = \sqrt{\alpha}$.
+  2. $\sqrt{\alpha\beta} = \sqrt{\alpha \cap \beta} = \sqrt{\alpha} \cap \sqrt{\beta}$.
+  3. $\sqrt{\alpha} = R \Leftrightarrow \alpha = R$.
+  4. $\sqrt{\alpha+\beta} = \sqrt{\sqrt{\alpha}+\sqrt{\beta}}$.
+  5. Si $\pi$ es un ideal primo, entonces $\sqrt{\pi} = \pi$.
+  6. Si $\sqrt{\alpha} + \sqrt{\beta} = R$, entonces $\alpha+\beta = R$.
+
+$\quad$
+#+end_statement
+**** Punto 1
+Sea $y \in \sqrt{\sqrt{\alpha}}$, entonces $y^n \in \sqrt\alpha$, y entonces $(y^n)^m \in \alpha$, luego $y \in \sqrt{\alpha}$.
+**** Punto 2
+Sea $y \in \sqrt{\alpha \cap \beta}$, entonces $y^n \in \alpha \cap \beta$, y entonces $y^ny^n \in \alpha\beta$, luego 
+$y \in \sqrt{\alpha\beta}$.
+**** Punto 3
+Sea $\sqrt{\alpha} = R$, entonces $1 = 1^n \in\alpha$.
+**** Punto 4
+Sea $x \in \sqrt{\sqrt\alpha+\sqrt\beta}$, entonces $x^n = u+v$, donde $u^p \in \alpha$, $v^q \in \beta$. Tengo entonces que
+$(x^n)^{p+q} = (u+v)^{p+q} \in \alpha+\beta$, donde aplicamos Binomio de Newton.
+**** Punto 5
+Si fuera $x^n \in \pi$ para $n>1$, por primalidad, debería tenerse $x^{n-1} \in \pi$. Así que $x\in\pi$.
+**** Punto 6
+Si $1 = a+b$ con $a^n\in \alpha$, $b^m\in\beta$, entonces, por Binomio de Newton tenemos que 
+$1^{n+m} = (a+b)^{n+m} \in \alpha+\beta$.
+
+*** Ejercicio 32
+#+begin_statement
+Sean $\alpha,\beta$ ideales de un anillo $R$ tales que $\sqrt{\alpha},\sqrt{\beta}$ son primos entre sí. Demostrar que
+entonces $\alpha,\beta$ también son primos entre sí.
+#+end_statement
+Trivial por el punto 6 del ejercicio 31.
+
+*** Ejercicio 33
+#+begin_statement
+Sea $R$ un anillo y $\alpha,\beta$ ideales. Demostrar que si $(\alpha)^n\subseteq\beta$ para algún $n\geq 0$, entonces
+$\sqrt\alpha \subseteq \sqrt\beta$.
+#+end_statement
+Tengo trivialmente que $\alpha \subseteq \sqrt\beta$, puedo tomar 
+raíces para tener $\sqrt{\alpha} \subseteq \sqrt{\sqrt{\beta}}$.
+
+*** Ejercicio 34
+#+begin_statement
+Sea $\alpha\subseteq R$ un ideal tal que $\sqrt\alpha$ es finitamente generado. Demostrar que existe
+$n \in \mathbb{N}$ tal que $(\sqrt{\alpha})^n\subseteq\alpha$.
+#+end_statement
+Sea $(\sqrt{\alpha}) = (x_1,\dots,x_m)$ tales que $x_i^{e_i} \in \alpha$. Entonces se tiene por binomio de Newton:
+
+\[(\sqrt\alpha)^{e_1+\dots+e_m} \subset \alpha\]
+
+Ya que cada sumando tiene algún $x_i$ elevado a más que $e_i$.
+
+*** Ejercicio 35
+#+begin_statement
+En el anillo de polinomios $\mathbb{F}_2[X,Y]$, con $\mathbb{F}_2$ cuerpo finito de dos elementos, sean
+$\alpha_1 = (X,Y)$ y $\alpha_2 = (X-1,Y-1)$. Haciendo uso del ejercicio anterior, demuestra que el
+ideal producto $\alpha = \alpha_1\alpha_2$ es un ideal radical.
+#+end_statement
+Primero vemos que $\alpha_1$ y $\alpha_2$ son radicales. $\alpha_1$ lo forman todos los polinomios con
+término independiente $0$, y ningún polinomio con término independiente $1$ puede
+elevarse hasta tener término $0$. $\alpha_2$ es la imagen de $\alpha_1$ por el homomorfismo de 
+anillos que lleva la indeterminada $X$ en $X+1$, así que también lo es.
+
+Sabemos que $\alpha_1$,$\alpha_2$ son primos entre sí. Luego $\alpha_1\alpha_2 = \alpha_1 \cap \alpha_2$. Ahora tenemos
+que:
+
+\[\sqrt{\alpha_1\alpha_2} = \sqrt\alpha_1 \cap \sqrt\alpha_2 = 
+\alpha_1\cap\alpha_2 = \alpha_1\alpha_2\]
+
+*** Ejercicio 36
+Sea $x \in \sqrt{\alpha}$, entonces $x^n \in \alpha \subset \bigcap \pi_i$, pero $x^n \in \pi_i$ me da $x \in \pi_i$, luego $x \in \bigcap \pi_i$.
+
+*** Ejercicio 37
+*** Ejercicio 38
+*** Ejercicio 39
+*** Ejercicio 40
+*** Ejercicio 41
+**** Punto 1
+ Veamos que la aplicación que va del producto de ideales a $R$ es un homomorfismo
+ de grupos abelianos multiplicativo biyectivo.
+
+ \[ f((x_1,\dots,x_n)) = x_1+\dots+x_n\]
+
+ Por la definición de *conjunto independiente*, sabemos que dado $x\in R$ existen únicos
+ $x_1 \in \alpha_1, x_2 \in \alpha_2,\dots, x_t \in \alpha_t$ tales que $x = x_1 + \dots + x_t$. Esto en el caso $2$ es trivial, y
+ se puede ampliar por inducción.
+
+**** Punto 2
+ Por el apartado primero, sabemos que existen $e_1+e_2+\dots+e_t = 1$. Puedo tomar
+ $\alpha_i$ como anillo sobre la suma y el producto, pero tomando $e_i$ como unidad.
+
+ Sea $x_i \in \alpha_i$, tenemos que $x_i = x_i(e_1+e_2+\dots+e_t)$, así que por unicidad de la 
+ descomposición, debe ser $x_i = e_ix_i$.
+
+**** Punto 3
+ Tenemos un conjunto de elementos que suman $1$, son idempotentes y ortogonales.
+
+*** Ejercicio 43
+**** Punto 1
+ Tenemos $X \times \mathbb{Z}$ grupo abeliano con la suma por serlo $X$ y $\mathbb{Z}$. La asociatividad se 
+ tiene por:
+
+ \[(x_1,n_1)(x_2,n_2)(x_3,n_3) 
+ = (x_1x_2x_3 + n_1x_2x_3+x_1n_2x_3+x_1x_2n_3+x_1n_2n_3+n_1x_2n_3+n_1n_2x_3, 
+ n_1n_2n_3)\]
+
+ Y la distributividad:
+
+ \[\begin{aligned}
+ (x,y)((a,b)+(c,d)) &= (x,y)(a+c,b+d) = (x(a+c)+y(a+c)+x(b+d)), y(b+d)) \\
+ &= (xa+ya+xb,yb) + (xc+yc+xd,yd)
+ \end{aligned}\]
+
+**** Punto 2
+ Vemos que es trivialmente cerrado para la suma y el producto. Cualquier
+ elemento de $X\times \mathbb{Z}$ puede expresarse como $(x,0)+(0,n)$ así que tomamos el isomorfismo
+ entre $X\times \mathbb{Z}/ X$ y $\mathbb{Z}$ siguiente:
+
+ \[\phi(x,n) = n\]
+
+ Bien definido porque tiene a $X$ como núcleo.
+
+**** Punto 3
+ El valor de $f'(x,0) = f(x)$ está fijado por la condición, y por ser homomorfismo
+ de anillos debe tener $f'(0,1) = 1$; por tanto, para preservar suma, $f'(x,n) = f(x)+n$.
+
+ Ahora, para comprobar que es homomorfismo vemos que respeta las sumas, la unidad
+ y los productos:
+
+ \[\begin{align*}
+ f'((a,b)(c,d)) &= f(ac+bc+da) + bd = f(a)f(c)+bf(c)+df(a)+bd \\
+		&= (f(a)+b)(f(c)+d) = f'(a,b)f'(c,d)
+ \end{align*}\]
+
+*** Ejercicio 44
+ $S,T$ son R-Módulos, así que entendemos por $S\times T$ la suma directa como módulos.
+ Tomamos como definición de $R \cong S \times T$ el que:
+
+ \[\forall r \in R: \exists! s\in S, t\in T:\quad s + t = r\]
+
+**** Descompone con un idempotente
+ Primero vemos que $\forall r \in R: re + r(1-e) = r$, y es forma única, porque si existieran
+ dos formas de expresar $r$:
+
+ \[\begin{align*}
+ r &= s + t \\
+ r &= s' + t'
+ \end{align*}\]
+
+ Entonces $(s-s') + (t-t') = 0$, y no es posible salvo que
+ sean iguales, porque $s + t = 0$, con $ea + (1-e)b = 0$ conduce a:
+
+ \[\begin{align*}
+ 0 &= eea + e(1-e)b &=& ea \\
+ 0 &= (1-e)ea + (1-e)(1-e)b &=& (1-e)b
+ \end{align*}\]
+
+
+**** Toda descomposición es por idempotente
+ Supongamos $R \cong S \times T$. Tenemos la única descomposición de $1$ como $u+v = 1$.
+ Hacemos otra descomposición de $1$ como:
+
+ \[1 = (u+v)(u+v) = u^2+v^2+2uv\]
+
+ Aquí tenemos que $uv \in S$ y $uv \in T$, así que $uv = 0$ (si no, tendría dos 
+ descomposiciones); por tanto $1 = u^2 + v^2$, y por unicidad $u=u^2$ y $v=v^2$.
+
+ Ahora veamos $S = (u)$, si tengo $s \in S$, entonces $su+sv = s$, y como $sv \in S$ y
+ además $sv \in T$, debe ser nulo y tenerse $s = su$.
+*** Ejercicio 45
+**** Punto 1
+ El producto directo de ideales es trivialmente ideal.
+
+ Sea $\alpha$ un ideal del producto directo, tomamos los siguientes ideales
+ \[\beta_i = \{ e_ix \med| x \in \alpha\}\]. Siendo $\pi_i$ la proyección canónica, tomamos:
+
+ \[ \alpha_i = \pi_i(\beta_i) \]
+
+ Por ser sobreyectivo $\pi$, se tiene que es ideal. Queda probar:
+
+ \[\alpha = \prod \alpha_i\]
+
+**** Punto 2
+ Vemos que los ideales primos son de la forma $R_1 \times \dots \times P_i \times \dots R_n$, para algún
+ $P_i$ primo en $R_i$.
+
+ Sea un ideal primo del producto, será producto de ideales 
+ \[P = \alpha_1\times\alpha_2\dots\times\alpha_n\]. Veremos que son todos el total salvo uno. Supongamos que 
+ tuviéramos dos ideales propios $\alpha_i,\alpha_j$, con $x_i \in \alpha_i$ y $x_j \in \alpha_j$. Tengo:
+
+ \[x = (0,\dots,x_i,0,\dots,1,0,\dots,0) \notin \Pi\]
+ \[y = (0,\dots,1,0,\dots,x_j,0,\dots,0) \notin \Pi\]
+
+ Y sin embargo, $xy \in \pi$.
+
+ Para maximales, la demostración es análoga.
+
+**** Punto 3
+ Por el apartado primero, tiene $2^n$ ideales.
+
+*** Ejercicio propuesto
+ Veamos que si $x \in J(R)$, entonces $1-xy$ es unidad. Tenemos que $yx \in J(R)$. Si 
+ $1-xy$ no fuera unidad, habría un maximal conteniéndolo, luego ese maximal contendría
+ a la vez a $1-xy$ y a $xy$.
+
+ Ahora, sea $1-xy$ unidad para cualquier $y$. Si un maximal no contuviera a $x$, entonces
+ contendría a $1-xy$. Tendría que necesariamente al añadir $x$ a ese maximal obtendría
+ todo el anillo. Luego $m + xy = 1$ y entonces $m = 1-xy$ sería unidad y pertenecería
+ al ideal maximal, lo que es imposible.
+
+** Relación 2
+*** DONE Ejercicio 8
+*** Ejercicio 16
+#+begin_statement
+Sea $\leq$  un orden en $\mathbb{N}^n$ que es total y compatible. Haciendo uso de la teoría
+de ideales monomiales, probad que $\leq$ es un buen orden si, y sólo si, es
+monótono.
+#+end_statement
+
+Si es monótono, entonces es monomial, y los monomiales son buenos [[*Sistemas de generadores][órdenes]].
+
+Si es buen orden, todo $\mathbb{N}^n$ tiene un mínimo. Si fuera $a$, se tendría
+que $a \leq 0$ y por tanto $2a \leq a$, llegando a $a = 2a$, lo que da $a = 0$.
+
+*** Ejercicio 17
+#+begin_statement
+Sean $I,J \subset K[X_1,\dots,X_n]$ ideales monomiales generados por $\{A_1,\dots,A_s\}$ y
+$\{B_1,\dots,B_n\}$, respectivamente:
+
+  1. Demuestra que $I \cap J$ es un ideal monomial.
+  2. Demuestra que $\{M_{i,j} \mid i=1,\dots,s;\;j=1,\dots,t\}$, $M_{i,j}$ es un m.c.m. de
+     $A_i$ y $B_j$, es un sistema de generadores de $I \cap J$.
+  3. Calcula la intersección de los ideales $I = (X,Y^2Z,YZ^2)$ y
+     $J = (X^3YZ, X^2Y, Y^2Z^3)$ en el anillo $K[X,Y,Z]$.
+#+end_statement
+
+**** Punto 1 y punto 2
+Un monomio $X^\mu \in I \cap J$ debe cumplir $A_i \mid X^\mu$, $B_j\mid X^\mu$ y por tanto
+$M_{ij}\mid X^\mu$ para algunos $i,j$. Todo monomio del ideal es generado por 
+los $M_{ij}$.
+
+Pero dado un $F \in I \cap J$, sus monomios deben estar en $I \cap J$ también,
+así que todo polinomio del ideal es generado por los $M_{i,j}$, y es monomial.
+
+**** TODO Punto 3
+Como ambos son ideales monomiales, tenemos que calcular sólo sus
+$M_{ij}$.
+ 
+*** Ejercicio 19
+#+begin_statement
+Demuestra que si $\{J_i \mid i \in I\}$ es una cadena de ideales monomiales, entonces
+la unión $\bigcup_{i} J_i$ es un ideal monomial.
+#+end_statement
+
+Sea un polinomio que está en la unión. Sus monomios están en algún $J_i$,
+así que el ideal es monomial.
+
+*** Ejercicio 20
+#+begin_statement
+Demostrad que la intersección de ideales monomiales es un ideal monomial.
+#+end_statement
+
+Si un polinomio pertenece a la intersección, todos sus monomios pertenecen
+a cada ideal y a la intersección. Por lo tanto, la intersección es monomial.
+
+*** Ejercicio 22
+#+begin_statement
+Demuestra que:
+
+  1. Un ideal monomial es primo ssi está generado por un subconjunto 
+     de $\{X_1,\dots,X_n\}$.
+  2. El número de ideales monomiales primos es finito, y cada uno de ellos
+     es finitamente generado.
+  3. $(X_1,\dots,X_n)$ es el único ideal maximal que es monomial.
+#+end_statement
+
+**** Punto 1
+Si está generado de esa forma, debe ser primo, ya que es imposible que
+el producto de dos polinomios que no contienen a una incógnita contenga
+a la incógnita o sea nulo.
+
+Si tengo un ideal monomial primo:
+
+\[ I = (X^\alpha \mid \alpha \in A \subseteq \mathbb{N}^n)\]
+
+Tengo que si $gr(\alpha) > 1$, entonces podría escribirse como $\alpha = \beta + \gamma$
+y debería tenerse a $X^\beta$ o $X^\gamma$ en el ideal, generando a $X^\alpha$. Por
+descenso infinito tengo todos los generadores de grado $1$.
+
+**** Punto 2
+Como son de la forma dada, debe tenerse.
+
+**** Punto 3
+Tenemos que es un cuerpo su cociente, luego debe ser un ideal
+maximal:
+
+\[ \frac{K[X_1,\dots,X_n]}{(X_1,\dots,X_n)} \cong K\]
+
+Ahora bien, todo ideal maximal es primo, y por tanto de la forma
+anterior, y por tanto está contenido en este, que debe ser el único
+maximal.
+
+*** Ejercicio 26
+#+begin_statement
+Da un ejemplo de dos polinomios $F,G \in K[X_1,\dots,X_n]$ tales que
+$Exp((F,G)) \not\subseteq \{exp(F), exp(G)\} + \mathbb{N}^n$. Observar que la inclusión contraria
+es siempre cierta.
+#+end_statement
+
+Incluso en una variable podemos tener $F = X^2+X$ y $G = X^2-X$, que
+cumplen:
+
+\[Exp((F,G)) = \{1\}+\mathbb{N}^n\]
+$\{exp(F),exp(G)\} + \mathbb{N}^n = \{2\} + \mathbb{N}^n$
+
+La inclusión contraria es cierta porque podemos multiplicar por monomios
+como $X^\gamma$ para cualquier $\gamma$.
+
+*** Ejercicio 32
+Vemos que en el primer caso queda invariante en el algoritmo de Buchberger
+y en el segundo no. Es decir, las semizigias dan un resto distinto de cero
+sólo en el segundo caso.
+
+* Prácticas
+** Práctica 1: Anillos e ideales
+*** Anillos básicos
+#+BEGIN_SRC sage
+  ZZ in Fields
+  ZZ in EuclideanDomains
+#+END_SRC
+
+#+RESULTS:
+: False
+: True
+
+**** Extensiones algebraicas
+ #+BEGIN_SRC sage
+ K = NumberField(x^2+1, 's')
+ OK = K.ring_of_integers()
+ OK
+ SS = NumberField(x^2-5,'s').ring_of_integers()
+ SS.0
+ SS
+ #+END_SRC
+
+ #+RESULTS:
+ : Gaussian Integers in Number Field in s with defining polynomial x^2 + 1
+ : 1/2*s + 1/2
+ : Maximal Order in Number Field in s with defining polynomial x^2 - 5
+
+**** Anillos de enteros módulo n
+ #+BEGIN_SRC sage
+ Z7 = Integers(7)
+ Z7.is_field()
+ Z8 = Integers(8)
+ Z8.cardinality()
+ #+END_SRC
+
+ #+RESULTS:
+ : True
+ : 8
+
+**** Anillos de polinomios
+ #+BEGIN_SRC sage
+ P = QQ['x']
+ P
+ P2 = QQ['x','y','z']
+ P2
+ #+END_SRC
+
+ #+RESULTS:
+ : Univariate Polynomial Ring in x over Rational Field
+ : Multivariate Polynomial Ring in x, y, z over Rational Field
+
+*** Cuerpos finitos
+#+BEGIN_SRC sage
+K = GF(5)
+a = K.0
+a+a+a+a
+K.characteristic()
+#+END_SRC
+
+#+RESULTS:
+: 4
+: 5
+
+**** Cuerpos de fracciones
+ #+BEGIN_SRC sage
+ P.<x> = QQ[]
+ K = P.fraction_field()
+ 1/x in K
+ #+END_SRC
+
+ #+RESULTS:
+ : True
+
+*** Producto de anillos
+#+BEGIN_SRC sage
+CZQ = ZZ.cartesian_product(QQ)
+CZQ
+CZQ.one()
+#+END_SRC
+
+#+RESULTS:
+: The Cartesian product of (Integer Ring, Rational Field)
+: (1, 1)
+
+*** Ideales
+#+BEGIN_SRC sage
+P.<x,y> = QQ[]
+I = Ideal(P,[x+y,x^2+1])
+I
+ZZ8 = ZZ.quotient(ZZ.ideal(8))
+ZZ8 == Integers(8)
+#+END_SRC
+
+#+RESULTS:
+: Ideal (x + y, x^2 + 1) of Multivariate Polynomial Ring in x, y over Rational Field
+: True
+
+**** Inclusión de ideales
+ Definimos la inclusión de ideales y sobrecargamos el método de 
+ orden para expresarla.
+ #+BEGIN_SRC sage
+   I = 2*ZZ
+   J = 4*ZZ
+   def contenido(I,J):
+       return I+J == J
+
+   contenido(I,J)
+   contenido(J,I)
+   sage.rings.ideal.Ideal_pid.__lt__=contenido
+   I < J
+   J > I
+ #+END_SRC
+
+ #+RESULTS:
+ : False
+ : True
+ : False
+ : True
+
+**** Operaciones con ideales
+ #+BEGIN_SRC sage
+   # Suma de ideales
+   4*ZZ + 6*ZZ
+
+   # Producto de ideales
+   (4*ZZ)*(6*ZZ)
+
+   # Intersección de ideales
+   def intersection(I,J):
+       a = I.gen()
+       b = J.gen()
+       q = (a*b).quo_rem(gcd(a,b))
+       return Ideal(q[0])
+   sage.rings.ideal.Ideal_pid.__and__=intersection
+
+   (4*ZZ)&(6*ZZ)
+
+   # Cociente de ideales
+   def cocienteideales(I,J):
+       if not (J<I):
+           raise "El cociente necesita de inclusión"
+       return I.gens()*I.ring().quo(J)
+   sage.rings.ideal.Ideal_pid.__div__=cocienteideales
+
+   (2*ZZ)/(4*ZZ)
+
+   # Operaciones con ideales
+   6*ZZ/((6*ZZ)&(4*ZZ))
+ #+END_SRC
+
+ #+RESULTS:
+ : Principal ideal (2) of Integer Ring
+ : Principal ideal (24) of Integer Ring
+ : Principal ideal (12) of Integer Ring
+ : Principal ideal (2) of Ring of integers modulo 4
+ : Principal ideal (6) of Ring of integers modulo 12
+
+**** Ideales primos y maximales
+ #+BEGIN_SRC sage :file images/idealpoly.png :output both
+ P.<x,y> = QQ[]
+ I = (x^3-y^2)*P
+ I.is_prime()
+ implicit_plot(x^3-y^2, (x,-1,2), (y,-1,1))
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:images/idealpoly.png]]
+
+**** Ideales radicales
+ #+BEGIN_SRC sage
+ R.<x,y> = GF(2)[]
+ I = (x,y)*R
+ J = (x-1,y-1)*R
+ K = I*J
+ K.radical() == K
+ #+END_SRC
+
+ #+RESULTS:
+ : True
+
+*** Homomorfismos de anillos
+#+BEGIN_SRC sage
+# Inclusión 
+H = Hom(ZZ,QQ)
+inc = H([1])
+inc(1)
+
+# Homomorfismo al cociente
+f = ZZ.hom([1],ZZ.quo(4*ZZ))
+f(1) == f(5)
+f(6)
+
+# Composición de homomorfismos
+R.<x,y,z> = QQ[]
+S.<t> = QQ[]
+f = R.hom([t^3,t^5,t^7],S)
+g = S.hom([t^2],S)
+g*f
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+1
+True
+2
+
+Ring morphism:
+  From: Multivariate Polynomial Ring in x, y, z over Rational Field
+  To:   Univariate Polynomial Ring in t over Rational Field
+  Defn: x |--> t^6
+        y |--> t^10
+        z |--> t^14
+#+end_example
+
+** Práctica 2: Anillos de polinomios
+*** Anillos de polinomios
+    Para poder usar las variables del anillo de polinomios en 
+    sage debemos insertarlas
+
+#+BEGIN_SRC sage
+P = PolynomialRing(QQ,['x','y','z','t'])
+P.inject_variables()
+x in P
+#+END_SRC
+#+RESULTS:
+: Defining x, y, z, t
+: True
+
+*** Factorización
+#+BEGIN_SRC sage
+P.<x,y> = QQ[]
+c = x^3-y^2
+c.factor()
+
+f = x*y-1
+g = x^2+y^2-4
+#+END_SRC
+#+RESULTS:
+: (-1) * (-x^3 + y^2)
+
+*** Polinomios en una variable
+#+BEGIN_SRC sage
+R = Zmod(2)['x']
+R.inject_variables()
+filter(is_prime,list(R.monics(of_degree=5)))
+#+END_SRC
+#+RESULTS:
+: Defining x
+: 
+: [x^5 + x^2 + 1,
+:  x^5 + x^3 + 1,
+:  x^5 + x^3 + x^2 + x + 1,
+:  x^5 + x^4 + x^2 + x + 1,
+:  x^5 + x^4 + x^3 + x + 1,
+:  x^5 + x^4 + x^3 + x^2 + 1]
+
+*** Ejemplo: Cuerpo de 256 elementos
+Vamos a tomar un cuerpo de 256 elementos y vamos a multiplicar en él usando 
+logaritmos. Es decir, vamos a representar cada polinomio como un número binario
+y vamos a sumarlos para multiplicar.
+
+#+BEGIN_SRC sage
+p = R.irreducible_element(8)
+Q = R.quo(p*R,'a')
+Q.is_field()
+a = Q.0
+
+# Potencias de a, son todo elementos de Q
+l = [a^i for i in range(2**8-1)]
+l.index(a^2+1)
+#+END_SRC
+#+RESULTS:
+: True
+: 50
+
+*** TODO Ejercicio 1
+    #+begin_statement
+    Demuestra que la clase de $x+1$ genera $\mathbb{Z}_2[x]/(x^8+x^4+x^3+x+1)$.
+    #+end_statement
+
+*** Órdenes monomiales
+    #+BEGIN_SRC sage
+      P = PolynomialRing(QQ,x,3,order='lex')
+      P.inject_variables()
+
+      ds = list(WeightedIntegerVectors(2,[1,1,1]))+list(WeightedIntegerVectors(1,[1,1,1]))
+      ms=[P({tuple(l):1}) for l in ds]
+      sorted(ms)
+
+      P=PolynomialRing(QQ,x,3,order='degrevlex')
+      P.inject_variables()
+
+      ds = list(WeightedIntegerVectors(2,[1,1,1]))+list(WeightedIntegerVectors(1,[1,1,1]))
+      ms=[P({tuple(l):1}) for l in ds]
+      sorted(ms)
+    #+END_SRC
+
+    #+RESULTS:
+    : Defining x0, x1, x2
+    : [x2, x2^2, x1, x1*x2, x1^2, x0, x0*x2, x0*x1, x0^2]
+    : Defining x0, x1, x2
+    : [x2, x1, x0, x2^2, x1*x2, x0*x2, x1^2, x0*x1, x0^2]
+
+**** Ejercicio
+     Ordena mediante el orden lexicográfico y lexicográfico graduado todos los 
+     monomios en tres variables de grado 3.
+
+     #+BEGIN_SRC sage
+       P=PolynomialRing(QQ,x,3)
+       P.inject_variables()
+
+       ds = list(WeightedIntegerVectors(3,[1,1,1]))
+       ms=[P({tuple(l):1}) for l in ds]
+       sorted(ms)
+     #+END_SRC
+
+     #+RESULTS:
+     #+begin_example
+     Defining x0, x1, x2
+
+     [x2^3,
+      x1*x2^2,
+      x0*x2^2,
+      x1^2*x2,
+      x0*x1*x2,
+      x0^2*x2,
+      x1^3,
+      x0*x1^2,
+      x0^2*x1,
+      x0^3]
+     #+end_example
+
+*** Algoritmo de la división
+** Práctica 3: Bases de Gröbner
+*** Bases de Gröbner
+    #+BEGIN_SRC sage
+      P = PolynomialRing(QQ, ['x','y','z'], order='lex')
+      I = (x^4-y^4+z^3-1, x^3+y^2+z^2-1)*P
+      len(I.groebner_basis())
+    #+END_SRC
+
+    #+RESULTS:
+    : 5
+
+*** Pertenencia de polinomios
+    #+BEGIN_SRC sage
+      P.<x,y>=QQ[]
+      I = (x^2-y^3,x)*P
+      I.groebner_basis()
+      y**3 in I
+    #+END_SRC
+
+    #+RESULTS:
+    : [y^3, x]
+    : True
+
+**** Ejercicio
+     #+BEGIN_SRC sage
+       P.<x,y,z>=QQ[]
+       g1=x^2*y*z+y^2*z+1
+       g2=x*y^2*z+y*z^2-2
+       g3=x*y*z^2+z+3
+       I = (g1,g2,g3)*P
+       len(I.groebner_basis())
+       P.quo(I).()
+     #+END_SRC
+
+     #+RESULTS:
+     : 8
+     : Rational Field
+
+*** Cúpside
+    #+BEGIN_SRC sage
+      P = PolynomialRing(QQ,["t","x","y"],order="lex")
+      P.inject_variables()
+      I = (x-t^2,y-t^3)*P
+      I.groebner_basis()
+      I.elimination_ideal([t])
+    #+END_SRC
+
+    #+RESULTS:
+    : Defining t, x, y
+    : [t^2 - x, t*x - y, t*y - x^2, x^3 - y^2]
+    : Ideal (x^3 - y^2) of Multivariate Polynomial Ring in t, x, y over Rational Field
+
+    
+**** Ejercicio
+     #+BEGIN_SRC sage
+       P = PolynomialRing(QQ,["t","x","y","z","u"],order="lex")
+       P.inject_variables()
+       I = (x-t-u, y-t^2-2*t*u, z-t^3-3*t^2*u)*P
+       I.elimination_ideal([t,]u)
+     #+END_SRC
+
+     #+RESULTS:
+     : Defining t, x, y, z, u
+     : Ideal (4*x^3*z - 3*x^2*y^2 - 6*x*y*z + 4*y^3 + z^2) of Multivariate Polynomial Ring in t, x, y, z, u over Rational Field
