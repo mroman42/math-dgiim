@@ -3465,8 +3465,10 @@ G \rar{P} \drar[swap]{D} & UC\dar[dashed]{\exists! UD'} \\
 
 which is equivalent to $P\colon G \to UC$ being initial in $(G \downarrow U)$.
 
-
 *** TODO 2.8. Quotient categories
+** 3. Universals and Limits
+*** 3.1. Universal arrows
+*** TODO 3.2. The Yoneda lemma
 ** Exercises
 *** 1.3. Functors
 **** Exercise 1
@@ -3800,8 +3802,6 @@ If $t$ is a terminal object in $C$, prove that $(C \downarrow t)$ is isomorphic 
 By definition of terminal object, there will be only an arrow 
 $\ast \colon u \to t$ for any $u \in C$. Every morphism will create a commutative 
 diagram because of the unicity of the morphisms.
-
-*** 2.7. Graphs and free categories
 * Rotman - An introduction to homological algebra
 ** 1. Introduction
 *** 1.1. Simplicial Homology
