@@ -1,0 +1,3746 @@
+#+TITLE: Álgebra III
+#+AUTHOR: Mario Román
+#+EMAIL: mromang08@gmail.com
+
+#+OPTIONS: num:nil broken-links:mark
+#+LANGUAGE: es
+#+SETUPFILE: math.setup
+#+SETUPFILE: html.setup
+
+
+* 1. Polinomios simétricos
+:PROPERTIES:
+:EXPORT_FILE_NAME: docs/algebraiii-polinomios.html
+:END:
+
+** Motivación: La cúbica
+*** Polinomios cúbicos
+Toda ecuación cúbica polinómica puede escribirse en la forma
+\(Y^3 + pY + q\), tomando un cambio de variable desde la original
+\(X \mapsto - \frac{1}{3} b\). Esto se llama una cúbica deprimida.
+
+**** Método de Vieta
+El método de Vieta toma \(t = w - \frac{p}{3w}\), y llega a la ecuación:
+
+\[w^3 + q - \frac{p^3}{27w^3} = 0\]
+
+Ahora podemos resolver esa cuadrática y resolver luego la ecuación
+en $w^3$.
+
+** 1.1. Polinómios simétricos
+*** Polinomios simétricos
+Un *polinomio simétrico* es aquel invariante por $f_\sigma$ para cualquier $\sigma \in S_r$, 
+donde $f_\sigma (X_i) = X_{\sigma i}$. Llamamos $Sim(A[X_1\dots X_n])$ al subanillo de polinomios 
+simétricos.
+
+*** Componentes homogéneas
+Llamamos *componente homogénea* a cada sumando homogéneo maximal de un
+polinomio. Un polinomio es simétrico si y sólo si cada una de sus
+componentes lo es.
+
+*** Polinomios simétricos elementales
+Los polinomios simétricos elementales son aquellos de la forma:
+
+\[e_i = \sum_{i_1 < \dots < i_i} X_{i1} X_{i2} \dots X_{ii}\]
+
+*** Teorema fundamental de los polinomios simétricos
+Los polinomios elementales generan cada polinomio $Sim(A[X_1\dots X_n])$ 
+de forma única. En particular,
+
+\[\omega : A[X_1,\dots,X_r] \longrightarrow Sim(A[X_1,\dots,X_r])\]
+
+con $\omega(a) = a$ y $\omega(X_i) = e_i$ es un isomorfismo.
+
+**** Demostración
+Damos una relación de orden lexicográfica entre los monomios de un
+polinomio simétrico homogéneo. Al mayor de ellos, llamado 
+$X_1^{k_1} \dots X_r^{k_r}$ le restamos $e^{b1}_1 e^{b2}_2 \dots e^{br}_r$, donde
+$b_i = k_i - k_{i+1}$. Nos quedará $0$ u otro polinomio simétrico de
+igual grado pero menor en el orden lexicográfico. Este proceso debe
+ser finito.
+
+La unicidad se obtiene con $0 = h(e_1\dots e_r) - k(e_1\dots e_r) =
+l(e_1 \dots e_r)$.
+
+** 1.2. Polinomios alternados
+*** 1.2.1. Polinomio alternado
+Un polinomio $f$ es alternado cuando para toda permutación se tiene
+$\sigma(f) = sign(\sigma) f$.
+
+** 1.3. La resultante
+*** 1.3.2. Resultante
+Dados dos polinomios $f,g$ en un cuerpo $K$ en el que descomponen 
+podemos escribirlos como:
+
+\[ f = a_n(X-\alpha_1)\dots(X-\alpha_n) = a_n \prod^n_{i=1}(X-\alpha_i)\]
+\[ g = b_n(X-\beta_1)\dots(X-\beta_n) = a_n \prod^n_{i=1}(X-\beta_i)\]
+
+La *resultante* busca ser una expresión que se anula cuando tienen
+raíz común, y se define como:
+
+\[ R(f,g) = a_n^m b_m^n \prod^n_{i=1} \prod^m_{j=1} (\alpha_i - \beta_j)\]
+
+*** TODO 1.3.3. Propiedades de la resultante
+La resultante de dos polinomios $f,g$ cumple:
+
+ 1. $R(f,g) = 0$ ssi tienen una raíz común.
+ 2. $R(g,f) = (-1)^{nm}R(f,g)$, siendo $nm$ el producto del número de raíces.
+ 3. $R(f,g) = a^m_n \prod^n_{i=1} g(\alpha_i)$
+ 4. $R(fg,h) = R(f,h)R(g,h)$, $R(f,gh) = R(f,g)R(f,h)$
+ 5. Si $m=0$, entonces $R(f,k) = k^n$
+ 6. $R(X^k,f) = a_0^k$; con $R(f,X^k) = (-1)^{nk}a_0^k$
+
+** 1.4. Discriminante
+*** 1.4.1. Raíces múltiples
+Podemos usar la resultante para caracterizar los polinomios
+con raíces múltiples, que son aquellos que comparten raíz con
+su derivada.
+
+\[ R(f,f') = a_n^{n-1} \prod f'(\alpha_j)\]
+
+*** 1.4.1. El discriminante
+El *discriminante* de un polinomio con raíces $\alpha_1, \dots, \alpha_n$ en una 
+clausura algebraica es:
+
+\[\text{Discr}(p) = a^{2n-2}_n \prod_{i<j}(\alpha_i-\alpha_j)^2\]
+
+*** 1.4.1. Relación con la resultante
+\[R(p,p') = (-1)^{\frac{n(n-1)}{2}}a_n \text{Discr}(p)\]
+
+*** 1.4.2. Propiedades del discriminante
+El determinante cumple:
+
+  1. $f_1,f_2 \in F[X] \implies D(f_1f_2) = D(f_1)D(f_2)R(f_1,f_2)^2$.
+  2. $f_1,\dots,f_r \in F[X] \implies D(f_1\dots f_r) = D(f_1)\dots D(f_r)R^2$ con $R \in F$.
+
+** 1.5. Métodos de cálculo
+*** TODO 1.5.2. Método modular
+*** TODO 1.5.3. Por el algoritmo de Euclides
+*** 1.5.4. Resultante de Euler-Sylvester-Cayley
+Definimos la resultante de Euler-Sylvester-Cayley:
+
+\[
+R(f,g) = \left| \begin{matrix}
+a_n & a_{n-1} & \dots & a_0 & 0 & \dots &\\
+0   & a_n & \dots & a_{1} & a_0 & 0 & \dots \\
+0   &   0 & a_n & \dots & a_1 & a_0 & \dots \\
+&      &     &\vdots & & & \\
+b_m & b_{m-1} & \dots & b_0 & 0 & \dots &\\
+0   & b_m & \dots & b_1 & b_0 & 0 & \dots \\
+0   &   0 & b_m & \dots & b_1 & b_0 & \dots \\
+\end{matrix} \right|
+\]
+
+**** Origen
+La resultante se obtiene como la determinante de la
+matriz del sistema de ecuaciones que dan:
+
+\[ \begin{aligned}
+X^{m-1} f &= 0 \\
+X^{m-2} f &= 0 \\
+& \vdots \\
+1f &= 0 \\
+X^{n-1}g &= 0 \\
+X^{n-2}g &= 0 \\
+& \vdots \\
+1g &= 0 \\
+\end{aligned}\]
+
+Por Teorema de Rouché, este sistema tiene solución ssi 
+el determinante de los coeficientes es cero.
+
+*** 1.5.5. Resultante como determinante
+La *resultante* de dos polinomios $p,q$ es el determinante solución de 
+$pq' - qp' = 0$ dados $p$ y $q$.
+
+\[R(p,q) = \left| \begin{matrix}
+a_0 & a_1 & \dots & a_n & 0 & \dots &\\
+0   & a_0 & \dots & a_{n-1} & a_n & 0 & \dots \\
+0   &   0 & a_0 & \dots & a_{n-1} & a_n & \dots \\
+&     &     &\dots & & & \\
+b_0 & b_1 & \dots & b_m & 0 & \dots &\\
+0   & b_0 & \dots & b_{m-1} & b_m & 0 & \dots \\
+0   &   0 & b_0 & \dots & b_{m-1} & b_m & \dots \\
+\end{matrix} \right|
+\]
+
+Y llamamos *matriz resultante* a la matriz de la que es determinante.
+
+* 2. Series de grupos y grupos solubles
+:PROPERTIES:
+:EXPORT_FILE_NAME: docs/algebraiii-series.html
+:END:
+
+** 2.1. Series de composición
+*** 2.1.1. Factor
+Sea $G$ grupo, llamamos factor a cualquier $H/H'$ donde $G > H \trianglerighteq H'$.
+
+*** 2.1.2. Proyección
+Llamamos proyección de $H/H'$ sobre $K/K'$, ambos factores, a:
+
+\[\frac
+{K'(H\cap K)}
+{K'(H'\cap K)}\]
+
+*** 2.1.3. Serie
+Llamamos serie a toda cadena finita:
+
+\[ G > G_1 > G_2 > \dots > G_r = 1\]
+
+Donde llamamos a $r$ la longitud del grupo.
+
+*** 2.1.4. Refinamiento de una serie
+Dadas dos series,
+
+\[ G > G_1 > G_2 > \dots > G_r = 1\]
+\[ G > G'_1 > G'_2 > \dots > G'_r = 1\]
+
+llamamos a la segunda refinamiento si todo grupo suyo aparece en
+la primera. Es refinamiento propio si además son distintas.
+
+*** 2.1.5. Serie normal
+Una serie es *normal* cuando se verfica $G_i \trianglerighteq G_{i+1}$. Llamamos a $G_{i-1}/G_i$
+los *factores* de la serie.
+
+*** 2.1.5. Serie propia
+Una serie propia tiene sólo inclusiones propias $G_i \gneq G_{i+1}$.
+
+*** 2.1.5. Isomorfismo de series
+Dos series son isomorfas cuando existe una permutación que hace 
+isomorfos sus factores:
+
+\[\exists \sigma \in S_r : \quad 
+G_{i-1}/G_i \cong H_{\sigma(i)-1}/H_{\sigma(i)}\]
+
+*** 2.1.5. Serie de composición
+Una *serie de composición* es una serie normal propia sin 
+refinamientos normales. Llamamos *factores de composición* a sus
+factores.
+
+*** 2.1.6. Grupo simple
+Un grupo simple es aquel que no admite subgrupos normales propios.
+
+*** 2.1.7. Grupos abelianos finitos simples
+Un grupo abeliano, finito y simple es isomorfo a $\mathbb{Z}_p$ para algún $p$ primo.
+
+**** TODO Demostración
+
+*** 2.1.8. Los factores de composición son simples
+Los factores de cualquier serie de composición son simples.
+
+**** TODO Demostración
+
+*** 2.1.9. Existencia de la serie de composición
+Todo grupo finito posee una serie de composición.
+
+*** 2.1.10. Teorema de refinamiento de Schreier
+Dos series normales de un grupo tienen refinamientos isomorfos.
+
+*** 2.1.11. Teorema de Jordan-Holder
+Si un grupo admite serie de composición, toda serie normal propia puede
+refinarse a una serie de composición. Las series de composición son 
+isomorfas.
+
+** 2.2. El programa de Holder
+*** TODO 2.2.1. Teorema de clasificación de grupos simples finitos
+*** 2.2.2. Teorema de Abel
+El grupo $A_n$ es simple para $n \geq 5$.
+
+**** TODO Demostración
+
+*** 2.2.3. Teorema de Feit-Thompson
+Si $G$ es simple de orden impar, entonces $G \cong \mathbb{Z}_p$ con $p$ primo.
+
+**** TODO Demostración
+
+** 2.3. Grupos solubles
+*** 2.3.1. Serie derivada
+Dado $G$, definimos la serie derivada de $G$ como:
+
+\[G = G^0 > G' > G'' > \dots \]
+
+donde $G^{(i+1} = [G^{(i}, G^{(i}]$ es el grupo derivado. Nótese que no tiene por
+qué ser finita.
+
+*** 2.3.2. Caracterización de grupos solubles
+Para $G$ grupo finito, equivalen:
+
+ 1. Los factores de composición son cíclicos de orden primo.
+ 2. $G$ tiene serie normal con factores cíclicos.
+ 3. $G$ tiene serie normal con factores abelianos.
+ 4. Se tiene $G^{(i} = 1$.
+
+**** TODO Demostración
+
+*** 2.3.3. Grupo soluble
+Un grupo es soluble si tiene una serie normal con factores cíclicos.
+
+*** 2.3.4. Subgrupos de solubles
+Son solubles:
+
+ 1. Los subgrupos de un grupo soluble.
+ 2. Los cocientes de un grupo soluble.
+ 3. Si $N$ y $G/N$ son solubles, $G$ es soluble.
+
+**** TODO Demostración
+
+*** 2.3.5. Producto de solubles
+Todo producto finito de grupos solubles es soluble.
+
+**** TODO Demostración
+
+*** 2.3.6. Teorema de Hall
+Sea $G$ soluble de orden $mk$ cumpliendo $mcd(m,k) = 1$. Entonces:
+
+ 1. $G$ posee un grupo de orden $m$.
+ 2. Dos subgrupos cualesquiera de orden $m$ son conjugados.
+ 3. Todo subgrupo de orden $m' \mid m$ está contenido en uno de orden $m$.
+ 4. El número de subgrupos de orden $m$, $r_m$ es producto de factores
+    congruentes a $1$ módulo algún factor primo de $m$. Es además potencia
+    de primo y divide a alguno de los factores de $G$.
+
+**** TODO Demostración
+
+*** 2.3.7. Caracterización de grupo soluble
+Dado $G$ grupo finito, es soluble ssi para cualquier descomposición $|G|=mk$
+con $mcd(m,k) = 1$, existe un subgrupo de orden $m$.
+
+* 3. Extensiones de cuerpos
+** 3.1. Generalidades
+*** 3.1.1. Extensiones de cuerpos
+Una *extensión de cuerpos* es un subcuerpo $K$ de $F$, se nota por $F/K$. 
+
+*** 3.1.2. Grado de la extensión
+Llamamos *grado* a la dimensión de $F$ como espacio vectorial.
+Notamos por $[F : K]$.
+
+*** 3.1.3. Cuerpo intermedio
+Un cuerpo intermedio entre $F$ y $K$ es cualquier subcuerpo de $F$ 
+conteniendo a $K$.
+
+*** 3.1.4. Torre de cuerpos
+Una torre es una sucesión de subcuerpos:
+
+\[F_0 \subset F_1 \subset \dots \subset F_n\]
+
+*** 3.1.5. Extensiones finitas
+Una extensión es finita ssi $[F:K]$ es finito.
+
+*** 3.1.6. Base de una torre de inclusiones
+Sea $K \supset F \supset E$ una torre de inclusiones. Sean $\{u_i\}_{i\in I}$ una base de $E$
+sobre $F$ y $\{v_j\}_{j\in J}$ una base de $F$ sobre $K$. Entonces $\{u_iv_j\}$ es una base
+de $E$ sobre $K$.
+
+**** Demostración
+***** Es sistema de generadores
+Si tenemos ambos sistemas de generadores, podemos escribir cada
+elemento de $E$ como:
+
+\[ e 
+= \sum u_i f_i 
+= \sum u_i \left(\sum v_j k_{ij}\right) 
+= \sum u_iv_ik_{ij}\]
+
+***** Son linealmente independientes
+Aplicando la independencia lineal de cada una de las bases:
+
+\[ \sum u_iv_jk_{ij} 
+= \sum u_i \left( \sum v_jk_{ij}\right) = 0\]
+
+Tenemos que $\sum v_jk_{ij} = 0$, luego $k_{ij} = 0$.
+
+*** 3.1.7. Teorema del grado
+Sean $K \subset F \subset E$, extensiones de cuerpos, se tiene que:
+
+\[ [E:K] = [E:F][F:K] \]
+
+**** Demostración
+Teniendo una base de cada uno de ellos, calculamos la base
+de la [[*3.1.6. Base de una torre de inclusiones][torre de inclusiones]], que nos da la dimensión.
+
+*** 3.1.8. Corolario al Teorema del grado: finitud
+Sean $K \subset F \subset E$, la extensión $E/K$ es finita ssi las extensiones
+$E/F$ y $F/K$ lo son.
+
+**** Demostración
+Si ambas son finitas, podemos aplicar el [[*3.1.7. Teorema del grado][teorema del grado]]. Cuando
+$E/K$ es finita, tenemos que $E/F$ tiene como sistema generador a la
+base y $F/K$ es un subespacio de $E/K$.
+
+*** 3.1.9. Corolario al Teorema del grado: torres de cuerpos
+Sea $F_0 \subset F_1 \subset \dots \subset F_n$ torre de longitud $n$, entonces:
+
+\[ [F_n : F_0] =
+[F_n:F_{n-1}] \dots [F_2:F_1][F_1 : F_0]
+\]
+
+**** Demostración
+Por inducción sobre la longitud de la torre y aplicando el teorema
+del grado a cada paso.
+
+*** 3.1.10. Corolario al Teorema del grado: extensiones primas
+Sea $F/K$ una extensión tal que $[F:K] = p$ es primo. Entonces no
+existe ningún cuerpo intermedio propio.
+
+**** Demostración
+Usando el teorema del grado, tenemos que debería tener grado $p$, en
+cuyo caso sería un subespacio de la misma dimensión que $F$, y por
+tanto $F$. O debería tener grado $1$, en cuyo caso sería $K$.
+
+** 3.2. Elementos algebraicos y extensiones algebraicas
+*** 3.2.1. Homomorfismo unital
+Para todo anillo $A$ existe un único homomorfismo de anillos
+$1_\mathbb{Z} : \mathbb{Z} \longrightarrow A$, llamado *homorfismo unital*.
+
+*** 3.2.2. Característica del anillo
+La característica de $A$ es el entero no negativo que genera
+al ideal $ker(1_\mathbb{Z})$.
+
+*** 3.2.3. Característica en dominios de integridad
+Si $A$ es dominio de integridad, $car(A)$ es primo o $0$.
+
+**** Demostración
+Trivialmente desde el homomorfismo unital. Si no fuera así,
+tendríamos $ab = 0$ enteros.
+
+*** 3.2.4. Caracterización de la característica
+$car(A)=n$ ssi $n$ es el menor entero positivo tal que $na = 0$ para
+todo $a \in A$.
+
+**** Demostración
+Si hubiera otro menor, debería pertenecer al núcleo del homomorfismo
+unital, y no podría ser generado por $n$. Si cumple la condición
+y es el menor, todo el resto de elementos del núcleo deben ser 
+múltiplos, porque si no lo fueran, podríamos crear un menor con 
+Bezout.
+
+*** 3.2.5. Intersección de anillos
+Sea $A$ un anillo y sea $\{B_i\}_{i\in I}$ una familia de subanillos. Entonces
+$\bigcap B_i$ es subanillo. Análogo para cuerpos y subcuerpos.
+
+**** Demostración
+Si dos elementos pertenecen a todos los $B_i$, tenemos que su suma
+y su producto pertenece a cada uno de ellos.
+
+*** 3.2.6. Anillo primo
+Llamamos subanillo primo de $A$ a la intersección de todos los 
+subanillos de $A$.
+
+*** 3.2.7. Clasificación de anillos primos
+El subanillo primo de un $A$ es isomorfo a $\mathbb{Z}$ si $car(A) = 0$ y
+a $\mathbb{Z}/n\mathbb{Z}$ si $car(A) = n \neq 0$.
+
+**** Demostración
+En ambos casos, ellos son subanillos por ser imágenes del 
+homomorfismo unital, como se comprueba por primer teorema de
+isomorfía.
+
+*** 3.2.8. Subcuerpo primo
+Llamamos subcuerpo primo de $K$ a la intersección de todos los
+subcuerpos de $K$.
+
+*** 3.2.9. Clasificación de subcuerpos primos
+El subcuerpo primo de un cuerpo $K$ es isomorfo a $\mathbb{Q}$ cuando
+$car(K)=0$ y a $\mathbb{Z}/p\mathbb{Z}$ cuando $car(K) = p \neq 0$.
+
+**** Demostración
+De nuevo, vuelve a tenerse una inyección de ambos por el 
+homomorfismo unital. Cualquier subanillo contendrá a $1$ y por
+tanto a este subcuerpo.
+
+*** 3.2.10. Subanillo generado
+Sea $F/K$ extensión con $S\subseteq F$; llamamos *subanillo generado*
+$K[S]$ a la intersección de todos los subanillos de $F$ conteniendo
+a $K$ y a $S$.
+
+*** 3.2.10. Subcuerpo generado
+Sea $F/K$ extensión con $S \subseteq F$; llamamos *subcuerpo generado*
+$K(S)$ a la intersección de todos los subcuerpos de $F$ conteniendo
+a $K$ y a $S$.
+
+*** 3.2.11. Propiedades de subanillos y subcuerpos generados
+Para $S,T \subseteq F$ extensión de $K$, tenemos:
+
+ - $K[S \cup T] = K[S][T] = K[T][S]$
+ - $K(S \cup T) = K(S)(T) = K(T)(S)$
+
+**** Demostración
+En cualquiera de los dos casos la definición es la intersección
+de todos los que contienen a $K$, $T$ y $S$.
+
+*** 3.2.12. Subcuerpo compuesto
+Dados $K \subset E,F \subset L$, definimos el subcuerpo compuesto
+$EF = E(F) = F(E)$.
+
+**** Demostración
+Son iguales trivialmente desde la definición.
+
+*** 3.2.13. Conjunto de generadores
+Sea $F/K$ con $S \subseteq F$, es un subconjunto de generadores si
+$F = K(S)$.
+
+*** 3.2.14. Extensión finitamente generada
+Una extensión $F/K$ es finitamente generada cuando tiene un
+conjunto finito de generadores, $F = K(u_1,u_2,\dots,u_n)$.
+
+*** 3.2.15. Extensiones simples y elementos primitivos
+Una extensión $F/K$ se llama simple cuando $F = K(u)$. Al $u$
+se le llama *elemento primitivo* para la extensión.
+
+*** 3.2.16. Elementos algebraicos
+$\alpha \in F$ es *algebraico* sobre $K$ si existe polinomio $f \in K[x]$ tal 
+que $f(\alpha) = 0$. 
+
+Un no algebraico es *trascendente* y una extensión es *algebraica* 
+si lo son todos sus elementos.
+
+*** 3.2.16. Polinomios irreducibles
+Dado $F/K$ con $\alpha \in F$ algebraico. Existe un único polinomio 
+irreducible del que $\alpha$ es raíz salvo asociados, llamado $Irr(\alpha)$.
+   
+**** Existencia y unicidad del polinomio irreducible
+Tomo el núcleo del homomorfismo que evalúa un polinomio en $\alpha$. 
+Por ser un ideal en PID, estará generado por algún polinomio $f$ 
+no nulo y no constante.
+
+Este será irreducible, porque si no lo fuera, con $f = g_1g_2$ se 
+tendría:
+
+\[0 = f(\alpha) = g_1(\alpha)g_2(\alpha)\]
+
+Un polinomio de grado mínimo debería estar dentro del ideal, 
+y por tanto ser asociado de $f$, que lo genera.
+
+*** 3.2.16. Propiedades de los polinomios irreducibles
+Sea $F/K$ extensión con $u \in F$ algebraico. Se cumple:
+
+  1. $K(u) = K[u]$
+  2. $K[u] \cong K[X]/(Irr(u,K))$
+  3. $[K(u):K]$ es igual al grado de $Irr(u,K)$.
+  4. $\{1,u,u^2,\dots,u^{n-1}\}$ es una base de $K[u]$ sobre $K$.
+  5. $f(u)=0$ ssi $Irr(u,K) \mid f$.
+
+Llamamos *grado* del elemento $u$ al grado de $Irr(u,K)$.
+
+**** Demostración
+***** Punto 1
+Sabemos que el anillo generado está dentro del cuerpo generado,
+y además, $u^{-1}$ está en el anillo generado porque, si su polinomio
+irreducible nos da $\sum a_iu^i = 0$, tenemos:
+
+\[ u \left(a_nu^{n-1} + a_{n-1}u^{n-2} + \dots a_1 \right)\frac{1}{a_0} = 1\]
+
+***** Punto 2
+Aplicando el primer teorema de isomorfía al morfismo evaluación,
+tenemos el resultado.
+
+***** Punto 3
+Tenemos que $1,u,u^2,\dots,u^{n-1}$ son linealmente independientes porque
+una relación lineal entre ellos daría un polinomio menor que el
+mínimo. Además son base trivialmente porque $u^{-1}$ puede expresarse
+linealmente como polinomio suyo como mostramos [[*Punto 1][antes]] y porque
+cuaquier expresión polinómica de grado mayor a $n$ puede dividirse 
+por el polinomio irreducible para obtener otra de grado menor.
+
+***** Punto 4
+La misma demostración [[*Punto 3][anterior]].
+
+***** Punto 5
+Un polinomio verificando $f(u)=0$ está dentro del núcleo del
+homomorfismo evaluación.
+
+*** 3.2.17. Algebraicos en una torre de cuerpos
+Sea $K \subset F \subset E$ con $u \in E$ algebraico sobre $K$, entonces $u$ es
+algebraico sobre $F$ y $Irr(u,F)$ divide a $Irr(u,K)$.
+
+**** Demostración
+Notamos que $Irr(u,K)$ es también un polinomio sobre $F$ que anula
+a $u$, así que, por las propiedades de los polinomios irreducibles,
+se debe tener $Irr(u,F) \mid Irr(u,K)$.
+
+*** 3.2.18. Extensiones algebraicas
+Una extensión se llama *algebraica* si todos sus elementos lo son.
+Es *trascendente* en otro caso.
+
+*** 3.2.19. Elementos algebraicamente independientes
+Los elementos $\{u_i \mid i\in I\}$ son algebraicamente independientes si el
+homomorfismo de evaluación sobre el cuerpo de polinomios en varias
+variables $K[X_i \mid i\in I]$ es inyectivo.
+
+*** 3.2.20. Extensiones puramente trascendentes
+Una extensión $F/K$ se llama puramente trascendente si $F = K(S)$
+donde $S$ un conjunto de algebraicamente independientes.
+
+*** 3.2.21. Generación finita de elementos
+Para $F/K$ extensión cualquiera $S \subseteq F$, se tiene:
+
+ 1. Para $u \in K[S]$ existe un subconjunto $\{u_1,\dots,u_n\} \subset S$ tal que
+    $u \in K[u_1,\dots,u_n]$.
+ 2. Para $u \in K(S)$ existe un subconjunto $\{u_1,\dots,u_n\} \subset S$ tal que
+    $u \in K(u_1,\dots,u_n)$.
+
+**** Demostración
+Tener $u \in K[S]$ nos da una expresión polinómica finita como elementos
+de $S$. Los elementos involucrados en esa expresión crean una extensión
+finita en la que está $u$. Análogo en el caso de cuerpos.
+
+*** 3.2.22. Generación del compuesto
+Sean $K \subset E,K(S) \subset L$, entonces $EK(S) = E(S)$.
+
+**** Demostración
+Por definición del cuerpo compuesto, será $EK(S) = K(E)(S) = E(S)$.
+
+*** 3.2.23. Grado de una extensión compuesta
+Sean $K \subset E,F \subset L$. Entonces:
+
+\[ [EF:K] \leq [E:K][F:K]\]
+
+**** Demostración
+En el caso finito, el cuerpo generado por las bases de $E$ y
+de $F$ multiplicadas contiene a todo elemento de $E$ y de $F$, por 
+lo que es sistema de generadores de $EF$.
+
+*** 3.2.24. Extensiones primas relativas
+Sean $K \subset E,F \subset L$ con $n = [E:K]$ y $m = [F:K]$ primos relativos.
+Entonces $[EF:K] = [E:K][F:K]$.
+
+**** Demostración
+Sea $\{f_i\}$ base de $F$ sobre $K$. Tenemos que es sistema de generadores
+de $F$ sobre $E$, y por tanto, de $EF$ sobre $E$. Así $[EF:E] \leq [F:K]$
+y análogamente $[EF:F] \leq [E:K]$.
+
+Por otro lado, por teorema del grado tenemos:
+
+\[[EF:K] = [EF:F][F:K] = [EF:F]m\]
+\[[EF:K] = [EF:E][E:K] = [EF:E]n\] 
+
+Así, por ser primos relativos, tenemos $n \mid [EF:E]$ y $m \mid [EF:F]$; 
+teniéndose finalmente:
+
+\[ [EF:F] = [E:K] \]
+\[ [EF:E] = [F:K] \]
+
+*** 3.2.25. Extensión finitamente generada por algebraicos es finita
+Una extensión $F = K(u_1,\dots,u_n)$ finitamente generada por $u_i$ algebraicos
+es finita.
+
+**** Demostración
+Todo elemento algebraico cumple una relación polinómica. Así,
+todo elemento de grado igual o mayor a esta relación, puede
+expresarse como elementos de grado menor.
+
+Si tenemos $e_i$ como el exponente mayor al que puedo elevar $u_i$ sin
+que pueda ser reescrito, tenemos un sistema de generadores de $F$ 
+finito como:
+
+\[\{ 1, u_1^1, u_1^2, \dots u_1^{e_i}, u_2^1, \dots, u_2^{e_j}, u_3^1,\dots\}\]
+
+*** 3.2.26. Extensión generada por algebraicos es algebraica
+Una extensión $K(S)/K$ es algebraica sobre $K$ ssi todo $u \in S$ es 
+algebraico sobre $K$.
+
+**** Demostración
+Si es algebraica, en particular lo es cada elemento de $S$.
+Si lo son los elementos de $S$, podemos ver que cualquier 
+
+*** 3.2.27. Finita es algebraica y finitamente generada
+Una extensión es finita ssi es algebraica y finitamente generada
+
+**** Demostración
+Tenemos que extensión finitamente generada por algebraicos es
+[[*3.2.25. Extensión finitamente generada por algebraicos es finita][finita]]. Por otro lado, si es finita, tendrá una base finita que
+la genera; y para cada elemento de la base, $\{1,u,\dots,u^n\}$ no
+será linealmente independiente. Luego será finita.
+
+*** 3.2.28. Caracterización de elementos algebraicos
+Un elemento $u \in F$ es algebraico sobre $K$ ssi existe una extensión
+finita intermedia $E/K$ donde $u \in E$.
+
+**** Demostración
+Si es algebraico de grado $n$, tenemos $K(u)$ algebraica y finitamente
+generada, [[*3.2.27. Finita es algebraica y finitamente generada][luego finita]]. Si existe una extensión finita intermedia, 
+será algebraica.
+
+*** 3.2.29. Torre algebraica
+Sean $K \subset F \subset E$, $E/K$ es algebraica ssi $E/F$ y $F/K$ son ambas 
+algebraicas.
+
+**** Demostración
+***** Si es algebraica, lo son sus partes
+Un elemento algebraico sobre $K$ lo será sobre $F$. Y todo elemento
+de $F$ está en $E$, luego será algebraico sobre $K$.
+
+***** Si las partes son algebraicas, es algebraica
+Todo elemento $e \in E$ es algebraico sobre $F$, luego cumple algún
+polinomio con elementos en $F$. Los elementos que generan el polinomio
+en $F$ son todos algebraicos sobre $K$, luego $K$ extendido con esos
+elementos es finito. Si lo extiendo con $e$, que es algebraico sobre
+ellos, llego a otra extensión finita. Toda finita es [[*3.2.27. Finita es algebraica y finitamente generada][algebraica]].
+
+*** 3.2.30. Clausura algebraica relativa
+Dada $F/K$ extensión, el conjunto de elementos algebraicos forman un
+subcuerpo de $F$. Llamado *clausura algebraica relativa* de $K$ en $F$.
+
+**** Demostración
+Sean $a,b \in F$ algebraicos; entonces $K(a,b)$ es finito, luego $a+b$ y
+$ab$ son también algebraicos.
+
+**** Demostración constructiva para la suma
+Se puede [[http://mathoverflow.net/a/81640/45365][encontrar constructivamente]] un polinomio que tenga como
+raíz a la suma de dos algebraicos.
+
+*** DONE Existencia de clausura
+*Teorema de Steinitz*. Todo cuerpo tiene una extensión algebraicamente 
+cerrada.
+
+*** DONE Homomorfismos sobre un cuerpo
+     Un *homomorfismo sobre cuerpos* $K,K'$ es un homomorfismo $\phi$ sobre extensiones
+     $F,F'$ con un isomorfismo $\omega : K \longrightarrow K'$ debe cumplir: $\phi|_K = \omega$. 
+     Cuando no se especifica, se asume la identidad.
+
+     \[ \phi : F/K \longrightarrow F'/K' \]
+
+*** DONE Automorfismos entre extensiones
+     Un automofismo de extensiones es un homomorfismo sobre el cuerpo $K$, 
+     $\phi : F/K \longrightarrow F/K$ que es isomorfismo.
+
+* 4. Cuerpos de descomposición
+** 4.1. Cuerpo de descomposición
+*** 4.1.1. Teorema de Kronecker
+Sea $f$ de grado no nulo sobre $K$, entonces existe una extensión $F/K$ 
+tal que existe $u \in F$ con $f(u) = 0$.
+
+**** Demostración
+Puedo descomponer en irreducibles $f = f_1f_2\dots f_m$; y tener una 
+extensión cumpliendo lo pedido:
+
+\[ F = \frac{K[X]}{(f_1)}\]
+
+Para el elemento $u = x + (f_1)$.
+
+*** 4.1.2. Extensión de un homomorfismo
+Dadas extensiones $F_1/K_1, F_2/K_2$, decimos que $\tau : F_1 \longrightarrow F_2$ es una extensión
+de $\sigma : K_1 \longrightarrow K_2$, ambos homomorfismos de cuerpos, cuando $\tau|_{K_1} = \sigma$.
+
+*** 4.1.3. Isomorfismo extendido a polinomios
+Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos. Existe una única extensión a
+un isomorfismo $\sigma : K_1[X] \longrightarrow K_2[X]$ cumpliendo que $\sigma(X) = X$.
+
+**** Demostración
+Por la propiedad universal por el anillo de polinomios. Las imágenes
+de todos los elementos están fijas excepto la de $X$ y sus múltiplos.
+
+*** 4.1.4. Isomorfismos respetan irreducibilidad
+Sea $f_1 \in K_1[X]$ irreducible sobre $K_1$, entonces $\sigma(f)$ es irreducible 
+sobre $K_2$; donde $\sigma$ es la [[*4.1.3. Isomorfismo extendido a polinomios][extensión]] a polinomios de un isomorfismo.
+
+**** Demostración
+Si tuviéramos $f_1 = gh$ dos polinomios no triviales, su grado se 
+conservaría al aplicar el isomorfismo y tendríamos
+$\sigma(f)=\sigma(g)\sigma(h)$.
+
+*** 4.1.5. Isomorfismo de raíces de polinomios
+Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos y sean $F_1/K_1, F_2/K_2$ 
+extensiones algebraicas. Dado un homomorfismo $\tau : F_1 \longrightarrow F_2$ sobre $\sigma$;
+si $u$ es raíz de $p$ entonces $\tau(u)$ es raíz de $\sigma(p)$.
+
+**** Demostración
+Por simple cálculo tomando $p(x) = a_nx^n + \dots + a_1x + a_0$:
+
+\[ \begin{aligned}
+\sigma(p)(\tau(u)) &= \sigma(a_n)\tau(u)^n + \dots + \sigma(a_1)\tau(u) + \sigma(a_0) \\ 
+                   &= \tau(a_n)\tau(u)^n + \dots + \tau(a_1)\tau(u) + \tau(a_0) \\
+                   &= \tau(a_nu^n + \dots + a_1u + a_0) \\
+                   &= \tau(0) = 0
+\end{aligned} \]
+
+*** 4.1.6. Los endomorfismos de extensiones algebraicas son automorfismos
+Sea $F/K$ una extensión algebraica y $\tau : F/K \longrightarrow F/K$ un endomorfismo
+sobre $K$. Entonces $\tau$ es un automorfismo.
+
+**** Demostración
+Tenemos que es una extensión de la identidad y que preserva [[*4.1.5. Isomorfismo de raíces de polinomios][raíces]].
+Por eso, dado un elemento $u \in F$, tomamos su $f = Irr(u,K)$. Y tenemos
+que $\{\tau^n(u)\}_{n\in \mathbb{N}}$ es una sucesión de raíces del polinomio que, por 
+inyectividad, deberá repetir los elementos en algún momento.
+
+Tendremos $\tau^m(u)=u$ y será sobreyectiva. Nótese que estamos usando
+la inyectividad de todo homomorfismo de cuerpos.
+
+*** 4.1.7. Isomorfismo intercambiando conjugadas
+Sea $\sigma : K_1 \longrightarrow K_2$ isomorfismo de cuerpos. Sea $p$ irreducible
+y $u_1,u_2$ raíces de $p$ y $\sigma(p)$ en extensiones $F_1,F_2$. Entonces existe un 
+único isomorfismo $\tau : K_1(u_1) \longrightarrow K_2(u_2)$ sobre $\sigma$ tal que $\tau(u_1) = u_2$.
+
+**** Demostración
+El isomorfismo buscado sale como composición:
+
+\[K_1(u_1) \cong 
+  \frac{K_1[X]}{(f_1)} \cong 
+  \frac{K_2[X]}{(f_2)} \cong
+  K_2(u_2)\]
+
+*** 4.1.8. Número de extensiones
+El número de extensiones $\tau : K_1[u_1] \longrightarrow F_2$ sobre $\sigma$ es el número de
+raíces distintas de $\sigma(p)$ en $F_2$.
+
+**** Demostración
+Por la [[*4.1.7. Isomorfismo intercambiando conjugadas][proposición anterior]], una para cada raíz de $\sigma(p)$. Nótese
+que no puede haber más porque la imagen de $u_1$ determina completamente
+el morfismo y porque la imagen de raíz [[*4.1.5. Isomorfismo de raíces de polinomios][debe ser]] una raíz.
+
+*** 4.1.9. Cuerpo de descomposición
+Un $E/K$ es un cuerpo de descomposición de $f$ ssi existen $u_1,\dots,u_n \in E$ 
+tales que $f = (X-u_1)\dots(X-u_n)$ y $E = K(u_1,\dots,u_n)$.
+
+**** Caracterización
+Nótese que es el mínimo en el que factoriza linealmente. Cualquier
+otro en el que factorice linealmente necesita contar con sus raíces.
+
+*** 4.1.10. Cuerpo de descomposición en una torre
+Sean $K \subset F \subset E$. Si $E$ es cuerpo de descomposición de $f$ sobre $K$, 
+también lo es de $f$ sobre $F$.
+
+**** Demostración
+Se cumple trivialmente:
+
+\[ E = K(u_1,\dots,u_n) \subset F(u_1,\dots,u_n) \subset E\]
+
+*** 4.1.11. Existencia del cuerpo de descomposición
+Cualquier $f \in K[X]$ de grado $n$ tiene un cuerpo de descomposición, 
+que además verifica $[F:K] \leq n!$
+
+**** Demostración
+***** Inducción: caso base
+Cuando $n=1$, tenemos una raíz en el cuerpo.
+
+***** Inducción: caso inductivo
+En otro caso, por [[*4.1.1. Teorema de Kronecker][Kronecker]], tenemos que existe una extensión
+en la que hay una raíz del polinomio. Tomamos esa raíz para crear
+$K(u)$. Por hipótesis de inducción, hay un cuerpo de descomposición
+de $f/(X-u)$ sobre $K(u)$, llamado $F$. Por último, podemos construir 
+un cuerpo de descomposición con sus raíces.
+
+Tenemos además que la raíz tiene menos grado que el polinomio:
+
+\[ [F:K] = [F:K(u)][K(u):K] \leq (n-1)!n = n! \]
+
+*** 4.1.12. Isomorfismo entre cuerpos de descomposición
+Sean $F_1/K_1, F_2/K_2$ cuerpos de descomposición de $f \in K_1[X]$ y 
+$\sigma(f) \in K_2[X]$; para $\sigma : K_1 \longrightarrow K_2$ isomorfismo. Entonces son
+isomorfos.
+
+**** Demostración
+***** Caso base
+Si ambos son de grado $1$ tenemos extensiones triviales y 
+hemos terminado.
+
+***** Caso inductivo
+Sea $u \in F_1$ raíz de $f$. Como $Irr(u,K) \mid f$, tenemos que 
+$\sigma(Irr(u,K)) \mid \sigma(f)$. Si tomamos una raíz $v$ de $\sigma(Irr(u,K))$ y 
+aplicamos el [[*4.1.7. Isomorfismo intercambiando conjugadas][isomorfismo intercambiando conjugadas]] anterior,
+tenemos una extensión $\tau : K_1(u) \longrightarrow K_2(v)$ que lleva una en 
+otra. Ahora tomamos $f=g(X-u)$ y por inducción tenemos
+un isomorfismo extendiendo hasta el cuerpo de descomposición.
+
+*** 4.1.13. Unicidad del cuerpo de descomposición
+Dos cuerpos de descomposición de $f \in K[X]$ sobre $K$ son isomorfos.
+
+**** Demostración
+Trivial aplicando lo [[*4.1.12. Isomorfismo entre cuerpos de descomposición][anterior]] al isomorfismo igualdad.
+
+*** 4.1.23. Cuerpo de descomposición de una familia
+Sea ${\cal P} \subseteq K[X]$ una familia de polinomios no constantes. Una
+extensión $E/K$ es cuerpo de descomposición suyo si todo polinomio
+factoriza linealmente y es además se tiene $E = K(S)$ con:
+
+\[ S = \{ u \in E \mid \exists f \in {\cal P}: f(u)=0\} \]
+
+*** 4.1.24. Existencia del cuerpo de descomposición de una familia
+Para toda familia de polinomios existe un cuerpo de descomposición.
+
+**** Demostración
+***** Caso finito
+En el caso finito, multiplicamos toda la familia para aplicar
+la [[*4.1.11. Existencia del cuerpo de descomposición][existencia del cuerpo de descomposición]] al producto.
+
+***** Caso infinito
+Cuando tenemos una familia $\{ f_\lambda \mid \lambda \in \Lambda\}$. Si tomamos $I \subset \Lambda$ finito, 
+podemos asignarle un cuerpo de descomposición $F_I$ tal que $I\subset J$ 
+implique $F_I \subset F_J$.
+
+Tomamos:
+
+\[F = \bigcup_{J\text{ finito}} F_J \]
+
+Las operaciones entre dos elementos de $F$ se definen en el menor
+cuerpo que contenga a los dos.
+
+Esto es un cuerpo de descomposición porque todo polinomio ya
+descompone linealmente en cualquier $F_J$ que lo contenga; y cada
+$F_J$ era ya cuerpo de descomposición de los polinomios que contenía,
+así que el cuerpo de descomposición debe al menos contener a todos
+los $F_J$.
+
+*** 4.1.25. Unicidad (esencial) del cuerpo de descomposición de una familia
+El cuerpo de descomposición de una familia de polinomios es único
+salvo isomorfismos.
+
+**** Demostración
+***** Caso finito
+Aplicamos que los cuerpos de descomposición de un polinomio
+[[*4.1.13. Unicidad del cuerpo de descomposición][son isomorfos]] al polinomio producto.
+
+***** Caso infinito
+Sean $F_1,F_2$ dos cuerpos de descomposición sobre $K$ de una familia
+de polinomios.
+
+Ordenamos el siguiente conjunto por inclusión y por extensión del
+isomorfismo. 
+
+\[ (E,\tau) \leq (F,\psi) \Leftrightarrow 
+(E \subset F) \wedge (\psi|_E = \tau)\]
+
+Es una ordenación inductiva porque la unión arbitraria da una 
+cota maximal de cualquier cadena:
+
+\[ {\cal E} = 
+\left\{ (E,\tau) 
+\mid F_1 \supset E \supset K;\;
+\tau : E/K \longrightarrow F_2/K
+\right\}\]
+
+Que sabemos no vacío por el caso finito. Sea $(F,\sigma)$ maximal. Y 
+supongamos que $F \subsetneq F_1$, entonces existe alguna raíz de alguno
+de los polinomios que no está en $F$. Creando un [[*4.1.7. Isomorfismo intercambiando conjugadas][isomorfismo]]
+sobre $F$ que la llevara a su conjugada, contravendríamos maximalidad.
+
+Ahora, todo $f$ de la familia descompondría en $F$ y por $\sigma$, se las
+llevarían a $F_2$.
+
+** 4.2. Clausura algebraica
+*** 4.2.1. Algebraicamente cerrado
+Un cuerpo tal que toda extensión algebraica suya sea trivial es un
+cuerpo algebraicamente cerrado.
+
+*** 4.2.2. Caracterización de los algebraicamente cerrados
+Equivalen las siguientes propiedades:
+
+ 1. Todo polinomio no constante tiene raíz en $K$.
+ 2. Todo polinomio descompone linealmente en $K$.
+ 3. Un polinomio es irreducible en $K$ ssi es de grado $1$.
+ 4. Toda extensión algebraica de $K$ es trivial.
+
+**** Demostración
+***** Implicación 1 a 2
+Como $f$ tiene raíz en $K$, podemos dividirlo por $(x-u)$, para
+obtener un nuevo polinomio de grado menor.
+
+***** Implicación 2 a 3
+Trivialmente.
+
+***** Implicación 3 a 4
+Sea un elemento en la extensión algebraica, su irreducible
+debe ser de grado $1$, luego debe estar en el cuerpo base.
+
+***** Implicación 4 a 1
+Si algún polinomio no constante no tuviera raíz, aplicamos
+[[*4.1.1. Teorema de Kronecker][Teorema de Kronecker]] para crear una extensión algebraica
+no trivial.
+
+*** 4.2.3. Infinitud de algebraicamente cerrados
+Todo cuerpo algebraicamente cerrado es infinito.
+
+**** Demostración
+Si tengo un cuerpo finito $K$ formo el polinomio irreducible
+siguiente, que no tiene raíces en $K$:
+
+\[ 
+f(x) = \prod_{k \in K} (x-k) + 1
+\]
+
+*** 4.2.4. Cuerpo algebraicamente cerrado de elementos algebraicos
+Sea $E/K$ con $E$ algebraicamente cerrado. Los elementos algebraicos
+de $E$ forman un cuerpo algebraicamente cerrado.
+
+**** Demostración
+Sabemos que [[*3.2.30. Clausura algebraica relativa][forman un cuerpo]]. Para ver que es algebraicamente cerrado
+vemos que todo polinomio sobre ellos tiene una raíz en $E$, por ser
+este algebraicamente cerrado. Como una raíz es algebraica, tiene
+una raíz en el subcuerpo de los algebraicos.
+
+*** 4.2.5. Clausura algebraica absoluta
+Una extensión algebraica $E/K$ es la clausura algebraica (absoluta) 
+si es una extensión algebraica y $E$ es algebraicamente cerrado.
+
+*** 4.2.6. Caracterización de la clausura algebraica
+Equivalen:
+
+ 1. $E/K$ clausura algebraica.
+ 2. $E/K$ algebraica y todo polinomio no constante $f \in K[X]$ descompone
+    en factores lineales en $E[X]$.
+ 3. $E$ es cuerpo de descomposición de todos los polinomios no 
+    constantes de $K$.
+ 4. $E/K$ algebraica y todo no constante tiene una raíz en $E$.
+
+**** Demostración
+***** Implicación 1 a 2
+Como $E$ es algebraicamente cerrado, [[*4.2.2. Caracterización de los algebraicamente cerrados][sabemos que]] todos sus polinomios
+descomponen en factores lineales en $E[X]$.
+
+***** Implicación 2 a 3
+Todo polinomio descompone. Además, todo elemento de $E$ es algebraico;
+así que $K(S) = E$.
+
+***** Implicación 3 a 1
+$E$ está generado por elementos algebraicos, luego es algebraico.
+Además, todo polinomio no constante descompone en él, luego
+es algebraicamente cerrado por la [[*4.2.2. Caracterización de los algebraicamente cerrados][caracterización]].
+
+***** TODO Equivalencia con 4
+*** 4.2.7. Transitividad de la clausura algebraica
+Sean $K \subset F \subset E$ torre de cuerpos, con $F/K$ algebraica. 
+Entonces $E$ es clausura algebraica de $F$ ssi lo es de $K$.
+
+**** Demostración
+Ser algebraicamente cerrado es independiente del cuerpo base de
+la extensión. Ser algebraico [[*3.2.29. Torre algebraica][equivale]] a que lo sean las dos partes.
+
+*** 4.2.8. Teorema de Steinitz
+Para todo cuerpo existe una clausura algebraica.
+
+**** Demostración
+Sabemos que [[*4.1.24. Existencia del cuerpo de descomposición de una familia][existe]] el cuerpo de descomposición de todos los polinomios
+no constantes. Por la caracterización de [[*4.2.6. Caracterización de la clausura algebraica][clausura algebraica]] sabemos
+que lo es.
+
+*** 4.2.9. Unicidad esencial de la clausura algebraica
+Dos clausuras algebraicas $E_1,E_2$ del mismo cuerpo $K$ son isomorfas 
+sobre $K$.
+
+**** Demostración
+Tenemos unicidad de esencial de los cuerpos de descomposición,
+y estos son cuerpos de descomposición de todos los polinomios
+no constantes.
+
+*** 4.2.10. Extensión de homomorfismos a algebraicas
+Sea $K \subset F \subset E$ con $E/K$ algebraica. Entonces todo $\sigma : F \longrightarrow \overline{K}$ tiene
+una extensión $\tau : E \longrightarrow \overline{K}$.
+
+**** Demostración
+Aplicamos Zorn sobre el siguiente conjunto ordenado para la inclusión,
+sabiendo que toda cadena de cuerpos está acotada por su unión y que cada
+$\sigma_i$ es extensión del anterior:
+
+\[{\cal S} = \{(E_i,\sigma_i) \mid 
+F \subset E_i \subset E;\; \sigma_i : E_i \longrightarrow \overline{K};\;
+\sigma_i|_F = \sigma\}\]
+
+Esto nos da el maximal $E_1$. Si $E_1 \subsetneq E$, tomo $u \in E - E_1$; y busco un
+[[*4.1.7. Isomorfismo intercambiando conjugadas][isomorfismo]] intercambiando $u$ por una conjugada también raíz de $Irr(u,K)$.
+Esto me da $(E_1,\sigma_1) \leq (E_1(u),\tau)$.
+
+*** 4.2.11. Cardinalidad de la clausura algebraica
+Sea $K$ cuerpo y $\overline{K}$ su clausura.
+
+ 1. Si $K$ es finito, $\overline{K}$ es infinito numerable
+ 2. Si $K$ es infinito, $\#K = \#\overline{K}$.
+
+**** Demostración
+***** Caso finito
+Cuando $K$ es finito, el número de polinomios irreducibles
+sobre él es infinito numerable.
+***** Caso infinito
+En el caso infinito, como máximo se tendrá la acotación que
+da el número de polinomios, que es una unión numerable:
+
+\[ \#\overline{K} \leq \#\left(\bigcup K^n\right) = \#K \]
+
+* 5. Extensiones normales y separables
+** 5.1. Elementos conjugados y extensiones conjugadas
+*** 5.1.1. Elementos conjugados
+Sean $u,v \in \overline{K}$, clausura algebraica. Equivalen:
+
+  1. $Irr(u,K) = Irr(v,K)$
+  2. $\exists \tau : K(u) \longrightarrow K(v)$ *isomorfismo* con $\tau(u) = v$.
+  3. $\exists\sigma : K(u) \longrightarrow \overline{K}$ *homomorfismo* con $\sigma(u) = v$.
+  4. $\exists \sigma : \overline{K} \longrightarrow \overline{K}$ *automorfismo* con $\sigma(u) = v$.
+
+Morfismos manteniendo $K$. Estos elementos se llaman 
+*elementos conjugados*.
+
+**** Demostración
+***** Implicación 1 a 2
+Supongamos que tienen el mismo polinomio irreducible $f(X)$, 
+entonces podemos construir un isomorfismo que lleve $u,v$ a 
+$X + (f(X))$ para tener:
+
+\[K(u) \cong \frac{K[X]}{(f(X))}\cong K(v)\]
+
+***** Implicación 2 a 3 y 4
+Dado el isomorfismo, lo podemos prolongar a un homomorfismo.
+Y dado un homomorfismo, lo podemos [[*4.2.10. Extensión de homomorfismos a algebraicas][prolongar]] a un automorfismo 
+por ser una extensión algebraica.
+
+***** Implicación 4 a 1
+Supongamos que existe el automorfismo de $\overline{K}$. Sea $f(X) = Irr(u,K)$,
+y tenemos $0 = \phi(f(u)) = f(\phi(u)) = f(v)$; luego $Irr(u,K) = Irr(v,K)$.
+
+*** 5.1.3. Extensiones conjugadas
+Sean $F_1/K$, $F_2/K$ extensiones algebraicas, equivalen:
+
+ 1. $\exists \sigma: F_1 \longrightarrow F_2$ *isomorfismo* sobre $K$.
+ 2. $\exists \sigma : F_1 \longrightarrow \overline{K}$, *homomorfismo* sobre $K$ con $\sigma(F_1) = F_2$.
+ 3. $\sigma : \overline{K} \longrightarrow \overline{K}$, *isomorfismo* tal que $\sigma(F_1) = F_2$.
+
+Estas extensiones se llaman *extensiones conjugadas*.
+
+**** Demostración
+***** Implicación 1 a 2
+Extendiendo el isomorfismo se pasa de 1 a 2.
+
+***** Implicación 2 a 3
+Dado el homomorfismo, lo podemos [[*4.2.10. Extensión de homomorfismos a algebraicas][prolongar]] a un homomorfismo
+por ser $\overline{K}$ algebraica. Tenemos entonces un endomorfismo de un
+cuerpo algebraico, que [[*4.1.6. Los endomorfismos de extensiones algebraicas son automorfismos][debe ser]] un automorfismo.
+
+***** Implicación 3 a 1
+La restricción a $F_1$ es isomorfismo.
+
+** 5.2. Extensiones normales
+*** 5.2.1. Extensiones normales
+Sea $F/K$ extensión algebraica, subcuerpo de $\overline{K}$, equivalen:
+
+  - $\sigma : F \longrightarrow \overline{K}$ sobre $K$, me da $\sigma(F) = F$.
+  - Todo irreducible de $K[X]$ con una raíz en $F$ descompone en 
+    lineales en $F[X]$.
+  - $F$ es cuerpo de descomposición de una familia de polinomios
+    sobre $K[X]$.
+
+ A una extensión de este tipo se le llama *extensión normal*.
+
+**** Demostración
+***** Implicación 1 a 2
+Dos raíces del mismo irreducible son conjugadas, luego existe
+un [[*5.1.1. Elementos conjugados][homomorfismo]] que lleva una en otra, como debe llevar $F$ en $F$,
+la otra debe estar en $F$.
+
+***** Implicación 2 a 3
+Para cada elemento de $F$ puedo tomar su irreducible, como tiene
+una raíz en $F$ tiene todas. $F$ es el cuerpo de descomposición de la
+familia de todos los irreducibles de sus elementos.
+
+***** Implicación 3 a 1
+Tenemos que $F = K(\alpha_1,\alpha_2,\dots)$, raíces de los polinomios. La imagen
+de la raíz de un polinomio sobre $K$ debe ser raíz de ese mismo 
+polinomio porque este debe quedar invariante sobre $\sigma$. Así tenemos
+que $\sigma(F) \subset F$, y por ser algebraico, todo [[*4.1.6. Los endomorfismos de extensiones algebraicas son automorfismos][endomorfismo es automorfismo]].
+
+*** 5.2.3. Propiedades de las extensiones normales
+Sea $E$ extensión normal. Cumple:
+
+ 1. Si $A/K$ es algebraica, $EA/A$ es normal.
+ 2. Si $K \subset F \subset E$, entonces $E/F$ es normal.
+ 3. Si $E_1/K, E_2/K$ son normales, $E_1E_2/K$ es normal.
+ 4. Sea $E_\lambda$, familia de extensiones normales; $F = \bigcap E_\lambda$ es normal.
+
+**** Demostración de 1
+Dado $\sigma : EA/A \longrightarrow \overline{K}/A$, tengo que $\sigma(EA) = \sigma(E)\sigma(A) = EA$.
+
+**** Demostración de 2
+Sea $\sigma : E/F \longrightarrow \overline{K}/F$, como deja fijo $K$, debe tenerse $\sigma(E)=E$.
+
+**** Demostración de 3
+Sea $\sigma: E_1E_2/K \longrightarrow \overline{K}/K$, las restricciones dejan fijos ambos cuerpos
+y $\sigma(E_1E_2) = \sigma(E_1)\sigma(E_2) = E_1E_2$.
+
+**** Demostración de 4
+Si un homomorfismo de la intersección lo extiendo y lo restrinjo a
+cada uno, debe dejar todos los cuerpos fijos. Por tanto, un elemento
+en la intersección debe quedarse en la intersección.
+
+**** Contraejemplo: subcuerpo de normal no es normal
+El último es cuerpo de descomposición de $x^3-2$,
+pero el primero no es normal, porque no están todas las
+raíces del polinomio irreducible de $\sqrt[3]{2}$.
+
+$\mathbb{Q} 
+\subset \mathbb{Q}(\sqrt[3]{2}) 
+\subset \mathbb{Q}(\sqrt[3]{2}, i)$
+
+*** 5.2.4. Clausura normal
+Llamamos clausura normal de $F/K$ a:
+
+\[ E = \bigcap \{ H \mid H \supset F;\; H/K\text{ normal}\}\]
+
+*** 5.2.5. Existencia de la clausura normal
+Para toda extensión algebraica existe una clausura normal. 
+
+**** Demostración
+Trivial porque la clausura algebraica es normal.
+
+*** 5.2.6. Unicidad de la clausura normal
+La clausura normal es única salvo isomorfismos.
+
+**** Demostración
+Sean las dos clausuras sobre la clausura algebraica absoluta.
+Como son intersección de normales y ambas lo son, deben ser
+la misma.
+
+*** 5.2.7. Extensión de homomorfismos a extensión normal
+Sea $K \subset F \subset E$ con $E/K$ normal. Todo $\tau : F \longrightarrow E$ extiende a
+un $\tau : E \longrightarrow E$. 
+
+**** Demostración
+Tenemos que extiende a $\tau : F \longrightarrow \overline{K}$ y de ahí, por ser $E$ algebraica,
+se [[*4.2.10. Extensión de homomorfismos a algebraicas][prolonga]] a $\tau : E \longrightarrow \overline{K}$. Por ser normal, $\tau(E) = E$.
+
+*** 5.2.8. Clausura de una extensión finita
+Sea $F = K(u_1,u_2,\dots,u_n)$ y $f_i = Irr(u_i,K)$; entonces la clausura normal
+es el cuerpo de descomposición de $f = f_1f_2\dots f_n$.
+
+**** Demostración
+Es normal por ser cuerpo de descomposición de un polinomio, es
+la mínima porque debe contener las raíces de $f_i = Irr(u_i,K)$
+para ser normal, y si las contiene, debe contener al cuerpo de
+descomposición de $f$.
+
+*** 5.2.9. La clausura normal de extensión finita es finita
+Sea $F/K$ finita, su clausura normal es finita.
+
+**** Demostración
+El cuerpo de descomposición anterior es finito porque puedo
+crearlo insertando las raíces de cada polinomio.
+
+*** 5.2.10. Polinomio normal
+Un polinomio irreducible es normal si en toda extensión
+algebraica $F/K$ con una raíz de $f$, descompone en factores 
+lineales.
+
+*** 5.2.11. Caracterización de polinomios normales
+Sea $f$ un polinomio en $K[X]$, equivalen:
+
+ 1. $f$ es normal sobre $K$.
+ 2. El cuerpo de descomposición de $f$ es $K(u)$, una raíz de $f$.
+ 3. Todas las raíces de $f$ es expresan como polinomios de una de ellas.
+
+**** Demostración
+***** Implicación 1 a 2
+Tenemos que en $K(u)$, $f$ descompone en factores lineales,
+luego es cuerpo de descomposición.
+
+***** Implicación 2 a 3
+Trivial.
+
+***** Implicación 3 a 1
+Una extensión con una raíz $u$ contendría a $K(u)$, y como todas
+las raíces se expresan como polinomios de $u$, contendría a todas
+las raíces y $f$ descompondría en polinomios lineales.
+
+** 5.3. Extensiones separables
+*** 5.3.1. Elemento separable
+Un elemento algebraico $u$ es separable en $K$ si $Irr(u,K)$ no tiene 
+raíces múltiples.
+
+*** 5.3.2. Extensiones separables
+Una extensión algebraica $F/K$ es *separable* si todos sus elementos 
+lo son.
+
+**** Ejemplo de extensión normal no separable
+Existen [[http://math.stackexchange.com/questions/982702/example-of-a-non-separable-normal-extension][ejemplos]] de extensiones normales no separables.
+
+*** 5.3.3. Torres separables
+Si $E \supset F \supset K$ es extensión separable, lo son $E/F$ y $F/K$.
+
+**** Demostración
+Que $F/K$ es separable es trivial. Y $E/F$ es separable porque
+$Irr(u,F) \mid Irr(u,K)$, y si el segundo no tiene raíces múltiples,
+no puede tenerlas el primero.
+
+*** 5.3.4. Grado separable
+El *grado separable* es cardinal del conjunto de homomorfismos
+de $F/K \longrightarrow \overline{K}/K$.
+
+\[ [F : K]_s = \#\{F/K \longrightarrow \overline{K}/K\}\]
+
+*** 5.3.5. Grado separable en torres
+Sea $K \subset F \subset E \subset \overline{K}$ entonces $[E:K]_s = [E:F]_s[F:K]_s$.
+
+**** Demostración
+***** Con dos homomorfismos construyo el mayor
+Dados $\sigma : F/K \longrightarrow \overline{K}/K$ y $\psi : E/F \longrightarrow \overline{K}/F$, puedo extender $\sigma$ al
+algebraico $E$ para tener $\sigma^\ast : \overline{K}/K \longrightarrow \overline{K}/K$. Ahora, la composición
+$\sigma^\ast \circ \psi$, me da el homomorfismo buscado.
+
+***** Y es único
+Supongamos que $\sigma^\ast \circ \psi = \sigma'^\ast \circ \psi'$; como deben ser iguales para 
+cualquier $f \in F$, se tiene $\sigma = \sigma'$. Ahora, si tomamos la misma extensión
+para cada elemento, $\sigma^\ast = \sigma'^\ast$ y entoces por inyectividad $\psi = \psi'$.
+
+Así tenemos ya:
+
+\[ [E:K]_S \geq [E:F]_S[F:K]_S \]
+
+***** Con el mayor construyo los dos menores
+Dado un $\sigma : E/K \longrightarrow \overline{K}/K$, para cada $\sigma|_F$ construyo una extensión
+a la clausura, $\tau : \overline{K}/K \longrightarrow \overline{K}/K$, que es isomorfismo. Como 
+es isomorfismo podemos construirle inversa para tener 
+$\tau^{-1} : \overline{K}/K \longrightarrow \overline{K}/K$. A la vez, podemos extender todos los $\sigma$ a
+la clausura algebraica como $\sigma^\ast$.
+
+Ahora bien, como $\tau|_F = \sigma|_F$, tenemos que $\sigma^\ast \circ \tau^{-1}$ deja fijo a $F$. 
+Así, hemos partido $\sigma$ en $\sigma^\ast \circ \tau^{-1}|_E$ y $\sigma|_F$.
+
+***** Y son únicas
+Supongamos que tenemos $\sigma|_F = \sigma'|_F$, entonces las dos extensiones $\tau$
+las hemos tomado iguales. Si tenemos $\sigma \circ \tau^{-1}|_E = \sigma' \circ \tau^{-1}|_E$, como $\tau^{-1}$
+es sobreyectiva, tenemos $\sigma^\ast|_E = \sigma'^\ast|_E$, y por tanto $\sigma = \sigma'$.
+
+Así tenemos que:
+
+\[ [E:K]_S \leq [E:F]_S[F:K]_S \]
+
+*** 5.3.6. Relación de grado y grado separable
+Sea $F/K$ extensión finita, entonces $[F:K]_s \mid [F:K]$.
+
+**** Demostración
+***** Caso simple
+Sea $K(u)$ la extensión, con polinomio $Irr(u,K)$ de grado $n$. 
+Si la raíz $u$ tiene multiplicidad $m$ en el polinomio, todas las
+raíces del polinomio tienen la misma multiplicidad y hay
+$n/m$ raíces distintas.
+
+Cada homormofismo quedará determinado por la imagen de $u$, y
+tenemos $n/m$ imágenes distintas para $u$.
+
+***** Caso compuesto
+Ahora procedemos por inducción sobre el grado de la extensión. 
+Tomamos un elemento de la base y hacemos:
+
+\[ [F:K(u)]_S[K(u):K]_S  \mid  [F:K(u)][K(u):K] \]
+
+Lo primero es divisible por el caso simple y lo segundo por
+hipótesis de inducción.
+
+*** 5.3.7. Igualdad de grados en torres
+Sea $K \subset F \subset E$, con $E/K$. Entonces $[E:K]_s = [E:K]$ ssi 
+$[E:F]_s = [E:F]$ y $[F:K]_s = [F:K]$.
+
+**** Demostración
+Tenemos que deben tenerse ambos casos de igualdad en:
+
+\[
+[E:K]_S = [E:F]_S[F:K]_S \leq [E:F][F:K] = [E:K]
+\]
+
+*** 5.3.8. Caracterización de extensión separable
+La extensión finita $E/K$ es separable ssi $[E:K]_s = [E:K]$.
+
+**** Demostración
+Usamos la idea de la demostración de la relación con el grado.
+En el caso simple tenemos $[K(u):K]_S = [K(u):K]$ solo cuando la
+multiplicidad de cada raíz es uno. En el caso compuesto exigimos
+eso a cada paso.
+
+*** 5.3.9. Extensión por un conjunto separable
+Para $K(S)/K$ algebraica es separable ssi todo elemento de $S$ es
+separable sobre $K$.
+
+**** Demostración
+La suma o producto de elementos separables [[http://math.stackexchange.com/a/82837/85067][es separable]].
+
+*** 5.3.10. Propiedades de extensiones separables
+Las extensiones separables cumplen:
+
+ 1. Para $K \subset F \subset E$, se tiene $E/K$ separable ssi $E/F$ y $F/K$ 
+    separables.
+ 2. Sea $E/K$ algebraica separable y $H/K$ extensión, entonces $EH/H$ 
+    es separable.
+ 3. Sean $E/K$ y $F/K$ separables, entonces $EF/K$ es separable.
+
+**** Demostración
+***** Punto 1
+Simplemente usar que la igualdad de grados de separabilidad
+se da en [[*5.3.7. Igualdad de grados en torres][torres]] y que equivale a la [[*5.3.8. Caracterización de extensión separable][separabilidad]].
+
+***** Punto 2
+Tenemos $EH/H = H(E)/H$. Que sea separable [[*5.3.9. Extensión por un conjunto separable][equivale]] a que
+cada elemento de $E$ lo sea. Pero $Irr(e,H) \mid Irr(e,K)$, y si uno
+tiene sólo raíces simples, el otro las tendrá también.
+
+***** Punto 3
+Tenemos $K(E,F)/K$ separable por serlo todos los elementos en 
+$E,F$.
+
+*** 5.3.11. La clausura normal de una separable es separable
+Sea $F/K$ separable y $E/K$ su clausura normal. Entonces $E/K$ es
+separable.
+
+**** Demostración
+Si extiendo $F$ con todas las raíces de los irreducibles de sus
+elementos, tengo la clausura normal; porque debe contenerlas
+y es normal, así que es la mínima. Como cada una de ellas es
+separable porque tiene como irreducible el mismo irreducible
+de un elemento de $F$, la [[*5.3.9. Extensión por un conjunto separable][extensión entera]] es separable.
+
+*** 5.3.12. Clausura separable
+El conjunto de todos los elementos de $\overline{K}$ separables sobre $K$ forman
+un subcuerpo $K^{sep}$ que se llama *clausura separable*.
+
+**** Demostración
+La suma o producto de elementos separables es separable, como
+demostramos [[*5.3.9. Extensión por un conjunto separable][anteriormente]].
+
+*** 5.3.13. Teorema del elemento primitivo
+Sea $E/K$ una extensión finita. Es simple ssi el conjunto de
+cuerpos intermedios $\{ F \mid K \subset F \subset E\}$ es finito.
+
+**** Demostración
+***** Primera implicación
+Sea $K(\alpha)$ simple, como es finita es algebraica, y $Irr(a,K)$ tiene 
+finitos divisores en la clausura. 
+
+Para cada divisor del polinomio irreducible creo $K[|p|]$, el subcuerpo
+generado por los coeficientes del polinomio. Todo cuerpo intermedio $E$,
+en el que el irreducible de $\alpha$ sea $p$ contendrá a $K[|p|]$, pero como:
+
+\[ [K(\alpha): E] = [K(\alpha) : K[|p|]] \]
+
+Se tendrá forzosamente $E = K[|p|]$.
+
+***** Segunda implicación
+****** Cuerpo base finito
+Como la extensión es finita, tenemos que hay finitos elementos.
+El grupo multiplicativo de un cuerpo finito es [[http://mathoverflow.net/a/54741/45365][cíclico]], luego es 
+simple.
+
+****** Cuerpo base infinito
+Siendo $E = K(a_1,a_2,\dots,a_n)$, nos limitamos a probar $K(a,b)$ simple.
+Consideramos las $K(a+xb)$ para $x \in F$. Como los elementos de $F$ son 
+infinitos y las extensiones intermedias finitas, se tienen $x \neq y$
+tales que $K(a+xb) = K(a+yb)$, y por tanto:
+
+\[
+b = \frac{ a +bx - (a + by)}{x-y} \in K(a+bx)
+\]
+
+**** Contraejemplo:
+Hay extensiones finitas de cuerpos que no son simples
+
+*** 5.3.13. Finita y separable es simple
+Una extensión finita y separable es simple.
+
+**** Demostración
+Si es finita y separable, podemos tomar su clausura normal.
+La clausura normal de una extensión finita es [[*5.2.8. Clausura de una extensión finita][finita]], así que
+tengo una extensión de Galois finita. Habrá finitas subextensiones
+porque habrá finitos subgrupos de Galois.
+
+**** Contraejemplo: cuerpo finito no simple
+Tenemos [[https://en.wikipedia.org/wiki/Primitive_element_theorem#Counterexamples][contraejemplos]] en característica $p$ con cuerpos de
+dimensión $p^2$.
+
+*** 5.3.14. Endomorfismo de Frobenius
+Sea $K$ de característica de $p$. Llamamos *endomorfismo de Frobenius* 
+a $\phi(u) = u^p$.
+
+*** 5.3.15. Cuerpos perfectos
+Para $K$ cuerpo equivalen:
+
+  1. Todo $f \in K[X]$ irreducible tiene raíces simples.
+  2. Toda $E/K$ algebraica es separable.
+  3. Toda $E/K$ finita es separable.
+  4. $car(K)=0$ ó $car(K)=p$, y el endomorfismo de Frobenius es 
+     sobreyectivo.
+
+Y en ese caso, llamamos a $K$ *cuerpo perfecto*.
+
+**** Demostración
+***** Implicación 1 a 2
+Todo elemento de la extensión cumple algún polinomio,
+y son todos separables, luego es separable.
+
+***** Implicación 2 a 3
+Trivial
+
+***** Implicación 3 a 4
+Supongamos que no fuera sobreyectivo, existe $y \neq x^p$.
+Si tomamos $(x^p-y)$, tenemos que es irreducible. Y si creamos
+entonces $z^p = y$ tendríamos una extensión no finita no
+separable.
+
+# TODO: ¿Por qué es irreducible? Por Eisenstein en algún cuerpo 
+# raro podría tenerse.
+
+***** Implicación 4 a 1 en característica 0
+En característica $0$, un polinomio no puede dividir a su derivada,
+que será de grado menor, así que un irreducible no puede tener raíces
+dobles.
+
+***** Implicación 4 a 1 en característica p
+Para que un irreducible divida a la derivada, que debe ser de grado
+menor, se debe tener que sea $0$. El polinomio original debe ser
+de la forma $f(x^p)$ para que al derivarlo se anule.
+
+Cuando Frobenius es automorfismo, podemos escribir:
+
+\[f(x^p) = \sum a_i x^{ip} = \left(\sum \sqrt[p]{a_i} x^i\right)^p\]
+
+contraviniendo irreducibilidad. Todos los polinomios deben tener
+raíces simples.
+
+*** 5.3.17. Ejemplos de cuerpos perfectos
+Son perfectos:
+
+  1. Todo cuerpo de característica cero.
+  2. Todo cuerpo finito.
+  3. Todo cuerpo algebraicamente cerrado.
+    
+**** Demostración
+***** Punto 1
+Trivial desde la [[*5.3.15. Cuerpos perfectos][caracterización]].
+***** Punto 2
+En todo cuerpo finito, un endomorfismo es sobreyectivo.
+***** Punto 3
+En un algebraicamente cerrado, todo irreducible es lineal y
+tiene raíces simples.
+
+** 5.4. Derivada y raíces múltiples
+*** 5.4.1. Raíces
+Sea $f\in F[X]$ y $u \in F$. Es raíz de multiplicidad $k$ cuando $f = (X-u)^kf_0$,
+con $f_0(u) \neq 0$.
+
+*** 5.4.2. Derivada
+Se define la derivada de $f$ como:
+
+\[ f' = \sum_{i=1}^n ia_iX^{i-1} = na_nX^{n-1} + \dots + a_1\]
+
+*** 5.4.3. Propiedades de la derivada
+La derivada verifica:
+
+ 1. $(f+g)' = f'+g'$
+ 2. $(f \cdot g)' = f' \cdot g'$
+ 3. $(f^m)' = mf^{m-1}\cdot f'$
+
+*** 5.4.4. Condición de raíces simples
+Las raíces de $f$ son simples ssi $mcd(f,f') = 1$.
+
+*** 5.4.5. Condición de raíces simples en irreducibles
+Sea $f$ irreducible con $f' \neq 0$, las raíces de $f$ son simples.
+
+*** 5.4.6. Propiedades de las raíces simples
+Se cumple:
+
+ 1. En característica $0$, todo irreducible tiene raíces simples.
+ 2. En característica $p$ prima, un irreducible tiene raíces múltiples
+    ssi $f(x) = g(x^p)$.
+
+**** TODO Demostración
+*** 5.4.7. Polinomio separable
+Un polinomio $f \in K[X]$ se llama separable $K$ si sus factores 
+irreducibles tienen sólo raíces simples.
+
+* 6. Teoría de Galois Finita
+** 6.1. Grupos de automorfismos
+*** 6.1.1. Espacio vectorial de las aplicaciones de un conjunto
+Sea $S$ un conjunto. Las aplicaciones $Fun(S,F)$ con la suma y producto
+de escalares elevados desde $F$ forman un espacio vectorial de dimensión
+$|S|$.
+
+**** Demostración
+Simplemente comprobar que cumplen las propiedades de espacio 
+vectorial.
+
+*** 6.1.2. Proposición al lema de Dedekind
+Sean $\sigma_1,\dots, \sigma_m : G \longrightarrow F^\times$ homomorfismos desde un grupo $G$. 
+Son distintos ssi son linealmente independientes sobre $F$.
+
+**** Demostración
+***** Caso base
+Procedemos por inducción. Cuando $n=1$, es trivial.
+
+***** Caso inductivo
+Tomemos un subconjunto mínimo de linealmente dependientes, 
+$\sigma_1,\dots,\sigma_s$. Tendríamos $b_i \in F^\times$:
+
+\[\sigma_s = b_1\sigma_1 + \dots + b_{s-1}\sigma_{s-1}\]
+
+Si tomamos ahora $y$ tal que $\sigma_1(y) \neq \sigma_s(y)$, evaluamos en $xy$ y 
+multiplicamos por $\sigma_s(y)$ obtenemos dos ecuaciones que restadas
+dan:
+
+\[0 = b_1(\sigma_1(y)-\sigma_s(y))\sigma_1 + \dots + b_{s-1}(\sigma_{s-1}(y) - \sigma_s(y)) \sigma_{s-1}\]
+
+Relación de dependencia no nula menor que la anterior.
+
+*** 6.1.3. Lema de Dedekind
+Un conjunto de homomorfismos de cuerpos $F_1 \longrightarrow F_2$ distintos
+son linealmente independientes sobre $F_2$.
+
+**** Demostración
+Desde el lema anterior, tenemos que son linealmente independientes 
+una vez restringidos a $F_1^\times \longrightarrow F_2^\times$, el añadirles el $0$ no los vuelve 
+dependientes.
+
+*** 6.1.4. Acotación del número de homomorfismos sobre K
+Existen como máximo $[F:K]$ morfismos distintos sobre $K$ 
+hacia cualquier otro cuerpo:
+
+\[|Hom(F/K,E/K)| \leq [F:K]\]
+
+**** Demostración
+Sea $\{u_1,\dots,u_n\}$ base de $F$, y supongamos $n+1$ homomorfismos
+distintos. El siguiente sistema de ecuaciones tiene solución 
+no trivial porque tiene $n+1$ incógnitas y tiene $n$ ecuaciones.
+      
+\[ X_1\sigma_1(u_j) + \dots + X_{n+1}\sigma_{n+1}(u_j) = 0 
+\qquad j = 1,\dots,n\]
+      
+Pero una solución es una relación de dependencia sobre toda la
+base de $F$. Si son dependientes, por Dedekind son [[*6.1.3. Lema de Dedekind][iguales]].
+
+*** 6.1.5. Grupo de extensión
+Para toda extensión finita $F/K$ llamamos *grupo de la extensión* a:
+
+\[ G(F/K) = \{ \sigma \in  Aut(F) \mid \forall u \in K : \sigma(u) = u\}\]
+
+*** 6.1.6. Acotación de elementos del grupo
+Para toda extensión finita $F/K$ se verifica que $|G(F/K)| \leq [F : K]$.
+
+**** Demostración
+Caso particular de la [[*6.1.4. Acotación del número de homomorfismos sobre K][acotación]] del número de homomorfismos
+sobre el cuerpo.
+
+*** 6.1.7. Cuerpo fijo
+Sea $G < Aut(E)$, llamamos *cuerpo fijo* por $G$ al conjunto al que 
+dejan fijos todos los elementos de $G$:
+
+\[ E^G = \{ u \in E \mid \forall\sigma\in G: \sigma(u) = u\}\]
+
+Es un *subcuerpo* de $E$.
+
+**** Demostración: es un subcuerpo
+Trivialmente desde la definición de automorfismo de cuerpos.
+
+*** 6.1.8. Teorema de Artin
+Para $G < Aut(E)$ finito, $[E : E^G] = |G|$.
+
+**** Demostración
+Ya tenemos $n = |G| \leq [E : E^G]$. Supongamos la desigualdad estricta 
+con $u_1,\dots,u_{n+1} \in E$ independientes sobre $E^G$. Y tenemos el sistema 
+de $n+1$ incógnitas y $n$ ecuaciones, sobre los $\sigma_j$ de $G$:
+
+\[ X_1\sigma_j(u_1) + \dots + X_{n+1}\sigma_j(u_{n+1}) = 0 \qquad
+j = 1,\dots,n\]
+      
+Sea $a_1,\dots,a_{n+1}$ una solución no trivial con número mínimo de 
+elementos no nulos. Suponemos s.p.g. que $a_1 \neq 0$ y despejamos para 
+tener:
+
+\[\sigma_j(u_1) = b_2\sigma_j(u_2) + \dots + b_n\sigma_j(u_{n+1}) 
+\qquad j = 1,\dots,n\]
+      
+En particular, en el caso $\sigma_j = id$, tenemos:
+
+\[u_1 = b_2u_2 + \dots + b_{n+1}u_{n+1}\]
+
+que obliga a que uno de los coeficientes no esté en $E^G$. Supongamos 
+s.p.g. que $b_2 \notin E^G$, y sea $\tau \in G$ tal que $\tau(b_2) \neq b_2$. Si aplicamos ahora
+$\tau$ a cada una de las ecuaciones y restamos tenemos:
+
+\[0 = (b_2-\tau(b_2))\sigma_j(u_2) + \dots + (b_n-\tau(b_n)\sigma_j(u_{n+1}))
+\qquad j = 1,\dots,n\]
+
+Esta solución es no trivial porque $(b_2-\tau(b_2)) \neq 0$, pero tiene más 
+elementos nulos que la anterior.
+
+*** 6.1.9. Extensión de Galois
+Una extensión finita $E/K$ es *de Galois* cuando:
+     
+\[\exists Gal(E/K) < Aut(E): E^{Gal(E/K)} = K\]
+
+Llamamos a $Gal(E/K)$ el *grupo de Galois* de la extensión.
+
+*** 6.1.10. Caracterización de extensión de Galois
+Una extensión finita es de Galois ssi es normal y separable.
+
+**** Demostración
+Sea $Gal(E/K) = G$, entonces cada automorfismo se extiende a un 
+homomorfismo $\sigma' : E/K \longrightarrow \overline{K}/K$, luego $[E:K]_S \geq |G| = [E:K] \geq [E:K]_S$, 
+y por tanto la extensión es separable. Como además el número total 
+de homomorfismos es $[E:K]_S = |G|$, son todos automorfismos y la 
+extesión es normal.
+
+Sea $E/K$ normal y separable. Tenemos $n = [E:K]_S = [E:K]$ 
+homomorfismos $\tau : E \longrightarrow \overline{K}$ sobre $K$, con $\tau(E) = E$. Entonces 
+$G = G(E/K)$ tiene orden $n$. Por Teorema de Artin, 
+$[E:E^G] = n = [E:K]$, luego $[E^G:K] = 1$.
+
+*** 6.1.11. Caracterización para extensiones finitas
+Sea $F/K$ una extensión separable finita y sea $E/K$ su clausura 
+normal. Entonces $E/K$ es una extensión finita de Galois.
+
+**** Demostración
+La clausura normal de una extensión separable es [[*5.3.11. La clausura normal de una separable es separable][separable]].
+
+** 6.2. Correspondencia de Galois, caso finito
+*** Correspondencia
+Definimos una correspondencia entre los subgrupos de una 
+extensión de Galois y los cuerpos intermedios como:
+
+\[ H^\ast = E^H = \{u \in E \mid \forall\sigma\in H: \sigma(u)=u\}\]
+\[F^\ast = Gal(E/F) = \{\sigma\in G \mid \forall u\in F: \sigma(u) = u\}\]
+
+*** 6.2.1. Contenidos de cuerpos
+Sean $F_i$ cuerpos intermedios de $E/K$ y $H_i$ subgrupos de $Gal(E/K)$.
+Se cumple:
+
+ 1. Si $F_1 \subset F_2$, entonces $F_1^\ast \supset F_2^\ast$.
+ 2. Si $H_1 \subset H_2$, entonces $H_1^\ast \supset H_2^\ast$.
+ 3. $F \subset F^\ast^\ast$; $H < H^\ast^\ast$.
+ 4. $F^\ast = F^\ast^\ast^\ast$; $H^\ast = H^\ast^\ast^\ast$.
+
+**** Demostración
+1. Trivial.
+2. Trivial.
+3. Trivial.
+4. Componiendo el apartado 3 con el 2 y el 1.
+
+*** 6.2.2. Correspondencia de Galois
+El par de aplicaciones $\ast$ se llama *correspondencia de Galois*.
+
+*** 6.2.3. Teorema fundamental
+Sea $E/K$ una extensión de Galois finita con $G = Gal(E/K)$:
+
+  1. La correspondencia es biyección, ${\cal F}(E/K) \cong {\cal S}(G)$.
+  2. $A \supset B$ ssi $B^\ast \subset A^\ast$.
+  3. La correspondencia es un antiisomorfismo de retículos, 
+     $(F_1 \cdot F_2)^\ast = F_1^\ast \cap F_2^\ast$ y $(F_1 \cap F_2)^\ast = F_1^\ast \vee F_2^\ast$.
+  4. Las extensiones $F_1/K$ y $F_2/K$ son conjugadas ssi los subgrupos
+     $F_1^\ast$ y $F_2^\ast$ son conjugados en $G$.
+  5. La extensión $F/K$ es normal ssi $F^\ast$ es un subgrupo normal de $G$.
+     En este caso $Gal(F/K) \cong G/F^\ast$.
+  6. Para $H<G$ se verifica $|H| = [E:H^\ast]$ y $[G:H]=[H^\ast:K]$. 
+     Para $F \in {\cal F}(E/K)$ se verifica $[E:F] = |F^\ast|$ y $[F:K] = [G:F^\ast]$.
+ 
+**** Demostración de 6 para grupos
+Por [[*6.1.8. Teorema de Artin][teorema de Artin]] tenemos $|G| = [E:K]$ y $|H| = [E : H^\ast]$.
+Por teorema de Lagrange y teorema del grado tenemos:
+
+\[ |G| = [G:H] |H| \]
+\[ [E:K] = [E:H^\ast][H^\ast : K] \]
+
+Simplificando obtenemos $[G:H] = [H^\ast : K]$.
+
+**** Demostración de 6 para cuerpos intermedios
+Como $E/F$ es de Galois, $|F^\ast| = [E:F]$ y sabemos $|G| = [E:K]$.
+Volvemos a aplicar Lagrange y teorema del grado.
+
+**** Demostración de 1
+Tenemos la torre $G > H^\ast^\ast > H$ y:
+
+\[ [G : H^\ast^\ast] = [H^\ast^\ast^\ast : K] = [H^\ast : K] = [G : H] \]
+
+Tenemos la torre $E \supset F^\ast^\ast \supset F$ y:
+
+\[ [E:F] = |F^\ast| = |F^\ast^\ast^\ast| = [E : F^\ast^\ast] \]
+
+**** Demostración de 2 y 3
+Se cumple por ser biyección y la proposición anterior. Trivial
+desde esto el antiisomorfismo de retículos.
+
+**** Demostración 4
+Sean $F_2 = \sigma(F_1)$, para $\tau \in F_1^\ast$, tenemos $\sigma\tau\sigma^{-1} \in F_2^\ast$.
+Luego $\sigma F_1^\ast \sigma^{-1} \subset F_2^\ast$. Aplicando lo mismo sobre $\sigma^{-1}$ llegamos
+a la otra igualdad. Dando la vuelta al razonamiento, tenemos
+que $\sigma F_1^\ast \sigma^{-1} = F_2^\ast$ nos da $F_2 = \sigma(F_1)$.
+
+**** Demostración 5
+Desde el cuarto apartado, se conserva normalidad.
+
+Si aplicamos primer Teorema de Isomorfía a la restricción
+$\Phi : Gal(E/K) \longrightarrow Gal(F/K)$:
+
+\[ \frac{Gal(E/K)}{F^\ast} 
+= \frac{Gal(E/K)}{\ker(\Phi)} 
+\cong \im(\Phi) 
+= Gal(F/K) \]
+
+El que $\im(\Phi) = Gal(F/K)$ usa la normalidad de $F$.
+
+** 6.4. Propiedades de las extensiones de Galois
+*** 6.4.1. Subgrupos en Galois
+Sean $E \supset F \supset K$ con $E/K$ Galois finita. Entonces $E/F$ es Galois
+finita y $Gal(E/F)$ es subgrupo de $Gal(E/K)$.
+
+**** Demostración
+La finitud se tiene trivialmente. La normalidad se tiene
+sobre cuerpos [[*5.2.3. Propiedades de las extensiones normales][intermedios]] y la separabilidad [[*5.3.10. Propiedades de extensiones separables][también]]. Y sabemos
+que normal y separable es de [[*6.1.10. Caracterización de extensión de Galois][Galois]].
+
+Que uno es subgrupo de otro está claro por las propiedades de la
+[[*6.2.3. Teorema fundamental][correspondencia]].
+
+*** 6.4.2. Extensiones abelianas, cíclicas y solubles
+Una extensión finita se dice *abeliana, cíclica o soluble* si es
+de Galois y su grupo lo es.
+
+*** 6.4.3. Subgrupos abelianos, cíclicos y solubles
+Sea $E\supset F\supset K$ con $E/K$ finita y *abeliana, cíclica o soluble*,
+entonces $E/F$ también es abeliana, cíclica o soluble, respectivamente.
+
+**** Demostración
+Tenemos que el subgrupo de un abeliano, cíclico o soluble
+es también abeliano, cíclico o soluble.
+
+*** 6.4.4. Subextensiones finitas abelianas y cíclicas
+Sean $K \subset F \subset E$ torre de extensiones *finitas*:
+
+ 1. Si $E/K$ es Galois abeliana, $F/K$ es Galois abeliana.
+ 2. Si $E/K$ es Galois cíclica, $F/K$ es Galois cíclica.
+
+**** TODO Demostración
+
+*** 6.4.5. Galois para cuerpos compuestos
+Sea $E/K$ Galois finita y $F/K$ extensión con $E,F \subset L$.
+Entonces $EF/F$ y $E/(E\cap F)$ son extensiones finitas de Galois.
+Además la aplicación restricción $\sigma \mapsto \sigma|_E$ define un isomorfismo:
+
+\[ \bullet|_E : Gal(EF/F) \longrightarrow Gal(E/(E\cap F)) < Gal(E/K) \]
+
+**** TODO Demostración
+
+*** 6.4.6. Relación de Galois con el grado
+Sea $E/K$ extensión finita de Galois y sea $F/K$ con $E,F \subset L$.
+Entonces $[EF:F] \mid [F:K]$.
+
+**** TODO Demostración
+
+*** 6.4.8. Composición de extensiones de Galois
+Sean $E_1/K$, $E_2/K$ extensiones Galois finitas con $E_1,E_2 \subset L$.
+Entonces $E_1E_2/K$ es extensión finita de Galois y existe un
+monomorfismo restricción:
+
+\[
+\lambda : Gal(E_1E_2/K) 
+\longrightarrow 
+Gal(E_1/K) \times Gal(E_2/K)
+\]
+
+Cuando además tenemos $E_1 \cap E_2 = K$, $\lambda$ es un isomorfismo.
+
+**** TODO Demostración
+*** 6.4.9. Extensión del producto
+Sean $E_i/K$ extensiones contenidas en un $L$ con grupos de Galois
+$G_1,G_2,\dots,G_n$. Si cumplendemás $E_i \cap (E_1E_2\dots E_{i-1}) = K$, entonces:
+
+\[Gal(E_1E_2\dots E_n/K) \cong G_1 \times G_2 \times \dots \times G_n\]
+
+**** TODO Demostración
+*** 6.4.10. Cuerpos fijos del producto
+Sea $E/K$ una extensión finita de Galois con grupo $G = G_1 \times \dots \times G_n$.
+Sea $E_i$ el cuerpo fijo de $G_1 \times \dots \times \{1\} \times \dots \times G_n$. Entonces $E_i/K$ es
+de Galois con grupo $Gal(E_i/K) = G_i$, $E_i \cap (E_1\dots E_{i-1})$ y $E=E_1\dots E_n$.
+
+**** TODO Demostración
+
+* 7. Cuerpos finitos
+** 7.1. Estructura de los cuerpos finitos
+*** 7.1.1. Propiedades de un cuerpo finito
+Sea $F$ cuerpo finito con $|F| = q$,
+
+  1. $car(F) = p$ es un primo.
+  2. El cuerpo primo es $\mathbb{Z}/p\mathbb{Z}$.
+  3. $F/\mathbb{Z}_p$ es extensión finita.
+  4. $[ F : \mathbb{Z}_p] = n$, entonces $|F| = p^n$.
+  5. $F^\times$ es cíclico de orden $|F|-1$.
+ 
+**** Demostración
+***** Punto 1
+No puede tener característica nula por ser finito, luego debe
+ser un primo.
+
+***** Punto 2
+Ya que tiene característica prima.
+
+***** Punto 3
+Ya que $F$ es finito.
+
+***** Punto 4
+Si tiene una base de $n$ elementos, debe tener $p^n$ combinaciones
+de elementos básicos.
+
+***** Punto 5
+Todo subgrupo finito del grupo multiplicativo de un cuerpo es 
+cíclico.
+
+*** 7.1.2. Clasificación de cuerpos finitos
+Dos cuerpos finitos del mismo cardinal son isomorfos. De hecho,
+son el cuerpo de descomposición de $X^{|F|} - X$ sobre $\mathbb{F}_p$.
+
+**** Demostración
+Al ser [[*7.1.1. Propiedades de un cuerpo finito][cíclico]] $u^{q-1} = 1$ nos da $u^q-u = 0$ con todo el cuerpo
+como raíces.
+
+*** 7.1.3. Existencia de cuerpos finitos
+Dado $p$ primo, existe cuerpo de $p^n$ elementos.
+
+**** Demostración
+Sea $f(x) = x^{p^n}-x$ polinomio en $\mathbb{Z}_p$. Su derivada, $-1$, no tiene raíces,
+luego tiene sólo raíces simples. Veamos que con sólo añadir esas
+raíces del polinomio, llega a ser cuerpo de descomposición.
+
+Sean $u,v$ raíces:
+
+ - $(u+v)^{p^n} - (u+v) = u^{p^n}-u+v^{p^n}-v = 0$
+ - $(uv)^{p^n}-uv = u^{p^n}v^{p^n} - uv = 0$
+ - $(-u)^{p^n} - (-u) = 0$
+ - $(u^{-1})^{p^n} - u^{-1} = 0$
+
+*** 7.1.4. Teorema de Moore
+Para cada $p^n$ existe exactamente un cuerpo con $p^n$ elementos; 
+que es el cuerpo de descomposición de $x^{p^n}-x$ sobre $\mathbb{Z}_p$. 
+No existen otros cuerpos finitos.
+
+**** Demostración
+Sabemos los cuerpos [[*7.1.1. Propiedades de un cuerpo finito][deben]] tener cardinal $p^n$ y que dos cuerpos
+con el mismo cardinal son [[*7.1.2. Clasificación de cuerpos finitos][isomorfos]]. Además, sabemos que
+[[*7.1.3. Existencia de cuerpos finitos][existe]].
+
+*** 7.1.5. Cuerpos de Galois
+Notamos por $GF(p^n)$ o $\mathbb{F}_{p^n}$ al único cuerpo con esa cardinalidad,
+lo llamamos cuerpo de Galois de orden $p^n$.
+
+*** 7.1.6. Cuerpo extensión
+Para $\mathbb{F}_q$ cuerpo finito, exíste un único cuerpo de extensión de grado $n$,
+que es $\mathbb{F}_{q^n}$.
+
+**** Demostración
+Por el teorema de Moore, $q = p^m$, y sólo hay uno de $p^{nm}$ elementos.
+
+*** 7.1.7. Grupo de automorfismos
+El grupo $Aut(\mathbb{F}_{p^n}) \cong \mathbb{Z}_n$ es cíclico y está generado por el [[*5.3.14. Endomorfismo de Frobenius][Endomorfismo de 
+Frobenius]].
+
+**** Demostración
+El cuerpo fijo bajo el endomorfismo de Frobenius son los $p$ 
+elementos cumpliendo $a^p = a$, es decir, el cuerpo base $\mathbb{F}_p$.
+
+El generado debe ser su grupo de Galois, ya que tiene orden $n$.
+
+*** 7.1.8. Grupo de automorfismos relativo
+Un $\mathbb{F}_{p^n}$ es subcuerpo de $\mathbb{F}_{p^m}$ ssi $n\;|\;m$. En este caso, $\mathbb{F}_{p^m}/\mathbb{F}_{p^n}$ es cíclica
+con $Gal(\mathbb{F}_{p^m}/\mathbb{F}_{p^n}) = \langle \phi^n \rangle$.
+
+**** Demostración
+***** Si es subcuerpo, divide
+Por Lagrange, $[\mathbb{F}_{p^n} : F] | [\mathbb{F}_{p^m} : F]$.
+
+***** Si divide, es subcuerpo
+El $Gal(\mathbb{F}_{p^m}/\mathbb{F}) \cong \mathbb{Z}_m$ tiene un único subgrupo de orden $n$. Y debe
+ser el grupo de Galois de un cuerpo de orden $m/n$, que tiene por
+Moore que ser $\mathbb{F}_{p^n}$.
+
+** 7.2. Factorización de polinomios
+*** 7.2.1. Listado de polinomios irreducibles
+Los factores irreducibles de $X^{p^n} - X$ son exactamente los polinomios
+irreducibles de $\mathbb{F}_p[X]$ con grado divisor de $n$.
+
+**** Demostración
+***** Los factores irreducibles tienen grado n
+Cuando $g(\alpha) = 0$, por ser factor tenemos $\alpha^{p^n} = \alpha$, luego $\alpha \in \mathbb{F}_{p^n}$.
+Así, $\mathbb{F}_{p^n} \supseteq \mathbb{F}_p(\alpha) \supseteq \mathbb{F}_p$, y por teorema del grado, $gr(g) = [\mathbb{F}_p(\alpha) : \mathbb{F}_p]$
+divide a $[\mathbb{F}_{p^n} : \mathbb{F}_p]$.
+
+***** Los irreducibles de grado divisor de n son factores
+Sea $g(\alpha) = 0$, tomamos $m = [\mathbb{F}_p(\alpha) : \mathbb{F}_p] = gr(g)$, y [[*7.1.8. Grupo de automorfismos relativo][sabemos]] que
+debe tenerse $\mathbb{F}_{p^m} \supset \mathbb{F}_p(\alpha)$. Por Moore $f(\alpha) = 0$ y $g \mid f$.
+
+*** 7.2.2. Número de mónicos irreducibles
+Para $n$ primo, el número de mónicos irreducibles de $\mathbb{F}_p[X]$ de grado $n$
+es $(p^n-p)/n \neq 0$.
+
+**** TODO Demostración
+
+*** 7.2.3. Raíces simples
+Para $f \in \mathbb{F}_p[X]$, $f_1 = f / mcd(f,f')$ tiene todas las raíces simples y
+$f(\alpha) = 0 \iff f_1(\alpha) = 0$.
+
+**** Demostración
+Calculando vemos que $f = \prod_i(X-\alpha_i)^{k_i}$ da $f_1 = \prod_{i} (X- \alpha_i)$.
+
+*** 7.2.4. Producto de factores irreducibles de grado n
+El producto de todos los factores irreducibles distintos de un $f$
+y cuyo grado divida a $n$ es $mcd(f, X^{p^n} - X)$.
+
+**** TODO Demostración
+
+** TODO 7.3. Ilustraciones
+* 8. Extensiones ciclotómicas
+** 8.1. Raíces de la unidad
+*** 8.1.1. Subgrupos finitos del grupo multiplicativo
+Todo subgrupo finito del grupo multiplicativo $K^\times$ es cíclico.
+
+**** Demostración
+Si $n = mcm\{ord(\alpha) \mid \alpha \in G\} = \max\{ord(\alpha) \mid \alpha \in G\}$, tenemos que
+debe ser $n = |G|$. En caso contrario se tendría $X^n-1$ con más de
+$n$ raíces.
+
+*** 8.1.2. Raíces n-ésimas
+Si llamamos $\mu_n(K) = \{ \zeta \in K \mid \zeta^n = 1 \}$, $\mu_n(K)$ es un grupo cíclico finito
+con $|\mu_n(K)| \leq n$.
+
+**** Demostración
+Trivial por el orden del polinomio $\zeta^n-1$.
+
+*** 8.1.3. Grupo de raíces n-ésimas
+Llamamos *grupo de raíces n-ésimas* de la unidad al grupo siguiente. 
+Cualquier generador del grupo se llama una *raíz primitiva* de la 
+unidad.
+
+\[ \mu_n(\overline{K}) = \{\zeta\in \overline{K} \mid \zeta^n = 1\} \]
+
+*** 8.1.4. Lema de división
+Tenemos $d\mid n$ ssi $\mu_d \subset \mu_n$.
+
+**** TODO Demostración
+** 8.2. Polinomios ciclotómicos
+*** 8.2.1. Polinomio ciclotómico
+Se llama *polinomio ciclotómico* al polinomio:
+
+\[\Phi_n = \prod_{\zeta \text{ primitiva}} (X -\zeta)\]
+
+*** 8.2.2. Grado del polinomio ciclotómico
+Se cumple que $\operatorname{grad}(\Phi_n) = \phi(n)$.
+
+**** Demostración
+El grupo de las raíces n-ésimas es cíclico y de orden $n$, y tendrá
+exactamente $\phi(n)$ generadores.
+
+*** 8.2.3. Lema al cálculo de polinomios ciclotómicos
+Tenemos:
+
+\[X^n-1 = \prod_{d \mid n} \Phi_d\]
+
+**** TODO Demostración
+*** 8.2.4. Cálculo de los polinomios ciclotómicos
+ Tenemos:
+
+ \[\Phi_n  = \frac{X^n-1}{\prod_{d|n, d\neq n} \Phi_d}\]
+
+**** Demostración
+Aplicando la fórmula [[*8.2.3. Lema al cálculo de polinomios ciclotómicos][anterior]].
+
+*** 8.2.7. El polinomio ciclotómico es mónico
+El polinomio ciclotómico es mónico $\Phi_n$ y tiene coeficientes en el
+anillo primo.
+
+**** TODO Demostración
+*** 8.2.8. Función de Möbius
+Se define la *función de Möbius*, $\mu : \mathbb{N} \longrightarrow \mathbb{Z}$, como:
+
+\[\mu(n) = \threepartdef
+{0}{\exists p: \text{ primo con } p^2|n}
+{(-1)^r}{n = p_1p_2\dots p_n \text{ primos distintos}}
+{1}{n=1}\]
+
+*** 8.2.8. Función de Möbius en la unidad
+La función de Möbius verifica que:
+
+\[ \sum_{d \mid n} \mu(d) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } n=1  \\
+0 & \mbox{if } n \neq 1 
+\end{array}
+\right.
+\]
+
+**** TODO Demostración
+
+*** 8.2.10. Reglas de cálculo de polinomios ciclotómicos
+1. Si $p$ es primo $\Phi_p(X) = X^{p-1} + X^{p-2} + \dots + X + 1$.
+2. $\Phi_{p^e}(x) = \Phi_p(x^{p^{e-1}})$
+3. $\Phi_{p_1^{e_1}p_2^{e_2}\dots p_r^{e_r}}(x) = \Phi_{p_1\dots p_r}(x^{p_1^{e_1-1}\dots p_r^{e_r-1}})$
+4. $\Phi_n = \prod_{d\mid n} (x^{n/d}-1)^{\mu(d)}$
+
+** 8.3. Extensiones ciclotómicas
+*** 8.3.1. Extensión ciclotómica
+Llamamos n-ésima extensión ciclotómica de $K$ a $K(\zeta)/K$, donde
+$\zeta$ es una raíz primitiva de la unidad en la clausura.
+
+*** 8.3.2. Grado en los racionales
+En los racionales, $[\mathbb{Q}(\zeta) : \mathbb{Q}] = \phi(n)$.
+
+**** TODO Demostración
+
+*** 8.3.3. Irreducibilidad racional del polinomio ciclotómico
+$\Phi_n$ es irreducible en $\mathbb{Z}[X]$ (y en $\mathbb{Q}[X]$).
+
+**** TODO Contraejemplo general
+**** TODO Demostración
+*** 8.3.4. Irreducibilidad en cuerpo base primo
+El cuerpo $\mathbb{F}_p$ contiene una raíz n-ésima primitiva de la unidad
+ssi $p \equiv_n 1$.
+
+**** Demostración
+Si contiene una raíz n-ésima primitiva, debe cumplir $\zeta^n = 1$, y a su
+vez tener orden $p-1$, luego $n \mid p-1$. Si $n\mid p-1$, como $\mathbb{Z}_p^\times$ es
+cíclico, tiene un elemento de orden $n$, que será raíz primitiva de la
+unidad.
+
+*** 8.3.5. Primos congruentes a 1
+Para todo $n$ existen infinitos primos congruentes a $1$ módulo $n$.
+
+**** TODO Demostración
+*** 8.3.6. Torre de extensiones ciclotómicas
+Sean $n \mid m$, entonces $\mathbb{Q}(\zeta_n) \subset \mathbb{Q}(\zeta_m)$.
+
+**** TODO Demostración
+*** 8.3.7. Producto de extensiones ciclotómicas
+Sean $n,m$ y raíces primitivas distintas:
+
+\[\mathbb{Q}(\zeta_n)\mathbb{Q}(\zeta_m) = \mathbb{Q}(\zeta_{mcm(n,m)})\]
+
+**** TODO Demostración
+
+*** 8.3.8. Intersección de extensiones ciclotómicas
+Sean $n,m$ primos relativos, $\mathbb{Q}(\zeta_n) \cap \mathbb{Q}(\zeta_m) = \mathbb{Q}$.
+
+**** TODO Demostración
+** 8.4. Grupos de Galois
+*** 8.4.1. Extensión ciclotómica es de Galois
+La extensión ciclotómica $K(\zeta)/K$ es una extensión de Galois.
+
+**** Demostración
+Es normal porque está generada por $X^n-1$, ya que la raíz primitiva
+genera a todas sus raíces. Como trabajamos con la hipótesis de que
+$car(K) \nmid n$, todas las raíces de la unidad son distintas y el polinomio
+es separable.
+
+*** 8.4.2. Grupo de galois de la extensión ciclotómica
+El grupo de Galois de la extensión ciclotómica es un subgrupo
+de un multiplicativo, $Gal(K(\zeta)/K) < \mathbb{Z}_n^\times$.
+
+**** Demostración
+Todo $\sigma \in Gal(K(\zeta)/K)$ está determinado por su efecto sobre $\sigma(\zeta) = \zeta^a$,
+que debe llevar una raíz primitiva en otra. Comprobamos que $\Lambda(\sigma) = a$
+es un homomorfismo inyectivo y aplicamos Primer teorema de Isomorfía:
+
+\[\Lambda(\sigma) = a;\; \Lambda(\tau) = b; 
+\qquad
+\tau\sigma(\zeta) = \zeta^{ab}\]
+
+Donde $a \in \mathbb{Z}^\times_n$ porque debe poder invertirse por otra función.
+
+*** 8.4.3. Grupo abeliano de la extensión ciclotómica
+En general $Gal(K(\zeta)/K)$ es abeliano.
+
+**** Demostración
+Es subgrupo de un abeliano.
+
+*** 8.4.4. Grupo de la extensión ciclotómica en los racionales
+Tenemos $Gal(\mathbb{Q}(\zeta)/\mathbb{Q}) \cong \mathbb{Z}_n^\times$.
+
+**** TODO Demostración
+
+*** 8.4.11. Teorema de Kronecker-Weber
+Toda extensión abeliana de $\mathbb{Q}$ está contenida en una extensión 
+ciclotómica.
+
+*** 8.4.12. Existencia de extensiones
+Sea $G$ un grupo abeliano finito arbitrario. Existe una extensión $K/\mathbb{Q}$
+tal que $Gal(K/\mathbb{Q}) \cong G$.
+
+* 10. Extensiones cíclicas y radicales
+** 10.1. Extensiones cíclicas
+*** 10.1.1. Extensión cíclica
+Una extensión es cíclica si es de Galois con grupo cíclico.
+
+*** 10.1.2. Teorema de Lagrange
+Sea $K$ cuerpo y $n$ un primo relativo a $car(K)$. Supongamos que existe
+una raíz n-ésima de la unidad en $K$:
+
+  1. Dada $E/K$ extensión cíclica de grado $n$, existe $\alpha \in E$ tal que
+     $E = K(\alpha)$ y $Irr(\alpha,K) = X^n-a$ para algún $a \in K$.
+  2. Para $a \in K$, con $\alpha$ raíz de $X^n-a$, se tiene $K(\alpha)/K$ cíclica
+     de grado $d \mid n$ y $\alpha^d \in K$.
+
+**** Demostración
+***** Primer punto
+Sea $E = K(u)$, $Gal(E/K) = \langle\sigma\rangle$ y $\zeta$ raíz n-ésima primitiva de la 
+unidad. Llamamos *resolvente de Lagrange* a:
+
+\[
+\alpha = 
+u + \zeta\sigma(u) + \zeta^2\sigma^2(u) + \dots + \zeta^{n-1}\sigma^{n-1}(u)
+\]
+
+Y por independencia lineal de los homomorfismos, sabemos $\alpha \neq 0$.
+Aplicando $\sigma$ obtenemos:
+
+\[\begin{aligned}
+\sigma(\alpha) &= 
+\zeta^{n-1}\sigma^n(u) + \sigma(u) + 
+\zeta\sigma^2(u) + \dots + \zeta^{n-2}\sigma^{n-1}(u)
+\\&=
+\zeta^{-1}\alpha
+\end{aligned}\]
+
+Luego $\sigma^{i}(\alpha) = \zeta^{-i}\alpha$ y $\alpha$ tiene $n$ conjugados. Como $[K(\alpha):K] \geq n$,
+tenemos $E = K(\alpha)$. Además $\sigma(\alpha^n) = (\zeta\alpha)^n = \alpha^n$, luego $a = \alpha^n$ es
+fijo bajo $\sigma$ y debe ser $a \in K$.
+
+***** Segundo punto
+****** Es de Galois
+Todas las $\zeta^i\alpha$ son raíces disintas, luego $K(\alpha)$ es el cuerpo de
+descomposición del polinomio $X^n-a$ y es normal y separable por
+ser $n$ primo relativo a $car(K)$.
+
+****** Es cíclica
+Cada $\sigma \in Gal(K(\alpha)/K)$ se escribe como $\sigma(\alpha) = \omega_\sigma\alpha$ para alguna raíz
+de la unidad, ya que debe llevar $\alpha$ en otra raíz y queda determinado
+por ella. Así $\sigma \longrightarrow \omega_\sigma$ es un monomorfismo en el grupo de las raíces 
+n-ésimas, que sólo tiene como subgrupos cíclicos de orden $d \mid n$. 
+
+Si $Gal(K(\alpha)/K)$ es cíclico de orden $d$ generado por $\langle\sigma\rangle$, entonces $\omega_\sigma$ 
+es raíz d-ésima primitiva de la unidad. Entonces:
+
+\[\sigma(\alpha^d) = (\omega_\sigma\alpha)^d = \alpha^d\]
+
+Quedando fijo sobre el grupo de Galois, $\alpha^d \in K$.
+
+** 10.2. Extensiones solubles y radicales
+*** 10.2.1. Extensión soluble
+Una extensión separable $F/K$ es soluble si hay una extensión $E/K$ de 
+Galois con grupo soluble y $K < F < E$.
+
+**** Definición equivalente
+Una extensión separable es soluble si su clausura normal tiene grupo
+de Galois soluble.
+
+*** 10.2.2. Extensión soluble por radicales
+Una extensión $F/K$ finita separable es soluble por radicales cuando
+$mcd([F:K],car(K)) = 1$ y hay una torre:
+
+\[K = E_0 < E_1 < \dots < E_m = E\]
+
+cumpliendo $F < E$ y siendo cada $E_{i+1}/E_i$ de una de estas dos formas:
+
+  1. $E_{i+1} = E_i(\zeta)$ raíz de la unidad.
+  2. $E_{i+1} = E_i(\alpha)$ raíz de un polinomio $X^n-a \in E_i[X]$, con 
+     $mcd(n,car(K)) = 1$.
+
+*** 10.2.3. Propiedades de las solubles por radicales
+Sea $F/K$ soluble por radicales:
+
+  1. Dada $L > K$, $FL/L$ es soluble por radicales.
+  2. Dada $L > F > K$, $L/K$ soluble por radicales ssi $F/K, L/F$ solubles
+     por radicales.
+  3. $F/K, L/K$ solubles por radicales da $FL/K$ soluble por radicales.
+
+**** TODO Demostración
+
+*** 10.2.4. Caracterización de solubilidad por radicales
+Sea $F/K$ separable finita. Es soluble por radicales ssi existe:
+
+\[L_0 < L_1 < \dots < L_m = L > F\]
+
+Con cada paso soluble por radicales y $L/K$ Galois.
+
+**** TODO Demostración
+
+*** 10.2.5. Teorema de Galois
+Sea $F/K$ separable finita. Es soluble por radicales ssi es soluble.
+
+**** TODO Demostración
+
+*** 10.2.6. Propiedades de las solubles
+Cumplen:
+
+  1. Dada $L > F > K$, $L/K$ soluble ssi $F/K,L/F$ solubles.
+  2. Dada $F/K$ soluble $L/K$ arbitraria, $FL/L$ es soluble.
+  3. Dadas $F/K,L/K$ solubles, $FL/K$ es soluble.
+
+**** TODO Demostración
+Aplicando el [[*10.2.5. Teorema de Galois][Teorema de Galois]] a las propiedades de [[*10.2.3. Propiedades de las solubles por radicales][solubles por 
+radicales]].
+
+* 11. Polinomios de grado 3 y 4
+** 11.1. El grupo de un polinomio
+*** 11.1.1. Grupo de un polinomio
+Llamamos grupo del polinomio $f$ al grupo $Gal(f/K)$, dado por las 
+permutaciones de raíces del polinomio que da el grupo de Galois sobre
+su cuerpo de descomposición. Se tiene:
+
+\[Gal(f/K) \lhook\joinrel\relbar\joinrel\rightarrow S_n\]
+
+** 11.2. Los teoremas clasificatorios
+*** 11.2.1. Ceros bajo la misma órbita
+Sea un polinomio con raíces simples factorizado $f = f_1f_2\dots f_r \in K[X]$.
+Dos ceros $\alpha_i,\alpha_j$ son raíces del mismo $f_k$ ssi están en la misma órbita
+bajo $Gal(f/K)$.
+
+**** Demostración
+Si están en la misma órbita, hay morfismo que lleva una en otra, luego
+son conjugadas y tienen el mismo irreducible. Si son conjugadas existe
+el morfismo que lleva una en otra y están bajo la misma órbita.
+
+*** 11.2.2. Criterio de irreducibilidad de Galois
+El polinomio $f$ es irreducible sobre $K$ ssi $Gal(f/K)$ es un subgrupo
+transitivo de $S_n$.
+
+**** Demostración
+Serán todas sus raíces del mismo irreducible ssi sólo hay una órbita.
+
+*** 11.2.3. Discriminante fijo bajo permutaciones pares
+Supongamos que $f$ no tiene raíces múltiples y sea $car(K) \neq 2$. Sea:
+
+\[\delta = \prod_{i < j} (\alpha_i - \alpha_j)\]
+
+El cuerpo fijo bajo las permutaciones pares de $Gal(f/K)$ es $K(\delta)$.
+
+**** Relación con el discriminante
+Observamos que $(a_n^{n-1}\delta)^2 = Disc(f)$.
+
+**** Demostración
+Llamamos $F$ al cuerpo fijo bajo las permutaciones pares.
+Para cualquier permutación impar $\rho(\delta) = -\delta$ y para cualquiera
+par $\sigma(\delta) = \delta$, así que $K \subset K(\delta) \subset F$. Tenemos dos casos:
+
+  - $K = F$, que daría el resultado.
+  - $K \neq F$, donde por Galois, $G \neq G^+$ y debería tenerse $[G : G^+] = 2$,
+    luego $[F : K] = 2$. Pero como una permutación impar cambia el signo
+    del determinante, que no es nulo por definición, $\delta \notin K$, y por
+    tanto $F = K(\delta)$.
+
+Nótese que en $car(K)=2$, el cambio de signo no hubiera movido a $\delta$.
+
+*** 11.2.4. Determinante marcando paridad
+El grupo de un polinomio es sólo par $Gal(f/K) < A_n$ ssi $\sqrt{Disc(f)} \in K$.
+
+**** Demostración
+Es lo que marca la distinción de casos en la anterior demostración.
+
+** 11.3. Polinomios de grado pequeño
+*** 11.3.1. Polinomios de grado 2
+En un polinomio de grado 2 el discriminante vale $b^2 - 4ac$. Hay sólo
+dos posibilidades:
+
+  - $\sqrt{b^2-4ac} \in K$, entonces $Gal(f/K) = 1$, y tiene dos raíces en el 
+    cuerpo. 
+  - $\sqrt{b^2-4ac} \notin K$, entonces $Gal(f/K) = S_2$, y el polinomio es 
+    irreducible.
+
+El cuerpo de descomposición es $E = K\left(\sqrt{Disc(f)}\right)$.
+
+**** Demostración
+Nótese que en ambos casos el cuerpo que dejan fijo las permutaciones
+pares es todo el cuerpo de descomposición del polinomio.
+
+*** 11.3.2. Polinomios de grado 3
+Un polinomio mónico $f = X^3+b_2X^2+b_1X +b_0$ puede:
+
+  - Ser reducible, con algún factor lineal que nos lleva al caso de
+    grado 2.
+  - Ser irreducible.
+
+En el caso irreducible:
+
+  - $\sqrt{Disc(f)} \notin K$ ssi $Gal(f/K)=S_3$.
+  - $\sqrt{Disc(f)} \in K$ ssi $Gal(f/K) = A_3$.
+
+*** 11.3.3. Polinomios de grado 4
+Tenemos un polinomio de grado 4 dado por:
+
+\[
+f = X^4 + a_3X^3+ a_2X^2 + a_1X + a_0 = \prod_{i=1}^4 (X - \alpha_i)
+\]
+
+**** Cuártica reducible
+Pueden darse dos casos:
+
+  1. Se descompone en polinomios de grado 3 y 1; y tenemos una cúbica
+     como en el caso anterior.
+  2. Se descompone en $f = f_1f_2$, por lo que debe ser subgrupo de
+     $\langle (1\ 2),(3\ 4) \rangle$. Se distinguen dos casos usando discriminante:
+
+     - $H = \langle (1\ 2)(3\ 4) \rangle$ cuando el discriminante está
+       en el cuerpo $\sqrt{Disc(f_1)Disc(f_2)} \in K$.
+
+     - $H = \langle (1\ 2),(3\ 4)\rangle$ cuando el discriminante no está
+       en el cuerpo $\sqrt{Disc(f_1)Disc(f_2)} \notin K$.
+
+**** Cuártica irreducible
+El grupo es uno de los grupos transitivos de $S_4$:
+
+\[\begin{tikzcd}
+& S_4 \dlar[no head]\drar[no head] & & \\
+A_4 \drar[no head] & & D_4 \dlar[no head]\drar[no head] & \\
+& V & & C_4
+\end{tikzcd}\]
+
+Para ayudarnos a resolver el polinomio debemos creamos su 
+*resolvente cúbica*, dados:
+
+  - $\beta_1 = \alpha_2\alpha_3 + \alpha_1\alpha_4$
+  - $\beta_2 = \alpha_1\alpha_3 + \alpha_2\alpha_4$
+  - $\beta_3 = \alpha_1\alpha_2 + \alpha_3\alpha_4$
+
+El polinomio que los tiene como raíces es de grado 3 y tiene
+el mismo determinante. Puede calcularse con polinomios simétricos:
+
+\[\begin{aligned}
+g &= (X-\beta_1)(X-\beta_2)(X-\beta_3) \\
+  &= X^3 - a_2X^2 + (a_1a_3 - 4a_0)X + (4a_2a_0 - a_3^2a_0 - a_1^2)
+\end{aligned}\]
+
+Nótese que $H < D_4$ o conjugado si $\beta_2 \in K$ o alguno de los otros.
+Usando eso y que el discriminante nos da las permutaciones pares:
+
+\[\begin{array}{ccc|c}
+\sqrt{Disc(g)} & \beta_i & Gal(g/K) & Gal(f/K) \\
+\hline
+\notin K & \notin K & S_3 & S_4 \\
+\in K & \notin K & A_3 & A_4 \\
+\in K & \in K & 1 & V \\
+\notin K & \in K & S_3 & D_4,C_4
+\end{array}\]
+
+***** Distinción de los últimos casos
+Observamos que $D_4 \cap A_4 = V$ es transitivo pero $C_4 \cap A_4 = \langle (13)(24) \rangle$ 
+no lo es. Así que $Gal(f/K) = D_4$ ssi $f$ es irreducible sobre
+$K\left(\sqrt{Disc(f)}\right)$.
+
+** TODO 11.4. Cómo resolver una ecuación soluble
+
+* A. Norma y traza
+** Norma y traza
+*** Norma
+Se define la *norma* de $\alpha$ relativa a $F/K$ separable como:
+
+\[N_{F/K} = \prod \{\sigma_i(\alpha) \mid 1\leq i\leq n\} \]
+
+para los $n$ homomorfismos que da $[F:K]_S$.
+
+*** Traza
+Se define la *traza* de $\alpha$ relativa a $F/K$ separable como:
+
+\[T_{F/K} = \sum \{\sigma_i(\alpha) \mid 1 \leq i \leq n\}\]
+
+para los $n$ homormorfismos que da $[F : K]_S$.
+
+*** Norma y traza están en el normal
+Si $F/K$ es de Galois, $N_{F/K}(\alpha), T_{F/K}(\alpha) \in F$.
+
+**** Demostración
+Al ser de Galois, los homomorfismos tienen imágenes en $F$.
+
+*** Propiedades de norma y traza
+Sea $F/K$ finita y separable de grado $n$:
+
+  1. $N(\alpha\beta) = N(\alpha)N(\beta)$
+  2. $T(\alpha+\beta) = T(\alpha) + T(\beta)$
+  3. $N(a\alpha) = a^nN(\alpha)$ para cada $a \in K$
+  4. $T(a\alpha) = naT(\alpha)$ para cada $a \in K$
+  5. $N(\alpha) \in K$ para cada $\alpha \in F$
+  6. $T(\alpha) \in K$ para cada $\alpha \in F$
+
+**** Demostración
+***** Puntos 1 y 2
+Simplemente por ser homomorfismos los que componen la suma y el
+producto.
+
+***** Puntos 3 y 4
+Los homomorfismos dejan fijos los elementos del cuerpo.
+
+***** TODO Puntos 5 y 6
+Para $E$ una clausura normal $Gal(E/K)$ actúa sobre $\frac{Gal(E/K)}{Gal(F/K)}$.
+
+*** Fórmulas de transitividad
+Para una torre $K \subset F \subset E$ y $E/K$ finita y separable:
+
+  1. $N_{F/K}(N_{E/F}(\alpha)) = N_{E/K}(\alpha)$
+  2. $T_{F/K}(T_{E/F}(\alpha)) = T_{E/K}(\alpha)$
+
+**** TODO Demostración
+*** Elemento de traza no nula
+Sea $F/K$ finita y separable, existe $\alpha \in F$ tal que $T_{F/K}(\alpha) \neq 0$.
+
+**** TODO Demostración
+
+*** Discriminante de una extensión
+Sea $F/K$ extensión finita y separable. Dados $\alpha_1,\dots,\alpha_n \in F$ equivalen:
+
+  1. $\{\alpha_1,\dots,\alpha_n\}$ base de $F$ como espacio vectorial sobre $K$.
+  2. Son linealmente independientes sobre $F$ los elementos:
+
+     \[\begin{aligned}
+     \beta_1 &= (\sigma_1(\alpha_1), \dots, \sigma_1(\alpha_n)) \\
+     \vdots &\\
+     \beta_n &= (\sigma_n(\alpha_1), \dots, \sigma_n(\alpha_n)) \\
+     \end{aligned}\]
+
+  3. El determinante de la matriz $(T_{F/K}(\alpha_i\alpha_j))_{ij}$ es no nulo.
+
+A este determinante lo llamamos *discriminante de la extensión* relativo
+a la base $\alpha_1,\dots,\alpha_n$.
+
+**** TODO Demostración
+
+* B. Lista de temas de teoría
+** 1. Galois es normal y separable
+Si $E/K$ es una extensión finita, son equivalentes:
+
+  1. $E/K$ extensión de Galois.
+  2. $E/K$ extensión normal y separable.
+
+*** Demostración
+**** Primera implicación
+Como cada $\sigma \in G = Gal(E/K)$ nos da un $\sigma : E/K \longrightarrow \overline{K}/K$, se tiene, por 
+Teorema de Artin:
+
+\[
+[E:K]_S \geq |G| = [E:K] \geq [E:K]_S
+\]
+
+Por tanto, es separable. Además, cada homomorfismo de ese tipo está
+en $G$ luego es un automorfismo y el cuerpo queda fijo, siendo una
+extensión normal.
+
+**** Segunda implicación
+Sea $n = [E:K]_S = [E:K]$ por separabilidad. Cada uno de esos 
+homomorfismos nos da $\sigma : E/K \longrightarrow E/K$, luego $Gal(E/K) = G$ tiene
+orden $n$. Por Teorema de Artin:
+
+\[ [E : E^G] = n = [E:K]\]
+
+luego $[E^G : K] = 1$.
+
+** 2. Teorema del elemento primitivo de Steinitz
+En $F/K$ extensión finita equivalen:
+
+  1. $F/K$ tiene elemento primitivo.
+  2. Existe un número finito de cuerpos intermedios.
+
+*** Demostración
+**** Primera implicación
+Sea $F = K(\alpha)$. $Irr(\alpha,K)$, tiene un número finito de factores. Para 
+cada uno de ellos, $p$, definimos el subcuerpo generado por sus 
+coeficientes $K[|p|]$. Cualquier cuerpo intermedio $E$ en el que
+$Irr(\alpha,E)=p$, contendrá a los coeficientes $E \supset K[|p|]$, pero además:
+
+\[ [K(\alpha) : K[|p|] = [K(\alpha) : E]\]
+
+Luego $E = K[|p|]$ y sólo hay finitos cuerpos intermedios.
+
+**** Segunda implicación
+***** Caso de cuerpo base finito
+Como la extensión es finita, sólo habrá finitos elementos en ella. El
+grupo multiplicativo de cualquier cuerpo es simple, así que tendrá un
+elemento primitivo.
+
+***** Caso de cuerpo base infinito
+Nos limitamos a probar $K(a,b)$ simple. Si consideramos los subcuerpos
+de la forma $K(a+bx)$ para cada $x\in F$, como sólo habrá finitos,
+deberán coincidir algunos dos $K(a+bx) = K(a+by)$ con $x\neq y$. 
+
+Entonces:
+
+\[
+b = \frac{(a+bx) - (a+by)}{x-y} \in K(a+bx) = K(a,b)
+\]
+
+** 3. Caracterizaciones de extensiones normales
+Para $E/K$ extensión finita equivalen:
+
+  1. $E/K$ es una extensión normal. Es cuerpo de descomposición de un
+     polinomio.
+  2. Para cada $\sigma : E/K \longrightarrow \overline{K}/K$, donde $\overline{K}$ es una clausura algebraica,
+     se tiene $\sigma(E) = E$.
+  3. Todo polinomio irreducible $f \in K[X]$ con una raíz en $E$ descompone
+     en $E$.
+
+*** Demostración
+**** Implicación 1 a 2
+Como es una extensión finita será de la forma $E = K(\alpha_1,\dots,\alpha_n)$.
+La imagen de la raíz de un polinomio deberá ser una conjugada suya,
+luego $\sigma(E) \subseteq E$. Como además un endomorfismo entre extensiones
+algebraicas es automorfismo, $\sigma(E) = E$.
+
+**** Implicación 2 a 3
+Si una raíz del polinomio está, existen homomorfismos que la llevan
+en cada una de las conjugadas. Como cumplen $\sigma(E) = E$, se tiene que
+todas las conjugadas están en $E$ y el polinomio descompone.
+
+**** Implicación 3 a 1
+La extensión finita es de la forma $E = K(\alpha_1,\dots,\alpha_n)$. Podemos tomar
+los irreducibles de cada uno de los $\alpha_i$ y multiplicarlos. Como si una
+raíz está en el cuerpo todas lo están, el cuerpo de descomposición
+de ese producto está contenido en $E$. Como tiene a todos sus $\alpha_i$, es $E$.
+
+** 4. Caracterización de la separabilidad
+Sea $F/K$ una extensión finita y $\overline{K}$ una clausura algebraica de $K$ conteniendo
+a $F$, entonces son equivalentes:
+
+  1. $F/K$ es separable.
+  2. $|Hom(F/K,\overline{K}/K)| = [F:K]$.
+
+*** Demostración
+Llamamos $[F:K]_S = |Hom(F/K,\overline{K}/K)|$.
+
+**** Caso simple
+En un caso simple $K(\alpha) / K$ cada homomorfismo a la clausura queda
+determinado por la imagen de $\alpha$, que debe ser a un elemento conjugado.
+Tenemos que todas las raíces de $Irr(\alpha,K)$ tienen la misma multiplicidad
+$m$, luego si es de grado $n$ habrá $n/m$ raíces distintas.
+
+Se da la igualdad sólo si cada uno de los elementos es distinto,
+esto es, si la extensión es separable.
+
+**** Caso compuesto
+Procedemos por inducción sobre el grado. Si tomamos un elemento en la
+extesión $F \supseteq K(\alpha) \supseteq K$, sabemos:
+
+\[
+[F : K]_S = [F : K(\alpha)]_S [K(\alpha) : K]_S
+\]
+
+Sabemos que una extensión es separable si lo son sus subextensiones. 
+Por hipótesis de inducción $[F : K(\alpha)]_S = [F : K(\alpha)]$ y por el caso base
+$[K(\alpha) : K]_S = [K(\alpha) : K]$, por ser ambas separables.
+
+** 5. Teorema de Artin
+Sea $E$ cuerpo y $G \subseteq Aut(E)$ un subgrupo finito, prueba que
+$E^G = \{e \in E \mid \forall \sigma \in G: \sigma(e) = e\}$ es un subcuerpo y $[E : E^G] = |G|$.
+
+*** Demostración
+**** Es un subcuerpo
+Por definición de morfismo de cuerpos.
+
+**** Igualdad
+Sabemos por Lema de Dedekind que $n = |G| \leq [E:E^G]$. Supongamos la
+desigualdad estricta con $u_1,\dots,u_{n+1}$ independientes sobre $E^G$ y
+creamos el siguiente sistema de $n+1$ incógnitas y $n$ ecuaciones:
+
+\[
+X_1\sigma_j(u_1) + \dots + X_{n+1}\sigma_j(u_{n+1}) = 0
+\qquad
+j = 1,\dots,n
+\]
+
+Sea $a_1,\dots,a_{n+1}$ solución no trivial con número mínimo de elementos
+no nulos. Suponemos s.p.g. que $a_1 \neq 0$, despejamos:
+
+\[\sigma_j(u_1) = b_2\sigma_j(u_2) + \dots + b_{n+1}\sigma_j(u_{n+1})\]
+
+En particular, cuando $\sigma_j = id$:
+
+\[
+u_1 = b_2u_2 + \dots + b_{n+1}u_{n+1}
+\]
+
+Por lo que alguno de los coeficientes no está en $E^G$ si queremos
+mantener la independencia lineal. Sea $b_2 \notin E^G$ y $\tau(b_2) \neq b_2$. Si aplicamos
+$\tau$ a cada una de las ecuaciones y restamos nos queda, sabiendo
+que $\tau G = G$:
+
+\[
+0 = (b_2-\tau(b_2))\sigma_j(u_2) + \dots + (b_n-\tau(b_n))\sigma_j(u_{n+1})
+\qquad
+j = 1,\dots,n
+\]
+
+Esta solución es no trivial pero tiene más elementos nulos que la
+anterior, llevando a contradicción.
+
+** 6. Lema de independencia de Dedekind
+Sea $F/K$ y $E/K$ extensiones de cuerpos, para cada familia no vacía ${\cal F}$ de
+elementos de $Hom(F/K,E/K)$ prueba que son equivalentes:
+
+  1. ${\cal F}$ es linealmente independiente en $Hom_K(F,E)$ sobre $E$.
+  2. Todos los elementos de ${\cal F}$ son distintos.
+
+*** Demostración
+Demostraremos que, en general $\sigma_1,\dots,\sigma_m : G \longrightarrow F^\times$ homomorfismos desde un
+grupo $G$ son distintos ssi son linealmente independientes sobre $F$. El caso
+$m = 1$ es trivial, y, en otro caso, podemos tomar un subconjunto mínimo
+de linealmente dependientes:
+
+\[
+\sigma_s = b_1\sigma_1 + b_2\sigma_2 + \dots + b_{s-1}\sigma_{s-1}
+\]
+
+Sea $y$ tal que $\sigma_1(y) \neq \sigma_s(y)$. Evaluamos en $xy$, multiplicamos por $\sigma_s(y)$
+por otro lado y restamos para tener:
+
+\[
+0 = b_1(\sigma_1(y)-\sigma_s(y))\sigma_1 + 
+\dots + 
+b_{s-1}(\sigma_{s-1}(y)-\sigma_{s-1}(y))\sigma_{s-1}
+\]
+
+Contraviniendo minimalidad de los linealmente independientes. Nótese
+que el añadirles $0$ para tener $\sigma_1,\dots,\sigma_m : F_1 \longrightarrow F_2$ no los vuelve
+linealmente dependientes o iguales.
+
+** 7. Caracterización de cuerpo algebraicamente cerrado
+Para $K$ cuerpo, equivalen:
+
+  1. Todo polinomio no constante $f \in K[X]$ tiene al menos una raíz en $K$.
+  2. Todo polinomio no constante $f \in K[X]$ descompone en $K$.
+  3. Los polinomios no constantes irreducibles en $K[X]$ son de grado 1.
+  4. $K$ no tiene extensiones algebraicas propias.
+
+Los cuerpos que lo cumplen son *algebraicamente cerrados*.
+
+*** Demostración
+**** Primera implicación
+Si el polinomio tiene una raíz, puede descomponerse como $f = (X-\alpha)f'$.
+Si $f'$ es constante, tenemos una descomposición de $f$, si no lo es, podemos
+descomponerlo a su vez.
+
+**** Segunda implicación
+Un polinomio de grado distinto de $1$ descompone linealmente y por tanto
+no puede ser irreducible.
+
+**** Tercera implicación
+Sea $\alpha \in F/K$ algebraica. Como $Irr(\alpha,K)$ es de grado $1$, $\alpha \in K$. No puede
+ser una extensión propia.
+
+**** Cuarta implicación
+Si algún polinomio no tuviera ninguna raíz en $K$, entonces él o un
+divisor suyo serían irreducibles sin raíz en $K$. Con ellos se genera
+una extensión algebraica propia.
+
+** 8. Teorema de Kronecker
+Sea $f \in K[X]$ un polinomio no constante, entonces existe una extensión
+$F/K$ en la que $f(X)$ tiene al menos una raíz.
+
+*** Demostración
+Podemos descomponer en polinomios irreducibles $f = f_1 f_2\dots f_{n}$ y crear
+la extensión siguiente con la inclusión trivial de $K$, que es cuerpo
+por ser $(f_1)$ un ideal maximal:
+
+\[
+F = \frac{K[X]}{(f_1)} \supset K
+\]
+
+Y donde $X + (f_1)$ es raíz del polinomio original por ser raíz de la
+inclusión de $f_1$:
+
+\[
+f_1(X+(f_1)) = f_1 + (f_1) = 0
+\]
+
+** 9. Extensiones ciclotómicas de Galois
+Sea $n$ entero positivo, $K$ un cuerpo y $F/K$ una extensión ciclotómica, cuerpo
+de descomposición del polinomio $X^n-1$, prueba que se verifica:
+
+  1. $F/K$ es una extensión de Galois.
+  2. $Gal(F/K)$ es isomorfo a un subgrupo del grupo multiplicativo de las
+     unidades de $\mathbb{Z}_n$, por lo tanto su orden es un divisor de $\varphi(n)$.
+
+*** Demostración
+**** Primer punto
+Es el cuerpo de descomposición de un polinomio, por lo tanto, es
+normal. Además, trabajamos con la hipótesis de que $car(K) \nmid n$, por lo
+que el polinomio debe tener todas sus raíces distintas y ser separable.
+
+**** Segundo punto
+Nótese que si tenemos una raíz primitiva, todas las raíces de la unidad
+quedan generadas por ella, $F = K(\zeta)$, y cada elemento del grupo de Galois
+queda determinado por a qué otra raíz primitiva envía la $\zeta$.
+
+Sea $\sigma(\zeta) = \zeta^a$. Tenemos que $\sigma^{-1}(\zeta) = \zeta^b$ y que $\zeta^{ab} = \zeta$, luego debe ser $a \in \mathbb{Z}^\times_n$.
+Creamos entonces la función inyectiva $\Lambda(\sigma) = a$, que trivialmente es
+un homomorfismo inyectivo:
+
+  - $\Lambda(\sigma) = a \wedge \Lambda(\tau) = b \implies \Lambda(\sigma\tau) = ab$.
+  - $\Lambda(\sigma) = 1 \implies \sigma = id$.
+
+Y por Primer Teorema de isomorfía tenemos lo pedido. Comprobar que
+además divide a $\varphi(n)$ es trivial por ser el orden de $\mathbb{Z}_n^\times$.
+
+** 10. Teorema de Moore
+Para cada $p^n$ potencia de primo, existe un cuerpo con $p^n$ elementos;
+que es el cuerpo de descomposición de $x^{p^n}-x$ sobre $\mathbb{F}_p$. Además,
+todo cuerpo finito de $p^n$ elementos es isomorfo a él.
+
+*** Demostración
+Dos cuerpos finitos con el mismo cardinal son isomorfos y que además
+existe siempre un cuerpo de $p^n$ elementos.
+
+**** Dos cuerpos finitos del mismo cardinal son isomorfos
+Todo subgrupo finito del grupo multiplicativo de un cuerpo es cíclico,
+luego $F^\times$ será cíclico de orden $p^n-1$, y sus elementos cumplen el 
+polinomio:
+
+\[x^{p^n-1} - 1 = 0\]
+
+Así, $x^{p^n} - x$ tiene exactamente como raíces los $p^n$ elementos de $F$.
+
+**** Existe un cuerpo con ese número de elementos
+El polinomio $x^{p^n}-x$ tiene derivada $-1$, y por tanto, sólo raíces
+simples. Añadiéndolas a $\mathbb{F}_p$, se tiene ya un cuerpo de descomposición.
+Sean $u = u^{p^n}$ y $v = v^{p^n}$:
+
+  - $(u+v)^{p^n} - (u+v) = 0$
+  - $(uv)^{p^n} - uv = 0$
+  - $(-u)^{p^n} - (-u) = 0$
+  - $(u^{-1})^{p^n} - u^{-1} = 0$
+
+** 11. Teorema 90 de Hilbert
+Sea $E/K$ extensión cíclica de grado $n$ con grupo $G = Gal(E/K) = \langle \sigma\rangle$, y
+sea $\beta \in E$, prueba que son equivalentes:
+
+  1. $N_{E/K}(\beta) = 1$
+  2. Existe $0 \neq \alpha \in E$ tal que $\beta = \frac{\alpha}{\sigma(\alpha)}$.
+
+*** Demostración
+**** Primera implicación
+Los automorfismos $1,\sigma,\dots,\sigma^n$ son distintos y por tanto linealmente
+independientes, luego no es la aplicación cero:
+
+\[
+\tau 
+= 
+1 + \beta\sigma + (\beta \sigma(\beta))\sigma^2 + 
+\dots +
+(\beta \sigma(\beta)\dots \sigma^{n-2}\beta) \sigma^{n-1}
+\]
+
+Y existe $\tau(\theta) \neq 0$. Evaluando $\sigma(\tau(\theta))$ y multiplicando por $\beta$ nos queda
+que $\beta \sigma(\tau(\theta)) = \tau(\theta)$.
+
+**** Segunda implicación
+Usando que la norma es homomorfismo:
+
+\[
+N_{E/K}(\beta) = \frac{N_{E/K}(\alpha)}{N_{E/K}(\sigma(\alpha))} = 1
+\]
+
+** 12. Raíces simples y derivada
+Sea $f \in K[X]$ no constante. Equivalen:
+
+  1. Todas las raíces de $f$ son simples.
+  2. $f$ y $Df$ son primos relativos.
+
+*** Demostración
+**** Primera implicación
+En el cuerpo de descomposición de $f$ podemos escribir:
+
+\[Df(X) = a \sum 
+(X-\alpha_1)\dots(X-\alpha_{i-1})(X-\alpha_{i+1})\dots(X-\alpha_n)\]
+
+Que claramente no comparte ningún factor primo $(X-\alpha_i)$ de $f$.
+
+**** Segunda implicación
+En el cuerpo de descomposición de $f$ podemos tomar una raíz de 
+multiplicidad $m > 1$. Y entonces $f = (X-\alpha)^m g$ mientras:
+
+\[ Df = (X-\alpha)^m Dg+ m(X-\alpha)^{m-1}g\]
+
+Por lo que no serían primos relativos en el cuerpo de descomposición,
+y por tanto, tampoco en $K$; ya que tenemos:
+
+\[ Irr(\alpha,K) \mid f, Df\]
+
+** 13. Teorema de Lagrange
+Sea $K$ un cuerpo, $n$ un entero positivo que es primo con la característica
+de $K$ (o es nula) y existe una raíz n-ésima primitiva de la unidad
+$\xi$ en $K$, prueba que se verifica:
+
+  1. Si $E/K$ es una extensión cíclica de grado $n$, existe $\alpha \in E$ tal que
+     $E = K(\alpha)$ e $Irr(\alpha,K) = X^n-a$ para algún $a \in K$.
+  2. A la inversa, sea $a \in K$. Si $\alpha$ es una raíz de $X^n-a$, entonces $K(\alpha)/K$
+     es una extensión cíclica de grado $d$, con $d\mid n$ y $a^d \in K$.
+
+*** Demostración
+**** Primer punto
+Sea $E = K(u)$ con $Gal(E/K) = \langle \sigma \rangle$ y $\zeta$ la raíz n-ésima primitiva de la
+unidad. Creamos el *resolvente de Lagrange*:
+
+\[
+\alpha 
+= 
+u + \zeta\sigma(u) + \zeta^2\sigma^2(u) + \dots + \zeta^{n-1}\sigma^{n-1}(u)
+\]
+
+Que sabemos que no es nula por independencia lineal de homomorfismos
+distintos, y que cumple que: $\sigma(\alpha) = \zeta^{-1}\alpha$. Luego $\sigma^i(\alpha) = \zeta^{-i}\alpha$, que son
+las $n$ raíces conjugadas de $\alpha$. Además $\sigma(\alpha^n) = \alpha^n$, por lo que $\alpha^n$ es un
+punto fijo bajo $\sigma$ y debe ser $\alpha^n \in K$.
+
+**** Segundo punto
+***** Es extensión de Galois
+Todas las $\zeta^i \alpha$ son raíces distintas, luego $K(\alpha)$ es el cuerpo de 
+descomposición del polinomio $X^n-\alpha$ y es normal y separable por ser
+$n$ un primo relativo de $car(K)$.
+
+***** Es cíclica
+Cualquier automorfismo debe llevar una raíz del polinomio en otra y
+queda determinado por ella. Así, es de la forma $\sigma(\alpha) = \omega_\sigma \alpha$ para alguna 
+raíz de la unidad.
+
+** 14. Automorfismo de Frobenius
+Sea $K$ cuerpo de característica $p \neq 0$, prueba que son equivalentes:
+
+  1. Todo polinomio irreducible no constante $f \in K[X]$ tiene todas sus 
+     raíces simples.
+  2. El endomorfismo de Frobenius es automorfismo.
+
+*** Demostración
+**** Primera implicación
+Dado $a \in K$. Sea $X^p-a$, con una raíz $\alpha$ en un cuerpo de descomposición.
+Tenemos $X^p-a = (X-\alpha)^p$. Como todos los irreducibles tienen raíces
+simples, el único irreducible factor del polinomio puede ser $X-\alpha$.
+
+Así $\alpha \in K$ y $a = \alpha^p$, siendo Frobenius sobreyectivo.
+
+**** Segunda implicación
+Para que un irreducible tenga raíz múltiple, debe dividir a su derivada,
+que debe ser de grado menor, luego debe ser $0$. El polinomio debe ser
+entonces de la forma $f(x^p)$ para que al derivarlo se anule.
+
+Cuando Frobenius es automorfismo, podemos escribir:
+
+\[f(x^p) = \sum a_i x^{ip} = \left( \sum \sqrt[p]{a_i} x^i \right)^{p}\]
+
+Lo que contraviene irreducibilidad. Todos los polinomios deben tener
+raíces simples.
+
+** 15. Galois es descomposición de separable
+Sea $E/K$ una extensión finita, prueba que son equivalentes:
+
+  1. $E/K$ extensión de Galois.
+  2. $E$ cuerpo de descomposición de un polinomio separable sobre $K$.
+
+*** Demostración
+**** Primera implicación
+Galois es normal y separable. Luego es cuerpo de descomposición de
+algún polinomio y este debe ser separable. Si no fuera separable,
+tendría algún factor con alguna raíz que no sería separable.
+
+**** Segunda implicación
+El cuerpo de descomposición de un polinomio separable debe ser normal
+por cuerpo de descomposición y separable porque todos los elementos
+que lo generan lo son y la suma y producto de separables es separable.
+
+* Ejercicios
+** Relación 1
+*** Ejercicio 1.1
+ Los polinomios simétricos en cuatro variables serán de la forma:
+
+ \[\sum X_a = X_1+X_2+X_3+X_4\]
+ \[\sum X_aX_b = X_1X_2+X_1X_3+X_1X_4+X_2X_3+X_2X_4+X_3X_4\]
+ \[\sum X_aX_bX_c = X_1X_2X_3 + X_1X_2X_4 + X_1X_3X_4 + X_2X_3X_4\]
+ \[\sum X_aX_bX_cX_d = X_1X_2X_3X_4\]
+
+*** Ejercicio 1.2
+ Usamos el polinomio recíproco relacionando $p(x)$ con $p(\frac{1}{x})$ y usamos
+ la derivada $p(x)$ para raíces dobles. Sea:
+
+ \[\hat p(x) = \frac{1}{x^n}(1+a_nx+\dots+a_0x^n)\]
+
+ Usamos entonces $\hat{\hat{p}'}$ para relacionar las raíces.
+   
+*** Ejercicio 1.3
+*** Ejercicio 1.5
+ Vamos a usar una ecuación general que escribe una suma de potencias con
+ otras variables en función de sumas de potencias de grado menor.
+
+ \[\sum X_1^nX_2 \dots X_k = e_k\sum X_1^{n-1} - \sum X_1^{n-1}X_2 \dots X_kX_{k+1}\]
+
+ para concluir que si la aplicamos repetidamente y llamamos 
+ $s_n = \sum X^n$ obtendremos:
+
+ \[ s_n = e_1s_{n-1} - e_2s_{n-2} + \dots + e_{n-1}s_1 - ne_n \]
+
+ Por tanto, en los casos hasta $5$, tenemos:
+
+ \[s_1 = e_1\]
+
+ \[\begin{align*}
+ s_2 &= e_1s_1 - 2e_2 \\
+ &= e_1^2 - 2e_2
+ \end{align*}
+ \]
+
+ \[\begin{align*}
+ s_3 &= e_1s_2 - e_2s_1 + 3e_3 \\
+ &= e_1^3 - 3e_1e_2 + 3e_3
+ \end{align*}
+ \]
+
+ \[\begin{align*}
+ s_4 &= e_1s_3 - e_2s_2 + e_3s_1 - 4e_4 \\
+ &= e_1^4 - 3e_1^2e_2 + 3e_1e_3 - e_1^2e_2 + 2e_2^2 + e_1e_3 - 4e_4 \\
+ &= e_1^4 - 4e_1^2e_2 + 4e_1e_3 - 4e_4 + 2e_2^2 
+ \end{align*}
+ \]
+
+ \[\begin{align*}
+ s_5 &= e_1s_4 - e_2s_3 + e_3s_2 - e_4s_1 + 5e_5 \\
+ &= e_1^5 - 5e_1^3e_2 + 5e_1^2e_3 - 5e_1e_4 + 5e_1e^2_2 - 5e_3e_2 + 5e_5
+ \end{align*}
+ \]
+
+ Nótese que aquí tomamos $e_m = 0$ en el caso de que haya menos de $m$ variables.
+
+**** Solución por grados
+ Cada polinomio simétrico de grado $n$ es combinación lineal de los que surgen
+ como productos de elementales de grado $n$.
+
+ \[x^3+y^3+z^3 = \alpha e_1^3 + \beta e_1e_2 + \gamma e_3\]
+
+ Calculando se llega a $\alpha = 1$, $\beta = -3$, $\gamma = 3$.
+
+*** Ejercicio 10
+ Necesitamos uno que sea raíz de $p'$ y de $p$.
+ Sacamos las raíces de $p'$, que son $1$ y $\frac{5}{3}$.
+
+ Tenemos que $1$ es raíz doble cuando $k= -2$. Dividiendo por $(x-1)^2$ tenemos
+
+ \[p(x) = (x-1)^2(x-2)\]
+
+ Lo mismo se puede hacer con $\frac{5}{3}$, pero saldría $k \notin \mathbb{Z}$.
+
+*** Ejercicio 11
+
+** Semana 1
+*** Ejercicio 1.24
+ Sea $M$ el conjunto de posibles /monomios/ en las variables y exponentes dados. 
+ Podemos definir una función $S_n \longrightarrow M$ como sigue:
+
+ \[\sigma(X_1^{e_1} X_2^{e_2} \dots X_n^{e_n}) = 
+ X_{\sigma(1)}^{e_1} X_{\sigma(2)}^{e_2} \dots X_{\sigma(n)}^{e_n}
+ \]
+
+ Esto es una acción transitiva pero no fiel. El estabilizador para
+ el monomio inicial, por ejemplo, son las permutaciones que mueven variables a
+ variables del mismo exponente. Si hay $m_i$ variables de exponente $i$, podemos
+ intercambiarlas de $m_i!$ formas distintas quedando un monomio igual. El estabilizador
+ de ese monomio tiene por tanto orden $k = |Stab(x)| = m_1!m_2!\dots m_n!$. Aplicando ahora el
+ Teorema de Lagrange para órbitas y estabilizadores obtenemos el número de
+ monomios distintos:
+
+ \[|M| = |S_n(M)| = \frac{|S_n|}{|Stab(x)|} = \frac{n!}{m_1!m_2!\dots m_n!}\]
+
+*** Ejercicio 1.25
+ Sea el polinomio $p(x) = x^3-5x-5$ con raíces $\alpha, \beta, \gamma$. Tenemos que el polinomio $p(x-1)$
+ tendrá raíces $\alpha+1,\beta+1,\gamma+1$:
+
+ \[p(x-1) = (x+1)^3-5(x+1)-5 = x^3 - 3x^2 - 2x - 1\]
+
+ Y que el polinomio recíproco a él tendrá raíces  $\frac{1}{\alpha+1}, \frac{1}{\beta+1}, \frac{1}{\gamma+1}$:
+
+ \[q(x) = 1 - 3x - 2x^2 - x^3\]
+
+ Trabajando con $-q(x)$, que es mónico, y con los polinomios de Cardano-Vieta sobre
+ sus raíces tenemos que si estas fueran $u,v,w$, tendríamos:
+
+ \[(x-u)(x-v)(x-w) = x^3 - (u+v+w)x^2 +(uv+vw+wu)x - uvw\]
+
+ Y desde aquí obtenemos el valor de los polinomios simétricos elementales sobre
+ las raíces
+
+ \[\begin{align*}
+ e_1 &= u+v+w = -2 \\
+ e_2 &= uv+vw+wu = 3 \\
+ e_3 &= uvw = 1
+ \end{align*}\]
+
+ Ahora, expresamos el valor de $u^3+v^3+w^3$ como suma de polinomios elementales
+ mediante el algoritmo de orden lexicográfico de la demostración:
+
+ \[\begin{align*}
+ \sum X_1^3 &= e_1^3 - (3\sum X_1^2X_2 + 6\sum X_1X_2X_3) \\
+            &= e_1^3 - 3(e_1e_2 - 3\sum X_1X_2X_3 + 6\sum X_1X_2X_3) \\
+            &= e_1^3 - 3e_1e_2 + 3e_1
+ \end{align*}\]
+
+ Y así, finalmente tenemos:
+
+ \[u^3+v^3+w^3 = (-2)^3 - 3(-2)3 + 3 = 13\]
+
+ # ¿Existen cuerpos infinitos de característica no nula?
+
+** Semana 2
+*** Ejercicio 2.14
+**** Punto 1
+ Supongamos que se tiene $f(x) = ax+b$ con $a$ una unidad del anillo. Entonces podríamos
+ tomar como inversa de $\phi$ el homomorfismo de anillos que cumple $g(x) = a^{-1}(x - b)$ y que
+ sobre los elementos del anillo es la identidad. Sería un isomorfismo.
+
+ Estudiamos el caso de que $f(x)$ fuera de otra forma pero fuera isomorfismo. 
+ Trivialmente su grado no podría ser $0$ para ser inyectivo sobre los elementos del
+ anillo. Si $f(x)$ tuviera monomio líder $b_kx^k$
+ y el monomio líder de $p$ fuera $a_mx^m$. Su imagen sería:
+
+ \[\phi(p(x)) = a_0 + a_1f(x) + a_2f(x)^2 + \dots + a_mf(x)^m\]
+
+ tendría un único coeficiente líder de grado $km$ que sería 
+ $a_mb_kx^{m+k} \neq 0$ por ser dominio de integridad.
+
+ Así,tenemos que $f$ no puede tener grado mayor que $1$ y debe tener un coeficiente líder unidad
+ si queremos que $a_mb_kx^{m+k} = x \in img(\phi)$.
+
+**** Punto 2
+ El coeficiente líder puede anularse y la condición ya no es suficiente.
+
+ Sea $e$ en el nilradical de un anillo, con $e^n = 0$. Entonces se pueden tomar
+ los dos homomorfismos cumpliendo:
+
+ \[\phi(x) = x - e^{n-1}x^n\]
+ \[\phi'(x) = x + e^{n-1}x^n\]
+
+ Nótese ahora que $\phi\phi'(x) = \phi'\phi(x) = x$ y que para cualquier polinomio se comprobará
+ que son dos automorfismos inversos entre sí. De hecho, usando que son
+ homomorfismos:
+
+ \[\phi\phi'(p(x)) = p(\phi\phi'(x)) = p(x)\]
+
+*** Ejercicio 2.15
+**** Punto 1
+ Si $f$ es irreducible en $\mathbb{Z}$, es en particular primitivo.
+ Supongamos que $f = gh$ en $\mathbb{Q}$, factorización no trivial. Puedo escribir $g$ y $h$ como
+ polinomios primitivos por una unidad de $\mathbb{Q}$: $f = ug_0h_0$. Como el producto de primitivos
+ es primitivo, $g_0h_0$ lo es. Supongamos que tuviéramos $u = \frac{a}{b}$, con:
+
+ \[bf = ag_0h_0\]
+
+ Llegamos a que $a|b$, $b|a$, ya que ninguno de los dos puede dividir a un 
+ polinomio primitivo; y obtenemos $u$ unidad de $\mathbb{Z}$. Con lo cual, $f$ no sería
+ irreducible en $\mathbb{Z}$.
+
+**** Punto 2
+ Como es irreducible sobre $\mathbb{Q}$, el ideal que genera es maximal y $F$ es
+ por tanto un cuerpo. Las inclusiones son las triviales.
+
+**** Punto 3
+ Sea el polinomio $f(y) \in F[y]$. Tenemos que:
+
+ \[f(X + (f(X))) = f(X) + (f(X)) = 0 + (f(X)) \]
+
+ Por lo que es raíz.
+
+ La primera igualdad se obtiene del hecho de que las potencias y el producto
+ por elementos del cuerpo respetan las clases de equivalencia; y por tanto,
+ la evaluación de un polinomio lo hace:
+
+ \[(X + (f(X)))^n = X^n + X^{n-1}(f(X)) + \dots + (f(X)) = X^n + (f(X))\]
+ \[a(X+(f(X))) = aX + (f(X))\]
+
+*** Ejercicio 2.16
+ Tenemos una extensión sobre $\mathbb{F}_2$ generada por un polinomio de grado 3. 
+ Sus elementos son clases de equivalencia sobre polinomios de hasta 
+ grado dos, habiendo 8 elementos. Abusando de la notación, los escribimos como
+ los representantes de su clase de equivalencia:
+
+ \[\{0,1,x,x+1,x^2,x^2+1,x^2+x,x^2+x+1\}\]
+
+ Tenemos las siguientes tablas para la suma y el producto:
+
+ #+BEGIN_SRC sage :exports none
+ R.<t> = PolynomialRing(GF(2),'t')
+ I = R.ideal(t^3+t+1)
+ S.<x> = R.quotient_ring(I)
+ #+END_SRC
+ #+RESULTS:
+
+ #+BEGIN_SRC sage :exports results
+ S.addition_table(
+     names=["0","1","x","x+1","x^2","x^2+1","x^2+x","x^2+x+1"],
+     elements=[0,1,x,x+1,x^2,x^2+1,x^2+x,x^2+x+1]
+ )
+ #+END_SRC
+ #+RESULTS:
+ #+begin_example
+
+       +        0       1       x     x+1     x^2   x^2+1   x^2+x x^2+x+1
+	+----------------------------------------------------------------
+       0|       0       1       x     x+1     x^2   x^2+1   x^2+x x^2+x+1
+       1|       1       0     x+1       x   x^2+1     x^2 x^2+x+1   x^2+x
+       x|       x     x+1       0       1   x^2+x x^2+x+1     x^2   x^2+1
+     x+1|     x+1       x       1       0 x^2+x+1   x^2+x   x^2+1     x^2
+     x^2|     x^2   x^2+1   x^2+x x^2+x+1       0       1       x     x+1
+   x^2+1|   x^2+1     x^2 x^2+x+1   x^2+x       1       0     x+1       x
+   x^2+x|   x^2+x x^2+x+1     x^2   x^2+1       x     x+1       0       1
+ x^2+x+1| x^2+x+1   x^2+x   x^2+1     x^2     x+1       x       1       0
+ #+end_example
+
+ #+BEGIN_SRC sage :exports results
+ S.multiplication_table(
+     names=["0","1","x","x+1","x^2","x^2+1","x^2+x","x^2+x+1"],
+     elements=[0,1,x,x+1,x^2,x^2+1,x^2+x,x^2+x+1]
+ )
+ #+END_SRC
+ #+RESULTS:
+ #+begin_example
+
+       *        0       1       x     x+1     x^2   x^2+1   x^2+x x^2+x+1
+	+----------------------------------------------------------------
+       0|       0       0       0       0       0       0       0       0
+       1|       0       1       x     x+1     x^2   x^2+1   x^2+x x^2+x+1
+       x|       0       x     x^2   x^2+x     x+1       1 x^2+x+1   x^2+1
+     x+1|       0     x+1   x^2+x   x^2+1 x^2+x+1     x^2       1       x
+     x^2|       0     x^2     x+1 x^2+x+1   x^2+x       x   x^2+1       1
+   x^2+1|       0   x^2+1       1     x^2       x x^2+x+1     x+1   x^2+x
+   x^2+x|       0   x^2+x x^2+x+1       1   x^2+1     x+1       x     x^2
+ x^2+x+1|       0 x^2+x+1   x^2+1       x       1   x^2+x     x^2     x+1
+ #+end_example
+
+** Semana 3
+*** Ejercicio 2.17
+**** Punto 1
+ Tenemos el siguiente diagrama con las extensiones
+
+ \[ \begin{tikzcd}
+  & \mathbb{Q}({\sqrt{2}},\sqrt{3},\sqrt{5}) \drar[dash] \dar[dash] \dlar[dash] & \\
+ \mathbb{Q}(\sqrt{2}) & \mathbb{Q}(\sqrt{3}) & \mathbb{Q}(\sqrt{5}) \\
+ & \mathbb{Q} \urar[dash,swap]{2} \uar[dash]{2} \ular[dash]{2} &
+ \end{tikzcd} \]
+
+ Donde $\sqrt{2},\sqrt{3},\sqrt{5}$ son irracionales y sus polinomios irreducibles
+ en $\mathbb{Q}$ son $x^2-2 = 0$, $x^2-3=0$ y $x^2-5=0$; por lo que son extensiones
+ de grado $2$.
+
+ Ahora mostramos que $\sqrt{3} \notin \mathbb{Q}(\sqrt{2})$, ya que:
+
+ \[\sqrt{3} = a + b \sqrt{2}\]
+
+ Y sabiendo que no puede tenerse $\sqrt{3} = a$ o $\sqrt{3} = b\sqrt{2}$:
+
+ \[\sqrt{2} = \frac{3-a^2-b^2}{2ab}\]
+
+ Y entones $\sqrt{2}$ sería racional. Así, $\mathbb{Q}(\sqrt{2},\sqrt{3})$, sabiendo que además 
+ $\sqrt{3}^2 \in \mathbb{Q}$, debe ser una extensión de grado $2$ sobre $\mathbb{Q}(\sqrt{2})$.
+
+ Ahora mostramos que $\sqrt{5} \notin \mathbb{Q}(\sqrt{2})(\sqrt{3})$, ya que, siendo $a,b \in \mathbb{Q}(\sqrt{2})$:
+
+ \[\sqrt{5} = a + b\sqrt{3}\]
+ \[ 5 = a^2 + 2ab\sqrt{3} + 3b^2\]
+
+ Ahora, $ab = 0$, ya que, si no fuera así, $\sqrt{3} \in \mathbb{Q}(\sqrt{2})$; además, $a=0$ o $b=0$, llegando
+ a uno de los siguientes casos:
+
+ \[ 5 = a^2 = x^2+y^2+2xy\sqrt{2}\]
+ \[ 5 = 3b^2 = 3(x^2+y^2+2xy\sqrt{2})\]
+
+ Donde, análogamente, llegaríamos a contradicción con $\frac{5}{3} \notin \mathbb{Q}$.
+ Como además $\sqrt{5}^2 \in \mathbb{Q}$, es una extensión de grado $2$.
+
+ Resumiendo, tenemos:
+
+ \[ \begin{tikzcd}
+  & \mathbb{Q}({\sqrt{2}},\sqrt{3},\sqrt{5}) & \\
+  \mathbb{Q}(\sqrt{2},\sqrt{3}) \urar[dash]{2} & & \\
+ \mathbb{Q}(\sqrt{2}) \uar[dash]{2} & \mathbb{Q}(\sqrt{3}) \ular[dash]{2} & \mathbb{Q}(\sqrt{5}) \arrow[uul,dash] \\
+ & \mathbb{Q} \urar[,dash,swap]{2} \uar[dash]{2} \ular[dash]{2} &
+ \end{tikzcd} \]
+
+ Y aplicando la fórmula de grado de las extensiones llegamos
+ a que $[\mathbb{Q}(\sqrt{2},\sqrt{3},\sqrt{5}) : \mathbb{Q}] = 8$.
+
+**** Punto 2
+ Tenemos a $1,\sqrt{2},\sqrt{3},\sqrt{5},\sqrt{6},\sqrt{10},\sqrt{15},\sqrt{30}$ sistema de generadores del espacio,
+ y por ser de dimensión $8$, sabemos que forman una base. Veamos que $1,\alpha,\alpha^2,\dots,\alpha^7$ es una base 
+ del mismo espacio comprobando independencia lineal sobre la base inicial.
+
+ #+BEGIN_SRC sage :exports none
+   A = FreeAlgebra(QQ,3,'i')
+   F = A.monoid()
+   a,b,c = F.gens()
+   mons = [ F(1), a,b,c,a*b,a*c,b*c,a*b*c ]
+   M = MatrixSpace(QQ,len(mons))
+   mats = [
+       M([0,1,0,0,0,0,0,0,
+          2,0,0,0,0,0,0,0,
+          0,0,0,0,1,0,0,0,
+          0,0,0,0,0,1,0,0,
+          0,0,2,0,0,0,0,0,
+          0,0,0,2,0,0,0,0,
+          0,0,0,0,0,0,0,1,
+          0,0,0,0,0,0,2,0
+       ]),
+       M([0,0,1,0,0,0,0,0,
+          0,0,0,0,1,0,0,0,
+          3,0,0,0,0,0,0,0,
+          0,0,0,0,0,0,1,0,
+          0,3,0,0,0,0,0,0,
+          0,0,0,0,0,0,0,1,
+          0,0,0,3,0,0,0,0,
+          0,0,0,0,0,3,0,0
+       ]),
+       M([0,0,0,1,0,0,0,0,
+          0,0,0,0,0,1,0,0,
+          0,0,0,0,0,0,1,0,
+          5,0,0,0,0,0,0,0,
+          0,0,0,0,0,0,0,1,
+          0,5,0,0,0,0,0,0,
+          0,0,5,0,0,0,0,0,
+          0,0,0,0,5,0,0,0
+       ])
+   ]
+   P3.<a,b,c> = A.quotient(mons,mats)
+ #+END_SRC
+
+ #+RESULTS:
+
+ Para ello escribo los coeficientes de cada $\alpha^n$ en la
+ base inicial formando la siguiente matriz y compruebo que son linealmente independientes.
+
+ #+BEGIN_SRC sage :exports results
+ M = matrix([ ((a+b+c)^n).vector() for n in range(0,8) ]).transpose()
+ M
+ #+END_SRC
+
+ #+RESULTS:
+ : 
+ : [    1     0    10     0   224     0  6160     0]
+ : [    0     1     0    26     0   784     0 23024]
+ : [    0     1     0    24     0   664     0 18976]
+ : [    0     1     0    20     0   520     0 14720]
+ : [    0     0     2     0    80     0  2448     0]
+ : [    0     0     2     0    64     0  1904     0]
+ : [    0     0     2     0    56     0  1584     0]
+ : [    0     0     0     6     0   200     0  5936]
+
+ Si calculamos el rango de esta matriz, obtenemos que es invertible.
+
+ #+BEGIN_SRC sage :exports both
+ M.rank()
+ #+END_SRC
+
+ #+RESULTS:
+ : 8
+
+**** Punto 3
+ Usando la matriz anterior, obtengo un polinomio que tiene por raíz
+ a $\sqrt{2}+\sqrt{3}+\sqrt{5}$. Para ello escribo los coeficientes de $\alpha^8$ en
+ función de la base anterior de la matriz.
+
+ #+BEGIN_SRC sage :exports both
+ M.solve_right(vector(QQ,((a+b+c)^8).vector()))
+ #+END_SRC
+
+ #+RESULTS:
+ : (-576, 0, 960, 0, -352, 0, 40, 0)
+
+ Así que tengo el polinomio siguiente del que $\alpha$ es raíz:
+
+ \[t^8-40*t^6+352*t^4-960*t^2+576\]
+
+ # Checking the answer
+ #+BEGIN_SRC sage :exports none
+ t = sqrt(2)+sqrt(3)+sqrt(5)
+ (-40*t^6+352*t^4-960*t^2+576+t^8).expand()
+ #+END_SRC
+
+ #+RESULTS:
+ : 0
+
+**** Punto 4
+ Por el diagrama de extensiones del ejercicio $1$ sabemos que $\mathbb{Q}(\sqrt{2},\sqrt{3})$ es una extensión
+ de grado 4. Como ya sabemos que $\mathbb{Q}(\sqrt{2}+\sqrt{3}) = \mathbb{Q}(\sqrt{2},\sqrt{3})$, tenemos que $\sqrt{2}+\sqrt{3}$ es 
+ un elemento de grado 4 sobre $\mathbb{Q}$.
+** Semana 4
+*** Ejercicio 3.11
+**** Punto 1
+ Sea el polinomio $f\in \mathbb{F}_2[X]$ con una raíz $\lambda$; comprobamos que también
+ es raíz $\lambda^2$:
+
+ \[\begin{aligned}
+ f(\lambda^2) 
+ &= a_n\lambda^{2n} + a_{n-1}\lambda^{2(n-1)} + \dots + a_1\lambda^2 + a_0 \\
+ &= (a_n\lambda^n + a_{n-1}\lambda^{n-1} + \dots + a_1\lambda + a_0)^2 \\
+ &= f(\lambda)^2
+ \end{aligned}
+ \]
+
+ Donde usamos que:
+
+ \[a_p\lambda^{2p} + a_q\lambda^{2q} = 
+ a^2_p\lambda^{2p} + 2a_pa_q\lambda^p\lambda^q + a^2_q\lambda^{2q} =
+ (a_p\lambda^p + a_q\lambda^q)^2\]
+
+ Aplicando esto varias veces llegamos a que $\lambda,\lambda^2,\lambda^4,\dots$ son raíces.
+
+**** Punto 2
+ Sea el polinomio $f(x) = x(x^2+x+1) = x^3+x^2+x$, que tiene como raíz en 
+ $K \cong \frac{\mathbb{F}_2[X]}{(x^2+x+1)}$ a $\lambda = x + (x^2+x+1)$; nótese que tiene como raíz también a $0$, que no es
+ potencia de $\lambda$.
+
+**** Punto 3
+ Siendo $\beta$ una raíz primitiva, genera el cuerpo y una base de $K$ sobre su cuerpo
+ base debe estar generada por $\beta$ y formada por  
+ $\{1,\beta,\beta^2,\dots,\beta^{n-1}\}$; supongamos que el grado de $f$ fuera
+ menor que $n$, entonces tendría una relación de dependencia lineal entre la base:
+
+ \[ 0 = f(\beta) = a_0 +a_1\beta + \dots + a_{n-1}\beta^{n-1} \]
+
+ Lo que nos daría una contradicción.
+
+** Semana 5
+*** Ejercicio 4.17
+#+begin_statement
+Sea $K \subseteq E \subseteq F$ una torre de cuerpos y supongamos que $\alpha_1,\dots,\alpha_r$ son algunas de las 
+raíces de $f(X) \in K[X]$ y $E = K(\alpha_1,\dots,\alpha_r)$. Demuestra que $F$ es el cuerpo de 
+descomposición de $f(X)$ sobre $K$ si, y sólo si, $F$ es el cuerpo de descomposición de
+$f(X)$ sobre $E$.
+#+end_statement
+
+Antes que nada, podemos descomponer $f$ en la clausura algebraica $\overline{K}$ como factores
+lineales con raíces $\alpha_1,\dots,\alpha_n$. Vamos a fijarnos en el hecho de que el cuerpo de 
+descomposición de un polinomio sobre un cuerpo es el cuerpo resultante de añadirle
+sus raíces en la clausura; esto es debido que cumple trivialmente la propiedad del 
+cuerpo de descomposición, y además es minimal porque cualquier otro debe contener a 
+sus raíces y, por tanto, contenerlo él.
+
+Ahora veamos que ambos cuerpos de descomposición que se plantean en el ejercicio 
+son iguales. Por un lado, el cuerpo de descomposción de $f$ sobre $K$ debe ser
+$K(\alpha_1,\dots,\alpha_n)$; y por otro, el cuerpo de descomposición de $f$ sobre
+$E$, que también tiene como clausura algebraica a $K$, debe ser: 
+
+\[\begin{aligned}
+E(\alpha_1,\dots,\alpha_n) &= K(\alpha_1,\dots,\alpha_r)(\alpha_1,\dots,\alpha_n) \\
+&= K(\alpha_1,\dots,\alpha_r)(\alpha_{r+1},\dots,\alpha_n) \\
+&= K(\alpha_1,\dots,\alpha_n) 
+\end{aligned}\]
+
+*** Ejercicio 4.18
+#+begin_statement
+Sea $a \in \mathbb{Q}$ y $n$ un número entero positivo impar tal que
+$\sqrt[n]{a} \in \mathbb{R}/\mathbb{Q}$. Demuestra que la extensión $\mathbb{Q}(\sqrt[n]{a})/\mathbb{Q}$ no es normal.
+#+end_statement
+
+Tengo que $\sqrt[n]{a}$ es raíz de $x^n-a$. Eso quiere decir que será múltiplo de 
+$\operatorname{Irr}(\sqrt[n]{a},K)$, y que por tanto, toda raíz de su polinomio irreducible será raíz 
+de $x^n-a$. En $\mathbb{C}$, las raíces de ese polinomio son de la forma $\{\zeta^i_n\sqrt[n]{a}\}$,
+con los $\zeta$ raíces de la unidad; y, siendo $n$ impar, sólo una será real.
+
+Por otro lado, si queremos que sea una extensión normal, el polinomio irreducible
+debería tener todas sus raíces en la extensión y factorizar linealmente en ellas;
+pero como sólo hay una real y la extensión está contenida en los reales, sólo
+podría tener una raíz, el polinomio sería lineal y entonces se tendría $\sqrt[n]{a} \in \mathbb{Q}$.
+
+*** Ejercicio 4.19
+#+begin_statement
+Sea $E/K$ una extensión normal y $f(X) \in K[x]$ un polinomio (mónico) irreducible. Si
+$f(X)$ se factoriza en $E$ como producto de dos polinomios (mónicos) irreducibles 
+$f_1(x)$ y $f_2(x)$. Demuestra que existe un homomorfismo $\sigma : E/K \longrightarrow E/K$ tal que
+$f^\sigma_1(x) = f_2(x)$.
+#+end_statement
+
+Sea $\alpha$ raíz de $f_1$ y $\beta$ raíz de $f_2$. Ambos son los polinomios irreducibles de sus raíces
+en $E$. Como ambas además son raíces de $f$, son conjugadas sobre $K$
+y existe un automorfismo sobre $K$ que lleva $\sigma(\alpha) = \beta$. Ese isomorfismo cumple 
+que $\sigma(E) = E$ por normalidad. Ahora, por irreducibilidad:
+
+\[f_2 | f_1^\sigma\]
+
+Y tenemos que:
+
+\[ f_1f_2 = f = f^\sigma = f_1^\sigma f_2^\sigma\]
+
+Esto quiere decir que $f_1 = f_2^\sigma$ y que $f_2 = f_1^\sigma$; ya que estamos en un dominio de 
+factorización única y ambos son mónicos.
+** Semana 6
+*** Ejercicio 5.10
+#+begin_statement
+Sea $K$ cuerpo de característica $p \neq 0$ y $t$ una indeterminada sobre $K$. Prueba que el
+polinomio $X^p-t^p \in K(t^p)[X]$ es irreducible.
+#+end_statement
+
+Por binomio de Newton, en $K(t)[X]$ tenemos $x^p-t^p = (x-t)^p$. Sus divisores son de la
+forma $(x-t)^q$ para $q<p$; y ninguno puede estar en $K(t^p)[X]$ porque implicaría que
+estuviera su último coeficiente $(-t)^q \in K(t^p)[X]$, con lo que ya no sería una 
+indeterminada porque se podría escribir $t^q$ relacionado con $t^p$.
+
+*** Ejercicio 5.11
+#+begin_statement
+Estudiar si son o no ciertas las siguientes afirmaciones:
+
+ - $\sqrt[3]{-1}$ es separable sobre $\mathbb{F}_9$.
+ - $\sqrt[3]{-1}$ es separable sobre $\mathbb{F}_{49}$.
+ - $\sqrt[7]{5}$ es separable sobre $\mathbb{F}_{7^7}$.
+ - $t$ es separable sobre $\mathbb{F}_{p^2}(t^p)$, siendo $p$ un número entero primo positivo y $t$ una
+   indeterminada sobre $\mathbb{F}_{p^2}$.
+
+$\quad$
+#+end_statement
+
+Las tres primeras son extensiones finitas sobre cuerpos perfectos (por ser finitos),
+luego todas son separables. Para el último caso, $x^p-t^p = 0$ es irreducible y por 
+tanto polinomio mínimo de $t$, pero tiene raíces múltiples, luego $t$ es un elemento 
+no separable.
+
+*** Ejercicio 5.12
+#+begin_statement
+Sea $E$ un cuerpo y $\{\varphi_1,\dots,\varphi_n\}$ un conjunto de $n$ automorfismos distintos de $E$.
+Llamamos $K = \{e \in E \mid \varphi_i(e) = e, 1 \leq i \leq n\}$. Demuestra que $[E:K]\geq n$.
+#+end_statement
+
+Dada la extensión $E/K$. Tenemos dos casos:
+
+ - $E$ es infinita sobre $K$, luego $[E:K] \geq n$.
+ - $E$ es finita sobre $K$, por el corolario al lema de Dedekind, tenemos:
+   \[ [E:K] \geq |Hom(E/K,E/K)| \geq n\]
+
+** Semana 7
+*** Ejercicio 7.25
+#+begin_statement
+Sea $f \in K[X]$ un polinomio sin raíces múltiples; y
+$G = \operatorname{Gal}(f/K)$. Prueba que son equivalentes:
+
+ 1. $f(X)$ es irreducible.
+ 2. $G$ actúa transitivamente sobre las raíces de $f$.
+
+$\quad$
+#+end_statement
+
+Sea $f$ irreducible. Cualesquiera dos de sus raíces tienen a $f$ como polinomio 
+irreducible; luego son conjugadas y existe un automorfismo de la clausura que
+lleva una en otra, $\sigma : \overline{K} \longrightarrow \overline{K}$. Como la extensión $f/K$ es normal ser la extensión
+de descomposición de un polinomio irreducible $f$, tenemos que $\sigma|_{f/K} \in G$.
+
+Sea $G$ actuando transitivamente sobre las raíces de $f = gh$, descomposición
+en $K[X]$. Una raíz no puede estar
+repetida en $g$ y en $h$, porque conllevaría raíces múltiples. Sea $a$ raíz de $g$, y
+sea un $\sigma : f/K \longrightarrow f/K$ que la lleve en $b$ raíz de $h$. Entonces
+
+\[ h(a) = h(\sigma(b)) = \sigma(h(b)) = 0\]
+
+contraviniendo que no existan raíces múltiples.
+** Semana 8
+*** Ejercicio 7.26
+    #+begin_statement
+    Se considera el producto semidirecto $G = \mathbb{Z}_8\rtimes_\theta\mathbb{Z}_2$, siendo $\theta(1)(1)=3$.
+    Observa que $G$ es un grupo de orden 16. Supongamos que $G$ es el grupo de Galois
+    de una extensión $E/K$.
+
+    1. ¿Cuántos cuerpos intermedios $F/K$, con $K\subset F\subset E$, existen de grado $8$?
+       ¿Cuántos con un grupo de Galois $Gal(F/K)$ isomorfo a $\mathbb{Z}_8$?
+    2. ¿Cuántos cuerpos intermedios $F/K$, con $K\subset F\subset E$, existen de grado $4$?
+       ¿Cuántos con un grupo de Galois $Gal(F/K)$ isomorfo a $\mathbb{Z}_4$? y
+       ¿cuántos con grupo de Galois isomorfo al grupo de Klein?
+    3. ¿Cuántos cuerpos intermedios $F/K$, con $K\subset F\subset E$, existen de grado $2$?
+       ¿Cuántos con grupo de Galois $Gal(E/F)$ isomorfo a $\mathbb{Z}_8$?
+    4. Determina el retículo de subgrupos de $\mathbb{Z}_8 \rtimes_\theta\mathbb{Z}_2$.
+    #+end_statement
+    
+    Lo que estamos buscando en cada uno de esos casos, gracias a la correspondencia
+    de Galois, son subgrupos. Si calculamos el orden de los elementos en este
+    producto semidirecto, tenemos:
+
+    | Elemento | Orden |
+    |----------+-------|
+    | (0,0)    |     0 |
+    | (1,0)    |     8 |
+    | (2,0)    |     4 |
+    | (3,0)    |     8 |
+    | (4,0)    |     2 |
+    | (5,0)    |     8 |
+    | (6,0)    |     4 |
+    | (7,0)    |     8 |
+    | (0,1)    |     2 |
+    | (1,1)    |     4 |
+    | (2,1)    |     2 |
+    | (3,1)    |     4 |
+    | (4,1)    |     2 |
+    | (5,1)    |     4 |
+    | (6,1)    |     2 |
+    | (7,1)    |     4 |
+
+**** Punto 1
+     Isomorfo a $\mathbb{Z}_8}$ es:
+
+     \[<(1,0)>\]
+
+     Que como contiene a todos los demás elementos de orden $8$, nos asegura que no 
+     hay más isomorfos a $\mathbb{Z}_8$.
+
+     Tenemos además uno isomorfo a $\mathbb{Z}_2\times\mathbb{Z}_4$, que es:
+
+     \[<(2,0),(0,1)>\]
+     
+     Y otro isomorfo al grupo de los cuaternios, que es:
+
+     \[<(4,0),(2,0),(1,1),(7,1)>\]
+
+     No encontramos ninguno isomorfo a $\mathbb{Z}_2\times\mathbb{Z}_2\times\mathbb{Z}_2$, que necesitaría de $7$ elementos
+     de orden $2$.
+
+**** Punto 2
+     Isomorfos al grupo de Klein:
+
+     \[\{(0,0),(2,1),(4,0),(6,1)\}\]
+     \[\{(0,0),(0,1),(4,1),(4,0)\}\]
+
+     Cíclicos de grado $4$:
+
+     \[<(2,0)>\]
+     \[<(1,1)>\]
+     \[<(3,1)>\]
+
+**** Punto 3
+     Subgrupos de grado $2$ son los que genera cada elemento de grado $2$. Hay
+     cinco elementos de grado $2$.
+
+*** Ejercicio 7.26 (Usando sage)
+    Usamos Galois para tener correspondencia con un problema de grupos
+
+    #+BEGIN_SRC sage
+sage: C8 = CyclicPermutationGroup(8)
+sage: alpha = PermutationGroupMorphism(C8,C8,[C8.gen()**3])
+sage: phi = [[(1,2)],[alpha]]
+sage: G = CyclicPermutationGroup(2).semidirect_product(C8,phi)
+sage: G
+Permutation Group with generators [(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]
+sage: G.order()
+16
+sage: G.subgroups()
+
+[Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [()],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,7)(4,8)(5,9)(6,10)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(1,2)(4,6)(5,9)(8,10)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(1,2)(3,5)(4,8)(7,9)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(1,2)(3,7)(4,10)(6,8)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(1,2)(3,9)(5,7)(6,10)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,5,7,9)(4,6,8,10), (3,7)(4,8)(5,9)(6,10)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,7)(4,8)(5,9)(6,10), (1,2)(4,6)(5,9)(8,10)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,7)(4,8)(5,9)(6,10), (1,2)(3,9)(5,7)(6,10)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,7)(4,8)(5,9)(6,10), (1,2)(3,4,7,8)(5,10,9,6)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,7)(4,8)(5,9)(6,10), (1,2)(3,10,7,6)(4,5,8,9)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,5,7,9)(4,6,8,10), (3,7)(4,8)(5,9)(6,10), (1,2)(4,6)(5,9)(8,10)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,4,5,6,7,8,9,10), (3,5,7,9)(4,6,8,10), (3,7)(4,8)(5,9)(6,10)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,5,7,9)(4,6,8,10), (3,7)(4,8)(5,9)(6,10), (1,2)(3,4,7,8)(5,10,9,6)],
+ Subgroup of (Permutation Group with generators 
+[(3,4,5,6,7,8,9,10), (1,2)(4,6)(5,9)(8,10)]) generated by [(3,4,5,6,7,8,9,10), (3,5,7,9)(4,6,8,10), (3,7)(4,8)(5,9)(6,10), (1,2)(4,6)(5,9)(8,10)]]
+    #+END_SRC
+
+** Semana 9
+*** Ejercicio 7.27
+    #+begin_statement
+    Prueba que los subgrupos transitivos de $S_4$ son los subgrupos siguientes:
+    
+      1. $S_4$, que es normal.
+      2. $A_4$, que es normal.
+      3. $D_4 = \langle(1234),(13) \rangle$, y todos sus conjugados.
+      4. $C_4 = \langle (1234) \rangle$, y todos sus conjugados.
+      5. $V = \{1,(12)(34),(13)(24),(14)(24)\}$, que es normal.
+    
+    El retículo de subgrupos transitivos de $S_4$ es:
+
+    \[ \begin{tikzcd}
+    & & S_4 & \\
+    & A_4 \urar & & D_4 \ular \\
+    V \urar & & C_4 \ular \urar &
+    \end{tikzcd} \]
+
+    Como consecuencia, si $f(X)\in \mathbb{Q}[X]$ es un polinomio irreducible de grado cuatro,
+    el grupo de Galois de $\mathbb{Q}(f)/\mathbb{Q}$ es isomorfo a uno de éstos.
+    #+end_statement
+
+    El grupo de Galois de un polinomio *irreducible* de grado cuatro debe poder
+    permutar entre las $4$ raíces del polinomio, por lo que debe ser un subgrupo
+    transitivo de $S_4$. Para que un subgrupo sea transitivo, su orden debe ser mayor
+    que $4$.
+
+    Comprobamos que:
+
+      - De orden 24, el único es $S_4$.
+      - De orden 12, el único es $A_4$.
+      - De orden 8, el único es $D_4$, con tres conjugados.
+      - De orden 6, el único es isomorfo a $S_3$, con cuatro conjugados.
+      - De orden 4, los únicos son $C_4$ y $V$, con seis conjugados.
+	
+    De esta lista retiramos a $\langle (12),(23),(13) \rangle$ y sus cuatro conjugados por no ser
+    transitivos. El resto se comprueban transitivos.
+
+*** Ejercicio 7.28
+    #+begin_statement
+    Sea $f(X)\in K[X]$ un polinomio separable y $g$ un factor irreducible de $f$. ¿Actúa
+    transitivamente $G = \operatorname{Gal}(f/K)$ sobre las raíces de $g$?
+    #+end_statement
+    
+    Como $g$ es el polinomio irreducible de cualesquiera dos raíces suyas, estas son
+    conjugadas y existe un isomorfismo $\sigma : \overline{K} \longrightarrow \overline{K}$. Como $f/K$ entendemos que es
+    normal, ese isomorfismo se restringe a $f/K$.
+** Semana 10
+*** Ejercicio 7.29 
+**** Punto 1
+Si es irreducible, teníamos por el ejercicio de Semana 9 que
+su grupo sería un subgrupo transitivo de $S_4$.
+
+Como si $\alpha$ es raíz lo es $-\alpha$, tenemos que como mucho habrá $8$ automorfismos.
+Fijada la imagen de $\alpha$ entre las cuatro posibles, queda fijada la imagen
+de $-\alpha$, así, sólo quedan dos posibles imágenes para $\beta$. No puede ser
+isomorfo por tanto a $S_4$ o a $A_4$.
+
+**** Punto 2
+Estamos en el caso del punto anterior por el polinomio $(x^2-n)(x^2-m)$.
+El grupo no es trivial porque $\sqrt{n},\sqrt{m}$ no son racionales. No puede
+tener automorfismos que lleven $\sqrt{n}$ en $\sqrt{m}$ porque $\sqrt{nm}$ no es un
+cuadrado y entonces se tiene $n \neq m$.
+
+Fijada la imagen de $\sqrt{n}$ entre dos posibles, sólo queda la imagen de 
+$\sqrt{m}$ entre dos posibles. No puede ser por tanto $D_4$, y no puede ser
+un grupo cíclico porque tiene elementos de orden $2$. Debe ser $V$.
+
+**** Punto 3
+Como $\mathbb{Q}(\sqrt{n}+\sqrt{m})$ genera una extensión de grado 4, será de grado 4
+su polinomio irreducible, ya que hemos dicho que $\sqrt{nm}$ no es racional
+y tenemos que:
+
+\[ \frac{\sqrt{nm}}{\sqrt{n}+\sqrt{m}} = \frac{1}{\sqrt{1/n}+\sqrt{1/m}}\]
+
+Ambos irreducibles por serlo $\sqrt{n}+\sqrt{m}$.
+
+Por último, comprobamos que es un polinomio que lo tiene como raíz:
+
+\[ x^4 - 2(n+m) x^2 + n^2 -2nm + m^2\]
+
+A este polinomio llegamos simplemente manipulando algebraicamente
+las representaciones de $(\sqrt{n}+\sqrt{m})^2$ y $(\sqrt{n}+\sqrt{m})^4$.
+
+**** Punto 4
+Si tomamos un elemento en $u \in F-\mathbb{Q}$, tenemos que $[F:\mathbb{Q}(u)]$ podría
+ser $2$ o $1$. Si fuera $1$, entonces $\{1,u,u^2,u^3\}$ es base y $[F : Q(u^2)]$ sería
+de grado $2$. Tendríamos un cíclico. Si fuera $2$, tenemos $u^2 \in \mathbb{Q}$,
+como buscamos.
+
+**** Punto 5
+Tomamos $f_1(x) = (x^2-2)(x^2-3)$, que hemos demostrado en el punto
+2 que funciona. $f_2(x) = x^4+3$ tiene grupo isomorfo a $D_3$.
+En el punto 7 tenemos un ejemplo para $f_3$ en $x^4+5x^2+5$, que es
+irreducible por Eisenstein en módulo 2.
+
+**** Punto 6
+Si tengo raíces $u,-u,v,-v$, tengo $\sqrt{c} = \pm uv$ racional. Cualquier
+automorfismo de grado cuatro de los posibles llevaría $u \mapsto v$
+$v \mapsto -u$, por lo que cambiaría el signo de un racional.
+
+**** Punto 7
+Si resolvemos la ecuación de grado $4$ tenemos:
+
+\[ \sqrt{c} = uv \]
+\[ \sqrt{b^2-4c} = (u^2-v^2)\]
+
+El producto de ambas es racional, pero uno de los automorfismos de
+grado dos que está en $V$ y en $D_4$, que lleva $u \mapsto v$, $v \mapsto u$, cambiaría
+el signo de un real.
