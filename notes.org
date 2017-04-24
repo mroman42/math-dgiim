@@ -7391,6 +7391,34 @@ Sabiendo que los reales tienen dimensión infinita sobre los racionales
 como espacio vectorial, creamos ambas cadenas añadiendo y retirando
 progresivamente vectores de la base.
 
+*** Semana 6
+#+begin_statement
+Sea $M$ un grupo abeliano finitamente generado y libre de torsión.
+Prueba que $M$ es un grupo libre.
+#+end_statement
+
+Supongamos que $M = \left\langle m_1,\dots,m_t \right\rangle$ y supongamos que no fuera libre,
+esto es existe una combinación lineal nula con coeficientes enteros
+no nulos
+
+\[
+n_1m_1 + \dots + n_tm_t = 0.
+\]
+
+Sabemos que $d = \mathrm{gcd}(n_1,\dots,n_t) = 1$, porque de lo contrario se tendría
+el elemento de torsión
+
+\[
+d \left( \frac{n_1}{d}m_1 + \dots + \frac{n_t}{d}m_t \right) = 0.
+\]
+
+Por Teorema Chino del Resto, existe entonces una combinación de
+enteros cumpliendo
+
+\[
+b_1n_1 + \dots + b_tn_t = 1.
+\]
+
 ** Trabajos
 *** Funtores adjuntos
 **** Transformaciones naturales
