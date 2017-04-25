@@ -2517,6 +2517,48 @@ Dada una DG-álgebra $(R,\delta)$,
 
 **** TODO Aritmética en álgebras graduadas II
 
+*** Complejo de Hochschild
+Definimos el *complejo de Hochschild* como
+
+\[
+C_{\bullet}(R,M)\colon \dots 
+\longrightarrow M \otimes R^{\otimes n}
+\overset{d}\longrightarrow M \otimes R^{\otimes n-1}
+\overset{d}\longrightarrow \cdots
+\]
+
+donde las diferenciales se definen como $d = \sum (-1)^id_i$ para
+
+\[\begin{aligned}
+d_0(m\otimes a_1\otimes\dots\otimes a_n) &= (ma_1)\otimes \dots \otimes a_n \\
+d_i(m\otimes a_1\otimes\dots\otimes a_n) &= m \otimes a_1\otimes \dots \otimes a_ia_{i+1} \otimes \dots \otimes a_n \\
+d_i(m\otimes a_1\otimes\dots\otimes a_n) &= a_nm \otimes a_1\otimes \dots \otimes \dots \otimes a_{n-1} \\
+\end{aligned}
+\]
+
+**** Es un diferencial
+Se tiene que $d\circ d = 0$.
+
+**** Complejo bar
+En el caso particular de $R=M$ tenemos
+
+\[C_{\bullet}(R) = C_{\bullet}(R,R) = 
+(\cdots \to R^{\otimes n+1} \to \cdots \to R)\]
+
+Llamamos *complejo bar* a
+
+\[ C^{bar}_{\ast}(R) = (\cdots \to R^{\otimes n} \to \cdots \to R^{\otimes 2}).
+\]
+
+**** Complejo bar normalizado
+Llamamos $D_n$ al generado por elementos $m\otimes a_1\otimes \dots\otimes a_n$ donde algún $a_i = 1$.
+Podemos crear el complejo bar normalizado con módulos de la forma
+
+\[\frac{M\otimes R^{\otimes n}}{D_n} \cong M \otimes \overline{R}^{\otimes n}.
+\]
+
+Lo representamos por $\overline{C}(R,M)$.
+
 ** La DG-álgebra Omega
 *** DG-álgebra omega
 Definimos
@@ -7397,27 +7439,39 @@ Sea $M$ un grupo abeliano finitamente generado y libre de torsión.
 Prueba que $M$ es un grupo libre.
 #+end_statement
 
-Supongamos que $M = \left\langle m_1,\dots,m_t \right\rangle$ y supongamos que no fuera libre,
-esto es existe una combinación lineal nula con coeficientes enteros
-no nulos
+Si no fuera libre, cada conjunto de generadores
+$\left\{ m_1,\dots,m_{n} \right\}$ debería cumplir ecuaciones de la forma
+
+\[n_1m_1+ \dots + n_tm_t = 0,\]
+
+y entre todos los posibles conjuntos de generadores de cardinalidad
+mínima y combinaciones, podemos elegir una que minimice $|n_1|+\dots + |n_t|$.
+Ahora, si hay una combinación en la que $|n_i|<|n_j|$ para dos $i\neq j$,
+podemos usar que
 
 \[
-n_1m_1 + \dots + n_tm_t = 0.
+n_im_i + n_jm_j = (n_i-n_j)m_i + n_{j}(m_j-m_i)
 \]
 
-Sabemos que $d = \mathrm{gcd}(n_1,\dots,n_t) = 1$, porque de lo contrario se tendría
-el elemento de torsión
+para reescribir la relación, teniendo otro sistema de generadores
+equivalente $\left\langle m_1,\dots,m_i,m_j,\dots,m_{t} \right\rangle = \left\langle m_1,\dots,m_i,m_j-m_i,\dots,m_t \right\rangle$ que
+tiene un $|n_1|+\dots + |n_t|$ menor. Así, en el mínimo, $|n_i| = d$ para cualquier
+índice. Pero este $d$ no puede ser mayor que $1$ porque si no se tendría un
+elemento de torsión
 
 \[
 d \left( \frac{n_1}{d}m_1 + \dots + \frac{n_t}{d}m_t \right) = 0.
 \]
 
-Por Teorema Chino del Resto, existe entonces una combinación de
-enteros cumpliendo
+Así, hemos llegado a una relación en la que un generador puede ponerse
+como suma y diferencia de los otros, 
 
 \[
-b_1n_1 + \dots + b_tn_t = 1.
+m_1 = \pm m_2 \pm m_3 \pm \dots \pm m_{t},
 \]
+
+contraviniendo la minimalidad del
+sistema de generadores
 
 ** Trabajos
 *** Funtores adjuntos
