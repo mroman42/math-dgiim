@@ -319,7 +319,97 @@ In $\mathtt{Set}$, show that all idempotents split.
 Given $f \colon A \to A$ idempotent, we can define the set $\mathrm{img}\ f$, and two functions
 $g \colon A \to \mathrm{img}\ f$, $h\colon \mathrm{img}\ f \to A$ defined naturally and satisfiying the conditions.
 Notice that $g$ is an epimorphism and $h$ a monomorphism.
+
+*** Exercise 7
+#+begin_statement
+An arrow $f \colon a \to b$ in a category $C$ is /regular/ when there exists an arrow
+$g\colon b \to a$ such that $fgf = f$. Show that $f$ is regular if it has either a left or
+a right inverse, and prove that every arrow in $\mathtt{Set}$ with $a \neq \varnothing$ is regular.
+#+end_statement
+
+If $f$ has either a right or a left inverse, it is trivial that it is regular.
+
+If $a \neq \varnothing$, we can take $x_y \in \left\{ x \in a \mid f(x) = y \right\}$, a representative of the class
+of elements that are mapped onto $y$, and $u \in a$ an arbitrary element, and define
+
+\[
+g(y) = \left\{\begin{array}{ll} 
+x_y & \mbox{if } y \in \mathrm{img}(f)  \\
+u & \mbox{otherwise }
+\end{array} 
+\right.
+\]
+
+and this morphism makes the $f$ regular. (Have we used the choice axiom to define
+the representatives?)
+
+*** Exercise 8
+#+begin_statement
+Consider the category with objects $\left\langle X,e,t \right\rangle$, where $X$ is a set, $e \in X$, and
+$t \colon X \to X$, and with arrows $f\colon \left\langle X,e,t \right\rangle \to \left\langle X',e',t' \right\rangle$ the functions $f$ on $X$ to $X'$
+with $fe=e'$ and $ft = tf'$. Prove that this category has an initial object in
+which $X$ is the set of natural numbers, $e=0$, and $t$ is the successor function.
+#+end_statement
+
+We will prove that $\left\langle \mathbb{N},0,S \right\rangle$ is the initial object. For every object $\left\langle X,e,t \right\rangle$,
+we only can define a function $f$, its image on zero is determined by the
+first arrow condition $f(0) = e$, and its image in every other natural is
+determined as
+
+\[
+f(n) = f(S \circ \overset{n}\dots \circ S(0)) = t\circ \overset{n}\dots \circ t(f(0)).
+\]
+
+*** Exercise 9
+#+begin_statement
+If the functor $T \colon C \to B$ is faithful and $Tf$ is monic, prove $f$ monic.
+#+end_statement
+
+If $f\circ g = f \circ h$, we have $Tf\circ Tg = Tf\circ Th$. $Tf$ is monic and $T$ is faithful, so
+we get $g = h$.
+
+** TODO 1.6. Foundations
 * 2. Constructions on categories
+** 2.3. Products of categories
+*** TODO Exercise 1
+#+begin_statement
+Show that the product of categories includes the following known special
+cases: The product of monoids (categories with one object), of groups,
+of sets (discrete categories).
+#+end_statement
+
+*** TODO Exercise 2
+#+begin_statement
+Show that the product of two preorders is a preorder.
+#+end_statement
+
+*** TODO Exercise 4
+#+begin_statement
+Describe the opposite of the category $\mathtt{Matr}_K$.
+#+end_statement
+
+*** Exercise 5
+#+begin_statement
+Show that the ring of continuous real-valued functions on a topological
+space is the object function of a contravariant functor on $\mathtt{Top}$ to $\mathtt{Rng}$.
+#+end_statement
+
+We are going to define the functor $T \colon \mathtt{Top}\to \mathtt{Rng}$ taking $Tf$ to be
+$(\circ f) \colon \mathrm{hom}_{\mathtt{Top}}(Y,\mathbb{R}) \to \mathrm{hom}_{\mathtt{Top}}(X,\mathbb{R})$ for any given $f \colon X \to Y$. It is 
+trivially a functor, as it preserves composition.
+
+We know that the composition of two continuous functions is
+continuous, and we have to prove that $(\circ f)$ is a ring homomorphism,
+but it is trivial that
+
+\[\begin{aligned}
+(g\cdot h) \circ f &= (g \circ f) \cdot (h \circ f) \\
+(g + h) \circ f &= (g \circ f) + (h \circ f). \\
+\end{aligned}
+\]
+
+** TODO 2.4. Functor categories
+** TODO 2.5. The category of all categories
 ** 2.6. Comma categories
 *** Exercise 1
 #+begin_statement
