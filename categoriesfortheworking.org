@@ -431,3 +431,87 @@ If $t$ is a terminal object in $C$, prove that $(C \downarrow t)$ is isomorphic 
 By definition of terminal object, there will be only an arrow 
 $\ast \colon u \to t$ for any $u \in C$. Every morphism will create a commutative 
 diagram because of the unicity of the morphisms.
+
+* 3. Universals and limits
+** 3.1. Universal arrows
+*** Exercise 1
+#+begin_statement
+Show how each of the following familiar constructions can be interpreted
+as a universal arrow:
+
+ * The integral group ring of a group (better, of a monoid).
+ * The tensor algebra of a vector space.
+ * The exterior algebra of a vector space.
+#+end_statement
+
+**** The integral group ring (monoid)
+The integral group ring $\mathbb{Z}G$ is defined as the initial object of $(G \downarrow {\cal U})$,
+where ${\cal U}$ is the functor that takes a ring and returns its group of units.
+
+**** The tensor algebra of a vector space
+The tensor algebra $T(V)$ is defined as the initial object of $(V \downarrow U)$,
+where $U\colon \mathtt{Alg}_k \to \mathtt{Vect}_k$ is the forgetful functor.
+
+**** The exterior algebra of a vector space
+The same construction as above can be performed on the full subcategory of
+external algebras.
+
+*** Exercise 2
+#+begin_statement
+Find a universal element for the contravariant power set functor
+${\cal P} \colon \mathtt{Set}^{op} \to \mathtt{Set}$.
+#+end_statement
+
+The universal arrow for $A$ will be its inclusion in ${\cal P}{\cal P}A$ as
+
+\[
+i(a) = \left\{ U \in {\cal P}A \mid a \in U \right\}.
+\]
+
+Given a morphism $f \colon A \to {\cal P}B$, we define $g \colon B \to {\cal P}A$ as
+
+\[
+g(b) = \left\{ a \in A \mid b \in f(a) \right\}.
+\]
+
+And its image when the functor is applied is
+
+\[
+{\cal P}g(\mathbb{A}) = g^{-1}(\mathbb{A})
+= \left\big\{ b \in B \mid \left\{ a \mid b \in f(a) \right\} \in \mathbb{A} \right\big\}.
+\]
+
+The $g$ is unique, as it is defined by $x \in f(a) \iff a \in g(x)$.
+
+*** TODO Exercise 3
+#+begin_statement
+Find (from any given object) universal arrows to the following forgetful
+functors: $\mathtt{Ab} \to \mathtt{Grp}$, $\mathtt{Rng}\to \mathtt{Ab}$ (forget the multiplication), $\mathtt{Top} \to \mathtt{Set}$,
+$\mathtt{Set}_{\ast} \to \mathtt{Set}$.
+#+end_statement
+
+*** TODO Exercise 4
+#+begin_statement
+Use only universality (of projections) to prove the following isomorphisms of
+group theory:
+
+ 1) For normal subgroups $M,N$ of $G$ with $M \subset N$, $(G/M)(N/M) \cong (G/M)$.
+ 2) For subgroups $S$ and $N$ of $G$, $N$ normal, with join $SN$, $SN/N \cong S/S\cap N$.
+#+end_statement
+
+*** TODO Exercise 5
+#+begin_statement
+Show that the quotient $K\text{-module}$ $A/S$ ($S$ a submodule of $A$) has a description
+by universality. Derive isomorphism theorems.
+#+end_statement
+
+*** TODO Exercise 6
+#+begin_statement
+Describe quotients of a ring by a two-sided ideal by univesality.
+#+end_statement
+
+*** TODO Exercise 7
+#+begin_statement
+Show that the construction of the polynomial ring $K[x]$ in a indeterminate $x$
+over a commutative ring $K$ is a universal construction.
+#+end_statement
