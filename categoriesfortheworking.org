@@ -483,12 +483,38 @@ And its image when the functor is applied is
 
 The $g$ is unique, as it is defined by $x \in f(a) \iff a \in g(x)$.
 
-*** TODO Exercise 3
+*** Exercise 3
 #+begin_statement
 Find (from any given object) universal arrows to the following forgetful
 functors: $\mathtt{Ab} \to \mathtt{Grp}$, $\mathtt{Rng}\to \mathtt{Ab}$ (forget the multiplication), $\mathtt{Top} \to \mathtt{Set}$,
 $\mathtt{Set}_{\ast} \to \mathtt{Set}$.
 #+end_statement
+
+**** Abelian groups to groups
+The universal arrow defines the [[https://en.wikipedia.org/wiki/Commutator_subgroup][abelianization]] of the group. A morphism
+from a group to an abelian group must have the commutator subgroup in 
+its kernel
+
+\[f(aba^{-1}b^{-1}) = f(a)f(b)f(b)^{-1}f(a)^{-1} = 1.\]
+
+Thus, every morphism can be factorized in $G/[G,G]$, giving
+
+\[\begin{tikzcd}
+g \rar[hook]{i}\drar[swap]{f} & G/[G,G]\dar[dashed]{\widetilde f} \\
+  & h & .
+\end{tikzcd}\]
+
+**** WIP Rings to abelian groups
+A tensor Z-algebra over the abelian group.
+
+**** Topological spaces to sets
+The inclusion on the discrete topology over the set is an universal
+arrow. If we define any application $f\colon A \to O$, there is an unique 
+continuous function $\widetilde f \colon (A,\tau_d) \to (O,\tau)$ defined by $\widetilde f(x) = f(x)$. It is
+trivially continuous, as $\tau_d$ is the discrete topology.
+
+**** Pointed sets to sets
+Trivially, the inclusion on $(S \cup \left\{ \ast \right\}, \ast)$ defines an universal arrow.
 
 *** TODO Exercise 4
 #+begin_statement
