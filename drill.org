@@ -1,0 +1,67 @@
+#+TITLE: Math drill cards
+#+DESCRIPTION: Spaced-repetition cards for math subjects.
+#+SETUPFILE: math.setup
+
+* Category theory
+** Universal arrow                                                   :drill:
+Definition of universal arrow
+
+*** Definition
+If $S \colon D \to C$ is a functor and $c \in C$, its *universal arrow* is
+$(r,u)$ such that for every pair $(d,f)$ there exists this unique diagram
+
+\[\begin{tikzcd}
+ & Sd \\
+c \rar[swap]{u}\urar{f} & Sr \uar[swap, dashed]{\exists! S \widetilde f}
+\end{tikzcd}\]
+** Abelian category                                                  :drill:
+SCHEDULED: <2017-04-30 Sun>
+:PROPERTIES:
+:ID:       ad9b7fc3-6fe9-44fb-8918-9a1a9ce60a3b
+:DRILL_LAST_INTERVAL: 3.86
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2017-04-26 Wed 23:45]
+:END:
+Definition of [[https://en.wikipedia.org/wiki/Abelian_category][abelian category]].
+
+*** Definition
+An abelian category is a preadditive category (every morphisms set is
+an abelian group and the composition is bilineal on it), satisfiying
+
+ 1. it has a *null object*.
+ 2. there is a *biproduct* of two numbers.
+ 3. every morphism has kernel and cokernel.
+ 4. every monic is a kernel.
+ 5. every epic is a cokernel.
+
+** Preadditive category                                              :drill:
+SCHEDULED: <2017-04-30 Sun>
+:PROPERTIES:
+:ID:       01815e4d-7bf6-473c-a818-f5a4f3568967
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-04-26 Wed 23:44]
+:END:
+Definition of [[https://en.wikipedia.org/wiki/Preadditive_category][preadditive category]]
+
+*** Definition
+A category satisfiying
+
+ * every $hom(a,b)$ is an *abelian group*.
+ * composition is *bilinear* with the group operation:
+   $f(g+h) = fg+hg$ y $h(f+g) = hf+hg$.
+
+* Algebra
+* Analysis
+* Topology
+* Other
