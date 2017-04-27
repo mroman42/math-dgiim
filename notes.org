@@ -8283,6 +8283,131 @@ Nótese que esto se expande a las matrices en el caso finito-dimensional.
 **** Referencias
 bibliographystyle:unsrt
 bibliography:math.bib
+*** Categorías abelianas
+**** Objeto nulo
+#+begin_definition
+En una categoría, un *objeto nulo* es aquel que es a la vez inicial y final..
+#+end_definition
+
+Nótese que no todas las categorías tienen por qué tener un objeto nulo.
+La categoría $\mathtt{Set}$, por ejemplo, tiene objetos inicial y final no isomorfos.
+
+#+begin_definition
+En una categoría con objeto nulo llamamos *morfismo cero* entre dos
+objetos, $0_{a,b}\colon a \to b$, al que resulta de componer el único morfismo $a \to 0$ con 
+el único morfismo $0 \to b$.
+#+end_definition
+
+**** Núcleos y conúcleos
+#+begin_definition
+En una categoría con objeto nulo, se define el *núcleo* de un morfismo
+$f \colon a \to b$ como un morfismo $k \colon \mathrm{ker}(f) \to a$ tal que $f\circ k = 0$ y universal respecto
+a esa propiedad; es decir, para cualquier otro $h$ cumpliendo las propiedades,
+se tiene el diagrama
+
+\[\begin{tikzcd}
+c \dar[dashed]{\exists! h'}\ar[bend right=90,swap]{dd}{h}\arrow[bend left=45]{ddr}{0} &   \\
+\mathrm{ker}(f) \dar{i}\drar{0} &   \\
+a\rar{f} & b \\
+\end{tikzcd}\]
+.
+#+end_definition
+
+De otra forma, podríamos definirlo como el *ecualizador* del morfismo $f$ con
+el morfismo cero, como el universal respecto al diagrama
+
+\[\begin{tikzcd} \mathrm{ker}(f) \rar{k} & 
+a \rar[bend left]{f}\rar[bend right,swap]{0} & b
+\end{tikzcd},\]
+
+y por tanto, es un límite finito y es único salvo isomorfismo. 
+
+#+begin_definition
+En una categoría con objeto nulo, se define el *conúcleo* de manera dual
+al núcleo con
+
+\[\begin{tikzcd}
+c \dar[dashed]{\exists! h'}\ar[bend right=90,swap]{dd}{h}\arrow[bend left=45]{ddr}{0} &   \\
+\mathrm{ker}(f) \dar{i}\drar{0} &   \\
+a\rar{f} & b \\
+\end{tikzcd}\]
+#+end_definition
+
+***** TODO Es inyectivo y por tanto un subobjeto
+***** TODO Ejemplos
+**** Categorías preaditivas
+#+begin_definition
+Una *categoría preaditiva* es aquella en la que cada conjunto de morfismos
+$\mathrm{Hom}(a,b)$ es un grupo abeliano y la composición es bilinear respecto a la
+operación de grupo.
+#+end_definition
+
+#+begin_proposition
+Para un objeto en una categoría preaditiva, $z \in {\cal A}$, equivalen:
+
+  1) $z$ es inicial.
+  2) $z$ es final.
+  3) $\mathrm{id}_z$ es el elemento neutro de $\mathrm{hom}(z,z)$.
+  4) $\mathrm{hom}(z,z)$ es el grupo trivial.
+#+end_proposition
+#+begin_proof
+#+end_proof
+
+**** Categorías abelianas
+#+begin_definition
+Una *categoría abeliana* es una categoría preaditiva cumpliendo que
+
+ 1) tiene un objeto nulo.
+ 2) tiene biproductos finitos.
+ 3) todo morfismo tiene núcleo y conúcleo.
+ 4) todo monomorfismo es núcleo y todo epimorfismo es conúcleo.
+#+end_definition
+
+***** Factorización de un morfismo
+#+begin_proposition
+En una categoría abeliana, cada morfismo se factoriza como $f = m\circ e$,
+donde $m = \mathrm{ker}(\mathrm{coker}(f))$ y $e = \mathrm{coker}(\mathrm{ker}(f))$.
+
+Además, esta factorización cumple que dada cualquier otra factorización
+de la forma $f' = m'e'$ con morfismos de la forma
+
+\[\begin{tikzcd}
+\cdot \rar{f}\dar[swap]{g} & \cdot \dar{h} \\
+\cdot \rar[swap]{f'} & \cdot
+\end{tikzcd}\]
+
+define un único $k$ cumpliendo
+
+\[\begin{tikzcd}
+\cdot \arrow[bend left]{rr}{f}\dar[swap]{g} \rar{e}& 
+\cdot\rar{m}\dar{k} & \cdot \dar{h} \\
+\cdot \arrow[bend right,swap]{rr}{f'} \rar{e'} & \cdot\rar{m'} & \cdot
+\end{tikzcd}\]
+#+end_proposition
+#+begin_proof
+#+end_proof
+
+***** Exactitud
+#+begin_definition
+Un par de morfismos componibles es *exacto* en el objeto que comparten
+cuando $\operatorname{im} f = \operatorname{ker} g$. Equivalentemente, cuando $\operatorname{coker} f = \operatorname{coim} g$.
+#+end_definition
+
+**** Resultados en categorías abelianas
+#+begin_definition
+En una categoría abeliana, un *complejo de cadenas* es una secuencia
+
+\[\begin{tikzcd}
+\dots \rar &
+c_{n+1} \rar{\partial_{n+1}} &
+c_n \rar{\partial_n} &
+c_{n-1} \rar &
+\dots
+\end{tikzcd}\]
+
+cumpliendo que $\partial_n\partial_{n+1} = 0$.
+#+end_definition
+
 * Empresa y Sociedad
 ** Detalles de la asignatura
 Matilde Ruiz, departamento de Organización de Empresas.
