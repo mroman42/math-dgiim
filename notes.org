@@ -7740,6 +7740,7 @@ cuando $\operatorname{im} f = \operatorname{ker} g$. Equivalentemente, cuando $\
 #+end_definition
 
 **** Resultados en categorías abelianas
+***** Complejos de cadenas
 #+begin_definition
 En una categoría abeliana, un *complejo de cadenas* es una secuencia
 
@@ -7754,6 +7755,124 @@ c_{n-1} \rar &
 cumpliendo que $\partial_n\partial_{n+1} = 0$.
 #+end_definition
 
+***** Secuencias exactas cortas
+#+begin_definition
+Un morfismo de secuencias exactas cortas está formado por tres morfismos
+$f,g,h$ que hacen conmutar el diagrama
+
+\[\begin{tikzcd}
+0 \rar& 
+\cdot \rar{m}\dar{f}& 
+\cdot \rar{e}\dar{g}& 
+\cdot \rar\dar{h}& 
+0 \\
+0 \rar& 
+\cdot \rar{m'}& 
+\cdot \rar{e'}& 
+\cdot \rar& 
+0 & .\\
+\end{tikzcd}\]
+
+Las secuencias exactas cortas de una categoría abeliana $A$ con estos 
+morfismos forman la categoría $\mathtt{Ses}(A)$, que se hace preaditiva sumando
+los tres componentes de cada morfismo.
+#+end_definition
+
+***** Manipulación elemental en categorías abelianas
+#+begin_proposition
+Si dados dos morfismos $f,g$ hacia $c$ calculamos su producto fibrado
+(/pullback/) tendremos que $f$ epimorfismo nos da $f'$ epimorfismo en
+
+\[\begin{tikzcd}
+s\rar{f'} \dar[swap]{g'} & d \dar{g} \\
+b\rar{f} & c
+\end{tikzcd}\]
+
+donde además, el núcleo de  $f$ factoriza como $\mathrm{ker}(f) = g'\circ \mathrm{ker}(f')$.
+#+end_proposition
+#+begin_proof
+El producto fibrado se construye formando la secuencia exacta
+
+\[\begin{tikzcd}
+0\rar&s\rar{m}&b\oplus d\rar{fp_1-gp_2}& c
+\end{tikzcd}\]
+
+y tomando $g' = p_1m$ y $f'=p_2m$. Probaremos que $fp_1-gp_2$ es un
+epimorfismo, para lo que basta comprobar que si $h(fp_1-gp_2) = 0$
+entonces
+
+\[
+0 = h(fp_1-gp_2)i_1 = hfp_1i_1 = hf,
+\]
+
+y por ser epimorfismo $f$, $h = 0$. Ahora probaremos que $f'$ es
+epimorfismo; si $uf'=up_2m=0$, por exactitud, es de la forma
+$up_2 = u'(fp_1-gp_2)$. Ahora tenemos
+
+\[
+0 = up_2i_1 = u'f
+\]
+
+llegándose a $u'=0$ por ser $f$ epimorfismo.
+#+end_proof
+
+#+begin_definition
+Definimos un miembro de $a$ como un morfismo con codominio $a$. Existe
+una equivalencia $x \equiv y$ entre dos miembros cuando existen epimorfismos
+$u,v$ tales que $xu=yv$.
+#+end_definition
+
+#+begin_theorem
+
+#+end_theorem
+
+#+begin_proposition
+En cualquier categoría abeliana
+
+ * $f \colon a \to b$ es /monomorfismo/ ssi para $x \in a$, $f(x) \equiv 0 \implies x \equiv 0$.
+ * $g\colon b \to c$ es /epimorfismo/ ssi para $z\in c$, existe $y \in b$ con $g(y) \equiv z$.
+ * $h\colon r \to s$ es /nulo/ ssi para $x \in r$, $hx \equiv 0$.
+#+end_proposition
+
+***** Lema de los cinco
+#+begin_theorem
+En un diagrama conmutativo con filas exactas
+
+\[\begin{tikzcd}
+a_1 \rar{g_1} \dar{f_1} & 
+a_2 \rar{g_2} \dar{f_2} &
+a_3 \rar{g_3} \dar{f_3} & 
+a_4 \rar{g_4} \dar{f_4} & 
+a_5 \dar{f_5} \\
+b_1 \rar{h_1} &
+b_2 \rar{h_2} &
+b_3 \rar{h_3} &
+b_4 \rar{h_4} &
+b_5 & ,
+\end{tikzcd}\]
+
+si $f_1,f_2,f_4,f_5$ son isomorfismos, $f_3$ es isomorfismo.
+#+end_theorem
+
+***** Lema de la serpiente
+#+begin_theorem
+Dado un morfismo de secuencias exactas cortas $f,g,h$; existe un morfismo
+$\delta \colon \operatorname{ker} h \to \operatorname{coker} f$ tal que la secuencia siguiente es exacta
+
+\[\begin{tikzcd}
+0 \rar &
+\mathrm{ker}(f) \rar{m} &
+\mathrm{ker}(g) \rar{e} &
+\mathrm{ker}(h) \arrow[out = 0,in =180,swap]{dll}{\delta} \\&
+\mathrm{coker}(f) \rar{m'} &
+\mathrm{coker}(g) \rar{e'} &
+\mathrm{coker}(h) \rar &
+0
+\end{tikzcd}\]
+#+end_theorem
+
+**** Referencias
+# MacLane
 * Empresa y Sociedad
 ** Detalles de la asignatura
 Matilde Ruiz, departamento de Organización de Empresas.
