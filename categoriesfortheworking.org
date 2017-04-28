@@ -541,3 +541,20 @@ Describe quotients of a ring by a two-sided ideal by universality.
 Show that the construction of the polynomial ring $K[x]$ in a indeterminate $x$
 over a commutative ring $K$ is a universal construction.
 #+end_statement
+
+** 3.2. Yoneda Lemma
+*** TODO Exercise 1
+#+begin_statement
+Let functors $K,K' \colon D \to \mathtt{Set}$ have representations $\left\langle r,\psi \right\rangle$ and $\left\langle r',\psi' \right\rangle$, 
+respectively. Prove that to each natural transformation $\tau\colon K \overset{\cdot}\to K'$,
+there is a unique morphism $h \colon r' \to r$ of $D$ such that
+
+\[
+\tau\circ \psi = \psi' \circ D(h,-) \colon D(r,-) \overset{\cdot}\to K'.
+\]
+#+end_statement
+
+*** TODO Exercise 2
+#+begin_statement
+State the dual of the Yoneda Lemma ($D$ replaced by $D^{op}$).
+#+end_statement
