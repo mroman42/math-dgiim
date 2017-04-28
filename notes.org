@@ -7671,7 +7671,34 @@ Para un objeto en una categoría preaditiva, $z \in {\cal A}$, equivalen:
   4) $\mathrm{hom}(z,z)$ es el grupo trivial.
 #+end_proposition
 #+begin_proof
+Si $z$ es inicial o final, se tiene un único $\mathrm{id}_z = 0$, que da el grupo trivial.
+Si se tiene $\mathrm{id}_z=0$, entonces para cualquier morfismo $f\colon a \to z$, se tendrá
+
+\[
+f = \mathrm{id}_z \circ f = 0\circ f = 0
+\]
+
+por la bilinealidad de la composición. Dualmente se verá que es inicial.
 #+end_proof
+
+***** Biproductos
+#+begin_definition
+Un *biproducto* para dos objetos en una categoría preaditiva $a,b \in A$ es un
+$c$ con morfismos
+
+\[\begin{tikzcd}
+a \rar[bend right,swap]{i_{1}} &
+c \rar[bend left]{p_2} \lar[bend right,swap]{p_1} &
+b \lar[bend left]{i_2}
+\end{tikzcd}\]
+
+cumpliendo las identidades $p_1i_1 = \mathrm{id}_a$, $p_2i_2 = \mathrm{id}_b$, y $i_1p_1 + i_2p_2 = \mathrm{id}_{c}$.
+#+end_definition
+
+#+begin_theorem
+Dos objetos en una categoría preaditiva $a,b \in A$ tienen producto (o coproducto) 
+si y sólo si tienen un biproducto, que será a su vez producto y coproducto.
+#+end_theorem
 
 **** Categorías abelianas
 #+begin_definition
@@ -7686,17 +7713,16 @@ Una *categoría abeliana* es una categoría preaditiva cumpliendo que
 ***** Factorización de un morfismo
 #+begin_proposition
 En una categoría abeliana, cada morfismo se factoriza como $f = m\circ e$,
-donde $m = \mathrm{ker}(\mathrm{coker}(f))$ y $e = \mathrm{coker}(\mathrm{ker}(f))$.
-
-Además, esta factorización cumple que dada cualquier otra factorización
+donde $m = \mathrm{ker}(\mathrm{coker}(f))$ y $e = \mathrm{coker}(\mathrm{ker}(f))$. 
+Además, esta factorización cumple que, dada cualquier otra factorización
 de la forma $f' = m'e'$ con morfismos de la forma
 
 \[\begin{tikzcd}
 \cdot \rar{f}\dar[swap]{g} & \cdot \dar{h} \\
-\cdot \rar[swap]{f'} & \cdot
+\cdot \rar[swap]{f'} & \cdot &,
 \end{tikzcd}\]
 
-define un único $k$ cumpliendo
+existe un único $k$ cumpliendo
 
 \[\begin{tikzcd}
 \cdot \arrow[bend left]{rr}{f}\dar[swap]{g} \rar{e}& 
