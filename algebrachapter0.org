@@ -7,7 +7,104 @@
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | CHECK
 
+* II. Groups, first encounter
+** 1. Definition of group
+*** Exercise 1
+#+begin_statement
+Write a careful proof that every group is the group of isomorphisms of a
+grupoid. In particular, every group is the group of automorphisms of some
+object in some category.
+#+end_statement
 
+Given a group $(G,\bullet)$, we can define an object $G$ with morphisms the elements
+of the group. Composition will be the binary operation of the group, and we
+can check, using the group properties, that category axioms hold
+
+ 1. *Identity*, there is an identity element on $G$ which acts as the identity
+    morphism: $e \circ a = a = a \circ e$.
+ 2. *Associativity* holds directly: $a \circ (b\circ c) = (a \circ b)\circ c$.
+
+This only object defines a category which is also a grupoid, as every arrow
+has an *inverse* by the last property of groups: every element of the group has
+an inverse.
+
+*** Exercise 2
+#+begin_statement
+Consider the 'sets of numbers' listed in 1.1, and decide which are made into 
+groups by conventional operations such as $+$ and $\cdot$. Even if the answer is negative,
+see if variations on the definition of these sets lead to groups.
+#+end_statement
+
+**** The empty set
+It is not a group, as it has no identity.
+
+**** Naturals
+They form no group with addition, as not every element has an inverse.
+
+**** Integers
+They are a commutative group with the addition.
+
+**** Rational numbers
+They are a group with addition, and also a group with multiplication if we
+consider $0$ out of the group.
+
+**** Real numbers
+They follow the same logic as the rationals.
+
+**** Complex numbers
+Same logic as the rationals.
+
+*** Exercise 13
+#+begin_statement
+Give an example showing that $|gh|$ is not necessarily equal to $\mathrm{lcm}(|g|,|h|)$, even
+if $g$ and $h$ commute.
+#+end_statement
+
+In $(\mathbb{Z}/\mathbb{Z}_4,+)$, we have $\mathrm{lcm}(|1|,|1|) = |1| = 4$, but $|1+1| = 2$.
+
+*** Exercise 14
+#+begin_statement
+As a counterpoint to [[*Exercise 13][Exercise 13]], prove that if $g$ and $h$ commute, 
+and $\mathrm{gcd}(|g|,|h|) = 1$, then $|gh| = |g||h|$.
+#+end_statement
+
+We know that $|gh| = N \mid |g||h|$. If we divide to obtain $g^{N} = (h^{-1})^{N}$, we have
+
+ * $1 = \left( g^{-1} \right)^{N|g|} = h^{N|g|}$
+ * $1 = \left( h^{-1} \right)^{N|h|} = g^{N|h|}$
+
+and then, $|h| \mid N|g|$ and they are coprimes, so $|h| \mid N$. Likewise, $|g| \mid N$.
+Finally, $|gh| = \mathrm{lcm}(|h|,|g|) \mid N$.
+
+** 2. Examples of groups
+*** Exercise 2
+#+begin_statement
+Prove that if $d \leq n$, then $S_n$ contains elements of order $d$.
+#+end_statement
+
+The element $(1\;2\;\dots\;d)$ has order $d$.
+
+*** TODO Exercise 5
+** 3. The category Grp
+*** Exercise 1
+#+begin_statement
+Let $\varphi\colon G \to H$ be a morphism in a category $C$ with products. Explain why there
+is a unique morphism
+
+\[(\varphi\times\varphi)\colon G\times G \to H \times H.\]
+#+end_statement
+
+The real morphism is $(\varphi\circ \pi_1 \times \varphi \circ \pi_2)$, using the projections from $C$ as presented
+in the following diagram
+
+\[\begin{tikzcd}[column sep=small,row sep=tiny]
+& G \times G\drar\dlar\ar[dashed]{dd}{\varphi\times\varphi} & \\
+G\ar{dd} & & G\ar{dd} \\
+& H \times H\drar\dlar & \\
+H & & H \\
+\end{tikzcd}\]
+
+*** TODO Exercise 8
 * III. Rings and modules
 ** 5. Modules over a ring
 *** 4. Simple modules. Lema de Schur
