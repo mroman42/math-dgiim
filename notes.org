@@ -7601,21 +7601,20 @@ el único morfismo $0 \to b$.
 
 **** Núcleos y conúcleos
 #+begin_definition
-En una categoría con objeto nulo, se define el *núcleo* de un morfismo
-$f \colon a \to b$ como un morfismo $k \colon \mathrm{ker}(f) \to a$ tal que $f\circ k = 0$ y universal respecto
-a esa propiedad; es decir, para cualquier otro $h$ cumpliendo las propiedades,
-se tiene el diagrama
+En una categoría con objeto nulo, el *núcleo* de un morfismo
+$f \colon a \to b$ es un morfismo $k \colon \mathrm{ker}(f) \to a$ tal que $f\circ k = 0$ y que es universal 
+respecto a esa propiedad; es decir, para cualquier otro $h$ cumpliendo 
+que $f \circ h = 0$, se tiene el diagrama
 
 \[\begin{tikzcd}
 c \dar[dashed]{\exists! h'}\ar[bend right=90,swap]{dd}{h}\arrow[bend left=45]{ddr}{0} &   \\
-\mathrm{ker}(f) \dar{i}\drar{0} &   \\
-a\rar{f} & b \\
+\mathrm{ker}(f) \dar{k}\drar{0} &   \\
+a\rar{f} & b & .\\
 \end{tikzcd}\]
-.
 #+end_definition
 
 De otra forma, podríamos definirlo como el *ecualizador* del morfismo $f$ con
-el morfismo cero, como el universal respecto al diagrama
+el morfismo cero, es decir, como el universal respecto al diagrama
 
 \[\begin{tikzcd} \mathrm{ker}(f) \rar{k} & 
 a \rar[bend left]{f}\rar[bend right,swap]{0} & b
@@ -7624,22 +7623,42 @@ a \rar[bend left]{f}\rar[bend right,swap]{0} & b
 y por tanto, es un límite finito y es único salvo isomorfismo. 
 
 #+begin_definition
-En una categoría con objeto nulo, se define el *conúcleo* de manera dual
-al núcleo con
+En una categoría con objeto nulo, se define el *conúcleo*, $c \colon b \to \mathrm{coker}(f)$
+de manera dual al núcleo, como universal según el siguiente diagrama 
+conmutativo
 
 \[\begin{tikzcd}
-c \dar[dashed]{\exists! h'}\ar[bend right=90,swap]{dd}{h}\arrow[bend left=45]{ddr}{0} &   \\
-\mathrm{ker}(f) \dar{i}\drar{0} &   \\
-a\rar{f} & b \\
+c  &   \\
+\mathrm{coker}(f)  \uar[dashed]{\exists! h'} &   \\
+a \ar[bend left=90]{uu}{0}\uar{0} \rar{f} & b \ular[swap]{c} \arrow[bend right=45,swap]{uul}{h} \\
 \end{tikzcd}\]
 #+end_definition
 
-***** TODO Es inyectivo y por tanto un subobjeto
-***** TODO Ejemplos
+***** Propiedades del núcleo
+#+begin_proposition
+Cualquier núcleo es un monomorfismo. Dualmente, cualquier conúcleo es
+un epimorfismo.
+#+end_proposition
+#+begin_proof
+Si se tienen dos $m,n\colon d \to \mathrm{coker}(f)$, entonces sabemos que $m \circ k$ y $n \circ k$,
+por propiedad universal, hacen que exista un único $h \circ k = m\circ k=n\circ k$.
+Debe tenerse por tanto $h=m=n$.
+#+end_proof
+
+Nótese que el converso no tiene por qué ser cierto. En general, no todo
+monomorfismo es núcleo ni todo epimorfismo es conúcleo.
+
+***** Ejemplo: grupos
+En la categoría $\mathtt{Grp}$, el objeto cero es el grupo trivial. El núcleo de
+cualquier morfismo es lo que llamamos usualmente núcleo, como se puede
+comprobar trivialmente. Nótese que todos los núcleos son normales en un 
+grupo pero que no todas las inclusiones lo son como subgrupo normal, por 
+lo que no todos los monomorfismos serán aquí núcleos.
+
 **** Categorías preaditivas
 #+begin_definition
 Una *categoría preaditiva* es aquella en la que cada conjunto de morfismos
-$\mathrm{Hom}(a,b)$ es un grupo abeliano y la composición es bilinear respecto a la
+$\mathrm{hom}(a,b)$ es un grupo abeliano y la composición es bilinear respecto a la
 operación de grupo.
 #+end_definition
 
