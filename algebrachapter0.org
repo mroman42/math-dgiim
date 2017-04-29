@@ -140,17 +140,32 @@ We know that $|gh| = N \mid |g||h|$. If we divide to obtain $g^{N} = (h^{-1})^{N
 and then, $|h| \mid N|g|$ and they are coprimes, so $|h| \mid N$. Likewise, $|g| \mid N$.
 Finally, $|gh| = \mathrm{lcm}(|h|,|g|) \mid N$.
 
-** 2. Examples of groups
-*** Exercise 2
+*** Exercise II.1.15
+#+begin_statement
+Let $G$ a commutative group, and let $g \in G$ be an element of maximal /finite/
+order: that is, such that if $h \in G$ has finite order then $|h| \leq |g|$. Prove that
+in fact if $h$ has finite order in $G$ then $|h|$ divides $|g|$.
+#+end_statement
+
+If $|h|$ does not divide $|g|$, then there is a prime $p$ such that
+
+ * $|h| = p^{a+b}m$
+ * $|g| = p^bn$, with $\mathrm{gcd}(n,p) = 1$.
+
+then we know that $|h^m| = p^{a+b}$ and $|g^{p^b}| = n$. Using [[*Exercise II.1.14][exercise 14]] (we are in a
+commutative group), we know that $|g^{p^b}h^m| = p^{a+b}n$, contradicting maximality.
+
+** II.2. Examples of groups
+*** Exercise II.2.2
 #+begin_statement
 Prove that if $d \leq n$, then $S_n$ contains elements of order $d$.
 #+end_statement
 
 The element $(1\;2\;\dots\;d)$ has order $d$.
 
-*** TODO Exercise 5
-** 3. The category Grp
-*** Exercise 1
+*** TODO Exercise II.2.5
+** II.3. The category Grp
+*** Exercise II.3.1
 #+begin_statement
 Let $\varphi\colon G \to H$ be a morphism in a category $C$ with products. Explain why there
 is a unique morphism
@@ -177,6 +192,56 @@ $x^2=e$, $y^3=e$. Prove that $G$ is a coproduct of $C_2$ and $C_3$ in $\mathtt{G
 Given any two morphisms $f\colon C_2 \to H$ and $g \colon C_3 \to H$, we define $h(x) = f(1)$ 
 and $h(y) = g(1)$ as it should be to make the diagram commutative. There is
 only a possible way to extend this morphism to $h \colon G \to H$.
+
+** II.4. Group homomorphisms
+*** Exercise II.4.3
+#+begin_statement
+Prove that a group of order $n$ is isomorphic to $\mathbb{Z}/n\mathbb{Z}$ if and only if it
+contains an element of order $n$.
+#+end_statement
+
+If it contains $a$ of order $n$, then $e,a,a^2,\dots,a^{n-1}$ are $n$ different elements.
+As the group is of order $n$, they constitute the whole group.
+
+*** Exercise II.4.8
+#+begin_statement
+Let $G$ be a group, and $g \in G$. Prove that the function $\gamma_g \colon G \to G$ defined
+by $\gamma_g(a) = gag^{-1}$ is an automorphism of $G$. Prove that the function $G \to \mathrm{Aut}(G)$
+defined by $g \mapsto \gamma_g$ is a homomorphism. Prove that this homomorphism is trivial
+if and only if $G$ is abelian.
+#+end_statement
+
+The function $\gamma_g$ is trivially a homomorphism, and it has the inverse $\gamma_{g^{-1}}$.
+We can check that $g\mapsto \gamma_g$ is a homomorphism, as
+
+\[
+\gamma_h\gamma_g(a) = hga(hg)^{-1} = \gamma_{hg}(a).
+\]
+
+If the homomorphism is trivial, $a = gag^{-1}$ for any $a,g \in G$; this is 
+equivalent to abelianity.
+
+*** Exercise II.4.11
+#+begin_statement
+In due time, we will prove the easy fact that if $p$ is a prime integer then
+the equation $x^d=1$ can have at most $d$ solutions in $\mathbb{Z}/p\mathbb{Z}$. Assume this fact,
+and prove that the multiplicative group $G = (\mathbb{Z}/p\mathbb{Z})^{\ast}$ is cyclic.
+#+end_statement
+
+If the group is not cyclic there is no element of order $p-1$. So the element
+of maximal order has order $d < p-1$, and every other element has a [[*Exercise II.1.15][divisor
+of this order]] as its order. Then the equation $x^d = 1$ has more than $p-1$ roots,
+contradicting the assumption.
+
+*** TODO Exercise II.4.16
+#+begin_statement
+Prove /Wilson's theorem/: a positive integer $p$ is prime if and only if
+
+\[(p-1)! \equiv -1  \mod p.
+\]
+#+end_statement
+
+We are multiplying all elements of $(\mathbb{Z}/p\mathbb{Z})^{\ast} \cong (\mathbb{Z}/(p-1)\mathbb{Z})$
 
 * III. Rings and modules
 ** 5. Modules over a ring
