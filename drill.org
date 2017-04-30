@@ -75,6 +75,32 @@ A category satisfiying
    $f(g+h) = fg+hg$ y $h(f+g) = hf+hg$.
 
 * Algebra
+** Finite order divides maximal order in abelian groups              :drill:
+Let $g \in G$ *abelian* be an element of maximal /finite/ order: if $h \in G$ 
+has finite order, $|h| \leq |g|$. Prove that if $h$ has finite order in $G$ 
+then $|h|$ divides $|g|$.
+
+*** Proof
+If $|h|$ does not divide $|g|$, then there is a prime $p$ such that
+
+ * $|h| = p^{a+b}m$
+ * $|g| = p^bn$, with $\mathrm{gcd}(n,p) = 1$.
+
+then we know that $|h^m| = p^{a+b}$ and $|g^{p^b}| = n$. Using that we are in a
+commutative group, we know that $|g^{p^b}h^m| = p^{a+b}n$, contradicting 
+maximality.
+
+** Order of commutative products                                     :drill:
+If $g$ and $h$ commute, and $\mathrm{gcd}(|g|,|h|) = 1$, then $|gh| = |g||h|$.
+
+*** Proof
+We know $|gh| = N \mid |g||h|$, and
+
+ * $1 = \left( g^{-1} \right)^{N|g|} = h^{N|g|}$
+ * $1 = \left( h^{-1} \right)^{N|h|} = g^{N|h|}$
+
+and then, $|h| \mid N|g|$ and they are coprimes, so $|h| \mid N$. Likewise, $|g| \mid N$.
+Finally, $|gh| = \mathrm{lcm}(|h|,|g|) \mid N$.
 * Analysis
 * Topology
 * Other
