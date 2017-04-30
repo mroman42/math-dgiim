@@ -243,6 +243,55 @@ Prove /Wilson's theorem/: a positive integer $p$ is prime if and only if
 
 We are multiplying all elements of $(\mathbb{Z}/p\mathbb{Z})^{\ast} \cong (\mathbb{Z}/(p-1)\mathbb{Z})$
 
+** II.5. Free groups
+*** Exercise II.5.3
+#+begin_statement
+Use the universal property of free groups to prove that the map $j \colon A \to F(A)$ is
+injective, for all sets $A$.
+#+end_statement
+
+If it were not injective, with $j(a) = j(b)$, every $f \colon A \to G$ should follow 
+$f(a)=f(b)$, but given any two $a,b$ we can define $f \colon A \to \mathbb{Z}\times\mathbb{Z}$ by sending
+$f(a) = (1,0)$, $f(b) = (0,1)$, and every other element to $0$.
+
+*** Exercise II.5.6
+#+begin_statement
+Prove that the group $F(\left\{ x,y \right\})$ is a coproduct $\mathbb{Z}\ast\mathbb{Z}$ of $\mathbb{Z}$ by itself in the
+category $\mathtt{Grp}$.
+#+end_statement
+
+Given $d \colon \left\{ a,b \right\} \to G$, we use the coproduct inclusions on $\mathtt{Set}$ to define 
+individual arrows
+
+\[\begin{tikzcd}[column sep=tiny]
+& G & \\
+& \left\{ a,b \right\}\uar{d} & \\
+\left\{ a \right\} \arrow[bend left]{uur} \urar{i} & & 
+\left\{ b \right\} \arrow[bend right]{uul} \ular[swap]{i}
+\end{tikzcd}\]
+
+and then simply use the universal property of the free modules of one
+element as follows
+
+\[\begin{tikzcd}[column sep=small]
+& G & \\
+& \mathbb{Z}\ast\mathbb{Z} \uar[dashed] & \\
+\mathbb{Z}\ar{ur}\ar[dashed,bend left]{uur} & & 
+\mathbb{Z}\ar{ul}\ar[dashed,bend right]{uul} \\
+& \left\{ a,b \right\} \ar[dashed]{uu} &\\
+\left\{ a \right\}\urar \arrow[bend left=90]{uuuur}  \ar{uu} &&
+\left\{ b \right\}\ular \arrow[bend right=90]{uuuul} \ar{uu}
+\end{tikzcd}\]
+
+*** Exercise II.5.7
+#+begin_statement
+Extend the result of [[*Exercise II.5.6][Exercise 5.6]] to free groups $F(\left\{ x_1,\dots,x_n \right\})$ and to free
+/abelian/ groups $F^{ab}(\left\{ x_1,\dots,x_n \right\})$.
+#+end_statement
+
+The same argument can be repeated $n$ times to obtain $\mathbb{Z}\ast \overset{n}\dots \ast\mathbb{Z}$ as free group.
+As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots\oplus\mathbb{Z}$ is the free group.
+
 * III. Rings and modules
 ** 5. Modules over a ring
 *** 4. Simple modules. Lema de Schur
