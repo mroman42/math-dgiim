@@ -1407,6 +1407,1488 @@ La diferencial la definimos mediante
 1 \oplus \overline{a_0} \oplus \dots \oplus \overline{a_r}.
 \]
 
+* Categories for the working mathematician
+** 1. Categories, Functors and Natural Transformations
+*** 1.1. Axioms for categories
+**** Metagraph
+Objects $a,b,c,\dots$ and arrows $f,g,h,\dots$, with two operations:
+
+  - *Domain*, $dom(f) = a$
+  - *Codomain*, $cod(f) = b$
+
+That we write as $f : a \to b$.
+
+**** Metacategory
+A metagraph with two additional operations:
+
+  - *Identity*: $id_a : a \to a$
+  - *Composition*: for a pair of arrows $dom(g) = cod(f)$, it defines a
+    new arrow $g \circ f : dom(f) \to cod(g)$.
+
+    \[\begin{tikzcd}
+    & b \drar{g} & \\
+    a \arrow{rr}{g\circ f} \urar{f} & & c
+    \end{tikzcd}\]
+
+Subject to the following axioms:
+
+  - *Associativity*: Given objects and arrows in this configuration:
+    
+    $a \overset{f}\to b \overset{g}\to c \overset{k}\to d$
+
+    We have the equality: $k \circ (g \circ f) = (k \circ g) \circ f$.
+
+  - *Unit law*: composition with the identity arrow is neutral.
+
+***** Metacategory of Sets
+***** Metacategory of Groups
+***** Arrow-only axioms
+*** 1.2. Categories
+**** Category
+An interpretation of a metacategory within set theory.
+
+***** Diagram scheme (directed graphs)
+A category is a graph with identity and composition functions.
+
+**** Examples of categories
+***** Basic examples
+****** The empty category
+****** 1, the category with one object and one identity
+****** 2, the category a -> b with two objects
+****** 3, a triangle category
+****** Parallel arrows
+
+***** Discrete categories
+Where every arrow is an identity.
+
+***** Monoids and groups
+A category with one object.
+
+***** Matrices
+Objects: positive integers.
+Arrows: $m\times n$ matrices.
+
+***** Sets of sets
+***** Preorder
+****** Partial orders
+****** Linear orders
+***** Ordinal numbers
+***** Simplicial category
+***** Large categories
+*** 1.3. Functors
+**** Functor
+A morphism of categories. A functor $T : {\cal C} \to {\cal B}$ is given by:
+
+  - The *object function*, $T : Obj({\cal C}) \to Obj({\cal B})$.
+  - The *arrow function*, $T : (c \to c') \to (Tc \to Tc')$
+
+With the axioms:
+
+  - $T(1_c) = 1_{Tc}$
+  - $T(f\circ g) = Tg \circ Tf$
+
+**** Examples
+***** The powerset functor
+***** Homology groups
+***** General linear group
+***** Commutators
+***** Forgetful functors
+**** Composition of functors, the metacategory Cat
+We can define composition of functors, and also functors as isomorphisms.
+
+***** Isomorphisms
+A functor is an isomorphism iff there is a functor $S : B \to C$ for 
+which both composites are the identity $S \circ T = Id = T \circ S$.
+
+***** Full functor
+Every $g : c \to c'$ of $B$ is of the form $Tf : Tc \to Tc'$. In other words,
+the arrow function (the map!) is injective.
+
+***** Faithful functor
+The equality $Tf_1 = Tf_2$ implies $f_1 = f_2$. In other words, the arrow
+function is surjective.
+
+***** Subcategories
+A subcategory gives us an inclusion functor.
+
+*** 1.4. Natural transformations
+**** Natural transformation
+Given two functors $S,T : C \to B$, a natural transformation $\tau : S \xrightarrow{.} T$
+is a function assigning every $c \in C$ an arrow $Sc \to Tc$ and yielding
+a commutative diagram:
+
+\[\begin{tikzcd}
+c \dar{f} & & Sc \rar{\tau_c}\dar{Sf} & Tc \dar{Tf} \\
+c' & & Sc' \rar{\tau_{c'}} & Tc'
+\end{tikzcd}\]
+
+We say that $\tau_c$ is natural in $c$.
+
+***** Translation of pictures
+A natural transformation translates a diagram from $S$ to $T$.
+
+\[\begin{tikzcd}
+a \arrow{dd}{h}\drar{f} &   & & S a \arrow{dd}{S h}\drar{S f} \arrow{rrr}{\tau a} &     & & T a \arrow{dd}{T h}\drar{T f} &     \\
+  & b \dlar{g} & &     & S b \dlar{S g} \arrow{rrr}{\tau b} & &     & T b \dlar{T g} \\
+c &   & & S c \arrow{rrr}{\tau c} &     & & T c &     \\
+\end{tikzcd}\]
+
+**** Natural isomorphisms
+A natural transformation is a morphism of functors. We call 
+*natural isomorphism* to a natural transformation where every 
+component $\tau_c$ is invertible. We write it as:
+
+$\tau : S \cong T$
+
+The inverses form another natural transformation.
+
+**** Examples
+***** Determinant
+Natural transformation between two functors
+$GL, {\cal U}() : \mathtt{CRng} \longrightarrow \mathtt{Grp}$.
+
+***** Identity and factor-commutator functor
+
+***** Double character group
+Defined as $D(G) = Hom(G, \mathbb{R}/\mathbb{Z})$, it is a contravariant functor when 
+we define $(Df) t = t \circ f$. But the twice iterated functor $D^2$ is a 
+covariant one.
+
+There is a natural transformation between $Id$ and $D^2$.
+
+\[
+\tau_G(g) t = t(g)
+\]
+
+It is easy (with lambda calculus, for example) to check that this
+diagram commutes.
+
+***** Double dual of a finite vectorial space
+
+***** Inclusion and cardinality of ordinals
+
+*** 1.5. Monics, epis and zeros
+**** Isomorphism
+An arrow $e : a \to b$ is an isomorphism if there is an arrow $e^{-1} : b \to a$
+such that $e'e = 1$ and $ee' = 1$.
+
+***** Isomorphic objects
+Two objects are isomorphic if there is an isomorphism between them.
+
+**** Monic and epi
+An arrow is *monic* if it is left cancellable, it is *epi* if it is
+right cancellable.
+
+***** Retractions and sections
+A left inverse is called a *retraction*, while a right inverse is
+called a *section*.
+
+**** Splits and idempotents
+When $gh = 1$, $g$ is a split epi, $h$ is a split monic and the composite
+$hg$ is an idempotent. An arrow is *idempotent* if $f^2 = f$, and it is said
+to split when there exist arrows $g$ and $h$ such that $f = hg$ and $gh = 1$.
+
+**** Terminal objects and initial objects
+An object $t$ is terminal if for every $a$ there is exactly one arrow $a \to t$.
+An object $s$ is initial if for every $a$ there is exactly one arrow $s \to a$.
+An object $z$ is null if it is both initial and terminal.
+
+***** Zero arrow
+There is an unique arrow $a \to z \to b$ called the *zero* arrow. Any 
+composite with it is itself a zero arrow.
+
+**** Groupoids
+A category where every arrow is invertible.
+
+***** The fundamental groupoid
+***** Group of homomorphisms
+In a groupoid, each object determines a group, $hom(x,x)$.
+If there is an arrow $f : x \to x'$, the groups $hom(x,x)$ and $hom(x',x')$
+are isomorphic under conjugation $g \mapsto fgf^{-1}$.
+
+***** Connected groupoid
+A *connected groupoid* is deteremined by a group and the set of
+all objects.
+
+*** 1.6. Foundations
+**** Universe
+An universe is a set $U$ with the closure properties:
+
+  1. $x \in u \in U \implies x \in U$.
+  2. e$u,v \in U \implies \{u,v\},(u,v),u\times v \in U$.
+  3. $x \in U \implies {\cal P}x, \cup x \in U$.
+  4. $\omega \in U$ where $\omega = \{0,1,2,\dots\}$.
+  5. $f : a \to b$ surjective and $a \in U$, $b \subseteq U$ implies $b \in U$.
+
+**** Small sets
+Fixed an universe, we call a set $u \in U$ a *small set*. The universe is
+the set of all small sets. $\mathtt{Set}$ denotes the category of small sets.
+
+***** Small structures
+A small group is a small set with a group structure. $\mathtt{Grp}$ denotes the
+category of small groups.
+
+***** Small categories
+A category is small if the set of its arrows and objects are both small
+sets. $\mathtt{Set}$ is not a small category.
+
+*** 1.7. Large categories
+**** Abelian groups
+**** Rings
+**** Modules over a ring
+**** Bimodules
+**** Topological spaces with continuous maps
+**** Topological spaces with homotopy classes
+**** Pointed sets
+**** Binary relations
+**** Concrete categories
+*** 1.8. Hom-Sets
+**** Hom-set
+For objects $a,b \in C$, the *hom-set* is the set of all arrows between them:
+
+\[
+hom(a,b) = \{ f \mid f : a \to b \}
+\]
+
+***** Redefinition of a category
+A small category is given by:
+
+  1. Set of objects $a,b,\dots$
+  2. Hom-set between two objects $hom(a,b)$
+  3. Composition function $hom(b,c)\times hom(a,b) \to hom(a,c)$
+  4. Identity function for every object, $id \in hom(a,a)$
+
+The distributivity can be seen as commutativity of the following
+diagram:
+
+\[\begin{tikzcd}
+hom(c,d)\times hom(b,c)\times hom(a,b) \rar\dar &
+hom(b,d)\times hom(a,b) \dar \\
+hom(c,d)\times hom(a,c) \rar &
+hom(a,d)
+\end{tikzcd}\]
+
+**** Preadditive category
+A category $A$ where each hom-set $hom(a,b)$ is an additive abelian group
+for which composition is bilinear:
+
+\[
+(g+g')\circ(f+f') = g\circ f + g\circ f' + g' \circ f + g' \circ f'
+\]
+
+**** Preadditive category as an enriched category
+A preadditive category is given by:
+
+  1. Set of objects $a,b,\dots$
+  2. Hom-set, an abelian group between two objects $hom(a,b)$
+  3. A bilinear composition $hom(b,c) \otimes hom(a,b) \to hom(a,c)$
+  4. Identity morphism for every object, $\mathbb{Z} \to hom(a,a)$
+
+We can see the similitude with the definition of a category by hom-sets.
+Categories created in this way are called *enriched categories*.
+
+** 2. Constructions on categories
+*** 2.1. Duality
+**** Elementary theory of an abstract category (ETAC)
+A theory with statements involving:
+
+  - Domains: $a = dom(f)$
+  - Codomains: $b = codom(f)$
+  - Composition: $h = g \circ f$
+
+A *sentence* is a statement with all variables quantified, using
+the logical connectives and quantifiers.
+
+***** Dual of an statement
+A dual is formed by making the following replacements:
+
+  - $a = dom(f)$ changes to $a = codom(f)$
+  - $h = g \circ f$ changes to $h = f \circ g$
+  - Logic is unchanged.
+
+***** Table of dualities
+\begin{tabular}{l|r}
+Statement & Dual statement \\
+\hline
+$f : a \to b$ & $f : b \to a$ \\
+$a = \operatorname{dom} f$ & $a = \operatorname{cod} f$ \\
+$h = g \circ f$ & $h = f \circ g$ \\
+$f$ mono & $f$ epi
+\end{tabular}
+
+**** Duality principle
+The dual of each of the axioms for a category is also an axiom. Therefore,
+if $\Sigma$ is a consequence of the axioms, so is its dual statement.
+
+**** Duality and functors
+The elementary theory of one functor has the axioms of two categories
+$A,B$, and the properties of a functor $T$ between them. The duality for
+a statement involving several categories reverses the arrows in each
+category, but does not reverse the functors.
+
+*** 2.2. Contravariance and opposites
+**** Opposite category
+The objects of $C^{op}$ are the objects of $C$; and, for each arrow $f : a \to b$ of
+$C$, the corresponding $f^{op} : b \to a$ is defined with the composition:
+
+\[
+f^{op} \circ g^{op} = (g\circ f)^{op}
+\]
+
+***** Opposite functors
+If $T : C \to B$ is a functor, we can create an opposite functor
+$T^{op} : C^{op} \to B^{op}$. The assignment $C \to C^{op}$ defines a covariant functor
+$\mathtt{Cat} \to \mathtt{Cat}$.
+
+**** Contravariant functors
+A functor $S : C^{op} \to B$ can be seen as a *contravariant* functor $S : C \to B$.
+
+\[
+S(f^{op}\circ g^{op}) = (Sf^{op})(Sg^{op}) = S((g\circ f)^{op})
+\]
+
+***** Examples: Hom-sets
+For each object $a \in C$, the *contravariant hom-functor* $hom(a,-)$ and
+the *covariant hom-functor* $hom(-,a)$ are defined.
+
+***** Examples: Sheafs
+Given $X$, a topological space. Its open sets define a category by 
+inclusion, $\mathtt{Open}(X)$. Let ${\cal C}(U)$ denote the set of continuous functions
+$h : U \to \mathbb{R}$, the assignment $h \mapsto h|_V$ is a function ${\cal C}(U)\to{\cal C}(V)$ for
+each $V \subset U$; and this gives us a contravariant functor.
+
+***** Examples: R-Modules
+$\mathtt{ModR} : \mathtt{Rng} \to \mathtt{Cat}$ is a contravariant functor. If $\rho : R \longrightarrow S$ is a morphism
+of rings, given $B$ an S-module, we can define $(Mod\rho) B = B\rho$ by pull-back.
+
+*** 2.3. Products of categories
+**** Product of two categories
+Given $B,C$ two categories, we construct a category $B \times C$ with:
+
+  - Objects: pairs of objects $(b,c)$
+  - Arrows: pairs of arrows $(f,g)$
+
+and the composition is given by the composites in $B$ and $C$:
+
+\[
+(f',g') \circ (f,g) = (f' \circ f,g' \circ g)
+\]
+
+We can define projection functors $P : B\times C \to B$, $Q : B\times C \to C$. Given
+any category $D$ and two functors $B \overset{R}\longleftarrow D \overset{T}\longrightarrow C$, there is an unique 
+functor $F : D \to B\times C$ with $PF = R, QF = T$.
+
+\[\begin{tikzcd}
+& D \drar{T}\dlar[swap]{R} \dar[dashed]{\exists! F} & \\
+B & B\times C \rar[swap]{Q}\lar{P} & C
+\end{tikzcd}\]
+
+**** Product of functors
+Two functors $U : B \to B'$, $V : C\to C'$ have a product:
+
+\[
+U\times V : B\times C \to B'\times C'
+\]
+
+That can be described as the unique functor making the following
+diagram commutative:
+
+\[\begin{tikzcd}
+B \dar{U} &
+B \times C  \rar{Q}\lar[swap]{P} \dar[dashed]{U \times V}&
+C \dar{V} \\
+B' &
+B' \times C' \rar[swap]{Q'}\lar{P'}&
+C'
+\end{tikzcd}\]
+
+***** Product as a functor
+The product of categories can be seen as a functor:
+
+\[
+\times : \mathtt{Cat} \times \mathtt{Cat} \to \mathtt{Cat}
+\]
+
+***** Bifunctors
+Our definition of product category gives an automatic definition for
+a *bifunctor*, a functor of two variables.
+
+**** Bifunctor determined by its currifications
+Let $B,C,D$ be categories. For all objects $c \in C, b \in B$, let $L_c : B \to D$
+and $M_b : C \to D$ be functors such that $M_b(c) = L_c(b)$.
+
+There exists a bifuctor $S : B\times C \to D$ such that $S(-,c) = L_c$
+and $S(b,-) = M_b$ iff for every pair of arrows:
+
+\[
+M_{b'}g \circ L_c f = L_{c'}f \circ M_b g
+\]
+
+so we can define the value of $S(f,g)$ uniquely.
+
+***** TODO Proof
+
+**** Natural transformations between bifunctors
+Given bifunctors $S,S'$, the function $\alpha$ is a natural transformation
+$\alpha : S \Rightarrow S'$ iff $\alpha(b,c)$ is natural in $b$ and natural in $c$.
+
+***** TODO Proof
+
+*** 2.4. Functor categories
+**** Composition of natural transformations
+Given functors $R,S,T : C \to B$ and natural transformations $\tau : S\to T$
+and $\sigma : R \to S$, their compositions define composite arrows which are
+the components of the composite natural transformation $\tau \cdot \sigma$.
+
+\[\begin{tikzcd}
+Rc \rar{Rf}\dar{\sigma_c}\arrow[dd,bend right=90]{(\tau \circ \sigma)_c} &
+Rc' \dar{\sigma_{c'}} \arrow[dd,bend left=90]{(\tau\circ\sigma)_{c'}} \\
+Sc \rar{Sf}\dar{\tau_c}  &
+Sc' \dar{\tau_{c'}} \\
+Tc \rar{Tf}  &  Tc' 
+\end{tikzcd}\]
+
+***** Proof
+Naturality of the external square follows from the commutativity of the
+two internal squares.
+
+**** Functor category
+Given categories $B,C$, let $B^C = \mathrm{Funct}(C,B)$ be the *functor category*,
+with objects the functors $T\colon C \to B$ and morphisms the natural 
+transformations
+
+\[ \mathrm{Nat}(S,T) = \left\{ \tau\mid \tau\colon S \dot\to T \right\}.
+\]
+
+***** Example: Category of arrows
+The category $\mathrm{Funct}(B,2)$ is called the *category of arrows* of $B$. Its
+objects are arrows $f\colon a \to b$ and its morphisms are commutative squares
+
+\[\begin{tikzcd}
+a\rar{h} \dar[swap]{f} & a' \dar{f'} \\
+b\rar{k} & b'
+\end{tikzcd}\]
+
+***** Example: Actions on a set
+If $M$ is a monoid, $\mathrm{Funct}(M, \mathtt{Set})$ is the category with objects the actions
+of $M$ on some sets and arrows the morphisms of such actions.
+
+***** TODO Example: Group with operators
+**** Example: Group representations
+Given $K$ a commutative ring, the functor category $\mathrm{Funct}(G, K\mathtt{-mod})$ is the 
+category of linear representations of $G$.
+
+***** Objects
+Every functor $T \colon G \to K\mathtt{-mod}$ is determined by a $K\text{-module}$ $V$ and
+a morphism of groups $T\colon G \to \text{Aut}(V)$.
+
+***** Natural transformations
+A natural transformation $\sigma\colon T \to S$ is given by a single module
+homomorphism $\sigma\colon V \to V'$, such that
+
+\[\begin{tikzcd}
+V\rar{\sigma} \dar[swap]{Tg} & V' \dar{T'g} \\
+V\rar{\sigma} & V'
+\end{tikzcd}\]
+
+and it is called an *intertwining* operator.
+
+*** 2.5. The category of all categories
+**** Horizontal composition of natural transformations
+Given functors $S,T \colon C \to B$ and $S',T'\colon B \to A$ and natural transformations
+
+\[\begin{tikzcd}
+C 
+\rar[shift left=7pt, ""{name=UL, below}]{S} 
+\rar[shift right=7pt, ""name=LL][swap]{T\vphantom{'}} &
+B 
+\rar[shift left=7pt, ""{name=UR, below}]{S'}
+\rar[shift right=7pt, ""name=LR][swap]{T'} &
+A\\
+\ar[from=UL, to=LL, "\tau", shorten <= -2pt, shorten >= -2pt]
+\ar[from=UR, to=LR, "\tau\smash{'}", shorten <= -2pt, shorten >= -2pt]
+\end{tikzcd}\]
+
+we can define the horizontal composite $\tau' \circ \tau \colon S'S \to T'T$ as the diagonal
+of the square
+
+\[\begin{tikzcd}
+S'Sc\rar{\tau'_{Sc}} \dar[swap]{S'\tau_c} & T'Sc \dar{T' \tau_c} \\
+S'Tc\rar{\tau'_{Tc}} & T'Tc
+\end{tikzcd}\]
+
+explicitely, as $\tau' \circ \tau = T' \tau \circ \tau' = \tau' \circ S'\tau$.
+
+***** Naturality of the composition
+It is natural as the following diagram is the composition of two
+naturality squares
+
+\[\begin{tikzcd}
+S'Sc \rar{S'\tau} \dar{S'Sf} &
+S'Tc \rar{\tau'}  \dar{S'Tf} &
+T'Tc \dar{T'Tf} \\
+S'Sb \rar{S'\tau} &
+S'Tb \rar{\tau'} &
+T'Tb
+\end{tikzcd}\]
+
+defined respectively by the naturality of $S'\tau$ and $\tau'$.
+
+**** Identities
+The identity functor is the identity for the horizontal and vertical
+compositions. We can use the symbol of the functor to denote it like
+$S \colon S \dot\to S$.
+
+***** Horizontal composition
+With this notation, we can then define the horizontal composition
+as
+
+\[
+\tau'\circ \tau = 
+(T' \circ \tau) \cdot (\tau'\circ S) =
+(\tau' \circ T) \cdot (S'\circ \tau).
+\]
+
+**** Interchange law
+Given three categories and four transformations
+
+\[\begin{tikzcd}
+C 
+\rar[shift left=15pt, ""{name=UL, below}]{} 
+\rar[""name=L]
+\rar[shift right=15pt, ""name=LL][swap]{} &
+B 
+\rar[shift left=15pt, ""{name=UR, below}]{}
+\rar[""name=R]
+\rar[shift right=15pt, ""name=LR][swap]{} &
+A\\
+\ar[from=UL, to=L, "\sigma", shorten <= -2pt, shorten >= -2pt]
+\ar[from=L, to=LL, "\tau", shorten <= 2pt, shorten >= -2pt]
+\ar[from=UR, to=R, "\sigma\smash{'}", shorten <= -2pt, shorten >= -2pt]
+\ar[from=R, to=LR, "\tau\smash{'}", shorten <= 2pt, shorten >= -2pt]
+\end{tikzcd}\]
+
+the vertical and horizontal composites follow the interchange law
+
+\[
+(\tau'\cdot \sigma') \circ (\tau \cdot \sigma) = 
+(\tau'\circ \tau) \cdot (\sigma'\circ \sigma).
+\]
+
+***** TODO Proof
+
+**** Double category
+A *double category* is a set of arrows for two different compositions
+which together satisfy the [[*Interchange law][interchange law]].
+
+***** 2-category
+A *2-category* is a double category in thich every identity for the
+first composition is also an identity for the second one.
+
+***** Example: commutative squares in Set
+The category of commutative squares in Set is a double category but
+not a 2-category.
+
+**** Interchange law for operations
+Two binary operations $\cdot,\circ$ are said to satisfy the interchange law when
+
+\[
+(a' \cdot b') \circ (a \cdot b) = (a' \circ a) \cdot (b'\circ b).
+\]
+
+***** Example: matrices
+The usual product of matrices $\circ$ satisfies the interchange law with the
+square-composition of matrices
+
+\[
+\tau \cdot \sigma = \begin{pmatrix}
+\tau & 0\\
+0 & \sigma
+\end{pmatrix}.
+\]
+
+****** Proof
+Trivial by definition.
+
+**** Functor category as a functor
+The functor category can be regarded as a functor
+
+\[\mathrm{Func} \colon \mathtt{Cat}^{op}\times \mathtt{Cat} \to \mathtt{Cat}.
+\]
+
+sending an arrow, consisting of two functors $F,G$, to $F^{G}$, a functor
+defined as
+
+  * $F^GS = F \circ S \circ G$, on objects.
+  * $F^{G}\tau = F \circ \tau \circ G$, on arrows.
+
+***** Analogue with the hom-functor
+Note that this is the categorical analogue of the hom-functor
+
+\[\mathrm{Hom} \colon \mathtt{Set}^{op}\times \mathtt{Set} \to \mathtt{Set}.
+\]
+
+*** 2.6. Comma categories
+**** Category of objects under an object
+Given $b \in C$, the category of *objects under* it, $(b \downarrow C)$, is the category
+with objects all pairs $(f\colon b \to c, c)$, and arrows $h\colon (f,c) \to (f',c')$ for those
+arrows such that $h\circ f = f'$.
+
+***** Displayed notation
+Objects are of the form
+
+\[\begin{tikzcd}
+b \rar{f} & c
+\end{tikzcd}\]
+
+morphisms are of the form
+
+\[\begin{tikzcd}
+& c \arrow[dd, "h"] \\[-15pt]
+b \urar{f}\drar[swap]{f'}& \\[-15pt]
+& c'
+\end{tikzcd}\]
+
+and the composition is the composition of two commutative triangles
+in that form.
+
+**** Category of objects over an object
+The category of *objects over* $a$, $(C \downarrow a)$ can be defined similarly in
+displayed notation as objects of the form
+
+\[\begin{tikzcd}
+c \rar{f} & a
+\end{tikzcd}\]
+
+and morphisms
+
+\[\begin{tikzcd}
+c \arrow[dd, "h"] \drar{f} &  \\[-15pt]
+& b \\[-15pt]
+c' \urar[swap]{f'} &
+\end{tikzcd}\]
+
+**** Comma category
+Given categories and functors $E \overset{T}\longrightarrow C \overset{S}\longleftarrow D$, the comma category
+$(T\downarrow S)$ has objects
+
+\[\begin{tikzcd}
+Te \rar{f} & Sd
+\end{tikzcd}\]
+
+and arrows commutative squares
+
+\[\begin{tikzcd}
+Te\rar{Tk} \dar[swap]{f} & Te' \dar{f'} \\
+Sd\rar{Sh} & Sd'
+\end{tikzcd}\]
+
+The composite is the yuxtaposition of squares.
+
+***** Categories of objects under/over and object
+Those are particular cases when the object is seen as a functor
+from the unital category $b \colon 1 \to C$.
+
+*** 2.7. Graphs and free categories
+**** TODO Forgetful functor from categories to graphs
+**** Free category
+Let $G$ be a small graph. There is a small category $C$ called its free
+category satisfying the following universal property
+
+\[\begin{tikzcd}
+G \rar{P} \drar[swap]{D} & UC\dar[dashed]{\exists! UD'} \\
+& UB
+\end{tikzcd}\]
+
+which is equivalent to $P\colon G \to UC$ being initial in $(G \downarrow U)$.
+
+*** TODO 2.8. Quotient categories
+** 3. Universals and Limits
+*** 3.1. Universal arrows
+*** 3.2. The Yoneda lemma
+**** Univesality with hom-sets
+**** Universal elements, universal arrow, representable functor
+* Algebra: chapter 0
+** III. Anillos y módulos
+*** 7. Complejos y homología
+**** 7.1. Complejos y secuencias exactas.
+ #+begin_definition
+ *Complejo*. Un complejo es una serie de morfismos $d_i$ entre R-Módulos:
+
+ \[\dots \longrightarrow M_{i+1} \longrightarrow M_i \longrightarrow M_{i-1} \longrightarrow \dots\]
+
+ tales que $d_i \circ d_{i+1} = 0$.
+ #+end_definition
+
+ Además lo llamamos *exacto* cuando $im (d_{i+1}) = ker (d_i)$.
+
+ #+begin_proposition
+ *Exactitud de monomorfismos y epimorfismos*. Dos complejos de la forma:
+
+ \[ \dots \longrightarrow 0 \longrightarrow L \overset{\alpha}\longrightarrow M \longrightarrow \dots \]
+ \[ \dots \longrightarrow M \overset{\beta} \longrightarrow N \longrightarrow 0 \longrightarrow \dots \]
+
+ Son exactos en $L$ y $N$ ssi $\alpha$ y $\beta$ son monomorfismo y epimorfismo, 
+ respectivamente.
+ #+end_proposition
+
+ #+begin_definition
+ *Secuencia exacta corta*. Una secuencia exacta corta es un complejo de la forma:
+
+ \[ 0 \longrightarrow L \overset{\alpha}\longrightarrow M \overset{\beta}\longrightarrow N \longrightarrow 0 \]
+ #+end_definition
+
+ El primer teorema de isomorfía nos dice que $N \cong \frac{M}{ker(\beta)} = \frac{M}{im(\alpha)}$ lo que nos 
+ lleva a identificar   $N \cong \frac{M}{L}$. De hecho, cada monomorfismo da lugar a una 
+ secuencia exacta corta:
+
+ \[ 0 \longrightarrow \ker(\phi) \longrightarrow M \longrightarrow im(\phi) \longrightarrow 0 \]
+
+**** 7.2. Secuencias exactas escindidas
+ #+begin_definition
+ *Secuencia escindida*. Una secuencia exacta corta:
+
+ \[ 0 \longrightarrow M_1 \longrightarrow N \longrightarrow M_2 \longrightarrow 0 \]
+
+ es escindida si es isomorfa a una secuencia de la forma siguiente:
+
+ \[ \begin{tikzcd}
+ 0   \arrow{r}{} & 
+ M_1 \arrow{d}{\sim}\arrow{r}{} & 
+ N   \arrow{d}{\sim}\arrow{r}{} & 
+ M_2 \arrow{d}{\sim}\arrow{r}{} & 
+ 0 \\
+ 0   \arrow{r}{} & 
+ M_1 \arrow{r}{} & 
+ M_1 \oplus M_2   \arrow{r}{} & 
+ M_2 \arrow{r}{} & 
+ 0
+ \end{tikzcd} \]
+
+ Es decir, hay un isomorfismo entre secuencias.
+ #+end_definition
+
+ #+begin_theorem
+ *Relación entre secuencias escindidas e inversas*. Sea $\phi$ un homomorfismo;
+ entonces tiene inversa izquierda ssi la secuencia siguiente escinde:
+
+ \[ 0 \longrightarrow M \overset{\phi}\longrightarrow N \longrightarrow coker(\phi) \longrightarrow 0 \]
+
+ Y tiene inversa derecha si la secuencia siguiente escinde:
+
+ \[ 0 \longrightarrow ker(\phi) \longrightarrow M \overset{\phi}\longrightarrow N \longrightarrow 0 \]
+ #+end_theorem
+
+**** 7.3. Homología, y el lema de la serpiente
+ #+begin_definition
+ *Homología*. La i-ésima homología de un complejo,
+
+ \[ \dots \longrightarrow M_{i+1} \overset{d_{i+1}}\longrightarrow M_i \overset{d_i}\longrightarrow M_{i-1} \longrightarrow \dots \]
+
+ es el R-módulo:
+
+ \[H_i(M) = \frac{ker(d_i)}{im(d_{i+1})}\]
+ #+end_definition
+
+ La homología mide lo que se aleja de ser exacto en un punto determinado, y
+ es $0$ cuando el complejo es exacto. Puede verse como una generalización de
+ kernel y cokernel; que los realiza en este caso extremo:
+
+ \[ 0 \longrightarrow M_1 \overset{\phi}\longrightarrow M_0 \longrightarrow 0 \]
+
+ En el que $H_1(M) \cong ker(\phi)$ y $H_0(M) \cong coker(\phi)$.
+
+ #+begin_theorem
+ *Lema de la serpiente*. Teniendo dos secuencias exactas en el diagrama 
+ conmutativo siguiente:
+
+ \[ \begin{tikzcd}
+ 0 \rar & L_1 \rar{\alpha_1}\arrow{d}{\lambda} & M_1 \rar{\beta_1}\arrow{d}{\mu} & N_1 \rar\arrow{d}{\eta} & 0 \\
+ 0 \rar & L_0 \rar{\alpha_0}                   & M_0 \rar{\beta_0}               & N_0 \rar                & 0
+ \end{tikzcd} \]
+
+ Existe una secuencia exacta de la forma:
+
+ \[ 0 \overset{}\longrightarrow 
+ ker(\lambda) \overset{}\longrightarrow 
+ ker(\mu) \overset{}\longrightarrow 
+ ker(\eta) \overset{\delta}\longrightarrow 
+ coker(\lambda) \overset{}\longrightarrow 
+ coker(\mu) \overset{}\longrightarrow 
+ coker(\eta) \overset{}\longrightarrow 
+ 0\]
+ #+end_theorem
+
+ El diagrama desde el que se deduce todo esto, con columnas exactas, es
+ el siguiente:
+
+ \[ \begin{tikzcd}
+	& 0 \dar              & 0 \dar            & 0 \dar           &   \\
+ 0 \rar & ker(\lambda) \rar \dar  & ker(\mu) \rar \dar    & ker(\eta) \dar \ar[out=355, in=175,looseness=1, overlay, swap]{dddll}{\delta}       &   \\
+ 0 \rar & L_1 \rar{\alpha_1} \dar{\lambda}  & M_1 \rar{\beta_1} \dar{\mu} & N_1 \rar \dar{\eta}        & 0 \\
+ 0 \rar & L_0 \rar{\alpha_0} \dar & M_0 \rar{\beta_0} \dar & N_0 \rar \dar        & 0 \\
+	& coker(\lambda) \rar \dar & coker(\mu) \rar \dar  & coker(\eta) \rar \dar & 0 \\
+	& 0                   & 0                 & 0                &
+ \end{tikzcd} \]
+
+** IV. Álgebra lineal
+*** 4. Presentaciones y resoluciones
+**** 4.1. Torsión
+ #+begin_definition
+ *Torsión*. Un elemento $m \in M$ módulo de $R$ es de *torsión* si $\{m\}$ es linealmente
+ dependiente. Es decir,
+
+   \[ \exists r \in R,\ r \neq 0\ :\ rm = 0 \]
+
+ El conjunto de elementos de torsión se llama $Tor(M)$. Un módulo es *libre de torsión*
+ si $Tor(M) = 0$ y *de torsión* si $Tor(M)=M$.
+ #+end_definition
+
+ Un anillo conmutativo es libre de torsión sobre sí mismo si y sólo si es dominio de
+ integridad. Cuando esto ocurre, $Tor(M)$ es siempre submódulo de $M$. Submódulos o
+ sumas de módulos libres de tensión serán libres de torsión, y por todo esto, los módulos
+ libres sobre dominios de integridad serán libres de torsión.
+
+ #+begin_definition
+ *Cíclico*. Un módulo es *cíclico* cuando es generado por un elemento. Es decir,
+ cuando $M \cong R/I$ para algún ideal.
+ #+end_definition
+
+ Cuando en un dominio de integridad todos sus
+ módulos cíclicos son libres de torsión, es un cuerpo. Otra forma de pensar sobre un módulo
+ cíclico es como aquel que admite un epimorfismo:
+
+ \[ R \longrightarrow M \longrightarrow 0 \]
+
+**** 4.2. Módulos finitamente presentados y resoluciones libres
+ #+begin_definition
+ *Anulador.* El anulador de un módulo $M$ es:
+
+ \[Ann_R(M) = \{ r \in R\ |\ \forall m \in M, rm = 0 \}\]
+ #+end_definition
+
+ Es un ideal de $R$. Cuando $M$ es finitamente generado y $R$ es dominio de integridad,
+ $M$ es de torsión si y sólo si $Ann(M) \neq 0$.
+
+ #+begin_definition
+ *Módulos finitamente generados y presentados*. Sabemos que todos los módulos admiten un
+ epimorfismo de la forma:
+
+ \[ R^{\oplus A} \longrightarrow M \longrightarrow 0\]
+
+ Cuando lo admiten con $A$ finito, se tiene $M$ *finitamente generado*. Un módulo se dice
+ *finitamente presentado* si hay una secuencia exacta de la forma:
+
+ \[R^n \overset{\phi}\longrightarrow R^m \longrightarrow M \longrightarrow 0\]
+
+ .
+ #+end_definition
+
+ Si $R$ es Noetheriano, todo módulo finitamente generado es finitamente presentado.
+
+ #+begin_definition
+ *Resolución*. Una resolución de $M$ mediante módulos libres finitamente generados es
+ un complejo exacto:
+
+ \[ \dots \rightarrow R^{m_3} \rightarrow R^{m_2} \rightarrow R^{m_1} \rightarrow R^{m_0} \rightarrow M \rightarrow 0 \]
+ #+end_definition
+
+ Aquí podemos entender que $R^{m_0}$ contiene los generadores, $R^{m_1}$ las relaciones
+ entre los generadores, $R^{m_2}$ las relaciones entre relaciones, y así sucesivamente.
+
+ Un dominio de integridad es *cuerpo si y sólo si todos sus módulos son finitamente generados*,
+ esto es equivalente a tener:
+
+ \[ 0 \longrightarrow R^m \longrightarrow M \longrightarrow 0 \]
+
+ para cualquier módulo.
+
+ Un dominio de integridad es *PID si todas las resoluciones como finitamente generado 
+ extienden a finitamente presentado*, de la forma:
+
+ \[0 \longrightarrow R^{m_1} \longrightarrow R^{m_0} \overset{\pi}\longrightarrow M \longrightarrow 0\]
+
+ esto equivale a pedir que $\ker(\pi)$ sea libre.
+
+**** 4.3. Leyendo una presentación
+ Hemos visto que podemos estudiar un módulo finitamente presentado por un
+ morfismo $\phi: R^n \longrightarrow R^m$, donde $M = coker(\phi)$. Esto quiere decir que 
+ podemos asignarle una matriz explícita.
+
+ #+begin_theorem
+ *Producto de módulos en matrices*. Sean $M,N$ módulos con matrices $A,B$.
+ Tenemos $M \oplus N$ con matriz:
+
+ \[\left(\begin{array}{c|c}
+ A & 0 \\ \hline 0 & B 
+ \end{array}\right)\]
+ #+end_theorem
+
+ Además nótese que las *matrices equivalentes* representan el mismo 
+ homeomorfismo, y por tanto el mismo módulo.
+
+ #+begin_theorem
+ *Transformaciones de matrices de módulos*. Una matriz representa el mismo módulo
+ tras las transformaciones de:
+  - Permutar filas o columnas
+  - Añadir filas o columnas linealmente dependientes
+  - Multiplicar filas o columnas por una unidad
+  - Quitar una fila y columna en la que sólo queda una unidad
+ #+end_theorem
+
+ Las primeras son consecuencia de la equivalencia. La última puede colocarse como
+ una parte de identidad en una matriz de la forma:
+
+ \[A = \left(\begin{array}{c|c}
+ u & 0 \\ \hline 0 & A' 
+ \end{array}\right)\]
+
+ Que no afecta al cokernel.
+
+** VII. Cuerpos
+*** 1. Extensiones de cuerpos I
+**** 1.1. Definiciones básicas
+***** Categoría de los cuerpos
+Los cuerpos forman la *categoría $\mathtt{Fld}$* con los homomorfismos de 
+anillos entre ellos. Todo homomorfismo de anillos entre cuerpos
+es inyectivo y todo morfismo en esta categoría es monomorfismo.
+
+Así, todo morfismo entre cuerpos en $Hom(k,K)$ es una extensión $K/k$.
+
+***** Característica de un cuerpo
+      La *característica* de $K$ es el generador de $ker(i)$ para 
+      $i : \mathbb{Z} \longrightarrow K$. Las extensiones preservan la 
+      característica, así que podemos particionar la categoría en categorías 
+      $\mathtt{Fld}_p$.
+
+***** Cuerpos primos
+      El inicial de $\mathtt{Fld}_0$ es $\mathbb{Q}$, y el de $\mathtt{Fld}_p$ es $\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}$. Todos los
+      cuerpos son extensiones de uno de estos llamados *cuerpos primos*.
+
+***** Grado de una extensión
+El *grado*, $[F : K]$, de una extensión es su dimensión como espacio
+vectorial sobre la base. Es *finita* o *infinita* si lo es su grado.
+
+**** 1.2. Extensiones simples
+***** Extensión simple
+Una extensión es *simple* si es de la forma $K(\alpha)$ donde 
+$K(\alpha)$ es la intersección de todos los subcuerpos de algún
+$F$ conteniendo al cuerpo $K$ y el elemento $\alpha$.
+
+***** Polinomio irreducible mínimo
+Dada una extensión simple $K(\alpha)$, consideramos la evaluación
+$\epsilon : K[X] \longrightarrow K(\alpha)$ por casos:
+
+ - Es *inyectiva* ssi es una *extensión infinita*. En este
+   caso $K(\alpha) \cong K(X)$ es el cuerpo de funciones racionales.
+ - No es *inyectiva*. Existe un único polinomio mónico
+   irreducible $p$ que genera el núcleo,
+
+   \[ K(\alpha) \cong \frac{K[t]}{(p(t))}\]
+
+   Se le llama *polinomio mínimo*.
+
+***** TODO Extensión de isomorfismos a extensiones simples
+Proposition 1.5
+***** Automorfismos de una extensión
+El *grupo de automorfismos* de una extensión $Aut_K(F)$, es el
+grupo de los automorfismos de cuerpos que dejan fijo $K$.
+***** Automorfismos y raíces
+Sea $K(\alpha)$ con $p$ polinomio mínimo. Entonces $p$ tiene $|Aut_K(K(\alpha))|$ raíces
+distintas en $K(\alpha)$. En particular,
+
+\[ |Aut_K(K(\alpha))| \leq [K(\alpha):K] \]
+
+y el caso de igualdad se tiene con $p$ factorizando en factores 
+lineales sobre $F$.
+**** 1.3. Extensiones finitas y algebraicas
+***** Elementos algebraicos y trascendentes
+Sea $F/K$ una extensión con $\alpha \in F$, entonces $\alpha$ es *algebraico*
+cuando $K(\alpha)/K$ es finita, y *trascendente* si no. Una extensión
+es *algebraica* si todos sus elementos lo son.
+
+*** 6. Un poco de teoría de Galois
+**** 6.1. Correspondencia de Galois y extensiones de Galois
+***** Cuerpo fijo
+Sea $F/k$ extensión y $G \subseteq Aut_k(F)$. Llamamos *cuerpo fijo* de $G$ a:
+
+\[ F^G = \{ \alpha\in F \mid \forall g \in G, g\alpha=\alpha\}\]
+
+***** Correspondencia de Galois
+Hay correspondencia entre los cuerpos intermedios de la extensión
+y los subgrupos del grupo de automorfismos.
+
+Dado $E$ cuerpo intermedio, lo enviamos a $Aut_E(F)$. Dado $G$ lo enviamos
+a $F^G$.
+
+***** Inclusión y correspondencia
+Para cualesquiera subgrupo $G$ y cuerpo intermedio $E$:
+
+ - $E \subseteq F^{Aut_E(F)}$
+ - $G \subseteq Aut_{F^G}(F)$
+
+Si llamamos $E_1E_2$ al menor subcuerpo de $F$ conteniendo $E_1,E_2$ y llamamos
+$<G_1,G_2>$ al menor subgrupo de los automorfismos conteniendo $G_1,G_2$:
+
+ - $Aut_{E_1E_2}(F) = Aut_{E_1}(F) \cap Aut_{E_2}(F)$
+ - $F^{<G_1,G_2>} = F^{G_1} \cap F^{G_2}$
+
+***** Extensiones de Galois
+Sea $F/k$ extensión, equivalen:
+
+ - $F$ es cuerpo de descomposición de algún $f \in k[t]$.
+ - $F/k$ es normal y separable.
+ - $|Aut_k(F)| = [F : k]$.
+ - La correspondencia de Galois es biyección.
+ - $F/k$ separable y, si $E/F$ es algebraica con $\sigma \in Aut_k(E)$, $\sigma(F)=F$.
+
+Llamamos a esto una *extensión de Galois*.
+** VIII. Vuelta al álgebra lineal
+*** 1. Preliminares
+**** 1.1. Funtores
+ #+begin_definition
+ *Funtor*. Un funtor covariante:
+
+ \[{\cal F} : C \longrightarrow D\]
+
+ Asigna a cada $A \in C$ un ${\cal F}(A) \in D$ y mapea los morfismos entre cada par de objetos:
+
+ \[Hom_C(A,B) \rightarrow Hom_D({\cal F}(A),{\cal F}(B))\]
+
+ Respetando la identidad y la composición de morfismos. 
+
+ Un *funtor contravariante* es un funtor desde la categoría opuesta:
+
+ \[{\cal F} : C^{op} \longrightarrow D\]
+ #+end_definition
+
+ Los funtores preservan los diagramas conmutativos. Llamamos *prehaz* a un funtor
+ contravariante $C \longrightarrow \mathtt{Set}$.
+
+ #+begin_definition
+ *Funtor aditivo*. Llamamos a un funtor 
+ ${\cal F}: R-\mathtt{Mod} \longrightarrow S-\mathtt{Mod}$ *aditivo* cuando
+ la función $Hom_{R}(A,B) \rightarrow Hom_{S}({\cal F}(A),{\cal F}(B))$ es homomorfismo de grupos.
+ #+end_definition
+
+**** 1.3. Equivalencia de categorías
+ #+begin_definition
+ *Funtores plenamente fieles*. Dada la función inducida:
+ \[Hom_C(A,B) \rightarrow Hom_D({\cal F}(A),{\cal F}(B))\]
+ Un funtor es *fiel* si es inyectiva, *pleno* si es sobreyectiva y *plenamente fiel*
+ si es biyectiva.
+ #+end_definition
+
+ #+begin_definition
+ *Equivalencia de categorías*. Un funtor es una equivalencia de categorías si 
+ es plenamente fiel y esencialmente sobreyectivo, es decir, para cada $Y \in D$,
+ existe un $X \in C$ tal que $F(X) \cong Y$.
+ #+end_definition
+
+**** 1.4. Límites y colímites
+
+ #+begin_definition
+ *Límite*. Para un funtor ${\cal F}: {\cal I} \longrightarrow C$, su límite es
+ un objeto $L \in C$ con morfismos $\lambda_I: L \longrightarrow {\cal F}(I)$ tales que
+
+ - Conmuta el siguiente diagrama para cualquier $\alpha : I \longrightarrow J$:
+
+ \[ \begin{tikzcd}[column sep=1.5em]
+  & L \arrow{dr}{\lambda_J} \arrow{dl}[swap]{\lambda_I} \\
+ {\cal F}(I) \arrow{rr}{{\cal F}(\alpha)} && {\cal F}(J)
+ \end{tikzcd} \]
+
+ - $L$ es final en este diagrama.
+ #+end_definition
+
+ Será esencialmente único y puede notarse por $\varprojlim {\cal F}$.
+
+ #+begin_theorem
+ *Límites sobre cadenas en R-Mod*. En R-Mod siempre existe un límite llamado \(\varprojlim {\cal A}_i\) sobre una
+ cadena de la forma:
+
+ \[ \begin{tikzcd}
+ & & A 
+ \arrow{lld}[swap]{\phi_5}
+ \arrow{ld}{\phi_4}
+ \arrow{d}{\phi_3}
+ \arrow{rd}[swap]{\phi_2}
+ \arrow{rrd}{\phi_1} 
+ & & \\
+ \dots \arrow{r}[swap]{\phi_{45}}  &
+ A_4 \arrow{r}[swap]{\phi_{34}} &
+ A_3 \arrow{r}[swap]{\phi_{23}} &
+ A_2 \arrow{r}[swap]{\phi_{12}} &
+ A_1
+ \end{tikzcd} \]
+ #+end_theorem
+
+ Este límite es el submódulo de las /secuencias coherentes/ en $\prod_i A_i$, es decir, de
+ aquellas tales que $a_i = \phi_{i,i+1}(a_{i+1})$; teniendo como morfismos $\phi_i$ las proyecciones
+ canónicas
+
+
+ #+begin_definition
+ *Colímite*. La noción dual de límite es el *colímite*, es decir, para
+ un funtor ${\cal F} : I \longrightarrow C$, su colímite es un objeto $L \in C$ con morfismos $\gamma_i : {\cal F}(I) \longrightarrow L$
+ tales que
+
+ - Conmuta el siguiente diagrama para cualquier $\alpha : I \longrightarrow J$:
+
+ \[ \begin{tikzcd}[column sep=1.5em]
+  & L  \\
+ {\cal F}(I) \arrow{ur}{\gamma_I} \arrow{rr}{{\cal F}(\alpha)} && {\cal F}(J) \arrow{ul}[swap]{\gamma_J}
+ \end{tikzcd} \]
+
+ - $L$ es inicial en este diagrama.
+ #+end_definition
+
+**** 1.5. Comparando funtores
+ #+begin_definition
+ *Transformación natural*. Una transformación natural entre dos funtores ${\cal F} \Longrightarrow {\cal G}$ 
+ consiste en morfismos $\upsilon_X : {\cal F}(X) \longrightarrow {\cal G}(X)$ tales que conmuta el diagrama:
+
+ \[ \begin{tikzcd}
+ {\cal F}(X) \arrow{r}{{\cal F}(\alpha)} \arrow{d}{\upsilon_X} & {\cal F}(Y) \arrow{d}{\upsilon_Y} \\
+ {\cal G}(X) \arrow{r}{{\cal G}(\alpha)} & {\cal G}(Y)
+ \end{tikzcd}
+ \]
+
+ para cualquier morfismo $\alpha$.
+
+ Llamamos *isomorfismo natural* a una transformación natural donde cada $\upsilon$
+ es un isomorfismo.
+ #+end_definition
+
+ #+begin_definition
+ *Funtor adjunto*. Llamamos ${F}$ y ${G}$ adjuntos si tenemos:
+
+ \[ Hom_C(X,GY) \cong Hom_D(FX,Y) \]
+
+ Isomorfismos naturales.
+ #+end_definition
+
+ Lo que nos da realmente un isormorfismo natural de $Hom_C(F-,-)$ con $Hom_D(-,G-)$,
+ entendidos como funtores. Llamamos aquí adjunto izquierdo a $F$ y adjunto derecho a $G$.
+ Tenemos más sobre funtores adjuntos en la lista de reproducción de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][The Catsters]].
+
+ #+begin_theorem
+ *Continuidad de adjuntos*. Los funtores adjuntos derechos son continuos, los adjuntos
+ izquierdos son cocontinuos. Es decir, para $I : {\cal I}\longrightarrow D$, $J : {\cal J}\longrightarrow C$
+
+ \[G(\varprojlim I) = \varprojlim (G \circ I)\]
+ \[F(\varinjlim J) = \varinjlim (F \circ J)\]
+ #+end_theorem
+
+ Siempre que existan los límites. La demostración de esto se puede hacer aplicando los
+ funtores en los diagramas conmutativos y usando las propiedades universales de los límites.
+
+ #+begin_definition
+ *Funtor exacto*. Un funtor exacto respeta la exactitud de las secuencias. Es decir,
+ siendo la siguiente secuencia exacta:
+
+ \[ 0 \longrightarrow A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C \longrightarrow 0\]
+
+ La siguiente secuencia será exacta:
+
+ \[ 0 \longrightarrow FA \overset{F\phi}\longrightarrow FB \overset{F\psi}\longrightarrow FC \longrightarrow 0\]
+ #+end_definition
+
+ En particular, lo llamamos /exacto a la izquierda/ si preserva la exactitud de:
+
+ \[ 0 \longrightarrow A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C\]
+
+ Y /exacto a la derecha/ si preserva la exactitud de:
+
+ \[ A \overset{\phi}\longrightarrow B \overset{\psi}\longrightarrow C \longrightarrow 0\]
+
+*** 2. Producto tensor y el funtor Tor
+**** 2.1. Aplicaciones bilineales
+ #+begin_definition
+ *Aplicación bilineal*. Una aplicación $\phi:M\times N \longrightarrow P$ es bilineal si
+ son lineales $\phi(\_,n)$ y $\phi(m,\_)$ para cualesquiera $m,n$.
+ #+end_definition
+
+ #+begin_definition
+ *Producto tensor*. $M \otimes_R N$ es el producto tensor de $M$ y $N$ como módulos de $R$
+ si cualquier aplicación bilineal factoriza de forma única a través de él:
+
+ \[ \begin{tikzcd}
+ M \times N \arrow{r}{\phi} \arrow{d}{\otimes} & P \\
+ M \otimes N \arrow{ru}[swap]{\exists! \overline\phi} &
+ \end{tikzcd} \]
+ #+end_definition
+
+ Usando universalidad podemos ver que $R \otimes N \cong N$ y que $M\otimes N \cong N\otimes M$. La construcción
+ explícita del producto tensor se hace sobre el módulo libre sobre $M \times N$ provocando un
+ cociente sobre los submódulos generados por:
+
+ \[(m,r_1n_1+r_2n_2) - r_1(m,n_1) - r_2(m,n_2)\]
+ \[(r_1m_1+r_2m_2,n) - r_1(m_1,n) - r_2(m_2,n)\]
+
+ Lo que nos permite actuar con ellos de forma bilineal. La demostración se basa en usar
+ la propiedad universal de la proyección sobre ese cociente.
+
+**** 2.2. Adjunción con Hom
+ Dado un módulo $N$ de $R$, tenemos un funtor covariante $\otimes_R N$, que será *adjunto izquierdo*
+ a $Hom_{R-mod}(N,-)$. Podemos observar simplemente que una aplicación bilineal, al currificarse,
+ determina una función que va de $M$ a $Hom(N,P)$, y que es lineal. Sabiendo esto, es trivial
+ que:
+
+ \[ Hom_R(M, Hom_R(N,P)) \cong Hom_R(M \otimes N, P)\]
+
+ La naturalidad y el hecho de que es un isomorfismo se comprueban fácilmente. El hecho de
+ que exista una adjunción nos dice además que $\otimes_R N$, o $N\otimes_R$ por la isomorfía anterior,
+ son cocontinuos.
+
+ #+begin_fact
+ Para cualesquiera \(R\)-módulos, se tiene:
+
+ \[(M_1 \oplus M_2) \otimes N \cong (M_1 \otimes N) \oplus (M_2 \otimes N)\]
+
+ \[N \otimes (M_1 \oplus M_2) \cong (N \otimes M_1) \oplus (N \otimes M_2)\]
+
+ \[(\oplus_\alpha M_\alpha) \otimes N \cong \oplus_\alpha (M_\alpha \otimes N)\]
+ #+end_fact
+
+ Por cocontinuidad.
+
+ #+begin_fact
+ Para cualesquiera dos conjuntos $A,B$, se tiene:
+
+ \[R^{\oplus A} \otimes R^{\oplus B} \cong R^{\oplus A \times B}\]
+ #+end_fact
+
+ Teniendo \(R^{\oplus n} \otimes R^{\oplus m} \cong R^{\oplus nm}\). De hecho, la base del espacio producto
+ tensor la forman los vectores puros que emparejan elementos de las 
+ bases de cada uno de los espacios.
+
+ #+begin_theorem
+ *Producto tensor de cocientes*. Dado un $N$ módulo de $R$, e $I$ ideal,
+ tenemos:
+
+ \[\frac{R}{I}\otimes N \cong \frac{N}{IN}\]
+
+ Y desde ahí, aplicando además el tercer teorema de isomorfía, tenemos:
+
+ \[\frac{R}{I} \otimes \frac{R}{J} \cong \frac{R}{I+J}\]
+ #+end_theorem
+
+ Esto se deduce de aplicar el funtor $\_ \otimes N$ a la secuencia exacta del 
+ ideal:
+
+ \[I \longrightarrow R \longrightarrow \frac{R}{I} \longrightarrow 0\]
+ 
+ \[I \otimes N \longrightarrow N \longrightarrow \frac{R}{I} \otimes N \longrightarrow 0\]
+
+ Desde donde se obtiene $IN$ como inclusión de $I\otimes N$ en $N$.
+
+**** 2.3. Exactitud y planitud
+ #+begin_definition
+ *Módulo plano*. El módulo $N$ es *plano* si el funtor $\_ \otimes N$ es un
+ funtor exacto.
+ #+end_definition
+
+ Un *módulo libre* será siempre plano.
+
+**** 2.4. Los funtores Tor
+ #+begin_definition
+ *El funtor Tor*. Lo que se aleja de la exactitud el funtor $\_ \otimes N$
+ es medido por el funtor $Tor_1(\_,N)$. De hecho, si tenemos una secuencia
+ exacta:
+
+ \[0\longrightarrow A \longrightarrow B \longrightarrow C \longrightarrow 0\]
+
+ Obtenemos aplicando el funtor $\otimes N$ esta otra secuencia:
+
+ \[Tor_1(C,N) \longrightarrow A \otimes N \longrightarrow B \otimes N \longrightarrow C \otimes N \longrightarrow 0\]
+
+ Y de hecho, esta secuencia podrá extenderse aún más con /funtores derivados/,
+ que se definen como:
+
+ \[Tor_i^R(M,N) = H_i(M_{\bullet} \otimes N)\]
+ #+end_definition
+
+ Aquí entendemos $M_\bullet \otimes N$ como el complejo que se obtiene tomando una resolución
+ libre de $M$:
+
+ \[\dots \longrightarrow R^{\otimes S_2} \longrightarrow R^{\otimes S_1} 
+ \longrightarrow R^{\otimes S_0} \longrightarrow M \longrightarrow 0}\]
+
+ Y retirando $M$ y tensando sobre $N$, para tener:
+
+ \[\dots \longrightarrow N^{\otimes S_2} \longrightarrow N^{\otimes S_1} 
+ \longrightarrow N^{\otimes S_0} \longrightarrow 0}\]
+
+ Todo esto se obtendrá de manera natural aplicando el lema de la serpiente a una secuencia
+ de resoluciones compatibles, algo que, si los módulos fueran PID y tuvieran una resolución
+ de grado 2, sería de la forma:
+
+ \[ \begin{tikzcd}
+    & 0 \dar & 0 \dar & 0 \dar &   \\
+ 0 \rar & R^{\oplus a_1}\rar\dar & R^{\oplus b_1} \rar\dar & R^{\oplus c_1} \rar\dar & 0 \\
+ 0 \rar & R^{\oplus a_0}\rar\dar & R^{\oplus b_0} \rar\dar & R^{\oplus c_0} \rar\dar & 0 \\
+ 0 \rar & A\rar\dar & B \rar\dar & C \rar\dar & 0 \\
+  & 0 & 0 & 0 & 
+ \end{tikzcd} \]
+
+ Tensando las dos filas superiores, que son libres, nos quedarían dos filas sobre las que aplicar
+ el lema de la serpiente y obtener los funtores derivados tal y como los hemos definido.
+
+*** 5. Funtor Hom y dualidad 
+**** 5.1. Adjunciones, de nuevo
+ Ya sabemos que el funtor $Hom(N,\_)$ es adjunto derecho a $\_\otimes N$, ahora
+ estudiamos el funtor $Hom(\_,N)$.
+
+ #+begin_theorem
+ *Adjunción de Hom contravariante*. El funtor $Hom(\_,N)$ es adjunto derecho
+ de su funtor opuesto, $Hom^{op}(\_,N)$.
+ #+end_theorem
+
+ Aplicando currificación tenemos trivialmente:
+
+ \[Hom(L,Hom(M,N)) \cong Hom(M,Hom(L,N))\]
+
+ Que, teniendo en cuenta que estamos usando la categoría opuesta, prueba la
+ adjunción.
+
+ #+begin_proposition
+ *Exactitud de Hom*. Ambos funtores $Hom$ son adjuntos derechos y por tanto,
+ exactos por la izquierda. Teniendo en cuenta que uno es contravariante, quiere
+ decir que:
+
+ \[ A \overset{}\longrightarrow B \overset{}\longrightarrow C \overset{}\longrightarrow 0\]
+
+ Lleva a:
+
+ \[ 0 \overset{}\longrightarrow Hom(C,N) \overset{}\longrightarrow 
+ Hom(B,N) \overset{}\longrightarrow Hom(A,N)\]
+ #+end_proposition
+
+**** 5.2. Módulos duales.
+ #+begin_definition
+ *Módulo dual*. El dual de un R-módulo $M$ es el módulo $M^{\vee} = Hom_R(M,R)$.
+ #+end_definition
+
+ Tenemos que $Hom(M,R^n) \cong M^{\vee} \otimes R^n$.
+
+*** 6. Módulos proyectivos e inyectivos, y el funtor Ext
+**** 6.1. Proyectividad e inyectividad
+ #+begin_definition
+ *Módulos proyectivos e inyectivos*. Un R-módulo es /proyectivo/ si $Hom(P,\_)$
+ es exacto; e /inyectivo/ si $Hom(\_,P)$ es exacto.
+ #+end_definition
+
+ Esto es equivalente a decir que cada epimorfismo $M \longrightarrow N$ lleva un
+ morfismo $P \longrightarrow N$ a $P \longrightarrow M$, en el caso de /proyectividad/:
+
+ \[ \begin{tikzcd}
+  & P \dlar[swap,dashed]{\exists p'} \dar[swap]{p} \drar{0} & \\
+ M \rar & N \rar & 0
+ \end{tikzcd} \]
+
+ O que cada monomorfismo $L \longrightarrow M$ lleva un morfismo $L \longrightarrow Q$ a
+ un monomorfismo $M \longrightarrow Q$, en el de la /inyectividad/:
+
+ \[ \begin{tikzcd}
+  & Q & \\
+ 0 \urar{0} \rar & N \rar \uar[swap]{q} & M \ular[dashed,swap]{\exists q'}
+ \end{tikzcd} \]
+
+ Además, esto es equivalente a decir que un módulo $P$ es /proyectivo/ si toda secuencia
+
+ \[ 0 \overset{}\longrightarrow L \overset{}\longrightarrow M \overset{}\longrightarrow P \overset{}\longrightarrow 0 \]
+
+ es escindida, y $Q$ es /inyectivo/ si toda secuencia:
+
+ \[ 0 \overset{}\longrightarrow Q \overset{}\longrightarrow M \overset{}\longrightarrow N \overset{}\longrightarrow 0 \]
+
+ es escindida.
+
+**** 6.2. Módulos proyectivos
+ #+begin_theorem
+ *Caracterización de proyectividad*. Un módulo es proyectivo ssi es el sumando
+ directo de un módulo libre.
+ #+end_theorem
+
+ Así, la suma directa de dos módulos proyectivos es proyectiva; el producto tensor
+ de dos módulos proyectivos es proyectivo, y todo módulo proyectivo es plano.
+
+**** 6.3. Módulos inyectivos
+ #+begin_theorem
+ *Caracterización de inyectividad*. Un módulo es *inyectivo* ssi toda aplicación
+ $f : I \longrightarrow Q$ extiende a una aplicación $\hat f : R \longrightarrow Q$, donde I es ideal de R.
+ #+end_theorem
+
+**** 6.4. El funtor Ext
+ Existirían dos formas naturales de definir *Ext*, que coinciden no trivialmente:
+
+ #+begin_definition
+ *Funtor Ext*. Dado $M$ con una resolución proyectiva:
+
+ \[ \dots \overset{}\longrightarrow P_1 \overset{}\longrightarrow P_0 \overset{}\longrightarrow M \overset{}\longrightarrow 0 \]
+
+ aplicamos el funtor contravariante $Hom(\_,N)$ eliminando $M$ para obtener:
+
+ \[ 0 \overset{}\longrightarrow Hom(P_0,N) \overset{}\longrightarrow Hom(P_1,N) \overset{}\longrightarrow Hom(P_2,N) \overset{}\longrightarrow \dots \]
+
+ Y tomamos la cohomología de este complejo $Hom(M_\bullet,N)$, dejando como definición:
+
+ \[Ext^i_R(M,N) = H^i(Hom(M_\bullet,N))\]
+ #+end_definition
+
+ #+begin_definition
+ *Funtor Ext*. Dado $N$ con una resolución inyectiva:
+
+ \[ 0 \overset{}\longrightarrow N \overset{}\longrightarrow Q_0 \overset{}\longrightarrow Q_1 \overset{}\longrightarrow \dots \]
+
+ aplicamos el funtor covariante $Hom(M,\_)$ eliminando $N$ para obtener:
+
+ \[ 0 \overset{}\longrightarrow 
+ Hom(M,Q_0) \overset{}\longrightarrow 
+ Hom(M,Q_1) \overset{}\longrightarrow 
+ Hom(M,Q_2) \overset{}\longrightarrow \dots \]
+
+ Y tomamos la cohomología de este complejo $Hom(M,N_\bullet)$, dejando como definición:
+
+ \[Ext^i_R(M,N) = H^i(Hom(M,N_\bullet))\]
+ #+end_definition
+
+** IX. Álgebra homológica
+*** Complejos y homología, de nuevo
+**** 3.1. Recordatorio de definiciones básicas
+ #+begin_definition
+ *Resolución*. La /resolución/ de un objeto $A$ es un complejo
+ exacto excepto en un punto, donde es isomorfa a $A$.
+ #+end_definition
+
+ Esto es equivalente a tener un complejo exacto de la forma:
+
+ \[ \dots \overset{}\longrightarrow 
+ M_2 \overset{}\longrightarrow 
+ M_1 \overset{}\longrightarrow 
+ M_0 \overset{}\longrightarrow 
+ A \longrightarrow
+ 0\]
+
+**** 3.2. La categoría de los complejos
+ #+begin_definition
+ *Categoría de complejos de cocadenas*. La categoría $C(A)$ tiene como objetos
+ los complejos de cocadenas en una categoría $A$; y como morfismos entre dos 
+ cocadenas,   $Hom(M^\bullet,N^\bullet)$, los diagramas conmutativos entre ellas. Por ejemplo:
+
+ \[ \begin{tikzcd}
+ \dots \rar & M^{i-1} \rar\dar{\alpha^{i-1}} & M^{i} \rar\dar{\alpha^{i}} &  M^{i+1} \rar\dar{\alpha^{i+1}} & \dots \\
+ \dots \rar & N^{i-1} \rar & N^{i} \rar & N^{i+1} \rar & \dots
+ \end{tikzcd} \]
+
+ representa el morfismo $\alpha_\bullet$.
+ #+end_definition
+
+ Esta es una categoría abeliana. De ella definiremos además dos variantes:
+
+ - $C^+(A)$, subcategoría plena de los complejos acotados por debajo.
+ - $C^-(A)$, subcategoría plena de los complejos acotados por arriba.
 * ZFC
 Utilizando lógica de primer orden.
 
