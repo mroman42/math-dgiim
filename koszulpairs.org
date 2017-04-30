@@ -1,0 +1,345 @@
+#+TITLE: Koszul Pairs
+#+AUTHOR: Mario Román
+#+EMAIL: mromang08@gmail.com
+
+#+OPTIONS: broken-links:mark
+#+LANGUAGE: es
+#+SETUPFILE: essay.setup
+#+SETUPFILE: math-en.setup
+#+SETUPFILE: html.setup
+
+* Sheaves and presheaves
+# Carlos Ivorra, álgebra conmutativa
+
+* Homological algebra
+** Abelian categories
+*** Additive category
+#+begin_definition
+${\cal C}$ is an *additive category* if:
+
+ - $Hom(A,B)$ is an /abelian group/.
+ - /Distributivity/ holds: $b \circ (f+g) = b\circ f + b \circ g$ and $(f+g)\circ a = f\circ a + g\circ a$.
+ - Has a /zero object/.
+ - Has finite /products/ and /coproducts/.
+
+A functor $T$ between two additive categories is and *additive functor* 
+if $T(f+g) = Tf+Tg$. cite:rotman08_setting
+#+end_definition
+
+*** Abelian category
+#+begin_definition
+An abelian category is an /additive category/ such that
+
+  * every morphism has a kernel and cokernel.
+  * every monomorphism is a kernel.
+  * every epimorphism is a cokernel.
+#+end_definition
+
+The category of $R\text{-modules}$ is an abelian category, but also the category
+of chain complexes of an arbitrary abelian category, $\mathtt{Ch}({\cal A})$, is an abelian
+category.
+
+** Chain complexes and homology
+*** Chain complex
+#+begin_definition
+A *chain complex* is a family of $R\text{-modules}$ $\left\{ C_n \right\}$ and homomorphisms
+$d_n \colon C_n \to C_{n-1}$ called /differentials/, such that each composite of
+consecutive differentials is zero, i.e. $d_{n-1} \circ d_n = 0$. cite:weibel94_introd
+#+end_definition
+
+
+
+#+begin_theorem
+Given an abelian category ${\cal A}$, the category $\mathtt{Ch}({\cal A})$ is an abelian category.
+#+end_theorem
+
+*** Exact sequences
+#+begin_theorem
+
+#+end_theorem
+
+*** Homology
+
+* Derived functors
+** Projective, injective and flat resolutions
+*** Definitions
+#+begin_definition
+An R-module $D$ is:
+
+ 1. *Projective* if $Hom(D, -)$ is exact.
+ 2. *Injective* if $Hom(-,D)$ is exact.
+ 3. *Flat* if $D \otimes -$ is exact.
+#+end_definition
+
+We know that $Hom(D,-)$ and $Hom(-,D)$ are left-exact and that
+$D\otimes -$ is right-exact; so for them to be exact, we only need:
+
+ - A module $D$ is *projective* when $B \longrightarrow C$ surjective induces
+   $Hom(D,B) \longrightarrow Hom(D,C)$ surjective.
+
+   \[ \begin{tikzcd}
+               & B \dar[two heads] \\
+   D \rar\urar[dashed]{\exists} & C
+   \end{tikzcd} \]
+
+ - A module $D$ is *injective* when $A \longrightarrow B$ surjective induces
+   $Hom(B,D) \longrightarrow Hom(A,D)$ surjective.
+
+   \[ \begin{tikzcd}
+     & A \dar[two heads]\dlar \\
+   D & B \lar[dashed]{\exists}
+   \end{tikzcd} \]
+
+ - A module $D$ is *flat* when $A \longrightarrow B$ injective induces 
+   $D\otimes A \longrightarrow D \otimes B$ injective.
+*** Resolutions
+#+begin_definition
+A *projective resolution* is a resolution
+
+\[\dots\longrightarrow P_2\longrightarrow P_1\longrightarrow P_0
+\longrightarrow M \longrightarrow 0\]
+
+where every $P_i$ is projective.
+#+end_definition
+
+#+begin_definition
+An *injective resolution* is a resolution
+
+\[0 \longrightarrow M \longrightarrow E_0\longrightarrow E_1
+\longrightarrow E_2 \longrightarrow \dots\]
+
+where every $E_i$ is injective.
+#+end_definition
+
+#+begin_definition
+A *flat resolution* is a resolution
+
+\[\dots\longrightarrow F_2\longrightarrow F_1\longrightarrow F_0
+\longrightarrow M \longrightarrow 0\]
+
+where $F_i$ is flat.
+#+end_definition
+
+**** Explicit construction
+Notice that, given a module $M$, we can always find
+a surjection from a proyective module (if we have /enough
+projectives/). So we can construct a projective resolution as follows:
+
+\[ \begin{tikzcd}[column sep=tiny]
+&\ker f_2 \drar&&&&\ker \pi\drar &&& \\
+\dots&&P_2 \drar[two heads]{f_2}&&P_1 \urar[two heads]{f_1} && P_0 \ar[two heads,rr]{\pi} && M \rar & 0\\
+&&&\ker f_1 \urar&&&&
+\end{tikzcd} \]
+
+We can also reverse the arrows to obtain an injective resolution.
+
+*** Derived functors
+#+begin_definition
+#+end_definition
+
+**** Construction of the right derived functor
+Let $F$ be additive, covariant and left-exact. Let $0 \longrightarrow M \longrightarrow E^\bullet$ be an 
+injective resolution with $M$ deleted; then $F(E^\bullet)$ is a complex, and we define:
+
+\[R^i F(M) = H^i(F(E^\bullet)) = 
+\frac{\ker \{F(E_i) \longrightarrow F(E_{i+1})\}}
+{\im\{ F(E_{i-1}) \longrightarrow F(E_i)\}}\]
+
+That is, if we take the /injective resolution/
+
+\[ 0 \longrightarrow M \longrightarrow E_0 \longrightarrow E_1 
+\longrightarrow \dots\]
+
+we can delete $M$ and apply $F$ to get a (non neccesarily exact) complex where 
+we can compute the homology
+
+\[ 0 \longrightarrow F(E_0) \longrightarrow F(E_1)
+\longrightarrow F(E_2) \longrightarrow \dots.\]
+
+**** Construction of the left derived functor
+Let $F$ be additive, contravariant and left-exact. Let 
+$P^\bullet \longrightarrow M \longrightarrow 0$ be a projective resolution with $M$ deleted; 
+then $F(P^\bullet)$ is a complex, and we define:
+
+\[R^i F(M) = H^i(F(P^\bullet)) = 
+\frac{\ker \{F(P_i) \longrightarrow F(P_{i+1})\}}
+{\im\{ F(P_{i-1}) \longrightarrow F(P_i)\}}\]
+
+That is, if we take the /projective resolution/:
+
+\[\dots \longrightarrow P_2\longrightarrow P_1\longrightarrow P_0
+\longrightarrow M \longrightarrow 0\]
+
+Delete $M$ and apply $F$ to get a (non neccesarily exact) complex 
+where we can compute the homology:
+
+\[ 0 \longrightarrow F(P_0) \longrightarrow F(P_1)
+\longrightarrow F(P_2) \longrightarrow \dots\]
+
+* Hochschild homology
+** Preliminaries
+*** Opposite algebra
+#+begin_definition
+If $A$ is an $R\text{-algebra}$, the *opposite algebra* of $A$ is $A^\ast$; where
+multiplication is defined as $x \circ y = yx$.
+#+end_definition
+
+*** Enveloping algebra
+#+begin_definition
+Let $R$ be a $k\text{-algebra}$, the *enveloping algebra* of $R$ is $R^e = R \otimes R^{op}$,
+where the product is defined as
+
+\[ (r_1 \otimes s_1)(r_2 \otimes s_2) = (r_1r_2) \otimes (s_2s_1).\]
+#+end_definition
+
+#+begin_theorem
+Given any $k\text{-algebra}$, $R$, the following categories are isomorphic:
+
+  - $(R;R)\text{-Mod}$
+  - $R^e\text{-Mod}$
+  - $\text{Mod-}R^e$
+#+end_theorem
+#+begin_proof
+If $M$ is an $(R;R)\text{-module}$, we can provide it with $R^e\text{-module}$ structure
+by defining $(r\otimes s)m = rms$. It is trivial to check that this structure is
+compatible with our previously defined product, as
+
+\[
+(a\otimes b)(c \otimes d)m = acmdb = (ac \otimes bd)m.
+\]
+
+If $M$ is an $R^e\text{-module}$, we can provide it with $R;R\text{-module}$ structure
+taking $rms = (r\otimes s) m$. Compatibility relation can be checked by the same
+reasoning.
+#+end_proof
+
+*** Standard resolution
+Given $R$, a $k\text{-algebra}$ we define the *standard resolution* $(P_{\bullet},d_{\bullet})$ of $R$ in
+$(R;R)\mathrm{-mod}$ as
+
+ - $P_n = R \otimes (R^{\otimes n}) \otimes R$
+ - $d_{n} = \sum_{i=0}^n (-1)^id^i_n$
+
+where
+
+\[
+d_n^i(a_0 \otimes \dots \otimes a_{n+1}) =
+a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}.
+\]
+
+** Hochschild homology
+#+begin_definition
+Given $R$, a $K\text{-algebra}$, and $M$, an $(R;R)\text{-module}$, we define:
+
+  - The *Hochschild cohomology* of $R$ in $M$ as $HH^{\bullet}(R,M) = \operatorname{Ext}^\bullet_{R^e}(R,M)$.
+  - The *Hochschild homology* of $R$ in $M$ as $HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)$.
+#+end_definition
+
+In order to compute the cohomology, we can take the following cochain complex
+
+\[
+\mathrm{Hom}_K(K,M) \overset{b^0} \longrightarrow
+\mathrm{Hom}_K(R,M) \overset{b^1} \longrightarrow
+\mathrm{Hom}_K(R^{\otimes 2},M) \overset{b^2} \longrightarrow
+\dots.
+\]
+
+where the $b^n$ are defined as
+
+ - $b^0(m)(a) = am-ma$
+ - $b^n = \sum^{n+1}_{i=0}(-1)^ib_i^n$
+
+and the auxiliary morphisms $b_i^n$ are defined as
+
+\[
+b^n_i(f)(a_1\otimes \dots \otimes a_{n+1}) =
+\left\{\begin{array}{ll} 
+a_1f(a_2\otimes\dots\otimes a_{n+1})& \mbox{if } i=0  \\
+f(a_1\otimes\dots\otimes a_ia_{i+1}\otimes\dots\otimes a_{n+1}}& \mbox{if } i=1,\dots,n \\
+f(a_1\otimes\dots\otimes a_n)a_{n+1}& \mbox{if } i=n+1
+\end{array}.
+\right.
+\]
+
+* Koszul pairs
+** Preliminary definitions
+*** Graded rings
+#+begin_definition 
+A *graded ring* is a ring that can be written as a direct sum of abelian groups
+
+\[ A = \bigoplus_{n \in \mathbb{N}} A_n\]
+
+such that $A_iA_j \subset A_{i+j}$.
+#+end_definition
+
+A *homogeneous element* is an element of any factor $A_i$ of the decomposition.
+
+*** Koszul rings
+#+begin_definition
+A graded ring $A$ is a *koszul ring* if $A^0$ is a semisimple ring 
+and it has a resolution $P_\ast$ by projective graded left A-modules such 
+that each $P_n$ is generated by homogeneous elements of degree $n$.
+cite:jarastefan10
+#+end_definition
+
+*** R-rings
+#+begin_definition
+An $R\text{-ring}$ is an associative and unital algebra. It is an associative and
+unital ring $A$ together with a morphism $u : R \longrightarrow A$.
+#+end_definition
+
+A R-ring is *graded* if it is equipped with a decomposition:
+
+\[A = \bigoplus_{n \in \mathbb{N}} A^n \]
+
+such that multiplicaton $m^{p,q}$ maps $A^p \otimes A^q$ into $A^{p+q}$. It is *connected* 
+when $A_0 = R$. It is *strongly graded* when $m^{1,p}$ is surjective. We 
+call $\pi^n_A$ to the projection of $A$ onto $A^n$.
+
+*** R-coring
+#+begin_definition
+A *coalgebra* over a field $K$ is a *vector space* $V$ together with linear
+maps $\Delta : V \longrightarrow V \otimes V$ and $\varepsilon : V \longrightarrow K$ such that:
+
+ 1. $(id \otimes \Delta) \circ \Delta = (\Delta \otimes id) \circ \Delta$
+ 2. $(id \otimes \varepsilon) \circ \Delta = id 
+    = (\varepsilon \otimes id) \circ \Delta$
+#+end_definition
+
+When writting in coalgebras, we will follow the *Sweedler
+notation*. cite:underwood15_hopf
+
+#+begin_definition
+An $\mathbf{R\text{-coring}}$ is a /coassociative/ and /counital/ /coalgebra/. It is an 
+$R\text{-bimodule}$ with a /comultiplication/ $\Delta : C \longrightarrow C \otimes C$ and  a /counit/
+$\epsilon : C \longrightarrow R$.
+#+end_definition
+
+A $R\text{-coring}$ is *graded* if it is equipped with a decomposition 
+$C = \bigoplus_{n \in \mathbb{N}} C_n$, such that
+
+\[\Delta(C_n) \subset \bigoplus_{p=0}^n C_p \otimes C_{n-p}.\]
+
+*** Almost-koszul pair
+#+begin_definition
+An *almost-Koszul pair* is a connected $R\text{-ring}$ and $R\text{-coring}$ $(A,C)$ 
+with an isomorphism $\theta_{C,A} : C_1 \longrightarrow A^1$ that satisfies the relation
+
+\[ m^{1,1} \circ (\theta_{C,A} \otimes \theta_{C,A}) \circ \Delta_{1,1}
+= 0.\]
+#+end_definition
+
+Using Sweedler notation we can rewrite the condition as follows: 
+for any $c \in C_2$,
+
+\[ \sum \theta_{C,A}(c_{(1,1)}) \theta_{C,A}(c_{(2,1)}) = 0.\]
+
+
+* References
+# Aluffi
+# MacLane
+# Weibel
+# Rotman
+
+bibliographystyle:unsrt
+bibliography:math.bib
