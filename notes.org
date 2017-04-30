@@ -2364,18 +2364,20 @@ is a commutative Von Neumann regular ring.
  #+end_theorem
 
 **** Monomorphisms and epimorphisms
- #+begin_definition
- *Monomorphism*. A morphism $u$ such that:
- \[u \circ f = u \circ g \quad \Rightarrow \quad f = g\]
- #+end_definition
- #+begin_definition
- *Epimorphism*. A morphism $u$ such that:
- \[f \circ u = g \circ u \quad \Rightarrow \quad f = g\]
- #+end_definition
 
- We have that $u : B \longrightarrow C$ is *monomorphism* iff the induced 
- $u^\ast : Hom(A,B) \longrightarrow Hom(A,C)$ is injective. And $v : B \longrightarrow C$ is *epimorphism* 
- iff the induced $v^* : Hom(B,D) \longrightarrow Hom(C,D)$ is surjective.
+#+begin_definition
+*Monomorphism*. A morphism $u$ such that:
+\[u \circ f = u \circ g \quad \Rightarrow \quad f = g\]
+#+end_definition
+
+#+begin_definition
+*Epimorphism*. A morphism $u$ such that:
+\[f \circ u = g \circ u \quad \Rightarrow \quad f = g\]
+#+end_definition
+
+We have that $u : B \longrightarrow C$ is *monomorphism* iff the induced 
+$u^\ast : Hom(A,B) \longrightarrow Hom(A,C)$ is injective. And $v : B \longrightarrow C$ is *epimorphism* 
+iff the induced $v^* : Hom(B,D) \longrightarrow Hom(C,D)$ is surjective.
 
 **** Kernels and cokernels
  #+begin_definition
