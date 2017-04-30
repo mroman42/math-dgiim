@@ -869,17 +869,17 @@ A resolution:
 where $F_i$ is flat.
 
 **** How to form a resolution
-It is important to notice that, given a module $M$, you can always find a surjection
-from a proyective module (we have /enough projectives/). So we can construct a
-projective resolution as follows:
+It is important to notice that, given a module $M$, we can always find
+a surjection from a proyective module (if we have /enough
+projectives/). So we can construct a projective resolution as follows:
 
-\[ \begin{tikzcd}
+\[ \begin{tikzcd}[column sep=tiny]
 &\ker f_2 \drar&&&&\ker \pi\drar &&& \\
-\dots&&P_2 \drar[two heads]{f_2}&&P_1 \urar[two heads]{f_1} && P_0 \rar[two heads]{\pi} & M \rar & 0\\
+\dots&&P_2 \drar[two heads]{f_2}&&P_1 \urar[two heads]{f_1} && P_0 \ar[two heads,rr]{\pi} && M \rar & 0\\
 &&&\ker f_1 \urar&&&&
 \end{tikzcd} \]
 
-We can reverse the arrows to obtain an injective resolution.
+We can also reverse the arrows to obtain an injective resolution.
 
 *** TODO 10. Homotopic projective resolutions
 **** Extending a morphism
@@ -893,7 +893,7 @@ between them, $f$. We can extend it to $f_n \in Hom(P_n,P_n')$.
  \rar & P_1'\rar{d_1¡} & P_0'\rar{d_0'}& A' \rar& 0 \\
 \end{tikzcd} \]
 
-**** Extending the morphism, base case
+***** Extending the morphism, base case
 We use that $P_0$ is projective to construct:
 
 \[ \begin{tikzcd}
@@ -902,7 +902,7 @@ We use that $P_0$ is projective to construct:
 P_0' \rar[two heads] & A'
 \end{tikzcd} \]
 
-**** Extending the morphism, inductive case
+***** Extending the morphism, inductive case
 We are going to show that $f_n(\im d_{n+1}) \subset \im d_{n+1}' = \ker d_n'$. That is, 
 $d_n' \circ f_n \circ d_{n+1} = 0$. And that follows from diagram chasing. We use
 again the projectivity of $P_{n+1}$.
@@ -1031,7 +1031,7 @@ donde tomamos
 
 \[
 d_n^i(a_0 \otimes \dots \otimes a_{n+1}) =
-a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}
+a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}.
 \]
 
 **** Complejo de cocadenas
@@ -1142,16 +1142,16 @@ Con fronteras:
 \left\{\begin{array}{ll} 
 mr_1 \otimes r_2 \otimes \dots \otimes r_n& \mbox{if } i = 0 \\
 m \otimes r_1 \otimes r_2 \otimes \dots \otimes r_ir_{i+1} \otimes \dots \otimes r_n& \mbox{if } 0 < i < n \\
-r_nm \otimes r_1 \otimes r_2 \otimes \dots \otimes r_{n-1} & \mbox{if } i = n \\
-\end{array} 
+r_nm \otimes r_1 \otimes r_2 \otimes \dots \otimes r_{n-1} & \mbox{if } i = n
+\end{array}.
 \right.
 \]
 
-Y con degeneración:
+Y con degeneración
 
 \[
 \sigma_i(m \otimes r_1 \otimes \dots \otimes r_n) =
-m \otimes \dots \otimes r_i \otimes 1 \otimes r_{i+1} \otimes \dots \otimes r_n
+m \otimes \dots \otimes r_i \otimes 1 \otimes r_{i+1} \otimes \dots \otimes r_n.
 \]
 
 **** Homología de Hochschild
