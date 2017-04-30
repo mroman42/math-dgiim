@@ -293,16 +293,17 @@ The same argument can be repeated $n$ times to obtain $\mathbb{Z}\ast \overset{n
 As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots\oplus\mathbb{Z}$ is the free group.
 
 * III. Rings and modules
-** 5. Modules over a ring
-*** 4. Simple modules. Lema de Schur
- Tenemos que, siendo kernel e imagen submódulos, serán,
- o bien $\{0\}$, o bien $M$. Dividiendo por casos:
+** III.5. Modules over a ring
+*** III.5.4. Simple modules. Lema de Schur
+Tenemos que, siendo kernel e imagen submódulos, serán,
+o bien $\{0\}$, o bien $M$. Dividiendo por casos:
+
   - $ker \phi = \{0\}$, nos da un monomorfismo. Como su imagen debe ser
     distinta de $0$ para algún elemento y es submódulo, debe ser $N$.
   - $ker \phi = M$, nos da $\phi = 0$.
 
-** 6. Products and coproducts in R-Mod
-*** 16. Cyclic modules
+** III.6. Products and coproducts in R-Mod
+*** III.6.16. Cyclic modules
 **** Un módulo simple es cíclico
  Tomemos un elemento suyo cualquiera y
  creamos $<m>$. Ocurre que debe ser un submódulo y por ser simple, todo
@@ -321,18 +322,18 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
 
  \[\frac{\frac{R}{I}}{J} \cong \frac{\frac{R}{I}}{\frac{I+J}{I}} \cong \frac{R}{I+J}\] (?)
 
-** 7. Complexes and homology
-*** 1. Exactitud entre ceros.
+** III.7. Complexes and homology
+*** III.7.1. Exactitud entre ceros.
  \[ \dots \overset{}\longrightarrow 0 \overset{}\longrightarrow M \overset{}\longrightarrow 0 \overset{}\longrightarrow \dots \]
  Tenemos que el núcleo de la segunda debe ser igual a la imagen de la primera y
  por tanto, cero. Eso sólo es posible si $M=0$.
 
-*** 2. Exactitud entre isomorfías
+*** III.7.2. Exactitud entre isomorfías
      \[ \dots \overset{}\longrightarrow 0 \overset{}\longrightarrow M \overset{}\longrightarrow M' \overset{}\longrightarrow 0 \longrightarrow \dots\]
  Tenemos por el primer 0 la función inyectiva y por el segundo la función 
  sobreyectiva. Debe ser por tanto isomorfismo.
 
-*** 3. Kernel y cokernel en secuencia exacta
+*** III.7.3. Kernel y cokernel en secuencia exacta
      \[ \dots \overset{}\longrightarrow 0 \overset{}\longrightarrow L \overset{}\longrightarrow M 
      \overset{\phi}\longrightarrow M' \longrightarrow N \longrightarrow 0 \longrightarrow \dots \]
  Por el primer 0 tengo una inyección $i$ de $L$ en $M$, que lo identifica con
@@ -341,7 +342,7 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
 
  \[N = im(\pi) \cong \frac{M'}{ker(\pi)} = \frac{M'}{im(\phi)} = coker(\phi)\]
 
-*** 4. Hotel de Hilbert
+*** III.7.4. Hotel de Hilbert
  Dada una secuencia de enteros, podemos moverla un paso a la derecha:
 
  \[(a_1,a_2,a_3,\dots) \longrightarrow (0,a_1,a_2,\dots)\] 
@@ -359,7 +360,7 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
 
  \[ 0 \overset{}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\beta}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\pi}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{}\longrightarrow 0 \] 
 
-*** 5. Exactitud entre noetherianos
+*** III.7.5. Exactitud entre noetherianos
  Tenemos la secuencia exacta:
 
  \[ \dots \overset{}\longrightarrow L \overset{\alpha}\longrightarrow M \overset{\beta}\longrightarrow N \overset{}\longrightarrow \dots \]
@@ -378,7 +379,7 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
  $\beta(y) = \beta(x)$, es decir, $x-y \in ker(\beta)$. Pero entonces $x-y \in im(\alpha)$ y por tanto,
  $x-y \in M_i$, llevando a $x\in M_i$.
 
-*** 6. Epimorfismo escindido
+*** III.7.6. Epimorfismo escindido
  Sea una sucesión:
 
  \[ 0 \overset{}\longrightarrow ker(\phi) \overset{}\longrightarrow M \overset{\phi}\longrightarrow N \overset{}\longrightarrow 0 \]
@@ -392,7 +393,7 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
  \[(k,n) \mapsto \psi n + k\]
  \[m \mapsto (m-\psi \phi m, \phi m)\]
 
-*** 10. Lema corto de los cinco 
+*** III.7.10. Lema corto de los cinco 
  Si en el lema de la serpiente son $\lambda$ y $\nu$ isomorfismos, tenemos la sucesión:
 
  \[0 \longrightarrow 0 \longrightarrow ker(\mu) \longrightarrow 0 \overset{\delta}\longrightarrow
@@ -400,10 +401,10 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
 
  Por tanto, el kernel y cokernel de $\mu$ son nulos y es isomorfismo.
 
-*** 11. Todo morfismo de escisión es isomorfismo
+*** III.7.11. Todo morfismo de escisión es isomorfismo
  Directamente aplicando el ejercicio anterior, tenemos que $N \cong M_1 \oplus M_2$.
 
-*** 12. Lema de los cuatro (1)
+*** III.7.12. Lema de los cuatro (1)
  Lo probamos por caza del diagrama. Primero tomamos un elemento en el núcleo
  de C y aplicamos:
 
@@ -415,7 +416,7 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
 
  Teniendo que el elemento es nulo.
 
-*** 13. Lema de los cuatro (2)
+*** III.7.13. Lema de los cuatro (2)
  Volvemos a cazar diagramas. Tomamos un $c'$ en $coker(\gamma)$ y hacemos:
 
  - Exactitud de CDE.
@@ -431,11 +432,11 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
 
  Y obtenemos un $x \in C$ que tiene como imagen a $c'-z'$. Finalmente: $\gamma(x+z) = c'$.
 
-*** 14. Lema de los cinco
+*** III.7.14. Lema de los cinco
  Trivial uniendo ambos lemas de los cuatro.
 
 * VI. Linear Algebra
-** 1. Free modules revisited
+** VI.1. Free modules revisited
 *** 1. R y C son isomorfos como espacios vectoriales de Q
  Sabemos que $C \cong R \oplus R$. Dada una base $B$ de $\mathbb{R}$, podemos ver que será
  infinita y por axioma de elección isomorfa a $B+B$, que será a su
@@ -487,7 +488,7 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
  $im(\phi^{n+1})$, que debe estar contenido en $im(\phi^n)$ y ser de la misma
  dimensión.
 
-** 2. Homomorphisms of free modules I
+** VI.2. Homomorphisms of free modules I
 *** 1. Grupo isomorfo a la suma
  Tenemos que:
 
@@ -510,7 +511,7 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
 
  Esto debe dejarnos sólo ceros debajo y encima de los 1 pivotes.
 
-** 4. Presentations and resolutions
+** VI.4. Presentations and resolutions
 *** 1. Tor(M) es submódulo de M cuando R es dominio de integridad.
  Tenemos $Tor(M) = \{ m | \exists r \in R : r \neq 0, rm = 0\}$, y siendo dos elementos $m,n$ en $Tor(M)$, 
  que cumplen que $rm = 0$ y $qn = 0$, podemos
@@ -597,7 +598,7 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
  que lleva $1$ a $(y,-x)$ que es generador de $ker(\delta)$.
 
 * VIII. Linear algebra, reprise
-** 1. Preliminaries, reprise
+** VIII.1. Preliminaries, reprise
 *** 1.2. Funtor plenamente fiel respeta isomorfías 
  Sea ${\cal F}(A) \cong {\cal F}(B)$, gracias a dos morfismos inversos $\alpha,\beta$. Como
  el funtor es pleno, existen dos morfismos preimagen de ambos
@@ -655,7 +656,7 @@ As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots
 
  A partir de aquí podemos hacer aritmética como usualmente desde estos desarrollos de los
  números p-ádicos.
-** 2. Tensor products, and the Tor functors
+** VIII.2. Tensor products, and the Tor functors
 *** 2.14. Tor en 0 es el producto tensor
  La definición inicial de Tor es como:
 
