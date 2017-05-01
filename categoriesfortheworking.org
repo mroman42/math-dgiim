@@ -369,7 +369,36 @@ If the functor $T \colon C \to B$ is faithful and $Tf$ is monic, prove $f$ monic
 If $f\circ g = f \circ h$, we have $Tf\circ Tg = Tf\circ Th$. $Tf$ is monic and $T$ is faithful, so
 we get $g = h$.
 
-** TODO I.6. Foundations
+** I.6. Foundations
+*** CHECK Exercise I.6.1
+#+begin_statement
+Given a universe $U$ and a function $f \colon I \to b$ with domain $I \in U$ and
+with every value $f_i$ an element of $U$, for $i \in I$, prove that the usual
+cartesian product $\prod_i f_i$ is an element of $U$.
+#+end_statement
+
+An element of the cartesian product will be a function $g \colon I \to \bigcup f_i$,
+where $g(i) \in f_i$ for every $i \in I$. Our cartesian product is defined as
+
+\[
+\left\{ x \in {\cal P}\left( I \times \bigcup f_i \right) \;\middle|\; 
+\left( \forall (i,b) \in x \colon b \in f_i \right) \wedge
+\left( \forall j \in I\colon \exists! (i,b) \in x\colon j = i \right)
+\right\}.
+\]
+
+Notice that the powerset and the union of elements in $U$ are elements
+in $U$.
+
+*** TODO Exercise I.6.2
+#+begin_statement
+(a) Given a universe $U$ and a function $f \colon I \to b$ with domain $I \in U$, show
+that the usual union $\bigcup_i f_i$ is a set of $U$.
+
+(b) Show that this one closue property of $U$ may replace condition (v) and the
+condition $x \in U$ implies $\bigcup x \in U$ in the definition of a universe.
+#+end_statement
+
 * II. Constructions on categories
 ** II.3. Products of categories
 *** TODO Exercise II.3.1
