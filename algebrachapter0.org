@@ -292,22 +292,111 @@ Extend the result of [[*Exercise II.5.6][Exercise 5.6]] to free groups $F(\left\
 The same argument can be repeated $n$ times to obtain $\mathbb{Z}\ast \overset{n}\dots \ast\mathbb{Z}$ as free group.
 As $\mathbb{Z}\oplus\mathbb{Z}$ is the abelian coproduct, $\mathbb{Z}\oplus\dots\oplus\mathbb{Z}$ is the free group.
 
-* III. Rings and modules
-** III.5. Modules over a ring
-*** III.5.4. Simple modules. Lema de Schur
-Tenemos que, siendo kernel e imagen submódulos, serán,
-o bien $\{0\}$, o bien $M$. Dividiendo por casos:
+** II.6. Subgroups
+*** Exercise II.6.1
+#+begin_statement
+The group of invertible $n \times n$ matrices with entries in $\mathbb{R}$ is denoted $GL_n(\mathbb{R})$.
+Similarly, $GL_n(\mathbb{C})$ denotes the group of $n \times n$ invertible matrices with complex
+entries. Consider the following sets of matrices:
 
-  - $ker \phi = \{0\}$, nos da un monomorfismo. Como su imagen debe ser
-    distinta de $0$ para algún elemento y es submódulo, debe ser $N$.
-  - $ker \phi = M$, nos da $\phi = 0$.
+ * $SL_n(\mathbb{R}) = \left\{ M \in GL_n(\mathbb{R}) \mid \mathrm{det}(M)=1 \right\}$;
+ * $SL_n(\mathbb{C}) = \left\{ M \in GL_n(\mathbb{C}) \mid \mathrm{det}(M)=1 \right\}$;
+ * $O_n(\mathbb{R}) = \left\{ M \in GL_n(\mathbb{R}) \mid MM^t = M^tM = I_n \right\}$;
+ * $SO_n(\mathbb{R}) = \left\{ M \in O_n(\mathbb{R}) \mid \mathrm{det}(M)=1 \right\}$;
+ * $U(n) = \left\{ M \in GL_n(\mathbb{C}) \mid MM^{\dag} = M^{\dag}M = I_n \right\}$;
+ * $SU(n) = \left\{ M \in U_n(\mathbb{C}) \mid \mathrm{det}(M) = 1 \right\}$;
+
+Here $I_n$ stands for the $n \times n$ identity matrix, $M^t$ is the /transpose/ of $M$,
+$M^{\dag}$ is the /conjugate transpose/ of $M$, and $\mathrm{det}(M)$ denotes the /determinant/
+of $M$. Find all possible inclusions among these sets, and prove that in every
+case the smaller set is a subgroup of the larger one.
+#+end_statement
+
+We are dealing with three different properties:
+
+  1. The matrix has entries in $\mathbb{C}$.
+  2. The matrix has its conjugate transpose as its inverse, $MM^{\dag}=I_n$.
+  3. The matrix has determinant $1$, $\mathrm{det}(M) = 1$.
+
+None of them implies the others. The three properties give rise to this 
+three-dimensional cube
+
+\[\begin{tikzcd}[column sep=tiny, every arrow/.append style={dash}]
+&& GL(\mathbb{C}) & \\
+& U(n) \urar & SL_n(\mathbb{C})\uar & GL(\mathbb{R})\ar{ul} \\
+& SU(n) \uar\ar{ur} & O_n(\mathbb{R}) \ular\urar & SL_n(\mathbb{R}) \ular\uar\\
+&& SO_n(\mathbb{R})\uar \urar\ular & & .
+\end{tikzcd}\]
+
+*** Exercise II.6.3
+#+begin_statement
+Prove that every matrix in $SU(2)$ may be written in the form
+
+\[\begin{pmatrix}
+a+bi & c+di \\
+-c+di & a-bi
+\end{pmatrix}\]
+
+where $a,b,c,d \in \mathbb{R}$ and $a^2+b^2+c^2+d^2 = 1$. (Thus, $SU(2)$ may be
+realized as a three-dimensional sphere embedded in $\mathbb{R}^4$; in particular,
+it is /simply connected/.)
+#+end_statement
+
+If we take $\alpha,\beta,\gamma,\delta \in \mathbb{C}$, and create a special unitary matrix, we have 
+the relationships
+
+ * $|\alpha|+|\beta| = 1$
+ * $\alpha\delta-\beta\gamma = 1$
+ * $\alpha\overline{\gamma} + \beta\overline{\delta} = 0$
+
+that are solved by $\alpha = \overline{\delta}$ and $\beta = -\overline{\gamma}$, while the first one gives us the
+sphere condition.
+
+* III. Rings and modules
+** III.1. Definition of a ring
+*** Exercise III.1.1
+#+begin_statement
+Prove that if $0=1$ in a ring $R$, then $R$ is a zero-ring.
+#+end_statement
+
+By definition,
+
+\[
+r = 1r = 0r = 0r+0r = 0.
+\]
+
+** III.5. Modules over a ring
+*** Exercise III.5.4
+#+begin_statement
+Let $R$ be a ring. A nonzero $R\text{-module}$ is /simple/ (or /irreducible/) if its
+only submodules are $\left\{ 0 \right\}$ and $M$. Let $M,N$ be simple modules, and let
+$\varphi \colon M \to N$ be a homomorphism of $R\text{-modules}$. Prove that either $\varphi = 0$, or
+$\varphi$ is an isomorphism. (This rather innocent statement is known as *Schur's 
+Lemma*.)
+#+end_statement
+
+The kernel and image of $\varphi$ will be submodules, they only can be the total
+submodule or the zero submodule, as $M,N$ are simple modules. There are two 
+cases
+
+  - If $\operatorname{ker}\phi = \{0\}$, it is a monomorphism. Its image must be different
+    from $0$, thus it must be $N$.
+
+  - If $\operatorname{ker} \phi = M$, we have $\phi = 0$.
 
 ** III.6. Products and coproducts in R-Mod
-*** III.6.16. Cyclic modules
+*** CHECK Exercise III.6.16
+#+begin_statement
+Let $R$ be a ring. A (left-)$R\text{-module}$ $M$ is /cyclic/ if $M = \left\langle m \right\rangle$ for
+some $m \in M$. Prove that simple modules (cf. Exercise 5.4) are cyclic.
+Prove that an $R\text{-module}$ $M$ is cyclic if and only if $M \cong R/I$ for some
+(left-)ideal $I$. Prove that every quotient of a cyclic module is cyclic.
+#+end_statement
+
 **** Un módulo simple es cíclico
- Tomemos un elemento suyo cualquiera y
- creamos $<m>$. Ocurre que debe ser un submódulo y por ser simple, todo
- el módulo.
+Tomemos un elemento suyo cualquiera y
+creamos $<m>$. Ocurre que debe ser un submódulo y por ser simple, todo
+el módulo.
 
 **** Un cociente por ideal es cíclico.
  Sea $M = R/I$, un módulo sobre $R$ podemos generarlo simplemente 
