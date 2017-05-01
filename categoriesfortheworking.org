@@ -7,9 +7,9 @@
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | CHECK
 
-* 1. Categories, functors and natural transformations
-** 1.3. Functors
-*** Exercise 1
+* I. Categories, functors and natural transformations
+** I.3. Functors
+*** Exercise I.3.1
 #+begin_statement
 Show how each of the following constructions can be regarded as a functor:
 
@@ -62,7 +62,7 @@ So it is a field homomorphism.
 **** TODO Lie algebra
 Given $\phi : G \to H$, a Lie group homomorphism, we can compute its first
 derivative at the identity $\phi^*$.
-*** Exercise 2
+*** Exercise I.3.2
 #+begin_statement
 Show that functors $1 \to C$, $2 \to C$, and $3 \to C$ correspond respectively to
 objects, arrows, and composable pairs of arrows in $C$.
@@ -72,7 +72,7 @@ A functor $F\colon 1 \to C$ is determined by $F1$. A functor $F\colon 2 \to C$ i
 by $F(1\leq 2)\colon F1 \to F2$. A functor $F\colon 3 \to C$ is determined by $F(1\leq 2)$ and
 $F(2\leq 3)$, which must be composable in $F2$.
 
-*** Exercise 3
+*** Exercise I.3.3
 #+begin_statement
 Interpret "functor" in the following special types of categories:
 
@@ -101,7 +101,7 @@ group of the set.
 The functor $F\colon G \to \mathtt{Matr}_K$ selects a dimension $n$, and sends every element
 of the group to an invertible matrix $M_{n\times n}$.
 
-*** Exercise 4
+*** Exercise I.3.4
 #+begin_statement
 Prove that there is no functor $\mathtt{Grp} \to \mathtt{Ab}$ sending each group $G$ to its
 center. (Consider $S_2 \to S_3 \to S_2$, the symmetric groups).
@@ -122,7 +122,7 @@ S_2 \rar & \{id\} \rar &  S_2
 
 as we know that the identity is not the zero morphism.
 
-*** Exercise 5
+*** Exercise I.3.5
 #+begin_statement
 Find two different functors $T : \mathtt{Grp} \to \mathtt{Grp}$ with object function $T(G) = G$
 the identity for every group $G$.
@@ -131,8 +131,8 @@ the identity for every group $G$.
 The identity functor and a functor sending every morphism to the zero 
 morphism.
 
-** 1.4. Natural transformations
-*** Exercise 1
+** I.4. Natural transformations
+*** Exercise I.4.1
 #+begin_statement
 Let $S$ be a fixed set, and $X^S$ the set of all functions $h : S \longrightarrow X$.
 Show that $X \mapsto X^S$ is the object function of a functor $\mathtt{Set} \longrightarrow \mathtt{Set}$,
@@ -164,7 +164,7 @@ Which commutes on its elements:
 f(s) \rar{f} & g(f(s))
 \end{tikzcd}\]
 
-*** Exercise 2
+*** Exercise I.4.2
 #+begin_statement
 If $H$ is a fixed group, show that $G \mapsto H \times G$ defines a functor
 $H \times - \colon \mathtt{Grp}\to \mathtt{Grp}$ and that each morphism $f \colon H \to K$ of groups defines
@@ -183,7 +183,7 @@ K \times G'
 
 but it is trivial to check commutativity.
 
-*** Exercise 3
+*** Exercise I.4.3
 #+begin_statement
 If $B$ and $C$ are groups (regarded as categories with one object each) and
 $S,T \colon B \to C$ are functors (homomorphisms of groups), show that there is a
@@ -202,7 +202,7 @@ c\rar{\varphi} & c
 
 so we know that $Sf \circ \varphi = \varphi \circ Tf$, and this is the conjugate condition.
 
-*** Exercise 4
+*** Exercise I.4.4
 #+begin_statement
 For functors $S,T \colon C \to P$ where $C$ is a category and $P$ a preorder, show
 that there is a natural transformation $S \dot\to T$ (which is then unique) if
@@ -219,7 +219,7 @@ but this morphism exists if and only if $Sc \leq Tc$ for every object. If the
 morphisms exist, the naturality condition is trivial, as there will be
 an unique morphism between two objects and all squares will commute.
 
-*** Exercise 5
+*** Exercise I.4.5
 #+begin_statement
 Show that every natural transformation $\tau\colon S \dot\to T$ defines a function
 (also called $\tau$) which sends each arrow $f\colon c \to c'$ of $C$ to an arrow
@@ -245,14 +245,14 @@ Tg \circ \tau f = Tg\circ Tf\circ \tau_c = \tau(gf) = \tau_{c'}\circ Sg\circ Sf
 = \tau g \circ Sf.
 \]
 
-*** TODO Exercise 6
+*** TODO Exercise I.4.6
 #+begin_statement
 Let $F$ be a field. Show that te category of all finite-dimensional vector
 spaces over $F$ (with morphisms all lineal transformations) is equivalent
 to the category $\mathtt{Matr}$.
 #+end_statement
-** 1.5. Monics, epis and zeros
-*** Exercise 1
+** I.5. Monics, epis and zeros
+*** Exercise I.5.1
 #+begin_statement
 Find a category with an arrow which is both epi and monic, but not 
 invertible (e.g., dense subset of a topological space).
@@ -270,7 +270,7 @@ and because it is a dense subset, by continuity, $f = g$.
 But it has not to be an isomorphism. In fact, it won't be if $U$ is a
 proper subset.
 
-*** Exercise 2
+*** Exercise I.5.2
 #+begin_statement
 Prove that the composite of monics is monic, and likewise for epis.
 #+end_statement
@@ -285,7 +285,7 @@ a = b.
 
 The same proof can be applied in reverse.
 
-*** Exercise 3
+*** Exercise I.5.3
 #+begin_statement
 If a composite $g\circ f$ is monic, so is $f$. Is this true of $g$?
 #+end_statement
@@ -293,7 +293,7 @@ If a composite $g\circ f$ is monic, so is $f$. Is this true of $g$?
 No, $f$ could be a zero morphism and $g$ could still give $g\circ h = g\circ h'$ for
 two $h \neq h'$.
 
-*** Exercise 4
+*** Exercise I.5.4
 #+begin_statement
 Show that the inclusion $\mathbb{Z} \to \mathbb{Q}$ is epi in the category $\mathtt{Rng}$.
 #+end_statement
@@ -301,7 +301,7 @@ Show that the inclusion $\mathbb{Z} \to \mathbb{Q}$ is epi in the category $\mat
 If $f \circ i = g \circ i$, then $f|_{\mathbb{Z}} = g|_{\mathbb{Z}$, and we can extend the morphisms uniquely
 to the ring $\mathbb{Q}$, as the ring morphisms have to preserve inverses.
 
-*** TODO Exercise 5
+*** TODO Exercise I.5.5
 #+begin_statement
 In $\mathtt{Grp}$ prove that every epi is surjective (Hint. If $\varphi\colon G\to H$ has image
 $M$ not $H$, use the factor group $H/M$ if $M$ has index 2. Otherwise, let
@@ -312,7 +312,7 @@ Let $\psi\colon H \to \mathrm{Perm}\ H$ send each $h$ to left multiplication $\p
 $\psi'_h = \sigma^{-1}\psi_h\sigma$. Then $\psi\varphi = \psi'\varphi$, but $\psi \neq \psi'$).
 #+end_statement
 
-*** Exercise 6
+*** Exercise I.5.6
 #+begin_statement
 In $\mathtt{Set}$, show that all idempotents split.
 #+end_statement
@@ -321,7 +321,7 @@ Given $f \colon A \to A$ idempotent, we can define the set $\mathrm{img}\ f$, an
 $g \colon A \to \mathrm{img}\ f$, $h\colon \mathrm{img}\ f \to A$ defined naturally and satisfiying the conditions.
 Notice that $g$ is an epimorphism and $h$ a monomorphism.
 
-*** Exercise 7
+*** Exercise I.5.7
 #+begin_statement
 An arrow $f \colon a \to b$ in a category $C$ is /regular/ when there exists an arrow
 $g\colon b \to a$ such that $fgf = f$. Show that $f$ is regular if it has either a left or
@@ -344,7 +344,7 @@ u & \mbox{otherwise }
 and this morphism makes the $f$ regular. (Have we used the choice axiom to define
 the representatives?)
 
-*** Exercise 8
+*** Exercise I.5.8
 #+begin_statement
 Consider the category with objects $\left\langle X,e,t \right\rangle$, where $X$ is a set, $e \in X$, and
 $t \colon X \to X$, and with arrows $f\colon \left\langle X,e,t \right\rangle \to \left\langle X',e',t' \right\rangle$ the functions $f$ on $X$ to $X'$
@@ -361,7 +361,7 @@ determined as
 f(n) = f(S \circ \overset{n}\dots \circ S(0)) = t\circ \overset{n}\dots \circ t(f(0)).
 \]
 
-*** Exercise 9
+*** Exercise I.5.9
 #+begin_statement
 If the functor $T \colon C \to B$ is faithful and $Tf$ is monic, prove $f$ monic.
 #+end_statement
@@ -369,27 +369,27 @@ If the functor $T \colon C \to B$ is faithful and $Tf$ is monic, prove $f$ monic
 If $f\circ g = f \circ h$, we have $Tf\circ Tg = Tf\circ Th$. $Tf$ is monic and $T$ is faithful, so
 we get $g = h$.
 
-** TODO 1.6. Foundations
-* 2. Constructions on categories
-** 2.3. Products of categories
-*** TODO Exercise 1
+** TODO I.6. Foundations
+* II. Constructions on categories
+** II.3. Products of categories
+*** TODO Exercise II.3.1
 #+begin_statement
 Show that the product of categories includes the following known special
 cases: The product of monoids (categories with one object), of groups,
 of sets (discrete categories).
 #+end_statement
 
-*** TODO Exercise 2
+*** TODO Exercise II.3.2
 #+begin_statement
 Show that the product of two preorders is a preorder.
 #+end_statement
 
-*** TODO Exercise 4
+*** TODO Exercise II.3.4
 #+begin_statement
 Describe the opposite of the category $\mathtt{Matr}_K$.
 #+end_statement
 
-*** Exercise 5
+*** Exercise II.3.5
 #+begin_statement
 Show that the ring of continuous real-valued functions on a topological
 space is the object function of a contravariant functor on $\mathtt{Top}$ to $\mathtt{Rng}$.
@@ -409,10 +409,10 @@ but it is trivial that
 \end{aligned}
 \]
 
-** TODO 2.4. Functor categories
-** TODO 2.5. The category of all categories
-** 2.6. Comma categories
-*** Exercise 1
+** TODO II.4. Functor categories
+** TODO II.5. The category of all categories
+** II.6. Comma categories
+*** Exercise II.6.1
 #+begin_statement
 If $K$ is a commutative ring, show that the comma category $(K \downarrow \mathtt{CRng})$ is
 the usual category of all small commutative $K\text{-algebras}$.
@@ -423,7 +423,7 @@ of algebras must preserve this inclusion.
 
 # A more detailed proof would be interesting.
 
-*** Exercise 2
+*** Exercise II.6.2
 #+begin_statement
 If $t$ is a terminal object in $C$, prove that $(C \downarrow t)$ is isomorphic to $C$.
 #+end_statement
@@ -432,9 +432,9 @@ By definition of terminal object, there will be only an arrow
 $\ast \colon u \to t$ for any $u \in C$. Every morphism will create a commutative 
 diagram because of the unicity of the morphisms.
 
-* 3. Universals and limits
-** 3.1. Universal arrows
-*** Exercise 1
+* III. Universals and limits
+** III.1. Universal arrows
+*** Exercise III.1.1
 #+begin_statement
 Show how each of the following familiar constructions can be interpreted
 as a universal arrow:
@@ -456,7 +456,7 @@ where $U\colon \mathtt{Alg}_k \to \mathtt{Vect}_k$ is the forgetful functor.
 The same construction as above can be performed on the full subcategory of
 external algebras.
 
-*** Exercise 2
+*** Exercise III.1.2
 #+begin_statement
 Find a universal element for the contravariant power set functor
 ${\cal P} \colon \mathtt{Set}^{op} \to \mathtt{Set}$.
@@ -483,7 +483,7 @@ And its image when the functor is applied is
 
 The $g$ is unique, as it is defined by $x \in f(a) \iff a \in g(x)$.
 
-*** Exercise 3
+*** Exercise III.1.3
 #+begin_statement
 Find (from any given object) universal arrows to the following forgetful
 functors: $\mathtt{Ab} \to \mathtt{Grp}$, $\mathtt{Rng}\to \mathtt{Ab}$ (forget the multiplication), $\mathtt{Top} \to \mathtt{Set}$,
@@ -516,7 +516,7 @@ trivially continuous, as $\tau_d$ is the discrete topology.
 **** Pointed sets to sets
 Trivially, the inclusion on $(S \cup \left\{ \ast \right\}, \ast)$ defines an universal arrow.
 
-*** TODO Exercise 4
+*** TODO Exercise III.1.4
 #+begin_statement
 Use only universality (of projections) to prove the following isomorphisms of
 group theory:
@@ -525,25 +525,25 @@ group theory:
  2) For subgroups $S$ and $N$ of $G$, $N$ normal, with join $SN$, $SN/N \cong S/S\cap N$.
 #+end_statement
 
-*** TODO Exercise 5
+*** TODO Exercise III.1.5
 #+begin_statement
 Show that the quotient $K\text{-module}$ $A/S$ ($S$ a submodule of $A$) has a description
 by universality. Derive isomorphism theorems.
 #+end_statement
 
-*** TODO Exercise 6
+*** TODO Exercise III.1.6
 #+begin_statement
 Describe quotients of a ring by a two-sided ideal by universality.
 #+end_statement
 
-*** TODO Exercise 7
+*** TODO Exercise III.1.7
 #+begin_statement
 Show that the construction of the polynomial ring $K[x]$ in a indeterminate $x$
 over a commutative ring $K$ is a universal construction.
 #+end_statement
 
-** 3.2. Yoneda Lemma
-*** TODO Exercise 1
+** III.2. Yoneda Lemma
+*** TODO Exercise III.2.1
 #+begin_statement
 Let functors $K,K' \colon D \to \mathtt{Set}$ have representations $\left\langle r,\psi \right\rangle$ and $\left\langle r',\psi' \right\rangle$, 
 respectively. Prove that to each natural transformation $\tau\colon K \overset{\cdot}\to K'$,
@@ -554,7 +554,7 @@ there is a unique morphism $h \colon r' \to r$ of $D$ such that
 \]
 #+end_statement
 
-*** TODO Exercise 2
+*** TODO Exercise III.2.2
 #+begin_statement
 State the dual of the Yoneda Lemma ($D$ replaced by $D^{op}$).
 #+end_statement
