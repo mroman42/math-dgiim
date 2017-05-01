@@ -407,22 +407,24 @@ el módulo.
  \[M \cong R/ker(\phi) \cong R/I\]
 
 **** Todo cociente de cíclico es cíclico.
- Usando el tercer teorema de isomorfía:
+Usando el tercer teorema de isomorfía:
 
- \[\frac{\frac{R}{I}}{J} \cong \frac{\frac{R}{I}}{\frac{I+J}{I}} \cong \frac{R}{I+J}\] (?)
+\[\frac{\frac{R}{I}}{J} \cong \frac{\frac{R}{I}}{\frac{I+J}{I}} \cong \frac{R}{I+J}\] (?)
 
 ** III.7. Complexes and homology
-*** III.7.1. Exactitud entre ceros.
+*** Exercise III.7.1. Exactitud entre ceros.
+
  \[ \dots \overset{}\longrightarrow 0 \overset{}\longrightarrow M \overset{}\longrightarrow 0 \overset{}\longrightarrow \dots \]
+
  Tenemos que el núcleo de la segunda debe ser igual a la imagen de la primera y
  por tanto, cero. Eso sólo es posible si $M=0$.
 
-*** III.7.2. Exactitud entre isomorfías
+*** Exercise III.7.2. Exactitud entre isomorfías
      \[ \dots \overset{}\longrightarrow 0 \overset{}\longrightarrow M \overset{}\longrightarrow M' \overset{}\longrightarrow 0 \longrightarrow \dots\]
  Tenemos por el primer 0 la función inyectiva y por el segundo la función 
  sobreyectiva. Debe ser por tanto isomorfismo.
 
-*** III.7.3. Kernel y cokernel en secuencia exacta
+*** Exercise III.7.3. Kernel y cokernel en secuencia exacta
      \[ \dots \overset{}\longrightarrow 0 \overset{}\longrightarrow L \overset{}\longrightarrow M 
      \overset{\phi}\longrightarrow M' \longrightarrow N \longrightarrow 0 \longrightarrow \dots \]
  Por el primer 0 tengo una inyección $i$ de $L$ en $M$, que lo identifica con
@@ -431,7 +433,7 @@ el módulo.
 
  \[N = im(\pi) \cong \frac{M'}{ker(\pi)} = \frac{M'}{im(\phi)} = coker(\phi)\]
 
-*** III.7.4. Hotel de Hilbert
+*** Exercise III.7.4. Hotel de Hilbert
  Dada una secuencia de enteros, podemos moverla un paso a la derecha:
 
  \[(a_1,a_2,a_3,\dots) \longrightarrow (0,a_1,a_2,\dots)\] 
@@ -449,7 +451,7 @@ el módulo.
 
  \[ 0 \overset{}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\beta}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{\pi}\longrightarrow \mathbb{Z}^{\oplus \mathbb{N}} \overset{}\longrightarrow 0 \] 
 
-*** III.7.5. Exactitud entre noetherianos
+*** Exercise III.7.5. Exactitud entre noetherianos
  Tenemos la secuencia exacta:
 
  \[ \dots \overset{}\longrightarrow L \overset{\alpha}\longrightarrow M \overset{\beta}\longrightarrow N \overset{}\longrightarrow \dots \]
@@ -468,7 +470,7 @@ el módulo.
  $\beta(y) = \beta(x)$, es decir, $x-y \in ker(\beta)$. Pero entonces $x-y \in im(\alpha)$ y por tanto,
  $x-y \in M_i$, llevando a $x\in M_i$.
 
-*** III.7.6. Epimorfismo escindido
+*** Exercise III.7.6. Epimorfismo escindido
  Sea una sucesión:
 
  \[ 0 \overset{}\longrightarrow ker(\phi) \overset{}\longrightarrow M \overset{\phi}\longrightarrow N \overset{}\longrightarrow 0 \]
@@ -482,7 +484,7 @@ el módulo.
  \[(k,n) \mapsto \psi n + k\]
  \[m \mapsto (m-\psi \phi m, \phi m)\]
 
-*** III.7.10. Lema corto de los cinco 
+*** Exercise III.7.10. Lema corto de los cinco 
  Si en el lema de la serpiente son $\lambda$ y $\nu$ isomorfismos, tenemos la sucesión:
 
  \[0 \longrightarrow 0 \longrightarrow ker(\mu) \longrightarrow 0 \overset{\delta}\longrightarrow
@@ -490,10 +492,10 @@ el módulo.
 
  Por tanto, el kernel y cokernel de $\mu$ son nulos y es isomorfismo.
 
-*** III.7.11. Todo morfismo de escisión es isomorfismo
+*** Exercise III.7.11. Todo morfismo de escisión es isomorfismo
  Directamente aplicando el ejercicio anterior, tenemos que $N \cong M_1 \oplus M_2$.
 
-*** III.7.12. Lema de los cuatro (1)
+*** Exercise III.7.12. Lema de los cuatro (1)
  Lo probamos por caza del diagrama. Primero tomamos un elemento en el núcleo
  de C y aplicamos:
 
@@ -505,7 +507,7 @@ el módulo.
 
  Teniendo que el elemento es nulo.
 
-*** III.7.13. Lema de los cuatro (2)
+*** Exercise III.7.13. Lema de los cuatro (2)
  Volvemos a cazar diagramas. Tomamos un $c'$ en $coker(\gamma)$ y hacemos:
 
  - Exactitud de CDE.
@@ -521,17 +523,17 @@ el módulo.
 
  Y obtenemos un $x \in C$ que tiene como imagen a $c'-z'$. Finalmente: $\gamma(x+z) = c'$.
 
-*** III.7.14. Lema de los cinco
+*** Exercise III.7.14. Lema de los cinco
  Trivial uniendo ambos lemas de los cuatro.
 
 * VI. Linear Algebra
 ** VI.1. Free modules revisited
-*** 1. R y C son isomorfos como espacios vectoriales de Q
- Sabemos que $C \cong R \oplus R$. Dada una base $B$ de $\mathbb{R}$, podemos ver que será
- infinita y por axioma de elección isomorfa a $B+B$, que será a su
- vez una base de $\mathbb{R}^2$. Luego $\mathbb{R} \cong \mathbb{R} \oplus \mathbb{R}$.
+*** Exercise VI.1.1. R y C son isomorfos como espacios vectoriales de Q
+Sabemos que $C \cong R \oplus R$. Dada una base $B$ de $\mathbb{R}$, podemos ver que será
+infinita y por axioma de elección isomorfa a $B+B$, que será a su
+vez una base de $\mathbb{R}^2$. Luego $\mathbb{R} \cong \mathbb{R} \oplus \mathbb{R}$.
 
-*** 4. Álgebras de Lie
+*** Exercise VI.1.4. Álgebras de Lie
  Demostramos que $[u,v] = -[v,u]$. Ya que tenemos:
 
  $$[u,v] + [v,u] = [u,v] + [u,u] + [v,v] + [v,u] = [u+v,v] + [u+v,u] = [u+v,u+v] = 0$$
@@ -548,13 +550,13 @@ el módulo.
  0
  \end{align*}
 
-*** 5. Sistemas generadores e independientes en dominios de integridad
+*** Exercise VI.1.5. Sistemas generadores e independientes en dominios de integridad
  Un sistema independiente puede no crecer a base y un sistema generador
  puede no reducirse a base en un dominio de integridad. Como ejemplos
  tenemos $\mathbb{Z}$ con: {2} como sistema independiente y $\{2,3\}$ como sistema generador.
  Ninguno puede crear base porque las únicas bases posibles serían $\{1\}$ y $\{-1\}$.
 
-*** 13. Un grupo abeliano con endomorfismos de característica 0.
+*** Exercise VI.1.13. Un grupo abeliano con endomorfismos de característica 0.
  Si tiene endomorfismos que forman un cuerpo de característica 0, podemos
  identificar $\mathbb{Z}$ con los endomorfismos por propiedad universal y
  luego podemos extenderlo por contener $Q$ las inversas. De otro modo, 
@@ -565,7 +567,7 @@ el módulo.
  porque si tuviera dimensión mayor y una base de más de un elemento, colapsar
  dos elementos de la base en uno sería un endomorfismo sin inversa.
 
-*** 14. La potencia de un isomorfismo estabiliza kernel e imagen.
+*** Exercise VI.1.14. La potencia de un isomorfismo estabiliza kernel e imagen.
  Tenemos que $ker(\phi^n) \subset ker(\phi^{n+1})$ y que dos subespacios contenidos de la misma
  dimensión deben ser iguales. Por tanto, la dimensión debe crecer o estabilizarse
  a cada paso. Si la dimensión es finita debe estabilizarse en algún punto.
@@ -578,7 +580,7 @@ el módulo.
  dimensión.
 
 ** VI.2. Homomorphisms of free modules I
-*** 1. Grupo isomorfo a la suma
+*** Exercise VI.2.1. Grupo isomorfo a la suma
  Tenemos que:
 
  \[
@@ -590,7 +592,7 @@ el módulo.
  Luego la proyección del tercer elemento es un isomorfismo
  de grupos.
 
-*** 6. Row echelon form
+*** Exercise VI.2.6. Row echelon form
  Cuando trabajamos en un cuerpo podemos pasar a /row echelon form/ usando
  los siguientes pasos:
 
@@ -601,7 +603,7 @@ el módulo.
  Esto debe dejarnos sólo ceros debajo y encima de los 1 pivotes.
 
 ** VI.4. Presentations and resolutions
-*** 1. Tor(M) es submódulo de M cuando R es dominio de integridad.
+*** Exercise VI.4.1. Tor(M) es submódulo de M cuando R es dominio de integridad.
  Tenemos $Tor(M) = \{ m | \exists r \in R : r \neq 0, rm = 0\}$, y siendo dos elementos $m,n$ en $Tor(M)$, 
  que cumplen que $rm = 0$ y $qn = 0$, podemos
  ver que su suma será cerrada y que el producto por $r\in R$ será cerrado cuando
@@ -612,7 +614,7 @@ el módulo.
 
  Usando aquí que es dominio de integridad y por tanto $rq \neq 0$.
 
-*** 2. Hom(M,N) es libre de torsión cuando lo es N.
+*** Exercise VI.4.2. Hom(M,N) es libre de torsión cuando lo es N.
  Supongamos que no lo fuera, existiría un $f \in Hom_R(M,N)$ tal que 
  $rf = 0$ para algún $r$ no divisor de $0$. Pero entonces, esto haría
  que en el anillo $N$ existiese $rf(m) = 0$ para cualquier $m$, y por 
@@ -621,7 +623,7 @@ el módulo.
 
  En particular $Hom_R(M,R)$ es libre de torsión.
 
-*** 4. Propiedades del anulador
+*** Exercise VI.4.4. Propiedades del anulador
  Suponiendo $p,q \in Ann(R)$, tenemos que para todo $m \in M$ se tendrá
  $pm=0$ y $qm=0$. Por lo tanto $(p+q)m=0$ y $rpm = 0$, haciéndolo ideal.
 
@@ -640,7 +642,7 @@ el módulo.
  módulos como \(\mathbb{Z}_2 \oplus \mathbb{Z}_4 \oplus \mathbb{Z}_8 \dots\) que son torsión porque todo elemento se anula pero
  tienen anulador vacío porque no existen elementos que anulen todo el módulo.
 
-*** 13. Complejo de Koszul
+*** Exercise VI.4.13. Complejo de Koszul
 
 **** Es un complejo.
  Comprobamos que es un complejo viendo que las siguientes composiciones son $0$:
@@ -660,7 +662,7 @@ el módulo.
  - Que la imagen de $d_1$ es el núcleo de $\pi$ y que la proyección es sobreyectiva
    es trivial.
 
-*** 14. Complejo de Koszul en el caso de 3 elementos
+*** Exercise VI.4.14. Complejo de Koszul en el caso de 3 elementos
 **** Es un complejo
  Volvemos a comprobar que las composiciones son nulas. Tenemos de hecho que:
 
@@ -673,7 +675,7 @@ el módulo.
  de $d_3$ es nulo. De la misma forma, se tiene que el $ker(d_2)=im(d_3)$, aplicando
  en cada caso el no ser divisor de cero. Vuelve a tenerse una ecuación similar
  que demuestra $ker(d_1) = im(d_2)$. El caso de la proyección es trivial.
-*** 15. Resolución de Z sobre Z[x,y]
+*** Exercise VI.4.15. Resolución de Z sobre Z[x,y]
  Podemos encontrar una resolución como:
 
  \[0 \longrightarrow 
@@ -688,7 +690,7 @@ el módulo.
 
 * VIII. Linear algebra, reprise
 ** VIII.1. Preliminaries, reprise
-*** 1.2. Funtor plenamente fiel respeta isomorfías 
+*** Exercise VIII.1.2. Funtor plenamente fiel respeta isomorfías 
  Sea ${\cal F}(A) \cong {\cal F}(B)$, gracias a dos morfismos inversos $\alpha,\beta$. Como
  el funtor es pleno, existen dos morfismos preimagen de ambos
  llamados $\alpha',\beta'$ y tenemos que:
@@ -696,7 +698,7 @@ el módulo.
  \[{\cal F}(\alpha' \circ \beta') = \alpha \circ \beta = 1\]
 
  Por ser fiel, debemos tener $\alpha' \circ \beta' = 1$.
-*** 1.3. Acción de grupo como funtor
+*** Exercise VIII.1.3. Acción de grupo como funtor
  Sea $G$ un grupo. Su acción sobre un objeto $C$ será un morfismo que
  envíe cada elemento del grupo a un isomorfismo de $C$. Es decir, un
  homomorfismo de grupos:
@@ -711,7 +713,7 @@ el módulo.
  Y podemos definir el funtor que lleva $G$ a $C$ y que lleva cada endomorfismo
  de $G$ a uno de $C$.
 
-*** 1.17. Compleción de un álgebra
+*** Exercise VIII.1.17. Compleción de un álgebra
  Tenemos que los $R/I^n$ son módulos en R-Mod, por tanto, la cadena siguiente
  tendrá límite. Donde los morfismos serán las inclusiones naturales:
 
@@ -726,7 +728,7 @@ el módulo.
  Para que $x$ se anule al incluirlo en $R_I$ desde $R$, necesitamos que todas las proyecciones
  de su imagen sean $0$, así que necesitamos que pertenezca a $I_n$ para cada $n$.
 
-*** 1.19. Enteros p-ádicos
+*** Exercise VIII.1.19. Enteros p-ádicos
  Llamamos enteros p-ádicos al límite $\mathbb{Z}_p = \varprojlim \mathbb{Z}/p^i\mathbb{Z}$, y números p-ádicos a su cuerpo de fracciones
  $\mathbb{Q}_p$. Por definición, un entero p-ádico es una secuencia de enteros $\{a_i\}$ tales que:
 
@@ -746,7 +748,7 @@ el módulo.
  A partir de aquí podemos hacer aritmética como usualmente desde estos desarrollos de los
  números p-ádicos.
 ** VIII.2. Tensor products, and the Tor functors
-*** 2.14. Tor en 0 es el producto tensor
+*** Exercise VIII.2.14. Tor en 0 es el producto tensor
  La definición inicial de Tor es como:
 
  \[Tor^R_i(M,N) = H_i(M_\bullet \otimes N)\]
