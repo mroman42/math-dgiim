@@ -7899,7 +7899,7 @@ bibliography:math.bib
 *** Categorías abelianas
 **** Objeto nulo
 #+begin_definition
-En una categoría, un *objeto nulo* es aquel que es a la vez inicial y final..
+En una categoría, un *objeto nulo* es aquel que es a la vez inicial y final.
 #+end_definition
 
 Nótese que no todas las categorías tienen por qué tener un objeto nulo.
@@ -8027,7 +8027,8 @@ Una *categoría abeliana* es una categoría preaditiva cumpliendo que
 En una categoría abeliana, cada morfismo se factoriza como $f = m\circ e$,
 donde $m = \mathrm{ker}(\mathrm{coker}(f))$ y $e = \mathrm{coker}(\mathrm{ker}(f))$. 
 Además, esta factorización cumple que, dada cualquier otra factorización
-de la forma $f' = m'e'$ con morfismos de la forma
+de la forma $f' = m'e'$ con $m'$ monomorfismo, $e'$ epimorfismo y con morfismos
+de la forma
 
 \[\begin{tikzcd}
 \cdot \rar{f}\dar[swap]{g} & \cdot \dar{h} \\
@@ -8043,7 +8044,26 @@ existe un único $k$ cumpliendo
 \end{tikzcd}\]
 #+end_proposition
 #+begin_proof
+Tomamos $m = \ker(\operatorname{coker} f)$. Como $(\operatorname{coker} f)\circ f = 0$, por propiedad universal
+del núcleo sabemos que $f$ se escribe como $f = me$ para algún $e$. Como puede
+demostrarse que $e$ será epimorfismo, luego $e = \operatorname{coker}(\ker f)$.
+
+Dadas $f=me$ y $f'=m'e'$ con $g,h$ del diagrama, consideramos
+$u = \ker f = \ker e$ y entonces tenemos que $0 = hfu = m'e'gu$, luego $e'gu = 0$.
+Por ser $u$ núcleo, $e'g$ factoriza en $e = \operatorname{coker}(u)$ como $e'g = ke$ para algún
+$k$ que además debe ser único. Así, $m'ke = hme$ y $m'k = hm$, dando la
+conmutatividad del diagrama.
 #+end_proof
+
+#+begin_definition
+La *imagen* y *coimagen* de un morfismo $f = me \colon a \to b$ se definen como
+
+ * $\operatorname{im} f = m$
+ * $\operatorname{coim} f = e$
+#+end_definition
+
+La proposición anterior se usa para comprobar que son únicas salvo
+isomorfismo.
 
 **** Secuencias exactas
 ***** Exactitud
@@ -8173,10 +8193,6 @@ tratamos a los elementos de un conjunto. La aplicación de funciones
 se comporta de la misma manera y preserva la relación de equivalencia
 de los miembros.
 
-#+begin_theorem
-
-#+end_theorem
-
 #+begin_proposition
 En cualquier categoría abeliana
 
@@ -8186,8 +8202,27 @@ En cualquier categoría abeliana
  4) $h\colon r \to s$ es /nulo/ ssi para $x \in r$, $hx \equiv 0$.
  5) $a \overset{f}\to b\overset{g}\to c$ es /exacta/ ssi $gf = 0$ y para cada $g(y)\equiv 0$ existe un
     $x \in a$ tal que $f(x) \equiv v$.
+ 6) Si existen $g(x) = g(y)$, existe $g(z) = 0$; además cualquier $f(x) \equiv 0$
+    implica $f(y) \equiv f(z)$ y cualquier $h(y)\equiv 0$ implica $h(x) \equiv -h(z)$.
 #+end_proposition
+#+begin_proof
+Se tienen (1) y (2) por definición de monomorfismo. Se tiene además
+(3) por construcción del producto fibrado y (4) por definición.
 
+Si factorizamos $f = me$, por exactitud se tendrá $\operatorname{ker} g = m$. Si $g y \equiv 0$,
+$y \equiv my'$, y si construimos el producto fibrado
+
+\[\begin{tikzcd}
+\cdot\dar[dashed]{y''}\rar[dashed]{e'} & \cdot\dar{y'}\drar[bend left=45]{y} \\
+\cdot\rar{e} & \cdot\rar{m} & \cdot &,
+\end{tikzcd}\]
+
+como $e'$ es epimorfismo, $y \equiv fy''$.
+
+A la inversa, si para $y \in b$ existe $k = \ker g$, entonces $k \in b$ y $gk \equiv 0$.
+Existe entonces $x \in a$ con $fx \equiv k$, es decir, $ku \equiv mexv$. Esto lleva
+a $\operatorname{im} f \geq \ker g$ y a $gf = 0$, la exactitud.
+#+end_proof
 
 ***** Lema de los cinco
 #+begin_theorem
@@ -8208,6 +8243,11 @@ b_5 & ,
 
 si $f_1,f_2,f_4,f_5$ son isomorfismos, $f_3$ es isomorfismo.
 #+end_theorem
+#+begin_proof
+Usando la manipulación de diagramas cuyas reglas hemos escrito en
+la proposición anterior, demostraremos que $f_3$ es monomorfismo.
+La dualidad servirá para demostrar a su vez que es epimorfismo.
+#+end_proof
 
 ***** Lema de la serpiente
 #+begin_theorem
@@ -8225,9 +8265,25 @@ $\delta \colon \operatorname{ker} h \to \operatorname{coker} f$ tal que la secue
 0
 \end{tikzcd}\]
 #+end_theorem
+#+begin_proof
+El diagrama extendido que tenemos es
+
+ \[ \begin{tikzcd}
+	& 0 \dar              & 0 \dar            & 0 \dar           &   \\
+ 0 \rar & ker(f) \rar \dar  & ker(g) \rar \dar    & ker(h) \dar \ar[out=355, in=175,looseness=1, overlay, swap]{dddll}{\delta}       &   \\
+ 0 \rar & a \rar{m} \dar{f}  & b \rar{e} \dar{g} & c \rar \dar{h}        & 0 \\
+ 0 \rar & a' \rar{m'} \dar & b' \rar{e'} \dar & c' \rar \dar        & 0 \\
+	& coker(f) \rar \dar & coker(g) \rar \dar  & coker(h) \rar \dar & 0 \\
+	& 0                   & 0                 & 0                &
+ \end{tikzcd} \]
+
+y desde él, manipulando de nuevo el diagrama podemos construir primero
+el morfismo $\delta$ y demostrar después que efectivamente es exacto.
+#+end_proof
 
 **** Referencias
 # MacLane
+
 * Empresa y Sociedad
 ** Detalles de la asignatura
 Profesora Matilde Ruiz, departamento de Organización de Empresas. 
