@@ -4,17 +4,17 @@
 
 * Category theory
 ** Universal arrow                                                   :drill:
-SCHEDULED: <2017-05-01 Mon>
+SCHEDULED: <2017-05-14 Sun>
 :PROPERTIES:
 :ID:       f5c0c0db-7fd6-486d-9eab-d0f87b6f8d54
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.0911
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-04-27 Thu 21:44]
+:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:19]
 :END:
 Definition of universal arrow
 
@@ -28,17 +28,17 @@ c \rar[swap]{u}\urar{f} & Sr \uar[swap, dashed]{\exists! S \widetilde f}
 \end{tikzcd}\]
 
 ** Abelian category                                                  :drill:
-SCHEDULED: <2017-04-30 Sun>
+SCHEDULED: <2017-05-12 Fri>
 :PROPERTIES:
 :ID:       ad9b7fc3-6fe9-44fb-8918-9a1a9ce60a3b
-:DRILL_LAST_INTERVAL: 3.86
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 9.1096
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_AVERAGE_QUALITY: 2.75
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2017-04-26 Wed 23:45]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:18]
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Abelian_category][abelian category]].
 
@@ -53,17 +53,17 @@ an abelian group and the composition is bilineal on it), satisfiying
  5. every epic is a cokernel.
 
 ** Preadditive category                                              :drill:
-SCHEDULED: <2017-04-30 Sun>
+SCHEDULED: <2017-05-14 Sun>
 :PROPERTIES:
 :ID:       01815e4d-7bf6-473c-a818-f5a4f3568967
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.0911
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-04-26 Wed 23:44]
+:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:18]
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Preadditive_category][preadditive category]]
 
@@ -76,6 +76,18 @@ A category satisfiying
 
 * Algebra
 ** Finite order divides maximal order in abelian groups              :drill:
+SCHEDULED: <2017-05-07 Sun>
+:PROPERTIES:
+:ID:       5aeecd78-d4aa-40ec-ab47-63e9a3be4db2
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:20]
+:END:
 Let $g \in G$ *abelian* be an element of maximal /finite/ order: if $h \in G$ 
 has finite order, $|h| \leq |g|$. Prove that if $h$ has finite order in $G$ 
 then $|h|$ divides $|g|$.
@@ -91,6 +103,18 @@ commutative group, we know that $|g^{p^b}h^m| = p^{a+b}n$, contradicting
 maximality.
 
 ** Order of commutative products                                     :drill:
+SCHEDULED: <2017-05-07 Sun>
+:PROPERTIES:
+:ID:       783c969a-3b78-4b68-a752-0d832e7c0eae
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:21]
+:END:
 If $g$ and $h$ commute, and $\mathrm{gcd}(|g|,|h|) = 1$, then $|gh| = |g||h|$.
 
 *** Proof
