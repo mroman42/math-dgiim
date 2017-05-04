@@ -25,20 +25,23 @@ h3{
 }
 
 h4{
+    color:#2980B9;
     font-size:115%;
 }
 
 h5{
-    font-size:110%;
+    color:#45B0B9;
+    font-size:100%;
 }
 
 h6{
+    color:#45B0B9;
     font-size:100%;
 }
 
 h4,h5,h6{
-    color:#2980B9;
     font-weight:300;
+    margin-bottom: 0;
 }
 
 html{
@@ -72,7 +75,7 @@ body{
 p{
     font-size:16px;
     line-height:24px;
-    margin:0px 0px 24px 0px;
+    margin:0px 0px 12px 0px;
 }
 
 b,strong{
