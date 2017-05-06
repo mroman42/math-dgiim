@@ -5018,6 +5018,212 @@ isomorfa a exactamente una de la forma
 
 cumpliendo $\mathrm{dim}_{\mathbb{C}}(A) = n_1^2+\dots+n_t^2$.
 
+** 2. Representaciones de grupos finitos
+*** 2.1. Representaciones lineales de grupos finitos y módulos
+**** Representación
+Una *representación* $k\text{-lineal}$ de $G$ es un homomorfismo de grupos
+
+\[\rho \colon G \to \mathrm{GL}(V).\]
+
+***** Espacio de representación
+Llamamos a $V$ /espacio de representación/ y a su dimensión la
+/dimensión de la representación/. Consideraremos representaciones
+de dimensión finita.
+
+**** Álgebra de grupo
+Para $G$ grupo finito y $k$ cuerpo, el /álgebra de grupo/ $kG$ se define
+como el $k\text{-espacio}$ vectorial libre sobre $G$ con el producto dado por la
+extensión bilineal del producto sobre $G$.
+
+**** Relación entre representación y módulo del álgebra de grupo
+La aplicación que asigna cada homomorfismo de álgebras $\Pi\colon kG \to \mathrm{End}_k(V)$
+su restricción $\rho \colon G \to \mathrm{GL}(V)$ es una biyección a las representaciones.
+
+Las representaciones $k\text{-lineales}$ de $G$ son las estructuras de $kG\text{-módulo}$
+sobre $V$.
+
+***** Demostración
+Sabemos que cada homomorfismo $G \to \mathrm{GL}(V)$ extiende de manera única
+por ser una base de $kG$ y extiende al producto por estar definido
+precisamente por extensión. Cada aplicación restringe a $GL(V)$ por
+ser los elementos de $G$ invertibles en $kG$ y es homomorfismo de
+grupos.
+
+**** Subespacio invariante
+Un subespacio $W \leq V$ es $\rho\text{-invariante}$ si $\rho(g)(W) \leq W$ para cualquier $g \in G$.
+
+/Equivalentemente, es un $kG\text{-módulo}$/.
+
+**** Representación irreducible
+Una representación no nula es irreducible si no tiene espacios invariantes
+propios.
+
+/Equivalentemente, el $kG\text{-módulo}$ es simple/.
+
+*** 2.2. Representaciones completamente reducibles. Teorema de Maschke
+**** Representación completamente reducible
+Una representación se llama *completamente reducible* si es nula
+o el espacio de representación es suma directa de espacios irreducibles.
+
+/Equivalentemente, el $kG\text{-módulo}$ es semisimple/.
+
+**** Teorema de Maschke
+Sea $G$ grupo finito y $k$ cuerpo con $\mathrm{char}(k) \nmid |G|$. Toda representación aquí es
+completamente reducible.
+
+/Equivalentemente, $kG$ es un álgebra semisimple/.
+
+***** TODO Demostración
+
+**** Representaciones equivalentes
+Dos representaciones $k\text{-lineales}$ de $G$ se llaman *equivalentes* si los
+$kG\text{-módulos}$ son isomorfos.
+
+**** Representación regular
+La representación regular $\rho_{reg}$ es la asociada al propio $kG$ como $k\text{-módulo}$.
+Cuando $\mathrm{char}(k) \nmid |G|$ es, por [[*Teorema de Maschke][Teorema de Maschke]], suma de irreducibles, que
+notaremos como
+
+\[\rho \sim
+\rho_1^{n_1}\oplus \dots\oplus \rho_t^{n_t}
+\]
+
+para ciertas multiplicidades $n_i$.
+
+**** Estructura de una representación bajo Maschke
+Usando la estructura de las álgebras semisimples, sabemos que cualquier
+representación $k\text{-lineal}$ de $G$ será de la forma
+
+\[\rho \sim
+\rho_1^{m_1}\oplus \dots\oplus \rho_t^{m_t}
+\]
+
+para ciertas multiplicidades $m_i$. Llamamos a las $\rho_i$ con multiplicidad positiva
+las *componentes* de $\rho$.
+
+**** Multiplicidades en la representación regular
+Cuando $\mathrm{char}(k) \nmid |G|$, si las representaciones $k\text{-lineales}$ irreducibles de $G$
+son $(V_1,\rho_1),\dots,(V_{t},\rho_t)$ y tenemos $n_i$ la multiplicidad de cada una de ellas
+en la representación regular y $d_i = \mathrm{dim}_k(\Delta_i)$ la dimnesión asociada al
+álgebra de división que da el teorema de Wedderburn; tenemos que
+$\mathrm{dim}_k(V_i) = d_in_i$ y $|G| = d_1n_1^2 +\dots + d_tn_t^2$.
+
+***** TODO Demostración
+
+**** Multiplicidades en al representación regular compleja
+Sean $(V_1,\rho_1),\dots,(V_t,\rho_t)$ las representaciones irreducibles complejas de $G$.
+Si las multiplicidades en la representación regular son $(n_1,\dots,n_t)$,
+entonces $\mathrm{dim}_{\mathbb{C}} V_i = n_i$ para $i = 1,\dots,t$ y $|G| = n_1^2 + \dots + n_t^2$.
+
+**** Dimensión del centro del álgebra-grupo
+Sean $C_1,\dots,C_r$ las clases de conjugación de $G$. Entonces $\mathrm{dim}_k Z(kG) = r$.
+
+***** TODO Demostración
+
+**** Número de representaciones irreducibles complejas
+El número de clases de conjugación de $G$ coincide con el número de
+representaciones irreducibles complejas de $G$.
+
+*** 2.3. Caracteres
+**** Carácter complejo
+Para $(V,\rho)$ representación compleja de $G$, la aplicación $\chi_{\rho}\colon G \to \mathbb{C}$ dada
+por $\chi_{\rho}(g) = \mathrm{tr}(\rho(g))$, se llama *carácter* complejo de $\rho$.
+
+***** Carácter irreducible
+El que procede de una representación irreducible.
+
+***** Grado de un carácter
+Dimensión de $V$ como espacio vectorial complejo.
+
+**** Carácter invariante por equivalencia
+Dos representaciones complejas equivalentes de $G$ proporcionan el mismo
+carácter.
+
+***** TODO Demostración
+
+**** Exponente de un grupo
+El *exponente* de un grupo $G$ es el mínimo común múltiplo de los órdenes
+de sus elementos.
+
+**** Diagonalización de elementos de la representación
+Sea $G$ con exponente $m$ y $(V,\rho)$ representación de grado $n$. Existen raíces
+$m\text{-ésimas}$ de la unidad $\omega_1,\dots,\omega_n$ en las que diagonaliza $\rho(g)$. Se tiene
+entonces
+
+\[\chi_{\rho}(g) = \omega_1+\dots + \omega_n \]
+
+y
+
+\[\chi_{\rho}(g^{-1}) = \overline{\chi_{\rho}(g)}.
+\]
+
+***** TODO Demostración
+
+**** Cota del carácter
+Para $G$ con exponente $m$ y $(V,\rho)$ representación,
+
+\[|\chi_{\rho}(g)| \leq \operatorname{deg} \chi_{\rho}.
+\]
+
+El caso de igualdad se tiene si y sólo si $\rho(g) = \omega \mathrm{id}_V$ para alguna raíz
+$m\text{-ésima}$ de la unidad.
+
+***** Caso de la identidad
+En particular, $\chi_{\rho}(g) = \operatorname{deg} \chi_{\rho}$ si y sólo si $\rho(g) = \mathrm{id}_V$.
+
+**** Núcleo de un carácter
+Dado $\chi$ carácter complejo, su *núcleo* se define como
+
+\[\ker \chi = \left\{ g \in G \mid \chi(g) = \chi(1) \right\}.
+\]
+
+***** TODO El núcleo es un subgrupo normal
+
+**** Extensión de representaciones y caracteres
+Dada una representación $\rho \colon G \to \mathrm{Aut}(V)$, notamos por $\tilde{\rho}(g) \colon \mathbb{C}G \to \mathrm{End}_{\mathbb{C}}(V)$ la
+extensión al álgebra-grupo. Dado un carácter $\chi_{\rho} \colon G \to \mathbb{C}$, notamos por 
+$\widetilde{\chi_{\rho}} \colon \mathbb{C}G \to \mathbb{C}$ a la extensión al álgebra grupo.
+
+**** Caracteres irreducibles complejos
+Los *caracteres irreducibles* complejos de $G$ son los dados por sus
+representaciones irreducibles.
+
+***** Dimensión del espacio de representación
+Nótese que para cualquier carácter irreducible se tiene
+
+\[n_i = \operatorname{dim}_{\mathbb{C}} V_{i} = \chi_i(1).\]
+
+**** Carácter de la suma directa
+Si $(W,\pi)$ es una representación con $W = W_{1} \oplus \dots \oplus W_m$, se tiene que
+
+\[\chi_{\pi} = \chi_{\pi_1} + \dots + \chi_{\pi_m}.
+\]
+
+***** TODO Demostración
+
+**** Carácter regular
+El *carácter regular* es el carácter de la representación regular.
+Cumple que
+
+ 1) \[\chi_{reg}(g) = \left\{\begin{array}{ll} |G|,  & \mbox{si } g=1 \\0, & \mbox{si }  g \neq 1.
+    \end{array} 
+    \right.\]
+ 2) $\chi_{reg} = \chi_1(1)\chi_1 + \dots + \chi_t(1)\chi_t$.
+
+***** TODO Demostración
+
+*** 2.4. La tabla de caracteres
+**** TODO Tabla de caracteres
+**** TODO Teorema de Frobenius
+*** 2.5. Funciones de clase. Reciprocidad
+**** Producto interno
+En el espacio vectorial $\mathbb{C}^G$, de dimensión $|G|$, definimos el producto interno
+
+\[(\varphi,\psi) = \frac{1}{|G|} = \sum_{g \in G}\overline{\varphi(g)}\psi(g).
+\]
+
+Nótese que los $\left\{ \chi_1,\dots,\chi_t \right\}$ forman un conjunto ortogonal de vectores en $\mathbb{C}^G$.
+
 ** Ejercicios de clase
 *** Ejercicio 1
 #+begin_statement
@@ -5234,7 +5440,7 @@ $S_i \not\cong T_j$. Probar que todo homomorfismo de módulos $f \colon M \to N$
 Similar al [[*Ejercicio 23 (★)][ejercicio 23]].
 
 ** Ejercicios de los apuntes
-*** Ejercicio 1 (★)
+*** Ejercicio 1 (*)
 #+begin_statement
 Calcular el centro del álgebra de matrices $M_n(K)$.
 #+end_statement
@@ -5318,7 +5524,7 @@ Donde en el primer y segundo punto usamos la definición de suma; y
 en el tercer punto usamos la linealidad de la función para conmutar
 el elemento del cuerpo y la aplicación de la función.
 
-*** Ejercicio 5 (★)
+*** Ejercicio 5 (*)
 #+begin_statement
 Comprobar todas las afirmaciones hechas en el Ejemplo 11.
 #+end_statement
@@ -5921,7 +6127,7 @@ Dada una $K\text{-álgebra}$ $A$, demostrar que la aplicación $\rho\colon A \to
 por $\rho(a)(a') = a'a$ es un isomorfismo de $K\text{-álgebras}$.
 #+end_statement
 
-*** TODO Ejercicio 27 (★)
+*** TODO Ejercicio 27 (*)
 #+begin_statement
 Sea $B$ un álgebra. Demostrar que la aplicación que asigna a cada matriz
 su traspuesta da un isomorfismo de álgebras $M_n(B)^{op} \cong M_n(B^{op})$.
