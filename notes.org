@@ -7087,6 +7087,33 @@ m_1 = \pm m_2 \pm m_3 \pm \dots \pm m_{t},
 contraviniendo la minimalidad del
 sistema de generadores
 
+*** Semana 7
+#+begin_statement
+Sea $R$ un anillo con un único ideal izquierda maximal $\mathfrak{a}$.
+
+ 1) Prueba que $\mathfrak{a}$ es un ideal bilátero.
+ 2) Prueba que $\mathfrak{a}$ es el único ideal derecha maximal.
+ 3) Prueba que $R/\mathfrak{a} = {\cal U}(R) = R^{\times}$, el conjunto de los elementos 
+    invertibles de $R$.
+
+Un anillo con un único ideal derecha maximal se llama *anillo local*.
+#+end_statement
+
+**** Primer punto
+Si $x \in \mathfrak{a}$, sabemos que no puede ser unidad; así, $xy$ tampoco puede serlo 
+para ningún $y \in R$, y como no puede serlo, debe estar contenido en algún
+ideal maximal izquierda, que debe ser $\mathfrak{a}$.
+
+**** Segundo punto
+Usando el tercer punto, cualquier elemento que estuviera en un ideal
+derecha maximal que no estuviera en el único ideal bilátero que existe
+debería ser una unidad.
+
+**** Tercer punto
+Si hubiera algún $x + \mathfrak{a}$ no invertible, se tendría que $\left\langle x \right\rangle$ generaría un
+ideal propio que debería estar contenido en un maximal. Este maximal
+debería ser $\mathfrak{a}$, y por tanto $x = 0$.
+
 ** Trabajos
 *** Funtores adjuntos
 **** Transformaciones naturales
