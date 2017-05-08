@@ -4858,7 +4858,7 @@ Si $R$ tiene un CCIO centrales primitivos, este conjunto es único.
 
 ***** TODO Demostración
 
-*** TODO 1.9. El álgebra de enfomorfismos de un módulo semisimple
+*** 1.9. El álgebra de enfomorfismos de un módulo semisimple
 **** Complemento
 Para $N \subseteq M$ submódulo, un *complemento* de $N$ es un $X$ tal que
 
@@ -4930,12 +4930,36 @@ N = \sum_{i\in I} f(M_i)
 
 y tendremos que es suma de simples y por [[*Caracterización de semisimples][caracterización]], semisimple.
 
-**** TODO Unicidad de la descomposición en simples
+**** Unicidad de la descomposición en simples
 Sea $M = M_1\oplus \dots \oplus M_n = N_1 \oplus \dots \oplus N_m$ semisimple descompuesto como suma
 directa de simples. Entonces $n=m$ y se tiene $M_i \cong N_{\sigma i}$ para alguna 
 permutación.
 
-***** TODO Demostración
+***** Demostración
+Tenemos dos series de composición
+
+\[\begin{aligned}
+\left\{ 0 \right\} &= M_0 \subset
+M_1 \subset 
+M_1 \oplus M_2 \subset 
+&\dots& \subset
+M_1 \oplus \dots \oplus M_n &= M \\
+\left\{ 0 \right\} &= N_0 \subset
+N_1 \subset 
+N_1 \oplus N_2 \subset 
+&\dots& \subset
+N_1 \oplus \dots \oplus N_n &= M \\
+\end{aligned}\]
+
+en las que los factores son simples, explícitamente por segundo
+teorema de isomorfía,
+
+\[
+\frac{M_j \oplus \dots \oplus M_0}{M_{j-1}\oplus \dots\oplus M_0} \cong
+\frac{M_j}{(M_{j-1} \oplus \dots \oplus M_0) \cap M_j} \cong M_j.
+\]
+
+Pero aplicando [[*Teorema de Jordan-Hölder][Jordan-Hölder]], $M_j \cong N_{\sigma j}$.
 
 **** Componentes isotópicas de un módulo
 Sea $M = M_1\oplus \dots \oplus M_n$ descomposición finita en módulos simples. Podemos
@@ -4969,22 +4993,48 @@ dimensión finita es semisimple.
 Un álgebra de dimensión finita es semisimple si y sólo si es semisimple
 como A-módulo.
 
-***** TODO Demostración
+***** Demostración
+Si $M$ es un módulo finito-dimensional, es el cociente de un libre $A^n$.
+Como $A^n$ es semisimple por serlo $A$, su [[*Submódulos y cocientes de semisimples][cociente]] $M$ es semisimple.
 
 **** Estructura de los módulos de un álgebra semisimple
-Sea $A$ es un álgebra semisimple con estructura $(n_1,\Sigma_1),\dots,(n_t,\Sigma_t)$, entonces
-todo A-módulo finito tiene estructura $(m_1,\Sigma_1),\dots,(m_t,\Sigma_t)$.
+Sea $A$ es un álgebra semisimple con estructura $(n_1,\Sigma_1),\dots,(n_t,\Sigma_t)$ como
+$A\text{-módulo}$, entonces todo $A\text{-módulo}$ finito tiene estructura $(m_1,\Sigma_1),\dots,(m_t,\Sigma_t)$
+para algunos $m_1,\dots,m_t$. En particular, todo $A\text{-módulo}$ simple es isomorfo a 
+un $\Sigma_j$.
 
-***** Módulos simples
-En particular, todo módulo simple es isomorfo a un $\Sigma_j$.
-
-***** TODO Demostración
+***** Demostración
+Los módulos de dimensión finita son cocientes de $A^n$, y la estructura de
+$A^n$ es simplemente $(nn_1,\Sigma_1),\dots,(nn_t,\Sigma_t)$, y sabemos que la estructura de los
+submódulos y de los cocientes es la misma con coeficientes menores.
 
 **** Álgebra de matrices sobre anillo de división es semisimple
 Dada $\Delta$ álgebra de división finito-dimensional, $M_n(\Delta)$ es un álgebra 
 semisimple con estructura $(n, \Sigma)$ para $\Delta \cong \mathrm{End}(\Sigma)^{op}$. Además, $M_n(\Delta)^{op} \cong M_n(\Delta^{op})$.
 
-***** TODO Demostración
+***** Demostración
+****** El álgebra de matrices es semisimple
+Tomamos $A_j$ el ideal izquierda de $M_n(\Delta)$ con base $\left\{ E_{1j},\dots,E_{nj} \right\}$.
+Comprobamos que es simple, ya que cualquiera de sus elementos no
+nulos genera $M_n(\Delta)E_{jj}$, por ser $\Delta$ anillo de división.
+
+Así, vemos que $M_n(\Delta)$ es semisimple por ser
+
+\[ M_n(\Delta) = A_1 \oplus \dots \oplus A_n. \]
+
+****** Estructura unimodular
+Veamos que existe un isomorfismo de módulos $A_1 \cong A_j$, explícitamente
+
+\[
+f(a_1E_{11}+\dots +a_nE_{n1}) = a_1 E_{1j} + \dots + a_n E_{nj}
+\]
+
+es trivialmente isomorfismo de espacios vectoriales y se comprueba que
+es homomorfismo de módulos por tenerse
+
+\[
+f\left(\left( \sum_{}  \right)\right)
+\]
 
 **** Teorema de Wedderburn
 Una $K\text{-álgebra}$ de dimensión finita es semisimple ssi es isomorfa a un
@@ -4993,8 +5043,8 @@ Una $K\text{-álgebra}$ de dimensión finita es semisimple ssi es isomorfa a un
 \[ \mathrm{M}_{n_1}(\Delta_1) \times \dots \times \mathrm{M}_{n_t}(\Delta_t).
 \]
 
-de forma única para algunas $\Delta_1,\dots,\Delta_t$.
-# álgebras de división, ¿no?
+de forma única para algunas $\Delta_1,\dots,\Delta_t$ álgebras de división de dimensión
+finita. Además, esta factorización es esencialmente única.
 
 ***** TODO Demostración
 
@@ -8558,28 +8608,24 @@ estudia la elección.
 Este concepto proviene de las ideas de *Malthus*. La escasez justifica
 la necesidad de reparto y la pobreza.
 
-# ¿Y cuando no son escasos no?¿Por qué limitar la definición así?
-# Como ciencia que estudia la elección sí parece tener sentido.
-
 **** Administración de empresas
 Estudia la economía en el contexto de una empresa, así como la gestión
 de proyectos, la planificación y el liderazgo. Es una disciplina
 científica multidisciplinar y contempla aspectos psicosociales.
 
-# ¿El concepto de empresa está limitado una sociedad capitalista o lo han
-# hecho de forma que entren otras decisiones (del estado, por ejemplo)?
-# ¿Y el liderazgo? ¿¿??
-
 *** 1.1. Concepto de empresa y de organización
 **** Organización
 Una *organización* es una unidad social deliberadamente destinada a un
-objetivo específico.
-
-# Siempre se ponen de ejemplo organizaciones estatutarias.
+objetivo específico. Requiere constar de una estructura interna
+deliberada y fijar el objetivo común.
 
 ***** Definición de Gibson
 La *organización* es una unidad coordinada /deliberada/ formada por
 más de una persona que trabaja para alcanzar un /objetivo común/.
+
+***** Definición de Etzioni
+Unidades sociales deliberadamente constituidas para promover objetivos
+específicos.
 
 ***** Clasificación de organizaciones
 Una clasificación genérica sencilla las separa según tengan o no
@@ -8588,8 +8634,17 @@ Una clasificación genérica sencilla las separa según tengan o no
 ****** Ejemplo: Inditex
 Industria de diseño textil INDITEX S.A. es una empresa multinacional
 que tiene como objetivo maximizar el beneficio. Según la empresa,
-su objetivo es "escuchar a los clientes para ofrecerles las propuestas
-de moda que desean".
+su objetivo es "/escuchar a los clientes para ofrecerles las propuestas/
+/de moda que desean/".
+
+****** Ejemplo: Amigos del museo del Prado
+En sus estatutos aclara que su fin primario es cultural. Puede
+obtener beneficios económicos, pero serán un fin secundario, sólo
+un medio para su fin primario cultural:
+
+"/tiene por fin particular todo lo relacionado con la promoción,/
+/estímulo, apoyo y desarrollo de cuantas acciones culturales,/
+/educativas y de otra índole tengan relación con el Museo/"
 
 **** Definición de empresa
 La *empresa* es una organización que /transforma/ un conjunto de recursos
@@ -8608,9 +8663,6 @@ Otras definiciones de empresa.
 **** ¿Es el beneficio el único objetivo?
 Hay posiciones distintas.
 
-# Por definición sí, ¿no? ¿A qué estamos jugando si la definición dice
-# una cosa y luego nos inventamos otra?
-
 ***** Friedman
 Sí, hay que maximizarlo teniendo como únicas restricciones
 
@@ -8618,16 +8670,10 @@ Sí, hay que maximizarlo teniendo como únicas restricciones
  * las normas de la economía capitalista, y
  * evitar engaños y fraudes.
 
-# Lo peor es que el concepto le parezca bien.
-
 ***** Freeman
 No, no sólo hay que maximizar el beneficio, también hay que satisfacer
 a los *stakeholders*, que son todas las personas que tienen intereses en
 la compañía.
-
-# Se entiende que aparte del beneficio económico habrá otros beneficios
-# posibles para ellos. Pero entonces, al final, es beneficio otra vez.
-# No entiendo qué estamos discutiendo con esto exactamente.
 
 **** Stakeholder
 Los *stakeholders* son todas las partes interesadas en una empresa. Pueden
@@ -8636,22 +8682,23 @@ ser
  * *internas*, como los empleados, gerentes y propietarios.
  * *externas*, como los proveedores, clientes y la sociedad.
 
+Originalmente, los stakeholders se definieron como los miembros de los grupos
+sin cuyo apoyo la empresa dejaría de existir.
+
 **** La empresa social
 Las *empresas sociales* nacen con el objetivo de resolver problemas
 sociales. No tienen ánimo de lucro, sino que buscan un objetivo
-social. 
+social.
 
 Organizaciones con ánimo de lucro y sin ánimo de lucro pueden tener un
 fin fundamental con beneficio social, medioambiental o político. Pero
 a las empresas sociales se les exige que sean rentables por sí mismas.
 
-# ¿Entonces por qué son empresas?
-
 En su filosofía se incluye que no reemplaza a la empresa tradicional,
 sino que que quiere coexistir con ella. Como ejemplos:
 
- - Plataformas sociales, como Ashoka y SocialEmprende.
- - DBS.
+ - plataformas sociales, como /Ashoka/ y /SocialEmprende/.
+ - /DBS/.
 
 **** Tipos de responsabilidad jurídica
 Existen varias formas de responsabilidad, que indican cómo responderá la
@@ -8812,11 +8859,12 @@ y proveyendo salidas.
 **** Condiciones para la existencia de un sistema
 Para considerar algo un sistema se le exigen
 
- * un *conjunto de elementos*.
- * una *estructura de sistema*, formado por relaciones.
- * un *plan común*, formado por objetivos.
- * unas *funciones características*, funciones de transformación.
- * un *conjunto de estados*, midiendo balance de la empresa.
+ * un *conjunto de elementos*, los factores productivos.
+ * una *estructura de sistema*, jerarquía de la empresa.
+ * un *plan común*, la misión de la empresa.
+ * unas *funciones características*, las funciones técnicas y
+   administrativas que desarrollan la actividad.
+ * un *conjunto de estados*, el balance de la empresa.
 
 La empresa transforma materias primas (proceso técnico), transforma
 ahorro en capital (proceso financiero) y procesa información (proceso
@@ -8838,7 +8886,7 @@ objetivos, el proceso de *retroalimentación o feedback* permite
 conocer a la empresa que se han producido estas desviaciones y
 corregirlas. Puede así adaptarse al entorno.
 
-La homeostasis es la capacidad de la empresa de mantener esa
+La *homeostasis* es la capacidad de la empresa de mantener esa
 estabilidad.
 
 *** 1.3. Subsistemas funcionales de la empresa
@@ -8852,8 +8900,10 @@ subsistemas como actividades desarrolle. Estos son
 
  * *subsistema de aprovisionamiento*, que adquiere los insumos.
  * *subsistema de producción*, transforma insumos en productos.
- * *subsistema de comercialización*, decide precio, promoción y distribución.
- * *subsistema de recursos humanos*, selecciona y orienta trabajadores.
+ * *subsistema de comercialización*, decide precio, promoción y
+   distribución.
+ * *subsistema de recursos humanos*, selecciona y orienta
+   trabajadores.
  * *subsistema financiero*, decide los fondos y aplica inversiones.
  * *subsistema de dirección*, estrategia y gestión de la empresa.
 
@@ -8866,11 +8916,20 @@ interactúan entre ellos frente a cuando trabajan de manera aislada.
 La *eficacia* mide el nivel de cumplimiento de los objetivos. La *eficiencia*
 mide el uso de la cantidad adecuada de recursos para lograr sus objetivos.
 
+Una empresa bien dirigida debe ser eficaz y eficiente.
+
 **** Funciones de los administradores
-***** Planificación
-***** Organización
-***** Dirección
-***** Control
+La gestión empresarial define las siguientes *funciones del directivo*, que
+son propias del subsistema de management o dirección.
+
+ * La *planificación* define la estrategia de la empresa y los planes para
+   conseguir los objetivos.
+ * La *organización* diseña la estructura para realizar las tareas,
+   asignando personal y decidiendo cómo se tomarán decisiones.
+ * La *dirección* coordina a la organización, motivando, comunicando y
+   resolviendo potenciales conflictos.
+ * El *control* vigila el desempeño de la organización, lo compara con
+   los objetivos y lo corrige en caso de que sea necesario.
 
 ** 2. Teorías de la empresa y del empresario
 *** 2.1. Teorías de la empresa
@@ -8908,9 +8967,7 @@ tecnología existente a un problema real, el capitalista pone el dinero.
 
 Se justifica el beneficio porque se dice que esa innovación es la que
 desencadena el desarrollo económico y social.  Así, el empresario que
-innova es el motor del progreso económico y social. No el que
-inventó, no el que investigó y arriesgó su tiempo en ello, no; el
-empresario.
+innova es el motor del progreso económico y social.
 
 El cambio tecnológico se desarrolla en un ciclo entre un *monopolio*
 *temporal* del empresario sobre la innovación y lo pierde luego a una
@@ -8975,11 +9032,11 @@ Es parte sólo de la tecnoestructura.
 
 **** Estructura de la propiedad de la empresa
 La *estructura de la propiedad* de una empresa es el modo en el que se
-distribuye el capital de la empresa entre sus propietarios
-legales. Todo partícipe en el capital de la empresa tiene la
-consideración legal de *propietario*; es decir, los propietarios son
-las personas (físicas y jurídicas) que aportan el dinero y los bienes
-necesarios para la actividad productiva.
+distribuye la propiedad del capital de la empresa entre sus
+propietarios legales. Todo partícipe en el capital de la empresa tiene
+la consideración legal de *propietario*; es decir, los propietarios
+son las personas (físicas y jurídicas) que aportan el dinero y los
+bienes necesarios para la actividad productiva.
 
 Los propietarios pueden haber accedido a la titularidad
 
@@ -9053,23 +9110,25 @@ sigue la empresa.
 Los *mecanismos internos* son los diseñados por la propia organización.
 
 ***** Junta general de socios accionistas
-En una *sociedad anónima*, la *Junta General de Socios* es una reunión
+En una /sociedad anónima/, la *Junta General de Socios* es una reunión
 de accionistas que toma acuerdos por mayoría. 
 
 Sus competencias son:
 
  * nombrar al consejo de administración.
- * disolver la sociedad.
  * nombrar y destituir administradores.
+ * disolver la sociedad.
  * elegir consejero ejecutivo.
  * adquirir de determinados bienes y tomar otras decisiones.
 
-Es obligatoria y debe reunirse anualmente. Nótese que no puede administrar
-o representar a la sociedad, sólo nombrar a los administradores.
+Es obligatoria y debe reunirse anualmente. Nótese que no puede
+administrar, tomar acuerdos contrarios a los estatutos o representar a
+la sociedad; sólo puede nombrar a los /administradores/.
 
 ***** Consejo de administración
-El *consejo de administración* está formado por personas elegidas por
-los propietarios que administran y representan a la empresa.
+En /sociedades de capital/ (limitadas, anónimas y comandatarias), el
+*consejo de administración* está formado por personas elegidas por los
+propietarios que administran y representan a la empresa.
 
 Está compuesto por:
 
@@ -9081,11 +9140,12 @@ Está compuesto por:
    independientes. /Ejemplo: Felipe González, José María Aznar./
 
 ***** Caso de las empresas pequeñas
-Normalmente coinciden. Sólo a partir de cierto tamaño tiene que
+Normalmente coinciden. Sólo a partir de cierto tamaño tienen que
 nombrar administradores.
 
 **** Mecanismos externos de control
-Los *mecanismos externos* son los diseñados por el mercado.
+Los *mecanismos externos* son los que se derivan de la estructura de la
+economía de mercado.
 
 ***** Oferta Pública de Adquisición de Valores (OPA)
 Intenta comprar parte de una empresa para controlar sus cambios de
@@ -9104,7 +9164,7 @@ haber ganado en otras empresas previamente.
 *** 2.4. La dirección: funciones y niveles
 La *dirección* consiste en la integración de las distintas partes de la
 empresa entre sí. Se divide en varios niveles de jerarquización de las 
-decisiones
+decisiones.
 
 **** Alta dirección
 La *alta dirección* está formada por personas con responsabilidad
