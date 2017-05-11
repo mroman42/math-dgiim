@@ -3955,7 +3955,7 @@ de grupos $\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)$, tal que:
 * Grupos y Representaciones
 ** 1. Álgebras y módulos
 *** 1.1. Noción de álgebra
-**** Álgebra
+**** 1.1. Álgebra
 Un *álgebra* sobre un cuerpo $K$ es un K-espacio vectorial dotado de una
 aplicación bilineal $(\cdot) : K \times K \longrightarrow K$. La bilinealidad se expresa como:
 
@@ -3966,25 +3966,25 @@ aplicación bilineal $(\cdot) : K \times K \longrightarrow K$. La bilinealidad s
 ***** Álgebra asociativa
 Un álgebra es *asociativa* si $(ab)c = a(bc)$.
 
-***** Álgebra conmutativa
-Un álgebra es *conmutativa* si $ab = ba$.
-
-***** Subálgebra
+**** 1.2. Subálgebra
 Una *subálgebra* es un subespacio vectorial de un álgebra cerrado para
 el producto.
 
-**** Centro de un álgebra
+**** 1.3.a. Álgebra conmutativa
+Un álgebra es *conmutativa* si $ab = ba$.
+
+**** 1.3.b. Centro de un álgebra
 Se define el *centro* de un álgebra asociativa como:
 
 \[
 Z(A) = \{c \in A \mid ac = ca,\; \forall a \in A \}
 \]
 
-**** Ideal de un álgebra
+**** 1.4. Ideal de un álgebra
 Un subespacio vectorial de álgebra, $I \subseteq A$ es *ideal* si el producto por
 cualquier elemento está en el ideal $ai,ia \in I$.
 
-**** Cociente por un ideal
+**** 1.5. Cociente por un ideal
 Sobre el K-espacio vectorial cociente por un ideal $A/I$, podemos definir
 una K-álgebra mediante $(a+I)(b+I) = ab+I$.
 
@@ -3996,7 +3996,7 @@ que:
 ab- a'b' = a(b-b') - (a-a')b' \in I
 \]
 
-**** Homomorfismos de K-álgebras
+**** 1.6. Homomorfismos de K-álgebras
 Una aplicación lineal entre álgebras $f : A \longrightarrow A'$ es homomorfismo de
 K-álgebras si respeta el producto:
 
@@ -4008,7 +4008,7 @@ f(ab) = f(a)f(b)
 Cuando un homormofismo de K-álgebras es biyectivo, se llama *isomorfismo*
 y su inversa es también homomorfismo de K-álgebras.
 
-**** Primer teorema de isomorfía
+**** 1.7. Primer teorema de isomorfía
 Si $f : A \longrightarrow A'$ es homomorfismo de K-álgebras, $\mathrm{Im} f$ es subálgebra y $\ker f$
 es ideal. Además, tenemos un isomorfismo de K-álgebras canónico:
 
@@ -4047,7 +4047,7 @@ es inyectiva por tenerse:
 
 Es trivialmente sobreyectiva.
 
-**** Álgebras unitales
+**** 1.8.a. Álgebras unitales
 Una K-álgebra asociativa es *unital* si existe un neutro para el
 producto.
 
@@ -4062,7 +4062,7 @@ unidad. Para $f : A \to B$, $f(1_A) = 1_B$.
 ***** Asunción posterior
 En el curso trabajaremos siempre con álgebras asociativas y unitales.
 
-**** Inclusión del cuerpo en el álgebra
+**** 1.9. Inclusión del cuerpo en el álgebra
 Sea $A$ una K-álgebra, la inclusión $u : K \longrightarrow A$ es homomorfismo inyectivo
 de K-álgebras. Como consecuencia $\im u \subseteq Z(A)$, y es una K-subálgebra.
 
@@ -4099,7 +4099,7 @@ a(\alpha 1) =
 au(\alpha)\]
 
 *** 1.2. La representación regular. Unidades y divisores de cero
-**** Álgebra de endomorfismos
+**** 1.11.a. Álgebra de endomorfismos
 Los endomorfismos de un K-espacio vectorial forman una K-álgebra con la
 composición:
 
@@ -4122,7 +4122,7 @@ Donde en el primer y segundo punto usamos la definición de suma; y
 en el tercer punto usamos la linealidad de la función para conmutar
 el elemento del cuerpo y la aplicación de la función.
 
-**** Inclusión en los endomorfismos
+**** 1.11.b. Inclusión en los endomorfismos
 Sea $A$ cualquier K-álgebra. La aplicación $\lambda : A \longrightarrow End_K(A)$ que asigna
 a cada $a \in A$ la aplicación $\lambda_a : A \longrightarrow A$ definida por $\lambda_a(b) = ab$ para
 todo $b \in A$ es un homomorfismo inyectivo de K-álgebras.
@@ -4313,7 +4313,10 @@ Sea $M$ un $A\text{-módulo}$,
 
  2. Dado $X = \{m_1,\dots,m_n\} \subseteq M$, tenemos que $RX= Rm_1 + \dots + Rm_{n}$.
 
-****** TODO Demostración
+****** Demostración
+Comprobamos que un módulo que los contenga debe contener a todos
+los elementos de esa forma, además, forman un módulo, así que es
+el menor.
 
 **** Homomorfismo de módulos
 Un aplicación entre $A\text{-módulos}$ $f\colon M \to N$ es *homomorfismo de módulos*
@@ -5111,13 +5114,13 @@ propios.
 /Equivalentemente, el $kG\text{-módulo}$ es simple/.
 
 *** 2.2. Representaciones completamente reducibles. Teorema de Maschke
-**** Representación completamente reducible
+**** 2.8. Representación completamente reducible
 Una representación se llama *completamente reducible* si es nula
 o el espacio de representación es suma directa de espacios irreducibles.
 
 /Equivalentemente, el $kG\text{-módulo}$ es semisimple/.
 
-**** Teorema de Maschke
+**** 2.9. Teorema de Maschke
 Sea $G$ grupo finito y $k$ cuerpo con $\mathrm{char}(k) \nmid |G|$. Toda representación aquí es
 completamente reducible.
 
@@ -5125,11 +5128,11 @@ completamente reducible.
 
 ***** TODO Demostración
 
-**** Representaciones equivalentes
+**** 2.10.a. Representaciones equivalentes
 Dos representaciones $k\text{-lineales}$ de $G$ se llaman *equivalentes* si los
 $kG\text{-módulos}$ son isomorfos.
 
-**** Representación regular
+**** 2.10.b. Representación regular
 La representación regular $\rho_{reg}$ es la asociada al propio $kG$ como $k\text{-módulo}$.
 Cuando $\mathrm{char}(k) \nmid |G|$ es, por [[*Teorema de Maschke][Teorema de Maschke]], suma de irreducibles, que
 notaremos como
@@ -5140,7 +5143,7 @@ notaremos como
 
 para ciertas multiplicidades $n_i$.
 
-**** Estructura de una representación bajo Maschke
+**** 2.10.c. Constituyentes
 Usando la estructura de las álgebras semisimples, sabemos que cualquier
 representación $k\text{-lineal}$ de $G$ será de la forma
 
@@ -5149,9 +5152,9 @@ representación $k\text{-lineal}$ de $G$ será de la forma
 \]
 
 para ciertas multiplicidades $m_i$. Llamamos a las $\rho_i$ con multiplicidad positiva
-las *componentes* de $\rho$.
+las *constituyentes* de $\rho$.
 
-**** Multiplicidades en la representación regular
+**** 2.11. Multiplicidades en la representación regular
 Cuando $\mathrm{char}(k) \nmid |G|$, si las representaciones $k\text{-lineales}$ irreducibles de $G$
 son $(V_1,\rho_1),\dots,(V_{t},\rho_t)$ y tenemos $n_i$ la multiplicidad de cada una de ellas
 en la representación regular y $d_i = \mathrm{dim}_k(\Delta_i)$ la dimnesión asociada al
@@ -5160,22 +5163,23 @@ $\mathrm{dim}_k(V_i) = d_in_i$ y $|G| = d_1n_1^2 +\dots + d_tn_t^2$.
 
 ***** TODO Demostración
 
-**** Multiplicidades en al representación regular compleja
+**** 2.12. Multiplicidades en al representación regular compleja
 Sean $(V_1,\rho_1),\dots,(V_t,\rho_t)$ las representaciones irreducibles complejas de $G$.
 Si las multiplicidades en la representación regular son $(n_1,\dots,n_t)$,
 entonces $\mathrm{dim}_{\mathbb{C}} V_i = n_i$ para $i = 1,\dots,t$ y $|G| = n_1^2 + \dots + n_t^2$.
 
-**** Dimensión del centro del álgebra-grupo
+**** 2.13. Dimensión del centro del álgebra-grupo
 Sean $C_1,\dots,C_r$ las clases de conjugación de $G$. Entonces $\mathrm{dim}_k Z(kG) = r$.
 
 ***** TODO Demostración
 
-**** Número de representaciones irreducibles complejas
+**** 2.14. Número de representaciones irreducibles complejas
 El número de clases de conjugación de $G$ coincide con el número de
 representaciones irreducibles complejas de $G$.
 
+***** TODO Demostración
 *** 2.3. Caracteres
-**** Carácter complejo
+**** 2.15. Carácter complejo
 Para $(V,\rho)$ representación compleja de $G$, la aplicación $\chi_{\rho}\colon G \to \mathbb{C}$ dada
 por $\chi_{\rho}(g) = \mathrm{tr}(\rho(g))$, se llama *carácter* complejo de $\rho$.
 
@@ -5185,17 +5189,20 @@ El que procede de una representación irreducible.
 ***** Grado de un carácter
 Dimensión de $V$ como espacio vectorial complejo.
 
-**** Carácter invariante por equivalencia
-Dos representaciones complejas equivalentes de $G$ proporcionan el mismo
+**** 2.16. Carácter invariante por equivalencia
+Dos representaciones complejas equivalentes proporcionan el mismo
 carácter.
 
-***** TODO Demostración
+***** Demostración
+Si $(V,\rho)$ y $(W,\pi)$ son equivalentes por $T \colon V \to W$, para $g \in G$ tenemos
+que $T\rho(g) = \pi(g)T$, luego $\rho(g) = T^{-1}\pi(g)T$, y sabemos que la traza se
+preserva por semejanza.
 
-**** Exponente de un grupo
+**** 2.17.a. Exponente de un grupo
 El *exponente* de un grupo $G$ es el mínimo común múltiplo de los órdenes
 de sus elementos.
 
-**** Diagonalización de elementos de la representación
+**** 2.17.b. Diagonalización de elementos de la representación
 Sea $G$ con exponente $m$ y $(V,\rho)$ representación de grado $n$. Existen raíces
 $m\text{-ésimas}$ de la unidad $\omega_1,\dots,\omega_n$ en las que diagonaliza $\rho(g)$. Se tiene
 entonces
@@ -5209,7 +5216,7 @@ y
 
 ***** TODO Demostración
 
-**** Cota del carácter
+**** 2.18. Cota del carácter
 Para $G$ con exponente $m$ y $(V,\rho)$ representación,
 
 \[|\chi_{\rho}(g)| \leq \operatorname{deg} \chi_{\rho}.
@@ -5267,12 +5274,71 @@ Cumple que
 **** TODO Teorema de Frobenius
 *** 2.5. Funciones de clase. Reciprocidad
 **** Producto interno
-En el espacio vectorial $\mathbb{C}^G$, de dimensión $|G|$, definimos el producto interno
+En el espacio vectorial $\mathbb{C}^G$, de dimensión $|G|$, definimos el siguiente
+*producto interno*
 
 \[(\varphi,\psi) = \frac{1}{|G|} = \sum_{g \in G}\overline{\varphi(g)}\psi(g).
 \]
 
-Nótese que los $\left\{ \chi_1,\dots,\chi_t \right\}$ forman un conjunto ortogonal de vectores en $\mathbb{C}^G$.
+***** Conjunto ortonormal
+Nótese que los $\left\{ \chi_1,\dots,\chi_t \right\}$ forman un /conjunto ortonormal/ de vectores
+en $\mathbb{C}^G$.
+
+***** Base ortonormal
+Si $G$ es /abeliano/, tiene tantas clases de conjugación como elementos.
+Tenemos $t = |G|$ y los caracteres irreducibles son una base ortonormal
+de $\mathbb{C}^G$.
+
+**** Funciones de clase
+Una *función de clase* de $G$ es una aplicación $\varphi\colon G \to \mathbb{C}$ constante sobre
+cada clase de conjugación de $G$. Es decir,
+
+\[
+\varphi(hgh^{-1}) = h\varphi(g) h^{-1}.
+\]
+
+Al subespacio complejo de funciones de clase lo llamamos ${\cal C}(G)$.
+
+**** Base ortonormal de las funciones de clase
+Los caracteres irreducibles $\mathrm{Irr}(G) = \left\{ \chi_1,\dots,\chi_t \right\}$ forman una base ortonormal
+de ${\cal C}(G)$.
+
+***** TODO Demostración
+
+**** Equivalencia por caracteres
+Dos representaciones complejas de $G$ son equivalentes si, y sólo si,
+proporcionan el mismo carácter.
+
+***** TODO Demostración
+
+**** Restricción e inducción
+Fijados $H \leq G$, definimos
+
+ * la *restricción* $(-)_H\colon {\cal C}(G) \to {\cal C}(H)$ de funciones de clase.
+ * la *inducción* $(-)^G\colon {\cal C}(H) \to {\cal C}(G)$ de funciones de clase.
+
+La /inducción/ se define como
+
+\[
+\varphi^G(g) = \frac{1}{|H|}\sum_{x \in G}\varphi^{\bullet}(x^{-1}gx),
+\]
+
+donde $\varphi^{\bullet}(g) = \varphi(g)$ cuando $g \in H$ y $\varphi^{\bullet}(g) = 0$ cuando $g \notin H$.
+
+**** Reciprocidad de Frobenius
+Sea $H$ un subgrupo de $G$, $\varphi \in {\cal C}(H)$ y $\psi \in {\cal C}(G)$. Entonces
+
+\[(\psi_H,\varphi) = (\psi,\varphi^G).
+\]
+
+***** TODO Demostración
+
+**** La inducción de un carácter es carácter
+Si $\varphi$ es carácter de $H$, entonces $\varphi^G$ es un carácter de $G$.
+
+***** TODO Demostración
+
+**** TODO Constituyentes
 
 ** Ejercicios de clase
 *** Ejercicio 1
@@ -6205,6 +6271,7 @@ Sea $A$ un álgebra simple finito-dimensional. Demostrar que $R = \mathrm{M}(A)$
 $A\text{-módulo}$ simple y $M$ es un $R\text{-módulo}$ simple, entonces $\mathrm{End}(\Sigma)$ y $\mathrm{End}(M)$
 son álgebras isomorfas.
 #+end_statement
+
 *** TODO Ejercicio 31 (*)
 #+begin_statement
 Demostrar que $T_q \in SO(V)$ para todo cuaternio $q$ de norma $1$.
@@ -6222,6 +6289,53 @@ neutro es $1e$, donde $e$ es el elemento neutro de $G$.
 #+end_statement
 *** TODO Ejercicio 34
 *** TODO Ejercicio 35
+*** TODO Ejercicio 36
+*** TODO Ejercicio 37
+*** TODO Ejercicio 38
+*** TODO Ejercicio 39
+*** TODO Ejercicio 40 (*)
+#+begin_statement
+Calcular razonadamente la tabla de caracteres de $Q_8$.
+#+end_statement
+
+*** TODO Ejercicio 41 (*)
+#+begin_statement
+Calcular razonadamente la tabla de caracteres del grupo dihédrico $D_4$.
+#+end_statement
+
+*** TODO Ejercicio 42 (**)
+#+begin_statement
+Calcular razonadamente la tabla de caracteres del grupo dihédrico $D_n$, para
+$n \geq 2$.
+#+end_statement
+
+*** TODO Ejercicio 43
+#+begin_statement
+Sea $G$ un grupo abeliano finito, y sea $\widehat G$ el conjunto de los caracteres 
+complejos irreducibles de $G$. Demostrar que el producto inducido por el
+de números complejos dota a $\widehat G$ de estructura de grupo.
+#+end_statement
+
+*** TODO Ejercicio 44 (**)
+#+begin_statement
+Sea $G$ un grupo abeliano finito, y $\widehat G$ el grupo definido en el Ejercicio 43.
+Demostrar que existe un isomorfismo de grupos $G \cong \widehat G$.
+#+end_statement
+
+*** TODO Ejercicio 45
+#+begin_statement
+Sea $G$ un grupo finito y $g \in G$. Demostrar que $g$ es conjugado con $g^{-1}$ si,
+y sólo si, $\chi(g) \in \mathbb{R}$ para todo carácter complejo irreducible $\chi$ de $G$.
+#+end_statement
+*** TODO Ejercicio 46
+#+begin_statement
+Demostrar que $\varphi^G \in {\cal C}(G)$ para cada $\varphi \in {\cal C}(H)$, y que $\varphi^G(1) = |G:H|\varphi(1)$.
+#+end_statement
+*** TODO Ejercicio 47 (*)
+*** TODO Ejercicio 48 (**)
+#+begin_statement
+Calcular la tabla de caracteres complejos de $A_5$.
+#+end_statement
 * Taller de Geometría y Topología
 ** 1. Construcciones con regla y compás
 *** 1.1. Construcciones posibles
@@ -7372,6 +7486,11 @@ Sea $R$ un anillo con un único ideal izquierda maximal $\mathfrak{a}$.
 Un anillo con un único ideal derecha maximal se llama *anillo local*.
 #+end_statement
 
+Nótese que por Teorema de Krull, todo ideal propio (izquierda,
+derecha, bilátero) está contenido en un ideal maximal (izquierda,
+derecha, bilátero). Todo elemento no unidad está contenido en un
+ideal maximal (izquierda, derecha, bilátero).
+
 **** Primer punto
 Si $x \in \mathfrak{a}$, sabemos que no puede ser unidad; así, $xy$ tampoco puede serlo 
 para ningún $y \in R$, y como no puede serlo, debe estar contenido en algún
@@ -7386,6 +7505,54 @@ debería ser una unidad.
 Si hubiera algún $x + \mathfrak{a}$ no invertible, se tendría que $\left\langle x \right\rangle$ generaría un
 ideal propio que debería estar contenido en un maximal. Este maximal
 debería ser $\mathfrak{a}$, y por tanto $x = 0$.
+
+*** Semana 8
+#+begin_statement
+Sea $R$ un anillo y $e \in R$ un elemento idempotente
+
+ 1) para cada ideal derecha $\mathfrak{a} \subseteq R$ prueba que $\mathfrak{a} \cap Re = \mathfrak{a}e$.
+ 2) para cada ideal $\mathfrak{A} \subseteq R$ prueba que $\mathfrak{A} \cap Re = \mathfrak{A}e$.
+ 3) $eRe$ es un anillo y $\mathfrak{A} \mapsto e\mathfrak{A}e$ define una aplicación sobreyectiva que respeta
+    el orden del retículo de los ideales de $R$ en el retículo de los ideales de
+    $eRe$.
+ 4) prueba que tenemos un funtor $\text{Mod-}R \to \text{Mod-}eRe$, definido $M \mapsto Me$.
+ 5) si $M$ es un $R\text{-módulo}$ derecha simple, prueba que $Me = 0$ ó $Me$ es un
+    $eRe\text{-módulo}$ derecha simple.
+ 6) ¿se conservan los $R\text{-módulos}$ derecha proyectivos?
+ 7) ¿se conservan los $R\text{-módulos}$ izquierda inyectivos?
+#+end_statement
+
+**** Punto 1
+Sea $x \in \mathfrak{a} \cap Re$, entonces $x = xe \in \mathfrak{a}e$. Sea $ae \in \mathfrak{a}e$, es trivial que $ae \in \mathfrak{a} \cap Re$.
+
+**** Punto 2
+Un ideal es un ideal derecha.
+
+**** Punto 3
+Se comprueba que $eRe$ es anillo con unidad $e$. El producto de dos elementos
+sigue siendo bilineal con $ere \cdot ese = erese$. Si $S \subseteq R$, es claro que $eSe \subseteq eRe$.
+Es sobreyectiva porque si $I$ es $eRe\text{-ideal}$, podemos comprobar que $RIR$ es un
+$R\text{-ideal}$ y que $eRIRe = eReIeRe = I$.
+
+**** Punto 4
+El funtor llevará $f \colon M \to N$ a $\widetilde f \colon Me \to Ne$ definida como
+
+\[\widetilde f(me) = f(m)e.\]
+
+Es funtor por cumplir $\widetilde g \circ \widetilde f (me) = (g \circ f(m))e$.
+
+**** Punto 5
+$Me$ sería un submódulo, así que podría ser $Me = 0$ o $Me = M$.
+En el segundo caso sería un $eRe\text{-módulo}$ por ser un $R\text{-módulo}$,
+y en ese caso, como $M = Me$, se tendría que si hubiera un
+submódulo $A$ de $M$ como $eRe\text{-módulo}$, sería de $M$ como $R\text{-módulo}$
+por tenerse $AR = ((Ae)R)e = A(eRe) = A$.
+
+**** Punto 6
+Si tenemos $P \oplus H \cong R^{(I)}$, multiplicando, $Pe \oplus He \cong (Re)^{(I)}$. Pero
+sabemos que $Re \cong eRe$ como $eRe\text{-módulo}$.
+
+**** Punto 7
 
 ** Trabajos
 *** Funtores adjuntos
@@ -8609,9 +8776,10 @@ Este concepto proviene de las ideas de *Malthus*. La escasez justifica
 la necesidad de reparto y la pobreza.
 
 **** Administración de empresas
-Estudia la economía en el contexto de una empresa, así como la gestión
-de proyectos, la planificación y el liderazgo. Es una disciplina
-científica multidisciplinar y contempla aspectos psicosociales.
+La *administración de empresas* estudia la economía en el contexto de
+una empresa, así como la gestión de proyectos, la planificación y el
+liderazgo. Es una disciplina científica multidisciplinar y contempla
+aspectos psicosociales.
 
 *** 1.1. Concepto de empresa y de organización
 **** Organización
@@ -9457,8 +9625,12 @@ clientes fieles que es difícil que cambien de proveedor.
 ******** Ejemplo: las bebidas son diferentes.
 
 ******* Costes de cambio.
-Los que debe asumir un cliente para cambiar de proveedor. Cuantos más
-altos, más difícil es que cambie un cliente y menor es la competencia.
+Los *costes de cambio* son los que debe asumir un cliente para cambiar
+de proveedor. Cuantos más altos, más difícil es que cambie un cliente
+y menor es la competencia. Pueden ser técnicos, de formación o
+financieros.
+
+/Ejemplo: es difícil el cambio de compañía telefónica por permanencias./
 
 ******* Capacidad productiva instalada.
 Si una empresa construye una planta para producir 1000 unidades/día, 
@@ -9532,26 +9704,26 @@ Tienen contactos (gobiernos, proveedores) para evitar que entren
 otras empresas en el sector.
 
 ****** Productos sustitutivos
-Cubren la misma necesidad del cliente usando otra tecnología o materias
-primas alternativas.
+Cubren la misma necesidad del cliente usando otra tecnología o
+materias primas alternativas.
 
-Pueden no tener siquiera el mismo CNAE, y no los consideramos dentro del
-mismo sector, pero hay competencia entre ellos.
+Pueden no tener siquiera el mismo CNAE, y no los consideramos dentro
+del mismo sector, pero hay competencia entre ellos.
 
 Si hay muchos productos sustitutivos, será menos atractivo el sector.
 Dependerá además de
 
- * el grado de sustitución.
- * los precios relativos al sustitutivo.
- * obsolescencia que causan los sustitutivos.
- * costes de cambio al sustitutivo.
+  * el grado de sustitución.
+  * los precios relativos al sustitutivo.
+  * obsolescencia que causan los sustitutivos.
+  * costes de cambio al sustitutivo.
 
 ******* Ejemplos
  * Azúcar/sacarina.
  * Aceite oliva/girasol.
  * SMS/Telegram.
 
-****** Poder de negociación de proveedores
+****** Proveedores
 A mayor poder de negociación, más podrán influir en el coste o los
 plazos de entrega de las empresas del sector.
 
@@ -9580,7 +9752,21 @@ menor que si produjera ella misma los componentes.
 
 ****** Clientes
 
-****** Proveedores
+***** Limitaciones y extensiones al modelo de las cinco fuerzas
+Al modelo de las 5 fuerzas se le plantean las siguientes críticas
+
+ * tiene un carácter estático, requiere de una actualización del
+   análisis siempre que se pueda.
+ * no tiene en cuenta industrias auxiliares y complementarias; no
+   considera relaciones de colaboración.
+ * no todas las fuerzas ni todos los factores tienen la misma
+   influencia.
+ * no todos los competidores se encuentran afectados de la misma
+   manera por las fuerzas del sistema. (Se intenta salvar esto mediante
+   el análisis de los sectores estratégicos, que aplica un análisis
+   particular en los distintos grupos estratégicos; es distinta la
+   competencia de Inditex y la de una pequeña textil) 
+
 
 ** 4. La dirección estratégica
 ** 5. La dirección financiera
