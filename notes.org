@@ -8,6 +8,7 @@
 #+SETUPFILE: math.setup
 #+SETUPFILE: html.setup
 
+
 * Papers & articles
 ** TODO Dependent types at work - Ana Bove, Peter Dybjer
 *** 1. What are dependent types?
@@ -5126,7 +5127,34 @@ completamente reducible.
 
 /Equivalentemente, $kG$ es un álgebra semisimple/.
 
-***** TODO Demostración
+***** Demostración
+Dada $\varphi \colon V \to U$ $k\text{-lineal}$, definimos
+
+\[
+\widetilde \varphi(v) = \frac{1}{|G|}\sum_{g \in G}g \varphi(g^{-1}v),
+\]
+
+usando que $\mathrm{char}(k) \nmid |G|$, y es un homomorfismo de $kG\text{-módulos}$,
+
+\[\begin{aligned}
+\widetilde\varphi(hv) = 
+\frac{1}{|G|}\sum_{g \in G}hh^{-1}g\varphi(g^{-1}hv) =
+h \frac{1}{|G|} \sum_{k \in G} k \varphi(k^{-1}v) = h \widetilde\varphi(v).
+\end{aligned}\]
+
+Sea ahora $V$ un $kG\text{-módulo}$ con $W \leq V$. Consideramos $\pi\colon V \to V/W$, y
+usando el complemento como espacio vectorial, creamos $\varphi\colon V/W \to V$
+lineal con $\pi\circ\varphi = \mathrm{id}_{V/W}$ y tomamos la $\widetilde \varphi$. Tenemos entonces
+
+\[
+\pi(\widetilde\varphi(x)) =
+\pi \left( \frac{1}{|G|}\sum_{g \in G}g\varphi(g^{-1}x) \right) =
+\frac{1}{|G|} g\pi(\varphi(g^{-1}x)) =
+\frac{1}{|G|} \sum_{g \in G} gg^{-1}x = x,
+\]
+
+y por tanto $\pi \circ \widetilde\varphi = \mathrm{id}_{V/W}$. Si tomamos $U = \operatorname{Im} \widetilde\varphi$, vemos que $V = W \oplus U$;
+luego todo submódulo es un sumando directo.
 
 **** 2.10.a. Representaciones equivalentes
 Dos representaciones $k\text{-lineales}$ de $G$ se llaman *equivalentes* si los
@@ -5168,6 +5196,7 @@ Sean $(V_1,\rho_1),\dots,(V_t,\rho_t)$ las representaciones irreducibles complej
 Si las multiplicidades en la representación regular son $(n_1,\dots,n_t)$,
 entonces $\mathrm{dim}_{\mathbb{C}} V_i = n_i$ para $i = 1,\dots,t$ y $|G| = n_1^2 + \dots + n_t^2$.
 
+***** TODO Demostración
 **** 2.13. Dimensión del centro del álgebra-grupo
 Sean $C_1,\dots,C_r$ las clases de conjugación de $G$. Entonces $\mathrm{dim}_k Z(kG) = r$.
 
@@ -5228,7 +5257,7 @@ $m\text{-ésima}$ de la unidad.
 ***** Caso de la identidad
 En particular, $\chi_{\rho}(g) = \operatorname{deg} \chi_{\rho}$ si y sólo si $\rho(g) = \mathrm{id}_V$.
 
-**** Núcleo de un carácter
+**** 2.19. Núcleo de un carácter
 Dado $\chi$ carácter complejo, su *núcleo* se define como
 
 \[\ker \chi = \left\{ g \in G \mid \chi(g) = \chi(1) \right\}.
