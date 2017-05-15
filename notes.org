@@ -7582,6 +7582,26 @@ Si tenemos $P \oplus H \cong R^{(I)}$, multiplicando, $Pe \oplus He \cong (Re)^{
 sabemos que $Re \cong eRe$ como $eRe\text{-módulo}$.
 
 **** Punto 7
+Si $Q$ es un submódulo izquierda inyectivo, para cualquier $R\text{-módulo}$ $M$
+con $Q \leq M$ existe un $Q \leq K$ tal que $K \oplus Q = M$, como producto directo
+interno.
+
+Sea ahora un $eRe\text{-módulo}$ $N$ tal que $Qe \leq N$. Tenemos que $Ne = N$ por
+ser $e$ unidad del anillo. Como $Q$ es inyectivo, existe un $K$ tal que
+$Q \cap K = \left\{ 0 \right\}$ y $Q + K = Q + N$. Si multiplicamos por $e$ tenemos
+
+\[
+Qe + Ke = Qe + N = N.
+\]
+
+De aquí se tiene que $Ke \cap N = Ke$. Entonces, $Ke \subset K \cap N$ y dado $l \in K \cap N$,
+se tiene que como $l \in N$, $le=l$, luego $l \in Ke$. Así, $Ke = K \cap N$, tenemos
+
+\[
+Qe + K \cap N = N,
+\]
+
+y como $Q \cap K = \left\{ 0 \right\}$, se tiene $Qe \cap K = \left\{ 0 \right\}$ y por tanto $Qe \cap (K\cap N) = \left\{ 0 \right\}$.
 
 ** Trabajos
 *** Funtores adjuntos
