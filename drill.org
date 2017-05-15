@@ -76,17 +76,17 @@ A category satisfiying
 
 * Algebra
 ** Finite order divides maximal order in abelian groups              :drill:
-SCHEDULED: <2017-05-07 Sun>
+SCHEDULED: <2017-05-20 Sat>
 :PROPERTIES:
 :ID:       5aeecd78-d4aa-40ec-ab47-63e9a3be4db2
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.0911
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:20]
+:DRILL_LAST_REVIEWED: [2017-05-09 Tue 22:08]
 :END:
 Let $g \in G$ *abelian* be an element of maximal /finite/ order: if $h \in G$ 
 has finite order, $|h| \leq |g|$. Prove that if $h$ has finite order in $G$ 
@@ -99,21 +99,21 @@ If $|h|$ does not divide $|g|$, then there is a prime $p$ such that
  * $|g| = p^bn$, with $\mathrm{gcd}(n,p) = 1$.
 
 then we know that $|h^m| = p^{a+b}$ and $|g^{p^b}| = n$. Using that we are in a
-commutative group, we know that $|g^{p^b}h^m| = p^{a+b}n$, contradicting 
+commutative group, [[*Order of commutative products][we know]] that $|g^{p^b}h^m| = p^{a+b}n$, contradicting 
 maximality.
 
 ** Order of commutative products                                     :drill:
-SCHEDULED: <2017-05-07 Sun>
+SCHEDULED: <2017-05-20 Sat>
 :PROPERTIES:
 :ID:       783c969a-3b78-4b68-a752-0d832e7c0eae
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.7143
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.5
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:21]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2017-05-09 Tue 22:10]
 :END:
 If $g$ and $h$ commute, and $\mathrm{gcd}(|g|,|h|) = 1$, then $|gh| = |g||h|$.
 
@@ -124,7 +124,8 @@ We know $|gh| = N \mid |g||h|$, and
  * $1 = \left( h^{-1} \right)^{N|h|} = g^{N|h|}$
 
 and then, $|h| \mid N|g|$ and they are coprimes, so $|h| \mid N$. Likewise, $|g| \mid N$.
-Finally, $|gh| = \mathrm{lcm}(|h|,|g|) \mid N$.
+Finally, $|g||h| = \mathrm{lcm}(|h|,|g|) \mid N$.
+
 * Analysis
 * Topology
 * Other
