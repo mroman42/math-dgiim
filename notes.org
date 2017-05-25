@@ -6392,16 +6392,295 @@ del Ejemplo 32.
 Calcular razonadamente la tabla de caracteres de $Q_8$.
 #+end_statement
 
-*** TODO Ejercicio 41 (*)
+# ¿Por qué sabemos que la representación del ejercicio 7 es irreducible?
+# Debe tener que ver con las dimensiones.
+
+Puede comprobarse multiplicando que el grupo tiene cinco clases de conjugación,
+con representantes dados por $1,-1,i,j,k$, por lo que tiene cinco representaciones
+irreducibles complejas. Sabemos que los cuadrados de las dimensiones de esas 
+representaciones deben sumar el orden del grupo, es decir 
+
+\[ 8 = n_1^2 + n_2^2 + n_3^2 + n_4^2 + n_5^2,\]
+
+y como no pueden tenerse dos $n_i > 1$, la única solución posible es que tengan
+dimensiones $1,1,1,1,2$, determinando el caracter de la identidad en cada una
+de las representaciones.
+
+ * El /primer carácter/ será el dado por la representación irreducible trivial
+   que envía cada elemento del grupo a $1 \in \mathbb{C}$.
+ * El /último carácter/, de dimensión $2$ es el dado por la representación de los
+   cuaternios como matrices complejas que conocemos del Ejercicio 7.
+ * Para cualquiera de $i,j,k$, existe un subgrupo normal de $Q_8$ generado por
+   el elemento con $4$ elementos, como por ejemplo $\left\{ 1,-1,i,-i \right\}$. Si llamamos a
+   este grupo $A$, se tiene que $Q_8/A \cong \mathbb{Z}_2$, el único grupo de cardinalidad $2$.
+   Este grupo tiene una representación irreducible en $\mathbb{C}$ como $1,-1$, y por
+   el Ejercicio 38, sabemos que la composición de representación irreducible
+   con una proyección a un cociente por un subgrupo normal es una 
+   representación irreducible, así que lo es
+
+   \[
+   \rho_{A}\colon Q_8 \overset{\pi}\longrightarrow Q_8 / A \cong \mathbb{Z}_2 
+   \longrightarrow \mathbb{C}.
+   \]
+
+   Esta representación la podemos repetir para los $A$ generados por $i,j,k$,
+   dándonos las tres representaciones restantes con caracteres $\chi_2,\chi_3,\chi_4$ 
+   respectivamente. Nótese que cada una de ellas
+   envía al elemento $1$ a los elementos del grupo y a $-1$ a los elementos fuera
+   del grupo.
+
+Tenemos finalmente la tabla de caracteres irreducibles
+
+\[\begin{tabular}{c|ccccc}
+    & 1 &  1 & 2 & 2 & 2 \\
+Q_8 & 1 & -1 & i & j & k \\
+\hline
+\chi_1 & 1 &  1 &  1 &  1 &  1 \\
+\chi_2 & 1 &  1 & 1  & -1  & -1   \\
+\chi_3 & 1 &  1  & -1   & 1   &  -1  \\
+\chi_4 & 1 &  1  &  -1  & -1   & 1   \\
+\chi_5 & 2 & -2 &  0 &  0 &  0 \\
+\end{tabular}\]
+
+*** Ejercicio 41 (*)
 #+begin_statement
 Calcular razonadamente la tabla de caracteres del grupo dihédrico $D_4$.
 #+end_statement
 
-*** TODO Ejercicio 42 (**)
+Tomamos la presentación del grupo dihédrico
+
+\[
+\left\langle r,s \mid r^4=s^2=e, sr = r^{-1}s \right\rangle
+\]
+
+y comprobamos multiplicando que tiene $8$ elementos y $5$ clases de conjugación
+con representantes $e,r,s,r^2,sr$, por lo que tiene cinco representaciones
+irreducibles complejas. Sabemos que los cuadrados de las dimensiones de esas 
+representaciones deben sumar el orden del grupo, es decir 
+
+\[ 8 = n_1^2 + n_2^2 + n_3^2 + n_4^2 + n_5^2,\]
+
+y como no pueden tenerse dos $n_i > 1$, la única solución posible es que tengan
+dimensiones $1,1,1,1,2$, determinando el caracter de la identidad en cada una
+de las representaciones.
+
+ * El /primer carácter/ será el dado por la representación irreducible trivial
+   que envía cada elemento del grupo a $1 \in \mathbb{C}$.
+ * Tenemos tres subgrupos normales generados por $\left\langle e,r^2,s \right\rangle$, $\left\langle e,r^2,r \right\rangle$ y $\left\langle e,r^2,sr \right\rangle$,
+   cada uno de ellos con cuatro elementos. Si llamamos a cualquiera de ellos
+   $A$, tenemos la representación irreducible dada por la composición de la
+   proyección al cociente con la representación irreducible de $\mathbb{Z}_2$ en los
+   complejos
+
+   \[
+   \rho_{A}\colon D_4 \overset{\pi}\longrightarrow D_4 / A \cong \mathbb{Z}_2 
+   \longrightarrow \mathbb{C}
+   \]
+
+   que es irreducible en virtud del Ejercicio 38. Esto nos da las
+   representaciones con caracteres $\chi_2,\chi_3,\chi_4$ que envían cada elemento del
+   grupo $A$ al $1$ y cada elemento fuera del grupo al $-1$.
+ * El último carácter proviene de la representación matricial
+
+   \[
+   r \mapsto \begin{pmatrix}
+   0 & -1 \\ 1 & 0
+   \end{pmatrix} 
+   \qquad
+   s \mapsto \begin{pmatrix}
+   1 & 0 \\ 0 & -1
+   \end{pmatrix},
+   \]
+   
+   que podemos comprobar que cumple las relaciones de la presentación.
+   Por el caracter que define, que no es suma de otros dos caracteres 
+   irreducibles, sabemos que es forzosamente la representación irreducible
+   que nos falta.
+
+Tenemos finalmente la tabla de caracteres irreducibles como
+
+\[\begin{tabular}{c|ccccc}
+    & 1 &  1 & 2 & 2 & 2 \\
+D_4 & $e$ & $r^2$ & $s$ & $r$ & $sr$ \\
+\hline
+\chi_1 & 1 &  1 &  1 &  1 &  1 \\
+\chi_2 & 1 &  1 & 1  & -1  & -1   \\
+\chi_3 & 1 &  1  & -1   & 1   &  -1  \\
+\chi_4 & 1 &  1  &  -1  & -1   & 1   \\
+\chi_5 & 2 & -2 &  0 &  0 &  0 \\
+\end{tabular}\]
+
+Nótese que es la misma tabla de caracteres que $Q_8$.
+
+*** Ejercicio 42 (**)
 #+begin_statement
-Calcular razonadamente la tabla de caracteres del grupo dihédrico $D_n$, para
-$n \geq 2$.
+Calcular razonadamente la tabla de caracteres del grupo dihédrico $D_n$, 
+para $n \geq 2$.
 #+end_statement
+
+Tomamos la presentación del grupo dihédrico
+
+\[
+\left\langle r,s \mid r^n=s^2=e, sr = r^{-1}s \right\rangle,
+\]
+
+y sabemos que es un grupo de $2n$ elementos. 
+
+**** Clases de conjugación del caso impar
+Cuando $n$ sea impar, sus clases de conjugación, que obtenemos
+conjugando con los generadores, serán las siguientes:
+
+ * La clase trivial $\left\{ 1 \right\}$.
+ * Las clases de la forma $\left\{ r^i,r^{-i} \right\}$, donde $0 < i < n$, que se puede comprobar
+   que permanecen invariantes por conjugación de los generadores. Tenemos
+   $(n-1)/2$ clases de este tipo, cada una con dos elementos ya que por
+   ser $n$ impar, $r^i\neq r^{-i}$.
+ * La clase $\left\{ sr^i \mid 0 \leq i < n \right\}$, que se genera desde $s$ usando que $r^isr^{-i} = sr^{-2i}$ 
+   y que $n$ es impar. Es una clase de $n$ elementos.
+
+Sumando las cardinalidades de todas ellas, observamos que no hay más, ya
+que
+
+\[
+2n = 1 + 2 \frac{n-1}{2} + n.
+\]
+
+Tenemos $(n+3)/2$ clases de conjugación, luego tendremos $(n+3)/2$
+representaciones irreducibles complejas.
+
+**** Representaciones en el caso impar
+Podemos considerar los caracteres y representaciones siguientes:
+
+ * el caracter trivial dado por la *representación irreducible trivial*
+   que envía cada elemento del grupo a $1 \in \mathbb{C}$.
+
+ * el grupo generado por $\left\langle r \right\rangle$ es normal y tenemos $D_n/\left\langle r \right\rangle \cong \mathbb{Z}_2$, luego una
+   representación dada por la proyección y la representación irreducible
+   de $\mathbb{Z}_2$ en los complejos es irreducible. La llamamos $\chi_2$.
+
+ * si interpretamos los grupos dihédricos como grupos de simetrías de
+   los polígonos, podemos escribir representaciones bidimensionales
+   que toman $r$ como cualquiera de las rotaciones de ángulos $2\pi k/n$ en
+   los complejos y $s$ como la simetría, es decir,
+
+   \[
+   r \mapsto \begin{pmatrix}
+   e^{2\pi i k/n} & 0 \\
+   0 & e^{-2\pi i k/n} \\
+   \end{pmatrix}, \quad
+   s \mapsto \begin{pmatrix}
+   0 & 1 \\
+   1 & 0 \\
+   \end{pmatrix}.\]
+   
+   Comprobaremos que para $k>0$ todas ellas son irreducibles. Los
+   espacios que deja invariantes la primera son claramente $(1\ 0)$ y
+   $(0\ 1)$ con dos valores propios $e^{2\pi i k/n} \neq e^{-2\pi i k/n}$
+   (aquí usamos $n$ impar), pero no son invariantes bajo simetrías,
+   por lo que no existen subespacios invariantes y la representación
+   es irreducible. A sus caracteres los llamamos $\chi_{k+2}$.
+
+Dentro de las últimas, existirán algunas que serán equivalentes. Notamos
+que la característica de $r$ bajo la representación dada por $k$ es $2\cos(2\pi k/n)$,
+por lo que cada $k$ entre $1, \dots, (n-1)/2$ da una característica distinta y por
+tanto una representación no equivalente a las demás. Con estas tenemos en
+total $(n+3)/2$ representaciones irreducibles distintas, por lo que el resto
+serán equivalentes.
+
+**** Tabla de caracteres del caso impar
+Tenemos finalmente la tabla de caracteres irreducibles como
+
+\[\begin{tabular}{c|cccccc}
+    & 1 &  2 & 2 & \dots & 2 & $n$ \\
+D_n & $e$ & $r$ & $r^2$ & $\dots$ & $r^{(n-1)/2} & $s$ \\
+\hline
+\chi_1 & 1 &  1 &  1 &  \dots &  1 & 1 \\
+\chi_2 & 1 &  1 & 1  &  \dots  & 1 & -1  \\
+\chi_{2+1} &  2 & 2\cos(2\pi 1/n) &  2\cos(2 \pi 2/n)  & \dots   & 2\cos(2 \pi (n-1)/2n)  & 0 \\
+\chi_{2+2} &  2 & 2\cos(2\pi 2/n) &  2\cos(2 \pi 4/n)  & \dots   & 2\cos(2 \pi 2(n-1)/2n)  & 0 \\
+\dots & \dots & \dots & \dots  & \dots  & \dots & \dots \\
+\chi_{2+(n-1)/2} &  2 & 2\cos(2\pi (n-1)/2n) &  2\cos(2 \pi 2(n-1)/2n)  & \dots   & 2\cos(2 \pi (n-1)(n-1)/4n)  & 0 \\
+\end{tabular}\]
+
+**** Clases de conjugación del caso par
+Cuando $n$ es par, sus clases de conjugación, que obtendremos conjugando
+con los generadores, serán las siguientes:
+
+ * La clase trivial $\left\{ 1 \right\}$.
+ * La clase que forma $\left\{ r^{n/2} \right\}$.
+ * Las clases de la forma $\left\{ r^i,r^{-i} \right\}$, donde $0 < i < n$ y además exigimos que
+   $i = n/2$ para evitar el caso $r^i = r^{-i}$. Tenemos $(n-2)/2$ clases de este
+   tipo, cada una con $2$ elementos;
+ * La clase $\left\{ sr^{2a} \mid 0 \leq a < n/2 \right\}$, que es cerrada para conjugación
+   gracias a la paridad de $n$. Es una clase con $n/2$ elementos.
+ * La clase $\left\{ sr^{2a+1} \mid 0 \leq a < n/2 \right\}$, de nuevo con $n/2$ elementos.
+ 
+Sumando las cardinalidades de todas ellas, observamos que no hay más, ya
+que
+
+\[
+2n = 1 + 1 + 2\frac{n-2}{2} + \frac{n}{2} + \frac{n}{2}.
+\]
+
+Tenemos por tanto $n/2 + 3$ clases de conjugación y representaciones 
+irreducibles complejas distintas.
+
+**** Representaciones en el caso par
+Podemos considerar los caracteres y representaciones siguientes
+
+ * el caracter trivial dado por la *representación irreducible trivial*
+   que envía cada elemento del grupo a $1 \in \mathbb{C}$.
+
+ * el grupo generado por $\left\langle r \right\rangle$ es normal y tenemos $D_n/\left\langle r \right\rangle \cong \mathbb{Z}_2$, luego una
+   representación dada por la proyección y la representación irreducible
+   de $\mathbb{Z}_2$ en los complejos es irreducible. La llamamos $\chi_2$.
+
+ * el grupo generado por $\left\langle r^2 \right\rangle$ es normal y tenemos $D_n/\left\langle r^2 \right\rangle \cong \mathbb{Z}_2 \times \mathbb{Z}_2$, luego
+   podemos buscar las representaciones irreducibles del grupo de Klein. Las
+   cuatro representaciones irreducibles unidimensionales de este grupo abeliano
+   podemos obtenerlas con la trivial y enviando dos de sus elementos no nulos
+   al $-1$. Esto nos da los caracteres $\chi_3,\chi_4$ nuevos además de los dos anteriores.
+
+ * si interpretamos los grupos dihédricos como grupos de simetrías de
+   los polígonos, podemos escribir representaciones bidimensionales
+   que toman $r$ como cualquiera de las rotaciones de ángulos $2\pi k/n$ en
+   los complejos y $s$ como la simetría, es decir,
+
+   \[
+   r \mapsto \begin{pmatrix}
+   e^{2\pi i k/n} & 0 \\
+   0 & e^{-2\pi i k/n} \\
+   \end{pmatrix}, \quad
+   s \mapsto \begin{pmatrix}
+   0 & 1 \\
+   1 & 0 \\
+   \end{pmatrix}.\]
+   
+   Comprobaremos que para $0<k<n/2$ todas ellas son irreducibles. Los
+   espacios que deja invariantes la primera son claramente $(1\ 0)$ y
+   $(0\ 1)$ con dos valores propios $e^{2\pi i k/n} \neq e^{-2\pi i k/n}$
+   (aquí usamos $k < n/2$), pero no son invariantes bajo simetrías,
+   por lo que no existen subespacios invariantes y la representación
+   es irreducible. A sus caracteres los llamamos $\chi_{k+2}$.
+
+Con esto tenemos los $n/2+3$ caracteres irreducibles.
+
+**** Tabla de caracteres del caso par
+
+\[
+\small
+\begin{tabular}{c|cccccccc}
+    & 1  & 1 & 2 & \dots & 2 & $n/2$ & $n/2$ \\
+D_n & $e$   & $r^{n/2}$ & $r$ & $\dots$ & $r^{n/2-1} & $s$ & $sr$ \\
+\hline
+\chi_1 & 1 &1 & 1 & \dots & 1 & 1 & 1 \\
+\chi_2 & 1 &1& 1 & \dots & 1 & -1 & -1 \\
+\chi_3 & 1 & (-1)^{n/2}& 1 &\dots & (-1)^{n/2-1} & 1 & -1 \\
+\chi_4 & 1 & (-1)^{n/2} & 1 &\dots  & (-1)^{n/2-1} & -1 & 1 \\
+\chi_{2+1} &  2 & 2\cos(2 \pi 1/2) & 2\cos(2\pi 1/n) & \dots & 2\cos(2 \pi (n/2-1)/n) & 0 & 0\\
+\chi_{2+2} &  2 & 2\cos(2 \pi 2/2) & 2\cos(2\pi 2/n) & \dots  & 2\cos(2 \pi 2(n/2-1)/n) & 0 & 0 \\
+\dots & \dots & \dots & \dots  & \dots  & \dots & \dots & \dots \\
+\end{tabular}\]
 
 *** TODO Ejercicio 43
 #+begin_statement
