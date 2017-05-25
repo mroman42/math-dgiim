@@ -7947,6 +7947,91 @@ Qe + K \cap N = N,
 
 y como $Q \cap K = \left\{ 0 \right\}$, se tiene $Qe \cap K = \left\{ 0 \right\}$ y por tanto $Qe \cap (K\cap N) = \left\{ 0 \right\}$.
 
+*** Semana 9
+#+begin_statement
+Sea $R$ un anillo y $M$ un $R\text{-módulo}$ derecha. Se considera el anillo $S=M_n(R)$ y
+el grupo abeliano $M^n$.
+
+ 1) Prueba que $M^n$ es un $S\text{-módulo}$ derecha con acción dada por
+    $(m_i)_i(a_{ij})_{ij} = \left( \sum_i m_ia_{ij} \right)_j$.
+ 2) Prueba que $M \mapsto M^n$, extendiendo para homomorfismos en la forma obvia,
+    define un functor $F \colon \text{Mod-}R \to \text{Mod-}S$.
+ 3) Se considera el idempotente $e_{11} \in M_n(R)$, la matriz que tiene $1$ en el
+    lugar $(1,1)$, y $0$ en el resto. Observa que $e_{11}Se_{11} \cong R$. Tenemos entonces un
+    funtor $G \colon \text{Mod-}S \to \text{Mod-}e_{11}Se_{11} = \text{Mod-}R$.
+ 4) Prueba que para cada $R\text{-módulo}$ derecha $M$ se tiene un isomorfismo
+    $\theta_M\colon M \cong GF(M)$, y que si $f\colon M_1\to M_2$ es un homomorfismo de $R\text{-módulos}$,
+    entonces tenemos un cuadrado conmutativo de homomorfismos de $R\text{-módulos}$.
+
+    \[\begin{tikzcd}
+    M_1 \rar{f} \dar[swap]{\theta_{M_1}} & M_2 \dar{\theta_{M_2}} \\
+    GF(M_1) \rar{GF(f)} & GF(M_2) 
+     \end{tikzcd}\]
+
+ 5) Prueba que para cada $S\text{-módulo}$ derecha $N$ se tiene un isomorfismo
+    $\nu_N\colon N \cong FG(N)$, y que si $g\colon N_1 \to N_2$ es un homomorfismo de $S\text{-módulos}$,
+    entonces tenemos un cuadrado conmutativo de homomorfismos de $S\text{-módulos}$.
+
+    \[\begin{tikzcd}
+    N_{1} \rar{g} \dar[swap]{\nu_{N_1}} & N_{2} \dar{\nu_{N_2}} \\
+    FG(N_{1}) \rar{FG(g)} & FG(N_{2})
+    \end{tikzcd}\]
+
+ 6) Prueba que si $M$ es un $R\text{-módulo}$ derecha simple (resp. proyectivo,
+    inyectivo), también $F(M)$ lo es.
+#+end_statement
+
+**** Punto 1
+Comprobaremos que cumple la definición de módulo, es decir,
+
+ * hay una *identidad* dada por $(m_i)_i(\delta_{ij})_{ij} = (m_{j})_{j}$.
+ * el *producto* es bilineal
+   $(m_i+n_i)_i(a_{ij})_{ij} = (\sum_i (m_i+n_i)a_{ij})_j = (\sum m_ia_{ij} + \sum n_ia_{ij})_j$ y
+   $(m_i)_i(a_{ij}+b_{ij})_{ij} = (\sum m_i(a_{ij}+b_{ij}))_j = \sum m_ia_{ij} + \sum m_ib_{ij}$.
+ * y es *asociativa* con el producto de matrices usual
+   $((m_i)_ia_{ij})(b_{ij}) = (\sum_j (\sum_i m_ia_{ij})b_{jk})_{k} = (\sum_i m_i\sum_{j}a_{ij}b_{jk})_k$.
+
+**** Punto 2
+Si los extendemos de forma obvia aplicando el homomorfismo a cada una de las
+entradas de la matriz, es obvio que se conserva la composición de funciones
+como
+
+\[
+g(f((m_{i})_i)) = (gf(m_i))_i,
+\]
+
+y que la indentidad se preserva por la extensión.
+
+**** Punto 3
+Notamos que podemos llevar cada matriz a su única entrada $e_{11}(r_{ij})e_{11} \mapsto r_{11}$.
+La suma es por componentes y por tanto se respeta por la aplicación; el
+producto de matrices de una entrada coincide con el producto del anillo.
+
+**** Punto 4
+Nótese que $F(M) = M^n$ y que $GF(M) = (M\ 0\ 0\ \dots )$, donde además hay un
+isomorfismo $e_{ii}Se_{11} \cong R$. El isomorfismo de módulos lleva $m$ en $(m\ 0\ 0\ \dots)$,
+y se comprueba trivialmente que la multiplicación funciona de la misma
+manera.
+
+Dado un homomorfismo de módulos, tenemos que $GF(f)$ aplicará el homomorfismo
+sobre el único elemento llevando $GF(f)(m\ 0\ 0\ \dots) = (f(m)\ 0\ 0\ \dots)$.
+
+**** Punto 5
+Tenemos por ser idempotente que $G(Ne_{11}) = G(N)$, pero 
+
+\[FG(N) \cong FG(Ne_{11}) \cong Ne_{11} \oplus Ne_{22} \oplus \dots \cong N\]
+
+por ser $Ne_{11}\cong Ne_{22}$ como $R\text{-módulos}$ y ser $\left\{ e_{1},\dots,e_{n} \right\}$ un conjunto de
+idempotentes centrales.
+
+Una función $g\colon N_1 \to N_2$ está unívocamente determinada por cómo actúa
+sobre cada sumando directo, por lo que conmuta su actuación antes y
+después de aplicarla explícitamente sobre cada sumando directo.
+
+**** Punto 6
+Los dos puntos anteriores han definido dos isomorfismos naturales
+que constituyen una equivalencia de categorías.
+
 ** Trabajos
 *** Funtores adjuntos
 **** Transformaciones naturales
