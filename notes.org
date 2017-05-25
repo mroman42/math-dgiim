@@ -6335,18 +6335,59 @@ debe cumplirse $T_q \in SO(V)$.
 Calcular explícitamente una representación real no trivial de grado $2$ del
 grupo de permutaciones $S_3$.
 #+end_statement
-*** TODO Ejercicio 33
+
+En $\mathbb{R}^2$, llamamos $r,s,t$ a las rectas de ángulos $0,\tau/3,2\tau/3$. Consideraremos
+las trasposiciones como simetrías respecto de estas rectas, y las permutaciones
+de tres elementos serán rotaciones compuestas de dos simetrías.
+
+Sabemos $D_6 = S_{3}$, así que cada una representa una simetría del triángulo
+equilátero.
+
+*** Ejercicio 33
 #+begin_statement
 Comprobar que la multiplicación definida sobre $KG$ es asociativa. Su elemento
 neutro es $1e$, donde $e$ es el elemento neutro de $G$.
 #+end_statement
-*** TODO Ejercicio 34
-*** TODO Ejercicio 35
+
+Tenemos por bilinealidad
+
+\[
+\left( \sum_{g \in G} \lambda_gg \right)
+\left( \sum_{h \in G} \mu_hh \sum_{k \in G} \delta_kk \right) =
+\sum_{g \in G} \lambda_gg \sum_{j,k \in G} \mu_h\delta_k hk =
+\sum_{g,j,k \in G} \lambda_g\mu_h\delta_k g(hk),
+\]
+
+mientras que
+
+\[
+\left( \sum_{g \in G} \lambda_gg \sum_{h \in G} \mu_hh \right)
+\left( \sum_{k \in G} \delta_kk \right) =
+\sum_{g \in G} \lambda_g\mu_hgh \sum_{j,k \in G} \delta_kk =
+\sum_{g,j,k \in G} \lambda_g\mu_h\delta_k (gh)k,
+\]
+
+que son iguales por asociatividad del producto de grupo. Hemos demostrado
+en general que cualquier bilineal que extienda un operador binario sobre
+los vectores de la base es asociativo.
+
+*** TODO [#A] Ejercicio 34
+#+begin_statement
+Calcular todos los subespacios invariantes para la representación de $Q_8$ 
+del Ejemplo 20.
+#+end_statement
+
+*** TODO [#A] Ejercicio 35
+#+begin_statement
+Calcular todos los subespacios invariantes para la representación de $S_3$
+del Ejemplo 32.
+#+end_statement
+
 *** TODO Ejercicio 36
 *** TODO Ejercicio 37
 *** TODO Ejercicio 38
 *** TODO Ejercicio 39
-*** TODO Ejercicio 40 (*)
+*** DONE Ejercicio 40 (*)
 #+begin_statement
 Calcular razonadamente la tabla de caracteres de $Q_8$.
 #+end_statement
