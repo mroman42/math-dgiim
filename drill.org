@@ -4,17 +4,17 @@
 
 * Category theory
 ** Universal arrow                                                   :drill:
-SCHEDULED: <2017-05-14 Sun>
+SCHEDULED: <2017-06-19 Mon>
 :PROPERTIES:
 :ID:       f5c0c0db-7fd6-486d-9eab-d0f87b6f8d54
-:DRILL_LAST_INTERVAL: 11.0911
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:19]
+:DRILL_LAST_REVIEWED: [2017-05-19 Fri 22:37]
 :END:
 Definition of universal arrow
 
@@ -28,17 +28,17 @@ c \rar[swap]{u}\urar{f} & Sr \uar[swap, dashed]{\exists! S \widetilde f}
 \end{tikzcd}\]
 
 ** Abelian category                                                  :drill:
-SCHEDULED: <2017-05-12 Fri>
+SCHEDULED: <2017-05-23 Tue>
 :PROPERTIES:
 :ID:       ad9b7fc3-6fe9-44fb-8918-9a1a9ce60a3b
-:DRILL_LAST_INTERVAL: 9.1096
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.75
+:DRILL_LAST_INTERVAL: 3.86
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 2.667
 :DRILL_EASE: 2.36
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:18]
+:DRILL_LAST_REVIEWED: [2017-05-19 Fri 22:37]
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Abelian_category][abelian category]].
 
@@ -53,17 +53,17 @@ an abelian group and the composition is bilineal on it), satisfiying
  5. every epic is a cokernel.
 
 ** Preadditive category                                              :drill:
-SCHEDULED: <2017-05-14 Sun>
+SCHEDULED: <2017-05-23 Tue>
 :PROPERTIES:
 :ID:       01815e4d-7bf6-473c-a818-f5a4f3568967
-:DRILL_LAST_INTERVAL: 11.0911
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_LAST_INTERVAL: 4.435
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.25
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-05-03 Wed 22:18]
+:DRILL_LAST_REVIEWED: [2017-05-19 Fri 22:37]
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Preadditive_category][preadditive category]]
 
@@ -125,6 +125,25 @@ We know $|gh| = N \mid |g||h|$, and
 
 and then, $|h| \mid N|g|$ and they are coprimes, so $|h| \mid N$. Likewise, $|g| \mid N$.
 Finally, $|g||h| = \mathrm{lcm}(|h|,|g|) \mid N$.
+
+** Exponentiation of versors                                         :drill:
+Given a quaternion $q$, how we define and compute $\mathrm{exp}(q)$?
+
+*** Definition
+We define the exponentiation using Taylor Series
+
+\[\exp(q) =  1 + q + \frac{q^2}{2!} + \frac{q^3}{3!} + \dots + \frac{q^n}{n!} + \cdots\ .\]
+
+*** Computation
+If we write any quaternion as a versor, $q = \cos\theta + v\sin\theta$, we can
+use that $v$ is unitary, $v^2 = -1$, to compute the Euler's formula for
+quaternions
+
+\[q = \exp(\theta v) = \cos \theta + v \sin \theta,\]
+
+and then
+
+\[q^t = \exp(t \theta v) = \cos (t \theta) + v \sin (t \theta).\]
 
 * Analysis
 * Topology
