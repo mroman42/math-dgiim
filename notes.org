@@ -5074,15 +5074,17 @@ cumpliendo $\mathrm{dim}_{\mathbb{C}}(A) = n_1^2+\dots+n_t^2$.
 
 ** 2. Representaciones de grupos finitos
 *** 2.1. Representaciones lineales de grupos finitos y módulos
-**** Representación
+**** 2.1. Representación
 Una *representación* $k\text{-lineal}$ de $G$ es un homomorfismo de grupos
 
 \[\rho \colon G \to \mathrm{GL}(V).\]
 
 ***** Espacio de representación
 Llamamos a $V$ /espacio de representación/ y a su dimensión la
-/dimensión de la representación/. Consideraremos representaciones
-de dimensión finita.
+/dimensión de la representación/. 
+
+***** Dimensión finita
+Aquí consideraremos sólo representaciones de dimensión finita.
 
 **** Álgebra de grupo
 Para $G$ grupo finito y $k$ cuerpo, el /álgebra de grupo/ $kG$ se define
@@ -5276,6 +5278,7 @@ representaciones irreducibles.
 
 ***** Dimensión del espacio de representación
 Nótese que para cualquier carácter irreducible se tiene
+# ¿Necesitamos que sea irreducible?
 
 \[n_i = \operatorname{dim}_{\mathbb{C}} V_{i} = \chi_i(1).\]
 
@@ -6301,12 +6304,33 @@ $A\text{-módulo}$ simple y $M$ es un $R\text{-módulo}$ simple, entonces $\math
 son álgebras isomorfas.
 #+end_statement
 
-*** TODO Ejercicio 31 (*)
+*** Ejercicio 31 (*)
 #+begin_statement
 Demostrar que $T_q \in SO(V)$ para todo cuaternio $q$ de norma $1$.
 #+end_statement
 
-*** TODO Ejercicio 32 (*)
+Sabiendo que los cuaternios se expresan como $\mathbb{H} = \mathbb{R} \oplus V$ escribimos $q = a + bu$, 
+donde $u \in V$ y $\|u\| = 1$, lo que nos da $u^2 = -1$. Como $q$ es de norma $1$ debe cumplir
+
+\[
+1 = qq^{\ast} = a^2 - ub^2 = a^2 + b^2,
+\]
+
+luego puede expresarse como $q = \cos \theta + \sin\theta u$ para algún $\theta \in \mathbb{R}$. Pero entonces
+tenemos un cuaternio $w = \cos(\theta/2) + \sin(\theta/2) u$ que al elevarlo al cuadrado
+nos da $q$, ya que
+
+\[ w^2 =
+\left( \cos \frac{\theta}{2} + \sin \frac{\theta}{2}u \right)^2 =
+\cos^2 \frac{\theta}{2} - \sin^2 \frac{\theta}{2} + 
+2 \sin \frac{\theta}{2}\cos \frac{\theta}{2}u =
+\cos \theta + \sin \theta u = q.
+\]
+
+Finalmente, como $T_q = T_w \circ T_w$ siendo isometrías, tenemos que
+debe cumplirse $T_q \in SO(V)$.
+
+*** Ejercicio 32 (*)
 #+begin_statement
 Calcular explícitamente una representación real no trivial de grado $2$ del
 grupo de permutaciones $S_3$.
