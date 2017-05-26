@@ -5588,6 +5588,8 @@ $S_i \not\cong T_j$. Probar que todo homomorfismo de módulos $f \colon M \to N$
 Similar al [[*Ejercicio 23 (★)][ejercicio 23]].
 
 ** Ejercicios de los apuntes
+#+OPTIONS: toc:nil tags:nil
+
 *** Ejercicio 1 (*)
 #+begin_statement
 Calcular el centro del álgebra de matrices $M_n(K)$.
@@ -6304,13 +6306,14 @@ $A\text{-módulo}$ simple y $M$ es un $R\text{-módulo}$ simple, entonces $\math
 son álgebras isomorfas.
 #+end_statement
 
-*** Ejercicio 31 (*)
+*** Ejercicio 31 (*)                                               :export:
 #+begin_statement
 Demostrar que $T_q \in SO(V)$ para todo cuaternio $q$ de norma $1$.
 #+end_statement
 
 Sabiendo que los cuaternios se expresan como $\mathbb{H} = \mathbb{R} \oplus V$ escribimos $q = a + bu$, 
-donde $u \in V$ y $\|u\| = 1$, lo que nos da $u^2 = -1$. Como $q$ es de norma $1$ debe cumplir
+donde $u \in V$ y $\|u\| = 1$, lo que nos da $u^2 = -u(-u) = -1$. Como $q$ es de norma $1$ 
+debe cumplir
 
 \[
 1 = qq^{\ast} = a^2 - ub^2 = a^2 + b^2,
@@ -6328,20 +6331,43 @@ nos da $q$, ya que
 \]
 
 Finalmente, como $T_q = T_w \circ T_w$ siendo isometrías, tenemos que
-debe cumplirse $T_q \in SO(V)$.
+debe cumplirse que $|T_q| = |T_w|^2 = 1$ y por tanto, $T_q \in SO(V)$.
 
-*** Ejercicio 32 (*)
+*** Ejercicio 32 (*)                                               :export:
 #+begin_statement
 Calcular explícitamente una representación real no trivial de grado $2$ del
 grupo de permutaciones $S_3$.
 #+end_statement
 
-En $\mathbb{R}^2$, llamamos $r,s,t$ a las rectas de ángulos $0,\tau/3,2\tau/3$. Consideraremos
-las trasposiciones como simetrías respecto de estas rectas, y las permutaciones
-de tres elementos serán rotaciones compuestas de dos simetrías.
+Partimos de la idea de que $D_6 = S_{3}$, así que cada elemento representará
+una simetría del triángulo equilátero con centro en el origen y un
+vértice en $(1\ 0)$.
 
-Sabemos $D_6 = S_{3}$, así que cada una representa una simetría del triángulo
-equilátero.
+En $\mathbb{R}^2$, llamamos $r,s,t$ a las rectas de ángulos $0,2\pi/3,4\pi/3$. Consideraremos
+las trasposiciones como simetrías respecto de estas rectas, y las permutaciones
+de tres elementos serán rotaciones compuestas de dos simetrías. Explícitamente,
+las trasposiciones de dos elementos son
+
+\[
+(2\ 3) \mapsto \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},
+\quad
+(1\ 2) \mapsto \begin{pmatrix} -1/2 & \sqrt{3}/2 \\ \sqrt{3}/2 & 1/2 \end{pmatrix},
+\quad
+(1\ 3) \mapsto \begin{pmatrix} -1/2 & -\sqrt{3}/2 \\ -\sqrt{3}/2 & 1/2 \end{pmatrix},
+\]
+
+y las rotaciones son
+
+\[
+(1\ 2\ 3) \mapsto 
+\begin{pmatrix} -1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & -1/2 \end{pmatrix},
+\quad
+(1\ 3\ 2) \mapsto
+\begin{pmatrix} -1/2 & \sqrt{3}/2 \\ -\sqrt{3}/2 & -1/2 \end{pmatrix}.
+\]
+
+Y podemos comprobar sobre ellas que cumplen la tabla de multiplicación
+del grupo.
 
 *** Ejercicio 33
 #+begin_statement
@@ -6387,13 +6413,10 @@ del Ejemplo 32.
 *** TODO Ejercicio 37
 *** TODO Ejercicio 38
 *** TODO Ejercicio 39
-*** DONE Ejercicio 40 (*)
+*** Ejercicio 40 (*)                                               :export:
 #+begin_statement
 Calcular razonadamente la tabla de caracteres de $Q_8$.
 #+end_statement
-
-# ¿Por qué sabemos que la representación del ejercicio 7 es irreducible?
-# Debe tener que ver con las dimensiones.
 
 Puede comprobarse multiplicando que el grupo tiene cinco clases de conjugación,
 con representantes dados por $1,-1,i,j,k$, por lo que tiene cinco representaciones
@@ -6409,7 +6432,8 @@ de las representaciones.
  * El /primer carácter/ será el dado por la representación irreducible trivial
    que envía cada elemento del grupo a $1 \in \mathbb{C}$.
  * El /último carácter/, de dimensión $2$ es el dado por la representación de los
-   cuaternios como matrices complejas que conocemos del Ejercicio 7.
+   cuaternios como matrices complejas que conocemos del Ejercicio 7. Es además
+   irreducible por tenerse $(\chi_5,\chi_5) = (2^2+(-2)^2)/8 = 1$.
  * Para cualquiera de $i,j,k$, existe un subgrupo normal de $Q_8$ generado por
    el elemento con $4$ elementos, como por ejemplo $\left\{ 1,-1,i,-i \right\}$. Si llamamos a
    este grupo $A$, se tiene que $Q_8/A \cong \mathbb{Z}_2$, el único grupo de cardinalidad $2$.
@@ -6442,7 +6466,7 @@ Q_8 & 1 & -1 & i & j & k \\
 \chi_5 & 2 & -2 &  0 &  0 &  0 \\
 \end{tabular}\]
 
-*** Ejercicio 41 (*)
+*** TODO Ejercicio 41 (*)
 #+begin_statement
 Calcular razonadamente la tabla de caracteres del grupo dihédrico $D_4$.
 #+end_statement
@@ -6466,6 +6490,7 @@ de las representaciones.
 
  * El /primer carácter/ será el dado por la representación irreducible trivial
    que envía cada elemento del grupo a $1 \in \mathbb{C}$.
+
  * Tenemos tres subgrupos normales generados por $\left\langle e,r^2,s \right\rangle$, $\left\langle e,r^2,r \right\rangle$ y $\left\langle e,r^2,sr \right\rangle$,
    cada uno de ellos con cuatro elementos. Si llamamos a cualquiera de ellos
    $A$, tenemos la representación irreducible dada por la composición de la
@@ -6480,6 +6505,7 @@ de las representaciones.
    que es irreducible en virtud del Ejercicio 38. Esto nos da las
    representaciones con caracteres $\chi_2,\chi_3,\chi_4$ que envían cada elemento del
    grupo $A$ al $1$ y cada elemento fuera del grupo al $-1$.
+
  * El último carácter proviene de la representación matricial
 
    \[
@@ -6492,6 +6518,7 @@ de las representaciones.
    \end{pmatrix},
    \]
    
+   # la irreducibilidad se debe comprobar (χ,χ)=1
    que podemos comprobar que cumple las relaciones de la presentación.
    Por el caracter que define, que no es suma de otros dos caracteres 
    irreducibles, sabemos que es forzosamente la representación irreducible
@@ -6512,7 +6539,7 @@ D_4 & $e$ & $r^2$ & $s$ & $r$ & $sr$ \\
 
 Nótese que es la misma tabla de caracteres que $Q_8$.
 
-*** Ejercicio 42 (**)
+*** Ejercicio 42 (**)                                              :export:
 #+begin_statement
 Calcular razonadamente la tabla de caracteres del grupo dihédrico $D_n$, 
 para $n \geq 2$.
@@ -6590,7 +6617,9 @@ serán equivalentes.
 **** Tabla de caracteres del caso impar
 Tenemos finalmente la tabla de caracteres irreducibles como
 
-\[\begin{tabular}{c|cccccc}
+\[
+\small
+\begin{tabular}{c|cccccc}
     & 1 &  2 & 2 & \dots & 2 & $n$ \\
 D_n & $e$ & $r$ & $r^2$ & $\dots$ & $r^{(n-1)/2} & $s$ \\
 \hline
@@ -6682,12 +6711,16 @@ D_n & $e$   & $r^{n/2}$ & $r$ & $\dots$ & $r^{n/2-1} & $s$ & $sr$ \\
 \dots & \dots & \dots & \dots  & \dots  & \dots & \dots & \dots \\
 \end{tabular}\]
 
-*** TODO Ejercicio 43
+*** DONE Ejercicio 43
 #+begin_statement
 Sea $G$ un grupo abeliano finito, y sea $\widehat G$ el conjunto de los caracteres 
 complejos irreducibles de $G$. Demostrar que el producto inducido por el
 de números complejos dota a $\widehat G$ de estructura de grupo.
 #+end_statement
+
+Todas las representaciones irreducibles de un grupo abeliano son de 
+dimensión $1$, luego $\chi_{\rho}(g) = \rho(g)$. La irreducibilidad se tiene por ser
+todas de dimensión 1.
 
 *** TODO Ejercicio 44 (**)
 #+begin_statement
@@ -6705,10 +6738,142 @@ y sólo si, $\chi(g) \in \mathbb{R}$ para todo carácter complejo irreducible $\
 Demostrar que $\varphi^G \in {\cal C}(G)$ para cada $\varphi \in {\cal C}(H)$, y que $\varphi^G(1) = |G:H|\varphi(1)$.
 #+end_statement
 *** TODO Ejercicio 47 (*)
-*** TODO Ejercicio 48 (**)
+#+begin_statement
+Sea $G$ un grupo abeliano finito, y $H$ un subgrupo de $G$. Demostrar que la
+aplicación $(-)_H\colon {\cal C}(G) \to {\cal C}(H)$ es sobreyectiva. Identificar su núcleo.
+#+end_statement
+*** Ejercicio 48 (**)                                              :export:
 #+begin_statement
 Calcular la tabla de caracteres complejos de $A_5$.
 #+end_statement
+
+**** Clases de conjugación
+Para determinar las clases de conjugación usaremos crucialmente
+que
+
+\[
+\sigma (a\ b\ \dots) \sigma^{-1} = (\sigma(a)\ \sigma(b)\ \dots).
+\]
+
+Tenemos las siguientes clases:
+
+ * la clase trivial con el único elemento $()$.
+ * la clase de ciclos de longitud $3$ con todos los elementos de la forma
+   $(a\ b\ c)$, que pueden conseguirse desde cualquiera de ellos usando que
+   $(a\ d\ e)(a\ b\ c)(d\ a\ e) = (d\ b\ c) = (c\ d\ b)$. Esta clase tiene cardinalidad
+   $5\cdot 4\cdot 3/3 = 20$.
+ * la clase de pares de trasposiciones disjuntas de la forma $(a\ b)(c\ d)$, 
+   que pueden conseguirse desde cualquiera de ellos usando que
+   $(e\ b\ a)(a\ b)(c\ d)(e\ a\ b) = (a\ e)(c\ d)$. Esta clase tiene cardinalidad
+   $5\cdot 4\cdot 3\cdot 2/4\cdot 2 = 15$.
+ * la clase de los ciclos de longitud 5 que se obtienen desde una
+   permutación par desde $(1\ 2\ 3\ 4\ 5)$, que son todos aquellos que podemos
+   obtener conjugando. Esta clase tiene cardinalidad $5!/5\cdot 2 = 12$.
+ * la clase de los ciclos de longitud 5 que se obtienen desde una
+   permutación impar desde $(2\ 1\ 3\ 4\ 5)$. Nótese que todos los ciclos de
+   longitud 5 deben ser como este o como los anteriores según cómo
+   sea la permutación que los lleva a $(1\ 2\ 3\ 4\ 5)$ por conjugación.
+   Esta clase tiene cardinalidad $5!/5\cdot 2 = 12$.
+
+Comprobamos que la suma de la cardinalidad de las clases de conjugación
+es la cardinalidad del grupo completo,
+
+\[
+60 = 1 + 20 + 15 + 12 + 12.
+\]
+
+Y como hay $5$ clases de conjugación, existirán $5$ representaciones
+irreducibles complejas, cuyas dimensiones además deberán sumar la
+cardinalidad del grupo, es decir,
+
+\[
+60 = n_1^2+n_2^2+n_3^2+n_4^2+n_5^2.
+\]
+
+Sabiendo que la primera será la representación trivial, podemos
+buscar exhaustivamente soluciones a $59 = n_2^2+n_3^2+n_4^2+n_5^2$ y
+encontrar que la única, salvo reordenación, es $3,3,4,5$. Esas
+deben ser las dimensiones de nuestras representaciones.
+
+**** Tabla de caracteres
+Calculamos la tabla de caracteres usando que:
+
+ - tenemos claramente la representación trivial $\chi_1$.
+ - desde $S_{5}$ tenemos la representación $\psi$ dada por permutar
+   los vectores de una base de dimensión $5$. Si la restringimos
+   tenemos $\psi_{A_5}$. Esta representación tiene un espacio
+   invariante claro en $\left\langle (1,1,1,1,1) \right\rangle$ sobre el que actúa trivialmente. 
+   Puede descomponerse entonces en la suma de dos representaciones,
+   siendo una de ellas la trivial, y sabemos entonces que el caracter
+   del otro sumando de la representación será $\psi_{A_5} - \chi_1$, por lo que
+   nos queda una fila
+
+   \[
+   \small
+   \begin{tabular}{c|cccccc}
+   & 1    & 15             & 20          & 12                & 12                \\
+   A_5        & $()$ & $(1\ 2)(3\ 4)$ & $(1\ 2\ 3)$ & $(1\ 2\ 3\ 4\ 5)$ & $(1\ 2\ 3\ 5\ 4)$ \\
+   \hline
+   \chi_4     & 5-1=4    & 1-1=0              & 2-1=1           & 0-1=-1                 & 0-1=-1                 \\ 
+   \end{tabular}\]
+
+   Comprobamos además que el caracter $\chi_4$ así obtenido es irreducible, 
+   ya que cumple que $(\chi_4,\chi_4) = (4^2+20+12+12)/60 = 1$.
+
+ - podemos obtener la segunda columna aplicando el teorema de ortogonalidad
+   consigo misma para obtener $4 = 1^2 + x^2 + y^2 + z^2$ y con la primera
+   columna para obtener $0 = 1 + 3x + 3y + 5z$. Si diagonalizamos la 
+   representación de un elemento de esa clase de conjugación, como tiene
+   orden $2$ la diagonal estaría formada por $\pm 1$; como además las dimensiones
+   son $5,3,3$, todos impares, nunca podría ser $0$ su traza. Así, la única
+   solución a la primera ecuación es $x^2 = y^2 = z^2 = 1$ y la solución a la
+   segunda ecuación es $x=-1, y=-1, z=1$.
+
+ - la última fila de la tabla de caracteres la podemos completar usando
+   las relaciones de ortogonalidad. Sabemos que
+
+   \[\begin{aligned}
+   40 + 20b^2 + 12c^2 + 12d^2 &= 60 \\
+   5 +15 + 20b   + 12c   + 12d   &= 0  \\
+   20 + 20b   - 12c   - 12d   &= 0  \\
+   \end{aligned}\]
+
+   de donde deducimos primero que $c+d=0$, luego $b=-1$ y $c=d=0$.
+   Hemos llegado a la conclusión de que
+
+   \[\small
+   \begin{tabular}{c|cccccc}
+   & 1    & 15             & 20          & 12                & 12                \\
+   A_5        & $()$ & $(1\ 2)(3\ 4)$ & $(1\ 2\ 3)$ & $(1\ 2\ 3\ 4\ 5)$ & $(1\ 2\ 3\ 5\ 4)$ \\
+   \hline
+   \chi_5     & 5    & 1              & b=-1           & c=0                 & d=0                 \\ 
+   \end{tabular}\]   
+
+ - la tercera columna de la tabla podemos obtenerla de nuevo con relaciones
+   de ortogonalidad, tenemos $3 = 1 + u^2 + v^2 + 1 + 1$ y $1 -u-v-1=0$, 
+   luego $u = -v$ y $u=v=0$.
+
+ - las dos últimas entradas están sujetas a las mismas condiciones, así
+   que esperamos obtenerlas como soluciones distintas del mismo sistema
+   de ecuaciones de ortogonalidad. Aplicando ortogonalidad tenemos
+   $3^2 + 15 + 12p^{2}+ 12q^{2} = 60$ y $3 -15+12p+12q=0$, luego $p=1-q$,
+   y como $p^2+(1-p)^2 = 3$, tenemos que las dos soluciones posibles
+   serán las de $p^2 - p - 1 = 0$, es decir $p=\pm(1+\sqrt{5})/2$.
+
+
+Así, la tabla de caracteres acaba quedando como
+
+\[\small
+\begin{tabular}{c|cccccc}
+           & 1    & 15             & 20          & 12                & 12                \\
+A_5        & $()$ & $(1\ 2)(3\ 4)$ & $(1\ 2\ 3)$ & $(1\ 2\ 3\ 4\ 5)$ & $(1\ 2\ 3\ 5\ 4)$ \\
+\hline
+\chi_1     & 1    & 1              & 1           & 1                 & 1                 \\ 
+\chi_2     & 3    & -1             & 0           & (1+\sqrt{5})/2    & (1-\sqrt{5})/2    \\ 
+\chi_3     & 3    & -1             & 0           & (1-\sqrt{5})/2    & (1+\sqrt{5})/2    \\ 
+\chi_4     & 4    & 0              & 1           & -1                & -1                \\ 
+\chi_5     & 5    & 1              & -1          & 0                 & 0                 \\ 
+\end{tabular}\]
 * Taller de Geometría y Topología
 ** 1. Construcciones con regla y compás
 *** 1.1. Construcciones posibles
