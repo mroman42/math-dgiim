@@ -7037,6 +7037,16 @@ $\quad$
 $\quad$
 #+end_statement
 
+ * Triangulando el toro llano y el donut llegamos fácilmente a la misma
+   triangulación.
+ * Escribimos X en la casilla inferior central.
+ * Todos los celestes por un lado; todos los amarillos excepto los de la
+   primera columna y el último de la tercera columna, y todos los demás.
+ * Rey, afil, y dos caballos negros.
+ * Todas.
+ * Identificando las caras, veríamos nuestra espalda delante, nuestros pies
+   hacia arriba y nuestra cabeza hacia abajo.
+
 **** Ejercicio 5
 #+begin_statement
 Jugando en la botella de Klein:
@@ -7050,6 +7060,26 @@ Jugando en la botella de Klein:
 
     [[./img/formasuniverso11.png]]
 #+end_statement
+
+De las tres posiciones del tres en raya
+
+ * la primera gana.
+ * la segunda gana.
+ * la tercera gana.
+
+Si escribimos coordenadas del tres en raya como
+
+| 0,0 | 0,1 | 0,2 |
+| 1,0 | 1,1 | 1,2 |
+| 2,0 | 2,1 | 2,2 |
+
+se ganan las partidas con la posición
+
+ * primera: (2,2)
+ * segunda: (0,0)
+ * tercera: (0,2)
+ * cuarta: (2,2)
+ * quinta: (1,1)
 
 **** Ejercicio 6
 #+begin_statement
@@ -7069,12 +7099,19 @@ Actividades:
 $\quad$
 #+end_statement
 
+ 1) Sí, el plano no es orientable.
+ 2) Una en el centro y otra en el ecuador.
+ 3) Cruzando la frontera y al volver, comparando su orientación.
+ 4) Ampliar primero una zona segura en la que pudiera volver a cada punto
+    sin haber cambiado la orientación y luego comprobar si el resto del
+    universo ha quedado dividido en dos (suma de planos) o en uno (plano).
+
 **** Ejercicio 7
 #+begin_statement
 Haciendo sumas conexas:
 
  * Deducir que si a una cinta de Möbius le pagamos un disco por el borde,
-   obteneos un plano proyectivo.
+   obtenemos un plano proyectivo.
  * Corrobora las palabras de Klein: "La cinta de Möbius es divina, si pegas
    dos por su borde obtienes mi botella".
  * Construye usando papel la suma conexa de una cinta de Möbius a un toro
@@ -7107,6 +7144,28 @@ Haciendo sumas conexas:
    \}
    \]
 #+end_statement
+
+1) Un plano proyectivo menos un disco es una banda de Möbius porque
+   podemos dibujar el plano proyectivo en un disco y quitarle un disco
+   que corte la frontera del disco.
+2) Nótese que si partimos la botella de Klein por la mitad, lo que queda
+   en cada una de las mitades es una banda de Möbius.
+3) Serían al final 5 planos proyectivos.
+4) Usando la clasificación de superficies compactas sabemos que no
+   necesitamos mezclar asas con gorros cruzados $\times \circ = \times^3$.
+5) Usaremos clasificación de superficies compacatas para escribir cada
+   una como suma de planos proyectivos o toros. La $\mathbb{S}^2$ es neutra bajo la
+   suma conexa.
+
+   Nos quedan
+
+   * $\mathbb{B}^2 \cong \mathbb{P}\#\mathbb{P}$,
+   * $\mathbb{B}^2 \#\mathbb{P}^2 \cong \mathbb{P}^2 \# \mathbb{P}^2 \# \mathbb{P}^2$,
+   * $\mathbb{S}^2\# \mathbb{S}^2 \cong \mathbb{S}^2 \# \mathbb{S}^2 \# \mathbb{S}^2$,
+   * $\mathbb{P}^2\#\mathbb{P}^2\#\mathbb{P}^2\#\mathbb{B}^2 \cong \mathbb{B}^2\#\mathbb{T}^2\#\mathbb{P}^2$,
+   * $\mathbb{T}^2 \cong \mathbb{T}^2\#\mathbb{S}^2$,
+   * $\mathbb{T}^2\#\mathbb{P}^2 \cong \mathbb{P}^2\#\mathbb{T}^2$.
+
 
 ** Modelo del hiperboloide
 *** Modelo
@@ -8196,6 +8255,24 @@ después de aplicarla explícitamente sobre cada sumando directo.
 **** Punto 6
 Los dos puntos anteriores han definido dos isomorfismos naturales
 que constituyen una equivalencia de categorías.
+
+*** Semana 10
+#+begin_statement
+Se considera la categoría de grupos abelianos; en este caso $R = \mathbb{Z}$.
+
+ 1) Prueba que $\mathbb{Z}$ es un grupo abeliano uniforme. Determina todos los grupos
+    cíclicos uniformes.
+ 2) Prueba que el grupo $\mathbb{Z}_{p^{\infty}}$ es un grupo uniforme y no es un grupo cíclico.
+    Se consideran $\mathbb{Q}$ y $\mathbb{R}$; ¿es alguno uniforme?
+ 3) Determina todos los grupos abelianos inyectivos indescomponibles.
+ 4) Si $M$ es un grupo abeliano finitamente generado sabemos que 
+    $M \cong \left( \bigoplus^t_{i=1} \mathbb{Z}_{p^{n_i}} \right) \oplus \mathbb{Z}^n$, para $n,n_1,\dots,n_t \in \mathbb{N}$. ¿Cuál es la descomposición
+    de $E(M)$ como suma de inyectivos indescomponibles?
+#+end_statement
+
+**** Punto 1
+Dados dos submódulos de $\mathbb{Z}$, que estarán generados por dos enteros, podemos
+comprobar que se intersecarán en su mínimo común múltiplo.
 
 ** Trabajos
 *** Funtores adjuntos
