@@ -8314,6 +8314,32 @@ Se considera la categoría de grupos abelianos; en este caso $R = \mathbb{Z}$.
 Dados dos submódulos de $\mathbb{Z}$, que estarán generados por dos enteros, podemos
 comprobar que se intersecarán en su mínimo común múltiplo.
 
+**** Punto 2
+Para comprobar que el grupo $\mathbb{Z}_{p^{\infty}}$ es uniforme tomamos un módulo no 
+nulo que tenga al menos un elemento $a/p^n$ y otro con $b/p^m$; 
+para $a,b$ coprimos con $p$.  Existirán $x,y,p$ tales que
+$xp a/p^n = 1/p^{n+p} = y b/p^{m}$, por lo que será uniforme.
+
+Comprobamos que $\mathbb{R}$ no es uniforme porque tiene, por ejemplo $(\pi) \cap (1) = 0$.
+Sin embargo $\mathbb{Q}$ sí lo es porque si tenemos dos módulos y cada uno contiene
+al menos un elemento no nulo $a/b$ y $c/d$; tenemos que $cb \cdot a/b = ad \cdot c/d$.
+
+**** Punto 3
+Los inyectivos indescomponibles están en correspondencia con los ideales
+primos. Tenemos para $p$ primo que $E(\mathbb{Z}_p) = \mathbb{Z}_{p^{\infty}}$, ya que es extensión esencial
+y es inyectivo. Para el ideal primo $\{0\}$ tenemos a su vez que $E(\mathbb{Z}) = \mathbb{Q}$, ya
+que es inyectivo y uniforme.
+
+**** Punto 4
+Como $\mathbb{Z}$ es noetheriano, tenemos $\bigoplus E(M_i) = E \left( \bigoplus M_i \right)$, así que la suma
+debe ser
+
+\[
+E(M) = \left( \bigoplus_{i=1}^t \mathbb{Z}_{p^{\infty}} \right) \oplus \mathbb{Q}^n
+\]
+
+considerando los sumandos con exponente no nulo.
+
 ** Trabajos
 *** Funtores adjuntos
 **** Transformaciones naturales
@@ -9159,7 +9185,7 @@ el morfismo cero, es decir, como el universal respecto al diagrama
 a \rar[bend left]{f}\rar[bend right,swap]{0} & b
 \end{tikzcd},\]
 
-y por tanto, es un límite finito y es único salvo isomorfismo. 
+y por tanto, es un límite finito y es único salvo isomorfismo. cite:aluffi09_linear
 
 #+begin_definition
 En una categoría con objeto nulo, se define el *conúcleo*, $c \colon b \to \mathrm{coker}(f)$
@@ -9421,7 +9447,7 @@ se comporta de la misma manera y preserva la relación de equivalencia
 de los miembros.
 
 #+begin_proposition
-En cualquier categoría abeliana
+En cualquier categoría abeliana cite:lane78categories
 
  1) $f \colon a \to b$ es /monomorfismo/ ssi para $x \in a$, $f(x) \equiv 0 \implies x \equiv 0$.
  2) $f \colon a \to b$ es /monomorfismo/ ssi para $x,y \in a$, $f(x) \equiv f(y) \implies x\equiv y$.
