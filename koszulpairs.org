@@ -8,16 +8,22 @@
 #+SETUPFILE: math-en.setup
 #+SETUPFILE: html.setup
 
-* Sheaves and presheaves
-# Carlos Ivorra, álgebra conmutativa
-
 * Homological algebra
+We will introduce in this first section the neccessary homological algebra
+prerequisites. We will define abelian categories in general, even if we are
+going to use later only the particular case of module categories.
+
 ** Abelian categories
 *** Additive category
+The original motivation for additive categories is the category of abelian
+groups, and, more generally, the category of momdules over a fixed ring $R$.
+In these categories, morphisms between two objects form an abelian group;
+and we can define functors preserving this group structure.
+
 #+begin_definition
 ${\cal C}$ is an *additive category* if:
 
- - $Hom(A,B)$ is an /abelian group/.
+ - $\mathrm{Hom}(A,B)$ is an /abelian group/.
  - /Distributivity/ holds: $b \circ (f+g) = b\circ f + b \circ g$ and $(f+g)\circ a = f\circ a + g\circ a$.
  - Has a /zero object/.
  - Has finite /products/ and /coproducts/.
@@ -27,8 +33,10 @@ if $T(f+g) = Tf+Tg$. cite:rotman08_setting
 #+end_definition
 
 *** Abelian category
+Our interest is specifically on abelian categories.
+
 #+begin_definition
-An abelian category is an /additive category/ such that
+An *abelian category* is an /additive category/ such that
 
   * every morphism has a kernel and cokernel.
   * every monomorphism is a kernel.
@@ -44,21 +52,100 @@ category.
 #+begin_definition
 A *chain complex* is a family of $R\text{-modules}$ $\left\{ C_n \right\}$ and homomorphisms
 $d_n \colon C_n \to C_{n-1}$ called /differentials/, such that each composite of
-consecutive differentials is zero, i.e. $d_{n-1} \circ d_n = 0$. cite:weibel94_introd
+consecutive differentials is zero, i.e. $d_{n-1} \circ d_n = 0$.
 #+end_definition
-
-
 
 #+begin_theorem
 Given an abelian category ${\cal A}$, the category $\mathtt{Ch}({\cal A})$ is an abelian category.
+cite:weibel94_introd
 #+end_theorem
 
 *** Exact sequences
-#+begin_theorem
+#+begin_definition
+A pair of composable morphisms is *exact* in the object where they can be
+composed when $\mathrm{img}(f) = \mathrm{ker}(g)$. Equivalently, when $\mathrm{coker}(f) = \mathrm{coimg}(g)$.
+#+end_definition
 
+#+begin_definition
+A *short exact sequence* is a diagram
+
+\[
+0 \longrightarrow
+a \overset{f}\longrightarrow
+b \overset{g}\longrightarrow
+c \longrightarrow
+0
+\]
+
+exact on $a$,$b$ and $c$.
+#+end_definition
+
+#+begin_definition
+A *morphism of short exact sequences* is defined by three morphisms
+$f,g,h$ making the following diagram commute
+
+\[\begin{tikzcd}
+0 \rar& 
+\cdot \rar{m}\dar{f}& 
+\cdot \rar{e}\dar{g}& 
+\cdot \rar\dar{h}& 
+0 \\
+0 \rar& 
+\cdot \rar{m'}& 
+\cdot \rar{e'}& 
+\cdot \rar& 
+0 & .\\
+\end{tikzcd}\]
+
+The short exact sequences of an abelian category $A$ define a category with
+these morphisms called $\mathtt{Ses}(A)$, which is preadditive with the component by 
+component sum.
+#+end_definition
+
+*** Snake lemma
+#+begin_theorem
+Given a morphism of short exact sequences $f,g,h$; there exists a morphism
+$\delta \colon \operatorname{ker} h \to \operatorname{coker} f$ such that the following sequence is exact
+
+\[\begin{tikzcd}
+0 \rar &
+\mathrm{ker}(f) \rar{m} &
+\mathrm{ker}(g) \rar{e} &
+\mathrm{ker}(h) \arrow[out = 0,in =180,swap]{dll}{\delta} \\&
+\mathrm{coker}(f) \rar{m'} &
+\mathrm{coker}(g) \rar{e'} &
+\mathrm{coker}(h) \rar &
+0
+\end{tikzcd}\]
 #+end_theorem
+#+begin_proof
+In this extended diagram
+
+ \[ \begin{tikzcd}
+	& 0 \dar              & 0 \dar            & 0 \dar           &   \\
+ 0 \rar & ker(f) \rar \dar  & ker(g) \rar \dar    & ker(h) \dar \ar[out=355, in=175,looseness=1, overlay, swap]{dddll}{\delta}       &   \\
+ 0 \rar & a \rar{m} \dar{f}  & b \rar{e} \dar{g} & c \rar \dar{h}        & 0 \\
+ 0 \rar & a' \rar{m'} \dar & b' \rar{e'} \dar & c' \rar \dar        & 0 \\
+	& coker(f) \rar \dar & coker(g) \rar \dar  & coker(h) \rar \dar & 0 \\
+	& 0                   & 0                 & 0                &
+ \end{tikzcd} \]
+
+we can first define the morphism $\delta$ using the properties of abelian categories
+to prove that it exists and then prove that it is exact using again the
+properties of monomorphisms and epimorphisms.
+#+end_proof
 
 *** Homology
+#+begin_definition
+Given a chain complex $\left\{ C_n \right\}$ with differentials $d_n$, we define the nth
+homology group as
+
+\[ H_n(C) \cong \mathrm{ker}(d_n) / \mathrm{im}(d_{n+1}).
+\]
+#+end_definition
+
+Notice that a sequence will be exact if and only if all their homology
+groups are zero.
 
 * Derived functors
 ** Projective, injective and flat resolutions
