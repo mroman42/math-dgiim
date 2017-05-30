@@ -153,32 +153,33 @@ groups are zero.
 #+begin_definition
 An R-module $D$ is:
 
- 1. *Projective* if $Hom(D, -)$ is exact.
- 2. *Injective* if $Hom(-,D)$ is exact.
+ 1. *Projective* if $\mathrm{Hom}(D, -)$ is exact.
+ 2. *Injective* if $\mathrm{Hom}(-,D)$ is exact.
  3. *Flat* if $D \otimes -$ is exact.
 #+end_definition
 
-We know that $Hom(D,-)$ and $Hom(-,D)$ are left-exact and that
+We know that $\mathrm{Hom}(D,-)$ and $\mathrm{Hom}(-,D)$ are left-exact and that
 $D\otimes -$ is right-exact; so for them to be exact, we only need:
 
- - A module $D$ is *projective* when $B \longrightarrow C$ surjective induces
-   $Hom(D,B) \longrightarrow Hom(D,C)$ surjective.
+ - A module $D$ is *projective* when $B \longrightarrow C$ epimorphism induces
+   $\mathrm{Hom}(D,B) \longrightarrow \mathrm{Hom}(D,C)$ epimorphism.
 
    \[ \begin{tikzcd}
                & B \dar[two heads] \\
    D \rar\urar[dashed]{\exists} & C
    \end{tikzcd} \]
 
- - A module $D$ is *injective* when $A \longrightarrow B$ surjective induces
-   $Hom(B,D) \longrightarrow Hom(A,D)$ surjective.
+ - A module $D$ is *injective* when $A \longrightarrow B$ epimorphism induces
+   $\mathrm{Hom}(B,D) \longrightarrow \mathrm{Hom}(A,D)$ epimorphism.
 
    \[ \begin{tikzcd}
      & A \dar[two heads]\dlar \\
    D & B \lar[dashed]{\exists}
    \end{tikzcd} \]
 
- - A module $D$ is *flat* when $A \longrightarrow B$ injective induces 
-   $D\otimes A \longrightarrow D \otimes B$ injective.
+ - A module $D$ is *flat* when $A \longrightarrow B$ monomorphism induces 
+   $D\otimes A \longrightarrow D \otimes B$ monomorphism.
+
 *** Resolutions
 #+begin_definition
 A *projective resolution* is a resolution
@@ -192,10 +193,10 @@ where every $P_i$ is projective.
 #+begin_definition
 An *injective resolution* is a resolution
 
-\[0 \longrightarrow M \longrightarrow E_0\longrightarrow E_1
-\longrightarrow E_2 \longrightarrow \dots\]
+\[0 \longrightarrow M \longrightarrow E^0\longrightarrow E^1
+\longrightarrow E^2 \longrightarrow \dots\]
 
-where every $E_i$ is injective.
+where every $E^i$ is injective.
 #+end_definition
 
 #+begin_definition
@@ -221,27 +222,30 @@ projectives/). So we can construct a projective resolution as follows:
 We can also reverse the arrows to obtain an injective resolution.
 
 *** Derived functors
-#+begin_definition
-#+end_definition
+Derived functors provide a canonical way to extend the image of an
+exact sequence by a non two-sided exact functor.  We need an abelian
+category $A$ with enough injectives to construct left-derived
+functors; and we need enough projectives to construct right-derived
+functors.
 
 **** Construction of the right derived functor
 Let $F$ be additive, covariant and left-exact. Let $0 \longrightarrow M \longrightarrow E^\bullet$ be an 
 injective resolution with $M$ deleted; then $F(E^\bullet)$ is a complex, and we define:
 
 \[R^i F(M) = H^i(F(E^\bullet)) = 
-\frac{\ker \{F(E_i) \longrightarrow F(E_{i+1})\}}
-{\im\{ F(E_{i-1}) \longrightarrow F(E_i)\}}\]
+\frac{\ker \{F(E^i) \longrightarrow F(E^{i+1})\}}
+{\im\{ F(E^{i-1}) \longrightarrow F(E^i)\}}\]
 
 That is, if we take the /injective resolution/
 
-\[ 0 \longrightarrow M \longrightarrow E_0 \longrightarrow E_1 
+\[ 0 \longrightarrow M \longrightarrow E^0 \longrightarrow E^1 
 \longrightarrow \dots\]
 
 we can delete $M$ and apply $F$ to get a (non neccesarily exact) complex where 
 we can compute the homology
 
-\[ 0 \longrightarrow F(E_0) \longrightarrow F(E_1)
-\longrightarrow F(E_2) \longrightarrow \dots.\]
+\[ 0 \longrightarrow F(E^0) \longrightarrow F(E^1)
+\longrightarrow F(E^2) \longrightarrow \dots.\]
 
 **** Construction of the left derived functor
 Let $F$ be additive, contravariant and left-exact. Let 
@@ -302,7 +306,7 @@ reasoning.
 
 *** Standard resolution
 Given $R$, a $k\text{-algebra}$ we define the *standard resolution* $(P_{\bullet},d_{\bullet})$ of $R$ in
-$(R;R)\mathrm{-mod}$ as
+$(R;R)\mathrm{-Mod}$ as
 
  - $P_n = R \otimes (R^{\otimes n}) \otimes R$
  - $d_{n} = \sum_{i=0}^n (-1)^id^i_n$
@@ -359,7 +363,7 @@ A *graded ring* is a ring that can be written as a direct sum of abelian groups
 such that $A_iA_j \subset A_{i+j}$.
 #+end_definition
 
-A *homogeneous element* is an element of any factor $A_i$ of the decomposition.
+A *homogeneous element* is an element of any submodule $A_i$ of the decomposition.
 
 *** Koszul rings
 #+begin_definition
@@ -421,12 +425,6 @@ for any $c \in C_2$,
 
 \[ \sum \theta_{C,A}(c_{(1,1)}) \theta_{C,A}(c_{(2,1)}) = 0.\]
 
-
 * References
-# Aluffi
-# MacLane
-# Weibel
-# Rotman
-
 bibliographystyle:unsrt
 bibliography:math.bib
