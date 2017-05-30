@@ -9494,12 +9494,24 @@ b_4 \rar{h_4} &
 b_5 & ,
 \end{tikzcd}\]
 
-si $f_1,f_2,f_4,f_5$ son isomorfismos, $f_3$ es isomorfismo.
+si $f_2,f_4$ son isomorfismos, $f_1$ es epimorfismo y $f_5$ es monomorfismo, $f_3$ es isomorfismo.
 #+end_theorem
 #+begin_proof
 Usando la manipulación de diagramas cuyas reglas hemos escrito en
 la proposición anterior, demostraremos que $f_3$ es monomorfismo.
 La dualidad servirá para demostrar a su vez que es epimorfismo.
+
+Explícitamente, si hubiera un elemento en $a_3$ que diera un cero en
+$b_3$, habría un cero en $b_4$, por ser isomorfismo, habría un cero en
+$a_4$, y entonces existiría, por exactitud, un elemento en $a_2$ cuya
+imagen sería el elemento original en $a_3$. Por isomorfismo, este
+debería dar un elemento en $b_2$ cuya imagen sería cero, así que
+por exactitud existiría un elemento en $b_1$ del que sería imagen.
+Como $f_1$ es epimorfismo, existiría un elemento en $a_1$ del que
+sería imagen, y entonces el elemento original sería la imagen
+por la composición de dos morfismos en secuencia exacta del
+primer elemento. Debería ser cero, quedando probado $f_3$ como
+monomorfismo.
 #+end_proof
 
 ***** Lema de la serpiente
@@ -9532,10 +9544,25 @@ El diagrama extendido que tenemos es
 
 y desde él, manipulando de nuevo el diagrama podemos construir primero
 el morfismo $\delta$ y demostrar después que efectivamente es exacto.
+
+Explícitamente, lo que haríamos sería tomar un elemento en $\mathrm{ker}(h)$.
+Este elemento pasaría a $c$ y luego, como un cero a $c'$. Como $e$ es
+sobreyectiva, existiría un elemento en $b$, y luego uno en $b'$ que
+haría conmutar el diagrama. Pero como este elemento iría hacia
+un cero al aplicar $e'$, debería estar en la imagen de $m'$, así sólo
+deberíamos pasar de $a$ a $\mathrm{coker}(f)$ para terminar la construcción de
+$\delta$.
+
+Nótese que si el elemento procede de $\mathrm{ker}(g)$, entonces sería nulo en $b'$,
+y de ahí sería nulo en $a'$ y en $\mathrm{coker(f)}$; y que la imagen de un
+elemento que hubiera llegado desde $\delta$, al pasar a $\mathrm{coker}(g)$ debería ser
+$0$ por provenir desde $b$. Esto demuestra la exactitud del diagrama.
 #+end_proof
 
 **** Referencias
-# MacLane
+bibliographystyle:unsrt
+bibliography:math.bib
+
 * Empresa y Sociedad
 ** Detalles de la asignatura
 Profesora Matilde Ruiz, departamento de Organización de Empresas. 
