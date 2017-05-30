@@ -6962,7 +6962,7 @@ las siguientes situaciones:
    encuentran en posiciones distintas del Universo.
 
  * Buscando ondas de radio que detecten señales extraterrestres,
-   detectamos una señal que procede de una galaxia lejana.
+   detectamos una señxal que procede de una galaxia lejana.
    Investigamos y vemos que se trata de la señal de un programa de TV
    emitido hace 50 años.
 
@@ -6970,6 +6970,22 @@ A las posibles formas de nuestro Universo les llamaremos
 variedades de dimensión 3 y su estudio constituye la Topología
 3-dimensional.
 #+end_statement
+
+En cualquiera de esos casos podríamos estar ante un toro tridimensional.
+Los objetos se repetirían en el espacio una y otra vez, y todo el espacio
+se repetiría con ellos. Podríamos interpretar que vivimos en un cubo en el
+que están identificadas cada una de las caras con la opuesta. Nótese que
+seguría siendo un universo orientable.
+
+En un segundo ejemplo, podría ocurrir que tuviéramos un universo similar
+al anterior pero en el que una de las paredes del cubo cambiara la 
+orientación. Al pasar por ella volveríamos al mismo punto pero habríamos
+intercambiado derecha e izquierda.
+
+En un tercer ejemplo, podría ocurrir que el universo fuera infinito en
+una dimensión pero en las otras dos se comportara como un toro plano.
+Dependiendo de la dirección que tomáramos, volveríamos o no al punto
+de partida.
 
 **** Ejercicio 2
 #+begin_statement
@@ -6982,6 +6998,17 @@ variedades de dimensión 3 y su estudio constituye la Topología
    punto diferente. ¿Es esta propiedad geométrica o topológica?
 3. Describir superficies con la misma topología pero diferente geometría.
 #+end_statement
+
+1) Tienen la misma topología:
+   * la esfera y el objeto justo debajo.
+   * el toro y la taza.
+   * el resto de objetos.
+2) Esta es una propiedad topológica. El hecho seguirá siendo cierto al
+   aplicar deformaciones continuas al espacio.
+3) Por ejemplo de un ejercicio anterior tomamos el toro y la taza, que
+   tenían la misma topología pero se puede observar que al hacer la
+   deformación del toro en la taza han cambiado propiedades como área
+   que es diferente para ambas figuras.
 
 **** Ejercicio 3
 #+begin_statement
@@ -6999,6 +7026,20 @@ Distingue según su topología intrínseca y extrínseca.
 
 $\quad$
 #+end_statement
+
+Todas las figuras tienen misma topología intrínseca. En el caso de la
+topología extrínseca podemos distinguir tres grupos:
+
+ * las figuras azules junto a la morada adyacente a estas.
+ * las figuras amarillas.
+ * la morada que nos queda.
+
+Podemos forrar el cilindro y el cono, por el contrario se crearían
+pliegues en el papel al intentar cubrir el trozo de esfera.
+
+En el trozo de esfera al medir los ángulos de un triángulo el
+resultado sería mayor que PI, en el hiperboloide sería menor que PI, y
+en el plano sería igual a PI.
 
 **** Ejercicio 4
 #+begin_statement
@@ -7165,7 +7206,6 @@ Haciendo sumas conexas:
    * $\mathbb{P}^2\#\mathbb{P}^2\#\mathbb{P}^2\#\mathbb{B}^2 \cong \mathbb{B}^2\#\mathbb{T}^2\#\mathbb{P}^2$,
    * $\mathbb{T}^2 \cong \mathbb{T}^2\#\mathbb{S}^2$,
    * $\mathbb{T}^2\#\mathbb{P}^2 \cong \mathbb{P}^2\#\mathbb{T}^2$.
-
 
 ** Modelo del hiperboloide
 *** Modelo
