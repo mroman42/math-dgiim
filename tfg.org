@@ -1,0 +1,109 @@
+#+TITLE: Category theory and lambda calculus
+#+AUTHOR: Mario Román
+#+EMAIL: mromang08@gmail.com
+
+#+OPTIONS: broken-links:mark num:nil
+#+LANGUAGE: es
+#+SETUPFILE: essay.setup
+#+SETUPFILE: math.setup
+#+SETUPFILE: html.setup
+
+* Journal
+** Create this org file for the project <2017-05-31 Wed 14:25>
+
+* Resources
+** Books on categories and types for the TFG
+*** Books on category theory
+**** [[http://www.maths.ed.ac.uk/~aar/papers/maclanecat.pdf][Categories for the working mathematician - Saunders Mac Lane]]
+A complete course on category theory.
+
+  * Category theory.
+  * Monoidal categories.
+  * 2-categories.
+
+**** [[https://github.com/Mzk-Levi/texts/blob/master/Lambek%2520J.,%2520Scott%2520P.J.%2520Introduction%2520to%2520Higher%2520Order%2520Categorical%2520Logic.pdf][Introduction to Higher order categorical logic - Lambek]]
+A course in categorical logic.
+
+  * Cartesian closed categories.
+  * Type theory and toposes.
+
+**** [[http://fef.ogu.edu.tr/matbil/eilgaz/kategori.pdf][Conceptual Mathematics: a first introduction to categories - Lawvere]]
+A course on category theory, oriented towards categorical logic.
+
+  * Basic cateogory theory
+  * Categorical logic, toposes
+
+**** [[http://paultaylor.eu/prafm/][Practical foundations of Mathematics - Paul Taylor]]
+A type-oriented foundation of mathematics.
+
+  * Type theory.
+  * Cartesian closed categories.
+  * Algebra of dependent types.
+
+**** [[http://tocs.ulb.tu-darmstadt.de/35821485.pdf][Sheaves in Geometry and Logic - MacLane, Moerdijk]]
+A course on sheaves, topoi and logic. It assumes a categorical background.
+
+  * Grothendieck topologies and sheaves.
+  * Topoi and logic.
+  * Classifying topoi.
+
+**** [[http://www.mathematik.tu-darmstadt.de/~streicher/CTCL.pdf][Introduction to category theory and categorical logic - Thomas Streicher]]
+Basic notions of category theory and a bit on \lambda-calculus,
+cartesian-closed categories and toposes.
+
+  * Basic category theory
+  * Cartesian closed categories and \lambda-calculus
+  * Logic of toposes
+  
+*** Books on \lambda-calculus
+**** [[http://pages.di.unipi.it/ferrari/CORSI/PR2/HarperBook.pdf][Practical foundations for Programming Languages - Robert Harper]]
+A complete course on types, syntax and programming languages.
+
+  * Judgements and rules.
+  * Levels of syntax.
+  * Data types.
+  * System F.
+  * Types and propositions.
+  * Laziness, paralellism and concurrency.
+
+**** [[http://pds14.egloos.com/pds/200901/16/93/Lambda-Calculus_and_Combinators.pdf][Lambda Calculus and Combinators. An Introduction - Hindley, Seldin]]
+Basic introduction to the \lambda-calculus.
+
+  * Combinatory logic.
+  * Formal theories of \lambda-calculus.
+  * Typing.
+  * Models of \lambda-calculus.
+
+**** [[https://homotopytypetheory.org/book/][Homotopy Type Theory Book - The univalent foundations program]]
+The foundational book on homotopy type theory.
+
+**** [[http://www.cse.chalmers.se/research/group/logic/book/book.pdf][Programming in Martin-Löf's Type Theory - Nordström, Petersson]]
+Martin-Löf type theory and how to write languages based on it.
+Based on sets.
+
+**** [[https://github.com/pigworker/CS410-14][CS410 Advanced Functional Programming - Connor McBride]]
+A course on Agda.
+
+  * Propositions as types.
+  * Dependent types.
+
+**** Types and programming languages - Benjamin C. Pierce
+**** Software foundations - Benjamin C. 
+
+** Blog articles
+*** TODO [[https://golem.ph.utexas.edu/category/2006/08/cartesian_closed_categories_an_1.html][CCCs and the λ-calculus | The n-Category Café]]               :math:
+*** [[https://github.com/mattearnshaw/lawvere][mattearnshaw/lawvere: The collected works of F. W. Lawvere]] :logic:math:
+*** [[https://www.cs.cmu.edu/~rwh/][Robert Harper's Home Page]]                                  :math:logic:
+*** [[http://www.jonmsterling.com/index.html][Notes from Jon Sterling Thought]]                 :math:logic:philosophy:
+*** [[http://www2.tcs.ifi.lmu.de/~abel/MscThesisJoakimOhman.pdf][MscThesisJoakimOhman.pdf]] A logical relation for dependent type theory :mikrokosmos:types:logic:
+Talks about identity types.
+*** [[https://mathoverflow.net/questions/152497/formalizations-of-category-theory-in-proof-assistants][Formalizations of category theory in proof assistants - MathOverflow]] 
+*** [[http://strictlypositive.org/Easy.pdf][Easy.pdf]] Simply Easy! - Conor McBride                :mikrokosmos:math:
+*** [[https://github.com/lambda-pi-plus/lambda-pi-plus][lambda-pi-plus: A simple Depdently-Typed Language for Research&Learning]] :mikrokosmos:math:
+*** [[http://strictlypositive.org/Easy.pdf][Easy.pdf]] Implementation of dependent lambda calculus :math:logic:mikrokosmos:
+*** [[https://www2.eecs.berkeley.edu/Pubs/TechRpts/2007/EECS-2007-113.pdf][EECS-2007-113.pdf]] Adam Chipala - Implementing dependent types :types:math:logic:
+*** [[http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/][How to implement dependent type theory I | Mathematics and Computation]] :math:types:
+*** [[http://www.hedonisticlearning.com/posts/category-theory-syntactically.html][Category Theory, Syntactically ]]                            :math:logic:
+*** [[https://github.com/Mzk-Levi/texts][Mzk-Levi/texts]] - Type theory and categorical logic texts :math:types:categories:
+*** [[http://www.cs.ru.nl/B.Jacobs/CLT/bookinfo.html][Categorical Logic and Type Theory]]               :math:categories:logic:
+*** [[https://www.newton.ac.uk/event/bprw01][Computer-aided mathematical proofs]]                   :types:logic:math:
