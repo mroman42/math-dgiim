@@ -2,8 +2,12 @@
 #+DESCRIPTION: Spaced-repetition cards for math subjects.
 #+SETUPFILE: math.setup
 
+Cards should be divided into topics and decks. Each deck serves a specific
+purpose and should no be reviewed until it is finished.
+
 * Category theory
-** Universal arrow                                                   :drill:
+** Concepts on category theory
+*** Universal arrow                                                 :drill:
 SCHEDULED: <2017-06-19 Mon>
 :PROPERTIES:
 :ID:       f5c0c0db-7fd6-486d-9eab-d0f87b6f8d54
@@ -18,7 +22,7 @@ SCHEDULED: <2017-06-19 Mon>
 :END:
 Definition of universal arrow
 
-*** Definition
+**** Definition
 If $S \colon D \to C$ is a functor and $c \in C$, its *universal arrow* is
 $(r,u)$ such that for every pair $(d,f)$ there exists this unique diagram
 
@@ -27,7 +31,7 @@ $(r,u)$ such that for every pair $(d,f)$ there exists this unique diagram
 c \rar[swap]{u}\urar{f} & Sr \uar[swap, dashed]{\exists! S \widetilde f}
 \end{tikzcd}\]
 
-** Abelian category                                                  :drill:
+*** Abelian category                                                :drill:
 SCHEDULED: <2017-05-23 Tue>
 :PROPERTIES:
 :ID:       ad9b7fc3-6fe9-44fb-8918-9a1a9ce60a3b
@@ -42,7 +46,7 @@ SCHEDULED: <2017-05-23 Tue>
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Abelian_category][abelian category]].
 
-*** Definition
+**** Definition
 An abelian category is a preadditive category (every morphisms set is
 an abelian group and the composition is bilineal on it), satisfiying
 
@@ -52,7 +56,7 @@ an abelian group and the composition is bilineal on it), satisfiying
  4. every monic is a kernel.
  5. every epic is a cokernel.
 
-** Preadditive category                                              :drill:
+*** Preadditive category                                            :drill:
 SCHEDULED: <2017-05-23 Tue>
 :PROPERTIES:
 :ID:       01815e4d-7bf6-473c-a818-f5a4f3568967
@@ -67,7 +71,7 @@ SCHEDULED: <2017-05-23 Tue>
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Preadditive_category][preadditive category]]
 
-*** Definition
+**** Definition
 A category satisfiying
 
  * every $hom(a,b)$ is an *abelian group*.
