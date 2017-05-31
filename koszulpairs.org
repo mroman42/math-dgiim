@@ -33,7 +33,9 @@ if $T(f+g) = Tf+Tg$. cite:rotman08_setting
 #+end_definition
 
 *** Abelian category
-Our interest is specifically on abelian categories.
+Our interest is specifically on abelian categories. We will need to
+assume that every morphism has a kernel and a cokernel in order to
+prove results on homological algebra.
 
 #+begin_definition
 An *abelian category* is an /additive category/ such that
