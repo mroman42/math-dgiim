@@ -11,15 +11,16 @@
 ** I. Categories, Functors and Natural Transformations
 *** I.1. Axioms for categories
 **** Metagraph
-Objects $a,b,c,\dots$ and arrows $f,g,h,\dots$, with two operations:
+A *metagraph* consists of objects $a,b,c,\dots$ and arrows $f,g,h,\dots$, with two 
+operations:
 
-  - *Domain*, $dom(f) = a$
-  - *Codomain*, $cod(f) = b$
+  - *domain*, $dom(f) = a$, and
+  - *codomain*, $cod(f) = b$,
 
-That we write as $f : a \to b$.
+that we write as $f : a \to b$.
 
 **** Metacategory
-A metagraph with two additional operations:
+A *metacategory* is a metagraph with two additional operations:
 
   - *Identity*: $id_a : a \to a$
   - *Composition*: for a pair of arrows $dom(g) = cod(f)$, it defines a
@@ -328,11 +329,12 @@ category, but does not reverse the functors.
 
 *** II.2. Contravariance and opposites
 **** Opposite category
-The objects of $C^{op}$ are the objects of $C$; and, for each arrow $f : a \to b$ of
-$C$, the corresponding $f^{op} : b \to a$ is defined with the composition:
+The *opposite category*, $C^{op}$, is defined with the objects of $C$; for each 
+arrow $f : a \to b$ of $C$, the corresponding $f^{op} : b \to a$ is defined with the 
+composition
 
 \[
-f^{op} \circ g^{op} = (g\circ f)^{op}
+f^{op} \circ g^{op} = (g\circ f)^{op}.
 \]
 
 ***** Opposite functors
@@ -341,10 +343,11 @@ $T^{op} : C^{op} \to B^{op}$. The assignment $C \to C^{op}$ defines a covariant 
 $\mathtt{Cat} \to \mathtt{Cat}$.
 
 **** Contravariant functors
-A functor $S : C^{op} \to B$ can be seen as a *contravariant* functor $S : C \to B$.
+A functor $S : C^{op} \to B$ can be seen as a *contravariant* functor $S : C \to B$,
+knowing that
 
 \[
-S(f^{op}\circ g^{op}) = (Sf^{op})(Sg^{op}) = S((g\circ f)^{op})
+S(f^{op}\circ g^{op}) = (Sf^{op})(Sg^{op}) = S((g\circ f)^{op}).
 \]
 
 ***** Examples: Hom-sets
@@ -715,7 +718,7 @@ c \rar[swap]{u}\urar{g} & Sr \uar[swap,dashed]{Sf} & r \uar[dashed]{\exists! f} 
 \end{tikzcd}\]
 
 *** III.2. The Yoneda lemma
-**** Characterization of universal arrows as natural bijections
+**** Universal arrows as natural bijections
 The arrow $u \colon c \to Sr$ is universal iff $f \mapsto Sf \circ u$ is a bijection
 $\mathrm{hom}(r,d) \cong \mathrm{hom}(c,Sd)$ natural in $d$. Any natural bijection of this
 kind is determined by a unique universal arrow.
