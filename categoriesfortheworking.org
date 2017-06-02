@@ -1363,7 +1363,18 @@ but it is trivial that
 \]
 
 ** TODO II.4. Functor categories
-** TODO II.5. The category of all categories
+** II.5. The category of all categories
+*** TODO Exercise II.5.1
+#+begin_statement
+For small categories $A$, $B$ and $C$ establish a bijection
+
+\[ \mathrm{hom}(A \times B, C) \cong \mathrm{hom}(A, C^B),
+\]
+
+and show it natural in $A$, $B$ and $C$. Hence show that $-\times B \colon \mathtt{Cat}\to \mathtt{Cat}$ has
+a right adjoint.
+#+end_statement
+
 ** II.6. Comma categories
 *** Exercise II.6.1
 #+begin_statement
