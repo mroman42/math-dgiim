@@ -730,8 +730,32 @@ naturality follows from $S(gf)\circ u = Sg \circ Sf \circ u$.
 Given a bijection $\varphi$, we define $u = \varphi(\mathrm{id}_r)$. By naturality we have
 the bijection $\varphi(f) = Sf \circ u$, every arrow is written in this way.
 
-**** Universal elements, universal arrow, representable functor
+**** Yoneda Lemma
+For any $K\colon D \to \mathtt{Set}$ and $r \in D$, there is a bijection
 
+\[
+y \colon \mathrm{Nat}(D(r,-), K) \cong Kr
+\]
+
+sending the natural transformation $\alpha \colon D(r,-) \xrightarrow{.} K$ to the image of
+the identity, $\alpha_r1_r$.
+
+***** TODO Proof
+
+**** Addendum to the Yoneda Lemma
+The bijection on the [[*Yoneda Lemma][Yoneda Lemma]] is a natural isomorphism between
+two $\mathtt{Set}^D \times D \to \mathtt{Set}$ functors.
+
+**** Yoneda functor
+In the conditions of [[*Yoneda Lemma][Yoneda Lemma]], the *Yoneda functor* is a full and
+faithful functor $Y \colon D^{op} \to \mathtt{Set}^{D}$ defined with the arrow function
+
+\[
+\left(f \colon s \to r\right) \mapsto 
+\Big(D(f,-) \colon D(r,-) \to D(s,-)\Big).
+\]
+
+***** TODO Proof
 *** III.3. Coproducts and colimits
 **** Diagonal functor
 The *diagonal functor* $\Delta \colon C \to C \times C$ is defined by $\Delta(c) = (c,c)$ on objects
@@ -813,6 +837,21 @@ natural in $a,b,c$; and isomorphisms
 \]
 
 both natural in $a$.
+
+***** TODO Proof
+We will prove that $a \times (b \times c)$ is a product of $a,b,c$; due to its universal
+property we know it has the universal property of the product of $a,b,c$
+
+\[\begin{tikzcd}[row sep=small]
+& & b \\
+a & a \times (b \times c) \rar\lar\urar\drar & b \times c \dar \uar \\
+& & c
+\end{tikzcd}\]
+
+and, by the same reasoning, $(a \times b) \times c$ is also a product. They are
+isomorphic due to universality.
+
+# Why is it natural?
 
 *** III.6. Groups in categories
 ** IV. Adjoints
