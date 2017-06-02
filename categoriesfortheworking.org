@@ -1419,3 +1419,38 @@ there is a unique morphism $h \colon r' \to r$ of $D$ such that
 State the dual of the Yoneda Lemma ($D$ replaced by $D^{op}$).
 #+end_statement
 
+** III.3. Universals and Limits
+*** Exercise III.3.1
+#+begin_statement
+In the category of commutative rings, show that $R \to R \otimes S \gets S$, with maps
+$r \mapsto r \otimes 1$, $s \mapsto 1\otimes s$, is a coproduct diagram.
+#+end_statement
+
+Given $\alpha\colon R \to T$ and $\beta\colon S \to T$; the unique homomorphism making the diagram
+commute must be defined by
+
+\[f(r\otimes s) = f(r\otimes 1)f(1 \otimes s) = \alpha(r) \beta(s).\]
+
+** III.5. Categories with Finite Products
+*** Exercise III.5.1
+#+begin_statement
+Prove that the diagonal $\delta_c \colon c \to c \times c$ is natural in $c$.
+#+end_statement
+
+We use the identity $\pi_1\delta_c = 1_c = \pi_2\delta_c$ to create the four commutative
+triangles that we use in this diagram. The commutativity of the diagram
+follows from the universal property of the product.
+
+\[\begin{tikzcd}
+& c\dar{\delta}\dlar[swap,bend right]{id}\drar[bend left]{id} & \\
+c \dar{f} & c \times c\lar[swap]{\pi}\rar{\pi} \dar{f \times f} & c \dar{f} \\
+d\drar[bend right]{\delta} & d \times d \lar[swap]{\pi}\rar{\pi}\dar{id} & 
+d\dlar[bend left,swap]{\delta} \\
+& d\times d \\
+\end{tikzcd}\]
+
+*** TODO Exercise III.5.5
+#+begin_statement
+If $B$ has (finite) products show that any functor category $B^C$ also has (finite)
+products (calculated "pointwise").
+#+end_statement
