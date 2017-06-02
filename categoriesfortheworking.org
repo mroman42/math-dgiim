@@ -864,7 +864,24 @@ $F\colon X \to A$, $G\colon A \to X$ with a natural bijection
 \varphi \colon \mathrm{hom}(Fx,a) \cong \mathrm{hom}(x,Ga),
 \] 
 
-natural in both $x\in X$ and $a \in A$.
+natural in both $x\in X$ and $a \in A$. We write it as $F \dashv G$.
+
+**** Unit and counit
+An adjunction determines a *unit* and a *counit*
+
+ 1) A natural transformation made with universal arrows $\eta\colon I \xrightarrow{.} GF$, where
+    the right adjoint of each $f \colon Fx \to a$ is
+
+    \[
+    \varphi f = Gf \circ \eta_x \colon x \to Ga.
+    \]
+
+ 2) A natural transformation made with universal arrows $\varepsilon \colon FG \xrightarrow{.} I$, where
+    the left adjoint of each $g \colon x \to Ga$ is
+
+    \[\varphi^{-1}g = \varepsilon \circ Fg \colon Fx \to a.\]
+
+that follow the triangle identities $\eta G \circ G \varepsilon = \mathrm{id}$ and $F\eta \circ \varepsilon F = \mathrm{id}$.
 
 **** Characterization of adjunctions
 Each adjunction is completely determined by any of
@@ -873,10 +890,44 @@ Each adjunction is completely determined by any of
  2) functor $G$ and universals $\eta_x \colon x \to GF_0 x$, creating a functor $F$.
  3) functors $F,G$ and $\varepsilon\colon FG \xrightarrow{.} 1$ where $\varepsilon_a\colon FGa \to a$ is universal from $F$.
  4) functor $F$ and universals $\varepsilon_a\colon FG_0a \to a$, creating a functor $G$.
- 5) functors $F,G$, with units and counits satisfiying the triangle identities.
+ 5) functors $F,G$, with units and counits satisfiying the triangle
+    identities.
+
+*** IV.3. Reflective subcategories
+*** IV.4. Equivalence of categories
+**** Equivalence of categories
+A *equivalence of categories* is a pair of functors $S,T$ which are
+inverses, $S \circ T = I$. Their domain and codomain are called /equivalent/ 
+/categories/.
+
+**** Skeleton of a category
+A *skeleton* is a full subcategory where every isomorphism class has
+exactly one representative.
+
+*** IV.5. Adjoints for preorders
+**** Galois connections are adjoint pairs
+Let $L\colon P \to Q^{op}$ and $R\colon Q^{op} \to P$ two order preserving functions. They
+are adjoints iff for every two objects
+
+\[
+Lp \geq q \iff p \leq Rq.
+\]
+
+The adjunction is unique and
+
+\[
+Lp \geq LRLp \geq Lp, \qquad Rq \leq RLRq \leq Rq.
+\]
 
 *** IV.6. Cartesian closed categories
 *** IV.10. Categories like sets
+**** Elementary topos
+An *elementary topos* is a category $E$ which
+
+ 1) has all finite limits,
+ 2) has a subobject classifier,
+ 3) is cartesian closed.
+
 ** V. Limits
 ** VI. Monads and algebras
 ** VII. Monoids
