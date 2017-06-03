@@ -730,17 +730,54 @@ naturality follows from $S(gf)\circ u = Sg \circ Sf \circ u$.
 Given a bijection $\varphi$, we define $u = \varphi(\mathrm{id}_r)$. By naturality we have
 the bijection $\varphi(f) = Sf \circ u$, every arrow is written in this way.
 
+**** Representation
+A *representation* of $K \colon D \to \mathtt{Set}$ is a natural isomorphism
+
+\[
+\psi\colon \mathrm{hom}_{D}(r,-) \cong K.
+\]
+
+A functor is /representable/ if it has a representation. An object $r$ is
+called a /representing object/. $D$ must have small hom-sets.
+
+**** Representations from universal arrows
+If $u \colon \ast \to Kr$ is a universal arrow for a functor $K\colon D \to \mathtt{Set}$, then
+$f \mapsto K(f)(u\ast)$ is a representation. Every representation is obtained
+in this way.
+
+***** Proof
+We know that $\mathrm{hom}(\ast, X) \xrightarrow{.} X$ is a natural isomorphism in $X$; in particular
+$\mathrm{hom}(\ast, K-) \xrightarrow{.} K-$. Every representation is built then as
+
+\[ \mathrm{hom}_{D}(r,-) \cong \mathrm{hom}(\ast,K-) \cong K, \]
+
+for every natural isomorphism $D(r,-) \cong \mathtt{Set}(\ast,K-)$. But every natural
+isomorphism of this kind is an [[*Universal arrows as natural bijections][universal arrow]].
+
 **** Yoneda Lemma
 For any $K\colon D \to \mathtt{Set}$ and $r \in D$, there is a bijection
 
 \[
-y \colon \mathrm{Nat}(D(r,-), K) \cong Kr
+y \colon \mathrm{Nat}(\mathrm{hom}_{D}(r,-), K) \cong Kr
 \]
 
-sending the natural transformation $\alpha \colon D(r,-) \xrightarrow{.} K$ to the image of
+sending the natural transformation $\alpha \colon \mathrm{hom}_{D}(r,-) \xrightarrow{.} K$ to the image of
 the identity, $\alpha_r1_r$.
 
 ***** TODO Proof
+
+**** Corollary to Yoneda Lemma
+Given $r,s \in D$, any natural transformation $\mathrm{hom}(r,-) \xrightarrow{.} \mathrm{hom}(s,-)$ has
+the form $h_{\ast}$ for a unique $h\colon s \to r$.
+
+***** Proof
+Using Yoneda Lemma, we know that
+
+\[ \mathrm{Nat}(\mathrm{hom}_D(r,-), \mathrm{hom}_D(s,-)) \cong \mathrm{hom}_D(s,r),
+\]
+
+sending the natural transformation to a morphism $\alpha(id_r) = h \colon s \to r$. The
+rest of the natural transformation is determined as $h_{\ast}$ by naturality.
 
 **** Addendum to the Yoneda Lemma
 The bijection on the [[*Yoneda Lemma][Yoneda Lemma]] is a natural isomorphism between
@@ -1322,7 +1359,6 @@ that the usual union $\bigcup_i f_i$ is a set of $U$.
 (b) Show that this one closue property of $U$ may replace condition (v) and the
 condition $x \in U$ implies $\bigcup x \in U$ in the definition of a universe.
 #+end_statement
-
 * II. Constructions on categories
 ** II.3. Products of categories
 *** TODO Exercise II.3.1
@@ -1395,7 +1431,6 @@ If $t$ is a terminal object in $C$, prove that $(C \downarrow t)$ is isomorphic 
 By definition of terminal object, there will be only an arrow 
 $\ast \colon u \to t$ for any $u \in C$. Every morphism will create a commutative 
 diagram because of the unicity of the morphisms.
-
 * III. Universals and limits
 ** III.1. Universal arrows
 *** Exercise III.1.1
