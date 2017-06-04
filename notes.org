@@ -8168,11 +8168,11 @@ bibliography:math.bib
 #+begin_definition 
 Definimos el *R-módulo libre* cite:aluffi09_rings sobre $A$ como un módulo $F^R(A)$ 
 con una inclusión $j : A \to F^R(A)$ como aquel que cumple que para cualquier 
-aplicación $f : A \to M$ a un R-módulo, existe un homomorfismo de R-módulos
-$\varphi:F^R(A) \to M$ que hace conmutar el diagrama
+aplicación $f : A \to M$ a un R-módulo, existe un único homomorfismo de 
+R-módulos $\varphi:F^R(A) \to M$ que hace conmutar el diagrama
 
 \[\begin{tikzcd}
-F^R(A) \rar{\varphi} & M \\
+F^R(A) \rar[dashed]{\exists!\varphi} & M \\
 A \uar{j}\urar[swap]{f} &
 \end{tikzcd}\]
 #+end_definition
@@ -8180,7 +8180,7 @@ A \uar{j}\urar[swap]{f} &
 Sabemos por ser una propiedad universal que si existe, será único salvo
 isomorfías y que $j\colon A \to F^R(A)$ será inyectivo.
 
-***** TODO Construcción
+***** Construcción
 #+begin_definition
 Dado un conjunto $A$, definimos la *suma directa indexada* sobre él como
 las aplicaciones de soporte finito
@@ -8211,6 +8211,17 @@ El así definido es el módulo libre sobre $A$. Es decir, $F^R(A) \cong R^{\oplu
 #+end_theorem
 
 #+begin_proof
+Nótese que podemos escribir realmente los elementos de esta suma directa
+indexada como
+
+\[
+\sum_{a \in A} r_aa,
+\]
+
+además de forma única y en un número finito de sumandos, uno para cada
+elemento en el que la aplicación sea no nula. Esto que nos lleva a que,
+una vez definida la imagen de cada elemento $a$, queda definida la imagen
+que debe tener $\varphi$ sobre toda el anillo de forma única.
 #+end_proof
 
 **** Independencia lineal y bases
