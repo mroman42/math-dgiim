@@ -207,3 +207,8 @@ We can define a *magma* as
 **** TODO Associativity
 *** I.1.10. Pattern matching and recursion
 *** I.1.11. Propositions as types
+#+BEGIN_SRC agda2
+  data Tree (A : Set) : Set where
+      Nil : Tree A
+      Node : A → Tree A → Tree A → Tree A
+#+END_SRC
