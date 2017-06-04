@@ -8254,7 +8254,17 @@ Trivial si combinamos las definiciones de linealmente independiente y
 sistema generador.
 #+end_proof
 
-**** TODO Caso de los espacios vectoriales
+**** Caso de los espacios vectoriales
+#+begin_theorem
+Los módulos sobre un cuerpo son necesariamente libres. Podemos
+probarlo usando la caracterización anterior por bases. De hecho, dado un
+subconjunto de vectores linealmente independientes en un espacio
+vectorial, existe una base del espacio conteniéndolos.
+#+end_theorem
+
+La noción de dimensión de un espacio vectorial nos permite recuperar
+la cardinalidad de la base sobre la que es módulo libre.
+
 **** Clasificación de módulos libres en dominios de integridad
 #+begin_theorem
 Sea $M$ un $R\text{-módulo}$ libre para $R$ dominio de integridad con
@@ -8453,6 +8463,26 @@ $R[t]\text{-módulo}$ en $F$.
 
 Nótese que esto se expande a las matrices en el caso finito-dimensional.
 
+**** Proyectividad
+#+begin_theorem
+Todo módulo libre es proyectivo.
+#+end_theorem
+#+begin_proof
+Supongamos que tenemos un módulo libre $F$ sobre el conjunto $A$. Dado
+un epimorfismo $\varphi\colon M \to N$, tendremos la situación siguiente, donde
+podemos definir una aplicación de $A$ a $M$ por ser $\varphi$ epimorfismo.
+Dado cualquier $\alpha\colon F \to N$ se tiene
+
+\[\begin{tikzcd}
+& A\dar{i}\ar{ddl} \\
+& F\dar{\alpha}\dlar[dashed] \\
+M\rar{\varphi} & N \\
+\end{tikzcd}\]
+
+tales que conmutan el triángulo exterior y el superior. Así tenemos
+que ambas funciones coinciden sobre la base y por tanto coinciden
+para todo el módulo libre.
+#+end_proof
 **** Referencias
 bibliographystyle:unsrt
 bibliography:math.bib
