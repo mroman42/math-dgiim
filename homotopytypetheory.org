@@ -9,7 +9,7 @@
 
 * Part I
 ** I.1. Type theory
-*** I.1.1. Type theory versus set theory 
+*** I.1.1. Type theory versus set theory
 **** Judgements and rules
 Set theory is not only about seta but also about the interplay between /sets/
 and /propositions/ of first-order logic, the system where sets are formulated.
@@ -49,3 +49,161 @@ A *context* is a collection of assumptions in which a judgment may depend on.
 **** Rules and axioms of type theory
 Rules of type theory can be grouped into type formers, procedural ways
 to construct types. Usually, no axioms are necessary in type theory.
+
+*** I.1.2. Function types
+**** Functions
+Given types $A,B$, $A \to B$ is the type of *maps* or *functions* between them.
+Functions are a primitive concept of type theory; given $f : A \to B$, it can
+be applied to $a \colon A$ to obtain $f a : B$.
+
+***** Constructing functions
+Given $\Phi$, an expression of type $B$ assuming $x : A$; we can define a function
+as
+
+\[
+f(x) :\equiv \Phi,
+\]
+
+and also as a \lambda-expression, written as
+
+\[
+(\lambda (x:A) . \Phi) : A \to B,
+\quad
+\text{ or even }
+\quad
+(x \mapsto \Phi) : A \to B.
+\]
+
+**** \beta-reduction
+*\beta-reduction* is a computation rule defined by
+
+\[
+(\lambda x. \Phi) (a) \equiv \Phi',
+\]
+
+where every ocurrence of $x$ in $\Phi$ has been replaced by $a$ in $\Phi'$, in a way that
+the binding structure is preserved; maybe renaming variables.
+
+**** \eta-reduction
+*\eta-reduction*, often called /uniqueness principle for function types/
+is the computation rule defined by
+
+\[
+f \equiv (\lambda x. f(x)).
+\]
+
+**** Currying
+*Currying* is a way to define multiple-input functions as functions returning
+partially aplied functions. For example, $f : A \to (B \to C)$ can be applied
+to two arguments as $(f\ a)\ b : C$.
+*** I.1.3. Universes and families
+**** Universes
+A *universe* is a type whose elements are types.
+
+***** Russell's paradox
+As in set theory, a universe of all types including itself, ${\cal U}_{\infty} : {\cal U}_{\infty}$, is
+unsound.
+
+***** Hierarchy of universes
+A cumulative hierarchy of universes is defined, where every universe
+is an elemtn of the next universe, ${\cal U}_i : {\cal U}_{i+1}$; and all the elements of
+a universe are elements of all the higher universes.
+
+\[
+{\cal U}_0 : {\cal U}_1 : {\cal U}_2 : \dots
+\]
+
+*Typical ambiguity* is the writing style where we omit the level unless
+it is necessary.
+
+**** Families of types
+A *family of types*, is a collection of types varying over a type
+variable $A$. They are functions whose codomain is a universe, $f : A \to {\cal U}$.
+
+*** I.1.4. Dependent function types (\Pi-types)
+**** Dependent function types
+Given $A : {\cal U}$ and $B : A \to {\cal U}$, we construct the type of *dependent functions*
+as $\prod_{(x:A)}B(x) : {\cal U}$.
+
+***** Constructing dependent functions
+Given $\Phi : B(x)$, a expression assuming $x : A$, we can use \lambda-abstraction
+to write
+
+\[
+\lambda x . \Phi(x) : \prod_{(x:A)} B(x).
+\]
+
+***** Reductions
+\beta and \eta-reductions still hold on dependent functions.
+
+**** Polymorphic functions
+A *polymorphic function* takes a type as one of its arguments, and acts on
+elements of that type.
+
+***** The identity function
+The polymorphic identity function $\mathrm{id} : \prod_{(A:{\cal U})} A \to A}$ is defined as
+$\mathrm{id} =& \lambda (A:{\cal U}) . \lambda (x:A) . x$.
+*** I.1.5. Product types
+**** Cartesian product
+Given $A,B : {\cal U}$, the *cartesian product type* $A \times B : {\cal U}$ contains pairs
+$(a,b) : A \times B$, where $a:A$ and $b:B$. A function on a product type is
+defined by
+
+\[
+f((a,b)) :\equiv g(a)(b),
+\]
+
+where $g : A \to B \to C$.
+
+**** Unit type
+The *unit type* $1$ has a unique element $\star : 1$.
+
+**** TODO Introducing new types
+**** Product type recursor
+The *recursor* for product types symbolizes the fact that we can define a 
+function on a product type only by giving its value on pairs,
+
+\[ \mathtt{rec}_{A \times B}(C,g,(a,b)) = g(a)(b),
+\]
+
+where it has type
+
+\[ \mathtt{rec}_{A \times B} : \prod_{C : {\cal U}} (A \to B \to C) \to A \times B \to C.
+\]
+
+**** TODO Unit type recursor
+
+**** TODO Product type dependent recursor
+**** TODO Propositional uniqueness principle
+**** Induction principle on product types
+The induction principle on product types has type
+
+\[ \mathtt{ind}_{A \times B} :
+\prod_{C : A \times B \to {\cal U}}
+\left( \prod_{(x:A)} \prod_{(y:B)} C((x,y)) \right) \to
+\prod_{(x:A \times B)} C(x)
+\]
+
+and defining equation $\mathtt{ind}_{A \times B} (C,g,(a,b)) :\equiv g(a)(b)$.
+
+**** TODO Induction principle on unit types
+
+*** I.1.6. Dependent type pairs (\Sigma-types)
+**** TODO Type-theoretic axiom of choice
+**** Example: Magmas
+We can define a *magma* as
+
+\[ \mathtt{magma} :\equiv
+\sum_{A : {\cal U}} A \to A \to A.
+\]
+*** I.1.7. Coproduct types
+**** TODO Coproduct type
+**** TODO Empty type
+*** I.1.8. The type of booleans
+**** TODO if-then-else
+**** TODO Coproducts as dependent types
+*** I.1.9. The natural numbers
+**** TODO Natural numbers
+**** TODO Associativity
+*** I.1.10. Pattern matching and recursion
+*** I.1.11. Propositions as types
