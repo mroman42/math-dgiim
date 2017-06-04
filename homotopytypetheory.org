@@ -1,0 +1,51 @@
+#+TITLE: Homotopy type theory
+#+DESCRIPTION: Exercises and notes on homotopy type theory
+
+#+SETUPFILE: config.setup
+#+SETUPFILE: essay.setup
+#+LANGUAGE: en
+#+OPTIONS: toc:nil
+#+TODO: TODO WIP | CHECK
+
+* Part I
+** I.1. Type theory
+*** I.1.1. Type theory versus set theory 
+**** Judgements and rules
+Set theory is not only about seta but also about the interplay between /sets/
+and /propositions/ of first-order logic, the system where sets are formulated.
+In contrast, type theory does not need to be formulated inside any 
+superstructure such as first-order logic. It is its own deductive system.
+
+First-order logic is based on only one kind of judgment: whether any
+given proposition as a proof; but in type theory, the basic judgment
+is $a : A$, where $a$ is an element of the type $A$. Although it could
+be seen as an analogous to $a \in A$ in set theory, the difference
+resides in that $a \colon A$ is not a proposition but a judgment of
+the theory. In particular, we cannot disprove those judgements and we
+cannot talk about an element $a$ without specifying its type.
+
+**** Propositional equality
+Equality here is not a proposition but a type. Given $a,b : A$, we can define
+the type $a =_A b$; we say that $a$ and $b$ are *propositionally equal* when this
+type is unhabited.
+
+**** Judgmental equality
+*Judgmental equality* or *definitional equality* is an equality judgment
+given by definitions: it can be decided expanding out the definitions. 
+We write it as $a \equiv b$ and we introduce definitions as $a :\equiv b$.
+
+**** Judgments of type theory
+Type theory will be a system based on two forms of judgement
+
+ * $a : A$, meaning $a$ has type $A$.
+ * $a \equiv b : A$, meaning that $a$ and $b$ are definitionally equal.
+
+**** Contexts
+A *context* is a collection of assumptions in which a judgment may depend on.
+
+# It can be thougt as a parameter space (?)
+# https://en.wikipedia.org/wiki/Parameter_space
+
+**** Rules and axioms of type theory
+Rules of type theory can be grouped into type formers, procedural ways
+to construct types. Usually, no axioms are necessary in type theory.
