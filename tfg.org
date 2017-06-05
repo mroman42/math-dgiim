@@ -30,7 +30,8 @@ CLOCK: [2017-06-01 Thu 10:30]--[2017-06-01 Thu 10:55] =>  0:25
 *** read I.1.1 to I.1.6 of Hott book
 *** installed agda on emacs
 ** <2017-06-05 Mon>
-
+*** installed hott-library on agda
+*** wrote simple proofs in agda
 * Notes
 ** [[file:categoriesfortheworking.org][Categories for the working mathematician - MacLane]]
 ** [[file:lecturesonthelambdacalculus.org][Lecture notes on the lambda calculus - Selinger]]
@@ -216,3 +217,8 @@ readChurch = syscall "readChurch"
 =readChurch= would return something as ="@(\s.\z.s (s (s z)))"=. Two literals applied one
 over thw other would be reinterpreted as their concatenation.
 
+* Category theory and \lambda-calculus
+** Category theory
+** Type theory
+*** Chapter 1 of HoTT
+*** Examples on agda: natural numbers
