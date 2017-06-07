@@ -1045,8 +1045,35 @@ An *elementary topos* is a category $E$ which
  2) has a subobject classifier,
  3) is cartesian closed.
 
+**** TODO Presheaves
+
 ** V. Limits
+*** V.1. Creation of limits
+**** Small-complete category
+A category is *small-complete* when all small diagrams have limits in it.
+
+*** TODO V.5. Adjoints on limits
+
 ** VI. Monads and algebras
+*** VI.1. Monads in a category
+**** Monad
+A *monad* is a functor $T\colon X \to X$ with natural transformations
+$\eta\colon I \xrightarrow{.} T$ and $\mu \colon T^2 \xrightarrow{.} T$ such that
+
+\[\begin{tikzcd}
+T^3 \rar{T\mu}\dar{\mu T} & T^2\dar{\mu} \\
+T^2 \rar{\mu} & T
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+IT \rar{\eta T}\drar[swap]{\mu} & T^2\dar{\mu} & \lar[swap]{T\eta}\dlar{\mu} TI \\
+& T & .
+\end{tikzcd}\]
+
+**** TODO Every adjunction gives a monad
+**** TODO Comonad
+*** TODO VI.2. Algebras for a monad
+
 ** VII. Monoids
 * I. Categories, functors and natural transformations
 ** I.3. Functors
@@ -1649,7 +1676,7 @@ K' \rar{\psi'^{-1}}&
 State the dual of the Yoneda Lemma ($D$ replaced by $D^{op}$).
 #+end_statement
 
-** III.3. Universals and Limits
+** III.3. Coproducts and colimits
 *** Exercise III.3.1
 #+begin_statement
 In the category of commutative rings, show that $R \to R \otimes S \gets S$, with maps
