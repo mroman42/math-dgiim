@@ -5,17 +5,9 @@ data Nat : Set where
   zero : Nat
   succ : Nat → Nat
 
-double : Nat → Nat
-double zero = zero
-double (succ n) = succ (succ (double n))
-
 add : Nat → Nat → Nat
 add zero     n = n
 add (succ m) n = succ (add m n)
-
-rec-Nat : {C : Set} → C → (Nat → C → C) → Nat → C
-rec-Nat {C} c0 cs zero     = c0
-rec-Nat {C} c0 cs (succ n) = cs n (rec-Nat c0 cs n)
 
 ind-Nat : {C : Nat → Set} → C zero → ( (n : Nat) → C n → C (succ n) ) → (n : Nat) → C n
 ind-Nat c0 cs zero     = c0
@@ -31,4 +23,16 @@ assocₛ i h j k = cong succ (h j k)
 
 assoc : (i : Nat) → (j : Nat) → (k : Nat) → add i (add j k) ≡ add (add i j) k
 assoc i = ind-Nat assoc₀ assocₛ i
+
+
+
+
+rec-Nat : {C : Set} → C → (Nat → C → C) → Nat → C
+rec-Nat {C} c0 cs zero     = c0
+rec-Nat {C} c0 cs (succ n) = cs n (rec-Nat c0 cs n)
+
+
+double : Nat → Nat
+double zero = zero
+double (succ n) = succ (succ (double n))
 \end{code}
