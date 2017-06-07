@@ -7919,11 +7919,11 @@ Gg       \circ \eta     &= \varphi(g) \\
 
 Demostraremos que el isomorfismo es natural en cada una de sus
 componentes. La naturalidad aquí se deduce de que la definición
-de $\varphi$ nos da las siguientes ecuaciones para cualesquiera $f,g$:
+de $\varphi$ nos da las siguientes ecuaciones para cualesquiera $f,g,h$:
 
 \[\begin{aligned}
-\varphi(g\circ f)   &= Gg \circ \varphi(f) \\
-\varphi(Ff \circ g) &= f \circ \varphi(g)
+\varphi(f \circ h)   &= Gf \circ \varphi(h) \\
+\varphi(h \circ Fg) &= g \circ \varphi(h)
 \end{aligned}\]
 
 Que nos dan la naturalidad de $\varphi$ en ambas componentes.
@@ -8014,7 +8014,7 @@ y por las condiciones de naturalidad de la transformación
 $Hom(F-,-) \cong Hom(-,G-)$ tenemos que
 
 \[
-\beta = Gf \circ \varphi(\alpha) = 
+\beta = Gf \circ \varphi(\overline{\alpha}) = 
 \varphi(f \circ \overline{\alpha}) = \varphi(\overline{\beta})
 .\]
 
