@@ -1687,6 +1687,42 @@ Given $\alpha\colon R \to T$ and $\beta\colon S \to T$; the unique homomorphism 
 commute must be defined by
 
 \[f(r\otimes s) = f(r\otimes 1)f(1 \otimes s) = \alpha(r) \beta(s).\]
+** III.4. Products and limits
+*** Exercise III.4.1
+#+begin_statement
+In $\mathtt{Set}$, show that the pullback of $f\colon X \to Z$ and $g \colon Y \to Z$ is given
+by the set of pairs $\left\{ (x,y) \mid x \in X, y \in Y, fx = gy \right\}$. Describe pullbacks
+in $\mathtt{Top}$.
+#+end_statement
+
+Let $h_x,h_y$ be two functions such that $f(h_x(c)) = g(h_y(c))$. Then the only
+possible $\phi \colon C \to P = \left\{ (x,y) \mid fx =gy \right\}$ is $\Phi(c) = (h_xc,h_yc) \in P$.
+
+In $\mathtt{Top}$, the pullback is similar: it is a subspace of the product given
+by $\left\{ (x,y) \mid fx = gy \right\}$.
+
+*** Exercise III.4.4
+#+begin_statement
+In any category, prove that $f\colon a \to b$ is epi if and only if the following
+square is a pushout
+
+\[\begin{tikzcd}
+a\rar{f} \dar[swap]{f} & b \dar{1} \\
+b\rar{1} & b &.
+\end{tikzcd}\]
+#+end_statement
+
+The usual definition of epimorphism is equivalent to the universal
+property.
+
+*** Exercise III.4.5
+#+begin_statement
+In a pullback square, show that $f$ monic implies $q$ monic.
+#+end_statement
+
+If $n,m \colon c \to b \times d$, with $n\pi_2 = m\pi_{2}$; as we know that $n\pi_1 f = m\pi_1 f$, we
+can use monicity to get $n\pi_1 = n\pi_2$. By universal property of the pullback
+square, $n = m$.
 
 ** III.5. Categories with Finite Products
 *** Exercise III.5.1
