@@ -579,17 +579,35 @@ the vertical and horizontal composites follow the interchange law
 (\tau'\circ \tau) \cdot (\sigma'\circ \sigma).
 \]
 
-***** TODO Proof
+***** Proof
+In this diagram, where every internal square is commutative by
+naturality
+
+\[\begin{tikzcd}
+G_1F_1x \dar{G_1\sigma} \rar{\sigma'} \drar{\sigma'\circ\sigma} 
+\ar[bend left]{rr}{\tau'\cdot\sigma'}
+\ar[bend right=60,swap]{dd}{G_1(\tau \cdot \sigma)} & 
+G_2F_1x \dar{G_2\sigma} \rar{\tau'} &
+G_3F_1x \dar{G_3\sigma} \ar[bend left=60]{dd}{G_3(\tau \cdot \sigma)}\\
+G_1F_2x \dar{G_1\tau} \rar{\sigma'} &
+G_2F_2x \dar{G_2\tau} \rar{\tau'}  \drar{\tau'\circ\tau} &
+G_3F_2x \dar{G_3\tau} \\
+G_1F_3x \rar{\sigma'} \ar[bend right,swap]{rr}{\tau'\cdot\sigma'} &
+G_2F_3x \rar{\tau'} &
+G_3F_3x \\
+\end{tikzcd}\]
+
+we know, by definition, that the big diagonal must be $(\tau'\cdot \sigma') \circ (\tau\cdot\sigma)$.
 
 **** Double category
 A *double category* is a set of arrows for two different compositions
 which together satisfy the [[*Interchange law][interchange law]].
 
-***** 2-category
+**** 2-category
 A *2-category* is a double category in thich every identity for the
 first composition is also an identity for the second one.
 
-***** Example: commutative squares in Set
+***** Counterexample: commutative squares in Set
 The category of commutative squares in Set is a double category but
 not a 2-category.
 
