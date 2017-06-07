@@ -230,9 +230,26 @@ readChurch = syscall "readChurch"
 
 =readChurch= would return something as ="@(\s.\z.s (s (s z)))"=. Two literals applied one
 over thw other would be reinterpreted as their concatenation.
-
 * Category theory and \lambda-calculus
-** Category theory
-** Type theory
-*** Chapter 1 of HoTT
+** I. Category theory
+*** 1. Categories
+**** Definition of category
+**** Morphisms
+*** 2. Functors
+*** 3. Universals and Limits
+*** Cartesian closed categories
+*** Topoi
+*** ∞-groupoids
+** II. Lambda calculus
+*** 1. Untyped \lambda-calculus
+*** 2. Simply typed \lambda-calculus
+** III. Type theory
+*** 1. Type theory
 *** Examples on agda: natural numbers
+*** Homotopy type theory
+* Tasks
+** TODO Adjoint functors post
+** TODO Church-Rosser post
+** TODO Wikipedia article Church-Rosser
+** TODO Ask for a type theory book on SO
+** TODO Ask for a category theory + lambda calculus book on SO
