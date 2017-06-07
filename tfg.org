@@ -32,6 +32,13 @@ CLOCK: [2017-06-01 Thu 10:30]--[2017-06-01 Thu 10:55] =>  0:25
 ** <2017-06-05 Mon>
 *** installed hott-library on agda
 *** wrote simple proofs in agda
+*** read I.1.10 and I.1.11 of Hott book
+** <2017-06-06 Tue>
+*** installed [[https://proofgeneral.github.io/download/][Proofgeneral]] and [[https://coq.inria.fr/][Coq]]
+*** completed first chapter exercises of Software Foundations
+*** added 'tasty-hunit' tests to mikrokosmos
+*** added travis-ci to mikrokosmos
+** <2017-06-07 Wed>
 * Notes
 ** [[file:categoriesfortheworking.org][Categories for the working mathematician - MacLane]]
 ** [[file:lecturesonthelambdacalculus.org][Lecture notes on the lambda calculus - Selinger]]
@@ -138,14 +145,15 @@ Talks about identity types.
 *** [[https://mathoverflow.net/questions/69251/is-mac-lane-still-the-best-place-to-learn-category-theory/70891#70891][Is MacLane still the best place to learn category theory?]]
 ** Articles
 *** TODO [[http://imps.mcmaster.ca/doc/seven-virtues.pdf][seven-virtues]] Seven virtues of type theory
-* Tasks
-** TODO Adjoint functors post
-** TODO Church-Rosser post
-** TODO Wikipedia article Church-Rosser
-** TODO Ask for a type theory book on SO
-** TODO Ask for a category theory + lambda calculus book on SO
+*** TODO [[http://conal.net/papers/compiling-to-categories/compiling-to-categories.pdf][Compiling to categories]]
+** Mikrokosmos resources
+*** [[http://www.madore.org/~david/computers/callcc.html][A page about call/cc]]
+*** [[http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=3FF1F113BC01E491476F4F1930F838FE?doi=10.1.1.44.1497&rep=rep1&type=pdf][An untyped lambda calculus with IO]]
 * Mikrokosmos
 Mikrokosmos is a lambda calculus interpreter.
+
+** Write a compiler
+Maybe a compiler would work better than an interpreter.
 
 ** Seminars about mikrokosmos
 ** Dependent types
@@ -169,6 +177,12 @@ It could be compiled to C.
 
 ** Optimizing mikrokosmos in Agda
 It seems very difficult to write a mikrokosmos interpreter on Agda.
+
+** TODO [#A] Module system
+The module system is being written.
+
+I should first find every module I have to load and only then
+load all of them in a single command.
 
 ** TODO The IO problem
 How to declare an imperative - Wadler
