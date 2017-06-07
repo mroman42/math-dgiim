@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2017-06-07 Wed 14:39 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Category theory and lambda calculus</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Category theory and lambda calculus</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgb14635f">Journal</a>
+<ul>
+<li><a href="#org382f487"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-31 Wed&gt;</span></span></a>
+<ul>
+<li><a href="#org8ca8c4c">created this file.</a></li>
+<li><a href="#org6753081">read MacLane chapter III.2.</a></li>
+</ul>
+</li>
+<li><a href="#org5284557"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-01 Thu&gt;</span></span></a>
+<ul>
+<li><a href="#orgcfb4f34">read </a></li>
+<li><a href="#org12674da">started reading chapter 4 on Lecture Notes on the lambda calculus by Selinger</a></li>
+<li><a href="#org2861466">superficial complete lecture of Selinger</a></li>
+</ul>
+</li>
+<li><a href="#org1479a81"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-02 Fri&gt;</span></span></a>
+<ul>
+<li><a href="#org2d87dac">read </a></li>
+<li><a href="#org53ca44e">read multiple sections of MacLane</a></li>
+<li><a href="#org9fd1a24">wrote a mikrokosmos section</a></li>
+</ul>
+</li>
+<li><a href="#orgaad9622"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-03 Sat&gt;</span></span></a>
+<ul>
+<li><a href="#orgb01525d">read MacLane. Yoneda Lemma</a></li>
+<li><a href="#org0829a68">exercises from MacLane</a></li>
+</ul>
+</li>
+<li><a href="#orgec73344"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-04 Sun&gt;</span></span></a>
+<ul>
+<li><a href="#org5cc5464">read I.1.1 to I.1.6 of Hott book</a></li>
+<li><a href="#orgb97aaab">installed agda on emacs</a></li>
+</ul>
+</li>
+<li><a href="#org58719df"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-05 Mon&gt;</span></span></a>
+<ul>
+<li><a href="#org13df0db">installed hott-library on agda</a></li>
+<li><a href="#orgbe589a9">wrote simple proofs in agda</a></li>
+<li><a href="#orgb78e46c">read I.1.10 and I.1.11 of Hott book</a></li>
+</ul>
+</li>
+<li><a href="#org385334d"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-06 Tue&gt;</span></span></a>
+<ul>
+<li><a href="#org03f3ccc">installed Proofgeneral and Coq</a></li>
+<li><a href="#org1ec45fd">completed first chapter exercises of Software Foundations</a></li>
+<li><a href="#org5b607d1">added 'tasty-hunit' tests to mikrokosmos</a></li>
+<li><a href="#orgcaba432">added travis-ci to mikrokosmos</a></li>
+</ul>
+</li>
+<li><a href="#org9d4b53a"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-07 Wed&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgead915e">Notes</a>
+<ul>
+<li><a href="#org83fe438">Categories for the working mathematician - MacLane</a></li>
+<li><a href="#org5020572">Lecture notes on the lambda calculus - Selinger</a></li>
+<li><a href="#org1f8220e">Homotopy type theory - Univalent foundations</a></li>
+</ul>
+</li>
+<li><a href="#org4ed64a1">Resources</a>
+<ul>
+<li><a href="#orgbe05adf">Books on categories and types for the TFG</a>
+<ul>
+<li><a href="#orgc429039">Books on category theory</a>
+<ul>
+<li><a href="#org242eb4b">Categories for the working mathematician - Saunders Mac Lane</a></li>
+<li><a href="#orgbb47c1e">Introduction to Higher order categorical logic - Lambek</a></li>
+<li><a href="#org02d5334">Conceptual Mathematics: a first introduction to categories - Lawvere</a></li>
+<li><a href="#org1aff6e1">Practical foundations of Mathematics - Paul Taylor</a></li>
+<li><a href="#org280998a">Sheaves in Geometry and Logic - MacLane, Moerdijk</a></li>
+<li><a href="#orgefbe52e">Introduction to category theory and categorical logic - Thomas Streicher</a></li>
+<li><a href="#org1f1ec4d">An introduction to topos theory - Kostecki</a></li>
+<li><a href="#org3d5abdf">Toposes, Triples and Theories - Barr &amp; Wells</a></li>
+</ul>
+</li>
+<li><a href="#org832ff9e">Books on &lambda;-calculus</a>
+<ul>
+<li><a href="#org9fcd6aa">Practical foundations for Programming Languages - Robert Harper</a></li>
+<li><a href="#org0787719">Types and programming languages - Benjamin C. Pierce</a></li>
+<li><a href="#orgc39005e">Lecture notes on the lambda calculus - Peter Selinger</a></li>
+<li><a href="#orgc1eab6f">Homotopy Type Theory Book - The univalent foundations program</a></li>
+<li><a href="#org6f12b27">Lambda Calculus and Combinators. An Introduction - Hindley, Seldin</a></li>
+<li><a href="#org5d2a08b">Programming in Martin-Löf's Type Theory - Nordström, Petersson</a></li>
+<li><a href="#orgf0106ac">CS410 Advanced Functional Programming - Connor McBride</a></li>
+<li><a href="#orgf8cfa8c">Software foundations - Benjamin C.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd2d13f5">Blog articles</a>
+<ul>
+<li><a href="#org1c32a7e">What is the best textbook for category theory - Edward Kmett</a></li>
+<li><a href="#org6db528c"><span class="done DONE">DONE</span> CCCs and the λ-calculus | The n-Category Café&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span></span></a></li>
+<li><a href="#org6cd2d87">mattearnshaw/lawvere: The collected works of F. W. Lawvere&#xa0;&#xa0;&#xa0;<span class="tag"><span class="logic">logic</span>&#xa0;<span class="math">math</span></span></a></li>
+<li><a href="#org1c067e7">Robert Harper's Home Page&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="logic">logic</span></span></a></li>
+<li><a href="#org64c8626">Notes from Jon Sterling Thought&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="logic">logic</span>&#xa0;<span class="philosophy">philosophy</span></span></a></li>
+<li><a href="#org2ff31e7">MscThesisJoakimOhman.pdf A logical relation for dependent type theory&#xa0;&#xa0;&#xa0;<span class="tag"><span class="mikrokosmos">mikrokosmos</span>&#xa0;<span class="types">types</span>&#xa0;<span class="logic">logic</span></span></a></li>
+<li><a href="#org70fdd2e">Formalizations of category theory in proof assistants - MathOverflow</a></li>
+<li><a href="#org4a7046e">Easy.pdf Simply Easy! - Conor McBride&#xa0;&#xa0;&#xa0;<span class="tag"><span class="mikrokosmos">mikrokosmos</span>&#xa0;<span class="math">math</span></span></a></li>
+<li><a href="#orgb8c3bec">lambda-pi-plus: A simple Depdently-Typed Language for Research&amp;Learning&#xa0;&#xa0;&#xa0;<span class="tag"><span class="mikrokosmos">mikrokosmos</span>&#xa0;<span class="math">math</span></span></a></li>
+<li><a href="#orgc4e76dc">Easy.pdf Implementation of dependent lambda calculus&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="logic">logic</span>&#xa0;<span class="mikrokosmos">mikrokosmos</span></span></a></li>
+<li><a href="#org4ee7c9d">EECS-2007-113.pdf Adam Chipala - Implementing dependent types&#xa0;&#xa0;&#xa0;<span class="tag"><span class="types">types</span>&#xa0;<span class="math">math</span>&#xa0;<span class="logic">logic</span></span></a></li>
+<li><a href="#org38ef3d9">How to implement dependent type theory I | Mathematics and Computation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="types">types</span></span></a></li>
+<li><a href="#orgae11c96">Category Theory, Syntactically &#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="logic">logic</span></span></a></li>
+<li><a href="#org03faf5e">Mzk-Levi/texts - Type theory and categorical logic texts&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="types">types</span>&#xa0;<span class="categories">categories</span></span></a></li>
+<li><a href="#orgbb85b25">Categorical Logic and Type Theory&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="categories">categories</span>&#xa0;<span class="logic">logic</span></span></a></li>
+<li><a href="#org82b17e7">Computer-aided mathematical proofs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="types">types</span>&#xa0;<span class="logic">logic</span>&#xa0;<span class="math">math</span></span></a></li>
+<li><a href="#orgfff8517">Topos theory in a nutshell</a></li>
+<li><a href="#orgfafc207">Logic matters</a></li>
+<li><a href="#orgffc591f">Is MacLane still the best place to learn category theory?</a></li>
+</ul>
+</li>
+<li><a href="#org7534628">Articles</a>
+<ul>
+<li><a href="#org7ee0da7"><span class="todo TODO">TODO</span> seven-virtues Seven virtues of type theory</a></li>
+<li><a href="#org150e93a"><span class="todo TODO">TODO</span> Compiling to categories</a></li>
+</ul>
+</li>
+<li><a href="#org7ea3271">Mikrokosmos resources</a>
+<ul>
+<li><a href="#org192a3a4">A page about call/cc</a></li>
+<li><a href="#orgb8dc641">An untyped lambda calculus with IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgec16d86">Mikrokosmos</a>
+<ul>
+<li><a href="#orge530ac2">Write a compiler</a></li>
+<li><a href="#org9bb19f9">Seminars about mikrokosmos</a></li>
+<li><a href="#orgf094a84">Dependent types</a></li>
+<li><a href="#orgda59a12">A module system for mikrokosmos</a></li>
+<li><a href="#org3003493">Online interpreter</a></li>
+<li><a href="#org4e5796a">Use a .mikrokosmos config file</a></li>
+<li><a href="#orgf9a6deb">Config files</a></li>
+<li><a href="#orgb541cf8">compiling mikrokosmos</a></li>
+<li><a href="#orgc4a74a0">Optimizing mikrokosmos in Agda</a></li>
+<li><a href="#org8782d4c"><span class="todo TODO">TODO</span> Module system</a></li>
+<li><a href="#org157b3f8"><span class="todo TODO">TODO</span> The IO problem</a>
+<ul>
+<li><a href="#org0182291">syscall proposal</a>
+<ul>
+<li><a href="#org8ab1fb3">Output</a></li>
+<li><a href="#org84d1eb4">Input</a></li>
+</ul>
+</li>
+<li><a href="#org411edbb">syscall with literals</a>
+<ul>
+<li><a href="#orgc91da5d">Output</a></li>
+<li><a href="#orgb2300e3">Input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc578e54">Category theory and &lambda;-calculus</a>
+<ul>
+<li><a href="#org9ef10a5">I. Category theory</a>
+<ul>
+<li><a href="#orgdd283dd">1. Categories</a>
+<ul>
+<li><a href="#orgb77f48d">Definition of category</a></li>
+<li><a href="#org749382f">Morphisms</a></li>
+</ul>
+</li>
+<li><a href="#orgb8555c4">2. Functors</a></li>
+<li><a href="#org930edbc">3. Universals and Limits</a></li>
+<li><a href="#org62f72d4">Cartesian closed categories</a></li>
+<li><a href="#org7252b22">Topoi</a></li>
+<li><a href="#orga339e90">∞-groupoids</a></li>
+</ul>
+</li>
+<li><a href="#org07e9584">II. Lambda calculus</a>
+<ul>
+<li><a href="#org87fd1bb">1. Untyped &lambda;-calculus</a></li>
+<li><a href="#org2deb8d0">2. Simply typed &lambda;-calculus</a></li>
+</ul>
+</li>
+<li><a href="#orgfb32a08">III. Type theory</a>
+<ul>
+<li><a href="#org63224b5">1. Type theory</a></li>
+<li><a href="#org9097106">Examples on agda: natural numbers</a></li>
+<li><a href="#org7940e77">Homotopy type theory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf105ebf">Tasks</a>
+<ul>
+<li><a href="#org65ea839"><span class="todo TODO">TODO</span> Adjoint functors post</a></li>
+<li><a href="#org9acd7bf"><span class="todo TODO">TODO</span> Church-Rosser post</a></li>
+<li><a href="#org6388b69"><span class="todo TODO">TODO</span> Wikipedia article Church-Rosser</a></li>
+<li><a href="#orgb096f70"><span class="todo TODO">TODO</span> Ask for a type theory book on SO</a></li>
+<li><a href="#org3867652"><span class="todo TODO">TODO</span> Ask for a category theory + lambda calculus book on SO</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb14635f" class="outline-2">
+<h2 id="orgb14635f">Journal</h2>
+<div class="outline-text-2" id="text-orgb14635f">
+</div><div id="outline-container-org382f487" class="outline-3">
+<h3 id="org382f487"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-31 Wed&gt;</span></span></h3>
+<div class="outline-text-3" id="text-org382f487">
+</div><div id="outline-container-org8ca8c4c" class="outline-4">
+<h4 id="org8ca8c4c">created this file.</h4>
+</div>
+<div id="outline-container-org6753081" class="outline-4">
+<h4 id="org6753081">read MacLane chapter III.2.</h4>
+</div>
+</div>
+<div id="outline-container-org5284557" class="outline-3">
+<h3 id="org5284557"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-01 Thu&gt;</span></span></h3>
+<div class="outline-text-3" id="text-org5284557">
+</div><div id="outline-container-orgcfb4f34" class="outline-4">
+<h4 id="orgcfb4f34">read <a href="https://golem.ph.utexas.edu/category/2006/08/cartesian_closed_categories_an_1.html">https://golem.ph.utexas.edu/category/2006/08/cartesian_closed_categories_an_1.html</a></h4>
+<div class="outline-text-4" id="text-orgcfb4f34">
+</div>
+</div>
+<div id="outline-container-org12674da" class="outline-4">
+<h4 id="org12674da">started reading chapter 4 on Lecture Notes on the lambda calculus by Selinger</h4>
+</div>
+<div id="outline-container-org2861466" class="outline-4">
+<h4 id="org2861466">superficial complete lecture of Selinger</h4>
+</div>
+</div>
+<div id="outline-container-org1479a81" class="outline-3">
+<h3 id="org1479a81"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-02 Fri&gt;</span></span></h3>
+<div class="outline-text-3" id="text-org1479a81">
+</div><div id="outline-container-org2d87dac" class="outline-4">
+<h4 id="org2d87dac">read <a href="https://bartoszmilewski.com/2016/11/21/monads-programmers-definition/">https://bartoszmilewski.com/2016/11/21/monads-programmers-definition/</a></h4>
+</div>
+<div id="outline-container-org53ca44e" class="outline-4">
+<h4 id="org53ca44e">read multiple sections of MacLane</h4>
+</div>
+<div id="outline-container-org9fd1a24" class="outline-4">
+<h4 id="org9fd1a24">wrote a mikrokosmos section</h4>
+</div>
+</div>
+<div id="outline-container-orgaad9622" class="outline-3">
+<h3 id="orgaad9622"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-03 Sat&gt;</span></span></h3>
+<div class="outline-text-3" id="text-orgaad9622">
+</div><div id="outline-container-orgb01525d" class="outline-4">
+<h4 id="orgb01525d">read MacLane. Yoneda Lemma</h4>
+</div>
+<div id="outline-container-org0829a68" class="outline-4">
+<h4 id="org0829a68">exercises from MacLane</h4>
+</div>
+</div>
+<div id="outline-container-orgec73344" class="outline-3">
+<h3 id="orgec73344"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-04 Sun&gt;</span></span></h3>
+<div class="outline-text-3" id="text-orgec73344">
+</div><div id="outline-container-org5cc5464" class="outline-4">
+<h4 id="org5cc5464">read I.1.1 to I.1.6 of Hott book</h4>
+</div>
+<div id="outline-container-orgb97aaab" class="outline-4">
+<h4 id="orgb97aaab">installed agda on emacs</h4>
+</div>
+</div>
+<div id="outline-container-org58719df" class="outline-3">
+<h3 id="org58719df"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-05 Mon&gt;</span></span></h3>
+<div class="outline-text-3" id="text-org58719df">
+</div><div id="outline-container-org13df0db" class="outline-4">
+<h4 id="org13df0db">installed hott-library on agda</h4>
+</div>
+<div id="outline-container-orgbe589a9" class="outline-4">
+<h4 id="orgbe589a9">wrote simple proofs in agda</h4>
+</div>
+<div id="outline-container-orgb78e46c" class="outline-4">
+<h4 id="orgb78e46c">read I.1.10 and I.1.11 of Hott book</h4>
+</div>
+</div>
+<div id="outline-container-org385334d" class="outline-3">
+<h3 id="org385334d"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-06 Tue&gt;</span></span></h3>
+<div class="outline-text-3" id="text-org385334d">
+</div><div id="outline-container-org03f3ccc" class="outline-4">
+<h4 id="org03f3ccc">installed <a href="https://proofgeneral.github.io/download/">Proofgeneral</a> and <a href="https://coq.inria.fr/">Coq</a></h4>
+</div>
+<div id="outline-container-org1ec45fd" class="outline-4">
+<h4 id="org1ec45fd">completed first chapter exercises of Software Foundations</h4>
+</div>
+<div id="outline-container-org5b607d1" class="outline-4">
+<h4 id="org5b607d1">added 'tasty-hunit' tests to mikrokosmos</h4>
+</div>
+<div id="outline-container-orgcaba432" class="outline-4">
+<h4 id="orgcaba432">added travis-ci to mikrokosmos</h4>
+</div>
+</div>
+<div id="outline-container-org9d4b53a" class="outline-3">
+<h3 id="org9d4b53a"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-07 Wed&gt;</span></span></h3>
+</div>
+</div>
+<div id="outline-container-orgead915e" class="outline-2">
+<h2 id="orgead915e">Notes</h2>
+<div class="outline-text-2" id="text-orgead915e">
+</div><div id="outline-container-org83fe438" class="outline-3">
+<h3 id="org83fe438"><a href="categoriesfortheworking.html">Categories for the working mathematician - MacLane</a></h3>
+</div>
+<div id="outline-container-org5020572" class="outline-3">
+<h3 id="org5020572"><a href="lecturesonthelambdacalculus.html">Lecture notes on the lambda calculus - Selinger</a></h3>
+</div>
+<div id="outline-container-org1f8220e" class="outline-3">
+<h3 id="org1f8220e"><a href="homotopytypetheory.html">Homotopy type theory - Univalent foundations</a></h3>
+</div>
+</div>
+<div id="outline-container-org4ed64a1" class="outline-2">
+<h2 id="org4ed64a1">Resources</h2>
+<div class="outline-text-2" id="text-org4ed64a1">
+</div><div id="outline-container-orgbe05adf" class="outline-3">
+<h3 id="orgbe05adf">Books on categories and types for the TFG</h3>
+<div class="outline-text-3" id="text-orgbe05adf">
+</div><div id="outline-container-orgc429039" class="outline-4">
+<h4 id="orgc429039">Books on category theory</h4>
+<div class="outline-text-4" id="text-orgc429039">
+</div><div id="outline-container-org242eb4b" class="outline-5">
+<h5 id="org242eb4b"><a href="http://www.maths.ed.ac.uk/~aar/papers/maclanecat.pdf">Categories for the working mathematician - Saunders Mac Lane</a></h5>
+<div class="outline-text-5" id="text-org242eb4b">
+<p>
+A complete course on category theory.
+</p>
+
+<ul class="org-ul">
+<li>Category theory.</li>
+<li>Monoidal categories.</li>
+<li>2-categories.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbb47c1e" class="outline-5">
+<h5 id="orgbb47c1e"><a href="https://github.com/Mzk-Levi/texts/blob/master/Lambek%20J.,%20Scott%20P.J.%20Introduction%20to%20Higher%20Order%20Categorical%20Logic.pdf">Introduction to Higher order categorical logic - Lambek</a></h5>
+<div class="outline-text-5" id="text-orgbb47c1e">
+<p>
+A course in categorical logic.
+</p>
+
+<ul class="org-ul">
+<li>Cartesian closed categories.</li>
+<li>Type theory and toposes.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org02d5334" class="outline-5">
+<h5 id="org02d5334"><a href="https://s3.amazonaws.com/arena-attachments/325201/2ff932bf546d8985eb613fccf02b69c7.pdf">Conceptual Mathematics: a first introduction to categories - Lawvere</a></h5>
+<div class="outline-text-5" id="text-org02d5334">
+<p>
+A course on category theory, oriented towards categorical logic.
+</p>
+
+<ul class="org-ul">
+<li>Basic cateogory theory</li>
+<li>Categorical logic, toposes</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1aff6e1" class="outline-5">
+<h5 id="org1aff6e1"><a href="http://paultaylor.eu/prafm/">Practical foundations of Mathematics - Paul Taylor</a></h5>
+<div class="outline-text-5" id="text-org1aff6e1">
+<p>
+A type-oriented foundation of mathematics.
+</p>
+
+<ul class="org-ul">
+<li>Type theory.</li>
+<li>Cartesian closed categories.</li>
+<li>Algebra of dependent types.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org280998a" class="outline-5">
+<h5 id="org280998a"><a href="http://tocs.ulb.tu-darmstadt.de/35821485.pdf">Sheaves in Geometry and Logic - MacLane, Moerdijk</a></h5>
+<div class="outline-text-5" id="text-org280998a">
+<p>
+A course on sheaves, topoi and logic. It assumes a categorical background.
+</p>
+
+<ul class="org-ul">
+<li>Grothendieck topologies and sheaves.</li>
+<li>Topoi and logic.</li>
+<li>Classifying topoi.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgefbe52e" class="outline-5">
+<h5 id="orgefbe52e"><a href="http://www.mathematik.tu-darmstadt.de/~streicher/CTCL.pdf">Introduction to category theory and categorical logic - Thomas Streicher</a></h5>
+<div class="outline-text-5" id="text-orgefbe52e">
+<p>
+Basic notions of category theory and a bit on &lambda;-calculus,
+cartesian-closed categories and toposes.
+</p>
+
+<ul class="org-ul">
+<li>Basic category theory</li>
+<li>Cartesian closed categories and &lambda;-calculus</li>
+<li>Logic of toposes</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1f1ec4d" class="outline-5">
+<h5 id="org1f1ec4d">An introduction to topos theory - Kostecki</h5>
+</div>
+<div id="outline-container-org3d5abdf" class="outline-5">
+<h5 id="org3d5abdf"><a href="http://www.tac.mta.ca/tac/reprints/articles/12/tr12.pdf">Toposes, Triples and Theories - Barr &amp; Wells</a></h5>
+</div>
+</div>
+<div id="outline-container-org832ff9e" class="outline-4">
+<h4 id="org832ff9e">Books on &lambda;-calculus</h4>
+<div class="outline-text-4" id="text-org832ff9e">
+</div><div id="outline-container-org9fcd6aa" class="outline-5">
+<h5 id="org9fcd6aa"><a href="http://pages.di.unipi.it/ferrari/CORSI/PR2/HarperBook.pdf">Practical foundations for Programming Languages - Robert Harper</a></h5>
+<div class="outline-text-5" id="text-org9fcd6aa">
+<p>
+A complete course on types, syntax and programming languages.
+</p>
+
+<ul class="org-ul">
+<li>Judgements and rules.</li>
+<li>Levels of syntax.</li>
+<li>Data types.</li>
+<li>System F.</li>
+<li>Types and propositions.</li>
+<li>Laziness, paralellism and concurrency.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0787719" class="outline-5">
+<h5 id="org0787719">Types and programming languages - Benjamin C. Pierce</h5>
+</div>
+<div id="outline-container-orgc39005e" class="outline-5">
+<h5 id="orgc39005e"><a href="http://www.mscs.dal.ca/~selinger/papers/lambdanotes.pdf">Lecture notes on the lambda calculus - Peter Selinger</a></h5>
+</div>
+<div id="outline-container-orgc1eab6f" class="outline-5">
+<h5 id="orgc1eab6f"><a href="https://homotopytypetheory.org/book/">Homotopy Type Theory Book - The univalent foundations program</a></h5>
+<div class="outline-text-5" id="text-orgc1eab6f">
+<p>
+The foundational book on homotopy type theory.
+</p>
+</div>
+</div>
+<div id="outline-container-org6f12b27" class="outline-5">
+<h5 id="org6f12b27"><a href="http://pds14.egloos.com/pds/200901/16/93/Lambda-Calculus_and_Combinators.pdf">Lambda Calculus and Combinators. An Introduction - Hindley, Seldin</a></h5>
+<div class="outline-text-5" id="text-org6f12b27">
+<p>
+Basic introduction to the &lambda;-calculus.
+</p>
+
+<ul class="org-ul">
+<li>Combinatory logic.</li>
+<li>Formal theories of &lambda;-calculus.</li>
+<li>Typing.</li>
+<li>Models of &lambda;-calculus.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5d2a08b" class="outline-5">
+<h5 id="org5d2a08b"><a href="http://www.cse.chalmers.se/research/group/logic/book/book.pdf">Programming in Martin-Löf's Type Theory - Nordström, Petersson</a></h5>
+<div class="outline-text-5" id="text-org5d2a08b">
+<p>
+Martin-Löf type theory and how to write languages based on it.
+Based on sets.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf0106ac" class="outline-5">
+<h5 id="orgf0106ac"><a href="https://github.com/pigworker/CS410-14">CS410 Advanced Functional Programming - Connor McBride</a></h5>
+<div class="outline-text-5" id="text-orgf0106ac">
+<p>
+A course on Agda.
+</p>
+
+<ul class="org-ul">
+<li>Propositions as types.</li>
+<li>Dependent types.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf8cfa8c" class="outline-5">
+<h5 id="orgf8cfa8c">Software foundations - Benjamin C.</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd2d13f5" class="outline-3">
+<h3 id="orgd2d13f5">Blog articles</h3>
+<div class="outline-text-3" id="text-orgd2d13f5">
+</div><div id="outline-container-org1c32a7e" class="outline-4">
+<h4 id="org1c32a7e"><a href="https://www.quora.com/What-is-the-best-textbook-for-Category-theory">What is the best textbook for category theory - Edward Kmett</a></h4>
+</div>
+<div id="outline-container-org6db528c" class="outline-4">
+<h4 id="org6db528c"><span class="done DONE">DONE</span> <a href="https://golem.ph.utexas.edu/category/2006/08/cartesian_closed_categories_an_1.html">CCCs and the λ-calculus | The n-Category Café</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span></span></h4>
+</div>
+<div id="outline-container-org6cd2d87" class="outline-4">
+<h4 id="org6cd2d87"><a href="https://github.com/mattearnshaw/lawvere">mattearnshaw/lawvere: The collected works of F. W. Lawvere</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="logic">logic</span>&#xa0;<span class="math">math</span></span></h4>
+</div>
+<div id="outline-container-org1c067e7" class="outline-4">
+<h4 id="org1c067e7"><a href="https://www.cs.cmu.edu/~rwh/">Robert Harper's Home Page</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="logic">logic</span></span></h4>
+</div>
+<div id="outline-container-org64c8626" class="outline-4">
+<h4 id="org64c8626"><a href="http://www.jonmsterling.com/index.html">Notes from Jon Sterling Thought</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="logic">logic</span>&#xa0;<span class="philosophy">philosophy</span></span></h4>
+</div>
+<div id="outline-container-org2ff31e7" class="outline-4">
+<h4 id="org2ff31e7"><a href="http://www2.tcs.ifi.lmu.de/~abel/MscThesisJoakimOhman.pdf">MscThesisJoakimOhman.pdf</a> A logical relation for dependent type theory&#xa0;&#xa0;&#xa0;<span class="tag"><span class="mikrokosmos">mikrokosmos</span>&#xa0;<span class="types">types</span>&#xa0;<span class="logic">logic</span></span></h4>
+<div class="outline-text-4" id="text-org2ff31e7">
+<p>
+Talks about identity types.
+</p>
+</div>
+</div>
+<div id="outline-container-org70fdd2e" class="outline-4">
+<h4 id="org70fdd2e"><a href="https://mathoverflow.net/questions/152497/formalizations-of-category-theory-in-proof-assistants">Formalizations of category theory in proof assistants - MathOverflow</a></h4>
+</div>
+<div id="outline-container-org4a7046e" class="outline-4">
+<h4 id="org4a7046e"><a href="http://strictlypositive.org/Easy.pdf">Easy.pdf</a> Simply Easy! - Conor McBride&#xa0;&#xa0;&#xa0;<span class="tag"><span class="mikrokosmos">mikrokosmos</span>&#xa0;<span class="math">math</span></span></h4>
+</div>
+<div id="outline-container-orgb8c3bec" class="outline-4">
+<h4 id="orgb8c3bec"><a href="https://github.com/lambda-pi-plus/lambda-pi-plus">lambda-pi-plus: A simple Depdently-Typed Language for Research&amp;Learning</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="mikrokosmos">mikrokosmos</span>&#xa0;<span class="math">math</span></span></h4>
+</div>
+<div id="outline-container-orgc4e76dc" class="outline-4">
+<h4 id="orgc4e76dc"><a href="http://strictlypositive.org/Easy.pdf">Easy.pdf</a> Implementation of dependent lambda calculus&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="logic">logic</span>&#xa0;<span class="mikrokosmos">mikrokosmos</span></span></h4>
+</div>
+<div id="outline-container-org4ee7c9d" class="outline-4">
+<h4 id="org4ee7c9d"><a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2007/EECS-2007-113.pdf">EECS-2007-113.pdf</a> Adam Chipala - Implementing dependent types&#xa0;&#xa0;&#xa0;<span class="tag"><span class="types">types</span>&#xa0;<span class="math">math</span>&#xa0;<span class="logic">logic</span></span></h4>
+</div>
+<div id="outline-container-org38ef3d9" class="outline-4">
+<h4 id="org38ef3d9"><a href="http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/">How to implement dependent type theory I | Mathematics and Computation</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="types">types</span></span></h4>
+</div>
+<div id="outline-container-orgae11c96" class="outline-4">
+<h4 id="orgae11c96"><a href="http://www.hedonisticlearning.com/posts/category-theory-syntactically.html">Category Theory, Syntactically </a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="logic">logic</span></span></h4>
+</div>
+<div id="outline-container-org03faf5e" class="outline-4">
+<h4 id="org03faf5e"><a href="https://github.com/Mzk-Levi/texts">Mzk-Levi/texts</a> - Type theory and categorical logic texts&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="types">types</span>&#xa0;<span class="categories">categories</span></span></h4>
+</div>
+<div id="outline-container-orgbb85b25" class="outline-4">
+<h4 id="orgbb85b25"><a href="http://www.cs.ru.nl/B.Jacobs/CLT/bookinfo.html">Categorical Logic and Type Theory</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="math">math</span>&#xa0;<span class="categories">categories</span>&#xa0;<span class="logic">logic</span></span></h4>
+</div>
+<div id="outline-container-org82b17e7" class="outline-4">
+<h4 id="org82b17e7"><a href="https://www.newton.ac.uk/event/bprw01">Computer-aided mathematical proofs</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="types">types</span>&#xa0;<span class="logic">logic</span>&#xa0;<span class="math">math</span></span></h4>
+</div>
+<div id="outline-container-orgfff8517" class="outline-4">
+<h4 id="orgfff8517"><a href="http://math.ucr.edu/home/baez/topos.html">Topos theory in a nutshell</a></h4>
+</div>
+<div id="outline-container-orgfafc207" class="outline-4">
+<h4 id="orgfafc207"><a href="http://www.logicmatters.net/tyl/">Logic matters</a></h4>
+</div>
+<div id="outline-container-orgffc591f" class="outline-4">
+<h4 id="orgffc591f"><a href="https://mathoverflow.net/questions/69251/is-mac-lane-still-the-best-place-to-learn-category-theory/70891#70891">Is MacLane still the best place to learn category theory?</a></h4>
+</div>
+</div>
+<div id="outline-container-org7534628" class="outline-3">
+<h3 id="org7534628">Articles</h3>
+<div class="outline-text-3" id="text-org7534628">
+</div><div id="outline-container-org7ee0da7" class="outline-4">
+<h4 id="org7ee0da7"><span class="todo TODO">TODO</span> <a href="http://imps.mcmaster.ca/doc/seven-virtues.pdf">seven-virtues</a> Seven virtues of type theory</h4>
+</div>
+<div id="outline-container-org150e93a" class="outline-4">
+<h4 id="org150e93a"><span class="todo TODO">TODO</span> <a href="http://conal.net/papers/compiling-to-categories/compiling-to-categories.pdf">Compiling to categories</a></h4>
+</div>
+</div>
+<div id="outline-container-org7ea3271" class="outline-3">
+<h3 id="org7ea3271">Mikrokosmos resources</h3>
+<div class="outline-text-3" id="text-org7ea3271">
+</div><div id="outline-container-org192a3a4" class="outline-4">
+<h4 id="org192a3a4"><a href="http://www.madore.org/~david/computers/callcc.html">A page about call/cc</a></h4>
+</div>
+<div id="outline-container-orgb8dc641" class="outline-4">
+<h4 id="orgb8dc641"><a href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=3FF1F113BC01E491476F4F1930F838FE?doi=10.1.1.44.1497&amp;rep=rep1&amp;type=pdf">An untyped lambda calculus with IO</a></h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgec16d86" class="outline-2">
+<h2 id="orgec16d86">Mikrokosmos</h2>
+<div class="outline-text-2" id="text-orgec16d86">
+<p>
+Mikrokosmos is a lambda calculus interpreter.
+</p>
+</div>
+
+<div id="outline-container-orge530ac2" class="outline-3">
+<h3 id="orge530ac2">Write a compiler</h3>
+<div class="outline-text-3" id="text-orge530ac2">
+<p>
+Maybe a compiler would work better than an interpreter.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9bb19f9" class="outline-3">
+<h3 id="org9bb19f9">Seminars about mikrokosmos</h3>
+</div>
+<div id="outline-container-orgf094a84" class="outline-3">
+<h3 id="orgf094a84">Dependent types</h3>
+<div class="outline-text-3" id="text-orgf094a84">
+<p>
+<a href="http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/">http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgda59a12" class="outline-3">
+<h3 id="orgda59a12">A module system for mikrokosmos</h3>
+<div class="outline-text-3" id="text-orgda59a12">
+<p>
+Un sistema simple de <code>import</code> de módulos que incluya varias definiciones en el árbol
+si no están ya.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3003493" class="outline-3">
+<h3 id="org3003493">Online interpreter</h3>
+<div class="outline-text-3" id="text-org3003493">
+<p>
+Is there a Sinatra equivalent for Haskell?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4e5796a" class="outline-3">
+<h3 id="org4e5796a">Use a .mikrokosmos config file</h3>
+<div class="outline-text-3" id="text-org4e5796a">
+<p>
+Is it really necessary?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf9a6deb" class="outline-3">
+<h3 id="orgf9a6deb">Config files</h3>
+<div class="outline-text-3" id="text-orgf9a6deb">
+<p>
+A simply typed mikroskosmos would be great for writing configuration files.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb541cf8" class="outline-3">
+<h3 id="orgb541cf8">compiling mikrokosmos</h3>
+<div class="outline-text-3" id="text-orgb541cf8">
+<p>
+It could be compiled to C.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc4a74a0" class="outline-3">
+<h3 id="orgc4a74a0">Optimizing mikrokosmos in Agda</h3>
+<div class="outline-text-3" id="text-orgc4a74a0">
+<p>
+It seems very difficult to write a mikrokosmos interpreter on Agda.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8782d4c" class="outline-3">
+<h3 id="org8782d4c"><span class="todo TODO">TODO</span> Module system</h3>
+<div class="outline-text-3" id="text-org8782d4c">
+<p>
+The module system is being written.
+</p>
+
+<p>
+I should first find every module I have to load and only then
+load all of them in a single command.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org157b3f8" class="outline-3">
+<h3 id="org157b3f8"><span class="todo TODO">TODO</span> The IO problem</h3>
+<div class="outline-text-3" id="text-org157b3f8">
+<p>
+How to declare an imperative - Wadler
+</p>
+</div>
+
+<div id="outline-container-org0182291" class="outline-4">
+<h4 id="org0182291">syscall proposal</h4>
+<div class="outline-text-4" id="text-org0182291">
+</div><div id="outline-container-org8ab1fb3" class="outline-5">
+<h5 id="org8ab1fb3">Output</h5>
+<div class="outline-text-5" id="text-org8ab1fb3">
+<pre class="example">
+#printNum (\s.\z.(s (s z)))
+</pre>
+
+<p>
+printNum.hs
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #cae682;">num</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">Lambda</span> <span style="color: #cae682;">-&gt;</span> <span style="color: #92a65e; font-weight: bold;">Int</span>
+<span style="color: #cae682;">num</span> <span style="color: #92a65e; font-weight: bold;">Nil</span> <span style="color: #cae682;">=</span> 0
+<span style="color: #cae682;">num</span> (<span style="color: #92a65e; font-weight: bold;">Lambda</span> x s) <span style="color: #cae682;">=</span> 1 <span style="color: #cae682;">+</span> printnum s
+
+<span style="color: #cae682;">main</span> <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">IO</span> <span style="color: #92a65e; font-weight: bold;">()</span>
+<span style="color: #cae682;">main</span> <span style="color: #cae682;">=</span> <span style="color: #8ac6f2; font-weight: bold;">do</span>
+  l <span style="color: #cae682;">&lt;-</span> read <span style="color: #cae682;">::</span> <span style="color: #92a65e; font-weight: bold;">Lambda</span>
+  print <span style="color: #cae682;">$</span> printnum l
+  return <span style="color: #92a65e; font-weight: bold;">()</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org84d1eb4" class="outline-5">
+<h5 id="org84d1eb4">Input</h5>
+<div class="outline-text-5" id="text-org84d1eb4">
+<pre class="example">
+#readNum ()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org411edbb" class="outline-4">
+<h4 id="org411edbb">syscall with literals</h4>
+<div class="outline-text-4" id="text-org411edbb">
+<p>
+Add a "literal" type.
+</p>
+</div>
+
+<div id="outline-container-orgc91da5d" class="outline-5">
+<h5 id="orgc91da5d">Output</h5>
+<div class="outline-text-5" id="text-orgc91da5d">
+<div class="org-src-container">
+<pre class="src src-mikrokosmos">churchLiteral n = n (\k . syscall ("increment.sh" k)) "0"
+printLiteral l = syscall2 ""
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb2300e3" class="outline-5">
+<h5 id="orgb2300e3">Input</h5>
+<div class="outline-text-5" id="text-orgb2300e3">
+<p>
+It would use <code>$</code> as an antiliteral. Any string started on <code>$</code> would be interpreted as
+a lambda term.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-mikrokosmos">readChurch = syscall "readChurch"
+</pre>
+</div>
+
+<p>
+<code>readChurch</code> would return something as <code>"@(\s.\z.s (s (s z)))"</code>. Two literals applied one
+over thw other would be reinterpreted as their concatenation.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc578e54" class="outline-2">
+<h2 id="orgc578e54">Category theory and &lambda;-calculus</h2>
+<div class="outline-text-2" id="text-orgc578e54">
+</div><div id="outline-container-org9ef10a5" class="outline-3">
+<h3 id="org9ef10a5">I. Category theory</h3>
+<div class="outline-text-3" id="text-org9ef10a5">
+</div><div id="outline-container-orgdd283dd" class="outline-4">
+<h4 id="orgdd283dd">1. Categories</h4>
+<div class="outline-text-4" id="text-orgdd283dd">
+</div><div id="outline-container-orgb77f48d" class="outline-5">
+<h5 id="orgb77f48d">Definition of category</h5>
+</div>
+<div id="outline-container-org749382f" class="outline-5">
+<h5 id="org749382f">Morphisms</h5>
+</div>
+</div>
+<div id="outline-container-orgb8555c4" class="outline-4">
+<h4 id="orgb8555c4">2. Functors</h4>
+</div>
+<div id="outline-container-org930edbc" class="outline-4">
+<h4 id="org930edbc">3. Universals and Limits</h4>
+</div>
+<div id="outline-container-org62f72d4" class="outline-4">
+<h4 id="org62f72d4">Cartesian closed categories</h4>
+</div>
+<div id="outline-container-org7252b22" class="outline-4">
+<h4 id="org7252b22">Topoi</h4>
+</div>
+<div id="outline-container-orga339e90" class="outline-4">
+<h4 id="orga339e90">∞-groupoids</h4>
+</div>
+</div>
+<div id="outline-container-org07e9584" class="outline-3">
+<h3 id="org07e9584">II. Lambda calculus</h3>
+<div class="outline-text-3" id="text-org07e9584">
+</div><div id="outline-container-org87fd1bb" class="outline-4">
+<h4 id="org87fd1bb">1. Untyped &lambda;-calculus</h4>
+</div>
+<div id="outline-container-org2deb8d0" class="outline-4">
+<h4 id="org2deb8d0">2. Simply typed &lambda;-calculus</h4>
+</div>
+</div>
+<div id="outline-container-orgfb32a08" class="outline-3">
+<h3 id="orgfb32a08">III. Type theory</h3>
+<div class="outline-text-3" id="text-orgfb32a08">
+</div><div id="outline-container-org63224b5" class="outline-4">
+<h4 id="org63224b5">1. Type theory</h4>
+</div>
+<div id="outline-container-org9097106" class="outline-4">
+<h4 id="org9097106">Examples on agda: natural numbers</h4>
+</div>
+<div id="outline-container-org7940e77" class="outline-4">
+<h4 id="org7940e77">Homotopy type theory</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf105ebf" class="outline-2">
+<h2 id="orgf105ebf">Tasks</h2>
+<div class="outline-text-2" id="text-orgf105ebf">
+</div><div id="outline-container-org65ea839" class="outline-3">
+<h3 id="org65ea839"><span class="todo TODO">TODO</span> Adjoint functors post</h3>
+</div>
+<div id="outline-container-org9acd7bf" class="outline-3">
+<h3 id="org9acd7bf"><span class="todo TODO">TODO</span> Church-Rosser post</h3>
+</div>
+<div id="outline-container-org6388b69" class="outline-3">
+<h3 id="org6388b69"><span class="todo TODO">TODO</span> Wikipedia article Church-Rosser</h3>
+</div>
+<div id="outline-container-orgb096f70" class="outline-3">
+<h3 id="orgb096f70"><span class="todo TODO">TODO</span> Ask for a type theory book on SO</h3>
+</div>
+<div id="outline-container-org3867652" class="outline-3">
+<h3 id="org3867652"><span class="todo TODO">TODO</span> Ask for a category theory + lambda calculus book on SO</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2017-06-07 Wed 14:39</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

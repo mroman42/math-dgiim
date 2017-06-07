@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-06-07 Wed 14:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Homotopy type theory</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<meta name="description" content="Exercises and notes on homotopy type theory"
+ />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Homotopy type theory</h1>
+
+<div id="outline-container-org6240163" class="outline-2">
+<h2 id="org6240163">Part I</h2>
+<div class="outline-text-2" id="text-org6240163">
+</div><div id="outline-container-org2616c39" class="outline-3">
+<h3 id="org2616c39">I.1. Type theory</h3>
+<div class="outline-text-3" id="text-org2616c39">
+</div><div id="outline-container-org4cb3b21" class="outline-4">
+<h4 id="org4cb3b21">I.1.1. Type theory versus set theory</h4>
+<div class="outline-text-4" id="text-org4cb3b21">
+</div><div id="outline-container-orgf267a61" class="outline-5">
+<h5 id="orgf267a61">Judgements and rules</h5>
+<div class="outline-text-5" id="text-orgf267a61">
+<p>
+Set theory is not only about seta but also about the interplay between <i>sets</i>
+and <i>propositions</i> of first-order logic, the system where sets are formulated.
+In contrast, type theory does not need to be formulated inside any 
+superstructure such as first-order logic. It is its own deductive system.
+</p>
+
+<p>
+First-order logic is based on only one kind of judgment: whether any
+given proposition as a proof; but in type theory, the basic judgment
+is \(a : A\), where \(a\) is an element of the type \(A\). Although it could
+be seen as an analogous to \(a \in A\) in set theory, the difference
+resides in that \(a \colon A\) is not a proposition but a judgment of
+the theory. In particular, we cannot disprove those judgements and we
+cannot talk about an element \(a\) without specifying its type.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga97a46c" class="outline-5">
+<h5 id="orga97a46c">Propositional equality</h5>
+<div class="outline-text-5" id="text-orga97a46c">
+<p>
+Equality here is not a proposition but a type. Given \(a,b : A\), we can define
+the type \(a =_A b\); we say that \(a\) and \(b\) are <b>propositionally equal</b> when this
+type is unhabited.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org22d77f7" class="outline-5">
+<h5 id="org22d77f7">Judgmental equality</h5>
+<div class="outline-text-5" id="text-org22d77f7">
+<p>
+<b>Judgmental equality</b> or <b>definitional equality</b> is an equality judgment
+given by definitions: it can be decided expanding out the definitions. 
+We write it as \(a \equiv b\) and we introduce definitions as \(a :\equiv b\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7794c35" class="outline-5">
+<h5 id="org7794c35">Judgments of type theory</h5>
+<div class="outline-text-5" id="text-org7794c35">
+<p>
+Type theory will be a system based on two forms of judgement
+</p>
+
+<ul class="org-ul">
+<li>\(a : A\), meaning \(a\) has type \(A\).</li>
+<li>\(a \equiv b : A\), meaning that \(a\) and \(b\) are definitionally equal.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org765e851" class="outline-5">
+<h5 id="org765e851">Contexts</h5>
+<div class="outline-text-5" id="text-org765e851">
+<p>
+A <b>context</b> is a collection of assumptions in which a judgment may depend on.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org98ead32" class="outline-5">
+<h5 id="org98ead32">Rules and axioms of type theory</h5>
+<div class="outline-text-5" id="text-org98ead32">
+<p>
+Rules of type theory can be grouped into type formers, procedural ways
+to construct types. Usually, no axioms are necessary in type theory.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org25b8f45" class="outline-4">
+<h4 id="org25b8f45">I.1.2. Function types</h4>
+<div class="outline-text-4" id="text-org25b8f45">
+</div><div id="outline-container-orgbe03524" class="outline-5">
+<h5 id="orgbe03524">Functions</h5>
+<div class="outline-text-5" id="text-orgbe03524">
+<p>
+Given types \(A,B\), \(A \to B\) is the type of <b>maps</b> or <b>functions</b> between them.
+Functions are a primitive concept of type theory; given \(f : A \to B\), it can
+be applied to \(a \colon A\) to obtain \(f a : B\).
+</p>
+</div>
+
+<div id="outline-container-org0769fae" class="outline-6">
+<h6 id="org0769fae">Constructing functions</h6>
+<div class="outline-text-6" id="text-org0769fae">
+<p>
+Given \(\Phi\), an expression of type \(B\) assuming \(x : A\); we can define a function
+as
+</p>
+
+<p>
+\[
+f(x) :\equiv \Phi,
+\]
+</p>
+
+<p>
+and also as a &lambda;-expression, written as
+</p>
+
+<p>
+\[
+(\lambda (x:A) . \Phi) : A \to B,
+\quad
+\text{ or even }
+\quad
+(x \mapsto \Phi) : A \to B.
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org620f2b9" class="outline-5">
+<h5 id="org620f2b9">&beta;-reduction</h5>
+<div class="outline-text-5" id="text-org620f2b9">
+<p>
+<b>&beta;-reduction</b> is a computation rule defined by
+</p>
+
+<p>
+\[
+(\lambda x. \Phi) (a) \equiv \Phi',
+\]
+</p>
+
+<p>
+where every ocurrence of \(x\) in \(\Phi\) has been replaced by \(a\) in \(\Phi'\), in a way that
+the binding structure is preserved; maybe renaming variables.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org52ecd79" class="outline-5">
+<h5 id="org52ecd79">&eta;-reduction</h5>
+<div class="outline-text-5" id="text-org52ecd79">
+<p>
+<b>&eta;-reduction</b>, often called <i>uniqueness principle for function types</i>
+is the computation rule defined by
+</p>
+
+<p>
+\[
+f \equiv (\lambda x. f(x)).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org49dc96e" class="outline-5">
+<h5 id="org49dc96e">Currying</h5>
+<div class="outline-text-5" id="text-org49dc96e">
+<p>
+<b>Currying</b> is a way to define multiple-input functions as functions returning
+partially aplied functions. For example, \(f : A \to (B \to C)\) can be applied
+to two arguments as \((f\ a)\ b : C\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0df62ce" class="outline-4">
+<h4 id="org0df62ce">I.1.3. Universes and families</h4>
+<div class="outline-text-4" id="text-org0df62ce">
+</div><div id="outline-container-org0f86462" class="outline-5">
+<h5 id="org0f86462">Universes</h5>
+<div class="outline-text-5" id="text-org0f86462">
+<p>
+A <b>universe</b> is a type whose elements are types.
+</p>
+</div>
+
+<div id="outline-container-orgad9c31b" class="outline-6">
+<h6 id="orgad9c31b">Russell's paradox</h6>
+<div class="outline-text-6" id="text-orgad9c31b">
+<p>
+As in set theory, a universe of all types including itself, \({\cal U}_{\infty} : {\cal U}_{\infty}\), is
+unsound.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbb5e49a" class="outline-6">
+<h6 id="orgbb5e49a">Hierarchy of universes</h6>
+<div class="outline-text-6" id="text-orgbb5e49a">
+<p>
+A cumulative hierarchy of universes is defined, where every universe
+is an elemtn of the next universe, \({\cal U}_i : {\cal U}_{i+1}\); and all the elements of
+a universe are elements of all the higher universes.
+</p>
+
+<p>
+\[
+{\cal U}_0 : {\cal U}_1 : {\cal U}_2 : \dots
+\]
+</p>
+
+<p>
+<b>Typical ambiguity</b> is the writing style where we omit the level unless
+it is necessary.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbe22c40" class="outline-5">
+<h5 id="orgbe22c40">Families of types</h5>
+<div class="outline-text-5" id="text-orgbe22c40">
+<p>
+A <b>family of types</b>, is a collection of types varying over a type
+variable \(A\). They are functions whose codomain is a universe, \(f : A \to {\cal U}\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org35f4a9c" class="outline-4">
+<h4 id="org35f4a9c">I.1.4. Dependent function types (&Pi;-types)</h4>
+<div class="outline-text-4" id="text-org35f4a9c">
+</div><div id="outline-container-orgb55e368" class="outline-5">
+<h5 id="orgb55e368">Dependent function types</h5>
+<div class="outline-text-5" id="text-orgb55e368">
+<p>
+Given \(A : {\cal U}\) and \(B : A \to {\cal U}\), we construct the type of <b>dependent functions</b>
+as \(\prod_{(x:A)}B(x) : {\cal U}\).
+</p>
+</div>
+
+<div id="outline-container-org6945284" class="outline-6">
+<h6 id="org6945284">Constructing dependent functions</h6>
+<div class="outline-text-6" id="text-org6945284">
+<p>
+Given \(\Phi : B(x)\), a expression assuming \(x : A\), we can use &lambda;-abstraction
+to write
+</p>
+
+<p>
+\[
+\lambda x . \Phi(x) : \prod_{(x:A)} B(x).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0f9cab8" class="outline-6">
+<h6 id="org0f9cab8">Reductions</h6>
+<div class="outline-text-6" id="text-org0f9cab8">
+<p>
+&beta; and &eta;-reductions still hold on dependent functions.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcb549b8" class="outline-5">
+<h5 id="orgcb549b8">Polymorphic functions</h5>
+<div class="outline-text-5" id="text-orgcb549b8">
+<p>
+A <b>polymorphic function</b> takes a type as one of its arguments, and acts on
+elements of that type.
+</p>
+</div>
+
+<div id="outline-container-org961c617" class="outline-6">
+<h6 id="org961c617">The identity function</h6>
+<div class="outline-text-6" id="text-org961c617">
+<p>
+The polymorphic identity function \(\mathrm{id} : \prod_{(A:{\cal U})} A \to A}\) is defined as
+\(\mathrm{id} =& \lambda (A:{\cal U}) . \lambda (x:A) . x\).
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org9871ab8" class="outline-4">
+<h4 id="org9871ab8">I.1.5. Product types</h4>
+<div class="outline-text-4" id="text-org9871ab8">
+</div><div id="outline-container-org93b3cfd" class="outline-5">
+<h5 id="org93b3cfd">Cartesian product</h5>
+<div class="outline-text-5" id="text-org93b3cfd">
+<p>
+Given \(A,B : {\cal U}\), the <b>cartesian product type</b> \(A \times B : {\cal U}\) contains pairs
+\((a,b) : A \times B\), where \(a:A\) and \(b:B\). A function on a product type is
+defined by
+</p>
+
+<p>
+\[
+f((a,b)) :\equiv g(a)(b),
+\]
+</p>
+
+<p>
+where \(g : A \to B \to C\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd748e1" class="outline-5">
+<h5 id="orgdd748e1">Unit type</h5>
+<div class="outline-text-5" id="text-orgdd748e1">
+<p>
+The <b>unit type</b> \(1\) has a unique element \(\star : 1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org93d151e" class="outline-5">
+<h5 id="org93d151e"><span class="todo TODO">TODO</span> Introducing new types</h5>
+</div>
+<div id="outline-container-org60267ca" class="outline-5">
+<h5 id="org60267ca">Product type recursor</h5>
+<div class="outline-text-5" id="text-org60267ca">
+<p>
+The <b>recursor</b> for product types symbolizes the fact that we can define a 
+function on a product type only by giving its value on pairs,
+</p>
+
+<p>
+\[ \mathtt{rec}_{A \times B}(C,g,(a,b)) = g(a)(b),
+\]
+</p>
+
+<p>
+where it has type
+</p>
+
+<p>
+\[ \mathtt{rec}_{A \times B} : \prod_{C : {\cal U}} (A \to B \to C) \to A \times B \to C.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8f5e1e0" class="outline-5">
+<h5 id="org8f5e1e0"><span class="todo TODO">TODO</span> Unit type recursor</h5>
+</div>
+
+<div id="outline-container-org54764fa" class="outline-5">
+<h5 id="org54764fa"><span class="todo TODO">TODO</span> Product type dependent recursor</h5>
+</div>
+<div id="outline-container-orgbb9b1f3" class="outline-5">
+<h5 id="orgbb9b1f3"><span class="todo TODO">TODO</span> Propositional uniqueness principle</h5>
+</div>
+<div id="outline-container-org1180953" class="outline-5">
+<h5 id="org1180953">Induction principle on product types</h5>
+<div class="outline-text-5" id="text-org1180953">
+<p>
+The induction principle on product types has type
+</p>
+
+<p>
+\[ \mathtt{ind}_{A \times B} :
+\prod_{C : A \times B \to {\cal U}}
+\left( \prod_{(x:A)} \prod_{(y:B)} C((x,y)) \right) \to
+\prod_{(x:A \times B)} C(x)
+\]
+</p>
+
+<p>
+and defining equation \(\mathtt{ind}_{A \times B} (C,g,(a,b)) :\equiv g(a)(b)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdb3d961" class="outline-5">
+<h5 id="orgdb3d961"><span class="todo TODO">TODO</span> Induction principle on unit types</h5>
+</div>
+</div>
+
+<div id="outline-container-orga2ad2a6" class="outline-4">
+<h4 id="orga2ad2a6">I.1.6. Dependent type pairs (&Sigma;-types)</h4>
+<div class="outline-text-4" id="text-orga2ad2a6">
+</div><div id="outline-container-org4a70948" class="outline-5">
+<h5 id="org4a70948"><span class="todo TODO">TODO</span> Type-theoretic axiom of choice</h5>
+</div>
+<div id="outline-container-org8b1bec1" class="outline-5">
+<h5 id="org8b1bec1">Example: Magmas</h5>
+<div class="outline-text-5" id="text-org8b1bec1">
+<p>
+We can define a <b>magma</b> as
+</p>
+
+<p>
+\[ \mathtt{magma} :\equiv
+\sum_{A : {\cal U}} A \to A \to A.
+\]
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org409df26" class="outline-4">
+<h4 id="org409df26">I.1.7. Coproduct types</h4>
+<div class="outline-text-4" id="text-org409df26">
+</div><div id="outline-container-org07ff06e" class="outline-5">
+<h5 id="org07ff06e"><span class="todo TODO">TODO</span> Coproduct type</h5>
+</div>
+<div id="outline-container-orga38ddd6" class="outline-5">
+<h5 id="orga38ddd6"><span class="todo TODO">TODO</span> Empty type</h5>
+</div>
+</div>
+<div id="outline-container-org05d0146" class="outline-4">
+<h4 id="org05d0146">I.1.8. The type of booleans</h4>
+<div class="outline-text-4" id="text-org05d0146">
+</div><div id="outline-container-org599f76d" class="outline-5">
+<h5 id="org599f76d"><span class="todo TODO">TODO</span> if-then-else</h5>
+</div>
+<div id="outline-container-orgd4935ab" class="outline-5">
+<h5 id="orgd4935ab"><span class="todo TODO">TODO</span> Coproducts as dependent types</h5>
+</div>
+</div>
+<div id="outline-container-org81c8705" class="outline-4">
+<h4 id="org81c8705">I.1.9. The natural numbers</h4>
+<div class="outline-text-4" id="text-org81c8705">
+</div><div id="outline-container-org5fe0d89" class="outline-5">
+<h5 id="org5fe0d89"><span class="todo TODO">TODO</span> Natural numbers</h5>
+</div>
+<div id="outline-container-org1759e74" class="outline-5">
+<h5 id="org1759e74"><span class="todo TODO">TODO</span> Associativity</h5>
+</div>
+</div>
+<div id="outline-container-org7a5a825" class="outline-4">
+<h4 id="org7a5a825">I.1.10. Pattern matching and recursion</h4>
+<div class="outline-text-4" id="text-org7a5a825">
+<p>
+We would like to define a function only writing its <i>defining equations</i>.
+An example of this is this <code>double</code> function
+</p>
+
+<p>
+\[\begin{aligned} 
+\mathtt{double}(0) &:\equiv 0 \\ 
+\mathtt{double}( \mathtt{succ}(n) ) &:\equiv \mathtt{succ} (\mathtt{succ} (\mathtt{double} (n))).
+\end{aligned}\]
+</p>
+
+<p>
+This style is called <b>pattern matching</b>; it is similar to recursion but
+it is limited in the recursive calls it can use. Explicitly, it can be used
+only as a shorthand for writing a definition using the recursor. Given
+</p>
+
+<p>
+\[\begin{aligned} 
+f(0) &:\equiv \Phi_0 \\ 
+f( \mathtt{succ}(n) ) &:\equiv \Phi_{s},
+\end{aligned}\]
+</p>
+
+<p>
+we need \(\Phi_s\) to depend on \(f\) only via \(f(n)\) in order to be well-defined as
+</p>
+
+<p>
+\[
+f :\equiv \mathtt{rec}_{\mathbb{N}} (C,\Phi_0,\lambda n. \lambda r. \Phi'_{s}).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c19f8b" class="outline-4">
+<h4 id="org9c19f8b">I.1.11. Propositions as types</h4>
+<div class="outline-text-4" id="text-org9c19f8b">
+<p>
+An element of the type corresponding to a proposition is a <b>witness</b> or 
+a <b>proof</b> of the truth of that proposition. From this perspective, proofs
+are mathematical objects per se.
+</p>
+</div>
+
+<div id="outline-container-orgda7f470" class="outline-5">
+<h5 id="orgda7f470">Falsity and negation</h5>
+</div>
+
+<div id="outline-container-org1720c55" class="outline-5">
+<h5 id="org1720c55">Constructive logic</h5>
+<div class="outline-text-5" id="text-org1720c55">
+<p>
+The natural interpretation of propositions-as-types is <i>constructive</i>,
+meaning that certain tautologies on classical logic, such as the 
+<b>law of excluded middle</b> (LEM) do not hold.
+</p>
+
+<p>
+The logic is still compatible with the presence of the LEM as an axiom.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd4e87d1" class="outline-4">
+<h4 id="orgd4e87d1">I.1.12. Identity types</h4>
+<div class="outline-text-4" id="text-orgd4e87d1">
+<p>
+\[ \mathtt{refl} : \prod_{a:A} (a =_A a)
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Mario Román</p>
+<p class="date">Created: 2017-06-07 Wed 14:42</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
