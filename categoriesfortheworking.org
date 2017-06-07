@@ -1089,14 +1089,76 @@ T^2 \rar{\mu} & T
 \end{tikzcd}
 \qquad
 \begin{tikzcd}
-IT \rar{\eta T}\drar[swap]{\mu} & T^2\dar{\mu} & \lar[swap]{T\eta}\dlar{\mu} TI \\
-& T & .
+IT \rar{\eta T}\drar[swap]{\cong} & T^2\dar{\mu} & \lar[swap]{T\eta}\dlar{\cong} TI \\
+& T & &.
 \end{tikzcd}\]
 
-**** TODO Every adjunction gives a monad
-**** TODO Comonad
-*** TODO VI.2. Algebras for a monad
+**** Each adjunction defines a monad
+Given $F \dashv G$, $GF$ is a monad.
 
+***** Proof
+We take the unit of the adjunction as the monad unit. We define the
+product as $\mu = G\varepsilon F$. Associativity follows from these diagrams
+
+\[\begin{tikzcd}
+FGFG\rar{FG\varepsilon} \dar[swap]{\varepsilon FG} & FG \dar{\varepsilon} \\
+FG\rar{\varepsilon} & I
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+GFGFGF\rar{GFG\varepsilonF} \dar[swap]{G\varepsilon FGF} & GFGF \dar{G\varepsilonF} \\
+GFGF\rar{G\varepsilonF} & GF &,
+\end{tikzcd}\]
+
+where the first is commutative by the [[*Interchange law][interchange law]] and the second
+is obtained by applying functors $G$ and $F$. Unit laws follow from
+the [[*Unit and counit][triangular identities]] after applying $F$ and $G$.
+
+**** Comonad
+A *comonad* is a functor $L\colon X \to X$ with natural transformations
+
+ * $\varepsilon\colon L\to I$, called /counit/
+ * $\delta\colon L \to L^2$, called /comultiplication/
+
+such that
+
+\[\begin{tikzcd}
+L\rar{\delta} \dar[swap]{\delta} & L^{2} \dar{L\delta} \\
+L^{2}\rar{\delta L} & L^{3}
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+& L \dar{\delta} \dlar[swap]{\cong} \drar{\cong} & \\
+IL & 
+L^2 \lar{\varepsilon L}\rar[swap]{L \varepsilon} & 
+LI
+&.
+\end{tikzcd}\]
+
+**** TODO Each adjunction defines a comonad
+*** VI.2. Algebras for a monad
+**** T-algebra
+For a monad $T$, a $T\text{-algebra}$ is an object $x$ with an arrow $h \colon Tx \to x$ called 
+/structure map/ making these diagrams commute
+
+\[\begin{tikzcd}
+T^{2}x \rar{Th}\dar[swap]{\mu} & Tx \dar{h} \\
+Tx\rar{h} & x &.
+\end{tikzcd}\]
+
+**** Morphisms of T-algebras
+A morphism of T-algebras is an arrow $f\colon x \to x'$ making the following square
+commute
+
+\[\begin{tikzcd}
+Tx \dar[swap]{Tf}\rar{h'} & Tx \dar{f} \\
+Tx' \rar[swap]{h} & Tx' &.
+\end{tikzcd}\]
+
+**** TODO Category of T-algebras
+**** TODO Every monad is defined by its T-algebras
+*** TODO VI.3. The comparison with algebras
+*** TODO VI.5. Free algebras for a monad
 ** VII. Monoids
 * I. Categories, functors and natural transformations
 ** I.3. Functors
