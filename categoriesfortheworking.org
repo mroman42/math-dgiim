@@ -229,7 +229,7 @@ the set of all small sets. $\mathtt{Set}$ denotes the category of small sets.
 A small group is a small set with a group structure. $\mathtt{Grp}$ denotes the
 category of small groups.
 
-***** Small categories
+**** Small categories
 A category is small if the set of its arrows and objects are both small
 sets. $\mathtt{Set}$ is not a small category.
 
@@ -852,6 +852,11 @@ as
 
 \[\coprod_{x\in X} b \cong X \cdot b.\]
 
+**** Coequalizers
+A *coequalizer* of two arrows $f,g \colon a \to b$ is $u \colon b \to e$ such that $uf = ug$; and
+for every other $u'$ with the same property factorizes through it.
+
+**** Pushout
 *** III.5. Categories with finite products
 **** Category with finite products
 A category *has finite products* if to any finite number of objects exists
@@ -891,6 +896,14 @@ isomorphic due to universality.
 # Why is it natural?
 
 *** III.6. Groups in categories
+**** A group has a group hom functor
+In a category with finite products, $c$ is a group iff $\mathrm{hom}(c,-)$ is a group
+in the functor category $\mathtt{Set}^{C^{op}}$.
+
+***** TODO Proof
+
+*** III.7. Colimits of representable functors
+**** Representation as colimits
 ** IV. Adjoints
 *** IV.1. Adjunctions
 **** Adjunction
@@ -957,6 +970,73 @@ Lp \geq LRLp \geq Lp, \qquad Rq \leq RLRq \leq Rq.
 \]
 
 *** IV.6. Cartesian closed categories
+**** Cartesian closed category
+A *cartesian closed category* is a category with all finite products where
+the functors
+
+\[\begin{tabular}{ccc}
+$C \to 1$, & 
+$C \to C \times C$, & 
+$C \to C$, \\
+$c \mapsto 0$, &
+$c \mapsto (c,c)$, &
+$c \mapsto c \times b$;
+\end{aligned}\]
+
+have specified adjoints
+
+\[\begin{tabular}{ccc}
+$0 \mapsto t$, &
+$(a,b) \mapsto a \times b$, &
+$c \mapsto c^b$.
+\end{aligned}\]
+
+**** TODO Evaluation map
+
+*** IV.7. Transformations of adjoints
+**** Map of adjunctions
+Given two adjunctions $\varphi\colon F \dashv G$ and $\varphi'\colon F' \dashv G'$; we define a *map of adjunctions*
+as two functors $K \colon A \to A'$ and $L \colon X \to X'$ such that
+
+\[\begin{tikzcd}
+A \dar{K}\rar{G} & X \dar{L} \\
+A' \rar{G'} & X'
+\end{tikzcd}
+\quad
+\begin{tikzcd}
+X \dar{L}\rar{F} & A \dar{K} \\
+X' \rar{F'} & A' &
+\end{tikzcd}\]
+
+commute and such that, knowing that $KF = F'L$ and $LG = G'K$,
+
+\[\begin{tikzcd}
+\mathrm{hom}(Fx,a) \rar{\varphi} \dar[swap]{K} & \mathrm{hom}(x,Ga) \dar{L} \\
+\mathrm{hom}(F'Lx,Ka) \rar{\varphi'} & \mathrm{hom}(Lx,G'Ka)
+\end{tikzcd}\]
+
+commutes.
+
+***** Equivalence for units and counits
+Given the first property, the condition on hom-sets is equivalent
+to $L\eta = \eta'L$ and $\varepsilon'K = K\varepsilon$.
+
+****** TODO Proof
+
+**** TODO Conjugate natural transformations
+
+*** IV.9. Subsets and characteristic functions
+**** Subobject classifier
+A *subobject classifier* for ${\cal C}$ with a terminal object $1$ is a monomorphism
+$t \colon 1 \to \Omega$ such that for every monomorphism $m$ exists a unique square
+
+\[\begin{tikzcd}
+S\rar{} \dar[swap,hook]{m} & 1 \dar[hook]{t} \\
+X\rar[dashed]{\Psi_{S}} & \Omega &,
+\end{tikzcd}\]
+
+which is at the same time a pullback.
+
 *** IV.10. Categories like sets
 **** Elementary topos
 An *elementary topos* is a category $E$ which
