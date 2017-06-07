@@ -206,5 +206,46 @@ We can define a *magma* as
 **** TODO Natural numbers
 **** TODO Associativity
 *** I.1.10. Pattern matching and recursion
-*** I.1.11. Propositions as types
+We would like to define a function only writing its /defining equations/.
+An example of this is this =double= function
 
+\[\begin{aligned} 
+\mathtt{double}(0) &:\equiv 0 \\ 
+\mathtt{double}( \mathtt{succ}(n) ) &:\equiv \mathtt{succ} (\mathtt{succ} (\mathtt{double} (n))).
+\end{aligned}\]
+
+This style is called *pattern matching*; it is similar to recursion but
+it is limited in the recursive calls it can use. Explicitly, it can be used
+only as a shorthand for writing a definition using the recursor. Given
+
+\[\begin{aligned} 
+f(0) &:\equiv \Phi_0 \\ 
+f( \mathtt{succ}(n) ) &:\equiv \Phi_{s},
+\end{aligned}\]
+
+we need $\Phi_s$ to depend on $f$ only via $f(n)$ in order to be well-defined as
+
+\[
+f :\equiv \mathtt{rec}_{\mathbb{N}} (C,\Phi_0,\lambda n. \lambda r. \Phi'_{s}).
+\]
+
+*** I.1.11. Propositions as types
+An element of the type corresponding to a proposition is a *witness* or 
+a *proof* of the truth of that proposition. From this perspective, proofs
+are mathematical objects per se.
+
+# Cite Wadler
+
+**** Falsity and negation
+
+**** Constructive logic
+The natural interpretation of propositions-as-types is /constructive/,
+meaning that certain tautologies on classical logic, such as the 
+*law of excluded middle* (LEM) do not hold.
+
+The logic is still compatible with the presence of the LEM as an axiom.
+
+*** I.1.12. Identity types
+
+\[ \mathtt{refl} : \prod_{a:A} (a =_A a)
+\]
