@@ -3,6 +3,7 @@
 
 #+SETUPFILE: config.setup
 #+SETUPFILE: essay.setup
+#+LATEX_HEADER: \usepackage{color}
 #+LANGUAGE: en
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | CHECK
@@ -497,6 +498,11 @@ V\rar{\sigma} & V'
 and it is called an *intertwining* operator.
 
 *** II.5. The category of all categories
+**** Identity natural transformations
+The identity functor is the identity for the horizontal and vertical
+compositions. We can use the symbol of the functor to denote it like
+$S \colon S \dot\to S$.
+
 **** Horizontal composition of natural transformations
 Given functors $S,T \colon C \to B$ and $S',T'\colon B \to A$ and natural transformations
 
@@ -512,17 +518,27 @@ A\\
 \ar[from=UR, to=LR, "\tau\smash{'}", shorten <= -2pt, shorten >= -2pt]
 \end{tikzcd}\]
 
-we can define the horizontal composite $\tau' \circ \tau \colon S'S \to T'T$ as the diagonal
-of the square
+we can define the *horizontal composite* $\tau' \circ \tau \colon S'S \to T'T$ as the diagonal
+of the commutative square
 
 \[\begin{tikzcd}
 S'Sc\rar{\tau'_{Sc}} \dar[swap]{S'\tau_c} & T'Sc \dar{T' \tau_c} \\
 S'Tc\rar{\tau'_{Tc}} & T'Tc
 \end{tikzcd}\]
 
-explicitely, as $\tau' \circ \tau = T' \tau \circ \tau' = \tau' \circ S'\tau$.
+explicitly, as $\tau' \circ \tau = T' \tau \circ \tau' = \tau' \circ S'\tau$. It is a natural transformation.
 
-***** Naturality of the composition
+***** Alternative notation
+With identity notation, we can then define the horizontal composition
+as
+
+\[
+\tau'\circ \tau = 
+(T' \circ \tau) \cdot (\tau'\circ S) =
+(\tau' \circ T) \cdot (S'\circ \tau).
+\]
+
+***** Proof
 It is natural as the following diagram is the composition of two
 naturality squares
 
@@ -536,21 +552,6 @@ T'Tb
 \end{tikzcd}\]
 
 defined respectively by the naturality of $S'\tau$ and $\tau'$.
-
-**** Identities
-The identity functor is the identity for the horizontal and vertical
-compositions. We can use the symbol of the functor to denote it like
-$S \colon S \dot\to S$.
-
-***** Horizontal composition
-With this notation, we can then define the horizontal composition
-as
-
-\[
-\tau'\circ \tau = 
-(T' \circ \tau) \cdot (\tau'\circ S) =
-(\tau' \circ T) \cdot (S'\circ \tau).
-\]
 
 **** Interchange law
 Given three categories and four transformations
