@@ -950,7 +950,7 @@ An adjunction determines a *unit* and a *counit*
 
     \[\varphi^{-1}g = \varepsilon \circ Fg \colon Fx \to a.\]
 
-that follow the triangle identities $\eta G \circ G \varepsilon = \mathrm{id}$ and $F\eta \circ \varepsilon F = \mathrm{id}$.
+that follow the /triangle identities/ $\eta G \circ G \varepsilon = \mathrm{id}$ and $F\eta \circ \varepsilon F = \mathrm{id}$.
 
 **** Characterization of adjunctions
 Each adjunction is completely determined by any of
@@ -960,7 +960,7 @@ Each adjunction is completely determined by any of
  3) functors $F,G$ and $\varepsilon\colon FG \xrightarrow{.} 1$ where $\varepsilon_a\colon FGa \to a$ is universal from $F$.
  4) functor $F$ and universals $\varepsilon_a\colon FG_0a \to a$, creating a functor $G$.
  5) functors $F,G$, with units and counits satisfiying the triangle
-    identities.
+    identities $\eta G \circ G \varepsilon = \mathrm{id}$ and $F\eta \circ \varepsilon F = \mathrm{id}$.
 
 *** IV.3. Reflective subcategories
 *** IV.4. Equivalence of categories
@@ -1077,7 +1077,11 @@ A category is *small-complete* when all small diagrams have limits in it.
 *** VI.1. Monads in a category
 **** Monad
 A *monad* is a functor $T\colon X \to X$ with natural transformations
-$\eta\colon I \xrightarrow{.} T$ and $\mu \colon T^2 \xrightarrow{.} T$ such that
+
+ * $\eta\colon I \xrightarrow{.} T$, called /unit/
+ * $\mu \colon T^2 \xrightarrow{.} T$, called /multiplication/
+
+such that
 
 \[\begin{tikzcd}
 T^3 \rar{T\mu}\dar{\mu T} & T^2\dar{\mu} \\
