@@ -1064,13 +1064,30 @@ An *elementary topos* is a category $E$ which
  2) has a subobject classifier,
  3) is cartesian closed.
 
-**** TODO Presheaves
+**** Presheaves
+A *presheaf* is a set-valued contravariant functor on a small category.
 
 ** V. Limits
 *** V.1. Creation of limits
 **** Small-complete category
 A category is *small-complete* when all small diagrams have limits in it.
 
+**** Completeness of Set
+Given $J$ small, $F \colon J \to \mathtt{Set}$ has limit $\mathrm{Cone}(\ast,F)$; the set of all cones
+$\sigma\colon \ast \to F$ with the functions $v_j\colon \sigma \mapsto \sigma_j(\ast)$.
+
+***** TODO Proof
+
+**** Creation of limits
+The functor $V\colon A \to X$ *creates limits* for $F\colon J \to A$ when
+
+ 1) for any con $\tau\colon x \xrightarrow{.} VF$ exists $\sigma\colon a \to F$ with $Va = x$ and $V\sigma = \tau$.
+ 2) this $\sigma$ is a limiting cone.
+
+
+**** TODO The forgetful Groups to Sets functor creates limits
+
+*** TODO V.2. Limits by products and equalizers
 *** TODO V.5. Adjoints on limits
 
 ** VI. Monads and algebras
