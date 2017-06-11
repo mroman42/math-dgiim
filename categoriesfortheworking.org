@@ -367,15 +367,15 @@ of rings, given $B$ an S-module, we can define $(Mod\rho) B = B\rho$ by pull-bac
 
 *** II.3. Products of categories
 **** Product of two categories
-Given $B,C$ two categories, we construct a category $B \times C$ with:
+We define the *product* $B \times C$ as the category with:
 
-  - Objects: pairs of objects $(b,c)$
-  - Arrows: pairs of arrows $(f,g)$
+  - pairs of objects $(b,c)$ as objects,
+  - pairs of arrows $(f,g)$ as arrows,
 
-and the composition is given by the composites in $B$ and $C$:
+with the composition given by the composites in $B$ and $C$
 
 \[
-(f',g') \circ (f,g) = (f' \circ f,g' \circ g)
+(f',g') \circ (f,g) = (f' \circ f,g' \circ g).
 \]
 
 We can define projection functors $P : B\times C \to B$, $Q : B\times C \to C$. Given
