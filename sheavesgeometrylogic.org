@@ -1,0 +1,177 @@
+#+TITLE: Sheaves in geometry and logic
+#+DESCRIPTION: Exercises on the Saunders MacLane's book
+
+#+SETUPFILE: config.setup
+#+SETUPFILE: essay.setup
+#+LATEX_HEADER: \usepackage{color}
+#+LANGUAGE: en
+#+OPTIONS: toc:nil
+#+TODO: TODO WIP | CHECK
+
+* I. Categories of functors
+** I.1. The categories at issue
+*** Examples of topoi
+**** Sets
+Small sets with functions between them.
+
+**** n-Sets
+Given $n \in \mathbb{N}$, the $n\text{-tuples}$ of sets with $n\text{-tuples}$ of functions between them.
+
+**** G-Sets
+Representations of a fixed group $\mu\colon X\times G \to X$, with morphisms preserving
+the group action $f(x\cdot g) = f(x) \cdot g$.
+
+**** M-Sets
+Representations of a fixed monoid.
+
+**** 2-Sets
+Category of functions betweeen sets $\sigma\colon X \to X'$ and commutative squares
+between them.
+
+**** N-Sets
+Category of sequences $X_0 \to X_1 \to X_2 \to \dots$ of sets and commutative squares
+as morphisms.
+
+**** Preseaves
+Objects are presheaves $P\colon C^{op} \to \mathtt{Sets}$, and arrows natural transformations
+$\theta\colon P \to P'$.
+
+**** Comma category
+Objects are functions $h \colon X \to J$ for a fixed $J$ and arrows
+commuting triangles.
+
+**** Sheaves over a topological space
+Category of sheaves over a topological space.
+
+**** Continuous G-Sets
+Given $G$ a topological group, the continuous representations of the group
+are the objects with the continuous homomorphisms of actions.
+
+**** Simplicial sets
+A *simplicial object* is a family of objects $\left\{ S_n  \right\} \in C$ satisfiying the
+simplicial identities
+
+***** TODO Simplicial identities
+**** Finite sets
+Finite sets and functions between them.
+
+**** Presheaves to finite sets
+
+** I.2. Pullbacks
+*** Pullback
+A *pullback* of $X \to B \gets Y$ is the universal object and projections making
+this diagram commute
+
+\[\begin{tikzcd}
+P\rar[dashed]{f'} \dar[dashed,swap]{g'} & Y \dar{g} \\
+X\rar{f} & B &.
+\end{tikzcd}\]
+
+*** Pullbacks always exist on a presheaf category
+The pullback of any two presheaves exists on a preseaf category.
+
+**** Proof
+We know that the pullback of any two sets exists in $\mathtt{Set}$ as the
+fibered product. Given two preseaves $X,Y$, we can construct a new 
+pullback preseaf pointwise, taking $(X \times_B Y)C$ as the pullback 
+of $XC$ and $YC$. In other words,
+
+\[
+(X \times_B Y)(C) \cong X(C) \times_{B(C)} Y(C).
+\]
+
+Given any $f\colon C \to D$, we take $Pf\colon PC \to PD$ as the unique universal arrow
+making the two diagrams commute.
+
+*** All finite limits are constructed by terminal object and pullbacks
+A category with a terminal object and all pullbacks has all finite limits.
+
+**** Proof
+All finite limits can be constructed from finite products and equalizers.
+Binary products are pullbacks using the terminal object, which is also the
+product of no factors. Equalizers are created from pullbacks $X \to Y \times Y \gets Y$ 
+with the diagonal function.
+
+** I.3. Characteristic functions of subobjects
+*** Subobject classifier
+A *subobject classifier* is a monic $t\colon 1 \rightarrowtail \Omega$ such that for every monic $S \rightarrowtail X$
+exists a unique $\Phi \colon X \to \Omega$ creating a pullback square
+
+\[\begin{tikzcd}
+S\rar{1} \dar[swap]{i} & 1 \dar{t} \\
+X\rar[dashed]{\Phi} & \Omega
+\end{tikzcd}\]
+
+where the morphism $t$ is called /true/. 
+
+*** Set of subobjects
+We call $\mathrm{Sub}_C(X)$ to the set of subobjects $S$ of $X$. It is partially ordered
+under inclusion.
+
+*** Well-powered category
+A category is *well-powered* when $\mathrm{Sub}_C(X)$ is isomorphic to a small set
+for any $X$.
+
+*** Existence of a subobject classifier in well-behaved categories
+A category $C$ with finite limits and small hom-sets has a subobject classifier
+if and only if there is a natural isomorphism
+
+\[
+\theta \colon \mathrm{Sub}_C(-) \cong \mathrm{Hom}_C(X,\Omega),
+\]
+
+and then, $C$ is also well-powered.
+
+**** TODO Proof
+
+** I.4. Typical subobject classifiers
+*** Examples of subobject classifiers
+**** Classifier for Sets and Finite sets
+The classifier $1 \to 2$.
+**** Classifier for n-Sets
+The classifier is a n-tuple of $1 \to 2$ functions. There are $2^n$
+truth values.
+**** Classifier for BG-Sets
+The same classifier $1 \to 2$ works, $G$ acts trivially on both sets.
+
+** I.8. Heyting algebras
+** I.9. Quantifiers as adjoints
+* VI. Topoi and logic
+** VI.1. The topos of sets
+*** Natural numbers object
+In an arbitrary topos ${\cal E}$, a *natural numbers object* is the object $\mathbb{N}$
+with arrows
+
+\[\begin{tikzcd}
+1\rar{0} & \mathbb{N}\rar{s} & \mathbb{N}
+\end{tikzcd}\]
+
+which is universal in the sense that for any other object with the same
+arrows, we can define a commutative diagram
+
+e\[\begin{tikzcd}
+1\rar{0}\dar{\cong} & \mathbb{N}\rar{s}\dar[dashed]{h} & \mathbb{N} \dar[dashed]{h}\\
+1\rar{x} & X\rar{f} & X &.\\
+\end{tikzcd}\]
+
+**** Recursion as a universal property
+Definition by recursion assumes the existence of this universal object.
+
+*** Natural numbers by adjunction
+Given ${\cal E}$ with a natural numbers object $\mathbb{N}$ and adjoints $g^{\ast} \dashv g_{\ast}$, the diagram
+
+\[\begin{tikzcd}
+1 \cong g^{\ast}(1) \rar{g^{\ast}(0)} &
+g^{\ast}(\mathbb{N}) \rar{g^{\ast}(s)} &
+g^{\ast}(\mathbb{N})
+\end{tikzcd}\]
+
+is a natural numbers object.
+
+**** TODO Proof
+
+*** Boolean topos
+A topos ${\cal E}$ is *boolean* when the internal Heyting algebra $\Omega$ is an internal
+boolean algebra.
+
+* Exercises
