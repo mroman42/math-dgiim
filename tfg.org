@@ -15,9 +15,6 @@
 **** read MacLane chapter III.2.
 *** <2017-06-01 Thu>
 **** read https://golem.ph.utexas.edu/category/2006/08/cartesian_closed_categories_an_1.html
-:LOGBOOK:
-CLOCK: [2017-06-01 Thu 10:30]--[2017-06-01 Thu 10:55] =>  0:25
-:END:
 **** started reading chapter 4 on Lecture Notes on the lambda calculus by Selinger
 **** superficial complete lecture of Selinger
 *** <2017-06-02 Fri>
@@ -46,11 +43,110 @@ CLOCK: [2017-06-01 Thu 10:30]--[2017-06-01 Thu 10:55] =>  0:25
 *** <2017-06-09 Fri>
 **** read Sheaves in geometry and logic
 *** <2017-06-10 Sat>
+**** applied to EUTypes 2017
+*** <2017-06-11 Sun>
+**** exercises from chapters 1 and 2 of software foundations
+*** <2017-06-12 Mon>
+**** created a specific ctlc.org file
+**** rewrote tfg.org
+Mikrokosmos won't solve the IO problem. If IO is needed,
+it can be achieved via scripts.
 * Notes
+** [[file:ctlc.org][Category theory and lambda-calculus]]
 ** [[file:categoriesfortheworking.org][Categories for the working mathematician - MacLane]]
 ** [[file:lecturesonthelambdacalculus.org][Lecture notes on the lambda calculus - Selinger]]
 ** [[file:homotopytypetheory.org][Homotopy type theory - Univalent foundations]]
 ** [[file:sheavesgeometrylogic.org][Sheaves in geometry and logic - MacLane]]
+* Tasks
+** [#A] Mikrokosmos
+Mikrokosmos is a lambda calculus interpreter.
+
+*** TODO [#A] Module system
+The module system is being written.
+
+I should first find every module I have to load and only then
+load all of them in a single command.
+
+**** A module system for mikrokosmos
+Un sistema simple de =import= de módulos que incluya varias definiciones en el árbol
+si no están ya.
+
+*** TODO [#B] Jupyter kernel
+[[https://ipython.org/ipython-doc/3/development/kernels.html][Making kernels for IPython]]
+
+*** TODO [#C] Other type systems
+A common interpreter supporting multiple interchangeable type systems.
+*** Seminars about mikrokosmos
+*** Dependent types
+http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/
+
+*** Use a .mikrokosmos config file
+Is it really necessary?
+
+*** WONTFIX Config files
+A simply typed mikroskosmos would be great for writing configuration files.
+
+*** WONTFIX compiling mikrokosmos
+It could be compiled to C.
+
+*** WONTFIX Write a compiler
+Maybe a compiler would work better than an interpreter.
+
+*** WONTFIX Optimizing mikrokosmos in Agda
+It seems very difficult to write a mikrokosmos interpreter on Agda.
+
+*** WONTFIX [#C] The IO problem
+How to declare an imperative - Wadler
+
+**** syscall proposal
+***** Output
+#+BEGIN_SRC 
+#printNum (\s.\z.(s (s z)))
+#+END_SRC
+
+printNum.hs
+#+BEGIN_SRC haskell
+num :: Lambda -> Int
+num Nil = 0
+num (Lambda x s) = 1 + printnum s
+
+main :: IO ()
+main = do
+  l <- read :: Lambda
+  print $ printnum l
+  return ()
+#+END_SRC
+
+***** Input
+#+BEGIN_SRC
+#readNum ()
+#+END_SRC
+
+**** syscall with literals
+Add a "literal" type.
+
+***** Output
+#+BEGIN_SRC mikrokosmos
+churchLiteral n = n (\k . syscall ("increment.sh" k)) "0"
+printLiteral l = syscall2 ""
+#+END_SRC
+
+***** Input
+It would use =$= as an antiliteral. Any string started on =$= would be interpreted as
+a lambda term.
+
+#+BEGIN_SRC mikrokosmos
+readChurch = syscall "readChurch"
+#+END_SRC
+
+=readChurch= would return something as ="@(\s.\z.s (s (s z)))"=. Two literals applied one
+over thw other would be reinterpreted as their concatenation.
+** [#C] Write articles
+*** TODO Adjoint functors post
+*** TODO Church-Rosser post
+*** TODO Wikipedia article Church-Rosser
+** WONTFIX Ask for a type theory book on SO
+** WONTFIX Ask for a category theory + lambda calculus book on SO
 * Resources
 ** Books on categories and types for the TFG
 *** Books on category theory
