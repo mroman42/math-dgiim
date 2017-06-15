@@ -51,6 +51,13 @@
 **** rewrote tfg.org
 Mikrokosmos won't solve the IO problem. If IO is needed,
 it can be achieved via scripts.
+*** <2017-06-13 Tue>
+**** installed Why3
+*** <2017-06-14 Wed>
+**** installed docker container for Why3 and solvers
+**** installed Coq-hott library
+*** <2017-06-15 Thu>
+**** wrote a jupyter kernel for mikrokosmos
 * Notes
 ** [[file:ctlc.org][Category theory and lambda-calculus]]
 ** [[file:categoriesfortheworking.org][Categories for the working mathematician - MacLane]]
@@ -64,24 +71,28 @@ Mikrokosmos is a lambda calculus interpreter.
 *** TODO [#A] Module system
 The module system is being written.
 
-I should first find every module I have to load and only then
+I should first find every module I have to load and, only then,
 load all of them in a single command.
 
-**** A module system for mikrokosmos
-Un sistema simple de =import= de módulos que incluya varias definiciones en el árbol
-si no están ya.
+Every module should have a list of DEPENDENCY directives.
 
-*** TODO [#B] Jupyter kernel
-[[https://ipython.org/ipython-doc/3/development/kernels.html][Making kernels for IPython]]
-
-*** TODO [#C] Other type systems
+*** TODO [#B] Other type systems
 A common interpreter supporting multiple interchangeable type systems.
+
+*** Multiple lines on modules
+Multiple line notation should be allowed by joining multiple lines whenever
+they start with a <TAB>.
+
 *** Seminars about mikrokosmos
 *** Dependent types
 http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/
 
 *** Use a .mikrokosmos config file
 Is it really necessary?
+
+*** DONE [#B] Jupyter kernel
+[[https://ipython.org/ipython-doc/3/development/kernels.html][Making kernels for IPython]]
+[[http://andrew.gibiansky.com/blog/ipython/ipython-kernels/]]
 
 *** WONTFIX Config files
 A simply typed mikroskosmos would be great for writing configuration files.
