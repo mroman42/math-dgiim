@@ -58,6 +58,9 @@ it can be achieved via scripts.
 **** installed Coq-hott library
 *** <2017-06-15 Thu>
 **** wrote a jupyter kernel for mikrokosmos
+*** <2017-06-16 Fri>
+**** minor changes on mikrokosmos
+**** wrote mikrokosmos user's guide
 * Notes
 ** [[file:ctlc.org][Category theory and lambda-calculus]]
 ** [[file:categoriesfortheworking.org][Categories for the working mathematician - MacLane]]
@@ -65,24 +68,30 @@ it can be achieved via scripts.
 ** [[file:homotopytypetheory.org][Homotopy type theory - Univalent foundations]]
 ** [[file:sheavesgeometrylogic.org][Sheaves in geometry and logic - MacLane]]
 * Tasks
+** Write
+*** Mikrokosmos section
+*** Untyped lambda calculus section
+*** Type theory introduction
+*** Category theory introduction
 ** [#A] Mikrokosmos
 Mikrokosmos is a lambda calculus interpreter.
 
-*** TODO [#A] Module system
-The module system is being written.
-
-I should first find every module I have to load and, only then,
-load all of them in a single command.
-
-Every module should have a list of DEPENDENCY directives.
-
+*** TODO [#B] pip-installable Jupyter kernel
 *** TODO [#B] Other type systems
 A common interpreter supporting multiple interchangeable type systems.
-
-*** Multiple lines on modules
+*** TODO [#C] Multiple lines on modules
 Multiple line notation should be allowed by joining multiple lines whenever
-they start with a <TAB>.
+they start with a <TAB> or a space.
+*** TODO [#C] disable-colors option and verbose on/off
+The output could be formatted using *bold* and /italics/.
 
+ * =:verbose on= is better than =:verbose=
+ * =:color on=, =:color bold=, =:color off=
+
+*** TODO Write tests
+*** TODO Write a pygments lexer
+http://pygments.org/docs/lexerdevelopment/
+*** TODO Should Multibimap be a package on its own?
 *** Seminars about mikrokosmos
 *** Dependent types
 http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/
@@ -90,6 +99,15 @@ http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/
 *** Use a .mikrokosmos config file
 Is it really necessary?
 
+*** Emacs/Jupyter theme
+*** Logo background should be a "cosmos" background
+*** DONE [#A] Module system
+The module system is being written.
+
+I should first find every module I have to load and, only then,
+load all of them in a single command.
+
+Every module should have a list of DEPENDENCY directives.
 *** DONE [#B] Jupyter kernel
 [[https://ipython.org/ipython-doc/3/development/kernels.html][Making kernels for IPython]]
 [[http://andrew.gibiansky.com/blog/ipython/ipython-kernels/]]
