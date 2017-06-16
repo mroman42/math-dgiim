@@ -249,3 +249,15 @@ The logic is still compatible with the presence of the LEM as an axiom.
 
 \[ \mathtt{refl} : \prod_{a:A} (a =_A a)
 \]
+
+** I.2. Homotopy type theory
+In homotopy type theory, each type has the structure of an
+$\infty\text{-groupoid}$, arising from the induction principle for
+identity types.
+
+Homotopy type theory provides a /synthetic/ description of the spaces,
+in contrast with the usual analytic approach of topology.
+
+*** I.2.1. Types are higher groupoids
+*** I.2.2. Functions are functors
+*** I.2.3. Type families are fibrations
