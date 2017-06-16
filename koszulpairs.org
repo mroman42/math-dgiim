@@ -8,12 +8,32 @@
 #+SETUPFILE: math-en.setup
 #+SETUPFILE: html.setup
 
-* Homological algebra
-We will introduce in this first section the neccessary homological algebra
-prerequisites. We will define abelian categories in general, even if we are
-going to use later only the particular case of module categories.
+* Introduction
+*Koszul algebras* have numerous applications in diverse fields of
+Mathematics such as Algebraic Topology, Combinatorics, Representation
+Theory or Algebraic Geometry, as it is showed in cite:polishchuk05,
+and many of its fundamental properties still hold in *Koszul rings*,
+a particular case of graded rings.
+
+*Almost-Koszul pairs* are a tool for the study of Koszul rings; to
+every strongly graded ring corresponds a canonical almost-Koszul pair.
+Every almost-Koszul pair has three associate chain complexes and three
+cochain complexes. If any of this six complexes is exact, all the others
+are exact too; in this case, we call the pair a *Koszul pair*.
+
+* Area of interest
+In order to define Koszul pairs, we need to introduce some homological
+algebra prerequsites. We will define abelian categories in general,
+even if we are going to use later only the particular case of module
+categories, where we will define projective, injective and flat
+modules.
+
+In particular, we will need to define *Hoschschild comohology*.
 
 ** Abelian categories
+The theory of abelian categories was introduced by Buchsbaum and Grothendieck
+in cite:grothendieck57 to unify the multiple cohomology theories at the time.
+
 *** Additive category
 The original motivation for additive categories is the category of abelian
 groups, and, more generally, the category of momdules over a fixed ring $R$.
@@ -45,12 +65,25 @@ An *abelian category* is an /additive category/ such that
   * every epimorphism is a cokernel.
 #+end_definition
 
-The category of $R\text{-modules}$ is an abelian category, but also the category
-of chain complexes of an arbitrary abelian category, $\mathtt{Ch}({\cal A})$, is an abelian
-category.
+The category of $R\text{-modules}$ is an abelian category, but also
+the category of chain complexes of an arbitrary abelian category,
+$\mathtt{Ch}({\cal A})$, is an abelian category.
 
 ** Chain complexes and homology
+*Homology* was originally defined in algebraic topology as a rigorous
+method allowing the topological distinction of manifolds with arbitrary
+dimensional holes. The same construction can be translated into multiple
+different homology theories.
+
+In abelian categories, the homology provides a formal description of
+the failure of a functor to be exact.
+
 *** Chain complex
+*Chain complexes* were initially a representation the relationships
+between cycles and boundaries on a topological space; we will study
+chain complexes in the abstract setting of module categories, devoided
+of any explicit relation to its motivating example.
+
 #+begin_definition
 A *chain complex* is a family of $R\text{-modules}$ $\left\{ C_n \right\}$ and homomorphisms
 $d_n \colon C_n \to C_{n-1}$ called /differentials/, such that each composite of
@@ -149,8 +182,10 @@ homology group as
 Notice that a sequence will be exact if and only if all their homology
 groups are zero.
 
-* Derived functors
 ** Projective, injective and flat resolutions
+Resolutions of injective modules are needed to define Hochschild
+homology.
+
 *** Definitions
 #+begin_definition
 An R-module $D$ is:
@@ -269,15 +304,16 @@ where we can compute the homology:
 \[ 0 \longrightarrow F(P_0) \longrightarrow F(P_1)
 \longrightarrow F(P_2) \longrightarrow \dots\]
 
-* Hochschild homology
-** Preliminaries
-*** Opposite algebra
+
+** Hochschild homology
+*** Preliminaries
+**** Opposite algebra
 #+begin_definition
 If $A$ is an $R\text{-algebra}$, the *opposite algebra* of $A$ is $A^\ast$; where
 multiplication is defined as $x \circ y = yx$.
 #+end_definition
 
-*** Enveloping algebra
+**** Enveloping algebra
 #+begin_definition
 Let $R$ be a $k\text{-algebra}$, the *enveloping algebra* of $R$ is $R^e = R \otimes R^{op}$,
 where the product is defined as
@@ -306,7 +342,7 @@ taking $rms = (r\otimes s) m$. Compatibility relation can be checked by the same
 reasoning.
 #+end_proof
 
-*** Standard resolution
+**** Standard resolution
 Given $R$, a $k\text{-algebra}$ we define the *standard resolution* $(P_{\bullet},d_{\bullet})$ of $R$ in
 $(R;R)\mathrm{-Mod}$ as
 
@@ -320,7 +356,7 @@ d_n^i(a_0 \otimes \dots \otimes a_{n+1}) =
 a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}.
 \]
 
-** Hochschild homology
+*** Hochschild homology
 #+begin_definition
 Given $R$, a $K\text{-algebra}$, and $M$, an $(R;R)\text{-module}$, we define:
 
@@ -328,7 +364,8 @@ Given $R$, a $K\text{-algebra}$, and $M$, an $(R;R)\text{-module}$, we define:
   - The *Hochschild homology* of $R$ in $M$ as $HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)$.
 #+end_definition
 
-In order to compute the cohomology, we can take the following cochain complex
+In order to compute the cohomology, we can take the following cochain
+complex
 
 \[
 \mathrm{Hom}_K(K,M) \overset{b^0} \longrightarrow
@@ -354,22 +391,59 @@ f(a_1\otimes\dots\otimes a_n)a_{n+1}& \mbox{if } i=n+1
 \right.
 \]
 
-* Koszul pairs
-** Preliminary definitions
+* Methods
+Our methodology is based on the review of the basic bibliography of the
+subject. This article is an attempt to collect all the needed
+prerequisites to work with homology and cohomology theory and
+ultimately to work with Hochschild homology and Koszul pairs.
+
+* Discussion
+** Koszul algebra
+Koszul rings will be a generalization of Koszul algebras.
+
+#+begin_definition
+A graded algebra $A$ is a *Koszul algebra* over a field $k$ if
+every graded module has a graded projective resolution
+$P_{\bullet}$ where the projective module $P_j$ is generated by homogeneous
+elements of degree $j$.
+#+end_definition
+
+*** Quadratic algebras
+#+begin_definition
+A graded algebra $A$ is a *quadratic algebra* if the natural
+application from its tensor algebra $T(A) \to A$ is surjective
+and its kernel $J_A$ is generated from $J_{A} \cap (A^{1} \otimes A^1)$. cite:polishchuk05
+#+end_definition
+
+In other words, a graded quadratic algebra is determined as the
+quotient of a vector space $A_{1}$ by a subspace of homogeneous
+quadratic relations $S \subset V \otimes V$ as
+
+\[
+A = T(V) / \left\langle S \right\rangle.
+\]
+
+#+begin_theorem
+Every Koszul $R\text{-ring}$ is a quadratic algebra.
+#+end_theorem
+
+** Almost-koszul pairs
 *** Graded rings
 #+begin_definition 
-A *graded ring* is a ring that can be written as a direct sum of abelian groups
+A *graded ring* is a ring that can be written as a direct sum of
+abelian groups
 
 \[ A = \bigoplus_{n \in \mathbb{N}} A_n\]
 
 such that $A_iA_j \subset A_{i+j}$.
 #+end_definition
 
-A *homogeneous element* is an element of any submodule $A_i$ of the decomposition.
+A *homogeneous element* is an element of any submodule $A_i$ of the
+decomposition.
 
 *** Koszul rings
 #+begin_definition
-A graded ring $A$ is a *koszul ring* if $A^0$ is a semisimple ring 
+A graded ring $A$ is a *Koszul ring* if $A^0$ is a semisimple ring 
 and it has a resolution $P_\ast$ by projective graded left A-modules such 
 that each $P_n$ is generated by homogeneous elements of degree $n$.
 cite:jarastefan10
@@ -426,6 +500,108 @@ Using Sweedler notation we can rewrite the condition as follows:
 for any $c \in C_2$,
 
 \[ \sum \theta_{C,A}(c_{(1,1)}) \theta_{C,A}(c_{(2,1)}) = 0.\]
+
+** Almost-koszul pair complexes
+#+begin_definition
+Let $(A,C)$ be an almost-Koszul pair, if we define
+
+\[
+K^{-1}_l(A,C) = R
+\quad\text{ and }\quad
+K^n_l(A,C) = C \otimes A^n,
+\]
+
+and the differential maps
+
+\[
+d^n_l(c \otimes a) = \sum c_{(1,p-1)} \otimes \theta_{C,A}(c_{(2,1)})a,
+\]
+
+with the exceptional case $n = -1$, where we take $d^n_l$ to be the canonical
+bimodule morphisms $R \to C \otimes A^0$, mapping $1 \mapsto 1 \otimes 1 \in C_0 \otimes A^0$. We will
+also define the same notion on the opposite pair as
+
+\[
+K_r^{\ast}(A,C) = K^{\ast}_l(A^{op},C^{op}).
+\]
+#+end_definition
+
+#+begin_definition
+Let $(A,C)$ be an almost-Koszul pair, we define
+
+\[
+K^{-1}(A,C) = C
+\quad\text{ and }\quad
+K^n(A,C) = C \otimes A^n\otimes C,
+\]
+
+and the differential relations given by $d^{-1} = \Delta$ and
+
+\[
+d^n = d^n_l \otimes I_C + (-1)^{n+1}I_C \otimes d^n_r.
+\]
+#+end_definition
+
+#+begin_definition
+Let $(A,C)$ be an almost-Koszul pair, if we define
+
+\[
+K^r_{-1}(A,C) = R
+\quad\text{ and }\quad
+K^r_n(A,C) = C_n \otimes A,
+\]
+
+and the differential maps
+
+\[
+d_n^r(c \otimes a) = \sum c_{(1,n-1)} \otimes \theta_{C,A}(c_{(2,1)})a.
+\]
+
+Appliying the same construction to the opposite almost-Koszul pair
+gives us the complex $K^l_{\ast}$.
+#+end_definition
+
+#+begin_definition
+Let $(A,C)$ be an almost-Koszul pair, we define
+
+\[
+K_{-1}(A,C) = A
+\quad\text{ and }\quad
+K_n(A,C) = A \otimes C_n \otimes A,
+\]
+
+and the differential relations given by $d_0$, induced by multiplication,
+and
+
+\[
+d_n^{l}(a \otimes c) = \sum a\theta_{C,A}(c_{(1,1)}) \otimes c_{(2,n-1)};
+\]
+
+defining $d_n = d_n^l \otimes I_A + (-1)^nI_A\otimes d_n^r$.
+#+end_definition
+
+** Koszul pairs
+#+begin_theorem
+Given an almost-Koszul pair $(A,C)$, if one of these six complexes is
+exact, all of them are exact, as it is showed in cite:jarastefan10.
+
+ * $K^{l}_{\ast}(A,C)$.
+ * $K^r_{\ast}(A,C)$.
+ * $K_{\ast}(A,C)$.
+ * $K^{\ast}_l(A,C)$.
+ * $K_r^{\ast}(A,C)$.
+ * $K^{\ast}(A,C)$.
+#+end_theorem
+
+#+begin_definition
+An almost-Koszul pair $(A,C)$ is said to be *Koszul* if and only if the
+previously discussed complexes are exact.
+#+end_definition
+
+* Conclusions
+Future work should be able to find new characterizations of Koszul
+pairs in terms of homology and cohomology apart from the known
+characterizations defined on cite:jarastefan10.
 
 * References
 bibliographystyle:unsrt
