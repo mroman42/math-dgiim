@@ -143,6 +143,7 @@ elements of that type.
 ***** The identity function
 The polymorphic identity function $\mathrm{id} : \prod_{(A:{\cal U})} A \to A}$ is defined as
 $\mathrm{id} =& \lambda (A:{\cal U}) . \lambda (x:A) . x$.
+
 *** I.1.5. Product types
 **** Cartesian product
 Given $A,B : {\cal U}$, the *cartesian product type* $A \times B : {\cal U}$ contains pairs
