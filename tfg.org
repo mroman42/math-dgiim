@@ -61,6 +61,10 @@ it can be achieved via scripts.
 *** <2017-06-16 Fri>
 **** minor changes on mikrokosmos
 **** wrote mikrokosmos user's guide
+*** <2017-06-17 Sat>
+**** wrote highlighter for Jupyter Notebook
+**** solved minor problems on Jupyter output formatting
+**** saw [[https://www.youtube.com/watch?v=21qPOReu4FI][Five Stages of Accepting Constructive Mathematics, by Andrej Bauer]]
 * Notes
 ** [[file:ctlc.org][Category theory and lambda-calculus]]
 ** [[file:categoriesfortheworking.org][Categories for the working mathematician - MacLane]]
@@ -111,6 +115,9 @@ Every module should have a list of DEPENDENCY directives.
 *** DONE [#B] Jupyter kernel
 [[https://ipython.org/ipython-doc/3/development/kernels.html][Making kernels for IPython]]
 [[http://andrew.gibiansky.com/blog/ipython/ipython-kernels/]]
+
+*** WONTFIX Use a .mikrokosmos config file
+Is it really necessary?
 
 *** WONTFIX Config files
 A simply typed mikroskosmos would be great for writing configuration files.
@@ -277,6 +284,7 @@ Talks about identity types.
 *** [[http://www.logicmatters.net/tyl/][Logic matters]]
 *** [[https://mathoverflow.net/questions/69251/is-mac-lane-still-the-best-place-to-learn-category-theory/70891#70891][Is MacLane still the best place to learn category theory?]]
 ** Articles
+*** [[http://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf][propositions-as-types.pdf]] Philip Wadler
 *** TODO [[http://imps.mcmaster.ca/doc/seven-virtues.pdf][seven-virtues]] Seven virtues of type theory
 *** TODO [[http://conal.net/papers/compiling-to-categories/compiling-to-categories.pdf][Compiling to categories]]
 ** Mikrokosmos resources
