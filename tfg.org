@@ -93,17 +93,22 @@ The output could be formatted using *bold* and /italics/.
  * =:color on=, =:color bold=, =:color off=
 
 *** TODO Write tests
-*** TODO Write a pygments lexer
-http://pygments.org/docs/lexerdevelopment/
 *** TODO Should Multibimap be a package on its own?
+*** TODO Change notation
+In order to avoid confusions with types
+
+#+BEGIN_SRC haskell
+:load -- !load
+qwer != asdf -- qwer ?= asdf
+#+END_SRC
+
 *** Seminars about mikrokosmos
 *** Dependent types
 http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/
+*** Write a pygments lexer
+http://pygments.org/docs/lexerdevelopment/
 
-*** Use a .mikrokosmos config file
-Is it really necessary?
-
-*** Emacs/Jupyter theme
+*** Emacs theme
 *** Logo background should be a "cosmos" background
 *** DONE [#A] Module system
 The module system is being written.
