@@ -137,6 +137,9 @@ where $x$ is a variable and $a \in A$.
 
 * 6. Simply-typed lambda calculus, propositional logic, and the Curry-Howard isomorphism
 ** 6.1. Simple types and simply-typed terms
+*** Basic types
+We assume a set of *basic types* to exist.
+
 *** Simple types
 The set of *simple types* is given by the BNF
 
@@ -144,9 +147,26 @@ The set of *simple types* is given by the BNF
 A,B ::= \iota\mid A \to B \mid A \times B \mid 1
 \]
 
-where $\iota$ is a *basic type* and $1$ is a one-element type.
+where $\iota$ is a [[*Basic types][basic type]] and $1$ is a one-element type.
 
 *** Raw types lambda terms
+The set of *typed lambda terms* is given by the BNF
+
+\[ \mathtt{Term} ::=
+\ast \mid
+x \mid
+\mathtt{Term}\mathtt{Term} \mid
+\lambda x^{\mathtt{Type}}. \mathtt{Term} \mid
+\left\langle \mathtt{Term},\mathtt{Term} \right\rangle \mid
+\pi_1 \mathtt{Term} \mid
+\pi_2\mathtt{Term}
+\]
+
+where $\ast$ will be the unique element of type $1$. Besides the
+previously considered term application, we now introduce a typed
+lambda abstraction and an explicit construction of the pair element with
+its projections.
+
 *** Typing rules for the simply-typed lambda calculus
 ** 6.2. Connections to propositional logic
 * 7. Weak and strong normalization
