@@ -159,6 +159,18 @@ such a way that a typing judgment for the type is derivable.
 # Every derivation in natural deduction is exactly a lambda term.
 
 ** TODO System F
+* Type theory
+** TODO Propositions as types
+** TODO Martin-Löf Type Theory
+** TODO Type theory as a foundation of mathematics
+** TODO Constructive mathematics
+*** TODO Proof by contradiction and proof of a negation
+# They are fundamentally different
+#
+# [[https://www.youtube.com/watch?v=21qPOReu4FI][Five stages of accepting constructive mathematics]]
+*** TODO Axiom of choice implies excluded middle
+# In Agda or Coq!?
+** TODO Homotopy Type Theory
 * Mikrokosmos
 *Mikrokosmos* is a lambda calculus interpreter written in the purely
 functional programming language [[https://www.haskell.org/][Haskell]] cite:hudak07_haskell. It aims
@@ -186,17 +198,6 @@ on this web application.
 # Image of the mikrokosmos jupyter notebook
 
 *** CodeMirror lexer
-* Type theory
-** TODO Martin-Löf Type Theory
-** TODO Type theory as a foundation of mathematics
-** TODO Constructive mathematics
-*** TODO Proof by contradiction and proof of a negation
-# They are fundamentally different
-#
-# [[https://www.youtube.com/watch?v=21qPOReu4FI][Five stages of accepting constructive mathematics]]
-*** TODO Axiom of choice implies excluded middle
-# In Agda or Coq!?
-** TODO Homotopy Type Theory
 * Conclusions
 bibliographystyle:unsrt
 bibliography:math.bib
