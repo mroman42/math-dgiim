@@ -96,6 +96,7 @@ f \equiv (\lambda x. f(x)).
 *Currying* is a way to define multiple-input functions as functions returning
 partially aplied functions. For example, $f : A \to (B \to C)$ can be applied
 to two arguments as $(f\ a)\ b : C$.
+
 *** I.1.3. Universes and families
 **** Universes
 A *universe* is a type whose elements are types.
