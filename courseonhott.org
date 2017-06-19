@@ -1,0 +1,549 @@
+#+TITLE: Course on Homotopy Type Theory
+#+DESCRIPTION: Notes following the course on homotopy type theory by Robert Harper
+
+#+SETUPFILE: math-en.setup
+#+SETUPFILE: html.setup
+#+SETUPFILE: essay.setup
+#+LANGUAGE: en
+#+OPTIONS: toc:nil
+#+TODO: TODO WIP | CHECK DONE
+
+* Lecture 1: Course intro
+** Intuitionistic Type Theory (TT), 
+The *Intuitionistic Type Theory* is based on the work of Per
+Martin-Löf on the 1970s.  It is an analysis and expansion of Brouwer's
+intuitionism.
+
+** Intensional Type Theory (ITT)
+The *Intensional Type Theory* will be our base theory. Other forms of
+type theory are extensions of this one.
+
+** Extensional Type Theory (ETT)
+The *Extensional Type Theory* has the core of ITT plus the principles
+of equality reflection (ER) and uniqueness of the identity proofs
+(UIP).
+
+This is the intuitionistic theory of sets in which NuPRL is based.
+It is a form of constructive set theory, developed by Bishop; where
+types are treated as sets.
+
+** Homotopy Type Theory (HoTT)
+The *Homotopy Type Theory* is an elaboration of ITT with higher
+inductive types (HIT) and the univalence axiom (UA).
+
+It is an intuitionistic theory of weak $\infty\text{-groupoids}$. Here types
+are spaces in an abstract sense.
+** Brower's program
+The *Brower's program* is a philosophy of mathematics based on the
+following ideas
+ 
+ 1. mathematics is a human social activity. The focus is on the /language/
+    as a tool for communication of mathematical concepts.
+
+ 2. the fundamental human capability is the understanding an execution
+    of /algorithms/ for performing /constructions/. Proofs are forms
+    of construction.
+
+In this setting, the only way to describe infinite things is by
+communicate them with an algorithm. 
+
+*** Proof relevance
+From the second point, arises the principle of *proof relevance*.
+Proofs are mathematical objects that we can see an manipulate. In
+other foundations of mathematics, only a limiting enumerable set of
+formal proofs can be viewed as proofs.
+
+*** Proof relevance in HoTT
+In HoTT, our proofs will be paths in a space. This conception
+will provide a synthetic way of working with homotopy which is a
+cleaner, shorter and mechanizable way writting proofs.
+
+*** Synthetic perspective in mechanized reasoning
+Synthetic geometry is what Euclides did; analytic geometry is what
+Descartes did. The traditional formulation of Homotopy Theory, using
+euclidean spaces and topology, is an analytic one. Synthetic
+formulations of Homotopy Theory are based on Quillen model categories or
+HoTT.
+
+This distinction of synthetic and analytical is due to Lawvere.
+
+/Twelf vs Coq is another example/
+** Type Theory
+Type theory is an analysis and codification of Brower's intuitionism
+drawning on Gentzen's proof theory. Types classify the admisible
+constructions. A type is defined by
+
+ * *introduction rules*, showing how to make a construction.
+ * *elimination rules*, showing how to use a construction.
+
+linked by the *inversion principle*, or principle of conservation of
+proofs; stating that the introduction is inverse to the elimination.
+This inversion principle is the basis for the computational content
+of our language.
+
+** Axiomatic freedom of constructive mathematics
+In the Hilbert/Brouwer debate, Hilbert believed that Brouwer was negating
+everything that has been done so far; but, as fewer assumptions lead to
+stronger results, the exclusion of certain principles leads only to axiomatic
+freedom.
+
+For example, the law of excluded middle is not negated on constructive
+mathematics, they are simply independent of it; but it can still be
+taken as an hypothesis on certain subfields.
+
+We can now include certain assumptions locally, and so, the
+constructivity is not a limitation.
+** Computational aspect
+Type theory acts as an unified theory of computation. Programming
+languages and computation are particular manifestations of this
+unified theory.
+
+** Computational trinitarianism
+
+\[\begin{tikzcd}[row sep=huge, col sep=tiny]
+& \begin{matrix}\text{Type}\\ \text{Theory}\end{matrix} \drar[to-to]\dlar[to-to] & \\
+\text{Logic}\arrow[rr,to-to] & & \begin{matrix}\text{Category}\\ \text{Theory}\end{matrix}
+\end{tikzcd}\]
+
+There is a complete correspondence between the three theories.
+** Intuitionistic logic
+*Intuitionistic logic* is based on the principles of intuitionism.
+It has the following judgements
+
+ 1. $A$ is a proposition.
+ 2. $A$ is a true proposition, it has a proof.
+
+We do not expect that a proposition is either provable or refutable.
+We assume also /open-endedness/, we cannot write all the proofs in a
+systematic way.
+
+** Negative fragment of intuitionistic propositional logic
+We will write a grammar of proofs.
+
+ * The trivially true proposition, this is the *truth-formation*
+   rule
+
+   \begin{prooftree}
+   \RightLabel{(T-form)}
+   \AxiomC{}
+   \UnaryInfC{T prop}
+   \end{prooftree}
+
+   this trivially true proposition is true
+
+   \begin{prooftree}
+   \RightLabel{(T-intro)}
+   \AxiomC{}
+   \UnaryInfC{T true}
+   \end{prooftree}
+
+   but there is no truth elimination rule, as we are not using any
+   information when we write this proposition.
+
+ * Conjunction formation
+
+   \begin{prooftree}
+   \RightLabel{($\wedge$-form)}
+   \AxiomC{A prop}
+   \AxiomC{B prop}
+   \BinaryInfC{A $\wedge$ B prop}
+   \end{prooftree}
+
+   conjunction introduction
+
+   \begin{prooftree}
+   \RightLabel{($\wedge$-intro)}
+   \AxiomC{A true}
+   \AxiomC{B true}
+   \BinaryInfC{A $\wedge$ B true}
+   \end{prooftree}
+   
+   we will use two elimination rules to extract the two pieces 
+   of information that went into that fact.
+
+   \begin{prooftree}
+   \RightLabel{($\wedge$-elim$_1$)}
+   \AxiomC{A $\wedge$ B true}
+   \UnaryInfC{A true}
+   \RightLabel{($\wedge$-elim$_2$)}
+   \AxiomC{A $\wedge$ B true}
+   \UnaryInfC{B true}
+   \noLine
+   \BinaryInfC{}
+   \end{prooftree}
+
+ * Implication formation
+
+   \begin{prooftree}
+   \RightLabel{($\supset$-form)}
+   \AxiomC{A prop}
+   \AxiomC{B prop}
+   \BinaryInfC{A $\supset$ B prop}
+   \end{prooftree}
+
+   and implication introduction, which uses only entailment
+
+   \begin{prooftree}
+   \RightLabel{($\supset$-intro)}
+   \AxiomC{A true $\vdash$ B true}
+   \UnaryInfC{A $\supset$ B true}
+   \end{prooftree}
+
+   in the Hilbert formulations of logic, we supress the difference
+   between entailment and implication. The logical entailment is prior
+   to the implication, it is a map of proofs; while the implication only
+   captures that into the logic. The elimination rule is the modus ponens
+
+   \begin{prooftree}
+   \RightLabel{($\supset$-elim)}
+   \AxiomC{A $\supset$ B true}
+   \AxiomC{A true}
+   \BinaryInfC{B true}
+   \end{prooftree}
+
+* Lecture 2: Judgements
+** Negative fragment of intuitionistic propositional logic
+We have talked about
+
+ * the Gentzen principle of conservation of evidence.
+ * the truth value.
+ * the conjunction.
+ * the implication.
+
+Why are these "correct" rules? We are keeping a correspondence between
+introduction and elimination rules; that is the beauty of the Gentzen
+system and what gives rise to the computational interpretation.
+
+These are not arbitrary rules, there is a coherence that is being kept.
+** Structural properties of entailment
+The concept of *logical entailment* is a compound judgement. It express
+the idea of a conclusion derived from a set of assumptions
+
+\[\underbrace{
+A_1 \text{ true},
+A_2 \text{ true},
+\dots,
+A_n \text{ true}}_{\Gamma}
+\vdash
+A
+\]
+
+Logical entailment is a mapping between propositions.
+The properties of logical entailment (aka hypothetical judgement) are
+the following properties
+ 
+ 1. Reflexivity (R), $A \text{ true} \vdash A \text{ true}$.
+ 2. Transitivity (T),
+    
+    \begin{prooftree}
+    \RightLabel{(T)}
+    \AxiomC{$\Gamma_1 \vdash A$ true}
+    \AxiomC{$\Gamma_2,A$ true $\vdash B$ true}
+    \BinaryInfC{$\Gamma_1,\Gamma_{2} \vdash B$ true}
+    \end{prooftree}
+
+    in presence of the weakening, contraction, and exchange properties,
+    this can be rewritten using only a $\Gamma$.
+
+ 3. Weakening (W),
+    
+    \begin{prooftree}
+    \RightLabel{(W)}
+    \AxiomC{$\Gamma$ $\vdash A$ true}
+    \UnaryInfC{$\Gamma,B$ true $\vdash A$ true}
+    \end{prooftree}
+
+    where the two first properties are fundamental, and this third is
+    not as fundamental. You can consider deniying this principle, and
+    you will arrive at the notion of /relevant entitlement/, where every
+    assumption has to be used in the entitlement.
+
+ 4. Contraction (C), 
+    
+    \begin{prooftree}
+    \RightLabel{(C)}
+    \AxiomC{$\Gamma,A$ true,$A$ true $\vdash B$ true}
+    \UnaryInfC{$\Gamma, A$ true $\vdash B$ true}
+    \end{prooftree}
+
+    in certain logics, we may will want to keep an accounting of
+    how many times have we used a lemma; we will have to deny this
+    property.
+
+ 5. Exchange (E), the order of the assumptions does not matter
+
+    \begin{prooftree}
+    \RightLabel{(C)}
+    \AxiomC{$\Gamma \vdash A$ true}
+    \UnaryInfC{$\pi(\Gamma) \vdash A$ true}
+    \end{prooftree}
+
+    where $\pi$ is any permutation.
+
+When any of these properties fail, we talk of substructural entailment.
+
+** Local form
+We are writing the rules in local form. They can be used in the same
+way on the presence of assumptions. A $\Gamma$ could be added to all
+the rules to obtain the global form. It is implied in our rules.
+
+There are certain scenarios in which we will want $\Gamma$ to be explicitely
+empty.
+
+** Order-theoretic formulation
+Let us define $A \leq B$, an order on propositions, meaning that
+$A \text{ true} \vdash B \text{ true}$.
+
+*** Preorder
+This is a preorder,
+
+  * it is reflexive,
+
+    \begin{prooftree}
+    \RightLabel{($\leq$-refl)}
+    \AxiomC{}
+    \UnaryInfC{$A \leq A$}
+    \end{prooftree}
+
+
+  * it is transitive,
+
+    \begin{prooftree}
+    \RightLabel{($\leq$-trans)}
+    \AxiomC{$A \leq B$}
+    \AxiomC{$B \leq C$}
+    \BinaryInfC{$A \leq C$}
+    \end{prooftree}
+
+  * we have a greatest, final element
+
+    \begin{prooftree}
+    \RightLabel{($\leq$-T)}
+    \AxiomC{}
+    \UnaryInfC{$A \leq T$}
+    \end{prooftree}
+
+   
+  * we have meets given by conjunction. That is, there is a lower
+    bound
+
+    \begin{prooftree}
+    \RightLabel{($\leq,\wedge_1$)}
+    \AxiomC{}
+    \UnaryInfC{$A \wedge B \leq A$}
+    \RightLabel{($\leq,\wedge_2$)}
+    \AxiomC{}
+    \UnaryInfC{$A \wedge B \leq B$}
+    \noLine
+    \BinaryInfC{}
+    \end{prooftree}
+
+    which is also universal
+
+    \begin{prooftree}
+    \RightLabel{($\leq,\wedge$-bound)}
+    \AxiomC{$C \leq A$}
+    \AxiomC{$C \leq B$}
+    \BinaryInfC{$C \leq A \wedge B$}
+    \end{prooftree}
+
+Those follow from the properties of entailment. We can draw those
+properties with Hasse diagrams, where we can see a similarity with
+a product diagram on category theory
+
+\[\begin{tikzcd}[column sep=tiny]
+& C \dar[dashed] \ar[ddr,bend left]\ar[ddl, bend right] & \\
+& A \wedge B \drar\dlar & \\
+A & & B &.
+\end{tikzcd}\]
+
+*** Antisymmetry and equivalence
+We have now a lower semilattice. Sometimes, lower semilattices are
+defined to be partial orders, where we have antisymmetry
+
+    \begin{prooftree}
+    \RightLabel{}
+    \AxiomC{$A \leq B$}
+    \AxiomC{$B \leq A$}
+    \BinaryInfC{$A = B$}
+    \end{prooftree}
+
+but we are going to work without antisymmetry. We haven't talked yet
+about equality, but we are going to introduce the univalent principle.
+We could define $A \simeq B$ when $A \leq B$ and $B \leq A$, they are not equal,
+but equivalent. We could also work with equivalence classes $[A]_{\simeq}$ here.
+Univalence will imply the equality of equivalent propositions.
+
+** Positive fragment of IPL
+Now we write the grammar of the positive fragment
+
+ * The false proposition, this is the *false-formation* rule
+
+   \begin{prooftree}
+   \RightLabel{($\bot$-form)}
+   \AxiomC{}
+   \UnaryInfC{$\bot$ prop}
+   \end{prooftree}
+
+   there is no introduction rule, only an elimination rule
+
+   \begin{prooftree}
+   \RightLabel{($\bot$-elim)}
+   \AxiomC{$\bot$ true}
+   \UnaryInfC{A true}
+   \end{prooftree}
+
+   since there is no introduction rule and this never happens,
+   this preserves the coherence principle.
+
+ * Disjunction formation
+
+   \begin{prooftree}
+   \RightLabel{($\vee$-form)}
+   \AxiomC{A prop}
+   \AxiomC{B prop}
+   \BinaryInfC{A $\vee$ B prop}
+   \end{prooftree}
+
+   disjunction introduction
+
+   \begin{prooftree}
+   \RightLabel{($\vee$-intro$_{1}$)}
+   \AxiomC{A true}
+   \UnaryInfC{A $\vee$ B true}
+   \RightLabel{($\vee$-intro$_{2}$)}
+   \AxiomC{B true}
+   \UnaryInfC{A $\vee$ B true}
+   \noLine
+   \BinaryInfC{}
+   \end{prooftree}
+   
+   we will use an elimination rule to extract the piece of
+   of information that went into that fact as in
+
+   \begin{prooftree}
+   \RightLabel{($\vee$-elim)}
+   \AxiomC{A $\vee$ B true}
+   \AxiomC{A true $\vdash$ C true}
+   \AxiomC{B true $\vdash$ C true}
+   \TrinaryInfC{C true}
+   \end{prooftree}
+
+** Order-theoretical properties
+We have now a least or initial element,
+ 
+    \begin{prooftree}
+    \RightLabel{($\leq$-$\bot$)}
+    \AxiomC{}
+    \UnaryInfC{$\bot \leq A$}
+    \end{prooftree}
+
+and joins or upper bounds
+
+    \begin{prooftree}
+    \RightLabel{($\leq,\vee_1$)}
+    \AxiomC{}
+    \UnaryInfC{$A \leq A \vee B$}
+    \RightLabel{($\leq,\vee_2$)}
+    \AxiomC{}
+    \UnaryInfC{$A \leq A \vee B$}
+    \noLine
+    \BinaryInfC{}
+    \end{prooftree}
+
+where the bound is the least upper bound
+
+    \begin{prooftree}
+    \RightLabel{($\leq,\vee$-bound)}
+    \AxiomC{$A \leq C$}
+    \AxiomC{$B \leq C$}
+    \BinaryInfC{$A \vee B \leq C$}
+    \end{prooftree}
+
+Note that those bounds are unique up to equivalence, as they follow
+also a categorical universal diagram, in this case, the coproduct
+diagram
+
+\[\begin{tikzcd}[column sep=tiny]
+A \drar\ar[ddr, bend right] & & B \dlar\ar[ddl, bend left] \\
+& A \vee B \dar[dashed] & \\
+& C  & &.
+\end{tikzcd}\]
+
+This is a lattice, that has all finite meets and joins.
+
+** Order-theoretic formulation of the implication
+We have an exponential $B^A$ whenever $A \supset B$, this is defined
+as the property
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A\wedge (A \supset B) \leq B$}
+\end{prooftree}
+
+and the exponential is the universal element with this property
+
+\begin{prooftree}
+\AxiomC{$A \wedge C \leq B$}
+\UnaryInfC{$C \leq A \supset B$}
+\end{prooftree}
+** Heyting algebra
+A *Heyting algebra* is a lattice with exponentials.
+
+*** Exercise: A Heyting algebra is distributive
+Every Heyting algebra is distributive.
+
+\[
+A \wedge (B \vee C) \equiv (A \vee B) \wedge (A \vee C)
+\]
+
+Hint: use the fact that we have exponentials.
+Hint: use the Yoneda Lemma.
+
+*** Yoneda Lemma
+The Yoneda Lemma on lattices says that
+
+$a \leq b \iff \left(\forall x: x \leq a \implies x \leq b\right)$.
+
+It is trivial by transitivity and identity. This is
+an instance of a more general fact.
+** Negation
+We define $\neg A := A \supset \bot$. It is the largest proposition inconsistent
+with $A$, the largest proposition such that $A \wedge \neg A \leq \bot$.
+
+** Complement
+We define $\overline{A}$ as the universal element with the property that $\top \leq A \vee \overline{A}$.
+We have a complement distributive algebra (a boolean algebra!) and such thing
+has exponentials.
+
+\begin{prooftree}
+\AxiomC{$\top \leq A \vee C$}
+\UnaryInfC{$\overline{A} \leq C$}
+\end{prooftree}
+
+** Boolean algebra
+A *boolean algebra* is a complemented distributive lattice. Therefore, it has
+exponentials, defined as $B^A := \overline{A} \vee B$.
+
+*** TODO Exercise: check that those are exponentials
+
+** Completeness theorem
+If $A \leq B$ in every Heyting algebra, it must be deducible that $A \vdash B$.
+If something is valid in all models, in all Heyting algebras, it must be
+provable.
+
+This logic is complete for Heyting algebras, but it is not going to be
+complete for boolean algebras. $A \vee \neg A$ is not going to be provable in
+our logic.
+
+*** Proof
+If something is provable in every Heyting algebra, you can construct the
+propositional *Lindenbaum algebra*; and this is used to show completenaess.
+If $A \leq B$ holds in every Heyting algebra, then $A \text{ true} \vdash B \text{ true}$. We
+need to interpret the propositions as elements on a Heyting algebra.
+
+*** Converse
+If something is provable, it holds in every Heyting algebra. 
+
+** Issue: negation and complement
+In a boolean algebra, $A \vee \neg A \simeq \top$.
