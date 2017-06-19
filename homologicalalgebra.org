@@ -1,0 +1,1300 @@
+#+TITLE: Homological algebra notes
+#+AUTHOR: Mario Román
+#+EMAIL: mromang08@gmail.com
+
+#+LANGUAGE: es
+#+SETUPFILE: essay.setup
+#+SETUPFILE: math.setup
+#+SETUPFILE: html.setup
+#+OPTIONS: broken-links:mark num:nil
+
+* Pascual Jara - Apuntes
+** Homología de Hochschild
+*** R;R módulos
+**** R;R módulo
+Sea $R$ una $K\text{-álgebra}$; un $(R;R)$ *módulo* es un $R$ módulo a
+izquierda y derecha verificando la *relación de compatibilidad*:
+
+\[r_1(mr_2) = (r_1m)r_2\]
+
+En particular, se tiene,
+
+\[km = mk \quad \forall k \in K\]
+
+Un *homomorfismo de R;R-módulos* es un homomorfismo de R-módulos a izquierda y
+R-módulos a derecha. Forman la categoría $(R;R)\mathtt{-Mod}$.
+
+**** Álgebra envolvente
+Sea $R$ una $K\text{-álgebra}$, llamamos *álgebra envolvente* a $R^e = R \otimes R^{op}$.
+Con el producto:
+
+\[ (r_1 \otimes s_1)(r_2 \otimes s_2) = (r_1r_2) \otimes (s_2s_1)\]
+
+**** Caracterización de R;R-módulos
+Para cada $K\text{-álgebra}$, $R$, las categorías siguientes son isomorfas:
+
+  - $(R;R)\text{-Mod}$
+  - $R^e\text{-Mod}$
+  - $\text{Mod-}R^e$
+
+***** Demostración
+Nótese primero que a $R^e$ le damos estructura de álgebra con el
+producto:
+
+\[
+(r_1\otimes s_1)(r_2\otimes s_2) = (r_1r_2\otimes s_2s_1)
+\]
+
+****** Primera implicación
+Si tenemos $M$ un $(R;R)$ módulo, podemos darle estructura de $R^e$ módulo
+con: $(r\otimes s)m = rms$. Que esta estructura es compatible con el producto
+se comprueba trivialmente con:
+
+\[
+(a\otimes b)(c \otimes d)m = acmdb = (ac \otimes bd)m
+\]
+
+****** Segunda implicación
+Si tenemos $M$ un $R^e$ módulo, podemos darle estructura de $R;R$ módulo
+tomando: $rms = (r\otimes s) m$. La relación de compatibilidad se tiene por
+el mismo proceso anterior.
+
+*** Cohomología de Hochschild
+**** Definición
+Sea $R$ una $K\text{-álgebra}$ y $M$ un $(R;R)\text{-módulo}$, llamamos:
+
+  - *Cohomología de Hochschild* de $R$ en $M$ a $HH^{\bullet}(R,M) = \operatorname{Ext}^\bullet_{R^e}(R,M)$.
+  - *Homología de Hochschild* de $R$ en $M$ a $HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)$.
+
+**** Notas
+1. [[https://sbseminar.wordpress.com/2007/07/22/hochschild-homology/][Hochschild homology | Secret Blogging Seminar]]
+
+**** Resolución estándar
+Para cada k-álgebra $R$ se tiene $(P_{\bullet},d_{\bullet})$ resolución proyectiva de $R$ en 
+$(R;R)\mathrm{-mod}$. Se llama *resolución estándar* de $R$, definiendo
+
+ - $P = R \otimes (R^{\otimes n}) \otimes R$
+ - $d_{n} = \sum_{i=0}^n (-1)^id^i_n$
+
+donde tomamos
+
+\[
+d_n^i(a_0 \otimes \dots \otimes a_{n+1}) =
+a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}.
+\]
+
+**** Complejo de cocadenas
+Para el cálculo de la cohomología tenemos un complejo de cocadenas
+
+\[
+\mathrm{Hom}_K(K,M) \overset{b^0} \longrightarrow
+\mathrm{Hom}_K(R,M) \overset{b^1} \longrightarrow
+\mathrm{Hom}_K(R^{\otimes 2},M) \overset{b^2} \longrightarrow
+\dots.
+\]
+
+Donde están definidas las $b^{n}$ como
+
+ - $b^0(m)(a) = am-ma$
+ - $b^n = \sum^{n+1}_{i=0}(-1)^ib_i^n$
+
+para unas aplicaciones auxiliares $b_i^n$ definidas como
+
+\[
+b^n_i(f)(a_1\otimes \dots \otimes a_{n+1}) =
+\left\{\begin{array}{ll} 
+a_1f(a_2\otimes\dots\otimes a_{n+1})& \mbox{if } i=0  \\
+f(a_1\otimes\dots\otimes a_ia_{i+1}\otimes\dots\otimes a_{n+1}}& \mbox{if } i=1,\dots,n \\
+f(a_1\otimes\dots\otimes a_n)a_{n+1}& \mbox{if } i=n+1
+\end{array} 
+\right.
+\]
+
+*** Desde Weibel
+**** Identidades simpliciales
+Las identidades simpliciales son las relaciones entre morfismos cara y
+morfismos degenerados en un objeto simplicial.
+
+***** Objeto simplicial
+Un conjunto simplicial con morfismos:
+
+ - *Morfismos cara*, $\partial_i : S_n \to S_{n-1}$, que eliminan el vértice $i$.
+ - *Morfismos degenerados*, $\sigma_i : S_n \to S_{n+1}$, que duplican el vértice $i$.
+
+***** Identidades simpliciales
+Se cumplen:
+
+ 1. $\partial_i\circ\partial_j = \partial_{j-1}\partial_i$ cuando $i<j$
+ 2. $\sigma_i\comp\sigma_j = \sigma_j\circ\sigma_{i-1}$ cuando $i > j$
+ 3. Se componen como:
+
+    \[
+    \partial_i\circ s_j = \left\{\begin{array}{ll} 
+    s_{j-1}\circ\partial_i & \mbox{if } i<j \\
+    id & \mbox{if } i=j \mbox{ or } i=j+1 \\
+    s_j\circ \partial_{i-1}& \mbox{if } i>j+1
+    \end{array} 
+    \right.
+    \]
+
+***** Diferencial alternado
+Definimos el morfismo cara alternado como la suma alternada de morfismos
+cara:
+
+\[
+\partial(x) =
+\sum_{k=0}^n (-1)^k \partial_k(x)
+\]
+
+Esto nos da un operador de frontera cumpliendo $\partial\circ\partial=0$.
+
+****** Demostración
+Usando distributividad de la composición y la primera identidad 
+simplicial:
+
+\[\begin{aligned}
+\partial\circ\partial
+&=
+\left(
+\sum (-1)^k \partial_k
+\right)
+\left(
+\sum (-1)^t \partial_t
+\right)
+\\&= 
+\sum_{k,t} (-1)^{k+t} \partial_k\partial_t
+\\&=
+\sum_{k<t} 
+\left(
+(-1)^{k+t} \partial_k\partial_t +
+(-1)^{k+t-1} \partial_{t-1}\partial_k
+\right)
+\\&= 0
+\end{aligned}
+\]
+**** Módulo simplicial sobre R;R módulo
+Sea $R$ una k-álgebra y $M$ un $R;R$ módulo. Tenemos un k-módulo simplicial
+en $M\otimes R^{\otimes\ast}$, dado por:
+
+\[
+\dots \longrightarrow
+M\otimes R\otimes R \longrightarrow
+M\otimes R \longrightarrow
+M \longrightarrow 
+0
+\]
+
+Con fronteras:
+
+\[
+\partial_i(m\otimes r_1 \otimes \dots \otimes r_n) =
+\left\{\begin{array}{ll} 
+mr_1 \otimes r_2 \otimes \dots \otimes r_n& \mbox{if } i = 0 \\
+m \otimes r_1 \otimes r_2 \otimes \dots \otimes r_ir_{i+1} \otimes \dots \otimes r_n& \mbox{if } 0 < i < n \\
+r_nm \otimes r_1 \otimes r_2 \otimes \dots \otimes r_{n-1} & \mbox{if } i = n
+\end{array}.
+\right.
+\]
+
+Y con degeneración
+
+\[
+\sigma_i(m \otimes r_1 \otimes \dots \otimes r_n) =
+m \otimes \dots \otimes r_i \otimes 1 \otimes r_{i+1} \otimes \dots \otimes r_n.
+\]
+
+**** Homología de Hochschild
+La homología de Hochschild se define como la de los k-módulos:
+
+\[
+HH_n(R,M) = H_nC(M\otimes R^{\otimes\ast})
+\]
+
+*** Ejemplos de cálculo de cohomología de Hoschild
+**** TODO Derivaciones y derivaciones externas
+** Álgebras separables
+*** Álgebras separables
+**** Dimensión de Hochschild
+Definimos $\mathrm{Hdim}(R)$ como el menor $n$ tal que $HH^{n+1}(R,M) = 0$ para cualquier
+módulo $M$. Si no existe, decimos que hay dimensión de Hochschild infinita.
+
+**** Álgebras separables
+Las álgebras de dimensión de Hochschild $0$ se llaman *separables*. Se
+tiene $R$ un $R^e-\mathrm{mod}$ izquierda proyectivo.
+
+**** Caracterización de álgebras separables
+Para una k-álgebra R equivalen:
+
+  1) Existen $a_i,b_i \in R$ con $\sum_{i=1}^na_ib_i=1$ y $\sum_{i=1}^n ra_i\otimes b_i = \sum_{i=1}^n a_i \otimes b_ir$.
+  2) Dimensión de Hochschild de $R$ cero.
+  3) $\mathrm{Der(R,M)} = \mathrm{Der}_{int}(R,M)$ para cada $M$ y $n \geq 1$.
+
+Llamamos $e = \sum_{i=1}^n a_i\otimes b_i \in R^e$ *idempotente de separabilidad*.
+
+**** Teorema de Zelinsky
+Toda k-álgebra separable es un k-espacio vectorial de dimensión finita.
+
+*** Álgebras semisimples
+**** Álgebra semisimple
+Una k-álgebra es semisimple si cada módulo a la izquierda suyo es proyectivo.
+
+**** Separable es semisimple
+Toda k-álgebra separable es semisimple.
+
+***** TODO Demostración
+
+**** Álgebras separables sobre cuerpos algebraicamente cerrados
+Una k-álgebra separable en un cuerpo de característica cero es de la forma:
+
+\[
+R \cong
+M_{n_1}(K) \times \dots \times M_{n_t}(K)
+\]
+
+**** Traza
+Llamamos *traza* de $\varphi \in \mathrm{End}(R)$ a la suma de su diagonal. Tenemos
+
+ - una aplicación $\tau(r) = \mathrm{Tr}(\lambda(r))$ k-lineal.
+ - una aplicación $\sigma(r,s) = \tau(rs)$ k-bilineal simétrica.
+
+Cuando $R$ es k-álgebra separable, $\sigma$ es no degenerada.
+
+**** Caracterización de álgebras separables
+Para una k-álgebra $R$ equivalen
+
+ 1) $R$ una k-álgebra separable.
+ 2) $\mathrm{dim}_{k}(R) < \infty$ y $\sigma$ es forma bilineal simétrica no degenerada.
+ 3) Existe un único idempotente de separabilidad simétrico.
+
+*** Álgebras formalmente lisas
+**** Extensiones de Hochschild
+Para $\pi : S \longrightarrow R$ homomorfismo sobreyectivo con $\ker(\pi)^2=0$,
+
+\[
+0 \longrightarrow 
+\mathsf{a}= \mathrm{ker}(\pi) \longrightarrow
+S \longrightarrow
+R \longrightarrow
+0
+\]
+
+es una *extensión de Hochschild* de $R$ por $\mathsf{a}$.
+
+**** Estructura de R;R-módulo de la extensión
+Si $0 \longrightarrow \mathsf{a} \overset{\pi}\longrightarrow S \longrightarrow R \longrightarrow 0$ es una extensión de Hochschild, entonces
+$\mathsf{a}$ es un R;R-módulo.
+
+***** Demostración
+Consideramos una inversa del homomorfismo sobreyectivo $\pi \circ \psi = id$.
+Definimos el producto como
+
+ - $ax = \psi(a)x$
+ - $xa = x\psi(a)$
+
+y comprobamos que $a(bx) = (ab)x$. Se tiene en efecto que
+
+\[
+\psi(a)\psi(b) - \psi(ab) \in \mathrm{ker}(\pi) = \mathsf{a}
+\]
+
+**** Extensiones equivalentes
+Dos extensiones de Hochschild son equivalentes si existe un diagrama
+conmutativo
+
+\[\begin{tikzcd}
+0 \rar & M \arrow[d,equal] \rar & S_1\dar{\varphi}\rar{\pi_{1}} & R \rar\dar[equal] & 0 \\
+0 \rar & M \rar & S_2\rar{\pi_{2}} & R \rar & 0
+\end{tikzcd}\]
+
+para $\varphi$ un homomorfismo de k-álgebras.
+
+**** Álgebra formalmente lisa
+Un álgebra $R$ es formalmente lisa si su dimensión de Hochschild es menor o
+igual que 1. Equivalentemente, $HH^2(R,M) = 0$ para cualquier $M$. Como
+consecuencia, toda extensión de Hochschild es trivial.
+
+**** Producto de separable y formalmente lisa
+Si $S$ es separable y $R$ es formalmente lisa, $R \otimes S$ es formalmente lisa.
+
+** Anillos graduados
+*** Álgebra aumentada
+Una $K\text{-álgebra}$ $R$ es *aumentada* si existe un $R\text{-módulo}$ $M$ con un 
+epimorfismo $\varepsilon\colon R \to M$.
+
+**** Álgebra aumentada tensor
+Si $\varepsilon\colon R \to M$ es un álgebra aumentada, $\varepsilon\otimes S\colon R\otimes_K S \longrightarrow M \otimes_K S$ es
+un álgebra aumentada.
+
+*** Módulos y álgebras graduadas
+**** Módulo graduado
+Un $K\text{-módulo}$ graduado es aquel que se escribe como suma directa,
+
+\[
+M = \bigoplus_{n \in \mathbb{N}} M_n.
+\]
+
+***** Elemento homogéneo
+Un elemento es homogéneo de grado $n$ si pertenece a $M_n$.
+
+***** Homomorfismo graduado
+Un homomorfismo $f\colon M \to N$ tal que $f(M_n) \subseteq f(N_n)$.
+
+***** Álgebra graduada
+Un $K\text{-módulo}$ graduado $R = \bigoplus R_i$ cumpliendo
+
+\[
+R_rR_t \subseteq R_{r+t}.
+\]
+
+**** Ejemplos de álgebras graduadas
+***** Graduación trivial
+***** Graduación del anillo de polinomios
+***** Graduación del anillo de endomorfismos
+**** Homomorfismos graduados
+Un homomorfismo graduado de grado $t \in \mathbb{N}$ es aquel homomorfismo $f\colon M \to N$
+cumpliendo $f(M_r) \subseteq f(M_{r+t})$.
+
+** Módulos diferenciales
+*** Diferencial
+Un homomorfismo graduado de grado uno, $\delta\colon M \to M$ se llama *diferencial*
+si $\delta\circ\delta = 0$.
+
+*** DG-módulo
+Un par $(M,\delta)$ formado por un $K\text{-módulo}$ graduado $M$ y un diferencial $\delta$.
+
+**** Homomorfismo de DG-módulos
+Un homomorfismo de DG-módulos $f \colon (M,\delta_1) \to (N,\delta_2)$ es un homomorfismo
+de módulos graduados cumpliendo
+
+\[
+f\delta_1 = \delta_2 f.
+\]
+
+*** Álgebra graduada diferencial
+Una $K\text{-álgebra}$ graduada $R$ con un diferencial $\delta\colon R\to R$ que verifica:
+
+  * $(R,\delta)$ es un DG-módulo.
+  * $\delta(ab) = \delta(a)b + (-1)^{|b|}a\delta(b)$.
+
+Es lo que conocemos como *álgebra graduada diferencial*, o DG-álgebra.
+
+**** Aritmética en álgebras graduadas I
+Dada una DG-álgebra $(R,\delta)$,
+
+ 1) Para elementos homogéneos $h_1,\dots,h_n$ se verifica
+
+    \[ \delta(h_1\dots h_n) =
+    \sum_{i=1}^t (-1)^{|h_1|+\dots+|h_{i-1}|}h_1\dots \delta(h_i)\dots h_t.
+    \]
+
+ 2) Para elementos $a_0,\dots,a_n \in R_0$ se verifica
+
+    \[\delta(a_0 \delta(a_1)\dots \delta(a_n)) =
+    \delta(a_0)\delta(a_1)\dots\delta(a_n).
+    \]
+
+**** TODO Aritmética en álgebras graduadas II
+
+*** Complejo de Hochschild
+Definimos el *complejo de Hochschild* como
+
+\[
+C_{\bullet}(R,M)\colon \dots 
+\longrightarrow M \otimes R^{\otimes n}
+\overset{d}\longrightarrow M \otimes R^{\otimes n-1}
+\overset{d}\longrightarrow \cdots
+\]
+
+donde las diferenciales se definen como $d = \sum (-1)^id_i$ para
+
+\[\begin{aligned}
+d_0(m\otimes a_1\otimes\dots\otimes a_n) &= (ma_1)\otimes \dots \otimes a_n \\
+d_i(m\otimes a_1\otimes\dots\otimes a_n) &= m \otimes a_1\otimes \dots \otimes a_ia_{i+1} \otimes \dots \otimes a_n \\
+d_i(m\otimes a_1\otimes\dots\otimes a_n) &= a_nm \otimes a_1\otimes \dots \otimes \dots \otimes a_{n-1} \\
+\end{aligned}
+\]
+
+**** Es un diferencial
+Se tiene que $d\circ d = 0$.
+
+**** Complejo bar
+En el caso particular de $R=M$ tenemos
+
+\[C_{\bullet}(R) = C_{\bullet}(R,R) = 
+(\cdots \to R^{\otimes n+1} \to \cdots \to R)\]
+
+Llamamos *complejo bar* a
+
+\[ C^{bar}_{\ast}(R) = (\cdots \to R^{\otimes n} \to \cdots \to R^{\otimes 2}).
+\]
+
+**** Complejo bar normalizado
+Llamamos $D_n$ al generado por elementos $m\otimes a_1\otimes \dots\otimes a_n$ donde algún $a_i = 1$.
+Podemos crear el complejo bar normalizado con módulos de la forma
+
+\[\frac{M\otimes R^{\otimes n}}{D_n} \cong M \otimes \overline{R}^{\otimes n}.
+\]
+
+Lo representamos por $\overline{C}(R,M)$.
+
+** La DG-álgebra Omega
+*** DG-álgebra omega
+Definimos
+
+\[
+\Omega_S^nR = 
+R \otimes_S \overline{R}^{\otimes n}
+\quad\text{ y, en total, }\quad
+\Omega_SR = \bigoplus_{n\in \mathbb{N}} \Omega_S^n R.
+\]
+
+La diferencial la definimos mediante
+
+\[
+\delta(a_0\oplus \overline{a_1} \oplus\dots\oplus \overline{a_r})
+=
+1 \oplus \overline{a_0} \oplus \dots \oplus \overline{a_r}.
+\]
+
+* Pierce - Associative Algebras
+** 10. Separable Algebras
+*** 10.1. Bimodules
+**** Opposite algebra
+If $A$ is an R-algebra, the *opposite algebra* of $A$ is $A^\ast$; where
+multiplication is defined as $x \circ y = yx$.
+
+**** Enveloping algebra
+The *enveloping algebra* of an R-algebra is:
+
+\[ A^e = A^\ast \otimes A\]
+
+* Rotman - An introduction to homological algebra
+** 1. Introduction
+*** 1.1. Simplicial Homology
+**** Motivation: Green's Theorem
+***** Original statement
+Let $C$ be a positively oriented, smooth and simple closed curve in
+a plane; being $D$ the region bounded by $C$. If $L,M$ have continuous
+partial derivatives in $D$, then:
+
+\[ \oint_C (L dx + M dy) = 
+\iint_D \left(
+  \frac{\partial M}{\partial x} - \frac{\partial L}{\partial y}
+\right) dx dy\]
+
+***** A rewrite
+If we have some "bad points" that we want to delete from $C$.
+We can define multiple $\gamma_i$ around them and have our integral to be:
+
+\[ \oint_C (L dx + M dy) +
+\sum^n_{i=1} \left( \int_{\gamma_i} L dx + Q dy \right) 
+= \iint_D \left(
+  \frac{\partial M}{\partial x} - \frac{\partial L}{\partial y}
+\right) dx dy\]
+
+As the diagram is:
+
+[[./images/greentheorem.png]]
+
+In this setting, the notion of $\mathbb{Z}$ linear combinations of paths
+makes sense. We can take the free abelian group $G[Y]$ with $Y$ being
+the set of paths $\gamma : [0,1] \longrightarrow X$.
+
+***** An equivalence relation
+For functions satisfying $\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}$, the double integral dissapears,
+and we have:
+
+\[ \int_{m\gamma + \sum_i m_i\gamma_i} P dx + Q dy = 0\]
+
+Here we can define an equivalence relation between pairs of paths,
+where $\beta \sim \beta'$ if:
+
+\[ \int_\beta P dx + Q dy = \int_{\beta'} P dx + Q dy \]
+
+The equivalence class of $\beta$ is called its *homology class*.
+
+**** Boundaries
+If we take the simplices to form abelian groups, the boundaries
+are homomorphisms.
+
+[[./images/rectangle.png]]
+
+For instance, if we can take this rectangle and compute its boundary.
+We use free abelian groups of $n\text{-simplexes}$, called $C_n(X)$.
+
+***** Boundary of a triangle
+We use the minus sign to denote the inverse path, and we have:
+
+\[ \delta([a,b,c]) = [a,b] + [b,c] - [a,c]\]
+
+***** Boundary of the boundary of a triangle
+As the double boundary is the boundary of a sphere, it is 
+automatically null:
+
+\[
+\delta(\delta([a,b,c])) = (a - b) + (b - c) - (a - c) = 0
+\]
+
+***** Boundary of the rectangle
+Now, we can compute the boundary of the rectangle; assuming that
+the boundary function is a homomorphism preserving the union:
+
+\[\begin{aligned}
+\delta(\square) &=  \delta[a,b,c] + \delta[a,c,d] \\ 
+&= [a,b]+[b,c]-[a,c]+[a,c]+[c,d]-[a,d] \\
+&= [a,b]+[b,c]+[c,d]-[a,d]
+\end{aligned}\]
+
+**** Simplicial boundary maps
+Let $X$ be a finite simplicial complex. We define:
+
+\[ \delta_n [v_0,\dots,v_n] 
+= \sum^n_{i=0} (-1)^i [v_0,\dots,\hat{v_i},\dots,v_n]\]
+
+being a map from $C_n(X)$ to $C_{n-1}(X)$. We define $\delta_0 = 0$ as a convention.
+
+**** Boundary maps are exact
+For all $n > 0$, 
+
+\[\delta_{n-1}\delta_n = 0\]
+
+***** Proof
+We can see that, for every pair of indexes, we have the same term 
+twice, depending on whether we take the two indexes ordered or using
+an inverse order:
+
+\[ 
+[x_0,\dots,\hat{x_i},\dots,\hat{x_j},\dots,x_n](-1)^{i+(j-1)} +
+[x_0,\dots,\hat{x_i},\dots,\hat{x_j},\dots,x_n](-1)^{j+i} = 0
+\]
+
+**** Simplicial cycles and boundaries
+The elements in $Z_n(X) = \ker \delta_n \subset C_n(X)$ are called *simplicial cycles*.
+The elements in $B_n(X) = \im \delta_{n+1} \subset C_n(X)$ are called *simplicial 
+boundaries*.
+
+**** Exactness for cycles and boundaries
+For all $n$,
+
+\[ B_n(X) \subseteq Z_n(X)\]
+
+***** Proof
+It is trivial knowing that boundary maps are [[*Boundary maps are exact][exact]].
+
+**** Simplicial homology group
+The nth simplicial homology group of a finite simplicial complex is:
+
+\[ H_n(X) = Z_n(X) / B_n(X) \]
+
+What survives in this group are the cycles that are not boundaries;
+that is, the boundaries of punctured sections.
+
+**** Two modifications
+We can consider *homology* with coefficients in $G$ by tensoring the
+sequence of chain groups by $G$ and taking homology groups. We can
+consider the *cohomology* with coefficients in $G$ applying $Hom(-,G)$
+to the chain of groups and then taking homology groups.
+
+*** 1.2. Categories and Functors
+**** 1.2.1. Russell's paradox
+The Russell paradox is solved in with the Zermelo-Fraenkel axioms,
+specifically, the *axiom of comprehension*. It says that any definable
+subclass of a set is a set; restricting the comprehension to only
+already defined sets.
+
+**** 1.2.2. Classes and sets
+A class in ZFC is called *small* if it has a cardinal number. A *set*
+is only a small class. In this book, we only worry about classes and
+sets that are not a member of themselves.
+
+# A cardinal number?
+# More details in Mac Lane, Categories for the working mathematician.
+
+**** 1.2.3. Categories
+A category ${\cal C}$ consists of:
+
+ - $obj({\cal C})$, a class of objects.
+ - $Hom(A,B)$, a set of morphisms for every ordered pair $(A,B)$.
+ - $\circ : Hom(A,B) \times Hom(B,C) \longrightarrow Hom(A,C)$, composition of functions.
+
+**** 1.2.4. Axioms of categories
+A category has disjoint $Hom$ sets, and there must be an identity element
+$1_A \in Hom(A,A)$ for every morphism, following these rules:
+
+ - The identity is a neutral element: $f \circ 1_A = f$ and $1_B \circ f = f$.
+ - Composition is associative: $f \circ (g \circ h) = (f \circ g) \circ h$
+
+**** 1.2.5. Examples of categories
+***** Sets
+***** Groups
+***** Partially ordered sets
+***** Inclusion of open sets
+***** Topological spaces
+***** Abstract simplicial complexes
+****** Abstract simplicial complexes
+We denote =Abs= the category of abstract simplicial complexes.
+An abstract simplicial complex $K$ is a set of *vertices* $Vert(K)$ and
+a family of nonempty finite subsets called *simplexes* 
+$\sigma \subseteq Vert(K)$ such that:
+
+ 1. $\{v\}$ is a simplex for every $v \in Vert(K)$.
+ 2. Every subset of a simplex is a simplex.
+
+****** Simplicial maps
+A *simplicial map* is a function $\phi : Vert(K) \longrightarrow Vert(L)$ 
+such that, if $\sigma$ is a simplex in $K$, then $\phi(\sigma)$ is a simplex
+in $L$.
+
+****** Dimension
+A simplex with $|\sigma| = n+1$ is called a *n-simplex*. Simplicial
+maps don't have to preserve dimension.
+
+***** Nerves
+If ${\cal U} = \{U\}_{i\in I}$ is the cover of a topological space, we define an 
+abstract simplicial complex ${\cal N}({\cal U})$ having vertices $Vert({\cal N}({\cal U})) = {\cal U}$
+and simplexes $\{U_0,\dots,U_n\} \subseteq {\cal U}$ such that:
+
+\[ \bigcap_{k=0}^n U_k = \varnothing\]
+
+***** Monoids
+***** Homotopy category
+**** 1.2.6. Algebraic examples of categories
+***** Abelian groups
+***** Rings (unital)
+***** Commutative rings
+**** 1.2.7. Modules
+A left R-module, where $R$ is a ring, is an additive abelian group $M$
+with a scalar multiplication $R \times M \longrightarrow M$, such that:
+
+ 1. $r(m+m') = rm+rm'$
+ 2. $(r+r')m = rm + r'm$
+ 3. $(rr')m = r(r'm)$
+ 4. $1m = m$
+
+A right module is defined anagously.
+
+**** 1.2.8. Examples of modules
+***** Vector spaces over a field
+***** Abelian groups over Z
+***** Every ring over itself
+***** Every ring over its center
+
+**** 1.2.9. Homomorphisms of R-modules
+A function $f : M \longrightarrow N$ such that:
+
+ 1. $f(m+m') = f(m)+f(m')$
+ 2. $f(rm) = rf(m)$
+
+In the case of right modules, we can define them anagously.
+
+***** The composite and inverse of homomorphisms is an homomorphism
+Trivial.
+
+**** 1.2.10. Examples of homomorphisms
+***** Linear transformations in vector spaces
+***** Homomorphisms of abelian groups for Z-modules
+***** Homothety
+Let $M$ be an R-module, and $r \in Z(R)$; multiplication by $r$, $\mu_r$, is
+an homomorphism because:
+
+\[ \mu_r(am) = r(am) = a(rm) = a\mu_r(m)\]
+
+**** 1.2.11. Opposite rings
+If $R$ is a ring, its opposite ring $R^{op}$ is the same ring with the
+opposite multiplication, defined by:
+
+\[ \mu^o(r,t) = \mu(t,r)\]
+
+**** 1.2.12. Categories of modules
+We call $_RMod$ the category of *left* R-modules, and $Mod_R$ to the 
+category of *right* R-modules.
+
+**** 1.2.13. Subcategories
+A category ${\cal S}$ is a subcategory of ${\cal C}$ when:
+
+ 1. $obj({\cal S}) \subseteq obj({\cal C})$.
+ 2. $Hom_S(A,B) \subseteq Hom_C(A,B)$.
+ 3. Identities and compositions are the same.
+
+**** 1.2.14. Full subcategories
+A full subcategory has $Hom_S(A,B) = Hom_C(A,B)$ for every $A,B \in obj({\cal S})$.
+
+**** 1.2.15. Functors
+A functor $T : {\cal C} \longrightarrow {\cal D}$ is a function such that:
+
+ 1. $T : obj({\cal C}) \longrightarrow obj({\cal D})$.
+ 2. $T : Hom(A,B) \longrightarrow Hom(TA,TB)$.
+ 3. Preserves composition: $T(f \circ g) = Tf \circ Tg$.
+ 4. Preserves identities: $T(1_A) = 1_{T(A)}$.
+
+**** 1.2.16. Examples of functors
+***** Subcategories as inclusion functors
+***** Identity functor
+***** Hom(A,-) functor
+***** Chains as functors from the partially ordered integers
+***** Forgetful functors
+
+**** 1.2.27. Diagrams
+A diagram is a functor whose domain is a *small category*; that
+is $T : {\cal D} \longrightarrow {\cal C}$, where $obj({\cal D})$ is a set.
+
+**** 1.2.28. Paths
+A path is a functor $P : n+1 \longrightarrow {\cal C}$, where the domain is the partial 
+ordering of integers $0,\dots,n+1$. A path is *simple* if the functor is
+injective.
+
+**** 1.2.29. Commutativity of diagrams
+A diagram commutes if the composites of the labels on any two simple path
+are equal.
+
+**** TODO 1.2.30. Contravariant functors
+**** TODO 1.2.31. Examples of contravariant functors
+***** Hom(-,B) functor
+***** The dual space functor
+\[( )^\ast = Hom_k(-,k) : \sideset{_k}{}{Mod} \longrightarrow \sideset{_k}{}{Mod}\]
+***** Order-reversing functions on partially ordered sets
+
+***** Presheaves
+If ${\cal U}$ is a topology with the inclusion, a contravariant functor 
+${\cal P} : {\cal U} \longrightarrow {\cal C}$ is a presheaf.
+
+**** 1.2.32. Faithful functors
+A functor is faithful if all the functions 
+$Hom(A,B) \longrightarrow Hom(TA,TB)$ are injective.
+**** 1.2.33. Concrete categories
+A category is concrete if there is a faithful functor ${\cal C} \longrightarrow \mathtt{Set}$.
+
+**** 1.2.33. Opposite category
+We define ${\cal C}^{op}$ to be the category with:
+
+ - $obj({\cal C}^{op}) = obj({\cal C})$
+ - $Hom_{{\cal C}^{op}}(A,B) = Hom_{\cal C}(B,A)$
+ - $g \circ_{op} f = f \circ g$
+
+**** 1.2.34. Isomorphisms
+A morphism $f : A \longrightarrow B$ such that exists $g : B \longrightarrow A$ with
+$f \circ g = 1$ and $g \circ f = 1$.
+
+**** 1.2.35. Functors preserve isomorphisms
+Let $T$ be a functor, if $f$ is an isomorphism, then $T(f)$ is an isomorphism.
+
+***** Proof
+If $g$ is its inverse, then:
+
+\[ T(f)T(g) = T(fg) = 1\]
+\[ T(g)T(f) = T(gf) = 1\]
+
+If $T$ is a contravariant functor, the proof remains the same.
+
+**** 1.2.36. Natural transformations
+Let $F,G : {\cal A} \longrightarrow {\cal B}$ be covariant functors. A natural transformation
+$\tau : F \Longrightarrow G$ is a family of morphisms $\tau_A : S A \longrightarrow T A$, making the following
+diagram commute for every $f \in Hom(A,B)$:
+
+\[ \begin{tikzcd}
+FA \rar{\tau_A} \dar{Ff} & GA \dar{Gf} \\
+FB \rar{\tau_B} & GB
+\end{tikzcd} \]
+
+We write the natural transformations as $Nat(F,G)$.
+
+**** 1.2.37. Natural isomorphisms
+A natural transformation $\tau$ for which each $\tau_A$ is an isomorphism.
+
+**** 1.2.38. Composition of natural transformations
+If $\tau : F \Longrightarrow G$ and $\sigma : G \Longrightarrow H$ are natural transformations, then the
+composition is a natural transformation.
+
+***** Proof
+Composing the two commutative diagrams gives us the proof.
+
+**** 1.2.39. Identity natural transformation
+For any functor $F : {\cal A} \longrightarrow {\cal B}$, we can describe an identity natural 
+transformation using the identity morphisms.
+
+**** TODO 1.2.40. Examples of natural transformations
+**** TODO 1.2.41. Natural transformations are proper classes
+**** 1.2.42. Yoneda Lemma
+Let $A \in obj({\cal C})$ and $G : {\cal C} \longrightarrow \mathtt{Set}$ be a covariant functor. 
+There is a bijection:
+
+\[ y : Nat(Hom_C(A,-), G) \longrightarrow G(A)\]
+
+given by $y : \tau \longrightarrow \tau_A(1_A)$.
+
+***** Proof
+****** Every choice of p determines a natural transformation
+Given $p \in GA$, we can create an unique natural transformation having
+$\eta_A(1_A) = p$. A natural transformation has to obey the following 
+commutative diagram:
+
+\[\begin{tikzcd}
+Hom(A,A) \rar{f \circ \_}\dar{\eta}& Hom(A,B)\dar{\eta} \\
+GA \rar{Gf}& GB
+\end{tikzcd}\]
+
+Then, the image of $\eta_B(f)$ is determined.
+
+\[\begin{tikzcd}
+id \rar{f \circ \_}\dar{\eta}& f\dar{\eta} \\
+p \rar{Gf}& (Gf)(p)
+\end{tikzcd}\]
+
+****** Every choice gives us a natural transformation
+This gives us, in fact, a natural transformation which makes every
+natural square to commute:
+
+\[\begin{tikzcd}
+Hom(A,B) \rar{g \circ \_}\dar{\eta}& Hom(A,C)\dar{\eta} \\
+GB \rar{Gg}& GC
+\end{tikzcd}\]
+
+Given any element $f \in Hom(A,B)$, we can check the commutativity:
+
+\[\begin{tikzcd}
+f \rar{g \circ \_}\dar{\eta}& g \circ f\dar{\eta} \\
+(Gf)(p) \rar{Gg}&  G(g \circ f)(p)
+\end{tikzcd}\]
+
+Knowing that $G(g \circ f)(p) = (Gg \circ Gf) (p)$.
+
+**** 1.2.43. Representable functors
+A covariant functor $F: {\cal C} \longrightarrow \mathtt{Set}$ is representable if $F \cong Hom(A,-)$
+for some $A$.
+
+**** 1.2.44. Yoneda Corollary
+For $A,B \in obj({\cal C})$:
+
+  1. If $\eta \in Nat(Hom(A,-),Hom(B,-))$, then $\eta = (\_ \circ \psi)$ for some unique $\psi$.
+  2. If $\eta = (\_ \circ \psi)$ and $\tau = (\_\circ\phi)$, then $\tau\circ\eta = (\_ \circ \psi\circ\phi)$.
+  3. $\eta = (\_\circ\psi)$ is a natural isomorphism iff $\psi$ is an isomorphism.
+
+***** Proof
+****** Corollary 1
+If we apply Yoneda Lemma, every transformation is defined by
+$\eta(id_A) = \psi$. The transformation has to be $(\_ \circ\psi)$ because of commutativity:
+
+\[\begin{tikzcd}
+Hom(A,A) \rar{f \circ \_}\dar{\eta}& Hom(A,C)\dar{\eta} \\
+Hom(B,A) \rar{f \circ\_}& Hom(B,C)
+\end{tikzcd}\]
+
+So, given any element $f \in Hom(A,C)$, we have $\eta(f) = f \circ \psi$:
+
+\[\begin{tikzcd}
+id \rar{f \circ \_}\dar{\eta}& f\dar{\eta} \\
+\psi \rar{f \circ\_}& f \circ \psi
+\end{tikzcd}\]
+
+****** Corollary 2
+Trivial consequence of the first corollary.
+
+****** Corollary 3
+It is trivial given the previous corollaries and:
+
+\[(\_\circ\psi^{-1})\circ \psi = (\_\circ id)\]
+
+**** TODO Examples
+**** TODO Yoneda Imbedding
+*** 1.3. Singular Homology
+**** 1.3.1. Hilbert spaces and euclidean spaces
+A *Hilbert space* is the set ${\cal H}$ of all sequences $(x_i) \in \mathbb{R}$ such that
+$\sum x_i^2 < \infty$. A *Euclidean space*, $\mathbb{R}^n$ is a subset of ${\cal H}$ consisting of
+all sequences of the form $(x_0,x_1,\dots,x_{n-1},0,\dots)$.
+
+**** 1.3.2. Standard n-simplex
+The standard n-simplex is the set of all convex combinations:
+
+\[\Delta^n = [e_0,e_1,\dots,e_n]\]
+
+Where $e_i$ form an orthogonal basis.
+
+**** 1.3.3. Singular n-simplex
+Given a topological space $X$, a singular n-simplex is a continuous map
+$\sigma : \Delta^n \longrightarrow X$.
+
+**** 1.3.4. Singular n-chains
+We define $S_n(X)$ as the free group with singular n-simplexes as basis.
+By convention, $S_{-1}(X) = \{0\}$. The elements on this group are called
+singular n-chains.
+
+**** TODO 1.3.5. Face maps
+The ith face map $\epsilon^n_i : \Delta^{n-1} \longrightarrow \Delta^n$ is defined by:
+
+*** Exercises
+**** Exercise 1.1
+#+begin_statement
+1. Prove, in every category ${\cal C}$, that each object $A \in {\cal C}$ has a unique identity
+   morphism.
+2. If $f$ is an isomorphism in a category, prove that its inverse is unique.
+#+end_statement
+
+We have $id = id \circ id' = id'$ and $\varphi^{-1} = \varphi' \circ \varphi \circ \varphi^{-1} = \varphi'$.
+
+** 2. Hom and Tensor
+*** 2.1. Modules
+**** Representation of a ring
+A *representation* of $R$ is an homomorphism $\varphi : R \longrightarrow End_\mathbb{Z}(M)$.
+
+***** Equivalence of representations and modules
+The product of a R-module is a representation, and every
+representation gives an R-module.
+
+****** Equivalence of types
+Type of a representation:
+
+\[R \longrightarrow End(M)\]
+
+Type of an R-module product:
+
+\[R \times M \longrightarrow M\]
+
+Both types are equivalent.
+
+**** Example: Group ring
+Given $G$, a group, and $R$, a ring; we define the group ring, $RG$ to be
+the set of functions $G \longrightarrow R$ of finite support, with the operations:
+
+  - Sum of functions: $(f+g)(a) = f(a)+g(a)$
+  - Convolution (product): $(f\cdot g)(a) = \sum_{uv = a} f(u)g(v)$
+  - Product by a scalar on $R$: $(kf)(a) = kf(a)$
+
+It defines a ring and an R-module.
+
+***** Inclusion of the group
+The group can be included on $RG$ with the indicator function $y \mapsto 1_{(=y)}$,
+defined as:
+
+\[
+y(a) = 1_{(=y)}(a) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } a = y  \\
+0 & \mbox{if } a \neq y
+\end{array} 
+\right.
+\]
+
+A function that only outputs $1$ when its input is $y$.
+
+****** Preservation of the product
+
+\[
+1_{(=y)}\cdot 1_{(=z)} (a)
+=
+\sum_{u\cdot v = a} 1_{u=y}1_{v=z}
+=
+1_{a=yz}
+\]
+
+**** Additive functors
+A functor $T : \mathtt{RMod} \longrightarrow \mathtt{Ab}$ is called *additive* if, for every pair of R-maps,
+$f,g$, we have:
+
+\[
+T(f+g) = Tf + Tg
+\]
+
+***** Properties of additive functors
+Let $T : \mathtt{RMod} \longrightarrow \mathtt{Ab}$ be an additive functor:
+
+  1. $T(0) = 0$, the zero map.
+  2. $T(\{0\}) = \{0\}$, the zero group.
+
+****** Proof
+******* First property
+$T0 = T(0+0) = T0+T0$, and then $T0 = 0$.
+
+******* Second property
+$Hom(A,\{0\})$ only has one element.
+
+**** Homomorphisms of r-modules are abelian groups
+Given $A,B$ R-modules, $Hom_{R-mod}(A,B)$ is an abelian group with the
+componentwise sum.
+
+**** Hom as an additive functor
+$Hom_{R-mod}(A,-)$ is an additive functor.
+
+***** TODO Central case
+
+**** TODO Hom as a contravariant functor
+**** Submodules
+Given $M$, an R-module, a *submodule* $N \subseteq M$ is an additive subgroup
+closed under scalar multiplication.
+
+***** Examples of submodules
+****** Subgroups
+A submodule of a Z-module (abelian group) is a subgroup.
+
+**** Quotient of modules
+**** Kernels, images and cokernels
+**** First Isomorphism Theorem
+**** Second Isomorphism Theorem
+**** Third Isomorphism Theorem
+**** Correspondence Theorem
+**** Simple module
+A proper R-module $M$ is simple if it has no proper submodules.
+
+***** Characterization
+$M$ is simple iff $M \cong R/I$, where $I$ is a maximal left ideal.
+
+****** TODO Proof
+
+**** Exact sequences
+**** Zero-ended exact sequences
+**** Short exact sequences
+**** External direct sum
+***** Properties of the external direct sum
+**** Internal direct sum
+**** Direct summands and complements
+***** Retractions
+**** Direct product
+***** Direct sum
+***** Projections
+***** Injections
+**** Free modules
+***** Basis
+***** Free abelian groups
+**** Basis
+***** Invariant basis number
+***** Rank
+**** Left exactness
+*** 2.2. Tensor products
+**** Bilinearity
+***** Biadditivity
+**** Tensor product
+***** Uniqueness
+***** Existence
+**** Tensor functors
+**** Universal property of the tensor product
+**** Commutativity
+**** Enveloping algebra
+**** Right exactness
+**** Tensor and direct sum
+**** Four Lemma I
+**** Four Lemma II
+**** Five Lemma
+**** Divisible abelian group
+*** 2.2.1. Adjoint isomorphisms
+**** Adjoint isomorphisms
+**** Right exactness
+** 3. Special Modules
+*** 3.1. Projective modules
+**** Exact functor
+**** Lifting on free modules
+**** Lifting
+**** Projective modules
+**** Characterization of projective modules
+**** Projective modules and direct summands
+**** Kaplansky theorem
+**** Projective basis
+**** Schnauel's Lemma
+**** Ascending chaing condition
+**** Noetherian rings
+**** Characterization of noetherian rings
+**** Hilbert basis theorem
+*** 3.2. Injective modules
+**** Injective module
+**** Characterization of injective modules
+**** Product of injective modules
+**** Baer criterion
+**** Divisible modules
+**** Bass-Papp theorem
+**** Characterization by short exact sequences
+**** Essential extension
+**** Characterizacion by essential extensions
+**** Injective envelope
+**** Eckmann-Schöpf
+*** 3.3. Flat modules
+**** Flat module
+**** Direct sum of flat modules
+**** Finitely generated submodules and flat modules
+**** Torsion module
+**** Torsion-free module
+***** PID module
+***** Flat modules
+**** Character module
+**** Lambek theorem
+**** Villamayor theorem
+**** Left coherent ring
+**** Chase theorem
+*** 3.3.1. Purity
+**** Pure exact sequence
+***** Pure submodule
+**** Characterization of flatness
+**** Cohn theorem
+** 4. Specific Rings
+*** 4.2. Von Neumann Regular Rings
+**** Von Neumann Regular ring
+A ring $R$ is *Von Neumann regular* if:
+
+\[
+\forall r \in R: \exists r' \in R: rr'r = r
+\]
+
+***** Boolean rings
+A ring is boolean if every element is idempotent. Every boolean ring
+is a commutative Von Neumann regular ring.
+
+** 5. Setting the stage
+*** 5.4. Sheaves
+**** Protosheaves
+ #+begin_definition
+ *Local homeomorphism*. Continuous map $p : E \longrightarrow X$ such that for each $e \in E$ there is
+ an open neighboorhood $S$ of $e$ such that $p|_S$ is an isomorphism.
+ #+end_definition
+ #+begin_definition
+ *Protosheaf*. Surjective local homeomorphism.
+ #+end_definition
+
+**** Etale-sheaves
+ #+begin_definition
+ *Etale-sheaf of abelian groups*. A *protosheaf* such that:
+
+ - The stalk $E_x$ is an abelian group.
+ - Inversion and adition are continuous.
+ #+end_definition
+
+ #+begin_definition
+ *Etale-map*. Given two etale-sheaves $E$ and $E'$, a map $\phi : E \longrightarrow E'$ such
+ that $p'\phi = p$, and each $\phi|_{E_x}$ is a homomorphism.
+ #+end_definition
+
+ Here, etale-sheaves of abelian groups over a topological space X form an
+ abelian category $\mathtt{Sh}_{et}(X,\mathtt{Ab})$.
+
+*** 5.5. Abelian categories
+**** Additive category
+ #+begin_definition
+ *Additive category*. ${\cal C}$ is additive if:
+
+ - $Hom(A,B)$ is an *abelian group*.
+ - *Distributivity* holds: $b \circ (f+g) = b\circ f + b \circ g$ and $(f+g)\circ a = f\circ a + g\circ a$.
+ - Has a *zero object*.
+ - Has finite *products* and *coproducts*.
+
+ A functor $T$ between two additive categories is additive if $T(f+g) = Tf+Tg$.
+ #+end_definition
+
+ #+begin_theorem
+ *Sums and products are the same*. Products and coproducts are isomorphic:
+
+ \[A \mathbin{\Pi} B \cong A \amalg B\]
+
+ So we call them *direct sums*, $A \oplus B$. And there are canonical morphisms:
+
+ \[ \begin{tikzcd}
+ & A \oplus B \dlar[bend right,swap]{\pi_A} \drar[bend left]{\pi_B} $ \\
+ A \urar[bend right,swap]{i_A} & & B \ular[bend left]{i_B}
+ \end{tikzcd} \]
+
+ Such that: \(i_A \circ \pi_A + i_b \circ \pi_B = id\) and \(\pi_B \circ i_A = \pi_A \circ i_B = 0\).
+ #+end_theorem
+
+**** Monomorphisms and epimorphisms
+
+#+begin_definition
+*Monomorphism*. A morphism $u$ such that:
+\[u \circ f = u \circ g \quad \Rightarrow \quad f = g\]
+#+end_definition
+
+#+begin_definition
+*Epimorphism*. A morphism $u$ such that:
+\[f \circ u = g \circ u \quad \Rightarrow \quad f = g\]
+#+end_definition
+
+We have that $u : B \longrightarrow C$ is *monomorphism* iff the induced 
+$u^\ast : Hom(A,B) \longrightarrow Hom(A,C)$ is injective. And $v : B \longrightarrow C$ is *epimorphism* 
+iff the induced $v^* : Hom(B,D) \longrightarrow Hom(C,D)$ is surjective.
+
+**** Kernels and cokernels
+ #+begin_definition
+ *Kernel*. The kernel of $u$ is the equalizer of $u$ and $0$. In a diagram:
+
+ \[ \begin{tikzcd}
+ & C \dar[dashed] \arrow[ddr, bend left] \arrow[ddl,bend right] &\\
+ & \ker(u) \dlar[swap]{i} \drar{0} & \\
+ A \arrow[shift left]{rr}{u} \arrow[shift right]{rr}[swap]{0} & & B
+ \end{tikzcd} \]
+ #+end_definition
+ #+begin_definition
+ *Cokernel*. The cokernel of $u$ is the coequalizer of $u$ ans $0$. In a diagram
+
+ \[ \begin{tikzcd}
+ & C &\\
+ & \ker(u) \uar[dashed]   & \\
+ A \urar{0} \arrow[uur, bend left]
+ \arrow[shift left]{rr}{u} \arrow[shift right]{rr}[swap]{0} & & 
+ B \ular[swap]{\pi} \arrow[uul,bend right]
+ \end{tikzcd} \]
+ #+end_definition
+
+ #+begin_theorem
+ *Monomorphisms and kernels*.
+ - If $\ker(u)$ exists, $u$ is monomorphism iff $ker(u) = 0$.
+ - If $coker(v)$ exists, $v$ is epimorphism iff $coker(v) = 0$.
+ #+end_theorem
+**** Abelian category
+ #+begin_definition
+ *Abelian category*. ${\cal C}$ is abelian if
+
+ - Every morphism has *kernel* and *cokernel*.
+ - Every monomorphism is a *kernel*.
+ - Every epimorphism is a *cokernel*.
+ #+end_definition
+
+ Abelian categories are /self-dual/, if ${\cal A}$ is an abelian category, then
+ ${\cal A}^{op}$ is an abelian category.
+
+ #+begin_definition
+ *Image*. Given $f : A \longrightarrow B$ in an abelian category, its image is:
+
+ \[img(f) = ker(coker(f))\]
+ #+end_definition
+
+* Carlos Ivorra - Álgebra conmutativa
+** I. Funtores Derivados
+*** 1.1. Haces
+**** Prehaces
+Un *prehaz* sobre un espacio topológico $X$ es un par $({\cal F},\rho)$, donde cada abierto $U$
+tiene un grupo asociado ${\cal F}(U)$ y cada inclusión $U \subset V$ tiene asociado un homomorfismo
+llamado *restricción*, $\rho_U^V : {\cal F}(V) \longrightarrow {\cal F}(U)$ cumpliendo:
+
+  - ${\cal F}(\varnothing) = 0$
+  - $\rho_U^U$ es la identidad
+  - Si $U\subset V\subset W$, entonces $\rho_V^W \circ \rho_U^V = \rho_U^W$
+
+Cuando los grupos ${\cal F}(U)$ son anillos o módulos tenemos un *prehaz de anillos* o un
+*prehax de módulos*.
+
+# Categóricamente, un funtor contravariante desde los conjuntos del espacio
+# topológico con la inclusión a los grupos, o módulos, o álgebras...
+
+**** Notación de restricción
+Normalmente escribiremos $f|_{U}$ para llamar a la restricción de $f$ a $U$, esto 
+es $\rho_U^V(f)$.
+
+**** Haces
+Un *haz* es un prehaz tal que si $U = \bigcup U_i$ es el recubrimiento de un abierto:
+
+  - Si $f|_{U_i} = 0$ para todos los $i$, entonces $f = 0$.
+  - Para una familia de elementos $f_i \in {\cal F}(U_i)$ cumpliendo que 
+    $f_i|_{U_i \cap U_j} = f_j|_{U_i \cap U_j}$, se tiene que hay un $f \in {\cal F}(U)$ tal que $f|_{U_i} = f_i$.
+
+**** Grupo de gérmenes o grupo local
+Dado un prehaz ${\cal F}$ sobre $X$, con $P \in X$, llamamos *grupo de gérmenes* en $P$ al grupo
+${\cal F}_P$, formado por las clases de equivalencia de pares $(U,f)$ con $P\in U$, $f \in {\cal F}(U)$;
+respecto de la relación dada por $(U,f) \sim (V,g)$ ssi hay un abierto $W \subset U \cap V$
+tal que $P \in W$ y además $f|_W = g|_W$. Teniendo como operación de grupo a:
+
+\[ [(U,f)]+[(V,g)] = [(U\cap V, f|_{U\cap V} + g|_{U\cap V})] \]
+
+**** Homomorfismo de prehaces
+Un *homomorfismo de prehaces* $\alpha : {\cal F} \longrightarrow {\cal G}$, asigna a cada abierto $U$ un homomorfismo
+de grupos $\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)$, tal que:
+
+\[ \begin{tikzcd}
+{\cal F}(V) \rar{\alpha_V} \dar[swap]{\rho_U^V} & {\cal G}(V) \dar{\rho_U^V} \\
+{\cal F}(U) \rar{\alpha_U} & {\cal G}(U)
+\end{tikzcd} \]
+
+# Categóricamente son transformaciones naturales.
