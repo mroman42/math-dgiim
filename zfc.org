@@ -1,0 +1,239 @@
+#+TITLE: ZFC
+#+AUTHOR: Mario Román
+#+EMAIL: mromang08@gmail.com
+
+#+LANGUAGE: es
+#+SETUPFILE: essay.setup
+#+SETUPFILE: math.setup
+#+SETUPFILE: html.setup
+#+OPTIONS: broken-links:mark num:nil
+
+* ZFC - Pablo Baeyens
+# Estos apuntes han sido tomados durante el seminario de Pablo
+# Baeyens para LibreIM sobre ZFC. El artículo que acompaña a
+# este seminario puede leerse en
+#
+#  http://tux.ugr.es/libreim/blog/2017/03/25/zfc/
+#
+# Estos apuntes están licenciados bajo CC-BY-SA.
+Utilizando lógica de primer orden.
+
+\[
+\wedge, \implies, \iff, \forall, \exists
+\]
+
+Además de:
+
+- Un conjunto infinito numerable de variables: $x_1,x_2,\dots$
+- Sólo puede cuantificarse sobre variables.
+- Reglas para fórmulas bien formadas.
+
+Símbolos propios de la teoría de conjuntos:
+
+- $=, \in$
+
+Se usa internamente la axiomática de la lógica de primer orden.
+
+** Axiomas de la igualdad
+La igualdad es relación de equivalencia. Es
+
+ 1. Reflexiva, $\forall x: x=x$.
+ 2. Transitiva, $\forall x,y,z: x=y \wedge x=y \implies x=z$.
+ 3. Simétrica, $\forall x,y : x=y \iff y=x$.
+ 4. Sustitución, $\forall x,y: x=y \implies \varphi \iff \varphi'$ donde $\varphi'$ sale de sustituir $x$.
+
+** Números como conjuntos
+Algunas teorías consideran elementos que no tienen elementos dentro.
+En nuestro caso usaremos conjuntos para representar todos los objetos
+matemáticos.
+
+*** Números naturales
+Definimos:
+
+ - $0 = \varnothing$
+ - $S(x) = x \cup \{x\}$
+
+*** Otra construcción posible
+Definiendo:
+
+ - $\varnothing$
+ - $S(x) = \{x\}$
+
+*** Construcción de funciones
+Para definir una función, usamos su gráfico:
+
+\[\{(a,b) \in A \times B \mid f(a) = b\}\]
+
+** Restricciones
+No podemos hablar todavía del conjunto de todos los conjuntos. Dentro
+de ZFC no podemos hablar de cosas como $Obj(\mathtt{Set})$.
+
+** Axiomas de la teoría de conjuntos
+Tomamos como ciertos:
+
+*** 0. Axioma de existencia
+$\exists x : x=x$
+
+*** 1. Axioma de extensionalidad
+$\forall x,y:(\forall z: z\in x \implies z \in y) \implies x = y$
+
+De paso definimos la inclusión:
+
+\[
+x \subseteq y := \forall z: z\in x \implies z \in y
+\]
+
+Y este axioma es equivalente a la antisimetría de la inclusión.
+
+*** 2. Axioma de comprensión
+Exigiendo que $A$ no aparezca como variable libre en $\varphi$.
+
+\[
+\forall A: \exists B: \forall z:\left( \varphi(z) \vee z \in A\right) \iff z \in B
+\]
+
+Puede usarse para demostrar que existe el conjunto vacío. O que
+no existe el conjunto universal.
+
+**** Paradoja de Russell
+Supongamos el universal $U$. Podríamos definir:
+
+\[
+R = \{x \in U \mid x \notin x\}
+\]
+
+Tanto $R \in R$ como $R \notin R$. Para evitarla podríamos haber usado
+estratificación.
+
+**** El número de axiomas es numerable
+Las fórmulas son sucesiones finitas de los símbolos que hemos usado
+antes. Al haber una cantidad numerable de símbolos, las fórmulas son
+numerables, y los axiomas que se generan en este esquema lo son.
+
+**** NBG
+En la teoría axiomática de Von-Neumann se usa un número finito de
+axiomas.
+
+**** Diferencia de conjuntos
+\[A-B = \{x \in A \mid x \notin B\}\]
+
+**** Intersección de conjuntos
+Nótese que todavía no podemos definir la unión arbitraria.
+
+\[
+\bigcap {\cal F} = \{x \in A \mid \forall y \in {\cal F} x \in y\}
+\]
+
+*** 3. Axioma del par
+Dados dos conjuntos, tenemos uno que los contiene a los dos:
+
+\[
+\forall a,b : \exists z:
+(a\in z \vee b \in z)
+\]
+
+**** Naturales
+Con este axioma podemos construir los naturales en su segunda 
+construcción.
+
+**** Hay conjuntos no vacíos
+Hasta ahora, los axiomas eran consistentes con que sólo existiera
+el conjunto vacío.
+
+**** Pares ordenados
+Definimos un par ordenado:
+
+\[
+(a,b) := \{a , \{a,b\}\}
+\]
+
+*** 4. Axioma de la unión
+Para una colección de conjuntos, crearemos una unión:
+
+\[
+\forall {\cal F}: \exists A: \forall Y,x: (x \in Y \wedge Y \in {\cal F}) \implies x \in A
+\]
+
+*** 5. Axioma del infinito
+Construye directamente los números naturales:
+
+\[
+\exists I: \varnothing \in I \wedge \forall x: x\in I \implies S(x) \in I \longrightarrow \exists \mathbb{N}
+\]
+
+Lleva a la existencia de cardinales grandes.
+
+**** Finitud
+Hasta ahora, podríamos trabajar suponiendo todos los conjuntos finitos.
+
+*** 6. Axioma del conjunto potencia
+Existencia del conjunto potencia:
+
+\[
+\forall x: \exists y: \forall z: z \subseteq x \implies z \in y
+\]
+
+**** Producto cartesiano
+Podemos definir el producto cartesiano de $A,B$. Tenemos que todos los
+elementos $a\in A,b \in B$ llevan a $\{a,b\} \in {\cal P}(A,B)$.
+
+\[
+A \times B = \{ x \in {\cal P}{\cal P}(A \cup B) \mid x = (a,b), a \in A, b \in B\}
+\]
+
+Nótese que así sólo hemos creado el producto cartesiano finito.
+
+**** Funciones
+Con el producto cartesiano, podemos pasar a ver las funciones como su
+gráfico.
+*** 7. Axioma de reemplazamiento
+Con estos seis axiomas, que constituyen la teoría de Zermelo, no
+podemos definir el conjunto con:
+
+\[
+\mathbb{N}, {\cal P}\mathbb{N}, {\cal P}{\cal P}\mathbb{N}, \dots
+\]
+
+Un predicado funcional es una fórmula con variables libres $\varphi(x,y)$ 
+que se comporta como una función:
+
+\[
+\forall x: \exists! y: \varphi(x,y)
+\]
+
+Tenemos entonces:
+
+\[
+\forall z: \exists \omega: \forall x,y: (x \in z \wedge \varphi(x,y) \implies y \in \omega)
+\]
+
+**** Definiendo el conjunto de potencias
+Usando la función $n \mapsto {\cal P}^n(\mathbb{N})$.
+
+**** Definiendo la imagen por un funcional
+Definimos $\{x \in A \mid \phi(x)\}$ partiendo en el caso de que exista y 
+de que no.
+
+**** No existe el conjunto de todos los conjuntos.
+Si existiera, podríamos usar todas las topologías triviales y desde ahí
+el conjunto universal.
+*** 8. Axioma de elección
+Para cualquier familia de conjuntos sin ninguno vacío,
+
+\[
+\forall {\cal F} : 
+\left(
+\forall x \in {\cal F} :\varnothing \neq x
+\implies 
+\exists f : {\cal F} \to \bigcup {\cal F}: f(a) \in A
+\right)
+\]
+
+Siendo $f$ una función.
+
+*** 9. Axioma de fundación
+Para cualquier conjunto no vacío:
+
+\[
+\forall x: (x \neq \varnothing \implies \exists y: y \in x \wedge x \cap y = \varnothing)
+\]
