@@ -547,3 +547,83 @@ If something is provable, it holds in every Heyting algebra.
 
 ** Issue: negation and complement
 In a boolean algebra, $A \vee \neg A \simeq \top$.
+** Homework 1: Heyting algebra and IPL [5/6]
+*** DONE Task 1
+#+begin_statement
+Show that $A \wedge (B \vee C) \leq (A \wedge B) \vee (A \wedge C)$ in any Heyting algebra.
+Hint: use the Yoneda Lemma.
+#+end_statement
+
+The Yoneda Lemma in this setting says that the statement is equivalent
+to say that, for all $D$, if $(A \wedge B) \vee (A \wedge C) \leq D$, then $A \wedge (B \vee C) \leq D$.
+In this case we have
+
+ * $A \wedge B \leq D$
+ * $A \wedge C \leq D$
+
+and crucially using the definition of exponential
+
+ * $B \wedge C \leq B,C \leq A \supset D$.
+
+*** DONE Task 2
+#+begin_statement
+Show that in any Heyting algebra, $A \supset \bot$ is one of the largest elements
+inconsistent with $A$, and is equivalent to any largest inconsistent one.
+#+end_statement
+
+By definition, $A \wedge (A \supset \bot) \leq \bot$, and for any other element $C$ such that
+$A \wedge C \leq \bot$, $C \leq (A \supset \bot)$. Any other largest inconsistent element should
+satisfy $(A \supset \bot) \leq C$.
+
+*** DONE Task 3
+#+begin_statement
+Show that, in any Boolean algebra (complemented distributive lattice),
+$\overline{A} \vee B$ is a valid implementation of $A \supset B$. That is, it satisfies all
+properties of $A \supset B$.
+#+end_statement
+
+We know that
+
+\[
+A \wedge (\overline{A}\vee B) \leq 
+(A \wedge \overline{A}) \vee (A \wedge B) \leq
+(A \wedge B) \leq B
+\]
+
+and if $A \wedge C \leq B$, then
+
+\[
+C \leq
+C \wedge (A \vee \overline{A}) \leq
+B \vee (C \wedge \overline{A}) \leq \overline{A} \vee B.
+\]
+*** TODO Task 4
+#+begin_statement
+Show that IPL is transitive, which is to say ...
+#+end_statement
+
+*** DONE Task 5
+#+begin_statement
+Show that for any Heyting algebra and any evaluation function on
+atoms, if $\Gamma \vdash P$ true then $\Gamma^+\leq P^{\ast}$. You only have to consider the
+cases in which the last rule applied is $(\supset I)$ or $(\supset E)$.
+#+end_statement
+
+  * In the first case, $(\supset I)$, we know that $\Gamma, A \vdash B$. By induction,
+    we know that $\Gamma^{+} \wedge A^{\ast} \leq B^{\ast}$, and then $\Gamma^{ +} \leq (A^{\ast} \supset B^{\ast})$.
+  * In the second case, we know by induction that $\Gamma^{ +} \leq A^{\ast} \supset B^{\ast}$ and
+    $\Gamma^{+} \leq A^{\ast}$, so $\Gamma^{ +} \leq A^{\ast} \wedge (A^{\ast} \supset B^{\ast}) \leq B^{\ast}$.
+
+*** DONE Task 6
+#+begin_statement
+Consider the Lindembaum algebra of IPL where the elements are all
+propositions in IPL (with the translation $(-)^{\ast}$ being the identity function) 
+and the relationship $\leq$ is defined by provability in IPL. That is, $A\leq B$ 
+iff $A \text{ true} \vdash B\text{ true}$. Show that this is a Heyting algebra. You only have to
+prove the transitivity. You may assume weakening and exchange of IPL,
+or cite previous tasks as lemmas.
+#+end_statement
+
+If $A \leq B$ and $B \leq C$, we know that, by weakening, $A \text{ true},B \text{ true} \vdash C \text{ true}$.
+We now can apply transitivity to $A \text{ true} \vdash B \text{ true}$ and the previous formula
+to obtain $A \text{ true} \vdash C \text{ true}$.
