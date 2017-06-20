@@ -8,7 +8,7 @@
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | CHECK DONE
 
-* Lecture 1: Course intro
+* Lecture 1: Intuitionistic Type Theory
 ** Intuitionistic Type Theory (TT), 
 The *Intuitionistic Type Theory* is based on the work of Per
 Martin-Löf on the 1970s.  It is an analysis and expansion of Brouwer's
@@ -201,7 +201,7 @@ We will write a grammar of proofs.
    \BinaryInfC{B true}
    \end{prooftree}
 
-* Lecture 2: Judgements
+* Lecture 2: Intuitionistic Propositional Logic
 ** Negative fragment of intuitionistic propositional logic
 We have talked about
 
@@ -538,7 +538,7 @@ If something is provable, it holds in every Heyting algebra.
 ** Issue: negation and complement
 In a boolean algebra, $A \vee \neg A \simeq \top$.
 
-* Lecture 3: Transitivity
+* Lecture 3: Propositions as Types
 ** Last week
 Last week we saw IPL from a provability perspective. $A$ is true if it
 has a proof, and $A$ is false if it has a refutation. We got the
