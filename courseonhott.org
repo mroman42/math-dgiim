@@ -591,6 +591,371 @@ We will assume $\neg (A \vee \neg A)$ and arrive at a contradiction. If we
 assume $A$, we have $A \vee \neg A$, and then a contradiction, so it must
 be the case that $\neg A$. We know now that $A \vee \neg A$, arriving at a
 contradiction.
+
+** Prove the disjunction property for IPL
+We interpret the rules of IPL as an inductive definition of
+the entailment relation.
+
+We have finitary derivation trees of every $\Gamma \vdash A$.
+
+*** Disjunction property: formal statement
+If $\varnothing \vdash A \vee B \text{ true}$, then $\varnothing \vdash A \text{ true}$ or $\varnothing \vdash B \text{ true}$.
+
+**** Counterexample if the context were not empty
+If we take $A \vee B$ as an assumption, this would trivially
+not hold.
+*** Disjunction property: draft of a proof
+We will use an induction on derivations. We examine all possible
+derivations $\varnothing \vdash A \vee B \text{ true}$ and show that there are derivations of
+$A$ or $B$ also.
+
+The last step of a derivation of $A \vee B$ should be an introduction
+$\vee-I_{1}$ or $\vee-I_2$; so there should be a derivation of $A$ or $B$ in
+the previous step. The assumption rule is also not applicable.
+Conjunction introduction is not applicable, and the same hold for
+true introduction and implication introduction. Elimination rules
+are our real problem here. For example, implication elimination should
+be proved.
+
+To prove this for the implication elimination rule, we suppose that
+we have the derivations for $\vdash C$ and $C \vdash (A \vee B)$, and then we could
+inline the first derivation using transitivity of entailment to get
+a derivation of $\vdash A \vee B$. Note that this is not a complete proof! the
+derivation of $C \supset (A \vee B)$ could have be done by other elimination
+rules and we should prove that for them too.
+** Structural properties are admissible
+*Weakening is admissible*, if $\Gamma \vdash_{IPL} B\text{ true}$, then $\Gamma,A \text{ true} \vdash_{IPL} B \text{ true}$.
+If you give a derivation of the first, you can get a derivation of the
+second one.
+
+*** Why is weakening admissible
+Because the rules are polymorphic! They do not depend of Gamma. We
+could inductively weaken every step $\Gamma \mapsto \Gamma,A\text{ true}$, and then, reapplying
+the rules, would give us the same conclusion.
+
+*** Similarly
+You could do exchange or contraction. But reflexivity is a primitive rule!
+Transitivity for $\text{IPL}^{-}$ is homework.
+*** We have now defined a good logic
+It is not simply a bunch of rules, they follow a criteria. The
+structural properties should hold. There are substructural logics,
+but those are not our topic of interest.
+** Gentzen's insight
+Our previous idea to prove the disjunction property uses crucially an
+inversion principle between implication introduction and implication
+elimination.
+
+*ELIM is post-inverse to INTRO.*
+
+We are saying something like the following for introductions, eliminations
+and derivations.
+
+ * $(\wedge E_1 \circ \wedge I)({\cal D}_1,{\cal D}_2) = {\cal D}_1$
+
+This gives rise to a dynamics of proof! We do not only look at provability,
+we look at the proofs per se.
+
+** II. Proof relevant logic
+We will write a grammar of proofs. $M : A$ means that $M$ is a proof
+of $A$. In correspondence with the assumptions, there is the concept
+of variables
+
+\[ x_1:A_1, \dots , x_n:A_n \vdash M : A.\]
+
+Transitivity now reads as a substitution rule
+
+\begin{prooftree}
+\AxiomC{$\Gamma, x : A\vdash M : B$}
+\AxiomC{$\Gamma \vdash N : A$}
+\BinaryInfC{$[N/x]M : B$}
+\end{prooftree}
+
+and reflexivity is only a use of a variable
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma, x:A \vdash x : A$}
+\end{prooftree}
+
+We will write this derivations as mappings on a bicartesian closed category
+
+\[M : A_1 \times \dots \times A_n \to A.
+\]
+
+Proof-relevant logic will give rise to Type Theory and Category Theory.
+* Lecture 4: Proof Reduction and Equivalence
+We first saw logic from the point of view of provability. We are going
+to look at the idea of logic with proofs. From the first, we got Heyting
+Algebras; from the second, we are going to get bicartesian closed categories.
+
+We going to define equivalence of proofs $M \equiv N : A$.
+
+** Proof terms
+We will need a grammar of proofs to construct proof terms.
+The structural properties are now properties for this grammar.
+
+ * Reflexivity is now the introduction of a variable.
+ * Transitivity is now the substitution of a variable.
+ * Weakening is now the ability to discard variables.
+ * Contraction is now a replication of variables.
+ * Exchange is a permutation of variables.
+
+** Logic
+Now the negative fragment of our logic can be written as
+
+\begin{prooftree}
+\RightLabel{$(\top_{I})$}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash \left\langle  \right\rangle : \top$}
+\end{prooftree}
+
+\begin{prooftree}
+\RightLabel{$(\wedge-I)$}
+\AxiomC{$\Gamma \vdash M : A$}
+\AxiomC{$\Gamma \vdash N : B$}
+\BinaryInfC{$\Gamma \vdash \left\langle M,N \right\rangle : A \wedge B$}
+\end{prooftree}
+
+\begin{prooftree}
+\RightLabel{$(\wedge_{E1})$}
+\AxiomC{$\Gamma \vdash M : A \wedge B$}
+\UnaryInfC{$\Gamma \vdash \text{fst}(M) : A$}
+\RightLabel{$(\wedge_{E2})$}
+\AxiomC{$\Gamma \vdash M : A \wedge B$}
+\UnaryInfC{$\Gamma \vdash \text{snd}(M) : B$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+
+
+\begin{prooftree}
+\RightLabel{$(\supset_{I})$}
+\AxiomC{$\Gamma, x:A \vdash M:B$}
+\UnaryInfC{$\Gamma \vdash \lambda x . M : A \supset B$}
+\end{prooftree}
+
+\begin{prooftree}
+\RightLabel{$(\supset_{E})$}
+\AxiomC{$\Gamma \vdash M . A \supset B$}
+\AxiomC{$\Gamma \vdash N : A$}
+\BinaryInfC{$\Gamma \vdash M(N) : B$}
+\end{prooftree}
+
+** Gentzen's Inversion principle
+** Definitional equality
+In first order logic, no one draws a distinction between propositional
+equality and definitional equality.
+
+*Definitional equality* is the least congruence closed under the following
+rules
+ 
+ * it is a equivalence relation.
+ * it is compatible with the rules.
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M \equiv M' : A \wedge B$}
+\UnaryInfC{$\Gamma \vdash \text{fst}(M) \equiv \text{fst}(M') : A$}
+\end{prooftree}
+
+Now the inversion principle can be written on proof terms.
+Simplifications such as $\text{fst}\left\langle M,N \right\rangle \equiv M$ are now useful if we
+interpret this as a running program with proof dynamics.
+
+Those are called Beta rules.
+The inversion principle on conjunction is now
+
+\begin{prooftree}
+\RightLabel{$(\beta\wedge_1)$}
+\AxiomC{$\Gamma \vdash M : A$}
+\AxiomC{$\Gamma \vdash N : B$}
+\BinaryInfC{$\Gamma \vdash \text{fst}\left\langle M,N \right\rangle \equiv M : A$}
+\RightLabel{$(\beta\wedge_2)$}
+\AxiomC{$\Gamma \vdash M : A$}
+\AxiomC{$\Gamma \vdash N : B$}
+\BinaryInfC{$\Gamma \vdash \text{snd}\left\langle M,N \right\rangle \equiv N : B$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+
+The inversion principle on implication is inlining
+
+\begin{prooftree}
+\RightLabel{$(\beta\supset_1)$}
+\AxiomC{$\Gamma,x:A \vdash M : B$}
+\AxiomC{$\Gamma \vdash N : A$}
+\BinaryInfC{$\Gamma \vdash (\lambda x. M)(N) \equiv [N/x]M : B$}
+\end{prooftree}
+
+Now we can compute by calculation with closed terms written
+as $M \equiv N$.
+
+** Gentzen's Unicity Principles
+Those are $\eta$ rules.
+
+\begin{prooftree}
+\RightLabel{$(\eta\top)$}
+\AxiomC{$\Gamma \vdash M : \top$}
+\UnaryInfC{$\Gamma \vdash M \equiv \left\langle  \right\rangle : \top$}
+\end{prooftree}
+
+\begin{prooftree}
+\RightLabel{$(\eta\wedge)$}
+\AxiomC{$\Gamma\vdash M: A \wedge B$}
+\UnaryInfC{$M \equiv \left\langle \text{fst}(M),\text{snd}(M) \right\rangle$}
+\end{prooftree}
+
+\begin{prooftree}
+\RightLabel{$(\wedge\supset)$}
+\AxiomC{$\Gamma\vdash M:A \supset B$}
+\UnaryInfC{$\Gamma\vdash M \equiv \lambda x. Mx : A \supset B$}
+\end{prooftree}
+
+** Propositions as types
+The inversion and unicity principles will make a very strong
+correspondence on categories.
+
+\begin{tabular}{c|c|c|c}
+Latticces & Propositions & Types & Categories \\
+\hline
+greatest & $\top$ & $1$ & final object \\
+meets & $A \wedge B$ & $A \times B$ & finite products \\
+exponential & $A \supset B$ & $A \to B$ & exponential \\
+minimum & $\bot$ & $0$ & initial object \\
+joins & $A \vee B$ & $A+B$ & coproducts
+\end{tabular}
+
+** Category
+A *category* is a generalized preoder with evidence.
+The difference between preorder and partial order is
+related to univalence
+
+\begin{prooftree}
+\AxiomC{$A \leq B$}
+\AxiomC{$B \leq A$}
+\BinaryInfC{$A \equiv B$}
+\end{prooftree}
+
+where this is an instance of univalence. 
+
+In a category we have the structure of a preorder
+
+ 1) Reflexivity, $\mathrm{id} : A \to A$.
+ 2) Transitivity; if $f: A \to B$ and $g : B \to C$ then
+    $g \circ f : A \to C$.
+
+Those have to satisfy some coherence conditions, which are 
+the following unit laws
+
+ * $\mathrm{id_B}\circ f = f = f \circ \mathrm{id_A}$
+ * $f \circ (g \circ h) = (f\circ g)\circ h$
+
+The equality here is interesting. We could think of this structure
+representing two paths and an homotopy between two paths on a 2-cell;
+some kind of transformation. We are going to talk of a deformation
+given by an associator
+
+\[
+\alpha : f \circ (g \circ h) \to (f \circ g) \circ h.
+\]
+
+And those notions of evidence (which act as natural transformations) need
+also a notion of equivalence and a higher dimensional map between them. But 
+this process could be repeated to infinity!
+
+We are going to express the relation of types and terms in categorical terms.
+
+** Terminal object
+Definition of final object
+
+\begin{prooftree}
+\AxiomC{$$}
+\UnaryInfC{$\left\langle\right\rangle : A \to 1$}
+\AxiomC{$M : A \to 1$}
+\RightLabel{$(\eta{\top})$}
+\UnaryInfC{$M = \left\langle  \right\rangle : 1$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+
+this was, in our old notation, $A \vdash \left\langle  \right\rangle : 1 = \top$.
+
+** Product objects
+There are maps
+
+ 1) $\mathrm{fst} : A \times B \to A$
+ 2) $\mathrm{snd} : A \times B \to A$
+
+satisfying
+
+\[\begin{tikzcd}[column sep=tiny]
+& D \ar[bend left]{ddr}{M}\ar[swap,bend right]{ddl}{N}\dar[dashed]{\exists!} & \\
+& A \times B \drar[swap]{\mathrm{fst}} \dlar{\mathrm{snd}} & \\
+A && B
+\end{tikzcd}\]
+
+Pairing is the function taking two functions and returning
+the function to the product
+
+\begin{prooftree}
+\AxiomC{$M : D \to A$}
+\AxiomC{$N : D \to B$}
+\BinaryInfC{$\left\langle M,N \right\rangle : D \to A \times B$}
+\end{prooftree}
+
+algebraically,
+
+ * $\mathrm{fst}\circ \left\langle M,N \right\rangle = M : D \to A$
+ * $\mathrm{snd}\circ \left\langle M,N \right\rangle = N : D \to B$
+
+and there is a uniqueness condition; given
+
+\begin{prooftree}
+\RightLabel{$(\eta \times)$}
+\AxiomC{$P : D \to A \times B$}
+\AxiomC{$\mathrm{fst} \circ P = M$}
+\AxiomC{$\mathrm{snd} \circ P = N$}
+\TrinaryInfC{$P = \left\langle M,N \right\rangle : D \to A \times B$}
+\end{prooftree}
+
+the uniqueness can be seen as the existence of homotopy between
+any two functions making the product diagram commute.
+
+In particular, $\left\langle  \mathrm{fst}\circ P, \mathrm{snd} \circ P  \right\rangle = P$. Or we can say that $\left\langle \mathrm{fst}, \mathrm{snd} \right\rangle = \mathrm{id}$
+or $\left\langle M,N \right\rangle \circ P = \left\langle M\circ P,N \circ P \right\rangle$.
+
+Lawvere and Lambek first saw those connections on the 70s.
+** Exponentials
+The exponential $B^A$, gives the application map with the universal
+diagram
+
+\[\begin{tikzcd}
+C \dar[dashed,swap]{\exists! \lambda(h)} & 
+C \times A \ar{dr}{h}\dar[dashed,swap]{\lambda(h) \times id_A} & \\
+B^{A} & B^{A} \times A \rar[swap]{app} & B \\
+\end{tikzcd}\]
+
+If we write that on syntax, that is equal to
+
+ * $app(\lambda(h) \times \mathrm{id}) = ap \circ \left\langle \lambda(h) \circ \mathrm{fst}, \mathrm{snd} \right\rangle = h$.
+ * if there is any $g$ such that $ap \circ (g \times \mathrm{id}) = h$, then $g = \lambda(h)$.
+
+We get the $\eta\text{-rule}$ of
+
+\[
+g = \lambda(\mathrm{ap} \circ (g \times \mathrm{id}))
+  = \lambda(\mathrm{ap} \circ \left\langle g \circ \mathrm{fst}, \mathrm{snd} \right\rangle).
+\]
+
+The essence of all this is
+
+\begin{prooftree}
+\AxiomC{$\Gamma, x:A \vdash h : B$}
+\UnaryInfC{$\Gamma \vdash \lambda x. h: B^A$}
+\end{prooftree}
+
+** DeBruijn indices
+If we write contexts as $A_{n-1}\times \dots \times A_{1}$, and we refer to the
+variables using $\mathrm{snd}(\mathrm{fst}(\mathrm{fst}\dots))$.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
