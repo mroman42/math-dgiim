@@ -318,11 +318,10 @@ This is a preorder,
   * we have a greatest, final element
 
     \begin{prooftree}
-    \RightLabel{($\leq$-T)}
+    \RightLabel{($\leq_\top$)}
     \AxiomC{}
-    \UnaryInfC{$A \leq T$}
+    \UnaryInfC{$A \leq \top$}
     \end{prooftree}
-
    
   * we have meets given by conjunction. That is, there is a lower
     bound
@@ -487,18 +486,9 @@ and the exponential is the universal element with this property
 \AxiomC{$A \wedge C \leq B$}
 \UnaryInfC{$C \leq A \supset B$}
 \end{prooftree}
+
 ** Heyting algebra
 A *Heyting algebra* is a lattice with exponentials.
-
-*** Exercise: A Heyting algebra is distributive
-Every Heyting algebra is distributive.
-
-\[
-A \wedge (B \vee C) \equiv (A \vee B) \wedge (A \vee C)
-\]
-
-Hint: use the fact that we have exponentials.
-Hint: use the Yoneda Lemma.
 
 *** Yoneda Lemma
 The Yoneda Lemma on lattices says that
@@ -512,7 +502,9 @@ We define $\neg A := A \supset \bot$. It is the largest proposition inconsistent
 with $A$, the largest proposition such that $A \wedge \neg A \leq \bot$.
 
 ** Complement
-We define $\overline{A}$ as the universal element with the property that $\top \leq A \vee \overline{A}$.
+We define $\overline{A}$ as the universal element with the property that $\top \leq A \vee \overline{A}$
+and $\overline{A} \wedge A \leq \bot$.
+
 We have a complement distributive algebra (a boolean algebra!) and such thing
 has exponentials.
 
@@ -524,8 +516,6 @@ has exponentials.
 ** Boolean algebra
 A *boolean algebra* is a complemented distributive lattice. Therefore, it has
 exponentials, defined as $B^A := \overline{A} \vee B$.
-
-*** TODO Exercise: check that those are exponentials
 
 ** Completeness theorem
 If $A \leq B$ in every Heyting algebra, it must be deducible that $A \vdash B$.
