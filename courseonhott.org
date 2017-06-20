@@ -537,6 +537,61 @@ If something is provable, it holds in every Heyting algebra.
 
 ** Issue: negation and complement
 In a boolean algebra, $A \vee \neg A \simeq \top$.
+
+* Lecture 3: Transitivity
+** Last week
+Last week we saw IPL from a provability perspective. $A$ is true if it
+has a proof, and $A$ is false if it has a refutation. We got the
+structure of Heyting algebra (a lattice (partial order with all finite
+meets and joins) and exponentials). Every Heyting algebra is
+distributive. We defined the negation.
+
+*** Soundness incompleteness result
+$\Gamma \vdash A$ true iff $\Gamma^{\ast} \leq A^{\ast}$ in every Heyting algebra.
+
+*** Boolean and Heyting algebras
+Not every boolean algebra is a Heyting algebra, but every Heyting
+algebra is a boolean algebra.
+
+*** DeMorgan Duality
+$\overline{A \wedge B} = \overline{A} \vee \overline{B}$ and $\overline{A \vee B} = \overline{A} \wedge \overline{B}$.
+
+** Claim
+In IPL, not all instances of LEM are provable. We cannot prove
+in general that $A \vee \neg A \text{ true}$.
+
+*** Idea
+The disjunction property says that if $A \vee B \text{ true}$, then $A$ true
+or $B$ true. This would imply that LEM gives us a proof or a
+refutation of every element.
+
+** There exists a Heyting algebra which is not a boolean algebra
+We need only a countermodel, a Heyting algebra where $\top \leq A \vee \neg A$
+does not hold. It will show that this is not provable in general
+in IPL.
+
+** Decidable proposition
+A proposition is *decidable* iff $A \vee \neg A \text{ true}$. There are decidable
+propositions even if LEM does not hold.
+
+*** Example
+Two decidable propositions are $\bot$ and $\top$.
+
+Equality on natural numbers will be decidable, but equality on reals
+will not.
+** Stable proposition
+A proposition is *stable* iff $(\neg \neg A) \supset A \text{ true}$.
+
+** Negation of the negation of LEM
+We can prove $\neg \neg (A \vee \neg A)$. This proves that not every proposition
+is stable as a corollary.
+
+*** Proof
+We will assume $\neg (A \vee \neg A)$ and arrive at a contradiction. If we
+assume $A$, we have $A \vee \neg A$, and then a contradiction, so it must
+be the case that $\neg A$. We know now that $A \vee \neg A$, arriving at a
+contradiction.
+* Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
 #+begin_statement
