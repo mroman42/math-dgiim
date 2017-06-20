@@ -4730,6 +4730,118 @@ iterada de $\mathbb{Q}$.
 
 ***** TODO Demostración
 
+** 2. Geometría no euclídea
+*** El Quinto Postulado de Euclides
+**** Quinto postulado de Euclides
+El Quinto Postulado de Euclides afirma que, dadas $r,s,t$ rectas
+cortando $r$ a $t,s$ con ángulos $\alpha,\beta$; si $\alpha+\beta < \pi$, entonces $s \cap t \neq \varnothing$.
+
+**** Teorema de Legendre
+El Quinto Postulado equivale a que la suma de los ángulos de un
+triángulo es exactamente $\pi$. Si la suma de los ángulos de un triángulo
+es $\pi$, se cumple el Quinto Postulado.
+
+**** Cuadriláteros de Saccheri
+Un cuadrilátero $ABCD$ es *de Saccheri* cuando $\widehat{A},\widehat{B}$ son rectos y 
+además $\overline{AD}=\overline{BC}$.
+
+**** Cuadrilátero de Lambert
+Un cuadrilátero es *de Lambert* si tiene tres ángulos rectos.
+
+**** Independencia del Quinto Postulado
+Los siguientes resultados son independientes del Quinto Postulado
+
+ * la suma de los ángulos de un triángulo es menor o igual que $\pi$.
+ * los dos ángulos no rectos de un cuadrilátero de Saccheri son
+   iguales y menores o iguales que $\pi/2$.
+ * el lado superior de un cuadrilátero de Saccheri es menor que 
+   el lado inferior.
+
+**** Implicación al Quinto Postulado
+Los siguientes resultados equivalen al Quinto Postulado
+
+ * los ángulos de un triángulo suman $\pi$.
+ * los ángulos de todos los triángulos suman $\pi$.
+ * un cuadrilátero de Saccheri tiene todos los ángulos rectos.
+
+*** Geometría hiperbólica
+**** Axioma de Lobachevsky
+Dada una recta $r$ y un punto $a \notin r$, existen al menos dos rectas $s_1,s_2$
+distintas con $a \in s_1\cap s_2$, pero $s_1\cap r = s_2\cap r = \varnothing$.
+
+**** Infinitas rectas
+Dada una recta $r$ y un punto $a \notin r$, existen infinitas rectas que pasan
+por $a$ y no contienen a $r$.
+
+*** Paralelas en geometría hiperbólica
+**** Existencia de rectas dado un ángulo
+Dada una recta $r$ y un punto $a \notin r$, dado cualquier ángulo $\alpha \in (0,\pi)$ y
+siendo $a \in t_a \perp r$, existen dos rectas $l_1,l_2$ formando un ángulo $\alpha$ con
+$t_a$.
+
+**** Existencia de paralelas
+Dada una recta $r$ y un punto $a \notin r$, tomamos $t_{a}$ la perpendicular por $a$
+y $l_{\alpha}$ la dada con ángulo $\alpha$ por el teorema anterior. Existe un único
+$\beta \in (0,\pi/2)$ tal que
+
+  * $l_{\beta}\cap r = \varnothing$,
+  * $\forall a \in (0,\beta): l_{\alpha}\cap r \neq \varnothing$.
+ 
+En este caso, la recta $l_{\beta}$ es *paralela*.
+
+**** El paralelismo es independiente del punto elegido
+Si una recta es paralela a otra por un punto, lo es por todos sus
+puntos.
+
+**** El ángulo de paralelismo sólo depende de la distancia
+El ángulo de paralelismo de una recta por un punto sólo depende de
+la distancia de la recta al punto.
+
+**** Existen exactamente dos paralelas
+Dada una recta y un punto exterior, existen exactamente dos paralelas
+distintas que pasan por el punto.
+
+**** Simetría del paralelismo
+Si $r$ es paralela a $s$, $s$ es paralela a $r$.
+
+**** Ultraparalelas
+Dos rectas se dicen ultraparalelas si no son secantes ni paralelas.
+
+**** Caracterización de ultraparalelas
+Dos rectas son ultraparalelas si y sólo si admiten una perpendicular
+común.
+
+*** Defecto de triángulos
+**** Defecto de un triángulo
+El *defecto* de un triángulo $ABC$ es
+
+\[ \mathrm{def}(ABC) =
+\pi - {\widehat A} - \widehat B - \widehat C > 0.
+\]
+
+**** Los defectos de triángulos son aditivos
+Dado un $D \in AB$ y $ABC$ un triángulo, se tiene
+
+\[ \mathrm{def}(ABC) = \mathrm{def}(ACD) + \mathrm{def}(BCD).
+\]
+
+**** Dos triángulos son congruentes si tienen los mismos ángulos
+Dos triángulos con los mismos ángulos en geometría hiperbólica
+deben ser congruentes.
+
+**** Paralela a una y perpendicular a otra
+Dadas dos semirectas formando un ángulo agudo, existe una única
+perpendicular a una y paralela a la otra.
+
+**** El defecto es el área
+El defecto es igual al área del triángulo.
+
+*** Semiplano de Poincaré
+**** Definición
+Llamamos $\mathbb{H}^2 = \left\{ (x,y) \in \mathbb{R}^2\mid y>0
+\right\}$ y $\forall p = (x,y) \in \mathbb{H}^2$ y sobre él tomamos 
+la métrica $g_p = \frac{1}{y^{2}}\left\langle \cdot,\cdot \right\rangle$.
+
 ** Ejercicios
 *** Formas del universo
 **** Ejercicio 1
