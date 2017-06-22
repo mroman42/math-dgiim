@@ -956,6 +956,146 @@ The essence of all this is
 ** DeBruijn indices
 If we write contexts as $A_{n-1}\times \dots \times A_{1}$, and we refer to the
 variables using $\mathrm{snd}(\mathrm{fst}(\mathrm{fst}\dots))$.
+* Lecture 5: Universal properties
+In the previous weeks we talked about
+
+ * logic via provability and truth.
+ * the entailment relation.
+ * an order theoretic interpretation.
+ * a logic for proofs with proof terms.
+ * a notion of equality for proofs.
+
+** Gentzen's inversion principle
+Represented on the $\beta$ principles, rules such as
+
+ * $\mathtt{fst} \left\langle M,N \right\rangle \equiv M$
+ * $\mathtt{snd} \left\langle M,N \right\rangle \equiv N$
+ * $(\lambda x. M)(N) \equiv [N/x]M$
+ * $\mathtt{case}(\mathtt{inl}(M), x.P, y.Q) \equiv [M/x]P$
+ * $\mathtt{case}(\mathtt{inr}(M), x.P, y.Q) \equiv [M/y]Q$
+
+they act as rules for proof simplification and can be interpreted as
+a dynamics for proofs. Proofs are programs.
+
+** Gentzen's unicity principles
+Represented on $\eta$ principles.
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : \top$}
+\UnaryInfC{$\Gamma \vdash M \equiv \langle\rangle : \top$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : A \wedge B$}
+\UnaryInfC{$\Gamma \vdash M \equiv \left\langle \mathtt{fst}(M),\mathtt{snd}(M) \right\rangle : A \wedge B$}
+\end{prooftree}
+
+there is another way of saying this
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : A \wedge B$}
+\AxiomC{$\Gamma \vdash \mathtt{fst}(M) \equiv P : A$}
+\AxiomC{$\Gamma \vdash \mathtt{snd}(M) \equiv Q : B$}
+\TrinaryInfC{$\Gamma \vdash M \equiv \left\langle P,Q \right\rangle : A \wedge B$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : A \supset B$}
+\UnaryInfC{$\Gamma \vdash M \equiv \lambda x. M(x) : A \supset B$}
+\end{prooftree}
+
+** Categorical interpretation
+A derivation
+
+\[
+x_1:A_1,\dots,x_n:A_n \vdash M : A
+\]
+
+is interpreted as a morphism
+
+\[
+M : A_1 \times \dots \times A_n \to A\]
+\[M \equiv N : A_1 \times \dots \times A_n \to A
+\]
+
+The product diagram relates
+
+ * the existence with the introduction.
+ * the uniqueness with the $\eta$ rules.
+ * the commutativity with the $\beta$ rules.
+
+** Unicity principle for the disjunction [40:00]
+It is more difficult to see how the disjunction property should be
+written. An inspiration is the notion of Shannon expansion: the type
+of booleans can be written as $\top \vee \top$; then $\mathtt{case}$ acts as a binary decision 
+diagram. The Shannon expansion is a substitution using booleans where
+ 
+ * $\mathtt{inl} \left\langle  \right\rangle \equiv true$
+ * $\mathtt{inl} \left\langle  \right\rangle \equiv false$
+
+then
+
+\[
+[M/x]P \equiv \text{ if } M \text{ then } [true/x]P \text{ else } [false/x]P.
+\]
+
+and, in particular,
+
+\[
+P \equiv \text{ if } x \text{ then } [true/x]P \text{ else } [false/x]P.
+\]
+
+The eta rule for disjunction is then
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : A \vee B$}
+\AxiomC{$\Gamma, z:A \vee B \vdash P : C$}
+\BinaryInfC{$\Gamma \vdash [M/z]P \equiv \mathrm{case}(M; x : [\mathtt{inl}(x)/z]P; y : [\mathtt{inr}(y)/z]P) : C$}
+\end{prooftree}
+
+like a generalized Shannon expansion. As an special case, we
+get that $M \equiv \mathtt{case}(M, x . \mathtt{inl}(x), y . \mathtt{inr}(y))$.
+
+** Remark
+We could have defined the relationship on variables $x \equiv \left\langle \mathtt{fst}(x), \mathtt{snd}(x) \right\rangle$, but
+to derive the general rule from there, we would have needed another property
+to get a correct substitution rule.
+
+** Coproduct
+We write the coproduct as $A + B$, and its diagram as
+
+\[\begin{tikzcd}[column sep=tiny]
+& C  & \\
+& A+B  \uar[dashed]{\exists! \left\{ P,Q \right\}}  & \\
+A\ar[bend left]{uur}{P}       \urar[swap]{\mathtt{inl}} &&
+B\ar[swap,bend right]{uul}{Q} \ular{\mathtt{inr}}
+\end{tikzcd}\]
+
+where
+
+\[
+\left\{ P,Q \right\} \equiv \mathtt{case} ( - , x.P, y.Q) 
+\]
+
+And the unicity simply says that
+
+\begin{prooftree}
+\AxiomC{$\Gamma, x:A \vdash [ \mathtt{inl}(x)/z ]M \equiv P : C$}
+\AxiomC{$\Gamma, y:B \vdash [ \mathtt{inr}(y)/z ]M \equiv Q : C$}
+\BinaryInfC{$\Gamma, z : A+B \vdash M \equiv \mathtt{case}(z,x:P,y:Q) : C$}
+\end{prooftree}
+
+This is an induction principle. We can caracterize the behaviour of $M$ simply
+by giving its behaviour on the $\mathtt{inl}$ and the $\mathtt{inr}$.
+** Beta/eta rules
+The beta rules are analytic judgements. Self-evident.
+The eta rules are synthetic judgements. They require proof.
+
+The beta rules correspond to definitional equality and the 
+eta rules correspond to propositional equality; it will be
+expressed typically by a type. The definitional equality, on
+the other hand, is simply a judgement and it is also called
+a judgmental equality.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
