@@ -9,7 +9,7 @@
 #+TODO: TODO WIP | CHECK DONE
 
 * Lecture 1: Intuitionistic Type Theory
-** Intuitionistic Type Theory (TT), 
+** Intuitionistic Type Theory (TT),
 The *Intuitionistic Type Theory* is based on the work of Per
 Martin-Löf on the 1970s.  It is an analysis and expansion of Brouwer's
 intuitionism.
@@ -1096,6 +1096,303 @@ eta rules correspond to propositional equality; it will be
 expressed typically by a type. The definitional equality, on
 the other hand, is simply a judgement and it is also called
 a judgmental equality.
+* Lecture 6: Dependency, families of types
+So far, we have seen a propositions/types correspondence.
+We will add a type of natural numbers, and look for its correspondence
+in intuitionistic logic.
+
+** Gödel's T
+We will call Gödel's T to the system we have developed so far plus
+a natural numbers type. This is not exactly Gödel's T in the literature,
+where it is defined only with function types.
+
+\begin{prooftree}
+\RightLabel{(Nat$_{I-0}$)}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash 0 : Nat$}
+\RightLabel{(Nat$_{I-S}$)}
+\AxiomC{$\Gamma \vdash M : Nat$}
+\UnaryInfC{$\Gamma \vdash s(M) : Nat$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+
+The elimination form is just definition by recursion
+
+\begin{prooftree}
+\RightLabel{(Nat$_{E}$)}
+\AxiomC{$\Gamma \vdash M : Nat$}
+\AxiomC{$\Gamma \vdash P : A$}
+\AxiomC{$\Gamma, x:A \vdash Q:A$}
+\TrinaryInfC{$\Gamma \vdash \mathtt{rec}(P,x.Q)(M) : A$}
+\end{prooftree}
+
+We need now two beta rules to comply with the inversion principle.
+
+ * $\mathtt{rec}(P,Q)(0) \equiv P$
+ * $\mathtt{rec}(P,Q)(s(M)) \equiv [ \mathrm{rec}(P,Q)(M)/x ]Q$
+
+so, if $\overline{n} = s(\dots s(0)\dots)$, $\mathtt{rec}(P,Q)(\overline{n}) \equiv Q(Q(\dots (Q(P))\dots)$.
+
+There is also a eta rule, that was not considered by Gödel at the moment.
+Suppose an $M$ acting the same way on the $0$ and the $s$, then it is the
+recursor.
+
+\begin{prooftree}
+\AxiomC{$\Gamma,z : Nat \vdash M : A$}
+\AxiomC{$\Gamma \vdash [0/z] M \equiv P:A$}
+\AxiomC{$\Gamma, z:Nat \vdash [ S(z)/z ]M \equiv [M/x]Q$}
+\TrinaryInfC{$\Gamma,z:Nat \vdash M \equiv \mathtt{rec}(P,Q)(z)$}
+\end{prooftree}
+
+*** Special case on the recursor
+Plugging naturals on the recursor
+
+$z : Nat \vdash \mathtt{rec}(0,y.s(y))(z) \equiv z : Nat$
+
+*** Commuting conversion
+
+$\Gamma, z:Nat \vdash [ \mathtt{rec}(0,y.s(y))(z)/z  ]M \equiv \mathtt{rec}([0/z]M, y.[s(y)/z]M)(z)$
+
+** Natural numbers object in a category
+The natural numbers object is the universal object in the following
+diagram
+
+\[\begin{tikzcd}[column sep=huge]
+1 \rar{0}\drar[swap]{P} &
+\mathbb{N} \dar[dashed]{\exists! \mathtt{rec}(P,Q)} &
+\mathbb{N} \rar{s}\dar[dashed]{\exists! \mathtt{rec}(P,Q)} &
+\mathbb{N} \dar[dashed]{\exists! \mathtt{rec}(P,Q)} \\
+&
+A &
+A \rar[swap]{Q}&
+A
+\end{tikzcd}\]
+
+** Reorging the NNO into an initial algebra
+This is equivalent to this universality property
+
+\[\begin{tikzcd}[column sep=60pt]
+1+\mathbb{N} \dar[swap]{\left\{ 0,s \right\}} \rar[dashed]{ id + \mathtt{rec}(P,Q) } & 
+1+A \dar{\left\{ P,Q \right\}} \\
+\mathbb{N} \rar[dashed]{\mathtt{rec}(P,Q)}  & 
+A
+\end{tikzcd}\]
+
+where $f+g : A+B \to A'+B'$ is defined componentwise on the coproduct.
+
+** Initial algebras
+This is an instance of a more general phenomenon, where a functor $F$ satisfies
+the diagram with the initial object $I$.
+
+\[\begin{tikzcd}
+F(I)\rar{F(!)} \dar[swap]{i} & F(A) \dar{f} \\
+I\rar{(!)} & A
+\end{tikzcd}\]
+
+This is called an *initial algebra*.
+
+** Defining addition
+We can define addition on the second argument
+
+$\mathtt{plus} := \lambda x. \lambda y. \mathtt{rec}(x;z.s(z))(y)$
+
+and we can check that $\mathtt{plus}\ \overline{m}\ \overline{n} \equiv \overline{m+n}$. But we also can
+define addition on the first $\mathtt{q}:= \lambda x.\lambda y. \mathtt{p}\ y\ x$, and this also
+implements addition: $\mathtt{q}\ \overline{m}\ \overline{n} \equiv \overline{m+n}$.
+
+Be we cannot prove
+
+\[
+x:Nat, y:Nat \vdash \mathtt{p}\ x\ y \equiv \mathtt{q}\ x\ y  \equiv \mathtt{p}\ y\ x
+\]
+
+as these are NOT definitionally equal! It can be proved that it is
+not provable using only beta rules. This would require a proof by
+induction: to show something for all the numerals is the same thing
+as to show it for any numeral variables.
+
+** Extensional and intensional equality
+Those are *extensionally* equal, but they are not intensionally equal
+(definitional equality). They represent a different algorithm. In the
+*sense of Frege*, they have the same reference, but not the same sense.
+They have the same IO but different algorithms.
+
+ * Extensional equality is analytic, it does not require proof.
+ * Intensional equality is synthetic, does requires proof.
+
+Extensional equality on $(\mathbb{N}\to \mathbb{N})\to(\mathbb{N}\to \mathbb{N})$ has a high quantifier
+complexity. A bunch of nested forall and exist.
+
+** Extensional equality
+Intensional equality is an inductive defined judgment, whereas
+Extensional equality is a proposition such as
+
+\[ \mathtt{p}\ x\ y =_{Nat} \mathtt{q}\ x\ y
+\]
+
+that is an atomic proposition. By the propositions as types
+principle, extensional equality is a family of types.
+
+\[
+x: Nat, y:Nat \vdash x = y \text{ type}
+\]
+
+sometimes $x=y$ is written as $Id_{Nat}(x,y)$. It is a propositional
+function or a binary relation.
+
+This family can be instantiated by substitution
+
+\[
+Id_{Nat}(M,N) \text{ type}
+\]
+
+whenever $M,N:Nat$.
+
+** Example of extensional equality
+We can define the finite sequence of naturals of length $x:Nat$
+
+\[
+x : Nat \vdash Seq(x) \text{ type.}
+\]
+
+In this case, $Seq(p\ \overline{m}\ \overline{n}) \equiv Seq(q\ \overline{m}\ \overline{n})$ because of the fact that
+$p\ \overline{m}\ \overline{n} \equiv q\ \overline{m}\ \overline{n}$. But
+
+\[
+x:Nat, y:Nat \vdash Seq(p\ x\ y) \not\equiv Seq(q\ x\ y)
+\]
+
+will not be definitionally equal. But they are isomorphic! In some
+sense, they should be equivalent. $A \simeq B$ should mean that for some
+$f,g$, we should get
+
+\[\begin{aligned}
+\alpha :&\quad g \circ f = \mathrm{id} \\
+\beta :&\quad f \circ g = \mathrm{id}
+\end{aligned}\]
+
+but again, we are we meaning here by equality? In this case we are
+talking about propositional equality. There should be transformations
+$\alpha,\beta$ between the compositions and the identities.
+
+** Univalence axiom
+In some sense, we expect them to be equal. Univalence says that $A=B \iff A \simeq B$.
+There will be an equivalence between those two types.
+** Setup for dependent types
+Context/closed types. We have judgements
+ 
+ * $\Gamma \text{ ctx}$
+ * $\Gamma \equiv \Gamma'$
+
+Open types/families
+
+ * $\Gamma \vdash A \text{ type}$
+ * $\Gamma : A \equiv A'$
+
+Elements of types
+
+ * $\Gamma \vdash M : A$
+ * $\Gamma \vdash M \equiv M' : A$
+
+We will have a notion of empty context and the notion of adding anything
+to a context
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\cdot \text{ ctx}$}
+\AxiomC{$\Gamma \text{ ctx}$}
+\AxiomC{$\Gamma \vdash A \text{ type}$}
+\BinaryInfC{$\Gamma, x:A \text{ ctx}$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+
+and the equality
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\cdot \equiv \cdot$}
+\AxiomC{$\Gamma \equiv \Gamma'$}
+\AxiomC{$\Gamma \vdash A \equiv A'$}
+\BinaryInfC{$\Gamma, x:A \equiv \Gamma, x:A'$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+
+we can take variables
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma,x:A,\Delta \vdash x :A $}
+\end{prooftree}
+
+here it is necessary a weakening rule
+
+\begin{prooftree}
+\AxiomC{$\Gamma,\Delta \vdash J$}
+\AxiomC{$\Gamma \vdash A \text{ type}$}
+\BinaryInfC{$\Gamma, x:A, \Delta \vdash J$}
+\end{prooftree}
+
+and a substitution
+
+\begin{prooftree}
+\RightLabel{(substitution/transitivity)}
+\AxiomC{$\Gamma, x:A, \Delta \vdash J$}
+\AxiomC{$\Gamma \vdash M:A$}
+\BinaryInfC{$\Gamma [M/x]\Delta \vdash [M/x]J$}
+\end{prooftree}
+
+and the principle of functionality
+
+\begin{prooftree}
+\AxiomC{$\Gamma, x:A, \Delta \vdash N:B$}
+\AxiomC{$\Gamma\vdash M\equiv M' :A$}
+\BinaryInfC{$\Gamma [M/x] \Delta \vdash [M/x]N \equiv [M'/x]N : [M/x]B$}
+\end{prooftree}
+
+another simpler rule is
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M:A$}
+\AxiomC{$\Gamma \vdash A \equiv A'$}
+\BinaryInfC{$\Gamma \vdash M:A'$}
+\end{prooftree}
+
+and similarly
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M \equiv M':A$}
+\AxiomC{$\Gamma \vdash A \equiv A'$}
+\BinaryInfC{$\Gamma \vdash M\equiv M':A'$}
+\end{prooftree}
+
+All this is written on the section 2 of the appendix of HoTT.
+
+*** Exercise
+Consider exchange and contraction
+** Formation rules
+The identity type is constructed as
+
+\begin{prooftree}
+\RightLabel{(Id-F)}
+\AxiomC{$\Gamma \vdash A \text{ type}$}
+\AxiomC{$\Gamma \vdash M:A$}
+\AxiomC{$\Gamma \vdash N:A$}
+\TrinaryInfC{$\Gamma \vdash Id_A(M,N) \text{ type}$}
+\end{prooftree}
+
+iterated identity types can be defined $Id_{Id_A(M,N)}$ to any dimension.
+The introduction rule should be
+
+\begin{prooftree}
+\RightLabel{(Id-I)}
+\AxiomC{$\Gamma \vdash M:A$}
+\UnaryInfC{$\Gamma \vdash \mathrm{refl}(M) : Id_A(M,M)$}
+\end{prooftree}
+
+being a witness of the fact that $M$ is equal to itself.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
