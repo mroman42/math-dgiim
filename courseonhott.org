@@ -1393,6 +1393,276 @@ The introduction rule should be
 \end{prooftree}
 
 being a witness of the fact that $M$ is equal to itself.
+* Lecture 7: Dependent Types
+** Last week
+The basic judgements are
+
+ 1) $\Gamma \text{ ctx}$
+ 2) $\Gamma \equiv \Gamma'$
+ 3) $\Gamma \vdash A \text{ type}$
+ 4) $\Gamma \vdash A \equiv A'$
+ 5) $\Gamma \vdash M:A$
+ 6) $\Gamma \vdash M \equiv M' :A$
+
+and they follow structural properties. For example, typing respect definitional
+equivalence
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M:A$}
+\AxiomC{$\Gamma \vdash A \equiv A'$}
+\BinaryInfC{$\Gamma \vdash M : A'$}
+\end{prooftree}
+
+We left open the exact formulation.
+
+*** Example
+An example of dependent type is $x : Nat \vdash Seq(x) \text{ text}$.
+
+\begin{prooftree}
+\AxiomC{$M \equiv M' : Nat$}
+\UnaryInfC{$Seq(M) \equiv Seq(M')$}
+\end{prooftree}
+
+But we do not get $x,y : Nat \not\vdash Seq(x+y) \equiv Seq(y+x)$. The
+reason is that $x + y \not\equiv y + x$, they are only intensionally equivalent.
+To apply $\eta$ you need to establish an invariant about a candidate $M$,
+and the $\eta$ rule would not be enough to write a proof of induction of
+that fact. We do not want an induction eta-rule.
+
+** Proof-relevance
+An element $P : Id_A(M,N)$ can be seen as
+
+ 1) a proof that $M$ is $N$.
+ 2) an identification of $M$ with $N$.
+ 3) a path from $M$ to $N$.
+
+This $x =_A y$ is called propositional equality.
+
+** Generalization to dependent types
+We will review the initial structure of types to generalize the
+propositional negative connectives to their dependent forms.
+For example, $A \times B$ will generalize to a sigma type $\sum_{x:A}B_x$;
+and $A \supset B$ generalizes to $\prod_{x:A}B_{x}$.
+
+\[
+\prod_{x:Nat} \sum_{y:Nat} Id_{Nat}(y, \mathtt{succ}(x))
+\]
+
+They will represent logical conectives as
+
+\[
+\forall x:Nat. \exists y:Nat.\quad y = \mathtt{succ}(x).
+\]
+
+** Pi Types
+Formation rules
+
+\begin{prooftree}
+\RightLabel{($\pi$-F)}
+\AxiomC{$\Gamma \vdash A \text{ type}$}
+\AxiomC{$\Gamma, x : A \vdash B_x \text{ type}$}
+\BinaryInfC{$\Gamma \vdash \prod_{x:A}B_{x} \text{ type}$}
+\end{prooftree}
+
+introductory rules
+
+\begin{prooftree}
+\RightLabel{($\pi$-I)}
+\AxiomC{$\Gamma, x:A \vdash M_{x} : B_{x}$}
+\UnaryInfC{$\Gamma \vdash \lambda x. M_x : \prod_{x:A}B_{x}$}
+\end{prooftree}
+
+elimination rules
+
+\begin{prooftree}
+\RightLabel{($\pi$-E)}
+\AxiomC{$\Gamma \vdash M : \prod_{x:A}B_x$}
+\AxiomC{$\Gamma \vdash N:A$}
+\BinaryInfC{$\Gamma \vdash MN : [N/x]B$}
+\end{prooftree}
+
+There is a beta-rule
+
+\[
+(\lambda x.M)N \equiv [N/x]M
+\]
+
+and an eta-rule
+
+\[
+(\lambda x.M x)\equiv M.
+\]
+** Particular case
+$A \supset B$ is a particular case of a pi-type where $B$ does
+not depends on $A$.
+
+** Sigma type
+*** Formation
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A \text{ type}$}
+\AxiomC{$\Gamma, x:A \vdash B_{x} \text{ type}$}
+\BinaryInfC{$\Gamma \vdash \sum_{x:A}B_x \text{ type}$}
+\end{prooftree}
+
+*** Introduction
+This is constructive existence, you are required to show evidence
+of a particular case where it does hold
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M :A $}
+\AxiomC{$\Gamma \vdash N : [M/x]B$}
+\BinaryInfC{$\Gamma \vdash \left\langle M,N \right\rangle : \sum_{x:A} B_x$}
+\end{prooftree}
+
+*** Particular case
+The product of types is a particular case where $B_x$ is
+independent from $x:A$.
+
+*** Elimination
+Will not be the same as in the HoTT book.
+
+\begin{prooftree}
+\RightLabel{($\Sigma_{E_1}$)}
+\AxiomC{$\Gamma \vdash M : \sum_{x:A} B_x$}
+\UnaryInfC{$\Gamma \vdash \mathtt{fst}(M) : A$}
+\RightLabel{($\Sigma_{E_2}$)}
+\AxiomC{$\Gamma \vdash M : \sum_{x:A} B_x$}
+\UnaryInfC{$\Gamma \vdash \mathtt{snd}(M) : [ \mathtt{fst}(M)/x]B_x$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+
+*** Beta/eta rules
+Beta rules
+
+ * $\mathtt{fst}\left\langle M,N \right\rangle \equiv N$,
+ * $\mathtt{snd}\left\langle M,N \right\rangle \equiv N$
+
+and an eta-rule
+
+ * $\left\langle \mathtt{fst}(M), \mathtt{snd}(M) \right\rangle \equiv M$.
+ 
+** Constructive logic
+Can be seen as a refinment of classical logic, not as anything opposite
+to it.
+** Positive fragment
+In the positive fragment, we have $(0,A+B,Nat,\dots)$. But are not
+going to change the types. Issue: the positive elims reach into
+arbitrary types.
+
+For example, the elim of $+$ was
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : A + B$}
+\AxiomC{$\Gamma,x:A \vdash N:C$}
+\AxiomC{$\Gamma, y:B \vdash P:C$}
+\TrinaryInfC{$\Gamma \vdash \mathtt{case}(M,x.N,y.P) : C$}
+\end{prooftree}
+
+but here there is no dependency. $C$ captures the join point of two
+branches; or proof by cases.
+
+*** Example: induction
+Let $2 := 1 + 1$, $tt := \mathtt{inl}\langle\rangle$ and $ff := \mathtt{inr}\langle\rangle$. We define
+
+\[ \mathtt{if}(M,N,P) := \mathtt{case}(M,-.N,-.P)
+\]
+
+and we want to prove that every element of $2$ is one of those
+
+\[
+\prod_{x:2} \left( Id_2(x, \mathtt{tt}) + Id_2(x, \mathtt{ff}) \right).
+\]
+
+We have to prove both
+
+ * $Id_2(\mathtt{tt}, \mathtt{tt}) + Id_2(\mathtt{tt}, \mathtt{ff})$
+ * $Id_2(\mathtt{ff}, \mathtt{tt}) + Id_2(\mathtt{ff}, \mathtt{ff})$
+
+So we use
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : A + B$}
+\AxiomC{$\Gamma, z:A+B \vdash C_{z}$ type}
+\AxiomC{$\Gamma, x:A \vdash N: [\mathtt{inl}(x)/z] C$}
+\noLine
+\UnaryInfC{$\Gamma, y:B \vdash P: [\mathtt{inr}(y)/z] C$}
+\TrinaryInfC{$\Gamma \vdash \mathtt{case} [z.C] (M;x.N;y.P) : [M/z]C$}
+\end{prooftree}
+
+where $[z.C]$ is called the *motive* (term by Connor McBride). In this
+particular case
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : 2$}
+\AxiomC{$\Gamma, z:2 \vdash C_{z}$ type}
+\AxiomC{$\Gamma\vdash N: [\mathtt{tt}/z] C$}
+\noLine
+\UnaryInfC{$\Gamma\vdash P: [\mathtt{ff}/z] C$}
+\TrinaryInfC{$\Gamma \vdash \mathtt{if}(M;N;P) : [M/z]C$}
+\end{prooftree}
+
+This is a rule of induction.
+
+*** Example
+We have the expression
+
+$\mathtt{if}(M,17, \mathtt{tt}) : \mathtt{if} (M,Nat,2)$
+
+but, it is a well-typed expression? not yet. We cannot type
+those as types.
+
+** Induction on naturals
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : Nat$}
+\AxiomC{$\Gamma, z:Nat \vdash C \text{ type}$} 
+\AxiomC{$\Gamma \vdash N : [0/z]C$}
+\noLine
+\UnaryInfC{$\Gamma,x:Nat, y:[x/z]C \vdash P:[s(x)/z]C$}
+\TrinaryInfC{$\Gamma \vdash \mathtt{rec}[z.C](M,N;x,y.P) : [M/z]C$}
+\end{prooftree}
+
+with the two beta rules
+
+ * $\mathtt{rec}[z.C](0,N; x,y.P) \equiv N$
+ * $\mathtt{rec}[z.C](s(M), N; x,y.P) \equiv [M, \mathtt{rec}[z.C](M,N;x,y.P)/x,y]P$
+
+It has an eta rule which is not useful.
+
+*** Exercise
+
+$\prod_{x:Nat} \left(Id(s(x),0) \to \bot\right)$
+
+we will use
+
+\[
+\lambda x. \mathtt{rec}[-](x; -,-)
+\]
+
+*** Hard exercise
+We cannot solve this yet
+
+$\prod_{x,y : Nat} (Id_{Nat}(sx,sy) \to Id_{Nat}(x,y))$
+** The other form of product types, sigma variant
+Idea: elimination as pattern-matching.
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : \Sigma_{x:A}B_x$}
+\AxiomC{$\Gamma, z : \Sigma_{x:A}B_x \vdash C \text{ type}$}
+\AxiomC{$\Gamma, x:A, y:B \vdash P : [\langle x,y \rangle/z]C$}
+\TrinaryInfC{$\Gamma \vdash \mathtt{split}[z.C](M;x,y.P) : [M/z]C$}
+\end{prooftree}
+
+the beta rule is
+
+ * $\mathtt{split}[z.C](\left\langle M_1,M_2 \right\rangle; x,y.P) \equiv [M_1,M_2/x,y]P$
+
+and the eta rule is similar to previous $\eta$ rules. Anything like split is split.
+
+*** Exercise
+Define =split= from fst,snd.
+Define =fst=, =snd= from split. (Not yet)
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
