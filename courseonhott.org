@@ -1905,6 +1905,30 @@ or cite previous tasks as lemmas.
 If $A \leq B$ and $B \leq C$, we know that, by weakening, $A \text{ true},B \text{ true} \vdash C \text{ true}$.
 We now can apply transitivity to $A \text{ true} \vdash B \text{ true}$ and the previous formula
 to obtain $A \text{ true} \vdash C \text{ true}$.
+** Homework 2: Kindom of Kittens [0/7]
+*** TODO Task 1
+#+begin_statement
+Weite down a suitable morphism in terms of the primitive constructs and
+the morphisms immediately available in each subtask. The primitive
+constructs include $\mathrm{id}$, $f \circ g$, $\left\langle f,g \right\rangle$, $\mathtt{fst}$, $\mathtt{snd}$, $\mathtt{inl}$, $\mathtt{inr}$, $\left\{ f,g \right\}$, $\lambda(f)$ and $\mathtt{map}$.
+
+ * *Reflexivity*, write down a morphism from $\Gamma^+ \times P^{\ast}$ to $P^{\ast}$.
+ * *Contraction*, write down a morphism from $\Gamma^{ +} \times P^{\ast}$ to $Q^{\ast}$ in terms of
+   a morphism $f \colon (\Gamma^{ +}\times P^{\ast})\times P^{\ast} \to Q^{\ast}$.
+ * *Weakening*, write down a morphism from $\Gamma^{ +} \times P^{\ast}$ to $Q^{\ast}$ in terms of a
+   morphism $f \colon \Gamma^{ +} \to Q^{\ast}$.
+ * *Exchange*, write down a morphism from $(\Gamma^{ +}\times Q^{\ast}) \times P^{\ast}$ to $R^{\ast}$ in terms
+   of a morphism $f \colon (\Gamma^{ +}\times P^{\ast}) \times Q^{\ast} \to R^{\ast}$.
+ * *Substitution*, write down a morphism from $\Gamma^{ +}$ to $Q^{\ast}$ in terms of two 
+   morphisms $f \colon \Gamma^{ +}\to P^{\ast}$ and $g\colon \Gamma^{ +}\times P^{\ast} \to Q^{\ast}$.
+#+end_statement
+
+*** TODO Task 2
+*** TODO Task 3
+*** TODO Bonus Task 1
+*** TODO Task 4
+*** TODO Task 5
+*** TODO Task 6
 * Bibliography
  * Awodey, Category theory.
  * Programming in Martin-Löf Type theory.
