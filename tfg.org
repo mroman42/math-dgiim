@@ -75,6 +75,13 @@ it can be achieved via scripts.
 *** <2017-06-20 Tue>
 **** done homework 1 of the course on HoTT.
 **** wrote notes on the third lecture on HoTT.
+**** wrote notes on the fourth lecture on HoTT.
+*** <2017-06-22 Thu>
+**** wrote notes on the fifth lecture on HoTT.
+*** <2017-06-22 Thu>
+**** wrote notes on the sixth lecture on HoTT.
+**** wrote notes on the seventh lecture on HoTT.
+**** wrote notes on the eighth lecture on HoTT.
 * Notes
 ** [[file:ctlc.org][Category theory and lambda-calculus]]
 ** [[file:categoriesfortheworking.org][Categories for the working mathematician - MacLane]]
@@ -88,12 +95,22 @@ it can be achieved via scripts.
 *** Untyped lambda calculus section
 *** Type theory introduction
 *** Category theory introduction
+** Read
+*** From sets to categories to types to sets
+*** Elienberg categorical foundations
+*** Extensionality on categories
+Commutativity and efficiency
+
 ** [#A] Mikrokosmos
 Mikrokosmos is a lambda calculus interpreter.
 
 *** TODO [#B] pip-installable Jupyter kernel
 *** TODO [#B] Other type systems
 A common interpreter supporting multiple interchangeable type systems.
+
+A symply-typed Mikrokosmos could be used to check proofs on natural
+deduction and terms of cartesian closed categories.
+
 *** TODO [#C] Multiple lines on modules
 Multiple line notation should be allowed by joining multiple lines whenever
 they start with a <TAB> or a space.
@@ -105,14 +122,7 @@ The output could be formatted using *bold* and /italics/.
 
 *** TODO Write tests
 *** TODO Should Multibimap be a package on its own?
-*** TODO Change notation
-In order to avoid confusions with types
-
-#+BEGIN_SRC haskell
-:load -- !load
-qwer != asdf -- qwer ?= asdf
-#+END_SRC
-
+*** Compile to categories
 *** Seminars about mikrokosmos
 *** Dependent types
 http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/
@@ -131,6 +141,13 @@ Every module should have a list of DEPENDENCY directives.
 *** DONE [#B] Jupyter kernel
 [[https://ipython.org/ipython-doc/3/development/kernels.html][Making kernels for IPython]]
 [[http://andrew.gibiansky.com/blog/ipython/ipython-kernels/]]
+*** WONTFIX Change notation
+In order to avoid confusions with types
+
+#+BEGIN_SRC haskell
+:load -- !load
+qwer != asdf -- qwer ?= asdf
+#+END_SRC
 
 *** WONTFIX Use a .mikrokosmos config file
 Is it really necessary?
@@ -279,6 +296,7 @@ A course on Agda.
   * Dependent types.
 **** Software foundations - Benjamin C. 
 ** Blog articles
+*** [[http://strictlypositive.org/calculus/][Differential Calculus with Datatypes]]
 *** TODO [[http://people.inf.elte.hu/divip/AgdaTutorial/Index.html][Agda Tutorial]]
 *** [[https://cs.stackexchange.com/questions/14674/intro-to-martin-l%C3%B6f-type-theory][logic - Intro to Martin-Löf type theory - Computer Science Stack Exchange]]
 *** [[https://homotopytypetheory.org/links/][Links | Homotopy Type Theory]]
