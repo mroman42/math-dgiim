@@ -1663,6 +1663,167 @@ and the eta rule is similar to previous $\eta$ rules. Anything like split is spl
 *** Exercise
 Define =split= from fst,snd.
 Define =fst=, =snd= from split. (Not yet)
+* Lecture 8: Identity types
+** Polarity
+Negative and positive fragments. The difference here is
+if the type is based on the elimination or the introduction
+rule; the other part of the rule is determined by this first
+rule. In category theory, it corresponds to the universal
+property mapping /in/ or /out/ the definition of the type.
+
+\begin{tabular}{c|cc}
+            & negative    & positive     \\
+\hline
+type theory & elimination & introduction \\
+category theory & UP mapping in & UP mapping out
+\end{tabular}
+
+For example, $A\times B$ is /negative/. We write the elimination rule:
+given a product, we have =fst= and =snd=. The introduction rule is
+a pair, needing an $A$ and a $B$.
+** Last week
+Dependent formulations of 
+
+ 1) negatives $\Pi,\Sigma$.
+ 2) positives, the type does not change, but the elimination forms do;
+    they become induction principles
+
+Elim for the booleans is an example of branching. Today
+
+ * identity types
+ * universes
+ * ITT. Limitations and peculiarities
+
+** Identity types
+They have this rule of formation
+
+\begin{prooftree}
+\RightLabel{(Id-F)}
+\AxiomC{$\Gamma \vdash A \text{ type}$}
+\AxiomC{$\Gamma \vdash M : A$}
+\AxiomC{$\Gamma \vdash N : A$}
+\TrinaryInfC{$\Gamma \vdash Id_A(M,N) \text{ type}$}
+\end{prooftree}
+
+if we read this type propositionally, this is the type of proofs of
+equality between $M$ and $N$. As a notation we use $M =_A N$.
+
+\begin{prooftree}
+\RightLabel{(Id-T)}
+\AxiomC{$\Gamma \vdash M : A$}
+\UnaryInfC{$\Gamma \vdash \mathtt{refl}_A(M) : Id_A(M,M)$}
+\end{prooftree}
+
+In ITT, this would be the only intro rule. We can think of $Id$ as an
+inductively generated family of types. 
+
+** Elimination rule for identity types
+The elimination rule would then work as
+
+\begin{prooftree}
+\RightLabel{(Id-E)}
+\AxiomC{$\Gamma \vdash P: Id_{A}(M,N)$}
+\AxiomC{$\Gamma, x:A, y:A, z:Id_A(x,y) \vdash C \text{ type}$}
+\AxiomC{$\Gamma, x:A \vdash Q: [x,x,\mathtt{refl}(x)/x,y,z]C$}
+\TrinaryInfC{$\Gamma \vdash J[x,y,z.C](P;x.Q) : [M,N,P/x,y,z]C$}
+\end{prooftree}
+
+This principle is called *path induction*, where a path is an element
+of the identity type. The beta rule is then
+
+ * $J[x,y,z.C]( \mathtt{refl}(M), x.Q) \equiv [M/x]Q : [M,M, \mathtt{refl}(M)/x,y,z]C$
+
+This $J$ is the computational content of the proofs by path induction.
+** Equivalence relation of identity
+The identity type should be an equivalence relation
+
+ 1) it is reflexive by definition, $Id_A(M,M) \text{ true}$.
+ 2) it is symmetric showing that there is a function
+
+    \[ \mathtt{sym}_A : \prod_{x,y:A}Id_A(x,y) \to Id_A(y,x)
+    \]
+
+ 3) it is transitive with
+
+    \[ \mathtt{trans}_A:
+    \prod_{x,y,z:A} Id_A(x,y) \to Id_A(y,z) \to Id_A(x,z)
+    \]
+
+To define symmetry, we will take
+
+\[ \mathtt{sym}_A :=
+\lambda x,y:A.\quad \lambda z:Id_A(x,y).\quad
+J[x,y, - : Id_A(y,x)}](z;x. \mathtt{refl}_A(x))
+\]
+
+Note that $\mathtt{sym}(M)(M)(\mathtt{refl}(M)) \equiv \mathtt{refl}(M)$ due to the beta rule for $J$.
+
+To define transitivity 
+
+\[ \mathtt{trans}_A :=
+\lambda m,n,p. \ \lambda u{:}Id_A(m,n).\ \lambda v{:} Id_A(n,p).\  
+(J[x,y, -:Id_A(y,p) \to Id(x,p) ](u; x.\lambda w.w))(v)
+\]
+
+# It would be better to stop using lambdas for the parameters and
+# write the arguments as arguments.
+
+Note that, in particular, $\mathtt{trans}(M)(M)(P)(\mathtt{refl_A(M)})(Q) \equiv Q$.
+
+*** Exercise
+Find two other proofs, not definitionally equivalent, of transitivity.
+Hint: double induction.
+** Simple functionality
+Suposse $x:A\vdash F:B$ where $A,B$ are types. We have $F\colon A \to B$.
+We would like to have a way to prove that maps preserve equality
+
+\[
+x,y{:}A, u{:}Id_A(x,y) \vdash Id_B(Fx,Fy)
+\]
+
+We will define $\mathtt{ap}\ F\ u$, also called $F(|u|)$; the functorial action
+
+\[ \mathtt{ap}\ F\ u = 
+J[x,y, -:Id_B(Fx,Fy)](u, x. \mathtt{refl}_B(F\ x))
+\]
+
+** Transportation property
+Suposse $x:A \vdash B \text{ type}$, two pictures are useful
+
+ 1) Assigning $a{:}A \mapsto B[a]$ should be functorial.
+ 2) $\int_{A} B$ should have a display map with fibers sending elements
+    on $B[a]$ to $a$.
+
+In some sense, $a = a'$ must imply $B[a] \simeq B[a']$. Transportation could
+be thought as functionality for families.
+
+We would want to have 
+
+\[
+m,m':A, u:Id_A(m,m'), v : [m/x]B \vdash \mathtt{tr}[x.B](u)(v) : [m'/x]B
+\]
+
+the notation for $\mathtt{tr}[x.B](u)(v)$ is $u_{\ast}(v)$.
+
+# Diagram of the lifting property [1:19:50]
+
+This should be defined using path induction
+
+\[ \mathtt{tr}[x.B](u)(v) :=
+J\Big[x,y, -:[x/z]B \to [y/z]B\Big](u; z. \lambda w.w)(v)
+\]
+
+** Exercise
+Find a map 
+
+\[
+x,y{:}Nat \vdash  -{:} Seq(x+y) \to Seq(y+x)
+\]
+
+To do this we need
+
+ 1) to find a path $x,y{:} Nat \vdash -{:}x+y =_{Nat} y+x$.
+ 2) transport along that path.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
