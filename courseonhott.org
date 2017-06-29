@@ -2343,6 +2343,178 @@ homotopies instead
 \]
 
 but we are going to have function extensionality.
+* Lecture 12: Equivalence of Types
+** Equivalence of types
+We write the equivalence of $A \simeq B$. We say that $f : A \to B$ 
+is an *equivalence* if there exists
+
+\[
+\left( \sum_{g:B\to A} f \circ g \sim id_B \right) \times
+\left( \sum_{h:B\to A} h \circ f \sim id_A \right)
+\]
+
+the type of equivalences is
+
+\[
+A \simeq B := \sum_{f:A\to B} \mathrm{isequiv}(f)
+\]
+
+** Elements of the equivalence
+An equivalence is defined whenever those functions
+exist
+
+ 1. $f : A \to B$
+ 2. $g:B\to A$
+ 3. $\alpha: \prod_{y:B} f(g(y)) =_B y$
+ 4. $h : B\to A$
+ 5. $\beta : \prod_{x:A} h(f(x)) =_A x$
+
+** Quasiinverse
+Quasiinverses are defined as
+
+\[ \mathrm{quasiinverse}(f) :=
+\sum_{g:B\to A} f\circ g \sim id_B \times g \circ f \sim id_{A}
+\]
+
+There are three important properties
+
+ 1. $qinv(f) \to isequiv(f)$
+ 2. $isequiv(f) \to qinv(f)$
+ 3. $isequiv(f)$ expresses an HPROP, it has at most one proof up
+    to higher homotopy.
+
+we can transform the data from a quasiinverse to a equivalence.
+from  $H : f \sim_{A \to B} g$ we get $\prod_{x:A} Id_B(f x, gx)$. $H$ is functorial in
+$x:A$; in the sense that this diagram commutes for any $p : a = a'$
+
+\[\begin{tikzcd}
+f(a)\rar[no head]{H(a)} \dar[swap,no head]{ap_f(p)} & g(a) \dar[no head]{ap_g(p)} \\
+f(a')\rar[no head]{H(a')} & g(a')
+\end{tikzcd}\]
+
+Homotopy is natural (or /polymorphic/) in $x$.
+
+** Funtion extensionality
+
+ 1) definable if $\mathtt{happly}: f =_{A \to B} g \to f \sim g$.
+ 2) the axiom of funtion extensionality says that the
+    above map is an equivalence.
+
+In the presence of function extensionality, we could write $\alpha$
+and $\beta$ as $f \circ g \sim id$ and $h \circ f \sim id$. Once you
+have function extensionality, you can write the homotopy as
+an equality
+
+ * $\prod_{y:B} f(g(y)) = y$
+ * by definition of homotopy, $f\circ g \sim id$
+ * by function extensionality, $f \circ g = id_{B}$
+
+** Exercises
+
+ 1) $id : A \to A$ is an equivalence, give the four parts of the
+    equivalence.
+ 2) if $f$ is an equivalence, $f^{-1}$, given by the quasiinverse, is
+    an equivalence.
+ 3) if $f$ and $g$ are equivalences, then so is $g \circ f: A \to C$.
+
+** Structure of paths in types
+For example, if we take $Id_{A \times B}(-,-)$, the identity type seems invariant
+to the way the type has been constructed; but a structure can be deduced
+from the types.
+
+There is a function $f$ with the type $Id_{A \times B}(x,y) \to Id_A(\pi_1x, \pi_2y) \times Id_B( \pi_2x, \pi_2y)$
+that we can define as
+
+\[
+f := \lambda p. \left\langle \mathrm{ap}_{\pi_1}(p), \mathrm{ap}_{\pi_2}(p) \right\rangle
+\]
+
+And we can prove that $f$ is an equivalence
+
+\[
+Id_A(x,y) \simeq Id_A(\pi_1x,\pi_1y) \times Id_B(\pi_2x, \pi_2y)
+\]
+
+because it suffices to exhibit a quasiinverse for $f$.
+
+ * $g : Id_A(\pi_1x,\pi_1y) \times Id_B(\pi_2x,\pi_2y) \to Id_{A \times B}(x,y)$
+ * $\alpha : g(f(p)) =_{Id_{A\times B}(x,y)} p$
+ * $\beta : f(g(q)) =_{Id_A(-,-) \times Id_B(-,-)} q$
+
+we use pattern matching
+
+\[
+g := \lambda (p,q). ap^2_{pair}\ p\ q
+\]
+
+where $pair = \lambda x,y. (x,y)$, and $ap^2_f\ p\ q : Id(f x y, f x' y')$ where
+$p: Id(x,x')$ and $q : Id(y,y')$.
+** Products
+We need to show the following for the quasi-inverse
+
+ * $\eta :\prod_p (ap^2_{pair} \left(ap_{\pi_1}(p), ap_{\pi_2}(p)) = p\right)$
+ * $\beta_1 : \prod_p\prod_q ap_{\pi_1}(ap^2_{pair}\ p\ q) = p$
+ * $\beta_2 : \prod_p\prod_q ap_{\pi_2}(ap^2_{pair}\ p\ q) = p$
+
+We need by path induction $x : A \times B \vdash - : ap^2_{pair}\ (ap_{\pi_1}(refl(x))\ ap_{\pi_2}(refl(x)) = refl(x)$
+
+ * $ap_{\pi_1}(refl(x)) \equiv refl(\pi_1(x))$
+ * $ap_{\pi_2}(refl(x)) \equiv refl(\pi_2(x))$
+
+Note that the type checking will depend on the computation rules, and
+this is antimodular. If you change anything on the code, everything that
+relies on it could break.
+
+ * $ap^2_{pair}\ (refl(\pi_1 x))\ (refl(\pi_2 x)) \equiv refl(\pi_1(x),\pi_2(x)) \equiv refl(x)$
+** Nullary case
+
+\[
+Id_{1}(x,y) \simeq 1
+\]
+
+** Coproducts
+In coproducts, we would like to prove that
+
+ * $Id_{A+B}(inl(a),inl(a')) \simeq Id_A(a,a')$
+ * $Id_{A+B}(inr(b),inr(b')) \simeq Id_B(b,b')$
+ * $Id_{A+B}(inl(a),inr(b)) \simeq 0$
+ * $Id_{A+B}(inr(b),inl(a)) \simeq 0$
+
+If we were to find a map from
+
+ * $x : Id_{A+B}(inl(a),inl(a')) \vdash -:Id_A(a,a')$
+
+using path induction on $p$, we would have to find a motive $C = ?$
+and the conclusion should be $C(inl(a),inl(a'), p)$, where $J[C](p,\dots)$
+would be the induction on paths. But how do we get rid of the $inl$?
+We should define a motive as
+
+\[
+D(u,v) = Id_{A}(outl(u), outl(u))
+\]
+
+but there are not $outl$ functions! We want the motive to be
+
+\[
+F : (A+B) \times (A+B) \to {\cal U}
+\]
+
+such that
+ 
+ * $F(inl(a),inl(a')) \equiv Id_A(a,a')$
+ * $F(inr(b),inl(b')) \equiv Id_A(b,b')$
+ * $F(inl(-),inr(-)) \equiv 0$
+ * $F(inr(-),inr(-)) \equiv 0$
+
+Exercise: define such an $F$ by double induction.
+
+The critical lemma is $x : A+B \vdash -:F(x,x)$, which we need to
+use path induction.
+
+\[ \mathtt{case}[z.F(z,z)](x; m:A. refl(m) ; n:B. refl(n) ) : F(x,x)
+\]
+
+where $[inl(m)/z]F(z,z) \equiv F(inl(n),inl(n))$.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
