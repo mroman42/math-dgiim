@@ -1824,6 +1824,238 @@ To do this we need
 
  1) to find a path $x,y{:} Nat \vdash -{:}x+y =_{Nat} y+x$.
  2) transport along that path.
+* Lecture 9: Universes
+** Last week
+Maps preserve proofs of identity (functionality)
+
+ * if $F \colon A \to B$ and $p : Id_A(a,a')$, then $\mathtt{ap}\ f\ p : Id_B(f(a),f(a'))$.
+   If $a = a'$ is true, $f(a) = f(a')$ is true.
+
+The transportation creates isomorphisms between families of types.
+
+ * If $x:A\vdash B$ is a type and $p : Id_A(a,a')$, then
+   $\mathtt{tr}[x.B](p) : B[a] \to B[a']$. This is family functionality.
+   If $a=a'$, then $B[a] \iff B[a']$.
+** Universes and large elims
+Last notion on ITT.
+
+*** Example
+We defined $\mathtt{if}(M,N;P) : B[M]$, and we would want to write things like
+$\mathtt{if}(M;17;\mathtt{tt}) : \mathtt{if}(M; Nat,Bool)$; a type depending on a boolean. But we cannot
+write it because those are types instead of terms.
+
+*** Large eliminations (ad hoc)
+We simply introduce a new type
+
+\begin{prooftree}
+\AxiomC{$M:Bool$}
+\AxiomC{$A$ type}
+\AxiomC{$B$ type}
+\TrinaryInfC{$IF(M,A,B)$ type}
+\end{prooftree}
+
+where
+
+ * $IF(\mathtt{tt},A,B) \equiv A$
+ * $IF(\mathtt{ff},A,B) \equiv B$
+
+Those are called *large eliminations*.
+
+*** Universes of types
+A *universe* is a type of types.
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{${\cal U}$ type}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{${\cal U} \equiv {\cal U}$}
+\end{prooftree}
+
+where the introduction rules are the previous formation rules.
+For example,
+
+\begin{prooftree}
+\RightLabel{(UI-Id)}
+\AxiomC{$A: {\cal U}$}
+\AxiomC{$M,N:A$}
+\BinaryInfC{$Id_A(M,N) : {\cal U}$}
+\end{prooftree}
+
+The universe should be closed to type formation, for example, closed
+to pi-types, sigma-types, 0, 1, sum of two types...
+
+\begin{prooftree}
+\AxiomC{$A : {\cal U}$}
+\AxiomC{$x:A \vdash B:{\cal U}$}
+\BinaryInfC{$\prod_{x:A} B:{\cal U}$}
+\end{prooftree}
+
+But we do NOT postulate that ${\cal U} : {\cal U}$. Its formation rule is the unique
+formation rule that is not translated. In other way, the Burali-Forte
+Paradox could be reproduced.
+
+*** Solving the problem with universes
+Now, we could form $\mathtt{if}(M,Nat,Bool) : {\cal U}$; except we should define some
+elimination rules.
+
+Universes allow us to prove
+
+ * injectivity of succ.
+ * define =fst=, =snd= from =split=.
+
+If we were to have large elims, we could write things like $\mathtt{If}(M,U,U\to U)$; but
+not with the universal type, where is not true that $U : U$.
+
+** Hierarchy of universes
+To solve previous problems, we could write a cumulative hierarchy of
+universes. We have a family of rules
+
+\begin{prooftree}
+\RightLabel{(U-I)}
+\AxiomC{$$}
+\UnaryInfC{${\cal U}_i : {\cal U}_{i+1}$}
+\RightLabel{(U-$\equiv$)}
+\AxiomC{$$}
+\UnaryInfC{${\cal U}_i \equiv {\cal U}_{i}$}
+\noLine\BinaryInfC{}
+\end{prooftree}
+
+defining ${\cal U}_1,{\cal U}_2,\dots$ with a trivial definitional equality and closure
+properties for every universe, for example
+
+\begin{prooftree}
+\AxiomC{$A : {\cal U}_i$}
+\AxiomC{$x:A \vdash B:{\cal U}_i$}
+\BinaryInfC{$\prod_{x:A} B:{\cal U}_i$}
+\end{prooftree}
+
+and the *principle of cumulativity*
+
+\begin{prooftree}
+\RightLabel{(cumulativity)}
+\AxiomC{$A:{\cal U}_i$}
+\UnaryInfC{$A : {\cal U}_{i+1}$}
+\RightLabel{(cumulativity-$\equiv$)}
+\AxiomC{$A \equiv B : {\cal U}_{i}$}
+\UnaryInfC{$A \equiv B : {\cal U}_{i+1}$}
+\noLine\BinaryInfC{}
+\end{prooftree}
+
+This architecture is forced on us by the Burali-Forte paradox. This
+corresponds to the idea of inaccesible cardinals; to a size hierarchy.
+** Dimension
+There will be another different notion (on a different axis) than
+size (universes). Dimensions are new in HoTT.
+
+** Formation rules in HoTT
+In the HoTT book, formation rules are written as introductions to
+the universal type
+
+\begin{prooftree}
+\AxiomC{$A : {\cal U}$}
+\AxiomC{$x:A \vdash B:{\cal U}$}
+\BinaryInfC{$\prod_{x:A} B : {\cal U}$}
+\end{prooftree}
+
+This uses *typical ambiguity*, ${\cal U}$ can be ${\cal U}_i$. The type inference algorithms
+of proof assistants solve these constraints, specifying the level in which
+we are working. Is a kind of Universe Polymorphism: it let you pretend
+${\cal U} : {\cal U}$.
+
+It is very difficult to write something where it is not possible to get an
+error at the time of inferring universes. The Burali-Forte paradox cannot be
+written in this setting.
+
+** ITT
+At this point, we have introduced ITT with Nats, Sigma, Pi, Identity and
+Universes. [Martin-Löf 73]
+
+*** Theorem of Choice in ITT
+When $C$ is a total relation, we can pick up a canonical representative of
+the elements to which $x$ is related to.
+
+\[
+\left(\prod_{x:A} \sum_{y:B} C(x,y)\right) \to \sum_{f:A\to B}\prod_{x:A} C(x,f(x))
+\]
+
+where $f$ is called the choice function.
+
+In set theory, this is indepent of the axioms of sets; but in type
+theory, it is a theorem because of proof-relevance.
+
+\[
+\lambda F.\ 
+\left\langle \lambda x. \mathtt{fst}(F(x)) , \lambda x. \mathtt{snd}(F(x)) \right\rangle
+\]
+
+where $\mathtt{snd}(F(x)) = C(x, \mathtt{fst}(F(x)))$. 
+
+*** Axiom of choice on sets
+How about translating this proof to set theory? We would need for the proof
+to be a parametrized object! Proof relevance is key to prove the theorem of
+choice. If we cannot look inside the first proof, we could not prove the
+theorem.
+
+** Martin-Lof theorem
+If $p:Id_A(M,N)$ for any closed $M,N,A$; without hypothesis (a theorem),
+then $M \equiv N : A$.
+
+*** Example
+If we have that 
+
+$A = Nat \to Nat \to Nat$
+$M = \lambda x. \lambda y.\ x+y$
+$N = \lambda x. \lambda y.\ y+x$
+$M \not\equiv N$
+
+There is no proof $p : Id(M,N)$, no term of that type. Yet, given $x,y,z: Nat$,
+there exists a proof of $p : Id(x+y,y+x)$. The axiom of extensionality fails
+here. It is NOT true that
+
+\begin{prooftree}
+\AxiomC{$x : A \vdash p:Id_{B}(fx,gx)$}
+\UnaryInfC{\vdash -:Id$_{A\to B}(f,g)$}
+\end{prooftree}
+
+So the ordinary notion of function is not true here anymore. We cannot
+even prove that $\lambda x.fx = \lambda x.gx$. This is a weakness of ITT.
+
+*** Function extensionality as an axiom
+If we introduce extensionality as an axiom, we would have introduced another
+intro for identity types, and $J$ should have to be redefined.
+
+In HoTT, we can construct this from the axioms, and this makes very difficult
+the task of giving it a meaningful computational interpretation.
+
+** Extensional theory of types (ETT)
+In ETT (Extensional here has another meaning), the only identifications are
+=refl=. We have the principle of *identity reflection*
+
+\begin{prooftree}
+\AxiomC{$p : Id_{A}(M,N)$}
+\UnaryInfC{$M \equiv N : A$}
+\end{prooftree}
+
+and the only possible proof of identity is =refl=
+
+\begin{prooftree}
+\AxiomC{$p : Id_{A}(M,N)$}
+\UnaryInfC{$p \equiv \mathtt{refl}(M): Id_A(M,N)$}
+\end{prooftree}
+
+In this case, the problem is solved. $Id_B(fx,gx)$ gives us $fx \equiv gx$,
+so $\lambda x. fx \equiv \lambda x. gx$, and by eta-reduction, $f \equiv g$. This implies function
+extensionality and obviates the need for a rule of transport, we can in fact
+show that $B[a] \equiv B[a']$. NuPRL was based on ETT, Coq is based on ITT.
+
+** The disadvantage of ETT
+$M:A$ is decidable (not feasible) in ITT, while $M : A$ is undecidable in ETT.
+We need arbitrary theorem proving to decide the equality on ETT. It is instead
+decidable if a derivation is a valid one.
+
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
