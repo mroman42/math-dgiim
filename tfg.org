@@ -114,6 +114,8 @@ it can be achieved via scripts.
 *** Untyped lambda calculus section
 *** Type theory introduction
 *** Category theory introduction
+*** Wikipedia
+**** Agda
 ** Read
 *** From sets to categories to types to sets
 *** Elienberg categorical foundations
@@ -318,12 +320,10 @@ A course on Agda.
 *** [[http://strictlypositive.org/calculus/][Differential Calculus with Datatypes]]
 *** TODO [[http://people.inf.elte.hu/divip/AgdaTutorial/Index.html][Agda Tutorial]]
 *** [[https://cs.stackexchange.com/questions/14674/intro-to-martin-l%C3%B6f-type-theory][logic - Intro to Martin-Löf type theory - Computer Science Stack Exchange]]
-*** [[https://homotopytypetheory.org/links/][Links | Homotopy Type Theory]]
-*** [[https://www.youtube.com/watch?v=fJJ7NhkySXM][Homotopy Group - (1)Dan Licata, (2)Guillaume Brunerie, (3)Peter Lumsdaine - YouTube]]
+
 *** [[https://plato.stanford.edu/entries/type-theory-intuitionistic/][Intuitionistic Type Theory (Stanford Encyclopedia of Philosophy)]]
 Intuitionistic type theory is thus a typed functional programming
 language with the unusual property that all programs terminate.
-
 *** DONE [[https://www.youtube.com/watch?v=21qPOReu4FI][Five Stages of Accepting Constructive Mathematics - Andrej Bauer - YouTube]]
 "Taking the Principle of the Excluded Middle from the mathematician... 
 is the same as ... prohibiting the boxer the use of his fists."
@@ -351,7 +351,24 @@ Talks about identity types.
 *** [[http://math.ucr.edu/home/baez/topos.html][Topos theory in a nutshell]]
 *** [[http://www.logicmatters.net/tyl/][Logic matters]]
 *** [[https://mathoverflow.net/questions/69251/is-mac-lane-still-the-best-place-to-learn-category-theory/70891#70891][Is MacLane still the best place to learn category theory?]]
+*** Homotopy type theory
+**** [[http://dlicata.web.wesleyan.edu/pubs/lb14cubical/lb14cubes-oxford.pdf][A cubical type theory]]
+**** [[https://ncatlab.org/homotopytypetheory/files/AwodeyDMVrev.pdf][AwodeyDMVrev.pdf]] Cubical type theory
+**** [[http://www.helsinki.fi/lc2015/materials/slides_awodey.pdf][slides_awodey.pdf]] Cubical Type theory
+**** [[http://www.cse.chalmers.se/%7Ecoquand/cubicaltt.pdf][Cubical Type Theory - Coquand, Cohen]]
+**** [[http://neil-strickland.staff.shef.ac.uk/formal/][Formalised mathematics]] in Agda
+**** https://mathoverflow.net/questions/156238/function-extensionality-does-it-make-a-difference-why-would-one-keep-it-out-of/156295#156295
+The conversation here between Sterling and Bauer is very interesting.
+**** [[http://math.andrej.com/2013/08/28/the-elements-of-an-inductive-type/][The elements of an inductive type | Mathematics and Computation]]
+**** [[https://github.com/HoTT/book/issues/460][Path induction again (sorry) · Issue #460 · HoTT/book]]
+**** [[https://www.youtube.com/watch?v=fJJ7NhkySXM][Homotopy Group - (1)Dan Licata, (2)Guillaume Brunerie, (3)Peter Lumsdaine - YouTube]]
+**** [[https://homotopytypetheory.org/links/][Links | Homotopy Type Theory]]
+**** [[https://agda.readthedocs.io/en/latest/language/cubical.html][Cubical Type Theory in Agda — Agda 2.6.0 documentation]]
+**** [[http://www-sop.inria.fr/members/Anders.Mortberg/slides/TTT-cubicaltt.pdf][Cubical Type Theory: a constructive interpretation of the univalence axiom - TTT-cubicaltt.pdf]]
 ** Articles
+*** [[http://www.ams.org/notices/201309/rnoti-p1164.pdf][The Univalence Axiom in Homotopy Type Theory]] - Awodey
+*** [[http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.207.4309][CiteSeerX — Observational Equality, Now!]] - McBride, Altenkirch
+*** [[http://www.cse.chalmers.se/~ulfn/papers/tphols09/tutorial.pdf][A brief overview of Agda]] - Ulf Norell
 *** [[http://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf][propositions-as-types.pdf]] Philip Wadler
 *** TODO [[http://imps.mcmaster.ca/doc/seven-virtues.pdf][seven-virtues]] Seven virtues of type theory
 *** TODO [[http://conal.net/papers/compiling-to-categories/compiling-to-categories.pdf][Compiling to categories]]
