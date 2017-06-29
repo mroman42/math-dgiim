@@ -2515,6 +2515,119 @@ use path induction.
 \]
 
 where $[inl(m)/z]F(z,z) \equiv F(inl(n),inl(n))$.
+* Lecture 13: Path structure of Types
+** Last week
+We characterized paths in coproducts.
+
+*** Lemma
+$x : A +B \vdash -:F(x,x)$
+
+we use induction on $x$
+
+ * $a:A \vdash refl(a) : F(inl(a),inl(a))$
+ * $b:B \vdash refl(b) : F(inr(b),inr(b))$
+
+what we want to define a quasiinverse 
+
+\[
+f : \prod_{x,x' : A+B} Id_A(x,x') \to F(x,x')
+\]
+
+\begin{aligned}
+f := \lambda x. \lambda x'. \mathtt{case}(x;\ a:A.\ \mathtt{case}( & \\
+& x'; a':A. \lambda p:Id_A(inl(a),inl(a')) . J[F](p; z.F(z,z), \\
+& \dots )
+\end{aligned}
+
+*** Quasiinverse
+Now we have to define
+
+\[
+g : \prod_{x,x':A+B} F(x,x') \to Id_{A+B}(x,x')
+\]
+
+as
+
+\[
+g := \lambda x,x',z:F(x,x')\ \text{cases on }\ x\ x'
+\]
+
+and now we want to show
+
+ * $z:F(x,x') \vdash \alpha(z) : f(g(z)) = z$
+ * $z:Id_{A+B}(x,x') \vdash \beta(z) : g(f(z)) = z$
+
+** Positive types
+We work with coproducts as examples of positive types. We will
+characterize $Id_0(-,-)$ and the path structure of $\mathbb{S}^1$.
+
+\[
+Id_{s'}(b,b) = \Omega_b(S') \simeq \mathbb{Z}
+\]
+
+We are doing synthetic homotopy theory.
+
+** Characterizing paths on identity types
+Given a type $A$, we consider $Id_{Id_{\dots_A}}(-,-)$. We cannot say much, because
+it includes as special cases the spheres $\Omega(S^n)$.
+
+If $f : A \to B$ is an equivalence, then so is $ap_f : a =_A a' \to f(a) = f(a')$.
+What we have is $f : A \to B$, so $\alpha : \prod_{a:A}f^{-1}(f(a)) =_A a$ and $\beta : \prod_{b:B}f^{-1}(f(b)) =_B b$.
+because it has quasiinverses. To prove this, we define
+
+\[ ap^{-1}_f := \alpha(a)^{-1} \cdot ap_{f^{-1}} \cdot \alpha(a')
+\]
+
+now we need
+
+ * $\alpha' : \prod_{p:a =_A a'} ap^{-1}_f(ap_f(p)) =_{a = a'} p$
+ * $\beta' : \prod_{q:f(a) =_B f(a')} ap_f(ap_{f}^{-1}(q)) =_{f(a) = f(a')} q$
+
+and both can be proved by path induction.
+** Identity types are homs in an (infinite,1)-category
+The type $Id_A(x,y)$ is similar to $Hom_A(x,y)$. $Id_A(-,-)$ is a family
+of types, and hence a fibration.
+
+We look at the transport/fibration properties taking
+the notation $E(x,y) := Id(x,y)$
+
+  1) fix $x_{0}:A$, consider $\lambda y:A.E(x_0,y)$,
+
+     \[
+     tr[y.E(x_0,y)](q) : E(x_0,y) \to E[x_0,y']
+     \]
+
+     it maps $p:E(x_0,y) \mapsto p \cdot q$
+
+  2) fix $y_0 : A$, consider $x . E(x,y_0)$,
+
+     \[
+     tr[x.E(x,y_0)](p) : E(x,y_0) \to E(x',y_0)
+     \]
+
+     mapping $q \mapsto p^{-1}\cdot q$.
+
+  3) for $p : x = x'$, $q : E(x,x)$; $tr[x.E(x,x)](p) : q \mapsto p^{-1} \cdot q \cdot p$.
+
+It can be checked by path induction. This show that they behave like
+Hom's and that they exhibit the infinity-groupoid structure.
+** Recall: identity elimination rule
+The idea is that, in ITT, this can be thought of as an induction
+principle arising from taking the Id to be the least reflexive
+relation, because the only introduction rule says so; and the 
+elimination works as that.
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash p:Id_A(M,N)$}
+\noLine
+\UnaryInfC{$\Gamma,x:A,y:A,z:Id(x,y) \vdash F : {\cal U}$}
+\AxiomC{$\Gamma, x:A \vdash q : F(x,x,refl) $}
+\BinaryInfC{$\Gamma \vdash J[F](p,x.q) : F(M,N,p)$}
+\end{prooftree}
+
+For doing set-level mathematics, this works. In HoTT, we interpret the
+identities as paths in $A$, not as inductive types. We conclude things
+about non-trivial paths only reasoning about reflexivity!
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
