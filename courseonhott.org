@@ -2056,6 +2056,131 @@ $M:A$ is decidable (not feasible) in ITT, while $M : A$ is undecidable in ETT.
 We need arbitrary theorem proving to decide the equality on ETT. It is instead
 decidable if a derivation is a valid one.
 
+* Lecture 10: Groupoid structure of types
+** Last week
+We considered ITT vs ETT. ETT has advantages
+
+ * in ETT, there is no necessity for transport.
+ * ETT is similar to standard mathematics, in that there is "just
+   equality".
+ * function extensionality is implied from the rules.
+
+And disadvantages
+
+ * type checking is no longer decidable; judgmental equality
+   is not decidible and it involves proof search and arbitrary theorem
+   proving.
+
+A *setoid* in ITT is a set with a given equivalence relation chosen to
+have properties like function extensionality. So, the alternative to ETT
+is to work with setoids on ITT.
+
+Types are (limited to) sets (aka hsets). The reason why ETT looks like standard
+mathematics is because we are working with Sets, where the only paths/identifications
+are reflexivities. A sufficient condition for being discrete is decibility of equality.
+
+** Groupoids
+Types in ITT, in contrast, are more general. They are $\infty\text{-groupoids}$, 
+and they have richer path structure. Paths can be composed
+
+ * $p : Id_A(a,b)$
+ * $q : Id_A(b,c)$
+
+When ITT was introduced, it had power to use gropoids. At the very
+beginning, no one realized this feature. ETT works for set-level 
+mathematics and it is easier.
+
+*** Strict/weak refl
+In ETT we can have two views of refl. NuPRL uses strict sets.
+
+*** HoTT
+ITT + axioms introducing new paths. Examples of new types are the
+interval.
+
+\[\begin{tikzcd}
+I : & \underset{0}\cdot \rar[no head] & \underset{1}\cdot 
+\end{tikzcd}\]
+
+which is different from boolean types in that it has a nontrivial path
+
+\[\begin{tikzcd}
+Bool : & \underset{0}\cdot & \underset{1}\cdot 
+\end{tikzcd}\]
+
+There elements $0,1 : I$ and $seg : \mathrm{Id}_I(0,1)$. The booleans have a mapping
+out property where a function $f : Bool \to A$ is defined by
+
+ * $f(0) : A$
+ * $f(1) :A$
+
+on intervals, to create a function $f : I \to A$, you must also specify what the
+function does on the segment
+
+ * $f(\mathtt{seg}) : f(0) = f(1)$
+
+just intuitively, we want some free structure on the data defining the type,
+so that if we want to map out a type, we are required to define how to get
+from a type to another on all constructors. $f : I \to A$, for example, picks
+a path in $A$.
+** How does J deal with new paths?
+Where do you get off adding axioms to type theory? In type theory, 
+we have introductions, eliminations, and the Gentzen's inversion/unicity
+principle gives us computation by beta rules. Everything has a beta-normal
+form.
+
+But when we add axioms, we get into trouble. What should we do on these cases
+
+ * $J[\ ](\mathtt{seg}, x.Q) \equiv ?$
+ * $J[\ ](\lambda x.p, y.Q) \equiv ?$
+
+the principal problem with HoTT is how to recover constructivity/computation on
+HoTT. We can here express non set-level math. If every equalities are decidable,
+we have to be working with sets.
+
+** I. types are infinite-groupoids
+Types are $\infty\text{-groupoids}$. 
+
+Recall that $id_A(M) := \mathtt{refl}_A(M) : Id_A(M,M)$ and that
+$p: Id_A(M,N) \vdash p^{-1} : Id_A(N,M)$ was defined by $J$. We also
+had composition of paths (transitivity). =trans(p,q)= is defined
+by $J$; so we have an equivalence relation.
+
+We have to write code to prove that this is, in fact, an equivalence
+relation. Those paths follow the groupoid laws.
+
+*** Groupoid laws
+In a groupoid, these laws has to be satisfied
+
+  * $p \cdot p^{-1} \equiv \mathrm{id}$, could be an option, but we usually will accept
+    equality on a weaker sense $p \cdot p^{-1} =_{\mathrm{Id}_A(M,N)} \mathrm{id}$.
+
+So we would have elements giving us
+
+  * $\mathtt{unitr} : Id_{Id_A(M,N)}(pp^{-1}, \mathrm{id}(M))$
+  * $\mathtt{unitl} : p^{-1}p = \mathrm{id}(N)$
+  * $\mathrm{idr} : p \cdot \mathrm{id}(N) = p$
+  * $\mathrm{idl} : \mathrm{id}(M) \cdot p = p$
+
+And associativity
+
+  * $\mathtt{assoc} : (p \cdot q) \cdot r = p \cdot ( q \cdot r)$
+
+All of those paths are definible from $J$, they are implicit on the
+structure of types and they are called higher-coherences. If we consider only
+paths from $M$ to $M$, we would get a higher-group.
+
+*** Defining groupoid laws from J
+The groupoid laws can be proven from J.
+
+** II. Maps are functors
+If $f : A \to B$ and $p: M = M'$, we get $\mathrm{ap}_f(p) : fM = fM'$. 
+That is the principle of equality functionality. This is written using
+$J$ again. We know that $\mathrm{ap}(\mathtt{refl}(M)) \equiv \mathtt{refl}(f(M))$. $\mathtt{ap}$ preserves
+identities in this sense. Does it preserve all the groupoid structure?
+
+We can prove that $\mathtt{ap}$ preserves all the structure, it gives us a principle
+of *equality functoriality*; it is functorial.
+
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
