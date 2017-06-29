@@ -2628,6 +2628,438 @@ elimination works as that.
 For doing set-level mathematics, this works. In HoTT, we interpret the
 identities as paths in $A$, not as inductive types. We conclude things
 about non-trivial paths only reasoning about reflexivity!
+* Lecture 14: Identity elimination
+** Last week exercise
+If $ - : qinv(f)$, then $-: ap_f$.
+
+ 1) $ap_f^{-1} = ap_{f^{-1}}$
+ 2) $\alpha : \prod_{p : a=_A a'} \dots$
+ 3) $\beta : \prod_{q : f(a) = (a')} ap_f(\alpha(a)^{-1} \cdot ap_{f^{-1}}(Q) \cdot \alpha(a')) = q$
+
+the (2) is proved by path induction, but (3) is not so easy. If we use
+path induction there, we will get $F[f(a),f(a'),q]$ as motive, which should
+be then $ap_f(\alpha(a)^{-1} \cdot ap_{f^{-1}}(Q) \cdot \alpha(a')) = q$. Recall that, for coproducts,
+
+ * $F[inl(a),inl(a')] \equiv (a = a')$
+
+but here, we cannot do that, we would need to define it such that
+$F[f(a),f(a'),q] =_{{\cal U}} \left(ap_f(\alpha(a)^{-1} \cdot ap_{f^{-1}}(Q) \cdot \alpha(a')) = q\right)$. If $M:A$ and
+$p : A =_{{\cal U}} A'$, then $p_{\ast}(M) : A'$. So you use the fact that
+
+ * $f^{-1}(f(a)) =_A a$, and
+ * $(f^{-1},\alpha,\beta) : qinv(f)$.
+** Justifying the J operator
+The J operator has different meanings in ITT and HoTT
+
+ 1. In ITT, J expresses an induction principle on proofs of identity,
+    of which there is exactly one.
+
+ 2. In HoTT (or ITT + FUNEXT), the situation is less clear,
+
+    \[J[\ ](refl(M), x.Q) \equiv [M/x]Q\]
+    
+    but then, we have the problem
+
+    \[J[\ ](funext(H); x.Q) \equiv ?
+    \]
+
+    where the Gentzen's principle does not hold. How should apply
+    $J$ with the Univalence Axiom or to other defined equalities?
+
+    * $J[\ ](UA(E), x.id) \equiv ?$
+    * $J[\ ](seg, x.id) \equiv ?$
+    * $J[\ ](loop, x.id) \equiv ?$
+
+ 3. In ETT, it does not work like this. Equality reflection allows us
+    to replace to equalities; we do not need J at all. We get FUNEXT
+    without special arrangement. It has a computational interpretation.
+    You end using a theory of realizability.
+
+ 4. In OTT, we can have FUNEXT without special arrangement. It has a
+    computational interpretation.
+
+In HoTT, we give up on computation; but maybe we can recover one. We
+justify the theory by interpretation into the classical ZF using
+simplicial sets.
+** Solving (partially) the problem
+Idea: have $x:A \vdash Q : C[x,x,refl(x)]$ where the motif
+$x:A,y:A,z: x=y \vdash C : {\cal U}$. We want to get $- : C[M,N,P]$ 
+where $M,M':A,P: M=M'$. This is what the J-rule is saying. 
+
+We know that $[M/x]Q : C[M,M,refl(M)$, and $Q$ depends functorially
+on $x$. The logic in HoTT is integrated with the whole structure of
+maps. There is a continuous dependency from $Q$ to $A$. So we also
+know that $[P/x]Q : [M/x]Q =_p^{C(-,-,refl(-))} [N/x]Q$ (in an abuse of language)
+and $ - : p_\ast [M/x]Q =_{C(M',M',refl(M'))} [M'/x]Q$.
+
+Since $refl(M) : M = M and $p : M = M'$, now it suffices to find
+$\alpha : refl(M) =^{Id(-,-)}_{(refl(M),p)} p$, wich is to say that
+
+\[
+\alpha : \left\langle refl(M),p \right\rangle(refl(M)) = p
+\]
+
+the triple $(refl,p,\alpha)$ would take $C(M,M,refl(M))$ into $C(M,M',p)$.
+
+\[ tr[x.Id(x,x)](p)(q) = p^{-1}\cdot q \cdot p\]
+
+it works choosing $refl_{Id_{A}(M,M')}(p)$. $C$ does the work! A priori, $C$ respects
+whatever it is that $Id$ internalizes!
+
+** The identity type
+The equality is respected by all the theory, that is why the identity
+type has those special properties. In HoTT, $Id$ internalizes homotopy
+equivalence, and, by univalence, everything respects homotopy
+equivalence. In contrast, in ITT, $Id$ internalizes definitional
+equality.
+
+The identity type does not define homotopy equivalence, it only 
+internalizes the notion.
+** Homotopy types
+The slogan is that Homotopy (Type Theory) is (Homotopy Type) Theory.
+# Así que debe traducirse por teoría de tipos homotópicos o
+# por teoría de tipos homotópica.
+
+#+begin_definition
+A type $A$ is a *set*, aka 0-type, iff for all $p,q : x =_{A} y$, we have
+that $p=q$.
+#+end_definition
+
+\[ \mathrm{isSet}(A) :=
+\prod_{x,y:A}\prod_{p,q: x=y} p = q
+\]
+
+it is a discrete groupoid up to higher homotopy. The only paths are
+the reflexivities, but up to higher-homotopy! There can be other loops,
+but they are homotopic to the reflexivity.
+
+You can form a type theory there every type is a set.
+* Lecture 15: Sets and propositions
+** Last week
+We saw a justification for the J-rule and the interaction with
+the functioriality of $C$ and the inductive analysis of J.
+
+** The Interval Type
+Formation rule
+
+\begin{prooftree}
+\RightLabel{$(I-F)$}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash I : {\cal U}$}
+\end{prooftree}
+
+Introduction rules
+
+\begin{prooftree}
+\RightLabel{(iI0)}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash  0 : I$}
+\RightLabel{(iI1)}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash  1 : I$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+
+And another introduction rule
+
+\begin{prooftree}
+\RightLabel{(iIseg)}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash seg : Id_I(0,1)$}
+\end{prooftree}
+
+This is an inductive definition of the type. The type should be
+freely generated by these constructors.
+
+\begin{prooftree}
+\AxiomC{$\Gamma, x:I \vdash C[x] : {\cal U}$}
+\AxiomC{$\Gamma \vdash M_0 : C[0]$}
+\noLine
+\UnaryInfC{$\Gamma \vdash M_1 : C[1]$}
+\AxiomC{$\Gamma \vdash p : M_0 =_{seg}^{x:C} M_1$}
+\TrinaryInfC{$\Gamma, x:I \vdash \mathrm{rec}_I[x.C](x;M_0,M_1 )  : C[x]$}
+\end{prooftree}
+
+where it is defined as
+
+ * $rec[x.C](0;M_0,M_1, -) \equiv M_0 : C[0]$
+ * $rec[x.C](1;M_0,M_1, -) \equiv M_1 : C[1]$
+ * $dap(\lambda x . rec[x.C](0;M_0,M_1,p)) \equiv p : M_0 =^{x:C}_{seg} M_1$
+
+the $dap$ map should be functorial
+
+\[ dap : \prod_f \prod_{x:A}B \longrightarrow \prod_{p:Id(x,y)} Id(fx,fy)
+\]
+
+** The total path space of a type
+The total path space are the morphisms from the interval
+
+\[
+\sum_{x:A}\sum_{y:A} Id(x,y) \simeq (I \to A)
+\]
+
+*** Proof
+The rec function goes from left to right
+
+$\lambda x,y,p. \lambda t. rec[-:A](t;x,y,p)$
+
+And the description of the path goes the other way
+
+\[ \lambda h. (h(0),h(1), ap(seg)).
+\]
+
+** Conclusion on the total path space
+A path between functions is an homotopy, a path between
+every pair of points
+
+\begin{align*}
+\int Id_{A \to B} &
+\simeq I \to (A \to B) \\&
+\simeq (I \times A) \to B \\&
+\simeq (A \times I) \to B \\&
+\simeq A \to (I \to B) \\&
+\simeq A \to \int Id_{B}
+\end{align*}
+
+Function extensionality says that
+
+\[
+Id(f,g) \simeq \prod_{x:A}Id_{A \to B}(fx,gx)
+\]
+
+which can be proved by definition and taking the right-to-left
+direction as an axiom.
+** Sets
+A type is a set if it is homotopically discrete.
+
+\[
+\mathrm{isSet}(A) \equiv \prod_{x,y:A}\prod_{p,q : x=y} p=q
+\]
+
+up to higher homotopy, the only equality is reflexivity.
+Pure ITT is a theory of sets. All of the constructs of ITT
+preserve the property of being a set
+
+ 1) $1$ is a set.
+ 2) if $A,B$ are sets, $A \times B$ is a set.
+ 3) if $A,B[x:A]$ are sets, $\sum_{x:A} B$ is a set.
+ 4) if $A,B$ are sets, $A+B$ is a set.
+ 5) $Nat$ is a set.
+ 6) if $A,B$ are sets, $A \to B$ is a set.
+ 7) if $A,B[x:A]$ are sets, $\prod_{x:A} B$ is a set.
+
+In the NPS book, they use the terminology =Sets=.
+** Problems interpreting ITT as a theory of sets
+Why are the identities sets? Why is the universe a set?
+
+ETT is also a set theory, and it is easier to work with it. In
+ITT, we have to pay the price of higher dimensionality without
+using it.
+
+** Is universe a set?
+Are the elements of ${\cal U}$ codes (names of types) or types? We can
+introduce the elements of ${\cal U}$ inductively. The codes will form a
+set.
+
+NuPRL and HoTT take the elements to be types; but NPS take the
+elements to be codes and to form a set, using ITT as a set theory.
+* Lecture 16: ITT
+All of the basic constructs of ITT preserve the relation of being a Set.
+Up to higher homotopy, there is at most one proof of equality of any two
+elements.
+
+${\cal U}$ is rigged to be a set and it is a set of codes; an inductively defined
+set.
+
+** The identity type is a set
+$Id_A(x,y)$ is a set if $A$ is a set
+
+*** Proof
+Assume that $A$ is a set
+
+\[
+H : \prod_{x,y:A}\prod_{p,q:Id_A(x,y)}Id_{Id_A(x,y)}(p,q)
+\]
+
+and we want to show that $Id(x,y)$ is a set. Assume $u,v : A$,
+$r,s:Id(u,v)$ and $\alpha,\beta : Id(r,s)$. We have to show that
+
+\[
+Id_{Id_{Id_A(u,v)}(r,s)}(\alpha,\beta)
+\]
+
+We specialize $H' := H(u)(v)(r) : \prod_{q:Id_A(u,v)} Id(r,q)$; and we are going
+to exploit the functoriality of $H'$. So
+
+\[ apd_{H'} : \prod_{q,q': Id_A(u,v)} \prod_{\gamma : Id(q,q')} Id(\gamma_{\ast}(H'(q)),H'(q')
+\]
+
+being a path-over scenario. Here,
+
+\[
+apd_{H'}(r,s,\alpha) : Id(\alpha_{\ast}(H'(r)), H'(s))
+\]
+
+and, similarly
+
+\[
+apd_{H'}(r,s,\beta) : Id(\beta_{\ast}(H'(r)), H'(s)).
+\]
+
+So, we can conclude that I can get an element of the identity
+$Id(\alpha_{\ast}(H'(r)), \beta_{\ast}(H'(r)))$. What this is telling us is that, by
+post-composition given by transport in the identity, $Id(H'(r)\alpha, H'(r)\beta)$.
+
+We have that $H'(r)\cdot \alpha = H'(r)\cdot \beta$, so I can multiply by the inverses
+to get
+
+\[
+H'(r)^{-1}H'(r)\alpha = H'(r)^{-1}H'(r)\beta
+\]
+
+and then $\alpha = \beta$. We have used here the groupoid structure.
+** ETT
+ETT is also a set theory because ITT is a set theory. ETT is easier to
+use when working with sets than ITT. HoTT adds the univalence axiom
+and Higher Inductive Types. Here, homotopy can be thought as a branch
+of logic. 
+
+** ITT+UA
+But ITT+UA is *not* a set theory; not all types are sets! In particular,
+${\cal U}$ is a proper groupoid; there are non-trivial paths between elements.
+
+For example, we will show two non-related paths between $1+1=2$ and
+$2 = 1+1$. We know that
+
+\[ UA: (A = B) \simeq (A \simeq B)
+\]
+
+and we are going to use it to create two different paths.
+
+ * $ud(id)$
+ * $ud(not)$
+
+and $id \neq not : 2 \to 2$ by function extensionality; they are two different
+equivalences. We also have $refl(tt) : tt =_2 tt$; and by transport if the
+two paths were the same up to higher homotopy, $tr('') : ff = tt$, which is 
+falsable.
+
+** H-props
+Start with $n \geq -2$. 
+
+#+begin_definition
+A type $A$ is an *h-prop* or prop iff
+
+\[ \mathrm{IsProp(A)} :\equiv
+\prod_{x,y:A} Id(x,y)
+\]
+#+end_definition
+
+It is a subsingleton and it has at most one element up to higher
+homotopy. The problem with this naming is that this collides with
+the idea that propositions are types! It is better to call them
+*h-props* instead of *props*.
+
+The truth of these propositions is proof-irrelevant for types that
+are called h-props.
+
+*** Example: NuPRL and Markov's principle
+In NuPRL, the types were specifications, and proofs where programs.
+If we want to look for a zero on a sequence
+
+\[s : \left( \sum_{t:Nat\to Nat}\sum_{i:Nat} t(i) = 0 \right)
+\to 
+\left(\sum_{i : [0..|s|-1]} s(i) = 0\right)
+\]
+
+but here there is a solution in constant time! The $i$ is part of the
+specification, we provided too much information on the input. The
+problem here is proof-relevance. How could we suppress this information
+in a type?
+
+The first idea is an observation by *Brower*: we can change the specification
+to use double negation
+
+\[s : \left(\neg\neg \sum_{t:Nat\to Nat}\sum_{i:Nat} t(i) = 0 \right)
+\to 
+\left(\sum_{i : [0..|s|-1]} s(i) = 0\right)
+\]
+
+but now, should a while terminate? *Markov's principle* says that, if you
+can prove that a machine can't fail to halt, then it must halt. This is a
+very contentfull statement in a constructivist setting. This is a very
+strong axiom, the characteristic of the Russian school of constructivism.
+(Markov, Kolmogorov).
+
+*** Double negation and computational content
+In NuPRL, we do not have Markov's principle. We would change $Nat \to Nat$ to
+$FinSeq(k)$ in order to have a bound. Double negation kill computational,
+proof relevant content.
+
+#+begin_proposition
+For any $A$, $\mathrm{IsProp}(\neg \neg A)$.
+#+end_proposition
+
+It has a simple proof.
+
+*** Gödel's double negation translation
+The idea of Gödel was to embed classical into constructive logic.
+Here, classical logic is just a particular case of constructive
+logic. This is called /squashing/
+
+ * $\|1\| = 1$
+ * $\|A \wedge B\| = \|A\| \wedge \|B\|$
+ * $\|0\| = 0$
+ * $\|A \vee B\| = \neg\neg(\|A\| \vee \|B\|)$
+
+For implication, we have to choices
+
+ * if we only want to just squash, $\|A \supset B\| = \|A\|\supset \|B\|$, suffices.
+ * but if we want to recover classical logic, $\|A\| \supset (\neg\neg \|B\|)$.
+
+Classical logic is constructive + double negation elimination; the
+notion of $\neg\neg A \supset A$.
+
+ * with the first option, $\|\neg\neg A \supset A\| = \neg\neg A \supset A$.
+ * with the second one, $\|\neg\neg A \supset A\| = \neg\neg A \supset \neg\neg A$, which is true!
+
+This is called the CTS transform for compilers. Where $\neg A$ is interpreted
+as a countinuation for compilers. This is the type of a continuation
+
+\[
+(\|A\| \times (\|B\| \to 0)) \to 0
+\]
+
+With this technique, classical logic can be recovered from the constructivistic
+logic.
+
+** Propositional truncation
+We will abstract the idea of squasing into truncation; the idea is
+to quotient by the full relation. You take a type and a relation where
+you quotient by all the relationships. The notion of subsingleton is
+also useful to do proof-irrelevance.
+
+The idea of a subquotient does not work well with set theories. In
+HoTT we will use the idea of a quotient.
+
+** Hedberg's theorem
+A type with decidable equality is a set.
+
+If $\prod_{x,y:A} Id(x,y) \vee \neg Id(x,y)$, then $isSet(A)$.
+
+*** Corollary
+Classical logic destroy the higher-homotopy structure! If you
+postulate excluded-middle, everything is now gone.
+
+*** Proof
+ 1) Decidable equality implies stable equality.
+
+    \[
+   \neg \neg Id(x,y) \to Id(x,y)
+   \]
+
+ 2) Stability implies sethood.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
