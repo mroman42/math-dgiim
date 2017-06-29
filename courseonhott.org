@@ -2181,6 +2181,168 @@ identities in this sense. Does it preserve all the groupoid structure?
 We can prove that $\mathtt{ap}$ preserves all the structure, it gives us a principle
 of *equality functoriality*; it is functorial.
 
+* Lecture 11: Functoriality
+** Last week
+It is a generalization of the structure given by the equivalence
+relation on paths. Path satisfy the groupoid laws with the
+concatenation of paths. The data associated to every path can be
+thought as a higher dimensional path.
+
+For $f : A \to B$, we have
+
+\[ \mathtt{ap}_f : Id(M,N) \to Id(fM, fN)
+\]
+
+and it is a functorial application, respecting the groupoid structure
+due to the eta-rules for $J$ as
+
+ * $ap(id) = id$
+ * $ap(p^{-1}) = ap(p)^{-1}$
+ * $ap(p\cdot q) = ap(p) \cdot ap(q)$
+
+and having also that $ap_{id} = id$ and $ap_{f \circ g} = ap_g \circ ap_f$. Suppose $f : \prod_{x{:}A}B_x$,
+we would like to have the path
+
+\[ Id_A(M,N) \to Id_B(fM,fN)
+\]
+
+but $fM : [M/x]B$ and $fN:[N/x]B$ are not of the same type! But we could use
+the transport property to get $p_{\ast} : [M/x]B \to [N/x]B$. If we apply the transport
+property to the inversed path, we get the inverted path $B[N] \to B[M]$. We would
+get different proofs of the lemma if we use $p_{\ast}$ or $p_{\ast}^{-1}$.
+
+** Path-over-path
+The lemma we want to do is
+
+\[
+M =_A N \longrightarrow f(M) =_p^{x:B_{x}} f(N)
+\]
+
+this is a notation that says that $f(M)$ and $f(N)$ are correlated by
+$p$ on the fiber $x:B_x$. We will be able to send $p$ to a
+path-over-path $q : f(M) =_p^{x:B_x} f(N)$.
+
+#+begin_definition
+Given $x : A \vdash B : {\cal U}_x$ and $p : M =_A N$,
+
+\[
+\Big(Q =_p^{x:B} R \Big)
+:=
+\Big(p_{\ast} Q =_{[N/x]B} R\Big)
+\]
+#+end_definition
+
+It is possible to prove a lot of lemmas about this type. We can
+state reflexivity, symmetry properties and so on.
+** Equivalence of types: motivation
+Equivalence vs definitional and propositional equality of types as
+elements of the universe.
+
+ * In an informal treatment of classical logic, we mix $\iff$ and $=$.
+   Nothing can distinghish between them. In classical logic there are
+   only two propositions, so it is difficult to distingish.
+ * Equality should be the relationship respected by everything inside
+   the language.
+ * But when we are working on a proof relevance setting, there could
+   be many different proofs of two propositions, and two implications
+   do not have to be inverses!
+ * Isomorphisms of sets work on a similar way. It is not important to
+   distinghish between two isomorphic sets given any isomorphism $f,f^{-1}$.
+
+We could write bijections like $\omega = \omega^2$, but there are
+contexts where we want to make a difference between the two. Set theory
+allows us to ask nonsensical things like $0 \in 1$.
+
+The condition of bijection on types can be translated as a function
+$f : A \to B$ with a $g : B \to A$ such that
+
+In ITT, let's suppose a set of functions $N \to N$ and a non-trivial 
+bijection to itself.
+
+ * $F(f) = f'$ and $G(f') = f$
+ * $F(g) = g'$ and $G(g') = g$
+
+but what do those equalities mean? 
+
+ * $F(f)(x) = f'(x)$ and $G(f)(y) = f(y)$ would be an interpretation.
+   Those would be extensionally equal, but different functions.
+
+The notion of bijection is not very useful when working on higher-order
+types.
+** Equivalence on types involving a universe
+The elements of ${\cal U}$ have structure, each one of them is a groupoid.
+The idea of bijection $FG(A) = A$ is not workable; we are interested
+in nontrivial isomorphisms, in an equivalence rather than equality
+$FG(A) \simeq A$.
+
+This is similar to isomorphisms and equivalence of categories. We want
+$FG(A) \cong A$, we do not need $FG(A) = A$. Equivalence is isomorphism up
+to isomorphism.
+
+And when we have a universe of universes, the same question repeats
+itself. We need another level of comparison now. We would get the
+higher-group structure of a type.
+
+Isomorphism here is not a proposition but a structure.
+** Equivalence
+Given $f : A \to B$, a quasiinverse of $f$ is given by
+$(g,\alpha,\beta)$ such that
+
+ * $g : B \to A$
+ * $\alpha : \prod_{a:A} g(f(a)) =_A a$
+ * $\beta : \prod_{b:B} f(g(b)) =_B b$
+
+The type of *quasiinverses* is
+
+\[
+QI(f)_{A\to B} := \sum_{g : B \to A} 
+\left(
+\left(\prod_{a:A} g(f(a)) = a\right)
+\times
+\left(\prod_{b:B} f(g(b)) = b\right)
+\right)
+\]
+
+*** Another version
+In ITT, this is different from
+
+ * $\alpha' : g \circ f = id_A$
+ * $\beta' : f \circ g = id_B$
+
+this uses two paths instead of two homotopies.
+Function extensionality is now
+
+\[
+(f =_{A \to B} g) \simeq
+\left( \prod_{a:A}f(a)=_B g(a) \right)
+\]
+
+saying that every homotopy defines an equation. Those
+two types of proofs are equivalent.
+
+** Univalence axiom
+There is an equivalence between equivalence and equality.
+
+\[
+(A \simeq B) \simeq (A = B)
+\]
+
+Equivalences are given by
+
+\[
+\sum_{f : A \to B} \sum_{g : B \to A} 
+\left( f \circ g = id_B \times g \circ f = id_A \right)  \times \text{ some coherence condition }
+\]
+
+to avoid the function extensionality issue, we can write
+homotopies instead
+
+\[
+\sum_{f : A \to B} \sum_{g : B \to A} 
+\left( f \circ g \sim id_B \times g \circ f \sim id_A \right) \times \text{ some coherence condition }
+\]
+
+but we are going to have function extensionality.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
