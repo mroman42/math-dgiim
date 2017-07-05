@@ -3060,6 +3060,394 @@ postulate excluded-middle, everything is now gone.
    \]
 
  2) Stability implies sethood.
+* Lecture 17: Hedbergs theorem, truncation
+** Last week
+A type is a set if any two proofs of equality are equal. In other
+words, if the equality is a proposition. A proposition is a type such
+that any two elements of it are equal.
+
+** The negations are propositions
+The negation of any type is a proposition.
+
+*** Proof
+If $x,y : A \to \bot$, then $x = y$, as we have function extensionality;
+and given any $a : A$, we could use ex falso quodlibet, $\mathtt{abort}(xa) : xa = ya$.
+# Check this line on agda with hott
+
+** Hedberg's theorem
+A type with decidable equality is a set. Decidable equality
+can be written as
+
+\[
+\prod_{x,y : A} Id(x,y) \vee \neg Id(x,y)
+\]
+
+and a type is a set if
+
+\[
+\prod_{x,y: A} \prod_{p,q : x=y} p = q.
+\]
+
+*** Proof 1: Decidable equality implies Stable equality
+Stable equality, by definition, is
+
+\[
+\prod_{x,y : A} \neg \neg Id(x,y) \to Id(x,y).
+\]
+
+In general, what we know is that if $A \vee \neg A$, then $\neg\neg A \to A$. This
+is only an instance of that.
+
+*** Proof 2: Stable equality implies Sethood
+Suppose that the equality on $A$ is stable, $h :\prod_{x,y: A} \neg \neg (x = y) \to (x = y)$.
+It suffices to show that every $p : x = x$ is $p = \mathtt{refl}$. We can apply the
+path to get, by transport
+
+\[
+p_{\ast}(h(x)(x)) =_{\neg\neg x = x \to x = x} h(x)(x)
+\]
+
+so we know that, for any $r: \neg\neg (x = x)$, we know that
+
+\[
+p_{\ast}(h(x)(x)) (r) =_{x = x} h(x)(x)(r).
+\]
+
+And Lemma 2.9.6 from HoTT book is a technical result, saying that
+
+\[
+h(x)(x)(r)(p) = h(x)(x)(p_\ast r)= p_{\ast}(h(x)(x)) (r) =_{x = x} h(x)(x)(r) = h(x)(x)(r),
+\]
+
+where we use that negated types are propositions.
+
+*** Example: N is a set
+By double induction, we can show the decidability of equality on this
+type.
+** Every proposition is a set
+In general, we will get that any n-type is a n+1-type. If
+$\prod_{x,y : A} x = y$, then $\prod_{x,y:A}\prod_{p,q:x=y} p = q$. Suppose a function given
+with $f : \prod_{x,y:A} x = y$; then we can fix $x_0:A$ and let $g(y) \equiv f(x_0)(y)$.
+
+By functioriality, if we have $p : y = y'$, then $apd(p) : p_{\ast}(g(y)) = g(y')$.
+And if $q : y = y'$ and $q = g(y^{-1})g(y')$, so $p = q$.
+
+** The statement of anything being a proposition or a set is a proposition
+
+ * $isProp(isProp(A))$
+ * $isProp(isSet(A))$
+
+In the book, there is a chapter on when is a proposition an equivalence of
+two types. $isProp(isEquiv(A)(B))$? In the case of the definition by quasiinverses,
+it is not a proposition. A function can has many quasiinverses.
+
+*** First proof
+Given $f,g : isProp(A)$, we will show that they are equal. It suffices to show that
+$x,y:A \vdash - : f(x)(y) =_{x=y} g(x)(y)$. Since $isProp(A)$ implies $isSet(A)$, the desired
+equation holds.
+
+*** Second proof
+We can use a similar argument.
+** Propositional truncation, aka "squashing"
+When we worked in the Godel double negation translation,
+
+\[
+\|A \to B\| = \|A\| \to \neg\neg \|B\|
+\]
+
+A more abstract notion of truncation is do the squashing and not to
+worry about recovering classical logic. What you do is to introduce
+the type $\|A\|_{-1}$ of a truncation of $A$. It has the introduction form
+
+\begin{prooftree}
+\RightLabel{($\|\cdot\|$-I)}
+\AxiomC{$M:A$}
+\UnaryInfC{$|M| : \|A\|$}
+\end{prooftree}
+
+and the rule that any two elements are going to be the same up to higher
+homotopies
+
+\begin{prooftree}
+\AxiomC{$M:A$}
+\AxiomC{$N:A$}
+\BinaryInfC{$- : Id_{\|A\|}(|M|,|N|)$}
+\end{prooftree}
+
+This is the quotient of $A$ by the full relation. The elimination form has
+to be, then
+
+\begin{prooftree}
+\RightLabel{$\|\cdot\|$ - E}
+\AxiomC{$M : \|A\|$}
+\AxiomC{$x : A \vdash N : B$}
+\AxiomC{$p : isProp(B)$}
+\TrinaryInfC{$\mathtt{trunc}(M, x.N, p):B$}
+\end{prooftree}
+
+the requirement of $B$ to be a proposition, ensures that N's behaviour is
+independent of the choice of representative of the suplied equivalence
+class. We could relax the condition to a weaker one requiring only this.
+** Contractibility
+A type is contractible if it has an element and every other element is
+equal to it
+
+\[
+isContr(A) = \sum_{x:A}\prod_{y:A} x=y
+\]
+
+*** Lemma
+
+\[
+isProp(A) \iff
+\prod_{x,y:A} isContr(x=y)
+\]
+
+** n-types
+Something is a -2type iff it is contractible. And something is an
+n+1-type iff for all $x,y$, $x=y$ is a n-type.
+
+ * A proposition is a -1 type
+ * A set is a 0 type
+ * A groupoid is a type
+ * A 2-groupoid is a 2-type
+ * and so on
+
+Any n-type is also an n+1-type. It is a *cumulative hierarchy*.
+
+** Not any type is an n-type
+Not any type is an n-type for some n! There are types with a higher structure
+up to infinity.
+
+* Lecture 18: Homotopy n-types, contractability
+** Last week
+We defined contractability using centers of contraction.
+It expresses the idea of unique existence $\exists!$. It is sometimes
+written as $\Sigma!$.
+
+Something is contractible if it is a proposition and it has
+one element.
+
+** Fact of contractability
+If you fix any point $a : A$; you can consider the neighborhood of $A$
+and we can consider the star of $A$ and that is contractible.
+We can prove that
+
+\[
+isContr\left(\sum_{x:A} a = x\right)
+\]
+
+given $a : A$.
+** The special case of the propositional truncation
+We are going to call propositional truncation as -1-truncation.
+We can write it as $\|A\|_{-1}$. It will be useful to define other
+truncations. The idea is to have
+
+\[
+isProp(\|A\|)
+\]
+
+for any $A : {\cal U}$. That is to say that the equality type of this type
+is contractible as
+
+\[
+\prod_{x,y:\|A\|} isContr(x = y).
+\]
+
+The intuition is that
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : A$}
+\UnaryInfC{$\Gamma \vdash |M| : \|A\| $}
+\end{prooftree}
+
+and in the elimination rule, we should prevent proofs for depending on
+the witness of the inhabitation.
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma, x : \|A\|, y: \|A\| \vdash \mathtt{squash}(x,y) : x = y$}
+\end{prooftree}
+
+The eliminator was defined as
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : \|A\|$}
+\AxiomC{$\Gamma, x : A\vdash N : B$}
+\AxiomC{$\Gamma \vdash p : isProp(B)$}
+\TrinaryInfC{$\Gamma \vdash elim[B](M,x.N,p) : B$}
+\end{prooftree}
+
+by using that $B$ was a proposition, we were sure that the result did not
+depend on the representative of $A$.
+
+** Gentzen and squash
+Squash is another case of a new primitive equality. By Gentzen's principle,
+we would need a beta and an eta rule
+
+ * $elim[B](|M|; x.N, p) \equiv [M/x]N : B$
+
+we would like to have a rule such as
+
+ * $ap(\lambda z. elim[B](z;x.N,p))(squash(|M|,|N|)) \equiv (|M| =|N|)$
+
+this is problematic. (?) If you are using a $J$ and the argument is a
+squash, what should that be definitionally equal to?
+** Revisit the axiom of choice
+The Axiom of Choice $AC_{\infty}$ has a formulation as
+
+\[
+\prod_{A : {\cal U}}
+\prod_{B : A \to {\cal U}}
+\prod_{C : \prod_{x:A} B \to {\cal U}}
+\left(
+\prod_{x:A}\sum_{y:B_x} C(x,y)
+\overset{\simeq}\longrightarrow
+\sum_{f : \prod_{x:A} B} \prod_{x:A} C(x,f(x))
+\right)
+\]
+
+and we can check in fact that this is a definable *equivalence*. It is
+not an axiom! it is a theorem. The theorem of choice. We use crucially
+the proof relevance to prove it.
+
+*** Proof
+From left to right
+
+\[
+\lambda F. \left(
+ \lambda x. \mathtt{fst}(F x),
+ \lambda x. \mathtt{snd}(F x)
+\right)
+\]
+
+and from right to left
+
+\[
+\lambda \left\langle f,g\right\rangle . \lambda x .(f x, gx)
+\]
+
+and those are mutually inverses. We will need eta rules for products and
+eta rules for sums.
+*** It is a theorem
+It is not saying exactly what the axixom of choice says usually.
+** Versions of the axiom of choice
+If we use propositional truncations we get the actual axiom of choice,
+that we will call $AC_{-1}$.
+
+\begin{aligned}
+AC_{-1} : 
+  \prod_{A :{\cal U}} isSet(A) \to 
+  \prod_{B : A \to {\cal U}} \prod_{x : A} isSet(B(x)) \to
+  \prod_{C : \prod_{x:A} B \to {\cal U}} \prod_{x:A} \prod_{y:B} isProp(C(x,y)) \to \\
+  \left(
+    \left( \prod_{x:A} \| \sum_{y:B} C(x,y) \| \right) \to
+    \left\| \sum_{f : \prod_{x:A} B} \prod_{x:A} C(x,f(x)) \right\|
+  \right)
+\end{aligned}
+
+And this is *not* a theorem. We are using truncation and this is expressing the idea
+that there is no functional dependency but we can, nevertheless, build a function.
+
+*** NuPRL
+Using squashing, we can express this also on the NuPRL system.
+*** Expressivity
+The constructive setting is more expressive than the classical one. We can choose,
+by introducing identifications, to work on the classical setting.
+*** Restatement
+If we use the equivalence from before, we can write that
+
+\[
+\left\| \sum_{f : \prod_{x:A} B} \prod_{x:A} C(x,f(x)) \right\| \simeq
+\left\| \prod_{x:A}\sum_{y:B} C(x,y)  \right\|
+\]
+
+and that means that we can restate the axiom of choice using
+
+\[
+    \left( \prod_{x:A} \left\| \sum_{y:B} C(x,y) \right\| \right) \to
+    \left\| \prod_{x : A} \sum_{y:B} C(x,y) \right\|
+\]
+
+instead. And we can reduce this to a simpler form as
+
+\[
+\prod_{x:X}\|Y(x)\| \to
+\left\| \prod_{x:A} Y(x)  \right\|
+\]
+
+which can be read as "the product of a family of inhabited sets
+is an inhabited set". This is also an equivalence.
+
+This version of the axiom of choice is false if $X$ is not constrained
+to be a set.
+** Quasiinverses
+Recall that a quasiinverse was
+
+\[ \mathtt{qinv}( f : A \to B) :\equiv
+  \sum_{g : B\to A} f \circ g \sim id \times g \circ f \sim id
+\]
+
+in the presence of function extensionality, we can replace $\sim$ with
+$=$. We will show that $qinv$ is not necessarily a -1-type (a proposition).
+
+*** Characterization of quasiinverses
+If $f : A \to B$ and $e : qinv(f)$ then 
+
+\[
+qinv(f) \simeq \prod_{x:A} x = x
+\]
+
+sometimes we write $x =_{A} x \equiv \Omega(A,x)$. This uses univalence.
+
+*** Existence of a not-proposition
+There is a type $X$ such that
+
+\[
+\prod_{x : X} x=_Xx
+\]
+
+is not a proposition. An example of this is $X = \pi(\mathbb{S}) \simeq \mathbb{Z}$, which
+will be a set. Another one is $X = K(G,1)$, a space with its fundamental
+group being $G$.
+
+As a corollary, $qinv(f)$ need not be a proposition.
+
+** A good definition of equivalence
+The criterion is that it should be a proposition, so the quasiinverses
+definition does not qualify. We create new definitions
+
+ * $isContr(f)$
+ * $isBiequiv(f)$, we have a left inverse and a right inverse.
+ * $isHalfAdjoint(f)$, defined by quasiinverses plus a coherence condition.
+
+all these definitions are equivalent. And these are all propositions.
+
+** Contractability definition of equivalence
+For $f : A \to B$,
+
+\[
+isContr(f) :\equiv
+\prod_{y:B} isContr(fibers_f(y))
+\]
+
+where
+
+\[
+fibers_f(y) \equiv \sum_{x:A} f(x) = y
+\]
+
+the things that are sent by $f$ to $y$. The total "sum of fibers" is
+the total $A$.
+
+*** Voevodsky's definition of equivalence
+The definition can be stated as that exists a unique
+
+\[
+\prod_{y:B}\sum_{z: fib_f(y)} \prod_{z' : fib_f(y)} z = z'
+\]
+
+so the function is a bijection up to homotopy.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
