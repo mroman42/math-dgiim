@@ -3620,6 +3620,186 @@ FI  \rar{i} & FI
 so we know that $i \circ ! = id$ and $!\circ i = F(i \circ !) = id$.
 *** CoLambek
 If we have a final coalgebra it is also an isomorphism.
+* Lecture 20: Inductive types II
+** Last week
+We reexamined Nat as an inductive type. We claim that $1+Nat \to Nat$
+is initial in the category of Nat-algebras. Any other Nat-algebra can
+be written as $\alpha = \left\langle \alpha_0,\alpha_{1} \right\rangle$; and the function from the initial algebra
+is simply the recursor $rec[A](\alpha_0,x.\alpha_1)$.
+
+** Nats Inside type theory
+A Nat-algebra would be
+
+\[
+NatAlg :\equiv
+  \sum_{A : {\cal U}} 1+A \to A \simeq
+  \sum_{A : {\cal U}} A \times (A \to A)
+\]
+
+and a Nat-homomorphism is
+
+\[
+NatHom(\alpha,\beta) :\equiv
+  \sum_{h : A \to B} \beta \circ (1+h) = h \circ \alpha
+\]
+
+then $\nu :\equiv \left\langle Nat, \{0,succ\} \right\rangle$ is a Nat-algebra an we can prove that this is
+in fact initial, which is to say that
+
+\[
+NatHom(\nu,\alpha) \text{ is contractible}
+\]
+
+Two terminologically different traditions collide here, so we are using
+them both.
+** Derivation of mathematical induction
+The recursor for the naturals is
+
+\begin{prooftree}
+\AxiomC{$M_{0}:A$}
+\AxiomC{$x.A \vdash M_1:A$}
+\BinaryInfC{$x:Nat \vdash rec[A](M_0;x.M_1) : A$}
+\end{prooftree}
+
+with its beta and eta rules. In HoTT, we take the eta rules
+to be not definitional equalities $\equiv$ but propositional equalities $=$.
+
+** The principle of induction
+The induction principle says that, given,
+
+ * $x : Nat \vdash P(x) : {\cal U}$
+ * $M_0 : P(0)$
+ * $x:Nat, y:P(x) \vdash M_1 : P(succ(x))$
+
+we have
+
+ * $z:Nat \vdash ind[x.P](M_0,x.y.M_1)(z) : P(z)$
+
+and the beta and eta rules are similar to those of the recursor.
+But, with respect to what equality?
+** Idea
+Consider $\int P :\equiv \sum_{x:Nat} P(x)$, we define an auxiliary function
+
+ * $i :\equiv \lambda z:Nat.\  rec[\int P](\left\langle 0,M_0 \right\rangle; \left\langle x,y \right\rangle.\left\langle succ(x), M_1 \right\rangle)(z)$
+ * $i0 \equiv \left\langle 0,M_0 \right\rangle$
+ * $i(succ(M)) \equiv \left\langle succ(fst(M)), [snd(iM)/y]M_1 \right\rangle$
+
+*** Kleene discovered how to define the predecessor
+
+** Lambek inside type theory
+We can define functors up to higher homotopy. When we apply Lambek, we
+get a fixed point $FI \cong I$ up to isomorphism.
+
+*** Not functors
+There are cases where, if we define things like $F X =X \to X$, we get a 
+*non-algebraic* datatype. There is a way of solving this equations using
+fixpoint induction.
+
+*** Nat+
+We could define a final coalgebra as
+
+\[
+Nat^+ \to 1 + Nat^{+}
+\]
+
+and we could think of this loosely as $Nat \cup \{\infty\}$.
+ 
+** Positive and negative types
+Positive types correspond to inductive types and negative types
+correspond to coinductive types. Negative types are limits, and
+positive types are colimits.
+** Brower ordinals (aka W types)
+Well-founded trees or preorders. The ordinals codify what transfinite
+induction is.
+
+*** Brower ordinals
+Nodes labeled as
+
+ - $0$                   z
+
+ - $1 = sup(0)$          s -> z
+
+ - $2 = sup(1)$          s -> s -> z
+
+ - ...
+
+ - $\omega = sup(0,1\dots)$     w -> z
+                         \-> s -> z
+                          \-> s -> s -> z
+                           \-> ...
+
+*** Well-founded
+There is no infinite descendent branches, there may be as many width
+branches as we want.
+
+The right definition is that "The principle of transfinite induction is
+valid". Is something holds for all predecessors.
+
+** Formation rule for W-types
+Given a type of node sorts, $A$, 
+
+\begin{prooftree}
+\AxiomC{$A:{\cal U}$}
+\AxiomC{$x:A \vdash B:{\cal U}$}
+\BinaryInfC{$W_{x:A}B : {\cal U}$}
+\end{prooftree}
+
+given $x:A \vdash B(x)$ is the branching factor; the index type for
+the predecessors. 
+
+*** Example
+As an example, $A :\equiv 1+1 = [Z,S]$ is an enumeration type, and
+you define $B$ by case analysis.
+
+ * $B(Z) :\equiv \bot : {\cal U}$
+ * $B(S) :\equiv 1 : {\cal U}$
+
+and $Nat$ will be $W_{x:A}B$.
+
+** Introduction rule for W-types
+
+\begin{prooftree}
+\AxiomC{$a:A$}
+\AxiomC{$x:B(a) \vdash w(x) : W_{x:A}$}
+\BinaryInfC{$sup[a](x.w) : W_{x:A}B$}
+\end{prooftree}
+
+*** Example
+
+ * $0 :\equiv sup[z](x.abort(x))$
+ * $1 :\equiv sup[s](-.0)$
+
+** Elimination rule, non-dependent form
+
+\begin{prooftree}
+\AxiomC{$\Gamma,\ a:A,\ p:B(a) \to W_{x:A}B,\ r:B(a) \to C \vdash M:C$}
+\UnaryInfC{$z: W_{x:A}B \vdash  wrec[c](  a,p,r.M     )(z)      :C$}
+\end{prooftree}
+
+and we are going to have a beta rule
+
+ * $wrec[c]( a,p,r.M )(sup[a](w)) \equiv [a,w,\lambda z. wrec[c](a,p,r.M) /a,p,r] M$
+
+and the eta rule says that it is the only such thing.
+
+*** Polynomial functors
+The W types determine polynomial functors over certain classes.
+
+\[
+F(x) :\equiv \sum_{a:A}B(a) \to X
+\]
+
+in the case of naturals, it is $(1\to X)\times (X\to X)$.
+
+** Transfinite induction - dependent elimination rule
+
+\begin{prooftree}
+\AxiomC{$\Gamma,z: W_{x:A} B \vdash P:{\cal U}$}
+\noLine\UnaryInfC{$\Gamma,a:A, p:B(a) \to W_{x:A}B, h:\prod_{b:B(a)}P(p(b)) \vdash M : P(sup[a](p))$}
+\UnaryInfC{$\Gamma,z:W_{x:A}B \vdash wind[x.P](  ): P(z)$}
+\end{prooftree}
+
+** Exercise: Invent the M type, dual to the W type
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
