@@ -3448,6 +3448,178 @@ The definition can be stated as that exists a unique
 \]
 
 so the function is a bijection up to homotopy.
+* Lecture 19: Inductive types I
+** Last week
+We suppose that we had a quasiinverse for $f$ given by an inverse,
+and two proofs of the inverse, $\left\langle g_0,\alpha_0,\beta_0 \right\rangle$. The claim was that
+
+\[
+qinv(f) \simeq \prod_{x:A} x = x
+\]
+
+in the presence of FUNEXT, this is equivalent to the fact that
+$id = id$. The type of quasiinverses is
+
+\[
+\sum_{g : B \to A}\sum_{\alpha : g \circ f = id} \sum_{\beta : f \circ g = id} 1
+\]
+
+and a similar type is contractible
+
+\[
+\sum_{g : B \to A} \sum_{\beta : f \circ g = id} 1
+\]
+
+with center $(g_0,\beta_0)$. This says that $f$ has exactly one right inverse.
+If we consider $(g_1,b_1) : \sum_{g : B \to A}\sum_{\beta : f \circ g = id} 1$, we have to show that
+$p : g_1 = g_0$ and then, by transport $- : \beta_0 = \beta_1$.
+** Biinverse
+If we use the definition of biinverses
+
+\[
+binv(f) :\equiv
+\left(\sum_{r : B \to A} f \circ r = id\right) \times
+\left( \sum_{l:B \to A} l \circ f = id \right)
+\]
+
+as both factors are contractible, the type is contractible. This
+definition is related to the half-adjoint definition. $f$ is
+bijective up to homotopy if this holds.
+
+It is reasonable to speak of $biinv(f)$ true as it were a proposition.
+** Inductive types (the nat case)
+Reconsider Nat in simple types. We had introductory rules
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash 0 : Nat$}
+\AxiomC{$\Gamma \vdash M : Nat$}
+\UnaryInfC{$\Gamma \vdash succ(M) : Nat$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+
+elimination rules
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : Nat$}
+\AxiomC{$\Gamma \vdash M_{0} : A$}
+\AxiomC{$\Gamma, x:A \vdash M_1 : A$}
+\TrinaryInfC{$\Gamma \vdash rec[A](M,M_0,x.M_1) : A$}
+\end{prooftree}
+
+with beta-like rules (inversion principle), which can be
+expressed as a commutative diagram
+
+ * $rec[A](0,M_0; x.M_1) \equiv M_0$
+ * $rec[A](succ(M);M_0,x.M_1) \equiv [rec[A](M,M_0,x.M_1)/x]M_0 : A$
+ 
+and an eta-like rule (unicity principle), which is the
+unicity of the diagram
+
+\begin{prooftree}
+\AxiomC{$[0/x]N \equiv M_{0}$}
+\AxiomC{$z : Nat \vdash [succ(z)/x]N \equiv [[z/x]N/x]M_{1}:A$}
+\BinaryInfC{$\Gamma, x:Nat \vdash N \equiv rec[A](x,M_0,x.M_1)$}
+\end{prooftree}
+** Local definition
+We could write the introductions as
+
+ * $\vdash 0 : Nat$
+ * $x : Nat \vdash succ(x) : Nat$
+
+and the global version works on a suitable theory. We could write
+them even as
+
+ * $0 : 1 \to Nat$
+ * $succ : Nat \to Nat$
+
+and in a suitable theory, we can derive the rules from the constants.
+Note that those two notations are NOT the same thing!
+
+We could write also the induction as an element of a function type
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M_{0} : A$}
+\AxiomC{$\Gamma, x:A \vdash M_1 : A$}
+\BinaryInfC{$\Gamma, z:Nat \vdash rec[A](M_0, x.M_1)(z) : A$}
+\end{prooftree}
+** Nat-algebras
+We can write this as a single function
+
+\[
+z : 1 + Nat \vdash case\{-.0 ; x.succ(x)\}(z) : Nat
+\]
+
+we can write this as
+
+\[
+z : 1 + Nat \vdash \{0,succ\}(z) : Nat
+\]
+
+This notation uses eta/beta properties of coproducts and
+products to get its etea/beta properties. Any mapping
+$\alpha : 1 + Nat \to Nat$ is called a *Nat-algebra*. More generally,
+a Nat-algebra is $\alpha : 1 + A \to A$. 
+
+A *Nat-algebra category* is defined by the idea that if we have
+two Nat-algebras, we can define a mapping between them as
+
+\[\begin{tikzcd}
+1+A\dar{\alpha}\rar{1+h} & 1+B\dar{\beta} \\
+A\rar{h} & B
+\end{tikzcd}\]
+
+and we call this a Nat-homomorphism. The previous definition of the
+naturals is in fact the initial object in the category on
+nat-homomorphisms. This is an initial algebra, there is a unique
+morphism from this algebra to all the others; and this morphism is
+precisely the recursor. Any other morphism is unique up to higher
+homotopy to the other morphism (eta-rule).
+
+There are implicit uses of the Yoneda Lemma here.
+** F-algebra
+Given a functor $F$ on some category, we are going to define a
+F-algebra. The particular case of Nat is $F(X) = 1 + X$.
+
+\[\begin{tikzcd}
+F(A)\dar{\alpha}\rar{F(h)} & F(B)\dar{\beta} \\
+A\rar{h} & B
+\end{tikzcd}\]
+
+** F-coalgebra
+We can define coalgebras and study the final objects on coalgebra
+categories. The unique function to a final coalgebra is a corecursor.
+
+*** Exercise
+What is the final coalgebra for Nat? $F(X) = 1+X$.
+
+** Lambek's lemma
+If $i : F(I) \to I$ is an initial F-algebra, then $i$ is an
+isomorphism; and then, $F(I) \cong I$.
+
+This is called a *fixed point*.
+
+*** Proof
+If we have an algebra, we also have $FI$ as an algebra
+
+\[\begin{tikzcd}
+FI  \rar[dashed]{F!}\dar{i} & FFI \dar{Fi} \\
+I  \rar[dashed]{!} & FI
+\end{tikzcd}\]
+
+we use that the first one is initial. And we also have
+
+\[\begin{tikzcd}
+FI \rar{i}\dar[dashed]{F!}\ar[dd,bend right,swap,"Id"] & 
+I \dar[dashed]{!}\ar[dd,bend left,"Id"] \\
+FFI  \rar{Fi}\dar{Fi} & FI \dar{i} \\
+FI  \rar{i} & FI
+\end{tikzcd}\]
+
+so we know that $i \circ ! = id$ and $!\circ i = F(i \circ !) = id$.
+*** CoLambek
+If we have a final coalgebra it is also an isomorphism.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
