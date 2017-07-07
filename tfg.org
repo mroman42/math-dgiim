@@ -110,6 +110,14 @@ it can be achieved via scripts.
 *** <2017-07-05 Wed>
 **** wrote notes on the 17th lecture on HoTT.
 **** wrote notes on the 18th lecture on HoTT.
+*** <2017-07-06 Thu>
+**** wrote notes on the 19th lecture on HoTT.
+**** wrote notes on the 20th lecture on HoTT.
+*** <2017-07-07 Fri>
+**** wrote notes on the 21th lecture on HoTT.
+**** wrote notes on the 22th lecture on HoTT.
+**** wrote notes on the 23th lecture on HoTT.
+**** finished course on HoTT.
 * Notes
 ** [[file:ctlc.org][Category theory and lambda-calculus]]
 ** [[file:categoriesfortheworking.org][Categories for the working mathematician - MacLane]]
@@ -134,22 +142,10 @@ Commutativity and efficiency
 ** [#A] Mikrokosmos
 Mikrokosmos is a lambda calculus interpreter.
 
-*** TODO [#B] pip-installable Jupyter kernel
-*** TODO [#B] Other type systems
-A common interpreter supporting multiple interchangeable type systems.
-
-A symply-typed Mikrokosmos could be used to check proofs on natural
-deduction and terms of cartesian closed categories.
-
+*** Implement type theory http://www.cse.chalmers.se/%7Ebengt/papers/GKminiTT.pdf
 *** TODO [#C] Multiple lines on modules
 Multiple line notation should be allowed by joining multiple lines whenever
 they start with a <TAB> or a space.
-*** TODO [#C] disable-colors option and verbose on/off
-The output could be formatted using *bold* and /italics/.
-
- * =:verbose on= is better than =:verbose=
- * =:color on=, =:color bold=, =:color off=
-
 *** TODO Write tests
 *** TODO Should Multibimap be a package on its own?
 *** Compile to categories
