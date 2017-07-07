@@ -1,3 +1,7 @@
+{-# OPTIONS --without-K #-}
+-- https://github.com/guillaumebrunerie/HoTT/tree/master/Agda/tutorial
+
+
 -- CHAPTER 1. Type theory
 
 -- SECTION 1.4. Dependent function types
@@ -225,3 +229,8 @@ doublenegexcluded : {A : Set} → ¬ (¬ (A ⨄ (¬ A)))
 doublenegexcluded f = f (inr (λ a → f (inl a)))
                           
                     
+
+-- Sphere
+-- data 𝕊¹ : Set where
+--   base : 𝕊¹
+--   loop : base == base
