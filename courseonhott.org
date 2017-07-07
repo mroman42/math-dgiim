@@ -3800,6 +3800,291 @@ in the case of naturals, it is $(1\to X)\times (X\to X)$.
 \end{prooftree}
 
 ** Exercise: Invent the M type, dual to the W type
+* Lecture 21: Higher inductive types I
+** Last week: lower inductive types
+Well-founded trees $W_{x:A} B$ with an elimination rule based on
+transfinite induction. It can be characterized as the homotopy
+initial algebras for polynomial functors.
+
+The universal property is here propositional.
+
+** Higher inductive types
+The idea is to take some type of free structure using inductive
+definitions with equational laws. It is a similar idea to the
+presentation of algebraic structures using generatos and relations.
+This will be a 0-type concept; but higher inductive types must be
+more general than that.
+
+They are relevant because of
+
+ 1. full higher-dimensional structure or path structure.
+ 2. proof-relevance means generators and relations are the same thing.
+
+Informally, we are building the free infinity groupoid on the structure
+we are building.
+
+** Current status of HoTT
+HoTT is ITT + UA + HIT. The Univalence Axiom is a matter of mathematical
+efficiency; and the HIT is a matter of expressiveness on higher types.
+
+HITs are not yet fully worked out.
+** Example: interval
+We can write the interval using inductive definitions
+
+ * $0 : I$, a 0-cell.
+ * $1 : I$, a 0 cell.
+ * $seg : Id_I(0,1)$, a 1-cell.
+
+This definition implies the existence of other paths. For example,
+$seg^{-1} : Id(1,0)$ or $refl(0) : Id(0,0)$. Moreover, they are significant
+and they induce even higher paths.
+
+It is an open problem what is implied for a given inductive
+definition.
+
+** Recursor
+An inductive definition induces a recursor; a function from an
+initial object on a given category.
+
+In the example, given any "interval algebra", we have a function
+from the interval to it
+
+\begin{prooftree}
+\AxiomC{$a:A$}
+\AxiomC{$b:B$}
+\AxiomC{$\beta : a=_Ab$}
+\TrinaryInfC{$z:I \vdash rec[A](a,b,\beta)(z):A$}
+\end{prooftree}
+
+the Gentzen's inversion principle holds as
+
+ * $rec[A](a,b,\beta)(0) \equiv a : A$
+ * $rec[A](a,b,\beta)(1) \equiv b : A$
+ * $ap_{rec[A](a,b,\beta)}(seg) = \beta : a =_{A} b$
+
+we could think of the first two cases as an $ap$ on 0-types. Note that
+the third case uses a propositional equality; $ap$ is a defined
+function! we cannot define what its behaviour should be.
+** Induction
+The induction can be written as
+
+\begin{prooftree}
+\AxiomC{$z: I \vdash A(z) : {\cal U}$}
+\AxiomC{$a_0 : A(0)$}
+\noLine\UnaryInfC{$a_1 : A(1)$}
+\noLine\UnaryInfC{$p : a_0 =_{seg}^{z.A} a_1$}
+\BinaryInfC{$z:I \vdash ind[z.A](a_0,a_1,p) : A(z)$}
+\end{prooftree}
+
+where we are using a transportation to have that
+
+\[
+trans[z.A](seg)(a_0) =_{A(1)} a_1
+\]
+
+And now we expect the following equations to hold
+
+ * $ind[z.A](a_0,a_1,p)(0) \equiv a_0 : A(0)$
+ * $ind[z.A](a_0,a_1,p)(1) \equiv a_1 : A(1)$
+ * $ap_{ind[z.A](a_0,a_1,p)}(seg) = p$ true.
+
+and there is also a unicity condition
+** Example: circle
+The circle $\mathbb{S}^1$ is a type given by the higher inductive definition
+
+ * $base : \mathbb{S}^{1}$, a 0-cell
+ * $loop : Id(base,base)$, a 1-cell
+
+This definition induces loops such as $loop \cdot loop : Id(base,base)$ or
+$loop^{-1} : Id(base,base)$. Those will form the integers; a set-level
+group.
+
+*** Recursor
+It is defined as
+
+\begin{prooftree}
+\AxiomC{$a_0 : A$}
+\AxiomC{$l : a_0 =_A a_0$}
+\BinaryInfC{$z : \mathbb{S}^1 \vdash rec[A](a_0,l)(z) : A$}
+\end{prooftree}
+
+where
+
+ * $rec[A](a_0,l)(base) \equiv a_0 : A$
+ * $ap_{rec[A](a_0,l)}(loop) = l$ true
+
+and we can have the unicity
+
+ * $z : \mathbb{S}^1\vdash P : {\cal U}$
+ * $b : P(base)$
+ * $l : b =^{z.P}_{loop} b$, so this is preserved going around the loop
+** Recall: the interval
+The interval characterizes the total path space of $A$
+
+\[
+I \to A \simeq
+\int Id_A :\equiv \sum_{x,y:A} Id(x,y)
+\]
+
+the identifications are paths. The usual way to do this in Topology is
+similar. Here,
+
+\[ \mathbb{S}^{1} \to A \simeq
+\int \Omega_A := \sum_{x:A}Id(x,x)
+\]
+
+is the loop space.
+
+ 1) define $f : (\mathbb{S}^1 \to A) \to \int \Omega_A$ by $\lambda g. \left\langle g(base), ap_g(loop) \right\rangle$.
+ 2) we show that $\prod_{l : \int \Omega_A} fib(l)$ is contractible
+
+** Suspension: circle
+Another picture of $\mathbb{S}^1$ could use two poles and two
+meridians. This is called $Susp(2)$.
+
+ * $N : \mathbb{S}^1$
+ * $S :\ \mathbb{S}^1$
+ * $mer : 2 \to (N = S)$
+
+and we can check that this is equivalent to the previous
+definition.
+
+** Suspensions
+We define $Susp(A)$ as two zero cells
+
+ * $N : Susp(A)$
+ * $S : Susp(A)$
+
+and the meridians
+
+ * $mer : A \to (N = S)$
+
+*** Example: susp^2 is the sphere
+$Susp^2(2)$ has two meridians associated with N and S and also two
+higher-order paths W E associated with the two meridians on
+$Susp(2)$.
+
+We will prove that this is the sphere.
+
+** Suspensions in type theory
+We can define the introduction
+
+\begin{prooftree}
+\AxiomC{$x:A\vdash m(x) : n =_{B} s$}
+\AxiomC{$n:B$}
+\noLine\UnaryInfC{$s:B$}
+\BinaryInfC{$z:Susp(A) \vdash rec[B](n,s,x.m):B$}
+\end{prooftree}
+
+with the beta and eta usual rules.
+* Lecture 22: Higher inductive types II
+** Last week
+We defined suspensions
+
+ * $N : Susp(A)$
+ * $S : Susp(A)$
+ * $merid : \prod_{x:A} N =_{Susp(A)} S$
+
+We defined functorial mappings from the suspension of a type
+to another type.
+
+** Iterated suspension
+It can be showed that
+
+$\mathbb{S}^1 \simeq Susp(2)$
+
+by defining an invertible function between them.
+
+** Pointed types
+A point is preserved up to homotopy by mappings
+
+\[
+X \multimap Y := \sum_{f:X\to Y} f(x_0) = y_0
+\]
+
+** Characterization of suspensions
+Suspensions follow a kind of adjunction with the loop space
+
+\[
+(Susp(A) \multimap B) \simeq (A \to \Omega(B))
+\]
+
+** Pushouts
+Generally used for amalgamation properties and quotients. In classical
+set theory. They are the dual of pullbacks, the constrained subset of
+a product.
+
+We glue two sets in a way that a deisgnated subset of the two sets is
+regarded as the same; as $A \sqcup^{C} B$, where $C$ is the diagram for the 
+considered subset. The coproduct is the special case where $C = \varnothing$.
+
+*** Denotational semantics
+In denotational semantics, we want to form the disjoint union of two
+types with common elements.
+
+*** In sets
+In sets, pushouts do always exist.
+
+** Pushouts as HIT
+We define the inclusions
+
+ * $inl : A \to A \sqcup^C B$
+ * $inr : B \to A \sqcup^C B$
+
+and a glue term
+
+ * $glue : \prod_{c:C} inl(f(c)) = inr(g(c))$
+
+*** Universal constructions
+
+\begin{prooftree}
+\AxiomC{$x:A \vdash l:D$}
+\noLine\UnaryInfC{$y:B \vdash r:D$}
+\AxiomC{$u:C \vdash q: [f(u)/x]l = [g(u)/x]r$}
+\BinaryInfC{$z: A \sqcup^C B \vdash rec[D](x.l,y.r;u.q) : D$}
+\end{prooftree}
+
+with the usual beta/eta rules.
+
+*** Suspension
+In particular,
+
+$Susp(A) := 1 \sqcup^{A} 1$
+* Lecture 23: Pushouts
+** Last week
+Pushouts as HITs.
+
+** Quotients as HITs
+We can define the expected quotients
+
+ * $a:A \vdash q(a) : A/R$
+ * $a,b:A, r:R(a,b) \vdash wd(a,b,r) : q(a) = q(b)$
+
+and a truncation rule
+
+ * $x,y:A/R, p,q:x=y \vdash tr(x,y,p,q):p=q$
+
+so that $A/R$ is a set.
+
+*** Example: Integers as formal differences of naturals
+
+** Truncations as HITs
+The propositional truncation $\|A\|_{-1}$ can be defined as a type
+with an induction principle.
+
+*** Induction on integers
+
+** Fundamental group of S1
+
+\[
+\pi_1(\mathbb{S}^1) \simeq \mathbb{Z}
+\]
+
+we can show that $\Omega(\mathbb{S}^1,base) \simeq \mathbb{Z}$.
+
+*** Proof
+In the proof, we define the winding function from the loop
+space to the integers. We then use induction on $\mathbb{Z}$.
 * Exercises
 ** Homework 1: Heyting algebra and IPL [5/6]
 *** DONE Task 1
@@ -3904,7 +4189,7 @@ constructs include $\mathrm{id}$, $f \circ g$, $\left\langle f,g \right\rangle$,
 *** TODO Bonus Task 1
 *** TODO Task 4
 *** TODO Task 5
-*** TODO Task 6
+*** TODO Task 
 * Bibliography
  * Awodey, Category theory.
  * Programming in Martin-Löf Type theory.
