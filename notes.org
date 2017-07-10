@@ -7527,3 +7527,133 @@ las siguientes aplicaciones:
 # Local Variables:
 # eval: (text-scale-increase 1)
 # End:
+* EUTypes Summer School
+** Introduction to type theory
+*** Bibliography
+HP. Barendregt. Lambda calculus: syntax and semantics.
+F. Cardone, JR. Hindley. History of lambda-calculus and combinatory logic.
+
+*** Introduction
+**** Gentzen
+Gentzen: natural deduction/sequent calculus/axiomatic system.
+**** Functions
+We can give multiple notions of function
+
+ * functions as black boxes.
+ * set-theoretical definition.
+
+We can define a domain and codomain for functions. This notion leads
+to the notion of the type of a function.
+
+*** Untyped lambda calculus
+**** Informal syntax
+Lambda terms are divided in
+
+ * variables, which can be bound or free. There is a countable set of
+   variables.
+ * application of terms, function application.
+ * lambda-abstractions, function generation by binding a variable.
+
+An example is $\lambda x. x+42$. We see the application as left-associative.
+
+\[
+M ::= x \mid MM \mid \lambda x.M
+\]
+
+**** Examples
+Those are examples of lambda combinators.
+ 
+ * $I = \lambda x.x$
+ * $K = \lambda xy. x$
+ * $\Delta = \lambda x . xx$
+ * $Y = \lambda f.(\lambda x. f(xx))(\lambda x. f(xx))$
+ * $\Omega = (\lambda x.xx)(\lambda x.xx)$.
+
+**** Free variables and closed terms
+We define the set of free variables recursively. A closed term or
+*combinator* has no free variables.
+
+**** \alpha-conversion
+Renaming of bound variables. This could also be done by using *De
+Bruijn* notation. We apply the Barendregt's convention of renaming
+variables that would be bound after a \beta-reduction.
+
+\[
+\lambda x.M \longrightarrow_{\alpha} \lambda y.M[y/x]
+\]
+
+**** \beta-reduction
+It represents function application of functions in lambda calculus.
+
+\[
+(\lambda x.M)N \longrightarrow_{\beta} M[N/x]
+\]
+
+***** Substitution as a meta notion
+Substitution is an implicit meta notion that can be defined
+recursively over terms
+
+ * $x[M/x] := M$
+ * $\dots$
+
+**** \eta-conversion
+It represents function extensionality
+
+\[
+\lambda x.(Mx) \longrightarrow_{\eta} M
+\]
+
+**** Normal form
+A term is in *normal form* if beta-reduction cannot be applied.
+For example
+
+ * $I$ is in normal form.
+ * 4$KI(KII)$ is strongly normalizing (SN) to $I$.
+ * $KI\Omega$ normalizing term.
+ * $Y$ is only *head-normalizable*, or solvable.
+
+Evaluation order is important; $KI\Omega$ stops or enters an infinite loop
+depending on the evaluation order; this is a normalizing but not strongly
+normalizing term.
+
+**** Confluence and the Church-Rosser theorem
+If $M \to N$ and $M \to P$, then there exists $S$ such that $N \longrightarrow S$
+and $P \longrightarrow S$. The proof is not trivial.
+
+***** Corollaries
+The order of applied reductions is arbitrary. The Normal form is
+unique if it exists.
+
+**** Normalisation therem
+A term is in head-normal form if its head is a lambda abstraction.
+A term is in normal form if there are no $\beta$ nor $\eta$ redexes.
+
+The normalisation theorem says that the leftmost strategy results
+in the normal form of $M$ if and only if it has a normal form.
+
+**** Fixed-point theorem
+There is a fixed point combinator
+
+\[
+Y \equiv \lambda f. (\lambda x.f(xx))(\lambda x.f(xx))
+\]
+
+such that $\forall F. YF \equiv F(YF)$.
+
+**** Church encoding
+Logic and arithmetic can be encoded in lambda calculus via
+Church numerals.
+
+\[
+n :\equiv \lambda fx. f^n x
+\]
+
+**** Expressiveness of lambda calculus
+In the 1930s
+
+ * Kleene: it is equivalent to recursive funtions.
+ * Church
+ * Curry
+
+*** Typed lambda calculus
+*** Intersection types
