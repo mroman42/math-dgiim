@@ -7648,12 +7648,392 @@ Church numerals.
 n :\equiv \lambda fx. f^n x
 \]
 
-**** Expressiveness of lambda calculus
+***** Expressiveness of lambda calculus
 In the 1930s
 
  * Kleene: it is equivalent to recursive funtions.
  * Church
  * Curry
 
-*** Typed lambda calculus
-*** Intersection types
+**** Typed lambda calculus
+**** Intersection types
+*** Introduction to type theory II
+**** Disadvantages of untyped lambda calculus
+
+ * There exist lambda terms without normal form.
+ * Meaningless expressions.
+
+This motivates two typing paradigms
+
+ * Implicit type assignment: lambda calculus with types.
+ * Explicit type assignment: typed lambda calculus.
+**** Sintatic definition of typed lambda calculus
+Type assignments $M : \sigma$, declarations $x : \sigma$ and environments
+$\Gamma = \left\{ x_1:\sigma_1,\dots, x_s:\sigma_s \right\}$. With rules
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma, x:\sigma \vdash x:\sigma$ }
+\end{prooftree}
+
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : \sigma \to \tau$}
+\AxiomC{$\Gamma \vdash N : \sigma$}
+\BinaryInfC{$\Gamma \vdash \lambda x . M : \sigma \to \tau$ } 
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma, x:\sigma\vdash y:\tau$}
+\UnaryInfC{$\Gamma \vdash \lambda x.y : \sigma \to \tau$}
+\end{prooftree}
+
+It can be defined as a natural deduction system with introduction
+and elimination rules.
+
+**** Typing example
+There are non-typable normal forms.
+
+ * $I : \sigma \to \sigma$
+ * $K : \sigma \to \tau \to \sigma$
+ * $\Delta$, $Y$ or $\Omega$ can not be typed
+
+**** Type preservation
+If $M \longrightarrow P$ and $M:\sigma$, then $P:\sigma$.
+
+**** Generation and substitution lemmas
+If $\Gamma \vdash \lambda x. M: \varphi$, then $\varphi = \sigma \to \tau$ and $\Gamma, x:\sigma \vdash M : \tau$.
+If $\Gamma, x:\sigma \vdash M : \tau$ and $\Gamma \vdash N:\tau$, then $\Gamma \vdash M[x/N]:\tau$.
+
+**** Strong normalization
+If $M : \sigma$, then $M$ is strongly normalizing. This was proven by
+Tait in 1967.
+**** Typability and inhabitation
+Questions on lambda calculus
+
+ * *Typability:* iven a term, find a type for it.
+ * *Inhavitation:* given a type, construct a term of that type.
+ * *Type checking:* check the type of a term.
+
+Typability is decidable in simply typed lambda calculus. It is
+decidable in second order lambda calculus with the Hindley-Milner
+algoritm.
+
+Inhabitation is equivalent to the intuitionistic logic of Gentzen's
+natural deduction. The rules of typed lambda calculus are the rules
+of natural deduction if we do not use the terms.
+
+**** Curry-Howard correspondence
+A formula is provable in IL iff it is inhabited in simply-typed lambda
+calculus. This is also the language of Cartesian Closed Categories
+(Lambek, 1970).
+
+BHK interpretation of logical connectives is formalized by the 
+Curry-Howard correspondence.
+
+**** Consistency/Completeness/Decidability
+Intuitionistic propositional logic (IL) is consistent, complete and
+decidable. Due to Curry-Howard, inhabitation is decidable in STLC.
+**** Lambda cube
+If any $M$ is typable, $M$ is strongly normalizing.
+The [[https://en.wikipedia.org/wiki/Lambda_cube][lambda cube]] represent multiple type systems.
+
+\[\begin{tikzcd}
+& & & \\
+\lambda 2 & & \lambda P2 & \\
+& \lambda & & \\
+\lambda_{\to}& & & & \\
+\end{tikzcd}\]
+**** Intersection types
+In our current system, $\Delta$ is not typeable. We are going to introduce
+intersection types with elimination rules
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : \sigma \cap \tau$}
+\UnaryInfC{$\Gamma \vdash M : \sigma$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash M : \sigma \cap \tau$}
+\UnaryInfC{$\Gamma \vdash M : \tau$}
+\end{prooftree}
+
+and a introduction rule
+
+\begin{prooftree}
+\AxiomC{$M:\sigma$}
+\AxiomC{$M:\tau$}
+\BinaryInfC{$M:\sigma\cap\tau$}
+\end{prooftree}
+
+In general, the Curry-Howard correspondance is lost here. We create
+a new system $\lambda\cap$, but in this system, $\sigma \to \tau \to \sigma \cap \tau$ is provable while
+it is not inhabited.
+
+***** Now self application is typable
+The self application can be of type $\lambda x.xx :((\sigma \to \tau) \cap \sigma) \to \tau$.
+
+**** Characterization of strong normalization on intersection types
+A term is typable iff it is strongly normalizing.
+
+For example, $KI\Omega$ is not typable, even if $I$ is.
+
+**** Typability and inhabitation are undecidable with intersection types
+**** Models of lambda-calculus
+We can prove completeness of type assignment. It is a theorem that
+
+\[
+\Gamma \vdash M:\sigma \iff \Gamma \models M : \sigma
+\]
+*** Pure type systems I
+*alx@minuw.edu.pl*
+
+**** Simple type systems
+Differences between logics and type systems:
+
+ * focus on computation instead of consistency.
+ * it is meaningful to have two assumptions of the same type.
+ * it is meaningful to use wh same assumption twice.
+
+Combinatory logic, with combinators S,K, defines /minimal logic/.
+With them, deduction theorem is provable. But we can add other
+combinators such as B,C or W.
+**** More complex type systems
+We can add polymorphism with type variables. We get SystemF (aka
+$\lambda 2$). We need more complex typing rules and beta reduction for types.
+$\lambda P$ was proposed by deBruijn, Harper, Longo and Moggi.
+
+**** Properties of interest of a pure type system
+
+ 1. Church-Rosser property. Values are computed deterministically.
+ 2. Subject reduction property. Types are invariants of the reduction.
+ 3. Strong normalisation property. Computation terminates.
+
+Those properties prove consistency of the logical system.
+**** Examples of PTSs
+$\lambda_{\to}, \lambda 2, \lambda P, \lambda \omega, \lambda C, \lambda \ast, \lambda U$
+
+**** Lemmas for PTSs
+***** Free variables
+***** Transitivity of contexts
+***** Substitution
+***** Weakening
+***** Generation lemma
+***** Condensing lemma
+**** Properties of PTSs
+***** Church-Rosser property
+There is a PTS extended with a number of axioms which does not have
+the Church-Rosser property.
+
+***** Geuvers theorem
+All functional strongly normalizing PTSs have the Church-Rosser
+property.
+
+***** Functionality
+A PTS (S,A,R) is functional when A is a function from S to S and
+R is a function from $S \times S$ to $S$.
+
+***** Uniqueness of types lemma
+** Dependently typed programming
+*** Milner's coincidence
+Milner's Coincidence on Hindley-Milner's type systems
+
+|-----------------------+--------------------------------------|
+| Terms                 | Types                                |
+|-----------------------+--------------------------------------|
+| what we write         | we don't write these                 |
+| what we read          | invisible (except errors)            |
+| what gets compiled    | what gets erased                     |
+| non dependent \lambda | polymorphism over types with \Lambda |
+|-----------------------+--------------------------------------|
+
+In the late 90s, this was the accepted unquestioned way of thinking
+about types.
+** Homotopy type theory
+*** HoTT 1
+There are multiple implementations of type theory (Coq, Agda, ...)
+
+**** Extensionality vs intensionality
+**** Set theory vs type theory
+In set theory, we would write $3 \in \mathbb{N}$, and this is a proposition of the
+language; we can write things like $x \in A \longrightarrow x \in B$. In type theory,
+$3 : \mathbb{N}$ is instead a judgement. Statements such as $\mathbb{B}\cap \mathbb{N}$ are intensional:
+they depend on the encoding.
+
+Sometimes, we want to talk about intensional properties
+
+**** Univalence
+Two types in a one-to-one correspondence are equal.
+
+**** Propositions as types explanation/Curry-Howard equivalence
+***** Example
+We will prove that $P \times Q \to R \iff P \to (Q \to R)$. We will define two
+functions from and to the types
+
+#+BEGIN_SRC haskell
+f :: ((a,b) -> c) -> (a -> b -> c)
+f h x y = h (x,y)
+
+g :: (a -> b -> c) -> ((a,b) -> c)
+g h (x,y) = h x y
+#+END_SRC
+
+these are curry/uncurry functions.
+
+**** Products and sums
+Products are created as
+
+\begin{prooftree}
+\AxiomC{$a:A$}
+\AxiomC{$b:B$}
+\BinaryInfC{$(a,b) : A \times B$}
+\end{prooftree}
+
+and sums as
+
+\begin{prooftree}
+\AxiomC{$a:A$}
+\UnaryInfC{$left(a) : A +B$}
+\AxiomC{$b:B$}
+\UnaryInfC{$right(b):A+B$}
+\noLine
+\BinaryInfC{}
+\end{prooftree}
+ 
+**** Definitional equality
+Equality given by the definition of the terms. These equalities are
+static.
+
+$\equiv$
+**** Recursor
+The recursor is a non-dependent eliminator. It gives us the ability
+of doing pattern-matching on types. For example, if we want to define
+a function from a pair type using the recursor for the product
+
+\[ \mathtt{rec}^{\times} :
+(A \to B \to C) \to (A \times B) \to C
+\]
+
+or a recursor for the sum type
+
+\[ \mathtt{rec}^+ :
+(A \to C) \to (B \to C) \to (A + B \to C)
+\]
+
+the recursor for the empty type
+
+\[ \mathrm{rec}^\bot : \bot \to C
+\]
+
+is implemented without using anything because of the nature of the
+empty type.
+*** HoTT 2
+**** What is a type?
+We allow the following judgements,
+
+ * $a:A$, type declarations.
+ * $a \equiv_{A} b$, definitional equality.
+
+and we define a universe of types ${\cal U}$, a type whose elements are types.
+
+***** Is type a type?
+If we set $Type : Type$, we can encode a version of Russell's paradox
+using trees of types. Being of a type is a judgement, so we can not
+encode the traditional Russell paradox.
+
+***** Type universes
+We are going to use type universes $Type_0: Type_1: Type_2 : \dots$,
+constructing a *predicative* hierarchy. It is a cumulative hierarchy,
+where we can lift a type $A : Type_{i}$ to $\lceil A\rceil : Type_{i+1}$ and any function
+$A \to B$ to $\lceil A\rceil \to \lceil B\rceil$. 
+
+**** Dependent types
+A *dependent type* depends on a term. An example is $Fin : \mathbb{N} \to Type$.
+Another example is $Vec : Type \to \mathbb{N} \to Type$ or $Prime : \mathbb{N} \to Type$.
+**** Pi-types
+Pi types are a generalization of function types allowing the codomain
+to depend on the domain.
+
+***** Example: zeroes
+
+\[
+zeroes : \prod_{n:\mathbb{N}} Vec\ \mathbb{N}\ n
+\]
+
+where
+
+\[
+zeroes\ n = (0,0,\dots,0)
+\]
+
+***** Example: theorems on naturals
+
+\[
+pluszero : \prod_{n : \mathbb{N}} n+0 =_{\mathbb{N}} n
+\]
+
+**** Sigma-types
+Sigma tupes generalize product types to the case where the type of
+second depends on the first. They work as dependent pairs.
+
+***** Example: lists
+
+\[
+\sum_{n:\mathbb{N}} Vec\ A\ n
+\]
+
+**** Particular cases
+The function type is a particular case of a pi-type, while the 
+product type is a particular case of a sigma-type.
+
+ * $\prod_{a:A} B \text{ is } A \to B$
+ * $\sum_{a:A} B \text{ is } A \times B$
+
+**** Example of predicate logic
+We have the following logic equivalence in predicate logic
+
+\[
+\left(\sum_{x:A}  P\ x\right)\to Q \iff \prod_{x:A} P\ x \to Q
+\]
+
+and the proof is similar to that of $((P,Q) \to R) \to (P \to Q \to R)$.
+Yesterday we talked only about propositional logic.
+**** Numerical interpretation
+If $f : n \to \mathbb{N}$, and we take $\overline{n}$ to be a type with $n$ elements
+
+\[
+\sum_{i:\overline{n}} \overline{f(i)}
+=
+\overline{\sum_{i=0}^{n-1} f(i)
+\]
+
+and the same is true for pi-types, they are related to a product.
+**** Sum as a sigma type
+We can define $A + B$ using $\sum_{x:2}\text{if x then } A \text{ else } B$; and the same trick
+can be used for products, taking $A \times B$ to be $\prod_{x:2}\text{if x then } A \text{ else } B$.
+
+\[\begin{tikzcd}
+    & $\sum$ &          & $\prod$ &       \\
+$+$  &        & $\times$ &         & $\to$
+\end{tikzcd}\]
+
+**** Eliminators of dependent types
+The eliminator of the sum type is
+
+\[
+R^+ : (A \to B) \to (A \to C) \to A + B \to C
+\]
+
+and we can define a dependent version of the eliminator
+
+\[
+R^+ : \left( \prod_{x:A} C(inl(x)) \right) \to 
+\left(\prod_{y:B} C(inr(y))\right) \to
+\prod_{z: A+B} C(z)
+\]
+
+of which the first is a particular case.
+* Local variables
+# Local Variables:
+# eval: (text-scale-increase 1)
+# End:
