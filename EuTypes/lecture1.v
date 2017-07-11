@@ -341,39 +341,74 @@ Prove the following lemmas, first try to prove them using the period as
 sequencing operator, and then try to optimize the proof to use the semicolon.
 *)
 Lemma andb_false_l : forall b : bool, andb false b = false.
-Proof. Admitted.
+Proof.
+  intros b.
+  reflexivity.
+Qed.
 
 Lemma andb_false_r : forall b : bool, andb b false = false.
-Proof. Admitted.
+Proof.
+  intro b.
+  destruct b; reflexivity.
+Qed.
 
 Lemma andb_diag : forall b, andb b b = b.
-Proof. Admitted.
+Proof.
+  intro b.
+  destruct b; reflexivity.
+Qed.
 
 Lemma orb_true_l : forall b : bool, orb true b = true.
-Proof. Admitted.
+Proof.
+  intro b.
+  destruct b; reflexivity.
+Qed.
 
 Lemma orb_true_r : forall b : bool, orb b true = true.
-Proof. Admitted.
+Proof.
+  intro b.
+  destruct b; reflexivity.
+Qed.
 
 Lemma orb_false_l : forall b : bool, orb false b = b.
-Proof. Admitted.
+Proof.
+  intro b.
+  destruct b; reflexivity.
+Qed.
 
 Lemma orb_false_r : forall b : bool, orb b false = b.
-Proof. Admitted.
+Proof.
+  intro b.
+  destruct b; reflexivity.
+Qed.
+
 
 Lemma orb_diag : forall b, orb b b = b.
-Proof. Admitted.
+Proof. 
+  intro b.
+  destruct b; reflexivity.
+Qed.
 
 Lemma orb_comm : forall b1 b2 : bool, orb b1 b2 = orb b2 b1.
-Proof. Admitted.
+Proof.
+  intros.
+  destruct b1; destruct b2; reflexivity.
+Qed.
+
 
 Lemma orb_assoc : forall b1 b2 b3 : bool,
   orb b1 (orb b2 b3) = orb (orb b1 b2) b3.
-Proof. Admitted.
+Proof.
+  intros.
+  destruct b1; destruct b2; destruct b3; reflexivity.
+Qed.
 
 Lemma orb_andb_distr : forall b1 b2 b3,
   andb b1 (orb b2 b3) = orb (andb b1 b2) (andb b1 b3).
-Proof. Admitted.
+Proof.
+  intros.
+  destruct b1; destruct b2; reflexivity.
+Qed.
 
 (*
 So far we have seen two proof techniques: proof by computation (using the
@@ -468,26 +503,39 @@ Qed.
 with the `Admitted` command. We do this for exercises, and the idea is that
 you finish the proofs. *)
 Lemma xorb_diag_is_true : forall b : bool, xorb b b = b -> b = false.
-Proof. Admitted.
+Proof.
+  intro b.
+  destruct b; discriminate || reflexivity.
+Qed.
 
 Lemma orb_false_inv : forall b1 b2 : bool,
   orb b1 b2 = false -> b1 = false /\ b2 = false.
-Proof. Admitted.
+Proof.
+  intros b1 b2 H.
+  destruct b1; destruct b2; destruct H; split; reflexivity.
+Qed.
 
 Lemma xorb_comm : forall b1 b2, xorb b1 b2 = xorb b2 b1.
-Proof. Admitted.
+Proof.
+  intros. destruct b1; destruct b2; reflexivity.
+Qed.
 
 Lemma xorb_assoc : forall b1 b2 b3 : bool,
   xorb b1 (xorb b2 b3) = xorb (xorb b1 b2) b3.
-Proof. Admitted.
+Proof. intros. destruct b1; destruct b2; destruct b3; reflexivity. Qed.
 
 Lemma xorb_true_inv : forall b1 b2 : bool,
   xorb b1 b2 = true -> b1 <> b2.
-Proof. Admitted.
+Proof.
+  intros b1 b2 H.
+  destruct b1; destruct b2; discriminate || reflexivity.
+Qed.
 
 Lemma xorb_false_inv : forall b1 b2 : bool,
   xorb b1 b2 = false -> b1 = b2.
-Proof. Admitted. 
+Proof.
+  intros. destruct b1; destruct b2; discriminate || reflexivity.
+Qed.
 
 (* ## Natural numbers *)
 Module nat_defs.
@@ -823,43 +871,90 @@ Prove the lemmas below.  For each of the lemmas carefully take into account:
 *)
 Lemma mult_0_l : forall n,
   0 * n = 0.
-Proof. Admitted.
+Proof. reflexivity. Qed.
 
 Lemma mult_0_r : forall n,
   n * 0 = 0.
-Proof. Admitted.
+Proof.
+  intros.
+  induction n as [|n H].
+  - reflexivity.
+  - apply H.
+Qed.
 
 Lemma plus_swap : forall n1 n2 n3 : nat,
   n1 + (n2 + n3) = n2 + (n1 + n3).
-Proof. Admitted.
-
+Proof.
+  intros.
+  rewrite plus_comm.
+  rewrite <- plus_assoc.
+  rewrite (plus_comm n3 n1).
+  reflexivity.
+Qed.
+  
 Lemma mult_S_r : forall n1 n2 : nat,
   n1 * S n2 = n1 + n1 * n2.
-Proof. Admitted.
-
-
+Proof.
+  intros.
+  induction n1.
+  - reflexivity.
+  - simpl. f_equal. rewrite (plus_assoc n1 n2). rewrite (plus_comm n1 n2).
+    rewrite <- (plus_assoc n2 n1). rewrite IHn1.
+    reflexivity.
+Qed.    
+  
 Lemma mult_comm : forall n1 n2 : nat,
   n1 * n2 = n2 * n1.
-Proof. Admitted.
-
+Proof.
+  intros.
+  induction n1.
+  - rewrite mult_0_l. rewrite mult_0_r. reflexivity.
+  - simpl. rewrite mult_S_r. rewrite IHn1. reflexivity.
+Qed.
 
 Lemma plus_mult_distr_l : forall n1 n2 n3 : nat,
   (n1 + n2) * n3 = n1 * n3 + n2 * n3.
-Proof. Admitted.
-
+Proof.
+  intros.
+  induction n1.
+  - reflexivity.
+  - simpl. rewrite IHn1. rewrite plus_assoc. reflexivity.
+Qed.
 
 Lemma mult_assoc : forall n1 n2 n3 : nat,
   n1 * (n2 * n3) = (n1 * n2) * n3.
-Proof. Admitted.
-
+Proof.
+  intros.
+  induction n1.
+  - reflexivity.
+  - simpl. rewrite plus_mult_distr_l. rewrite IHn1.
+    reflexivity.
+Qed.
+    
 Lemma double_inj : forall n m,
   n + n = m + m ->
   n = m.
-Proof. Admitted.
-
+Proof.
+  intro n.
+  induction n.
+  - intro. destruct m; reflexivity || discriminate.
+  - destruct m.
+    * discriminate.
+    * intro. simpl in H. injection H as H.
+      rewrite plus_comm in H. rewrite (plus_comm m) in H.
+      simpl in H. injection H as H. apply IHn in H.
+      rewrite H. reflexivity.
+Qed.                                
+    
 Lemma plus_inj_r : forall n1 n2 n3 : nat,
   n1 + n3 = n2 + n3 -> n1 = n2.
-Proof. Admitted.
+Proof.
+  intros.
+  rewrite plus_comm in H.
+  rewrite (plus_comm n2) in H.
+  apply plus_inj_l in H.
+  apply H.
+Qed.  
 
 (* ### Exercise (easy) *)
 (*
@@ -871,10 +966,11 @@ Recall the mathematical definition of the factorial function:
 Translate this into a corresponding function in Coq.
 *)
 
-(*
 Fixpoint factorial (n : nat) : nat :=
-  ...
-*)
+  match n with
+  | O => 1
+  | S m => n * factorial m
+  end.
 
 (* ### Exercise (moderate) *)
 (*
@@ -891,8 +987,37 @@ propositional logic, the operations `=` and `+`, and multiplication by constant
 natural numbers.
 *)
 
-Lemma coin_problem : forall x, exists y z, x + 8 = 3 * y + 5 * z.
-Admitted.
+Lemma coin_3x : forall x, exists y z,  3 * x + 8 = 3 * y + 5 * z.
+  Proof. intro x. exists (x + 1). exists 1. omega. Qed.
+Lemma coin_3x1 : forall x, exists y z,  3 * x + 1 + 8 = 3 * y + 5 * z.
+  Proof. intro x. exists (x + 3). exists 0. omega. Qed.
+Lemma coin_3x2 : forall x, exists y z,  3 * x + 2 + 8 = 3 * y + 5 * z.
+  Proof. intro x. exists x. exists 2. omega. Qed.
+Lemma ismod3 : forall x,
+    (exists y, x = 3 * y) \/
+    (exists y, x = 1 + 3 * y) \/
+    (exists y, x = 2 + 3 * y).
+Proof.
+  intro x.
+  induction x. left. exists 0. reflexivity.
+  destruct IHx.
+  - right. left.
+    destruct H as [z]. simpl. exists z. rewrite -> H. reflexivity.
+  - destruct H.
+    * destruct H as [z]. rewrite -> H. right. right. exists z. reflexivity.
+    * destruct H as [z]. rewrite -> H. left. exists (S z). omega.
+Qed.      
+    
+Theorem coin_problem : forall x, exists y z, x + 8 = 3 * y + 5 * z.
+Proof.
+  intro x.
+  destruct (ismod3 x).
+  - destruct H as [t]. rewrite H. exists (S t). exists 1. omega.
+  - destruct H; destruct H as [t]; rewrite H.
+    * exists (3 + t). exists 0. omega.
+    * exists t. exists 2. omega.
+Qed.
+
 End lecture.
 
 (* # Advanced data structures *)
@@ -1303,19 +1428,33 @@ Prove the properties of `msingleton` below.
 *)
 Lemma msingleton_raw_wf {A} (b : bool) (i : nat) (y : A) :
   map_wf b (msingleton_raw i y).
-Proof. Admitted.
+Proof.
+  revert b.
+  induction i.
+  - intro b. reflexivity.
+  - intro b. simpl. apply IHi.
+Qed.
 
 Definition msingleton {A} (i : nat) (x : A) : map A :=
   make_map (msingleton_raw i x) (msingleton_raw_wf true i x).
 
 Lemma msingleton_raw_lookup {A} (i : nat) (y : A) :
   mlookup_raw (msingleton_raw i y) i = Some y.
-Proof. Admitted.
-
+Proof.
+  induction i.
+  - reflexivity.
+  - apply IHi.
+Qed.
+     
 Lemma msingleton_raw_lookup_ne {A} (i j : nat) (y : A) :
   i <> j -> mlookup_raw (msingleton_raw i y) j = None.
-Proof. Admitted.
-
+Proof.
+  induction j.
+  - intro. destruct i.
+    * destruct H. reflexivity.
+    * reflexivity.
+  - intro. Admitted.
+      
 Lemma msingleton_lookup {A} (i : nat) (y : A) :
   mlookup (msingleton i y) i = Some y.
 Proof. Admitted.
