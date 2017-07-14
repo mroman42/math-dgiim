@@ -7834,6 +7834,8 @@ A PTS (S,A,R) is functional when A is a function from S to S and
 R is a function from $S \times S$ to $S$.
 
 ***** Uniqueness of types lemma
+*** Pure type systems II
+**** The type inhabitation problem
 ** Dependently typed programming
 *** Milner's coincidence
 Milner's Coincidence on Hindley-Milner's type systems
@@ -7850,6 +7852,10 @@ Milner's Coincidence on Hindley-Milner's type systems
 In the late 90s, this was the accepted unquestioned way of thinking
 about types.
 ** Homotopy type theory
+The Tao of Types - Thorsten Altenkirch
+
+ - A topological model of HoTT.
+
 *** HoTT 1
 There are multiple implementations of type theory (Coq, Agda, ...)
 
@@ -8033,6 +8039,150 @@ R^+ : \left( \prod_{x:A} C(inl(x)) \right) \to
 \]
 
 of which the first is a particular case.
+*** HoTT 3
+**** Intensional equality
+**** Uniqueness of equality proofs
+
+\[
+uep : \prod_{x,y:A}\prod_{p,q: x=y} p=q
+\]
+
+***** Proof and the need for K
+It has been proved that this does not depend on J using
+countermodels. We need to add another eliminator called K.
+If we have
+
+\[
+C : \prod_{x:A} x =x \to Type
+\]
+
+then
+
+\[
+K_C : \prod_{x:A} C\ x\ (refl\ x) \to \prod_{x:A}\prod_{p:x=x} C\ x\ p
+\]
+
+***** What can we proof without K?
+The groupoid structure of paths can be proven wihtout K.
+
+\[
+\prod_{x,y:A}\prod_{p : x=y}
+trans\ p\ refl = p
+\]
+
+**** Extensionality
+We need extensionality to prove
+
+\[
+\lambda x. x+0 = \lambda x.0+x
+\]
+
+using that $f x = g x$ for all $x$ implies $f = g$.
+
+***** Product
+The equality of a product is the product of two equalities;
+the equality of a coproduct is a coproduct, and so on.
+
+***** Equality of types
+Equivalence or isomorphism of types can be defined with two
+mutually inverse functions between them. They give us a one-to-one
+correspondence between types. This is written as $A \simeq B$.
+
+We would need
+
+\[
+\eta : \prod_{x:A} g(f(x)) = x
+\]
+
+and
+
+\[
+\varepsilon : \prod_{y:B} f(g(y)) = y
+\]
+
+We could use J to prove
+
+\[
+\prod_{A,B: {\cal U}} A=B \to A \simeq B
+\]
+
+but this is not provable.
+
+***** Automorphisms of Bool
+There are two proofs of equality of Bool to Bool.
+
+There are two ways of proving $f(g(f(x))) = f(x)$ with the previous
+definition.
+
+We fix that with
+
+\[
+\tau : \prod_{x:A} f(\eta (x)) = \varepsilon f(x)
+\]
+
+***** Definition of equivalence
+This definition of isomorphism 
+
+\[
+isequiv(f) = \prod_{b:B} iscontractible \left( \sum_{a:A} f(a) = b \right)
+\]
+
+is equivalent to our previous definition of equivalence.
+***** Isomorphisms and equivalence
+There are more isomorphisms than equivalences, but for every
+isomorphism, we can build an equivalence
+
+\[
+A \simeq B \iff A\cong B
+\]
+
+The previous definition of univalence was unsound because it
+made isomorphisms and equivalences equal.
+*** HoTT 4
+**** What is a proposition?
+**** Axiom of choice
+Diaconescu; from the set-theoretical axiom of choice, we get that,
+for all propositions the LEM holds, $\prod_{P:Prop} P \vee \neg P$.
+**** Sets and propositions
+
+\[ \mathtt{isSet}\ A \equiv
+\prod_{x,y:A} \mathtt{isProp}(x =_{A} y)
+\]
+
+$Type_0$ is an example of something that is not a set. There are two
+different proofs of the equality $Bool = Bool$.
+
+**** n-Types
+
+\[
+isntype(A) \equiv
+\prod_{x,y:A} is(n-1)type(x = y)
+\]
+
+An n-type is also an (n+1)-type.
+
+|  -2 | Contractible type |
+|  -1 | Proposition       |
+|   0 | Set               |
+|   1 | Groupoid          |
+|   2 | 2-Groupoid        |
+| ... | ...               |
+
+The sphere $\mathbb{S}^2$ is not an n-type for any n.
+
+**** Hedberg's theorem
+Given $A:Type$ with decidable equality
+
+\[
+d : \forall x,y : A.\quad x=y \vee x \neq y
+\]
+
+it is a set, $\mathtt{isSet}(A)$.
+*** HoTT 5
+**** Negative translation of classical logic
+
+ * $A \vee B \mapsto \neg (\neg P \wedge \neg Q)$
+ * $\exists_{x:A}B(x) \mapsto \neg \prod_{x:A} \neg B(x)$
 * Local variables
 # Local Variables:
 # eval: (text-scale-increase 1)
