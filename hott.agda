@@ -234,3 +234,9 @@ doublenegexcluded f = f (inr (λ a → f (inl a)))
 -- data 𝕊¹ : Set where
 --   base : 𝕊¹
 --   loop : base == base
+
+transunit : {A : Set} → {x y : A} → {p : x == y} → trans p refl == p
+transunit = ?
+
+uep : {A : Set} → {x y : A} → (p q : x == y) → p == q
+uep {A} {x} {y} (refl a) q = {!!}
