@@ -2,7 +2,7 @@
 #+AUTHOR: Mario Román
 #+EMAIL: mromang08@gmail.com
 
-#+OPTIONS: broken-links:mark
+#+OPTIONS: num:2
 #+LANGUAGE: es
 #+SETUPFILE: essay.setup
 #+SETUPFILE: math-en.setup
@@ -70,16 +70,18 @@ the category of chain complexes of an arbitrary abelian category,
 $\mathtt{Ch}({\cal A})$, is an abelian category.
 
 ** Chain complexes and homology
-*Homology* was originally defined in algebraic topology as a rigorous
+/Homology/ was originally defined in algebraic topology as a rigorous
 method allowing the topological distinction of manifolds with arbitrary
 dimensional holes. The same construction can be translated into multiple
 different homology theories.
 
+$\quad$
+
 In abelian categories, the homology provides a formal description of
 the failure of a functor to be exact.
 
-*** Chain complex
-*Chain complexes* were initially a representation the relationships
+*** Chain complexes
+/Chain complexes/ were initially a representation the relationships
 between cycles and boundaries on a topological space; we will study
 chain complexes in the abstract setting of module categories, devoided
 of any explicit relation to its motivating example.
@@ -96,6 +98,12 @@ cite:weibel94_introd
 #+end_theorem
 
 *** Exact sequences
+/Exact sequences/ provide a convenient framework for homological questions
+such as the completion of the middle term of a particular sequence in such
+a way that the homology groups are exactly zero. This kind of problems, in
+particular in the category of groups, have been proven to be useful to the
+resolution of problems such as the classification of finite simple groups.
+
 #+begin_definition
 A pair of composable morphisms is *exact* in the object where they can be
 composed when $\mathrm{img}(f) = \mathrm{ker}(g)$. Equivalently, when $\mathrm{coker}(f) = \mathrm{coimg}(g)$.
@@ -138,6 +146,10 @@ component sum.
 #+end_definition
 
 *** Snake lemma
+The /snake lemma/ will provide us with a tool to construct long exact sequences,
+which will be used in the definition of derived functors. This is a first result
+on algebraic homology theory.
+
 #+begin_theorem
 Given a morphism of short exact sequences $f,g,h$; there exists a morphism
 $\delta \colon \operatorname{ker} h \to \operatorname{coker} f$ such that the following sequence is exact
@@ -171,6 +183,10 @@ properties of monomorphisms and epimorphisms.
 #+end_proof
 
 *** Homology
+The definition of /homology/ tries to capture the failure of the complex to be
+exact as the quotient of the kernel and the image of the sucessive differential
+maps.
+
 #+begin_definition
 Given a chain complex $\left\{ C_n \right\}$ with differentials $d_n$, we define the nth
 homology group as
@@ -179,8 +195,8 @@ homology group as
 \]
 #+end_definition
 
-Notice that a sequence will be exact if and only if all their homology
-groups are zero.
+It is important to notice that a sequence will be exact if and only if
+all their homology groups are zero.
 
 ** Projective, injective and flat resolutions
 Resolutions of injective modules are needed to define Hochschild
@@ -248,7 +264,7 @@ where $F_i$ is flat.
 **** Explicit construction
 Notice that, given a module $M$, we can always find
 a surjection from a proyective module (if we have /enough
-projectives/). So we can construct a projective resolution as follows:
+projectives/). So we can construct a projective resolution as
 
 \[ \begin{tikzcd}[column sep=tiny]
 &\ker f_2 \drar&&&&\ker \pi\drar &&& \\
@@ -259,7 +275,7 @@ projectives/). So we can construct a projective resolution as follows:
 We can also reverse the arrows to obtain an injective resolution.
 
 *** Derived functors
-Derived functors provide a canonical way to extend the image of an
+/Derived functors/ provide a canonical way to extend the image of an
 exact sequence by a non two-sided exact functor.  We need an abelian
 category $A$ with enough injectives to construct left-derived
 functors; and we need enough projectives to construct right-derived
@@ -287,13 +303,13 @@ we can compute the homology
 **** Construction of the left derived functor
 Let $F$ be additive, contravariant and left-exact. Let 
 $P^\bullet \longrightarrow M \longrightarrow 0$ be a projective resolution with $M$ deleted; 
-then $F(P^\bullet)$ is a complex, and we define:
+then $F(P^\bullet)$ is a complex, and we define
 
 \[R^i F(M) = H^i(F(P^\bullet)) = 
 \frac{\ker \{F(P_i) \longrightarrow F(P_{i+1})\}}
 {\im\{ F(P_{i-1}) \longrightarrow F(P_i)\}}\]
 
-That is, if we take the /projective resolution/:
+That is, if we take the /projective resolution/
 
 \[\dots \longrightarrow P_2\longrightarrow P_1\longrightarrow P_0
 \longrightarrow M \longrightarrow 0\]
@@ -304,19 +320,26 @@ where we can compute the homology:
 \[ 0 \longrightarrow F(P_0) \longrightarrow F(P_1)
 \longrightarrow F(P_2) \longrightarrow \dots\]
 
-
 ** Hochschild homology
 *** Preliminaries
-**** Opposite algebra
+Our main interest will be on a particular kind of homology and comology called
+/Hochschild homology/. This section defines the preliminary necessary concepts
+to develop the notion of Hochschild homology.
+
+**** Opposite algebra.
+The definition of an /opposite algebra/ is a trvial notion which will be crucial
+to create the definition of a standard resolution of an algebra over a field.
+
 #+begin_definition
-If $A$ is an $R\text{-algebra}$, the *opposite algebra* of $A$ is $A^\ast$; where
-multiplication is defined as $x \circ y = yx$.
+If $A$ is an $R\text{-algebra}$, the *opposite algebra* of $A$, with a multiplication
+given by yuxtaposition is $A^\ast$; an algebra with the same set of elements and where
+the multiplication $\circ$ is defined as $x \circ y = yx$.
 #+end_definition
 
-**** Enveloping algebra
+**** Enveloping algebra.
 #+begin_definition
-Let $R$ be a $k\text{-algebra}$, the *enveloping algebra* of $R$ is $R^e = R \otimes R^{op}$,
-where the product is defined as
+Let $R$ be a $k\text{-algebra}$, the *enveloping algebra* of $R$ is the tensor
+product $R^e = R \otimes R^{op}$, where the product is defined as
 
 \[ (r_1 \otimes s_1)(r_2 \otimes s_2) = (r_1r_2) \otimes (s_2s_1).\]
 #+end_definition
@@ -342,7 +365,8 @@ taking $rms = (r\otimes s) m$. Compatibility relation can be checked by the same
 reasoning.
 #+end_proof
 
-**** Standard resolution
+**** Standard resolution.
+#+begin_definition
 Given $R$, a $k\text{-algebra}$ we define the *standard resolution* $(P_{\bullet},d_{\bullet})$ of $R$ in
 $(R;R)\mathrm{-Mod}$ as
 
@@ -353,8 +377,9 @@ where
 
 \[
 d_n^i(a_0 \otimes \dots \otimes a_{n+1}) =
-a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}.
+a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}
 \]
+#+end_definition
 
 *** Hochschild homology
 #+begin_definition
@@ -397,9 +422,32 @@ subject. This article is an attempt to collect all the needed
 prerequisites to work with homology and cohomology theory and
 ultimately to work with Hochschild homology and Koszul pairs.
 
+Apart from the bibliographic review, we have developed materials for
+future students interested in the subject.
+
+*** Wikipedia articles
+In order to achieve a higher level of understanding of the topic and
+to provide future students with accesible resources, we have written
+the following articles for the Spanish wikipedia; they are published
+using a Creative Commons license.
+
+ * [[https://es.wikipedia.org/wiki/Compleci%C3%B3n_(%C3%A1lgebra)][Compleción (álgebra)]]
+ * [[https://es.wikipedia.org/wiki/Lema_de_escisi%C3%B3n][Lema de escisión]]
+ * [[https://es.wikipedia.org/wiki/Lema_de_la_serpiente][Lema de la serpiente]]
+ * [[https://es.wikipedia.org/wiki/Funtor_Tor][Funtor Tor]]
+ * [[https://es.wikipedia.org/wiki/Homolog%25C3%25ADa_de_Hochschild][Homología de Hochschild]]
+ * [[https://es.wikipedia.org/wiki/Categor%25C3%25ADa_coma][Categoría coma]]
+ 
+*** Student-organized seminars
+Two student-organized seminars have been held in the university. In
+those seminars, the author has lectured about category theory; giving
+a basic introduction to mathematics and computer science students.
+
 * Discussion
 ** Koszul algebra
-Koszul rings will be a generalization of Koszul algebras.
+/Koszul rings/ will be a generalization of /Koszul algebras/. A pair of a
+ring and its categorical dual, a coring; toghether with certain coherence
+relations, will constitute our definition of a Koszul pair.
 
 #+begin_definition
 A graded algebra $A$ is a *Koszul algebra* over a field $k$ if
@@ -409,6 +457,9 @@ elements of degree $j$.
 #+end_definition
 
 *** Quadratic algebras
+Koszul algebras are a particular case of quadratic algebras. We can describe
+them in full generality with the following definition.
+
 #+begin_definition
 A graded algebra $A$ is a *quadratic algebra* if the natural
 application from its tensor algebra $T(A) \to A$ is surjective
@@ -428,6 +479,11 @@ Every Koszul $R\text{-ring}$ is a quadratic algebra.
 #+end_theorem
 
 ** Almost-koszul pairs
+Previous to the definition of Koszul pairs, we are going to define
+/almost-koszul pairs/. Those will provide us with a weaker set of
+requirements and we will be able to obtain a definition of Koszul
+pairs suitable to every almost-koszul pair.
+
 *** Graded rings
 #+begin_definition 
 A *graded ring* is a ring that can be written as a direct sum of
@@ -455,7 +511,7 @@ An $R\text{-ring}$ is an associative and unital algebra. It is an associative an
 unital ring $A$ together with a morphism $u : R \longrightarrow A$.
 #+end_definition
 
-A R-ring is *graded* if it is equipped with a decomposition:
+A R-ring is *graded* if it is equipped with a decomposition
 
 \[A = \bigoplus_{n \in \mathbb{N}} A^n \]
 
@@ -464,6 +520,11 @@ when $A_0 = R$. It is *strongly graded* when $m^{1,p}$ is surjective. We
 call $\pi^n_A$ to the projection of $A$ onto $A^n$.
 
 *** R-coring
+Corings will be the categorical dual of rings. In order to define them, we
+proceed by giving defitions of coalgebra and certain properties of this kind
+of algebras. Those are also the dual notions to the preliminary definitions
+we described at the start of this chapter.
+
 #+begin_definition
 A *coalgebra* over a field $K$ is a *vector space* $V$ together with linear
 maps $\Delta : V \longrightarrow V \otimes V$ and $\varepsilon : V \longrightarrow K$ such that:
@@ -496,12 +557,19 @@ with an isomorphism $\theta_{C,A} : C_1 \longrightarrow A^1$ that satisfies the 
 = 0.\]
 #+end_definition
 
-Using Sweedler notation we can rewrite the condition as follows: 
-for any $c \in C_2$,
+Using Sweedler notation we can rewrite the condition as follows 
 
-\[ \sum \theta_{C,A}(c_{(1,1)}) \theta_{C,A}(c_{(2,1)}) = 0.\]
+
+\[ \sum \theta_{C,A}(c_{(1,1)}) \theta_{C,A}(c_{(2,1)}) = 0,\]
+
+for any $c \in C_2$.
 
 ** Almost-koszul pair complexes
+Six complexes will be associated to any given Koszul pair. Its
+exactness will be related, i.e., if any one of them is exact, the six
+complexes will be exact. This provides a definition of Koszul
+pairs relying only on this kind of complexes.
+
 #+begin_definition
 Let $(A,C)$ be an almost-Koszul pair, if we define
 
@@ -599,9 +667,17 @@ previously discussed complexes are exact.
 #+end_definition
 
 * Conclusions
-Future work should be able to find new characterizations of Koszul
-pairs in terms of homology and cohomology apart from the known
-characterizations defined on cite:jarastefan10.
+Starting from a very basic undergraduate mathematical level, all the
+necessary definitions of categories, chain complexes and homology have
+been developed in this work. This constitutes a reference for students
+interested on the specific field of Koszul pairs and sets the ground
+for future developments and undergraduate and graduate-level research.
+
+$\quad$
+
+In particular, future work should be able to find new
+characterizations of Koszul pairs in terms of homology and cohomology
+apart from the known characterizations found on cite:jarastefan10.
 
 * References
 bibliographystyle:unsrt
