@@ -1,0 +1,52 @@
+#+TITLE: Category theory foundations
+#+DESCRIPTION: Short course by Steve Awodey on the Oregon Summer School 2012
+
+#+SETUPFILE: config.setup
+#+SETUPFILE: essay.setup
+#+LANGUAGE: en
+#+OPTIONS: toc:nil
+#+TODO: TODO WIP | CHECK DONE
+
+* Category theory foundations 1.0
+Category theory is the abstract algebra of abstract functions.
+
+** Functions on sets
+In set theory, a function $f \colon A \to B$ is a subset of the cartesian
+product $f \subset A \times B$, such that for all $a \in A$, there exists a unique
+$b \in B$ such that $f(a) = b$.
+
+Composition of functions is distributive and it has an identity.
+Categories arise as an abstraction of this setting.
+
+** Definition of category
+A category is defined by a class of objects and a class of arrows.
+A distributive composition with identity. The axioms of a category
+are the distributivity and the identity as a neutral element.
+** Isomorphisms
+** Examples
+*** Finite categories
+*** Posets
+*** Monoids
+*** Category of all posets
+*** Relations on sets
+*** Category of proofs
+The objects are logic formulas and arrows are deductions on the formal
+system, from the assumptions to the conclusions, that can be composed.
+* Category theory foundations 1.1
+** Constructions on categories
+*** Product category
+*** Arrow category
+${\cal C}^{\to}$, where objects are arrows on ${\cal C}$ and arrows
+are commutative squares.
+*** Slice category
+**** Cat, the category of categories
+** Functors
+Preserve all the structure of a category.
+
+*** Exponential functor on sets
+Fix an object $A$, then $B \mapsto B^{A}$ is a functor on sets.
+
+** Duality
+*** Contravariant functors
+* Category theory foundations 1.2
+** Representable functors
