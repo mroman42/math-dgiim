@@ -226,7 +226,7 @@ tripleneg f a = f (λ g → g a)
 
 -- Exercise 1.13
 doublenegexcluded : {A : Set} → ¬ (¬ (A ⨄ (¬ A)))
-doublenegexcluded f = f (inr (λ a → f (inl a)))
+doublenegexcluded f = f (inr (λ x → f (inl x)))
                           
                     
 
@@ -235,8 +235,8 @@ doublenegexcluded f = f (inr (λ a → f (inl a)))
 --   base : 𝕊¹
 --   loop : base == base
 
-transunit : {A : Set} → {x y : A} → {p : x == y} → trans p refl == p
-transunit = ?
+-- transunit : {A : Set} → {x y : A} → {p : x == y} → trans p refl == p
+-- transunit = ?
 
-uep : {A : Set} → {x y : A} → (p q : x == y) → p == q
-uep {A} {x} {y} (refl a) q = {!!}
+-- uep : {A : Set} → {x y : A} → (p q : x == y) → p == q
+-- uep {A} {x} {y} (refl a) q = {!!}

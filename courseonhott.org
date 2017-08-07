@@ -924,6 +924,7 @@ In particular, $\left\langle  \mathrm{fst}\circ P, \mathrm{snd} \circ P  \right\
 or $\left\langle M,N \right\rangle \circ P = \left\langle M\circ P,N \circ P \right\rangle$.
 
 Lawvere and Lambek first saw those connections on the 70s.
+
 ** Exponentials
 The exponential $B^A$, gives the application map with the universal
 diagram
@@ -956,6 +957,7 @@ The essence of all this is
 ** DeBruijn indices
 If we write contexts as $A_{n-1}\times \dots \times A_{1}$, and we refer to the
 variables using $\mathrm{snd}(\mathrm{fst}(\mathrm{fst}\dots))$.
+
 * Lecture 5: Universal properties
 In the previous weeks we talked about
 
