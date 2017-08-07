@@ -1745,6 +1745,7 @@ If $t$ is a terminal object in $C$, prove that $(C \downarrow t)$ is isomorphic 
 By definition of terminal object, there will be only an arrow 
 $\ast \colon u \to t$ for any $u \in C$. Every morphism will create a commutative 
 diagram because of the unicity of the morphisms.
+
 * III. Universals and limits
 ** III.1. Universal arrows
 *** Exercise III.1.1
@@ -1953,4 +1954,56 @@ d\dlar[bend left,swap]{\delta} \\
 #+begin_statement
 If $B$ has (finite) products show that any functor category $B^C$ also has (finite)
 products (calculated "pointwise").
+#+end_statement
+* IV. Adjoints
+** IV.1. Adjunctions
+*** Exercise IV.1.2
+#+begin_statement
+Given functors $G\colon A \to X$ and $F \colon X \to A$, show that each adjunction $\left\langle F,G,\varphi \right\rangle$ can
+be described as an isomorphism $\theta$ of comma categories such that the following diagram
+commutes
+
+\begin{tikzcd}[column sep=none]
+\theta\colon & (F \downarrow I_{A})\dar & \cong & (I_x \downarrow G)\dar \\
+& X \times A & = & X \times A & &.
+\end{tikzcd}
+
+Here the vertical maps have components the projection functors $P$ and
+$Q$ of II.6(5).
+#+end_statement
+
+Given an adjunction $\varphi \colon \mathrm{hom}(Fx,y) \cong \mathrm{hom}(x,Gy)$, we can define the isomorphism
+in objects as $\theta(f \colon Fx \to y) = (\varphi f \colon x \to Gy)$. And the isomorphism on morphisms
+as
+
+\begin{tabular}{ccc}
+\begin{tikzcd}
+Fx \dar{f}\rar{Fk} & Fx' \dar{f'} \\
+y \rar{h} & y'
+\end{tikzcd} 
+& \Longrightarrow &
+\begin{tikzcd}
+x \dar{\varphi f}\rar{k} & x' \dar{\varphi f'} \\
+Gy \rar{Gh} & Gy'
+\end{tikzcd}
+\end{tabular}
+
+where the commutativity of the second diagram follows from the commutativity of the
+first one if we apply naturality of $\varphi$. This $\theta$ is bijective and respects composition
+trivially. The given diagram commutes.
+
+# Are all isomorphisms on this form adjunctions?
+
+*** TODO Exercise IV.1.3
+#+begin_statement
+For the adjunction $\left\langle \Delta,\times,\varphi \right\rangle$, show that the unit $\delta_c : c \to c \times c$ for each object
+$c \in C$ is the unique arrow such that the diagram
+
+\[\begin{tikzcd}
+& C\drar{1}\dlar[swap]{1}\dar[dashed]{\delta_c} & \\
+c & c \times c \rar[swap]{q}\lar{p} & c
+\end{tikzcd}\]
+
+commutes. This arrow is often called the /diagonal arrow/ of $c$. If $C = \mathtt{Set}$, show
+that $\delta_cx = \left\langle x,x \right\rangle$ for $x \in c$.
 #+end_statement
