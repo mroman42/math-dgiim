@@ -48,5 +48,13 @@ Fix an object $A$, then $B \mapsto B^{A}$ is a functor on sets.
 
 ** Duality
 *** Contravariant functors
+**** Example: Hom-Functors
+** Hom-sets
+Assuming ${\cal C}$ small, $\mathrm{hom}(A,B)$ is the set of arrows from $A$ to $B$. If we fix $A$,
+we get a functor $\mathrm{hom}(A,-)$; if we fix $B$, we get a contravariant functor $\mathrm{hom}(-,B)$.
+
 * Category theory foundations 1.2
 ** Representable functors
+A functor is representable if it can be written as an hom-set.
+
+The currying of the $Hom$ functor is the Yoneda embedding. (!)
