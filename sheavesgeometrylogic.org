@@ -133,11 +133,191 @@ The classifier is a n-tuple of $1 \to 2$ functions. There are $2^n$
 truth values.
 **** Classifier for BG-Sets
 The same classifier $1 \to 2$ works, $G$ acts trivially on both sets.
+** I.5. Colimits
+*** Colimits in functor categories
+Colimits in functor categories can be computed pointwise
+\[
+(\varinjlim H)(C) = \varinjlim H(C).
+\]
 
+*** Every object is a colimit of representable objects
+In a functor category $\mathtt{Sets}^{C^{op}}$, every object $P$ is
+the colimit of a diagram of representable objects.
+
+*** TODO Theorem 2
+** I.6. Exponentials
+*** In sets
+$(-)^{X}$ is the right adjoint of $- \times X$.
+
+*** The representable functors category is cartesian closed
+For any small category ${\cal C}$, the functor category $\mathtt{Sets}^{\mathcal{C}^{op}}$ is cartesian closed.
+
+**** TODO Proof
+
+** I.7. Propositional calculus
+*** TODO Sets and boolean algebras, open subsets and heyting algebras
+*** Lattice
+A *lattice* is a partially ordered set, which, interpreted as a category,
+has all binary products and coproducts.
+
+That is, $x \leq y$ if and only if $x \to y$.
+
+A lattice with $0 \leq x \leq 1$ are the initial and terminal objects, and has all
+finite limits and colimits.
+
+*** TODO Equational definition of a lattice
+*** TODO Complements on a lattice
+*** TODO Boolean algebra
+*** TODO Complete lattice
 ** I.8. Heyting algebras
+*** Heyting algebra
+A Heyting algebra is a poset with all finite products and coproducts which is
+cartesian closed.
+
+*** TODO Properties of Heyting algebras
+
 ** I.9. Quantifiers as adjoints
 * IV. First properties of Elementary topoi
 ** IV.1. Definition of a topos
+*** Elementary topos
+**** Definition
+A *topos* ${\cal E}$ is a category with
+
+  * an object $\Omega$, called the *subobject classifier*;
+  * a function ${\cal P}$ on objects, called the *powerset*;
+  * two natural isomorphisms $\mathrm{Sub}_{{\cal E}}A \cong \mathrm{hom}_{{\cal E}}(A,\Omega)$ and
+    $\mathrm{hom}_{{\cal E}}(B \times A,\Omega) \cong \mathrm{hom}_{{\cal E}}(A,{\cal P}B)$.
+
+**** Alternative definition
+A *topos* is a category with finite limits and a function on its
+objects ${\cal P}$ such that
+\[
+\mathrm{Sub}_{{\cal E}}(B \times A) \cong \mathrm{Hom}_{{\cal E}}(A,{\cal P}B)
+\]
+is an natural isomorphism in $A$.
+
+**** Definition: Elementary form
+A *topos* is a category ${\cal E}$ such that
+
+  1) pullbacks exist for every diagram of the form
+
+     \[\begin{tikzcd}[column sep=small, row sep=small]
+     X \drar  & & Y\dlar \\
+        & B &
+     \end{tikzcd}\]
+
+  2) it has a terminal object $1$;
+
+  3) it has a *subobject classifier* $\Omega$ with a monic arrow $\mathtt{true} \colon 1 \to \Omega$ such that
+     for every monomorphism $m \colon S \to B$, there is a unique arrow $\mathrm{char}\ m$, called
+     the *classifying map* of $m$ such that the following diagram is a pullback
+
+     \[\begin{tikzcd}
+     S \dar[swap]{m}\rar & 1 \dar{\mathrm{true}} \\
+     B \rar[swap]{\mathrm{char}\ m} & \Omega
+     \end{tikzcd}\]
+
+  4) it has a function on objects ${\cal P}$ and an morphism $\in_B\colon B \times {\cal P}B \to \Omega$ such
+     that for every $f \colon B \times A \to \Omega$, an unique $g \colon A \to {\cal P}B$ making the following
+     diagram commute
+
+     \[\begin{tikzcd}[row sep=small]
+     A \ar[dashed]{dd}{g} & B \times A \drar{f}\ar[dashed,swap]{dd}{1 \times g} \\
+     & & \Omega \\
+     {\cal P}B & B \times {\cal P}B \urar[swap]{\in_B} &
+     \end{tikzcd}\]
+
+# Membership map is dinatural in B.
+
+*** Generalized elements
+**** Generalized and global elements
+An arrow $b \colon X \to B$ is a *generalized element* of $B$ defined over $X$. The generalized
+elements defined over the terminal object $1$ are the *global elements* of $B$.
+
+**** Predicate
+A morphism $\theta \colon B \to \Omega$ is called a *predicate*.
+
+**** Subobjects
+A subobject of $A$ has the following three descriptions
+
+  1) $m \colon S \to A$ monomorphism, as an equivalence class of monics;
+
+  2) $\phi\colon A \to \Omega$, as a predicate;
+
+  3) $s \colon 1 \to {\cal P}A$, as a global element of the powerset.
+
+we call $S = \left\{ a \mid \phi \right\}$ the *extension* of $\phi$; $\phi = \mathrm{char}\ S$ the *characteristic function*
+of $S$ and $s = \lceil\phi\rceil$ the *name* of $\phi$.
+
+**** Kronecker delta
+
+**** Monicity of the transpose of the Kronecker delta
+For all objects $B$ in a topos, $\left\{ \cdot \right\}$ is monic.
+
+**** Bimorphisms are isomorphisms in a topos
+In a topos, every monomorphism is an equalizer and every bimorphism
+is an isomorphism.
+
+*** Exponentials
+**** Every topos is cartesian closed
+Every topos has exponentials.
+
+** IV.8. Lattice and Heyting algebra objects in a topos
+*** Internal lattice
+An internal lattice in a category is an object $L$ with morphisms
+\[
+\bigwedge \colon L \times L \to L,
+\qquad
+\bigvee \colon L \times L \to L
+\]
+
+and commutative diagrams expressint the identities of a lattice
+
+  * associativity,
+  * commutativity,
+  * idempotent laws,
+  * absorption law.
+
+Such a lattice object has a zero and a one if there are arrows
+\[
+\top \colon 1 \to L,
+\qquad
+\bot \colon 1 \to L,
+\]
+with the appropiate identities.
+
+*** Internal Heyting algebra
+Exists an implication $\Rightarrow \colon L \times L \to L$ satisfiying the diagrammatic version
+of the identities of the implication.
+
+*** Partial order on an internal lattice
+We can define a subobject $\leq_L$ on the category as the following equalizer
+\[\begin{tikzcd}
+\leq_{L}\rar & 
+L \times L \rar[shift left=.75ex]{\wedge}\rar[swap,shift right=.75ex]{\pi_1} & 
+L.
+\end{tikzcd}\]
+
+**** Equivalent definition of internal Heyting algebra
+
+*** External Heyting algebra
+Given $A$ in a topos ${\cal E}$, $\mathrm{Sub}\ A$ is a Heyting algebra. The structure
+is natural in $A$, in the sense that the pullback along any morphism
+$k\colon A \to B$ induces a map $k^{-1}$ of Heyting algebras.
+
+**** TODO Proof
+*** Internal Heyting algebra
+Given $A$ in a topos ${\cal E}$, ${\cal P}A$ is an internal Heyting algebra. Th structure
+is natural in $A$, in the sense that that the any morphism $k\colon A \to B$
+induces a map ${\cal P}k \colon {\cal P}A \to {\cal P}B$ of Heyting algebras.
+
+The internal structure of ${\cal P}A$ makes $\mathrm{hom}(X,{\cal P}A)$ an external Heyting
+algebra with the following isomorphism of Heyting algebras
+\[
+\mathrm{Sub}(A \times X) \cong \mathrm{Hom}(X,{\cal P}A).
+\]
+
+**** TODO Proof
 * VI. Topoi and logic
 ** VI.1. The topos of sets
 *** Natural numbers object
