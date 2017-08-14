@@ -3,9 +3,14 @@
 
 #+SETUPFILE: config.setup
 #+SETUPFILE: essay.setup
+#+latex_header: \usepackage{stmaryrd}
+#+latex_header: \usepackage{mathtools}
+#+latex_header: \DeclarePairedDelimiter\bbk{\llbracket}{\rrbracket}
 #+LANGUAGE: en
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | CHECK DONE
+
+Following this [[https://www.youtube.com/playlist?list=PLGCr8P_YncjVjwAxrifKgcQYtbZ3zuPlb][video series]].
 
 * Category theory foundations 1.0
 Category theory is the abstract algebra of abstract functions.
