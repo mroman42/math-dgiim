@@ -5,28 +5,44 @@
 #+LANGUAGE: en
 
 
-In this page I collect all my math notes and exercises. It has been
-created using =org-mode= with the =readtheorg= theme.
+In this page I collect all my math notes and exercises.
 
-* In English
-These are exercises I've written while reading books. They are still =WIP=.
 
- * [[file:categoriesfortheworking.pdf][Categories for the working mathematician]] - MacLane.
+* Algebra
 
-A short memory of the introduction to research grant at the algebra deparment.
-
+ * [[file:algebrachapter0.org][Algebra Chapter 0]] - Paolo Aluffi.
+ * [[file:algebraiii.org][Álgebra III]] - Pascual Jara. /Sobre teoría de Galois./
+ * [[file:conmutativa.org][Álgebra conmutativa y computacional]] - Pilar Carrasco. /Sobre anillos conmutativos y bases de Gröbner./
+ * [[file:gruposyrepresentaciones.org][Grupos y representaciones]] - José Gómez Torrecillas. /Álgebras y representaciones de grupos finitos./
+ * [[file:homologicalalgebra.org][Homological algebra: notes]].
  * [[file:koszulpairs.pdf][Koszul pairs]].
 
-* In Spanish
-Esta es una serie de apuntes tomados para las asignaturas del grado de matemáticas
-e ingeniería informática de la Universidad de Granada.
+* Categories and logic
 
- * [[file:algebraiii.org][Álgebra III]]. /Sobre teoría de Galois./
- * [[file:conmutativa.org][Álgebra conmutativa y computacional]]. /Sobre anillos conmutativos y bases de Gröbner./
- * [[file:inferencia.org][Inferencia estadística]]. /Curso básico de inferencia clásica y bayesiana./
- * [[file:topologiaii.org][Topología II]]. /Introducción a la topología algebraica./
- * [[file:gruposyrepresentaciones.org][Grupos y representaciones]]. /Álgebras y representaciones de grupos finitos./
+ * [[file:sheavesgeometrylogic.org][Sheaves on geometry and logic]] - Saunders MacLane, Moerdijk.
+ * [[file:categoriesfortheworking.pdf][Categories for the working mathematician]] - Saunders MacLane.
+ * [[file:categoryfoundations.org][Category theory foundations (video)]] - Steve Awodey.
+ * [[file:higherorder.org][Higher order categorical logic]] - Scott and Lambek.
+ * [[file:courseonhott.org][Course on Homotopy Type theory]] - Robert Harper.
+ * [[file:introcategoricallogic.org][Introduction to Categorical Logic]] - Andrej Bauer, Steve Awodey.
 
-* GitHub repository
-You can read the source code in the [[https://github.com/M42/math][GitHub repository]] for this project. If you find typos
-or bugs or have any questions, you can [[https://github.com/M42/math/issues][open an issue]] there.
+* Theoretical computer science
+ 
+ * [[file:lecturesonthelambdacalculus.org][Lectures on the lambda calculus]] - Peter Selinger.
+ * [[file:typesandprogramminglanguages.org][Types and programming languages]] - Benjamin Pierce.
+
+* Topology and geometry
+
+ * [[file:topologiaii.org][Topología II]] - Francisco Urbano, Antonio Alarcón. /Introducción a la topología algebraica./
+
+* Statistics and probability
+
+ * [[file:inferencia.org][Inferencia estadística]] - Elías Moreno. /Curso básico de inferencia clásica y bayesiana./
+
+* Analysis
+
+ * [[file:funcional.org][Functional analysis]] - Juan Francisco Mena, Mª Victoria Velasco.
+
+* Set theory
+
+ * [[file:zfc.org][ZFC]] - Pablo Baeyens.
