@@ -8,10 +8,9 @@
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | CHECK DONE
 
-* Categories for the working mathematician
-** I. Categories, Functors and Natural Transformations
-*** I.1. Axioms for categories
-**** Metagraph
+* I. Categories, Functors and Natural Transformations
+** I.1. Axioms for categories
+*** Metagraph
 A *metagraph* consists of objects $a,b,c,\dots$ and arrows $f,g,h,\dots$, with two 
 operations:
 
@@ -20,7 +19,7 @@ operations:
 
 that we write as $f : a \to b$.
 
-**** Metacategory
+*** Metacategory
 A *metacategory* is a metagraph with two additional operations:
 
   - *Identity*: $id_a : a \to a$
@@ -42,43 +41,43 @@ Subject to the following axioms:
 
   - *Unit law*: composition with the identity arrow is neutral.
 
-***** Metacategory of Sets
-***** Metacategory of Groups
-***** Arrow-only axioms
-*** I.2. Categories
-**** Category
+**** Metacategory of Sets
+**** Metacategory of Groups
+**** Arrow-only axioms
+** I.2. Categories
+*** Category
 An interpretation of a metacategory within set theory.
 
-***** Diagram scheme (directed graphs)
+**** Diagram scheme (directed graphs)
 A category is a graph with identity and composition functions.
 
-**** Examples of categories
-***** Basic examples
-****** The empty category
-****** 1, the category with one object and one identity
-****** 2, the category a -> b with two objects
-****** 3, a triangle category
-****** Parallel arrows
+*** Examples of categories
+**** Basic examples
+***** The empty category
+***** 1, the category with one object and one identity
+***** 2, the category a -> b with two objects
+***** 3, a triangle category
+***** Parallel arrows
 
-***** Discrete categories
+**** Discrete categories
 Where every arrow is an identity.
 
-***** Monoids and groups
+**** Monoids and groups
 A category with one object.
 
-***** Matrices
+**** Matrices
 Objects: positive integers.
 Arrows: $m\times n$ matrices.
 
-***** Sets of sets
-***** Preorder
-****** Partial orders
-****** Linear orders
-***** Ordinal numbers
-***** Simplicial category
-***** Large categories
-*** I.3. Functors
-**** Functor
+**** Sets of sets
+**** Preorder
+***** Partial orders
+***** Linear orders
+**** Ordinal numbers
+**** Simplicial category
+**** Large categories
+** I.3. Functors
+*** Functor
 A morphism of categories. A functor $T : {\cal C} \to {\cal B}$ is given by:
 
   - The *object function*, $T : Obj({\cal C}) \to Obj({\cal B})$.
@@ -89,32 +88,32 @@ With the axioms:
   - $T(1_c) = 1_{Tc}$
   - $T(f\circ g) = Tg \circ Tf$
 
-**** Examples
-***** The powerset functor
-***** Homology groups
-***** General linear group
-***** Commutators
-***** Forgetful functors
-**** Composition of functors, the metacategory Cat
+*** Examples
+**** The powerset functor
+**** Homology groups
+**** General linear group
+**** Commutators
+**** Forgetful functors
+*** Composition of functors, the metacategory Cat
 We can define composition of functors, and also functors as isomorphisms.
 
-***** Isomorphisms
+**** Isomorphisms
 A functor is an isomorphism iff there is a functor $S : B \to C$ for 
 which both composites are the identity $S \circ T = Id = T \circ S$.
 
-***** Full functor
+**** Full functor
 Every $g : c \to c'$ of $B$ is of the form $Tf : Tc \to Tc'$. In other words,
 the arrow function (the map!) is injective.
 
-***** Faithful functor
+**** Faithful functor
 The equality $Tf_1 = Tf_2$ implies $f_1 = f_2$. In other words, the arrow
 function is surjective.
 
-***** Subcategories
+**** Subcategories
 A subcategory gives us an inclusion functor.
 
-*** I.4. Natural transformations
-**** Natural transformation
+** I.4. Natural transformations
+*** Natural transformation
 Given two functors $S,T : C \to B$, a natural transformation $\tau : S \xrightarrow{.} T$
 is a function assigning every $c \in C$ an arrow $Sc \to Tc$ and yielding
 a commutative diagram:
@@ -126,7 +125,7 @@ c' & & Sc' \rar{\tau_{c'}} & Tc'
 
 We say that $\tau_c$ is natural in $c$.
 
-***** Translation of pictures
+**** Translation of pictures
 A natural transformation translates a diagram from $S$ to $T$.
 
 \[\begin{tikzcd}
@@ -135,7 +134,7 @@ a \arrow{dd}{h}\drar{f} &   & & S a \arrow{dd}{S h}\drar{S f} \arrow{rrr}{\tau a
 c &   & & S c \arrow{rrr}{\tau c} &     & & T c &     \\
 \end{tikzcd}\]
 
-**** Natural isomorphisms
+*** Natural isomorphisms
 A natural transformation is a morphism of functors. We call 
 *natural isomorphism* to a natural transformation where every 
 component $\tau_c$ is invertible. We write it as:
@@ -144,14 +143,14 @@ $\tau : S \cong T$
 
 The inverses form another natural transformation.
 
-**** Examples
-***** Determinant
+*** Examples
+**** Determinant
 Natural transformation between two functors
 $GL, {\cal U}() : \mathtt{CRng} \longrightarrow \mathtt{Grp}$.
 
-***** Identity and factor-commutator functor
+**** Identity and factor-commutator functor
 
-***** Double character group
+**** Double character group
 Defined as $D(G) = Hom(G, \mathbb{R}/\mathbb{Z})$, it is a contravariant functor when 
 we define $(Df) t = t \circ f$. But the twice iterated functor $D^2$ is a 
 covariant one.
@@ -165,55 +164,55 @@ There is a natural transformation between $Id$ and $D^2$.
 It is easy (with lambda calculus, for example) to check that this
 diagram commutes.
 
-***** Double dual of a finite vectorial space
+**** Double dual of a finite vectorial space
 
-***** Inclusion and cardinality of ordinals
+**** Inclusion and cardinality of ordinals
 
-*** I.5. Monics, epis and zeros
-**** Isomorphism
+** I.5. Monics, epis and zeros
+*** Isomorphism
 An arrow $e : a \to b$ is an isomorphism if there is an arrow $e^{-1} : b \to a$
 such that $e'e = 1$ and $ee' = 1$.
 
-***** Isomorphic objects
+**** Isomorphic objects
 Two objects are isomorphic if there is an isomorphism between them.
 
-**** Monic and epi
+*** Monic and epi
 An arrow is *monic* if it is left cancellable, it is *epi* if it is
 right cancellable.
 
-***** Retractions and sections
+**** Retractions and sections
 A left inverse is called a *retraction*, while a right inverse is
 called a *section*.
 
-**** Splits and idempotents
+*** Splits and idempotents
 When $gh = 1$, $g$ is a split epi, $h$ is a split monic and the composite
 $hg$ is an idempotent. An arrow is *idempotent* if $f^2 = f$, and it is said
 to split when there exist arrows $g$ and $h$ such that $f = hg$ and $gh = 1$.
 
-**** Terminal objects and initial objects
+*** Terminal objects and initial objects
 An object $t$ is terminal if for every $a$ there is exactly one arrow $a \to t$.
 An object $s$ is initial if for every $a$ there is exactly one arrow $s \to a$.
 An object $z$ is null if it is both initial and terminal.
 
-***** Zero arrow
+**** Zero arrow
 There is an unique arrow $a \to z \to b$ called the *zero* arrow. Any 
 composite with it is itself a zero arrow.
 
-**** Groupoids
+*** Groupoids
 A category where every arrow is invertible.
 
-***** The fundamental groupoid
-***** Group of homomorphisms
+**** The fundamental groupoid
+**** Group of homomorphisms
 In a groupoid, each object determines a group, $hom(x,x)$.
 If there is an arrow $f : x \to x'$, the groups $hom(x,x)$ and $hom(x',x')$
 are isomorphic under conjugation $g \mapsto fgf^{-1}$.
 
-***** Connected groupoid
+**** Connected groupoid
 A *connected groupoid* is deteremined by a group and the set of
 all objects.
 
-*** I.6. Foundations
-**** Universe
+** I.6. Foundations
+*** Universe
 An universe is a set $U$ with the closure properties:
 
   1. $x \in u \in U \implies x \in U$.
@@ -222,37 +221,37 @@ An universe is a set $U$ with the closure properties:
   4. $\omega \in U$ where $\omega = \{0,1,2,\dots\}$.
   5. $f : a \to b$ surjective and $a \in U$, $b \subseteq U$ implies $b \in U$.
 
-**** Small sets
+*** Small sets
 Fixed an universe, we call a set $u \in U$ a *small set*. The universe is
 the set of all small sets. $\mathtt{Set}$ denotes the category of small sets.
 
-***** Small structures
+**** Small structures
 A small group is a small set with a group structure. $\mathtt{Grp}$ denotes the
 category of small groups.
 
-**** Small categories
+*** Small categories
 A category is small if the set of its arrows and objects are both small
 sets. $\mathtt{Set}$ is not a small category.
 
-*** I.7. Large categories
-**** Abelian groups
-**** Rings
-**** Modules over a ring
-**** Bimodules
-**** Topological spaces with continuous maps
-**** Topological spaces with homotopy classes
-**** Pointed sets
-**** Binary relations
-**** Concrete categories
-*** I.8. Hom-Sets
-**** Hom-set
+** I.7. Large categories
+*** Abelian groups
+*** Rings
+*** Modules over a ring
+*** Bimodules
+*** Topological spaces with continuous maps
+*** Topological spaces with homotopy classes
+*** Pointed sets
+*** Binary relations
+*** Concrete categories
+** I.8. Hom-Sets
+*** Hom-set
 For objects $a,b \in C$, the *hom-set* is the set of all arrows between them:
 
 \[
 hom(a,b) = \{ f \mid f : a \to b \}
 \]
 
-***** Redefinition of a category
+**** Redefinition of a category
 A small category is given by:
 
   1. Set of objects $a,b,\dots$
@@ -270,7 +269,7 @@ hom(c,d)\times hom(a,c) \rar &
 hom(a,d)
 \end{tikzcd}\]
 
-**** Preadditive category
+*** Preadditive category
 A category $A$ where each hom-set $hom(a,b)$ is an additive abelian group
 for which composition is bilinear:
 
@@ -278,7 +277,7 @@ for which composition is bilinear:
 (g+g')\circ(f+f') = g\circ f + g\circ f' + g' \circ f + g' \circ f'
 \]
 
-**** Preadditive category as an enriched category
+*** Preadditive category as an enriched category
 A preadditive category is given by:
 
   1. Set of objects $a,b,\dots$
@@ -289,9 +288,9 @@ A preadditive category is given by:
 We can see the similitude with the definition of a category by hom-sets.
 Categories created in this way are called *enriched categories*.
 
-** II. Constructions on categories
-*** II.1. Duality
-**** Elementary theory of an abstract category (ETAC)
+* II. Constructions on categories
+** II.1. Duality
+*** Elementary theory of an abstract category (ETAC)
 A theory with statements involving:
 
   - Domains: $a = dom(f)$
@@ -301,14 +300,14 @@ A theory with statements involving:
 A *sentence* is a statement with all variables quantified, using
 the logical connectives and quantifiers.
 
-***** Dual of an statement
+**** Dual of an statement
 A dual is formed by making the following replacements:
 
   - $a = dom(f)$ changes to $a = codom(f)$
   - $h = g \circ f$ changes to $h = f \circ g$
   - Logic is unchanged.
 
-***** Table of dualities
+**** Table of dualities
 \begin{tabular}{l|r}
 Statement & Dual statement \\
 \hline
@@ -318,18 +317,18 @@ $h = g \circ f$ & $h = f \circ g$ \\
 $f$ mono & $f$ epi
 \end{tabular}
 
-**** Duality principle
+*** Duality principle
 The dual of each of the axioms for a category is also an axiom. Therefore,
 if $\Sigma$ is a consequence of the axioms, so is its dual statement.
 
-**** Duality and functors
+*** Duality and functors
 The elementary theory of one functor has the axioms of two categories
 $A,B$, and the properties of a functor $T$ between them. The duality for
 a statement involving several categories reverses the arrows in each
 category, but does not reverse the functors.
 
-*** II.2. Contravariance and opposites
-**** Opposite category
+** II.2. Contravariance and opposites
+*** Opposite category
 The *opposite category*, $C^{op}$, is defined with the objects of $C$; for each 
 arrow $f : a \to b$ of $C$, the corresponding $f^{op} : b \to a$ is defined with the 
 composition
@@ -338,12 +337,12 @@ composition
 f^{op} \circ g^{op} = (g\circ f)^{op}.
 \]
 
-***** Opposite functors
+**** Opposite functors
 If $T : C \to B$ is a functor, we can create an opposite functor
 $T^{op} : C^{op} \to B^{op}$. The assignment $C \to C^{op}$ defines a covariant functor
 $\mathtt{Cat} \to \mathtt{Cat}$.
 
-**** Contravariant functors
+*** Contravariant functors
 A functor $S : C^{op} \to B$ can be seen as a *contravariant* functor $S : C \to B$,
 knowing that
 
@@ -351,22 +350,22 @@ knowing that
 S(f^{op}\circ g^{op}) = (Sf^{op})(Sg^{op}) = S((g\circ f)^{op}).
 \]
 
-***** Examples: Hom-sets
+**** Examples: Hom-sets
 For each object $a \in C$, the *contravariant hom-functor* $hom(a,-)$ and
 the *covariant hom-functor* $hom(-,a)$ are defined.
 
-***** Examples: Sheafs
+**** Examples: Sheafs
 Given $X$, a topological space. Its open sets define a category by 
 inclusion, $\mathtt{Open}(X)$. Let ${\cal C}(U)$ denote the set of continuous functions
 $h : U \to \mathbb{R}$, the assignment $h \mapsto h|_V$ is a function ${\cal C}(U)\to{\cal C}(V)$ for
 each $V \subset U$; and this gives us a contravariant functor.
 
-***** Examples: R-Modules
+**** Examples: R-Modules
 $\mathtt{ModR} : \mathtt{Rng} \to \mathtt{Cat}$ is a contravariant functor. If $\rho : R \longrightarrow S$ is a morphism
 of rings, given $B$ an S-module, we can define $(Mod\rho) B = B\rho$ by pull-back.
 
-*** II.3. Products of categories
-**** Product of two categories
+** II.3. Products of categories
+*** Product of two categories
 We define the *product* $B \times C$ as the category with:
 
   - pairs of objects $(b,c)$ as objects,
@@ -387,7 +386,7 @@ functor $F : D \to B\times C$ with $PF = R, QF = T$.
 B & B\times C \rar[swap]{Q}\lar{P} & C
 \end{tikzcd}\]
 
-**** Product of functors
+*** Product of functors
 Two functors $U : B \to B'$, $V : C\to C'$ have a product:
 
 \[
@@ -406,18 +405,18 @@ B' \times C' \rar[swap]{Q'}\lar{P'}&
 C'
 \end{tikzcd}\]
 
-***** Product as a functor
+**** Product as a functor
 The product of categories can be seen as a functor:
 
 \[
 \times : \mathtt{Cat} \times \mathtt{Cat} \to \mathtt{Cat}
 \]
 
-***** Bifunctors
+**** Bifunctors
 Our definition of product category gives an automatic definition for
 a *bifunctor*, a functor of two variables.
 
-**** Bifunctor determined by its currifications
+*** Bifunctor determined by its currifications
 Let $B,C,D$ be categories. For all objects $c \in C, b \in B$, let $L_c : B \to D$
 and $M_b : C \to D$ be functors such that $M_b(c) = L_c(b)$.
 
@@ -430,16 +429,16 @@ M_{b'}g \circ L_c f = L_{c'}f \circ M_b g
 
 so we can define the value of $S(f,g)$ uniquely.
 
-***** TODO Proof
+**** TODO Proof
 
-**** Natural transformations between bifunctors
+*** Natural transformations between bifunctors
 Given bifunctors $S,S'$, the function $\alpha$ is a natural transformation
 $\alpha : S \Rightarrow S'$ iff $\alpha(b,c)$ is natural in $b$ and natural in $c$.
 
-***** TODO Proof
+**** TODO Proof
 
-*** II.4. Functor categories
-**** Composition of natural transformations
+** II.4. Functor categories
+*** Composition of natural transformations
 Given functors $R,S,T : C \to B$ and natural transformations $\tau : S\to T$
 and $\sigma : R \to S$, their compositions define composite arrows which are
 the components of the composite natural transformation $\tau \cdot \sigma$.
