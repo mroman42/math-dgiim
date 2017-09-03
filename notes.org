@@ -496,6 +496,49 @@ The tensor product algebra $R^e = R \otimes_\mathbb{K} R^{op}$ is called the
 *** 4. Almost-Koszul pairs associated to twisted tensor products
 
 *** 5. The Hochschlid cohomology of a twisted tensor product
+
+** The derivative of a regular type is its type of one-hole contexts - Connor McBride
+Presented by [[https://www.youtube.com/watch?v=K7tQsKxC2I8][Erik Hinton]].
+
+*** Types and fixed points
+Empty type, unit type, product and other basic types.
+We use parametric types with type variables.
+
+# We need inductive types and the W from ML-theory?
+Fixed points are used to define types. Naturals are
+the fixed point of $Z + S x$. We write the fixed point
+of a formula $F$ over a variable $x$ as $\mu x.F$.
+
+\[
+\mathtt{Nat} = \mu x. 1 + x
+\]
+
+*** Zippers and holes
+One-hole contexts with respect to some interior type. A zipper is a
+one-hole context of a type and the value that was removed.
+
+*** Derivatives
+To find the type of a context of type $T$ with a hole in place of some
+$x$, take the partial derivative of $T$ with respect to $x$.
+
+Partial derivatives with respect of a type variable work directly.
+
+Product and sum rules can be proved. Chain rule can be proved.
+
+*** Recursive derivatives
+
+*** Questions
+Negative and fractional types. Algebraic types and the field of rationals.
+Computing on the field of rationals.
+** From sets to types to categories to sets - Steve Awodey
+*** 1. Sets to Types
+*** 2. Types to Categories
+**** Syntactic topos
+*** 3. Categories to Sets
+**** How to extract an elementary set theory from a topos
+**** At least BIST
+*** TODO 4. Composites
+
 * The Catsters
 ** Adjunctions
 Serie de [[https://www.youtube.com/playlist?list=PL54B49729E5102248][vídeos]] sobre funtores adjuntos.
