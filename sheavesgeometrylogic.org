@@ -8,6 +8,20 @@
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | CHECK
 
+* 0. Categorical preliminaries
+** Adjoints
+Adjoints functors are natural isomorphisms of the form 
+
+\[
+\theta \colon \mathrm{Hom}(X,GA) \cong \mathrm{Hom}(FX,A)
+\]
+
+with the naturality condition given by the equation
+
+\[
+\theta(G\alpha \circ f \circ \beta) = \alpha \circ \theta(f) \circ F\beta
+\]
+
 * I. Categories of functors
 ** I.1. The categories at issue
 *** Examples of topoi
@@ -356,4 +370,3 @@ is a natural numbers object.
 A topos ${\cal E}$ is *boolean* when the internal Heyting algebra $\Omega$ is an internal
 boolean algebra.
 
-* Exercises
