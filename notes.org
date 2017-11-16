@@ -5307,6 +5307,284 @@ it is a set, $\mathtt{isSet}(A)$.
 
  * $A \vee B \mapsto \neg (\neg P \wedge \neg Q)$
  * $\exists_{x:A}B(x) \mapsto \neg \prod_{x:A} \neg B(x)$
+* Informática gráfica
+** Detalles
+[[curena@ugr.es]]
+[[lsi.ugr.es/curena]]
+[[http://lsi.ugr.es/doce/ig/17-18]]
+
+1 punto por trabajo aparte
+Defensa de prácticas con 1 semana antelación
+
+** Tema 1
+*** Sección 2. Proceso de visualización
+Modelo de escena
+
+ * geometría
+ * texturas
+ * fuentes de luz
+ * materiales
+
+* Desarrollo y sistemas de información
+** 2. Diseño conceptual
+* Profunctor Optics - Bartosz Milewski
+#+BEGIN_SRC haskell
+type Lens s t a b  = forall p. Strong p => p a b -> p s t
+type Prism s t a b = forall p. Choice p => p a b -> p s t
+
+class Profunctor p => Strong p where
+  first' :: p a b -> p (a,c) (b,c)
+
+class Profunctor p => Choice p where
+  left' :: p a b -> p (Either a c) (Either b c)
+
+class Profunctor p where
+  dimap :: (a -> b) -> (c -> d) -> (p b c -> p a d)
+#+END_SRC
+
+A profunctor is a bifunctor of the form ${\cal C}^{op} \times {\cal C} \to \mathsf{Set}$.
+In principle, we are not constrained to a single category,
+the important notion is that the functor must be contravariant
+on the first argument and covariant on the second.
+
+#+BEGIN_SRC haskell
+type f ~> g = forall x. f x -> g x
+#+END_SRC
+
+Parametricity implies naturality (?).
+
+We have defined natural transformations as polymorphic functions.
+Is this equivalent to the usual definition of natural transformation using naturality squares?
+
+But the usual definition of natural transformations talks about naturality squares
+and naturlity conditions. Are these two definitions equivalent?
+
+Is this equivalent to the usual definition of natural transformation?
+That is, does every polymorphic function satisfy the naturality condition?
+
+
+** Yoneda Lemma
+#+BEGIN_SRC haskell
+type Reader a x = a -> x
+type Yo f a = Functor f => Reader a ~> f
+-- Yo f a ~ f a
+-- forall x. (a -> x) -> f x -> f a
+
+toYo :: Functor f => f a -> Yo f a
+toYo fa = \atox -> fmap atox fa
+
+fromYo :: Functor f => Yo f a -> f a
+fromYo alpha = alpha id
+#+END_SRC
+
+The Yoneda embedding
+
+#+BEGIN_SRC haskell
+forall x. (a -> x) -> (b -> x) ~ (b -> a)
+#+END_SRC
+
+* Monad transformers - Snoyman
+Concurrency with IO a and IO b.
+
+* Mikrokosmos - Mario Román
+** Cálculo lambda sin tipos
+Una expresión lambda es
+
+ * una variable,
+ * una aplicación de dos expresiones $M\ N$,
+ * una abstracción $(\lambda x.M)$, donde $M$ es un término que depende de $x$.
+
+Una abstracción aplicada a otro término se puede reducir como
+
+\[
+(\lambda x.M)\ N \longrightarrow_{\beta} M[N/x]
+\]
+
+y las aplicaciones asocian a izquierda: $M\ N\ P$ se lee como $(M\ N)\ P$
+en vez de $M\ (N\ P)$.
+
+\[
+
+\]
+
+** El intérprete
+Podéis instalarlo desde github si tenéis Haskell y si no, podéis usarlo
+directamente desde la página web
+
+ * https://github.com/m42/mikrokosmos
+ * https://m42.github.io/mikrokosmos/tutorial.html
+
+En Mikrokosmos, las lambdas se escriben como una *barra invertida*, y
+el programa responde con la expresión lambda y una lista de posibles
+nombres que tiene esa expresión.
+
+#+BEGIN_SRC haskell
+mikro> (\x.x)
+λa.a ⇒ I, ifelse, id
+#+END_SRC
+
+Para ver cómo funciona, se pueden probar algunas expresiones aritméticas
+simples
+
+#+BEGIN_SRC haskell
+mult 2 3
+plus 3 4
+and true false
+sum (take 5 naturals)
+#+END_SRC
+
+Características:
+ 
+ * los argumentos van separados por espacios,
+ * se entiende asociatividad a izquierda, y
+ * se permite aplicación parcial.
+
+Es un pequeño lenguaje de programación y está completamente basado en el 
+cálculo lambda. Quiero explicaros cómo se puede obtener un lenguaje de
+programación desde el cálculo lambda.
+
+** Primeras definiciones
+Vamos a usar cálculo lambda. Las expresiones lambdas se leen
+como 
+
+#+BEGIN_SRC haskell
+(\x.\y.plus x y)
+plus 3 4
+(\e.plus e e) 3
+#+END_SRC
+
+Diciendo: esta es una función que toma =x= e =y= y devuelve =x+y=.
+Lo que vamos a aprender es cómo funcionan por dentro los números
+o la función =plus=.
+
+La función *identidad* y la función *constantemente*.
+
+#+BEGIN_SRC haskell
+id = \x.x
+const = \x.\y.x
+
+id id
+id const
+id 3
+id 5
+const 4 2
+const 4 3
+const 4 (id (const id id))
+
+devuelvecuatro = const 4
+devuelvecuatro 5
+#+END_SRC
+
+** Técnica de Church
+Queremos usar estructuras de datos. Tenemos primero que escribir
+la estructura de datos como constructores y hacer depender de ellos
+a los términos.
+
+#+BEGIN_SRC haskell
+true = \t.\f.t
+false = \t.\f.f
+
+0 = \s.\z.z
+1 = \s.\z.s z
+
+cons = \h.\t.\c.\n.c h (t c n)
+nil = \c.\n.n
+#+END_SRC
+
+** Librería
+*** Básica
+#+BEGIN_SRC haskell
+id = \x.x
+const = \x.\y.x
+compose = \g.\f.\x.g (f x)
+#+END_SRC
+
+*** Booleanos
+#+BEGIN_SRC haskell
+true = \x.\y.x
+false = \x.\y.y
+
+not = \p.p false true
+
+and = \p.\q.p q false
+and = \p.\q.p q p
+
+or = \p.\q.p true q
+or = \p.\q.p p q
+#+END_SRC
+
+*** Aritmética básica
+#+BEGIN_SRC haskell
+0 = \f.\x.x
+succ = \n.\f.\x.f (n f x)
+
+plus = \m.\n.n succ m
+plus = \m.\n.(\f.\x.n f (m f x))
+
+mult = \m.\n.compose m n
+mult = \m.\n.\f.\x.m (n f) x
+
+iseven = \n.n not true
+iszero = \n.n (const false) true
+#+END_SRC
+
+*** Tuplas
+#+BEGIN_SRC haskell
+tuple = \x.\y.\z.z x y
+
+first = \p.p true
+second = \p.p false
+
+pred = \n.first (n (\t.tuple (first t) (succ (first t))) (tuple 0 0))
+minus = \m.\n.n pred m
+leq = \m.\n.iszero (minus m n)
+geq = \m.\n.iszero (minus n m)
+#+END_SRC
+
+*** Listas
+#+BEGIN_SRC haskell
+nil = \c.\n.n
+cons = \h.\l.(\c.\n.c h (l c n))
+
+fold = \o.\n.\l.l o n
+
+sum = fold plus 0
+prod = fold mult 1
+all = fold and true
+any = fold or false
+length = fold (\h.\t.)
+
+map = \f.fold (\h.\t.cons (f h) t) nil
+filter = \p.fold (\h.t.(p h) (cons h t) t) nil
+
+head = fold const nil
+tail = \l.first (l (\a.\t.tuple (second t) (cons a (second t))) (tuple nil nil))
+take = \n.\l.first (n (\t.tuple (cons (head (second t)) (first t)) (tail (second t))) (tuple nil l))
+#+END_SRC
+
+*** Árboles
+#+BEGIN_SRC haskell
+nil = \d.\n.n
+node = \x.\l.\r.\d.\n.(d x (l d n) (r d n))
+#+END_SRC
+
+*** Recursión
+#+BEGIN_SRC haskell
+omega := (\x.x x)(\x.x x)
+fix := (\f.(\x.f (x x)) (\x.\f (x x)))
+
+fact := fix (\f.\n.iszero n 1 (mult n (f (pred n))))
+fib :=  fix (\f.\n.iszero n 1 (plus (f (pred n)) (f (pred (pred n)))))
+
+infinity := fix succ
+naturals := fix (compose (cons 0) (map succ))
+#+END_SRC
+
+*** Tipos
+#+BEGIN_SRC haskell
+
+#+END_SRC
+
 * Local variables
 # Local Variables:
 # eval: (text-scale-increase 1)
