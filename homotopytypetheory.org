@@ -1,11 +1,27 @@
 #+TITLE: Homotopy type theory
-#+DESCRIPTION: Exercises and notes on homotopy type theory
+#+DESCRIPTION: Homotopy type theory book
 
 #+SETUPFILE: config.setup
 #+SETUPFILE: essay.setup
 #+LANGUAGE: en
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | CHECK
+
+* Headers                                                            :ignore:
+#+latex_header: \newcommand\ap{\mathsf{ap}}
+#+latex_header: \newcommand\apd{\mathsf{apd}}
+#+latex_header: \newcommand\refl{\mathsf{refl}}
+#+latex_header: \newcommand\id{\mathsf{id}}
+#+latex_header: \newcommand\transport{\mathsf{transport}}
+#+latex_header: \newcommand\happly{\mathsf{happly}}
+#+latex_header: \newcommand\funext{\mathsf{funext}}
+#+latex_header: \newcommand\proj{\mathsf{proj}}
+#+latex_header: \newcommand\idtoeqv{\mathsf{idtoeqv}}
+#+latex_header: \newcommand\ua{\mathsf{ua}}
+#+latex_header: \newcommand\isSet{\mathsf{isSet}}
+#+latex_header: \newcommand\isProp{\mathsf{isProp}}
+#+latex_header: \newcommand\fnot{\mathsf{not}}
+#+latex_header: \newcommand\LEM{\mathsf{LEM}}
 
 * Part I
 ** I.1. Type theory
@@ -260,6 +276,561 @@ identity types.
 Homotopy type theory provides a /synthetic/ description of the spaces,
 in contrast with the usual analytic approach of topology.
 
-*** I.2.1. Types are higher groupoids
-*** I.2.2. Functions are functors
-*** I.2.3. Type families are fibrations
+*** TODO 2.1. Types are higher groupoids
+*** 2.2. Functions are functors
+**** 2.2.1. Definition of ap
+Given $f: A \to B$, there is an operation
+
+\[
+\ap_f : x=y \to f(x) = f(y)
+\]
+
+such that $\ap_f(\refl) \equiv \refl_{f(x)}$.
+
+***** Notation
+We write $\ap_f(p)$ as $f(p)$.
+
+***** Proof
+Trivially defined by path induction.
+
+**** 2.2.2. Functioriality of ap
+Given $f : A \to B$ and $g : B \to C$ and paths $p : x = y$ and
+$q : y = z$, we have
+
+ 1) $\ap_f(p \cdot q) = \ap_f(p) \cdot \ap_f(q)$
+ 2) $\ap_f(p^{-1}) = ap_f(p)^{-1}$
+ 3) $\ap_g(\ap_f(p)) = \ap_{g \circ f}(p)$
+ 4) $\ap_{id_A}(p) = p$
+
+***** Proof
+Trivial by path induction on $p$.
+
+*** 2.3. Type families are fibrations
+**** 2.3.1. Transport
+Given $P : A \to {\cal U}$ and $p : x = y$, there exists a function
+
+\[
+p_{\ast} : P(x) \to P(y),
+\]
+
+such that $\refl_{\ast}$ is the identity.
+
+***** Notation
+Sometimes we notate transport as
+
+\[
+p_{\ast} \equiv \transport^P(p,-) : P(x) \to P(y).
+\]
+
+***** Proof
+Applying path induction over $p$, $x \equiv y$ and $\id : P(x) \to P(x)$
+is an inhabitant of the type.
+
+**** 2.3.2. Path lifting property
+Given $P : A \to {\cal U}$ and $u : P(x)$, for any $p : x = y$,
+
+\[
+\mathsf{lift}(u,p) : (x,u) = (y, p_{\ast}(u));
+\]
+
+in $\sum_{x:A}P(x)$ such that $\mathsf{pr}_1(\mathsf{lift}(u,p)) = p$.
+
+***** Proof
+The first component is given by $p$, the second one can be defined
+applying path induction over $p$ and, knowing that $x \equiv y$ and thus,
+$u \equiv p_{\ast}(u)$.
+
+**** 2.3.4. Dependent map
+Given $f : \prod_{x:A} P(x)$ there exists a map
+
+\[
+\apd_f : \prod_{p : x=y} p_{\ast}(f(x)) =_{P(y)} f(y)
+\]
+
+***** Proof
+Path induction.
+
+**** TODO 2.3.5. Constant transport
+**** TODO 2.3.8. Constant plus dependent transport
+**** 2.3.9. Transport composition lemma
+Given $P : A \to {\cal U}$, $p : x = y$ and $q : y = z$, for $u : P(x)$ we have
+
+\[
+q_{\ast}(p_{\ast}(u)) = (p \cdot q)_{\ast} (u).
+\]
+
+***** Proof
+Double path induction.
+
+**** TODO 2.3.10. Transport precomposition lemma
+**** TODO 2.3.11. Naturality of transport
+*** 2.4. Homotopies and equivalences
+**** 2.4.1. Homotopy
+A *homotopy* between $f, g : \prod_{x:A} P(x)$ is a dependent function
+of type
+
+\[
+(f \sim g) :\equiv \prod_{x:A} f(x) = g(x).
+\]
+
+**** 2.4.2. Homotopy is an equivalence relation
+Homotopy is an equivalence relation on each dependent function
+type $\prod_{x:A} P(x)$. We have elements of
+
+ 1) reflexivity
+
+    \[
+    \prod_{f:\prod_{x:A} P(x)} (f \sim f)
+    \]
+
+ 2) symmetry
+
+    \[
+    \prod_{f,g : \prod_{x:A}P(x)} (f \sim g) \to (g \sim f)
+    \]
+
+ 3) transitivity
+
+    \[
+    \prod_{f,g,h : \prod_{x:A} P(x)} (f \sim g) \to (g \sim h) \to (f \sim h)
+    \]
+
+***** Proof
+Given any $f$ and $x$, $\refl$ is of type $f(x) = f(x)$.
+
+Given any $f,g$ such that $f \sim g$, for every $x$, we have an inhabitant of
+$f \sim g$. By path induction, it must be $\refl$, so $\refl : g(x) = f(x)$.
+ 
+Given any $f,g,h$ such that $f \sim g$ and $g \sim h$, for every $x$, we
+have $f(x) = g(x) = h(x)$, and, in particular $f(x) = h(x)$.
+
+**** 2.4.3. Naturality of homotopies
+Given $H : f \sim g$ and $p : x = y$, 
+
+\[
+H(x) \cdot g(p) = f(p) \cdot H(y).
+\]
+
+As a commutative diagram,
+
+\[\begin{tikzcd}
+f(x)\rar[equal]{f(p)} \dar[swap,equal]{H(x)} & 
+f(y)\dar[equal]{H(y)} \\
+g(x)\rar[equal]{g(p)} &
+g(y)
+\end{tikzcd}\]
+
+
+***** Proof
+By path induction, $p = \refl$, and $\ap$ computes on reflexivity.
+
+**** 2.4.4. Endonaturality of homotopies
+Given $H : f \sim \id_{A}$, for any $x : A$,
+
+\[
+H(f(x)) = f(H(x))
+\]
+
+***** Proof
+By naturality, and knowing that $H(x) : f(x) = x$, 
+
+\[\begin{tikzcd}
+f(x)\rar[equal]{f(H(x))} \dar[swap,equal]{H(x)} & 
+f(f(x))\dar[equal]{H(f(x))} \\
+x\rar[equal]{H(x)} &
+f(x)
+\end{tikzcd}\]
+
+thus,
+
+\[
+f(H(x)) \cdot H(x) = H(f(x)) \cdot H(x),
+\]
+
+and then $f(H(x)) = H(f(x))$.
+
+**** 2.4.6. Quasi-inverse
+A *quasi-inverse* of $f : A \to B$ is a triple $(g,\alpha,\beta)$ with homotopies
+$\alpha : f \circ g \sim \id_B$ and $\beta : g \circ f \sim \id_A$.
+
+\[
+\mathsf{qinv}(f) = \sum_{g:B \to A} (f \circ g \sim \id) \times (g \circ f \sim \id).
+\]
+
+**** 2.4.9. Transport has a quasi-inverse
+The transport $p : x = y$ for $P \colon A \to {\cal U}$,
+
+\[
+\mathsf{transport}^P(p,-) : P(x) \to P(y)
+\]
+
+has a quasiinverse $\transport^P(p^{-1},-)$.
+
+*** 2.5. Higher groupoid structure of type formers
+
+*** 2.6. Cartesian product types
+**** 2.6.2. Cartesian product equalities
+For any $x,y$, the function
+
+\[
+x = y \to (\proj_1(x) = \proj_1(y)) \times (\proj_2(x) = \proj_2(y))
+\]
+
+given by applying projections to the equality, is an equivalence.
+We denote the quasiinverse as
+
+\[
+\mathsf{pair}^{=} :
+(\proj_1(x) = \proj_1(y)) \times (\proj_2(x) = \proj_2(y))
+\to
+x = y.
+\]
+
+***** Proof
+We will define a function in the other direction. By induction,
+we assume $x \equiv (a,b)$ and $y \equiv (a',b')$; thus we have $a = a'$
+and $b = b'$. We apply path induction to both paths and we
+get that $(a,b) \equiv (a',b')$.
+
+Now we have to prove that it is a quasiinverse. In one direction,
+if we have $r : x = y$, we apply path induction and we get the
+pair $(\refl_{\proj_1(x)}, \refl_{\proj_2(x)})$. If we apply induction to $x$, we
+get $(\refl_a,\refl_{b})$; our inverse takes this to $\refl_{(a,b)}$.
+
+In the other direction, if we have $p : a = a'$ and $q : b = b'$,
+we apply induction to get $\refl_{(a,b)}$; applying a function to
+reflexivity gives again $(\refl_a, \refl_b)$.
+
+**** 2.6.4. Cartesian product transport
+Given two type families $A,B : Z \to {\cal U}$ and a path $p : z = w$,
+for every $x : A(z) \times B(z)$,
+
+\[
+p_{\ast}(x) = (\transport^A(p,\proj_1(x)), \transport^B(p,\proj_2(x)))
+\]
+
+***** Proof
+By path induction, it remains to prove
+
+\[
+x = (\proj_1(x), \proj_2(x)),
+\]
+
+which is definitionally equal.
+
+**** 2.6.5. Functoriality under cartesian products
+Given $x,y : A \times B$, $p,q$ path between components. For every function
+defined as $f(x) :\equiv (g(\proj_1(x)), h(\proj_2(x)))$, it holds that
+
+\[
+f(\mathsf{pair}^{=}(p,q)) = \mathsf{pair}^{ =}(g(p),h(q)).
+\]
+
+***** Proof
+We first apply induction over $x$, and then path induction over
+$p,q$. We get reflexivity in both sides.
+
+*** 2.7. Sigma types
+**** 2.7.2. Sigma type equalities
+Given a type family $P : A \to {\cal U}$, there is an equivalence
+
+\[
+(w = w') \simeq \sum_{p : \proj_1(w) = \proj_1(w')} p_{\ast}(\proj_2(w) = \proj_2(w')).
+\]
+
+*** 2.9. The function extensionality axiom
+**** 2.9.2. happly
+There exists a function
+
+\[
+\happly : (f = g) \to \prod_{x:A} f(x) = g(x)
+\]
+
+defined by path induction.
+
+**** 2.9.3. Function extensionality axiom
+The function $\happly$ is an equivalence. It has a quasi-inverse given
+by
+
+\[
+\funext : \left(\prod_{x:A} f(x) = g(x)\right) \to (f = g).
+\]
+
+such that, for any $h : \prod_{x:A} f(x) = g(x)$,
+
+\[
+\happly(\funext(h), x) = h(x).
+\]
+
+**** TODO 2.9.4. Dependent identity, inverses and composition
+
+**** 2.9.4. Rules for dependent transport
+Given $f : A(x) \to B(x)$ and $p : x = y$,
+
+\[
+p_{\ast}(f) = p_{\ast}\circ f \circ p^{-1}_{\ast}.
+\]
+
+***** Proof
+Path induction.
+
+**** TODO 2.9.6. Equivalence
+
+*** 2.10. Universes and the univalence axiom
+**** 2.10.1. idtoeqv
+Given any types $A,B : {\cal U}$, there is a function
+
+\[
+\idtoeqv : (A = B) \to (A \simeq B).
+\]
+
+***** TODO Proof
+
+**** 2.10.3. Voevodsky's Univalence Axiom
+A universe is univalent if for any $A,B : {\cal U}$, $\idtoeqv$ is an equivalence.
+All universes are univalent. There exists
+
+\[\ua : (A \simeq B) \to (A = B),
+\]
+
+such that 
+
+\[
+\transport(\ua(f), x) = f(x).
+\]
+
+**** TODO 2.10.5. Transport and idtoeqv
+*** 2.11. Identity type
+**** 2.11.1. Aplication of equivalences is an equivalence
+If $f : A \to B$ is an equivalence, so is
+
+\[
+\mathsf{ap}_f : (a = a') \to (f(a) = f(a')).
+\]
+
+***** Proof
+Let $f^{-1}$ be a quasiinverse with homotopies
+
+\[
+\alpha : \prod_{b:B} f(f^{-1}(b)) = b
+\quad\mbox{ and }\quad
+\beta : \prod_{a:A}f^{-1}(f(a)) = a.
+\]
+
+the quasiinverse of $\ap_f$ will be $\ap_{f^{-1}}$ concatenated with $\beta^{-1}$ and $\beta$.
+We will show that this is a quasiinverse. On one direction,
+
+\[
+\beta_a^{-1} \cdot \ap_{f^{-1}}(\ap_f(p)) \cdot \beta_{a'} = p
+\]
+
+is true by [[*2.4.4. Endonaturality of homotopies][endonaturality of the homotopy]] $\beta$ and functoriality
+of the application $\ap_{f^{-1}} \circ \ap_f = \ap_{f^{-1} \circ f}$.
+
+**** 2.11.2. Path transport
+Given any $a : A$ with $p : x_1 = x_2$,
+
+ 1) for $q : a = x_1$, we have $\transport^{x \mapsto a=x}(p,q) = p_{\ast}(q) = q \cdot p$;
+ 2) for $q : x_1 = a$, we have $\transport^{x\mapsto x=a}(p,q) = p^{-1} \cdot q$;
+ 3) for $q : x_1 = x_1$, we have $\transport^{x\mapsto (x=x)}(p,q) = p^{-1} \cdot q \cdot p$.
+
+***** Proof
+By path induction on $p$, we get the composition rules for
+reflexivity.
+
+** I.3. Sets and logic
+*** 3.1. Sets and n-types
+**** 3.1.1. Sets
+A type $A$ is a *set* if every two equalities $p,q : x =_A y$ are equal.
+
+\[
+\textsf{isSet}(A) \equiv \prod_{(x,y : A)} \prod_{(p,q : x = y)} p = q.
+\]
+
+**** 3.1.6. Dependent product of sets is a set
+Given $A$ a set and $B : A \to {\cal U}$ such that $B(x)$ is a set, $\prod_{x:A} B(x)$ is
+a set.
+
+***** Proof
+Suppose $f, g : \prod_{x:A} B(x)$ and $p, q : f = g$. Applying function
+extensionality,
+
+ * $p = \mathsf{funext}(\lambda x. \mathsf{happly}(p,x))$
+ * $q = \mathsf{funext}(\lambda x. \mathsf{happly}(q,x))$
+
+Since $B(x)$ is a set, 
+
+ * $\mathsf{happly}(p,x) : f(x) = g(x)$
+ * $\mathsf{happly}(q,x) : f(x) = g(x)$
+
+must be equal. Thus, by function extensionality $(\lambda x. \mathsf{happly}(p,x)) = (\lambda x. \mathsf{happly}(q,x))$,
+and applying $\mathsf{funext}$, $p = q$.
+
+**** 3.1.7. 1-types
+A type $A$ is a *1-type* if for all $x,y:A$ and $p,q : x = y$ and $r,s : p = q$,
+we have $r = s$.
+
+**** 3.1.8. Every set is a 1-type
+Every set is a *1-type*.
+
+***** Proof
+If we have $x,y : A$, $p,q : x = y$ and $f : \isSet(A)$, then we
+can define $g = f(x,y,p)$ by partial application, and
+
+\[
+g : \prod_{q : x = y}(p = q);
+\]
+
+we can now, given $r : q = q'$, use dependent application to get
+
+\[
+\apd_g(r) : r_{\ast}(g(q)) = g(q').
+\]
+
+By path transport, that means that $g(q) \cdot r = g(q')$. In particular,
+given any two $r,s : p = q$;
+
+\[
+g(p) \cdot r = g(q) = g(p) \cdot s
+\]
+
+and $r = s$ by cancellation.
+
+**** 3.1.9. Not all types are sets
+The universe ${\cal U}$ is not a set.
+
+***** Proof
+We take $2$ to be the type of the booleans. There exists a
+function $\mathrm{not}\colon 2 \to 2$ which is an equivalence; by univalence,
+there exists $\ua(\mathrm{not}) \colon 2 = 2$ which is not $\refl$. If it were
+$\refl$, then, by univalence, $0_2 = 1_2$.
+
+*** 3.2. Propositions as types?
+**** 3.2.2. Negation of double negation
+It is not true that $\neg(\neg A) \to A$ for each $A : {\cal U}$.
+
+***** Proof
+Given $f \colon \prod_{A:{\cal U}} \neg(\neg A) \to A$, we will arrive to a contradiction.
+
+Let $p \colon 2 = 2$ be the non-trivial path of the booleans. We know
+that $f(2) : \neg\neg 2 \to 2$ and
+
+\[
+\apd_f(p) : p_{\ast}(f(2)) = f(2),
+\]
+
+applying [[*2.9.4. Rules for dependent transport][rules for dependent transport]], we have
+
+\[
+p_{\ast}(f(2))(u) = (p_{\ast} \circ f(2) \circ p_{\ast}^{-1})(u).
+\]
+
+Every two $u,v : \neg\neg 2$ are equal by function extensionality; thus
+
+\[
+p^{-1}_{\ast}(u) = u
+\]
+
+and so
+
+\[
+p_{\ast}(f(2)(u)) = p_{\ast}(f(2))(u) = f(2)(u).
+\]
+
+We have now that $\fnot(f(2)(u)) = f(2)(u)$, and, at the same time,
+it is obvious that $\prod_{x:2} \neg (\fnot(x) = x)$.
+
+**** 3.2.7. Negation of LEM
+It is not true that $A + (\neg A)$ for each $A \colon {\cal U}$.
+
+***** Proof
+An element of type $\prod_{A:{\cal U}} \neg\neg A \to A$ can be constructed from
+an element of type $\prod_{A:{\cal U}} A + (\neg A)$.
+
+*** 3.3. Mere propositions
+**** 3.3.1. Mere proposition
+A type $P$ is a *mere proposition* when
+
+\[
+\isProp(P) : 
+\prod_{x,y : P} x = y
+\]
+
+is inhabited.
+
+**** 3.3.2. Truth is the only true mere proposition
+If $P$ is a mere proposition and $x_0 : P$, then $P \simeq 1$.
+
+***** Proof
+A trivial equivalence can be constructed.
+
+**** 3.3.3. Equivalence of connected mere propositions
+If $P$ and $Q$ are mere propositions, $P \to Q$ and $Q \to P$
+imply $P \simeq Q$.
+
+***** Proof
+If $f : P \to Q$ and $g : Q \to P$, then $f(g(x)) = x$ and
+$g(f(x)) = x$ because both are mere propositions.
+
+**** 3.3.4. Mere propositions are sets
+Every mere proposition is a set.
+
+***** Proof
+Given $f : \isProp(A)$, we fix $x : A$ and define $g(y) :\equiv f(x,y)$
+of type $\prod_{y : A} x = y$. Given two $y,z : A$ with $p : y = z$, we
+have
+
+\[
+\apd_g(p) : p_{\ast}(g(y)) = g(z)
+\]
+
+hence $g(y) \cdot p = g(z)$, or $p = g(y)^{-1} \cdot g(z)$; thus given $p,q : x = y$
+we have $p = g(x)^{-1} \cdot g(y) = q$.
+
+**** 3.3.5. isProp and isSet are mere propositions
+Given any type $A$, the types $\isSet(A)$ and $\isProp(A)$ are mere
+propositions.
+
+***** Proof
+If we have $f,g : \isProp(A)$ we know that $f(x,y) = g(x,y)$ because
+$A$ is a mere proposition. By function extensionality, $f = g$.
+
+If we have $f,g : \isSet(A)$ we know that $f(x,y,p,q) = g(x,y,p,q)$
+because $x = y$ is a mere proposition from the fact that $A$ is a set.
+By function extensionality, $f = g$.
+
+*** 3.4. Classical vs. intuitionistic logic
+**** 3.4.1. Law of excluded middle
+We define the *law of excluded middle* as
+
+\[
+\LEM :\equiv \prod_{A : {\cal U}} \Big( \isProp(A) \to (A + \neg A) \Big)
+\]
+
+whereas the usual general law of excluded middle is renamed as
+
+\[
+\LEM_{\infty} :\equiv \prod_{A : {\cal U}} (A + \neg A).
+\]
+
+The law of excluded middle can be assumed as an axiom.
+
+**** 3.4.3. Decidable types
+1. A type is *decidable* if $A + \neg A$.
+
+2. A type family is *decidable* if
+
+   \[
+   \prod_{a : A} B(a) + \neg B(a)
+   \]
+
+3. A type has *decidable equality* if
+   
+   \[
+   \prod_{a,b : A} (a = b) + \neg (a = b)
+   \]
+
+The Law of excluded middle says that all mere propositions are
+decidable.
+
+*** TODO 3.5. Subsets and propositional resizing
