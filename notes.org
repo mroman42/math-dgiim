@@ -5585,6 +5585,74 @@ naturals := fix (compose (cons 0) (map succ))
 
 #+END_SRC
 
+* The formation of swarms as a consesus problem - Ulrich Krause
+Estructuras complejas globales emergiendo de interacciones locales.
+We will use topology instead of differential equations.
+
+** Model
+Ensemble of birds in $\mathbb{R}^{d}$. Others $d$ different than 3 are allowed.
+Position $x_i$ and velocity $v_i$ of each bird. The align by averaging.
+
+\[
+v_i = \sum_{j \in N} a_{ij}(t) v_i(t)
+\]
+
+The coefficients $a_{ij}$ model intensity of interactions; they depend
+on the time. The set of seen birds is
+
+S\[
+S(i,t) = \left\{ j \in N \mid a_{ij}(t) > 0 \right\}
+\]
+
+*** Swarm formation
+A swarm can be formed if
+
+\[
+\lim_t v_{i}(t) = v
+\]
+
+** Swarm formation - theorem 1
+*** Two assumptions
+ * Structure not too loose.
+ * Interaction does not decay too fast.
+** Swarm formation 2
+Interaction only at certain points of time.
+
+*** Core of a stochastic matrix
+If $A$ has positive diagonal, $\mathrm{cor}(A) \neq \varnothing \iff A^k$ is scrambling;
+we call these matrices *coherent*.
+
+New conditions
+
+ * structure of matrix not too loose;
+ * intensity of interaction decays not too fast;
+ * intensity of interaction decays slowly.
+
+That can be interpreted as
+
+ * every bird sees itself,
+ * there is a sight chain to a leader.
+
+** Flight formations
+*** V-formation and echelon
+A leader is the only one in the core
+*** Other possible cores: sterling clouds
+Loops in the sight chain; connected loops.
+
+**** Systematic account of flight formations?
+Graphs changing in time.
+
+**** Computer simulations?
+
+** Sight cones / cones of vision
+Given by direction of flight. Non-convex cones would be also an
+option.
+
+*** Farkas lemma
+*** Helly's theorem
+** Models of intensity of interaction
+Cucker-Smale model of bird flocking.
+
 * Local variables
 # Local Variables:
 # eval: (text-scale-increase 1)
