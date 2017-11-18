@@ -20,8 +20,19 @@
 #+latex_header: \newcommand\ua{\mathsf{ua}}
 #+latex_header: \newcommand\isSet{\mathsf{isSet}}
 #+latex_header: \newcommand\isProp{\mathsf{isProp}}
+#+latex_header: \newcommand\Set{\mathsf{Set}}
+#+latex_header: \newcommand\Prop{\mathsf{Prop}}
 #+latex_header: \newcommand\fnot{\mathsf{not}}
 #+latex_header: \newcommand\LEM{\mathsf{LEM}}
+#+latex_header: \newcommand\trunc[1]{\left\lVert#1\right\rVert}
+#+latex_header: \newcommand\isContr{\mathsf{isContr}}
+#+latex_header: \newcommand\ishae{\mathsf{ishae}}
+#+latex_header: \newcommand\qinv{\mathsf{qinv}}
+#+latex_header: \newcommand\fib{\mathsf{fib}}
+#+latex_header: \newcommand\biinv{\mathsf{biinv}}
+#+latex_header: \newcommand\linv{\mathsf{linv}}
+#+latex_header: \newcommand\rinv{\mathsf{rinv}}
+#+latex_header: \newcommand\isequiv{\mathsf{isequiv}}
 
 * Part I
 ** I.1. Type theory
@@ -833,4 +844,300 @@ The law of excluded middle can be assumed as an axiom.
 The Law of excluded middle says that all mere propositions are
 decidable.
 
-*** TODO 3.5. Subsets and propositional resizing
+*** 3.5. Subsets and propositional resizing
+**** 3.5.1. Uniqueness of dependent sum of mere propositions
+Given $P \colon A \to {\cal U}$ such that $P(a)$ is always a mere proposition;
+if $u,v \colon \sum_{x:A}P(x)$ are such that $\proj_1(u) = \proj_1(v)$, then
+$u = v$.
+
+***** Proof
+Given $p : \proj_1(u) = \proj_1(v)$, we only have to show that
+
+\[
+p_{\ast}(\proj_2(u)) = \proj_2(v)
+\]
+
+and this is true because both are members of $P(\proj_1(v))$, a
+mere proposition.
+
+**** 3.5.1. Subtypes
+If $P$ is a family of mere propositions, we write
+
+\[
+\sum_{x:A} P(x) \equiv \left\{ x : A\mid P(x) \right\}
+\]
+
+and call this a *subtype*. We can define membership and subsets
+analogously.
+
+***** Subuniverses of sets and mere propositions
+We define
+
+ * $\Set_{{\cal U}} :\equiv \left\{ A : {\cal U} \mid \isSet(A) \right\}$,
+ * $\Prop_{{\cal U}} :\equiv \left\{ A : {\cal U} \mid \isProp(A) \right\}$.
+
+There are natural maps $\Set_{{\cal U}_i} \to \Set_{{\cal U}_{i+1}}$.
+
+**** 3.5.2. Propositional resizing
+*Propositional resizing* is the fact that the natural map
+$\Prop_{{\cal U}_i} \to \Prop_{{\cal U}_{i+1}}$ is an equivalence.
+
+Propositional resizing can be taken as an axiom.
+
+***** Omega-indexation of propositions
+From propositional resizing follows the existence of $\Omega$, a
+type that indexes mere propositions. If propositional resizing
+is true, $\Omega :\equiv \Prop_{{\cal U}_0}$.
+
+***** Powersets
+If propositional resizing is true, we can define
+
+\[
+{\cal P}(A) :\equiv (A \to \Omega),
+\]
+
+which is independent of the universe.
+*** 3.6. Logic of mere propositions
+**** TODO 3.6.1. Product of mere propositions is a mere proposition
+**** TODO 3.6.2. Dependent functions to mere propositions are mere propositions
+**** TODO 3.6.2. Sums of mere propositions are not mere propositions
+*** 3.7. Propositional truncation
+**** 3.7.0. Propositional truncation type
+For any $A$ there is a *truncation type* $\trunc{A}$, with constructors
+
+ * $|a| : \trunc{A}$ for any $a : A$;
+ * $x=y$ for any $x,y : \trunc{A}$;
+
+ensuring that it is a mere proposition.
+
+***** Recursion principle
+If $B$ is a mere proposition and $f : A \to B$, then there exists
+$g : \trunc{A} \to B$ such that $g(|a|) \equiv f(a)$ for all $a:A$.
+
+**** 3.7.1. Traditional logical notation
+We define
+
+ * $\top :\equiv 1$,
+
+ * $\bot :\equiv 0$,
+
+ * $P \land Q :\equiv P \times Q$,
+
+ * $P \lor Q :\equiv \trunc{P + Q}$,
+
+ * $P \Rightarrow Q :\equiv P \to Q$,
+
+ * $P \Leftrightarrow Q :\equiv P = Q$,
+
+ * $\neg P :\equiv P \to 0$,
+
+ * $\forall (x:A). P(x) :\equiv \prod_{x:A} P(x)$,
+
+ * $\exists (x:A).P(x) :\equiv \trunc{\sum_{x:A} P(x)}$.
+
+**** 3.7.2. Traditional set notation
+We define
+
+ * $\left\{ x:A\mid P(x) \right\} \cap \left\{ x:A \mid Q(x) \right\} :\equiv \left\{ x:A \mid P(x) \wedge Q(x) \right\}$,
+ * $\left\{ x:A \mid P(x) \right\} \cup \left\{ x:A \mid Q(x) \right\} :\equiv \left\{ x:A\mid P(x) \lor Q(x) \right\}$,
+ * $A \setminus \left\{ x:A\mid P(x) \right\} :\equiv \left\{ x:A \mid \neg P(x) \right\}$.
+
+Note how the latter are not complements in the absence of LEM.
+*** 3.8. The axiom of choice
+**** 3.8.1. The axiom of choice
+Given a $X$ and type families $A : X \to {\cal U}$, $P : \prod_{x:X} (A(x) \to {\cal U})$
+such that $X$ and $A(x)$ are always sets and $P(x,a)$ is always a
+mere proposition; the *axiom of choice* asserts
+
+\[
+\left( \prod_{x:X} \trunc{\sum_{a:A(x)} P(x,a)} \right)
+\to
+\trunc{\sum_{(g: \prod_{x:X}A(x))} \prod_{(x:X)} P(x,g(x))}.
+\]
+
+In logical notation, this means,
+
+\[
+\bigg( \forall (x:X). \exists (a:A(x)). P(x,a) \bigg)
+\Rightarrow
+\left( \exists \bigg(g: \prod_{x:X}A(x)\bigg). \forall (x:X). P(x,g(x)) \right)
+\]
+**** 3.8.2. Simpler axiom of choice
+The axiom of choice is equivalent to 
+
+\[
+\left( \prod_{x:X} \trunc{Y(x)} \right) \to
+\trunc{ \prod_{x:X} Y(x) }
+\]
+
+for any $X$ and $Y(x)$ always sets.
+
+***** TODO Proof
+
+**** TODO 3.8.5. Counterexample to the simpler version
+
+*** 3.9. The principle of unique choice
+**** 3.9.1. Equivalence of mere propositions and truncations
+If $P$ is a mere proposition, $P \simeq \trunc{P}$.
+
+***** Proof
+We apply the universal property to $\id$ to get $\trunc{P} \to P$;
+and we have a $P \to \trunc{P}$ by definition. This [[*3.3.3. Equivalence of connected mere propositions][proves]] an
+equivalence of mere propositions.
+
+**** 3.9.2. The principle of unique choice
+Given $P \colon A \to {\cal U}$ such that
+
+ * $P(x)$ is always a mere proposition;
+ * $\trunc{P(x)}$ is always true.
+
+Then $\prod_{x:A}P(x)$.
+
+***** TODO Proof
+
+*** 3.10. When are propositions truncated?
+*** 3.11. Contractibility
+**** 3.11.1. Contractible type
+A type $A$ is *contractible*, or *singleton* if there is a center of
+contraction $a : A$ such that $a = x$ for all $x : A$.
+
+\[
+\isContr(A) :\equiv \sum_{a:A}\prod_{x:A}(a = x)
+\]
+
+**** 3.11.3. Characterization of contractibility
+Given $A$, the following are equivalent
+
+ 1. $A$ is contractible,
+ 2. $A$ is a mere proposition, and there is a point $a:A$,
+ 3. $A$ is equivalent to $1$.
+
+***** Proof
+If $A$ is contractible, it has a point $a : A$ and every two other
+points are equal to it.
+
+If $A$ is an inhabited mere proposition, it is equivalent to $1$.
+
+And $1$ is contractible.
+
+**** TODO 3.11.4. Contr is a mere proposition
+**** TODO 3.11.5. Contractibility of Contr
+**** TODO 3.11.6. Dependent product of contractible types
+**** TODO 3.11.7. Retracts and contractibility
+**** TODO 3.11.8.
+**** TODO 3.11.9.
+**** 3.11.10. Mere propositions and contractibility
+$A$ is a mere proposition iff for all $x,y : A$, the type $x = y$ is
+contractible.
+
+***** TODO Proof
+If $A$ is a mere proposition, then $x = y$ must be true; it must be
+also a set, so $x=y$ must be contractible.
+
+If $x=y$ is contractible, it is inhabited, so $A$ is a mere
+proposition.
+
+** I.4. Equivalences
+*** 4.1. Quasi-inverses
+**** 4.1.1. Characterization of the quasi-inverse type
+If given $f : A \to B$, $\qinv{}(f)$ is inhabited,
+
+\[
+\qinv(f) \simeq \prod_{x:A}(x=x)
+\]
+
+***** TODO Proof
+
+**** 4.1.2. Existence of center
+Given $a : A$ and $q : a = a$ such that
+
+ 1. $a = a$ is a set,
+ 2. $\trunc{a = x}$ for all $x : A$,
+ 3. $p \cdot q = q \cdot p$ for all $p : a = a$,
+
+there exists $f : \prod_{x:A}(x = x)$ such that $f(a) = qc$.
+
+**** 4.1.3. qinv is not always a mere proposition
+There exists a function such that $\qinv(f)$ is not a mere
+proposition.
+*** TODO 4.2. Half adjoint equivalences
+**** 4.2.1. Half adjoint equivalence
+A function $f : A \to B$ is a *half adjoint equivalence* if
+
+\[
+\ishae(f) :\equiv
+\sum_{(g : B \to A)}
+\sum_{(\eta : g \circ f \sim \id_{A})}
+\sum_{(\epsilon : f \circ g \sim \id_{B})}
+\prod_{(x:A)}
+f(\eta(x)) = \epsilon(f(x))
+\]
+
+that is, there exist two homotopies and a coherence condition
+between them.
+
+**** TODO 4.2.2. Logical equivalence of half adjoint equivalences
+
+**** TODO 4.2.3. qinv implies ishae
+
+**** TODO 4.2.4. Fiber of a map
+The *fiber* of $f : A \to B$ over a point is
+
+\[
+\fib_f(y) :\equiv \sum_{x:A}(f(x) = y).
+\]
+
+*** TODO 4.3. Bi-invertible maps
+**** 4.3.1. Bi-invertible
+A function $f : A \to B$ is bi-invertible if
+
+\[
+\biinv(f) :\equiv \linv(f) \times \rinv(f).
+\]
+
+**** 4.3.2. biinv is a mere proposition
+The type $\biinv(f)$ is a mere proposition.
+
+***** TODO Proof
+
+*** TODO 4.4. Contractible fibers
+**** 4.4.1. Contractible maps
+A function $f : A \to B$ is contractible if $\fib_f(y)$ is contractible
+for every $y : B$.
+
+*** 4.5. On the definition of equivalences
+We have proved equivalent
+
+\[
+\isContr(f) \simeq \ishae(f) \simeq \biinv(f)
+\]
+
+so we choose $\isequiv{}(f) :\equiv \ishae(f)$.
+
+*** TODO 4.6. Surjections and embeddings
+**** TODO 4.6.0. Isomorphisms
+**** 4.6.1. Surjections and embeddings
+A function $f : A \to B$ is
+
+ * *surjective* if $\trunc{\fib_f(b)}$ for every $b : B$;
+ * *embedding* if $\ap_f$ is an equivalence.
+
+**** TODO 4.6.3. Equivalence is surjection and embedding
+
+*** TODO 4.7. Closure properties of equivalences
+**** 4.7.1. The 2-out-of-3 property
+If any two $f,g,g\circ f$ are equivalences, so is the third.
+
+***** TODO Proof
+
+**** TODO 4.7.2. Retracts
+
+*** TODO 4.8. The object classifier
+**** TODO 4.8.1. Fiber of a type family
+
+*** TODO 4.9. Univalence implies function extensionality
+
+** I.5. Induction
+
+*** 5.1. Introduction to inductive types
+
