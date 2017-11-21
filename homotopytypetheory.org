@@ -5,7 +5,7 @@
 #+SETUPFILE: essay.setup
 #+LANGUAGE: en
 #+OPTIONS: toc:nil
-#+TODO: TODO WIP | CHECK
+#+TODO: TODO WIP | DONE
 
 * Headers                                                            :ignore:
 #+latex_header: \newcommand\ap{\mathsf{ap}}
@@ -15,7 +15,8 @@
 #+latex_header: \newcommand\transport{\mathsf{transport}}
 #+latex_header: \newcommand\happly{\mathsf{happly}}
 #+latex_header: \newcommand\funext{\mathsf{funext}}
-#+latex_header: \newcommand\proj{\mathsf{proj}}
+#+latex_header: \newcommand\proj{\mathsf{pr}}
+#+latex_header: \newcommand\pr{\mathsf{pr}}
 #+latex_header: \newcommand\idtoeqv{\mathsf{idtoeqv}}
 #+latex_header: \newcommand\ua{\mathsf{ua}}
 #+latex_header: \newcommand\isSet{\mathsf{isSet}}
@@ -32,7 +33,17 @@
 #+latex_header: \newcommand\biinv{\mathsf{biinv}}
 #+latex_header: \newcommand\linv{\mathsf{linv}}
 #+latex_header: \newcommand\rinv{\mathsf{rinv}}
+#+latex_header: \renewcommand\succ{\mathsf{succ}}
 #+latex_header: \newcommand\isequiv{\mathsf{isequiv}}
+#+latex_header: \newcommand\isHinit{\mathsf{isHinit}}
+#+latex_header: \newcommand\isEmbedding{\mathsf{isEmbedding}}
+#+latex_header: \newcommand\isSurjective{\mathsf{isSurjective}}
+#+latex_header: \newcommand\pair{\mathsf{pair}}
+#+latex_header: \renewcommand\loop{\mathsf{loop}}
+#+latex_header: \newcommand\base{\mathsf{base}}
+#+latex_header: \newcommand\N{\mathsf{N}}
+#+latex_header: \renewcommand\S{\mathsf{S}}
+#+latex_header: \newcommand\merid{\mathsf{merid}}
 
 * Part I
 ** I.1. Type theory
@@ -546,8 +557,118 @@ $p,q$. We get reflexivity in both sides.
 Given a type family $P : A \to {\cal U}$, there is an equivalence
 
 \[
-(w = w') \simeq \sum_{p : \proj_1(w) = \proj_1(w')} p_{\ast}(\proj_2(w) = \proj_2(w')).
+(w = w') \simeq \sum_{p : \proj_1(w) = \proj_1(w')} 
+p_{\ast}(\proj_2(w)) = \proj_2(w'). 
 \]
+
+This can be seen as an introduction $\pair^{=}$ and elimination rules
+for equalities between dependent pairs.
+
+***** Proof
+****** First component of the equivalence
+We define the first part of the equivalence depending on
+$w,w' : \sum_{x:A}P(x)$, of type
+
+\[
+f : \prod_{w,w' : \sum_{x:A}P(x)} 
+\left(
+(w=w') \to
+\sum_{p:\proj_1(w) = \proj_1(w')} p_{\ast}(\proj_2(w)) = \proj_2(w')
+\right)
+\]
+
+by induction on the path $w = w'$ as
+
+\[
+f(w,w,\refl) = (\refl_{\pr_1(w)}, \refl_{\pr_2(w)}).
+\]
+
+****** Second component of the equivalence
+And we define the second part of the equivalence depending
+again on both $w,w'$, of type
+
+\[
+g : \prod_{w,w' : \sum_{x:A}P(x)}
+\left( \left(
+\sum_{p:\pr_1(w) = \pr_1(w')}  
+p_{\ast}(\pr_2(w)) = \pr_2(w')
+\right)
+\to (w = w')
+\right)
+\]
+
+defined by induction on $w = (x,y)$ and $w' = (x',y')$ first and then on
+$p : x = x'$ and $p_{\ast}(y) = y'$, to get
+
+\[
+g((x,y),(x,y),\refl,\refl) = \refl_{(x,y)}.
+\]
+
+****** First homotopy
+Finally, we have to show that they form an equivalence. Given any $w,w'$ and
+
+\[
+r : \sum_{p:\pr_1(w) = \pr_1(w')} p_{\ast}(\pr_2(w)) = \pr_2(w'),
+\]
+
+we can apply induction over both $w = (x,y)$ and $w' = (x',y')$, and then over
+$r$ to get paths $p : x = y$ and $p_{\ast}(y) = y'$. By path induction and the definition
+of $f$ and $g$, we get the desired result, $f(g(r)) = r$.
+
+****** Second homotopy
+On the other hand, if we have $p : w = w'$, we can directly apply path induction
+and use the definitions to get $g(f(p)) = p$.
+
+**** 2.7.3. Sigma equality to its parts
+For any $z : \sum_{x:A}P(x)$, we have $z = (\pr_1(z),\pr_2(z))$.
+
+***** Proof
+By induction on $z = (x,y)$, we trivially arrive at an
+identity path.
+
+# HoTT MAILING LIST !
+
+***** Proof in HoTT book
+Applying the [[*2.7.2. Sigma type equalities][previous lemma]], we only have to provide evidence
+for the equality of both projections. We trivially have
+
+\[
+\pr_1(z) = \pr_1(\pr_1(z),\pr_2(z))
+\]
+
+and by judgmental equality, it is trivial that
+
+\[
+(\refl_{\pr_1(z)})_{\ast}(\pr_2(z)) = \pr_2(z) = \pr_2(\pr_1(z),\pr_2(z)).
+\]
+
+**** 2.7.4. Transport over sigma equalities
+Given $P : A \to {\cal U}$ and
+
+\[
+Q : \left( \sum_{x:A} P(x) \right) \to {\cal U},
+\]
+
+for any path $p : x = y$, and $(u,z) : \sum_{u:P(x)} Q(x,u)$ we have
+
+\[
+p_{\ast}(u,z) = 
+(p_{\ast}(u), \pair^{=}(p,\refl_{p_{\ast}(u)})_{\ast} (z)).
+\]
+
+*** 2.8. The unit type
+**** Unit type equality
+Given $x,y:1$, we have $(x = y) \simeq 1$.
+
+***** Proof
+A function $(x = y) \to 1$ is defined trivially; and given any $x, y : 1$
+we now by induction that $x \equiv y$ and we can write a constant function
+to $\refl_{\star}$.
+
+Given an element $u : 1$, it is trivial that the composite is an element
+of $1$, and therefore both are equal to $\star$. Given an element $p : x = y$,
+we can apply path induction to get $p = \refl_{x}$ and induction over $x$ to
+get $\refl_{\star}$. As a consequence, $p$ goes to $\refl_{\star}$.
 
 *** 2.9. The function extensionality axiom
 **** 2.9.2. happly
@@ -1047,6 +1168,18 @@ If given $f : A \to B$, $\qinv{}(f)$ is inhabited,
 \]
 
 ***** TODO Proof
+As $f$ is an equivalence, we apply univalence to get $p : A = B$.
+Applying path induction, $p = \refl$ and $f = \id$. Then,
+
+\[
+\qinv(\id) \equiv \sum_{g : A \to A} (g \sim \id) \times (\id \sim g)
+\]
+
+which is equivalent by function extensionality to
+
+\[
+\sum_{g : A \to A} (g = \id) \times (g = \id)
+\]
 
 **** 4.1.2. Existence of center
 Given $a : A$ and $q : a = a$ such that
@@ -1055,11 +1188,14 @@ Given $a : A$ and $q : a = a$ such that
  2. $\trunc{a = x}$ for all $x : A$,
  3. $p \cdot q = q \cdot p$ for all $p : a = a$,
 
-there exists $f : \prod_{x:A}(x = x)$ such that $f(a) = qc$.
+there exists $f : \prod_{x:A}(x = x)$ such that $f(a) = q$.
 
+***** TODO Proof
 **** 4.1.3. qinv is not always a mere proposition
 There exists a function such that $\qinv(f)$ is not a mere
 proposition.
+
+***** TODO Proof
 *** TODO 4.2. Half adjoint equivalences
 **** 4.2.1. Half adjoint equivalence
 A function $f : A \to B$ is a *half adjoint equivalence* if
@@ -1076,35 +1212,156 @@ f(\eta(x)) = \epsilon(f(x))
 that is, there exist two homotopies and a coherence condition
 between them.
 
-**** TODO 4.2.2. Logical equivalence of half adjoint equivalences
+**** 4.2.2. Logical equivalence of half adjoint equivalences
+Given $f : A \to B$ and $g : B \to A$ with homotopies $\eta : g \circ f \sim \id$ and
+$\epsilon : f \circ g \sim \id$, the following two types are logically equivalent
 
-**** TODO 4.2.3. qinv implies ishae
+ * $\prod_{x:A}f(\eta(x)) = \epsilon(f(x))$,
 
-**** TODO 4.2.4. Fiber of a map
+ * $\prod_{x:A} g(\epsilon(x)) = \eta(g(x))$.
+
+***** Proof
+We will prove the second homotopy from $\tau : \prod_{x:A}f(\eta(x)) = \epsilon(f(x))$;
+simmetry gives us the other direction.
+
+By [[*2.4.4. Endonaturality of homotopies][endonaturality of homotopies]] in $\epsilon$ we have
+
+\[\begin{tikzcd}
+fgfg(x) \rar[equal]{fg \epsilon(x)} \dar[swap,equal]{\epsilon fg(x)} & 
+fg(x) \dar[equal]{\epsilon(x)} \\
+fg(x) \rar[equal]{\epsilon(x)} &
+x
+\end{tikzcd}\]
+
+and applying $g$ to the complete diagram renders
+
+\[\begin{tikzcd}
+gfgfg(x) \rar[equal]{gfg\epsilon(x)} \dar[swap,equal]{g\epsilon fg(x)} & 
+gfg(x) \dar[equal]{g\epsilon(x)} \\
+gfg(x) \rar[equal]{g\epsilon(x)} &
+gx
+\end{tikzcd}\]
+
+applying now the homotopy $\tau(g(x))$, we get $g \epsilon fg(x) = gf \eta g(x)$;
+and again by [[*2.4.4. Endonaturality of homotopies][naturality]], we have $gf \eta g(x) = \eta gfg(x)$, and the
+diagram is
+
+\[\begin{tikzcd}
+gfgfg(x) \rar[equal]{g fg\epsilon(x)} 
+\dar[swap,equal]{\eta gfg(x)} & 
+gfg(x) \dar[equal]{g\epsilon(x)} \\
+gfg(x) \rar[equal]{g\epsilon(x)} &
+gx
+\end{tikzcd}\]
+
+Meanwhile, by naturality of $\eta$ between $gfgfg$ and $gfg$, we have that
+
+\[\begin{tikzcd}
+gfgfg(x) \rar[equal]{g fg\epsilon(x)} 
+\dar[swap,equal]{\eta gfg(x)} & 
+gfg(x) \dar[equal]{\eta g(x)} \\
+gfg(x) \rar[equal]{g\epsilon(x)} &
+gx
+\end{tikzcd}\]
+
+and joining both diagrams we get $\eta g(x) = g \epsilon(x)$.
+
+**** 4.2.3. qinv implies ishae
+It is obvious that $\ishae$ implies $\qinv$.
+For any $f : A \to B$ we have $\qinv(f) \to \ishae(f)$.
+
+***** Proof
+Given a quasiinverse $(f,g,\eta,\epsilon)$, we will define a new tuple
+$(f,g,\eta,\epsilon',\tau')$; taking $\epsilon'$ to be
+
+\[
+\epsilon'(b) :\equiv \epsilon fg(b)^{-1} \cdot f\eta g(b) \cdot \epsilon(b)
+\]
+
+so we need to find an homotopy
+
+\[
+\tau(a) : f\eta(a) = \epsilon fgf(a)^{-1} \cdot f \eta gf(a) \cdot \epsilon f(a)
+\]
+
+but we know by [[*2.4.4. Endonaturality of homotopies][endonaturality]] that $\eta gf(a) = gf \eta(a)$ and by
+homotopy that
+
+\[
+f \eta gf(a) \cdot \epsilon f(a) = fgf\eta(a) \cdot \epsilon f(a) = \epsilon fgf(a) \cdot f\eta(a).
+\]
+
+**** 4.2.4. Fiber of a map
 The *fiber* of $f : A \to B$ over a point is
 
 \[
 \fib_f(y) :\equiv \sum_{x:A}(f(x) = y).
 \]
 
+**** 4.2.5. Equality of fibers
+Given $f : A \to B$ and $(x,p), (x',p') : \fib_f(y)$,
+
+\[
+((x,p) = (x',p'))
+\simeq
+\left( \sum_{\gamma : x = x'} f(\gamma) \cdot p' = p \right)
+\]
+
+***** TODO Proof
+# Path lemmas
+
+**** 4.2.6. Fibers of half-adjoint equivalences are contractible
+If $\ishae(f)$ for $f : A \to B$, then $\fib_f(y)$ is contractible for any $y : B$.
+
+***** TODO Proof
+
+**** 4.2.7. Left and right inverses
+Given $f : A \to B$ we define
+
+ * its *left inverses*, $\linv(f) :\equiv \sum_{g : B \to A} (g \circ f \sim \id)$,
+
+ * its *right inverses*, $\rinv(f) :\equiv \sum_{g \colon B \to A}(f \circ g \sim \id)$.
+
 *** TODO 4.3. Bi-invertible maps
 **** 4.3.1. Bi-invertible
-A function $f : A \to B$ is bi-invertible if
+A function $f : A \to B$ is *bi-invertible* if it
+[[*4.2.7. Left and right inverses][has left and right inverses]]
 
 \[
 \biinv(f) :\equiv \linv(f) \times \rinv(f).
 \]
 
 **** 4.3.2. biinv is a mere proposition
-The type $\biinv(f)$ is a mere proposition.
+The type $\biinv(f)$ is a mere proposition for any $f : A \to B$.
 
 ***** TODO Proof
 
+**** 4.3.3. Equivalence biinv and ishae
+Given $f : A \to B$, we have $\qinv(f) \simeq \ishae(f)$.
+
+***** TODO Proof
 *** TODO 4.4. Contractible fibers
 **** 4.4.1. Contractible maps
-A function $f : A \to B$ is contractible if $\fib_f(y)$ is contractible
-for every $y : B$.
+A function $f : A \to B$ is *contractible* if $\fib_f(y)$ is contractible
+for every $y : B$; that is, we define
 
+\[
+\isContr(f) :\equiv \prod_{y:B} \isContr(\fib_f(y)).
+\]
+
+**** 4.4.3. isContr implies ishae
+For any $f : A \to B$, we have $\isContr(f) \to \ishae(f)$.
+
+***** TODO Proof
+
+**** 4.4.4. isContr is a mere proposition
+For any $f$, the type $\isContr(f)$ is a mere proposition.
+
+***** TODO Proof
+**** 4.4.5. isContr is equivalent to ishae
+For any $f : A \to B$, we have $\isContr(f) \simeq \ishae(f)$.
+
+***** TODO Proof
 *** 4.5. On the definition of equivalences
 We have proved equivalent
 
@@ -1115,14 +1372,55 @@ We have proved equivalent
 so we choose $\isequiv{}(f) :\equiv \ishae(f)$.
 
 *** TODO 4.6. Surjections and embeddings
-**** TODO 4.6.0. Isomorphisms
+**** 4.6.0. Isomorphisms
+When two sets are equivalent, we say that they is an *isomorphism*
+or a *bijection*.
+
 **** 4.6.1. Surjections and embeddings
 A function $f : A \to B$ is
 
  * *surjective* if $\trunc{\fib_f(b)}$ for every $b : B$;
- * *embedding* if $\ap_f$ is an equivalence.
+ * *embedding* if $\ap_f : (x=y) \to (f(x) = f(y))$ is an equivalence.
 
-**** TODO 4.6.3. Equivalence is surjection and embedding
+***** Split surjection
+We say that a function $f : A \to B$ is a *split surjection* if
+
+\[
+\prod_{b:B}\sum_{a:A} f(a) = b.
+\]
+
+Note that it is a stronger assertion than being surjective, that
+only asks for an inhabitant without constructive evidence.
+
+***** Axiom of choice and split surjections
+The [[*3.8.1. The axiom of choice][axiom of choice]] says exactly that every surjection between sets is
+split.
+
+**** 4.6.2. Characterization of embeddings
+A function $f : A \to B$ between sets is an embedding if and only if
+
+\[
+\prod_{x,y:A} f(x) = f(y) \to x = y.
+\]
+
+And we say that it is an *injection*.
+
+***** Proof
+We apply that $f(x) = f(y)$ and $x = y$ are mere propositions to get
+an equivalence from the logical implications.
+
+**** 4.6.3. Equivalence is surjection and embedding
+Any function $f : A \to B$ is an equivalence if and only if it is both
+surjective and an embedding.
+
+***** TODO Proof
+
+**** 4.6.4. Equivalence is equivalent to surjection and embedding
+For any $f : A \to B$,
+
+\[
+\isequiv(f) \simeq \isEmbedding(f) \times \isSurjective(f).
+\]
 
 *** TODO 4.7. Closure properties of equivalences
 **** 4.7.1. The 2-out-of-3 property
@@ -1135,9 +1433,173 @@ If any two $f,g,g\circ f$ are equivalences, so is the third.
 *** TODO 4.8. The object classifier
 **** TODO 4.8.1. Fiber of a type family
 
-*** TODO 4.9. Univalence implies function extensionality
+*** 4.9. Univalence implies function extensionality
+We do not assume function extensionality on this section.
+
+**** 4.9.1. Weak function extensionality principle
+The *weak function extensionality principle* asserts that,
+for any family $P : A \to {\cal U}$,
+
+\[
+\left( \prod_{x:A} \isContr(P(x)) \right)
+\to
+\isContr \left( \prod_{x:A}P(x) \right).
+\]
+
+**** 4.9.2. Equivalence on slice objects
+If ${\cal U}$ is univalent, $A,B,X : {\cal U}$ and $e : A \simeq B$, there is 
+an equivalence
+
+\[
+(X \to A) \simeq (X \to B).
+\]
+
+***** TODO Proof
+
+**** TODO 4.9.3. 
+
+**** TODO 4.9.5. Weak function extensionality implies function extensionality
+The weak function extensionality principle implies the axiom
+of [[*2.9.3. Function extensionality axiom][function extensionality]].
+
+***** Proof
 
 ** I.5. Induction
-
 *** 5.1. Introduction to inductive types
+**** 5.1.1. Uniqueness of functions over the natural numbers
+Given $f,g : \prod_{n:\mathbb{N}} E(x)$ with
 
+\[
+e_z : E(0)
+\quad\text{ and }\quad 
+e_s : \prod_{n:\mathbb{N}}E(n) \to E(\succ(n)) 
+\]
+
+such that $f(0) = e_z = g(0)$ and
+
+ * $\prod_{n:\mathbb{N}} f(\succ(n)) = e_s(n,f(n))$,
+ * $\prod_{n:\mathbb{N}} g(\succ(n)) = e_s(n,g(n))$;
+
+then $f$ and $g$ are equal.
+
+***** Proof
+We apply induction on $n$ over the type family $f(n) = g(n)$.
+In the base case, $f(0) = g(0)$; and in the successor case,
+knowing that $f(n) = g(n)$,
+
+\[
+f(\succ(n)) = e_s(n,f(n)) = e_s(n,g(n)) = g(\succ(n)).
+\]
+
+**** TODO 5.2. Uniqueness of inductive types
+*** TODO 5.3. W-types
+*** 5.4. Inductive types are initial algebras
+**** 5.4.1. N-algebra
+A $\mathbb{N}\text{-algebra}$ is a type with two elements
+
+\[
+\mathbb{N}\text{alg} :\equiv \sum_{C:{\cal U}} C \times (C \to C).
+\]
+
+**** 5.4.2. N-homomorphism
+A $\mathbb{N}\text{-homomorphism}$ between algebras is a function preserving
+the zero and successor elements up to path equality
+
+\[
+\mathbb{N}\text{Hom}((C,c_0,c_s), (D,d_0,d_s)) :\equiv
+\sum_{h \colon C \to D} (h(c_0) = d_0) \times \left( \prod_{c:C} h(c_s(c)) = d_s(h(c)) \right).
+\]
+
+**** 5.4.3. Homotopy initial N-algebra
+An algebra is homotopy initial if the type of homomorphisms to any
+other algebras is contractible; that is
+
+\[
+\isHinit_{\mathbb{N}}(I) :\equiv \prod_{C : \mathbb{N}\text{Alg}} \isContr(\mathbb{N}\text{Hom}(I,C)).
+\]
+
+**** TODO 5.4.4. Uniqueness of homotopy initial N-algebras
+
+**** TODO 5.4.5. The naturals are an homotopy initial N-algebra
+**** TODO 5.4.6. W-algebras
+*** TODO 5.5. Homotopy-inductive types
+** I.6. Higher inductive types
+*** 6.2. Induction principles and dependent paths
+**** 6.2.1. Propositional equality by definition
+In the case of higher inductive types, we give equalities by
+definition that use non-fundamental parts of the type theory,
+and so they are propositional instead of judgmental.
+
+We write them as $f(\loop) := \ell$ to indicate this fact.
+
+**** 6.2.2. Notation for dependent paths
+We write dependent paths as
+
+\[
+(u =^P_p v) :\equiv \transport^P(p,u) = v.
+\]
+
+**** 6.2.5. Non-dependent computation rule of the circle
+Given $a : A$ with $p : a = a$, there is a function $f : \mathbb{S}^1 \to A$ such
+that
+
+ * $f(\base) :\equiv a$,
+ * $\ap_f(\loop) :\equiv p$.
+
+***** TODO Proof
+
+*** 6.5. Suspensions
+**** 6.5.0. Suspension of a type
+The *suspension* of a type $A$ is a type $\Sigma A$ defined by the
+generators
+
+ * north, $\N : \Sigma A$;
+
+ * south, $S : \Sigma A$;
+
+ * and meridians, $\merid : A \to (\N = \S)$.
+
+** TODO I.7. Homotopy n-types
+* Exercises [0/1]
+** 1. Exercises: Type theory
+*** Exercise 1.1
+** 2. Exercises: Homotopy type theory [1/1]
+*** DONE Exercise 2.10
+#+begin_statement
+Prove that \Sigma-types are associative, in that for any $A : {\cal U}$ and
+families $B : A \to {\cal U}$ and $C : \left(\sum_{x:A} B(x)\right) \to {\cal U}$, we have
+
+\[
+\left( \sum_{x:A}\sum_{y:B(x)} C(x,y) \right)
+\simeq
+\left( \sum_{p : \sum_{x:A}B(x)} C(p) \right)
+\]
+#+end_statement
+
+We first define a function
+
+\[
+f : \left( \sum_{x:A}\sum_{y:B(x)} C(x,y) \right)
+\to
+\left( \sum_{p : \sum_{x:A}B(x)} C(p) \right)
+\]
+
+by induction on the argument, as
+
+\[
+f (x,y,c) :\equiv ((x,y),c).
+\]
+
+Now we have to prove that this is an equivalence with two homotopies,
+with an inverse defined by induction
+
+\[
+g((x,y),c) :\equiv (x,y,c).
+\]
+
+In fact, given any $(x,y,c)$, or any $((x,y),c)$ it is trivial to check
+that there exist two homotopies. Note how we use induction to get the
+form of the pair.
+
+** 4. Exercises: Equivalences
+*** 
