@@ -251,7 +251,7 @@ _×N_ : Normal → Normal → Normal
 nInj : forall {X} (F G : Normal) → ⟦ F ⟧ₙ X + ⟦ G ⟧ₙ X → ⟦ F +N G ⟧ₙ X
 nInj F G (tt , s , x) = (tt , s) , x
 nInj F G (ff , s , x) = (ff , s) , x
-
+ 
 
 data _⁻¹ {S T : Set} (f : S → T) : T → Set where
   from : (s : S) → f ⁻¹ (f s)
