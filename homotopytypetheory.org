@@ -7,7 +7,7 @@
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | DONE
 
-* Headers                                                            :ignore:
+* Macros                                                             :ignore:
 #+latex_header: \newcommand\ap{\mathsf{ap}}
 #+latex_header: \newcommand\apd{\mathsf{apd}}
 #+latex_header: \newcommand\refl{\mathsf{refl}}
@@ -44,6 +44,7 @@
 #+latex_header: \newcommand\N{\mathsf{N}}
 #+latex_header: \renewcommand\S{\mathsf{S}}
 #+latex_header: \newcommand\merid{\mathsf{merid}}
+#+latex_header: \newcommand\istype[1]{\mathop{\mbox{$\mathsf{is}$-$#1$-$\mathsf{type}$}}}
 
 * Part I
 ** I.1. Type theory
@@ -706,8 +707,33 @@ p_{\ast}(f) = p_{\ast}\circ f \circ p^{-1}_{\ast}.
 ***** Proof
 Path induction.
 
-**** TODO 2.9.6. Equivalence
+**** 2.9.6. Equivalence for the dependent function equality
+Given $A,B : X \to {\cal U}$, $p : x = y$ and two functions $f : A(x) \to B(x)$
+and $g : A(y) \to B(y)$, we have an equivalence
 
+\[
+(p_{\ast}(f) = g) \simeq \prod_{a:A(x)} p_{\ast}(f(a)) = g(p_{\ast}(a)).
+\]
+
+Moreover, given $q : p_{\ast}(f) = g$, we have
+
+\[
+\happly(q,p_{\ast}(a)) : (p_{\ast}(f))(p_{\ast}(a)) = g(p_{\ast}(a))
+\]
+
+equal to the composite
+
+\[
+p_{\ast}(f)(p_{\ast}(a)) = p_{\ast}(f(p^{-1}_{\ast}(p_{\ast}(a))))
+= p_{\ast}(f(a)) = g(p_{\ast}(a)).
+\]
+
+***** Proof
+By path induction on $p$, we arrive to function extensionality.
+Computation rule for function extensionality gives us the value
+of $\happly$.
+
+**** TODO 2.9.7. Transport equivalence between families
 *** 2.10. Universes and the univalence axiom
 **** 2.10.1. idtoeqv
 Given any types $A,B : {\cal U}$, there is a function
@@ -1559,7 +1585,103 @@ generators
 
  * and meridians, $\merid : A \to (\N = \S)$.
 
-** TODO I.7. Homotopy n-types
+***** TODO Induction principle
+
+**** 6.5.1. Circle as suspension
+The circle can be seen as the suspension of the booleans,
+
+\[
+\Sigma 2 \simeq \mathbb{S}^{1}.
+\]
+
+***** TODO Proof
+
+*** TODO 6.6. Cell complexes
+
+*** TODO 6.7. Hubs and spokes
+** I.7. Homotopy n-types
+*** 7.1. Definition of n-types
+**** 7.1.1. is-n-type
+We define $\istype{n} : {\cal U} \to {\cal U}$ as
+
+\[
+\istype{n}(X) :\equiv
+\left\{\begin{array}{ll}
+\isContr(X) & \mbox{if } n = -2, \\
+\prod_{x,y:X} \istype{n'}(x = y) & \mbox{if } n = n' + 1.
+\end{array}\right.
+\]
+
+**** TODO 7.1.4. Retraction of an n-type
+**** TODO 7.1.5. Equivalence preserves n-types
+*** 7.2. Uniqueness of identity proofs and Hedberg's theorem
+**** TODO 7.2.0. Uniqueness of identity proofs (UIP)
+
+**** 7.2.1. Axiom K
+A type $A$ is a set if and only if it satisfies *Axiom K*, for
+all $x:X$ and $p : x = x$, we have $p = \refl$.
+
+***** TODO Proof
+
+**** 7.2.2. Mere identity relations in sets
+Given $R$ a reflexive mere relation on $X$ implying identity, $X$
+is a set and $R(x,y) \simeq (x = y)$ for all $x,y :X$.
+
+***** Proof
+Given $\rho : \prod_{x:X}R(x,x)$ and $f : \prod_{x,y}R(x,y) \to (x = y)$, we have
+that if $X$ is a set, $x = y$ is a mere proposition logically equivalent
+to $R(x,y)$. On the other hand, if $x = y$ is equivalent to $R(x,y)$ and
+it is a mere proposition, $X$ is a set.
+
+We can give two proofs, either proving that $X$ is a set or that $R(x,y)$
+is equivalent to $x = y$.
+
+****** X is a set
+Given $x:X$ and $p : x = x$, we consider
+
+\[
+\apd_{f(x)}(p) : p_{\ast}(f(x,x)) = f(x,x)
+\]
+
+which, by [[*2.9.6. Equivalence for the dependent function equality][path equalities for dependent functions]] gives us a path
+
+\[
+p_{\ast}(f(x,x,r)) = f(x,x,p_{\ast}(r)).
+\]
+
+Knowing that $R(x,x)$ is a mere proposition, $p_{\ast}(r) = r$; and transport
+in the identity type is equal to concatenation, so
+
+\[
+f(x,x,r) \cdot p = f(x,x,r)
+\]
+
+and $p = \refl$, satisfying axiom K.
+
+****** TODO R is equivalent to equality
+
+**** 7.2.3. A type with double negation cancellation equality is a set
+If $X$ has the property $\neg\neg (x=y) \to (x=y)$, it is a set.
+
+***** Proof
+We have $\neg\neg(x=y)$ as a reflexive mere relation implying identity,
+so we can apply the previous [[*7.2.2. Mere identity relations in sets][lemma]].
+
+**** 7.2.5. Hedberg's theorem
+If a type has [[*3.4.3. Decidable types][decidable]] equality, it is a set.
+
+***** TODO Proof.
+
+**** 7.2.6. Natural numbers form a set
+The type of natural numbers has decidable equality, and hence is a set.
+
+***** TODO Proof
+
+* Part II
+** II.8. Homotopy theory
+** II.9. Category theory
+** II.10. Set theory
+** II.11. Real numbers
 * Exercises [0/1]
 ** 1. Exercises: Type theory
 *** Exercise 1.1
@@ -1599,7 +1721,7 @@ g((x,y),c) :\equiv (x,y,c).
 
 In fact, given any $(x,y,c)$, or any $((x,y),c)$ it is trivial to check
 that there exist two homotopies. Note how we use induction to get the
-form of the pair.
+constructors of the pair.
 
 ** 4. Exercises: Equivalences
-*** 
+
