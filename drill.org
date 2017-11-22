@@ -2,140 +2,264 @@
 #+DESCRIPTION: Spaced-repetition cards for math subjects.
 #+SETUPFILE: math.setup
 
-Cards should be divided into topics and decks. Each deck serves a specific
-purpose and should not be reviewed until it is finished.
+Resources on spaced repetition
+
+ * [[http://www.gwern.net/Spaced-repetition][Gwern - spaced repetition]]
+ * [[https://www.supermemo.com/en/articles/20rules][SuperMemo - twenty rules of formulating knowledge]]
+
+* [Macros]                                                           :ignore:
+#+latex_header: \newcommand\ap{\mathsf{ap}}
+#+latex_header: \newcommand\apd{\mathsf{apd}}
+#+latex_header: \newcommand\refl{\mathsf{refl}}
+#+latex_header: \newcommand\id{\mathsf{id}}
+#+latex_header: \newcommand\transport{\mathsf{transport}}
+#+latex_header: \newcommand\happly{\mathsf{happly}}
+#+latex_header: \newcommand\funext{\mathsf{funext}}
+#+latex_header: \newcommand\proj{\mathsf{pr}}
+#+latex_header: \newcommand\rec{\mathsf{rec}}
+#+latex_header: \newcommand\pr{\mathsf{pr}}
+#+latex_header: \newcommand\idtoeqv{\mathsf{idtoeqv}}
+#+latex_header: \newcommand\ua{\mathsf{ua}}
+#+latex_header: \newcommand\isSet{\mathsf{isSet}}
+#+latex_header: \newcommand\isProp{\mathsf{isProp}}
+#+latex_header: \newcommand\Set{\mathsf{Set}}
+#+latex_header: \newcommand\Prop{\mathsf{Prop}}
+#+latex_header: \newcommand\fnot{\mathsf{not}}
+#+latex_header: \newcommand\LEM{\mathsf{LEM}}
+#+latex_header: \newcommand\trunc[1]{\left\lVert#1\right\rVert}
+#+latex_header: \newcommand\isContr{\mathsf{isContr}}
+#+latex_header: \newcommand\ishae{\mathsf{ishae}}
+#+latex_header: \newcommand\qinv{\mathsf{qinv}}
+#+latex_header: \newcommand\fib{\mathsf{fib}}
+#+latex_header: \newcommand\biinv{\mathsf{biinv}}
+#+latex_header: \newcommand\linv{\mathsf{linv}}
+#+latex_header: \newcommand\rinv{\mathsf{rinv}}
+#+latex_header: \renewcommand\succ{\mathsf{succ}}
+#+latex_header: \newcommand\isequiv{\mathsf{isequiv}}
+#+latex_header: \newcommand\isHinit{\mathsf{isHinit}}
+#+latex_header: \newcommand\isEmbedding{\mathsf{isEmbedding}}
+#+latex_header: \newcommand\isSurjective{\mathsf{isSurjective}}
+#+latex_header: \newcommand\pair{\mathsf{pair}}
+#+latex_header: \newcommand\inl{\mathsf{inl}}
+#+latex_header: \newcommand\inr{\mathsf{inr}}
+#+latex_header: \newcommand\seg{\mathsf{seg}}
+#+latex_header: \renewcommand\loop{\mathsf{loop}}
+#+latex_header: \newcommand\base{\mathsf{base}}
+#+latex_header: \newcommand\N{\mathsf{N}}
+#+latex_header: \renewcommand\S{\mathsf{S}}
+#+latex_header: \newcommand\merid{\mathsf{merid}}
+#+latex_header: \newcommand\istype[1]{\mathop{\mbox{$\mathsf{is}$-$#1$-$\mathsf{type}$}}}
 
 * Category theory
-** Concepts on category theory
-*** Universal arrow                                                 :drill:
+** Universal arrow                                                   :drill:
+SCHEDULED: <2017-11-26 Sun>
 :PROPERTIES:
 :ID:       f5c0c0db-7fd6-486d-9eab-d0f87b6f8d54
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 1
-:DRILL_LAST_REVIEWED: [2017-11-17 Fri 16:31]
+:DRILL_AVERAGE_QUALITY: 4.2
+:DRILL_EASE: 2.9
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-11-22 Wed 22:57]
 :END:
-Definition of universal arrow
+Definition of *universal arrow* from $c$ to $S$.
 
-**** Definition
-If $S \colon D \to C$ is a functor and $c \in C$, its *universal arrow* is
-$(r,u)$ such that for every pair $(d,f)$ there exists this unique diagram
+*** Definition
+For any other $f : c \to Sd$ there exists this unique diagram
 
 \[\begin{tikzcd}
  & Sd \\
 c \rar[swap]{u}\urar{f} & Sr \uar[swap, dashed]{\exists! S \widetilde f}
 \end{tikzcd}\]
 
-*** Abelian category                                                :drill:
-:PROPERTIES:
-:ID:       ad9b7fc3-6fe9-44fb-8918-9a1a9ce60a3b
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 7
-:DRILL_FAILURE_COUNT: 4
-:DRILL_AVERAGE_QUALITY: 2.429
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 1
-:DRILL_LAST_REVIEWED: [2017-11-17 Fri 16:31]
-:END:
-Definition of [[https://en.wikipedia.org/wiki/Abelian_category][abelian category]].
-
-**** Definition
-An abelian category is a preadditive category (every morphisms set is
-an abelian group and the composition is bilineal on it), satisfiying
-
- 1. it has a *null object*.
- 2. there is a *biproduct* of two numbers.
- 3. every morphism has kernel and cokernel.
- 4. every monic is a kernel.
- 5. every epic is a cokernel.
-
-*** Preadditive category                                            :drill:
+** Preadditive category                                              :drill:
+SCHEDULED: <2017-11-26 Sun>
 :PROPERTIES:
 :ID:       01815e4d-7bf6-473c-a818-f5a4f3568967
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.6
+:DRILL_AVERAGE_QUALITY: 3.667
 :DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 1
-:DRILL_LAST_REVIEWED: [2017-11-17 Fri 16:31]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2017-11-22 Wed 22:20]
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Preadditive_category][preadditive category]]
 
-**** Definition
-A category satisfiying
+*** Definition
+Every $hom(a,b)$ is an *abelian group* and composition is *bilinear*
 
- * every $hom(a,b)$ is an *abelian group*.
- * composition is *bilinear* with the group operation:
-   $f(g+h) = fg+hg$ y $h(f+g) = hf+hg$.
+\[
+f \circ (g+h) = f \circ g+f \circ h \qquad (f+g)\circ h = f\circ h+g \circ h
+\]
+
+* Homotopy type theory
+** 3. Sets and logic
+*** Sets                                                            :drill:
+SCHEDULED: <2017-11-26 Sun>
+:PROPERTIES:
+:ID:       642db2e3-5cf0-4bfc-8d34-0bd7a3723374
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:END:
+Definition of *sets* in type theory.
+
+**** Definition
+\[
+\textsf{isSet}(A) \equiv \prod_{(x,y : A)} \prod_{(p,q : x = y)} p = q.
+\]
+
+*** Subtypes                                                        :drill:
+SCHEDULED: <2017-11-26 Sun>
+:PROPERTIES:
+:ID:       64ba6bc2-b0cc-4863-809e-baf0200c59d3
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-11-22 Wed 22:58]
+:END:
+Definition of *subtype*.
+
+**** Definition
+For a family of *mere propositions* $P : A \to {\cal U}$, we write
+
+\[
+\left\{ x : A\mid P(x) \right\} 
+ \equiv
+\sum_{x:A} P(x)
+\]
+
+and call this a subtype of $A$.
+
+*** Axiom of choice                                                 :drill:
+SCHEDULED: <2017-11-26 Sun>
+:PROPERTIES:
+:ID:       f8e99cbf-4821-4cb3-b622-dfd84d4d4215
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:END:
+*Axiom of choice* in type theory.
+
+**** Statement
+
+\[
+\left( \prod_{x:X} \trunc{\sum_{a:A(x)} P(x,a)} \right)
+\to
+\trunc{\sum_{(g: \prod_{x:X}A(x))} \prod_{(x:X)} P(x,g(x))}.
+\]
+
+for a given  $P : \prod_{x:X} (A(x) \to {\cal U})$.
+
+*** Decidable type                                                  :drill:
+SCHEDULED: <2017-11-26 Sun>
+:PROPERTIES:
+:ID:       b7080b88-8de1-4c7d-b804-73dc6ff6d702
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:END:
+Definition of *decible type*.
+
+**** Definition
+
+$A + \neg A$
+
+*** Decidable equality                                              :drill:
+SCHEDULED: <2017-11-26 Sun>
+:PROPERTIES:
+:ID:       0784e9e9-14c0-42c7-ae4a-25aa5e192c4b
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:END:
+Definition of *decidable equality*.
+
+**** Definition
+
+\[
+\prod_{a,b : A} (a = b) + \neg (a = b)
+\]
+
+*** Decidable type family                                           :drill:
+SCHEDULED: <2017-11-26 Sun>
+:PROPERTIES:
+:ID:       dc617b60-30a0-40c0-b631-b6277f138150
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:END:
+Definition of *decidable type family*.
+
+**** Definition
+
+\[
+\prod_{a : A} B(a) + \neg B(a)
+\]
+
+*** Contractible type                                               :drill:
+Definition of *contractible type*.
+
+**** Definition
+\[
+\isContr(A) :\equiv \sum_{a:A}\prod_{x:A}(a = x)
+\]
+
+$A$ is contractible if there exists a center of contraction $a$.
+
+*** Mere propositions and contractibility                           :drill:
+Define *mere proposition* in terms of contractibility.
+
+**** Definition
+$A$ is a mere proposition iff for all $x,y : A$, the type $x = y$ is
+contractible.
 
 * Algebra
-** Finite order divides maximal order in abelian groups              :drill:
+** Exponentiation of versors                                         :drill:
+SCHEDULED: <2017-11-26 Sun>
 :PROPERTIES:
-:ID:       5aeecd78-d4aa-40ec-ab47-63e9a3be4db2
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 1
-:DRILL_LAST_REVIEWED: [2017-11-17 Fri 16:29]
-:END:
-Let $g \in G$ *abelian* be an element of maximal /finite/ order: if $h \in G$ 
-has finite order, $|h| \leq |g|$. Prove that if $h$ has finite order in $G$ 
-then $|h|$ divides $|g|$.
-
-*** Proof
-If $|h|$ does not divide $|g|$, then there is a prime $p$ such that
-
- * $|h| = p^{a+b}m$
- * $|g| = p^bn$, with $\mathrm{gcd}(n,p) = 1$.
-
-then we know that $|h^m| = p^{a+b}$ and $|g^{p^b}| = n$. Using that we are in a
-commutative group, [[*Order of commutative products][we know]] that $|g^{p^b}h^m| = p^{a+b}n$, contradicting 
-maximality.
-
-** Order of commutative products                                     :drill:
-:PROPERTIES:
-:ID:       783c969a-3b78-4b68-a752-0d832e7c0eae
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 3
+:ID:       8404f823-c268-4627-8229-8432570411eb
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 0
-:DRILL_LAST_REVIEWED: [2017-11-17 Fri 16:30]
-:END:
-If $g$ and $h$ commute, and $\mathrm{gcd}(|g|,|h|) = 1$, then $|gh| = |g||h|$.
-
-*** Proof
-We know $|gh| = N \mid |g||h|$, and
-
- * $1 = \left( g^{-1} \right)^{N|g|} = h^{N|g|}$
- * $1 = \left( h^{-1} \right)^{N|h|} = g^{N|h|}$
-
-and then, $|h| \mid N|g|$ and they are coprimes, so $|h| \mid N$. Likewise, $|g| \mid N$.
-Finally, $|g||h| = \mathrm{lcm}(|h|,|g|) \mid N$.
-
-** Exponentiation of versors                                         :drill:
-:PROPERTIES:
-:ID:       8404f823-c268-4627-8229-8432570411eb
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 1.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 1
-:DRILL_LAST_REVIEWED: [2017-11-17 Fri 16:31]
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-11-22 Wed 22:57]
 :END:
 Given a quaternion $q$, how we define and compute $\mathrm{exp}(q)$?
 
@@ -155,6 +279,5 @@ and then
 
 \[q^t = \exp(t \theta v) = \cos (t \theta) + v \sin (t \theta).\]
 
-* Analysis
-* Topology
-* Other
+* TODO Coq tactics
+
