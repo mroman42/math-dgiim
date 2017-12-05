@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-06-07 Wed 14:42 -->
+<!-- 2017-12-05 Tue 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Homotopy type theory</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Mario Román" />
-<meta name="description" content="Exercises and notes on homotopy type theory"
+<meta name="description" content="Homotopy type theory book"
  />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -261,19 +261,917 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Homotopy type theory</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2e38814">Part I</a>
+<ul>
+<li><a href="#orgeced1cb">I.1. Type theory</a>
+<ul>
+<li><a href="#org4fbc215">I.1.1. Type theory versus set theory</a>
+<ul>
+<li><a href="#org76595cb">Judgements and rules</a></li>
+<li><a href="#org39cc298">Propositional equality</a></li>
+<li><a href="#orgc242934">Judgmental equality</a></li>
+<li><a href="#orga52a556">Judgments of type theory</a></li>
+<li><a href="#org8780678">Contexts</a></li>
+<li><a href="#orga1bbaca">Rules and axioms of type theory</a></li>
+</ul>
+</li>
+<li><a href="#org9db20b6">I.1.2. Function types</a>
+<ul>
+<li><a href="#org64ac13b">Functions</a>
+<ul>
+<li><a href="#orgf9e9b34">Constructing functions</a></li>
+</ul>
+</li>
+<li><a href="#orge33a4db">&beta;-reduction</a></li>
+<li><a href="#org4148a93">&eta;-reduction</a></li>
+<li><a href="#org188598e">Currying</a></li>
+</ul>
+</li>
+<li><a href="#orgd747131">I.1.3. Universes and families</a>
+<ul>
+<li><a href="#org70cae22">Universes</a>
+<ul>
+<li><a href="#org05b9fb1">Russell's paradox</a></li>
+<li><a href="#orge2d6bed">Hierarchy of universes</a></li>
+</ul>
+</li>
+<li><a href="#orge714199">Families of types</a></li>
+</ul>
+</li>
+<li><a href="#org7d9ce93">I.1.4. Dependent function types (&Pi;-types)</a>
+<ul>
+<li><a href="#org010f229">Dependent function types</a>
+<ul>
+<li><a href="#org43e91ee">Constructing dependent functions</a></li>
+<li><a href="#org40bbeb5">Reductions</a></li>
+</ul>
+</li>
+<li><a href="#orgc3101ca">Polymorphic functions</a>
+<ul>
+<li><a href="#org9649983">The identity function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgef2c263">I.1.5. Product types</a>
+<ul>
+<li><a href="#orgda2d7c9">Cartesian product</a></li>
+<li><a href="#orge3351a5">Unit type</a></li>
+<li><a href="#org4877f61">Introducing new types</a></li>
+<li><a href="#org3d43876">Product type recursor</a></li>
+<li><a href="#orgd98e9df">Unit type recursor</a></li>
+<li><a href="#org9cf320a">Product type dependent recursor</a></li>
+<li><a href="#org7ac3edc">Propositional uniqueness principle</a></li>
+<li><a href="#org7173f6e">Induction principle on product types</a></li>
+<li><a href="#orga3861e7">Induction principle on unit types</a></li>
+</ul>
+</li>
+<li><a href="#orgc211b75">I.1.6. Dependent type pairs (&Sigma;-types)</a>
+<ul>
+<li><a href="#orgc4dd491">Type-theoretic axiom of choice</a></li>
+<li><a href="#org25283cb">Example: Magmas</a></li>
+</ul>
+</li>
+<li><a href="#orgde1fd7b">I.1.7. Coproduct types</a>
+<ul>
+<li><a href="#org0a0e7b9">Coproduct type</a></li>
+<li><a href="#org9c645d9">Empty type</a></li>
+</ul>
+</li>
+<li><a href="#org1c70764">I.1.8. The type of booleans</a>
+<ul>
+<li><a href="#org8a4db44">if-then-else</a></li>
+<li><a href="#orgf05394d">Coproducts as dependent types</a></li>
+</ul>
+</li>
+<li><a href="#org300a2cf">I.1.9. The natural numbers</a>
+<ul>
+<li><a href="#orgfe8a9d1">Natural numbers</a></li>
+<li><a href="#orgf606218">Addition</a></li>
+<li><a href="#orgcd6dc86">Associativity</a></li>
+</ul>
+</li>
+<li><a href="#orgc49330b">I.1.10. Pattern matching and recursion</a></li>
+<li><a href="#orgf8cd0a8">I.1.11. Propositions as types</a>
+<ul>
+<li><a href="#org702732f">Falsity and negation</a></li>
+<li><a href="#org4662a13">Constructive logic</a></li>
+</ul>
+</li>
+<li><a href="#org8ea34db">I.1.12. Identity types</a></li>
+</ul>
+</li>
+<li><a href="#orgf4090c9">I.2. Homotopy type theory</a>
+<ul>
+<li><a href="#org0bf05aa">2.1. Types are higher groupoids</a>
+<ul>
+<li><a href="#org376980a">2.1.1. Path inverse</a>
+<ul>
+<li><a href="#org5492682">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgc17ad6b">2.1.2. Path composition</a>
+<ul>
+<li><a href="#org8665c62">First proof</a></li>
+<li><a href="#org08ffde2">Second proof</a></li>
+<li><a href="#org601c27c">Third proof</a></li>
+<li><a href="#org3283685">Proof-relevance and definitional equalities</a></li>
+</ul>
+</li>
+<li><a href="#org13ae65b">2.1.4. Path operation properties</a></li>
+<li><a href="#orgcb7d83d">2.1.6. Eckmann-Hilton</a></li>
+<li><a href="#orgf110f1d">2.1.7. Pointed type</a></li>
+<li><a href="#org11cda18">2.1.8. Loop spaces</a></li>
+</ul>
+</li>
+<li><a href="#org67b3b2d">2.2. Functions are functors</a>
+<ul>
+<li><a href="#orgb5eea8c">2.2.1. Definition of ap</a>
+<ul>
+<li><a href="#org6cb2164">Notation</a></li>
+<li><a href="#org0a15032">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org82c9f42">2.2.2. Functioriality of ap</a>
+<ul>
+<li><a href="#orgc3ffd94">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5d5c5c6">2.3. Type families are fibrations</a>
+<ul>
+<li><a href="#org681ed97">2.3.1. Transport</a>
+<ul>
+<li><a href="#orgc44cbe7">Notation</a></li>
+<li><a href="#org883cdea">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org32aaab0">2.3.2. Path lifting property</a>
+<ul>
+<li><a href="#orgc8c03cc">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org5de692f">2.3.4. Dependent map</a>
+<ul>
+<li><a href="#orgbfb5075">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org946e7f9">2.3.5. Constant transport</a></li>
+<li><a href="#orgb560ee3">2.3.8. Constant plus dependent transport</a></li>
+<li><a href="#orgb34b655">2.3.9. Transport composition lemma</a>
+<ul>
+<li><a href="#org0df5d74">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org3b8ea60">2.3.10. Transport precomposition lemma</a></li>
+<li><a href="#org51f6b6f">2.3.11. Naturality of transport</a></li>
+</ul>
+</li>
+<li><a href="#org6283639">2.4. Homotopies and equivalences</a>
+<ul>
+<li><a href="#orga7beee6">2.4.1. Homotopy</a></li>
+<li><a href="#org1f8b3f7">2.4.2. Homotopy is an equivalence relation</a>
+<ul>
+<li><a href="#org845b932">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org7a72eab">2.4.3. Naturality of homotopies</a>
+<ul>
+<li><a href="#org7434667">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orga711e62">2.4.4. Endonaturality of homotopies</a>
+<ul>
+<li><a href="#org74180aa">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org41b262e">2.4.6. Quasi-inverse</a></li>
+<li><a href="#org9dcc99c">2.4.9. Transport has a quasi-inverse</a></li>
+</ul>
+</li>
+<li><a href="#org5f57860">2.5. Higher groupoid structure of type formers</a></li>
+<li><a href="#org000ea7d">2.6. Cartesian product types</a>
+<ul>
+<li><a href="#org28f8543">2.6.2. Cartesian product equalities</a>
+<ul>
+<li><a href="#orga79ae6e">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org440f6ea">2.6.4. Cartesian product transport</a>
+<ul>
+<li><a href="#org1b0dbc7">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org8f0d6e5">2.6.5. Functoriality under cartesian products</a>
+<ul>
+<li><a href="#orgf446990">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge283df4">2.7. Sigma types</a>
+<ul>
+<li><a href="#orge0512e0">2.7.2. Sigma type equalities</a>
+<ul>
+<li><a href="#org4e44c24">Proof</a>
+<ul>
+<li><a href="#org0c4115e">First component of the equivalence</a></li>
+<li><a href="#org07c1de3">Second component of the equivalence</a></li>
+<li><a href="#org00cfc7b">First homotopy</a></li>
+<li><a href="#org00cb4e0">Second homotopy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org17c429f">2.7.3. Sigma equality to its parts</a>
+<ul>
+<li><a href="#org87cf79e">Proof</a></li>
+<li><a href="#orga19c3fe">Proof in HoTT book</a></li>
+</ul>
+</li>
+<li><a href="#orgd38d47f">2.7.4. Transport over sigma equalities</a></li>
+</ul>
+</li>
+<li><a href="#org1f1646d">2.8. The unit type</a>
+<ul>
+<li><a href="#orgaa73b6c">Unit type equality</a>
+<ul>
+<li><a href="#org0cd1b4e">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1f01fa9">2.9. The function extensionality axiom</a>
+<ul>
+<li><a href="#org9563151">2.9.2. happly</a></li>
+<li><a href="#orge8ff493">2.9.3. Function extensionality axiom</a></li>
+<li><a href="#org59bf3df">2.9.4. Dependent identity, inverses and composition</a></li>
+<li><a href="#org61dd37d">2.9.4. Rules for dependent transport</a>
+<ul>
+<li><a href="#orgcdee387">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org52146da">2.9.6. Equivalence for the dependent function equality</a>
+<ul>
+<li><a href="#org21f1456">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org6e71041">2.9.7. Transport equivalence between families</a></li>
+</ul>
+</li>
+<li><a href="#org1ca1cdf">2.10. Universes and the univalence axiom</a>
+<ul>
+<li><a href="#org5728908">2.10.1. idtoeqv</a>
+<ul>
+<li><a href="#orgc493011">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orga291116">2.10.3. Voevodsky's Univalence Axiom</a></li>
+<li><a href="#org165ce9d">2.10.5. Transport and idtoeqv</a></li>
+</ul>
+</li>
+<li><a href="#org0ca3f82">2.11. Identity type</a>
+<ul>
+<li><a href="#orgb6496e8">2.11.1. Aplication of equivalences is an equivalence</a>
+<ul>
+<li><a href="#org6f6c7ab">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org1e6ea80">2.11.2. Path transport</a>
+<ul>
+<li><a href="#org175267f">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org05f8519">2.12. Coproducts</a>
+<ul>
+<li><a href="#orge4cf38b">2.12.1. Characterization of equalities for coproducts</a>
+<ul>
+<li><a href="#orgf1b5879">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgf05e507">2.12.5. Code for coproducts</a>
+<ul>
+<li><a href="#orgf10cc4e">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org354d0d3">2.13. Natural numbers</a>
+<ul>
+<li><a href="#org4837622">2.13.0. Codes for identities on natural numbers</a></li>
+<li><a href="#orgc2ba8db">2.13.1. Equivalence code-identity</a>
+<ul>
+<li><a href="#orgbd26fa2">Proof</a>
+<ul>
+<li><a href="#org7b9c94b">Encode function</a></li>
+<li><a href="#orga0f30fb">Decode function</a></li>
+<li><a href="#orgf94a47f">Quasiinverses I</a></li>
+<li><a href="#org5b92f08">Quasiinverses II</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org53f37ac">2.13.2. Zero is not a successor</a>
+<ul>
+<li><a href="#org51e5853">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgeb698cd">2.13.3. Successor is injective</a>
+<ul>
+<li><a href="#orgf2c0834">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1c8d142">2.14. Example: equality of structures</a>
+<ul>
+<li><a href="#org97df8ae">2.14.1. Semigroup structures</a></li>
+<li><a href="#orgb08ea5d">2.14.1. Induced structures</a></li>
+</ul>
+</li>
+<li><a href="#orgf469ca3">2.15. Universal properties</a>
+<ul>
+<li><a href="#org26f7c83">2.15.2. Universal property of the product</a>
+<ul>
+<li><a href="#org5e54d1d">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orge31f716">2.15.5. Dependent universal property of the product</a>
+<ul>
+<li><a href="#org0913656">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org40fb916">2.15.7. Theorem of choice</a>
+<ul>
+<li><a href="#org55c0b8f">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org92cb73a">2.15.11. Pullbacks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org106ef19">I.3. Sets and logic</a>
+<ul>
+<li><a href="#orgee4943d">3.1. Sets and n-types</a>
+<ul>
+<li><a href="#org3d3e849">3.1.1. Sets</a></li>
+<li><a href="#org41bffd5">3.1.6. Dependent product of sets is a set</a>
+<ul>
+<li><a href="#orgf1bd04f">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org16b3dd9">3.1.7. 1-types</a></li>
+<li><a href="#orgb5dff93">3.1.8. Every set is a 1-type</a>
+<ul>
+<li><a href="#org7953891">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgc1c78ca">3.1.9. Not all types are sets</a>
+<ul>
+<li><a href="#org52f0e30">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgad9daf4">3.2. Propositions as types?</a>
+<ul>
+<li><a href="#orgfe6189a">3.2.2. Negation of double negation</a>
+<ul>
+<li><a href="#org702d721">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org17c568f">3.2.7. Negation of LEM</a>
+<ul>
+<li><a href="#org8cba9c1">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org10a2aa9">3.3. Mere propositions</a>
+<ul>
+<li><a href="#orgf72ad5c">3.3.1. Mere proposition</a></li>
+<li><a href="#orga2ddda8">3.3.2. Truth is the only true mere proposition</a>
+<ul>
+<li><a href="#org64fbb20">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org12c251d">3.3.3. Equivalence of connected mere propositions</a>
+<ul>
+<li><a href="#orgde5901a">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org562f969">3.3.4. Mere propositions are sets</a>
+<ul>
+<li><a href="#org8870fbf">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgf60854f">3.3.5. isProp and isSet are mere propositions</a>
+<ul>
+<li><a href="#org706abc8">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9212d63">3.4. Classical vs. intuitionistic logic</a>
+<ul>
+<li><a href="#org0b8ce6d">3.4.1. Law of excluded middle</a></li>
+<li><a href="#org4d429ae">3.4.3. Decidable types</a></li>
+</ul>
+</li>
+<li><a href="#orga863dca">3.5. Subsets and propositional resizing</a>
+<ul>
+<li><a href="#org68ed96f">3.5.1. Uniqueness of dependent sum of mere propositions</a>
+<ul>
+<li><a href="#orge886d19">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org1b7a5db">3.5.1. Subtypes</a>
+<ul>
+<li><a href="#orgcd1f03c">Subuniverses of sets and mere propositions</a></li>
+</ul>
+</li>
+<li><a href="#org9ef4a5e">3.5.2. Propositional resizing</a>
+<ul>
+<li><a href="#org17fe148">Omega-indexation of propositions</a></li>
+<li><a href="#orga4057ef">Powersets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org15ff0eb">3.6. Logic of mere propositions</a>
+<ul>
+<li><a href="#org751fde4">3.6.1. Product of mere propositions is a mere proposition</a></li>
+<li><a href="#org61097ad">3.6.2. Dependent functions to mere propositions are mere propositions</a></li>
+<li><a href="#org7b81ec0">3.6.2. Sums of mere propositions are not mere propositions</a></li>
+</ul>
+</li>
+<li><a href="#orgf6d543b">3.7. Propositional truncation</a>
+<ul>
+<li><a href="#org6d15403">3.7.0. Propositional truncation type</a>
+<ul>
+<li><a href="#orgada1b38">Recursion principle</a></li>
+</ul>
+</li>
+<li><a href="#org12ab1b3">3.7.1. Traditional logical notation</a></li>
+<li><a href="#org4055061">3.7.2. Traditional set notation</a></li>
+</ul>
+</li>
+<li><a href="#org64688d7">3.8. The axiom of choice</a>
+<ul>
+<li><a href="#orge557f20">3.8.1. The axiom of choice</a></li>
+<li><a href="#org4e4e2ba">3.8.2. Simpler axiom of choice</a>
+<ul>
+<li><a href="#org62abf58">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org1911a3a">3.8.5. Counterexample to the simpler version</a></li>
+</ul>
+</li>
+<li><a href="#org6ffcf3b">3.9. The principle of unique choice</a>
+<ul>
+<li><a href="#orgaa46893">3.9.1. Equivalence of mere propositions and truncations</a>
+<ul>
+<li><a href="#org1367208">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org75fa4f2">3.9.2. The principle of unique choice</a>
+<ul>
+<li><a href="#org2664203">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5c4902b">3.10. When are propositions truncated?</a></li>
+<li><a href="#org26a98da">3.11. Contractibility</a>
+<ul>
+<li><a href="#org57edd97">3.11.1. Contractible type</a></li>
+<li><a href="#orgc614eb8">3.11.3. Characterization of contractibility</a>
+<ul>
+<li><a href="#org93279d3">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgba5a00f">3.11.4. Contr is a mere proposition</a></li>
+<li><a href="#orgab37245">3.11.5. Contractibility of Contr</a></li>
+<li><a href="#org0da2d32">3.11.6. Dependent product of contractible types</a></li>
+<li><a href="#orgbdf4e6c">3.11.7. Retracts and contractibility</a></li>
+<li><a href="#org675fd69">3.11.8.</a></li>
+<li><a href="#orgc458fa8">3.11.9.</a></li>
+<li><a href="#org35739f3">3.11.10. Mere propositions and contractibility</a>
+<ul>
+<li><a href="#org0dbd04c">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga8ccdc8">I.4. Equivalences</a>
+<ul>
+<li><a href="#org9e759ce">4.1. Quasi-inverses</a>
+<ul>
+<li><a href="#org1d38ce8">4.1.1. Characterization of the quasi-inverse type</a>
+<ul>
+<li><a href="#orgbfa2d5f">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org67fb700">4.1.2. Existence of center</a>
+<ul>
+<li><a href="#org4f5aefb">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org1db3333">4.1.3. qinv is not always a mere proposition</a>
+<ul>
+<li><a href="#orge584ad1">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org92d29f7">4.2. Half adjoint equivalences</a>
+<ul>
+<li><a href="#orgae5fc26">4.2.1. Half adjoint equivalence</a></li>
+<li><a href="#org3e91cbc">4.2.2. Logical equivalence of half adjoint equivalences</a>
+<ul>
+<li><a href="#org21b0625">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org9b9c6a0">4.2.3. qinv implies ishae</a>
+<ul>
+<li><a href="#org83334f1">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org141e9a2">4.2.4. Fiber of a map</a></li>
+<li><a href="#orgdbbbf42">4.2.5. Equality of fibers</a>
+<ul>
+<li><a href="#org8143816">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org93798ce">4.2.6. Fibers of half-adjoint equivalences are contractible</a>
+<ul>
+<li><a href="#orgb9129e4">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org639e359">4.2.7. Left and right inverses</a></li>
+</ul>
+</li>
+<li><a href="#org88fea81">4.3. Bi-invertible maps</a>
+<ul>
+<li><a href="#orge638c2e">4.3.1. Bi-invertible</a></li>
+<li><a href="#org942f374">4.3.2. biinv is a mere proposition</a>
+<ul>
+<li><a href="#org110bd79">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org867bb12">4.3.3. Equivalence biinv and ishae</a>
+<ul>
+<li><a href="#orgb22ed6e">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgee9d64b">4.4. Contractible fibers</a>
+<ul>
+<li><a href="#org60ced56">4.4.1. Contractible maps</a></li>
+<li><a href="#org114d5bc">4.4.3. isContr implies ishae</a>
+<ul>
+<li><a href="#orgdace9b2">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org3b00e4d">4.4.4. isContr is a mere proposition</a>
+<ul>
+<li><a href="#orgda7a80b">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org2de83cb">4.4.5. isContr is equivalent to ishae</a>
+<ul>
+<li><a href="#orge6843d6">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb85463f">4.5. On the definition of equivalences</a></li>
+<li><a href="#org48608fb">4.6. Surjections and embeddings</a>
+<ul>
+<li><a href="#org39fee09">4.6.0. Isomorphisms</a></li>
+<li><a href="#orgb6f3777">4.6.1. Surjections and embeddings</a>
+<ul>
+<li><a href="#orgfaa85f2">Split surjection</a></li>
+<li><a href="#org752a2e5">Axiom of choice and split surjections</a></li>
+</ul>
+</li>
+<li><a href="#orgedc31a9">4.6.2. Characterization of embeddings</a>
+<ul>
+<li><a href="#org25c31ca">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org9250bc4">4.6.3. Equivalence is surjection and embedding</a>
+<ul>
+<li><a href="#orgd78a54e">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgefdf9aa">4.6.4. Equivalence is equivalent to surjection and embedding</a></li>
+</ul>
+</li>
+<li><a href="#orgf2e7c62">4.7. Closure properties of equivalences</a>
+<ul>
+<li><a href="#orgf990fa9">4.7.1. The 2-out-of-3 property</a>
+<ul>
+<li><a href="#org9a0975f">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgc78f3e2">4.7.2. Retracts</a></li>
+<li><a href="#orge8311d8">4.7.3. Retract of equivalence is equivalence</a></li>
+<li><a href="#orgaf87398">4.7.5.</a></li>
+</ul>
+</li>
+<li><a href="#org16d3742">4.8. The object classifier</a>
+<ul>
+<li><a href="#org6210866">4.8.1. Fiber of a type family</a></li>
+<li><a href="#org41a8bb6">4.8.2.</a></li>
+<li><a href="#org0e0b1e1">4.8.3. Object classifier</a>
+<ul>
+<li><a href="#orgf1ad894">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5c18fbe">4.9. Univalence implies function extensionality</a>
+<ul>
+<li><a href="#org2926054">4.9.1. Weak function extensionality principle</a></li>
+<li><a href="#org60f99de">4.9.2. Equivalence on slice objects</a>
+<ul>
+<li><a href="#org26c2fd4">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org89b1cb7">4.9.3.</a></li>
+<li><a href="#org3db47db">4.9.5. Weak function extensionality implies function extensionality</a>
+<ul>
+<li><a href="#org95c9359">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc13cfb4">I.5. Induction</a>
+<ul>
+<li><a href="#org4980d51">5.1. Introduction to inductive types</a>
+<ul>
+<li><a href="#org1ef97e0">5.1.1. Uniqueness of functions over the natural numbers</a>
+<ul>
+<li><a href="#orgac6768e">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org89fc880">5.2. Uniqueness of inductive types</a></li>
+</ul>
+</li>
+<li><a href="#orgbae8e49">5.3. W-types</a></li>
+<li><a href="#org40681d5">5.4. Inductive types are initial algebras</a>
+<ul>
+<li><a href="#orgd718c7e">5.4.1. N-algebra</a></li>
+<li><a href="#orge14953d">5.4.2. N-homomorphism</a></li>
+<li><a href="#org1c77429">5.4.3. Homotopy initial N-algebra</a></li>
+<li><a href="#orgc8ed412">5.4.4. Uniqueness of homotopy initial N-algebras</a></li>
+<li><a href="#org7920f89">5.4.5. The naturals are an homotopy initial N-algebra</a></li>
+<li><a href="#org4e97578">5.4.6. W-algebras</a></li>
+</ul>
+</li>
+<li><a href="#orge6f5fb6">5.5. Homotopy-inductive types</a></li>
+</ul>
+</li>
+<li><a href="#org27ae5ea">I.6. Higher inductive types</a>
+<ul>
+<li><a href="#org07855aa">6.2. Induction principles and dependent paths</a>
+<ul>
+<li><a href="#orgfc0552b">6.2.1. Propositional equality by definition</a></li>
+<li><a href="#orge256f5d">6.2.2. Notation for dependent paths</a></li>
+<li><a href="#orged5704d">6.2.5. Non-dependent computation rule of the circle</a>
+<ul>
+<li><a href="#orgc67fbce">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6311447">6.3. The interval</a>
+<ul>
+<li><a href="#org2700a10">6.3.0. The interval</a>
+<ul>
+<li><a href="#orgc1d8f4b">Induction principle of the interval</a></li>
+<li><a href="#org83f9bd6">Recursion principle of the interval</a></li>
+</ul>
+</li>
+<li><a href="#org926e3af">6.3.1. The interval is contractible</a>
+<ul>
+<li><a href="#org44521e1">Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgf5b017f">6.3.2. Extensionality from the interval type</a></li>
+</ul>
+</li>
+<li><a href="#org5fd053d">6.4. Circles and spheres</a></li>
+<li><a href="#orge2dbbc3">6.5. Suspensions</a>
+<ul>
+<li><a href="#org923b549">6.5.0. Suspension of a type</a>
+<ul>
+<li><a href="#org8417f5f">Induction principle</a></li>
+</ul>
+</li>
+<li><a href="#orga7c25a9">6.5.1. Circle as suspension</a>
+<ul>
+<li><a href="#org9825ce9">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4c48db3">6.6. Cell complexes</a></li>
+<li><a href="#orgcb8aca5">6.7. Hubs and spokes</a></li>
+</ul>
+</li>
+<li><a href="#orgc69acad">I.7. Homotopy n-types</a>
+<ul>
+<li><a href="#orgfdeab15">7.1. Definition of n-types</a>
+<ul>
+<li><a href="#org278e8ba">7.1.1. is-n-type</a></li>
+<li><a href="#orgb4a340f">7.1.4. Retraction of an n-type</a></li>
+<li><a href="#org833a5e9">7.1.5. Equivalence preserves n-types</a></li>
+</ul>
+</li>
+<li><a href="#orgf430e86">7.2. Uniqueness of identity proofs and Hedberg's theorem</a>
+<ul>
+<li><a href="#org0001319">7.2.0. Uniqueness of identity proofs (UIP)</a></li>
+<li><a href="#org2e66110">7.2.1. Axiom K</a>
+<ul>
+<li><a href="#orga244a8c">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org03cbfd3">7.2.2. Mere identity relations in sets</a>
+<ul>
+<li><a href="#orge628bb1">Proof</a>
+<ul>
+<li><a href="#org80fafbe">X is a set</a></li>
+<li><a href="#orgf7e14e4">R is equivalent to equality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1b4ef0a">7.2.3. A type with double negation cancellation equality is a set</a>
+<ul>
+<li><a href="#orgad911f6">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org6741b6c">7.2.5. Hedberg's theorem</a>
+<ul>
+<li><a href="#orgbf6fed7">Proof.</a></li>
+</ul>
+</li>
+<li><a href="#org0f87526">7.2.6. Natural numbers form a set</a>
+<ul>
+<li><a href="#org237d7c1">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge9dedd8">7.5. Connectedness</a>
+<ul>
+<li><a href="#org6dfee6a">7.5.1. n-connected function</a></li>
+<li><a href="#org6db5537">7.5.2. Surjectivity is (-1)-connectedness</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org59f7877">Part II</a>
+<ul>
+<li><a href="#orga396e80">II.8. Homotopy theory</a>
+<ul>
+<li><a href="#org4a10b05">8.0. Homotopy theory</a>
+<ul>
+<li><a href="#org3bd6df6">8.0.1. Homotopy groups</a></li>
+</ul>
+</li>
+<li><a href="#org22c6637">8.1. Fundamental group of the circle</a>
+<ul>
+<li><a href="#org7989a74">8.1.1. Universal cover of the circle</a></li>
+<li><a href="#org9345369">8.1.2. Lemma of code transport</a>
+<ul>
+<li><a href="#org072bf02">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org3f5f831">8.1.5. Encode</a></li>
+<li><a href="#org7366821">8.1.6. Decode</a>
+<ul>
+<li><a href="#orgff0a005">Definition</a></li>
+</ul>
+</li>
+<li><a href="#org140ed24">8.1.7. Encode-decode of a path</a>
+<ul>
+<li><a href="#orgdd4227c">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org80c7323">8.2. Connectedness of suspensions</a></li>
+</ul>
+</li>
+<li><a href="#org3fca308">II.9. Category theory</a></li>
+<li><a href="#orgb13d548">II.10. Set theory</a></li>
+<li><a href="#org14a0732">II.11. Real numbers</a>
+<ul>
+<li><a href="#org94cc59c">11.2. Dedekind reals</a>
+<ul>
+<li><a href="#orgedc1738">11.2.1. Dedekind cuts</a></li>
+<li><a href="#org59afdb3">11.2.1. Rational embedding</a></li>
+<li><a href="#org3d60117">11.2.3. Weak linearity</a></li>
+<li><a href="#org7dc176d">11.2.3. Apartness</a></li>
+<li><a href="#orgd5644ce">11.2.4. Invertibility</a>
+<ul>
+<li><a href="#orgb4fb7fb">Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org97eeeeb">Exercises</a>
+<ul>
+<li><a href="#orgb61c657">1. Exercises: Type theory <code>[5/11]</code></a>
+<ul>
+<li><a href="#org8815845">Exercise 1.1</a></li>
+<li><a href="#org605d585">Exercise 1.2</a></li>
+<li><a href="#org0ad3f93">Exercise 1.3</a></li>
+<li><a href="#orgb137108">Exercise 1.4</a></li>
+<li><a href="#org7aaeb0b">Exercise 1.5</a></li>
+<li><a href="#org89ea626">Exercise 1.10</a></li>
+<li><a href="#orge777b2c">Exercise 1.11</a></li>
+<li><a href="#org2eaaf0c">Exercise 1.12</a></li>
+<li><a href="#org63fb92e">Exercise 1.13</a></li>
+<li><a href="#org0691a99">Exercise 1.15</a></li>
+<li><a href="#orgc5ac84d">Exercise 1.16</a></li>
+</ul>
+</li>
+<li><a href="#orga71cb13">2. Exercises: Homotopy type theory <code>[3/17]</code></a>
+<ul>
+<li><a href="#orgbafcf35">Exercise 2.1</a></li>
+<li><a href="#orge8a2b57">Exercise 2.2</a></li>
+<li><a href="#org12ab550">Exercise 2.3</a></li>
+<li><a href="#orga2e2c77">Exercise 2.4</a></li>
+<li><a href="#orgae0f6dd">Exercise 2.5</a></li>
+<li><a href="#org0308561">Exercise 2.6</a></li>
+<li><a href="#org26c5e16">Exercise 2.7</a></li>
+<li><a href="#org782f84a">Exercise 2.8</a></li>
+<li><a href="#org3675c28">Exercise 2.9</a></li>
+<li><a href="#orge7a5fb1">Exercise 2.10</a></li>
+<li><a href="#org81b328e">Exercise 2.11</a></li>
+<li><a href="#org0e169f1">Exercise 2.12</a></li>
+<li><a href="#orgcb0eab9">Exercise 2.13</a></li>
+<li><a href="#orgdb617b9">Exercise 2.14</a></li>
+<li><a href="#orgb45e825">Exercise 2.15</a></li>
+<li><a href="#org74ace19">Exercise 2.16</a></li>
+<li><a href="#org1fa6e64">Exercise 2.18</a></li>
+</ul>
+</li>
+<li><a href="#org46a8154">3. Exercises: Sets and logic <code>[2/8]</code></a>
+<ul>
+<li><a href="#org03f381c">Exercise 3.1</a></li>
+<li><a href="#org9823186">Exercise 3.2</a></li>
+<li><a href="#org78f64ab">Exercise 3.3</a></li>
+<li><a href="#orgc0fef20">Exercise 3.4</a></li>
+<li><a href="#org15049df">Exercise 3.5</a></li>
+<li><a href="#org59df089">Exercise 3.6</a></li>
+<li><a href="#orgbb60791">Exercise 3.9</a></li>
+<li><a href="#org9852602">Exercise 3.21</a></li>
+</ul>
+</li>
+<li><a href="#org0bff3d9">4. Exercises: Equivalences <code>[0/0]</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 
-<div id="outline-container-org6240163" class="outline-2">
-<h2 id="org6240163">Part I</h2>
-<div class="outline-text-2" id="text-org6240163">
-</div><div id="outline-container-org2616c39" class="outline-3">
-<h3 id="org2616c39">I.1. Type theory</h3>
-<div class="outline-text-3" id="text-org2616c39">
-</div><div id="outline-container-org4cb3b21" class="outline-4">
-<h4 id="org4cb3b21">I.1.1. Type theory versus set theory</h4>
-<div class="outline-text-4" id="text-org4cb3b21">
-</div><div id="outline-container-orgf267a61" class="outline-5">
-<h5 id="orgf267a61">Judgements and rules</h5>
-<div class="outline-text-5" id="text-orgf267a61">
+
+<div id="outline-container-org2e38814" class="outline-2">
+<h2 id="org2e38814">Part I</h2>
+<div class="outline-text-2" id="text-org2e38814">
+</div><div id="outline-container-orgeced1cb" class="outline-3">
+<h3 id="orgeced1cb">I.1. Type theory</h3>
+<div class="outline-text-3" id="text-orgeced1cb">
+</div><div id="outline-container-org4fbc215" class="outline-4">
+<h4 id="org4fbc215">I.1.1. Type theory versus set theory</h4>
+<div class="outline-text-4" id="text-org4fbc215">
+</div><div id="outline-container-org76595cb" class="outline-5">
+<h5 id="org76595cb">Judgements and rules</h5>
+<div class="outline-text-5" id="text-org76595cb">
 <p>
 Set theory is not only about seta but also about the interplay between <i>sets</i>
 and <i>propositions</i> of first-order logic, the system where sets are formulated.
@@ -293,9 +1191,9 @@ cannot talk about an element \(a\) without specifying its type.
 </div>
 </div>
 
-<div id="outline-container-orga97a46c" class="outline-5">
-<h5 id="orga97a46c">Propositional equality</h5>
-<div class="outline-text-5" id="text-orga97a46c">
+<div id="outline-container-org39cc298" class="outline-5">
+<h5 id="org39cc298">Propositional equality</h5>
+<div class="outline-text-5" id="text-org39cc298">
 <p>
 Equality here is not a proposition but a type. Given \(a,b : A\), we can define
 the type \(a =_A b\); we say that \(a\) and \(b\) are <b>propositionally equal</b> when this
@@ -304,9 +1202,9 @@ type is unhabited.
 </div>
 </div>
 
-<div id="outline-container-org22d77f7" class="outline-5">
-<h5 id="org22d77f7">Judgmental equality</h5>
-<div class="outline-text-5" id="text-org22d77f7">
+<div id="outline-container-orgc242934" class="outline-5">
+<h5 id="orgc242934">Judgmental equality</h5>
+<div class="outline-text-5" id="text-orgc242934">
 <p>
 <b>Judgmental equality</b> or <b>definitional equality</b> is an equality judgment
 given by definitions: it can be decided expanding out the definitions. 
@@ -315,9 +1213,9 @@ We write it as \(a \equiv b\) and we introduce definitions as \(a :\equiv b\).
 </div>
 </div>
 
-<div id="outline-container-org7794c35" class="outline-5">
-<h5 id="org7794c35">Judgments of type theory</h5>
-<div class="outline-text-5" id="text-org7794c35">
+<div id="outline-container-orga52a556" class="outline-5">
+<h5 id="orga52a556">Judgments of type theory</h5>
+<div class="outline-text-5" id="text-orga52a556">
 <p>
 Type theory will be a system based on two forms of judgement
 </p>
@@ -329,18 +1227,18 @@ Type theory will be a system based on two forms of judgement
 </div>
 </div>
 
-<div id="outline-container-org765e851" class="outline-5">
-<h5 id="org765e851">Contexts</h5>
-<div class="outline-text-5" id="text-org765e851">
+<div id="outline-container-org8780678" class="outline-5">
+<h5 id="org8780678">Contexts</h5>
+<div class="outline-text-5" id="text-org8780678">
 <p>
 A <b>context</b> is a collection of assumptions in which a judgment may depend on.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org98ead32" class="outline-5">
-<h5 id="org98ead32">Rules and axioms of type theory</h5>
-<div class="outline-text-5" id="text-org98ead32">
+<div id="outline-container-orga1bbaca" class="outline-5">
+<h5 id="orga1bbaca">Rules and axioms of type theory</h5>
+<div class="outline-text-5" id="text-orga1bbaca">
 <p>
 Rules of type theory can be grouped into type formers, procedural ways
 to construct types. Usually, no axioms are necessary in type theory.
@@ -349,12 +1247,12 @@ to construct types. Usually, no axioms are necessary in type theory.
 </div>
 </div>
 
-<div id="outline-container-org25b8f45" class="outline-4">
-<h4 id="org25b8f45">I.1.2. Function types</h4>
-<div class="outline-text-4" id="text-org25b8f45">
-</div><div id="outline-container-orgbe03524" class="outline-5">
-<h5 id="orgbe03524">Functions</h5>
-<div class="outline-text-5" id="text-orgbe03524">
+<div id="outline-container-org9db20b6" class="outline-4">
+<h4 id="org9db20b6">I.1.2. Function types</h4>
+<div class="outline-text-4" id="text-org9db20b6">
+</div><div id="outline-container-org64ac13b" class="outline-5">
+<h5 id="org64ac13b">Functions</h5>
+<div class="outline-text-5" id="text-org64ac13b">
 <p>
 Given types \(A,B\), \(A \to B\) is the type of <b>maps</b> or <b>functions</b> between them.
 Functions are a primitive concept of type theory; given \(f : A \to B\), it can
@@ -362,9 +1260,9 @@ be applied to \(a \colon A\) to obtain \(f a : B\).
 </p>
 </div>
 
-<div id="outline-container-org0769fae" class="outline-6">
-<h6 id="org0769fae">Constructing functions</h6>
-<div class="outline-text-6" id="text-org0769fae">
+<div id="outline-container-orgf9e9b34" class="outline-6">
+<h6 id="orgf9e9b34">Constructing functions</h6>
+<div class="outline-text-6" id="text-orgf9e9b34">
 <p>
 Given \(\Phi\), an expression of type \(B\) assuming \(x : A\); we can define a function
 as
@@ -393,9 +1291,9 @@ and also as a &lambda;-expression, written as
 </div>
 </div>
 
-<div id="outline-container-org620f2b9" class="outline-5">
-<h5 id="org620f2b9">&beta;-reduction</h5>
-<div class="outline-text-5" id="text-org620f2b9">
+<div id="outline-container-orge33a4db" class="outline-5">
+<h5 id="orge33a4db">&beta;-reduction</h5>
+<div class="outline-text-5" id="text-orge33a4db">
 <p>
 <b>&beta;-reduction</b> is a computation rule defined by
 </p>
@@ -413,9 +1311,9 @@ the binding structure is preserved; maybe renaming variables.
 </div>
 </div>
 
-<div id="outline-container-org52ecd79" class="outline-5">
-<h5 id="org52ecd79">&eta;-reduction</h5>
-<div class="outline-text-5" id="text-org52ecd79">
+<div id="outline-container-org4148a93" class="outline-5">
+<h5 id="org4148a93">&eta;-reduction</h5>
+<div class="outline-text-5" id="text-org4148a93">
 <p>
 <b>&eta;-reduction</b>, often called <i>uniqueness principle for function types</i>
 is the computation rule defined by
@@ -429,9 +1327,9 @@ f \equiv (\lambda x. f(x)).
 </div>
 </div>
 
-<div id="outline-container-org49dc96e" class="outline-5">
-<h5 id="org49dc96e">Currying</h5>
-<div class="outline-text-5" id="text-org49dc96e">
+<div id="outline-container-org188598e" class="outline-5">
+<h5 id="org188598e">Currying</h5>
+<div class="outline-text-5" id="text-org188598e">
 <p>
 <b>Currying</b> is a way to define multiple-input functions as functions returning
 partially aplied functions. For example, \(f : A \to (B \to C)\) can be applied
@@ -440,20 +1338,21 @@ to two arguments as \((f\ a)\ b : C\).
 </div>
 </div>
 </div>
-<div id="outline-container-org0df62ce" class="outline-4">
-<h4 id="org0df62ce">I.1.3. Universes and families</h4>
-<div class="outline-text-4" id="text-org0df62ce">
-</div><div id="outline-container-org0f86462" class="outline-5">
-<h5 id="org0f86462">Universes</h5>
-<div class="outline-text-5" id="text-org0f86462">
+
+<div id="outline-container-orgd747131" class="outline-4">
+<h4 id="orgd747131">I.1.3. Universes and families</h4>
+<div class="outline-text-4" id="text-orgd747131">
+</div><div id="outline-container-org70cae22" class="outline-5">
+<h5 id="org70cae22">Universes</h5>
+<div class="outline-text-5" id="text-org70cae22">
 <p>
 A <b>universe</b> is a type whose elements are types.
 </p>
 </div>
 
-<div id="outline-container-orgad9c31b" class="outline-6">
-<h6 id="orgad9c31b">Russell's paradox</h6>
-<div class="outline-text-6" id="text-orgad9c31b">
+<div id="outline-container-org05b9fb1" class="outline-6">
+<h6 id="org05b9fb1">Russell's paradox</h6>
+<div class="outline-text-6" id="text-org05b9fb1">
 <p>
 As in set theory, a universe of all types including itself, \({\cal U}_{\infty} : {\cal U}_{\infty}\), is
 unsound.
@@ -461,9 +1360,9 @@ unsound.
 </div>
 </div>
 
-<div id="outline-container-orgbb5e49a" class="outline-6">
-<h6 id="orgbb5e49a">Hierarchy of universes</h6>
-<div class="outline-text-6" id="text-orgbb5e49a">
+<div id="outline-container-orge2d6bed" class="outline-6">
+<h6 id="orge2d6bed">Hierarchy of universes</h6>
+<div class="outline-text-6" id="text-orge2d6bed">
 <p>
 A cumulative hierarchy of universes is defined, where every universe
 is an elemtn of the next universe, \({\cal U}_i : {\cal U}_{i+1}\); and all the elements of
@@ -484,9 +1383,9 @@ it is necessary.
 </div>
 </div>
 
-<div id="outline-container-orgbe22c40" class="outline-5">
-<h5 id="orgbe22c40">Families of types</h5>
-<div class="outline-text-5" id="text-orgbe22c40">
+<div id="outline-container-orge714199" class="outline-5">
+<h5 id="orge714199">Families of types</h5>
+<div class="outline-text-5" id="text-orge714199">
 <p>
 A <b>family of types</b>, is a collection of types varying over a type
 variable \(A\). They are functions whose codomain is a universe, \(f : A \to {\cal U}\).
@@ -495,21 +1394,21 @@ variable \(A\). They are functions whose codomain is a universe, \(f : A \to {\c
 </div>
 </div>
 
-<div id="outline-container-org35f4a9c" class="outline-4">
-<h4 id="org35f4a9c">I.1.4. Dependent function types (&Pi;-types)</h4>
-<div class="outline-text-4" id="text-org35f4a9c">
-</div><div id="outline-container-orgb55e368" class="outline-5">
-<h5 id="orgb55e368">Dependent function types</h5>
-<div class="outline-text-5" id="text-orgb55e368">
+<div id="outline-container-org7d9ce93" class="outline-4">
+<h4 id="org7d9ce93">I.1.4. Dependent function types (&Pi;-types)</h4>
+<div class="outline-text-4" id="text-org7d9ce93">
+</div><div id="outline-container-org010f229" class="outline-5">
+<h5 id="org010f229">Dependent function types</h5>
+<div class="outline-text-5" id="text-org010f229">
 <p>
 Given \(A : {\cal U}\) and \(B : A \to {\cal U}\), we construct the type of <b>dependent functions</b>
 as \(\prod_{(x:A)}B(x) : {\cal U}\).
 </p>
 </div>
 
-<div id="outline-container-org6945284" class="outline-6">
-<h6 id="org6945284">Constructing dependent functions</h6>
-<div class="outline-text-6" id="text-org6945284">
+<div id="outline-container-org43e91ee" class="outline-6">
+<h6 id="org43e91ee">Constructing dependent functions</h6>
+<div class="outline-text-6" id="text-org43e91ee">
 <p>
 Given \(\Phi : B(x)\), a expression assuming \(x : A\), we can use &lambda;-abstraction
 to write
@@ -523,9 +1422,9 @@ to write
 </div>
 </div>
 
-<div id="outline-container-org0f9cab8" class="outline-6">
-<h6 id="org0f9cab8">Reductions</h6>
-<div class="outline-text-6" id="text-org0f9cab8">
+<div id="outline-container-org40bbeb5" class="outline-6">
+<h6 id="org40bbeb5">Reductions</h6>
+<div class="outline-text-6" id="text-org40bbeb5">
 <p>
 &beta; and &eta;-reductions still hold on dependent functions.
 </p>
@@ -533,18 +1432,18 @@ to write
 </div>
 </div>
 
-<div id="outline-container-orgcb549b8" class="outline-5">
-<h5 id="orgcb549b8">Polymorphic functions</h5>
-<div class="outline-text-5" id="text-orgcb549b8">
+<div id="outline-container-orgc3101ca" class="outline-5">
+<h5 id="orgc3101ca">Polymorphic functions</h5>
+<div class="outline-text-5" id="text-orgc3101ca">
 <p>
 A <b>polymorphic function</b> takes a type as one of its arguments, and acts on
 elements of that type.
 </p>
 </div>
 
-<div id="outline-container-org961c617" class="outline-6">
-<h6 id="org961c617">The identity function</h6>
-<div class="outline-text-6" id="text-org961c617">
+<div id="outline-container-org9649983" class="outline-6">
+<h6 id="org9649983">The identity function</h6>
+<div class="outline-text-6" id="text-org9649983">
 <p>
 The polymorphic identity function \(\mathrm{id} : \prod_{(A:{\cal U})} A \to A}\) is defined as
 \(\mathrm{id} =& \lambda (A:{\cal U}) . \lambda (x:A) . x\).
@@ -553,12 +1452,13 @@ The polymorphic identity function \(\mathrm{id} : \prod_{(A:{\cal U})} A \to A}\
 </div>
 </div>
 </div>
-<div id="outline-container-org9871ab8" class="outline-4">
-<h4 id="org9871ab8">I.1.5. Product types</h4>
-<div class="outline-text-4" id="text-org9871ab8">
-</div><div id="outline-container-org93b3cfd" class="outline-5">
-<h5 id="org93b3cfd">Cartesian product</h5>
-<div class="outline-text-5" id="text-org93b3cfd">
+
+<div id="outline-container-orgef2c263" class="outline-4">
+<h4 id="orgef2c263">I.1.5. Product types</h4>
+<div class="outline-text-4" id="text-orgef2c263">
+</div><div id="outline-container-orgda2d7c9" class="outline-5">
+<h5 id="orgda2d7c9">Cartesian product</h5>
+<div class="outline-text-5" id="text-orgda2d7c9">
 <p>
 Given \(A,B : {\cal U}\), the <b>cartesian product type</b> \(A \times B : {\cal U}\) contains pairs
 \((a,b) : A \times B\), where \(a:A\) and \(b:B\). A function on a product type is
@@ -577,21 +1477,21 @@ where \(g : A \to B \to C\).
 </div>
 </div>
 
-<div id="outline-container-orgdd748e1" class="outline-5">
-<h5 id="orgdd748e1">Unit type</h5>
-<div class="outline-text-5" id="text-orgdd748e1">
+<div id="outline-container-orge3351a5" class="outline-5">
+<h5 id="orge3351a5">Unit type</h5>
+<div class="outline-text-5" id="text-orge3351a5">
 <p>
 The <b>unit type</b> \(1\) has a unique element \(\star : 1\).
 </p>
 </div>
 </div>
 
-<div id="outline-container-org93d151e" class="outline-5">
-<h5 id="org93d151e"><span class="todo TODO">TODO</span> Introducing new types</h5>
+<div id="outline-container-org4877f61" class="outline-5">
+<h5 id="org4877f61">Introducing new types</h5>
 </div>
-<div id="outline-container-org60267ca" class="outline-5">
-<h5 id="org60267ca">Product type recursor</h5>
-<div class="outline-text-5" id="text-org60267ca">
+<div id="outline-container-org3d43876" class="outline-5">
+<h5 id="org3d43876">Product type recursor</h5>
+<div class="outline-text-5" id="text-org3d43876">
 <p>
 The <b>recursor</b> for product types symbolizes the fact that we can define a 
 function on a product type only by giving its value on pairs,
@@ -613,19 +1513,19 @@ where it has type
 </div>
 </div>
 
-<div id="outline-container-org8f5e1e0" class="outline-5">
-<h5 id="org8f5e1e0"><span class="todo TODO">TODO</span> Unit type recursor</h5>
+<div id="outline-container-orgd98e9df" class="outline-5">
+<h5 id="orgd98e9df">Unit type recursor</h5>
 </div>
 
-<div id="outline-container-org54764fa" class="outline-5">
-<h5 id="org54764fa"><span class="todo TODO">TODO</span> Product type dependent recursor</h5>
+<div id="outline-container-org9cf320a" class="outline-5">
+<h5 id="org9cf320a">Product type dependent recursor</h5>
 </div>
-<div id="outline-container-orgbb9b1f3" class="outline-5">
-<h5 id="orgbb9b1f3"><span class="todo TODO">TODO</span> Propositional uniqueness principle</h5>
+<div id="outline-container-org7ac3edc" class="outline-5">
+<h5 id="org7ac3edc">Propositional uniqueness principle</h5>
 </div>
-<div id="outline-container-org1180953" class="outline-5">
-<h5 id="org1180953">Induction principle on product types</h5>
-<div class="outline-text-5" id="text-org1180953">
+<div id="outline-container-org7173f6e" class="outline-5">
+<h5 id="org7173f6e">Induction principle on product types</h5>
+<div class="outline-text-5" id="text-org7173f6e">
 <p>
 The induction principle on product types has type
 </p>
@@ -644,20 +1544,20 @@ and defining equation \(\mathtt{ind}_{A \times B} (C,g,(a,b)) :\equiv g(a)(b)\).
 </div>
 </div>
 
-<div id="outline-container-orgdb3d961" class="outline-5">
-<h5 id="orgdb3d961"><span class="todo TODO">TODO</span> Induction principle on unit types</h5>
+<div id="outline-container-orga3861e7" class="outline-5">
+<h5 id="orga3861e7">Induction principle on unit types</h5>
 </div>
 </div>
 
-<div id="outline-container-orga2ad2a6" class="outline-4">
-<h4 id="orga2ad2a6">I.1.6. Dependent type pairs (&Sigma;-types)</h4>
-<div class="outline-text-4" id="text-orga2ad2a6">
-</div><div id="outline-container-org4a70948" class="outline-5">
-<h5 id="org4a70948"><span class="todo TODO">TODO</span> Type-theoretic axiom of choice</h5>
+<div id="outline-container-orgc211b75" class="outline-4">
+<h4 id="orgc211b75">I.1.6. Dependent type pairs (&Sigma;-types)</h4>
+<div class="outline-text-4" id="text-orgc211b75">
+</div><div id="outline-container-orgc4dd491" class="outline-5">
+<h5 id="orgc4dd491">Type-theoretic axiom of choice</h5>
 </div>
-<div id="outline-container-org8b1bec1" class="outline-5">
-<h5 id="org8b1bec1">Example: Magmas</h5>
-<div class="outline-text-5" id="text-org8b1bec1">
+<div id="outline-container-org25283cb" class="outline-5">
+<h5 id="org25283cb">Example: Magmas</h5>
+<div class="outline-text-5" id="text-org25283cb">
 <p>
 We can define a <b>magma</b> as
 </p>
@@ -670,39 +1570,53 @@ We can define a <b>magma</b> as
 </div>
 </div>
 </div>
-<div id="outline-container-org409df26" class="outline-4">
-<h4 id="org409df26">I.1.7. Coproduct types</h4>
-<div class="outline-text-4" id="text-org409df26">
-</div><div id="outline-container-org07ff06e" class="outline-5">
-<h5 id="org07ff06e"><span class="todo TODO">TODO</span> Coproduct type</h5>
+<div id="outline-container-orgde1fd7b" class="outline-4">
+<h4 id="orgde1fd7b">I.1.7. Coproduct types</h4>
+<div class="outline-text-4" id="text-orgde1fd7b">
+</div><div id="outline-container-org0a0e7b9" class="outline-5">
+<h5 id="org0a0e7b9">Coproduct type</h5>
 </div>
-<div id="outline-container-orga38ddd6" class="outline-5">
-<h5 id="orga38ddd6"><span class="todo TODO">TODO</span> Empty type</h5>
-</div>
-</div>
-<div id="outline-container-org05d0146" class="outline-4">
-<h4 id="org05d0146">I.1.8. The type of booleans</h4>
-<div class="outline-text-4" id="text-org05d0146">
-</div><div id="outline-container-org599f76d" class="outline-5">
-<h5 id="org599f76d"><span class="todo TODO">TODO</span> if-then-else</h5>
-</div>
-<div id="outline-container-orgd4935ab" class="outline-5">
-<h5 id="orgd4935ab"><span class="todo TODO">TODO</span> Coproducts as dependent types</h5>
+<div id="outline-container-org9c645d9" class="outline-5">
+<h5 id="org9c645d9">Empty type</h5>
 </div>
 </div>
-<div id="outline-container-org81c8705" class="outline-4">
-<h4 id="org81c8705">I.1.9. The natural numbers</h4>
-<div class="outline-text-4" id="text-org81c8705">
-</div><div id="outline-container-org5fe0d89" class="outline-5">
-<h5 id="org5fe0d89"><span class="todo TODO">TODO</span> Natural numbers</h5>
+<div id="outline-container-org1c70764" class="outline-4">
+<h4 id="org1c70764">I.1.8. The type of booleans</h4>
+<div class="outline-text-4" id="text-org1c70764">
+</div><div id="outline-container-org8a4db44" class="outline-5">
+<h5 id="org8a4db44">if-then-else</h5>
 </div>
-<div id="outline-container-org1759e74" class="outline-5">
-<h5 id="org1759e74"><span class="todo TODO">TODO</span> Associativity</h5>
+<div id="outline-container-orgf05394d" class="outline-5">
+<h5 id="orgf05394d">Coproducts as dependent types</h5>
 </div>
 </div>
-<div id="outline-container-org7a5a825" class="outline-4">
-<h4 id="org7a5a825">I.1.10. Pattern matching and recursion</h4>
-<div class="outline-text-4" id="text-org7a5a825">
+<div id="outline-container-org300a2cf" class="outline-4">
+<h4 id="org300a2cf">I.1.9. The natural numbers</h4>
+<div class="outline-text-4" id="text-org300a2cf">
+</div><div id="outline-container-orgfe8a9d1" class="outline-5">
+<h5 id="orgfe8a9d1">Natural numbers</h5>
+</div>
+<div id="outline-container-orgf606218" class="outline-5">
+<h5 id="orgf606218">Addition</h5>
+<div class="outline-text-5" id="text-orgf606218">
+<p>
+We define \(\mathsf{add} : \mathbb{N} \to \mathbb{N} \to \mathbb{N}\) as
+</p>
+
+<ul class="org-ul">
+<li>\(\mathsf{add}(0,n) \equiv n\),</li>
+<li>\(\mathsf{add}(\succ(m),n) \equiv \succ(\mathsf{add}(m,n))\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcd6dc86" class="outline-5">
+<h5 id="orgcd6dc86">Associativity</h5>
+</div>
+</div>
+<div id="outline-container-orgc49330b" class="outline-4">
+<h4 id="orgc49330b">I.1.10. Pattern matching and recursion</h4>
+<div class="outline-text-4" id="text-orgc49330b">
 <p>
 We would like to define a function only writing its <i>defining equations</i>.
 An example of this is this <code>double</code> function
@@ -740,9 +1654,9 @@ f :\equiv \mathtt{rec}_{\mathbb{N}} (C,\Phi_0,\lambda n. \lambda r. \Phi'_{s}).
 </div>
 </div>
 
-<div id="outline-container-org9c19f8b" class="outline-4">
-<h4 id="org9c19f8b">I.1.11. Propositions as types</h4>
-<div class="outline-text-4" id="text-org9c19f8b">
+<div id="outline-container-orgf8cd0a8" class="outline-4">
+<h4 id="orgf8cd0a8">I.1.11. Propositions as types</h4>
+<div class="outline-text-4" id="text-orgf8cd0a8">
 <p>
 An element of the type corresponding to a proposition is a <b>witness</b> or 
 a <b>proof</b> of the truth of that proposition. From this perspective, proofs
@@ -750,13 +1664,13 @@ are mathematical objects per se.
 </p>
 </div>
 
-<div id="outline-container-orgda7f470" class="outline-5">
-<h5 id="orgda7f470">Falsity and negation</h5>
+<div id="outline-container-org702732f" class="outline-5">
+<h5 id="org702732f">Falsity and negation</h5>
 </div>
 
-<div id="outline-container-org1720c55" class="outline-5">
-<h5 id="org1720c55">Constructive logic</h5>
-<div class="outline-text-5" id="text-org1720c55">
+<div id="outline-container-org4662a13" class="outline-5">
+<h5 id="org4662a13">Constructive logic</h5>
+<div class="outline-text-5" id="text-org4662a13">
 <p>
 The natural interpretation of propositions-as-types is <i>constructive</i>,
 meaning that certain tautologies on classical logic, such as the 
@@ -770,9 +1684,9 @@ The logic is still compatible with the presence of the LEM as an axiom.
 </div>
 </div>
 
-<div id="outline-container-orgd4e87d1" class="outline-4">
-<h4 id="orgd4e87d1">I.1.12. Identity types</h4>
-<div class="outline-text-4" id="text-orgd4e87d1">
+<div id="outline-container-org8ea34db" class="outline-4">
+<h4 id="org8ea34db">I.1.12. Identity types</h4>
+<div class="outline-text-4" id="text-org8ea34db">
 <p>
 \[ \mathtt{refl} : \prod_{a:A} (a =_A a)
 \]
@@ -780,11 +1694,4566 @@ The logic is still compatible with the presence of the LEM as an axiom.
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgf4090c9" class="outline-3">
+<h3 id="orgf4090c9">I.2. Homotopy type theory</h3>
+<div class="outline-text-3" id="text-orgf4090c9">
+<p>
+In homotopy type theory, each type has the structure of an
+\(\infty\text{-groupoid}\), arising from the induction principle for
+identity types.
+</p>
+
+<p>
+Homotopy type theory provides a <i>synthetic</i> description of the spaces,
+in contrast with the usual analytic approach of topology.
+</p>
+</div>
+
+<div id="outline-container-org0bf05aa" class="outline-4">
+<h4 id="org0bf05aa">2.1. Types are higher groupoids</h4>
+<div class="outline-text-4" id="text-org0bf05aa">
+</div><div id="outline-container-org376980a" class="outline-5">
+<h5 id="org376980a">2.1.1. Path inverse</h5>
+<div class="outline-text-5" id="text-org376980a">
+<p>
+Given \(x,y : A\), there is a function called <b>inverse</b>
+</p>
+
+<p>
+\[
+(-)^{-1} : (x = y) \to (y = x)
+\]
+</p>
+
+<p>
+such that \(\refl^{-1} = \refl\).
+</p>
+</div>
+
+<div id="outline-container-org5492682" class="outline-6">
+<h6 id="org5492682">Proof</h6>
+<div class="outline-text-6" id="text-org5492682">
+<p>
+Given \(p : x = y\), we apply path induction and then provide \(\refl : x = x\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc17ad6b" class="outline-5">
+<h5 id="orgc17ad6b">2.1.2. Path composition</h5>
+<div class="outline-text-5" id="text-orgc17ad6b">
+<p>
+Given \(x,y,z : A\), there is a function called <b>concatenation</b>
+</p>
+
+<p>
+\[
+\cdot : (x = y) \to (y = z) \to (x = z)
+\]
+</p>
+
+<p>
+such that \(\refl \cdot \refl = \refl\).
+</p>
+</div>
+
+<div id="outline-container-org8665c62" class="outline-6">
+<h6 id="org8665c62">First proof</h6>
+<div class="outline-text-6" id="text-org8665c62">
+<p>
+Given \(p \cdot q\), we apply path induction on \(p\) and \(q\). Definitionally,
+we can provide an element of \(x = x\),
+</p>
+
+<p>
+\[
+\refl \cdot \refl = \refl
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org08ffde2" class="outline-6">
+<h6 id="org08ffde2">Second proof</h6>
+<div class="outline-text-6" id="text-org08ffde2">
+<p>
+We apply path induction over \(p\), and provide \(q\) as an element
+of \(x = z\). We have \(\refl \cdot q \equiv q\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org601c27c" class="outline-6">
+<h6 id="org601c27c">Third proof</h6>
+<div class="outline-text-6" id="text-org601c27c">
+<p>
+We apply path induction over \(q\), and provide \(p\) as an element
+of \(x = y\). We have \(p \cdot \refl \equiv p\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3283685" class="outline-6">
+<h6 id="org3283685">Proof-relevance and definitional equalities</h6>
+<div class="outline-text-6" id="text-org3283685">
+<p>
+These three proofs are not definitionally equal, and they provide
+different functions with sightly different definitions. In particular,
+we get three different definitional equalities
+</p>
+
+<ol class="org-ol">
+<li>\(\refl \cdot \refl \equiv \refl\),</li>
+
+<li>\(p \cdot \refl \equiv p\),</li>
+
+<li>\(\refl \cdot q \equiv q\);</li>
+</ol>
+
+<p>
+and, while doing informal mathematics, we will prefer the symmetry of
+the first one.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org13ae65b" class="outline-5">
+<h5 id="org13ae65b">2.1.4. Path operation properties</h5>
+</div>
+
+<div id="outline-container-orgcb7d83d" class="outline-5">
+<h5 id="orgcb7d83d">2.1.6. Eckmann-Hilton</h5>
+</div>
+<div id="outline-container-orgf110f1d" class="outline-5">
+<h5 id="orgf110f1d">2.1.7. Pointed type</h5>
+<div class="outline-text-5" id="text-orgf110f1d">
+<p>
+A <b>pointed type</b> is a type with a basepoint of that type. That is,
+\({\cal U}_{\bullet} :\equiv \sum_{A:{\cal U}} A\) is the type of pointed types.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org11cda18" class="outline-5">
+<h5 id="org11cda18">2.1.8. Loop spaces</h5>
+<div class="outline-text-5" id="text-org11cda18">
+<p>
+Given a pointed type \((A,a)\), we define the <b>loop space</b> as
+</p>
+
+<p>
+\[
+\Omega(A,a) :\equiv ((a=a),\refl_a)
+\]
+</p>
+
+<p>
+and the <b>n-fold iterated loop space</b> recursively as
+</p>
+
+<ul class="org-ul">
+<li>\(\Omega^0(A,a) :\equiv (A,a)\),</li>
+
+<li>\(\Omega^{n+1}(A,a) :\equiv \Omega^n(\Omega(A,a))\).</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org67b3b2d" class="outline-4">
+<h4 id="org67b3b2d">2.2. Functions are functors</h4>
+<div class="outline-text-4" id="text-org67b3b2d">
+</div><div id="outline-container-orgb5eea8c" class="outline-5">
+<h5 id="orgb5eea8c">2.2.1. Definition of ap</h5>
+<div class="outline-text-5" id="text-orgb5eea8c">
+<p>
+Given \(f: A \to B\), there is an operation
+</p>
+
+<p>
+\[
+\ap_f : x=y \to f(x) = f(y)
+\]
+</p>
+
+<p>
+such that \(\ap_f(\refl) \equiv \refl_{f(x)}\).
+</p>
+</div>
+
+<div id="outline-container-org6cb2164" class="outline-6">
+<h6 id="org6cb2164">Notation</h6>
+<div class="outline-text-6" id="text-org6cb2164">
+<p>
+We write \(\ap_f(p)\) as \(f(p)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0a15032" class="outline-6">
+<h6 id="org0a15032">Proof</h6>
+<div class="outline-text-6" id="text-org0a15032">
+<p>
+Trivially defined by path induction.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org82c9f42" class="outline-5">
+<h5 id="org82c9f42">2.2.2. Functioriality of ap</h5>
+<div class="outline-text-5" id="text-org82c9f42">
+<p>
+Given \(f : A \to B\) and \(g : B \to C\) and paths \(p : x = y\) and
+\(q : y = z\), we have
+</p>
+
+<ol class="org-ol">
+<li>\(\ap_f(p \cdot q) = \ap_f(p) \cdot \ap_f(q)\)</li>
+<li>\(\ap_f(p^{-1}) = ap_f(p)^{-1}\)</li>
+<li>\(\ap_g(\ap_f(p)) = \ap_{g \circ f}(p)\)</li>
+<li>\(\ap_{id_A}(p) = p\)</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc3ffd94" class="outline-6">
+<h6 id="orgc3ffd94">Proof</h6>
+<div class="outline-text-6" id="text-orgc3ffd94">
+<p>
+Trivial by path induction on \(p\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5d5c5c6" class="outline-4">
+<h4 id="org5d5c5c6">2.3. Type families are fibrations</h4>
+<div class="outline-text-4" id="text-org5d5c5c6">
+</div><div id="outline-container-org681ed97" class="outline-5">
+<h5 id="org681ed97">2.3.1. Transport</h5>
+<div class="outline-text-5" id="text-org681ed97">
+<p>
+Given \(P : A \to {\cal U}\) and \(p : x = y\), there exists a function
+</p>
+
+<p>
+\[
+p_{\ast} : P(x) \to P(y),
+\]
+</p>
+
+<p>
+such that \(\refl_{\ast}\) is the identity.
+</p>
+</div>
+
+<div id="outline-container-orgc44cbe7" class="outline-6">
+<h6 id="orgc44cbe7">Notation</h6>
+<div class="outline-text-6" id="text-orgc44cbe7">
+<p>
+Sometimes we notate transport as
+</p>
+
+<p>
+\[
+p_{\ast} \equiv \transport^P(p,-) : P(x) \to P(y).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org883cdea" class="outline-6">
+<h6 id="org883cdea">Proof</h6>
+<div class="outline-text-6" id="text-org883cdea">
+<p>
+Applying path induction over \(p\), \(x \equiv y\) and \(\id : P(x) \to P(x)\)
+is an inhabitant of the type.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org32aaab0" class="outline-5">
+<h5 id="org32aaab0">2.3.2. Path lifting property</h5>
+<div class="outline-text-5" id="text-org32aaab0">
+<p>
+Given \(P : A \to {\cal U}\) and \(u : P(x)\), for any \(p : x = y\),
+</p>
+
+<p>
+\[
+\mathsf{lift}(u,p) : (x,u) = (y, p_{\ast}(u));
+\]
+</p>
+
+<p>
+in \(\sum_{x:A}P(x)\) such that \(\mathsf{pr}_1(\mathsf{lift}(u,p)) = p\).
+</p>
+</div>
+
+<div id="outline-container-orgc8c03cc" class="outline-6">
+<h6 id="orgc8c03cc">Proof</h6>
+<div class="outline-text-6" id="text-orgc8c03cc">
+<p>
+The first component is given by \(p\), the second one can be defined
+applying path induction over \(p\) and, knowing that \(x \equiv y\) and thus,
+\(u \equiv p_{\ast}(u)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5de692f" class="outline-5">
+<h5 id="org5de692f">2.3.4. Dependent map</h5>
+<div class="outline-text-5" id="text-org5de692f">
+<p>
+Given \(f : \prod_{x:A} P(x)\) there exists a map
+</p>
+
+<p>
+\[
+\apd_f : \prod_{p : x=y} p_{\ast}(f(x)) =_{P(y)} f(y)
+\]
+</p>
+</div>
+
+<div id="outline-container-orgbfb5075" class="outline-6">
+<h6 id="orgbfb5075">Proof</h6>
+<div class="outline-text-6" id="text-orgbfb5075">
+<p>
+Path induction.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org946e7f9" class="outline-5">
+<h5 id="org946e7f9">2.3.5. Constant transport</h5>
+</div>
+<div id="outline-container-orgb560ee3" class="outline-5">
+<h5 id="orgb560ee3">2.3.8. Constant plus dependent transport</h5>
+</div>
+<div id="outline-container-orgb34b655" class="outline-5">
+<h5 id="orgb34b655">2.3.9. Transport composition lemma</h5>
+<div class="outline-text-5" id="text-orgb34b655">
+<p>
+Given \(P : A \to {\cal U}\), \(p : x = y\) and \(q : y = z\), for \(u : P(x)\) we have
+</p>
+
+<p>
+\[
+q_{\ast}(p_{\ast}(u)) = (p \cdot q)_{\ast} (u).
+\]
+</p>
+</div>
+
+<div id="outline-container-org0df5d74" class="outline-6">
+<h6 id="org0df5d74">Proof</h6>
+<div class="outline-text-6" id="text-org0df5d74">
+<p>
+Double path induction.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3b8ea60" class="outline-5">
+<h5 id="org3b8ea60">2.3.10. Transport precomposition lemma</h5>
+</div>
+<div id="outline-container-org51f6b6f" class="outline-5">
+<h5 id="org51f6b6f">2.3.11. Naturality of transport</h5>
+</div>
+</div>
+<div id="outline-container-org6283639" class="outline-4">
+<h4 id="org6283639">2.4. Homotopies and equivalences</h4>
+<div class="outline-text-4" id="text-org6283639">
+</div><div id="outline-container-orga7beee6" class="outline-5">
+<h5 id="orga7beee6">2.4.1. Homotopy</h5>
+<div class="outline-text-5" id="text-orga7beee6">
+<p>
+A <b>homotopy</b> between \(f, g : \prod_{x:A} P(x)\) is a dependent function
+of type
+</p>
+
+<p>
+\[
+(f \sim g) :\equiv \prod_{x:A} f(x) = g(x).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1f8b3f7" class="outline-5">
+<h5 id="org1f8b3f7">2.4.2. Homotopy is an equivalence relation</h5>
+<div class="outline-text-5" id="text-org1f8b3f7">
+<p>
+Homotopy is an equivalence relation on each dependent function
+type \(\prod_{x:A} P(x)\). We have elements of
+</p>
+
+<ol class="org-ol">
+<li><p>
+reflexivity
+</p>
+
+<p>
+\[
+    \prod_{f:\prod_{x:A} P(x)} (f \sim f)
+    \]
+</p></li>
+
+<li><p>
+symmetry
+</p>
+
+<p>
+\[
+    \prod_{f,g : \prod_{x:A}P(x)} (f \sim g) \to (g \sim f)
+    \]
+</p></li>
+
+<li><p>
+transitivity
+</p>
+
+<p>
+\[
+    \prod_{f,g,h : \prod_{x:A} P(x)} (f \sim g) \to (g \sim h) \to (f \sim h)
+    \]
+</p></li>
+</ol>
+</div>
+
+<div id="outline-container-org845b932" class="outline-6">
+<h6 id="org845b932">Proof</h6>
+<div class="outline-text-6" id="text-org845b932">
+<p>
+Given any \(f\) and \(x\), \(\refl\) is of type \(f(x) = f(x)\).
+</p>
+
+<p>
+Given any \(f,g\) such that \(f \sim g\), for every \(x\), we have an inhabitant of
+\(f \sim g\). By path induction, it must be \(\refl\), so \(\refl : g(x) = f(x)\).
+</p>
+
+<p>
+Given any \(f,g,h\) such that \(f \sim g\) and \(g \sim h\), for every \(x\), we
+have \(f(x) = g(x) = h(x)\), and, in particular \(f(x) = h(x)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7a72eab" class="outline-5">
+<h5 id="org7a72eab">2.4.3. Naturality of homotopies</h5>
+<div class="outline-text-5" id="text-org7a72eab">
+<p>
+Given \(H : f \sim g\) and \(p : x = y\), 
+</p>
+
+<p>
+\[
+H(x) \cdot g(p) = f(p) \cdot H(y).
+\]
+</p>
+
+<p>
+As a commutative diagram,
+</p>
+
+<p>
+\[\begin{tikzcd}
+f(x)\rar[equal]{f(p)} \dar[swap,equal]{H(x)} & 
+f(y)\dar[equal]{H(y)} \\
+g(x)\rar[equal]{g(p)} &
+g(y)
+\end{tikzcd}\]
+</p>
+</div>
+
+
+<div id="outline-container-org7434667" class="outline-6">
+<h6 id="org7434667">Proof</h6>
+<div class="outline-text-6" id="text-org7434667">
+<p>
+By path induction, \(p = \refl\), and \(\ap\) computes on reflexivity.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga711e62" class="outline-5">
+<h5 id="orga711e62">2.4.4. Endonaturality of homotopies</h5>
+<div class="outline-text-5" id="text-orga711e62">
+<p>
+Given \(H : f \sim \id_{A}\), for any \(x : A\),
+</p>
+
+<p>
+\[
+H(f(x)) = f(H(x))
+\]
+</p>
+</div>
+
+<div id="outline-container-org74180aa" class="outline-6">
+<h6 id="org74180aa">Proof</h6>
+<div class="outline-text-6" id="text-org74180aa">
+<p>
+By naturality, and knowing that \(H(x) : f(x) = x\), 
+</p>
+
+<p>
+\[\begin{tikzcd}
+f(x)\rar[equal]{f(H(x))} \dar[swap,equal]{H(x)} & 
+f(f(x))\dar[equal]{H(f(x))} \\
+x\rar[equal]{H(x)} &
+f(x)
+\end{tikzcd}\]
+</p>
+
+<p>
+thus,
+</p>
+
+<p>
+\[
+f(H(x)) \cdot H(x) = H(f(x)) \cdot H(x),
+\]
+</p>
+
+<p>
+and then \(f(H(x)) = H(f(x))\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41b262e" class="outline-5">
+<h5 id="org41b262e">2.4.6. Quasi-inverse</h5>
+<div class="outline-text-5" id="text-org41b262e">
+<p>
+A <b>quasi-inverse</b> of \(f : A \to B\) is a triple \((g,\alpha,\beta)\) with homotopies
+\(\alpha : f \circ g \sim \id_B\) and \(\beta : g \circ f \sim \id_A\).
+</p>
+
+<p>
+\[
+\mathsf{qinv}(f) = \sum_{g:B \to A} (f \circ g \sim \id) \times (g \circ f \sim \id).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9dcc99c" class="outline-5">
+<h5 id="org9dcc99c">2.4.9. Transport has a quasi-inverse</h5>
+<div class="outline-text-5" id="text-org9dcc99c">
+<p>
+The transport \(p : x = y\) for \(P \colon A \to {\cal U}\),
+</p>
+
+<p>
+\[
+\mathsf{transport}^P(p,-) : P(x) \to P(y)
+\]
+</p>
+
+<p>
+has a quasiinverse \(\transport^P(p^{-1},-)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5f57860" class="outline-4">
+<h4 id="org5f57860">2.5. Higher groupoid structure of type formers</h4>
+</div>
+
+<div id="outline-container-org000ea7d" class="outline-4">
+<h4 id="org000ea7d">2.6. Cartesian product types</h4>
+<div class="outline-text-4" id="text-org000ea7d">
+</div><div id="outline-container-org28f8543" class="outline-5">
+<h5 id="org28f8543">2.6.2. Cartesian product equalities</h5>
+<div class="outline-text-5" id="text-org28f8543">
+<p>
+For any \(x,y\), the function
+</p>
+
+<p>
+\[
+x = y \to (\proj_1(x) = \proj_1(y)) \times (\proj_2(x) = \proj_2(y))
+\]
+</p>
+
+<p>
+given by applying projections to the equality, is an equivalence.
+We denote the quasiinverse as
+</p>
+
+<p>
+\[
+\mathsf{pair}^{=} :
+(\proj_1(x) = \proj_1(y)) \times (\proj_2(x) = \proj_2(y))
+\to
+x = y.
+\]
+</p>
+</div>
+
+<div id="outline-container-orga79ae6e" class="outline-6">
+<h6 id="orga79ae6e">Proof</h6>
+<div class="outline-text-6" id="text-orga79ae6e">
+<p>
+We will define a function in the other direction. By induction,
+we assume \(x \equiv (a,b)\) and \(y \equiv (a',b')\); thus we have \(a = a'\)
+and \(b = b'\). We apply path induction to both paths and we
+get that \((a,b) \equiv (a',b')\).
+</p>
+
+<p>
+Now we have to prove that it is a quasiinverse. In one direction,
+if we have \(r : x = y\), we apply path induction and we get the
+pair \((\refl_{\proj_1(x)}, \refl_{\proj_2(x)})\). If we apply induction to \(x\), we
+get \((\refl_a,\refl_{b})\); our inverse takes this to \(\refl_{(a,b)}\).
+</p>
+
+<p>
+In the other direction, if we have \(p : a = a'\) and \(q : b = b'\),
+we apply induction to get \(\refl_{(a,b)}\); applying a function to
+reflexivity gives again \((\refl_a, \refl_b)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org440f6ea" class="outline-5">
+<h5 id="org440f6ea">2.6.4. Cartesian product transport</h5>
+<div class="outline-text-5" id="text-org440f6ea">
+<p>
+Given two type families \(A,B : Z \to {\cal U}\) and a path \(p : z = w\),
+for every \(x : A(z) \times B(z)\),
+</p>
+
+<p>
+\[
+p_{\ast}(x) = (\transport^A(p,\proj_1(x)), \transport^B(p,\proj_2(x)))
+\]
+</p>
+</div>
+
+<div id="outline-container-org1b0dbc7" class="outline-6">
+<h6 id="org1b0dbc7">Proof</h6>
+<div class="outline-text-6" id="text-org1b0dbc7">
+<p>
+By path induction, it remains to prove
+</p>
+
+<p>
+\[
+x = (\proj_1(x), \proj_2(x)),
+\]
+</p>
+
+<p>
+which is definitionally equal.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8f0d6e5" class="outline-5">
+<h5 id="org8f0d6e5">2.6.5. Functoriality under cartesian products</h5>
+<div class="outline-text-5" id="text-org8f0d6e5">
+<p>
+Given \(x,y : A \times B\), \(p,q\) path between components. For every function
+defined as \(f(x) :\equiv (g(\proj_1(x)), h(\proj_2(x)))\), it holds that
+</p>
+
+<p>
+\[
+f(\mathsf{pair}^{=}(p,q)) = \mathsf{pair}^{ =}(g(p),h(q)).
+\]
+</p>
+</div>
+
+<div id="outline-container-orgf446990" class="outline-6">
+<h6 id="orgf446990">Proof</h6>
+<div class="outline-text-6" id="text-orgf446990">
+<p>
+We first apply induction over \(x\), and then path induction over
+\(p,q\). We get reflexivity in both sides.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge283df4" class="outline-4">
+<h4 id="orge283df4">2.7. Sigma types</h4>
+<div class="outline-text-4" id="text-orge283df4">
+</div><div id="outline-container-orge0512e0" class="outline-5">
+<h5 id="orge0512e0">2.7.2. Sigma type equalities</h5>
+<div class="outline-text-5" id="text-orge0512e0">
+<p>
+Given a type family \(P : A \to {\cal U}\), there is an equivalence
+</p>
+
+<p>
+\[
+(w = w') \simeq \sum_{p : \proj_1(w) = \proj_1(w')} 
+p_{\ast}(\proj_2(w)) = \proj_2(w'). 
+\]
+</p>
+
+<p>
+This can be seen as an introduction \(\pair^{=}\) and elimination rules
+for equalities between dependent pairs.
+</p>
+</div>
+
+<div id="outline-container-org4e44c24" class="outline-6">
+<h6 id="org4e44c24">Proof</h6>
+<div class="outline-text-6" id="text-org4e44c24">
+</div><div id="outline-container-org0c4115e" class="outline-7">
+<h7 id="org0c4115e">First component of the equivalence</h7>
+<div class="outline-text-7" id="text-org0c4115e">
+<p>
+We define the first part of the equivalence depending on
+\(w,w' : \sum_{x:A}P(x)\), of type
+</p>
+
+<p>
+\[
+f : \prod_{w,w' : \sum_{x:A}P(x)} 
+\left(
+(w=w') \to
+\sum_{p:\proj_1(w) = \proj_1(w')} p_{\ast}(\proj_2(w)) = \proj_2(w')
+\right)
+\]
+</p>
+
+<p>
+by induction on the path \(w = w'\) as
+</p>
+
+<p>
+\[
+f(w,w,\refl) = (\refl_{\pr_1(w)}, \refl_{\pr_2(w)}).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org07c1de3" class="outline-7">
+<h7 id="org07c1de3">Second component of the equivalence</h7>
+<div class="outline-text-7" id="text-org07c1de3">
+<p>
+And we define the second part of the equivalence depending
+again on both \(w,w'\), of type
+</p>
+
+<p>
+\[
+g : \prod_{w,w' : \sum_{x:A}P(x)}
+\left( \left(
+\sum_{p:\pr_1(w) = \pr_1(w')}  
+p_{\ast}(\pr_2(w)) = \pr_2(w')
+\right)
+\to (w = w')
+\right)
+\]
+</p>
+
+<p>
+defined by induction on \(w = (x,y)\) and \(w' = (x',y')\) first and then on
+\(p : x = x'\) and \(p_{\ast}(y) = y'\), to get
+</p>
+
+<p>
+\[
+g((x,y),(x,y),\refl,\refl) = \refl_{(x,y)}.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org00cfc7b" class="outline-7">
+<h7 id="org00cfc7b">First homotopy</h7>
+<div class="outline-text-7" id="text-org00cfc7b">
+<p>
+Finally, we have to show that they form an equivalence. Given any \(w,w'\) and
+</p>
+
+<p>
+\[
+r : \sum_{p:\pr_1(w) = \pr_1(w')} p_{\ast}(\pr_2(w)) = \pr_2(w'),
+\]
+</p>
+
+<p>
+we can apply induction over both \(w = (x,y)\) and \(w' = (x',y')\), and then over
+\(r\) to get paths \(p : x = y\) and \(p_{\ast}(y) = y'\). By path induction and the definition
+of \(f\) and \(g\), we get the desired result, \(f(g(r)) = r\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org00cb4e0" class="outline-7">
+<h7 id="org00cb4e0">Second homotopy</h7>
+<div class="outline-text-7" id="text-org00cb4e0">
+<p>
+On the other hand, if we have \(p : w = w'\), we can directly apply path induction
+and use the definitions to get \(g(f(p)) = p\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17c429f" class="outline-5">
+<h5 id="org17c429f">2.7.3. Sigma equality to its parts</h5>
+<div class="outline-text-5" id="text-org17c429f">
+<p>
+For any \(z : \sum_{x:A}P(x)\), we have \(z = (\pr_1(z),\pr_2(z))\).
+</p>
+</div>
+
+<div id="outline-container-org87cf79e" class="outline-6">
+<h6 id="org87cf79e">Proof</h6>
+<div class="outline-text-6" id="text-org87cf79e">
+<p>
+By induction on \(z = (x,y)\), we trivially arrive at an
+identity path.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga19c3fe" class="outline-6">
+<h6 id="orga19c3fe">Proof in HoTT book</h6>
+<div class="outline-text-6" id="text-orga19c3fe">
+<p>
+Applying the <a href="#orge0512e0">previous lemma</a>, we only have to provide evidence
+for the equality of both projections. We trivially have
+</p>
+
+<p>
+\[
+\pr_1(z) = \pr_1(\pr_1(z),\pr_2(z))
+\]
+</p>
+
+<p>
+and by judgmental equality, it is trivial that
+</p>
+
+<p>
+\[
+(\refl_{\pr_1(z)})_{\ast}(\pr_2(z)) = \pr_2(z) = \pr_2(\pr_1(z),\pr_2(z)).
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd38d47f" class="outline-5">
+<h5 id="orgd38d47f">2.7.4. Transport over sigma equalities</h5>
+<div class="outline-text-5" id="text-orgd38d47f">
+<p>
+Given \(P : A \to {\cal U}\) and
+</p>
+
+<p>
+\[
+Q : \left( \sum_{x:A} P(x) \right) \to {\cal U},
+\]
+</p>
+
+<p>
+for any path \(p : x = y\), and \((u,z) : \sum_{u:P(x)} Q(x,u)\) we have
+</p>
+
+<p>
+\[
+p_{\ast}(u,z) = 
+(p_{\ast}(u), \pair^{=}(p,\refl_{p_{\ast}(u)})_{\ast} (z)).
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1f1646d" class="outline-4">
+<h4 id="org1f1646d">2.8. The unit type</h4>
+<div class="outline-text-4" id="text-org1f1646d">
+</div><div id="outline-container-orgaa73b6c" class="outline-5">
+<h5 id="orgaa73b6c">Unit type equality</h5>
+<div class="outline-text-5" id="text-orgaa73b6c">
+<p>
+Given \(x,y:1\), we have \((x = y) \simeq 1\).
+</p>
+</div>
+
+<div id="outline-container-org0cd1b4e" class="outline-6">
+<h6 id="org0cd1b4e">Proof</h6>
+<div class="outline-text-6" id="text-org0cd1b4e">
+<p>
+A function \((x = y) \to 1\) is defined trivially; and given any \(x, y : 1\)
+we now by induction that \(x \equiv y\) and we can write a constant function
+to \(\refl_{\star}\).
+</p>
+
+<p>
+Given an element \(u : 1\), it is trivial that the composite is an element
+of \(1\), and therefore both are equal to \(\star\). Given an element \(p : x = y\),
+we can apply path induction to get \(p = \refl_{x}\) and induction over \(x\) to
+get \(\refl_{\star}\). As a consequence, \(p\) goes to \(\refl_{\star}\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1f01fa9" class="outline-4">
+<h4 id="org1f01fa9">2.9. The function extensionality axiom</h4>
+<div class="outline-text-4" id="text-org1f01fa9">
+</div><div id="outline-container-org9563151" class="outline-5">
+<h5 id="org9563151">2.9.2. happly</h5>
+<div class="outline-text-5" id="text-org9563151">
+<p>
+There exists a function
+</p>
+
+<p>
+\[
+\happly : (f = g) \to \prod_{x:A} f(x) = g(x)
+\]
+</p>
+
+<p>
+defined by path induction.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge8ff493" class="outline-5">
+<h5 id="orge8ff493">2.9.3. Function extensionality axiom</h5>
+<div class="outline-text-5" id="text-orge8ff493">
+<p>
+The function \(\happly\) is an equivalence. It has a quasi-inverse given
+by
+</p>
+
+<p>
+\[
+\funext : \left(\prod_{x:A} f(x) = g(x)\right) \to (f = g).
+\]
+</p>
+
+<p>
+such that, for any \(h : \prod_{x:A} f(x) = g(x)\),
+</p>
+
+<p>
+\[
+\happly(\funext(h), x) = h(x).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org59bf3df" class="outline-5">
+<h5 id="org59bf3df">2.9.4. Dependent identity, inverses and composition</h5>
+</div>
+
+<div id="outline-container-org61dd37d" class="outline-5">
+<h5 id="org61dd37d">2.9.4. Rules for dependent transport</h5>
+<div class="outline-text-5" id="text-org61dd37d">
+<p>
+Given \(f : A(x) \to B(x)\) and \(p : x = y\),
+</p>
+
+<p>
+\[
+p_{\ast}(f) = p_{\ast}\circ f \circ p^{-1}_{\ast}.
+\]
+</p>
+</div>
+
+<div id="outline-container-orgcdee387" class="outline-6">
+<h6 id="orgcdee387">Proof</h6>
+<div class="outline-text-6" id="text-orgcdee387">
+<p>
+Path induction.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org52146da" class="outline-5">
+<h5 id="org52146da">2.9.6. Equivalence for the dependent function equality</h5>
+<div class="outline-text-5" id="text-org52146da">
+<p>
+Given \(A,B : X \to {\cal U}\), \(p : x = y\) and two functions \(f : A(x) \to B(x)\)
+and \(g : A(y) \to B(y)\), we have an equivalence
+</p>
+
+<p>
+\[
+(p_{\ast}(f) = g) \simeq \prod_{a:A(x)} p_{\ast}(f(a)) = g(p_{\ast}(a)).
+\]
+</p>
+
+<p>
+Moreover, given \(q : p_{\ast}(f) = g\), we have
+</p>
+
+<p>
+\[
+\happly(q,p_{\ast}(a)) : (p_{\ast}(f))(p_{\ast}(a)) = g(p_{\ast}(a))
+\]
+</p>
+
+<p>
+equal to the composite
+</p>
+
+<p>
+\[
+p_{\ast}(f)(p_{\ast}(a)) = p_{\ast}(f(p^{-1}_{\ast}(p_{\ast}(a))))
+= p_{\ast}(f(a)) = g(p_{\ast}(a)).
+\]
+</p>
+</div>
+
+<div id="outline-container-org21f1456" class="outline-6">
+<h6 id="org21f1456">Proof</h6>
+<div class="outline-text-6" id="text-org21f1456">
+<p>
+By path induction on \(p\), we arrive to function extensionality.
+Computation rule for function extensionality gives us the value
+of \(\happly\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6e71041" class="outline-5">
+<h5 id="org6e71041">2.9.7. Transport equivalence between families</h5>
+</div>
+</div>
+<div id="outline-container-org1ca1cdf" class="outline-4">
+<h4 id="org1ca1cdf">2.10. Universes and the univalence axiom</h4>
+<div class="outline-text-4" id="text-org1ca1cdf">
+</div><div id="outline-container-org5728908" class="outline-5">
+<h5 id="org5728908">2.10.1. idtoeqv</h5>
+<div class="outline-text-5" id="text-org5728908">
+<p>
+Given any types \(A,B : {\cal U}\), there is a function
+</p>
+
+<p>
+\[
+\idtoeqv : (A = B) \to (A \simeq B).
+\]
+</p>
+</div>
+
+<div id="outline-container-orgc493011" class="outline-6">
+<h6 id="orgc493011">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-orga291116" class="outline-5">
+<h5 id="orga291116">2.10.3. Voevodsky's Univalence Axiom</h5>
+<div class="outline-text-5" id="text-orga291116">
+<p>
+A universe is univalent if for any \(A,B : {\cal U}\), \(\idtoeqv\) is an equivalence.
+All universes are univalent. There exists
+</p>
+
+<p>
+\[\ua : (A \simeq B) \to (A = B),
+\]
+</p>
+
+<p>
+such that 
+</p>
+
+<p>
+\[
+\transport(\ua(f), x) = f(x).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org165ce9d" class="outline-5">
+<h5 id="org165ce9d">2.10.5. Transport and idtoeqv</h5>
+</div>
+</div>
+<div id="outline-container-org0ca3f82" class="outline-4">
+<h4 id="org0ca3f82">2.11. Identity type</h4>
+<div class="outline-text-4" id="text-org0ca3f82">
+</div><div id="outline-container-orgb6496e8" class="outline-5">
+<h5 id="orgb6496e8">2.11.1. Aplication of equivalences is an equivalence</h5>
+<div class="outline-text-5" id="text-orgb6496e8">
+<p>
+If \(f : A \to B\) is an equivalence, so is
+</p>
+
+<p>
+\[
+\mathsf{ap}_f : (a = a') \to (f(a) = f(a')).
+\]
+</p>
+</div>
+
+<div id="outline-container-org6f6c7ab" class="outline-6">
+<h6 id="org6f6c7ab">Proof</h6>
+<div class="outline-text-6" id="text-org6f6c7ab">
+<p>
+Let \(f^{-1}\) be a quasiinverse with homotopies
+</p>
+
+<p>
+\[
+\alpha : \prod_{b:B} f(f^{-1}(b)) = b
+\quad\mbox{ and }\quad
+\beta : \prod_{a:A}f^{-1}(f(a)) = a.
+\]
+</p>
+
+<p>
+the quasiinverse of \(\ap_f\) will be \(\ap_{f^{-1}}\) concatenated with \(\beta^{-1}\) and \(\beta\).
+We will show that this is a quasiinverse. On one direction,
+</p>
+
+<p>
+\[
+\beta_a^{-1} \cdot \ap_{f^{-1}}(\ap_f(p)) \cdot \beta_{a'} = p
+\]
+</p>
+
+<p>
+is true by <a href="#orga711e62">endonaturality of the homotopy</a> \(\beta\) and functoriality
+of the application \(\ap_{f^{-1}} \circ \ap_f = \ap_{f^{-1} \circ f}\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1e6ea80" class="outline-5">
+<h5 id="org1e6ea80">2.11.2. Path transport</h5>
+<div class="outline-text-5" id="text-org1e6ea80">
+<p>
+Given any \(a : A\) with \(p : x_1 = x_2\),
+</p>
+
+<ol class="org-ol">
+<li>for \(q : a = x_1\), we have \(\transport^{x \mapsto a=x}(p,q) = p_{\ast}(q) = q \cdot p\);</li>
+<li>for \(q : x_1 = a\), we have \(\transport^{x\mapsto x=a}(p,q) = p^{-1} \cdot q\);</li>
+<li>for \(q : x_1 = x_1\), we have \(\transport^{x\mapsto (x=x)}(p,q) = p^{-1} \cdot q \cdot p\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org175267f" class="outline-6">
+<h6 id="org175267f">Proof</h6>
+<div class="outline-text-6" id="text-org175267f">
+<p>
+By path induction on \(p\), we get the composition rules for
+reflexivity.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org05f8519" class="outline-4">
+<h4 id="org05f8519">2.12. Coproducts</h4>
+<div class="outline-text-4" id="text-org05f8519">
+</div><div id="outline-container-orge4cf38b" class="outline-5">
+<h5 id="orge4cf38b">2.12.1. Characterization of equalities for coproducts</h5>
+<div class="outline-text-5" id="text-orge4cf38b">
+<p>
+Given a coproduct type \(A + B\), 
+</p>
+
+<ul class="org-ul">
+<li>\((\inl(a_1) = \inl(a_2)) \simeq (a_1 = a_{2})\),</li>
+<li>\((\inr(b_1) = \inr(b_2)) \simeq (b_1 = b_2)\),</li>
+<li>\((\inl(a) = \inr(b)) \simeq 0\).</li>
+</ul>
+</div>
+
+<div id="outline-container-orgf1b5879" class="outline-6">
+<h6 id="orgf1b5879">Proof</h6>
+<div class="outline-text-6" id="text-orgf1b5879">
+<p>
+Given \(a_0 : A\) we will characterize the family
+</p>
+
+<p>
+\[
+(x \mapsto (\inl(a_0) = x)) : A + B \to {\cal U},
+\]
+</p>
+
+<p>
+using the following type family
+</p>
+
+<ul class="org-ul">
+<li>\(\code(\inl(a)) :\equiv (a_0 = a)\),</li>
+<li>\(\code(\inr(a)) :\equiv 0\).</li>
+</ul>
+
+<p>
+and proving that \((\inl(a_0) = x) \simeq \code(x)\) in the following
+<a href="#orgf05e507">lemma</a>. An analogous family \((x \mapsto (\inr(b_0) = x))\) can be also
+characterized.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf05e507" class="outline-5">
+<h5 id="orgf05e507">2.12.5. Code for coproducts</h5>
+<div class="outline-text-5" id="text-orgf05e507">
+<p>
+Given \(a_0 : A\), for all \(x:A+B\), we have \((\inl(a_0) = x) \simeq \code(x)\);
+with the definition presented in the previous <a href="#orge4cf38b">proof</a>.
+</p>
+</div>
+
+<div id="outline-container-orgf10cc4e" class="outline-6">
+<h6 id="orgf10cc4e">Proof</h6>
+<div class="outline-text-6" id="text-orgf10cc4e">
+<p>
+We first define a function
+</p>
+
+<p>
+\[
+\encode : \prod_{(x:A+B)} \prod_{(p : \inl(a_0) = x)} \code(x)
+\]
+</p>
+
+<p>
+using transport, as \(\encode(\inl(a), p) = p_{\ast}(\refl_{a_0})\). Next, we define
+a function
+</p>
+
+<p>
+\[
+\decode : \prod_{(x : A+B)}\prod_{(c : \code(x))} (\inl(a_0) = x)
+\]
+</p>
+
+<p>
+by induction on \(x\) as
+</p>
+
+<ul class="org-ul">
+<li>\(\decode(\inl(a), c) :\equiv \ap_{\inl}(c)\),</li>
+<li>\(\decode(\inr(b),c) :\equiv \mathsf{abort}(c)\).</li>
+</ul>
+
+<p>
+Now, we must prove that they form an equivalence. On the one hand, given
+\(x : A +B\) and \(p : \inl(a_0) = x\), we must show that
+</p>
+
+<p>
+\[
+\decode(x,\encode(x,p)) = p;
+\]
+</p>
+
+<p>
+and this can be done by path induction on \(p\). On the other hand, given
+any \(c : \code(x)\), we want to prove that
+</p>
+
+<p>
+\[
+\encode(x,\decode(x,c)) = c;
+\]
+</p>
+
+<p>
+and we can proceed by induction on \(x\); if \(x \equiv \inr(b)\), then we arrive at
+a contradiction in \(c\); in other case, \(x \equiv \inl(a)\) so we can apply path
+induction on \(c\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org354d0d3" class="outline-4">
+<h4 id="org354d0d3">2.13. Natural numbers</h4>
+<div class="outline-text-4" id="text-org354d0d3">
+</div><div id="outline-container-org4837622" class="outline-5">
+<h5 id="org4837622">2.13.0. Codes for identities on natural numbers</h5>
+<div class="outline-text-5" id="text-org4837622">
+<p>
+We define \(\mathsf{code} \colon \mathbb{N} \to \mathbb{N} \to {\cal U}\) by double recursion as
+</p>
+
+<ul class="org-ul">
+<li>\(\code(0,0) :\equiv 1\),</li>
+<li>\(\code(\succ(m),0) :\equiv 0\),</li>
+<li>\(\code(0,\succ(n)) :\equiv 0\),</li>
+<li>\(\code(\succ(m),\succ(n)) :\equiv \code(m,n)\),</li>
+</ul>
+
+<p>
+and trivially, a diagonal function \(r : \prod_{n:\mathbb{N}} \code(n,n)\) by induction.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc2ba8db" class="outline-5">
+<h5 id="orgc2ba8db">2.13.1. Equivalence code-identity</h5>
+<div class="outline-text-5" id="text-orgc2ba8db">
+<p>
+We have \((n = m) \simeq \code(m,n)\).
+</p>
+</div>
+
+<div id="outline-container-orgbd26fa2" class="outline-6">
+<h6 id="orgbd26fa2">Proof</h6>
+<div class="outline-text-6" id="text-orgbd26fa2">
+</div><div id="outline-container-org7b9c94b" class="outline-7">
+<h7 id="org7b9c94b">Encode function</h7>
+<div class="outline-text-7" id="text-org7b9c94b">
+<p>
+We define a function \(\prod_{m,n \colon \mathbb{N}} (n = m) \to \code(m,n)\) by transport
+and using the diagonal \(r : \prod_{n:\mathbb{N}} \code(n,n)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga0f30fb" class="outline-7">
+<h7 id="orga0f30fb">Decode function</h7>
+<div class="outline-text-7" id="text-orga0f30fb">
+<p>
+We define a function \(\prod_{m,n\colon \mathbb{N}} \code(m,n) \to (n = m)\) by double induction
+on \(n\) and \(m\).
+</p>
+
+<ul class="org-ul">
+<li>On the case \(n=m=0\), we define a function to \(\refl_0\).</li>
+<li>On the cases where only one of them is zero, we arrive a contradiction.</li>
+<li>On the case were both are successors, we have an element \(\code(m,n)\), so
+we can recursively apply the decode function to it to get \(m = n\). Now
+it suffices to use \(\ap_{\succ}\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf94a47f" class="outline-7">
+<h7 id="orgf94a47f">Quasiinverses I</h7>
+<div class="outline-text-7" id="text-orgf94a47f">
+<p>
+We will show first that given any \(p : m = n\),
+</p>
+
+<p>
+\[
+\decode(n,n,\encode(n,n,\refl)) = \refl,
+\]
+</p>
+
+<p>
+which is to show \(\decode(n,n,r(n)) = \refl\). This can be done by induction
+on \(n\), where in the case \(0\), we get reflexivity and in the successor case,
+we use that \(\ap(\refl) = \refl\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5b92f08" class="outline-7">
+<h7 id="org5b92f08">Quasiinverses II</h7>
+<div class="outline-text-7" id="text-org5b92f08">
+<p>
+Given any \(c : \code(m,n)\), we can apply double induction.
+</p>
+
+<ul class="org-ul">
+<li>In the zero case, we have a unit type that remains the same after
+encoding.</li>
+<li>In the only one successor case, we arrive a contradiction.</li>
+<li>In the both successor cases, 
+\[\begin{aligned}
+   \encode&(\succ(m),\succ(n),\decode(\succ(m),\succ(n),c)) \\
+     &= \encode(\succ(m),\succ(n),\ap_{\succ}(\decode(m,n,c))) \\
+     &= (\ap_{\succ}(\decode(m,n,c)))_{\ast} (r(\succ(m))) \\
+     &= (\decode(m,n,c))_{\ast} (r(m)) \\
+     &= \encode(m,n,\decode(m,n,c)) \\
+     &= c
+   \end{aligned}\]
+by induction.</li>
+</ul>
+
+<p>
+In other words, we can prove that each code is a diagonal and then
+apply induction over \(\decode(m,n,c)\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org53f37ac" class="outline-5">
+<h5 id="org53f37ac">2.13.2. Zero is not a successor</h5>
+<div class="outline-text-5" id="text-org53f37ac">
+<p>
+We have that zero is not the successor of any natural number,
+in particular
+</p>
+
+<p>
+\[
+\encode(\succ(m),0) : (\succ(m) = 0) \to 0.
+\]
+</p>
+</div>
+
+<div id="outline-container-org51e5853" class="outline-6">
+<h6 id="org51e5853">Proof</h6>
+<div class="outline-text-6" id="text-org51e5853">
+<p>
+Applying <a href="#orgc2ba8db">decode-encode</a> directly.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb698cd" class="outline-5">
+<h5 id="orgeb698cd">2.13.3. Successor is injective</h5>
+<div class="outline-text-5" id="text-orgeb698cd">
+<p>
+The sucessor function is injective, in particular
+</p>
+
+<p>
+\[
+(\succ(m) = \succ(n)) \to (m = n).
+\]
+</p>
+</div>
+
+<div id="outline-container-orgf2c0834" class="outline-6">
+<h6 id="orgf2c0834">Proof</h6>
+<div class="outline-text-6" id="text-orgf2c0834">
+<p>
+We can apply \(\encode\) to the equality and get a new code
+to which apply \(\decode\). Note that
+</p>
+
+<p>
+\(\encode(\succ(m),\succ(n)) : \code(m,n)\)
+</p>
+
+<p>
+is well-typed.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1c8d142" class="outline-4">
+<h4 id="org1c8d142">2.14. Example: equality of structures</h4>
+<div class="outline-text-4" id="text-org1c8d142">
+</div><div id="outline-container-org97df8ae" class="outline-5">
+<h5 id="org97df8ae">2.14.1. Semigroup structures</h5>
+<div class="outline-text-5" id="text-org97df8ae">
+<p>
+The type of <b>semigroup structures</b> on \(A\) is defined as
+</p>
+
+<p>
+\[
+\mathsf{SemigroupStr}(A) :\equiv \sum_{(m : A \to A \to A)} \prod_{(x,y,z : A)} m(x,m(y,z)) = m(m(x,y),z)
+\]
+</p>
+
+<p>
+and a <b>semigroup</b> is defined in general as
+</p>
+
+<p>
+\[
+\mathsf{Semigroup} :\equiv \sum_{A : {\cal U}} \mathsf{SemigroupStr}(A).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb08ea5d" class="outline-5">
+<h5 id="orgb08ea5d">2.14.1. Induced structures</h5>
+<div class="outline-text-5" id="text-orgb08ea5d">
+<p>
+Given an equivalence \(e : A \simeq B\), we can transport semigroup
+structures
+</p>
+
+<p>
+\[
+(\ua(e))_{\ast} : \mathsf{SemigroupStr}(A) \to \mathsf{SemigroupStr}(B).
+\]
+</p>
+
+<p>
+Given \((m,a) : \mathsf{SemigroupStr}(A)\), we want to compute
+</p>
+
+<p>
+\[
+\ua(e)_{\ast} (m,a) : \mathsf{SemigroupStr}(B)
+\]
+</p>
+
+<p>
+and transporting over a <a href="#orgd38d47f">coproduct</a> is the same as transporting over its
+components. We will get some \((m',a')\) where
+</p>
+
+<ul class="org-ul">
+<li>\(m'(b_1,b_2) :\equiv (\ua(e)_{\ast}(m))(b_1,b_2)\);</li>
+
+<li>\(a' :\equiv (\pair^{=}(\ua(e), \refl))_{\ast}\ a\).</li>
+</ul>
+
+<p>
+By function extensionality, we only have to check the behaviour of
+\(m'\) given a pair of arguments. We have,
+</p>
+
+<p>
+\[\begin{aligned}
+m'(b_1,b_2) &=
+\ua(e)_{\ast} (m (\ua(e)_{\ast}^{-1} b_1, \ua(e)_{\ast}^{-1} b_2)) \\
+&= e(m(e^{-1}b_1,e^{-1}b_2))
+\end{aligned}\]
+</p>
+
+<p>
+It can be proved that the transported \(a'\) works by algebraic
+manipulation using this fact.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf469ca3" class="outline-4">
+<h4 id="orgf469ca3">2.15. Universal properties</h4>
+<div class="outline-text-4" id="text-orgf469ca3">
+</div><div id="outline-container-org26f7c83" class="outline-5">
+<h5 id="org26f7c83">2.15.2. Universal property of the product</h5>
+<div class="outline-text-5" id="text-org26f7c83">
+<p>
+There is an equivalence
+</p>
+
+<p>
+\[
+(X \to A \times B) \simeq (X \to A) \times (X \to B);
+\]
+</p>
+
+<p>
+given by \(f \mapsto (\pr_1 \circ f, \pr_2 \circ f)\).
+</p>
+</div>
+
+<div id="outline-container-org5e54d1d" class="outline-6">
+<h6 id="org5e54d1d">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-orge31f716" class="outline-5">
+<h5 id="orge31f716">2.15.5. Dependent universal property of the product</h5>
+<div class="outline-text-5" id="text-orge31f716">
+<p>
+There is an equivalence
+</p>
+
+<p>
+\[
+\left( \prod_{x:X} A(x) \times B(x) \right) \simeq
+\left( \prod_{x:X} A(x) \right) \times 
+\left( \prod_{x:X} B(x) \right)
+\]
+</p>
+
+<p>
+given by \(f \mapsto (\pr_1 \circ f, \pr_2 \circ f)\).
+</p>
+</div>
+
+<div id="outline-container-org0913656" class="outline-6">
+<h6 id="org0913656">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-org40fb916" class="outline-5">
+<h5 id="org40fb916">2.15.7. Theorem of choice</h5>
+<div class="outline-text-5" id="text-org40fb916">
+<p>
+There is an equivalence
+</p>
+
+<p>
+\[
+\left( \prod_{x:X}\sum_{(a : A(x))} P(x,a) \right) \simeq
+\left( \sum_{g : \prod_{x:X}A(x)} \prod_{x:X} P(x,g(x)) \right)
+\]
+</p>
+
+<p>
+trivially determined.
+</p>
+</div>
+
+<div id="outline-container-org55c0b8f" class="outline-6">
+<h6 id="org55c0b8f">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-org92cb73a" class="outline-5">
+<h5 id="org92cb73a">2.15.11. Pullbacks</h5>
+<div class="outline-text-5" id="text-org92cb73a">
+<p>
+Given \(f : A \to C\) and \(g : B \to C\), we define the <b>pullback</b> as
+</p>
+
+<p>
+\[
+A \times_C B :\equiv \sum_{(a:A)}\sum_{(b:B)}(f(a) = g(b)).
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org106ef19" class="outline-3">
+<h3 id="org106ef19">I.3. Sets and logic</h3>
+<div class="outline-text-3" id="text-org106ef19">
+</div><div id="outline-container-orgee4943d" class="outline-4">
+<h4 id="orgee4943d">3.1. Sets and n-types</h4>
+<div class="outline-text-4" id="text-orgee4943d">
+</div><div id="outline-container-org3d3e849" class="outline-5">
+<h5 id="org3d3e849">3.1.1. Sets</h5>
+<div class="outline-text-5" id="text-org3d3e849">
+<p>
+A type \(A\) is a <b>set</b> if every two equalities \(p,q : x =_A y\) are equal.
+</p>
+
+<p>
+\[
+\textsf{isSet}(A) \equiv \prod_{(x,y : A)} \prod_{(p,q : x = y)} p = q.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org41bffd5" class="outline-5">
+<h5 id="org41bffd5">3.1.6. Dependent product of sets is a set</h5>
+<div class="outline-text-5" id="text-org41bffd5">
+<p>
+Given \(A\) a set and \(B : A \to {\cal U}\) such that each \(B(x)\) is a set, \(\prod_{x:A} B(x)\) 
+is a set.
+</p>
+</div>
+
+<div id="outline-container-orgf1bd04f" class="outline-6">
+<h6 id="orgf1bd04f">Proof</h6>
+<div class="outline-text-6" id="text-orgf1bd04f">
+<p>
+Suppose \(f, g : \prod_{x:A} B(x)\) and \(p, q : f = g\). Applying function
+extensionality,
+</p>
+
+<ul class="org-ul">
+<li>\(p = \mathsf{funext}(\lambda x. \mathsf{happly}(p,x))\),</li>
+<li>\(q = \mathsf{funext}(\lambda x. \mathsf{happly}(q,x))\).</li>
+</ul>
+
+<p>
+Since \(B(x)\) is a set, 
+</p>
+
+<ul class="org-ul">
+<li>\(\mathsf{happly}(p,x) : f(x) = g(x)\)</li>
+<li>\(\mathsf{happly}(q,x) : f(x) = g(x)\)</li>
+</ul>
+
+<p>
+must be equal. Thus, by function extensionality \((\lambda x. \mathsf{happly}(p,x)) = (\lambda x. \mathsf{happly}(q,x))\),
+and applying \(\mathsf{funext}\), \(p = q\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org16b3dd9" class="outline-5">
+<h5 id="org16b3dd9">3.1.7. 1-types</h5>
+<div class="outline-text-5" id="text-org16b3dd9">
+<p>
+A type \(A\) is a <b>1-type</b> if for all \(x,y:A\) and \(p,q : x = y\) and \(r,s : p = q\),
+we have \(r = s\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb5dff93" class="outline-5">
+<h5 id="orgb5dff93">3.1.8. Every set is a 1-type</h5>
+<div class="outline-text-5" id="text-orgb5dff93">
+<p>
+Every set is a <b>1-type</b>.
+</p>
+</div>
+
+<div id="outline-container-org7953891" class="outline-6">
+<h6 id="org7953891">Proof</h6>
+<div class="outline-text-6" id="text-org7953891">
+<p>
+If we have \(x,y : A\), \(p,q : x = y\) and \(f : \isSet(A)\), then we
+can define \(g = f(x,y,p)\) by partial application, and
+</p>
+
+<p>
+\[
+g : \prod_{q : x = y}(p = q);
+\]
+</p>
+
+<p>
+we can now, given \(r : q = q'\), use dependent application to get
+</p>
+
+<p>
+\[
+\apd_g(r) : r_{\ast}(g(q)) = g(q').
+\]
+</p>
+
+<p>
+By path transport, that means that \(g(q) \cdot r = g(q')\). In particular,
+given any two \(r,s : p = q\);
+</p>
+
+<p>
+\[
+g(p) \cdot r = g(q) = g(p) \cdot s
+\]
+</p>
+
+<p>
+and \(r = s\) by cancellation.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1c78ca" class="outline-5">
+<h5 id="orgc1c78ca">3.1.9. Not all types are sets</h5>
+<div class="outline-text-5" id="text-orgc1c78ca">
+<p>
+The universe \({\cal U}\) is not a set.
+</p>
+</div>
+
+<div id="outline-container-org52f0e30" class="outline-6">
+<h6 id="org52f0e30">Proof</h6>
+<div class="outline-text-6" id="text-org52f0e30">
+<p>
+We take \(2\) to be the type of the booleans. There exists a
+function \(\mathrm{not}\colon 2 \to 2\) which is an equivalence; by univalence,
+there exists \(\ua(\mathrm{not}) \colon 2 = 2\) which is not \(\refl\). If it were
+\(\refl\), then, by univalence, \(0_2 = 1_2\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad9daf4" class="outline-4">
+<h4 id="orgad9daf4">3.2. Propositions as types?</h4>
+<div class="outline-text-4" id="text-orgad9daf4">
+</div><div id="outline-container-orgfe6189a" class="outline-5">
+<h5 id="orgfe6189a">3.2.2. Negation of double negation</h5>
+<div class="outline-text-5" id="text-orgfe6189a">
+<p>
+It is not true that \(\neg(\neg A) \to A\) for each \(A : {\cal U}\).
+</p>
+</div>
+
+<div id="outline-container-org702d721" class="outline-6">
+<h6 id="org702d721">Proof</h6>
+<div class="outline-text-6" id="text-org702d721">
+<p>
+Given \(f \colon \prod_{A:{\cal U}} \neg(\neg A) \to A\), we will arrive to a contradiction.
+</p>
+
+<p>
+Let \(p \colon 2 = 2\) be the non-trivial path of the booleans. We know
+that \(f(2) : \neg\neg 2 \to 2\) and
+</p>
+
+<p>
+\[
+\apd_f(p) : p_{\ast}(f(2)) = f(2),
+\]
+</p>
+
+<p>
+applying <a href="#org61dd37d">rules for dependent transport</a>, we have
+</p>
+
+<p>
+\[
+p_{\ast}(f(2))(u) = (p_{\ast} \circ f(2) \circ p_{\ast}^{-1})(u).
+\]
+</p>
+
+<p>
+Every two \(u,v : \neg\neg 2\) are equal by function extensionality; thus
+</p>
+
+<p>
+\[
+p^{-1}_{\ast}(u) = u
+\]
+</p>
+
+<p>
+and so
+</p>
+
+<p>
+\[
+p_{\ast}(f(2)(u)) = p_{\ast}(f(2))(u) = f(2)(u).
+\]
+</p>
+
+<p>
+We have now that \(\fnot(f(2)(u)) = f(2)(u)\), and, at the same time,
+it is obvious that \(\prod_{x:2} \neg (\fnot(x) = x)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17c568f" class="outline-5">
+<h5 id="org17c568f">3.2.7. Negation of LEM</h5>
+<div class="outline-text-5" id="text-org17c568f">
+<p>
+It is not true that \(A + (\neg A)\) for each \(A \colon {\cal U}\).
+</p>
+</div>
+
+<div id="outline-container-org8cba9c1" class="outline-6">
+<h6 id="org8cba9c1">Proof</h6>
+<div class="outline-text-6" id="text-org8cba9c1">
+<p>
+An element of type \(\prod_{A:{\cal U}} \neg\neg A \to A\) can be constructed from
+an element of type \(\prod_{A:{\cal U}} A + (\neg A)\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org10a2aa9" class="outline-4">
+<h4 id="org10a2aa9">3.3. Mere propositions</h4>
+<div class="outline-text-4" id="text-org10a2aa9">
+</div><div id="outline-container-orgf72ad5c" class="outline-5">
+<h5 id="orgf72ad5c">3.3.1. Mere proposition</h5>
+<div class="outline-text-5" id="text-orgf72ad5c">
+<p>
+A type \(P\) is a <b>mere proposition</b> when
+</p>
+
+<p>
+\[
+\isProp(P) : 
+\prod_{x,y : P} x = y
+\]
+</p>
+
+<p>
+is inhabited.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga2ddda8" class="outline-5">
+<h5 id="orga2ddda8">3.3.2. Truth is the only true mere proposition</h5>
+<div class="outline-text-5" id="text-orga2ddda8">
+<p>
+If \(P\) is a mere proposition and \(x_0 : P\), then \(P \simeq 1\).
+</p>
+</div>
+
+<div id="outline-container-org64fbb20" class="outline-6">
+<h6 id="org64fbb20">Proof</h6>
+<div class="outline-text-6" id="text-org64fbb20">
+<p>
+A trivial equivalence can be constructed.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org12c251d" class="outline-5">
+<h5 id="org12c251d">3.3.3. Equivalence of connected mere propositions</h5>
+<div class="outline-text-5" id="text-org12c251d">
+<p>
+If \(P\) and \(Q\) are mere propositions, \(P \to Q\) and \(Q \to P\)
+imply \(P \simeq Q\).
+</p>
+</div>
+
+<div id="outline-container-orgde5901a" class="outline-6">
+<h6 id="orgde5901a">Proof</h6>
+<div class="outline-text-6" id="text-orgde5901a">
+<p>
+If \(f : P \to Q\) and \(g : Q \to P\), then \(f(g(x)) = x\) and
+\(g(f(x)) = x\) because both are mere propositions.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org562f969" class="outline-5">
+<h5 id="org562f969">3.3.4. Mere propositions are sets</h5>
+<div class="outline-text-5" id="text-org562f969">
+<p>
+Every mere proposition is a set.
+</p>
+</div>
+
+<div id="outline-container-org8870fbf" class="outline-6">
+<h6 id="org8870fbf">Proof</h6>
+<div class="outline-text-6" id="text-org8870fbf">
+<p>
+Given \(f : \isProp(A)\), we fix \(x : A\) and define \(g(y) :\equiv f(x,y)\)
+of type \(\prod_{y : A} x = y\). Given two \(y,z : A\) with \(p : y = z\), we
+have
+</p>
+
+<p>
+\[
+\apd_g(p) : p_{\ast}(g(y)) = g(z)
+\]
+</p>
+
+<p>
+hence \(g(y) \cdot p = g(z)\), or \(p = g(y)^{-1} \cdot g(z)\); thus given \(p,q : x = y\)
+we have \(p = g(x)^{-1} \cdot g(y) = q\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf60854f" class="outline-5">
+<h5 id="orgf60854f">3.3.5. isProp and isSet are mere propositions</h5>
+<div class="outline-text-5" id="text-orgf60854f">
+<p>
+Given any type \(A\), the types \(\isSet(A)\) and \(\isProp(A)\) are mere
+propositions.
+</p>
+</div>
+
+<div id="outline-container-org706abc8" class="outline-6">
+<h6 id="org706abc8">Proof</h6>
+<div class="outline-text-6" id="text-org706abc8">
+<p>
+If we have \(f,g : \isProp(A)\) we know that \(f(x,y) = g(x,y)\) because
+\(A\) is a mere proposition. By function extensionality, \(f = g\).
+</p>
+
+<p>
+If we have \(f,g : \isSet(A)\) we know that \(f(x,y,p,q) = g(x,y,p,q)\)
+because \(x = y\) is a mere proposition from the fact that \(A\) is a set.
+By function extensionality, \(f = g\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9212d63" class="outline-4">
+<h4 id="org9212d63">3.4. Classical vs. intuitionistic logic</h4>
+<div class="outline-text-4" id="text-org9212d63">
+</div><div id="outline-container-org0b8ce6d" class="outline-5">
+<h5 id="org0b8ce6d">3.4.1. Law of excluded middle</h5>
+<div class="outline-text-5" id="text-org0b8ce6d">
+<p>
+We define the <b>law of excluded middle</b> as
+</p>
+
+<p>
+\[
+\LEM :\equiv \prod_{A : {\cal U}} \Big( \isProp(A) \to (A + \neg A) \Big)
+\]
+</p>
+
+<p>
+whereas the usual general law of excluded middle is renamed as
+</p>
+
+<p>
+\[
+\LEM_{\infty} :\equiv \prod_{A : {\cal U}} (A + \neg A).
+\]
+</p>
+
+<p>
+The law of excluded middle can be assumed as an axiom.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4d429ae" class="outline-5">
+<h5 id="org4d429ae">3.4.3. Decidable types</h5>
+<div class="outline-text-5" id="text-org4d429ae">
+<ol class="org-ol">
+<li>A type is <b>decidable</b> if \(A + \neg A\).</li>
+
+<li><p>
+A type family is <b>decidable</b> if
+</p>
+
+<p>
+\[
+   \prod_{a : A} B(a) + \neg B(a)
+   \]
+</p></li>
+
+<li><p>
+A type has <b>decidable equality</b> if
+</p>
+
+<p>
+\[
+   \prod_{a,b : A} (a = b) + \neg (a = b)
+   \]
+</p></li>
+</ol>
+
+<p>
+The Law of excluded middle says that all mere propositions are
+decidable.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga863dca" class="outline-4">
+<h4 id="orga863dca">3.5. Subsets and propositional resizing</h4>
+<div class="outline-text-4" id="text-orga863dca">
+</div><div id="outline-container-org68ed96f" class="outline-5">
+<h5 id="org68ed96f">3.5.1. Uniqueness of dependent sum of mere propositions</h5>
+<div class="outline-text-5" id="text-org68ed96f">
+<p>
+Given \(P \colon A \to {\cal U}\) such that \(P(a)\) is always a mere proposition;
+if \(u,v \colon \sum_{x:A}P(x)\) are such that \(\proj_1(u) = \proj_1(v)\), then
+\(u = v\).
+</p>
+</div>
+
+<div id="outline-container-orge886d19" class="outline-6">
+<h6 id="orge886d19">Proof</h6>
+<div class="outline-text-6" id="text-orge886d19">
+<p>
+Given \(p : \proj_1(u) = \proj_1(v)\), we only have to show that
+</p>
+
+<p>
+\[
+p_{\ast}(\proj_2(u)) = \proj_2(v)
+\]
+</p>
+
+<p>
+and this is true because both are members of \(P(\proj_1(v))\), a
+mere proposition.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1b7a5db" class="outline-5">
+<h5 id="org1b7a5db">3.5.1. Subtypes</h5>
+<div class="outline-text-5" id="text-org1b7a5db">
+<p>
+If \(P\) is a family of mere propositions, we write
+</p>
+
+<p>
+\[
+\sum_{x:A} P(x) \equiv \left\{ x : A\mid P(x) \right\}
+\]
+</p>
+
+<p>
+and call this a <b>subtype</b>. We can define membership and subsets
+analogously.
+</p>
+</div>
+
+<div id="outline-container-orgcd1f03c" class="outline-6">
+<h6 id="orgcd1f03c">Subuniverses of sets and mere propositions</h6>
+<div class="outline-text-6" id="text-orgcd1f03c">
+<p>
+We define
+</p>
+
+<ul class="org-ul">
+<li>\(\Set_{{\cal U}} :\equiv \left\{ A : {\cal U} \mid \isSet(A) \right\}\),</li>
+<li>\(\Prop_{{\cal U}} :\equiv \left\{ A : {\cal U} \mid \isProp(A) \right\}\).</li>
+</ul>
+
+<p>
+There are natural maps \(\Set_{{\cal U}_i} \to \Set_{{\cal U}_{i+1}}\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9ef4a5e" class="outline-5">
+<h5 id="org9ef4a5e">3.5.2. Propositional resizing</h5>
+<div class="outline-text-5" id="text-org9ef4a5e">
+<p>
+<b>Propositional resizing</b> is the fact that the natural map
+\(\Prop_{{\cal U}_i} \to \Prop_{{\cal U}_{i+1}}\) is an equivalence.
+</p>
+
+<p>
+Propositional resizing can be taken as an axiom.
+</p>
+</div>
+
+<div id="outline-container-org17fe148" class="outline-6">
+<h6 id="org17fe148">Omega-indexation of propositions</h6>
+<div class="outline-text-6" id="text-org17fe148">
+<p>
+From propositional resizing follows the existence of \(\Omega\), a
+type that indexes mere propositions. If propositional resizing
+is true, \(\Omega :\equiv \Prop_{{\cal U}_0}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga4057ef" class="outline-6">
+<h6 id="orga4057ef">Powersets</h6>
+<div class="outline-text-6" id="text-orga4057ef">
+<p>
+If propositional resizing is true, we can define
+</p>
+
+<p>
+\[
+{\cal P}(A) :\equiv (A \to \Omega),
+\]
+</p>
+
+<p>
+which is independent of the universe.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org15ff0eb" class="outline-4">
+<h4 id="org15ff0eb">3.6. Logic of mere propositions</h4>
+<div class="outline-text-4" id="text-org15ff0eb">
+</div><div id="outline-container-org751fde4" class="outline-5">
+<h5 id="org751fde4">3.6.1. Product of mere propositions is a mere proposition</h5>
+</div>
+<div id="outline-container-org61097ad" class="outline-5">
+<h5 id="org61097ad">3.6.2. Dependent functions to mere propositions are mere propositions</h5>
+</div>
+<div id="outline-container-org7b81ec0" class="outline-5">
+<h5 id="org7b81ec0">3.6.2. Sums of mere propositions are not mere propositions</h5>
+</div>
+</div>
+<div id="outline-container-orgf6d543b" class="outline-4">
+<h4 id="orgf6d543b">3.7. Propositional truncation</h4>
+<div class="outline-text-4" id="text-orgf6d543b">
+</div><div id="outline-container-org6d15403" class="outline-5">
+<h5 id="org6d15403">3.7.0. Propositional truncation type</h5>
+<div class="outline-text-5" id="text-org6d15403">
+<p>
+For any \(A\) there is a <b>truncation type</b> \(\trunc{A}\), with constructors
+</p>
+
+<ul class="org-ul">
+<li>\(|a| : \trunc{A}\) for any \(a : A\);</li>
+<li>\(x=y\) for any \(x,y : \trunc{A}\);</li>
+</ul>
+
+<p>
+ensuring that it is a mere proposition.
+</p>
+</div>
+
+<div id="outline-container-orgada1b38" class="outline-6">
+<h6 id="orgada1b38">Recursion principle</h6>
+<div class="outline-text-6" id="text-orgada1b38">
+<p>
+If \(B\) is a mere proposition and \(f : A \to B\), then there exists
+\(g : \trunc{A} \to B\) such that \(g(|a|) \equiv f(a)\) for all \(a:A\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org12ab1b3" class="outline-5">
+<h5 id="org12ab1b3">3.7.1. Traditional logical notation</h5>
+<div class="outline-text-5" id="text-org12ab1b3">
+<p>
+We define
+</p>
+
+<ul class="org-ul">
+<li>\(\top :\equiv 1\),</li>
+
+<li>\(\bot :\equiv 0\),</li>
+
+<li>\(P \land Q :\equiv P \times Q\),</li>
+
+<li>\(P \lor Q :\equiv \trunc{P + Q}\),</li>
+
+<li>\(P \Rightarrow Q :\equiv P \to Q\),</li>
+
+<li>\(P \Leftrightarrow Q :\equiv P = Q\),</li>
+
+<li>\(\neg P :\equiv P \to 0\),</li>
+
+<li>\(\forall (x:A). P(x) :\equiv \prod_{x:A} P(x)\),</li>
+
+<li>\(\exists (x:A).P(x) :\equiv \trunc{\sum_{x:A} P(x)}\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4055061" class="outline-5">
+<h5 id="org4055061">3.7.2. Traditional set notation</h5>
+<div class="outline-text-5" id="text-org4055061">
+<p>
+We define
+</p>
+
+<ul class="org-ul">
+<li>\(\left\{ x:A\mid P(x) \right\} \cap \left\{ x:A \mid Q(x) \right\} :\equiv \left\{ x:A \mid P(x) \wedge Q(x) \right\}\),</li>
+<li>\(\left\{ x:A \mid P(x) \right\} \cup \left\{ x:A \mid Q(x) \right\} :\equiv \left\{ x:A\mid P(x) \lor Q(x) \right\}\),</li>
+<li>\(A \setminus \left\{ x:A\mid P(x) \right\} :\equiv \left\{ x:A \mid \neg P(x) \right\}\).</li>
+</ul>
+
+<p>
+Note how the latter are not complements in the absence of LEM.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org64688d7" class="outline-4">
+<h4 id="org64688d7">3.8. The axiom of choice</h4>
+<div class="outline-text-4" id="text-org64688d7">
+</div><div id="outline-container-orge557f20" class="outline-5">
+<h5 id="orge557f20">3.8.1. The axiom of choice</h5>
+<div class="outline-text-5" id="text-orge557f20">
+<p>
+Given a \(X\) and type families \(A : X \to {\cal U}\), \(P : \prod_{x:X} (A(x) \to {\cal U})\)
+such that \(X\) and \(A(x)\) are always sets and \(P(x,a)\) is always a
+mere proposition; the <b>axiom of choice</b> asserts
+</p>
+
+<p>
+\[
+\left( \prod_{x:X} \trunc{\sum_{a:A(x)} P(x,a)} \right)
+\to
+\trunc{\sum_{(g: \prod_{x:X}A(x))} \prod_{(x:X)} P(x,g(x))}.
+\]
+</p>
+
+<p>
+In logical notation, this means,
+</p>
+
+<p>
+\[
+\bigg( \forall (x:X). \exists (a:A(x)). P(x,a) \bigg)
+\Rightarrow
+\left( \exists \bigg(g: \prod_{x:X}A(x)\bigg). \forall (x:X). P(x,g(x)) \right)
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4e4e2ba" class="outline-5">
+<h5 id="org4e4e2ba">3.8.2. Simpler axiom of choice</h5>
+<div class="outline-text-5" id="text-org4e4e2ba">
+<p>
+The axiom of choice is equivalent to 
+</p>
+
+<p>
+\[
+\left( \prod_{x:X} \trunc{Y(x)} \right) \to
+\trunc{ \prod_{x:X} Y(x) }
+\]
+</p>
+
+<p>
+for any \(X\) and \(Y(x)\) always sets.
+</p>
+</div>
+
+<div id="outline-container-org62abf58" class="outline-6">
+<h6 id="org62abf58">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-org1911a3a" class="outline-5">
+<h5 id="org1911a3a">3.8.5. Counterexample to the simpler version</h5>
+</div>
+</div>
+
+<div id="outline-container-org6ffcf3b" class="outline-4">
+<h4 id="org6ffcf3b">3.9. The principle of unique choice</h4>
+<div class="outline-text-4" id="text-org6ffcf3b">
+</div><div id="outline-container-orgaa46893" class="outline-5">
+<h5 id="orgaa46893">3.9.1. Equivalence of mere propositions and truncations</h5>
+<div class="outline-text-5" id="text-orgaa46893">
+<p>
+If \(P\) is a mere proposition, \(P \simeq \trunc{P}\).
+</p>
+</div>
+
+<div id="outline-container-org1367208" class="outline-6">
+<h6 id="org1367208">Proof</h6>
+<div class="outline-text-6" id="text-org1367208">
+<p>
+We apply the universal property to \(\id\) to get \(\trunc{P} \to P\);
+and we have a \(P \to \trunc{P}\) by definition. This <a href="#org12c251d">proves</a> an
+equivalence of mere propositions.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75fa4f2" class="outline-5">
+<h5 id="org75fa4f2">3.9.2. The principle of unique choice</h5>
+<div class="outline-text-5" id="text-org75fa4f2">
+<p>
+Given \(P \colon A \to {\cal U}\) such that
+</p>
+
+<ul class="org-ul">
+<li>\(P(x)\) is always a mere proposition;</li>
+<li>\(\trunc{P(x)}\) is always true.</li>
+</ul>
+
+<p>
+Then \(\prod_{x:A}P(x)\).
+</p>
+</div>
+
+<div id="outline-container-org2664203" class="outline-6">
+<h6 id="org2664203">Proof</h6>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5c4902b" class="outline-4">
+<h4 id="org5c4902b">3.10. When are propositions truncated?</h4>
+</div>
+<div id="outline-container-org26a98da" class="outline-4">
+<h4 id="org26a98da">3.11. Contractibility</h4>
+<div class="outline-text-4" id="text-org26a98da">
+</div><div id="outline-container-org57edd97" class="outline-5">
+<h5 id="org57edd97">3.11.1. Contractible type</h5>
+<div class="outline-text-5" id="text-org57edd97">
+<p>
+A type \(A\) is <b>contractible</b>, or <b>singleton</b> if there is a center of
+contraction \(a : A\) such that \(a = x\) for all \(x : A\).
+</p>
+
+<p>
+\[
+\isContr(A) :\equiv \sum_{a:A}\prod_{x:A}(a = x)
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc614eb8" class="outline-5">
+<h5 id="orgc614eb8">3.11.3. Characterization of contractibility</h5>
+<div class="outline-text-5" id="text-orgc614eb8">
+<p>
+Given \(A\), the following are equivalent
+</p>
+
+<ol class="org-ol">
+<li>\(A\) is contractible,</li>
+<li>\(A\) is a mere proposition, and there is a point \(a:A\),</li>
+<li>\(A\) is equivalent to \(1\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org93279d3" class="outline-6">
+<h6 id="org93279d3">Proof</h6>
+<div class="outline-text-6" id="text-org93279d3">
+<p>
+If \(A\) is contractible, it has a point \(a : A\) and every two other
+points are equal to it.
+</p>
+
+<p>
+If \(A\) is an inhabited mere proposition, it is equivalent to \(1\).
+</p>
+
+<p>
+And \(1\) is contractible.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgba5a00f" class="outline-5">
+<h5 id="orgba5a00f">3.11.4. Contr is a mere proposition</h5>
+</div>
+<div id="outline-container-orgab37245" class="outline-5">
+<h5 id="orgab37245">3.11.5. Contractibility of Contr</h5>
+</div>
+<div id="outline-container-org0da2d32" class="outline-5">
+<h5 id="org0da2d32">3.11.6. Dependent product of contractible types</h5>
+</div>
+<div id="outline-container-orgbdf4e6c" class="outline-5">
+<h5 id="orgbdf4e6c">3.11.7. Retracts and contractibility</h5>
+</div>
+<div id="outline-container-org675fd69" class="outline-5">
+<h5 id="org675fd69">3.11.8.</h5>
+</div>
+<div id="outline-container-orgc458fa8" class="outline-5">
+<h5 id="orgc458fa8">3.11.9.</h5>
+</div>
+<div id="outline-container-org35739f3" class="outline-5">
+<h5 id="org35739f3">3.11.10. Mere propositions and contractibility</h5>
+<div class="outline-text-5" id="text-org35739f3">
+<p>
+\(A\) is a mere proposition iff for all \(x,y : A\), the type \(x = y\) is
+contractible.
+</p>
+</div>
+
+<div id="outline-container-org0dbd04c" class="outline-6">
+<h6 id="org0dbd04c">Proof</h6>
+<div class="outline-text-6" id="text-org0dbd04c">
+<p>
+If \(A\) is a mere proposition, then \(x = y\) must be true; it must be
+also a set, so \(x=y\) must be contractible.
+</p>
+
+<p>
+If \(x=y\) is contractible, it is inhabited, so \(A\) is a mere
+proposition.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga8ccdc8" class="outline-3">
+<h3 id="orga8ccdc8">I.4. Equivalences</h3>
+<div class="outline-text-3" id="text-orga8ccdc8">
+</div><div id="outline-container-org9e759ce" class="outline-4">
+<h4 id="org9e759ce">4.1. Quasi-inverses</h4>
+<div class="outline-text-4" id="text-org9e759ce">
+</div><div id="outline-container-org1d38ce8" class="outline-5">
+<h5 id="org1d38ce8">4.1.1. Characterization of the quasi-inverse type</h5>
+<div class="outline-text-5" id="text-org1d38ce8">
+<p>
+If given \(f : A \to B\), \(\qinv{}(f)\) is inhabited,
+</p>
+
+<p>
+\[
+\qinv(f) \simeq \prod_{x:A}(x=x)
+\]
+</p>
+</div>
+
+<div id="outline-container-orgbfa2d5f" class="outline-6">
+<h6 id="orgbfa2d5f">Proof</h6>
+<div class="outline-text-6" id="text-orgbfa2d5f">
+<p>
+As \(f\) is an equivalence, we apply univalence to get \(p : A = B\).
+Applying path induction, \(p = \refl\) and \(f = \id\). Then,
+</p>
+
+<p>
+\[
+\qinv(\id) \equiv \sum_{g : A \to A} (g \sim \id) \times (\id \sim g)
+\]
+</p>
+
+<p>
+which is equivalent by function extensionality to
+</p>
+
+<p>
+\[
+\sum_{g : A \to A} (g = \id) \times (g = \id)
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org67fb700" class="outline-5">
+<h5 id="org67fb700">4.1.2. Existence of center</h5>
+<div class="outline-text-5" id="text-org67fb700">
+<p>
+Given \(a : A\) and \(q : a = a\) such that
+</p>
+
+<ol class="org-ol">
+<li>\(a = a\) is a set,</li>
+<li>\(\trunc{a = x}\) for all \(x : A\),</li>
+<li>\(p \cdot q = q \cdot p\) for all \(p : a = a\),</li>
+</ol>
+
+<p>
+there exists \(f : \prod_{x:A}(x = x)\) such that \(f(a) = q\).
+</p>
+</div>
+
+<div id="outline-container-org4f5aefb" class="outline-6">
+<h6 id="org4f5aefb">Proof</h6>
+</div>
+</div>
+<div id="outline-container-org1db3333" class="outline-5">
+<h5 id="org1db3333">4.1.3. qinv is not always a mere proposition</h5>
+<div class="outline-text-5" id="text-org1db3333">
+<p>
+There exists a function such that \(\qinv(f)\) is not a mere
+proposition.
+</p>
+</div>
+
+<div id="outline-container-orge584ad1" class="outline-6">
+<h6 id="orge584ad1">Proof</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-org92d29f7" class="outline-4">
+<h4 id="org92d29f7">4.2. Half adjoint equivalences</h4>
+<div class="outline-text-4" id="text-org92d29f7">
+</div><div id="outline-container-orgae5fc26" class="outline-5">
+<h5 id="orgae5fc26">4.2.1. Half adjoint equivalence</h5>
+<div class="outline-text-5" id="text-orgae5fc26">
+<p>
+A function \(f : A \to B\) is a <b>half adjoint equivalence</b> if
+</p>
+
+<p>
+\[
+\ishae(f) :\equiv
+\sum_{(g : B \to A)}
+\sum_{(\eta : g \circ f \sim \id_{A})}
+\sum_{(\epsilon : f \circ g \sim \id_{B})}
+\prod_{(x:A)}
+f(\eta(x)) = \epsilon(f(x))
+\]
+</p>
+
+<p>
+that is, there exist two homotopies and a coherence condition
+between them.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3e91cbc" class="outline-5">
+<h5 id="org3e91cbc">4.2.2. Logical equivalence of half adjoint equivalences</h5>
+<div class="outline-text-5" id="text-org3e91cbc">
+<p>
+Given \(f : A \to B\) and \(g : B \to A\) with homotopies \(\eta : g \circ f \sim \id\) and
+\(\epsilon : f \circ g \sim \id\), the following two types are logically equivalent
+</p>
+
+<ul class="org-ul">
+<li>\(\prod_{x:A}f(\eta(x)) = \epsilon(f(x))\),</li>
+
+<li>\(\prod_{x:A} g(\epsilon(x)) = \eta(g(x))\).</li>
+</ul>
+</div>
+
+<div id="outline-container-org21b0625" class="outline-6">
+<h6 id="org21b0625">Proof</h6>
+<div class="outline-text-6" id="text-org21b0625">
+<p>
+We will prove the second homotopy from \(\tau : \prod_{x:A}f(\eta(x)) = \epsilon(f(x))\);
+simmetry gives us the other direction.
+</p>
+
+<p>
+By <a href="#orga711e62">endonaturality of homotopies</a> in \(\epsilon\) we have
+</p>
+
+<p>
+\[\begin{tikzcd}
+fgfg(x) \rar[equal]{fg \epsilon(x)} \dar[swap,equal]{\epsilon fg(x)} & 
+fg(x) \dar[equal]{\epsilon(x)} \\
+fg(x) \rar[equal]{\epsilon(x)} &
+x
+\end{tikzcd}\]
+</p>
+
+<p>
+and applying \(g\) to the complete diagram renders
+</p>
+
+<p>
+\[\begin{tikzcd}
+gfgfg(x) \rar[equal]{gfg\epsilon(x)} \dar[swap,equal]{g\epsilon fg(x)} & 
+gfg(x) \dar[equal]{g\epsilon(x)} \\
+gfg(x) \rar[equal]{g\epsilon(x)} &
+gx
+\end{tikzcd}\]
+</p>
+
+<p>
+applying now the homotopy \(\tau(g(x))\), we get \(g \epsilon fg(x) = gf \eta g(x)\);
+and again by <a href="#orga711e62">naturality</a>, we have \(gf \eta g(x) = \eta gfg(x)\), and the
+diagram is
+</p>
+
+<p>
+\[\begin{tikzcd}
+gfgfg(x) \rar[equal]{g fg\epsilon(x)} 
+\dar[swap,equal]{\eta gfg(x)} & 
+gfg(x) \dar[equal]{g\epsilon(x)} \\
+gfg(x) \rar[equal]{g\epsilon(x)} &
+gx
+\end{tikzcd}\]
+</p>
+
+<p>
+Meanwhile, by naturality of \(\eta\) between \(gfgfg\) and \(gfg\), we have that
+</p>
+
+<p>
+\[\begin{tikzcd}
+gfgfg(x) \rar[equal]{g fg\epsilon(x)} 
+\dar[swap,equal]{\eta gfg(x)} & 
+gfg(x) \dar[equal]{\eta g(x)} \\
+gfg(x) \rar[equal]{g\epsilon(x)} &
+gx
+\end{tikzcd}\]
+</p>
+
+<p>
+and joining both diagrams we get \(\eta g(x) = g \epsilon(x)\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b9c6a0" class="outline-5">
+<h5 id="org9b9c6a0">4.2.3. qinv implies ishae</h5>
+<div class="outline-text-5" id="text-org9b9c6a0">
+<p>
+It is obvious that \(\ishae\) implies \(\qinv\).
+For any \(f : A \to B\) we have \(\qinv(f) \to \ishae(f)\).
+</p>
+</div>
+
+<div id="outline-container-org83334f1" class="outline-6">
+<h6 id="org83334f1">Proof</h6>
+<div class="outline-text-6" id="text-org83334f1">
+<p>
+Given a quasiinverse \((f,g,\eta,\epsilon)\), we will define a new tuple
+\((f,g,\eta,\epsilon',\tau')\); taking \(\epsilon'\) to be
+</p>
+
+<p>
+\[
+\epsilon'(b) :\equiv \epsilon fg(b)^{-1} \cdot f\eta g(b) \cdot \epsilon(b)
+\]
+</p>
+
+<p>
+so we need to find an homotopy
+</p>
+
+<p>
+\[
+\tau(a) : f\eta(a) = \epsilon fgf(a)^{-1} \cdot f \eta gf(a) \cdot \epsilon f(a)
+\]
+</p>
+
+<p>
+but we know by <a href="#orga711e62">endonaturality</a> that \(\eta gf(a) = gf \eta(a)\) and by
+homotopy that
+</p>
+
+<p>
+\[
+f \eta gf(a) \cdot \epsilon f(a) = fgf\eta(a) \cdot \epsilon f(a) = \epsilon fgf(a) \cdot f\eta(a).
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org141e9a2" class="outline-5">
+<h5 id="org141e9a2">4.2.4. Fiber of a map</h5>
+<div class="outline-text-5" id="text-org141e9a2">
+<p>
+The <b>fiber</b> of \(f : A \to B\) over a point is
+</p>
+
+<p>
+\[
+\fib_f(y) :\equiv \sum_{x:A}(f(x) = y).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdbbbf42" class="outline-5">
+<h5 id="orgdbbbf42">4.2.5. Equality of fibers</h5>
+<div class="outline-text-5" id="text-orgdbbbf42">
+<p>
+Given \(f : A \to B\) and \((x,p), (x',p') : \fib_f(y)\),
+</p>
+
+<p>
+\[
+((x,p) = (x',p'))
+\simeq
+\left( \sum_{\gamma : x = x'} f(\gamma) \cdot p' = p \right)
+\]
+</p>
+</div>
+
+<div id="outline-container-org8143816" class="outline-6">
+<h6 id="org8143816">Proof</h6>
+<div class="outline-text-6" id="text-org8143816">
+</div>
+</div>
+</div>
+
+<div id="outline-container-org93798ce" class="outline-5">
+<h5 id="org93798ce">4.2.6. Fibers of half-adjoint equivalences are contractible</h5>
+<div class="outline-text-5" id="text-org93798ce">
+<p>
+If \(\ishae(f)\) for \(f : A \to B\), then \(\fib_f(y)\) is contractible for any \(y : B\).
+</p>
+</div>
+
+<div id="outline-container-orgb9129e4" class="outline-6">
+<h6 id="orgb9129e4">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-org639e359" class="outline-5">
+<h5 id="org639e359">4.2.7. Left and right inverses</h5>
+<div class="outline-text-5" id="text-org639e359">
+<p>
+Given \(f : A \to B\) we define
+</p>
+
+<ul class="org-ul">
+<li>its <b>left inverses</b>, \(\linv(f) :\equiv \sum_{g : B \to A} (g \circ f \sim \id)\),</li>
+
+<li>its <b>right inverses</b>, \(\rinv(f) :\equiv \sum_{g \colon B \to A}(f \circ g \sim \id)\).</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org88fea81" class="outline-4">
+<h4 id="org88fea81">4.3. Bi-invertible maps</h4>
+<div class="outline-text-4" id="text-org88fea81">
+</div><div id="outline-container-orge638c2e" class="outline-5">
+<h5 id="orge638c2e">4.3.1. Bi-invertible</h5>
+<div class="outline-text-5" id="text-orge638c2e">
+<p>
+A function \(f : A \to B\) is <b>bi-invertible</b> if it
+<a href="#org639e359">has left and right inverses</a>
+</p>
+
+<p>
+\[
+\biinv(f) :\equiv \linv(f) \times \rinv(f).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org942f374" class="outline-5">
+<h5 id="org942f374">4.3.2. biinv is a mere proposition</h5>
+<div class="outline-text-5" id="text-org942f374">
+<p>
+The type \(\biinv(f)\) is a mere proposition for any \(f : A \to B\).
+</p>
+</div>
+
+<div id="outline-container-org110bd79" class="outline-6">
+<h6 id="org110bd79">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-org867bb12" class="outline-5">
+<h5 id="org867bb12">4.3.3. Equivalence biinv and ishae</h5>
+<div class="outline-text-5" id="text-org867bb12">
+<p>
+Given \(f : A \to B\), we have \(\qinv(f) \simeq \ishae(f)\).
+</p>
+</div>
+
+<div id="outline-container-orgb22ed6e" class="outline-6">
+<h6 id="orgb22ed6e">Proof</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-orgee9d64b" class="outline-4">
+<h4 id="orgee9d64b">4.4. Contractible fibers</h4>
+<div class="outline-text-4" id="text-orgee9d64b">
+</div><div id="outline-container-org60ced56" class="outline-5">
+<h5 id="org60ced56">4.4.1. Contractible maps</h5>
+<div class="outline-text-5" id="text-org60ced56">
+<p>
+A function \(f : A \to B\) is <b>contractible</b> if \(\fib_f(y)\) is contractible
+for every \(y : B\); that is, we define
+</p>
+
+<p>
+\[
+\isContr(f) :\equiv \prod_{y:B} \isContr(\fib_f(y)).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org114d5bc" class="outline-5">
+<h5 id="org114d5bc">4.4.3. isContr implies ishae</h5>
+<div class="outline-text-5" id="text-org114d5bc">
+<p>
+For any \(f : A \to B\), we have \(\isContr(f) \to \ishae(f)\).
+</p>
+</div>
+
+<div id="outline-container-orgdace9b2" class="outline-6">
+<h6 id="orgdace9b2">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-org3b00e4d" class="outline-5">
+<h5 id="org3b00e4d">4.4.4. isContr is a mere proposition</h5>
+<div class="outline-text-5" id="text-org3b00e4d">
+<p>
+For any \(f\), the type \(\isContr(f)\) is a mere proposition.
+</p>
+</div>
+
+<div id="outline-container-orgda7a80b" class="outline-6">
+<h6 id="orgda7a80b">Proof</h6>
+</div>
+</div>
+<div id="outline-container-org2de83cb" class="outline-5">
+<h5 id="org2de83cb">4.4.5. isContr is equivalent to ishae</h5>
+<div class="outline-text-5" id="text-org2de83cb">
+<p>
+For any \(f : A \to B\), we have \(\isContr(f) \simeq \ishae(f)\).
+</p>
+</div>
+
+<div id="outline-container-orge6843d6" class="outline-6">
+<h6 id="orge6843d6">Proof</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb85463f" class="outline-4">
+<h4 id="orgb85463f">4.5. On the definition of equivalences</h4>
+<div class="outline-text-4" id="text-orgb85463f">
+<p>
+We have proved equivalent
+</p>
+
+<p>
+\[
+\isContr(f) \simeq \ishae(f) \simeq \biinv(f)
+\]
+</p>
+
+<p>
+so we choose \(\isequiv{}(f) :\equiv \ishae(f)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org48608fb" class="outline-4">
+<h4 id="org48608fb">4.6. Surjections and embeddings</h4>
+<div class="outline-text-4" id="text-org48608fb">
+</div><div id="outline-container-org39fee09" class="outline-5">
+<h5 id="org39fee09">4.6.0. Isomorphisms</h5>
+<div class="outline-text-5" id="text-org39fee09">
+<p>
+When two sets are equivalent, we say that they is an <b>isomorphism</b>
+or a <b>bijection</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb6f3777" class="outline-5">
+<h5 id="orgb6f3777">4.6.1. Surjections and embeddings</h5>
+<div class="outline-text-5" id="text-orgb6f3777">
+<p>
+A function \(f : A \to B\) is
+</p>
+
+<ul class="org-ul">
+<li><b>surjective</b> if \(\trunc{\fib_f(b)}\) for every \(b : B\);</li>
+<li><b>embedding</b> if \(\ap_f : (x=y) \to (f(x) = f(y))\) is an equivalence.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgfaa85f2" class="outline-6">
+<h6 id="orgfaa85f2">Split surjection</h6>
+<div class="outline-text-6" id="text-orgfaa85f2">
+<p>
+We say that a function \(f : A \to B\) is a <b>split surjection</b> if
+</p>
+
+<p>
+\[
+\prod_{b:B}\sum_{a:A} f(a) = b.
+\]
+</p>
+
+<p>
+Note that it is a stronger assertion than being surjective, that
+only asks for an inhabitant without constructive evidence.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org752a2e5" class="outline-6">
+<h6 id="org752a2e5">Axiom of choice and split surjections</h6>
+<div class="outline-text-6" id="text-org752a2e5">
+<p>
+The <a href="#orge557f20">axiom of choice</a> says exactly that every surjection between sets is
+split.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgedc31a9" class="outline-5">
+<h5 id="orgedc31a9">4.6.2. Characterization of embeddings</h5>
+<div class="outline-text-5" id="text-orgedc31a9">
+<p>
+A function \(f : A \to B\) between sets is an embedding if and only if
+</p>
+
+<p>
+\[
+\prod_{x,y:A} f(x) = f(y) \to x = y.
+\]
+</p>
+
+<p>
+And we say that it is an <b>injection</b>.
+</p>
+</div>
+
+<div id="outline-container-org25c31ca" class="outline-6">
+<h6 id="org25c31ca">Proof</h6>
+<div class="outline-text-6" id="text-org25c31ca">
+<p>
+We apply that \(f(x) = f(y)\) and \(x = y\) are mere propositions to get
+an equivalence from the logical implications.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9250bc4" class="outline-5">
+<h5 id="org9250bc4">4.6.3. Equivalence is surjection and embedding</h5>
+<div class="outline-text-5" id="text-org9250bc4">
+<p>
+Any function \(f : A \to B\) is an equivalence if and only if it is both
+surjective and an embedding.
+</p>
+</div>
+
+<div id="outline-container-orgd78a54e" class="outline-6">
+<h6 id="orgd78a54e">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-orgefdf9aa" class="outline-5">
+<h5 id="orgefdf9aa">4.6.4. Equivalence is equivalent to surjection and embedding</h5>
+<div class="outline-text-5" id="text-orgefdf9aa">
+<p>
+For any \(f : A \to B\),
+</p>
+
+<p>
+\[
+\isequiv(f) \simeq \isEmbedding(f) \times \isSurjective(f).
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf2e7c62" class="outline-4">
+<h4 id="orgf2e7c62">4.7. Closure properties of equivalences</h4>
+<div class="outline-text-4" id="text-orgf2e7c62">
+</div><div id="outline-container-orgf990fa9" class="outline-5">
+<h5 id="orgf990fa9">4.7.1. The 2-out-of-3 property</h5>
+<div class="outline-text-5" id="text-orgf990fa9">
+<p>
+If any two \(f,g,g\circ f\) are equivalences, so is the third.
+</p>
+</div>
+
+<div id="outline-container-org9a0975f" class="outline-6">
+<h6 id="org9a0975f">Proof</h6>
+<div class="outline-text-6" id="text-org9a0975f">
+<p>
+Given \(g \circ f\) and \(g\) equivalences, we show that \((g \circ f)^{-1} \circ g\) is a
+quasi-inverse to \(f\) because
+</p>
+
+<ul class="org-ul">
+<li><p>
+on the one hand,
+</p>
+
+<p>
+\[
+   ((g \circ f)^{-1} \circ g) \circ f \sim \id_{A}
+   \]
+</p></li>
+
+<li><p>
+on the other hand,
+</p>
+
+<p>
+\[\begin{aligned}
+   f \circ (g \circ f)^{-1} \circ g &\sim
+   g^{-1} \circ g \circ f \circ (g \circ f)^{-1} \circ g \\
+   &\sim g^{-1} \circ g \\
+   &\sim \id.
+   \end{aligned}\]
+</p></li>
+</ul>
+
+<p>
+In a similar way, we can prove the other two pair of equivalences.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc78f3e2" class="outline-5">
+<h5 id="orgc78f3e2">4.7.2. Retracts</h5>
+<div class="outline-text-5" id="text-orgc78f3e2">
+<p>
+A function \(g : A \to B\) is a <b>retract</b> of \(f : X \to Y\) in
+</p>
+
+<p>
+\[\begin{tikzcd}
+A \rar{s}\dar{g} & X \rar{r}\dar{f} & A\dar{g} \\
+B \rar{s'}& Y \rar{r'}& B
+\end{tikzcd}\]
+</p>
+
+<p>
+if
+</p>
+
+<ul class="org-ul">
+<li>\(R : s \circ r \sim \id\),</li>
+<li>\(R' : s' \circ r' \sim \id\),</li>
+<li>\(L : f \circ s \sim s' \circ g\),</li>
+<li>\(K : g \circ r \sim r' \circ f\).</li>
+<li><p>
+a path \(H(a)\) witnessing commutativity of
+</p>
+
+<p>
+\[\begin{tikzcd}
+   grs(a) \dar[equal,swap]{g(Ra)}\rar[equal]{Ks(a)} & r'fs(a) \dar[equal]{r'(La)} \\
+   g(a)  \rar[equal]{R'(ga)^{-1}} & r's'g(a) \\
+   \end{tikzcd}\]
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge8311d8" class="outline-5">
+<h5 id="orge8311d8">4.7.3. Retract of equivalence is equivalence</h5>
+</div>
+<div id="outline-container-orgaf87398" class="outline-5">
+<h5 id="orgaf87398">4.7.5.</h5>
+</div>
+</div>
+<div id="outline-container-org16d3742" class="outline-4">
+<h4 id="org16d3742">4.8. The object classifier</h4>
+<div class="outline-text-4" id="text-org16d3742">
+</div><div id="outline-container-org6210866" class="outline-5">
+<h5 id="org6210866">4.8.1. Fiber of a type family</h5>
+</div>
+<div id="outline-container-org41a8bb6" class="outline-5">
+<h5 id="org41a8bb6">4.8.2.</h5>
+</div>
+<div id="outline-container-org0e0b1e1" class="outline-5">
+<h5 id="org0e0b1e1">4.8.3. Object classifier</h5>
+<div class="outline-text-5" id="text-org0e0b1e1">
+<p>
+Given any type \(B\) there is an equivalence
+</p>
+
+<p>
+\[
+\chi :
+\left( \sum_{A:{\cal U}}(A \to B) \right) \simeq (B \to {\cal U}).
+\]
+</p>
+</div>
+
+<div id="outline-container-orgf1ad894" class="outline-6">
+<h6 id="orgf1ad894">Proof</h6>
+<div class="outline-text-6" id="text-orgf1ad894">
+<p>
+We can define 
+</p>
+
+<ul class="org-ul">
+<li>\(\chi((A,f),b) :\equiv \fib_f(b)\)</li>
+
+<li>\(\psi(P) :\equiv \left( \left(\sum_{b:B} P(b) \right), \pr_1 \right)\)</li>
+</ul>
+
+<p>
+and now verify that this constitutes an equivalence.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5c18fbe" class="outline-4">
+<h4 id="org5c18fbe">4.9. Univalence implies function extensionality</h4>
+<div class="outline-text-4" id="text-org5c18fbe">
+<p>
+We do not assume function extensionality on this section.
+</p>
+</div>
+
+<div id="outline-container-org2926054" class="outline-5">
+<h5 id="org2926054">4.9.1. Weak function extensionality principle</h5>
+<div class="outline-text-5" id="text-org2926054">
+<p>
+The <b>weak function extensionality principle</b> asserts that,
+for any family \(P : A \to {\cal U}\),
+</p>
+
+<p>
+\[
+\left( \prod_{x:A} \isContr(P(x)) \right)
+\to
+\isContr \left( \prod_{x:A}P(x) \right).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org60f99de" class="outline-5">
+<h5 id="org60f99de">4.9.2. Equivalence on slice objects</h5>
+<div class="outline-text-5" id="text-org60f99de">
+<p>
+If \({\cal U}\) is univalent, \(A,B,X : {\cal U}\) and \(e : A \simeq B\), there is 
+an equivalence
+</p>
+
+<p>
+\[
+(X \to A) \simeq (X \to B).
+\]
+</p>
+</div>
+
+<div id="outline-container-org26c2fd4" class="outline-6">
+<h6 id="org26c2fd4">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-org89b1cb7" class="outline-5">
+<h5 id="org89b1cb7">4.9.3.</h5>
+</div>
+<div id="outline-container-org3db47db" class="outline-5">
+<h5 id="org3db47db">4.9.5. Weak function extensionality implies function extensionality</h5>
+<div class="outline-text-5" id="text-org3db47db">
+<p>
+The weak function extensionality principle implies the axiom
+of <a href="#orge8ff493">function extensionality</a>.
+</p>
+</div>
+
+<div id="outline-container-org95c9359" class="outline-6">
+<h6 id="org95c9359">Proof</h6>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc13cfb4" class="outline-3">
+<h3 id="orgc13cfb4">I.5. Induction</h3>
+<div class="outline-text-3" id="text-orgc13cfb4">
+</div><div id="outline-container-org4980d51" class="outline-4">
+<h4 id="org4980d51">5.1. Introduction to inductive types</h4>
+<div class="outline-text-4" id="text-org4980d51">
+</div><div id="outline-container-org1ef97e0" class="outline-5">
+<h5 id="org1ef97e0">5.1.1. Uniqueness of functions over the natural numbers</h5>
+<div class="outline-text-5" id="text-org1ef97e0">
+<p>
+Given \(f,g : \prod_{n:\mathbb{N}} E(x)\) with
+</p>
+
+<p>
+\[
+e_z : E(0)
+\quad\text{ and }\quad 
+e_s : \prod_{n:\mathbb{N}}E(n) \to E(\succ(n)) 
+\]
+</p>
+
+<p>
+such that \(f(0) = e_z = g(0)\) and
+</p>
+
+<ul class="org-ul">
+<li>\(\prod_{n:\mathbb{N}} f(\succ(n)) = e_s(n,f(n))\),</li>
+<li>\(\prod_{n:\mathbb{N}} g(\succ(n)) = e_s(n,g(n))\);</li>
+</ul>
+
+<p>
+then \(f\) and \(g\) are equal.
+</p>
+</div>
+
+<div id="outline-container-orgac6768e" class="outline-6">
+<h6 id="orgac6768e">Proof</h6>
+<div class="outline-text-6" id="text-orgac6768e">
+<p>
+We apply induction on \(n\) over the type family \(f(n) = g(n)\).
+In the base case, \(f(0) = g(0)\); and in the successor case,
+knowing that \(f(n) = g(n)\),
+</p>
+
+<p>
+\[
+f(\succ(n)) = e_s(n,f(n)) = e_s(n,g(n)) = g(\succ(n)).
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org89fc880" class="outline-5">
+<h5 id="org89fc880">5.2. Uniqueness of inductive types</h5>
+</div>
+</div>
+<div id="outline-container-orgbae8e49" class="outline-4">
+<h4 id="orgbae8e49">5.3. W-types</h4>
+</div>
+<div id="outline-container-org40681d5" class="outline-4">
+<h4 id="org40681d5">5.4. Inductive types are initial algebras</h4>
+<div class="outline-text-4" id="text-org40681d5">
+</div><div id="outline-container-orgd718c7e" class="outline-5">
+<h5 id="orgd718c7e">5.4.1. N-algebra</h5>
+<div class="outline-text-5" id="text-orgd718c7e">
+<p>
+A \(\mathbb{N}\text{-algebra}\) is a type with two elements
+</p>
+
+<p>
+\[
+\mathbb{N}\text{alg} :\equiv \sum_{C:{\cal U}} C \times (C \to C).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge14953d" class="outline-5">
+<h5 id="orge14953d">5.4.2. N-homomorphism</h5>
+<div class="outline-text-5" id="text-orge14953d">
+<p>
+A \(\mathbb{N}\text{-homomorphism}\) between algebras is a function preserving
+the zero and successor elements up to path equality
+</p>
+
+<p>
+\[
+\mathbb{N}\text{Hom}((C,c_0,c_s), (D,d_0,d_s)) :\equiv
+\sum_{h \colon C \to D} (h(c_0) = d_0) \times \left( \prod_{c:C} h(c_s(c)) = d_s(h(c)) \right).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1c77429" class="outline-5">
+<h5 id="org1c77429">5.4.3. Homotopy initial N-algebra</h5>
+<div class="outline-text-5" id="text-org1c77429">
+<p>
+An algebra is homotopy initial if the type of homomorphisms to any
+other algebras is contractible; that is
+</p>
+
+<p>
+\[
+\isHinit_{\mathbb{N}}(I) :\equiv \prod_{C : \mathbb{N}\text{Alg}} \isContr(\mathbb{N}\text{Hom}(I,C)).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc8ed412" class="outline-5">
+<h5 id="orgc8ed412">5.4.4. Uniqueness of homotopy initial N-algebras</h5>
+</div>
+
+<div id="outline-container-org7920f89" class="outline-5">
+<h5 id="org7920f89">5.4.5. The naturals are an homotopy initial N-algebra</h5>
+</div>
+<div id="outline-container-org4e97578" class="outline-5">
+<h5 id="org4e97578">5.4.6. W-algebras</h5>
+</div>
+</div>
+<div id="outline-container-orge6f5fb6" class="outline-4">
+<h4 id="orge6f5fb6">5.5. Homotopy-inductive types</h4>
+</div>
+</div>
+<div id="outline-container-org27ae5ea" class="outline-3">
+<h3 id="org27ae5ea">I.6. Higher inductive types</h3>
+<div class="outline-text-3" id="text-org27ae5ea">
+</div><div id="outline-container-org07855aa" class="outline-4">
+<h4 id="org07855aa">6.2. Induction principles and dependent paths</h4>
+<div class="outline-text-4" id="text-org07855aa">
+</div><div id="outline-container-orgfc0552b" class="outline-5">
+<h5 id="orgfc0552b">6.2.1. Propositional equality by definition</h5>
+<div class="outline-text-5" id="text-orgfc0552b">
+<p>
+In the case of higher inductive types, we give equalities by
+definition that use non-fundamental parts of the type theory,
+and so they are propositional instead of judgmental.
+</p>
+
+<p>
+We write them as \(f(\mathsf{loop}) := \ell\) to indicate this fact.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge256f5d" class="outline-5">
+<h5 id="orge256f5d">6.2.2. Notation for dependent paths</h5>
+<div class="outline-text-5" id="text-orge256f5d">
+<p>
+We write dependent paths as
+</p>
+
+<p>
+\[
+(u =^P_p v) :\equiv \transport^P(p,u) = v.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orged5704d" class="outline-5">
+<h5 id="orged5704d">6.2.5. Non-dependent computation rule of the circle</h5>
+<div class="outline-text-5" id="text-orged5704d">
+<p>
+Given \(a : A\) with \(p : a = a\), there is a function \(f : \mathbb{S}^1 \to A\) such
+that
+</p>
+
+<ul class="org-ul">
+<li>\(f(\base) :\equiv a\),</li>
+<li>\(\ap_f(\mathsf{loop}) :\equiv p\).</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc67fbce" class="outline-6">
+<h6 id="orgc67fbce">Proof</h6>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6311447" class="outline-4">
+<h4 id="org6311447">6.3. The interval</h4>
+<div class="outline-text-4" id="text-org6311447">
+</div><div id="outline-container-org2700a10" class="outline-5">
+<h5 id="org2700a10">6.3.0. The interval</h5>
+<div class="outline-text-5" id="text-org2700a10">
+<p>
+We denote \(I\) to the type generated by
+</p>
+
+<ul class="org-ul">
+<li>\(0_I : I\), a start point,</li>
+<li>\(1_I : I\), an end point,</li>
+<li>\(\seg : 0_I = 1_I\), a segment between points.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc1d8f4b" class="outline-6">
+<h6 id="orgc1d8f4b">Induction principle of the interval</h6>
+</div>
+<div id="outline-container-org83f9bd6" class="outline-6">
+<h6 id="org83f9bd6">Recursion principle of the interval</h6>
+</div>
+</div>
+<div id="outline-container-org926e3af" class="outline-5">
+<h5 id="org926e3af">6.3.1. The interval is contractible</h5>
+<div class="outline-text-5" id="text-org926e3af">
+<p>
+The type \(I\) is contractible.
+</p>
+</div>
+
+<div id="outline-container-org44521e1" class="outline-6">
+<h6 id="org44521e1">Proof</h6>
+<div class="outline-text-6" id="text-org44521e1">
+<p>
+We define a function of type \(\prod_{i:I}(i = 1)\), by induction over the
+interval
+</p>
+
+<ul class="org-ul">
+<li>\(f(0) :\equiv \seg\),</li>
+<li>\(f(1) :\equiv \refl_1\),</li>
+</ul>
+
+<p>
+and \(\apd_f(\seg) : \seg_{\ast}(\seg) = \refl\) can be defined knowing
+that this type is equivalent to \(\seg^{-1} \cdot \seg = \refl\), and
+that path inverse is an inhabitant.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf5b017f" class="outline-5">
+<h5 id="orgf5b017f">6.3.2. Extensionality from the interval type</h5>
+</div>
+</div>
+
+<div id="outline-container-org5fd053d" class="outline-4">
+<h4 id="org5fd053d">6.4. Circles and spheres</h4>
+</div>
+<div id="outline-container-orge2dbbc3" class="outline-4">
+<h4 id="orge2dbbc3">6.5. Suspensions</h4>
+<div class="outline-text-4" id="text-orge2dbbc3">
+</div><div id="outline-container-org923b549" class="outline-5">
+<h5 id="org923b549">6.5.0. Suspension of a type</h5>
+<div class="outline-text-5" id="text-org923b549">
+<p>
+The <b>suspension</b> of a type \(A\) is a type \(\Sigma A\) defined by the
+generators
+</p>
+
+<ul class="org-ul">
+<li>north, \(\N : \Sigma A\);</li>
+
+<li>south, \(S : \Sigma A\);</li>
+
+<li>and meridians, \(\merid : A \to (\N = \S)\).</li>
+</ul>
+</div>
+
+<div id="outline-container-org8417f5f" class="outline-6">
+<h6 id="org8417f5f">Induction principle</h6>
+</div>
+</div>
+
+<div id="outline-container-orga7c25a9" class="outline-5">
+<h5 id="orga7c25a9">6.5.1. Circle as suspension</h5>
+<div class="outline-text-5" id="text-orga7c25a9">
+<p>
+The circle can be seen as the suspension of the booleans,
+</p>
+
+<p>
+\[
+\Sigma 2 \simeq \mathbb{S}^{1}.
+\]
+</p>
+</div>
+
+<div id="outline-container-org9825ce9" class="outline-6">
+<h6 id="org9825ce9">Proof</h6>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4c48db3" class="outline-4">
+<h4 id="org4c48db3">6.6. Cell complexes</h4>
+</div>
+
+<div id="outline-container-orgcb8aca5" class="outline-4">
+<h4 id="orgcb8aca5">6.7. Hubs and spokes</h4>
+</div>
+</div>
+<div id="outline-container-orgc69acad" class="outline-3">
+<h3 id="orgc69acad">I.7. Homotopy n-types</h3>
+<div class="outline-text-3" id="text-orgc69acad">
+</div><div id="outline-container-orgfdeab15" class="outline-4">
+<h4 id="orgfdeab15">7.1. Definition of n-types</h4>
+<div class="outline-text-4" id="text-orgfdeab15">
+</div><div id="outline-container-org278e8ba" class="outline-5">
+<h5 id="org278e8ba">7.1.1. is-n-type</h5>
+<div class="outline-text-5" id="text-org278e8ba">
+<p>
+We define \(\istype{n} : {\cal U} \to {\cal U}\) as
+</p>
+
+<p>
+\[
+\istype{n}(X) :\equiv
+\left\{\begin{array}{ll}
+\isContr(X) & \mbox{if } n = -2, \\
+\prod_{x,y:X} \istype{n'}(x = y) & \mbox{if } n = n' + 1.
+\end{array}\right.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb4a340f" class="outline-5">
+<h5 id="orgb4a340f">7.1.4. Retraction of an n-type</h5>
+</div>
+<div id="outline-container-org833a5e9" class="outline-5">
+<h5 id="org833a5e9">7.1.5. Equivalence preserves n-types</h5>
+</div>
+</div>
+<div id="outline-container-orgf430e86" class="outline-4">
+<h4 id="orgf430e86">7.2. Uniqueness of identity proofs and Hedberg's theorem</h4>
+<div class="outline-text-4" id="text-orgf430e86">
+</div><div id="outline-container-org0001319" class="outline-5">
+<h5 id="org0001319">7.2.0. Uniqueness of identity proofs (UIP)</h5>
+</div>
+
+<div id="outline-container-org2e66110" class="outline-5">
+<h5 id="org2e66110">7.2.1. Axiom K</h5>
+<div class="outline-text-5" id="text-org2e66110">
+<p>
+A type \(A\) is a set if and only if it satisfies <b>Axiom K</b>, for
+all \(x:X\) and \(p : x = x\), we have \(p = \refl\).
+</p>
+</div>
+
+<div id="outline-container-orga244a8c" class="outline-6">
+<h6 id="orga244a8c">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-org03cbfd3" class="outline-5">
+<h5 id="org03cbfd3">7.2.2. Mere identity relations in sets</h5>
+<div class="outline-text-5" id="text-org03cbfd3">
+<p>
+Given \(R\) a reflexive mere relation on \(X\) implying identity, \(X\)
+is a set and \(R(x,y) \simeq (x = y)\) for all \(x,y :X\).
+</p>
+</div>
+
+<div id="outline-container-orge628bb1" class="outline-6">
+<h6 id="orge628bb1">Proof</h6>
+<div class="outline-text-6" id="text-orge628bb1">
+<p>
+Given \(\rho : \prod_{x:X}R(x,x)\) and \(f : \prod_{x,y}R(x,y) \to (x = y)\), we have
+that if \(X\) is a set, \(x = y\) is a mere proposition logically equivalent
+to \(R(x,y)\). On the other hand, if \(x = y\) is equivalent to \(R(x,y)\) and
+it is a mere proposition, \(X\) is a set.
+</p>
+
+<p>
+We can give two proofs, either proving that \(X\) is a set or that \(R(x,y)\)
+is equivalent to \(x = y\).
+</p>
+</div>
+
+<div id="outline-container-org80fafbe" class="outline-7">
+<h7 id="org80fafbe">X is a set</h7>
+<div class="outline-text-7" id="text-org80fafbe">
+<p>
+Given \(x:X\) and \(p : x = x\), we consider
+</p>
+
+<p>
+\[
+\apd_{f(x)}(p) : p_{\ast}(f(x,x)) = f(x,x)
+\]
+</p>
+
+<p>
+which, by <a href="#org52146da">path equalities for dependent functions</a> gives us a path
+</p>
+
+<p>
+\[
+p_{\ast}(f(x,x,r)) = f(x,x,p_{\ast}(r)).
+\]
+</p>
+
+<p>
+Knowing that \(R(x,x)\) is a mere proposition, \(p_{\ast}(r) = r\); and transport
+in the identity type is equal to concatenation, so
+</p>
+
+<p>
+\[
+f(x,x,r) \cdot p = f(x,x,r)
+\]
+</p>
+
+<p>
+and \(p = \refl\), satisfying axiom K.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf7e14e4" class="outline-7">
+<h7 id="orgf7e14e4">R is equivalent to equality</h7>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1b4ef0a" class="outline-5">
+<h5 id="org1b4ef0a">7.2.3. A type with double negation cancellation equality is a set</h5>
+<div class="outline-text-5" id="text-org1b4ef0a">
+<p>
+If \(X\) has the property \(\neg\neg (x=y) \to (x=y)\), it is a set.
+</p>
+</div>
+
+<div id="outline-container-orgad911f6" class="outline-6">
+<h6 id="orgad911f6">Proof</h6>
+<div class="outline-text-6" id="text-orgad911f6">
+<p>
+We have \(\neg\neg(x=y)\) as a reflexive mere relation implying identity,
+so we can apply the previous <a href="#org03cbfd3">lemma</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6741b6c" class="outline-5">
+<h5 id="org6741b6c">7.2.5. Hedberg's theorem</h5>
+<div class="outline-text-5" id="text-org6741b6c">
+<p>
+If a type has <a href="#org4d429ae">decidable</a> equality, it is a set.
+</p>
+</div>
+
+<div id="outline-container-orgbf6fed7" class="outline-6">
+<h6 id="orgbf6fed7">Proof.</h6>
+</div>
+</div>
+
+<div id="outline-container-org0f87526" class="outline-5">
+<h5 id="org0f87526">7.2.6. Natural numbers form a set</h5>
+<div class="outline-text-5" id="text-org0f87526">
+<p>
+The type of natural numbers has decidable equality, and hence is a set.
+</p>
+</div>
+
+<div id="outline-container-org237d7c1" class="outline-6">
+<h6 id="org237d7c1">Proof</h6>
+<div class="outline-text-6" id="text-org237d7c1">
+<p>
+Given \(x,y : \mathbb{N}\), we proceed by induction in both arguments. In the first
+case, \(\refl_0\) proves the equality; in the case of a successor and a zero,
+we can apply 
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge9dedd8" class="outline-4">
+<h4 id="orge9dedd8">7.5. Connectedness</h4>
+<div class="outline-text-4" id="text-orge9dedd8">
+</div><div id="outline-container-org6dfee6a" class="outline-5">
+<h5 id="org6dfee6a">7.5.1. n-connected function</h5>
+<div class="outline-text-5" id="text-org6dfee6a">
+<p>
+A function \(f : A \to B\) is <b>n-connected</b> if \(\trunc{\fib_f(b)}_n\) is
+contractible for all \(b : B\).
+</p>
+
+<p>
+\[
+\conn_n(f) :\equiv \prod_{b:B} \isContr(\trunc{\fib_f(b)}_n)
+\]
+</p>
+
+<p>
+A type \(A\) is <b>n-connected</b> if the function \(A \to 1\) is.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6db5537" class="outline-5">
+<h5 id="org6db5537">7.5.2. Surjectivity is (-1)-connectedness</h5>
+<div class="outline-text-5" id="text-org6db5537">
+<p>
+A function is (-1)-connected iff it is <a href="#orgb6f3777">surjective</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59f7877" class="outline-2">
+<h2 id="org59f7877">Part II</h2>
+<div class="outline-text-2" id="text-org59f7877">
+</div><div id="outline-container-orga396e80" class="outline-3">
+<h3 id="orga396e80">II.8. Homotopy theory</h3>
+<div class="outline-text-3" id="text-orga396e80">
+</div><div id="outline-container-org4a10b05" class="outline-4">
+<h4 id="org4a10b05">8.0. Homotopy theory</h4>
+<div class="outline-text-4" id="text-org4a10b05">
+</div><div id="outline-container-org3bd6df6" class="outline-5">
+<h5 id="org3bd6df6">8.0.1. Homotopy groups</h5>
+<div class="outline-text-5" id="text-org3bd6df6">
+<p>
+We define the <b>homotopy groups</b> of a pointed type \((A,a)\) as
+</p>
+
+<p>
+\[
+\pi_n(A,a) :\equiv \trunc{\Omega^n(A,a)}_{0}.
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org22c6637" class="outline-4">
+<h4 id="org22c6637">8.1. Fundamental group of the circle</h4>
+<div class="outline-text-4" id="text-org22c6637">
+</div><div id="outline-container-org7989a74" class="outline-5">
+<h5 id="org7989a74">8.1.1. Universal cover of the circle</h5>
+<div class="outline-text-5" id="text-org7989a74">
+<p>
+We define \(\mathsf{code} : \mathbb{S}^1 \to {\cal U}\) by recursion as
+</p>
+
+<ul class="org-ul">
+<li>\(\mathsf{code}(\mathsf{base}) :\equiv \mathbb{Z}\),</li>
+<li>\(\mathsf{code}(\mathsf{loop}) :\equiv \ua(\succ)\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9345369" class="outline-5">
+<h5 id="org9345369">8.1.2. Lemma of code transport</h5>
+<div class="outline-text-5" id="text-org9345369">
+<p>
+We have that
+</p>
+
+<ul class="org-ul">
+<li>\(\transport^{\mathsf{code}}(\mathsf{loop},x) = x + 1\),</li>
+<li>\(\transport^{\mathsf{code}}(\mathsf{loop},x) = x -1\).</li>
+</ul>
+</div>
+
+<div id="outline-container-org072bf02" class="outline-6">
+<h6 id="org072bf02">Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-org3f5f831" class="outline-5">
+<h5 id="org3f5f831">8.1.5. Encode</h5>
+<div class="outline-text-5" id="text-org3f5f831">
+<p>
+We define the function \(\mathsf{encode} : \prod_{x:\mathbb{S}^1}(\base = x) \to \mathsf{code}(x)\) by
+</p>
+
+<p>
+\[
+\mathsf{encode}\ p :\equiv \transport^{\mathsf{code}}(p,0).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7366821" class="outline-5">
+<h5 id="org7366821">8.1.6. Decode</h5>
+<div class="outline-text-5" id="text-org7366821">
+<p>
+We can define a function \(\mathsf{decode} : \prod_{x:\mathbb{S}^1} \mathsf{code}(x) \to (\base = x)\).
+</p>
+</div>
+
+<div id="outline-container-orgff0a005" class="outline-6">
+<h6 id="orgff0a005">Definition</h6>
+</div>
+</div>
+<div id="outline-container-org140ed24" class="outline-5">
+<h5 id="org140ed24">8.1.7. Encode-decode of a path</h5>
+<div class="outline-text-5" id="text-org140ed24">
+<p>
+For all \(x : \mathbb{S}^1\) and \(p : \base = x\),
+</p>
+
+<p>
+\[
+\mathsf{decode}(\mathsf{encode}(p)) = p.
+\]
+</p>
+</div>
+
+<div id="outline-container-orgdd4227c" class="outline-6">
+<h6 id="orgdd4227c">Proof</h6>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org80c7323" class="outline-4">
+<h4 id="org80c7323">8.2. Connectedness of suspensions</h4>
+</div>
+</div>
+<div id="outline-container-org3fca308" class="outline-3">
+<h3 id="org3fca308">II.9. Category theory</h3>
+</div>
+<div id="outline-container-orgb13d548" class="outline-3">
+<h3 id="orgb13d548">II.10. Set theory</h3>
+</div>
+<div id="outline-container-org14a0732" class="outline-3">
+<h3 id="org14a0732">II.11. Real numbers</h3>
+<div class="outline-text-3" id="text-org14a0732">
+</div><div id="outline-container-org94cc59c" class="outline-4">
+<h4 id="org94cc59c">11.2. Dedekind reals</h4>
+<div class="outline-text-4" id="text-org94cc59c">
+</div><div id="outline-container-orgedc1738" class="outline-5">
+<h5 id="orgedc1738">11.2.1. Dedekind cuts</h5>
+<div class="outline-text-5" id="text-orgedc1738">
+<p>
+A <b>Dedekind cut</b> is a pair \((L,U)\) of mere predicates such that
+it is
+</p>
+
+<ol class="org-ol">
+<li><i>inhabited:</i> \(\exists (q : \mathbb{Q}). L(q)\) and \(\exists (r : \mathbb{Q}) . U(r)\);</li>
+
+<li><i>rounded:</i> for all \(q,r \in \mathbb{Q}\),
+
+<ul class="org-ul">
+<li>\(L(q) \iff \exists (r : \mathbb{Q}). (q < r) \wedge L(r)\)</li>
+
+<li>\(U(r) \iff \exists(q:\mathbb{Q}).(q < r) \wedge U(q)\)</li>
+</ul></li>
+
+<li><i>disjoint:</i> \(\neg (Lq \wedge Uq)\) for all \(q:\mathbb{Q}\),</li>
+
+<li><i>located:</i> \((q < r) \implies Lq \vee Ur\) for all \(q,r : \mathbb{Q}\).</li>
+</ol>
+
+<p>
+We define \(\mathsf{isCut}(L,U)\) as the mere proposition of the conjunction
+of these conditions. The set of <b>Dedekind reals</b> is defined as
+</p>
+
+<p>
+\[
+\mathbb{R}_d :\equiv
+\left\{ (L,U) : (\mathbb{Q} \to \Omega) \times (\mathbb{Q} \to \Omega)
+\mid \isCut(L,U) \right\}.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org59afdb3" class="outline-5">
+<h5 id="org59afdb3">11.2.1. Rational embedding</h5>
+</div>
+
+<div id="outline-container-org3d60117" class="outline-5">
+<h5 id="org3d60117">11.2.3. Weak linearity</h5>
+</div>
+
+<div id="outline-container-org7dc176d" class="outline-5">
+<h5 id="org7dc176d">11.2.3. Apartness</h5>
+<div class="outline-text-5" id="text-org7dc176d">
+<p>
+Two Dedekind reals \(x,y : \mathbb{R}_d\) are <b>apart</b> when
+</p>
+
+<p>
+\[
+(x \# y) :\equiv (x < y) \vee (y < x).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd5644ce" class="outline-5">
+<h5 id="orgd5644ce">11.2.4. Invertibility</h5>
+<div class="outline-text-5" id="text-orgd5644ce">
+<p>
+A real is invertible iff it is apart from 0.
+</p>
+</div>
+
+<div id="outline-container-orgb4fb7fb" class="outline-6">
+<h6 id="orgb4fb7fb">Proof</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org97eeeeb" class="outline-2">
+<h2 id="org97eeeeb">Exercises</h2>
+<div class="outline-text-2" id="text-org97eeeeb">
+</div><div id="outline-container-orgb61c657" class="outline-3">
+<h3 id="orgb61c657">1. Exercises: Type theory <code>[5/11]</code></h3>
+<div class="outline-text-3" id="text-orgb61c657">
+</div><div id="outline-container-org8815845" class="outline-4">
+<h4 id="org8815845">Exercise 1.1</h4>
+<div class="outline-text-4" id="text-org8815845">
+<div class="statement">
+<p>
+Given functions \(f : A \to B\) and \(g : B \to C\), define their composite
+\(g \circ f : A \to C\). Show that we have \(h \circ (g \circ f) \equiv (h \circ g) \circ f\).
+</p>
+
+</div>
+
+<p>
+We define
+</p>
+
+<p>
+\[
+g \circ f :\equiv \lambda x.g(f(x))
+\]
+</p>
+
+<p>
+and thus
+</p>
+
+<p>
+\[\begin{aligned}
+h \circ (g \circ f) &:\equiv \lambda x. h((g \circ f)(x)) \\ 
+&\equiv \lambda x. h((\lambda y.g(f(y)))(x)) \\
+&\equiv \lambda x. h(g(f(x))) \\
+&\equiv \lambda x. (\lambda y. h(g(y)))(f(x)) \\
+&\equiv (h \circ g) \circ f.
+\end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org605d585" class="outline-4">
+<h4 id="org605d585">Exercise 1.2</h4>
+</div>
+<div id="outline-container-org0ad3f93" class="outline-4">
+<h4 id="org0ad3f93">Exercise 1.3</h4>
+</div>
+<div id="outline-container-orgb137108" class="outline-4">
+<h4 id="orgb137108">Exercise 1.4</h4>
+<div class="outline-text-4" id="text-orgb137108">
+<div class="statement">
+<p>
+Assuming as given only the iterator for natural numbers
+</p>
+
+<p>
+\[
+\mathsf{iter} : \prod_{C:{\cal U}} C \to (C \to C) \to \mathbb{N} \to C.
+\]
+</p>
+
+<p>
+with the defining equations
+</p>
+
+<ul class="org-ul">
+<li>\(\mathsf{iter}(C,c_0,c_s,0) :\equiv c_{0}\),</li>
+<li>\(\mathsf{iter}(C,c_0,c_s,\succ(n)) :\equiv c_s(\mathsf{iter}(C,c_0,c_s,n))\),</li>
+</ul>
+
+<p>
+&#x2026;.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7aaeb0b" class="outline-4">
+<h4 id="org7aaeb0b">Exercise 1.5</h4>
+</div>
+<div id="outline-container-org89ea626" class="outline-4">
+<h4 id="org89ea626">Exercise 1.10</h4>
+<div class="outline-text-4" id="text-org89ea626">
+<div class="statement">
+<p>
+Show that the Ackermann function \(\mathsf{ack} : \mathbb{N} \to \mathbb{N} \to \mathbb{N}\) is definable using
+only \(\mathsf{rec}_{\mathbb{N}}\) satisfying the following equations
+</p>
+
+<ul class="org-ul">
+<li>\(\mathsf{ack}(0,n) \equiv \mathsf{succ}(n)\),</li>
+
+<li>\(\mathsf{ack}( \mathsf{succ}(m),0) \equiv \mathsf{ack}(m,1)\),</li>
+
+<li>\(\mathsf{ack}(\mathsf{succ}(m), \mathsf{succ}(n)) \equiv \mathsf{ack}(m, \mathsf{ack}(\succ(m),n)\).</li>
+</ul>
+
+</div>
+
+<p>
+We can define
+</p>
+
+<p>
+\[
+\rec_{\mathbb{N}}\ \succ\ 
+(\lambda m. \lambda a_m. 
+\rec_{\mathbb{N}}\ (a_m\ 1)\ (\lambda n. \lambda a_{mn}. a_m\ a_{mn})
+)
+\]
+</p>
+
+<p>
+where we can take \(a_{m}\) to mean the \(\mathsf{ack}\) function partially applied to \(m\),
+whereas we can take \(a_{mn}\) to mean \(\mathsf{ack}(m,n)\). With these definitions, we
+have the base and successor equalities judgmentally.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge777b2c" class="outline-4">
+<h4 id="orge777b2c">Exercise 1.11</h4>
+<div class="outline-text-4" id="text-orge777b2c">
+<div class="statement">
+<p>
+Show that for any type \(A\) we have \(\neg\neg\neg A \to \neg A\).
+</p>
+
+</div>
+
+<p>
+We write the function 
+</p>
+
+<p>
+\[
+\lambda f. \lambda a. f (\lambda h. h(a)) : \neg\neg\neg A \to \neg A
+\]
+</p>
+
+<p>
+where \(f : \neg\neg\neg A\), \(h : \neg A\) and \((\lambda h. h(a)) : \neg\neg A\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2eaaf0c" class="outline-4">
+<h4 id="org2eaaf0c">Exercise 1.12</h4>
+<div class="outline-text-4" id="text-org2eaaf0c">
+<div class="statement">
+<p>
+Using the propositions as types interpretation, derive the
+following tautologies
+</p>
+
+<ol class="org-ol">
+<li>if A, then (if B then A);</li>
+<li>if A, then not (not A);</li>
+<li>if (not A or not B), then not (A and B).</li>
+</ol>
+
+</div>
+
+<p>
+We define the following terms
+</p>
+
+<ul class="org-ul">
+<li>\(\lambda a.\lambda b.a : A \to (B \to A)\);</li>
+<li>\(\lambda a.\lambda f.f(a) : A \to \neg\neg A\);</li>
+<li>\(\lambda u. \rec(u, \lambda f.\lambda (a,b).f(a), \lambda g.\lambda (a,b). g(b))\);</li>
+</ul>
+
+<p>
+with the desired types.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org63fb92e" class="outline-4">
+<h4 id="org63fb92e">Exercise 1.13</h4>
+<div class="outline-text-4" id="text-org63fb92e">
+<div class="statement">
+<p>
+Using propositions-as-types, derive the double negation of the principle
+of excluded middle, i.e., prove <i>not (not (P or not P))</i>.
+</p>
+
+</div>
+
+<p>
+We can define a function
+</p>
+
+<p>
+\[
+(\lambda f. f (\inr (\lambda p. f (\inl (p))))) 
+\]
+</p>
+
+<p>
+whose type is \(\neg (\neg (P \vee \neg P))\) for any given \(P\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0691a99" class="outline-4">
+<h4 id="org0691a99">Exercise 1.15</h4>
+</div>
+<div id="outline-container-orgc5ac84d" class="outline-4">
+<h4 id="orgc5ac84d">Exercise 1.16</h4>
+<div class="outline-text-4" id="text-orgc5ac84d">
+<div class="statement">
+<p>
+Show that addition of natural numbers is commutative,
+</p>
+
+<p>
+\[
+\prod_{i,j : \mathbb{N}} i + j = j + i.
+\]
+</p>
+
+</div>
+
+<p>
+We proceed by induction on \(i\). In the first case, we have to
+prove \(\prod_{j : \mathbb{N}} 0 + j = j + 0\); and this can be done by induction
+on \(j\). In fact,
+</p>
+
+<ul class="org-ul">
+<li>\(\mathsf{commzero}(0) = \refl_0\),</li>
+<li>\(\mathsf{commzero}(S(n)) = \ap_{\succ}(\mathsf{commzero}(n))\).</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga71cb13" class="outline-3">
+<h3 id="orga71cb13">2. Exercises: Homotopy type theory <code>[3/17]</code></h3>
+<div class="outline-text-3" id="text-orga71cb13">
+</div><div id="outline-container-orgbafcf35" class="outline-4">
+<h4 id="orgbafcf35">Exercise 2.1</h4>
+<div class="outline-text-4" id="text-orgbafcf35">
+<div class="statement">
+<p>
+Show that the three obvious proofs of Lemma 2.1.2 are pairwise equal.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge8a2b57" class="outline-4">
+<h4 id="orge8a2b57">Exercise 2.2</h4>
+</div>
+<div id="outline-container-org12ab550" class="outline-4">
+<h4 id="org12ab550">Exercise 2.3</h4>
+</div>
+<div id="outline-container-orga2e2c77" class="outline-4">
+<h4 id="orga2e2c77">Exercise 2.4</h4>
+</div>
+<div id="outline-container-orgae0f6dd" class="outline-4">
+<h4 id="orgae0f6dd">Exercise 2.5</h4>
+</div>
+<div id="outline-container-org0308561" class="outline-4">
+<h4 id="org0308561">Exercise 2.6</h4>
+</div>
+<div id="outline-container-org26c5e16" class="outline-4">
+<h4 id="org26c5e16">Exercise 2.7</h4>
+</div>
+<div id="outline-container-org782f84a" class="outline-4">
+<h4 id="org782f84a">Exercise 2.8</h4>
+</div>
+<div id="outline-container-org3675c28" class="outline-4">
+<h4 id="org3675c28">Exercise 2.9</h4>
+</div>
+<div id="outline-container-orge7a5fb1" class="outline-4">
+<h4 id="orge7a5fb1">Exercise 2.10</h4>
+<div class="outline-text-4" id="text-orge7a5fb1">
+<div class="statement">
+<p>
+Prove that &Sigma;-types are associative, in that for any \(A : {\cal U}\) and
+families \(B : A \to {\cal U}\) and \(C : \left(\sum_{x:A} B(x)\right) \to {\cal U}\), we have
+</p>
+
+<p>
+\[
+\left( \sum_{x:A}\sum_{y:B(x)} C(x,y) \right)
+\simeq
+\left( \sum_{p : \sum_{x:A}B(x)} C(p) \right)
+\]
+</p>
+
+</div>
+
+<p>
+We first define a function
+</p>
+
+<p>
+\[
+f : \left( \sum_{x:A}\sum_{y:B(x)} C(x,y) \right)
+\to
+\left( \sum_{p : \sum_{x:A}B(x)} C(p) \right)
+\]
+</p>
+
+<p>
+by induction on the argument, as
+</p>
+
+<p>
+\[
+f (x,y,c) :\equiv ((x,y),c).
+\]
+</p>
+
+<p>
+Now we have to prove that this is an equivalence with two homotopies,
+with an inverse defined by induction
+</p>
+
+<p>
+\[
+g((x,y),c) :\equiv (x,y,c).
+\]
+</p>
+
+<p>
+In fact, given any \((x,y,c)\), or any \(((x,y),c)\) it is trivial to check
+that there exist two homotopies. Note how we use induction to get the
+constructors of the pair.
+</p>
+</div>
+</div>
+<div id="outline-container-org81b328e" class="outline-4">
+<h4 id="org81b328e">Exercise 2.11</h4>
+<div class="outline-text-4" id="text-org81b328e">
+<div class="statement">
+<p>
+A homotopy commutative square
+</p>
+
+<p>
+\[\begin{tikzcd}
+P\rar{h} \dar[swap]{k} & A \dar{f} \\
+B\rar{g} & C
+\end{tikzcd}\]
+</p>
+
+<p>
+consists of functions \(f,g,h\) and \(k\) as shown, together with a path \(f \circ h = g \circ k\).
+Note that this is exactly an element of the pullback \((P \to A) \times_{(P \to C)} (P \to B)\)
+as defined in (2.15.11). A commutative square is called a (homotopy)
+<b>pullback square</b> if for any \(X\), the induced map
+</p>
+
+<p>
+\[
+(X \to P) \to (X \to A) \times_{(X \to C)} (X \to B)
+\]
+</p>
+
+<p>
+is an equivalence. Prove that the pullback \(P :\equiv A \times_C B\) defined in (2.15.11)
+is the corner of a pullback square.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0e169f1" class="outline-4">
+<h4 id="org0e169f1">Exercise 2.12</h4>
+</div>
+<div id="outline-container-orgcb0eab9" class="outline-4">
+<h4 id="orgcb0eab9">Exercise 2.13</h4>
+<div class="outline-text-4" id="text-orgcb0eab9">
+<div class="statement">
+<p>
+Show that \((2 \simeq 2) \simeq 2\).
+</p>
+
+</div>
+
+<p>
+We have \((2 \simeq 2)\) with two possible elements determined by the function
+given by \(2 \to 2\). If we take \(\id : 2 \to 2\), that is a trivial equivalence,
+and if we take \(\neg : 2 \to 2\) we have a different equivalence. 
+</p>
+
+<p>
+Now, given any function \(f : 2 \to 2\), we can apply induction to both
+\(f(1)\) and \(f(0)\) and then, by function extensionality, assert that it
+has to be a constant function or some of the previous equivalences.
+We only have two possible equivalences then.
+</p>
+
+<p>
+We declare a function taking \(\id\) to \(\mathsf{true}\) and \(\neg\) to \(\mathsf{false}\), the inverse
+is trivially defined.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdb617b9" class="outline-4">
+<h4 id="orgdb617b9">Exercise 2.14</h4>
+<div class="outline-text-4" id="text-orgdb617b9">
+<div class="statement">
+<p>
+Suppose we add to type theory the equality reflection rule which says
+that if there is an element \(p : x = y\), then in fact \(x \equiv y\). Prove that
+for any \(p : x = x\) we have \(p \equiv \refl\).
+</p>
+
+</div>
+
+<p>
+Given any \(p : x = y\), we have \(x \equiv y\), and we can prove the (well-typed!)
+equality \(p = \refl\) by path induction. Note that we have used the equality
+reflection rule to prove that 
+</p>
+
+<p>
+\[
+\prod_{x,y : A}\prod_{p : x=y} p = \refl_x
+\]
+</p>
+
+<p>
+is actually well-typed.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb45e825" class="outline-4">
+<h4 id="orgb45e825">Exercise 2.15</h4>
+</div>
+<div id="outline-container-org74ace19" class="outline-4">
+<h4 id="org74ace19">Exercise 2.16</h4>
+<div class="outline-text-4" id="text-org74ace19">
+<div class="statement">
+<p>
+Suppose that rather than function extensionality (Axiom 2.9.3),
+we suppose only the existence of an element
+</p>
+
+<p>
+\[
+\mathsf{funext} : \prod_{A:{\cal U}} \prod_{B:A \to {\cal U}} \prod_{f,g : \prod_{x:A}B(x)} (f \sim g) \to (f = g).
+\]
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1fa6e64" class="outline-4">
+<h4 id="org1fa6e64">Exercise 2.18</h4>
+<div class="outline-text-4" id="text-org1fa6e64">
+<div class="statement">
+<p>
+State and prove a version of Lemma 2.4.3 for dependent functions.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org46a8154" class="outline-3">
+<h3 id="org46a8154">3. Exercises: Sets and logic <code>[2/8]</code></h3>
+<div class="outline-text-3" id="text-org46a8154">
+</div><div id="outline-container-org03f381c" class="outline-4">
+<h4 id="org03f381c">Exercise 3.1</h4>
+<div class="outline-text-4" id="text-org03f381c">
+<div class="statement">
+<p>
+Prove that if \(A \simeq B\) and \(A\) is a set, then so is \(B\).
+</p>
+
+</div>
+
+<p>
+The equivalence gives us a pair of functions \(f : A \to B\) and \(g : B \to A\)
+with homotopies \(\eta : g \circ f \sim \id\) and \(\epsilon : f \circ g \sim \id\). By naturality of
+\(\eta\) we have, for any two paths \(p,q : x =_B y\), that
+</p>
+
+<p>
+\[\begin{tikzcd}
+fg(x)\rar[equal]{fg(p)} \dar[swap,equal]{\eta_x} & 
+fg(y)\dar[equal]{\eta_y} \\
+x \rar[equal]{p} &
+y
+\end{tikzcd}\]
+</p>
+
+<p>
+and
+</p>
+
+<p>
+\[\begin{tikzcd}
+fg(x)\rar[equal]{fg(q)} \dar[swap,equal]{\eta_x} & 
+fg(y)\dar[equal]{\eta_y} \\
+x \rar[equal]{q} &
+y
+\end{tikzcd}\]
+</p>
+
+<p>
+but \(g(p) = g(q)\) because \(A\) is a set, so \(fg(p) = fg(q)\) and therefore, \(p=q\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9823186" class="outline-4">
+<h4 id="org9823186">Exercise 3.2</h4>
+<div class="outline-text-4" id="text-org9823186">
+<div class="statement">
+<p>
+Prove that if \(A\) and \(B\) are sets, then so is \(A + B\).
+</p>
+
+</div>
+
+<p>
+Note that \(A + B = \prod_{x:2} C(x)\) for some family \(C\), and we know that the
+<a href="#org41bffd5">dependent product of sets is a set</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org78f64ab" class="outline-4">
+<h4 id="org78f64ab">Exercise 3.3</h4>
+</div>
+<div id="outline-container-orgc0fef20" class="outline-4">
+<h4 id="orgc0fef20">Exercise 3.4</h4>
+<div class="outline-text-4" id="text-orgc0fef20">
+<div class="statement">
+<p>
+Show that \(A\) is a mere proposition if and only if \(A \to A\) is
+contractible.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org15049df" class="outline-4">
+<h4 id="org15049df">Exercise 3.5</h4>
+<div class="outline-text-4" id="text-org15049df">
+<div class="statement">
+<p>
+Show that \(\isProp(A) \simeq (A \to \isContr(A))\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59df089" class="outline-4">
+<h4 id="org59df089">Exercise 3.6</h4>
+<div class="outline-text-4" id="text-org59df089">
+<div class="statement">
+<p>
+Show that if \(A\) is a mere proposition, then so is \(A + (\neg A)\). Thus,
+there is no need to insert a propositional truncation in 3.4.1.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb60791" class="outline-4">
+<h4 id="orgbb60791">Exercise 3.9</h4>
+<div class="outline-text-4" id="text-orgbb60791">
+<div class="statement">
+<p>
+Show that if \(\LEM\) holds, then the type \(\Prop :\equiv \sum_{A:{\cal U}} \isProp(A)\)
+is equivalent to \(2\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9852602" class="outline-4">
+<h4 id="org9852602">Exercise 3.21</h4>
+<div class="outline-text-4" id="text-org9852602">
+<div class="statement">
+<p>
+Prove that \(\isProp(P) \simeq (P \simeq \trunc{P})\).
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0bff3d9" class="outline-3">
+<h3 id="org0bff3d9">4. Exercises: Equivalences <code>[0/0]</code></h3>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Mario Román</p>
-<p class="date">Created: 2017-06-07 Wed 14:42</p>
+<p class="date">Created: 2017-12-05 Tue 16:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
