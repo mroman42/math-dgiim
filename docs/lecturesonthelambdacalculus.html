@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-06-07 Wed 14:41 -->
+<!-- 2017-12-03 Sun 11:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lecture notes on the lambda calculus</title>
@@ -262,21 +262,18 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">Lecture notes on the lambda calculus</h1>
 
-<div id="outline-container-org85019a7" class="outline-2">
-<h2 id="org85019a7">Exercises</h2>
+<div id="outline-container-orgbfed8a6" class="outline-2">
+<h2 id="orgbfed8a6">1. Introduction</h2>
 </div>
-<div id="outline-container-org55c0942" class="outline-2">
-<h2 id="org55c0942">1. Introduction</h2>
-</div>
-<div id="outline-container-org64319ac" class="outline-2">
-<h2 id="org64319ac">2. The untyped lambda calculus</h2>
-<div class="outline-text-2" id="text-org64319ac">
-</div><div id="outline-container-org1e84b76" class="outline-3">
-<h3 id="org1e84b76">2.5. Formal definitions of &beta;-reduction and &beta;-equivalence</h3>
-<div class="outline-text-3" id="text-org1e84b76">
-</div><div id="outline-container-orgb5f54c1" class="outline-4">
-<h4 id="orgb5f54c1">&beta;-equivalence</h4>
-<div class="outline-text-4" id="text-orgb5f54c1">
+<div id="outline-container-org7e04750" class="outline-2">
+<h2 id="org7e04750">2. The untyped lambda calculus</h2>
+<div class="outline-text-2" id="text-org7e04750">
+</div><div id="outline-container-org1ccdfea" class="outline-3">
+<h3 id="org1ccdfea">2.5. Formal definitions of &beta;-reduction and &beta;-equivalence</h3>
+<div class="outline-text-3" id="text-org1ccdfea">
+</div><div id="outline-container-orgce8c66d" class="outline-4">
+<h4 id="orgce8c66d">&beta;-equivalence</h4>
+<div class="outline-text-4" id="text-orgce8c66d">
 <p>
 The &beta;-equivalence \(M =_{\beta} M'\) is the symmetric transitive closure
 of the &beta;-reduction \(\rightarrow_{\beta}\).
@@ -286,18 +283,18 @@ of the &beta;-reduction \(\rightarrow_{\beta}\).
 </div>
 </div>
 
-<div id="outline-container-org6b19567" class="outline-2">
-<h2 id="org6b19567">3. Programming in the untyped lambda calculus</h2>
+<div id="outline-container-org94d4510" class="outline-2">
+<h2 id="org94d4510">3. Programming in the untyped lambda calculus</h2>
 </div>
-<div id="outline-container-orgd2a6d8a" class="outline-2">
-<h2 id="orgd2a6d8a">4. The Church-Rosser Theorem</h2>
-<div class="outline-text-2" id="text-orgd2a6d8a">
-</div><div id="outline-container-orgf5c40ee" class="outline-3">
-<h3 id="orgf5c40ee">4.1. Extensionality, &eta;-equivalence, and &eta;-reduction</h3>
-<div class="outline-text-3" id="text-orgf5c40ee">
-</div><div id="outline-container-orgd070974" class="outline-4">
-<h4 id="orgd070974">Extensionality principle</h4>
-<div class="outline-text-4" id="text-orgd070974">
+<div id="outline-container-org008ca9c" class="outline-2">
+<h2 id="org008ca9c">4. The Church-Rosser Theorem</h2>
+<div class="outline-text-2" id="text-org008ca9c">
+</div><div id="outline-container-org31151bf" class="outline-3">
+<h3 id="org31151bf">4.1. Extensionality, &eta;-equivalence, and &eta;-reduction</h3>
+<div class="outline-text-3" id="text-org31151bf">
+</div><div id="outline-container-orgdf46c5b" class="outline-4">
+<h4 id="orgdf46c5b">Extensionality principle</h4>
+<div class="outline-text-4" id="text-orgdf46c5b">
 <p>
 The <b>principle of extensionality</b> is defined as the following rule
 </p>
@@ -312,17 +309,17 @@ The <b>principle of extensionality</b> is defined as the following rule
 </div>
 </div>
 
-<div id="outline-container-org014fed1" class="outline-4">
-<h4 id="org014fed1">Single step &eta;-reduction</h4>
+<div id="outline-container-orgddaca71" class="outline-4">
+<h4 id="orgddaca71">Single step &eta;-reduction</h4>
 </div>
-<div id="outline-container-orga13440c" class="outline-4">
-<h4 id="orga13440c">Single step &beta;-reduction</h4>
+<div id="outline-container-org5aaced9" class="outline-4">
+<h4 id="org5aaced9">Single step &beta;-reduction</h4>
 </div>
 </div>
 
-<div id="outline-container-orga9840c6" class="outline-3">
-<h3 id="orga9840c6">4.2. Statement of the Church-Rosser Theorem</h3>
-<div class="outline-text-3" id="text-orga9840c6">
+<div id="outline-container-org0e4deeb" class="outline-3">
+<h3 id="org0e4deeb">4.2. Statement of the Church-Rosser Theorem</h3>
+<div class="outline-text-3" id="text-org0e4deeb">
 <p>
 Let \(\twoheadrightarrow\) be \(\twoheadrightarrow_{\beta}\) or \(\twoheadrightarrow_{\beta\eta}\); and lambda terms such that \(M\twoheadrightarrow N\) and \(M \twoheadrightarrow P\); then
 there exists a term \(Z\) such that \(N \twoheadrightarrow Z\) and \(P \twoheadrightarrow Z\).
@@ -338,12 +335,12 @@ N \drar[two heads,dashed] & & P \dlar[two heads,dashed] \\
 </div>
 </div>
 
-<div id="outline-container-orge9a033d" class="outline-3">
-<h3 id="orge9a033d">4.3. Preliminary remarks on the proof of the Church-Rosser theorem</h3>
-<div class="outline-text-3" id="text-orge9a033d">
-</div><div id="outline-container-org522c1c5" class="outline-4">
-<h4 id="org522c1c5">Church-Rosser property</h4>
-<div class="outline-text-4" id="text-org522c1c5">
+<div id="outline-container-orgc842d5f" class="outline-3">
+<h3 id="orgc842d5f">4.3. Preliminary remarks on the proof of the Church-Rosser theorem</h3>
+<div class="outline-text-3" id="text-orgc842d5f">
+</div><div id="outline-container-org643b575" class="outline-4">
+<h4 id="org643b575">Church-Rosser property</h4>
+<div class="outline-text-4" id="text-org643b575">
 <p>
 \[\begin{tikzcd}[column sep=small]
 & M \drar[two heads] \dlar[two heads] & \\
@@ -354,9 +351,9 @@ N \drar[two heads,dashed] & & P \dlar[two heads,dashed] \\
 </div>
 </div>
 
-<div id="outline-container-org916a090" class="outline-4">
-<h4 id="org916a090">Semidiamond property</h4>
-<div class="outline-text-4" id="text-org916a090">
+<div id="outline-container-org9968451" class="outline-4">
+<h4 id="org9968451">Semidiamond property</h4>
+<div class="outline-text-4" id="text-org9968451">
 <p>
 \[\begin{tikzcd}[column sep=small]
 & M \drar[] \dlar[] & \\
@@ -367,9 +364,9 @@ N \drar[two heads,dashed] & & P \dlar[two heads,dashed] \\
 </div>
 </div>
 
-<div id="outline-container-org7b8e65c" class="outline-4">
-<h4 id="org7b8e65c">Diamond property</h4>
-<div class="outline-text-4" id="text-org7b8e65c">
+<div id="outline-container-orgca35bf6" class="outline-4">
+<h4 id="orgca35bf6">Diamond property</h4>
+<div class="outline-text-4" id="text-orgca35bf6">
 <p>
 \[\begin{tikzcd}[column sep=small]
 & M \drar[] \dlar[] & \\
@@ -380,16 +377,16 @@ N \drar[dashed] & & P \dlar[dashed] \\
 </div>
 </div>
 
-<div id="outline-container-org94e895e" class="outline-4">
-<h4 id="org94e895e">Relationship between properties</h4>
+<div id="outline-container-org6dc51b2" class="outline-4">
+<h4 id="org6dc51b2">Relationship between properties</h4>
 </div>
 </div>
-<div id="outline-container-orgb3f6c0a" class="outline-3">
-<h3 id="orgb3f6c0a">4.4. Proof of the Church-Rosser Theorem (Tait &amp; Martin-Löf)</h3>
-<div class="outline-text-3" id="text-orgb3f6c0a">
-</div><div id="outline-container-org758d92d" class="outline-4">
-<h4 id="org758d92d">Parallel one-step reduction</h4>
-<div class="outline-text-4" id="text-org758d92d">
+<div id="outline-container-org2284359" class="outline-3">
+<h3 id="org2284359">4.4. Proof of the Church-Rosser Theorem (Tait &amp; Martin-Löf)</h3>
+<div class="outline-text-3" id="text-org2284359">
+</div><div id="outline-container-org2f2986d" class="outline-4">
+<h4 id="org2f2986d">Parallel one-step reduction</h4>
+<div class="outline-text-4" id="text-org2f2986d">
 <p>
 We define the <b>parallel one-step reduction</b> as the smallest relation
 satisfying
@@ -440,13 +437,13 @@ satisfying
 </div>
 </div>
 
-<div id="outline-container-org56b4b99" class="outline-4">
-<h4 id="org56b4b99"><span class="todo TODO">TODO</span> Lemmas on the parallel one-step reduction</h4>
+<div id="outline-container-orgbfb5480" class="outline-4">
+<h4 id="orgbfb5480"><span class="todo TODO">TODO</span> Lemmas on the parallel one-step reduction</h4>
 </div>
 
-<div id="outline-container-orgb3dc14c" class="outline-4">
-<h4 id="orgb3dc14c">Proof of the Church-Rosser Theorem</h4>
-<div class="outline-text-4" id="text-orgb3dc14c">
+<div id="outline-container-orgad84e27" class="outline-4">
+<h4 id="orgad84e27">Proof of the Church-Rosser Theorem</h4>
+<div class="outline-text-4" id="text-orgad84e27">
 <p>
 We know that \(\rhd\) satisfies the diamond property, so its reflexive transitive
 closure \(\rhd^{\ast}\) also satisfies it. We use now that \(\rhd^{\ast}\) is the same as \(\twoheadrightarrow_{\beta\eta}\) and
@@ -457,15 +454,15 @@ that the diamond property for \(\twoheadrightarrow_{\beta\eta}\) is the Church-R
 </div>
 </div>
 
-<div id="outline-container-orged7b48a" class="outline-2">
-<h2 id="orged7b48a">5. Combinatory algebras</h2>
-<div class="outline-text-2" id="text-orged7b48a">
-</div><div id="outline-container-orgf1402b5" class="outline-3">
-<h3 id="orgf1402b5">5.1. Applicative structures</h3>
-<div class="outline-text-3" id="text-orgf1402b5">
-</div><div id="outline-container-org27162b1" class="outline-4">
-<h4 id="org27162b1">Applicative structure</h4>
-<div class="outline-text-4" id="text-org27162b1">
+<div id="outline-container-orgd9fd7b6" class="outline-2">
+<h2 id="orgd9fd7b6">5. Combinatory algebras</h2>
+<div class="outline-text-2" id="text-orgd9fd7b6">
+</div><div id="outline-container-orgde576ed" class="outline-3">
+<h3 id="orgde576ed">5.1. Applicative structures</h3>
+<div class="outline-text-3" id="text-orgde576ed">
+</div><div id="outline-container-org9cc5bc8" class="outline-4">
+<h4 id="org9cc5bc8">Applicative structure</h4>
+<div class="outline-text-4" id="text-org9cc5bc8">
 <p>
 An <b>applicative structure</b> \((\mathbf{A},\cdot)\) is a set with a binary operation, that
 can be non-associative.
@@ -473,9 +470,9 @@ can be non-associative.
 </div>
 </div>
 
-<div id="outline-container-org21d90ab" class="outline-4">
-<h4 id="org21d90ab">Polynomials of applicative structures</h4>
-<div class="outline-text-4" id="text-org21d90ab">
+<div id="outline-container-orgbbdcde9" class="outline-4">
+<h4 id="orgbbdcde9">Polynomials of applicative structures</h4>
+<div class="outline-text-4" id="text-orgbbdcde9">
 <p>
 A <b>polynomial</b> on an applicative structure \((\mathbf{A},\cdot)\) is a formal expression built
 with the binary operation on variables and coefficients. It is the set of
@@ -495,30 +492,39 @@ where \(x\) is a variable and \(a \in A\).
 </div>
 </div>
 
-<div id="outline-container-org023952f" class="outline-3">
-<h3 id="org023952f">5.2. Combinatory completness</h3>
-<div class="outline-text-3" id="text-org023952f">
-</div><div id="outline-container-org42ce90d" class="outline-4">
-<h4 id="org42ce90d">Combinatory completness</h4>
+<div id="outline-container-org4259a43" class="outline-3">
+<h3 id="org4259a43">5.2. Combinatory completness</h3>
+<div class="outline-text-3" id="text-org4259a43">
+</div><div id="outline-container-org0c8e109" class="outline-4">
+<h4 id="org0c8e109">Combinatory completness</h4>
 </div>
-<div id="outline-container-org3d5baf9" class="outline-4">
-<h4 id="org3d5baf9">SK characterization of combinatory completness</h4>
+<div id="outline-container-org5cd4bed" class="outline-4">
+<h4 id="org5cd4bed">SK characterization of combinatory completness</h4>
 </div>
 </div>
-<div id="outline-container-org041bce5" class="outline-3">
-<h3 id="org041bce5">5.5. Lambda algebras</h3>
+<div id="outline-container-orgcfbe113" class="outline-3">
+<h3 id="orgcfbe113">5.5. Lambda algebras</h3>
 </div>
 </div>
 
-<div id="outline-container-org5dac376" class="outline-2">
-<h2 id="org5dac376">6. Simply-typed lambda calculus, propositional logic, and the Curry-Howard isomorphism</h2>
-<div class="outline-text-2" id="text-org5dac376">
-</div><div id="outline-container-orga1d5e5d" class="outline-3">
-<h3 id="orga1d5e5d">6.1. Simple types and simply-typed terms</h3>
-<div class="outline-text-3" id="text-orga1d5e5d">
-</div><div id="outline-container-org8755503" class="outline-4">
-<h4 id="org8755503">Simple types</h4>
-<div class="outline-text-4" id="text-org8755503">
+<div id="outline-container-org5efeb96" class="outline-2">
+<h2 id="org5efeb96">6. Simply-typed lambda calculus, propositional logic, and the Curry-Howard isomorphism</h2>
+<div class="outline-text-2" id="text-org5efeb96">
+</div><div id="outline-container-orga7f3283" class="outline-3">
+<h3 id="orga7f3283">6.1. Simple types and simply-typed terms</h3>
+<div class="outline-text-3" id="text-orga7f3283">
+</div><div id="outline-container-org9b19a5e" class="outline-4">
+<h4 id="org9b19a5e">Basic types</h4>
+<div class="outline-text-4" id="text-org9b19a5e">
+<p>
+We assume a set of <b>basic types</b> to exist.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org65d3f2d" class="outline-4">
+<h4 id="org65d3f2d">Simple types</h4>
+<div class="outline-text-4" id="text-org65d3f2d">
 <p>
 The set of <b>simple types</b> is given by the BNF
 </p>
@@ -530,47 +536,72 @@ A,B ::= \iota\mid A \to B \mid A \times B \mid 1
 </p>
 
 <p>
-where \(\iota\) is a <b>basic type</b> and \(1\) is a one-element type.
+where \(\iota\) is a <a href="#org9b19a5e">basic type</a> and \(1\) is a one-element type.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org6643311" class="outline-4">
-<h4 id="org6643311">Raw types lambda terms</h4>
+<div id="outline-container-org4629bde" class="outline-4">
+<h4 id="org4629bde">Raw types lambda terms</h4>
+<div class="outline-text-4" id="text-org4629bde">
+<p>
+The set of <b>typed lambda terms</b> is given by the BNF
+</p>
+
+<p>
+\[ \mathtt{Term} ::=
+\ast \mid
+x \mid
+\mathtt{Term}\mathtt{Term} \mid
+\lambda x^{\mathtt{Type}}. \mathtt{Term} \mid
+\left\langle \mathtt{Term},\mathtt{Term} \right\rangle \mid
+\pi_1 \mathtt{Term} \mid
+\pi_2\mathtt{Term}
+\]
+</p>
+
+<p>
+where \(\ast\) will be the unique element of type \(1\). Besides the
+previously considered term application, we now introduce a typed
+lambda abstraction and an explicit construction of the pair element with
+its projections.
+</p>
 </div>
-<div id="outline-container-org465b7b9" class="outline-4">
-<h4 id="org465b7b9">Typing rules for the simply-typed lambda calculus</h4>
+</div>
+
+<div id="outline-container-orgbfe98e5" class="outline-4">
+<h4 id="orgbfe98e5">Typing rules for the simply-typed lambda calculus</h4>
 </div>
 </div>
-<div id="outline-container-org3c1cc0a" class="outline-3">
-<h3 id="org3c1cc0a">6.2. Connections to propositional logic</h3>
+<div id="outline-container-org2506da0" class="outline-3">
+<h3 id="org2506da0">6.2. Connections to propositional logic</h3>
 </div>
 </div>
-<div id="outline-container-org67d2a92" class="outline-2">
-<h2 id="org67d2a92">7. Weak and strong normalization</h2>
-<div class="outline-text-2" id="text-org67d2a92">
-</div><div id="outline-container-org393322f" class="outline-3">
-<h3 id="org393322f">7.1. Definitions</h3>
+<div id="outline-container-orgfad0f19" class="outline-2">
+<h2 id="orgfad0f19">7. Weak and strong normalization</h2>
+<div class="outline-text-2" id="text-orgfad0f19">
+</div><div id="outline-container-org174111c" class="outline-3">
+<h3 id="org174111c">7.1. Definitions</h3>
 </div>
-<div id="outline-container-org5b89be4" class="outline-3">
-<h3 id="org5b89be4">7.2. Weak and strong normalization in typed lambda calculus</h3>
+<div id="outline-container-orgadb3633" class="outline-3">
+<h3 id="orgadb3633">7.2. Weak and strong normalization in typed lambda calculus</h3>
 </div>
 </div>
-<div id="outline-container-orgae35929" class="outline-2">
-<h2 id="orgae35929">8. Polymorphism</h2>
-<div class="outline-text-2" id="text-orgae35929">
+<div id="outline-container-org45d220f" class="outline-2">
+<h2 id="org45d220f">8. Polymorphism</h2>
+<div class="outline-text-2" id="text-org45d220f">
 <p>
 System F is obtained extending the typed lambda calculus with the quantifier \(\forall\).
 </p>
 </div>
 
-<div id="outline-container-org69c9e6e" class="outline-3">
-<h3 id="org69c9e6e">8.4. Church-Rosser property</h3>
+<div id="outline-container-org2a2f00c" class="outline-3">
+<h3 id="org2a2f00c">8.4. Church-Rosser property</h3>
 </div>
 </div>
-<div id="outline-container-orgaf1ba42" class="outline-2">
-<h2 id="orgaf1ba42">9. Type inference</h2>
-<div class="outline-text-2" id="text-orgaf1ba42">
+<div id="outline-container-orga9a9cd0" class="outline-2">
+<h2 id="orga9a9cd0">9. Type inference</h2>
+<div class="outline-text-2" id="text-orga9a9cd0">
 <p>
 A <i>type inference algorithm</i> decides, given a term, whether it is typable or
 not, and outputs a type if it is.
@@ -578,9 +609,9 @@ not, and outputs a type if it is.
 </div>
 </div>
 
-<div id="outline-container-org877c678" class="outline-2">
-<h2 id="org877c678">10. Denotational semantics</h2>
-<div class="outline-text-2" id="text-org877c678">
+<div id="outline-container-org59140f9" class="outline-2">
+<h2 id="org59140f9">10. Denotational semantics</h2>
+<div class="outline-text-2" id="text-org59140f9">
 <p>
 Denotational semantics give an interpretation of the lambda calculus using
 mathematical objects.
@@ -588,19 +619,19 @@ mathematical objects.
 </div>
 </div>
 
-<div id="outline-container-orga293d99" class="outline-2">
-<h2 id="orga293d99">11. The language PCF</h2>
+<div id="outline-container-org5e9c07f" class="outline-2">
+<h2 id="org5e9c07f">11. The language PCF</h2>
 </div>
-<div id="outline-container-org3dbaf2d" class="outline-2">
-<h2 id="org3dbaf2d">12. Complete partial orders</h2>
+<div id="outline-container-org3e722a1" class="outline-2">
+<h2 id="org3e722a1">12. Complete partial orders</h2>
 </div>
-<div id="outline-container-orgbb8a7d3" class="outline-2">
-<h2 id="orgbb8a7d3">13. Denotational semantics of PCF</h2>
+<div id="outline-container-org2ef3332" class="outline-2">
+<h2 id="org2ef3332">13. Denotational semantics of PCF</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Mario Román</p>
-<p class="date">Created: 2017-06-07 Wed 14:41</p>
+<p class="date">Created: 2017-12-03 Sun 11:59</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
