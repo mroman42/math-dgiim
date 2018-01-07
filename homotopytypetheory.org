@@ -2309,7 +2309,37 @@ We can define a function
 
 whose type is $\neg (\neg (P \vee \neg P))$ for any given $P$.
 
-** 2. Exercises: Homotopy type theory [1/1]
+*** TODO Exercise 1.15
+*** TODO Exercise 1.16
+#+begin_statement
+Show that addition of natural numbers is commutative,
+
+\[
+\prod_{i,j : \mathbb{N}} i + j = j + i.
+\]
+#+end_statement
+
+We proceed by induction on $i$. In the first case, we have to
+prove $\prod_{j : \mathbb{N}} 0 + j = j + 0$; and this can be done by induction
+on $j$. In fact,
+
+ * $\mathsf{commzero}(0) = \refl_0$,
+ * $\mathsf{commzero}(S(n)) = \ap_{\succ}(\mathsf{commzero}(n))$.
+
+** 2. Exercises: Homotopy type theory [3/17]
+*** TODO Exercise 2.1
+#+begin_statement
+Show that the three obvious proofs of Lemma 2.1.2 are pairwise equal.
+#+end_statement
+
+*** TODO Exercise 2.2
+*** TODO Exercise 2.3
+*** TODO Exercise 2.4
+*** TODO Exercise 2.5
+*** TODO Exercise 2.6
+*** TODO Exercise 2.7
+*** TODO Exercise 2.8
+*** TODO Exercise 2.9
 *** DONE Exercise 2.10
 #+begin_statement
 Prove that \Sigma-types are associative, in that for any $A : {\cal U}$ and
@@ -2346,6 +2376,79 @@ g((x,y),c) :\equiv (x,y,c).
 In fact, given any $(x,y,c)$, or any $((x,y),c)$ it is trivial to check
 that there exist two homotopies. Note how we use induction to get the
 constructors of the pair.
+*** TODO Exercise 2.11
+#+begin_statement
+A homotopy commutative square
+
+\[\begin{tikzcd}
+P\rar{h} \dar[swap]{k} & A \dar{f} \\
+B\rar{g} & C
+\end{tikzcd}\]
+
+consists of functions $f,g,h$ and $k$ as shown, together with a path $f \circ h = g \circ k$.
+Note that this is exactly an element of the pullback $(P \to A) \times_{(P \to C)} (P \to B)$
+as defined in (2.15.11). A commutative square is called a (homotopy)
+*pullback square* if for any $X$, the induced map
+
+\[
+(X \to P) \to (X \to A) \times_{(X \to C)} (X \to B)
+\]
+
+is an equivalence. Prove that the pullback $P :\equiv A \times_C B$ defined in (2.15.11)
+is the corner of a pullback square.
+#+end_statement
+
+*** TODO Exercise 2.12
+*** DONE Exercise 2.13
+#+begin_statement
+Show that $(2 \simeq 2) \simeq 2$.
+#+end_statement
+
+We have $(2 \simeq 2)$ with two possible elements determined by the function
+given by $2 \to 2$. If we take $\id : 2 \to 2$, that is a trivial equivalence,
+and if we take $\neg : 2 \to 2$ we have a different equivalence. 
+
+Now, given any function $f : 2 \to 2$, we can apply induction to both
+$f(1)$ and $f(0)$ and then, by function extensionality, assert that it
+has to be a constant function or some of the previous equivalences.
+We only have two possible equivalences then.
+
+We declare a function taking $\id$ to $\mathsf{true}$ and $\neg$ to $\mathsf{false}$, the inverse
+is trivially defined.
+
+*** DONE Exercise 2.14
+#+begin_statement
+Suppose we add to type theory the equality reflection rule which says
+that if there is an element $p : x = y$, then in fact $x \equiv y$. Prove that
+for any $p : x = x$ we have $p \equiv \refl$.
+#+end_statement
+
+Given any $p : x = y$, we have $x \equiv y$, and we can prove the (well-typed!)
+equality $p = \refl$ by path induction. Note that we have used the equality
+reflection rule to prove that 
+
+\[
+\prod_{x,y : A}\prod_{p : x=y} p = \refl_x
+\]
+
+is actually well-typed.
+
+*** TODO Exercise 2.15
+*** TODO Exercise 2.16
+#+begin_statement
+Suppose that rather than function extensionality (Axiom 2.9.3),
+we suppose only the existence of an element
+
+\[
+\mathsf{funext} : \prod_{A:{\cal U}} \prod_{B:A \to {\cal U}} \prod_{f,g : \prod_{x:A}B(x)} (f \sim g) \to (f = g).
+\]
+#+end_statement
+
+*** TODO Exercise 2.18
+#+begin_statement
+State and prove a version of Lemma 2.4.3 for dependent functions.
+#+end_statement
+
 ** 3. Exercises: Sets and logic [2/8]
 *** DONE Exercise 3.1
 #+begin_statement
