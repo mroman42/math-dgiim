@@ -4,7 +4,7 @@
 #+SETUPFILE: config.setup
 #+SETUPFILE: essay.setup
 #+LANGUAGE: en
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:t todo:nil
 #+TODO: TODO WIP | DONE
 
 * Macros                                                             :ignore:
@@ -43,9 +43,12 @@
 #+latex_header: \newcommand\inl{\mathsf{inl}}
 #+latex_header: \newcommand\inr{\mathsf{inr}}
 #+latex_header: \newcommand\seg{\mathsf{seg}}
-#+latex_header: \renewcommand\loop{\mathsf{loop}}
 #+latex_header: \newcommand\base{\mathsf{base}}
 #+latex_header: \newcommand\N{\mathsf{N}}
+#+latex_header: \newcommand\conn{\mathsf{conn}}
+#+latex_header: \newcommand\code{\mathsf{code}}
+#+latex_header: \newcommand\encode{\mathsf{encode}}
+#+latex_header: \newcommand\decode{\mathsf{decode}}
 #+latex_header: \renewcommand\S{\mathsf{S}}
 #+latex_header: \newcommand\merid{\mathsf{merid}}
 #+latex_header: \newcommand\istype[1]{\mathop{\mbox{$\mathsf{is}$-$#1$-$\mathsf{type}$}}}
@@ -249,6 +252,12 @@ We can define a *magma* as
 **** TODO Coproducts as dependent types
 *** I.1.9. The natural numbers
 **** TODO Natural numbers
+**** Addition
+We define $\mathsf{add} : \mathbb{N} \to \mathbb{N} \to \mathbb{N}$ as
+
+ * $\mathsf{add}(0,n) \equiv n$,
+ * $\mathsf{add}(\succ(m),n) \equiv \succ(\mathsf{add}(m,n))$.
+
 **** TODO Associativity
 *** I.1.10. Pattern matching and recursion
 We would like to define a function only writing its /defining equations/.
@@ -303,7 +312,78 @@ identity types.
 Homotopy type theory provides a /synthetic/ description of the spaces,
 in contrast with the usual analytic approach of topology.
 
-*** TODO 2.1. Types are higher groupoids
+*** 2.1. Types are higher groupoids
+**** 2.1.1. Path inverse
+Given $x,y : A$, there is a function called *inverse*
+
+\[
+(-)^{-1} : (x = y) \to (y = x)
+\]
+
+such that $\refl^{-1} = \refl$.
+
+***** Proof
+Given $p : x = y$, we apply path induction and then provide $\refl : x = x$.
+
+**** 2.1.2. Path composition
+Given $x,y,z : A$, there is a function called *concatenation*
+
+\[
+\cdot : (x = y) \to (y = z) \to (x = z)
+\]
+
+such that $\refl \cdot \refl = \refl$.
+
+***** First proof
+Given $p \cdot q$, we apply path induction on $p$ and $q$. Definitionally,
+we can provide an element of $x = x$,
+
+\[
+\refl \cdot \refl = \refl
+\]
+
+***** Second proof
+We apply path induction over $p$, and provide $q$ as an element
+of $x = z$. We have $\refl \cdot q \equiv q$.
+
+***** Third proof
+We apply path induction over $q$, and provide $p$ as an element
+of $x = y$. We have $p \cdot \refl \equiv p$.
+
+***** Proof-relevance and definitional equalities
+These three proofs are not definitionally equal, and they provide
+different functions with sightly different definitions. In particular,
+we get three different definitional equalities
+
+ 1) $\refl \cdot \refl \equiv \refl$,
+
+ 2) $p \cdot \refl \equiv p$,
+
+ 3) $\refl \cdot q \equiv q$;
+
+and, while doing informal mathematics, we will prefer the symmetry of
+the first one.
+
+**** TODO 2.1.4. Path operation properties
+
+**** TODO 2.1.6. Eckmann-Hilton
+**** 2.1.7. Pointed type
+A *pointed type* is a type with a basepoint of that type. That is,
+${\cal U}_{\bullet} :\equiv \sum_{A:{\cal U}} A$ is the type of pointed types.
+
+**** 2.1.8. Loop spaces
+Given a pointed type $(A,a)$, we define the *loop space* as
+
+\[
+\Omega(A,a) :\equiv ((a=a),\refl_a)
+\]
+
+and the *n-fold iterated loop space* recursively as
+
+ * $\Omega^0(A,a) :\equiv (A,a)$,
+
+ * $\Omega^{n+1}(A,a) :\equiv \Omega^n(\Omega(A,a))$.
+
 *** 2.2. Functions are functors
 **** 2.2.1. Definition of ap
 Given $f: A \to B$, there is an operation
@@ -800,6 +880,249 @@ Given any $a : A$ with $p : x_1 = x_2$,
 By path induction on $p$, we get the composition rules for
 reflexivity.
 
+*** 2.12. Coproducts
+**** 2.12.1. Characterization of equalities for coproducts
+Given a coproduct type $A + B$, 
+
+ * $(\inl(a_1) = \inl(a_2)) \simeq (a_1 = a_{2})$,
+ * $(\inr(b_1) = \inr(b_2)) \simeq (b_1 = b_2)$,
+ * $(\inl(a) = \inr(b)) \simeq 0$.
+
+***** Proof
+Given $a_0 : A$ we will characterize the family
+
+\[
+(x \mapsto (\inl(a_0) = x)) : A + B \to {\cal U},
+\]
+
+using the following type family
+
+ * $\code(\inl(a)) :\equiv (a_0 = a)$,
+ * $\code(\inr(a)) :\equiv 0$.
+
+and proving that $(\inl(a_0) = x) \simeq \code(x)$ in the following
+[[*2.12.5. Code for coproducts][lemma]]. An analogous family $(x \mapsto (\inr(b_0) = x))$ can be also
+characterized.
+
+**** 2.12.5. Code for coproducts
+Given $a_0 : A$, for all $x:A+B$, we have $(\inl(a_0) = x) \simeq \code(x)$;
+with the definition presented in the previous [[*2.12.1. Characterization of equalities for coproducts][proof]].
+
+***** Proof
+We first define a function
+
+\[
+\encode : \prod_{(x:A+B)} \prod_{(p : \inl(a_0) = x)} \code(x)
+\]
+
+using transport, as $\encode(\inl(a), p) = p_{\ast}(\refl_{a_0})$. Next, we define
+a function
+
+\[
+\decode : \prod_{(x : A+B)}\prod_{(c : \code(x))} (\inl(a_0) = x)
+\]
+
+by induction on $x$ as
+
+ * $\decode(\inl(a), c) :\equiv \ap_{\inl}(c)$,
+ * $\decode(\inr(b),c) :\equiv \mathsf{abort}(c)$.
+
+Now, we must prove that they form an equivalence. On the one hand, given
+$x : A +B$ and $p : \inl(a_0) = x$, we must show that
+
+\[
+\decode(x,\encode(x,p)) = p;
+\]
+
+and this can be done by path induction on $p$. On the other hand, given
+any $c : \code(x)$, we want to prove that
+
+\[
+\encode(x,\decode(x,c)) = c;
+\]
+
+and we can proceed by induction on $x$; if $x \equiv \inr(b)$, then we arrive at
+a contradiction in $c$; in other case, $x \equiv \inl(a)$ so we can apply path
+induction on $c$.
+
+*** 2.13. Natural numbers
+**** 2.13.0. Codes for identities on natural numbers
+We define $\mathsf{code} \colon \mathbb{N} \to \mathbb{N} \to {\cal U}$ by double recursion as
+
+ * $\code(0,0) :\equiv 1$,
+ * $\code(\succ(m),0) :\equiv 0$,
+ * $\code(0,\succ(n)) :\equiv 0$,
+ * $\code(\succ(m),\succ(n)) :\equiv \code(m,n)$,
+
+and trivially, a diagonal function $r : \prod_{n:\mathbb{N}} \code(n,n)$ by induction.
+
+**** 2.13.1. Equivalence code-identity
+We have $(n = m) \simeq \code(m,n)$.
+
+***** Proof
+****** Encode function
+We define a function $\prod_{m,n \colon \mathbb{N}} (n = m) \to \code(m,n)$ by transport
+and using the diagonal $r : \prod_{n:\mathbb{N}} \code(n,n)$.
+
+****** Decode function
+We define a function $\prod_{m,n\colon \mathbb{N}} \code(m,n) \to (n = m)$ by double induction
+on $n$ and $m$.
+
+ * On the case $n=m=0$, we define a function to $\refl_0$.
+ * On the cases where only one of them is zero, we arrive a contradiction.
+ * On the case were both are successors, we have an element $\code(m,n)$, so
+   we can recursively apply the decode function to it to get $m = n$. Now
+   it suffices to use $\ap_{\succ}$.
+
+****** Quasiinverses I
+We will show first that given any $p : m = n$,
+
+\[
+\decode(n,n,\encode(n,n,\refl)) = \refl,
+\]
+
+which is to show $\decode(n,n,r(n)) = \refl$. This can be done by induction
+on $n$, where in the case $0$, we get reflexivity and in the successor case,
+we use that $\ap(\refl) = \refl$.
+
+****** Quasiinverses II
+Given any $c : \code(m,n)$, we can apply double induction.
+
+ * In the zero case, we have a unit type that remains the same after
+   encoding.
+ * In the only one successor case, we arrive a contradiction.
+ * In the both successor cases, 
+   \[\begin{aligned}
+   \encode&(\succ(m),\succ(n),\decode(\succ(m),\succ(n),c)) \\
+     &= \encode(\succ(m),\succ(n),\ap_{\succ}(\decode(m,n,c))) \\
+     &= (\ap_{\succ}(\decode(m,n,c)))_{\ast} (r(\succ(m))) \\
+     &= (\decode(m,n,c))_{\ast} (r(m)) \\
+     &= \encode(m,n,\decode(m,n,c)) \\
+     &= c
+   \end{aligned}\]
+   by induction.
+
+In other words, we can prove that each code is a diagonal and then
+apply induction over $\decode(m,n,c)$.
+
+**** 2.13.2. Zero is not a successor
+We have that zero is not the successor of any natural number,
+in particular
+
+\[
+\encode(\succ(m),0) : (\succ(m) = 0) \to 0.
+\]
+
+***** Proof
+Applying [[*2.13.1. Equivalence code-identity][decode-encode]] directly.
+
+**** 2.13.3. Successor is injective
+The sucessor function is injective, in particular
+
+\[
+(\succ(m) = \succ(n)) \to (m = n).
+\]
+
+***** Proof
+We can apply $\encode$ to the equality and get a new code
+to which apply $\decode$. Note that
+
+$\encode(\succ(m),\succ(n)) : \code(m,n)$
+
+is well-typed.
+
+*** 2.14. Example: equality of structures
+**** 2.14.1. Semigroup structures
+The type of *semigroup structures* on $A$ is defined as
+
+\[
+\mathsf{SemigroupStr}(A) :\equiv \sum_{(m : A \to A \to A)} \prod_{(x,y,z : A)} m(x,m(y,z)) = m(m(x,y),z)
+\]
+
+and a *semigroup* is defined in general as
+
+\[
+\mathsf{Semigroup} :\equiv \sum_{A : {\cal U}} \mathsf{SemigroupStr}(A).
+\]
+
+**** 2.14.1. Induced structures
+Given an equivalence $e : A \simeq B$, we can transport semigroup
+structures
+
+\[
+(\ua(e))_{\ast} : \mathsf{SemigroupStr}(A) \to \mathsf{SemigroupStr}(B).
+\]
+
+Given $(m,a) : \mathsf{SemigroupStr}(A)$, we want to compute
+
+\[
+\ua(e)_{\ast} (m,a) : \mathsf{SemigroupStr}(B)
+\]
+
+and transporting over a [[*2.7.4. Transport over sigma equalities][coproduct]] is the same as transporting over its
+components. We will get some $(m',a')$ where
+
+ * $m'(b_1,b_2) :\equiv (\ua(e)_{\ast}(m))(b_1,b_2)$;
+
+ * $a' :\equiv (\pair^{=}(\ua(e), \refl))_{\ast}\ a$.
+
+By function extensionality, we only have to check the behaviour of
+$m'$ given a pair of arguments. We have,
+# UA is quasi-inverse to transport^(X \to X)
+
+\[\begin{aligned}
+m'(b_1,b_2) &=
+\ua(e)_{\ast} (m (\ua(e)_{\ast}^{-1} b_1, \ua(e)_{\ast}^{-1} b_2)) \\
+&= e(m(e^{-1}b_1,e^{-1}b_2))
+\end{aligned}\]
+
+It can be proved that the transported $a'$ works by algebraic
+manipulation using this fact.
+
+*** 2.15. Universal properties
+**** 2.15.2. Universal property of the product
+There is an equivalence
+
+\[
+(X \to A \times B) \simeq (X \to A) \times (X \to B);
+\]
+
+given by $f \mapsto (\pr_1 \circ f, \pr_2 \circ f)$.
+
+***** TODO Proof
+
+**** 2.15.5. Dependent universal property of the product
+There is an equivalence
+
+\[
+\left( \prod_{x:X} A(x) \times B(x) \right) \simeq
+\left( \prod_{x:X} A(x) \right) \times 
+\left( \prod_{x:X} B(x) \right)
+\]
+
+given by $f \mapsto (\pr_1 \circ f, \pr_2 \circ f)$.
+
+***** TODO Proof
+
+**** 2.15.7. Theorem of choice
+There is an equivalence
+
+\[
+\left( \prod_{x:X}\sum_{(a : A(x))} P(x,a) \right) \simeq
+\left( \sum_{g : \prod_{x:X}A(x)} \prod_{x:X} P(x,g(x)) \right)
+\]
+
+trivially determined.
+
+***** TODO Proof
+
+**** 2.15.11. Pullbacks
+Given $f : A \to C$ and $g : B \to C$, we define the *pullback* as
+
+\[
+A \times_C B :\equiv \sum_{(a:A)}\sum_{(b:B)}(f(a) = g(b)).
+\]
+
 ** I.3. Sets and logic
 *** 3.1. Sets and n-types
 **** 3.1.1. Sets
@@ -954,7 +1277,7 @@ Given any type $A$, the types $\isSet(A)$ and $\isProp(A)$ are mere
 propositions.
 
 ***** Proof
-If we have $f,g : \isProp(A)$ we know that $f(x,y) = g(x,y)$ because
+If we have $f,g : \isProp(A)$, we know that $f(x,y) = g(x,y)$ because
 $A$ is a mere proposition. By function extensionality, $f = g$.
 
 If we have $f,g : \isSet(A)$ we know that $f(x,y,p,q) = g(x,y,p,q)$
@@ -1402,7 +1725,7 @@ We have proved equivalent
 
 so we choose $\isequiv{}(f) :\equiv \ishae(f)$.
 
-*** TODO 4.6. Surjections and embeddings
+*** 4.6. Surjections and embeddings
 **** 4.6.0. Isomorphisms
 When two sets are equivalent, we say that they is an *isomorphism*
 or a *bijection*.
