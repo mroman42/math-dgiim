@@ -7,7 +7,16 @@ Resources on spaced repetition
  * [[http://www.gwern.net/Spaced-repetition][Gwern - spaced repetition]]
  * [[https://www.supermemo.com/en/articles/20rules][SuperMemo - twenty rules of formulating knowledge]]
 
+A session should be 10-15 mins long.
+
 * [Macros]                                                           :ignore:
+** Packages                                                         :ignore:
+#+latex_header: \usepackage{bussproofs} \EnableBpAbbreviations{}
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \usepackage{amssymb}
+
+** Type theory macros                                               :ignore:
 #+latex_header: \newcommand\ap{\mathsf{ap}}
 #+latex_header: \newcommand\apd{\mathsf{apd}}
 #+latex_header: \newcommand\refl{\mathsf{refl}}
@@ -43,73 +52,405 @@ Resources on spaced repetition
 #+latex_header: \newcommand\inl{\mathsf{inl}}
 #+latex_header: \newcommand\inr{\mathsf{inr}}
 #+latex_header: \newcommand\seg{\mathsf{seg}}
-#+latex_header: \renewcommand\loop{\mathsf{loop}}
 #+latex_header: \newcommand\base{\mathsf{base}}
 #+latex_header: \newcommand\N{\mathsf{N}}
 #+latex_header: \renewcommand\S{\mathsf{S}}
 #+latex_header: \newcommand\merid{\mathsf{merid}}
 #+latex_header: \newcommand\istype[1]{\mathop{\mbox{$\mathsf{is}$-$#1$-$\mathsf{type}$}}}
 
+** Category theory macros                                           :ignore:
+#+latex_header: \newcommand\hom{\mathrm{hom}}
+#+latex_header: \newcommand\Sets{\mathsf{Sets}}
+#+latex_header: \newcommand\Set{\mathsf{Set}}
+#+latex_header: \newcommand\todot{\xrightarrow{.}}
+
 * Category theory
-** Universal arrow                                                   :drill:
-SCHEDULED: <2017-11-26 Sun>
+** Universality and Yoneda
+*** Universal arrow                                                 :drill:
+SCHEDULED: <2018-01-16 Tue>
 :PROPERTIES:
 :ID:       f5c0c0db-7fd6-486d-9eab-d0f87b6f8d54
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 38.5514
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.2
-:DRILL_EASE: 2.9
+:DRILL_AVERAGE_QUALITY: 4.428
+:DRILL_EASE: 3.1
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-11-22 Wed 22:57]
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:37]
 :END:
 Definition of *universal arrow* from $c$ to $S$.
 
-*** Definition
+**** Definition
 For any other $f : c \to Sd$ there exists this unique diagram
 
 \[\begin{tikzcd}
- & Sd \\
-c \rar[swap]{u}\urar{f} & Sr \uar[swap, dashed]{\exists! S \widetilde f}
+ & Sd & d \\
+c \rar[swap]{u}\urar{f} & Sr \uar[swap, dashed]{S \widetilde f}
+& r \uar[dashed,swap]{\exists! \widetilde{f}}
 \end{tikzcd}\]
 
-** Preadditive category                                              :drill:
-SCHEDULED: <2017-11-26 Sun>
+*** Yoneda Lemma                                                    :drill:
+SCHEDULED: <2018-01-18 Thu>
+:PROPERTIES:
+:ID:       dbee06db-00f9-4f92-9e8f-ab855a4a5fc6
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-18 Mon 16:54]
+:END:
+Statement of the first Yoneda Lemma.
+
+**** Statement
+For any covariant $K\colon D \to \mathsf{Set}$ and $r \in D$, there is a bijection
+
+\[
+y \colon \mathrm{Nat}(\mathrm{hom}_{D}(r,-), K) \cong Kr
+\]
+
+sending any natural transformation $\alpha \colon \mathrm{hom}_{D}(r,-) \xrightarrow{.} K$
+to its image on the identity, $\alpha_r(\mathsf{id}_r)$.
+
+*** Yoneda functor                                                  :drill:
+SCHEDULED: <2018-01-16 Tue>
+:PROPERTIES:
+:ID:       0d249757-6f4e-4635-a141-605ae14c0aaf
+:DRILL_LAST_INTERVAL: 28.8322
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-18 Mon 16:51]
+:END:
+Definition of the *Yoneda functor*.
+
+**** Definition
+The *Yoneda functor*, $Y \colon D^{op} \to\Sets^{D}$, is defined with the arrow function
+\[
+\left(f \colon s \to r\right) \mapsto 
+\Big(- \circ f \colon \hom_D(r,-) \to \hom_D(s,-)\Big).
+\]
+It can be also written as $Y' \colon D \to\Sets^{D^{op}}$.
+
+** Adjoints, monads and algebras
+*** Unit of an adjunction                                           :drill:
+SCHEDULED: <2018-01-09 Tue>
+:PROPERTIES:
+:ID:       9048327b-599e-4d3d-8674-3384c97f18fb
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-09 Sat 13:04]
+:END:
+Given an adjunction $F \vdash G$, what signature does the *unit* have?
+
+**** Answer
+The unit is $\eta \colon \mathrm{id} \to G \circ F$.
+*** Counit of an adjunction                                         :drill:
+SCHEDULED: <2018-01-09 Tue>
+:PROPERTIES:
+:ID:       3d507be4-76aa-4852-9a79-842202789c3d
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-09 Sat 13:04]
+:END:
+Given an adjunction $F \vdash G$, what signature does the *counit* have?
+
+**** Answer
+The counit is $\epsilon : FG \to \mathrm{id}$.
+*** Monad of an adjunction                                          :drill:
+SCHEDULED: <2018-01-09 Tue>
+:PROPERTIES:
+:ID:       be30eb00-9dbd-4d91-8d58-a5e3c9cf9bff
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-09 Sat 13:04]
+:END:
+Given an adjunction $F \vdash G$, what monad does it give rise to?
+
+**** Answer
+The monad $T := G \circ F$.
+** Limits
+*** Set is small-complete                                           :drill:
+SCHEDULED: <2018-01-26 Fri>
+:PROPERTIES:
+:ID:       b60b88db-63fd-40a4-aaa5-d591be15e290
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-26 Tue 22:27]
+:END:
+A category is *small-complete* when all small diagrams have limits in it.
+Why is Set small-complete? How can we construct small limits in it?
+
+**** Constructing small limits on set
+Given $F \colon J \to \mathsf{Set}$, we have that the set of cones from the terminal
+object $\mathrm{Cone}(\ast,F)$ is the limit.
+
+**** As an adjunction
+Crucially,
+
+\[
+\mathrm{Cone}(X,F) \cong \hom(X, \mathrm{Cone}(\ast,F)).
+\]
+
+*** Creation of limits                                              :drill:
+SCHEDULED: <2018-01-24 Wed>
+:PROPERTIES:
+:ID:       a2541164-f873-495c-8cdd-a7ea1f8a389d
+:DRILL_LAST_INTERVAL: 26.9152
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2017-12-28 Thu 23:05]
+:END:
+When does a functor $V \colon A \to X$ *create limits* for $F \colon J \to A$?
+
+**** Answer
+For any limiting cone $\tau\colon x \xrightarrow{.} VF$ exists $\sigma\colon a\todot F$ with $Va = x$ and $V\sigma = \tau$.
+and this $\sigma$ is a limiting cone.
+
+*** Limits from products and equalizers                             :drill:
+SCHEDULED: <2018-01-25 Thu>
+:PROPERTIES:
+:ID:       c4ec22a4-89bb-47a8-839c-25faa68f3766
+:DRILL_LAST_INTERVAL: 27.8572
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-28 Thu 23:05]
+:END:
+Conditions on products and equalizers to 
+
+ 1) have all finite limits
+ 2) have all small limits.
+
+**** Answer
+Having all equalizers and
+
+ 1) all finite products;
+ 2) all small products.
+
+
+** Monoidal and enriched categories
+*** Preadditive category                                            :drill:
+SCHEDULED: <2018-01-12 Fri>
 :PROPERTIES:
 :ID:       01815e4d-7bf6-473c-a818-f5a4f3568967
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 34.7992
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2017-11-22 Wed 22:20]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 3.0
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:38]
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Preadditive_category][preadditive category]]
 
-*** Definition
+**** Definition
 Every $hom(a,b)$ is an *abelian group* and composition is *bilinear*
 
 \[
 f \circ (g+h) = f \circ g+f \circ h \qquad (f+g)\circ h = f\circ h+g \circ h
 \]
 
+*** Monoidal category                                               :drill:
+SCHEDULED: <2018-01-21 Sun>
+:PROPERTIES:
+:ID:       b388bb90-8069-4b36-b655-acdea2c12f12
+:DRILL_LAST_INTERVAL: 24.12
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2017-12-28 Thu 23:04]
+:END:
+Definition of a monoidal category. Give
+
+ * bifunctor,
+ * isomorphisms,
+ * diagrams.
+
+**** Answer
+A *monoidal category* ${\cal B}$ is a category with a bifunctor $\otimes \colon {\cal B} \times {\cal B} \to {\cal B}$
+and three natural isomorphisms
+
+ * $\alpha \colon a \otimes (b \otimes c) \cong (a \otimes b) \otimes c$
+
+ * $\lambda \colon e \otimes a \cong a$
+
+ * $\rho \colon a \otimes e \cong a$
+
+such that the pentagonal diagram commutes
+
+\begin{tikzcd}
+a \otimes (b \otimes (c \otimes d)) \dar{1 \otimes \alpha} \rar{\alpha}& 
+(a \otimes b) \otimes (c \otimes d) \rar{\alpha}& 
+((a \otimes b) \otimes c) \otimes d \dar{\alpha \otimes 1}\\
+a \otimes ((b \otimes c) \otimes d) \ar[rr, "\alpha"] & & 
+(a \otimes (b \otimes c)) \otimes d
+\end{tikzcd}
+
+and the following triangular diagram commutes
+
+\[\begin{tikzcd}[row sep=tiny]
+& a \otimes (e \otimes c) \ar[dd, "\alpha"]\dlar[swap]{1 \otimes \lambda}\\ 
+a \otimes c &\\
+& (a \otimes e) \otimes c \ular{\rho \otimes 1}
+\end{tikzcd}\]
+
+** Categorical logic
+*** Cartesian closed category                                       :drill:
+SCHEDULED: <2018-01-12 Fri>
+:PROPERTIES:
+:ID:       1c544faf-0c54-4fc1-b2f2-839d6fdd8354
+:DRILL_LAST_INTERVAL: 27.8572
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-15 Fri 22:03]
+:END:
+Define a *cartesian closed category* using three adjoints.
+
+**** Definition
+Any category ${\cal C}$ is cartesian closed if and only if there exist
+*right adjoints* for the following functors
+
+\begin{prooftree}
+\AX$\ast\ \fCenter\to\ast$
+\doubleLine
+\UI$x\ \fCenter\to \top$
+\AX$(x,x)\ \fCenter\to (y,z)$
+\doubleLine
+\UI$x\ \fCenter\to y \times z$
+\AX$x \times a\ \fCenter\to y$
+\doubleLine
+\UI$x\ \fCenter\to y^a$
+\noLine
+\TIC{}
+\end{prooftree}
+
+*** Elementary topos                                                :drill:
+SCHEDULED: <2018-01-15 Mon>
+:PROPERTIES:
+:ID:       5e288a7b-486a-4d12-91b2-45834c6a0b47
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-15 Fri 22:06]
+:END:
+Define *elementary topos* with three properties.
+
+**** Definition
+ 1. is *cartesian closed*,
+ 2. has all *finite limits*,
+ 3. has a *subobject classifier*.
+
+*** Pullback functor in objects                                     :drill:
+SCHEDULED: <2018-01-15 Mon>
+:PROPERTIES:
+:ID:       fed94983-29d8-4580-97ba-0e0d06a7da46
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-15 Fri 22:07]
+:END:
+Given $f : B \to A$, define the pullback functor $f^{\ast} : {\cal C}/A \to {\cal C}/B$
+in objects.
+
+**** Definition in objects
+Given any $c : C \to A$, the pullback functor gives $f^{\ast}c : f^{\ast}C \to B$
+with the following pullback square
+
+\[\begin{tikzcd}
+f^{\ast}C \rar{}\drar[phantom, near start, "\ulcorner"] \dar[swap]{f^{\ast}c} & C \dar{c} \\
+B\rar{f} & A
+\end{tikzcd}\]
+
+*** Pullback functor in morphisms                                   :drill:
+SCHEDULED: <2018-01-15 Mon>
+:PROPERTIES:
+:ID:       5bb637fe-4ec1-4cc1-9e8d-b973b81ebaff
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-15 Fri 22:06]
+:END:
+Given $f : B \to A$, define the pullback functor $f^{\ast} : {\cal C}/A \to {\cal C}/B$
+on the morphism $h : C \to D$ defined between $c : C \to A$ and $d : D \to A$.
+
+**** Definition in morphisms
+The morphism $f^{\ast}h : f^{\ast}C \to f^{\ast}D$ is defined by the universal property
+of pullbacks
+
+\[\begin{tikzcd}
+f^{\ast}C \ar{rrr}\ar[dashed]{dr}{\exists! f^{\ast}h} \ar[bend right,swap]{ddr}{f^{\ast}c} &&&
+C \ar{dl}{h}\ar[bend left=60]{ddl}{c} \\
+& f^{\ast}D \dar[swap]{f^{\ast}d} \rar & D \dar{d} \\
+& Bñ \rar[swap]{f} & A \\
+\end{tikzcd}\]
 * Homotopy type theory
 ** 3. Sets and logic
 *** Sets                                                            :drill:
-SCHEDULED: <2017-11-26 Sun>
+SCHEDULED: <2018-01-08 Mon>
 :PROPERTIES:
 :ID:       642db2e3-5cf0-4bfc-8d34-0bd7a3723374
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:37]
 :END:
 Definition of *sets* in type theory.
 
@@ -119,19 +460,19 @@ Definition of *sets* in type theory.
 \]
 
 *** Subtypes                                                        :drill:
-SCHEDULED: <2017-11-26 Sun>
+SCHEDULED: <2018-02-03 Sat>
 :PROPERTIES:
 :ID:       64ba6bc2-b0cc-4863-809e-baf0200c59d3
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_LAST_INTERVAL: 38.5449
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.167
+:DRILL_EASE: 3.0
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-11-22 Wed 22:58]
+:DRILL_LAST_REVIEWED: [2017-12-26 Tue 22:27]
 :END:
-Definition of *subtype*.
+Definition of *subtype* in HoTT.
 
 **** Definition
 For a family of *mere propositions* $P : A \to {\cal U}$, we write
@@ -145,42 +486,42 @@ For a family of *mere propositions* $P : A \to {\cal U}$, we write
 and call this a subtype of $A$.
 
 *** Axiom of choice                                                 :drill:
-SCHEDULED: <2017-11-26 Sun>
+SCHEDULED: <2018-01-19 Fri>
 :PROPERTIES:
 :ID:       f8e99cbf-4821-4cb3-b622-dfd84d4d4215
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_LAST_INTERVAL: 27.3904
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.66
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:DRILL_LAST_REVIEWED: [2017-12-23 Sat 20:17]
 :END:
 *Axiom of choice* in type theory.
 
 **** Statement
 
 \[
-\left( \prod_{x:X} \trunc{\sum_{a:A(x)} P(x,a)} \right)
+\left( \prod_{x:X} \trunc{\sum_{a:A(x)} R(x,a)} \right)
 \to
-\trunc{\sum_{(g: \prod_{x:X}A(x))} \prod_{(x:X)} P(x,g(x))}.
+\trunc{\sum_{(g: \prod_{x:X}A(x))} \prod_{(x:X)} R(x,g(x))}.
 \]
 
-for a given  $P : \prod_{x:X} (A(x) \to {\cal U})$.
+for a given  $R : \prod_{x:X} (A(x) \to {\cal U})$.
 
 *** Decidable type                                                  :drill:
-SCHEDULED: <2017-11-26 Sun>
+SCHEDULED: <2018-01-08 Mon>
 :PROPERTIES:
 :ID:       b7080b88-8de1-4c7d-b804-73dc6ff6d702
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:35]
 :END:
 Definition of *decible type*.
 
@@ -189,17 +530,17 @@ Definition of *decible type*.
 $A + \neg A$
 
 *** Decidable equality                                              :drill:
-SCHEDULED: <2017-11-26 Sun>
+SCHEDULED: <2018-01-08 Mon>
 :PROPERTIES:
 :ID:       0784e9e9-14c0-42c7-ae4a-25aa5e192c4b
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:40]
 :END:
 Definition of *decidable equality*.
 
@@ -210,17 +551,17 @@ Definition of *decidable equality*.
 \]
 
 *** Decidable type family                                           :drill:
-SCHEDULED: <2017-11-26 Sun>
+SCHEDULED: <2018-01-08 Mon>
 :PROPERTIES:
 :ID:       dc617b60-30a0-40c0-b631-b6277f138150
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-11-22 Wed 23:00]
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:37]
 :END:
 Definition of *decidable type family*.
 
@@ -231,6 +572,18 @@ Definition of *decidable type family*.
 \]
 
 *** Contractible type                                               :drill:
+SCHEDULED: <2018-01-08 Mon>
+:PROPERTIES:
+:ID:       24050684-5b1f-48bc-859b-5169e66d0198
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:39]
+:END:
 Definition of *contractible type*.
 
 **** Definition
@@ -241,25 +594,161 @@ Definition of *contractible type*.
 $A$ is contractible if there exists a center of contraction $a$.
 
 *** Mere propositions and contractibility                           :drill:
+SCHEDULED: <2018-01-15 Mon>
+:PROPERTIES:
+:ID:       8be8a4a1-667a-4a64-b96a-f07d9d46ca61
+:DRILL_LAST_INTERVAL: 34.4349
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.4
+:DRILL_EASE: 2.9
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-12 Tue 21:35]
+:END:
 Define *mere proposition* in terms of contractibility.
 
 **** Definition
 $A$ is a mere proposition iff for all $x,y : A$, the type $x = y$ is
 contractible.
 
+*** Hedberg's theorem                                               :drill:
+SCHEDULED: <2018-01-09 Tue>
+:PROPERTIES:
+:ID:       2bde59f5-b573-44cc-9aa0-319cafd7916c
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-09 Sat 13:03]
+:END:
+Statement of *Hedberg's theorem*.
+
+**** Statement
+If a type has decidable equality, it is a set.
+
+** 4. Equivalences
+*** Type-theoretical fiber                                          :drill:
+SCHEDULED: <2018-01-09 Tue>
+:PROPERTIES:
+:ID:       f92e8b0d-a516-41ab-af1c-47a714f0b557
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-09 Sat 13:02]
+:END:
+Definition of *fiber* of $f : A \to B$ over $b : B$ in HoTT.
+
+**** Definition
+
+\[
+\fib_f(b) :\equiv \sum_{a:A}(f(a) = b).
+\]
+
+** Other
+*** UIP is not derivable                                            :drill:
+SCHEDULED: <2018-01-20 Sat>
+:PROPERTIES:
+:ID:       59132f0b-aa24-454c-9397-622348e5b16d
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-20 Wed 16:38]
+:END:
+Uniqueness of Identity Proofs is not derivable in MTLL. Why?
+
+**** Reference
+In the groupoid model by Hoffmann, elements of the identity type
+different from reflexivity can be built.
+
+* Topology
+** Covering space                                                    :drill:
+SCHEDULED: <2018-01-08 Mon>
+:PROPERTIES:
+:ID:       915fad6c-c2b3-479f-b16d-b24f97abbd13
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:39]
+:END:
+Definition of *covering space*.
+
+*** Definition
+A *continuous surjective* $p : E \to B$ such that every $b \in B$ has a
+neighborhood $V$ such that $p^{-1}(V)$ is an open partition $\{V_n\}$ of
+*slices*, every one of them isomorphic to $V_b$.
+
+** Topological retraction                                            :drill:
+SCHEDULED: <2018-01-08 Mon>
+:PROPERTIES:
+:ID:       36cc4b72-f8d6-45ab-8377-7aa2dfb4420b
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:35]
+:END:
+Definition of topological *retraction*.
+
+*** Definition
+An inclusion $i : A \subseteq X$ with a continuous map $r : X \to A$ 
+such that $r \circ i = \mathsf{id}$.
+
+** Examples
+*** Are the open and closed intervals homeomorphic?                 :drill:
+SCHEDULED: <2018-04-01 Sun>
+:PROPERTIES:
+:ID:       72ebf2a8-8fe0-4179-a952-5ccddf9b7315
+:DRILL_LAST_INTERVAL: 83.6691
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.75
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-01-07 Sun 11:57]
+:END:
+Prove or disprove: are the open and closed intervals homeomorphic?
+
+**** Answer
+No, [0,1] is compact and (0,1) is not. Compactness is preserved
+by homeomorphisms.
+
+**** Answer 2
+We can take a point on both intervals and see that only one of them
+has to be connected.
+
 * Algebra
 ** Exponentiation of versors                                         :drill:
-SCHEDULED: <2017-11-26 Sun>
+SCHEDULED: <2018-01-08 Mon>
 :PROPERTIES:
 :ID:       8404f823-c268-4627-8229-8432570411eb
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.6
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-11-22 Wed 22:57]
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:37]
 :END:
 Given a quaternion $q$, how we define and compute $\mathrm{exp}(q)$?
 
@@ -278,6 +767,286 @@ quaternions
 and then
 
 \[q^t = \exp(t \theta v) = \cos (t \theta) + v \sin (t \theta).\]
+** Snake lemma                                                       :drill:
+SCHEDULED: <2018-03-29 Thu>
+:PROPERTIES:
+:ID:       159f12f8-6ca4-4723-8eb7-378a418d38b7
+:DRILL_LAST_INTERVAL: 80.5572
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.75
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-01-07 Sun 11:56]
+:END:
+Given a morphism of short exact sequences as 
 
-* TODO Coq tactics
+\[\begin{tikzcd}
+& A \rar{f}\dar{a} & B \rar{g}\dar{b} & C \rar\dar{c} & 0  \\
+0 \rar & A' \rar{f'} & B' \rar{g'} & C' \\
+\end{tikzcd}\]
 
+what does the snake lemma provide?
+
+*** Answer
+There exists a morphism $\delta \colon \operatorname{ker} c \to \operatorname{coker} a$ such that the 
+following sequence is exact
+
+\[\begin{tikzcd}
+0 \rar &
+\mathrm{ker}(a) \rar{f} &
+\mathrm{ker}(b) \rar{g} &
+\mathrm{ker}(c) \arrow[out = 0,in =180,swap]{dll}{\delta} \\&
+\mathrm{coker}(a) \rar{f'} &
+\mathrm{coker}(b) \rar{g'} &
+\mathrm{coker}(c) \rar &
+0
+\end{tikzcd}\]
+
+Diagramatically,
+
+\[ \begin{tikzcd}
+& 0 \dar              & 0 \dar            & 0 \dar           &   \\
+0 \rar & ker(a) \rar \dar  & ker(b) \rar \dar    & ker(c) \dar \ar[out=355, in=175,looseness=1, overlay, swap]{dddll}{\delta}       &   \\
+& A \rar{f} \dar{a}  & B \rar{g} \dar{b} & C \rar \dar{c}        & 0 \\
+0 \rar & A' \rar{f'} \dar & B' \rar{g'} \dar & C' \dar        &  \\
+& coker(a) \rar \dar & coker(b) \rar \dar  & coker(c) \rar \dar & 0 \\
+& 0                   & 0                 & 0                &
+\end{tikzcd} \]
+
+* First-order logic
+** Definition of validity                                            :drill:
+SCHEDULED: <2018-01-09 Tue>
+:PROPERTIES:
+:ID:       edf5dad9-0999-4098-861e-61a16ee7fd2e
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-09 Sat 13:02]
+:END:
+When is a sentence $\varphi$ *valid*?
+
+*** Answer
+$\varphi$ is *valid*, written $\models \varphi$ iff $\model \models \varphi$ for every structure $\model$.
+Every structure satisfies the sentence.
+
+** Definition of soundness                                           :drill:
+SCHEDULED: <2018-01-09 Tue>
+:PROPERTIES:
+:ID:       56f2cb1c-ccdb-4416-b52d-be6fae51723f
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-09 Sat 13:04]
+:END:
+When is a proof system *sound*?
+
+*** Answer
+When $\Gamma \vdash \Phi$ implies $\Gamma \models \Phi$.
+
+/You cannot prove anything that is wrong./
+
+Where
+ 
+ * $\Gamma \vdash \Phi$ is logical entailment with the inference rules of the system;
+ * $\Gamma \models \Phi$, is implication in the desired semantics; every structure satisfies it.
+
+** Definition of completeness                                        :drill:
+SCHEDULED: <2018-01-09 Tue>
+:PROPERTIES:
+:ID:       a9041c29-30d2-406e-a1d8-335b58aa4b5a
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-09 Sat 13:03]
+:END:
+When is a proof system *complete*?
+
+*** Answer
+When $\Gamma \models \Phi$ implies $\Gamma \vdash \Phi$.
+
+/You can prove everything that is true./
+
+Where
+ 
+ * $\Gamma \vdash \Phi$ is logical entailment with the inference rules of the system;
+ * $\Gamma \models \Phi$, is implication in the desired semantics; every structure satisfies it.
+
+* Coq tactics
+** Difference Defined / Qed                                          :drill:
+SCHEDULED: <2018-01-08 Mon>
+:PROPERTIES:
+:ID:       5cf0a7c8-363d-484d-a007-aa8105effeed
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:39]
+:END:
+What is the difference between =Defined= and =Qed=?
+
+*** Answer
+=Defined= produces a *transparent definition* whereas =Qed= provides
+an *opaque one*.
+
+Reference: http://gallium.inria.fr/blog/coq-eval/
+
+** Tactics
+*** Coq Tactic                                                      :drill:
+SCHEDULED: <2018-01-08 Mon>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       17c701dd-28d1-4e03-9b29-43cb7bc33359
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:39]
+:END:
+
+The [exact] tactic [solves a goal by providing an inhabitant].
+
+*** Coq Tactic                                                      :drill:
+SCHEDULED: <2018-02-03 Sat>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       5be5f1f6-d8ff-4e79-8032-11a14c6d193d
+:DRILL_LAST_INTERVAL: 38.5449
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.167
+:DRILL_EASE: 3.0
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-26 Tue 22:27]
+:END:
+
+The [split] tactic [introduces a conjunction].
+
+*** Coq Tactic                                                      :drill:
+SCHEDULED: <2018-01-21 Sun>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       3ee44b74-7bfb-46fd-bdf6-9095a0c7ddd0
+:DRILL_LAST_INTERVAL: 29.3533
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 7
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.143
+:DRILL_EASE: 2.66
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-23 Sat 20:16]
+:END:
+
+The [absurd] tactic [eliminates falsehood].
+
+*** Coq Tactic                                                      :drill:
+SCHEDULED: <2018-01-20 Sat>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       ef5486ca-801f-49cb-826b-db3e15806159
+:DRILL_LAST_INTERVAL: 33.2704
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 7
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.715
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2017-12-18 Mon 16:55]
+:END:
+
+The [replace] tactic [substitutes all ocurrences of a term using a path].
+
+**** Syntax
+=replace {term} with {term2} by {tactic}=
+
+where ={tactic}= solves ={term1 = term2}=.
+
+*** Coq Tactic                                                      :drill:
+SCHEDULED: <2018-01-08 Mon>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       ef5486ca-801f-49cb-826b-db3e15806159
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:35]
+:END:
+
+The [firstorder] tactic [automates first-order reasoning].
+
+*** Coq Tactic                                                      :drill:
+SCHEDULED: <2018-01-08 Mon>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       ef5486ca-801f-49cb-826b-db3e15806159
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:39]
+:END:
+
+The [set] tactic [defines a term that can be used later].
+
+**** Syntax
+set ({var} := {def}).
+*** Coq Tactic                                                      :drill:
+SCHEDULED: <2018-01-31 Wed>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       fbca0b6d-d8cd-4669-9f32-a2050dcf5824
+:DRILL_LAST_INTERVAL: 35.9874
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.9
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-26 Tue 22:26]
+:END:
+
+The [f_equal] tactic [proves {f x = f' x'} with {f = f'} and {x = x'}].
+
+*** Coq Tactic                                                      :drill:
+SCHEDULED: <2018-01-08 Mon>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       b84bd40d-3cef-4b97-b8f8-4d3ecfc5ff4f
+:DRILL_LAST_INTERVAL: 30.9885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:39]
+:END:
+
+The [ring] tactic [solves equations on a ring structure].
