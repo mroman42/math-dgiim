@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2017-12-03 Sun 11:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ZFC</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">ZFC</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgca6c875">ZFC - Pablo Baeyens</a>
+<ul>
+<li><a href="#orgf9057c0">Axiomas de la igualdad</a></li>
+<li><a href="#org94d1559">Números como conjuntos</a>
+<ul>
+<li><a href="#orga7186c4">Números naturales</a></li>
+<li><a href="#org7cb155a">Otra construcción posible</a></li>
+<li><a href="#org4c9ea7a">Construcción de funciones</a></li>
+</ul>
+</li>
+<li><a href="#org1cfc7d7">Restricciones</a></li>
+<li><a href="#orga5166f8">Axiomas de la teoría de conjuntos</a>
+<ul>
+<li><a href="#org26c25e8">0. Axioma de existencia</a></li>
+<li><a href="#orgd95ece4">1. Axioma de extensionalidad</a></li>
+<li><a href="#orge3e147c">2. Axioma de comprensión</a>
+<ul>
+<li><a href="#org2c710de">Paradoja de Russell</a></li>
+<li><a href="#orgea72b53">El número de axiomas es numerable</a></li>
+<li><a href="#org69c242b">NBG</a></li>
+<li><a href="#orgc5dda02">Diferencia de conjuntos</a></li>
+<li><a href="#org7fc8844">Intersección de conjuntos</a></li>
+</ul>
+</li>
+<li><a href="#org70121b8">3. Axioma del par</a>
+<ul>
+<li><a href="#org048832c">Naturales</a></li>
+<li><a href="#org2186cf1">Hay conjuntos no vacíos</a></li>
+<li><a href="#orgb5393ec">Pares ordenados</a></li>
+</ul>
+</li>
+<li><a href="#org769588b">4. Axioma de la unión</a></li>
+<li><a href="#org4f02b26">5. Axioma del infinito</a>
+<ul>
+<li><a href="#org91ebae4">Finitud</a></li>
+</ul>
+</li>
+<li><a href="#orge9eb60c">6. Axioma del conjunto potencia</a>
+<ul>
+<li><a href="#org70989f6">Producto cartesiano</a></li>
+<li><a href="#orgf40838e">Funciones</a></li>
+</ul>
+</li>
+<li><a href="#org5be0e26">7. Axioma de reemplazamiento</a>
+<ul>
+<li><a href="#orgd445ec3">Definiendo el conjunto de potencias</a></li>
+<li><a href="#orgb41b239">Definiendo la imagen por un funcional</a></li>
+<li><a href="#orge294b68">No existe el conjunto de todos los conjuntos.</a></li>
+</ul>
+</li>
+<li><a href="#org657abb1">8. Axioma de elección</a></li>
+<li><a href="#org23667c6">9. Axioma de fundación</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgca6c875" class="outline-2">
+<h2 id="orgca6c875">ZFC - Pablo Baeyens</h2>
+<div class="outline-text-2" id="text-orgca6c875">
+<p>
+Utilizando lógica de primer orden.
+</p>
+
+<p>
+\[
+\wedge, \implies, \iff, \forall, \exists
+\]
+</p>
+
+<p>
+Además de:
+</p>
+
+<ul class="org-ul">
+<li>Un conjunto infinito numerable de variables: \(x_1,x_2,\dots\)</li>
+<li>Sólo puede cuantificarse sobre variables.</li>
+<li>Reglas para fórmulas bien formadas.</li>
+</ul>
+
+<p>
+Símbolos propios de la teoría de conjuntos:
+</p>
+
+<ul class="org-ul">
+<li>\(=, \in\)</li>
+</ul>
+
+<p>
+Se usa internamente la axiomática de la lógica de primer orden.
+</p>
+</div>
+
+<div id="outline-container-orgf9057c0" class="outline-3">
+<h3 id="orgf9057c0">Axiomas de la igualdad</h3>
+<div class="outline-text-3" id="text-orgf9057c0">
+<p>
+La igualdad es relación de equivalencia. Es
+</p>
+
+<ol class="org-ol">
+<li>Reflexiva, \(\forall x: x=x\).</li>
+<li>Transitiva, \(\forall x,y,z: x=y \wedge x=y \implies x=z\).</li>
+<li>Simétrica, \(\forall x,y : x=y \iff y=x\).</li>
+<li>Sustitución, \(\forall x,y: x=y \implies \varphi \iff \varphi'\) donde \(\varphi'\) sale de sustituir \(x\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org94d1559" class="outline-3">
+<h3 id="org94d1559">Números como conjuntos</h3>
+<div class="outline-text-3" id="text-org94d1559">
+<p>
+Algunas teorías consideran elementos que no tienen elementos dentro.
+En nuestro caso usaremos conjuntos para representar todos los objetos
+matemáticos.
+</p>
+</div>
+
+<div id="outline-container-orga7186c4" class="outline-4">
+<h4 id="orga7186c4">Números naturales</h4>
+<div class="outline-text-4" id="text-orga7186c4">
+<p>
+Definimos:
+</p>
+
+<ul class="org-ul">
+<li>\(0 = \varnothing\)</li>
+<li>\(S(x) = x \cup \{x\}\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7cb155a" class="outline-4">
+<h4 id="org7cb155a">Otra construcción posible</h4>
+<div class="outline-text-4" id="text-org7cb155a">
+<p>
+Definiendo:
+</p>
+
+<ul class="org-ul">
+<li>\(\varnothing\)</li>
+<li>\(S(x) = \{x\}\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4c9ea7a" class="outline-4">
+<h4 id="org4c9ea7a">Construcción de funciones</h4>
+<div class="outline-text-4" id="text-org4c9ea7a">
+<p>
+Para definir una función, usamos su gráfico:
+</p>
+
+<p>
+\[\{(a,b) \in A \times B \mid f(a) = b\}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1cfc7d7" class="outline-3">
+<h3 id="org1cfc7d7">Restricciones</h3>
+<div class="outline-text-3" id="text-org1cfc7d7">
+<p>
+No podemos hablar todavía del conjunto de todos los conjuntos. Dentro
+de ZFC no podemos hablar de cosas como \(Obj(\mathtt{Set})\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga5166f8" class="outline-3">
+<h3 id="orga5166f8">Axiomas de la teoría de conjuntos</h3>
+<div class="outline-text-3" id="text-orga5166f8">
+<p>
+Tomamos como ciertos:
+</p>
+</div>
+
+<div id="outline-container-org26c25e8" class="outline-4">
+<h4 id="org26c25e8">0. Axioma de existencia</h4>
+<div class="outline-text-4" id="text-org26c25e8">
+<p>
+\(\exists x : x=x\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd95ece4" class="outline-4">
+<h4 id="orgd95ece4">1. Axioma de extensionalidad</h4>
+<div class="outline-text-4" id="text-orgd95ece4">
+<p>
+\(\forall x,y:(\forall z: z\in x \implies z \in y) \implies x = y\)
+</p>
+
+<p>
+De paso definimos la inclusión:
+</p>
+
+<p>
+\[
+x \subseteq y := \forall z: z\in x \implies z \in y
+\]
+</p>
+
+<p>
+Y este axioma es equivalente a la antisimetría de la inclusión.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge3e147c" class="outline-4">
+<h4 id="orge3e147c">2. Axioma de comprensión</h4>
+<div class="outline-text-4" id="text-orge3e147c">
+<p>
+Exigiendo que \(A\) no aparezca como variable libre en \(\varphi\).
+</p>
+
+<p>
+\[
+\forall A: \exists B: \forall z:\left( \varphi(z) \vee z \in A\right) \iff z \in B
+\]
+</p>
+
+<p>
+Puede usarse para demostrar que existe el conjunto vacío. O que
+no existe el conjunto universal.
+</p>
+</div>
+
+<div id="outline-container-org2c710de" class="outline-5">
+<h5 id="org2c710de">Paradoja de Russell</h5>
+<div class="outline-text-5" id="text-org2c710de">
+<p>
+Supongamos el universal \(U\). Podríamos definir:
+</p>
+
+<p>
+\[
+R = \{x \in U \mid x \notin x\}
+\]
+</p>
+
+<p>
+Tanto \(R \in R\) como \(R \notin R\). Para evitarla podríamos haber usado
+estratificación.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea72b53" class="outline-5">
+<h5 id="orgea72b53">El número de axiomas es numerable</h5>
+<div class="outline-text-5" id="text-orgea72b53">
+<p>
+Las fórmulas son sucesiones finitas de los símbolos que hemos usado
+antes. Al haber una cantidad numerable de símbolos, las fórmulas son
+numerables, y los axiomas que se generan en este esquema lo son.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org69c242b" class="outline-5">
+<h5 id="org69c242b">NBG</h5>
+<div class="outline-text-5" id="text-org69c242b">
+<p>
+En la teoría axiomática de Von-Neumann se usa un número finito de
+axiomas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc5dda02" class="outline-5">
+<h5 id="orgc5dda02">Diferencia de conjuntos</h5>
+<div class="outline-text-5" id="text-orgc5dda02">
+<p>
+\[A-B = \{x \in A \mid x \notin B\}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7fc8844" class="outline-5">
+<h5 id="org7fc8844">Intersección de conjuntos</h5>
+<div class="outline-text-5" id="text-org7fc8844">
+<p>
+Nótese que todavía no podemos definir la unión arbitraria.
+</p>
+
+<p>
+\[
+\bigcap {\cal F} = \{x \in A \mid \forall y \in {\cal F} x \in y\}
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org70121b8" class="outline-4">
+<h4 id="org70121b8">3. Axioma del par</h4>
+<div class="outline-text-4" id="text-org70121b8">
+<p>
+Dados dos conjuntos, tenemos uno que los contiene a los dos:
+</p>
+
+<p>
+\[
+\forall a,b : \exists z:
+(a\in z \vee b \in z)
+\]
+</p>
+</div>
+
+<div id="outline-container-org048832c" class="outline-5">
+<h5 id="org048832c">Naturales</h5>
+<div class="outline-text-5" id="text-org048832c">
+<p>
+Con este axioma podemos construir los naturales en su segunda 
+construcción.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2186cf1" class="outline-5">
+<h5 id="org2186cf1">Hay conjuntos no vacíos</h5>
+<div class="outline-text-5" id="text-org2186cf1">
+<p>
+Hasta ahora, los axiomas eran consistentes con que sólo existiera
+el conjunto vacío.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb5393ec" class="outline-5">
+<h5 id="orgb5393ec">Pares ordenados</h5>
+<div class="outline-text-5" id="text-orgb5393ec">
+<p>
+Definimos un par ordenado:
+</p>
+
+<p>
+\[
+(a,b) := \{a , \{a,b\}\}
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org769588b" class="outline-4">
+<h4 id="org769588b">4. Axioma de la unión</h4>
+<div class="outline-text-4" id="text-org769588b">
+<p>
+Para una colección de conjuntos, crearemos una unión:
+</p>
+
+<p>
+\[
+\forall {\cal F}: \exists A: \forall Y,x: (x \in Y \wedge Y \in {\cal F}) \implies x \in A
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f02b26" class="outline-4">
+<h4 id="org4f02b26">5. Axioma del infinito</h4>
+<div class="outline-text-4" id="text-org4f02b26">
+<p>
+Construye directamente los números naturales:
+</p>
+
+<p>
+\[
+\exists I: \varnothing \in I \wedge \forall x: x\in I \implies S(x) \in I \longrightarrow \exists \mathbb{N}
+\]
+</p>
+
+<p>
+Lleva a la existencia de cardinales grandes.
+</p>
+</div>
+
+<div id="outline-container-org91ebae4" class="outline-5">
+<h5 id="org91ebae4">Finitud</h5>
+<div class="outline-text-5" id="text-org91ebae4">
+<p>
+Hasta ahora, podríamos trabajar suponiendo todos los conjuntos finitos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge9eb60c" class="outline-4">
+<h4 id="orge9eb60c">6. Axioma del conjunto potencia</h4>
+<div class="outline-text-4" id="text-orge9eb60c">
+<p>
+Existencia del conjunto potencia:
+</p>
+
+<p>
+\[
+\forall x: \exists y: \forall z: z \subseteq x \implies z \in y
+\]
+</p>
+</div>
+
+<div id="outline-container-org70989f6" class="outline-5">
+<h5 id="org70989f6">Producto cartesiano</h5>
+<div class="outline-text-5" id="text-org70989f6">
+<p>
+Podemos definir el producto cartesiano de \(A,B\). Tenemos que todos los
+elementos \(a\in A,b \in B\) llevan a \(\{a,b\} \in {\cal P}(A,B)\).
+</p>
+
+<p>
+\[
+A \times B = \{ x \in {\cal P}{\cal P}(A \cup B) \mid x = (a,b), a \in A, b \in B\}
+\]
+</p>
+
+<p>
+Nótese que así sólo hemos creado el producto cartesiano finito.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf40838e" class="outline-5">
+<h5 id="orgf40838e">Funciones</h5>
+<div class="outline-text-5" id="text-orgf40838e">
+<p>
+Con el producto cartesiano, podemos pasar a ver las funciones como su
+gráfico.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5be0e26" class="outline-4">
+<h4 id="org5be0e26">7. Axioma de reemplazamiento</h4>
+<div class="outline-text-4" id="text-org5be0e26">
+<p>
+Con estos seis axiomas, que constituyen la teoría de Zermelo, no
+podemos definir el conjunto con:
+</p>
+
+<p>
+\[
+\mathbb{N}, {\cal P}\mathbb{N}, {\cal P}{\cal P}\mathbb{N}, \dots
+\]
+</p>
+
+<p>
+Un predicado funcional es una fórmula con variables libres \(\varphi(x,y)\) 
+que se comporta como una función:
+</p>
+
+<p>
+\[
+\forall x: \exists! y: \varphi(x,y)
+\]
+</p>
+
+<p>
+Tenemos entonces:
+</p>
+
+<p>
+\[
+\forall z: \exists \omega: \forall x,y: (x \in z \wedge \varphi(x,y) \implies y \in \omega)
+\]
+</p>
+</div>
+
+<div id="outline-container-orgd445ec3" class="outline-5">
+<h5 id="orgd445ec3">Definiendo el conjunto de potencias</h5>
+<div class="outline-text-5" id="text-orgd445ec3">
+<p>
+Usando la función \(n \mapsto {\cal P}^n(\mathbb{N})\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb41b239" class="outline-5">
+<h5 id="orgb41b239">Definiendo la imagen por un funcional</h5>
+<div class="outline-text-5" id="text-orgb41b239">
+<p>
+Definimos \(\{x \in A \mid \phi(x)\}\) partiendo en el caso de que exista y 
+de que no.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge294b68" class="outline-5">
+<h5 id="orge294b68">No existe el conjunto de todos los conjuntos.</h5>
+<div class="outline-text-5" id="text-orge294b68">
+<p>
+Si existiera, podríamos usar todas las topologías triviales y desde ahí
+el conjunto universal.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org657abb1" class="outline-4">
+<h4 id="org657abb1">8. Axioma de elección</h4>
+<div class="outline-text-4" id="text-org657abb1">
+<p>
+Para cualquier familia de conjuntos sin ninguno vacío,
+</p>
+
+<p>
+\[
+\forall {\cal F} : 
+\left(
+\forall x \in {\cal F} :\varnothing \neq x
+\implies 
+\exists f : {\cal F} \to \bigcup {\cal F}: f(a) \in A
+\right)
+\]
+</p>
+
+<p>
+Siendo \(f\) una función.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org23667c6" class="outline-4">
+<h4 id="org23667c6">9. Axioma de fundación</h4>
+<div class="outline-text-4" id="text-org23667c6">
+<p>
+Para cualquier conjunto no vacío:
+</p>
+
+<p>
+\[
+\forall x: (x \neq \varnothing \implies \exists y: y \in x \wedge x \cap y = \varnothing)
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2017-12-03 Sun 11:58</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

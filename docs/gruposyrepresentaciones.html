@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2017-12-03 Sun 11:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grupos y representaciones</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Grupos y representaciones</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5835409">Ejercicios de los apuntes</a>
+<ul>
+<li><a href="#org7a32f3c">Ejercicio 31 (*)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></a></li>
+<li><a href="#org90ac72b">Ejercicio 32 (*)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></a></li>
+<li><a href="#orgdd51ccf">Ejercicio 40 (*)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></a></li>
+<li><a href="#org953b9e2">Ejercicio 42 (**)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></a>
+<ul>
+<li><a href="#orgd05060b">Clases de conjugación del caso impar</a></li>
+<li><a href="#orgac0a17b">Representaciones en el caso impar</a></li>
+<li><a href="#orgd5a6e15">Tabla de caracteres del caso impar</a></li>
+<li><a href="#orgf98c7ce">Clases de conjugación del caso par</a></li>
+<li><a href="#org780ff03">Representaciones en el caso par</a></li>
+<li><a href="#org911831a">Tabla de caracteres del caso par</a></li>
+</ul>
+</li>
+<li><a href="#org59862e1">Ejercicio 48 (**)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></a>
+<ul>
+<li><a href="#orgd0dc2ca">Clases de conjugación</a></li>
+<li><a href="#orge42d000">Tabla de caracteres</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5835409" class="outline-2">
+<h2 id="org5835409">Ejercicios de los apuntes</h2>
+<div class="outline-text-2" id="text-org5835409">
+</div><div id="outline-container-org7a32f3c" class="outline-3">
+<h3 id="org7a32f3c">Ejercicio 31 (*)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></h3>
+<div class="outline-text-3" id="text-org7a32f3c">
+<div class="statement">
+<p>
+Demostrar que \(T_q \in SO(V)\) para todo cuaternio \(q\) de norma \(1\).
+</p>
+
+</div>
+
+<p>
+Sabiendo que los cuaternios se expresan como \(\mathbb{H} = \mathbb{R} \oplus V\) escribimos \(q = a + bu\), 
+donde \(u \in V\) y \(\|u\| = 1\), lo que nos da \(u^2 = -u(-u) = -1\). Como \(q\) es de norma \(1\) 
+debe cumplir
+</p>
+
+<p>
+\[
+1 = qq^{\ast} = a^2 - ub^2 = a^2 + b^2,
+\]
+</p>
+
+<p>
+luego puede expresarse como \(q = \cos \theta + \sin\theta u\) para algún \(\theta \in \mathbb{R}\). Pero entonces
+tenemos un cuaternio \(w = \cos(\theta/2) + \sin(\theta/2) u\) que al elevarlo al cuadrado
+nos da \(q\), ya que
+</p>
+
+<p>
+\[ w^2 =
+\left( \cos \frac{\theta}{2} + \sin \frac{\theta}{2}u \right)^2 =
+\cos^2 \frac{\theta}{2} - \sin^2 \frac{\theta}{2} + 
+2 \sin \frac{\theta}{2}\cos \frac{\theta}{2}u =
+\cos \theta + \sin \theta u = q.
+\]
+</p>
+
+<p>
+Finalmente, como \(T_q = T_w \circ T_w\) siendo isometrías, tenemos que
+debe cumplirse que \(|T_q| = |T_w|^2 = 1\) y por tanto, \(T_q \in SO(V)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org90ac72b" class="outline-3">
+<h3 id="org90ac72b">Ejercicio 32 (*)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></h3>
+<div class="outline-text-3" id="text-org90ac72b">
+<div class="statement">
+<p>
+Calcular explícitamente una representación real no trivial de grado \(2\) del
+grupo de permutaciones \(S_3\).
+</p>
+
+</div>
+
+<p>
+Partimos de la idea de que \(D_6 = S_{3}\), así que cada elemento representará
+una simetría del triángulo equilátero con centro en el origen y un
+vértice en \((1\ 0)\).
+</p>
+
+<p>
+En \(\mathbb{R}^2\), llamamos \(r,s,t\) a las rectas de ángulos \(0,2\pi/3,4\pi/3\). Consideraremos
+las trasposiciones como simetrías respecto de estas rectas, y las permutaciones
+de tres elementos serán rotaciones compuestas de dos simetrías. Explícitamente,
+las trasposiciones de dos elementos son
+</p>
+
+<p>
+\[
+(2\ 3) \mapsto \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},
+\quad
+(1\ 2) \mapsto \begin{pmatrix} -1/2 & \sqrt{3}/2 \\ \sqrt{3}/2 & 1/2 \end{pmatrix},
+\quad
+(1\ 3) \mapsto \begin{pmatrix} -1/2 & -\sqrt{3}/2 \\ -\sqrt{3}/2 & 1/2 \end{pmatrix},
+\]
+</p>
+
+<p>
+y las rotaciones son
+</p>
+
+<p>
+\[
+(1\ 2\ 3) \mapsto 
+\begin{pmatrix} -1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & -1/2 \end{pmatrix},
+\quad
+(1\ 3\ 2) \mapsto
+\begin{pmatrix} -1/2 & \sqrt{3}/2 \\ -\sqrt{3}/2 & -1/2 \end{pmatrix}.
+\]
+</p>
+
+<p>
+Y podemos comprobar sobre ellas que cumplen la tabla de multiplicación
+del grupo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd51ccf" class="outline-3">
+<h3 id="orgdd51ccf">Ejercicio 40 (*)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></h3>
+<div class="outline-text-3" id="text-orgdd51ccf">
+<div class="statement">
+<p>
+Calcular razonadamente la tabla de caracteres de \(Q_8\).
+</p>
+
+</div>
+
+<p>
+Puede comprobarse multiplicando que el grupo tiene cinco clases de conjugación,
+con representantes dados por \(1,-1,i,j,k\), por lo que tiene cinco representaciones
+irreducibles complejas. Sabemos que los cuadrados de las dimensiones de esas 
+representaciones deben sumar el orden del grupo, es decir 
+</p>
+
+<p>
+\[ 8 = n_1^2 + n_2^2 + n_3^2 + n_4^2 + n_5^2,\]
+</p>
+
+<p>
+y como no pueden tenerse dos \(n_i > 1\), la única solución posible es que tengan
+dimensiones \(1,1,1,1,2\), determinando el caracter de la identidad en cada una
+de las representaciones.
+</p>
+
+<ul class="org-ul">
+<li>El <i>primer carácter</i> será el dado por la representación irreducible trivial
+que envía cada elemento del grupo a \(1 \in \mathbb{C}\).</li>
+<li>El <i>último carácter</i>, de dimensión \(2\) es el dado por la representación de los
+cuaternios como matrices complejas que conocemos del Ejercicio 7. Es además
+irreducible por tenerse \((\chi_5,\chi_5) = (2^2+(-2)^2)/8 = 1\).</li>
+<li><p>
+Para cualquiera de \(i,j,k\), existe un subgrupo normal de \(Q_8\) generado por
+el elemento con \(4\) elementos, como por ejemplo \(\left\{ 1,-1,i,-i \right\}\). Si llamamos a
+este grupo \(A\), se tiene que \(Q_8/A \cong \mathbb{Z}_2\), el único grupo de cardinalidad \(2\).
+Este grupo tiene una representación irreducible en \(\mathbb{C}\) como \(1,-1\), y por
+el Ejercicio 38, sabemos que la composición de representación irreducible
+con una proyección a un cociente por un subgrupo normal es una 
+representación irreducible, así que lo es
+</p>
+
+<p>
+\[
+   \rho_{A}\colon Q_8 \overset{\pi}\longrightarrow Q_8 / A \cong \mathbb{Z}_2 
+   \longrightarrow \mathbb{C}.
+   \]
+</p>
+
+<p>
+Esta representación la podemos repetir para los \(A\) generados por \(i,j,k\),
+dándonos las tres representaciones restantes con caracteres \(\chi_2,\chi_3,\chi_4\) 
+respectivamente. Nótese que cada una de ellas
+envía al elemento \(1\) a los elementos del grupo y a \(-1\) a los elementos fuera
+del grupo.
+</p></li>
+</ul>
+
+<p>
+Tenemos finalmente la tabla de caracteres irreducibles
+</p>
+
+<p>
+\[\begin{tabular}{c|ccccc}
+    & 1 &  1 & 2 & 2 & 2 \\
+Q_8 & 1 & -1 & i & j & k \\
+\hline
+\chi_1 & 1 &  1 &  1 &  1 &  1 \\
+\chi_2 & 1 &  1 & 1  & -1  & -1   \\
+\chi_3 & 1 &  1  & -1   & 1   &  -1  \\
+\chi_4 & 1 &  1  &  -1  & -1   & 1   \\
+\chi_5 & 2 & -2 &  0 &  0 &  0 \\
+\end{tabular}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org953b9e2" class="outline-3">
+<h3 id="org953b9e2">Ejercicio 42 (**)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></h3>
+<div class="outline-text-3" id="text-org953b9e2">
+<div class="statement">
+<p>
+Calcular razonadamente la tabla de caracteres del grupo dihédrico \(D_n\), 
+para \(n \geq 2\).
+</p>
+
+</div>
+
+<p>
+Tomamos la presentación del grupo dihédrico
+</p>
+
+<p>
+\[
+\left\langle r,s \mid r^n=s^2=e, sr = r^{-1}s \right\rangle,
+\]
+</p>
+
+<p>
+y sabemos que es un grupo de \(2n\) elementos. 
+</p>
+</div>
+
+<div id="outline-container-orgd05060b" class="outline-4">
+<h4 id="orgd05060b">Clases de conjugación del caso impar</h4>
+<div class="outline-text-4" id="text-orgd05060b">
+<p>
+Cuando \(n\) sea impar, sus clases de conjugación, que obtenemos
+conjugando con los generadores, serán las siguientes:
+</p>
+
+<ul class="org-ul">
+<li>La clase trivial \(\left\{ 1 \right\}\).</li>
+<li>Las clases de la forma \(\left\{ r^i,r^{-i} \right\}\), donde \(0 < i < n\), que se puede comprobar
+que permanecen invariantes por conjugación de los generadores. Tenemos
+\((n-1)/2\) clases de este tipo, cada una con dos elementos ya que por
+ser \(n\) impar, \(r^i\neq r^{-i}\).</li>
+<li>La clase \(\left\{ sr^i \mid 0 \leq i < n \right\}\), que se genera desde \(s\) usando que \(r^isr^{-i} = sr^{-2i}\) 
+y que \(n\) es impar. Es una clase de \(n\) elementos.</li>
+</ul>
+
+<p>
+Sumando las cardinalidades de todas ellas, observamos que no hay más, ya
+que
+</p>
+
+<p>
+\[
+2n = 1 + 2 \frac{n-1}{2} + n.
+\]
+</p>
+
+<p>
+Tenemos \((n+3)/2\) clases de conjugación, luego tendremos \((n+3)/2\)
+representaciones irreducibles complejas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac0a17b" class="outline-4">
+<h4 id="orgac0a17b">Representaciones en el caso impar</h4>
+<div class="outline-text-4" id="text-orgac0a17b">
+<p>
+Podemos considerar los caracteres y representaciones siguientes:
+</p>
+
+<ul class="org-ul">
+<li>el caracter trivial dado por la <b>representación irreducible trivial</b>
+que envía cada elemento del grupo a \(1 \in \mathbb{C}\).</li>
+
+<li>el grupo generado por \(\left\langle r \right\rangle\) es normal y tenemos \(D_n/\left\langle r \right\rangle \cong \mathbb{Z}_2\), luego una
+representación dada por la proyección y la representación irreducible
+de \(\mathbb{Z}_2\) en los complejos es irreducible. La llamamos \(\chi_2\).</li>
+
+<li><p>
+si interpretamos los grupos dihédricos como grupos de simetrías de
+los polígonos, podemos escribir representaciones bidimensionales
+que toman \(r\) como cualquiera de las rotaciones de ángulos \(2\pi k/n\) en
+los complejos y \(s\) como la simetría, es decir,
+</p>
+
+<p>
+\[
+   r \mapsto \begin{pmatrix}
+   e^{2\pi i k/n} & 0 \\
+   0 & e^{-2\pi i k/n} \\
+   \end{pmatrix}, \quad
+   s \mapsto \begin{pmatrix}
+   0 & 1 \\
+   1 & 0 \\
+   \end{pmatrix}.\]
+</p>
+
+<p>
+Comprobaremos que para \(k>0\) todas ellas son irreducibles. Los
+espacios que deja invariantes la primera son claramente \((1\ 0)\) y
+\((0\ 1)\) con dos valores propios \(e^{2\pi i k/n} \neq e^{-2\pi i k/n}\)
+(aquí usamos \(n\) impar), pero no son invariantes bajo simetrías,
+por lo que no existen subespacios invariantes y la representación
+es irreducible. A sus caracteres los llamamos \(\chi_{k+2}\).
+</p></li>
+</ul>
+
+<p>
+Dentro de las últimas, existirán algunas que serán equivalentes. Notamos
+que la característica de \(r\) bajo la representación dada por \(k\) es \(2\cos(2\pi k/n)\),
+por lo que cada \(k\) entre \(1, \dots, (n-1)/2\) da una característica distinta y por
+tanto una representación no equivalente a las demás. Con estas tenemos en
+total \((n+3)/2\) representaciones irreducibles distintas, por lo que el resto
+serán equivalentes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd5a6e15" class="outline-4">
+<h4 id="orgd5a6e15">Tabla de caracteres del caso impar</h4>
+<div class="outline-text-4" id="text-orgd5a6e15">
+<p>
+Tenemos finalmente la tabla de caracteres irreducibles como
+</p>
+
+<p>
+\[
+\small
+\begin{tabular}{c|cccccc}
+    & 1 &  2 & 2 & \dots & 2 & $n$ \\
+D_n & $e$ & $r$ & $r^2$ & $\dots$ & $r^{(n-1)/2} & $s$ \\
+\hline
+\chi_1 & 1 &  1 &  1 &  \dots &  1 & 1 \\
+\chi_2 & 1 &  1 & 1  &  \dots  & 1 & -1  \\
+\chi_{2+1} &  2 & 2\cos(2\pi 1/n) &  2\cos(2 \pi 2/n)  & \dots   & 2\cos(2 \pi (n-1)/2n)  & 0 \\
+\chi_{2+2} &  2 & 2\cos(2\pi 2/n) &  2\cos(2 \pi 4/n)  & \dots   & 2\cos(2 \pi 2(n-1)/2n)  & 0 \\
+\dots & \dots & \dots & \dots  & \dots  & \dots & \dots \\
+\chi_{2+(n-1)/2} &  2 & 2\cos(2\pi (n-1)/2n) &  2\cos(2 \pi 2(n-1)/2n)  & \dots   & 2\cos(2 \pi (n-1)(n-1)/4n)  & 0 \\
+\end{tabular}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf98c7ce" class="outline-4">
+<h4 id="orgf98c7ce">Clases de conjugación del caso par</h4>
+<div class="outline-text-4" id="text-orgf98c7ce">
+<p>
+Cuando \(n\) es par, sus clases de conjugación, que obtendremos conjugando
+con los generadores, serán las siguientes:
+</p>
+
+<ul class="org-ul">
+<li>La clase trivial \(\left\{ 1 \right\}\).</li>
+<li>La clase que forma \(\left\{ r^{n/2} \right\}\).</li>
+<li>Las clases de la forma \(\left\{ r^i,r^{-i} \right\}\), donde \(0 < i < n\) y además exigimos que
+\(i = n/2\) para evitar el caso \(r^i = r^{-i}\). Tenemos \((n-2)/2\) clases de este
+tipo, cada una con \(2\) elementos;</li>
+<li>La clase \(\left\{ sr^{2a} \mid 0 \leq a < n/2 \right\}\), que es cerrada para conjugación
+gracias a la paridad de \(n\). Es una clase con \(n/2\) elementos.</li>
+<li>La clase \(\left\{ sr^{2a+1} \mid 0 \leq a < n/2 \right\}\), de nuevo con \(n/2\) elementos.</li>
+</ul>
+
+<p>
+Sumando las cardinalidades de todas ellas, observamos que no hay más, ya
+que
+</p>
+
+<p>
+\[
+2n = 1 + 1 + 2\frac{n-2}{2} + \frac{n}{2} + \frac{n}{2}.
+\]
+</p>
+
+<p>
+Tenemos por tanto \(n/2 + 3\) clases de conjugación y representaciones 
+irreducibles complejas distintas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org780ff03" class="outline-4">
+<h4 id="org780ff03">Representaciones en el caso par</h4>
+<div class="outline-text-4" id="text-org780ff03">
+<p>
+Podemos considerar los caracteres y representaciones siguientes
+</p>
+
+<ul class="org-ul">
+<li>el caracter trivial dado por la <b>representación irreducible trivial</b>
+que envía cada elemento del grupo a \(1 \in \mathbb{C}\).</li>
+
+<li>el grupo generado por \(\left\langle r \right\rangle\) es normal y tenemos \(D_n/\left\langle r \right\rangle \cong \mathbb{Z}_2\), luego una
+representación dada por la proyección y la representación irreducible
+de \(\mathbb{Z}_2\) en los complejos es irreducible. La llamamos \(\chi_2\).</li>
+
+<li>el grupo generado por \(\left\langle r^2 \right\rangle\) es normal y tenemos \(D_n/\left\langle r^2 \right\rangle \cong \mathbb{Z}_2 \times \mathbb{Z}_2\), luego
+podemos buscar las representaciones irreducibles del grupo de Klein. Las
+cuatro representaciones irreducibles unidimensionales de este grupo abeliano
+podemos obtenerlas con la trivial y enviando dos de sus elementos no nulos
+al \(-1\). Esto nos da los caracteres \(\chi_3,\chi_4\) nuevos además de los dos anteriores.</li>
+
+<li><p>
+si interpretamos los grupos dihédricos como grupos de simetrías de
+los polígonos, podemos escribir representaciones bidimensionales
+que toman \(r\) como cualquiera de las rotaciones de ángulos \(2\pi k/n\) en
+los complejos y \(s\) como la simetría, es decir,
+</p>
+
+<p>
+\[
+   r \mapsto \begin{pmatrix}
+   e^{2\pi i k/n} & 0 \\
+   0 & e^{-2\pi i k/n} \\
+   \end{pmatrix}, \quad
+   s \mapsto \begin{pmatrix}
+   0 & 1 \\
+   1 & 0 \\
+   \end{pmatrix}.\]
+</p>
+
+<p>
+Comprobaremos que para \(0<k<n/2\) todas ellas son irreducibles. Los
+espacios que deja invariantes la primera son claramente \((1\ 0)\) y
+\((0\ 1)\) con dos valores propios \(e^{2\pi i k/n} \neq e^{-2\pi i k/n}\)
+(aquí usamos \(k < n/2\)), pero no son invariantes bajo simetrías,
+por lo que no existen subespacios invariantes y la representación
+es irreducible. A sus caracteres los llamamos \(\chi_{k+2}\).
+</p></li>
+</ul>
+
+<p>
+Con esto tenemos los \(n/2+3\) caracteres irreducibles.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org911831a" class="outline-4">
+<h4 id="org911831a">Tabla de caracteres del caso par</h4>
+<div class="outline-text-4" id="text-org911831a">
+<p>
+\[
+\small
+\begin{tabular}{c|cccccccc}
+    & 1  & 1 & 2 & \dots & 2 & $n/2$ & $n/2$ \\
+D_n & $e$   & $r^{n/2}$ & $r$ & $\dots$ & $r^{n/2-1} & $s$ & $sr$ \\
+\hline
+\chi_1 & 1 &1 & 1 & \dots & 1 & 1 & 1 \\
+\chi_2 & 1 &1& 1 & \dots & 1 & -1 & -1 \\
+\chi_3 & 1 & (-1)^{n/2}& 1 &\dots & (-1)^{n/2-1} & 1 & -1 \\
+\chi_4 & 1 & (-1)^{n/2} & 1 &\dots  & (-1)^{n/2-1} & -1 & 1 \\
+\chi_{2+1} &  2 & 2\cos(2 \pi 1/2) & 2\cos(2\pi 1/n) & \dots & 2\cos(2 \pi (n/2-1)/n) & 0 & 0\\
+\chi_{2+2} &  2 & 2\cos(2 \pi 2/2) & 2\cos(2\pi 2/n) & \dots  & 2\cos(2 \pi 2(n/2-1)/n) & 0 & 0 \\
+\dots & \dots & \dots & \dots  & \dots  & \dots & \dots & \dots \\
+\end{tabular}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59862e1" class="outline-3">
+<h3 id="org59862e1">Ejercicio 48 (**)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="export">export</span></span></h3>
+<div class="outline-text-3" id="text-org59862e1">
+<div class="statement">
+<p>
+Calcular la tabla de caracteres complejos de \(A_5\).
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orgd0dc2ca" class="outline-4">
+<h4 id="orgd0dc2ca">Clases de conjugación</h4>
+<div class="outline-text-4" id="text-orgd0dc2ca">
+<p>
+Para determinar las clases de conjugación usaremos crucialmente
+que
+</p>
+
+<p>
+\[
+\sigma (a\ b\ \dots) \sigma^{-1} = (\sigma(a)\ \sigma(b)\ \dots).
+\]
+</p>
+
+<p>
+Tenemos las siguientes clases:
+</p>
+
+<ul class="org-ul">
+<li>la clase trivial con el único elemento \(()\).</li>
+<li>la clase de ciclos de longitud \(3\) con todos los elementos de la forma
+\((a\ b\ c)\), que pueden conseguirse desde cualquiera de ellos usando que
+\((a\ d\ e)(a\ b\ c)(d\ a\ e) = (d\ b\ c) = (c\ d\ b)\). Esta clase tiene cardinalidad
+\(5\cdot 4\cdot 3/3 = 20\).</li>
+<li>la clase de pares de trasposiciones disjuntas de la forma \((a\ b)(c\ d)\), 
+que pueden conseguirse desde cualquiera de ellos usando que
+\((e\ b\ a)(a\ b)(c\ d)(e\ a\ b) = (a\ e)(c\ d)\). Esta clase tiene cardinalidad
+\(5\cdot 4\cdot 3\cdot 2/4\cdot 2 = 15\).</li>
+<li>la clase de los ciclos de longitud 5 que se obtienen desde una
+permutación par desde \((1\ 2\ 3\ 4\ 5)\), que son todos aquellos que podemos
+obtener conjugando. Esta clase tiene cardinalidad \(5!/5\cdot 2 = 12\).</li>
+<li>la clase de los ciclos de longitud 5 que se obtienen desde una
+permutación impar desde \((2\ 1\ 3\ 4\ 5)\). Nótese que todos los ciclos de
+longitud 5 deben ser como este o como los anteriores según cómo
+sea la permutación que los lleva a \((1\ 2\ 3\ 4\ 5)\) por conjugación.
+Esta clase tiene cardinalidad \(5!/5\cdot 2 = 12\).</li>
+</ul>
+
+<p>
+Comprobamos que la suma de la cardinalidad de las clases de conjugación
+es la cardinalidad del grupo completo,
+</p>
+
+<p>
+\[
+60 = 1 + 20 + 15 + 12 + 12.
+\]
+</p>
+
+<p>
+Y como hay \(5\) clases de conjugación, existirán \(5\) representaciones
+irreducibles complejas, cuyas dimensiones además deberán sumar la
+cardinalidad del grupo, es decir,
+</p>
+
+<p>
+\[
+60 = n_1^2+n_2^2+n_3^2+n_4^2+n_5^2.
+\]
+</p>
+
+<p>
+Sabiendo que la primera será la representación trivial, podemos
+buscar exhaustivamente soluciones a \(59 = n_2^2+n_3^2+n_4^2+n_5^2\) y
+encontrar que la única, salvo reordenación, es \(3,3,4,5\). Esas
+deben ser las dimensiones de nuestras representaciones.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge42d000" class="outline-4">
+<h4 id="orge42d000">Tabla de caracteres</h4>
+<div class="outline-text-4" id="text-orge42d000">
+<p>
+Calculamos la tabla de caracteres usando que:
+</p>
+
+<ul class="org-ul">
+<li>tenemos claramente la representación trivial \(\chi_1\).</li>
+<li><p>
+desde \(S_{5}\) tenemos la representación \(\psi\) dada por permutar
+los vectores de una base de dimensión \(5\). Si la restringimos
+tenemos \(\psi_{A_5}\). Esta representación tiene un espacio
+invariante claro en \(\left\langle (1,1,1,1,1) \right\rangle\) sobre el que actúa trivialmente. 
+Puede descomponerse entonces en la suma de dos representaciones,
+siendo una de ellas la trivial, y sabemos entonces que el caracter
+del otro sumando de la representación será \(\psi_{A_5} - \chi_1\), por lo que
+nos queda una fila
+</p>
+
+<p>
+\[
+   \small
+   \begin{tabular}{c|cccccc}
+   & 1    & 15             & 20          & 12                & 12                \\
+   A_5        & $()$ & $(1\ 2)(3\ 4)$ & $(1\ 2\ 3)$ & $(1\ 2\ 3\ 4\ 5)$ & $(1\ 2\ 3\ 5\ 4)$ \\
+   \hline
+   \chi_4     & 5-1=4    & 1-1=0              & 2-1=1           & 0-1=-1                 & 0-1=-1                 \\ 
+   \end{tabular}\]
+</p>
+
+<p>
+Comprobamos además que el caracter \(\chi_4\) así obtenido es irreducible, 
+ya que cumple que \((\chi_4,\chi_4) = (4^2+20+12+12)/60 = 1\).
+</p></li>
+
+<li>podemos obtener la segunda columna aplicando el teorema de ortogonalidad
+consigo misma para obtener \(4 = 1^2 + x^2 + y^2 + z^2\) y con la primera
+columna para obtener \(0 = 1 + 3x + 3y + 5z\). Si diagonalizamos la 
+representación de un elemento de esa clase de conjugación, como tiene
+orden \(2\) la diagonal estaría formada por \(\pm 1\); como además las dimensiones
+son \(5,3,3\), todos impares, nunca podría ser \(0\) su traza. Así, la única
+solución a la primera ecuación es \(x^2 = y^2 = z^2 = 1\) y la solución a la
+segunda ecuación es \(x=-1, y=-1, z=1\).</li>
+
+<li><p>
+la última fila de la tabla de caracteres la podemos completar usando
+las relaciones de ortogonalidad. Sabemos que
+</p>
+
+<p>
+\[\begin{aligned}
+   40 + 20b^2 + 12c^2 + 12d^2 &= 60 \\
+   5 +15 + 20b   + 12c   + 12d   &= 0  \\
+   20 + 20b   - 12c   - 12d   &= 0  \\
+   \end{aligned}\]
+</p>
+
+<p>
+de donde deducimos primero que \(c+d=0\), luego \(b=-1\) y \(c=d=0\).
+Hemos llegado a la conclusión de que
+</p>
+
+<p>
+\[\small
+   \begin{tabular}{c|cccccc}
+   & 1    & 15             & 20          & 12                & 12                \\
+   A_5        & $()$ & $(1\ 2)(3\ 4)$ & $(1\ 2\ 3)$ & $(1\ 2\ 3\ 4\ 5)$ & $(1\ 2\ 3\ 5\ 4)$ \\
+   \hline
+   \chi_5     & 5    & 1              & b=-1           & c=0                 & d=0                 \\ 
+   \end{tabular}\]   
+</p></li>
+
+<li>la tercera columna de la tabla podemos obtenerla de nuevo con relaciones
+de ortogonalidad, tenemos \(3 = 1 + u^2 + v^2 + 1 + 1\) y \(1 -u-v-1=0\), 
+luego \(u = -v\) y \(u=v=0\).</li>
+
+<li>las dos últimas entradas están sujetas a las mismas condiciones, así
+que esperamos obtenerlas como soluciones distintas del mismo sistema
+de ecuaciones de ortogonalidad. Aplicando ortogonalidad tenemos
+\(3^2 + 15 + 12p^{2}+ 12q^{2} = 60\) y \(3 -15+12p+12q=0\), luego \(p=1-q\),
+y como \(p^2+(1-p)^2 = 3\), tenemos que las dos soluciones posibles
+serán las de \(p^2 - p - 1 = 0\), es decir \(p=\pm(1+\sqrt{5})/2\).</li>
+</ul>
+
+
+<p>
+Así, la tabla de caracteres acaba quedando como
+</p>
+
+<p>
+\[\small
+\begin{tabular}{c|cccccc}
+           & 1    & 15             & 20          & 12                & 12                \\
+A_5        & $()$ & $(1\ 2)(3\ 4)$ & $(1\ 2\ 3)$ & $(1\ 2\ 3\ 4\ 5)$ & $(1\ 2\ 3\ 5\ 4)$ \\
+\hline
+\chi_1     & 1    & 1              & 1           & 1                 & 1                 \\ 
+\chi_2     & 3    & -1             & 0           & (1+\sqrt{5})/2    & (1-\sqrt{5})/2    \\ 
+\chi_3     & 3    & -1             & 0           & (1-\sqrt{5})/2    & (1+\sqrt{5})/2    \\ 
+\chi_4     & 4    & 0              & 1           & -1                & -1                \\ 
+\chi_5     & 5    & 1              & -1          & 0                 & 0                 \\ 
+\end{tabular}\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2017-12-03 Sun 11:59</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

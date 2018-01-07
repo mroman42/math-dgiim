@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-12-03 Sun 11:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Introduction to categorical logic</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<meta name="description" content="Notes on the course by Bauer and Awodey"
+ />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Introduction to categorical logic</h1>
+
+<div id="outline-container-org0aa552a" class="outline-2">
+<h2 id="org0aa552a"><span class="section-number-2">1</span> II. Type theories</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgae0f02b" class="outline-3">
+<h3 id="orgae0f02b"><span class="section-number-3">1.1</span> II.1. Algebraic theories</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-org0384c96" class="outline-5">
+<h5 id="org0384c96"><span class="section-number-5">1.1.0.1</span> Signatures</h5>
+<div class="outline-text-5" id="text-1-1-0-1">
+<p>
+A <b>signature</b> \(\left\{ \Sigma_k \right\}\) is a family of sets of k-ary operations. Its <b>terms</b>
+are constructed inductively knowing that
+</p>
+
+<ul class="org-ul">
+<li>variables are terms.</li>
+<li>given \(\left( x_1,\dots,x_{k} \right)\) a k-uple of terms and \(f \in \Sigma_k\), \(f(x_1,\dots,x_{k})\) is a term.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1a8eeee" class="outline-5">
+<h5 id="org1a8eeee"><span class="section-number-5">1.1.0.2</span> Algebraic theories</h5>
+<div class="outline-text-5" id="text-1-1-0-2">
+<p>
+An <b>algebraic theory</b> \(\mathbb{A} = (\Sigma,A)\) is a signature and a set of equation
+between its terms.
+</p>
+
+<p>
+They are also called <i>equational theories</i> and <i>Lawvere theories</i>.
+</p>
+</div>
+
+<div id="outline-container-orga680c56" class="outline-6">
+<h6 id="orga680c56"><span class="section-number-6">1.1.0.2.1</span> Examples</h6>
+<div class="outline-text-6" id="text-1-1-0-2-1">
+</div><div id="outline-container-org31dc3a6" class="outline-7">
+<h7 id="org31dc3a6"><span class="section-number-7">1.1.0.2.1.1</span> Theory of groups</h7>
+</div>
+<div id="outline-container-orgd371e58" class="outline-7">
+<h7 id="orgd371e58"><span class="section-number-7">1.1.0.2.1.2</span> Theory of unital commutative rings</h7>
+</div>
+<div id="outline-container-org679c590" class="outline-7">
+<h7 id="org679c590"><span class="section-number-7">1.1.0.2.1.3</span> Theory of sets</h7>
+</div>
+<div id="outline-container-org39859a0" class="outline-7">
+<h7 id="org39859a0"><span class="section-number-7">1.1.0.2.1.4</span> Theory of pointed sets</h7>
+</div>
+<div id="outline-container-org50d7991" class="outline-7">
+<h7 id="org50d7991"><span class="section-number-7">1.1.0.2.1.5</span> Theory of R-modules</h7>
+</div>
+<div id="outline-container-orgb077f02" class="outline-7">
+<h7 id="orgb077f02"><span class="section-number-7">1.1.0.2.1.6</span> Counterexample: theory of fields</h7>
+</div>
+<div id="outline-container-org812b736" class="outline-7">
+<h7 id="org812b736"><span class="section-number-7">1.1.0.2.1.7</span> Theory of inductive datatypes</h7>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org73f4c10" class="outline-4">
+<h4 id="org73f4c10"><span class="section-number-4">1.1.1</span> II.1.1. Many-sorted algebraic theories</h4>
+<div class="outline-text-4" id="text-1-1-1">
+</div><div id="outline-container-org029f35c" class="outline-5">
+<h5 id="org029f35c"><span class="section-number-5">1.1.1.1</span> Examples</h5>
+<div class="outline-text-5" id="text-1-1-1-1">
+</div><div id="outline-container-orgee8b1e6" class="outline-6">
+<h6 id="orgee8b1e6"><span class="section-number-6">1.1.1.1.1</span> Theory of left modules</h6>
+</div>
+<div id="outline-container-orgdb65402" class="outline-6">
+<h6 id="orgdb65402"><span class="section-number-6">1.1.1.1.2</span> Theory of graphs</h6>
+</div>
+<div id="outline-container-orgded78c5" class="outline-6">
+<h6 id="orgded78c5"><span class="section-number-6">1.1.1.1.3</span> Theory of symmetric graphs</h6>
+</div>
+<div id="outline-container-org32fc1fd" class="outline-6">
+<h6 id="org32fc1fd"><span class="section-number-6">1.1.1.1.4</span> Theory of a RAM</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-org85561e9" class="outline-4">
+<h4 id="org85561e9"><span class="section-number-4">1.1.2</span> II.1.2. Models of algebraic theories</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+The motivation is to generalize the classical notions of algebraic
+structures to morphisms and commutative diagrams.
+</p>
+</div>
+
+<div id="outline-container-org912e7b4" class="outline-5">
+<h5 id="org912e7b4"><span class="section-number-5">1.1.2.1</span> Interpretation</h5>
+<div class="outline-text-5" id="text-1-1-2-1">
+<p>
+An <b>interpretation</b> of a theory \(\mathbb{A}\) on a category \({\cal C}\) with finite products
+is given by an object \(I\mathbb{A} \in \mathrm{obj}({\cal C})\) and a morphism for each operation of 
+arity \(k\),
+</p>
+
+<p>
+\[
+\forall f \in \Sigma_k,\qquad If : (I\mathbb{A})^k \to I\mathbb{A}.
+\]
+</p>
+
+<p>
+The interpretation of a term with a <b>context</b> of variables, \(x_1,\dots,x_n \mid t\),
+is given inductively by
+</p>
+
+<ol class="org-ol">
+<li>the interpretation of \(x_i\) is the projection \(\pi_i\).</li>
+<li><p>
+a term \(f(t_1,\dots,t_k)\) is interpreted as the composition of the 
+interpretation of every subterm with the interpretation of \(f\) as
+</p>
+
+<p>
+\[\begin{tikzcd}[column sep=huge]
+    (I\mathbb{A})^n  \rar{(It_1,\dots,It_k)}  &
+    (I\mathbb{A})^k  \rar{If}  &
+    \mathbb{A}.
+    \end{tikzcd}\]
+</p></li>
+</ol>
+
+<p>
+Note that the interpretation of a term depends on the context.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6fb853c" class="outline-5">
+<h5 id="org6fb853c"><span class="section-number-5">1.1.2.2</span> Satisfacibility of equations</h5>
+<div class="outline-text-5" id="text-1-1-2-2">
+<p>
+An equation \(u=v\) of two terms in the same context is <b>satisfied</b>
+by the interpretation \(I\) if \(Iu = Iv\) as morphisms.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga026193" class="outline-5">
+<h5 id="orga026193"><span class="section-number-5">1.1.2.3</span> Models of algebraic theories</h5>
+<div class="outline-text-5" id="text-1-1-2-3">
+<p>
+A <b>model</b> is an interpretation that satisfies all the axioms of the
+theory.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6c347a2" class="outline-4">
+<h4 id="org6c347a2"><span class="section-number-4">1.1.3</span> II.1.3. Algebraic theories as categories</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+The motivation is to have a general theory of what is a group,
+independent from the choice of basic constants, operations and axioms.
+</p>
+</div>
+
+<div id="outline-container-orgf0579ca" class="outline-5">
+<h5 id="orgf0579ca"><span class="section-number-5">1.1.3.1</span> Category of an algebraic theory</h5>
+<div class="outline-text-5" id="text-1-1-3-1">
+<p>
+Given \(\mathbb{A}\), we take as objects all the possible contexts \(\left[ x_1,\dots,x_n \right]\) and
+tuples \(\langle t_1,\dots,t_n \rangle : [x_1,\dots,x_m] \to [x_1,\dots,x_n]\) of terms with context the
+domain as morphisms.
+</p>
+
+<p>
+Two morphisms are equal iff the axioms imply \(t_k = t_{k}'\) on every \(k\); and
+the composition of morphisms \(v = u \circ t\) is done by substitution
+</p>
+
+<p>
+\[
+v_i = u_i \left[ t_1,\dots,t_m / x_1,\dots,x_m \right].
+\]
+</p>
+</div>
+
+<div id="outline-container-org8d28540" class="outline-6">
+<h6 id="org8d28540"><span class="section-number-6">1.1.3.1.1</span> Closed to products</h6>
+<div class="outline-text-6" id="text-1-1-3-1-1">
+<p>
+The product of \(\left[ x_1,\dots,x_n \right]\) and \(\left[x_1,\dots,x_m \right]\) exists as \(\left[ x_1,\dots,x_{n+m} \right]\)
+in this category. Every object is a product of finitely many instances
+of \([x_1]\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org05c5275" class="outline-5">
+<h5 id="org05c5275"><span class="section-number-5">1.1.3.2</span> Algebraic theory (alternative definition)</h5>
+<div class="outline-text-5" id="text-1-1-3-2">
+<p>
+An <b>algebraic theory</b> is a small category with finite products whose
+objects are \(A^0,A^1,A^2,\dots\) such that \(A^m\times A^n = A^{m+n}\).
+</p>
+</div>
+
+<div id="outline-container-orgc881a69" class="outline-6">
+<h6 id="orgc881a69"><span class="section-number-6">1.1.3.2.1</span> Algebraic theory in the former sense</h6>
+<div class="outline-text-6" id="text-1-1-3-2-1">
+<p>
+The basic operations of \(\Sigma_k\) are the morphisms \(A^k \to A\). An equation
+\(u = v\) is an axiom if the canonical interpretations of each morphism
+being interpreted by itself coincide.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org62272c0" class="outline-5">
+<h5 id="org62272c0"><span class="section-number-5">1.1.3.3</span> Examples</h5>
+<div class="outline-text-5" id="text-1-1-3-3">
+</div><div id="outline-container-orgd6579cb" class="outline-6">
+<h6 id="orgd6579cb"><span class="section-number-6">1.1.3.3.1</span> Algebraic theory of smooth maps</h6>
+</div>
+<div id="outline-container-org6d2f728" class="outline-6">
+<h6 id="org6d2f728"><span class="section-number-6">1.1.3.3.2</span> Algebraic theory of total recursive functions</h6>
+</div>
+<div id="outline-container-org2db5ecb" class="outline-6">
+<h6 id="org2db5ecb"><span class="section-number-6">1.1.3.3.3</span> Algebraic theory of an object</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-org079d160" class="outline-4">
+<h4 id="org079d160"><span class="section-number-4">1.1.4</span> II.1.4. Models of algebraic theories as functors</h4>
+<div class="outline-text-4" id="text-1-1-4">
+</div><div id="outline-container-org2f6b162" class="outline-5">
+<h5 id="org2f6b162"><span class="section-number-5">1.1.4.1</span> Interpretations as functors</h5>
+<div class="outline-text-5" id="text-1-1-4-1">
+<p>
+Given a model \(M\) of \(\mathbb{A}\) in \({\cal C}\), the interpretation is a functor \(M : \mathbb{A} \to {\cal C}\)
+defined by
+</p>
+
+<p>
+\[
+M[x_1,\dots,x_k] = (M\mathbb{A})^k
+\]
+</p>
+
+<p>
+on objects and by the following rules on morphisms
+</p>
+
+<ol class="org-ol">
+<li>the morphism \(\left\langle x_i \right\rangle : \left[ x_1,\dots,x_k \right] \to [x_1]\) is mapped to \(\pi_i : (M\mathbb{A})^k \to M\mathbb{A}\).</li>
+<li><p>
+the morphism \(\left\langle f(t_1,\dots,t_m) \right\rangle : [x_1,\dots,x_k] \to [x_{1}]\) is mapped into the
+composition
+</p>
+
+<p>
+\[\begin{tikzcd}[column sep=huge]
+    (M\mathbb{A})^m \rar{(Mt_1,\dots,Mt_m)} &
+    (M\mathbb{A})^k \rar{Mf} &
+    \mathbb{A}
+    \end{tikzcd}\]
+</p></li>
+
+<li>the morphism \(\left\langle t_1,\dots,t_m \right\rangle : [x_1,\dots,x_k] \to [x_1,\dots,x_{m}]\) is mapped to the
+morphism \(\left\langle Mt_1,\dots,Mt_m \right\rangle\), where \(Mt_i\) is the value of \(M\left\langle t_i \right\rangle\).</li>
+</ol>
+
+<p>
+This interpretation is a in fact a functor.
+</p>
+</div>
+
+<div id="outline-container-org988d37e" class="outline-6">
+<h6 id="org988d37e"><span class="section-number-6">1.1.4.1.1</span> The interpretation is a functor</h6>
+<div class="outline-text-6" id="text-1-1-4-1-1">
+<p>
+As \(M\) is a model, all the equations of the theory are satisfied by
+it. This preserves the identities given by composition of morphisms.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6fc5e4b" class="outline-5">
+<h5 id="org6fc5e4b"><span class="section-number-5">1.1.4.2</span> Model (alternative definition)</h5>
+<div class="outline-text-5" id="text-1-1-4-2">
+<p>
+A <b>model</b> of \(\mathbb{A}\) in \({\cal C}\) is a functor preserving finite products.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb6bbfe2" class="outline-5">
+<h5 id="orgb6bbfe2"><span class="section-number-5">1.1.4.3</span> Category of models</h5>
+<div class="outline-text-5" id="text-1-1-4-3">
+<p>
+The category \(\mathtt{Mod}_{{\cal C}}(\mathbb{A})\) of models of the theory \(\mathbb{A}\) in \({\cal C}\) has models
+\(M : \mathbb{A} \to {\cal C}\) as objects and natural transformations as morphisms.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb57ce71" class="outline-5">
+<h5 id="orgb57ce71"><span class="section-number-5">1.1.4.4</span> Algebraic categories</h5>
+<div class="outline-text-5" id="text-1-1-4-4">
+<p>
+An algebraic category is a category that is equivalent to a
+category of models of an algebraic theory.
+</p>
+</div>
+
+<div id="outline-container-orga1f5b20" class="outline-6">
+<h6 id="orga1f5b20"><span class="section-number-6">1.1.4.4.1</span> Examples</h6>
+<div class="outline-text-6" id="text-1-1-4-4-1">
+</div><div id="outline-container-org2453450" class="outline-7">
+<h7 id="org2453450"><span class="section-number-7">1.1.4.4.1.1</span> Category of groups</h7>
+</div>
+<div id="outline-container-org873f6a2" class="outline-7">
+<h7 id="org873f6a2"><span class="section-number-7">1.1.4.4.1.2</span> Category of C-rings</h7>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org447b053" class="outline-4">
+<h4 id="org447b053"><span class="section-number-4">1.1.5</span> II.1.5. Completeness and universal models</h4>
+<div class="outline-text-4" id="text-1-1-5">
+</div><div id="outline-container-org03d1eea" class="outline-5">
+<h5 id="org03d1eea"><span class="section-number-5">1.1.5.1</span> Categorical logic</h5>
+<div class="outline-text-5" id="text-1-1-5-1">
+<p>
+Categorical logic has two sides, the logical and the categorical.
+The logic consists of
+</p>
+
+<ol class="org-ol">
+<li>A <b>type theory</b>, a calculus of types and terms. In the case
+of algebraic theories, there is only one type.</li>
+<li>A <b>logic</b>. In the case of algebraic theories, the logic only
+involves equations.</li>
+<li>A <b>theory</b> given by basic types, terms and axioms.</li>
+<li><b>Interpretations and models</b>. The type theory and logic are
+interpreted denotationally in a category with enough structure.
+In the case of algebraic theories, those are categories with
+finite products.</li>
+</ol>
+
+<p>
+There are special cases of simple logics
+</p>
+
+<ul class="org-ul">
+<li>a <i>single-sorted logic</i> if there is only one type.</li>
+<li>a <i>type theory</i> if there is only a very simple type system.</li>
+<li>in <i>ML-type systems</i>, logic and types are identified.</li>
+</ul>
+
+<p>
+And complementary to a logical system, we have its categorical
+semantics
+</p>
+
+<ol class="org-ol">
+<li>Theories are categories. The structure of a category hides
+sintactic details and reflects types and logic.</li>
+<li>Models are functors. They go from theories to categories with
+richer structure, preserving the structure of the theory.</li>
+<li>Homomorphisms are natural transformations.</li>
+<li>Completeness and universal models. It is desirable for a
+categorical semantics to be complete or to have universal
+models.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org87f2248" class="outline-5">
+<h5 id="org87f2248"><span class="section-number-5">1.1.5.2</span> Semantic completeness</h5>
+<div class="outline-text-5" id="text-1-1-5-2">
+<p>
+The property that gives that if every model of \(\mathbb{A}\) satisfies
+an equation, the equation can be proved on the algebraic theory is
+called <b>semantic completeness</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org91c9686" class="outline-5">
+<h5 id="org91c9686"><span class="section-number-5">1.1.5.3</span> Completeness for algebraic theories</h5>
+<div class="outline-text-5" id="text-1-1-5-3">
+<p>
+Given \(\mathbb{A}\) algebraic theory, exists a model \(U \in \mathtt{Mod}_{{\cal A}}(\mathbb{A})\) called the
+<b>universal model</b> for \(\mathbb{A}\), such that,
+</p>
+
+<p>
+\[
+U \text{ satisfies } u = v
+\iff
+\mathbb{A} \text{ proves } u = v.
+\]
+</p>
+
+<p>
+As a corollary, categorical semantics of algebraic theories is
+complete.
+</p>
+</div>
+
+<div id="outline-container-org29bda7b" class="outline-6">
+<h6 id="org29bda7b"><span class="section-number-6">1.1.5.3.1</span> Proof</h6>
+<div class="outline-text-6" id="text-1-1-5-3-1">
+<p>
+We can simply take \(U = 1_{\mathbb{A}} : \mathbb{A} \to \mathbb{A}\) as a model, which clearly
+identifies \(1(f)=1(g)\) if and only if \(f = g\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9a7a8dd" class="outline-5">
+<h5 id="org9a7a8dd"><span class="section-number-5">1.1.5.4</span> Universal model on generalized sets</h5>
+<div class="outline-text-5" id="text-1-1-5-4">
+<p>
+The Yoneda embedding \(y : \mathbb{A} \to \widehat{\mathbb{A}}\) is a universal model for \(\mathbb{A}\).
+</p>
+</div>
+
+<div id="outline-container-org6cc6809" class="outline-6">
+<h6 id="org6cc6809"><span class="section-number-6">1.1.5.4.1</span> Proof</h6>
+<div class="outline-text-6" id="text-1-1-5-4-1">
+<p>
+The embedding \(y\) preserves limits and therefore, finite products.
+It is a functor and a faithful one, which makes \(\widehat{\mathbb{A}}\) an universal
+model.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org684feba" class="outline-3">
+<h3 id="org684feba"><span class="section-number-3">1.2</span> II.2. Cartesian closed categories</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-org12ac2cb" class="outline-4">
+<h4 id="org12ac2cb"><span class="section-number-4">1.2.1</span> II.2.1. Exponentials</h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div><div id="outline-container-org0e01ff8" class="outline-5">
+<h5 id="org0e01ff8"><span class="section-number-5">1.2.1.1</span> Exponentials</h5>
+<div class="outline-text-5" id="text-1-2-1-1">
+<p>
+In a category with binary products \({\cal C}\), an <b>exponential</b> is an object \(B^A\)
+with an evaluation morphism \(e : B^A \times A \to B\) such that for every \(f : C \times A \to B\)
+exists a unique \(\widetilde f : C \to B^A\) for which this diagram commutes
+</p>
+
+<p>
+\[\begin{tikzcd}
+B^A &
+B^A \times A \drar{e} &
+\\
+C \uar[dashed]{\widetilde f} &
+C \times A \uar{{\widetilde f} \times 1_A} \rar[swap]{f} &
+B
+\end{tikzcd}\]
+</p>
+
+<p>
+This is the universal property of exponentials.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org806cec0" class="outline-5">
+<h5 id="org806cec0"><span class="section-number-5">1.2.1.2</span> Exponentiable object</h5>
+<div class="outline-text-5" id="text-1-2-1-2">
+<p>
+An object \(A \in \mathrm{obj}({\cal C})\) is exponentiable if \(B^A\) exists for every \(B\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc10727b" class="outline-5">
+<h5 id="orgc10727b"><span class="section-number-5">1.2.1.3</span> Characterization of exponentiable objects</h5>
+<div class="outline-text-5" id="text-1-2-1-3">
+<p>
+An object \(A\) is exponentiable iff the functor \(- \times A\) has a right
+adjoint \(-^{A}\).
+</p>
+</div>
+
+<div id="outline-container-orgbf51baa" class="outline-6">
+<h6 id="orgbf51baa"><span class="section-number-6">1.2.1.3.1</span> <span class="todo TODO">TODO</span> Proofs</h6>
+</div>
+</div>
+
+<div id="outline-container-org1cf662e" class="outline-5">
+<h5 id="org1cf662e"><span class="section-number-5">1.2.1.4</span> Examples</h5>
+<div class="outline-text-5" id="text-1-2-1-4">
+</div><div id="outline-container-org47c3518" class="outline-6">
+<h6 id="org47c3518"><span class="section-number-6">1.2.1.4.1</span> Propositional calculus</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc1b25a5" class="outline-4">
+<h4 id="orgc1b25a5"><span class="section-number-4">1.2.2</span> II.2.2. Cartesian closed categories</h4>
+<div class="outline-text-4" id="text-1-2-2">
+</div><div id="outline-container-orgef68892" class="outline-5">
+<h5 id="orgef68892"><span class="section-number-5">1.2.2.1</span> Cartesian category</h5>
+<div class="outline-text-5" id="text-1-2-2-1">
+<p>
+A <b>cartesian category</b> is a category that has finite products.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org03e9a5a" class="outline-5">
+<h5 id="org03e9a5a"><span class="section-number-5">1.2.2.2</span> Cartesian closed category</h5>
+<div class="outline-text-5" id="text-1-2-2-2">
+<p>
+A <b>cartesian closed category</b> is a cartesian category with
+exponentials.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6e2615b" class="outline-5">
+<h5 id="org6e2615b"><span class="section-number-5">1.2.2.3</span> Characterization of cartesian closed categories by adjoints</h5>
+<div class="outline-text-5" id="text-1-2-2-3">
+<p>
+The category \({\cal C}\) is cartesian closed if the following functors
+have adjoints
+</p>
+
+<ul class="org-ul">
+<li>the functor \(! : {\cal C} \to 1\) to the terminal category.</li>
+<li>the diagonal functor \(\Delta : {\cal C} \to {\cal C} \times {\cal C}\).</li>
+<li>the product by every object \(-\times A : {\cal C} \to {\cal C}\).</li>
+</ul>
+</div>
+
+<div id="outline-container-org5d4734d" class="outline-6">
+<h6 id="org5d4734d"><span class="section-number-6">1.2.2.3.1</span> <span class="todo TODO">TODO</span> Proof</h6>
+</div>
+</div>
+
+<div id="outline-container-orgd5d73d0" class="outline-5">
+<h5 id="orgd5d73d0"><span class="section-number-5">1.2.2.4</span> Characterization of cartesian closed categories by equations</h5>
+<div class="outline-text-5" id="text-1-2-2-4">
+<p>
+A category \({\cal C}\) is cartesian closed if and only if
+</p>
+
+<ol class="org-ol">
+<li>\(1 \in {\cal C}\) and exists a morphism \(! : A \to 1\) for every \(A \in {\cal C}\).</li>
+<li>a product \(A \times B\) with projections and the universal property
+of the product.</li>
+<li>an exponential \(B^A\) with an evaluation map and the universal
+property of the exponential.</li>
+</ol>
+
+<p>
+We write the projections as \(\pi_0,\pi_1\); the unique function from the product
+as \(\left\langle f,g \right\rangle\) and \(f \times g = \left\langle f \circ \pi_0, g \circ \pi_1 \right\rangle\). The types satisfy
+</p>
+
+<ol class="org-ol">
+<li>for every \(f : A \to 1\), \(f = !\).</li>
+<li>for all functions \(\pi_0 \circ \left\langle f,g \right\rangle = f\), \(\pi_1 \circ \left\langle f,g \right\rangle = g\) and \(\left\langle \pi_0\circ h, \pi_1\circ h \right\rangle = h\).</li>
+<li>for all functions \(e \circ (\widetilde{f} \times 1) = f\) and \((e \circ (g \times 1))^{\sim} = g\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org636d7c3" class="outline-5">
+<h5 id="org636d7c3"><span class="section-number-5">1.2.2.5</span> Examples of cartesian closed categories</h5>
+<div class="outline-text-5" id="text-1-2-2-5">
+</div><div id="outline-container-org04fe201" class="outline-6">
+<h6 id="org04fe201"><span class="section-number-6">1.2.2.5.1</span> Sets with hom-objects</h6>
+</div>
+<div id="outline-container-orgdac6d89" class="outline-6">
+<h6 id="orgdac6d89"><span class="section-number-6">1.2.2.5.2</span> Categories with functor categories</h6>
+</div>
+<div id="outline-container-org029fe6c" class="outline-6">
+<h6 id="org029fe6c"><span class="section-number-6">1.2.2.5.3</span> Presheaf category of a small category</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-org20dcc73" class="outline-4">
+<h4 id="org20dcc73"><span class="section-number-4">1.2.3</span> II.2.3. Frames</h4>
+<div class="outline-text-4" id="text-1-2-3">
+</div><div id="outline-container-org8be6616" class="outline-5">
+<h5 id="org8be6616"><span class="section-number-5">1.2.3.1</span> Complete poset is cocomplete poset</h5>
+<div class="outline-text-5" id="text-1-2-3-1">
+<p>
+A poset is complete iff it is cocomplete.
+</p>
+</div>
+
+<div id="outline-container-orgc567e83" class="outline-6">
+<h6 id="orgc567e83"><span class="section-number-6">1.2.3.1.1</span> <span class="todo TODO">TODO</span> Proof</h6>
+</div>
+</div>
+<div id="outline-container-org6c2e318" class="outline-5">
+<h5 id="org6c2e318"><span class="section-number-5">1.2.3.2</span> <span class="todo TODO">TODO</span> Infinite distributive law</h5>
+</div>
+<div id="outline-container-orga479454" class="outline-5">
+<h5 id="orga479454"><span class="section-number-5">1.2.3.3</span> Frames</h5>
+<div class="outline-text-5" id="text-1-2-3-3">
+<p>
+A <b>frame</b> is a complete and cartesian closed poset. That is, it
+is a complete poset with the distributive law
+</p>
+
+<p>
+\[ x \wedge \bigvee_{i\in I} y_i = \bigvee_{i\in I} x \wedge y_i.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc5bc256" class="outline-5">
+<h5 id="orgc5bc256"><span class="section-number-5">1.2.3.4</span> Frame morphisms</h5>
+<div class="outline-text-5" id="text-1-2-3-4">
+<p>
+A <b>frame morphism</b> is a \(f : L \to M\) between frames preserving finite
+infima and arbitrary suprema.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org08b87c5" class="outline-4">
+<h4 id="org08b87c5"><span class="section-number-4">1.2.4</span> II.2.4. Heyting algebras</h4>
+<div class="outline-text-4" id="text-1-2-4">
+</div><div id="outline-container-orgc016ea7" class="outline-5">
+<h5 id="orgc016ea7"><span class="section-number-5">1.2.4.1</span> Lattices</h5>
+<div class="outline-text-5" id="text-1-2-4-1">
+<p>
+A <b>lattice</b> is a poset with finite limits and colimits.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ee557f" class="outline-5">
+<h5 id="org7ee557f"><span class="section-number-5">1.2.4.2</span> Lattice homomorphisms</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Mario Román</p>
+<p class="date">Created: 2017-12-03 Sun 11:59</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

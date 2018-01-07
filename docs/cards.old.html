@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-12-03 Sun 11:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge3585e8">1. Cálculo I</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org20ee2e8">1.0.1. Teorema de Bolzano-Weierstrass&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org40d71ff">1.0.2. Espacio completo&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgcac25d8">1.0.3. Sucesión de Cauchy&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgf908c04">1.0.4. Criterio de D'Alembert&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgf01a8dd">1.0.5. Criterio de Leibniz&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org833f582">1.0.6. Desigualdad triangular inversa&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org235b04e">2. Topología I</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org0387725">2.0.1. Topología cociente&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org5ca8bd8">2.0.2. Conexión&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgb3a2063">2.0.3. Compacidad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org35acac0">2.0.4. Teorema de Heine-Borel&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0b39a82">3. Variable compleja</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgeae582c">3.0.1. Función holomorfa&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org96d0521">3.0.2. Función analítica&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgab90007">3.0.3. Teorema de Morera&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org7466586">4. Ecuaciones diferenciales I</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgf58963f">4.0.1. Difeomorfismo&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgc0478a6">4.0.2. Exponencial de una matriz&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org10e3044">5. Category theory</a></li>
+<li><a href="#orge157f1c">6. Álgebra homológica</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org24ad63e">6.0.1. Módulo plano&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org1c7f83c">6.0.2. Módulos proyectivos e inyectivos&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgdb3be90">7. Grupos y representaciones</a>
+<ul>
+<li><a href="#org709b209">7.1. Álgebras y módulos</a>
+<ul>
+<li><a href="#org6d78268">7.1.1. Primer teorema de isomorfía para álgebras&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orga6e74e9">7.1.2. Clasificación de unidades y divisores de cero en dim finita&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org9ce8f24">7.1.3. Teorema de Jordan-Hölder&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org2f242b1">7.1.4. Teorema de Frobenius&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org341d4ec">7.1.5. Caracterización de álgebras semisimples&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org9cbfa21">7.1.6. Teorema de Wedderburn&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge3585e8" class="outline-2">
+<h2 id="orge3585e8"><span class="section-number-2">1</span> Cálculo I</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-org20ee2e8" class="outline-4">
+<h4 id="org20ee2e8"><a id="ID-55318435-09ab-44ac-8d7d-0f15b16d7020"></a><span class="section-number-4">1.0.1</span> Teorema de Bolzano-Weierstrass&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-0-1">
+<p>
+Teorema de Bolzano-Weierstrass.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org22ee3ca"></a>Enunciado<br /><div class="outline-text-5" id="text-1-0-1-1">
+<p>
+Toda sucesión <b>acotada</b> en \(\mathbb{R}^n\) es convergente.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org40d71ff" class="outline-4">
+<h4 id="org40d71ff"><a id="ID-b9f8e947-4653-442b-8b5a-3466e79d4e76"></a><span class="section-number-4">1.0.2</span> Espacio completo&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-0-2">
+<p>
+Espacios completos
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org5f792f2"></a>Definición de espacio completo<br /><div class="outline-text-5" id="text-1-0-2-1">
+<p>
+Toda <b>sucesión de Cauchy</b> converge en él.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgcac25d8" class="outline-4">
+<h4 id="orgcac25d8"><a id="ID-84ed9a91-c566-4315-92dd-134dcec0d8c8"></a><span class="section-number-4">1.0.3</span> Sucesión de Cauchy&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-0-3">
+<p>
+Definición de sucesión de Cauchy
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org5f7815f"></a>Definición<br /><div class="outline-text-5" id="text-1-0-3-1">
+<p>
+Dado un \(\epsilon\), la distancia de dos cualesquiera a partir de un término es
+menor.
+</p>
+
+<p>
+\[\forall \epsilon > 0 : \exists n : \forall p,q > n :\quad d(x_p, x_q) < \epsilon \]
+</p>
+</div></li>
+
+<li><a id="orgb7d38bb"></a>Relación con sucesión convergente<br /><div class="outline-text-5" id="text-1-0-3-2">
+<p>
+Toda sucesión convergente es de Cauchy.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgf908c04" class="outline-4">
+<h4 id="orgf908c04"><a id="ID-74d86f1a-d9c7-43f8-8ec3-7ee8f4e524a3"></a><span class="section-number-4">1.0.4</span> Criterio de D'Alembert&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-0-4">
+<p>
+Enunciado del criterio de D'Alembert.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org629d981"></a>Enunciado del criterio de D'Alembert<br /><div class="outline-text-5" id="text-1-0-4-1">
+<p>
+Para \(\sum^\infty_{k=1} a_k\) serie con \(a_k > 0\), sea:
+</p>
+
+<p>
+\[\lim_{k \rightarrow \infty} \frac{a_{k+1}}{a_k} = L\]
+</p>
+
+<p>
+Entonces:
+</p>
+
+<ul class="org-ul">
+<li>si \(L<1\), la serie converge.</li>
+<li>si \(L>1\), la serie no converge.</li>
+<li>si \(L=1\), no se afirma nada.</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgf01a8dd" class="outline-4">
+<h4 id="orgf01a8dd"><a id="ID-0f3505a9-6f38-4cab-987d-72e299cdd2b1"></a><span class="section-number-4">1.0.5</span> Criterio de Leibniz&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-0-5">
+<p>
+Enunciado del Criterio de Leibniz.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org2c5b11e"></a>Respuesta<br /><div class="outline-text-5" id="text-1-0-5-1">
+<p>
+Una serie alternada,
+</p>
+
+<p>
+\[\sum_{n=1}^\infty (-1)^na_n\]
+</p>
+
+<p>
+Converge cuando la sucesión \(a_n\) es:
+</p>
+
+<ul class="org-ul">
+<li>monótona decreciente y</li>
+<li>convergente a \(0\).</li>
+</ul>
+</div></li>
+
+<li><a id="org1cf4b07"></a>Ejemplo de uso<br /><div class="outline-text-5" id="text-1-0-5-2">
+<p>
+Así se prueba convergencia de la serie armónica alternada:
+</p>
+
+<p>
+\[\sum^\infty_{n=1} \frac{(-1)^{n+1}}{n} = \ln 2.\]
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org833f582" class="outline-4">
+<h4 id="org833f582"><a id="ID-d28adbd9-793f-4fcc-b9c0-41b0ed51efb1"></a><span class="section-number-4">1.0.6</span> Desigualdad triangular inversa&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-0-6">
+<p>
+Enunciado
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgee2bd14"></a>Answer<br /><div class="outline-text-5" id="text-1-0-6-1">
+<p>
+\[ \bigg|\|x\|-\|y\| \bigg| \leq \|x-y\|\]
+</p>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-org235b04e" class="outline-2">
+<h2 id="org235b04e"><span class="section-number-2">2</span> Topología I</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-org0387725" class="outline-4">
+<h4 id="org0387725"><a id="ID-64824f61-8ede-48ca-b6a6-214328fcc5cf"></a><span class="section-number-4">2.0.1</span> Topología cociente&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-0-1">
+<p>
+Definición de la topología cociente.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgc803eec"></a>Answer<br /><div class="outline-text-5" id="text-2-0-1-1">
+<p>
+Dada la proyección \(\pi : X \longrightarrow X/\sim\), tiene como abiertos los 
+conjuntos cuya preimagen es abierta:
+</p>
+
+<p>
+\[\tau_{X/\sim} = 
+\left\{ U \mid \pi^{-1}(U) \in \tau_X  \right\}\]
+</p>
+</div></li>
+
+<li><a id="org8098c3b"></a>Notes<br /><div class="outline-text-5" id="text-2-0-1-2">
+<p>
+Es la <b>topología final</b> respecto de la proyección.
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-org5ca8bd8" class="outline-4">
+<h4 id="org5ca8bd8"><a id="ID-9d15cd27-ba5f-460a-975e-81594dac05ed"></a><span class="section-number-4">2.0.2</span> Conexión&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-0-2">
+<p>
+Definición de conjunto conexo.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org7a44237"></a>Answer<br /><div class="outline-text-5" id="text-2-0-2-1">
+<p>
+Un conjunto es conexo si no es la unión de dos abiertos 
+no vacíos y disjuntos.
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-orgb3a2063" class="outline-4">
+<h4 id="orgb3a2063"><a id="ID-27d7a587-e95c-4249-987c-fd00bacaf886"></a><span class="section-number-4">2.0.3</span> Compacidad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-0-3">
+<p>
+Definición de conjunto compacto.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org10b1217"></a>Answer<br /><div class="outline-text-5" id="text-2-0-3-1">
+<p>
+Todo recubrimiento por abiertos tiene un subrecubrimiento finito.
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-org35acac0" class="outline-4">
+<h4 id="org35acac0"><a id="ID-103849dd-44e5-4811-98fc-12e18aca905a"></a><span class="section-number-4">2.0.4</span> Teorema de Heine-Borel&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-0-4">
+<p>
+Enunciado
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgc0d0c46"></a>Answer<br /><div class="outline-text-5" id="text-2-0-4-1">
+<p>
+En \(\mathbb{R}^n\) equivalen, dado un subconjunto \(S\):
+</p>
+
+<ul class="org-ul">
+<li>\(S\) cerrado y acotado</li>
+<li>\(S\) compacto</li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+<div id="outline-container-org0b39a82" class="outline-2">
+<h2 id="org0b39a82"><span class="section-number-2">3</span> Variable compleja</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgeae582c" class="outline-4">
+<h4 id="orgeae582c"><a id="ID-2fa2a4b8-893e-4929-9b70-bc262a3194ac"></a><span class="section-number-4">3.0.1</span> Función holomorfa&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-3-0-1">
+<p>
+Definición
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgebfc2b0"></a>Answer<br /><div class="outline-text-5" id="text-3-0-1-1">
+<p>
+Función <b>complejo-diferenciable</b> en todo punto de algún
+conjunto. Existe la derivada compleja:
+</p>
+
+<p>
+\[ f'(z_0) = \lim_{z \rightarrow z_0} \frac{f(z)-f(z_0)}{z-z_0}\]
+</p>
+
+<p>
+Que toma el límite sobre todas las sucesiones de complejos.
+</p>
+</div></li>
+
+<li><a id="orgcde41a6"></a>Note<br /><div class="outline-text-5" id="text-3-0-1-2">
+<p>
+Holomorfa sobre todo el plano es <b>función entera</b>.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org96d0521" class="outline-4">
+<h4 id="org96d0521"><a id="ID-41a59e8e-9553-4ab6-b13f-ba280b976ec3"></a><span class="section-number-4">3.0.2</span> Función analítica&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-3-0-2">
+<p>
+Definición
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org949a98c"></a>Answer<br /><div class="outline-text-5" id="text-3-0-2-1">
+<p>
+Es analítica en \(x_0\) si existe un entorno del punto donde puede
+expresarse como serie de potencias:
+</p>
+
+<p>
+\[ f(x) = \sum^\infty_{n=0} a_n (x-x_0)^n\]
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-orgab90007" class="outline-4">
+<h4 id="orgab90007"><a id="ID-f7142bef-51e2-4729-aef1-d563614b59ec"></a><span class="section-number-4">3.0.3</span> Teorema de Morera&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-3-0-3">
+<p>
+Enunciado.
+</p>
+</div>
+<ol class="org-ol"><li><a id="org0198e7b"></a>Enunciado<br /><div class="outline-text-5" id="text-3-0-3-1">
+<p>
+Sea una función compleja continua definida en un abierto conexo,
+si toda integral sobre una curva \(\gamma\) que sea \({\cal C}^1\) 
+es nula:
+</p>
+
+<p>
+\[\int_\gamma f(z) dz = 0\]
+</p>
+
+<p>
+Entonces es holomorfa.
+</p>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-org7466586" class="outline-2">
+<h2 id="org7466586"><span class="section-number-2">4</span> Ecuaciones diferenciales I</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgf58963f" class="outline-4">
+<h4 id="orgf58963f"><a id="ID-1000cb9b-ef09-42a2-8169-c4e5531439f9"></a><span class="section-number-4">4.0.1</span> Difeomorfismo&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-4-0-1">
+<p>
+Definición
+</p>
+</div>
+<ol class="org-ol"><li><a id="org5fc14c8"></a>Answer<br /><div class="outline-text-5" id="text-4-0-1-1">
+<p>
+Homeomorfismo diferenciable con inversa diferenciable.
+</p>
+</div></li>
+<li><a id="orgdfd9ef4"></a>Categóricamente<br /><div class="outline-text-5" id="text-4-0-1-2">
+<p>
+Isomorfismo en la categoría de variedades diferenciables.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgc0478a6" class="outline-4">
+<h4 id="orgc0478a6"><a id="ID-76ea67b9-ba48-4216-b7f9-d62033363f33"></a><span class="section-number-4">4.0.2</span> Exponencial de una matriz&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-4-0-2">
+<p>
+Definición.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org58eed63"></a>Definición<br /><div class="outline-text-5" id="text-4-0-2-1">
+<p>
+\[e^X = \sum^\infty_{k=0} \frac{X^k}{k!}\]
+</p>
+
+<p>
+Esta serie converge para cualquier matriz \(X\).
+</p>
+</div></li>
+
+<li><a id="org359811d"></a>Relación traza-determinante<br /><div class="outline-text-5" id="text-4-0-2-2">
+<p>
+\[\operatorname{det}(e^X) = e^{\operatorname{tr} X}\]
+</p>
+</div></li>
+
+<li><a id="org3edadff"></a>Preservación de la conmutación<br /><div class="outline-text-5" id="text-4-0-2-3">
+<p>
+Cuando conmutan \(XY = YX\), conmutan \(e^Xe^Y = e^Ye^X\).
+</p>
+</div></li></ol>
+</div>
+</div>
+<div id="outline-container-org10e3044" class="outline-2">
+<h2 id="org10e3044"><span class="section-number-2">5</span> Category theory</h2>
+</div>
+<div id="outline-container-orge157f1c" class="outline-2">
+<h2 id="orge157f1c"><span class="section-number-2">6</span> Álgebra homológica</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-org24ad63e" class="outline-4">
+<h4 id="org24ad63e"><a id="ID-00a02e67-5516-47ea-ab08-abf574aeb407"></a><span class="section-number-4">6.0.1</span> Módulo plano&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-0-1">
+<p>
+Definición de módulo plano. Ejemplos de módulo plano.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgbc85487"></a>Definición<br /><div class="outline-text-5" id="text-6-0-1-1">
+<p>
+El módulo \(N\) es <b>plano</b> si el funtor \(\_ \otimes N\) es un funtor exacto.
+</p>
+</div></li>
+
+<li><a id="org180aa6c"></a>Ejemplos<br /><div class="outline-text-5" id="text-6-0-1-2">
+<ul class="org-ul">
+<li>Los módulos libres</li>
+<li>Los espacios vectoriales</li>
+<li>Los módulos proyectivos</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org1c7f83c" class="outline-4">
+<h4 id="org1c7f83c"><a id="ID-a1c4e673-5b2b-4418-beb5-a79e79e6abf6"></a><span class="section-number-4">6.0.2</span> Módulos proyectivos e inyectivos&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-0-2">
+<p>
+Módulos proyectivos e inyectivos
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org7d88f35"></a>Definición<br /><div class="outline-text-5" id="text-6-0-2-1">
+<p>
+Un R-módulo es <i>proyectivo</i> si \(Hom(P,\_)\)
+es exacto; e <i>inyectivo</i> si \(Hom(\_,P)\) es exacto.
+</p>
+</div></li>
+
+<li><a id="orgbb6b635"></a>Caracterización por diagramas<br /><div class="outline-text-5" id="text-6-0-2-2">
+<p>
+Esto es equivalente a decir que cada epimorfismo \(M \longrightarrow N\) lleva un
+morfismo \(P \longrightarrow N\) a \(P \longrightarrow M\), en el caso de 
+<i>proyectividad</i>:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+ & P \dlar[swap,dashed]{\exists p'} \dar[swap]{p} & \\
+M \rar[two heads] & N \rar & 0
+\end{tikzcd} \]
+</p>
+
+<p>
+O que cada monomorfismo \(N \longrightarrow M\) lleva un morfismo \(N \longrightarrow Q\) 
+a un morfismo \(M \longrightarrow Q\), en el de la <i>inyectividad</i>:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+ & Q & \\
+0 \rar & N \rar[hook] \uar[swap]{q} & M \ular[dashed,swap]{\exists q'}
+\end{tikzcd} \]
+</p>
+</div></li>
+
+<li><a id="orga5127e3"></a>No unicidad<br /><div class="outline-text-5" id="text-6-0-2-3">
+<p>
+No requerimos a los morfismos creados ser únicos.
+¡Esto no es una propiedad universal!
+</p>
+</div></li></ol>
+</div>
+</div>
+<div id="outline-container-orgdb3be90" class="outline-2">
+<h2 id="orgdb3be90"><span class="section-number-2">7</span> Grupos y representaciones</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-org709b209" class="outline-3">
+<h3 id="org709b209"><span class="section-number-3">7.1</span> Álgebras y módulos</h3>
+<div class="outline-text-3" id="text-7-1">
+</div><div id="outline-container-org6d78268" class="outline-4">
+<h4 id="org6d78268"><a id="ID-abee3341-19ce-463a-8037-7be26387b95c"></a><span class="section-number-4">7.1.1</span> Primer teorema de isomorfía para álgebras&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-7-1-1">
+<p>
+Enunciar el primer teorema de isomorfía para álgebras.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org960f1bd"></a>Enunciado<br /><div class="outline-text-5" id="text-7-1-1-1">
+<p>
+Si \(f : A \longrightarrow A'\) es homomorfismo de K-álgebras, \(\mathrm{Im} f\) es subálgebra y \(\ker f\)
+es ideal. Además, tenemos un isomorfismo de K-álgebras canónico:
+</p>
+
+<p>
+\[
+\widehat f : A/\ker f \longrightarrow \im f
+\]
+</p>
+
+<p>
+dado por \(\widehat f(a+\ker f) = f(a)\).
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orga6e74e9" class="outline-4">
+<h4 id="orga6e74e9"><a id="ID-da6d52f6-7331-48ea-b7cd-41757e18de38"></a><span class="section-number-4">7.1.2</span> Clasificación de unidades y divisores de cero en dim finita&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-7-1-2">
+<p>
+Clasificar en unidades y divisores de cero los elementos de un álgebra
+de dimensión <b>finita</b>.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgfea65d3"></a>Teorema de clasificación<br /><div class="outline-text-5" id="text-7-1-2-1">
+<p>
+Sea \(a \in A\) no nulo para \(A\) k-álgebra de <i>dimensión finita</i>:
+</p>
+
+<ol class="org-ol">
+<li>Equivalen:
+
+<ul class="org-ul">
+<li>\(a \in U(A)\)</li>
+<li>\(\exists b \in A : ab = 1\)</li>
+<li>\(\exists c \in A : ca = 1\)</li>
+</ul></li>
+
+<li>Equivalen:
+
+<ul class="org-ul">
+<li>\(a \notin U(A)\)</li>
+<li>\(\exists b \in A: ab = 0\)</li>
+<li>\(\exists c \in A : ca = 0\)</li>
+</ul></li>
+</ol>
+
+<p>
+Es decir, todo elemento no nulo es una unidad o un divisor de cero.
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-org9ce8f24" class="outline-4">
+<h4 id="org9ce8f24"><a id="ID-bf7978b5-18cc-40fa-b92e-0f0bc4823da5"></a><span class="section-number-4">7.1.3</span> Teorema de Jordan-Hölder&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-7-1-3">
+<p>
+Enunciar el Teorema de Jordan-Hölder sobre series de composición.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org957de33"></a>Enunciado<br /><div class="outline-text-5" id="text-7-1-3-1">
+<p>
+Sea \(M\) un \(A\) módulo de <i>dimensión finita</i> como \(K\) espacio vectorial con
+dos series de composición:
+</p>
+
+<p>
+\[0 = M_0 \subset M_1 \subset\dots\subset M_n = M\]
+\[0 = N_0 \subset N_1 \subset\dots\subset N_m = M\]
+</p>
+
+<p>
+Entonces \(n=m\) y existe una permutación con \(M_i/M_{i-1} \cong N_{\sigma(i)}/N_{\sigma(i)-1}\).
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org2f242b1" class="outline-4">
+<h4 id="org2f242b1"><a id="ID-5c45a219-5c98-40ab-bf25-40f9f69d9b53"></a><span class="section-number-4">7.1.4</span> Teorema de Frobenius&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-7-1-4">
+<p>
+Enunciar el Teorema de Frobenius de clasficiación de álgebras de
+división.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org4172aef"></a>Enunciado<br /><div class="outline-text-5" id="text-7-1-4-1">
+<p>
+Sea \(D\) álgebra de división real de dimensión finita. Entonces \(D\) es
+isomorfa a \(\mathbb{R}\), \(\mathbb{C}\), o \(\mathbb{H}\).
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-org341d4ec" class="outline-4">
+<h4 id="org341d4ec"><span class="section-number-4">7.1.5</span> Caracterización de álgebras semisimples&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-7-1-5">
+<p>
+Definición y caracterización de <b>álgebra semisimple</b>.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org7f3d4d0"></a>Caracterizaciones<br /><div class="outline-text-5" id="text-7-1-5-1">
+<ol class="org-ol">
+<li>Todo submódulo es un sumando directo; es decir, tiene un
+<b>complemento</b>.</li>
+<li>Es <b>suma directa</b> finita de módulos simples.</li>
+<li>Es <b>suma</b> finita de módulos simples.</li>
+</ol>
+</div></li></ol>
+</div>
+<div id="outline-container-org9cbfa21" class="outline-4">
+<h4 id="org9cbfa21"><span class="section-number-4">7.1.6</span> Teorema de Wedderburn&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-7-1-6">
+<p>
+Teorema de Wedderburn sobre descomposición de álgebras semisimples.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgf783818"></a>Enunciado<br /><div class="outline-text-5" id="text-7-1-6-1">
+<p>
+Una \(K\text{-álgebra}\) de dimensión finita es semisimple ssi es isomorfa a un
+álgebra de la forma
+</p>
+
+<p>
+\[ \mathrm{M}_{n_1}(\Delta_1) \times \dots \times \mathrm{M}_{n_t}(\Delta_t).
+\]
+</p>
+
+<p>
+de forma única para algunas \(\Delta_1,\dots,\Delta_t\), anillos de división
+</p>
+</div></li></ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Mario Román</p>
+<p class="date">Created: 2017-12-03 Sun 11:58</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

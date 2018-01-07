@@ -1,0 +1,3739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2017-12-03 Sun 11:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Homological algebra notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Homological algebra notes</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd45257c">Pascual Jara - Apuntes</a>
+<ul>
+<li><a href="#org64d4452">Homología de Hochschild</a>
+<ul>
+<li><a href="#org95b358d">R;R módulos</a>
+<ul>
+<li><a href="#org2fadb91">R;R módulo</a></li>
+<li><a href="#org063bd0b">Álgebra envolvente</a></li>
+<li><a href="#orgab2594e">Caracterización de R;R-módulos</a>
+<ul>
+<li><a href="#orgc3ddff8">Demostración</a>
+<ul>
+<li><a href="#orgf688d05">Primera implicación</a></li>
+<li><a href="#org1861ee9">Segunda implicación</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5ff0919">Cohomología de Hochschild</a>
+<ul>
+<li><a href="#orge1724bf">Definición</a></li>
+<li><a href="#orgd0f7d73">Notas</a></li>
+<li><a href="#orga4ade95">Resolución estándar</a></li>
+<li><a href="#org4f1228d">Complejo de cocadenas</a></li>
+</ul>
+</li>
+<li><a href="#org8902188">Desde Weibel</a>
+<ul>
+<li><a href="#org41419bc">Identidades simpliciales</a>
+<ul>
+<li><a href="#orgd113afb">Objeto simplicial</a></li>
+<li><a href="#orgac9d30e">Identidades simpliciales</a></li>
+<li><a href="#orgb3784d8">Diferencial alternado</a>
+<ul>
+<li><a href="#org0063ac4">Demostración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgbd610ad">Módulo simplicial sobre R;R módulo</a></li>
+<li><a href="#org015623f">Homología de Hochschild</a></li>
+</ul>
+</li>
+<li><a href="#orgdcac45f">Ejemplos de cálculo de cohomología de Hoschild</a>
+<ul>
+<li><a href="#org6596991"><span class="todo TODO">TODO</span> Derivaciones y derivaciones externas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf40489c">Álgebras separables</a>
+<ul>
+<li><a href="#org71782a1">Álgebras separables</a>
+<ul>
+<li><a href="#org371aee3">Dimensión de Hochschild</a></li>
+<li><a href="#org553d9f5">Álgebras separables</a></li>
+<li><a href="#org726a0f5">Caracterización de álgebras separables</a></li>
+<li><a href="#org4dc22bf">Teorema de Zelinsky</a></li>
+</ul>
+</li>
+<li><a href="#org1d7195f">Álgebras semisimples</a>
+<ul>
+<li><a href="#orgb3a1a72">Álgebra semisimple</a></li>
+<li><a href="#orgde4911d">Separable es semisimple</a>
+<ul>
+<li><a href="#org4a0a07f"><span class="todo TODO">TODO</span> Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org9e467fd">Álgebras separables sobre cuerpos algebraicamente cerrados</a></li>
+<li><a href="#orgfeb5ef6">Traza</a></li>
+<li><a href="#org5bf3ca1">Caracterización de álgebras separables</a></li>
+</ul>
+</li>
+<li><a href="#org3b3199e">Álgebras formalmente lisas</a>
+<ul>
+<li><a href="#orge7f0e7e">Extensiones de Hochschild</a></li>
+<li><a href="#org40d64aa">Estructura de R;R-módulo de la extensión</a>
+<ul>
+<li><a href="#orge46ffbc">Demostración</a></li>
+</ul>
+</li>
+<li><a href="#org283ea7f">Extensiones equivalentes</a></li>
+<li><a href="#org4e607d1">Álgebra formalmente lisa</a></li>
+<li><a href="#orgaf97f52">Producto de separable y formalmente lisa</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orged7c640">Anillos graduados</a>
+<ul>
+<li><a href="#org40f1e68">Álgebra aumentada</a>
+<ul>
+<li><a href="#org48be5e1">Álgebra aumentada tensor</a></li>
+</ul>
+</li>
+<li><a href="#orgecb68f9">Módulos y álgebras graduadas</a>
+<ul>
+<li><a href="#orgbeca695">Módulo graduado</a>
+<ul>
+<li><a href="#orgda5a10b">Elemento homogéneo</a></li>
+<li><a href="#orgf545e42">Homomorfismo graduado</a></li>
+<li><a href="#orgb6610a7">Álgebra graduada</a></li>
+</ul>
+</li>
+<li><a href="#org3247e61">Ejemplos de álgebras graduadas</a>
+<ul>
+<li><a href="#orgdc866b9">Graduación trivial</a></li>
+<li><a href="#org711a714">Graduación del anillo de polinomios</a></li>
+<li><a href="#org11f0842">Graduación del anillo de endomorfismos</a></li>
+</ul>
+</li>
+<li><a href="#orgd462c36">Homomorfismos graduados</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org40228ba">Módulos diferenciales</a>
+<ul>
+<li><a href="#orgfe08963">Diferencial</a></li>
+<li><a href="#org5af6ce5">DG-módulo</a>
+<ul>
+<li><a href="#orgfe51786">Homomorfismo de DG-módulos</a></li>
+</ul>
+</li>
+<li><a href="#org08e663d">Álgebra graduada diferencial</a>
+<ul>
+<li><a href="#org0f5cb46">Aritmética en álgebras graduadas I</a></li>
+<li><a href="#orgc7b3c9b"><span class="todo TODO">TODO</span> Aritmética en álgebras graduadas II</a></li>
+</ul>
+</li>
+<li><a href="#org5aa81c0">Complejo de Hochschild</a>
+<ul>
+<li><a href="#org28dda26">Es un diferencial</a></li>
+<li><a href="#org944bfa4">Complejo bar</a></li>
+<li><a href="#orgb51e9da">Complejo bar normalizado</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org779a46f">La DG-álgebra Omega</a>
+<ul>
+<li><a href="#org36d3710">DG-álgebra omega</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc254698">Pierce - Associative Algebras</a>
+<ul>
+<li><a href="#orgadc03ee">10. Separable Algebras</a>
+<ul>
+<li><a href="#org03fcb33">10.1. Bimodules</a>
+<ul>
+<li><a href="#orgbecc884">Opposite algebra</a></li>
+<li><a href="#orgf16ab8c">Enveloping algebra</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8598e7d">Rotman - An introduction to homological algebra</a>
+<ul>
+<li><a href="#org6da1e18">1. Introduction</a>
+<ul>
+<li><a href="#orgce0ebad">1.1. Simplicial Homology</a>
+<ul>
+<li><a href="#orga50ce9b">Motivation: Green's Theorem</a>
+<ul>
+<li><a href="#org356f668">Original statement</a></li>
+<li><a href="#org5cc63ff">A rewrite</a></li>
+<li><a href="#orge98111f">An equivalence relation</a></li>
+</ul>
+</li>
+<li><a href="#org52d52dd">Boundaries</a>
+<ul>
+<li><a href="#org5169de9">Boundary of a triangle</a></li>
+<li><a href="#org6dbd673">Boundary of the boundary of a triangle</a></li>
+<li><a href="#org7b894b9">Boundary of the rectangle</a></li>
+</ul>
+</li>
+<li><a href="#org836a997">Simplicial boundary maps</a></li>
+<li><a href="#orgcad9b82">Boundary maps are exact</a>
+<ul>
+<li><a href="#orga00e49f">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org3070cb4">Simplicial cycles and boundaries</a></li>
+<li><a href="#org773b1fb">Exactness for cycles and boundaries</a>
+<ul>
+<li><a href="#orgd9dea34">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org8cd94d5">Simplicial homology group</a></li>
+<li><a href="#org520d016">Two modifications</a></li>
+</ul>
+</li>
+<li><a href="#orgfa483c7">1.2. Categories and Functors</a>
+<ul>
+<li><a href="#orgba43ebb">1.2.1. Russell's paradox</a></li>
+<li><a href="#org0167073">1.2.2. Classes and sets</a></li>
+<li><a href="#org93d43a6">1.2.3. Categories</a></li>
+<li><a href="#orgaf81b2d">1.2.4. Axioms of categories</a></li>
+<li><a href="#org8a9415d">1.2.5. Examples of categories</a>
+<ul>
+<li><a href="#orgfd42c64">Sets</a></li>
+<li><a href="#orgf5826e5">Groups</a></li>
+<li><a href="#org10df0f4">Partially ordered sets</a></li>
+<li><a href="#org696a176">Inclusion of open sets</a></li>
+<li><a href="#org2d03faf">Topological spaces</a></li>
+<li><a href="#org6533b5c">Abstract simplicial complexes</a>
+<ul>
+<li><a href="#org3627b7c">Abstract simplicial complexes</a></li>
+<li><a href="#orgb8d936b">Simplicial maps</a></li>
+<li><a href="#orgcbd8b90">Dimension</a></li>
+</ul>
+</li>
+<li><a href="#org6920f9a">Nerves</a></li>
+<li><a href="#org4f54065">Monoids</a></li>
+<li><a href="#org1f47a13">Homotopy category</a></li>
+</ul>
+</li>
+<li><a href="#orga260891">1.2.6. Algebraic examples of categories</a>
+<ul>
+<li><a href="#org40b28d8">Abelian groups</a></li>
+<li><a href="#org66d0745">Rings (unital)</a></li>
+<li><a href="#org97557ff">Commutative rings</a></li>
+</ul>
+</li>
+<li><a href="#orgfdda6d5">1.2.7. Modules</a></li>
+<li><a href="#org88f344f">1.2.8. Examples of modules</a>
+<ul>
+<li><a href="#orgc8b07f1">Vector spaces over a field</a></li>
+<li><a href="#org87d737c">Abelian groups over Z</a></li>
+<li><a href="#orgc51c8a6">Every ring over itself</a></li>
+<li><a href="#org16bebd2">Every ring over its center</a></li>
+</ul>
+</li>
+<li><a href="#orgd43c420">1.2.9. Homomorphisms of R-modules</a>
+<ul>
+<li><a href="#org1b0683c">The composite and inverse of homomorphisms is an homomorphism</a></li>
+</ul>
+</li>
+<li><a href="#orgb15ef64">1.2.10. Examples of homomorphisms</a>
+<ul>
+<li><a href="#orgf4669b1">Linear transformations in vector spaces</a></li>
+<li><a href="#org5859863">Homomorphisms of abelian groups for Z-modules</a></li>
+<li><a href="#orgc75aa78">Homothety</a></li>
+</ul>
+</li>
+<li><a href="#orge696c79">1.2.11. Opposite rings</a></li>
+<li><a href="#org380b5df">1.2.12. Categories of modules</a></li>
+<li><a href="#orgba6c278">1.2.13. Subcategories</a></li>
+<li><a href="#orgd1bd872">1.2.14. Full subcategories</a></li>
+<li><a href="#org6c01524">1.2.15. Functors</a></li>
+<li><a href="#org84c917b">1.2.16. Examples of functors</a>
+<ul>
+<li><a href="#orgceef95d">Subcategories as inclusion functors</a></li>
+<li><a href="#orged8f609">Identity functor</a></li>
+<li><a href="#orgd8bc2b9">Hom(A,-) functor</a></li>
+<li><a href="#org99a8458">Chains as functors from the partially ordered integers</a></li>
+<li><a href="#orgd7203ca">Forgetful functors</a></li>
+</ul>
+</li>
+<li><a href="#orgf9e0397">1.2.27. Diagrams</a></li>
+<li><a href="#orgee2b1e1">1.2.28. Paths</a></li>
+<li><a href="#orgab4b5ab">1.2.29. Commutativity of diagrams</a></li>
+<li><a href="#org77833bb"><span class="todo TODO">TODO</span> 1.2.30. Contravariant functors</a></li>
+<li><a href="#orgd54056a"><span class="todo TODO">TODO</span> 1.2.31. Examples of contravariant functors</a>
+<ul>
+<li><a href="#org9426c18">Hom(-,B) functor</a></li>
+<li><a href="#orgada6ea3">The dual space functor</a></li>
+<li><a href="#org2dabcb7">Order-reversing functions on partially ordered sets</a></li>
+<li><a href="#org3fc66d4">Presheaves</a></li>
+</ul>
+</li>
+<li><a href="#org11e278e">1.2.32. Faithful functors</a></li>
+<li><a href="#org6ab3e19">1.2.33. Concrete categories</a></li>
+<li><a href="#org8dbffaf">1.2.33. Opposite category</a></li>
+<li><a href="#org5f82561">1.2.34. Isomorphisms</a></li>
+<li><a href="#org25b8f43">1.2.35. Functors preserve isomorphisms</a>
+<ul>
+<li><a href="#orgc856328">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org354d589">1.2.36. Natural transformations</a></li>
+<li><a href="#org8ab4581">1.2.37. Natural isomorphisms</a></li>
+<li><a href="#org5155c68">1.2.38. Composition of natural transformations</a>
+<ul>
+<li><a href="#org9fa19a0">Proof</a></li>
+</ul>
+</li>
+<li><a href="#org2d6bbaa">1.2.39. Identity natural transformation</a></li>
+<li><a href="#org1040966"><span class="todo TODO">TODO</span> 1.2.40. Examples of natural transformations</a></li>
+<li><a href="#org8fe7f6e"><span class="todo TODO">TODO</span> 1.2.41. Natural transformations are proper classes</a></li>
+<li><a href="#org4c1088c">1.2.42. Yoneda Lemma</a>
+<ul>
+<li><a href="#org17d969f">Proof</a>
+<ul>
+<li><a href="#orgf754876">Every choice of p determines a natural transformation</a></li>
+<li><a href="#orgbdabcfb">Every choice gives us a natural transformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org2c1d960">1.2.43. Representable functors</a></li>
+<li><a href="#org0118217">1.2.44. Yoneda Corollary</a>
+<ul>
+<li><a href="#org8af7ed7">Proof</a>
+<ul>
+<li><a href="#org85af41f">Corollary 1</a></li>
+<li><a href="#org446307d">Corollary 2</a></li>
+<li><a href="#orgce114da">Corollary 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9d82adc"><span class="todo TODO">TODO</span> Examples</a></li>
+<li><a href="#orgfb8e576"><span class="todo TODO">TODO</span> Yoneda Imbedding</a></li>
+</ul>
+</li>
+<li><a href="#org4068b18">1.3. Singular Homology</a>
+<ul>
+<li><a href="#org666f403">1.3.1. Hilbert spaces and euclidean spaces</a></li>
+<li><a href="#org9992e6e">1.3.2. Standard n-simplex</a></li>
+<li><a href="#orgeda287d">1.3.3. Singular n-simplex</a></li>
+<li><a href="#org0669df5">1.3.4. Singular n-chains</a></li>
+<li><a href="#org67fe9b5"><span class="todo TODO">TODO</span> 1.3.5. Face maps</a></li>
+</ul>
+</li>
+<li><a href="#org297df36">Exercises</a>
+<ul>
+<li><a href="#org6a545ba">Exercise 1.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgde9c1e8">2. Hom and Tensor</a>
+<ul>
+<li><a href="#orgb7d1f7d">2.1. Modules</a>
+<ul>
+<li><a href="#org574c449">Representation of a ring</a>
+<ul>
+<li><a href="#org2a7a25d">Equivalence of representations and modules</a>
+<ul>
+<li><a href="#org80a7eca">Equivalence of types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3742e7b">Example: Group ring</a>
+<ul>
+<li><a href="#orgbbc321c">Inclusion of the group</a>
+<ul>
+<li><a href="#org76c6c4e">Preservation of the product</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6d23715">Additive functors</a>
+<ul>
+<li><a href="#orgbc10c80">Properties of additive functors</a>
+<ul>
+<li><a href="#org9be7337">Proof</a>
+<ul>
+<li><a href="#orgb63d327">First property</a></li>
+<li><a href="#org44fe345">Second property</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org07154e2">Homomorphisms of r-modules are abelian groups</a></li>
+<li><a href="#org9ee19a3">Hom as an additive functor</a>
+<ul>
+<li><a href="#org09b76ca"><span class="todo TODO">TODO</span> Central case</a></li>
+</ul>
+</li>
+<li><a href="#org7cb347d"><span class="todo TODO">TODO</span> Hom as a contravariant functor</a></li>
+<li><a href="#org318f0d7">Submodules</a>
+<ul>
+<li><a href="#orga40abf4">Examples of submodules</a>
+<ul>
+<li><a href="#org1cc8a84">Subgroups</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgbc52aea">Quotient of modules</a></li>
+<li><a href="#org6894bdc">Kernels, images and cokernels</a></li>
+<li><a href="#org8c3ca7b">First Isomorphism Theorem</a></li>
+<li><a href="#org30f8b1f">Second Isomorphism Theorem</a></li>
+<li><a href="#orgd414cc9">Third Isomorphism Theorem</a></li>
+<li><a href="#org493ca11">Correspondence Theorem</a></li>
+<li><a href="#org1c78cf9">Simple module</a>
+<ul>
+<li><a href="#orga285aad">Characterization</a>
+<ul>
+<li><a href="#org74be818"><span class="todo TODO">TODO</span> Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org83f6e8c">Exact sequences</a></li>
+<li><a href="#org1eae683">Zero-ended exact sequences</a></li>
+<li><a href="#orge17b9cf">Short exact sequences</a></li>
+<li><a href="#orgfb11373">External direct sum</a>
+<ul>
+<li><a href="#orgd5c9c12">Properties of the external direct sum</a></li>
+</ul>
+</li>
+<li><a href="#org65d7881">Internal direct sum</a></li>
+<li><a href="#org8ac05e0">Direct summands and complements</a>
+<ul>
+<li><a href="#orgbe189e4">Retractions</a></li>
+</ul>
+</li>
+<li><a href="#org61f09ba">Direct product</a>
+<ul>
+<li><a href="#org4d5132e">Direct sum</a></li>
+<li><a href="#org426ec70">Projections</a></li>
+<li><a href="#orgd51b82d">Injections</a></li>
+</ul>
+</li>
+<li><a href="#orga2ce316">Free modules</a>
+<ul>
+<li><a href="#org847f3aa">Basis</a></li>
+<li><a href="#orga5217b8">Free abelian groups</a></li>
+</ul>
+</li>
+<li><a href="#orgae37672">Basis</a>
+<ul>
+<li><a href="#org4675351">Invariant basis number</a></li>
+<li><a href="#org82bc809">Rank</a></li>
+</ul>
+</li>
+<li><a href="#org9be3419">Left exactness</a></li>
+</ul>
+</li>
+<li><a href="#orge0d5744">2.2. Tensor products</a>
+<ul>
+<li><a href="#org14d96f8">Bilinearity</a>
+<ul>
+<li><a href="#org25aab37">Biadditivity</a></li>
+</ul>
+</li>
+<li><a href="#orge4356b1">Tensor product</a>
+<ul>
+<li><a href="#org3a23317">Uniqueness</a></li>
+<li><a href="#orgc3663a3">Existence</a></li>
+</ul>
+</li>
+<li><a href="#orgcf79e55">Tensor functors</a></li>
+<li><a href="#orgf0825ca">Universal property of the tensor product</a></li>
+<li><a href="#orgc9ae0cd">Commutativity</a></li>
+<li><a href="#org1e111b6">Enveloping algebra</a></li>
+<li><a href="#org5b49826">Right exactness</a></li>
+<li><a href="#orgd933ca5">Tensor and direct sum</a></li>
+<li><a href="#org53cb917">Four Lemma I</a></li>
+<li><a href="#orgcd0d804">Four Lemma II</a></li>
+<li><a href="#orgeda6415">Five Lemma</a></li>
+<li><a href="#orgdf517e0">Divisible abelian group</a></li>
+</ul>
+</li>
+<li><a href="#org8507f34">2.2.1. Adjoint isomorphisms</a>
+<ul>
+<li><a href="#orge72d20c">Adjoint isomorphisms</a></li>
+<li><a href="#org6a3b668">Right exactness</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6c9b0d4">3. Special Modules</a>
+<ul>
+<li><a href="#org904de51">3.1. Projective modules</a>
+<ul>
+<li><a href="#org1a33f5a">Exact functor</a></li>
+<li><a href="#org98a0457">Lifting on free modules</a></li>
+<li><a href="#org75e4b04">Lifting</a></li>
+<li><a href="#orgb35c60f">Projective modules</a></li>
+<li><a href="#org48c4f73">Characterization of projective modules</a></li>
+<li><a href="#orgf080d4f">Projective modules and direct summands</a></li>
+<li><a href="#org42761a9">Kaplansky theorem</a></li>
+<li><a href="#org4d06617">Projective basis</a></li>
+<li><a href="#orga12033b">Schnauel's Lemma</a></li>
+<li><a href="#orgb5dfc98">Ascending chaing condition</a></li>
+<li><a href="#org0c8296c">Noetherian rings</a></li>
+<li><a href="#orgcd78f6f">Characterization of noetherian rings</a></li>
+<li><a href="#org58a94d8">Hilbert basis theorem</a></li>
+</ul>
+</li>
+<li><a href="#org34bd8b9">3.2. Injective modules</a>
+<ul>
+<li><a href="#orge87d1ff">Injective module</a></li>
+<li><a href="#org5243d41">Characterization of injective modules</a></li>
+<li><a href="#org9677ab2">Product of injective modules</a></li>
+<li><a href="#org4fb7140">Baer criterion</a></li>
+<li><a href="#org582d31c">Divisible modules</a></li>
+<li><a href="#org624f277">Bass-Papp theorem</a></li>
+<li><a href="#org7124d60">Characterization by short exact sequences</a></li>
+<li><a href="#org90aae73">Essential extension</a></li>
+<li><a href="#orgbb05c2e">Characterizacion by essential extensions</a></li>
+<li><a href="#orgc35c25f">Injective envelope</a></li>
+<li><a href="#orgc658619">Eckmann-Schöpf</a></li>
+</ul>
+</li>
+<li><a href="#orgd4fca11">3.3. Flat modules</a>
+<ul>
+<li><a href="#orgb976eb8">Flat module</a></li>
+<li><a href="#org6c306ce">Direct sum of flat modules</a></li>
+<li><a href="#orgf0ca44d">Finitely generated submodules and flat modules</a></li>
+<li><a href="#orga54b652">Torsion module</a></li>
+<li><a href="#orga95a561">Torsion-free module</a>
+<ul>
+<li><a href="#org9a3ab88">PID module</a></li>
+<li><a href="#orgaed54ec">Flat modules</a></li>
+</ul>
+</li>
+<li><a href="#orgeb0d452">Character module</a></li>
+<li><a href="#org939b46f">Lambek theorem</a></li>
+<li><a href="#orgd15bc08">Villamayor theorem</a></li>
+<li><a href="#orgdf3d4db">Left coherent ring</a></li>
+<li><a href="#org7500682">Chase theorem</a></li>
+</ul>
+</li>
+<li><a href="#org4b82eb7">3.3.1. Purity</a>
+<ul>
+<li><a href="#org9d4e3d7">Pure exact sequence</a>
+<ul>
+<li><a href="#org0e64388">Pure submodule</a></li>
+</ul>
+</li>
+<li><a href="#org3454b1f">Characterization of flatness</a></li>
+<li><a href="#org8473a19">Cohn theorem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1df6bbc">4. Specific Rings</a>
+<ul>
+<li><a href="#orgda964b5">4.2. Von Neumann Regular Rings</a>
+<ul>
+<li><a href="#org9419cbc">Von Neumann Regular ring</a>
+<ul>
+<li><a href="#org7357e1a">Boolean rings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc5aed7d">5. Setting the stage</a>
+<ul>
+<li><a href="#org07f92f9">5.4. Sheaves</a>
+<ul>
+<li><a href="#org1719f64">Protosheaves</a></li>
+<li><a href="#org8ece648">Etale-sheaves</a></li>
+</ul>
+</li>
+<li><a href="#org565870e">5.5. Abelian categories</a>
+<ul>
+<li><a href="#org2510960">Additive category</a></li>
+<li><a href="#org6b5b3ff">Monomorphisms and epimorphisms</a></li>
+<li><a href="#org2c0d641">Kernels and cokernels</a></li>
+<li><a href="#org7800fa9">Abelian category</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5f77e6c">Carlos Ivorra - Álgebra conmutativa</a>
+<ul>
+<li><a href="#orga71cfe7">I. Funtores Derivados</a>
+<ul>
+<li><a href="#org36b033e">1.1. Haces</a>
+<ul>
+<li><a href="#orgae75775">Prehaces</a></li>
+<li><a href="#orgf7e24b3">Notación de restricción</a></li>
+<li><a href="#org9080ef6">Haces</a></li>
+<li><a href="#org18538f0">Grupo de gérmenes o grupo local</a></li>
+<li><a href="#orgaa67dec">Homomorfismo de prehaces</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd45257c" class="outline-2">
+<h2 id="orgd45257c">Pascual Jara - Apuntes</h2>
+<div class="outline-text-2" id="text-orgd45257c">
+</div><div id="outline-container-org64d4452" class="outline-3">
+<h3 id="org64d4452">Homología de Hochschild</h3>
+<div class="outline-text-3" id="text-org64d4452">
+</div><div id="outline-container-org95b358d" class="outline-4">
+<h4 id="org95b358d">R;R módulos</h4>
+<div class="outline-text-4" id="text-org95b358d">
+</div><div id="outline-container-org2fadb91" class="outline-5">
+<h5 id="org2fadb91">R;R módulo</h5>
+<div class="outline-text-5" id="text-org2fadb91">
+<p>
+Sea \(R\) una \(K\text{-álgebra}\); un \((R;R)\) <b>módulo</b> es un \(R\) módulo a
+izquierda y derecha verificando la <b>relación de compatibilidad</b>:
+</p>
+
+<p>
+\[r_1(mr_2) = (r_1m)r_2\]
+</p>
+
+<p>
+En particular, se tiene,
+</p>
+
+<p>
+\[km = mk \quad \forall k \in K\]
+</p>
+
+<p>
+Un <b>homomorfismo de R;R-módulos</b> es un homomorfismo de R-módulos a izquierda y
+R-módulos a derecha. Forman la categoría \((R;R)\mathtt{-Mod}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org063bd0b" class="outline-5">
+<h5 id="org063bd0b">Álgebra envolvente</h5>
+<div class="outline-text-5" id="text-org063bd0b">
+<p>
+Sea \(R\) una \(K\text{-álgebra}\), llamamos <b>álgebra envolvente</b> a \(R^e = R \otimes R^{op}\).
+Con el producto:
+</p>
+
+<p>
+\[ (r_1 \otimes s_1)(r_2 \otimes s_2) = (r_1r_2) \otimes (s_2s_1)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgab2594e" class="outline-5">
+<h5 id="orgab2594e">Caracterización de R;R-módulos</h5>
+<div class="outline-text-5" id="text-orgab2594e">
+<p>
+Para cada \(K\text{-álgebra}\), \(R\), las categorías siguientes son isomorfas:
+</p>
+
+<ul class="org-ul">
+<li>\((R;R)\text{-Mod}\)</li>
+<li>\(R^e\text{-Mod}\)</li>
+<li>\(\text{Mod-}R^e\)</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc3ddff8" class="outline-6">
+<h6 id="orgc3ddff8">Demostración</h6>
+<div class="outline-text-6" id="text-orgc3ddff8">
+<p>
+Nótese primero que a \(R^e\) le damos estructura de álgebra con el
+producto:
+</p>
+
+<p>
+\[
+(r_1\otimes s_1)(r_2\otimes s_2) = (r_1r_2\otimes s_2s_1)
+\]
+</p>
+</div>
+
+<div id="outline-container-orgf688d05" class="outline-7">
+<h7 id="orgf688d05">Primera implicación</h7>
+<div class="outline-text-7" id="text-orgf688d05">
+<p>
+Si tenemos \(M\) un \((R;R)\) módulo, podemos darle estructura de \(R^e\) módulo
+con: \((r\otimes s)m = rms\). Que esta estructura es compatible con el producto
+se comprueba trivialmente con:
+</p>
+
+<p>
+\[
+(a\otimes b)(c \otimes d)m = acmdb = (ac \otimes bd)m
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1861ee9" class="outline-7">
+<h7 id="org1861ee9">Segunda implicación</h7>
+<div class="outline-text-7" id="text-org1861ee9">
+<p>
+Si tenemos \(M\) un \(R^e\) módulo, podemos darle estructura de \(R;R\) módulo
+tomando: \(rms = (r\otimes s) m\). La relación de compatibilidad se tiene por
+el mismo proceso anterior.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5ff0919" class="outline-4">
+<h4 id="org5ff0919">Cohomología de Hochschild</h4>
+<div class="outline-text-4" id="text-org5ff0919">
+</div><div id="outline-container-orge1724bf" class="outline-5">
+<h5 id="orge1724bf">Definición</h5>
+<div class="outline-text-5" id="text-orge1724bf">
+<p>
+Sea \(R\) una \(K\text{-álgebra}\) y \(M\) un \((R;R)\text{-módulo}\), llamamos:
+</p>
+
+<ul class="org-ul">
+<li><b>Cohomología de Hochschild</b> de \(R\) en \(M\) a \(HH^{\bullet}(R,M) = \operatorname{Ext}^\bullet_{R^e}(R,M)\).</li>
+<li><b>Homología de Hochschild</b> de \(R\) en \(M\) a \(HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd0f7d73" class="outline-5">
+<h5 id="orgd0f7d73">Notas</h5>
+<div class="outline-text-5" id="text-orgd0f7d73">
+<ol class="org-ol">
+<li><a href="https://sbseminar.wordpress.com/2007/07/22/hochschild-homology/">Hochschild homology | Secret Blogging Seminar</a></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orga4ade95" class="outline-5">
+<h5 id="orga4ade95">Resolución estándar</h5>
+<div class="outline-text-5" id="text-orga4ade95">
+<p>
+Para cada k-álgebra \(R\) se tiene \((P_{\bullet},d_{\bullet})\) resolución proyectiva de \(R\) en 
+\((R;R)\mathrm{-mod}\). Se llama <b>resolución estándar</b> de \(R\), definiendo
+</p>
+
+<ul class="org-ul">
+<li>\(P = R \otimes (R^{\otimes n}) \otimes R\)</li>
+<li>\(d_{n} = \sum_{i=0}^n (-1)^id^i_n\)</li>
+</ul>
+
+<p>
+donde tomamos
+</p>
+
+<p>
+\[
+d_n^i(a_0 \otimes \dots \otimes a_{n+1}) =
+a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f1228d" class="outline-5">
+<h5 id="org4f1228d">Complejo de cocadenas</h5>
+<div class="outline-text-5" id="text-org4f1228d">
+<p>
+Para el cálculo de la cohomología tenemos un complejo de cocadenas
+</p>
+
+<p>
+\[
+\mathrm{Hom}_K(K,M) \overset{b^0} \longrightarrow
+\mathrm{Hom}_K(R,M) \overset{b^1} \longrightarrow
+\mathrm{Hom}_K(R^{\otimes 2},M) \overset{b^2} \longrightarrow
+\dots.
+\]
+</p>
+
+<p>
+Donde están definidas las \(b^{n}\) como
+</p>
+
+<ul class="org-ul">
+<li>\(b^0(m)(a) = am-ma\)</li>
+<li>\(b^n = \sum^{n+1}_{i=0}(-1)^ib_i^n\)</li>
+</ul>
+
+<p>
+para unas aplicaciones auxiliares \(b_i^n\) definidas como
+</p>
+
+<p>
+\[
+b^n_i(f)(a_1\otimes \dots \otimes a_{n+1}) =
+\left\{\begin{array}{ll} 
+a_1f(a_2\otimes\dots\otimes a_{n+1})& \mbox{if } i=0  \\
+f(a_1\otimes\dots\otimes a_ia_{i+1}\otimes\dots\otimes a_{n+1}}& \mbox{if } i=1,\dots,n \\
+f(a_1\otimes\dots\otimes a_n)a_{n+1}& \mbox{if } i=n+1
+\end{array} 
+\right.
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8902188" class="outline-4">
+<h4 id="org8902188">Desde Weibel</h4>
+<div class="outline-text-4" id="text-org8902188">
+</div><div id="outline-container-org41419bc" class="outline-5">
+<h5 id="org41419bc">Identidades simpliciales</h5>
+<div class="outline-text-5" id="text-org41419bc">
+<p>
+Las identidades simpliciales son las relaciones entre morfismos cara y
+morfismos degenerados en un objeto simplicial.
+</p>
+</div>
+
+<div id="outline-container-orgd113afb" class="outline-6">
+<h6 id="orgd113afb">Objeto simplicial</h6>
+<div class="outline-text-6" id="text-orgd113afb">
+<p>
+Un conjunto simplicial con morfismos:
+</p>
+
+<ul class="org-ul">
+<li><b>Morfismos cara</b>, \(\partial_i : S_n \to S_{n-1}\), que eliminan el vértice \(i\).</li>
+<li><b>Morfismos degenerados</b>, \(\sigma_i : S_n \to S_{n+1}\), que duplican el vértice \(i\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgac9d30e" class="outline-6">
+<h6 id="orgac9d30e">Identidades simpliciales</h6>
+<div class="outline-text-6" id="text-orgac9d30e">
+<p>
+Se cumplen:
+</p>
+
+<ol class="org-ol">
+<li>\(\partial_i\circ\partial_j = \partial_{j-1}\partial_i\) cuando \(i<j\)</li>
+<li>\(\sigma_i\comp\sigma_j = \sigma_j\circ\sigma_{i-1}\) cuando \(i > j\)</li>
+<li><p>
+Se componen como:
+</p>
+
+<p>
+\[
+    \partial_i\circ s_j = \left\{\begin{array}{ll} 
+    s_{j-1}\circ\partial_i & \mbox{if } i<j \\
+    id & \mbox{if } i=j \mbox{ or } i=j+1 \\
+    s_j\circ \partial_{i-1}& \mbox{if } i>j+1
+    \end{array} 
+    \right.
+    \]
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb3784d8" class="outline-6">
+<h6 id="orgb3784d8">Diferencial alternado</h6>
+<div class="outline-text-6" id="text-orgb3784d8">
+<p>
+Definimos el morfismo cara alternado como la suma alternada de morfismos
+cara:
+</p>
+
+<p>
+\[
+\partial(x) =
+\sum_{k=0}^n (-1)^k \partial_k(x)
+\]
+</p>
+
+<p>
+Esto nos da un operador de frontera cumpliendo \(\partial\circ\partial=0\).
+</p>
+</div>
+
+<div id="outline-container-org0063ac4" class="outline-7">
+<h7 id="org0063ac4">Demostración</h7>
+<div class="outline-text-7" id="text-org0063ac4">
+<p>
+Usando distributividad de la composición y la primera identidad 
+simplicial:
+</p>
+
+<p>
+\[\begin{aligned}
+\partial\circ\partial
+&=
+\left(
+\sum (-1)^k \partial_k
+\right)
+\left(
+\sum (-1)^t \partial_t
+\right)
+\\&= 
+\sum_{k,t} (-1)^{k+t} \partial_k\partial_t
+\\&=
+\sum_{k<t} 
+\left(
+(-1)^{k+t} \partial_k\partial_t +
+(-1)^{k+t-1} \partial_{t-1}\partial_k
+\right)
+\\&= 0
+\end{aligned}
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbd610ad" class="outline-5">
+<h5 id="orgbd610ad">Módulo simplicial sobre R;R módulo</h5>
+<div class="outline-text-5" id="text-orgbd610ad">
+<p>
+Sea \(R\) una k-álgebra y \(M\) un \(R;R\) módulo. Tenemos un k-módulo simplicial
+en \(M\otimes R^{\otimes\ast}\), dado por:
+</p>
+
+<p>
+\[
+\dots \longrightarrow
+M\otimes R\otimes R \longrightarrow
+M\otimes R \longrightarrow
+M \longrightarrow 
+0
+\]
+</p>
+
+<p>
+Con fronteras:
+</p>
+
+<p>
+\[
+\partial_i(m\otimes r_1 \otimes \dots \otimes r_n) =
+\left\{\begin{array}{ll} 
+mr_1 \otimes r_2 \otimes \dots \otimes r_n& \mbox{if } i = 0 \\
+m \otimes r_1 \otimes r_2 \otimes \dots \otimes r_ir_{i+1} \otimes \dots \otimes r_n& \mbox{if } 0 < i < n \\
+r_nm \otimes r_1 \otimes r_2 \otimes \dots \otimes r_{n-1} & \mbox{if } i = n
+\end{array}.
+\right.
+\]
+</p>
+
+<p>
+Y con degeneración
+</p>
+
+<p>
+\[
+\sigma_i(m \otimes r_1 \otimes \dots \otimes r_n) =
+m \otimes \dots \otimes r_i \otimes 1 \otimes r_{i+1} \otimes \dots \otimes r_n.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org015623f" class="outline-5">
+<h5 id="org015623f">Homología de Hochschild</h5>
+<div class="outline-text-5" id="text-org015623f">
+<p>
+La homología de Hochschild se define como la de los k-módulos:
+</p>
+
+<p>
+\[
+HH_n(R,M) = H_nC(M\otimes R^{\otimes\ast})
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdcac45f" class="outline-4">
+<h4 id="orgdcac45f">Ejemplos de cálculo de cohomología de Hoschild</h4>
+<div class="outline-text-4" id="text-orgdcac45f">
+</div><div id="outline-container-org6596991" class="outline-5">
+<h5 id="org6596991"><span class="todo TODO">TODO</span> Derivaciones y derivaciones externas</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf40489c" class="outline-3">
+<h3 id="orgf40489c">Álgebras separables</h3>
+<div class="outline-text-3" id="text-orgf40489c">
+</div><div id="outline-container-org71782a1" class="outline-4">
+<h4 id="org71782a1">Álgebras separables</h4>
+<div class="outline-text-4" id="text-org71782a1">
+</div><div id="outline-container-org371aee3" class="outline-5">
+<h5 id="org371aee3">Dimensión de Hochschild</h5>
+<div class="outline-text-5" id="text-org371aee3">
+<p>
+Definimos \(\mathrm{Hdim}(R)\) como el menor \(n\) tal que \(HH^{n+1}(R,M) = 0\) para cualquier
+módulo \(M\). Si no existe, decimos que hay dimensión de Hochschild infinita.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org553d9f5" class="outline-5">
+<h5 id="org553d9f5">Álgebras separables</h5>
+<div class="outline-text-5" id="text-org553d9f5">
+<p>
+Las álgebras de dimensión de Hochschild \(0\) se llaman <b>separables</b>. Se
+tiene \(R\) un \(R^e-\mathrm{mod}\) izquierda proyectivo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org726a0f5" class="outline-5">
+<h5 id="org726a0f5">Caracterización de álgebras separables</h5>
+<div class="outline-text-5" id="text-org726a0f5">
+<p>
+Para una k-álgebra R equivalen:
+</p>
+
+<ol class="org-ol">
+<li>Existen \(a_i,b_i \in R\) con \(\sum_{i=1}^na_ib_i=1\) y \(\sum_{i=1}^n ra_i\otimes b_i = \sum_{i=1}^n a_i \otimes b_ir\).</li>
+<li>Dimensión de Hochschild de \(R\) cero.</li>
+<li>\(\mathrm{Der(R,M)} = \mathrm{Der}_{int}(R,M)\) para cada \(M\) y \(n \geq 1\).</li>
+</ol>
+
+<p>
+Llamamos \(e = \sum_{i=1}^n a_i\otimes b_i \in R^e\) <b>idempotente de separabilidad</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4dc22bf" class="outline-5">
+<h5 id="org4dc22bf">Teorema de Zelinsky</h5>
+<div class="outline-text-5" id="text-org4dc22bf">
+<p>
+Toda k-álgebra separable es un k-espacio vectorial de dimensión finita.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1d7195f" class="outline-4">
+<h4 id="org1d7195f">Álgebras semisimples</h4>
+<div class="outline-text-4" id="text-org1d7195f">
+</div><div id="outline-container-orgb3a1a72" class="outline-5">
+<h5 id="orgb3a1a72">Álgebra semisimple</h5>
+<div class="outline-text-5" id="text-orgb3a1a72">
+<p>
+Una k-álgebra es semisimple si cada módulo a la izquierda suyo es proyectivo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgde4911d" class="outline-5">
+<h5 id="orgde4911d">Separable es semisimple</h5>
+<div class="outline-text-5" id="text-orgde4911d">
+<p>
+Toda k-álgebra separable es semisimple.
+</p>
+</div>
+
+<div id="outline-container-org4a0a07f" class="outline-6">
+<h6 id="org4a0a07f"><span class="todo TODO">TODO</span> Demostración</h6>
+</div>
+</div>
+
+<div id="outline-container-org9e467fd" class="outline-5">
+<h5 id="org9e467fd">Álgebras separables sobre cuerpos algebraicamente cerrados</h5>
+<div class="outline-text-5" id="text-org9e467fd">
+<p>
+Una k-álgebra separable en un cuerpo de característica cero es de la forma:
+</p>
+
+<p>
+\[
+R \cong
+M_{n_1}(K) \times \dots \times M_{n_t}(K)
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfeb5ef6" class="outline-5">
+<h5 id="orgfeb5ef6">Traza</h5>
+<div class="outline-text-5" id="text-orgfeb5ef6">
+<p>
+Llamamos <b>traza</b> de \(\varphi \in \mathrm{End}(R)\) a la suma de su diagonal. Tenemos
+</p>
+
+<ul class="org-ul">
+<li>una aplicación \(\tau(r) = \mathrm{Tr}(\lambda(r))\) k-lineal.</li>
+<li>una aplicación \(\sigma(r,s) = \tau(rs)\) k-bilineal simétrica.</li>
+</ul>
+
+<p>
+Cuando \(R\) es k-álgebra separable, \(\sigma\) es no degenerada.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5bf3ca1" class="outline-5">
+<h5 id="org5bf3ca1">Caracterización de álgebras separables</h5>
+<div class="outline-text-5" id="text-org5bf3ca1">
+<p>
+Para una k-álgebra \(R\) equivalen
+</p>
+
+<ol class="org-ol">
+<li>\(R\) una k-álgebra separable.</li>
+<li>\(\mathrm{dim}_{k}(R) < \infty\) y \(\sigma\) es forma bilineal simétrica no degenerada.</li>
+<li>Existe un único idempotente de separabilidad simétrico.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3b3199e" class="outline-4">
+<h4 id="org3b3199e">Álgebras formalmente lisas</h4>
+<div class="outline-text-4" id="text-org3b3199e">
+</div><div id="outline-container-orge7f0e7e" class="outline-5">
+<h5 id="orge7f0e7e">Extensiones de Hochschild</h5>
+<div class="outline-text-5" id="text-orge7f0e7e">
+<p>
+Para \(\pi : S \longrightarrow R\) homomorfismo sobreyectivo con \(\ker(\pi)^2=0\),
+</p>
+
+<p>
+\[
+0 \longrightarrow 
+\mathsf{a}= \mathrm{ker}(\pi) \longrightarrow
+S \longrightarrow
+R \longrightarrow
+0
+\]
+</p>
+
+<p>
+es una <b>extensión de Hochschild</b> de \(R\) por \(\mathsf{a}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org40d64aa" class="outline-5">
+<h5 id="org40d64aa">Estructura de R;R-módulo de la extensión</h5>
+<div class="outline-text-5" id="text-org40d64aa">
+<p>
+Si \(0 \longrightarrow \mathsf{a} \overset{\pi}\longrightarrow S \longrightarrow R \longrightarrow 0\) es una extensión de Hochschild, entonces
+\(\mathsf{a}\) es un R;R-módulo.
+</p>
+</div>
+
+<div id="outline-container-orge46ffbc" class="outline-6">
+<h6 id="orge46ffbc">Demostración</h6>
+<div class="outline-text-6" id="text-orge46ffbc">
+<p>
+Consideramos una inversa del homomorfismo sobreyectivo \(\pi \circ \psi = id\).
+Definimos el producto como
+</p>
+
+<ul class="org-ul">
+<li>\(ax = \psi(a)x\)</li>
+<li>\(xa = x\psi(a)\)</li>
+</ul>
+
+<p>
+y comprobamos que \(a(bx) = (ab)x\). Se tiene en efecto que
+</p>
+
+<p>
+\[
+\psi(a)\psi(b) - \psi(ab) \in \mathrm{ker}(\pi) = \mathsf{a}
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org283ea7f" class="outline-5">
+<h5 id="org283ea7f">Extensiones equivalentes</h5>
+<div class="outline-text-5" id="text-org283ea7f">
+<p>
+Dos extensiones de Hochschild son equivalentes si existe un diagrama
+conmutativo
+</p>
+
+<p>
+\[\begin{tikzcd}
+0 \rar & M \arrow[d,equal] \rar & S_1\dar{\varphi}\rar{\pi_{1}} & R \rar\dar[equal] & 0 \\
+0 \rar & M \rar & S_2\rar{\pi_{2}} & R \rar & 0
+\end{tikzcd}\]
+</p>
+
+<p>
+para \(\varphi\) un homomorfismo de k-álgebras.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4e607d1" class="outline-5">
+<h5 id="org4e607d1">Álgebra formalmente lisa</h5>
+<div class="outline-text-5" id="text-org4e607d1">
+<p>
+Un álgebra \(R\) es formalmente lisa si su dimensión de Hochschild es menor o
+igual que 1. Equivalentemente, \(HH^2(R,M) = 0\) para cualquier \(M\). Como
+consecuencia, toda extensión de Hochschild es trivial.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf97f52" class="outline-5">
+<h5 id="orgaf97f52">Producto de separable y formalmente lisa</h5>
+<div class="outline-text-5" id="text-orgaf97f52">
+<p>
+Si \(S\) es separable y \(R\) es formalmente lisa, \(R \otimes S\) es formalmente lisa.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orged7c640" class="outline-3">
+<h3 id="orged7c640">Anillos graduados</h3>
+<div class="outline-text-3" id="text-orged7c640">
+</div><div id="outline-container-org40f1e68" class="outline-4">
+<h4 id="org40f1e68">Álgebra aumentada</h4>
+<div class="outline-text-4" id="text-org40f1e68">
+<p>
+Una \(K\text{-álgebra}\) \(R\) es <b>aumentada</b> si existe un \(R\text{-módulo}\) \(M\) con un 
+epimorfismo \(\varepsilon\colon R \to M\).
+</p>
+</div>
+
+<div id="outline-container-org48be5e1" class="outline-5">
+<h5 id="org48be5e1">Álgebra aumentada tensor</h5>
+<div class="outline-text-5" id="text-org48be5e1">
+<p>
+Si \(\varepsilon\colon R \to M\) es un álgebra aumentada, \(\varepsilon\otimes S\colon R\otimes_K S \longrightarrow M \otimes_K S\) es
+un álgebra aumentada.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgecb68f9" class="outline-4">
+<h4 id="orgecb68f9">Módulos y álgebras graduadas</h4>
+<div class="outline-text-4" id="text-orgecb68f9">
+</div><div id="outline-container-orgbeca695" class="outline-5">
+<h5 id="orgbeca695">Módulo graduado</h5>
+<div class="outline-text-5" id="text-orgbeca695">
+<p>
+Un \(K\text{-módulo}\) graduado es aquel que se escribe como suma directa,
+</p>
+
+<p>
+\[
+M = \bigoplus_{n \in \mathbb{N}} M_n.
+\]
+</p>
+</div>
+
+<div id="outline-container-orgda5a10b" class="outline-6">
+<h6 id="orgda5a10b">Elemento homogéneo</h6>
+<div class="outline-text-6" id="text-orgda5a10b">
+<p>
+Un elemento es homogéneo de grado \(n\) si pertenece a \(M_n\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf545e42" class="outline-6">
+<h6 id="orgf545e42">Homomorfismo graduado</h6>
+<div class="outline-text-6" id="text-orgf545e42">
+<p>
+Un homomorfismo \(f\colon M \to N\) tal que \(f(M_n) \subseteq f(N_n)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb6610a7" class="outline-6">
+<h6 id="orgb6610a7">Álgebra graduada</h6>
+<div class="outline-text-6" id="text-orgb6610a7">
+<p>
+Un \(K\text{-módulo}\) graduado \(R = \bigoplus R_i\) cumpliendo
+</p>
+
+<p>
+\[
+R_rR_t \subseteq R_{r+t}.
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3247e61" class="outline-5">
+<h5 id="org3247e61">Ejemplos de álgebras graduadas</h5>
+<div class="outline-text-5" id="text-org3247e61">
+</div><div id="outline-container-orgdc866b9" class="outline-6">
+<h6 id="orgdc866b9">Graduación trivial</h6>
+</div>
+<div id="outline-container-org711a714" class="outline-6">
+<h6 id="org711a714">Graduación del anillo de polinomios</h6>
+</div>
+<div id="outline-container-org11f0842" class="outline-6">
+<h6 id="org11f0842">Graduación del anillo de endomorfismos</h6>
+</div>
+</div>
+<div id="outline-container-orgd462c36" class="outline-5">
+<h5 id="orgd462c36">Homomorfismos graduados</h5>
+<div class="outline-text-5" id="text-orgd462c36">
+<p>
+Un homomorfismo graduado de grado \(t \in \mathbb{N}\) es aquel homomorfismo \(f\colon M \to N\)
+cumpliendo \(f(M_r) \subseteq f(M_{r+t})\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org40228ba" class="outline-3">
+<h3 id="org40228ba">Módulos diferenciales</h3>
+<div class="outline-text-3" id="text-org40228ba">
+</div><div id="outline-container-orgfe08963" class="outline-4">
+<h4 id="orgfe08963">Diferencial</h4>
+<div class="outline-text-4" id="text-orgfe08963">
+<p>
+Un homomorfismo graduado de grado uno, \(\delta\colon M \to M\) se llama <b>diferencial</b>
+si \(\delta\circ\delta = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5af6ce5" class="outline-4">
+<h4 id="org5af6ce5">DG-módulo</h4>
+<div class="outline-text-4" id="text-org5af6ce5">
+<p>
+Un par \((M,\delta)\) formado por un \(K\text{-módulo}\) graduado \(M\) y un diferencial \(\delta\).
+</p>
+</div>
+
+<div id="outline-container-orgfe51786" class="outline-5">
+<h5 id="orgfe51786">Homomorfismo de DG-módulos</h5>
+<div class="outline-text-5" id="text-orgfe51786">
+<p>
+Un homomorfismo de DG-módulos \(f \colon (M,\delta_1) \to (N,\delta_2)\) es un homomorfismo
+de módulos graduados cumpliendo
+</p>
+
+<p>
+\[
+f\delta_1 = \delta_2 f.
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org08e663d" class="outline-4">
+<h4 id="org08e663d">Álgebra graduada diferencial</h4>
+<div class="outline-text-4" id="text-org08e663d">
+<p>
+Una \(K\text{-álgebra}\) graduada \(R\) con un diferencial \(\delta\colon R\to R\) que verifica:
+</p>
+
+<ul class="org-ul">
+<li>\((R,\delta)\) es un DG-módulo.</li>
+<li>\(\delta(ab) = \delta(a)b + (-1)^{|b|}a\delta(b)\).</li>
+</ul>
+
+<p>
+Es lo que conocemos como <b>álgebra graduada diferencial</b>, o DG-álgebra.
+</p>
+</div>
+
+<div id="outline-container-org0f5cb46" class="outline-5">
+<h5 id="org0f5cb46">Aritmética en álgebras graduadas I</h5>
+<div class="outline-text-5" id="text-org0f5cb46">
+<p>
+Dada una DG-álgebra \((R,\delta)\),
+</p>
+
+<ol class="org-ol">
+<li><p>
+Para elementos homogéneos \(h_1,\dots,h_n\) se verifica
+</p>
+
+<p>
+\[ \delta(h_1\dots h_n) =
+    \sum_{i=1}^t (-1)^{|h_1|+\dots+|h_{i-1}|}h_1\dots \delta(h_i)\dots h_t.
+    \]
+</p></li>
+
+<li><p>
+Para elementos \(a_0,\dots,a_n \in R_0\) se verifica
+</p>
+
+<p>
+\[\delta(a_0 \delta(a_1)\dots \delta(a_n)) =
+    \delta(a_0)\delta(a_1)\dots\delta(a_n).
+    \]
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgc7b3c9b" class="outline-5">
+<h5 id="orgc7b3c9b"><span class="todo TODO">TODO</span> Aritmética en álgebras graduadas II</h5>
+</div>
+</div>
+
+<div id="outline-container-org5aa81c0" class="outline-4">
+<h4 id="org5aa81c0">Complejo de Hochschild</h4>
+<div class="outline-text-4" id="text-org5aa81c0">
+<p>
+Definimos el <b>complejo de Hochschild</b> como
+</p>
+
+<p>
+\[
+C_{\bullet}(R,M)\colon \dots 
+\longrightarrow M \otimes R^{\otimes n}
+\overset{d}\longrightarrow M \otimes R^{\otimes n-1}
+\overset{d}\longrightarrow \cdots
+\]
+</p>
+
+<p>
+donde las diferenciales se definen como \(d = \sum (-1)^id_i\) para
+</p>
+
+<p>
+\[\begin{aligned}
+d_0(m\otimes a_1\otimes\dots\otimes a_n) &= (ma_1)\otimes \dots \otimes a_n \\
+d_i(m\otimes a_1\otimes\dots\otimes a_n) &= m \otimes a_1\otimes \dots \otimes a_ia_{i+1} \otimes \dots \otimes a_n \\
+d_i(m\otimes a_1\otimes\dots\otimes a_n) &= a_nm \otimes a_1\otimes \dots \otimes \dots \otimes a_{n-1} \\
+\end{aligned}
+\]
+</p>
+</div>
+
+<div id="outline-container-org28dda26" class="outline-5">
+<h5 id="org28dda26">Es un diferencial</h5>
+<div class="outline-text-5" id="text-org28dda26">
+<p>
+Se tiene que \(d\circ d = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org944bfa4" class="outline-5">
+<h5 id="org944bfa4">Complejo bar</h5>
+<div class="outline-text-5" id="text-org944bfa4">
+<p>
+En el caso particular de \(R=M\) tenemos
+</p>
+
+<p>
+\[C_{\bullet}(R) = C_{\bullet}(R,R) = 
+(\cdots \to R^{\otimes n+1} \to \cdots \to R)\]
+</p>
+
+<p>
+Llamamos <b>complejo bar</b> a
+</p>
+
+<p>
+\[ C^{bar}_{\ast}(R) = (\cdots \to R^{\otimes n} \to \cdots \to R^{\otimes 2}).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb51e9da" class="outline-5">
+<h5 id="orgb51e9da">Complejo bar normalizado</h5>
+<div class="outline-text-5" id="text-orgb51e9da">
+<p>
+Llamamos \(D_n\) al generado por elementos \(m\otimes a_1\otimes \dots\otimes a_n\) donde algún \(a_i = 1\).
+Podemos crear el complejo bar normalizado con módulos de la forma
+</p>
+
+<p>
+\[\frac{M\otimes R^{\otimes n}}{D_n} \cong M \otimes \overline{R}^{\otimes n}.
+\]
+</p>
+
+<p>
+Lo representamos por \(\overline{C}(R,M)\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org779a46f" class="outline-3">
+<h3 id="org779a46f">La DG-álgebra Omega</h3>
+<div class="outline-text-3" id="text-org779a46f">
+</div><div id="outline-container-org36d3710" class="outline-4">
+<h4 id="org36d3710">DG-álgebra omega</h4>
+<div class="outline-text-4" id="text-org36d3710">
+<p>
+Definimos
+</p>
+
+<p>
+\[
+\Omega_S^nR = 
+R \otimes_S \overline{R}^{\otimes n}
+\quad\text{ y, en total, }\quad
+\Omega_SR = \bigoplus_{n\in \mathbb{N}} \Omega_S^n R.
+\]
+</p>
+
+<p>
+La diferencial la definimos mediante
+</p>
+
+<p>
+\[
+\delta(a_0\oplus \overline{a_1} \oplus\dots\oplus \overline{a_r})
+=
+1 \oplus \overline{a_0} \oplus \dots \oplus \overline{a_r}.
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc254698" class="outline-2">
+<h2 id="orgc254698">Pierce - Associative Algebras</h2>
+<div class="outline-text-2" id="text-orgc254698">
+</div><div id="outline-container-orgadc03ee" class="outline-3">
+<h3 id="orgadc03ee">10. Separable Algebras</h3>
+<div class="outline-text-3" id="text-orgadc03ee">
+</div><div id="outline-container-org03fcb33" class="outline-4">
+<h4 id="org03fcb33">10.1. Bimodules</h4>
+<div class="outline-text-4" id="text-org03fcb33">
+</div><div id="outline-container-orgbecc884" class="outline-5">
+<h5 id="orgbecc884">Opposite algebra</h5>
+<div class="outline-text-5" id="text-orgbecc884">
+<p>
+If \(A\) is an R-algebra, the <b>opposite algebra</b> of \(A\) is \(A^\ast\); where
+multiplication is defined as \(x \circ y = yx\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf16ab8c" class="outline-5">
+<h5 id="orgf16ab8c">Enveloping algebra</h5>
+<div class="outline-text-5" id="text-orgf16ab8c">
+<p>
+The <b>enveloping algebra</b> of an R-algebra is:
+</p>
+
+<p>
+\[ A^e = A^\ast \otimes A\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8598e7d" class="outline-2">
+<h2 id="org8598e7d">Rotman - An introduction to homological algebra</h2>
+<div class="outline-text-2" id="text-org8598e7d">
+</div><div id="outline-container-org6da1e18" class="outline-3">
+<h3 id="org6da1e18">1. Introduction</h3>
+<div class="outline-text-3" id="text-org6da1e18">
+</div><div id="outline-container-orgce0ebad" class="outline-4">
+<h4 id="orgce0ebad">1.1. Simplicial Homology</h4>
+<div class="outline-text-4" id="text-orgce0ebad">
+</div><div id="outline-container-orga50ce9b" class="outline-5">
+<h5 id="orga50ce9b">Motivation: Green's Theorem</h5>
+<div class="outline-text-5" id="text-orga50ce9b">
+</div><div id="outline-container-org356f668" class="outline-6">
+<h6 id="org356f668">Original statement</h6>
+<div class="outline-text-6" id="text-org356f668">
+<p>
+Let \(C\) be a positively oriented, smooth and simple closed curve in
+a plane; being \(D\) the region bounded by \(C\). If \(L,M\) have continuous
+partial derivatives in \(D\), then:
+</p>
+
+<p>
+\[ \oint_C (L dx + M dy) = 
+\iint_D \left(
+  \frac{\partial M}{\partial x} - \frac{\partial L}{\partial y}
+\right) dx dy\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5cc63ff" class="outline-6">
+<h6 id="org5cc63ff">A rewrite</h6>
+<div class="outline-text-6" id="text-org5cc63ff">
+<p>
+If we have some "bad points" that we want to delete from \(C\).
+We can define multiple \(\gamma_i\) around them and have our integral to be:
+</p>
+
+<p>
+\[ \oint_C (L dx + M dy) +
+\sum^n_{i=1} \left( \int_{\gamma_i} L dx + Q dy \right) 
+= \iint_D \left(
+  \frac{\partial M}{\partial x} - \frac{\partial L}{\partial y}
+\right) dx dy\]
+</p>
+
+<p>
+As the diagram is:
+</p>
+
+
+<div class="figure">
+<p><img src="./images/greentheorem.png" alt="greentheorem.png" />
+</p>
+</div>
+
+<p>
+In this setting, the notion of \(\mathbb{Z}\) linear combinations of paths
+makes sense. We can take the free abelian group \(G[Y]\) with \(Y\) being
+the set of paths \(\gamma : [0,1] \longrightarrow X\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge98111f" class="outline-6">
+<h6 id="orge98111f">An equivalence relation</h6>
+<div class="outline-text-6" id="text-orge98111f">
+<p>
+For functions satisfying \(\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}\), the double integral dissapears,
+and we have:
+</p>
+
+<p>
+\[ \int_{m\gamma + \sum_i m_i\gamma_i} P dx + Q dy = 0\]
+</p>
+
+<p>
+Here we can define an equivalence relation between pairs of paths,
+where \(\beta \sim \beta'\) if:
+</p>
+
+<p>
+\[ \int_\beta P dx + Q dy = \int_{\beta'} P dx + Q dy \]
+</p>
+
+<p>
+The equivalence class of \(\beta\) is called its <b>homology class</b>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org52d52dd" class="outline-5">
+<h5 id="org52d52dd">Boundaries</h5>
+<div class="outline-text-5" id="text-org52d52dd">
+<p>
+If we take the simplices to form abelian groups, the boundaries
+are homomorphisms.
+</p>
+
+
+<div class="figure">
+<p><img src="./images/rectangle.png" alt="rectangle.png" />
+</p>
+</div>
+
+<p>
+For instance, if we can take this rectangle and compute its boundary.
+We use free abelian groups of \(n\text{-simplexes}\), called \(C_n(X)\).
+</p>
+</div>
+
+<div id="outline-container-org5169de9" class="outline-6">
+<h6 id="org5169de9">Boundary of a triangle</h6>
+<div class="outline-text-6" id="text-org5169de9">
+<p>
+We use the minus sign to denote the inverse path, and we have:
+</p>
+
+<p>
+\[ \delta([a,b,c]) = [a,b] + [b,c] - [a,c]\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6dbd673" class="outline-6">
+<h6 id="org6dbd673">Boundary of the boundary of a triangle</h6>
+<div class="outline-text-6" id="text-org6dbd673">
+<p>
+As the double boundary is the boundary of a sphere, it is 
+automatically null:
+</p>
+
+<p>
+\[
+\delta(\delta([a,b,c])) = (a - b) + (b - c) - (a - c) = 0
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7b894b9" class="outline-6">
+<h6 id="org7b894b9">Boundary of the rectangle</h6>
+<div class="outline-text-6" id="text-org7b894b9">
+<p>
+Now, we can compute the boundary of the rectangle; assuming that
+the boundary function is a homomorphism preserving the union:
+</p>
+
+<p>
+\[\begin{aligned}
+\delta(\square) &=  \delta[a,b,c] + \delta[a,c,d] \\ 
+&= [a,b]+[b,c]-[a,c]+[a,c]+[c,d]-[a,d] \\
+&= [a,b]+[b,c]+[c,d]-[a,d]
+\end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org836a997" class="outline-5">
+<h5 id="org836a997">Simplicial boundary maps</h5>
+<div class="outline-text-5" id="text-org836a997">
+<p>
+Let \(X\) be a finite simplicial complex. We define:
+</p>
+
+<p>
+\[ \delta_n [v_0,\dots,v_n] 
+= \sum^n_{i=0} (-1)^i [v_0,\dots,\hat{v_i},\dots,v_n]\]
+</p>
+
+<p>
+being a map from \(C_n(X)\) to \(C_{n-1}(X)\). We define \(\delta_0 = 0\) as a convention.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcad9b82" class="outline-5">
+<h5 id="orgcad9b82">Boundary maps are exact</h5>
+<div class="outline-text-5" id="text-orgcad9b82">
+<p>
+For all \(n > 0\), 
+</p>
+
+<p>
+\[\delta_{n-1}\delta_n = 0\]
+</p>
+</div>
+
+<div id="outline-container-orga00e49f" class="outline-6">
+<h6 id="orga00e49f">Proof</h6>
+<div class="outline-text-6" id="text-orga00e49f">
+<p>
+We can see that, for every pair of indexes, we have the same term 
+twice, depending on whether we take the two indexes ordered or using
+an inverse order:
+</p>
+
+<p>
+\[ 
+[x_0,\dots,\hat{x_i},\dots,\hat{x_j},\dots,x_n](-1)^{i+(j-1)} +
+[x_0,\dots,\hat{x_i},\dots,\hat{x_j},\dots,x_n](-1)^{j+i} = 0
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3070cb4" class="outline-5">
+<h5 id="org3070cb4">Simplicial cycles and boundaries</h5>
+<div class="outline-text-5" id="text-org3070cb4">
+<p>
+The elements in \(Z_n(X) = \ker \delta_n \subset C_n(X)\) are called <b>simplicial cycles</b>.
+The elements in \(B_n(X) = \im \delta_{n+1} \subset C_n(X)\) are called <b>simplicial 
+boundaries</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org773b1fb" class="outline-5">
+<h5 id="org773b1fb">Exactness for cycles and boundaries</h5>
+<div class="outline-text-5" id="text-org773b1fb">
+<p>
+For all \(n\),
+</p>
+
+<p>
+\[ B_n(X) \subseteq Z_n(X)\]
+</p>
+</div>
+
+<div id="outline-container-orgd9dea34" class="outline-6">
+<h6 id="orgd9dea34">Proof</h6>
+<div class="outline-text-6" id="text-orgd9dea34">
+<p>
+It is trivial knowing that boundary maps are <a href="#orgcad9b82">exact</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8cd94d5" class="outline-5">
+<h5 id="org8cd94d5">Simplicial homology group</h5>
+<div class="outline-text-5" id="text-org8cd94d5">
+<p>
+The nth simplicial homology group of a finite simplicial complex is:
+</p>
+
+<p>
+\[ H_n(X) = Z_n(X) / B_n(X) \]
+</p>
+
+<p>
+What survives in this group are the cycles that are not boundaries;
+that is, the boundaries of punctured sections.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org520d016" class="outline-5">
+<h5 id="org520d016">Two modifications</h5>
+<div class="outline-text-5" id="text-org520d016">
+<p>
+We can consider <b>homology</b> with coefficients in \(G\) by tensoring the
+sequence of chain groups by \(G\) and taking homology groups. We can
+consider the <b>cohomology</b> with coefficients in \(G\) applying \(Hom(-,G)\)
+to the chain of groups and then taking homology groups.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfa483c7" class="outline-4">
+<h4 id="orgfa483c7">1.2. Categories and Functors</h4>
+<div class="outline-text-4" id="text-orgfa483c7">
+</div><div id="outline-container-orgba43ebb" class="outline-5">
+<h5 id="orgba43ebb">1.2.1. Russell's paradox</h5>
+<div class="outline-text-5" id="text-orgba43ebb">
+<p>
+The Russell paradox is solved in with the Zermelo-Fraenkel axioms,
+specifically, the <b>axiom of comprehension</b>. It says that any definable
+subclass of a set is a set; restricting the comprehension to only
+already defined sets.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0167073" class="outline-5">
+<h5 id="org0167073">1.2.2. Classes and sets</h5>
+<div class="outline-text-5" id="text-org0167073">
+<p>
+A class in ZFC is called <b>small</b> if it has a cardinal number. A <b>set</b>
+is only a small class. In this book, we only worry about classes and
+sets that are not a member of themselves.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org93d43a6" class="outline-5">
+<h5 id="org93d43a6">1.2.3. Categories</h5>
+<div class="outline-text-5" id="text-org93d43a6">
+<p>
+A category \({\cal C}\) consists of:
+</p>
+
+<ul class="org-ul">
+<li>\(obj({\cal C})\), a class of objects.</li>
+<li>\(Hom(A,B)\), a set of morphisms for every ordered pair \((A,B)\).</li>
+<li>\(\circ : Hom(A,B) \times Hom(B,C) \longrightarrow Hom(A,C)\), composition of functions.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaf81b2d" class="outline-5">
+<h5 id="orgaf81b2d">1.2.4. Axioms of categories</h5>
+<div class="outline-text-5" id="text-orgaf81b2d">
+<p>
+A category has disjoint \(Hom\) sets, and there must be an identity element
+\(1_A \in Hom(A,A)\) for every morphism, following these rules:
+</p>
+
+<ul class="org-ul">
+<li>The identity is a neutral element: \(f \circ 1_A = f\) and \(1_B \circ f = f\).</li>
+<li>Composition is associative: \(f \circ (g \circ h) = (f \circ g) \circ h\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8a9415d" class="outline-5">
+<h5 id="org8a9415d">1.2.5. Examples of categories</h5>
+<div class="outline-text-5" id="text-org8a9415d">
+</div><div id="outline-container-orgfd42c64" class="outline-6">
+<h6 id="orgfd42c64">Sets</h6>
+</div>
+<div id="outline-container-orgf5826e5" class="outline-6">
+<h6 id="orgf5826e5">Groups</h6>
+</div>
+<div id="outline-container-org10df0f4" class="outline-6">
+<h6 id="org10df0f4">Partially ordered sets</h6>
+</div>
+<div id="outline-container-org696a176" class="outline-6">
+<h6 id="org696a176">Inclusion of open sets</h6>
+</div>
+<div id="outline-container-org2d03faf" class="outline-6">
+<h6 id="org2d03faf">Topological spaces</h6>
+</div>
+<div id="outline-container-org6533b5c" class="outline-6">
+<h6 id="org6533b5c">Abstract simplicial complexes</h6>
+<div class="outline-text-6" id="text-org6533b5c">
+</div><div id="outline-container-org3627b7c" class="outline-7">
+<h7 id="org3627b7c">Abstract simplicial complexes</h7>
+<div class="outline-text-7" id="text-org3627b7c">
+<p>
+We denote <code>Abs</code> the category of abstract simplicial complexes.
+An abstract simplicial complex \(K\) is a set of <b>vertices</b> \(Vert(K)\) and
+a family of nonempty finite subsets called <b>simplexes</b> 
+\(\sigma \subseteq Vert(K)\) such that:
+</p>
+
+<ol class="org-ol">
+<li>\(\{v\}\) is a simplex for every \(v \in Vert(K)\).</li>
+<li>Every subset of a simplex is a simplex.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb8d936b" class="outline-7">
+<h7 id="orgb8d936b">Simplicial maps</h7>
+<div class="outline-text-7" id="text-orgb8d936b">
+<p>
+A <b>simplicial map</b> is a function \(\phi : Vert(K) \longrightarrow Vert(L)\) 
+such that, if \(\sigma\) is a simplex in \(K\), then \(\phi(\sigma)\) is a simplex
+in \(L\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcbd8b90" class="outline-7">
+<h7 id="orgcbd8b90">Dimension</h7>
+<div class="outline-text-7" id="text-orgcbd8b90">
+<p>
+A simplex with \(|\sigma| = n+1\) is called a <b>n-simplex</b>. Simplicial
+maps don't have to preserve dimension.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6920f9a" class="outline-6">
+<h6 id="org6920f9a">Nerves</h6>
+<div class="outline-text-6" id="text-org6920f9a">
+<p>
+If \({\cal U} = \{U\}_{i\in I}\) is the cover of a topological space, we define an 
+abstract simplicial complex \({\cal N}({\cal U})\) having vertices \(Vert({\cal N}({\cal U})) = {\cal U}\)
+and simplexes \(\{U_0,\dots,U_n\} \subseteq {\cal U}\) such that:
+</p>
+
+<p>
+\[ \bigcap_{k=0}^n U_k = \varnothing\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f54065" class="outline-6">
+<h6 id="org4f54065">Monoids</h6>
+</div>
+<div id="outline-container-org1f47a13" class="outline-6">
+<h6 id="org1f47a13">Homotopy category</h6>
+</div>
+</div>
+<div id="outline-container-orga260891" class="outline-5">
+<h5 id="orga260891">1.2.6. Algebraic examples of categories</h5>
+<div class="outline-text-5" id="text-orga260891">
+</div><div id="outline-container-org40b28d8" class="outline-6">
+<h6 id="org40b28d8">Abelian groups</h6>
+</div>
+<div id="outline-container-org66d0745" class="outline-6">
+<h6 id="org66d0745">Rings (unital)</h6>
+</div>
+<div id="outline-container-org97557ff" class="outline-6">
+<h6 id="org97557ff">Commutative rings</h6>
+</div>
+</div>
+<div id="outline-container-orgfdda6d5" class="outline-5">
+<h5 id="orgfdda6d5">1.2.7. Modules</h5>
+<div class="outline-text-5" id="text-orgfdda6d5">
+<p>
+A left R-module, where \(R\) is a ring, is an additive abelian group \(M\)
+with a scalar multiplication \(R \times M \longrightarrow M\), such that:
+</p>
+
+<ol class="org-ol">
+<li>\(r(m+m') = rm+rm'\)</li>
+<li>\((r+r')m = rm + r'm\)</li>
+<li>\((rr')m = r(r'm)\)</li>
+<li>\(1m = m\)</li>
+</ol>
+
+<p>
+A right module is defined anagously.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org88f344f" class="outline-5">
+<h5 id="org88f344f">1.2.8. Examples of modules</h5>
+<div class="outline-text-5" id="text-org88f344f">
+</div><div id="outline-container-orgc8b07f1" class="outline-6">
+<h6 id="orgc8b07f1">Vector spaces over a field</h6>
+</div>
+<div id="outline-container-org87d737c" class="outline-6">
+<h6 id="org87d737c">Abelian groups over Z</h6>
+</div>
+<div id="outline-container-orgc51c8a6" class="outline-6">
+<h6 id="orgc51c8a6">Every ring over itself</h6>
+</div>
+<div id="outline-container-org16bebd2" class="outline-6">
+<h6 id="org16bebd2">Every ring over its center</h6>
+</div>
+</div>
+
+<div id="outline-container-orgd43c420" class="outline-5">
+<h5 id="orgd43c420">1.2.9. Homomorphisms of R-modules</h5>
+<div class="outline-text-5" id="text-orgd43c420">
+<p>
+A function \(f : M \longrightarrow N\) such that:
+</p>
+
+<ol class="org-ol">
+<li>\(f(m+m') = f(m)+f(m')\)</li>
+<li>\(f(rm) = rf(m)\)</li>
+</ol>
+
+<p>
+In the case of right modules, we can define them anagously.
+</p>
+</div>
+
+<div id="outline-container-org1b0683c" class="outline-6">
+<h6 id="org1b0683c">The composite and inverse of homomorphisms is an homomorphism</h6>
+<div class="outline-text-6" id="text-org1b0683c">
+<p>
+Trivial.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb15ef64" class="outline-5">
+<h5 id="orgb15ef64">1.2.10. Examples of homomorphisms</h5>
+<div class="outline-text-5" id="text-orgb15ef64">
+</div><div id="outline-container-orgf4669b1" class="outline-6">
+<h6 id="orgf4669b1">Linear transformations in vector spaces</h6>
+</div>
+<div id="outline-container-org5859863" class="outline-6">
+<h6 id="org5859863">Homomorphisms of abelian groups for Z-modules</h6>
+</div>
+<div id="outline-container-orgc75aa78" class="outline-6">
+<h6 id="orgc75aa78">Homothety</h6>
+<div class="outline-text-6" id="text-orgc75aa78">
+<p>
+Let \(M\) be an R-module, and \(r \in Z(R)\); multiplication by \(r\), \(\mu_r\), is
+an homomorphism because:
+</p>
+
+<p>
+\[ \mu_r(am) = r(am) = a(rm) = a\mu_r(m)\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge696c79" class="outline-5">
+<h5 id="orge696c79">1.2.11. Opposite rings</h5>
+<div class="outline-text-5" id="text-orge696c79">
+<p>
+If \(R\) is a ring, its opposite ring \(R^{op}\) is the same ring with the
+opposite multiplication, defined by:
+</p>
+
+<p>
+\[ \mu^o(r,t) = \mu(t,r)\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org380b5df" class="outline-5">
+<h5 id="org380b5df">1.2.12. Categories of modules</h5>
+<div class="outline-text-5" id="text-org380b5df">
+<p>
+We call \(_RMod\) the category of <b>left</b> R-modules, and \(Mod_R\) to the 
+category of <b>right</b> R-modules.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgba6c278" class="outline-5">
+<h5 id="orgba6c278">1.2.13. Subcategories</h5>
+<div class="outline-text-5" id="text-orgba6c278">
+<p>
+A category \({\cal S}\) is a subcategory of \({\cal C}\) when:
+</p>
+
+<ol class="org-ol">
+<li>\(obj({\cal S}) \subseteq obj({\cal C})\).</li>
+<li>\(Hom_S(A,B) \subseteq Hom_C(A,B)\).</li>
+<li>Identities and compositions are the same.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd1bd872" class="outline-5">
+<h5 id="orgd1bd872">1.2.14. Full subcategories</h5>
+<div class="outline-text-5" id="text-orgd1bd872">
+<p>
+A full subcategory has \(Hom_S(A,B) = Hom_C(A,B)\) for every \(A,B \in obj({\cal S})\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6c01524" class="outline-5">
+<h5 id="org6c01524">1.2.15. Functors</h5>
+<div class="outline-text-5" id="text-org6c01524">
+<p>
+A functor \(T : {\cal C} \longrightarrow {\cal D}\) is a function such that:
+</p>
+
+<ol class="org-ol">
+<li>\(T : obj({\cal C}) \longrightarrow obj({\cal D})\).</li>
+<li>\(T : Hom(A,B) \longrightarrow Hom(TA,TB)\).</li>
+<li>Preserves composition: \(T(f \circ g) = Tf \circ Tg\).</li>
+<li>Preserves identities: \(T(1_A) = 1_{T(A)}\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org84c917b" class="outline-5">
+<h5 id="org84c917b">1.2.16. Examples of functors</h5>
+<div class="outline-text-5" id="text-org84c917b">
+</div><div id="outline-container-orgceef95d" class="outline-6">
+<h6 id="orgceef95d">Subcategories as inclusion functors</h6>
+</div>
+<div id="outline-container-orged8f609" class="outline-6">
+<h6 id="orged8f609">Identity functor</h6>
+</div>
+<div id="outline-container-orgd8bc2b9" class="outline-6">
+<h6 id="orgd8bc2b9">Hom(A,-) functor</h6>
+</div>
+<div id="outline-container-org99a8458" class="outline-6">
+<h6 id="org99a8458">Chains as functors from the partially ordered integers</h6>
+</div>
+<div id="outline-container-orgd7203ca" class="outline-6">
+<h6 id="orgd7203ca">Forgetful functors</h6>
+</div>
+</div>
+
+<div id="outline-container-orgf9e0397" class="outline-5">
+<h5 id="orgf9e0397">1.2.27. Diagrams</h5>
+<div class="outline-text-5" id="text-orgf9e0397">
+<p>
+A diagram is a functor whose domain is a <b>small category</b>; that
+is \(T : {\cal D} \longrightarrow {\cal C}\), where \(obj({\cal D})\) is a set.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgee2b1e1" class="outline-5">
+<h5 id="orgee2b1e1">1.2.28. Paths</h5>
+<div class="outline-text-5" id="text-orgee2b1e1">
+<p>
+A path is a functor \(P : n+1 \longrightarrow {\cal C}\), where the domain is the partial 
+ordering of integers \(0,\dots,n+1\). A path is <b>simple</b> if the functor is
+injective.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgab4b5ab" class="outline-5">
+<h5 id="orgab4b5ab">1.2.29. Commutativity of diagrams</h5>
+<div class="outline-text-5" id="text-orgab4b5ab">
+<p>
+A diagram commutes if the composites of the labels on any two simple path
+are equal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org77833bb" class="outline-5">
+<h5 id="org77833bb"><span class="todo TODO">TODO</span> 1.2.30. Contravariant functors</h5>
+</div>
+<div id="outline-container-orgd54056a" class="outline-5">
+<h5 id="orgd54056a"><span class="todo TODO">TODO</span> 1.2.31. Examples of contravariant functors</h5>
+<div class="outline-text-5" id="text-orgd54056a">
+</div><div id="outline-container-org9426c18" class="outline-6">
+<h6 id="org9426c18">Hom(-,B) functor</h6>
+</div>
+<div id="outline-container-orgada6ea3" class="outline-6">
+<h6 id="orgada6ea3">The dual space functor</h6>
+<div class="outline-text-6" id="text-orgada6ea3">
+<p>
+\[( )^\ast = Hom_k(-,k) : \sideset{_k}{}{Mod} \longrightarrow \sideset{_k}{}{Mod}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org2dabcb7" class="outline-6">
+<h6 id="org2dabcb7">Order-reversing functions on partially ordered sets</h6>
+</div>
+
+<div id="outline-container-org3fc66d4" class="outline-6">
+<h6 id="org3fc66d4">Presheaves</h6>
+<div class="outline-text-6" id="text-org3fc66d4">
+<p>
+If \({\cal U}\) is a topology with the inclusion, a contravariant functor 
+\({\cal P} : {\cal U} \longrightarrow {\cal C}\) is a presheaf.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org11e278e" class="outline-5">
+<h5 id="org11e278e">1.2.32. Faithful functors</h5>
+<div class="outline-text-5" id="text-org11e278e">
+<p>
+A functor is faithful if all the functions 
+\(Hom(A,B) \longrightarrow Hom(TA,TB)\) are injective.
+</p>
+</div>
+</div>
+<div id="outline-container-org6ab3e19" class="outline-5">
+<h5 id="org6ab3e19">1.2.33. Concrete categories</h5>
+<div class="outline-text-5" id="text-org6ab3e19">
+<p>
+A category is concrete if there is a faithful functor \({\cal C} \longrightarrow \mathtt{Set}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8dbffaf" class="outline-5">
+<h5 id="org8dbffaf">1.2.33. Opposite category</h5>
+<div class="outline-text-5" id="text-org8dbffaf">
+<p>
+We define \({\cal C}^{op}\) to be the category with:
+</p>
+
+<ul class="org-ul">
+<li>\(obj({\cal C}^{op}) = obj({\cal C})\)</li>
+<li>\(Hom_{{\cal C}^{op}}(A,B) = Hom_{\cal C}(B,A)\)</li>
+<li>\(g \circ_{op} f = f \circ g\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5f82561" class="outline-5">
+<h5 id="org5f82561">1.2.34. Isomorphisms</h5>
+<div class="outline-text-5" id="text-org5f82561">
+<p>
+A morphism \(f : A \longrightarrow B\) such that exists \(g : B \longrightarrow A\) with
+\(f \circ g = 1\) and \(g \circ f = 1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org25b8f43" class="outline-5">
+<h5 id="org25b8f43">1.2.35. Functors preserve isomorphisms</h5>
+<div class="outline-text-5" id="text-org25b8f43">
+<p>
+Let \(T\) be a functor, if \(f\) is an isomorphism, then \(T(f)\) is an isomorphism.
+</p>
+</div>
+
+<div id="outline-container-orgc856328" class="outline-6">
+<h6 id="orgc856328">Proof</h6>
+<div class="outline-text-6" id="text-orgc856328">
+<p>
+If \(g\) is its inverse, then:
+</p>
+
+<p>
+\[ T(f)T(g) = T(fg) = 1\]
+\[ T(g)T(f) = T(gf) = 1\]
+</p>
+
+<p>
+If \(T\) is a contravariant functor, the proof remains the same.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org354d589" class="outline-5">
+<h5 id="org354d589">1.2.36. Natural transformations</h5>
+<div class="outline-text-5" id="text-org354d589">
+<p>
+Let \(F,G : {\cal A} \longrightarrow {\cal B}\) be covariant functors. A natural transformation
+\(\tau : F \Longrightarrow G\) is a family of morphisms \(\tau_A : S A \longrightarrow T A\), making the following
+diagram commute for every \(f \in Hom(A,B)\):
+</p>
+
+<p>
+\[ \begin{tikzcd}
+FA \rar{\tau_A} \dar{Ff} & GA \dar{Gf} \\
+FB \rar{\tau_B} & GB
+\end{tikzcd} \]
+</p>
+
+<p>
+We write the natural transformations as \(Nat(F,G)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8ab4581" class="outline-5">
+<h5 id="org8ab4581">1.2.37. Natural isomorphisms</h5>
+<div class="outline-text-5" id="text-org8ab4581">
+<p>
+A natural transformation \(\tau\) for which each \(\tau_A\) is an isomorphism.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5155c68" class="outline-5">
+<h5 id="org5155c68">1.2.38. Composition of natural transformations</h5>
+<div class="outline-text-5" id="text-org5155c68">
+<p>
+If \(\tau : F \Longrightarrow G\) and \(\sigma : G \Longrightarrow H\) are natural transformations, then the
+composition is a natural transformation.
+</p>
+</div>
+
+<div id="outline-container-org9fa19a0" class="outline-6">
+<h6 id="org9fa19a0">Proof</h6>
+<div class="outline-text-6" id="text-org9fa19a0">
+<p>
+Composing the two commutative diagrams gives us the proof.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d6bbaa" class="outline-5">
+<h5 id="org2d6bbaa">1.2.39. Identity natural transformation</h5>
+<div class="outline-text-5" id="text-org2d6bbaa">
+<p>
+For any functor \(F : {\cal A} \longrightarrow {\cal B}\), we can describe an identity natural 
+transformation using the identity morphisms.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1040966" class="outline-5">
+<h5 id="org1040966"><span class="todo TODO">TODO</span> 1.2.40. Examples of natural transformations</h5>
+</div>
+<div id="outline-container-org8fe7f6e" class="outline-5">
+<h5 id="org8fe7f6e"><span class="todo TODO">TODO</span> 1.2.41. Natural transformations are proper classes</h5>
+</div>
+<div id="outline-container-org4c1088c" class="outline-5">
+<h5 id="org4c1088c">1.2.42. Yoneda Lemma</h5>
+<div class="outline-text-5" id="text-org4c1088c">
+<p>
+Let \(A \in obj({\cal C})\) and \(G : {\cal C} \longrightarrow \mathtt{Set}\) be a covariant functor. 
+There is a bijection:
+</p>
+
+<p>
+\[ y : Nat(Hom_C(A,-), G) \longrightarrow G(A)\]
+</p>
+
+<p>
+given by \(y : \tau \longrightarrow \tau_A(1_A)\).
+</p>
+</div>
+
+<div id="outline-container-org17d969f" class="outline-6">
+<h6 id="org17d969f">Proof</h6>
+<div class="outline-text-6" id="text-org17d969f">
+</div><div id="outline-container-orgf754876" class="outline-7">
+<h7 id="orgf754876">Every choice of p determines a natural transformation</h7>
+<div class="outline-text-7" id="text-orgf754876">
+<p>
+Given \(p \in GA\), we can create an unique natural transformation having
+\(\eta_A(1_A) = p\). A natural transformation has to obey the following 
+commutative diagram:
+</p>
+
+<p>
+\[\begin{tikzcd}
+Hom(A,A) \rar{f \circ \_}\dar{\eta}& Hom(A,B)\dar{\eta} \\
+GA \rar{Gf}& GB
+\end{tikzcd}\]
+</p>
+
+<p>
+Then, the image of \(\eta_B(f)\) is determined.
+</p>
+
+<p>
+\[\begin{tikzcd}
+id \rar{f \circ \_}\dar{\eta}& f\dar{\eta} \\
+p \rar{Gf}& (Gf)(p)
+\end{tikzcd}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbdabcfb" class="outline-7">
+<h7 id="orgbdabcfb">Every choice gives us a natural transformation</h7>
+<div class="outline-text-7" id="text-orgbdabcfb">
+<p>
+This gives us, in fact, a natural transformation which makes every
+natural square to commute:
+</p>
+
+<p>
+\[\begin{tikzcd}
+Hom(A,B) \rar{g \circ \_}\dar{\eta}& Hom(A,C)\dar{\eta} \\
+GB \rar{Gg}& GC
+\end{tikzcd}\]
+</p>
+
+<p>
+Given any element \(f \in Hom(A,B)\), we can check the commutativity:
+</p>
+
+<p>
+\[\begin{tikzcd}
+f \rar{g \circ \_}\dar{\eta}& g \circ f\dar{\eta} \\
+(Gf)(p) \rar{Gg}&  G(g \circ f)(p)
+\end{tikzcd}\]
+</p>
+
+<p>
+Knowing that \(G(g \circ f)(p) = (Gg \circ Gf) (p)\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2c1d960" class="outline-5">
+<h5 id="org2c1d960">1.2.43. Representable functors</h5>
+<div class="outline-text-5" id="text-org2c1d960">
+<p>
+A covariant functor \(F: {\cal C} \longrightarrow \mathtt{Set}\) is representable if \(F \cong Hom(A,-)\)
+for some \(A\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0118217" class="outline-5">
+<h5 id="org0118217">1.2.44. Yoneda Corollary</h5>
+<div class="outline-text-5" id="text-org0118217">
+<p>
+For \(A,B \in obj({\cal C})\):
+</p>
+
+<ol class="org-ol">
+<li>If \(\eta \in Nat(Hom(A,-),Hom(B,-))\), then \(\eta = (\_ \circ \psi)\) for some unique \(\psi\).</li>
+<li>If \(\eta = (\_ \circ \psi)\) and \(\tau = (\_\circ\phi)\), then \(\tau\circ\eta = (\_ \circ \psi\circ\phi)\).</li>
+<li>\(\eta = (\_\circ\psi)\) is a natural isomorphism iff \(\psi\) is an isomorphism.</li>
+</ol>
+</div>
+
+<div id="outline-container-org8af7ed7" class="outline-6">
+<h6 id="org8af7ed7">Proof</h6>
+<div class="outline-text-6" id="text-org8af7ed7">
+</div><div id="outline-container-org85af41f" class="outline-7">
+<h7 id="org85af41f">Corollary 1</h7>
+<div class="outline-text-7" id="text-org85af41f">
+<p>
+If we apply Yoneda Lemma, every transformation is defined by
+\(\eta(id_A) = \psi\). The transformation has to be \((\_ \circ\psi)\) because of commutativity:
+</p>
+
+<p>
+\[\begin{tikzcd}
+Hom(A,A) \rar{f \circ \_}\dar{\eta}& Hom(A,C)\dar{\eta} \\
+Hom(B,A) \rar{f \circ\_}& Hom(B,C)
+\end{tikzcd}\]
+</p>
+
+<p>
+So, given any element \(f \in Hom(A,C)\), we have \(\eta(f) = f \circ \psi\):
+</p>
+
+<p>
+\[\begin{tikzcd}
+id \rar{f \circ \_}\dar{\eta}& f\dar{\eta} \\
+\psi \rar{f \circ\_}& f \circ \psi
+\end{tikzcd}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org446307d" class="outline-7">
+<h7 id="org446307d">Corollary 2</h7>
+<div class="outline-text-7" id="text-org446307d">
+<p>
+Trivial consequence of the first corollary.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgce114da" class="outline-7">
+<h7 id="orgce114da">Corollary 3</h7>
+<div class="outline-text-7" id="text-orgce114da">
+<p>
+It is trivial given the previous corollaries and:
+</p>
+
+<p>
+\[(\_\circ\psi^{-1})\circ \psi = (\_\circ id)\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9d82adc" class="outline-5">
+<h5 id="org9d82adc"><span class="todo TODO">TODO</span> Examples</h5>
+</div>
+<div id="outline-container-orgfb8e576" class="outline-5">
+<h5 id="orgfb8e576"><span class="todo TODO">TODO</span> Yoneda Imbedding</h5>
+</div>
+</div>
+<div id="outline-container-org4068b18" class="outline-4">
+<h4 id="org4068b18">1.3. Singular Homology</h4>
+<div class="outline-text-4" id="text-org4068b18">
+</div><div id="outline-container-org666f403" class="outline-5">
+<h5 id="org666f403">1.3.1. Hilbert spaces and euclidean spaces</h5>
+<div class="outline-text-5" id="text-org666f403">
+<p>
+A <b>Hilbert space</b> is the set \({\cal H}\) of all sequences \((x_i) \in \mathbb{R}\) such that
+\(\sum x_i^2 < \infty\). A <b>Euclidean space</b>, \(\mathbb{R}^n\) is a subset of \({\cal H}\) consisting of
+all sequences of the form \((x_0,x_1,\dots,x_{n-1},0,\dots)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9992e6e" class="outline-5">
+<h5 id="org9992e6e">1.3.2. Standard n-simplex</h5>
+<div class="outline-text-5" id="text-org9992e6e">
+<p>
+The standard n-simplex is the set of all convex combinations:
+</p>
+
+<p>
+\[\Delta^n = [e_0,e_1,\dots,e_n]\]
+</p>
+
+<p>
+Where \(e_i\) form an orthogonal basis.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeda287d" class="outline-5">
+<h5 id="orgeda287d">1.3.3. Singular n-simplex</h5>
+<div class="outline-text-5" id="text-orgeda287d">
+<p>
+Given a topological space \(X\), a singular n-simplex is a continuous map
+\(\sigma : \Delta^n \longrightarrow X\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0669df5" class="outline-5">
+<h5 id="org0669df5">1.3.4. Singular n-chains</h5>
+<div class="outline-text-5" id="text-org0669df5">
+<p>
+We define \(S_n(X)\) as the free group with singular n-simplexes as basis.
+By convention, \(S_{-1}(X) = \{0\}\). The elements on this group are called
+singular n-chains.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org67fe9b5" class="outline-5">
+<h5 id="org67fe9b5"><span class="todo TODO">TODO</span> 1.3.5. Face maps</h5>
+<div class="outline-text-5" id="text-org67fe9b5">
+<p>
+The ith face map \(\epsilon^n_i : \Delta^{n-1} \longrightarrow \Delta^n\) is defined by:
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org297df36" class="outline-4">
+<h4 id="org297df36">Exercises</h4>
+<div class="outline-text-4" id="text-org297df36">
+</div><div id="outline-container-org6a545ba" class="outline-5">
+<h5 id="org6a545ba">Exercise 1.1</h5>
+<div class="outline-text-5" id="text-org6a545ba">
+<div class="statement">
+<ol class="org-ol">
+<li>Prove, in every category \({\cal C}\), that each object \(A \in {\cal C}\) has a unique identity
+morphism.</li>
+<li>If \(f\) is an isomorphism in a category, prove that its inverse is unique.</li>
+</ol>
+
+</div>
+
+<p>
+We have \(id = id \circ id' = id'\) and \(\varphi^{-1} = \varphi' \circ \varphi \circ \varphi^{-1} = \varphi'\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgde9c1e8" class="outline-3">
+<h3 id="orgde9c1e8">2. Hom and Tensor</h3>
+<div class="outline-text-3" id="text-orgde9c1e8">
+</div><div id="outline-container-orgb7d1f7d" class="outline-4">
+<h4 id="orgb7d1f7d">2.1. Modules</h4>
+<div class="outline-text-4" id="text-orgb7d1f7d">
+</div><div id="outline-container-org574c449" class="outline-5">
+<h5 id="org574c449">Representation of a ring</h5>
+<div class="outline-text-5" id="text-org574c449">
+<p>
+A <b>representation</b> of \(R\) is an homomorphism \(\varphi : R \longrightarrow End_\mathbb{Z}(M)\).
+</p>
+</div>
+
+<div id="outline-container-org2a7a25d" class="outline-6">
+<h6 id="org2a7a25d">Equivalence of representations and modules</h6>
+<div class="outline-text-6" id="text-org2a7a25d">
+<p>
+The product of a R-module is a representation, and every
+representation gives an R-module.
+</p>
+</div>
+
+<div id="outline-container-org80a7eca" class="outline-7">
+<h7 id="org80a7eca">Equivalence of types</h7>
+<div class="outline-text-7" id="text-org80a7eca">
+<p>
+Type of a representation:
+</p>
+
+<p>
+\[R \longrightarrow End(M)\]
+</p>
+
+<p>
+Type of an R-module product:
+</p>
+
+<p>
+\[R \times M \longrightarrow M\]
+</p>
+
+<p>
+Both types are equivalent.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3742e7b" class="outline-5">
+<h5 id="org3742e7b">Example: Group ring</h5>
+<div class="outline-text-5" id="text-org3742e7b">
+<p>
+Given \(G\), a group, and \(R\), a ring; we define the group ring, \(RG\) to be
+the set of functions \(G \longrightarrow R\) of finite support, with the operations:
+</p>
+
+<ul class="org-ul">
+<li>Sum of functions: \((f+g)(a) = f(a)+g(a)\)</li>
+<li>Convolution (product): \((f\cdot g)(a) = \sum_{uv = a} f(u)g(v)\)</li>
+<li>Product by a scalar on \(R\): \((kf)(a) = kf(a)\)</li>
+</ul>
+
+<p>
+It defines a ring and an R-module.
+</p>
+</div>
+
+<div id="outline-container-orgbbc321c" class="outline-6">
+<h6 id="orgbbc321c">Inclusion of the group</h6>
+<div class="outline-text-6" id="text-orgbbc321c">
+<p>
+The group can be included on \(RG\) with the indicator function \(y \mapsto 1_{(=y)}\),
+defined as:
+</p>
+
+<p>
+\[
+y(a) = 1_{(=y)}(a) =
+\left\{\begin{array}{ll} 
+1 & \mbox{if } a = y  \\
+0 & \mbox{if } a \neq y
+\end{array} 
+\right.
+\]
+</p>
+
+<p>
+A function that only outputs \(1\) when its input is \(y\).
+</p>
+</div>
+
+<div id="outline-container-org76c6c4e" class="outline-7">
+<h7 id="org76c6c4e">Preservation of the product</h7>
+<div class="outline-text-7" id="text-org76c6c4e">
+<p>
+\[
+1_{(=y)}\cdot 1_{(=z)} (a)
+=
+\sum_{u\cdot v = a} 1_{u=y}1_{v=z}
+=
+1_{a=yz}
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d23715" class="outline-5">
+<h5 id="org6d23715">Additive functors</h5>
+<div class="outline-text-5" id="text-org6d23715">
+<p>
+A functor \(T : \mathtt{RMod} \longrightarrow \mathtt{Ab}\) is called <b>additive</b> if, for every pair of R-maps,
+\(f,g\), we have:
+</p>
+
+<p>
+\[
+T(f+g) = Tf + Tg
+\]
+</p>
+</div>
+
+<div id="outline-container-orgbc10c80" class="outline-6">
+<h6 id="orgbc10c80">Properties of additive functors</h6>
+<div class="outline-text-6" id="text-orgbc10c80">
+<p>
+Let \(T : \mathtt{RMod} \longrightarrow \mathtt{Ab}\) be an additive functor:
+</p>
+
+<ol class="org-ol">
+<li>\(T(0) = 0\), the zero map.</li>
+<li>\(T(\{0\}) = \{0\}\), the zero group.</li>
+</ol>
+</div>
+
+<div id="outline-container-org9be7337" class="outline-7">
+<h7 id="org9be7337">Proof</h7>
+<div class="outline-text-7" id="text-org9be7337">
+</div><div id="outline-container-orgb63d327" class="outline-8">
+<h8 id="orgb63d327">First property</h8>
+<div class="outline-text-8" id="text-orgb63d327">
+<p>
+\(T0 = T(0+0) = T0+T0\), and then \(T0 = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org44fe345" class="outline-8">
+<h8 id="org44fe345">Second property</h8>
+<div class="outline-text-8" id="text-org44fe345">
+<p>
+\(Hom(A,\{0\})\) only has one element.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org07154e2" class="outline-5">
+<h5 id="org07154e2">Homomorphisms of r-modules are abelian groups</h5>
+<div class="outline-text-5" id="text-org07154e2">
+<p>
+Given \(A,B\) R-modules, \(Hom_{R-mod}(A,B)\) is an abelian group with the
+componentwise sum.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9ee19a3" class="outline-5">
+<h5 id="org9ee19a3">Hom as an additive functor</h5>
+<div class="outline-text-5" id="text-org9ee19a3">
+<p>
+\(Hom_{R-mod}(A,-)\) is an additive functor.
+</p>
+</div>
+
+<div id="outline-container-org09b76ca" class="outline-6">
+<h6 id="org09b76ca"><span class="todo TODO">TODO</span> Central case</h6>
+</div>
+</div>
+
+<div id="outline-container-org7cb347d" class="outline-5">
+<h5 id="org7cb347d"><span class="todo TODO">TODO</span> Hom as a contravariant functor</h5>
+</div>
+<div id="outline-container-org318f0d7" class="outline-5">
+<h5 id="org318f0d7">Submodules</h5>
+<div class="outline-text-5" id="text-org318f0d7">
+<p>
+Given \(M\), an R-module, a <b>submodule</b> \(N \subseteq M\) is an additive subgroup
+closed under scalar multiplication.
+</p>
+</div>
+
+<div id="outline-container-orga40abf4" class="outline-6">
+<h6 id="orga40abf4">Examples of submodules</h6>
+<div class="outline-text-6" id="text-orga40abf4">
+</div><div id="outline-container-org1cc8a84" class="outline-7">
+<h7 id="org1cc8a84">Subgroups</h7>
+<div class="outline-text-7" id="text-org1cc8a84">
+<p>
+A submodule of a Z-module (abelian group) is a subgroup.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbc52aea" class="outline-5">
+<h5 id="orgbc52aea">Quotient of modules</h5>
+</div>
+<div id="outline-container-org6894bdc" class="outline-5">
+<h5 id="org6894bdc">Kernels, images and cokernels</h5>
+</div>
+<div id="outline-container-org8c3ca7b" class="outline-5">
+<h5 id="org8c3ca7b">First Isomorphism Theorem</h5>
+</div>
+<div id="outline-container-org30f8b1f" class="outline-5">
+<h5 id="org30f8b1f">Second Isomorphism Theorem</h5>
+</div>
+<div id="outline-container-orgd414cc9" class="outline-5">
+<h5 id="orgd414cc9">Third Isomorphism Theorem</h5>
+</div>
+<div id="outline-container-org493ca11" class="outline-5">
+<h5 id="org493ca11">Correspondence Theorem</h5>
+</div>
+<div id="outline-container-org1c78cf9" class="outline-5">
+<h5 id="org1c78cf9">Simple module</h5>
+<div class="outline-text-5" id="text-org1c78cf9">
+<p>
+A proper R-module \(M\) is simple if it has no proper submodules.
+</p>
+</div>
+
+<div id="outline-container-orga285aad" class="outline-6">
+<h6 id="orga285aad">Characterization</h6>
+<div class="outline-text-6" id="text-orga285aad">
+<p>
+\(M\) is simple iff \(M \cong R/I\), where \(I\) is a maximal left ideal.
+</p>
+</div>
+
+<div id="outline-container-org74be818" class="outline-7">
+<h7 id="org74be818"><span class="todo TODO">TODO</span> Proof</h7>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org83f6e8c" class="outline-5">
+<h5 id="org83f6e8c">Exact sequences</h5>
+</div>
+<div id="outline-container-org1eae683" class="outline-5">
+<h5 id="org1eae683">Zero-ended exact sequences</h5>
+</div>
+<div id="outline-container-orge17b9cf" class="outline-5">
+<h5 id="orge17b9cf">Short exact sequences</h5>
+</div>
+<div id="outline-container-orgfb11373" class="outline-5">
+<h5 id="orgfb11373">External direct sum</h5>
+<div class="outline-text-5" id="text-orgfb11373">
+</div><div id="outline-container-orgd5c9c12" class="outline-6">
+<h6 id="orgd5c9c12">Properties of the external direct sum</h6>
+</div>
+</div>
+<div id="outline-container-org65d7881" class="outline-5">
+<h5 id="org65d7881">Internal direct sum</h5>
+</div>
+<div id="outline-container-org8ac05e0" class="outline-5">
+<h5 id="org8ac05e0">Direct summands and complements</h5>
+<div class="outline-text-5" id="text-org8ac05e0">
+</div><div id="outline-container-orgbe189e4" class="outline-6">
+<h6 id="orgbe189e4">Retractions</h6>
+</div>
+</div>
+<div id="outline-container-org61f09ba" class="outline-5">
+<h5 id="org61f09ba">Direct product</h5>
+<div class="outline-text-5" id="text-org61f09ba">
+</div><div id="outline-container-org4d5132e" class="outline-6">
+<h6 id="org4d5132e">Direct sum</h6>
+</div>
+<div id="outline-container-org426ec70" class="outline-6">
+<h6 id="org426ec70">Projections</h6>
+</div>
+<div id="outline-container-orgd51b82d" class="outline-6">
+<h6 id="orgd51b82d">Injections</h6>
+</div>
+</div>
+<div id="outline-container-orga2ce316" class="outline-5">
+<h5 id="orga2ce316">Free modules</h5>
+<div class="outline-text-5" id="text-orga2ce316">
+</div><div id="outline-container-org847f3aa" class="outline-6">
+<h6 id="org847f3aa">Basis</h6>
+</div>
+<div id="outline-container-orga5217b8" class="outline-6">
+<h6 id="orga5217b8">Free abelian groups</h6>
+</div>
+</div>
+<div id="outline-container-orgae37672" class="outline-5">
+<h5 id="orgae37672">Basis</h5>
+<div class="outline-text-5" id="text-orgae37672">
+</div><div id="outline-container-org4675351" class="outline-6">
+<h6 id="org4675351">Invariant basis number</h6>
+</div>
+<div id="outline-container-org82bc809" class="outline-6">
+<h6 id="org82bc809">Rank</h6>
+</div>
+</div>
+<div id="outline-container-org9be3419" class="outline-5">
+<h5 id="org9be3419">Left exactness</h5>
+</div>
+</div>
+<div id="outline-container-orge0d5744" class="outline-4">
+<h4 id="orge0d5744">2.2. Tensor products</h4>
+<div class="outline-text-4" id="text-orge0d5744">
+</div><div id="outline-container-org14d96f8" class="outline-5">
+<h5 id="org14d96f8">Bilinearity</h5>
+<div class="outline-text-5" id="text-org14d96f8">
+</div><div id="outline-container-org25aab37" class="outline-6">
+<h6 id="org25aab37">Biadditivity</h6>
+</div>
+</div>
+<div id="outline-container-orge4356b1" class="outline-5">
+<h5 id="orge4356b1">Tensor product</h5>
+<div class="outline-text-5" id="text-orge4356b1">
+</div><div id="outline-container-org3a23317" class="outline-6">
+<h6 id="org3a23317">Uniqueness</h6>
+</div>
+<div id="outline-container-orgc3663a3" class="outline-6">
+<h6 id="orgc3663a3">Existence</h6>
+</div>
+</div>
+<div id="outline-container-orgcf79e55" class="outline-5">
+<h5 id="orgcf79e55">Tensor functors</h5>
+</div>
+<div id="outline-container-orgf0825ca" class="outline-5">
+<h5 id="orgf0825ca">Universal property of the tensor product</h5>
+</div>
+<div id="outline-container-orgc9ae0cd" class="outline-5">
+<h5 id="orgc9ae0cd">Commutativity</h5>
+</div>
+<div id="outline-container-org1e111b6" class="outline-5">
+<h5 id="org1e111b6">Enveloping algebra</h5>
+</div>
+<div id="outline-container-org5b49826" class="outline-5">
+<h5 id="org5b49826">Right exactness</h5>
+</div>
+<div id="outline-container-orgd933ca5" class="outline-5">
+<h5 id="orgd933ca5">Tensor and direct sum</h5>
+</div>
+<div id="outline-container-org53cb917" class="outline-5">
+<h5 id="org53cb917">Four Lemma I</h5>
+</div>
+<div id="outline-container-orgcd0d804" class="outline-5">
+<h5 id="orgcd0d804">Four Lemma II</h5>
+</div>
+<div id="outline-container-orgeda6415" class="outline-5">
+<h5 id="orgeda6415">Five Lemma</h5>
+</div>
+<div id="outline-container-orgdf517e0" class="outline-5">
+<h5 id="orgdf517e0">Divisible abelian group</h5>
+</div>
+</div>
+<div id="outline-container-org8507f34" class="outline-4">
+<h4 id="org8507f34">2.2.1. Adjoint isomorphisms</h4>
+<div class="outline-text-4" id="text-org8507f34">
+</div><div id="outline-container-orge72d20c" class="outline-5">
+<h5 id="orge72d20c">Adjoint isomorphisms</h5>
+</div>
+<div id="outline-container-org6a3b668" class="outline-5">
+<h5 id="org6a3b668">Right exactness</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-org6c9b0d4" class="outline-3">
+<h3 id="org6c9b0d4">3. Special Modules</h3>
+<div class="outline-text-3" id="text-org6c9b0d4">
+</div><div id="outline-container-org904de51" class="outline-4">
+<h4 id="org904de51">3.1. Projective modules</h4>
+<div class="outline-text-4" id="text-org904de51">
+</div><div id="outline-container-org1a33f5a" class="outline-5">
+<h5 id="org1a33f5a">Exact functor</h5>
+</div>
+<div id="outline-container-org98a0457" class="outline-5">
+<h5 id="org98a0457">Lifting on free modules</h5>
+</div>
+<div id="outline-container-org75e4b04" class="outline-5">
+<h5 id="org75e4b04">Lifting</h5>
+</div>
+<div id="outline-container-orgb35c60f" class="outline-5">
+<h5 id="orgb35c60f">Projective modules</h5>
+</div>
+<div id="outline-container-org48c4f73" class="outline-5">
+<h5 id="org48c4f73">Characterization of projective modules</h5>
+</div>
+<div id="outline-container-orgf080d4f" class="outline-5">
+<h5 id="orgf080d4f">Projective modules and direct summands</h5>
+</div>
+<div id="outline-container-org42761a9" class="outline-5">
+<h5 id="org42761a9">Kaplansky theorem</h5>
+</div>
+<div id="outline-container-org4d06617" class="outline-5">
+<h5 id="org4d06617">Projective basis</h5>
+</div>
+<div id="outline-container-orga12033b" class="outline-5">
+<h5 id="orga12033b">Schnauel's Lemma</h5>
+</div>
+<div id="outline-container-orgb5dfc98" class="outline-5">
+<h5 id="orgb5dfc98">Ascending chaing condition</h5>
+</div>
+<div id="outline-container-org0c8296c" class="outline-5">
+<h5 id="org0c8296c">Noetherian rings</h5>
+</div>
+<div id="outline-container-orgcd78f6f" class="outline-5">
+<h5 id="orgcd78f6f">Characterization of noetherian rings</h5>
+</div>
+<div id="outline-container-org58a94d8" class="outline-5">
+<h5 id="org58a94d8">Hilbert basis theorem</h5>
+</div>
+</div>
+<div id="outline-container-org34bd8b9" class="outline-4">
+<h4 id="org34bd8b9">3.2. Injective modules</h4>
+<div class="outline-text-4" id="text-org34bd8b9">
+</div><div id="outline-container-orge87d1ff" class="outline-5">
+<h5 id="orge87d1ff">Injective module</h5>
+</div>
+<div id="outline-container-org5243d41" class="outline-5">
+<h5 id="org5243d41">Characterization of injective modules</h5>
+</div>
+<div id="outline-container-org9677ab2" class="outline-5">
+<h5 id="org9677ab2">Product of injective modules</h5>
+</div>
+<div id="outline-container-org4fb7140" class="outline-5">
+<h5 id="org4fb7140">Baer criterion</h5>
+</div>
+<div id="outline-container-org582d31c" class="outline-5">
+<h5 id="org582d31c">Divisible modules</h5>
+</div>
+<div id="outline-container-org624f277" class="outline-5">
+<h5 id="org624f277">Bass-Papp theorem</h5>
+</div>
+<div id="outline-container-org7124d60" class="outline-5">
+<h5 id="org7124d60">Characterization by short exact sequences</h5>
+</div>
+<div id="outline-container-org90aae73" class="outline-5">
+<h5 id="org90aae73">Essential extension</h5>
+</div>
+<div id="outline-container-orgbb05c2e" class="outline-5">
+<h5 id="orgbb05c2e">Characterizacion by essential extensions</h5>
+</div>
+<div id="outline-container-orgc35c25f" class="outline-5">
+<h5 id="orgc35c25f">Injective envelope</h5>
+</div>
+<div id="outline-container-orgc658619" class="outline-5">
+<h5 id="orgc658619">Eckmann-Schöpf</h5>
+</div>
+</div>
+<div id="outline-container-orgd4fca11" class="outline-4">
+<h4 id="orgd4fca11">3.3. Flat modules</h4>
+<div class="outline-text-4" id="text-orgd4fca11">
+</div><div id="outline-container-orgb976eb8" class="outline-5">
+<h5 id="orgb976eb8">Flat module</h5>
+</div>
+<div id="outline-container-org6c306ce" class="outline-5">
+<h5 id="org6c306ce">Direct sum of flat modules</h5>
+</div>
+<div id="outline-container-orgf0ca44d" class="outline-5">
+<h5 id="orgf0ca44d">Finitely generated submodules and flat modules</h5>
+</div>
+<div id="outline-container-orga54b652" class="outline-5">
+<h5 id="orga54b652">Torsion module</h5>
+</div>
+<div id="outline-container-orga95a561" class="outline-5">
+<h5 id="orga95a561">Torsion-free module</h5>
+<div class="outline-text-5" id="text-orga95a561">
+</div><div id="outline-container-org9a3ab88" class="outline-6">
+<h6 id="org9a3ab88">PID module</h6>
+</div>
+<div id="outline-container-orgaed54ec" class="outline-6">
+<h6 id="orgaed54ec">Flat modules</h6>
+</div>
+</div>
+<div id="outline-container-orgeb0d452" class="outline-5">
+<h5 id="orgeb0d452">Character module</h5>
+</div>
+<div id="outline-container-org939b46f" class="outline-5">
+<h5 id="org939b46f">Lambek theorem</h5>
+</div>
+<div id="outline-container-orgd15bc08" class="outline-5">
+<h5 id="orgd15bc08">Villamayor theorem</h5>
+</div>
+<div id="outline-container-orgdf3d4db" class="outline-5">
+<h5 id="orgdf3d4db">Left coherent ring</h5>
+</div>
+<div id="outline-container-org7500682" class="outline-5">
+<h5 id="org7500682">Chase theorem</h5>
+</div>
+</div>
+<div id="outline-container-org4b82eb7" class="outline-4">
+<h4 id="org4b82eb7">3.3.1. Purity</h4>
+<div class="outline-text-4" id="text-org4b82eb7">
+</div><div id="outline-container-org9d4e3d7" class="outline-5">
+<h5 id="org9d4e3d7">Pure exact sequence</h5>
+<div class="outline-text-5" id="text-org9d4e3d7">
+</div><div id="outline-container-org0e64388" class="outline-6">
+<h6 id="org0e64388">Pure submodule</h6>
+</div>
+</div>
+<div id="outline-container-org3454b1f" class="outline-5">
+<h5 id="org3454b1f">Characterization of flatness</h5>
+</div>
+<div id="outline-container-org8473a19" class="outline-5">
+<h5 id="org8473a19">Cohn theorem</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-org1df6bbc" class="outline-3">
+<h3 id="org1df6bbc">4. Specific Rings</h3>
+<div class="outline-text-3" id="text-org1df6bbc">
+</div><div id="outline-container-orgda964b5" class="outline-4">
+<h4 id="orgda964b5">4.2. Von Neumann Regular Rings</h4>
+<div class="outline-text-4" id="text-orgda964b5">
+</div><div id="outline-container-org9419cbc" class="outline-5">
+<h5 id="org9419cbc">Von Neumann Regular ring</h5>
+<div class="outline-text-5" id="text-org9419cbc">
+<p>
+A ring \(R\) is <b>Von Neumann regular</b> if:
+</p>
+
+<p>
+\[
+\forall r \in R: \exists r' \in R: rr'r = r
+\]
+</p>
+</div>
+
+<div id="outline-container-org7357e1a" class="outline-6">
+<h6 id="org7357e1a">Boolean rings</h6>
+<div class="outline-text-6" id="text-org7357e1a">
+<p>
+A ring is boolean if every element is idempotent. Every boolean ring
+is a commutative Von Neumann regular ring.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc5aed7d" class="outline-3">
+<h3 id="orgc5aed7d">5. Setting the stage</h3>
+<div class="outline-text-3" id="text-orgc5aed7d">
+</div><div id="outline-container-org07f92f9" class="outline-4">
+<h4 id="org07f92f9">5.4. Sheaves</h4>
+<div class="outline-text-4" id="text-org07f92f9">
+</div><div id="outline-container-org1719f64" class="outline-5">
+<h5 id="org1719f64">Protosheaves</h5>
+<div class="outline-text-5" id="text-org1719f64">
+<div class="definition">
+<p>
+<b>Local homeomorphism</b>. Continuous map \(p : E \longrightarrow X\) such that for each \(e \in E\) there is
+an open neighboorhood \(S\) of \(e\) such that \(p|_S\) is an isomorphism.
+</p>
+
+</div>
+<div class="definition">
+<p>
+<b>Protosheaf</b>. Surjective local homeomorphism.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8ece648" class="outline-5">
+<h5 id="org8ece648">Etale-sheaves</h5>
+<div class="outline-text-5" id="text-org8ece648">
+<div class="definition">
+<p>
+<b>Etale-sheaf of abelian groups</b>. A <b>protosheaf</b> such that:
+</p>
+
+<ul class="org-ul">
+<li>The stalk \(E_x\) is an abelian group.</li>
+<li>Inversion and adition are continuous.</li>
+</ul>
+
+</div>
+
+<div class="definition">
+<p>
+<b>Etale-map</b>. Given two etale-sheaves \(E\) and \(E'\), a map \(\phi : E \longrightarrow E'\) such
+that \(p'\phi = p\), and each \(\phi|_{E_x}\) is a homomorphism.
+</p>
+
+</div>
+
+<p>
+Here, etale-sheaves of abelian groups over a topological space X form an
+abelian category \(\mathtt{Sh}_{et}(X,\mathtt{Ab})\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org565870e" class="outline-4">
+<h4 id="org565870e">5.5. Abelian categories</h4>
+<div class="outline-text-4" id="text-org565870e">
+</div><div id="outline-container-org2510960" class="outline-5">
+<h5 id="org2510960">Additive category</h5>
+<div class="outline-text-5" id="text-org2510960">
+<div class="definition">
+<p>
+<b>Additive category</b>. \({\cal C}\) is additive if:
+</p>
+
+<ul class="org-ul">
+<li>\(Hom(A,B)\) is an <b>abelian group</b>.</li>
+<li><b>Distributivity</b> holds: \(b \circ (f+g) = b\circ f + b \circ g\) and \((f+g)\circ a = f\circ a + g\circ a\).</li>
+<li>Has a <b>zero object</b>.</li>
+<li>Has finite <b>products</b> and <b>coproducts</b>.</li>
+</ul>
+
+<p>
+A functor \(T\) between two additive categories is additive if \(T(f+g) = Tf+Tg\).
+</p>
+
+</div>
+
+<div class="theorem">
+<p>
+<b>Sums and products are the same</b>. Products and coproducts are isomorphic:
+</p>
+
+<p>
+\[A \mathbin{\Pi} B \cong A \amalg B\]
+</p>
+
+<p>
+So we call them <b>direct sums</b>, \(A \oplus B\). And there are canonical morphisms:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+ & A \oplus B \dlar[bend right,swap]{\pi_A} \drar[bend left]{\pi_B} $ \\
+ A \urar[bend right,swap]{i_A} & & B \ular[bend left]{i_B}
+ \end{tikzcd} \]
+</p>
+
+<p>
+Such that: \(i_A \circ \pi_A + i_b \circ \pi_B = id\) and \(\pi_B \circ i_A = \pi_A \circ i_B = 0\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6b5b3ff" class="outline-5">
+<h5 id="org6b5b3ff">Monomorphisms and epimorphisms</h5>
+<div class="outline-text-5" id="text-org6b5b3ff">
+<div class="definition">
+<p>
+<b>Monomorphism</b>. A morphism \(u\) such that:
+\[u \circ f = u \circ g \quad \Rightarrow \quad f = g\]
+</p>
+
+</div>
+
+<div class="definition">
+<p>
+<b>Epimorphism</b>. A morphism \(u\) such that:
+\[f \circ u = g \circ u \quad \Rightarrow \quad f = g\]
+</p>
+
+</div>
+
+<p>
+We have that \(u : B \longrightarrow C\) is <b>monomorphism</b> iff the induced 
+\(u^\ast : Hom(A,B) \longrightarrow Hom(A,C)\) is injective. And \(v : B \longrightarrow C\) is <b>epimorphism</b> 
+iff the induced \(v^* : Hom(B,D) \longrightarrow Hom(C,D)\) is surjective.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2c0d641" class="outline-5">
+<h5 id="org2c0d641">Kernels and cokernels</h5>
+<div class="outline-text-5" id="text-org2c0d641">
+<div class="definition">
+<p>
+<b>Kernel</b>. The kernel of \(u\) is the equalizer of \(u\) and \(0\). In a diagram:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+ & C \dar[dashed] \arrow[ddr, bend left] \arrow[ddl,bend right] &\\
+ & \ker(u) \dlar[swap]{i} \drar{0} & \\
+ A \arrow[shift left]{rr}{u} \arrow[shift right]{rr}[swap]{0} & & B
+ \end{tikzcd} \]
+</p>
+
+</div>
+<div class="definition">
+<p>
+<b>Cokernel</b>. The cokernel of \(u\) is the coequalizer of \(u\) ans \(0\). In a diagram
+</p>
+
+<p>
+\[ \begin{tikzcd}
+ & C &\\
+ & \ker(u) \uar[dashed]   & \\
+ A \urar{0} \arrow[uur, bend left]
+ \arrow[shift left]{rr}{u} \arrow[shift right]{rr}[swap]{0} & & 
+ B \ular[swap]{\pi} \arrow[uul,bend right]
+ \end{tikzcd} \]
+</p>
+
+</div>
+
+<div class="theorem">
+<p>
+<b>Monomorphisms and kernels</b>.
+</p>
+<ul class="org-ul">
+<li>If \(\ker(u)\) exists, \(u\) is monomorphism iff \(ker(u) = 0\).</li>
+<li>If \(coker(v)\) exists, \(v\) is epimorphism iff \(coker(v) = 0\).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org7800fa9" class="outline-5">
+<h5 id="org7800fa9">Abelian category</h5>
+<div class="outline-text-5" id="text-org7800fa9">
+<div class="definition">
+<p>
+<b>Abelian category</b>. \({\cal C}\) is abelian if
+</p>
+
+<ul class="org-ul">
+<li>Every morphism has <b>kernel</b> and <b>cokernel</b>.</li>
+<li>Every monomorphism is a <b>kernel</b>.</li>
+<li>Every epimorphism is a <b>cokernel</b>.</li>
+</ul>
+
+</div>
+
+<p>
+Abelian categories are <i>self-dual</i>, if \({\cal A}\) is an abelian category, then
+\({\cal A}^{op}\) is an abelian category.
+</p>
+
+<div class="definition">
+<p>
+<b>Image</b>. Given \(f : A \longrightarrow B\) in an abelian category, its image is:
+</p>
+
+<p>
+\[img(f) = ker(coker(f))\]
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5f77e6c" class="outline-2">
+<h2 id="org5f77e6c">Carlos Ivorra - Álgebra conmutativa</h2>
+<div class="outline-text-2" id="text-org5f77e6c">
+</div><div id="outline-container-orga71cfe7" class="outline-3">
+<h3 id="orga71cfe7">I. Funtores Derivados</h3>
+<div class="outline-text-3" id="text-orga71cfe7">
+</div><div id="outline-container-org36b033e" class="outline-4">
+<h4 id="org36b033e">1.1. Haces</h4>
+<div class="outline-text-4" id="text-org36b033e">
+</div><div id="outline-container-orgae75775" class="outline-5">
+<h5 id="orgae75775">Prehaces</h5>
+<div class="outline-text-5" id="text-orgae75775">
+<p>
+Un <b>prehaz</b> sobre un espacio topológico \(X\) es un par \(({\cal F},\rho)\), donde cada abierto \(U\)
+tiene un grupo asociado \({\cal F}(U)\) y cada inclusión \(U \subset V\) tiene asociado un homomorfismo
+llamado <b>restricción</b>, \(\rho_U^V : {\cal F}(V) \longrightarrow {\cal F}(U)\) cumpliendo:
+</p>
+
+<ul class="org-ul">
+<li>\({\cal F}(\varnothing) = 0\)</li>
+<li>\(\rho_U^U\) es la identidad</li>
+<li>Si \(U\subset V\subset W\), entonces \(\rho_V^W \circ \rho_U^V = \rho_U^W\)</li>
+</ul>
+
+<p>
+Cuando los grupos \({\cal F}(U)\) son anillos o módulos tenemos un <b>prehaz de anillos</b> o un
+<b>prehax de módulos</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf7e24b3" class="outline-5">
+<h5 id="orgf7e24b3">Notación de restricción</h5>
+<div class="outline-text-5" id="text-orgf7e24b3">
+<p>
+Normalmente escribiremos \(f|_{U}\) para llamar a la restricción de \(f\) a \(U\), esto 
+es \(\rho_U^V(f)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9080ef6" class="outline-5">
+<h5 id="org9080ef6">Haces</h5>
+<div class="outline-text-5" id="text-org9080ef6">
+<p>
+Un <b>haz</b> es un prehaz tal que si \(U = \bigcup U_i\) es el recubrimiento de un abierto:
+</p>
+
+<ul class="org-ul">
+<li>Si \(f|_{U_i} = 0\) para todos los \(i\), entonces \(f = 0\).</li>
+<li>Para una familia de elementos \(f_i \in {\cal F}(U_i)\) cumpliendo que 
+\(f_i|_{U_i \cap U_j} = f_j|_{U_i \cap U_j}\), se tiene que hay un \(f \in {\cal F}(U)\) tal que \(f|_{U_i} = f_i\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org18538f0" class="outline-5">
+<h5 id="org18538f0">Grupo de gérmenes o grupo local</h5>
+<div class="outline-text-5" id="text-org18538f0">
+<p>
+Dado un prehaz \({\cal F}\) sobre \(X\), con \(P \in X\), llamamos <b>grupo de gérmenes</b> en \(P\) al grupo
+\({\cal F}_P\), formado por las clases de equivalencia de pares \((U,f)\) con \(P\in U\), \(f \in {\cal F}(U)\);
+respecto de la relación dada por \((U,f) \sim (V,g)\) ssi hay un abierto \(W \subset U \cap V\)
+tal que \(P \in W\) y además \(f|_W = g|_W\). Teniendo como operación de grupo a:
+</p>
+
+<p>
+\[ [(U,f)]+[(V,g)] = [(U\cap V, f|_{U\cap V} + g|_{U\cap V})] \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa67dec" class="outline-5">
+<h5 id="orgaa67dec">Homomorfismo de prehaces</h5>
+<div class="outline-text-5" id="text-orgaa67dec">
+<p>
+Un <b>homomorfismo de prehaces</b> \(\alpha : {\cal F} \longrightarrow {\cal G}\), asigna a cada abierto \(U\) un homomorfismo
+de grupos \(\alpha_U : {\cal F}(U) \longrightarrow {\cal G}(U)\), tal que:
+</p>
+
+<p>
+\[ \begin{tikzcd}
+{\cal F}(V) \rar{\alpha_V} \dar[swap]{\rho_U^V} & {\cal G}(V) \dar{\rho_U^V} \\
+{\cal F}(U) \rar{\alpha_U} & {\cal G}(U)
+\end{tikzcd} \]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2017-12-03 Sun 11:58</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

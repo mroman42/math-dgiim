@@ -1,0 +1,1948 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en,es" xml:lang="en,es">
+<head>
+<!-- 2017-12-03 Sun 11:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Intermediate logic</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<meta name="description" content="Open Logic - Richard Zach"
+ />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Intermediate logic</h1>
+
+<div id="outline-container-org96a977f" class="outline-2">
+<h2 id="org96a977f">II. First-order logic</h2>
+<div class="outline-text-2" id="text-org96a977f">
+</div><div id="outline-container-org96a30f0" class="outline-3">
+<h3 id="org96a30f0">5. Syntax and Semantics</h3>
+<div class="outline-text-3" id="text-org96a30f0">
+</div><div id="outline-container-org26654a3" class="outline-4">
+<h4 id="org26654a3">5.1. Introduction</h4>
+<div class="outline-text-4" id="text-org26654a3">
+<dl class="org-dl">
+<dt>Syntax</dt><dd>how well-formed terms and formulas can be defined.</dd>
+<dt>Semantics</dt><dd>how meaning can be given to expressions.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org7cf98d6" class="outline-4">
+<h4 id="org7cf98d6">5.2. First-order languages</h4>
+<div class="outline-text-4" id="text-org7cf98d6">
+<p>
+Any first-order language \({\cal L}\) is determined by logical, non-logical
+symbols and some punctuation marks.
+</p>
+</div>
+
+<div id="outline-container-org70757e2" class="outline-5">
+<h5 id="org70757e2">Logical symbols</h5>
+<div class="outline-text-5" id="text-org70757e2">
+<ol class="org-ol">
+<li>Logical connectives: \(\neg,\land,\lor,\forall,\exists\),</li>
+<li>Propositional constant for falsity: \(\bot\),</li>
+<li>Binary identity predicate: \(=\),</li>
+<li>Numerable set of variables: e\(v_0,v_1,\dots\)</li>
+</ol>
+
+<p>
+We assume \(\top\) and \(\leftrightarrow\) as defined as abbreviatures. We could use 
+"truth functionally complete" subsets of boolean operators such
+as \(\{\neg,\lor\}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6a95b29" class="outline-5">
+<h5 id="org6a95b29">Non-logical symbols</h5>
+<div class="outline-text-5" id="text-org6a95b29">
+<ol class="org-ol">
+<li>A numerable set of n-ary predicates for each \(n>0\), as \(\{A_0^n,A_1^n,\dots\}\),</li>
+<li>A numerable set of constants \(c_0,\dots\),</li>
+<li>A numerable set of n-ary functions, as \(\{f_0^n,f_1^n,\dots\}\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgdd68d2e" class="outline-5">
+<h5 id="orgdd68d2e">Examples</h5>
+<div class="outline-text-5" id="text-orgdd68d2e">
+<ul class="org-ul">
+<li>Arithmetic with \(S,O,<,+,\times\).</li>
+<li>Set theory with \(\in\).</li>
+<li>Orders with \(\leq\).</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf21e69a" class="outline-4">
+<h4 id="orgf21e69a">5.3. Terms and formulas</h4>
+<div class="outline-text-4" id="text-orgf21e69a">
+</div><div id="outline-container-org3f55801" class="outline-5">
+<h5 id="org3f55801">Terms</h5>
+<div class="outline-text-5" id="text-org3f55801">
+<p>
+The set of <b>terms</b> of a language \({\cal L}\) is defined inductively
+</p>
+
+<ol class="org-ol">
+<li>variables are terms,</li>
+<li>constants are terms,</li>
+<li>given an n-ary function and \(n\) terms, \(f(t_1,\dots,t_n)\)
+is a term.</li>
+</ol>
+
+<p>
+Constants are regarded as 0-ary functions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge3619e1" class="outline-5">
+<h5 id="orge3619e1">Formulas</h5>
+<div class="outline-text-5" id="text-orge3619e1">
+<p>
+The set of <b>formulas</b> of a language \({\cal L}\) is defined inductively
+</p>
+
+<ol class="org-ol">
+<li>\(\bot\) is a formula;</li>
+<li>given any n-ary predicate and \(n\) terms, \(R(t_1,\dots,t_n)\) is
+a formula;</li>
+<li>given any two terms, \(t_1 = t_{2}\) is a formula;</li>
+<li>\(\neg \varphi\);</li>
+<li>\(\varphi \lor \psi\);</li>
+<li>\(\varphi \land \psi\);</li>
+<li>\(\varphi \to \psi\);</li>
+<li>\(\forall x. \varphi\);</li>
+<li>\(\exists x.\varphi\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org1f89d85" class="outline-5">
+<h5 id="org1f89d85">Syntatic identity</h5>
+<div class="outline-text-5" id="text-org1f89d85">
+<p>
+Two strings of symbols are syntatically identical, \(\varphi \equiv \psi\), if
+they contain the same symbols in the same place.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org07b5b5e" class="outline-4">
+<h4 id="org07b5b5e">5.4. Unique readability</h4>
+<div class="outline-text-4" id="text-org07b5b5e">
+<p>
+Every formula has a unique reading. The correct definitions, using
+parentheses constraint the set of possible formulas.  The number of
+left and right parentheses in a formula are equal, by induction.
+</p>
+</div>
+
+<div id="outline-container-org34cd0cb" class="outline-5">
+<h5 id="org34cd0cb">Proper prefixes</h5>
+<div class="outline-text-5" id="text-org34cd0cb">
+<p>
+A string \(\varphi\) is a <b>proper prefix</b> of \(\psi\) if it can be obtained by 
+appending symbols to \(\varphi\).
+</p>
+
+<div class="lemma">
+<p>
+Every proper prefix of a formula is not a formula.
+</p>
+
+</div>
+<div class="proof">
+<p>
+Using the fact that there is an equal number of left and right
+parentheses in every formula.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc9c82a7" class="outline-5">
+<h5 id="orgc9c82a7">Unique readability</h5>
+<div class="outline-text-5" id="text-orgc9c82a7">
+<p>
+Every atomic formula satisfies one and only one of the following
+conditions
+</p>
+
+<ol class="org-ol">
+<li>\(\varphi \equiv \bot\)</li>
+<li>\(\varphi \equiv R(t_1,\dots,t_n)\)</li>
+<li>\(\varphi \equiv t_1 = t_2\)</li>
+</ol>
+
+<p>
+And every formula is of the form
+</p>
+
+<ol class="org-ol">
+<li>atomic</li>
+<li>\(\neg \psi\)</li>
+<li>\(\varphi \lor \psi\)</li>
+<li>\(\varphi \land \psi\)</li>
+<li>\(\psi \to \varphi\)</li>
+<li>\(\forall x.\psi\)</li>
+<li>\(\exists x.\psi\)</li>
+</ol>
+
+<p>
+The proof crucially uses the fact that no formula is a proper prefix
+of any other formula.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org484e08f" class="outline-4">
+<h4 id="org484e08f">5.5. Main operator of a formula</h4>
+<div class="outline-text-4" id="text-org484e08f">
+<p>
+The outermost operator of a formula exists if the formula is not
+atomic. It is always unique, as we have proved earlier.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0e12a7a" class="outline-4">
+<h4 id="org0e12a7a">5.6. Subformulas</h4>
+<div class="outline-text-4" id="text-org0e12a7a">
+</div><div id="outline-container-org629f3a2" class="outline-5">
+<h5 id="org629f3a2">Immediate subformulas</h5>
+<div class="outline-text-5" id="text-org629f3a2">
+<p>
+<b>Immediate subformulas</b> are defined inductively as
+</p>
+
+<ol class="org-ol">
+<li>no subformulas for atomic formulas;</li>
+<li>\(\varphi\) and \(\psi\) are immediate subformulas of \(\varphi \ast \psi\);</li>
+<li>\(\psi\) is an immediate subformula of \(\forall x.\psi\);</li>
+<li>\(\psi\) is an immediate subformula of \(\exists x.\psi\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org37dbac6" class="outline-5">
+<h5 id="org37dbac6">Proper subformulas</h5>
+<div class="outline-text-5" id="text-org37dbac6">
+<p>
+The <b>proper subformulas</b> of a formula are its immediate subformulas and
+their proper subformulas.
+</p>
+
+<p>
+We also consider the formula to be a non-proper subformula of itself.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org304e94e" class="outline-4">
+<h4 id="org304e94e">5.7. Free variables and sentences</h4>
+<div class="outline-text-4" id="text-org304e94e">
+<p>
+A variable appears <b>free</b> when it is not bounded by a quantifier. The
+precise definition can be trivially written by induction. Every
+bounded variable has a <b>scope</b>, a subformula over which the quantifier
+acts.
+</p>
+</div>
+
+<div id="outline-container-org4591379" class="outline-5">
+<h5 id="org4591379">Sentences</h5>
+<div class="outline-text-5" id="text-org4591379">
+<p>
+A formula is a <b>sentence</b> if it contains no free ocurrences of variables.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge9d48ce" class="outline-4">
+<h4 id="orge9d48ce">5.8. Substitution</h4>
+<div class="outline-text-4" id="text-orge9d48ce">
+<p>
+<b>Substitution</b> of a variable by a term, \(s[t/x]\), can be recursively
+defined as
+</p>
+
+<ul class="org-ul">
+<li>\(c[t/x]\) is \(c\), provided \(c\) is a constant;</li>
+<li>\(y[t/x]\) is \(y\), provided \(y\) is a variable;</li>
+<li>\(x[t/x]\) is \(t\);</li>
+<li>\(f(t_1,\dots,t_n)[t/x]\) is \(f(t_1[t/x],\dots,t_n[t/x])\).</li>
+</ul>
+
+<p>
+Substitution can be extended trivially to formulas; but we have to
+check that every term appears free for the variable in order to avoid
+undesired bounds for a variable.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfabc856" class="outline-4">
+<h4 id="orgfabc856">5.9. Structures for first-order languages</h4>
+<div class="outline-text-4" id="text-orgfabc856">
+<p>
+<b>Structures</b> are the basis for <i>semantic notions</i>. A structure \(\model\) for
+a language \({\cal L}\) consists of
+</p>
+
+<ol class="org-ol">
+<li>a <b>domain</b>, a non empty set \(|\model|\);</li>
+<li>an interpretation for each <b>constant</b>, \(c^{\model} \in |\model|\);</li>
+<li>an interpretation for each <b>predicate</b>, \(R^{\model} \subseteq |\model|^n\);</li>
+<li>an interpretation for each <b>function</b>, \(f^{\model} \colon |\model|^n\to |\model|\).</li>
+</ol>
+
+<p>
+Non emptiness ensures that the existential generalization is sound.
+</p>
+</div>
+
+<div id="outline-container-org8506ae9" class="outline-5">
+<h5 id="org8506ae9">Examples</h5>
+<div class="outline-text-5" id="text-org8506ae9">
+<ul class="org-ul">
+<li>Standard model of arithmetic.</li>
+<li>Structure of hereditarily finite sets.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8e0e5e8" class="outline-4">
+<h4 id="org8e0e5e8">5.10. Covered structures for first-order languages</h4>
+<div class="outline-text-4" id="text-org8e0e5e8">
+</div><div id="outline-container-org24a58d7" class="outline-5">
+<h5 id="org24a58d7">Values</h5>
+<div class="outline-text-5" id="text-org24a58d7">
+<p>
+The value of a term is defined recursively as
+</p>
+
+<ul class="org-ul">
+<li>\(\mathrm{Val}^{\model}(c) = c^{\model}\);</li>
+<li>\(\mathrm{Val}^{\model}(f(t_1,\dots,t_n)) = f^{\model}(\mathrm{Val}^{\model}(t_1),\dots \mathrm{Val}^{\model}(t_n))\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbaa28cd" class="outline-5">
+<h5 id="orgbaa28cd">Covered structures</h5>
+<div class="outline-text-5" id="text-orgbaa28cd">
+<p>
+A structure is covered if every element is the value of some
+closed term.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org07b6bae" class="outline-4">
+<h4 id="org07b6bae">5.11. Satisfaction of a formula in a structure</h4>
+<div class="outline-text-4" id="text-org07b6bae">
+</div><div id="outline-container-org34b539f" class="outline-5">
+<h5 id="org34b539f">Satisfaction</h5>
+<div class="outline-text-5" id="text-org34b539f">
+<p>
+A formula is <b>satisfied</b> in a structure if the interpretation makes
+the formula true.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org27ac024" class="outline-5">
+<h5 id="org27ac024">Variable assignment</h5>
+<div class="outline-text-5" id="text-org27ac024">
+<p>
+A problem with quantifiers arise when we try to interpret free variables.
+We need to define <b>variable assignments</b>, functions \(s : \mathrm{Var} \to |\model|\).
+</p>
+
+<p>
+The value of a variable \(x\) under an assignment \(s\) is given by \(s(x)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org01f6715" class="outline-5">
+<h5 id="org01f6715">x-Variant</h5>
+<div class="outline-text-5" id="text-org01f6715">
+<p>
+Any variable assignment \(s'\) which differs from \(s\) at most in one variable \(x\) is
+called an <b>x-variant</b>, and written as \(s \sim_x s'\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfd0b8a5" class="outline-5">
+<h5 id="orgfd0b8a5">Satisfaction</h5>
+<div class="outline-text-5" id="text-orgfd0b8a5">
+<p>
+<b>Satisfaction</b> of a formula \(\varphi\) in a structure \(\model\) relative to a variable
+assignment \(s\); written as \(\model,s \models \varphi\) is defined recursively as
+</p>
+
+<ol class="org-ol">
+<li>\(\model,s \not\models \bot\);</li>
+<li>\(\model, s \models R(t_1,\dots,t_n)\) iff \(\langle \mathrm{Val}^{\model}_s(t_1),\dots,\mathrm{Val}^{\model}_s(t_n) \rangle \in R^{\model}\);</li>
+<li>\(\model,s \models t_1 = t_2\) iff \(\mathrm{Val}^{\model}_s(t_1) = \mathrm{Val}^{\model}_s(t_2)\);</li>
+<li>\(\model,s \models \neg\varphi\) iff \(\model,s \not\models \varphi\);</li>
+<li>\(\model,s \models \varphi \land \psi\) iff \(\model,s \models \varphi\) and \(\model,s \models \psi\);</li>
+<li>\(\model,s \models \varphi \lor \psi\) iff \(\model,s \models \varphi\) or \(\model,s \models \psi\);</li>
+<li>\(\model,s \models \varphi \to \psi\) iff  \(\model,s \not\models \varphi\) or \(\model,s \models \psi\);</li>
+<li>\(\model,s \models \forall x. \varphi\) iff \(\model,s' \models \varphi\) for every x-variant \(s'\);</li>
+<li>\(\model,s \models \exists x. \varphi\) iff \(\model,s' \models \varphi\) for some x-variant \(s'\);</li>
+</ol>
+
+<p>
+Variable assignments are crucial here because we have to define a
+formula for every \(a \in |\model|\), but \(a\) is not a formula.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga470171" class="outline-4">
+<h4 id="orga470171">5.12. Variable assignments</h4>
+<div class="outline-text-4" id="text-orga470171">
+<p>
+Two assignments assigning the same value to the same free variables
+produce the same values and entail the same formulas. In particular,
+in the case of <b>sentences</b> without free variables, the truth value
+is independent of the variable assignment.
+</p>
+</div>
+
+<div id="outline-container-org0040d62" class="outline-5">
+<h5 id="org0040d62">Independence of variables in values</h5>
+<div class="outline-text-5" id="text-org0040d62">
+<div class="proposition">
+<p>
+If \(t\) has variables among \(x_1,\dots,x_n\) and \(s_1(x_i) = s_2(x_i)\); then
+\(\mathrm{Val}^{\model}_{s_1}(t) = \mathrm{Val}^{\model}_{s_2}(t)\).
+</p>
+
+</div>
+
+<p>
+Trivially by induction.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4e65e95" class="outline-5">
+<h5 id="org4e65e95">Independence of variables in formulas</h5>
+<div class="outline-text-5" id="text-org4e65e95">
+<div class="proposition">
+<p>
+If \(\varphi\) has variables among \(x_1,\dots,x_n\) and \(s_1(x_i) = s_2(x_i)\); then
+\(\model,s_1 \models \varphi\) iff \(\model,s_2 \models \varphi\).
+</p>
+
+</div>
+
+<p>
+Again by induction.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org045ae51" class="outline-5">
+<h5 id="org045ae51">Satisfaction in a structure</h5>
+<div class="outline-text-5" id="text-org045ae51">
+<p>
+A structure \(\model\) <b>satisfies</b> \(\varphi\), and it is written as \(\model \models \varphi\), if
+\(\model, s \models \varphi\) for all variable assignments \(s\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org70697f7" class="outline-4">
+<h4 id="org70697f7">5.13. Extensionality</h4>
+<div class="outline-text-4" id="text-org70697f7">
+<p>
+Where two structures agree on all elements, they entail the same truth
+values. If \(\model_1\) and \(\model_2\) agree on constants, relations and functions;
+\(\model_1,s \models \varphi\) iff \(\model_2,s \models \varphi\).
+</p>
+
+<p>
+In particular, this happens for any sentence.
+</p>
+</div>
+
+<div id="outline-container-org2f7295a" class="outline-5">
+<h5 id="org2f7295a">Dependence on subterms for values</h5>
+<div class="outline-text-5" id="text-org2f7295a">
+<p>
+Given a structure \(\model\) and \(s\) with \(s \sim_x s'\) given by \(s'(x) = \mathrm{Val}^{\model}_s(t')\).
+Then \(\mathrm{Val}^{\model}_s(t[t'/x]) = \mathrm{Val}^{\model}_{s'}(t)\).
+</p>
+</div>
+
+<div id="outline-container-orgb2ac97e" class="outline-6">
+<h6 id="orgb2ac97e">Proof by induction</h6>
+</div>
+</div>
+<div id="outline-container-orga43dc9e" class="outline-5">
+<h5 id="orga43dc9e">Dependence on subterms for formulas</h5>
+<div class="outline-text-5" id="text-orga43dc9e">
+<p>
+Given a structure \(\model\) and \(s\) with \(s \sim_x s'\) given by \(s'(x) = \mathrm{Val}^{\model}_s(t)\).
+Then \(\model,s \models \varphi[t/x]\) iff \(\model,s' \models \varphi\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3617c1e" class="outline-4">
+<h4 id="org3617c1e">5.14. Semantics notions</h4>
+<div class="outline-text-4" id="text-org3617c1e">
+<p>
+Semantic properties.
+</p>
+</div>
+
+<div id="outline-container-org512e5e7" class="outline-5">
+<h5 id="org512e5e7">Validity</h5>
+<div class="outline-text-5" id="text-org512e5e7">
+<p>
+\(\varphi\) is <b>valid</b>, written \(\models \varphi\) iff \(\model \models \varphi\) for every structure \(\model\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb92259e" class="outline-5">
+<h5 id="orgb92259e">Entailment</h5>
+<div class="outline-text-5" id="text-orgb92259e">
+<p>
+A set of sentences \(\Gamma\) <b>entails</b> \(\varphi\), written \(\Gamma \models \varphi\) iff \(\model \models \varphi\) for
+every structure such that \(\model \models \Gamma\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12ec525" class="outline-5">
+<h5 id="org12ec525">Satisfiability</h5>
+<div class="outline-text-5" id="text-org12ec525">
+<p>
+A set of sentences \(\Gamma\) is <b>satisfiable</b> if \(\model \models \Gamma\) for some structure
+\(\model\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5682c0d" class="outline-5">
+<h5 id="org5682c0d">Validity and entailment</h5>
+<div class="outline-text-5" id="text-org5682c0d">
+<p>
+A sentence \(\varphi\) is valid iff \(\Gamma \models \varphi\) for any set of sentences \(\Gamma\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3833ca4" class="outline-5">
+<h5 id="org3833ca4">Satisfiability and entailment</h5>
+<div class="outline-text-5" id="text-org3833ca4">
+<p>
+\(\Gamma \models \varphi\) iff \(\Gamma \cup \{\neg \varphi\}\) is unsatisfiable.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd8b1f86" class="outline-5">
+<h5 id="orgd8b1f86">Strengthening</h5>
+<div class="outline-text-5" id="text-orgd8b1f86">
+<p>
+If \(\Gamma \subseteq \Gamma'\) and \(\Gamma \models \varphi\), then \(\Gamma' \models \varphi\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8e0b6fe" class="outline-5">
+<h5 id="org8e0b6fe">Semantic deduction theorem</h5>
+<div class="outline-text-5" id="text-org8e0b6fe">
+<p>
+\(\Gamma \cup \{\varphi\} \models \psi\) iff \(\Gamma \models \varphi \to \psi\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1f525f1" class="outline-5">
+<h5 id="org1f525f1">Quantifiers and entailment</h5>
+<div class="outline-text-5" id="text-org1f525f1">
+<ol class="org-ol">
+<li>\(\varphi(t) \entail\exists x.\varphi(x)\),</li>
+<li>\(\forall x. \varphi(x) \entail \varphi(t)\).</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org749af83" class="outline-3">
+<h3 id="org749af83">6. Theories and their models</h3>
+<div class="outline-text-3" id="text-org749af83">
+</div><div id="outline-container-org5d07d31" class="outline-4">
+<h4 id="org5d07d31">6.1. Introduction</h4>
+<div class="outline-text-4" id="text-org5d07d31">
+</div><div id="outline-container-org9ec70b7" class="outline-5">
+<h5 id="org9ec70b7">Closure</h5>
+<div class="outline-text-5" id="text-org9ec70b7">
+<p>
+A set of sentences \(\Gamma\) is <b>closed</b> if it is equal to its closure,
+\(\{ \varphi : \Gamma \models \varphi\}\). \(\Gamma\) is <b>axiomatized</b> by \(\Delta\) if it is its closure.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7a5d25f" class="outline-4">
+<h4 id="org7a5d25f">6.2. Expressing properties of structures</h4>
+<div class="outline-text-4" id="text-org7a5d25f">
+</div><div id="outline-container-orgefad6b8" class="outline-5">
+<h5 id="orgefad6b8">Model</h5>
+<div class="outline-text-5" id="text-orgefad6b8">
+<p>
+The structure \(\model\) is a <b>model</b> of \(\Gamma\) if \(\model \models \varphi\) for all \(\varphi \in \Gamma\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2ddf7b0" class="outline-4">
+<h4 id="org2ddf7b0">6.3. Examples of first-order theories</h4>
+<div class="outline-text-4" id="text-org2ddf7b0">
+</div><div id="outline-container-org8164f76" class="outline-5">
+<h5 id="org8164f76">Strict linear orders</h5>
+</div>
+<div id="outline-container-orgae62f41" class="outline-5">
+<h5 id="orgae62f41">Theory of groups</h5>
+</div>
+<div id="outline-container-org3d7f235" class="outline-5">
+<h5 id="org3d7f235">Peano arithmetic with induction schemas</h5>
+</div>
+<div id="outline-container-org6998809" class="outline-5">
+<h5 id="org6998809">Pure sets with naive comprehension schemes</h5>
+</div>
+</div>
+<div id="outline-container-org09494df" class="outline-4">
+<h4 id="org09494df">6.4. Expressing relations in a structure</h4>
+<div class="outline-text-4" id="text-org09494df">
+<p>
+A formula \(\varphi(v_1,\dots,v_n)\) expresses the relation \(R \subseteq |\model|^n\) if
+\[
+Ra_1\dots a_n
+\quad\mbox{ iff }\quad
+\model,s \models \varphi(v_1,\dots,v_n)
+\]
+for any variable assignment such that \(s(v_i) = a_i\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org797d5fd" class="outline-4">
+<h4 id="org797d5fd">6.5. The theory of sets</h4>
+<div class="outline-text-4" id="text-org797d5fd">
+<p>
+ZFC is the most widely studied axiomatic system for set theory.
+Inclusion can be defined by defining membership, and sets have
+to be implicitely defined.
+</p>
+
+<p>
+For example, the empty set \(\varnothing\) is defined with
+\[
+\exists x. (\neg \exists y. y \in x) \land (\forall z. x \subseteq z)
+\]
+and operations on set could be defined in the same way.
+</p>
+
+<p>
+The comprehension principle is inconsistent (Russell's paradox),
+therefore, ZFC only allows the separation principle,
+\[
+\forall z. \exists y. \forall x. (x \in y \leftrightarrow (x \in z \land \varphi(x))).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org84d2109" class="outline-4">
+<h4 id="org84d2109">6.6. Expressing the size of structures</h4>
+<div class="outline-text-4" id="text-org84d2109">
+<p>
+There are sentences which are true in a structure iff the domain
+has a specific size. The property of being non-enumerable or being
+finite cannot be expressed even with an infinite set of sentences
+(Löwenheim-Skolem theorems).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeeb5111" class="outline-2">
+<h2 id="orgeeb5111">III. Proofs and completeness</h2>
+<div class="outline-text-2" id="text-orgeeb5111">
+</div><div id="outline-container-org269d7ac" class="outline-3">
+<h3 id="org269d7ac">7. The Sequent Calculus</h3>
+<div class="outline-text-3" id="text-org269d7ac">
+</div><div id="outline-container-org9f89648" class="outline-4">
+<h4 id="org9f89648">7.1. Rules and derivations</h4>
+<div class="outline-text-4" id="text-org9f89648">
+</div><div id="outline-container-org8001191" class="outline-5">
+<h5 id="org8001191">7.1. Sequent</h5>
+<div class="outline-text-5" id="text-org8001191">
+<p>
+A <b>sequent</b> is an expression \(\Gamma \seq \Delta\) between sequences of
+sentences. Semantically, it means that, if \(\Gamma = \left\langle \varphi_1,\dots,\varphi_n \right\rangle\)
+and \(\Delta = \left\langle \psi_1,\dots,\psi_m \right\rangle\),
+</p>
+
+<p>
+\[
+(\varphi_1 \land \dots \land \varphi_n) \to
+(\psi_1 \lor \dots \lor \psi_m).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb5fa22b" class="outline-5">
+<h5 id="orgb5fa22b">7.2. Initial sequent</h5>
+<div class="outline-text-5" id="text-orgb5fa22b">
+<p>
+An <b>initial sequent</b> is of the form
+</p>
+
+<ol class="org-ol">
+<li>\(\varphi \seq \varphi\)</li>
+<li>\(\bot \seq\)</li>
+</ol>
+
+<p>
+where \(\varphi\) is a sentence.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0701330" class="outline-4">
+<h4 id="org0701330">7.2. Propositional rules</h4>
+<div class="outline-text-4" id="text-org0701330">
+</div><div id="outline-container-orgd655f1c" class="outline-5">
+<h5 id="orgd655f1c">Rules for negation</h5>
+<div class="outline-text-5" id="text-orgd655f1c">
+<p>
+Formation (L)
+</p>
+
+<p>
+\[\begin{prooftree}
+\AX$\Gamma \fCenter\seq \Delta,\varphi$
+\UI$\neg \varphi, \Gamma \fCenter\seq \Delta$
+\end{prooftree}\]
+</p>
+
+<p>
+Formation (R)
+</p>
+
+\begin{prooftree}
+\AX$\varphi, \Gamma \fCenter\seq \Delta$
+\UI$\Gamma \fCenter\seq \Delta,\neg \varphi$
+\end{prooftree}
+</div>
+</div>
+
+<div id="outline-container-org2c465c0" class="outline-5">
+<h5 id="org2c465c0">Rules for conjunction</h5>
+<div class="outline-text-5" id="text-org2c465c0">
+<p>
+Formation (L)
+</p>
+
+\begin{prooftree}
+\AX$\varphi, \Gamma \fCenter\seq \Delta$
+\UI$\varphi \land \psi, \Gamma \fCenter\seq \Delta$
+\end{prooftree}
+
+<p>
+Formation (R)
+</p>
+
+\begin{prooftree}
+\AXC{$\Gamma \seq \Delta,\varphi$}
+\AXC{$\Gamma \seq \Delta,\psi$}
+\BIC{$\Gamma \seq \Delta,\varphi \land \psi$}
+\end{prooftree}
+</div>
+</div>
+
+<div id="outline-container-orgf84924a" class="outline-5">
+<h5 id="orgf84924a">Rules for disjunction</h5>
+<div class="outline-text-5" id="text-orgf84924a">
+<p>
+Formation (L)
+</p>
+
+\begin{prooftree}
+\AXC{$\varphi, \Gamma \seq \Delta$}
+\AXC{$\psi, \Gamma \seq \Delta$}
+\BIC{$\varphi \lor \psi, \Gamma \seq \Delta$}
+\end{prooftree}
+
+<p>
+Formation (R)
+</p>
+
+\begin{prooftree}
+\AX$\Gamma \fCenter\seq \Delta,\varphi$
+\UI$\Gamma \fCenter\seq \Delta,\varphi \lor \psi$
+\end{prooftree}
+</div>
+</div>
+
+<div id="outline-container-org5f57b79" class="outline-5">
+<h5 id="org5f57b79">Rules for implication</h5>
+<div class="outline-text-5" id="text-org5f57b79">
+<p>
+Formation (L)
+</p>
+
+\begin{prooftree}
+\AXC{$\Gamma \seq \Delta,\varphi$}
+\AXC{$\psi, \Pi \seq \Lambda$}
+\BIC{$\varphi \to \psi, \Gamma, \Pi \seq \Delta,\Lambda$}
+\end{prooftree}
+
+<p>
+Formation (R)
+</p>
+
+\begin{prooftree}
+\AX$\varphi, \Gamma \fCenter\seq \Delta, \psi$
+\UI$\Gamma \fCenter\seq \Delta, \varphi \to \psi$
+\end{prooftree}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeebaccd" class="outline-4">
+<h4 id="orgeebaccd">7.3. Quantifier rules</h4>
+<div class="outline-text-4" id="text-orgeebaccd">
+</div><div id="outline-container-org3b644e9" class="outline-5">
+<h5 id="org3b644e9">Rules for universal quantifiers</h5>
+<div class="outline-text-5" id="text-org3b644e9">
+<p>
+Formation (L), where \(t\) is a closed term
+</p>
+
+\begin{prooftree}
+\AX$\varphi(t), \Gamma \fCenter\seq \Delta$
+\UI$\forall x.\varphi(x), \Gamma \fCenter\seq \Delta$
+\end{prooftree}
+
+<p>
+Formation (R), where \(a\) is an <b>eigenvalue</b>; a constant which must not
+occur anywhere in the lower sequent
+</p>
+
+\begin{prooftree}
+\AX$\Gamma \fCenter\seq \Delta, \varphi(a)$
+\UI$\Gamma \fCenter\seq \Delta, \forall x.\varphi(x)$
+\end{prooftree}
+</div>
+</div>
+
+<div id="outline-container-org9f82850" class="outline-5">
+<h5 id="org9f82850">Rules for existential quantifiers</h5>
+<div class="outline-text-5" id="text-org9f82850">
+<p>
+Formation (L), where \(a\) is an <b>eigenvalue</b>
+</p>
+
+\begin{prooftree}
+\AX$\varphi(a), \Gamma \fCenter\seq \Delta$
+\UI$\exists x.\varphi(x), \Gamma \fCenter\seq \Delta$
+\end{prooftree}
+
+<p>
+Formation (R), where \(t\) is a closed term
+</p>
+
+\begin{prooftree}
+\AX$\Gamma \fCenter\seq \Delta, \varphi(t)$
+\UI$\Gamma \fCenter\seq \Delta, \exists x.\varphi(x)$
+\end{prooftree}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge425ac5" class="outline-4">
+<h4 id="orge425ac5">7.4. Structural rules</h4>
+<div class="outline-text-4" id="text-orge425ac5">
+</div><div id="outline-container-org3c85785" class="outline-5">
+<h5 id="org3c85785">Weakening</h5>
+<div class="outline-text-5" id="text-org3c85785">
+<p>
+Left weakening
+</p>
+
+\begin{prooftree}
+\AX$\Gamma \fCenter\seq \Delta$
+\UI$\varphi, \Gamma \fCenter\seq \Delta$
+\end{prooftree}
+
+<p>
+Right weakening
+</p>
+
+\begin{prooftree}
+\AX$\Gamma \fCenter\seq \Delta$
+\UI$\Gamma \fCenter\seq \Delta, \varphi$
+\end{prooftree}
+</div>
+</div>
+
+<div id="outline-container-org8ae15ea" class="outline-5">
+<h5 id="org8ae15ea">Contraction</h5>
+<div class="outline-text-5" id="text-org8ae15ea">
+<p>
+Left contraction
+</p>
+
+\begin{prooftree}
+\AX$\varphi, \varphi, \Gamma \fCenter\seq \Delta$
+\UI$\varphi, \Gamma \fCenter\seq \Delta$
+\end{prooftree}
+
+<p>
+Right contraction
+</p>
+
+\begin{prooftree}
+\AX$\Gamma \fCenter\seq \Delta, \varphi, \varphi$
+\UI$\Gamma \fCenter\seq \Delta, \varphi$
+\end{prooftree}
+</div>
+</div>
+
+<div id="outline-container-orgf867a61" class="outline-5">
+<h5 id="orgf867a61">Exchange</h5>
+<div class="outline-text-5" id="text-orgf867a61">
+<p>
+Left exchange
+</p>
+
+\begin{prooftree}
+\AX$\Gamma, \varphi, \psi, \Pi \fCenter\seq \Delta$
+\UI$\Gamma, \psi, \varphi, \Pi \fCenter\seq \Delta$
+\end{prooftree}
+
+<p>
+Right exchange
+</p>
+
+\begin{prooftree}
+\AX$\Gamma \fCenter\seq \Delta, \varphi, \psi, \Lambda$
+\UI$\Gamma \fCenter\seq \Delta, \psi, \varphi, \Lambda$
+\end{prooftree}
+</div>
+</div>
+
+<div id="outline-container-org9e28d59" class="outline-5">
+<h5 id="org9e28d59">Cut</h5>
+<div class="outline-text-5" id="text-org9e28d59">
+<p>
+Cut is not necessary, but makes it easier to reuse derivations
+</p>
+
+\begin{prooftree}
+\AXC{$\Gamma \seq \Delta,\varphi$}
+\AXC{$\varphi, \Pi \seq \Lambda$}
+\BIC{$\Gamma,\Pi \seq \Delta, \Lambda$}
+\end{prooftree}
+
+<p>
+It follows from the implication rule.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2ba1290" class="outline-4">
+<h4 id="org2ba1290">7.5. Derivations</h4>
+<div class="outline-text-4" id="text-org2ba1290">
+</div><div id="outline-container-orgdf4e446" class="outline-5">
+<h5 id="orgdf4e446">LK-derivation</h5>
+<div class="outline-text-5" id="text-orgdf4e446">
+<p>
+An <b>LK-derivation</b> of a sequent is a tree of sequents starting from
+initial sequents and applying inference rules.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org200d122" class="outline-4">
+<h4 id="org200d122">7.6. Examples of derivations</h4>
+</div>
+<div id="outline-container-org2cb0a6d" class="outline-4">
+<h4 id="org2cb0a6d">7.7. Derivations with quantifiers</h4>
+</div>
+<div id="outline-container-orgff8d300" class="outline-4">
+<h4 id="orgff8d300">7.8. Proof-theoretic notions</h4>
+<div class="outline-text-4" id="text-orgff8d300">
+</div><div id="outline-container-orgf207233" class="outline-5">
+<h5 id="orgf207233">Theorems</h5>
+<div class="outline-text-5" id="text-orgf207233">
+<p>
+A <b>theorem</b> is a sentence \(\varphi\) such that there is a derivation of \(\seq \varphi\).
+We write \(\vdash \varphi\) if it is a theorem and \(\not\vdash \varphi\) if it is not.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org88e318f" class="outline-5">
+<h5 id="org88e318f">Derivability</h5>
+<div class="outline-text-5" id="text-org88e318f">
+<p>
+A sentence \(\varphi\) is <b>derivable</b> from \(\Gamma\) if there is a finite subset \(\Gamma' \subseteq \Gamma\)
+such that the system derives \(\Gamma \seq \varphi\). We write \(\Gamma \vdash \varphi\) if \(\varphi\) is derivable,
+we write \(\Gamma \not\vdash \varphi\) if it is not.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6520289" class="outline-5">
+<h5 id="org6520289">Consistency</h5>
+<div class="outline-text-5" id="text-org6520289">
+<p>
+A set of sentences \(\Gamma\) is <b>inconsistent</b> if a finite subset \(\Gamma' \subseteq \Gamma\) derives
+\(\Gamma' \seq\) . If a system is not inconsistent, it is <b>consistent</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgef876fc" class="outline-5">
+<h5 id="orgef876fc">Reflexivity</h5>
+<div class="outline-text-5" id="text-orgef876fc">
+<p>
+If \(\varphi \in \Gamma\), then \(\Gamma \vdash \varphi\).
+</p>
+</div>
+
+<div id="outline-container-orga5487d0" class="outline-6">
+<h6 id="orga5487d0">Proof</h6>
+<div class="outline-text-6" id="text-orga5487d0">
+<p>
+\(\varphi \seq \varphi\) is an initial sequent.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd22cf5a" class="outline-5">
+<h5 id="orgd22cf5a">Monotony</h5>
+<div class="outline-text-5" id="text-orgd22cf5a">
+<p>
+If \(\Gamma \subseteq \Delta\) and \(\Gamma \vdash \varphi\), then \(\Delta \vdash \varphi\).
+</p>
+</div>
+
+<div id="outline-container-org9df9b3e" class="outline-6">
+<h6 id="org9df9b3e">Proof</h6>
+<div class="outline-text-6" id="text-org9df9b3e">
+<p>
+Given \(\Gamma' \subseteq \Gamma \subseteq \Delta\), we know that \(\Gamma' \subseteq \Delta\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga173bed" class="outline-5">
+<h5 id="orga173bed">Transitivity</h5>
+<div class="outline-text-5" id="text-orga173bed">
+<p>
+If \(\Gamma \vdash \varphi\) for every \(\varphi \in \Delta\) and \(\Delta \vdash \psi\), then \(\Gamma \vdash \varphi\).
+</p>
+</div>
+
+<div id="outline-container-org234073f" class="outline-6">
+<h6 id="org234073f">Proof</h6>
+<div class="outline-text-6" id="text-org234073f">
+<p>
+If \(\Delta \vdash \psi\), then there exists a finite \(\Delta_0 \seq \psi\). We proceed by
+induction on the size of \(\Delta_0\),
+</p>
+
+<ul class="org-ul">
+<li>if \(\Delta_0\) is empty, \(\seq \psi\) and, in particular \(\Gamma \vdash \psi\);</li>
+<li>if \(\varphi \in \Delta_0\), we define \(\Delta_1 = \Delta_0 \setminus \{\varphi\}\); and we know that \(\varphi, \Delta_1 \seq \psi\),
+so \(\Delta_1 \seq \varphi \to \psi\). By induction hypothesis, there exist \(\Gamma_0 \seq \varphi \to \psi\)
+and \(\Gamma_1 \seq \varphi\); thus \(\varphi \to \psi, \Gamma_1 \seq \psi\) and, by cut elimination rule,
+\(\Gamma_0, \Gamma_1 \seq \psi\).</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbe227db" class="outline-5">
+<h5 id="orgbe227db">Principle of explosion</h5>
+<div class="outline-text-5" id="text-orgbe227db">
+<p>
+\(\Gamma\) is inconsistent iff \(\Gamma \vdash \varphi\) for every \(\varphi\).
+</p>
+</div>
+
+<div id="outline-container-org9e9347c" class="outline-6">
+<h6 id="org9e9347c">Proof</h6>
+<div class="outline-text-6" id="text-org9e9347c">
+<p>
+If \(\Gamma \seq \bot\), by cut elimination, \(\Gamma \seq\) . If \(\Gamma \seq\) , then by
+weakening, \(\Gamma \seq \varphi\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf197b1a" class="outline-5">
+<h5 id="orgf197b1a">Compactness</h5>
+<div class="outline-text-5" id="text-orgf197b1a">
+<ol class="org-ol">
+<li>If \(\Gamma \vdash \varphi\), there exists a subset \(\Gamma_0 \subseteq \Gamma\) such that \(\Gamma_0 \vdash \varphi\).</li>
+<li>If every subset of \(\Gamma\) is consistent, \(\Gamma\) is consistent.</li>
+</ol>
+</div>
+
+<div id="outline-container-org8d93542" class="outline-6">
+<h6 id="org8d93542">Proof</h6>
+<div class="outline-text-6" id="text-org8d93542">
+<p>
+By definition of derivability.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9bdf22f" class="outline-4">
+<h4 id="org9bdf22f">7.9. Derivability and consistency</h4>
+<div class="outline-text-4" id="text-org9bdf22f">
+</div><div id="outline-container-org6eaffee" class="outline-5">
+<h5 id="org6eaffee">Transitivity of inconsistency</h5>
+<div class="outline-text-5" id="text-org6eaffee">
+<p>
+If \(\Gamma \vdash \varphi\) and \(\Gamma \cup \{\varphi\}\) is inconsistent, \(\Gamma\) is inconsistent.
+</p>
+</div>
+
+<div id="outline-container-orgcfcf34b" class="outline-6">
+<h6 id="orgcfcf34b">Proof</h6>
+<div class="outline-text-6" id="text-orgcfcf34b">
+<p>
+We have \(\Gamma_0,\Gamma_1 \subseteq \Gamma\) such that \(\Gamma_0 \seq \varphi\) and \(\varphi, \Gamma_1 \seq\) ; thus,
+by cut elimination, \(\Gamma_0, \Gamma_1 \seq\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org36c546a" class="outline-4">
+<h4 id="org36c546a">7.10. Derivability and the propositional connectives</h4>
+<div class="outline-text-4" id="text-org36c546a">
+</div><div id="outline-container-orga7540e5" class="outline-5">
+<h5 id="orga7540e5">Conjunction</h5>
+<div class="outline-text-5" id="text-orga7540e5">
+<p>
+We know that
+</p>
+
+<ul class="org-ul">
+<li>\(\varphi \land \psi \vdash \varphi\)</li>
+<li>4\(\varphi \land \psi \vdash \psi\)</li>
+<li>\(\varphi, \psi \vdash \varphi \land \psi\)</li>
+</ul>
+</div>
+
+<div id="outline-container-orgbe9636e" class="outline-6">
+<h6 id="orgbe9636e">Proof</h6>
+<div class="outline-text-6" id="text-orgbe9636e">
+<p>
+Applying the propositional rules for conjunction, we know that
+\(\varphi \land \psi \seq \varphi\) and \(\varphi \land \psi \seq \psi\); while applying the right hand
+side rule, \(\varphi, \psi \seq \varphi \land \psi\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6bb19d4" class="outline-5">
+<h5 id="org6bb19d4"><span class="todo TODO">TODO</span> Disjunction</h5>
+</div>
+</div>
+
+<div id="outline-container-org51a2524" class="outline-4">
+<h4 id="org51a2524">7.11. Derivability and the quantifiers</h4>
+<div class="outline-text-4" id="text-org51a2524">
+</div><div id="outline-container-org4498d9f" class="outline-5">
+<h5 id="org4498d9f">Derivability of the universal quantifier</h5>
+<div class="outline-text-5" id="text-org4498d9f">
+<p>
+If \(\Gamma \vdash \varphi(c)\) and \(c\) does not appear in \(\Gamma\); \(\Gamma \vdash \forall x.\varphi(x)\).
+</p>
+</div>
+
+<div id="outline-container-org855a6a5" class="outline-6">
+<h6 id="org855a6a5">Proof</h6>
+<div class="outline-text-6" id="text-org855a6a5">
+<p>
+Trivial by definition of derivability.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga5f7a86" class="outline-5">
+<h5 id="orga5f7a86">Initial derivations for quantifiers</h5>
+<div class="outline-text-5" id="text-orga5f7a86">
+<ol class="org-ol">
+<li>\(\varphi(t) \vdash \exists x.\varphi(x)\)</li>
+<li>\(\forall x.\varphi(x) \vdash \varphi(t)\)</li>
+</ol>
+</div>
+
+<div id="outline-container-orgd6b2571" class="outline-6">
+<h6 id="orgd6b2571">Proof</h6>
+<div class="outline-text-6" id="text-orgd6b2571">
+<p>
+Both are derivable from the quantifier rules.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org676026a" class="outline-4">
+<h4 id="org676026a">7.12. Soundness</h4>
+<div class="outline-text-4" id="text-org676026a">
+</div><div id="outline-container-orgbb485f7" class="outline-5">
+<h5 id="orgbb485f7">Satisfaction of a sequent</h5>
+<div class="outline-text-5" id="text-orgbb485f7">
+<p>
+A structure \(\model\) <b>satisfies</b> a sequent \(\Gamma \seq \Delta\) if and only if \(\model \not\models \varphi\) for
+some \(\varphi \in \Gamma\) or \(\model \models \varphi\) for some \(\varphi \in \Delta\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb62b79e" class="outline-5">
+<h5 id="orgb62b79e">Valid sequents</h5>
+<div class="outline-text-5" id="text-orgb62b79e">
+<p>
+A sequent is <b>valid</b> if every structure \(\model\) satisfies it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5c64468" class="outline-5">
+<h5 id="org5c64468">Soundness</h5>
+<div class="outline-text-5" id="text-org5c64468">
+<p>
+If LK derives \(\Theta \seq \Xi\), then it is a valid sequent.
+</p>
+</div>
+
+<div id="outline-container-org40eed30" class="outline-6">
+<h6 id="org40eed30">Proof</h6>
+<div class="outline-text-6" id="text-org40eed30">
+<p>
+By structural induction on the derivation. If it has no inferences,
+it has to be an initial sequent, and \(\varphi \seq \varphi\) and \(\bot \seq\)  are valid
+sequents. In other case, we apply structural induction to get
+</p>
+
+<ol class="org-ol">
+<li>left and right weakening, trivially;</li>
+<li>left and right negation, trivially;</li>
+<li>left conjunction, trivially;</li>
+<li>right disjunction, trivially;</li>
+<li>right implication, trivially;</li>
+<li>universal quantifiers, trivially using previous lemmas;</li>
+</ol>
+
+<p>
+with one premise, and
+</p>
+
+<ol class="org-ol">
+<li>cut elimination,</li>
+<li>right conjunction,</li>
+<li>left disjunction,</li>
+</ol>
+
+<p>
+with two premises. All are valid by the definition of <a href="#orgbb485f7">satisfaction</a> and
+the notion of <a href="#org34b539f">satisfaction</a> of a formula in a structure.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org316b4a8" class="outline-3">
+<h3 id="org316b4a8">8. The Completeness Theorem</h3>
+<div class="outline-text-3" id="text-org316b4a8">
+</div><div id="outline-container-orgbca12ab" class="outline-4">
+<h4 id="orgbca12ab">8.3. Complete consistent sets of sequences</h4>
+<div class="outline-text-4" id="text-orgbca12ab">
+</div><div id="outline-container-org678d3f1" class="outline-5">
+<h5 id="org678d3f1">Complete set</h5>
+<div class="outline-text-5" id="text-org678d3f1">
+<p>
+A set \(\Gamma\) is <b>complete</b> iff for any sentence either \(\varphi \in \Gamma\)
+or \(\neg \varphi \in \Gamma\).
+</p>
+</div>
+
+<div id="outline-container-orga97e558" class="outline-6">
+<h6 id="orga97e558">Membership</h6>
+<div class="outline-text-6" id="text-orga97e558">
+<p>
+In particular, \(\varphi \not\in \Gamma\) implies \(\neg\varphi\in\Gamma\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4768976" class="outline-5">
+<h5 id="org4768976">Complete consistent sets</h5>
+<div class="outline-text-5" id="text-org4768976">
+<p>
+If \(\Gamma\) is complete and consistent,
+</p>
+
+<ol class="org-ol">
+<li>if \(\Gamma \vdash \varphi\), then \(\varphi \in \Gamma\);</li>
+<li>\(\varphi \land \psi \in \Gamma\) iff \(\varphi \in \Gamma\) and \(\psi \in \Gamma\);</li>
+<li>\(\varphi \lor \psi \in \Gamma\) iff \(\varphi \in \Gamma\) or \(\psi \in \Gamma\);</li>
+<li>\(\varphi \to \psi \in \Gamma\) iff \(\varphi \not\in \Gamma\) or \(\psi \in \Gamma\).</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9bd1697" class="outline-4">
+<h4 id="org9bd1697">8.4. Henkin expansion</h4>
+<div class="outline-text-4" id="text-org9bd1697">
+<p>
+Henkin expansion adds infinitely many constant symbols to allow
+existential quantifiers to be satisfied by one of these symbols.
+</p>
+</div>
+
+<div id="outline-container-org18a7d12" class="outline-5">
+<h5 id="org18a7d12">Extension of consistency</h5>
+<div class="outline-text-5" id="text-org18a7d12">
+<p>
+If \(\Gamma\) is consistent in \({\cal L}\) and we obtain a new language by adding
+a numerable set of constants, \({\cal L}'\), then \(\Gamma\) is consistent in \({\cal L}'\).
+</p>
+</div>
+
+<div id="outline-container-orgbe60d1a" class="outline-6">
+<h6 id="orgbe60d1a">Proof</h6>
+<div class="outline-text-6" id="text-orgbe60d1a">
+<p>
+Trivial by definition of <a href="#org6520289">consistency</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org74842ee" class="outline-5">
+<h5 id="org74842ee">Saturated set</h5>
+<div class="outline-text-5" id="text-org74842ee">
+<p>
+A set \(\Gamma\) is <b>saturated</b> iff for each formula \(\varphi(x) \in \mathrm{Frm}({\cal L})\) where
+\(x\) is a free variable, there is a constant symbol \(c \in {\cal L}\) such that
+\(\exists x.\varphi(x) \to \varphi(c) \in \Gamma\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf41aac0" class="outline-5">
+<h5 id="orgf41aac0">Theta sentences</h5>
+<div class="outline-text-5" id="text-orgf41aac0">
+<p>
+Given a language \({\cal L}'\) and an enumeration \(\varphi_i(x_i)\) of formulas of \({\cal L}'\) in
+which a variable \(x_i\) occurs free.
+</p>
+
+<p>
+Let \(c_0\) be the first fresh constant symbol not in \(\varphi_0(x_0)\), and \(c_n\)
+the first fresh constant symbol not in \(\theta_0,\dots,\theta_{n-1}, \varphi_n(x_n)\).
+</p>
+
+<p>
+We define \(\theta_n\) as \(\exists x_n. \varphi_n(x_n) \to \varphi(c_n)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf52141" class="outline-5">
+<h5 id="orgaf52141">Extension of saturation</h5>
+<div class="outline-text-5" id="text-orgaf52141">
+<p>
+If \(\Gamma\) is consistent, it can be extended to a saturated consistent set
+\(\Gamma'\).
+</p>
+</div>
+
+<div id="outline-container-orge3d91e8" class="outline-6">
+<h6 id="orge3d91e8">Proof</h6>
+<div class="outline-text-6" id="text-orge3d91e8">
+<p>
+Given \({\cal L}\), we get \({\cal L}'\), and then let using <a href="#orgf41aac0">theta sentences</a>,
+</p>
+
+<ul class="org-ul">
+<li>\(\Gamma_0 = \Gamma\),</li>
+<li>\(\Gamma_{n+1} = \Gamma_n \cup \{\theta_n\}\),</li>
+</ul>
+
+<p>
+then \(\Gamma' = \bigcup \Gamma_n\) is saturated. If it were <a href="#org6520289">inconsistent</a>, empty could be
+derived from a finite set of sentences, so some \(\Gamma_n\) would be inconsistent.
+We will show that each \(\Gamma_n\) is consistent. If we had
+</p>
+
+<ul class="org-ul">
+<li>\(\Gamma_n \vdash \neg\{\theta_n\}\),</li>
+</ul>
+
+<p>
+where \(\theta_n\) is \(\exists x_n.\varphi_n(x_n)\) then we would have
+</p>
+
+<ul class="org-ul">
+<li>\(\Gamma_n \vdash \exists x_n. \varphi_n(x_n)\),</li>
+<li>\(\Gamma_n \vdash \neg \varphi_n(c_n)\);</li>
+</ul>
+
+<p>
+but as \(c_n\) does not appear in \(\Gamma_n\), \(\Gamma_n \vdash \forall x.\neg \varphi_n(x)\) and then
+</p>
+
+<p>
+\[
+\forall x.\neg \varphi_n(x) \vdash \neg \exists x_{n}.\varphi_n(x)
+\]
+</p>
+
+<p>
+thus making \(\Gamma_{n}\) inconsistent.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9477c58" class="outline-5">
+<h5 id="org9477c58">Complete, consistent and saturated sets</h5>
+<div class="outline-text-5" id="text-org9477c58">
+<p>
+If \(\Gamma\) is complete, consistent and saturated
+</p>
+
+<ol class="org-ol">
+<li>\(\exists x.\varphi(x) \in \Gamma\) iff there exists \(\varphi(t) \in \Gamma\), for some \(t\);</li>
+<li>\(\forall x.\varphi(x) \in \Gamma\) iff \(\varphi(t) \in \Gamma\) for all closed \(t\).</li>
+</ol>
+</div>
+
+<div id="outline-container-org3f21b4c" class="outline-6">
+<h6 id="org3f21b4c">Proof</h6>
+<div class="outline-text-6" id="text-org3f21b4c">
+<ol class="org-ol">
+<li><p>
+By saturation we have \(\exists x.\varphi(x) \to \varphi(c)\) for
+some \(c\); then by completion, \(\varphi(c) \in \Gamma\) or \(\neg\varphi(c) \in \Gamma\);
+but only the first case allows consistency to be true.
+</p>
+
+<p>
+In the other direction, if \(\varphi(t) \in \Gamma\), then by completion
+and consistency, \(\exists x.\varphi(x) \in \Gamma\).
+</p></li>
+
+<li><p>
+If \(\forall x.\varphi(x) \in \Gamma\), then for every \(t\), by completion, we have \(\varphi(t) \in \Gamma\)
+or \(\neg \varphi(t) \in \Gamma\); if we had \(\neg\varphi(t)\), it would be inconsistent.
+</p>
+
+<p>
+In the other direction, by completion, if we had \(\neg\forall x.\varphi(x) \in \Gamma\)
+then we deduce \(\exists x. \neg \varphi(x) \in \Gamma\), and by saturation and completion,
+again, \(\neg \varphi(c) \in \Gamma\).
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7416de6" class="outline-4">
+<h4 id="org7416de6">8.5. Lindenbaum's lemma</h4>
+<div class="outline-text-4" id="text-org7416de6">
+</div><div id="outline-container-org43e46d6" class="outline-5">
+<h5 id="org43e46d6">Lindenbaum's lemma</h5>
+<div class="outline-text-5" id="text-org43e46d6">
+<p>
+Every consistent set \(\Gamma'\) in a language \({\cal L}'\) can be extended to a complete
+and consistent set \(\Gamma^{\ast}\).
+</p>
+</div>
+
+<div id="outline-container-org6e60ec5" class="outline-6">
+<h6 id="org6e60ec5">Proof</h6>
+<div class="outline-text-6" id="text-org6e60ec5">
+<p>
+We take \(\Gamma_0 = \Gamma'\) and we enumerate all formulas \(\{\varphi_i\}\). At each step we
+add \(\Gamma_{n+1} = \Gamma_n \cup \{\varphi_{n}\}\) if it is consistent or \(\Gamma_{n+1} = \Gamma_n \cup \{\neg\varphi_{n}\}\) 
+otherwise. Let \(\Gamma^{\ast} = \bigcup \Gamma_n\).
+</p>
+
+<p>
+If both \(\Gamma_n\cup \{\varphi_n\}\) and \(\Gamma_n\cup \{\neg\varphi_n\}\) were inconsistent, \(\Gamma_n\) would be
+inconsistent. Thus, every subset of \(\Gamma^{\ast}\) is consistent and it has to be
+consistent.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1e56250" class="outline-4">
+<h4 id="org1e56250">8.6. Construction of a model</h4>
+<div class="outline-text-4" id="text-org1e56250">
+</div><div id="outline-container-org69f2c13" class="outline-5">
+<h5 id="org69f2c13">Term model</h5>
+<div class="outline-text-5" id="text-org69f2c13">
+<p>
+Given \(\Gamma^{\ast}\) complete, consistent and saturate; the <b>term model</b> \(\model(\Gamma^{\ast})\) is
+defined with
+</p>
+
+<ol class="org-ol">
+<li>domain \(|\model(\Gamma^{\ast})|\) given by the set of closed terms;</li>
+<li>the interpretation of every constant as itself, \(c^{\model(\Gamma^{\ast})} = c\);</li>
+<li>the function symbol is assigned to a function which returns the
+closed term of that function, \(f^{\model(\Gamma^{\ast})}(t_1,\dots,t_n) = f(t_1,\dots,t_n)\);</li>
+<li>and if \(R\) is an n-place symbol,
+\[
+    \left\langle t_1,\dots,t_n \right\rangle \in R^{\model(\Gamma^{\ast})}
+    \text{ iff }
+    R(t_1,\dots,t_n) \in \Gamma^{\ast}.
+    \]</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgf98cb80" class="outline-5">
+<h5 id="orgf98cb80"><span class="todo TODO">TODO</span> Term model and quantifiers</h5>
+<div class="outline-text-5" id="text-orgf98cb80">
+</div>
+</div>
+
+<div id="outline-container-org6d52300" class="outline-5">
+<h5 id="org6d52300">Truth lemma</h5>
+<div class="outline-text-5" id="text-org6d52300">
+<p>
+If \(\varphi\) does not contain \(=\), then \(\model(\Gamma^{\ast})\models \varphi\) iff \(\varphi \in \Gamma^{\ast}\).
+</p>
+
+<p>
+First-order logic for sets \(\Gamma\) that do not contain \(=\) is complete.
+</p>
+</div>
+
+<div id="outline-container-org2be42f2" class="outline-6">
+<h6 id="org2be42f2"><span class="todo TODO">TODO</span> Proof</h6>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org937bdef" class="outline-4">
+<h4 id="org937bdef">8.7. Identity</h4>
+<div class="outline-text-4" id="text-org937bdef">
+</div><div id="outline-container-orgb56b688" class="outline-5">
+<h5 id="orgb56b688">Factoring identity</h5>
+<div class="outline-text-5" id="text-orgb56b688">
+<p>
+Given \(\Gamma^{\ast}\) a consistent and complete set in \({\cal L}\), the <b>relation</b> \(\approx\) is
+defined as \(t \approx t'\) iff \(t=t' \in \Gamma^{\ast}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org66c121f" class="outline-5">
+<h5 id="org66c121f"><span class="todo TODO">TODO</span> Properties of the new identity relation</h5>
+</div>
+
+<div id="outline-container-org31f90dd" class="outline-5">
+<h5 id="org31f90dd">Equivalence classes</h5>
+<div class="outline-text-5" id="text-org31f90dd">
+<p>
+Given \(\Gamma^{\ast}\) a consistent and complete set in \({\cal L}\), then \(t\) is a term and
+\(\approx\) as in the previous definition,
+</p>
+
+<p>
+\[
+[t]_{\approx} = \left\{ t' : t' \in \mathrm{Trm}({\cal L}), t \approx t' \right\};
+\]
+</p>
+
+<p>
+and \(\mathrm{Trm}({\cal L})/_{\approx} = \left\{ [t]_{\approx} : t \in \mathrm{Trm}({\cal L}) \right\}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6e45de8" class="outline-5">
+<h5 id="org6e45de8">Representative term structure</h5>
+</div>
+</div>
+<div id="outline-container-org0e0d0b1" class="outline-4">
+<h4 id="org0e0d0b1">8.8. Completeness theorem</h4>
+<div class="outline-text-4" id="text-org0e0d0b1">
+</div><div id="outline-container-org8d7c5d6" class="outline-5">
+<h5 id="org8d7c5d6">Gödel's Completeness theorem</h5>
+<div class="outline-text-5" id="text-org8d7c5d6">
+<p>
+Let \(\Gamma\) be a set of sentences; if it is consistent, it is satisfiable.
+</p>
+</div>
+
+<div id="outline-container-orgeb39eb1" class="outline-6">
+<h6 id="orgeb39eb1">Proof</h6>
+<div class="outline-text-6" id="text-orgeb39eb1">
+<p>
+There is a saturated \(\Gamma' \supseteq \Gamma\), and there is a \(\Gamma^{\ast} \supseteq \Gamma'\) consistent and
+complete; while it is also saturated. If \(\Gamma\) contains \(=\), then we compute
+the quotient to have \(\model/_{\approx}\models \varphi\) iff \(\varphi \in \Gamma^{\ast}\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4d1a96d" class="outline-5">
+<h5 id="org4d1a96d">Completeness theorem, second version</h5>
+<div class="outline-text-5" id="text-org4d1a96d">
+<p>
+For all \(\Gamma\) and \(\varphi\), if \(\Gamma\models\varphi\), then \(\Gamma \vdash \varphi\).
+</p>
+</div>
+
+<div id="outline-container-org640f126" class="outline-6">
+<h6 id="org640f126">Proof</h6>
+<div class="outline-text-6" id="text-org640f126">
+<p>
+If \(\Gamma \models \varphi\), then \(\Gamma \cup \{\neg\varphi\}\) is unsatisfiable; by completeness theorem,
+it has to be inconsistent, so \(\Gamma \vdash \varphi\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf5c73e7" class="outline-4">
+<h4 id="orgf5c73e7"><span class="todo TODO">TODO</span> 8.9. Compactness theorem</h4>
+</div>
+<div id="outline-container-org27fe733" class="outline-4">
+<h4 id="org27fe733"><span class="todo TODO">TODO</span> 8.10. A direct proof of the compactness theorem</h4>
+</div>
+<div id="outline-container-org1c401e2" class="outline-4">
+<h4 id="org1c401e2"><span class="todo TODO">TODO</span> 8.11. The Löwenheim-Skolem theorem</h4>
+</div>
+<div id="outline-container-org2db9905" class="outline-4">
+<h4 id="org2db9905"><span class="todo TODO">TODO</span> 8.12. Overspill</h4>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Mario Román</p>
+<p class="date">Created: 2017-12-03 Sun 11:59</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

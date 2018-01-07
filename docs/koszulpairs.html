@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2017-12-03 Sun 11:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koszul Pairs</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<p style="display:none"> \(\newcommand{\threepartdef}[6]{\left\{\begin{array}{lll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \\ #5 & \mbox{if } #6 \end{array} \right.}\) </p>
+<p style="display:none"> \(\newcommand{\twopartdef}[4]{\left\{\begin{array}{ll} #1 & \mbox{if } #2 \\ #3 & \mbox{if } #4 \end{array} \right.}\) </p>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Koszul Pairs</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgfa1525a">1. Introduction</a></li>
+<li><a href="#orgb27c26a">2. Area of interest</a>
+<ul>
+<li><a href="#org3751f41">2.1. Abelian categories</a>
+<ul>
+<li><a href="#org13360d0">Additive category</a></li>
+<li><a href="#org55f2aba">Abelian category</a></li>
+</ul>
+</li>
+<li><a href="#org9def548">2.2. Chain complexes and homology</a>
+<ul>
+<li><a href="#org5fcb8e7">Chain complexes</a></li>
+<li><a href="#org1c39a47">Exact sequences</a></li>
+<li><a href="#org055fcd4">Snake lemma</a></li>
+<li><a href="#orgaf09619">Homology</a></li>
+</ul>
+</li>
+<li><a href="#org314b0fa">2.3. Projective, injective and flat resolutions</a>
+<ul>
+<li><a href="#orgdb7862b">Definitions</a></li>
+<li><a href="#org47c96dd">Resolutions</a>
+<ul>
+<li><a href="#org1b5fbcc">Explicit construction</a></li>
+</ul>
+</li>
+<li><a href="#org47ae202">Derived functors</a>
+<ul>
+<li><a href="#orge1124f8">Construction of the right derived functor</a></li>
+<li><a href="#orgf8f387e">Construction of the left derived functor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org838e9f9">2.4. Hochschild homology</a>
+<ul>
+<li><a href="#org2922029">Preliminaries</a>
+<ul>
+<li><a href="#org0eb9ee9">Opposite algebra.</a></li>
+<li><a href="#orgdeeca5e">Enveloping algebra.</a></li>
+<li><a href="#org4958fe2">Standard resolution.</a></li>
+</ul>
+</li>
+<li><a href="#org7fd62c7">Hochschild homology</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9996a5e">3. Methods</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orge8fbfab">Wikipedia articles</a></li>
+<li><a href="#orga9a1107">Student-organized seminars</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1bc6f0b">4. Discussion</a>
+<ul>
+<li><a href="#orgcf91177">4.1. Koszul algebra</a>
+<ul>
+<li><a href="#orgf4b4ad5">Quadratic algebras</a></li>
+</ul>
+</li>
+<li><a href="#org9fb4b11">4.2. Almost-koszul pairs</a>
+<ul>
+<li><a href="#orge6c4021">Graded rings</a></li>
+<li><a href="#org0d6122e">Koszul rings</a></li>
+<li><a href="#org579f7ff">R-rings</a></li>
+<li><a href="#org02367ba">R-coring</a></li>
+<li><a href="#orgda7b159">Almost-koszul pair</a></li>
+</ul>
+</li>
+<li><a href="#org42f2aac">4.3. Almost-koszul pair complexes</a></li>
+<li><a href="#org326977b">4.4. Koszul pairs</a></li>
+</ul>
+</li>
+<li><a href="#org883cc4a">5. Conclusions</a></li>
+<li><a href="#org9aa58e1">6. References</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfa1525a" class="outline-2">
+<h2 id="orgfa1525a"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<b>Koszul algebras</b> have numerous applications in diverse fields of
+Mathematics such as Algebraic Topology, Combinatorics, Representation
+Theory or Algebraic Geometry, as it is showed in <a class='org-ref-reference' href="#polishchuk05">polishchuk05</a>,
+and many of its fundamental properties still hold in <b>Koszul rings</b>,
+a particular case of graded rings.
+</p>
+
+<p>
+<b>Almost-Koszul pairs</b> are a tool for the study of Koszul rings; to
+every strongly graded ring corresponds a canonical almost-Koszul pair.
+Every almost-Koszul pair has three associate chain complexes and three
+cochain complexes. If any of this six complexes is exact, all the others
+are exact too; in this case, we call the pair a <b>Koszul pair</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb27c26a" class="outline-2">
+<h2 id="orgb27c26a"><span class="section-number-2">2</span> Area of interest</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+In order to define Koszul pairs, we need to introduce some homological
+algebra prerequsites. We will define abelian categories in general,
+even if we are going to use later only the particular case of module
+categories, where we will define projective, injective and flat
+modules.
+</p>
+
+<p>
+In particular, we will need to define <b>Hoschschild comohology</b>.
+</p>
+</div>
+
+<div id="outline-container-org3751f41" class="outline-3">
+<h3 id="org3751f41"><span class="section-number-3">2.1</span> Abelian categories</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The theory of abelian categories was introduced by Buchsbaum and Grothendieck
+in <a class='org-ref-reference' href="#grothendieck57">grothendieck57</a> to unify the multiple cohomology theories at the time.
+</p>
+</div>
+
+<div id="outline-container-org13360d0" class="outline-4">
+<h4 id="org13360d0">Additive category</h4>
+<div class="outline-text-4" id="text-org13360d0">
+<p>
+The original motivation for additive categories is the category of abelian
+groups, and, more generally, the category of momdules over a fixed ring \(R\).
+In these categories, morphisms between two objects form an abelian group;
+and we can define functors preserving this group structure.
+</p>
+
+<div class="definition">
+<p>
+\({\cal C}\) is an <b>additive category</b> if:
+</p>
+
+<ul class="org-ul">
+<li>\(\mathrm{Hom}(A,B)\) is an <i>abelian group</i>.</li>
+<li><i>Distributivity</i> holds: \(b \circ (f+g) = b\circ f + b \circ g\) and \((f+g)\circ a = f\circ a + g\circ a\).</li>
+<li>Has a <i>zero object</i>.</li>
+<li>Has finite <i>products</i> and <i>coproducts</i>.</li>
+</ul>
+
+<p>
+A functor \(T\) between two additive categories is and <b>additive functor</b> 
+if \(T(f+g) = Tf+Tg\). <a class='org-ref-reference' href="#rotman08_setting">rotman08_setting</a>
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org55f2aba" class="outline-4">
+<h4 id="org55f2aba">Abelian category</h4>
+<div class="outline-text-4" id="text-org55f2aba">
+<p>
+Our interest is specifically on abelian categories. We will need to
+assume that every morphism has a kernel and a cokernel in order to
+prove results on homological algebra.
+</p>
+
+<div class="definition">
+<p>
+An <b>abelian category</b> is an <i>additive category</i> such that
+</p>
+
+<ul class="org-ul">
+<li>every morphism has a kernel and cokernel.</li>
+<li>every monomorphism is a kernel.</li>
+<li>every epimorphism is a cokernel.</li>
+</ul>
+
+</div>
+
+<p>
+The category of \(R\text{-modules}\) is an abelian category, but also
+the category of chain complexes of an arbitrary abelian category,
+\(\mathtt{Ch}({\cal A})\), is an abelian category.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9def548" class="outline-3">
+<h3 id="org9def548"><span class="section-number-3">2.2</span> Chain complexes and homology</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<i>Homology</i> was originally defined in algebraic topology as a rigorous
+method allowing the topological distinction of manifolds with arbitrary
+dimensional holes. The same construction can be translated into multiple
+different homology theories.
+</p>
+
+<p>
+\(\quad\)
+</p>
+
+<p>
+In abelian categories, the homology provides a formal description of
+the failure of a functor to be exact.
+</p>
+</div>
+
+<div id="outline-container-org5fcb8e7" class="outline-4">
+<h4 id="org5fcb8e7">Chain complexes</h4>
+<div class="outline-text-4" id="text-org5fcb8e7">
+<p>
+<i>Chain complexes</i> were initially a representation the relationships
+between cycles and boundaries on a topological space; we will study
+chain complexes in the abstract setting of module categories, devoided
+of any explicit relation to its motivating example.
+</p>
+
+<div class="definition">
+<p>
+A <b>chain complex</b> is a family of \(R\text{-modules}\) \(\left\{ C_n \right\}\) and homomorphisms
+\(d_n \colon C_n \to C_{n-1}\) called <i>differentials</i>, such that each composite of
+consecutive differentials is zero, i.e. \(d_{n-1} \circ d_n = 0\).
+</p>
+
+</div>
+
+<div class="theorem">
+<p>
+Given an abelian category \({\cal A}\), the category \(\mathtt{Ch}({\cal A})\) is an abelian category.
+<a class='org-ref-reference' href="#weibel94_introd">weibel94_introd</a>
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1c39a47" class="outline-4">
+<h4 id="org1c39a47">Exact sequences</h4>
+<div class="outline-text-4" id="text-org1c39a47">
+<p>
+<i>Exact sequences</i> provide a convenient framework for homological questions
+such as the completion of the middle term of a particular sequence in such
+a way that the homology groups are exactly zero. This kind of problems, in
+particular in the category of groups, have been proven to be useful to the
+resolution of problems such as the classification of finite simple groups.
+</p>
+
+<div class="definition">
+<p>
+A pair of composable morphisms is <b>exact</b> in the object where they can be
+composed when \(\mathrm{img}(f) = \mathrm{ker}(g)\). Equivalently, when \(\mathrm{coker}(f) = \mathrm{coimg}(g)\).
+</p>
+
+</div>
+
+<div class="definition">
+<p>
+A <b>short exact sequence</b> is a diagram
+</p>
+
+<p>
+\[
+0 \longrightarrow
+a \overset{f}\longrightarrow
+b \overset{g}\longrightarrow
+c \longrightarrow
+0
+\]
+</p>
+
+<p>
+exact on \(a\),\(b\) and \(c\).
+</p>
+
+</div>
+
+<div class="definition">
+<p>
+A <b>morphism of short exact sequences</b> is defined by three morphisms
+\(f,g,h\) making the following diagram commute
+</p>
+
+<p>
+\[\begin{tikzcd}
+0 \rar& 
+\cdot \rar{m}\dar{f}& 
+\cdot \rar{e}\dar{g}& 
+\cdot \rar\dar{h}& 
+0 \\
+0 \rar& 
+\cdot \rar{m'}& 
+\cdot \rar{e'}& 
+\cdot \rar& 
+0 & .\\
+\end{tikzcd}\]
+</p>
+
+<p>
+The short exact sequences of an abelian category \(A\) define a category with
+these morphisms called \(\mathtt{Ses}(A)\), which is preadditive with the component by 
+component sum.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org055fcd4" class="outline-4">
+<h4 id="org055fcd4">Snake lemma</h4>
+<div class="outline-text-4" id="text-org055fcd4">
+<p>
+The <i>snake lemma</i> will provide us with a tool to construct long exact sequences,
+which will be used in the definition of derived functors. This is a first result
+on algebraic homology theory.
+</p>
+
+<div class="theorem">
+<p>
+Given a morphism of short exact sequences \(f,g,h\); there exists a morphism
+\(\delta \colon \operatorname{ker} h \to \operatorname{coker} f\) such that the following sequence is exact
+</p>
+
+<p>
+\[\begin{tikzcd}
+0 \rar &
+\mathrm{ker}(f) \rar{m} &
+\mathrm{ker}(g) \rar{e} &
+\mathrm{ker}(h) \arrow[out = 0,in =180,swap]{dll}{\delta} \\&
+\mathrm{coker}(f) \rar{m'} &
+\mathrm{coker}(g) \rar{e'} &
+\mathrm{coker}(h) \rar &
+0
+\end{tikzcd}\]
+</p>
+
+</div>
+<div class="proof">
+<p>
+In this extended diagram
+</p>
+
+<p>
+\[ \begin{tikzcd}
+	& 0 \dar              & 0 \dar            & 0 \dar           &   \\
+ 0 \rar & ker(f) \rar \dar  & ker(g) \rar \dar    & ker(h) \dar \ar[out=355, in=175,looseness=1, overlay, swap]{dddll}{\delta}       &   \\
+ 0 \rar & a \rar{m} \dar{f}  & b \rar{e} \dar{g} & c \rar \dar{h}        & 0 \\
+ 0 \rar & a' \rar{m'} \dar & b' \rar{e'} \dar & c' \rar \dar        & 0 \\
+	& coker(f) \rar \dar & coker(g) \rar \dar  & coker(h) \rar \dar & 0 \\
+	& 0                   & 0                 & 0                &
+ \end{tikzcd} \]
+</p>
+
+<p>
+we can first define the morphism \(\delta\) using the properties of abelian categories
+to prove that it exists and then prove that it is exact using again the
+properties of monomorphisms and epimorphisms.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaf09619" class="outline-4">
+<h4 id="orgaf09619">Homology</h4>
+<div class="outline-text-4" id="text-orgaf09619">
+<p>
+The definition of <i>homology</i> tries to capture the failure of the complex to be
+exact as the quotient of the kernel and the image of the sucessive differential
+maps.
+</p>
+
+<div class="definition">
+<p>
+Given a chain complex \(\left\{ C_n \right\}\) with differentials \(d_n\), we define the nth
+homology group as
+</p>
+
+<p>
+\[ H_n(C) \cong \mathrm{ker}(d_n) / \mathrm{im}(d_{n+1}).
+\]
+</p>
+
+</div>
+
+<p>
+It is important to notice that a sequence will be exact if and only if
+all their homology groups are zero.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org314b0fa" class="outline-3">
+<h3 id="org314b0fa"><span class="section-number-3">2.3</span> Projective, injective and flat resolutions</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Resolutions of injective modules are needed to define Hochschild
+homology.
+</p>
+</div>
+
+<div id="outline-container-orgdb7862b" class="outline-4">
+<h4 id="orgdb7862b">Definitions</h4>
+<div class="outline-text-4" id="text-orgdb7862b">
+<div class="definition">
+<p>
+An R-module \(D\) is:
+</p>
+
+<ol class="org-ol">
+<li><b>Projective</b> if \(\mathrm{Hom}(D, -)\) is exact.</li>
+<li><b>Injective</b> if \(\mathrm{Hom}(-,D)\) is exact.</li>
+<li><b>Flat</b> if \(D \otimes -\) is exact.</li>
+</ol>
+
+</div>
+
+<p>
+We know that \(\mathrm{Hom}(D,-)\) and \(\mathrm{Hom}(-,D)\) are left-exact and that
+\(D\otimes -\) is right-exact; so for them to be exact, we only need:
+</p>
+
+<ul class="org-ul">
+<li><p>
+A module \(D\) is <b>projective</b> when \(B \longrightarrow C\) epimorphism induces
+\(\mathrm{Hom}(D,B) \longrightarrow \mathrm{Hom}(D,C)\) epimorphism.
+</p>
+
+<p>
+\[ \begin{tikzcd}
+               & B \dar[two heads] \\
+   D \rar\urar[dashed]{\exists} & C
+   \end{tikzcd} \]
+</p></li>
+
+<li><p>
+A module \(D\) is <b>injective</b> when \(A \longrightarrow B\) epimorphism induces
+\(\mathrm{Hom}(B,D) \longrightarrow \mathrm{Hom}(A,D)\) epimorphism.
+</p>
+
+<p>
+\[ \begin{tikzcd}
+     & A \dar[two heads]\dlar \\
+   D & B \lar[dashed]{\exists}
+   \end{tikzcd} \]
+</p></li>
+
+<li>A module \(D\) is <b>flat</b> when \(A \longrightarrow B\) monomorphism induces 
+\(D\otimes A \longrightarrow D \otimes B\) monomorphism.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org47c96dd" class="outline-4">
+<h4 id="org47c96dd">Resolutions</h4>
+<div class="outline-text-4" id="text-org47c96dd">
+<div class="definition">
+<p>
+A <b>projective resolution</b> is a resolution
+</p>
+
+<p>
+\[\dots\longrightarrow P_2\longrightarrow P_1\longrightarrow P_0
+\longrightarrow M \longrightarrow 0\]
+</p>
+
+<p>
+where every \(P_i\) is projective.
+</p>
+
+</div>
+
+<div class="definition">
+<p>
+An <b>injective resolution</b> is a resolution
+</p>
+
+<p>
+\[0 \longrightarrow M \longrightarrow E^0\longrightarrow E^1
+\longrightarrow E^2 \longrightarrow \dots\]
+</p>
+
+<p>
+where every \(E^i\) is injective.
+</p>
+
+</div>
+
+<div class="definition">
+<p>
+A <b>flat resolution</b> is a resolution
+</p>
+
+<p>
+\[\dots\longrightarrow F_2\longrightarrow F_1\longrightarrow F_0
+\longrightarrow M \longrightarrow 0\]
+</p>
+
+<p>
+where \(F_i\) is flat.
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-org1b5fbcc" class="outline-5">
+<h5 id="org1b5fbcc">Explicit construction</h5>
+<div class="outline-text-5" id="text-org1b5fbcc">
+<p>
+Notice that, given a module \(M\), we can always find
+a surjection from a proyective module (if we have <i>enough
+projectives</i>). So we can construct a projective resolution as
+</p>
+
+<p>
+\[ \begin{tikzcd}[column sep=tiny]
+&\ker f_2 \drar&&&&\ker \pi\drar &&& \\
+\dots&&P_2 \drar[two heads]{f_2}&&P_1 \urar[two heads]{f_1} && P_0 \ar[two heads,rr]{\pi} && M \rar & 0\\
+&&&\ker f_1 \urar&&&&
+\end{tikzcd} \]
+</p>
+
+<p>
+We can also reverse the arrows to obtain an injective resolution.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org47ae202" class="outline-4">
+<h4 id="org47ae202">Derived functors</h4>
+<div class="outline-text-4" id="text-org47ae202">
+<p>
+<i>Derived functors</i> provide a canonical way to extend the image of an
+exact sequence by a non two-sided exact functor.  We need an abelian
+category \(A\) with enough injectives to construct left-derived
+functors; and we need enough projectives to construct right-derived
+functors.
+</p>
+</div>
+
+<div id="outline-container-orge1124f8" class="outline-5">
+<h5 id="orge1124f8">Construction of the right derived functor</h5>
+<div class="outline-text-5" id="text-orge1124f8">
+<p>
+Let \(F\) be additive, covariant and left-exact. Let \(0 \longrightarrow M \longrightarrow E^\bullet\) be an 
+injective resolution with \(M\) deleted; then \(F(E^\bullet)\) is a complex, and we define:
+</p>
+
+<p>
+\[R^i F(M) = H^i(F(E^\bullet)) = 
+\frac{\ker \{F(E^i) \longrightarrow F(E^{i+1})\}}
+{\im\{ F(E^{i-1}) \longrightarrow F(E^i)\}}\]
+</p>
+
+<p>
+That is, if we take the <i>injective resolution</i>
+</p>
+
+<p>
+\[ 0 \longrightarrow M \longrightarrow E^0 \longrightarrow E^1 
+\longrightarrow \dots\]
+</p>
+
+<p>
+we can delete \(M\) and apply \(F\) to get a (non neccesarily exact) complex where 
+we can compute the homology
+</p>
+
+<p>
+\[ 0 \longrightarrow F(E^0) \longrightarrow F(E^1)
+\longrightarrow F(E^2) \longrightarrow \dots.\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf8f387e" class="outline-5">
+<h5 id="orgf8f387e">Construction of the left derived functor</h5>
+<div class="outline-text-5" id="text-orgf8f387e">
+<p>
+Let \(F\) be additive, contravariant and left-exact. Let 
+\(P^\bullet \longrightarrow M \longrightarrow 0\) be a projective resolution with \(M\) deleted; 
+then \(F(P^\bullet)\) is a complex, and we define
+</p>
+
+<p>
+\[R^i F(M) = H^i(F(P^\bullet)) = 
+\frac{\ker \{F(P_i) \longrightarrow F(P_{i+1})\}}
+{\im\{ F(P_{i-1}) \longrightarrow F(P_i)\}}\]
+</p>
+
+<p>
+That is, if we take the <i>projective resolution</i>
+</p>
+
+<p>
+\[\dots \longrightarrow P_2\longrightarrow P_1\longrightarrow P_0
+\longrightarrow M \longrightarrow 0\]
+</p>
+
+<p>
+Delete \(M\) and apply \(F\) to get a (non neccesarily exact) complex 
+where we can compute the homology:
+</p>
+
+<p>
+\[ 0 \longrightarrow F(P_0) \longrightarrow F(P_1)
+\longrightarrow F(P_2) \longrightarrow \dots\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org838e9f9" class="outline-3">
+<h3 id="org838e9f9"><span class="section-number-3">2.4</span> Hochschild homology</h3>
+<div class="outline-text-3" id="text-2-4">
+</div><div id="outline-container-org2922029" class="outline-4">
+<h4 id="org2922029">Preliminaries</h4>
+<div class="outline-text-4" id="text-org2922029">
+<p>
+Our main interest will be on a particular kind of homology and comology called
+<i>Hochschild homology</i>. This section defines the preliminary necessary concepts
+to develop the notion of Hochschild homology.
+</p>
+</div>
+
+<div id="outline-container-org0eb9ee9" class="outline-5">
+<h5 id="org0eb9ee9">Opposite algebra.</h5>
+<div class="outline-text-5" id="text-org0eb9ee9">
+<p>
+The definition of an <i>opposite algebra</i> is a trvial notion which will be crucial
+to create the definition of a standard resolution of an algebra over a field.
+</p>
+
+<div class="definition">
+<p>
+If \(A\) is an \(R\text{-algebra}\), the <b>opposite algebra</b> of \(A\), with a multiplication
+given by yuxtaposition is \(A^\ast\); an algebra with the same set of elements and where
+the multiplication \(\circ\) is defined as \(x \circ y = yx\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdeeca5e" class="outline-5">
+<h5 id="orgdeeca5e">Enveloping algebra.</h5>
+<div class="outline-text-5" id="text-orgdeeca5e">
+<div class="definition">
+<p>
+Let \(R\) be a \(k\text{-algebra}\), the <b>enveloping algebra</b> of \(R\) is the tensor
+product \(R^e = R \otimes R^{op}\), where the product is defined as
+</p>
+
+<p>
+\[ (r_1 \otimes s_1)(r_2 \otimes s_2) = (r_1r_2) \otimes (s_2s_1).\]
+</p>
+
+</div>
+
+<div class="theorem">
+<p>
+Given any \(k\text{-algebra}\), \(R\), the following categories are isomorphic:
+</p>
+
+<ul class="org-ul">
+<li>\((R;R)\text{-Mod}\)</li>
+<li>\(R^e\text{-Mod}\)</li>
+<li>\(\text{Mod-}R^e\)</li>
+</ul>
+
+</div>
+<div class="proof">
+<p>
+If \(M\) is an \((R;R)\text{-module}\), we can provide it with \(R^e\text{-module}\) structure
+by defining \((r\otimes s)m = rms\). It is trivial to check that this structure is
+compatible with our previously defined product, as
+</p>
+
+<p>
+\[
+(a\otimes b)(c \otimes d)m = acmdb = (ac \otimes bd)m.
+\]
+</p>
+
+<p>
+If \(M\) is an \(R^e\text{-module}\), we can provide it with \(R;R\text{-module}\) structure
+taking \(rms = (r\otimes s) m\). Compatibility relation can be checked by the same
+reasoning.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4958fe2" class="outline-5">
+<h5 id="org4958fe2">Standard resolution.</h5>
+<div class="outline-text-5" id="text-org4958fe2">
+<div class="definition">
+<p>
+Given \(R\), a \(k\text{-algebra}\) we define the <b>standard resolution</b> \((P_{\bullet},d_{\bullet})\) of \(R\) in
+\((R;R)\mathrm{-Mod}\) as
+</p>
+
+<ul class="org-ul">
+<li>\(P_n = R \otimes (R^{\otimes n}) \otimes R\)</li>
+<li>\(d_{n} = \sum_{i=0}^n (-1)^id^i_n\)</li>
+</ul>
+
+<p>
+where
+</p>
+
+<p>
+\[
+d_n^i(a_0 \otimes \dots \otimes a_{n+1}) =
+a_0 \otimes \dots \otimes a_ia_{i+1}\otimes \dots \otimes a_{n+1}
+\]
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7fd62c7" class="outline-4">
+<h4 id="org7fd62c7">Hochschild homology</h4>
+<div class="outline-text-4" id="text-org7fd62c7">
+<div class="definition">
+<p>
+Given \(R\), a \(K\text{-algebra}\), and \(M\), an \((R;R)\text{-module}\), we define:
+</p>
+
+<ul class="org-ul">
+<li>The <b>Hochschild cohomology</b> of \(R\) in \(M\) as \(HH^{\bullet}(R,M) = \operatorname{Ext}^\bullet_{R^e}(R,M)\).</li>
+<li>The <b>Hochschild homology</b> of \(R\) in \(M\) as \(HH_{\bullet}(R,M) = \operatorname{Tor}_\bullet^{R^e}(R,M)\).</li>
+</ul>
+
+</div>
+
+<p>
+In order to compute the cohomology, we can take the following cochain
+complex
+</p>
+
+<p>
+\[
+\mathrm{Hom}_K(K,M) \overset{b^0} \longrightarrow
+\mathrm{Hom}_K(R,M) \overset{b^1} \longrightarrow
+\mathrm{Hom}_K(R^{\otimes 2},M) \overset{b^2} \longrightarrow
+\dots.
+\]
+</p>
+
+<p>
+where the \(b^n\) are defined as
+</p>
+
+<ul class="org-ul">
+<li>\(b^0(m)(a) = am-ma\)</li>
+<li>\(b^n = \sum^{n+1}_{i=0}(-1)^ib_i^n\)</li>
+</ul>
+
+<p>
+and the auxiliary morphisms \(b_i^n\) are defined as
+</p>
+
+<p>
+\[
+b^n_i(f)(a_1\otimes \dots \otimes a_{n+1}) =
+\left\{\begin{array}{ll} 
+a_1f(a_2\otimes\dots\otimes a_{n+1})& \mbox{if } i=0  \\
+f(a_1\otimes\dots\otimes a_ia_{i+1}\otimes\dots\otimes a_{n+1}}& \mbox{if } i=1,\dots,n \\
+f(a_1\otimes\dots\otimes a_n)a_{n+1}& \mbox{if } i=n+1
+\end{array}.
+\right.
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9996a5e" class="outline-2">
+<h2 id="org9996a5e"><span class="section-number-2">3</span> Methods</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Our methodology is based on the review of the basic bibliography of the
+subject. This article is an attempt to collect all the needed
+prerequisites to work with homology and cohomology theory and
+ultimately to work with Hochschild homology and Koszul pairs.
+</p>
+
+<p>
+Apart from the bibliographic review, we have developed materials for
+future students interested in the subject.
+</p>
+</div>
+
+<div id="outline-container-orge8fbfab" class="outline-4">
+<h4 id="orge8fbfab">Wikipedia articles</h4>
+<div class="outline-text-4" id="text-orge8fbfab">
+<p>
+In order to achieve a higher level of understanding of the topic and
+to provide future students with accesible resources, we have written
+the following articles for the Spanish wikipedia; they are published
+using a Creative Commons license.
+</p>
+
+<ul class="org-ul">
+<li><a href="https://es.wikipedia.org/wiki/Compleci%C3%B3n_(%C3%A1lgebra)">Compleción (álgebra)</a></li>
+<li><a href="https://es.wikipedia.org/wiki/Lema_de_escisi%C3%B3n">Lema de escisión</a></li>
+<li><a href="https://es.wikipedia.org/wiki/Lema_de_la_serpiente">Lema de la serpiente</a></li>
+<li><a href="https://es.wikipedia.org/wiki/Funtor_Tor">Funtor Tor</a></li>
+<li><a href="https://es.wikipedia.org/wiki/Homolog%C3%ADa_de_Hochschild">Homología de Hochschild</a></li>
+<li><a href="https://es.wikipedia.org/wiki/Categor%C3%ADa_coma">Categoría coma</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga9a1107" class="outline-4">
+<h4 id="orga9a1107">Student-organized seminars</h4>
+<div class="outline-text-4" id="text-orga9a1107">
+<p>
+Two student-organized seminars have been held in the university. In
+those seminars, the author has lectured about category theory; giving
+a basic introduction to mathematics and computer science students.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1bc6f0b" class="outline-2">
+<h2 id="org1bc6f0b"><span class="section-number-2">4</span> Discussion</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgcf91177" class="outline-3">
+<h3 id="orgcf91177"><span class="section-number-3">4.1</span> Koszul algebra</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<i>Koszul rings</i> will be a generalization of <i>Koszul algebras</i>. A pair of a
+ring and its categorical dual, a coring; toghether with certain coherence
+relations, will constitute our definition of a Koszul pair.
+</p>
+
+<div class="definition">
+<p>
+A graded algebra \(A\) is a <b>Koszul algebra</b> over a field \(k\) if
+every graded module has a graded projective resolution
+\(P_{\bullet}\) where the projective module \(P_j\) is generated by homogeneous
+elements of degree \(j\).
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orgf4b4ad5" class="outline-4">
+<h4 id="orgf4b4ad5">Quadratic algebras</h4>
+<div class="outline-text-4" id="text-orgf4b4ad5">
+<p>
+Koszul algebras are a particular case of quadratic algebras. We can describe
+them in full generality with the following definition.
+</p>
+
+<div class="definition">
+<p>
+A graded algebra \(A\) is a <b>quadratic algebra</b> if the natural
+application from its tensor algebra \(T(A) \to A\) is surjective
+and its kernel \(J_A\) is generated from \(J_{A} \cap (A^{1} \otimes A^1)\). <a class='org-ref-reference' href="#polishchuk05">polishchuk05</a>
+</p>
+
+</div>
+
+<p>
+In other words, a graded quadratic algebra is determined as the
+quotient of a vector space \(A_{1}\) by a subspace of homogeneous
+quadratic relations \(S \subset V \otimes V\) as
+</p>
+
+<p>
+\[
+A = T(V) / \left\langle S \right\rangle.
+\]
+</p>
+
+<div class="theorem">
+<p>
+Every Koszul \(R\text{-ring}\) is a quadratic algebra.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9fb4b11" class="outline-3">
+<h3 id="org9fb4b11"><span class="section-number-3">4.2</span> Almost-koszul pairs</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Previous to the definition of Koszul pairs, we are going to define
+<i>almost-koszul pairs</i>. Those will provide us with a weaker set of
+requirements and we will be able to obtain a definition of Koszul
+pairs suitable to every almost-koszul pair.
+</p>
+</div>
+
+<div id="outline-container-orge6c4021" class="outline-4">
+<h4 id="orge6c4021">Graded rings</h4>
+<div class="outline-text-4" id="text-orge6c4021">
+<div class="definition">
+<p>
+A <b>graded ring</b> is a ring that can be written as a direct sum of
+abelian groups
+</p>
+
+<p>
+\[ A = \bigoplus_{n \in \mathbb{N}} A_n\]
+</p>
+
+<p>
+such that \(A_iA_j \subset A_{i+j}\).
+</p>
+
+</div>
+
+<p>
+A <b>homogeneous element</b> is an element of any submodule \(A_i\) of the
+decomposition.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0d6122e" class="outline-4">
+<h4 id="org0d6122e">Koszul rings</h4>
+<div class="outline-text-4" id="text-org0d6122e">
+<div class="definition">
+<p>
+A graded ring \(A\) is a <b>Koszul ring</b> if \(A^0\) is a semisimple ring 
+and it has a resolution \(P_\ast\) by projective graded left A-modules such 
+that each \(P_n\) is generated by homogeneous elements of degree \(n\).
+<a class='org-ref-reference' href="#jarastefan10">jarastefan10</a>
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org579f7ff" class="outline-4">
+<h4 id="org579f7ff">R-rings</h4>
+<div class="outline-text-4" id="text-org579f7ff">
+<div class="definition">
+<p>
+An \(R\text{-ring}\) is an associative and unital algebra. It is an associative and
+unital ring \(A\) together with a morphism \(u : R \longrightarrow A\).
+</p>
+
+</div>
+
+<p>
+A R-ring is <b>graded</b> if it is equipped with a decomposition
+</p>
+
+<p>
+\[A = \bigoplus_{n \in \mathbb{N}} A^n \]
+</p>
+
+<p>
+such that multiplicaton \(m^{p,q}\) maps \(A^p \otimes A^q\) into \(A^{p+q}\). It is <b>connected</b> 
+when \(A_0 = R\). It is <b>strongly graded</b> when \(m^{1,p}\) is surjective. We 
+call \(\pi^n_A\) to the projection of \(A\) onto \(A^n\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org02367ba" class="outline-4">
+<h4 id="org02367ba">R-coring</h4>
+<div class="outline-text-4" id="text-org02367ba">
+<p>
+Corings will be the categorical dual of rings. In order to define them, we
+proceed by giving defitions of coalgebra and certain properties of this kind
+of algebras. Those are also the dual notions to the preliminary definitions
+we described at the start of this chapter.
+</p>
+
+<div class="definition">
+<p>
+A <b>coalgebra</b> over a field \(K\) is a <b>vector space</b> \(V\) together with linear
+maps \(\Delta : V \longrightarrow V \otimes V\) and \(\varepsilon : V \longrightarrow K\) such that:
+</p>
+
+<ol class="org-ol">
+<li>\((id \otimes \Delta) \circ \Delta = (\Delta \otimes id) \circ \Delta\)</li>
+<li>\((id \otimes \varepsilon) \circ \Delta = id 
+    = (\varepsilon \otimes id) \circ \Delta\)</li>
+</ol>
+
+</div>
+
+<p>
+When writting in coalgebras, we will follow the <b>Sweedler
+notation</b>. <a class='org-ref-reference' href="#underwood15_hopf">underwood15_hopf</a>
+</p>
+
+<div class="definition">
+<p>
+An \(\mathbf{R\text{-coring}}\) is a <i>coassociative</i> and <i>counital</i> <i>coalgebra</i>. It is an 
+\(R\text{-bimodule}\) with a <i>comultiplication</i> \(\Delta : C \longrightarrow C \otimes C\) and  a <i>counit</i>
+\(\epsilon : C \longrightarrow R\).
+</p>
+
+</div>
+
+<p>
+A \(R\text{-coring}\) is <b>graded</b> if it is equipped with a decomposition 
+\(C = \bigoplus_{n \in \mathbb{N}} C_n\), such that
+</p>
+
+<p>
+\[\Delta(C_n) \subset \bigoplus_{p=0}^n C_p \otimes C_{n-p}.\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgda7b159" class="outline-4">
+<h4 id="orgda7b159">Almost-koszul pair</h4>
+<div class="outline-text-4" id="text-orgda7b159">
+<div class="definition">
+<p>
+An <b>almost-Koszul pair</b> is a connected \(R\text{-ring}\) and \(R\text{-coring}\) \((A,C)\) 
+with an isomorphism \(\theta_{C,A} : C_1 \longrightarrow A^1\) that satisfies the relation
+</p>
+
+<p>
+\[ m^{1,1} \circ (\theta_{C,A} \otimes \theta_{C,A}) \circ \Delta_{1,1}
+= 0.\]
+</p>
+
+</div>
+
+<p>
+Using Sweedler notation we can rewrite the condition as follows 
+</p>
+
+
+<p>
+\[ \sum \theta_{C,A}(c_{(1,1)}) \theta_{C,A}(c_{(2,1)}) = 0,\]
+</p>
+
+<p>
+for any \(c \in C_2\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org42f2aac" class="outline-3">
+<h3 id="org42f2aac"><span class="section-number-3">4.3</span> Almost-koszul pair complexes</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Six complexes will be associated to any given Koszul pair. Its
+exactness will be related, i.e., if any one of them is exact, the six
+complexes will be exact. This provides a definition of Koszul
+pairs relying only on this kind of complexes.
+</p>
+
+<div class="definition">
+<p>
+Let \((A,C)\) be an almost-Koszul pair, if we define
+</p>
+
+<p>
+\[
+K^{-1}_l(A,C) = R
+\quad\text{ and }\quad
+K^n_l(A,C) = C \otimes A^n,
+\]
+</p>
+
+<p>
+and the differential maps
+</p>
+
+<p>
+\[
+d^n_l(c \otimes a) = \sum c_{(1,p-1)} \otimes \theta_{C,A}(c_{(2,1)})a,
+\]
+</p>
+
+<p>
+with the exceptional case \(n = -1\), where we take \(d^n_l\) to be the canonical
+bimodule morphisms \(R \to C \otimes A^0\), mapping \(1 \mapsto 1 \otimes 1 \in C_0 \otimes A^0\). We will
+also define the same notion on the opposite pair as
+</p>
+
+<p>
+\[
+K_r^{\ast}(A,C) = K^{\ast}_l(A^{op},C^{op}).
+\]
+</p>
+
+</div>
+
+<div class="definition">
+<p>
+Let \((A,C)\) be an almost-Koszul pair, we define
+</p>
+
+<p>
+\[
+K^{-1}(A,C) = C
+\quad\text{ and }\quad
+K^n(A,C) = C \otimes A^n\otimes C,
+\]
+</p>
+
+<p>
+and the differential relations given by \(d^{-1} = \Delta\) and
+</p>
+
+<p>
+\[
+d^n = d^n_l \otimes I_C + (-1)^{n+1}I_C \otimes d^n_r.
+\]
+</p>
+
+</div>
+
+<div class="definition">
+<p>
+Let \((A,C)\) be an almost-Koszul pair, if we define
+</p>
+
+<p>
+\[
+K^r_{-1}(A,C) = R
+\quad\text{ and }\quad
+K^r_n(A,C) = C_n \otimes A,
+\]
+</p>
+
+<p>
+and the differential maps
+</p>
+
+<p>
+\[
+d_n^r(c \otimes a) = \sum c_{(1,n-1)} \otimes \theta_{C,A}(c_{(2,1)})a.
+\]
+</p>
+
+<p>
+Appliying the same construction to the opposite almost-Koszul pair
+gives us the complex \(K^l_{\ast}\).
+</p>
+
+</div>
+
+<div class="definition">
+<p>
+Let \((A,C)\) be an almost-Koszul pair, we define
+</p>
+
+<p>
+\[
+K_{-1}(A,C) = A
+\quad\text{ and }\quad
+K_n(A,C) = A \otimes C_n \otimes A,
+\]
+</p>
+
+<p>
+and the differential relations given by \(d_0\), induced by multiplication,
+and
+</p>
+
+<p>
+\[
+d_n^{l}(a \otimes c) = \sum a\theta_{C,A}(c_{(1,1)}) \otimes c_{(2,n-1)};
+\]
+</p>
+
+<p>
+defining \(d_n = d_n^l \otimes I_A + (-1)^nI_A\otimes d_n^r\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org326977b" class="outline-3">
+<h3 id="org326977b"><span class="section-number-3">4.4</span> Koszul pairs</h3>
+<div class="outline-text-3" id="text-4-4">
+<div class="theorem">
+<p>
+Given an almost-Koszul pair \((A,C)\), if one of these six complexes is
+exact, all of them are exact, as it is showed in <a class='org-ref-reference' href="#jarastefan10">jarastefan10</a>.
+</p>
+
+<ul class="org-ul">
+<li>\(K^{l}_{\ast}(A,C)\).</li>
+<li>\(K^r_{\ast}(A,C)\).</li>
+<li>\(K_{\ast}(A,C)\).</li>
+<li>\(K^{\ast}_l(A,C)\).</li>
+<li>\(K_r^{\ast}(A,C)\).</li>
+<li>\(K^{\ast}(A,C)\).</li>
+</ul>
+
+</div>
+
+<div class="definition">
+<p>
+An almost-Koszul pair \((A,C)\) is said to be <b>Koszul</b> if and only if the
+previously discussed complexes are exact.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org883cc4a" class="outline-2">
+<h2 id="org883cc4a"><span class="section-number-2">5</span> Conclusions</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Starting from a very basic undergraduate mathematical level, all the
+necessary definitions of categories, chain complexes and homology have
+been developed in this work. This constitutes a reference for students
+interested on the specific field of Koszul pairs and sets the ground
+for future developments and undergraduate and graduate-level research.
+</p>
+
+<p>
+\(\quad\)
+</p>
+
+<p>
+In particular, future work should be able to find new
+characterizations of Koszul pairs in terms of homology and cohomology
+apart from the known characterizations found on <a class='org-ref-reference' href="#jarastefan10">jarastefan10</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9aa58e1" class="outline-2">
+<h2 id="org9aa58e1"><span class="section-number-2">6</span> References</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="polishchuk05">[polishchuk05] Alexander Polishchuk & Leonid Positselski, Quadratic Algebras, American Mathematical Society (2005).</a></li>
+<li><a id="grothendieck57">[grothendieck57] Alexandre Grothendieck, Sur quelques points d'algebre homologique, <i>Tohoku Mathematical Journal</i>, <b>9(2)</b>, 119-221 (1957).</a></li>
+<li><a id="rotman08_setting">[rotman08_setting] @inbookrotman08_setting,
+  DATE_ADDED =	 Sun Apr 30 12:24:13 2017,
+  author =	 Joseph J. Rotman,
+  booktitle =	 An Introduction to Homological Algebra,
+  doi =		 10.1007/978-0-387-68324-9_5,
+  pages =	 1-110,
+  publisher =	 Springer New York,
+  series =	 An Introduction to Homological Algebra,
+  title =	 Setting the Stage,
+  url =		 https://doi.org/10.1007/978-0-387-68324-9_5,
+  year =	 2008,
+</a></li>
+<li><a id="weibel94_introd">[weibel94_introd] @inbookweibel94_introd,
+  DATE_ADDED =	 Sun Apr 30 12:10:06 2017,
+  author =	 Charles A. Weibel,
+  booktitle =	 An Introduction to Homological Algebra,
+  doi =		 10.1017/cbo9781139644136.001,
+  pages =	 xi-xiv,
+  publisher =	 Cambridge University Press,
+  series =	 An Introduction to Homological Algebra,
+  title =	 Introduction,
+  url =		 https://doi.org/10.1017/cbo9781139644136.001,
+  year =	 nil,
+</a></li>
+<li><a id="jarastefan10">[jarastefan10] Jara Mart\'\inez, L\'opez Pe\~na, & \c Stefan, Koszul pairs and applications, <i>ArXiv e-prints</i>, <b></b>, (2010).</a></li>
+<li><a id="underwood15_hopf">[underwood15_hopf] @inbookunderwood15_hopf,
+  DATE_ADDED =	 Sun Apr 30 13:16:03 2017,
+  author =	 Robert G. Underwood,
+  booktitle =	 Universitext,
+  doi =		 10.1007/978-3-319-18991-8_1,
+  pages =	 1-34,
+  publisher =	 Springer International Publishing,
+  series =	 Universitext,
+  title =	 Algebras and Coalgebras,
+  url =		 https://doi.org/10.1007/978-3-319-18991-8_1,
+  year =	 2015,
+</a></li>
+</ul>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Mario Román</p>
+<p class="date">Created: 2017-12-03 Sun 11:58</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

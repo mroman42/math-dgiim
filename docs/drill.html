@@ -1,0 +1,1235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-12-03 Sun 11:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Math drill cards</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mario Román" />
+<meta name="description" content="Spaced-repetition cards for math subjects."
+ />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Math drill cards</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3ccd61c">1. Category theory</a>
+<ul>
+<li><a href="#org343a0a2">1.1. Universality and Yoneda</a>
+<ul>
+<li><a href="#org3e1cc92">1.1.1. Universal arrow&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org640cc6f">1.1.2. Yoneda Lemma&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org13a6535">1.1.3. Yoneda functor&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orge09a0a7">1.2. Adjoints, monads and algebras</a>
+<ul>
+<li><a href="#orgab2f45b">1.2.1. Unit of an adjunction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgc896c61">1.2.2. Counit of an adjunction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org01c01e1">1.2.3. Monad of an adjunction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org0e167d6">1.3. Enriched categories</a>
+<ul>
+<li><a href="#org307dcd0">1.3.1. Preadditive category&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org57580d6">1.4. Categorical logic</a>
+<ul>
+<li><a href="#org6e6290d">1.4.1. Cartesian closed category&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org5cef576">1.4.2. Elementary topos&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org1c9bbe6">1.4.3. Pullback functor in objects&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orga6428ec">1.4.4. Pullback functor in morphisms&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4eab0a2">2. Homotopy type theory</a>
+<ul>
+<li><a href="#orgaed190e">2.1. 3. Sets and logic</a>
+<ul>
+<li><a href="#orgd10a6d0">2.1.1. Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org6e00f8a">2.1.2. Subtypes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgd054153">2.1.3. Axiom of choice&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org6ebf145">2.1.4. Decidable type&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org14fdd6d">2.1.5. Decidable equality&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org224a4d7">2.1.6. Decidable type family&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgad09f6d">2.1.7. Contractible type&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org7db11fd">2.1.8. Mere propositions and contractibility&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgab310b2">2.1.9. Hedberg's theorem&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org92d4f0a">2.2. 4. Equivalences</a>
+<ul>
+<li><a href="#orge10277b">2.2.1. Type-theoretical fiber&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org7f48aba">3. Topology</a>
+<ul>
+<li><a href="#org22672ae">3.1. Covering space&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a>
+<ul>
+<li><a href="#org5fd273b">3.1.1. Definition</a></li>
+</ul>
+</li>
+<li><a href="#org6b028df">3.2. Topological retraction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a>
+<ul>
+<li><a href="#org8e3b412">3.2.1. Definition</a></li>
+</ul>
+</li>
+<li><a href="#org4bebb7c">3.3. Examples</a>
+<ul>
+<li><a href="#org218f581">3.3.1. Are the open and closed intervals homeomorphic?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6d24a17">4. Algebra</a>
+<ul>
+<li><a href="#org09bfc0b">4.1. Exponentiation of versors&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a>
+<ul>
+<li><a href="#orgaab5ca9">4.1.1. Definition</a></li>
+<li><a href="#orgad15720">4.1.2. Computation</a></li>
+</ul>
+</li>
+<li><a href="#org2266e7f">4.2. Snake lemma&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a>
+<ul>
+<li><a href="#orgc2fc88a">4.2.1. Answer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org73847ec">5. First-order logic</a>
+<ul>
+<li><a href="#org4326367">5.1. Definition of validity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a>
+<ul>
+<li><a href="#orgb86de46">5.1.1. Answer</a></li>
+</ul>
+</li>
+<li><a href="#orgf6dbc1b">5.2. Definition of soundness&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a>
+<ul>
+<li><a href="#org126a78e">5.2.1. Answer</a></li>
+</ul>
+</li>
+<li><a href="#org331b558">5.3. Definition of completeness&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a>
+<ul>
+<li><a href="#orgbdeb6f7">5.3.1. Answer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org37d622b">6. Coq tactics</a>
+<ul>
+<li><a href="#org8abb7a5">6.1. Difference Defined / Qed&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a>
+<ul>
+<li><a href="#org7cb33b9">6.1.1. Answer</a></li>
+</ul>
+</li>
+<li><a href="#org4ad715b">6.2. Tactics</a>
+<ul>
+<li><a href="#org2d83bd1">6.2.1. Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgd25da72">6.2.2. Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orge47af94">6.2.3. Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orga28e494">6.2.4. Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org4d06684">6.2.5. Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org170159b">6.2.6. Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#orgac04b96">6.2.7. Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+<li><a href="#org577f444">6.2.8. Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+Resources on spaced repetition
+</p>
+
+<ul class="org-ul">
+<li><a href="http://www.gwern.net/Spaced-repetition">Gwern - spaced repetition</a></li>
+<li><a href="https://www.supermemo.com/en/articles/20rules">SuperMemo - twenty rules of formulating knowledge</a></li>
+</ul>
+
+<p>
+A session should be 10-15 mins long.
+</p>
+
+
+
+
+<div id="outline-container-org3ccd61c" class="outline-2">
+<h2 id="org3ccd61c"><span class="section-number-2">1</span> Category theory</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-org343a0a2" class="outline-3">
+<h3 id="org343a0a2"><span class="section-number-3">1.1</span> Universality and Yoneda</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-org3e1cc92" class="outline-4">
+<h4 id="org3e1cc92"><a id="ID-f5c0c0db-7fd6-486d-9eab-d0f87b6f8d54"></a><span class="section-number-4">1.1.1</span> Universal arrow&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Definition of <b>universal arrow</b> from \(c\) to \(S\).
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org5d68dfc"></a>Definition<br /><div class="outline-text-5" id="text-1-1-1-1">
+<p>
+For any other \(f : c \to Sd\) there exists this unique diagram
+</p>
+
+<p>
+\[\begin{tikzcd}
+ & Sd \\
+c \rar[swap]{u}\urar{f} & Sr \uar[swap, dashed]{\exists! S \widetilde f}
+\end{tikzcd}\]
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org640cc6f" class="outline-4">
+<h4 id="org640cc6f"><a id="ID-dbee06db-00f9-4f92-9e8f-ab855a4a5fc6"></a><span class="section-number-4">1.1.2</span> Yoneda Lemma&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+Statement of the first Yoneda Lemma.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgaebc139"></a>Statement<br /><div class="outline-text-5" id="text-1-1-2-1">
+<p>
+For any covariant \(K\colon D \to \mathsf{Set}\) and \(r \in D\), there is a bijection
+</p>
+
+<p>
+\[
+y \colon \mathrm{Nat}(\mathrm{hom}_{D}(r,-), K) \cong Kr
+\]
+</p>
+
+<p>
+sending any natural transformation \(\alpha \colon \mathrm{hom}_{D}(r,-) \xrightarrow{.} K\)
+to its image on the identity, \(\alpha_r(\mathsf{id}_r)\).
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org13a6535" class="outline-4">
+<h4 id="org13a6535"><a id="ID-0d249757-6f4e-4635-a141-605ae14c0aaf"></a><span class="section-number-4">1.1.3</span> Yoneda functor&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+Definition of the <b>Yoneda functor</b>.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgd1132bd"></a>Definition<br /><div class="outline-text-5" id="text-1-1-3-1">
+<p>
+The <b>Yoneda functor</b>, \(Y \colon D^{op} \to\Sets^{D}\), is defined with the arrow function
+\[
+\left(f \colon s \to r\right) \mapsto 
+\Big(- \circ f \colon \hom_D(r,-) \to \hom_D(s,-)\Big).
+\]
+It can be also written as \(Y' \colon D \to\Sets^{D^{op}}\).
+</p>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orge09a0a7" class="outline-3">
+<h3 id="orge09a0a7"><span class="section-number-3">1.2</span> Adjoints, monads and algebras</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orgab2f45b" class="outline-4">
+<h4 id="orgab2f45b"><a id="ID-9048327b-599e-4d3d-8674-3384c97f18fb"></a><span class="section-number-4">1.2.1</span> Unit of an adjunction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+Given an adjunction \(F \vdash G\), what signature does the <b>unit</b> have?
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgdb94712"></a>Answer<br /><div class="outline-text-5" id="text-1-2-1-1">
+<p>
+The unit is \(\eta \colon \mathrm{id} \to G \circ F\).
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-orgc896c61" class="outline-4">
+<h4 id="orgc896c61"><a id="ID-3d507be4-76aa-4852-9a79-842202789c3d"></a><span class="section-number-4">1.2.2</span> Counit of an adjunction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+Given an adjunction \(F \vdash G\), what signature does the <b>counit</b> have?
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org4f5ef27"></a>Answer<br /><div class="outline-text-5" id="text-1-2-2-1">
+<p>
+The counit is \(\epsilon : F \circ G \to \mathrm{id}\).
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-org01c01e1" class="outline-4">
+<h4 id="org01c01e1"><a id="ID-be30eb00-9dbd-4d91-8d58-a5e3c9cf9bff"></a><span class="section-number-4">1.2.3</span> Monad of an adjunction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+Given an adjunction \(F \vdash G\), what monad does it give rise to?
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org28814ed"></a>Answer<br /><div class="outline-text-5" id="text-1-2-3-1">
+<p>
+The monad \(T := G \circ F\).
+</p>
+</div></li></ol>
+</div>
+</div>
+<div id="outline-container-org0e167d6" class="outline-3">
+<h3 id="org0e167d6"><span class="section-number-3">1.3</span> Enriched categories</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-org307dcd0" class="outline-4">
+<h4 id="org307dcd0"><a id="ID-01815e4d-7bf6-473c-a818-f5a4f3568967"></a><span class="section-number-4">1.3.1</span> Preadditive category&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+Definition of <a href="https://en.wikipedia.org/wiki/Preadditive_category">preadditive category</a>
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org284f6af"></a>Definition<br /><div class="outline-text-5" id="text-1-3-1-1">
+<p>
+Every \(hom(a,b)\) is an <b>abelian group</b> and composition is <b>bilinear</b>
+</p>
+
+<p>
+\[
+f \circ (g+h) = f \circ g+f \circ h \qquad (f+g)\circ h = f\circ h+g \circ h
+\]
+</p>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-org57580d6" class="outline-3">
+<h3 id="org57580d6"><span class="section-number-3">1.4</span> Categorical logic</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-org6e6290d" class="outline-4">
+<h4 id="org6e6290d"><a id="ID-1c544faf-0c54-4fc1-b2f2-839d6fdd8354"></a><span class="section-number-4">1.4.1</span> Cartesian closed category&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+Define a <b>cartesian closed category</b> using three adjoints.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org8eac2cf"></a>Definition<br /><div class="outline-text-5" id="text-1-4-1-1">
+<p>
+Any category \({\cal C}\) is cartesian closed if and only if there exist
+<b>right adjoints</b> for the following functors
+</p>
+
+\begin{prooftree}
+\AX$\ast\ \fCenter\to\ast$
+\doubleLine
+\UI$x\ \fCenter\to \top$
+\AX$(x,x)\ \fCenter\to (y,z)$
+\doubleLine
+\UI$x\ \fCenter\to y \times z$
+\AX$x \times a\ \fCenter\to y$
+\doubleLine
+\UI$x\ \fCenter\to y^a$
+\noLine
+\TIC{}
+\end{prooftree}
+</div></li></ol>
+</div>
+
+<div id="outline-container-org5cef576" class="outline-4">
+<h4 id="org5cef576"><a id="ID-5e288a7b-486a-4d12-91b2-45834c6a0b47"></a><span class="section-number-4">1.4.2</span> Elementary topos&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+Define <b>elementary topos</b> with three properties.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org4aa2279"></a>Definition<br /><div class="outline-text-5" id="text-1-4-2-1">
+<ol class="org-ol">
+<li>is <b>cartesian closed</b>,</li>
+<li>has all <b>finite limits</b>,</li>
+<li>has a <b>subobject classifier</b>.</li>
+</ol>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org1c9bbe6" class="outline-4">
+<h4 id="org1c9bbe6"><a id="ID-fed94983-29d8-4580-97ba-0e0d06a7da46"></a><span class="section-number-4">1.4.3</span> Pullback functor in objects&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-4-3">
+<p>
+Given \(f : B \to A\), define the pullback functor \(f^{\ast} : {\cal C}/A \to {\cal C}/B\)
+in objects.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org0b72de4"></a>Definition in objects<br /><div class="outline-text-5" id="text-1-4-3-1">
+<p>
+Given any \(c : C \to A\), the pullback functor gives \(f^{\ast}c : f^{\ast}C \to B\)
+with the following pullback square
+</p>
+
+<p>
+\[\begin{tikzcd}
+f^{\ast}C \rar{}\drar[phantom, near start, "\ulcorner"] \dar[swap]{f^{\ast}c} & C \dar{c} \\
+B\rar{f} & A
+\end{tikzcd}\]
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orga6428ec" class="outline-4">
+<h4 id="orga6428ec"><a id="ID-5bb637fe-4ec1-4cc1-9e8d-b973b81ebaff"></a><span class="section-number-4">1.4.4</span> Pullback functor in morphisms&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-1-4-4">
+<p>
+Given \(f : B \to A\), define the pullback functor \(f^{\ast} : {\cal C}/A \to {\cal C}/B\)
+on the morphism \(h : C \to D\) defined between \(c : C \to A\) and \(d : D \to A\).
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org50d9378"></a>Definition in morphisms<br /><div class="outline-text-5" id="text-1-4-4-1">
+<p>
+The morphism \(f^{\ast}h : f^{\ast}C \to f^{\ast}D\) is defined by the universal property
+of pullbacks
+</p>
+
+<p>
+\[\begin{tikzcd}
+f^{\ast}C \ar{rrr}\ar[dashed]{dr}{\exists! f^{\ast}h} \ar[bend right,swap]{ddr}{f^{\ast}c} &&&
+C \ar{dl}{h}\ar[bend left=60]{ddl}{c} \\
+& f^{\ast}D \dar[swap]{f^{\ast}d} \rar & D \dar{d} \\
+& Bñ \rar[swap]{f} & A \\
+\end{tikzcd}\]
+</p>
+</div></li></ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org4eab0a2" class="outline-2">
+<h2 id="org4eab0a2"><span class="section-number-2">2</span> Homotopy type theory</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgaed190e" class="outline-3">
+<h3 id="orgaed190e"><span class="section-number-3">2.1</span> 3. Sets and logic</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-orgd10a6d0" class="outline-4">
+<h4 id="orgd10a6d0"><a id="ID-642db2e3-5cf0-4bfc-8d34-0bd7a3723374"></a><span class="section-number-4">2.1.1</span> Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Definition of <b>sets</b> in type theory.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org56e89e6"></a>Definition<br /><div class="outline-text-5" id="text-2-1-1-1">
+<p>
+\[
+\textsf{isSet}(A) \equiv \prod_{(x,y : A)} \prod_{(p,q : x = y)} p = q.
+\]
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org6e00f8a" class="outline-4">
+<h4 id="org6e00f8a"><a id="ID-64ba6bc2-b0cc-4863-809e-baf0200c59d3"></a><span class="section-number-4">2.1.2</span> Subtypes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Definition of <b>subtype</b>.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org9a0ad2e"></a>Definition<br /><div class="outline-text-5" id="text-2-1-2-1">
+<p>
+For a family of <b>mere propositions</b> \(P : A \to {\cal U}\), we write
+</p>
+
+<p>
+\[
+\left\{ x : A\mid P(x) \right\} 
+ \equiv
+\sum_{x:A} P(x)
+\]
+</p>
+
+<p>
+and call this a subtype of \(A\).
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgd054153" class="outline-4">
+<h4 id="orgd054153"><a id="ID-f8e99cbf-4821-4cb3-b622-dfd84d4d4215"></a><span class="section-number-4">2.1.3</span> Axiom of choice&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+<b>Axiom of choice</b> in type theory.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgb55792a"></a>Statement<br /><div class="outline-text-5" id="text-2-1-3-1">
+<p>
+\[
+\left( \prod_{x:X} \trunc{\sum_{a:A(x)} P(x,a)} \right)
+\to
+\trunc{\sum_{(g: \prod_{x:X}A(x))} \prod_{(x:X)} P(x,g(x))}.
+\]
+</p>
+
+<p>
+for a given  \(P : \prod_{x:X} (A(x) \to {\cal U})\).
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org6ebf145" class="outline-4">
+<h4 id="org6ebf145"><a id="ID-b7080b88-8de1-4c7d-b804-73dc6ff6d702"></a><span class="section-number-4">2.1.4</span> Decidable type&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-1-4">
+<p>
+Definition of <b>decible type</b>.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org908bc5d"></a>Definition<br /><div class="outline-text-5" id="text-2-1-4-1">
+<p>
+\(A + \neg A\)
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org14fdd6d" class="outline-4">
+<h4 id="org14fdd6d"><a id="ID-0784e9e9-14c0-42c7-ae4a-25aa5e192c4b"></a><span class="section-number-4">2.1.5</span> Decidable equality&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-1-5">
+<p>
+Definition of <b>decidable equality</b>.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org25fa0ac"></a>Definition<br /><div class="outline-text-5" id="text-2-1-5-1">
+<p>
+\[
+\prod_{a,b : A} (a = b) + \neg (a = b)
+\]
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org224a4d7" class="outline-4">
+<h4 id="org224a4d7"><a id="ID-dc617b60-30a0-40c0-b631-b6277f138150"></a><span class="section-number-4">2.1.6</span> Decidable type family&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-1-6">
+<p>
+Definition of <b>decidable type family</b>.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org1345995"></a>Definition<br /><div class="outline-text-5" id="text-2-1-6-1">
+<p>
+\[
+\prod_{a : A} B(a) + \neg B(a)
+\]
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgad09f6d" class="outline-4">
+<h4 id="orgad09f6d"><a id="ID-24050684-5b1f-48bc-859b-5169e66d0198"></a><span class="section-number-4">2.1.7</span> Contractible type&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-1-7">
+<p>
+Definition of <b>contractible type</b>.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgf6e0ec7"></a>Definition<br /><div class="outline-text-5" id="text-2-1-7-1">
+<p>
+\[
+\isContr(A) :\equiv \sum_{a:A}\prod_{x:A}(a = x)
+\]
+</p>
+
+<p>
+\(A\) is contractible if there exists a center of contraction \(a\).
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org7db11fd" class="outline-4">
+<h4 id="org7db11fd"><a id="ID-8be8a4a1-667a-4a64-b96a-f07d9d46ca61"></a><span class="section-number-4">2.1.8</span> Mere propositions and contractibility&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-1-8">
+<p>
+Define <b>mere proposition</b> in terms of contractibility.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org73483d9"></a>Definition<br /><div class="outline-text-5" id="text-2-1-8-1">
+<p>
+\(A\) is a mere proposition iff for all \(x,y : A\), the type \(x = y\) is
+contractible.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgab310b2" class="outline-4">
+<h4 id="orgab310b2"><a id="ID-2bde59f5-b573-44cc-9aa0-319cafd7916c"></a><span class="section-number-4">2.1.9</span> Hedberg's theorem&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-1-9">
+<p>
+Statement of <b>Hedberg's theorem</b>.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org21d1abf"></a>Statement<br /><div class="outline-text-5" id="text-2-1-9-1">
+<p>
+If a type has decidable equality, it is a set.
+</p>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-org92d4f0a" class="outline-3">
+<h3 id="org92d4f0a"><span class="section-number-3">2.2</span> 4. Equivalences</h3>
+<div class="outline-text-3" id="text-2-2">
+</div><div id="outline-container-orge10277b" class="outline-4">
+<h4 id="orge10277b"><a id="ID-f92e8b0d-a516-41ab-af1c-47a714f0b557"></a><span class="section-number-4">2.2.1</span> Type-theoretical fiber&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Definition of <b>fiber</b> of \(f : A \to B\) over \(b : B\) in HoTT.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org0deeb02"></a>Definition<br /><div class="outline-text-5" id="text-2-2-1-1">
+<p>
+\[
+\fib_f(b) :\equiv \sum_{a:A}(f(a) = b).
+\]
+</p>
+</div></li></ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7f48aba" class="outline-2">
+<h2 id="org7f48aba"><span class="section-number-2">3</span> Topology</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-org22672ae" class="outline-3">
+<h3 id="org22672ae"><a id="ID-915fad6c-c2b3-479f-b16d-b24f97abbd13"></a><span class="section-number-3">3.1</span> Covering space&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Definition of <b>covering space</b>.
+</p>
+</div>
+
+<div id="outline-container-org5fd273b" class="outline-4">
+<h4 id="org5fd273b"><span class="section-number-4">3.1.1</span> Definition</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+A <b>continuous surjective</b> \(p : E \to B\) such that every \(b \in B\) has a
+neighborhood \(V\) such that \(p^{-1}(V)\) is an open partition \(\{V_n\}\) of
+<b>slices</b>, every one of them isomorphic to \(V_b\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6b028df" class="outline-3">
+<h3 id="org6b028df"><a id="ID-36cc4b72-f8d6-45ab-8377-7aa2dfb4420b"></a><span class="section-number-3">3.2</span> Topological retraction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Definition of topological <b>retraction</b>.
+</p>
+</div>
+
+<div id="outline-container-org8e3b412" class="outline-4">
+<h4 id="org8e3b412"><span class="section-number-4">3.2.1</span> Definition</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+An inclusion \(i : A \subseteq X\) with a continuous map \(r : X \to A\) 
+such that \(r \circ i = \mathsf{id}\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4bebb7c" class="outline-3">
+<h3 id="org4bebb7c"><span class="section-number-3">3.3</span> Examples</h3>
+<div class="outline-text-3" id="text-3-3">
+</div><div id="outline-container-org218f581" class="outline-4">
+<h4 id="org218f581"><a id="ID-72ebf2a8-8fe0-4179-a952-5ccddf9b7315"></a><span class="section-number-4">3.3.1</span> Are the open and closed intervals homeomorphic?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+Prove or disprove: are the open and closed intervals homeomorphic?
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org1b652f8"></a>Answer<br /><div class="outline-text-5" id="text-3-3-1-1">
+<p>
+No, [0,1] is compact and (0,1) is not. Compactness is preserved
+by homeomorphisms.
+</p>
+</div></li>
+
+<li><a id="orge021378"></a>Answer 2<br /><div class="outline-text-5" id="text-3-3-1-2">
+<p>
+We can take a point on both intervals and see that only one of them
+has to be connected.
+</p>
+</div></li></ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d24a17" class="outline-2">
+<h2 id="org6d24a17"><span class="section-number-2">4</span> Algebra</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-org09bfc0b" class="outline-3">
+<h3 id="org09bfc0b"><a id="ID-8404f823-c268-4627-8229-8432570411eb"></a><span class="section-number-3">4.1</span> Exponentiation of versors&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Given a quaternion \(q\), how we define and compute \(\mathrm{exp}(q)\)?
+</p>
+</div>
+
+<div id="outline-container-orgaab5ca9" class="outline-4">
+<h4 id="orgaab5ca9"><span class="section-number-4">4.1.1</span> Definition</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+We define the exponentiation using Taylor Series
+</p>
+
+<p>
+\[\exp(q) =  1 + q + \frac{q^2}{2!} + \frac{q^3}{3!} + \dots + \frac{q^n}{n!} + \cdots\ .\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad15720" class="outline-4">
+<h4 id="orgad15720"><span class="section-number-4">4.1.2</span> Computation</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<p>
+If we write any quaternion as a versor, \(q = \cos\theta + v\sin\theta\), we can
+use that \(v\) is unitary, \(v^2 = -1\), to compute the Euler's formula for
+quaternions
+</p>
+
+<p>
+\[q = \exp(\theta v) = \cos \theta + v \sin \theta,\]
+</p>
+
+<p>
+and then
+</p>
+
+<p>
+\[q^t = \exp(t \theta v) = \cos (t \theta) + v \sin (t \theta).\]
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org2266e7f" class="outline-3">
+<h3 id="org2266e7f"><a id="ID-159f12f8-6ca4-4723-8eb7-378a418d38b7"></a><span class="section-number-3">4.2</span> Snake lemma&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Given a morphism of short exact sequences as 
+</p>
+
+<p>
+\[\begin{tikzcd}
+& A \rar{f}\dar{a} & B \rar{g}\dar{b} & C \rar\dar{c} & 0  \\
+0 \rar & A' \rar{f'} & B' \rar{g'} & C' \\
+\end{tikzcd}\]
+</p>
+
+<p>
+what does the snake lemma provide?
+</p>
+</div>
+
+<div id="outline-container-orgc2fc88a" class="outline-4">
+<h4 id="orgc2fc88a"><span class="section-number-4">4.2.1</span> Answer</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+There exists a morphism \(\delta \colon \operatorname{ker} c \to \operatorname{coker} a\) such that the 
+following sequence is exact
+</p>
+
+<p>
+\[\begin{tikzcd}
+0 \rar &
+\mathrm{ker}(a) \rar{f} &
+\mathrm{ker}(b) \rar{g} &
+\mathrm{ker}(c) \arrow[out = 0,in =180,swap]{dll}{\delta} \\&
+\mathrm{coker}(a) \rar{f'} &
+\mathrm{coker}(b) \rar{g'} &
+\mathrm{coker}(c) \rar &
+0
+\end{tikzcd}\]
+</p>
+
+<p>
+Diagramatically,
+</p>
+
+<p>
+\[ \begin{tikzcd}
+& 0 \dar              & 0 \dar            & 0 \dar           &   \\
+0 \rar & ker(a) \rar \dar  & ker(b) \rar \dar    & ker(c) \dar \ar[out=355, in=175,looseness=1, overlay, swap]{dddll}{\delta}       &   \\
+& A \rar{f} \dar{a}  & B \rar{g} \dar{b} & C \rar \dar{c}        & 0 \\
+0 \rar & A' \rar{f'} \dar & B' \rar{g'} \dar & C' \dar        &  \\
+& coker(a) \rar \dar & coker(b) \rar \dar  & coker(c) \rar \dar & 0 \\
+& 0                   & 0                 & 0                &
+\end{tikzcd} \]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org73847ec" class="outline-2">
+<h2 id="org73847ec"><span class="section-number-2">5</span> First-order logic</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-org4326367" class="outline-3">
+<h3 id="org4326367"><a id="ID-edf5dad9-0999-4098-861e-61a16ee7fd2e"></a><span class="section-number-3">5.1</span> Definition of validity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+When is a sentence \(\varphi\) <b>valid</b>?
+</p>
+</div>
+
+<div id="outline-container-orgb86de46" class="outline-4">
+<h4 id="orgb86de46"><span class="section-number-4">5.1.1</span> Answer</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+\(\varphi\) is <b>valid</b>, written \(\models \varphi\) iff \(\model \models \varphi\) for every structure \(\model\).
+Every structure satisfies the sentence.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf6dbc1b" class="outline-3">
+<h3 id="orgf6dbc1b"><a id="ID-56f2cb1c-ccdb-4416-b52d-be6fae51723f"></a><span class="section-number-3">5.2</span> Definition of soundness&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+When is a proof system <b>sound</b>?
+</p>
+</div>
+
+<div id="outline-container-org126a78e" class="outline-4">
+<h4 id="org126a78e"><span class="section-number-4">5.2.1</span> Answer</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+When \(\Gamma \vdash \Phi\) implies \(\Gamma \models \Phi\).
+</p>
+
+<p>
+<i>You cannot prove anything that is wrong.</i>
+</p>
+
+<p>
+Where
+</p>
+
+<ul class="org-ul">
+<li>\(\Gamma \vdash \Phi\) is logical entailment with the inference rules of the system;</li>
+<li>\(\Gamma \models \Phi\), is implication in the desired semantics; every structure satisfies it.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org331b558" class="outline-3">
+<h3 id="org331b558"><a id="ID-a9041c29-30d2-406e-a1d8-335b58aa4b5a"></a><span class="section-number-3">5.3</span> Definition of completeness&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+When is a proof system <b>complete</b>?
+</p>
+</div>
+
+<div id="outline-container-orgbdeb6f7" class="outline-4">
+<h4 id="orgbdeb6f7"><span class="section-number-4">5.3.1</span> Answer</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<p>
+When \(\Gamma \models \Phi\) implies \(\Gamma \vdash \Phi\).
+</p>
+
+<p>
+<i>You can prove everything that is true.</i>
+</p>
+
+<p>
+Where
+</p>
+
+<ul class="org-ul">
+<li>\(\Gamma \vdash \Phi\) is logical entailment with the inference rules of the system;</li>
+<li>\(\Gamma \models \Phi\), is implication in the desired semantics; every structure satisfies it.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org37d622b" class="outline-2">
+<h2 id="org37d622b"><span class="section-number-2">6</span> Coq tactics</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-org8abb7a5" class="outline-3">
+<h3 id="org8abb7a5"><a id="ID-5cf0a7c8-363d-484d-a007-aa8105effeed"></a><span class="section-number-3">6.1</span> Difference Defined / Qed&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+What is the difference between <code>Defined</code> and <code>Qed</code>?
+</p>
+</div>
+
+<div id="outline-container-org7cb33b9" class="outline-4">
+<h4 id="org7cb33b9"><span class="section-number-4">6.1.1</span> Answer</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+<code>Defined</code> produces a <b>transparent definition</b> whereas <code>Qed</code> provides
+an <b>opaque one</b>.
+</p>
+
+<p>
+Reference: <a href="http://gallium.inria.fr/blog/coq-eval/">http://gallium.inria.fr/blog/coq-eval/</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ad715b" class="outline-3">
+<h3 id="org4ad715b"><span class="section-number-3">6.2</span> Tactics</h3>
+<div class="outline-text-3" id="text-6-2">
+</div><div id="outline-container-org2d83bd1" class="outline-4">
+<h4 id="org2d83bd1"><a id="ID-17c701dd-28d1-4e03-9b29-43cb7bc33359"></a><span class="section-number-4">6.2.1</span> Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-2-1">
+<p>
+The [exact] tactic [solves a goal by providing an inhabitant].
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd25da72" class="outline-4">
+<h4 id="orgd25da72"><a id="ID-5be5f1f6-d8ff-4e79-8032-11a14c6d193d"></a><span class="section-number-4">6.2.2</span> Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-2-2">
+<p>
+The [split] tactic [introduces a conjunction].
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge47af94" class="outline-4">
+<h4 id="orge47af94"><a id="ID-3ee44b74-7bfb-46fd-bdf6-9095a0c7ddd0"></a><span class="section-number-4">6.2.3</span> Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-2-3">
+<p>
+The [absurd] tactic [eliminates falsehood].
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga28e494" class="outline-4">
+<h4 id="orga28e494"><a id="ID-ef5486ca-801f-49cb-826b-db3e15806159"></a><span class="section-number-4">6.2.4</span> Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-2-4">
+<p>
+The [replace] tactic [substitutes all ocurrences of a term using a path].
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgd5cde97"></a>Syntax<br /><div class="outline-text-5" id="text-6-2-4-1">
+<p>
+<code>replace {term} with {term2} by {tactic}</code>
+</p>
+
+<p>
+where <code>{tactic}</code> solves <code>{term1 = term2}</code>.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org4d06684" class="outline-4">
+<h4 id="org4d06684"><a id="ID-ef5486ca-801f-49cb-826b-db3e15806159"></a><span class="section-number-4">6.2.5</span> Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-2-5">
+<p>
+The [firstorder] tactic [automates first-order reasoning].
+</p>
+</div>
+</div>
+
+<div id="outline-container-org170159b" class="outline-4">
+<h4 id="org170159b"><a id="ID-ef5486ca-801f-49cb-826b-db3e15806159"></a><span class="section-number-4">6.2.6</span> Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-2-6">
+<p>
+The [set] tactic [defines a term that can be used later].
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org5170696"></a>Syntax<br /><div class="outline-text-5" id="text-6-2-6-1">
+<p>
+set ({var} := {def}).
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-orgac04b96" class="outline-4">
+<h4 id="orgac04b96"><a id="ID-fbca0b6d-d8cd-4669-9f32-a2050dcf5824"></a><span class="section-number-4">6.2.7</span> Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-2-7">
+<p>
+The [f<sub>equal</sub>] tactic [proves {f x = f' x'} with {f = f'} and {x = x'}].
+</p>
+</div>
+</div>
+
+<div id="outline-container-org577f444" class="outline-4">
+<h4 id="org577f444"><a id="ID-b84bd40d-3cef-4b97-b8f8-4d3ecfc5ff4f"></a><span class="section-number-4">6.2.8</span> Coq Tactic&#xa0;&#xa0;&#xa0;<span class="tag"><span class="drill">drill</span></span></h4>
+<div class="outline-text-4" id="text-6-2-8">
+<p>
+The [ring] tactic [solves equations on a ring structure].
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Mario Román</p>
+<p class="date">Created: 2017-12-03 Sun 11:59</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
