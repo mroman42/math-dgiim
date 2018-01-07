@@ -224,6 +224,7 @@ composition-assoc f g h = refl (λ x → h (g (f x)))
 tripleneg : {A : Set} → ¬ (¬ (¬ A)) → ¬ A
 tripleneg f a = f (λ g → g a)
 
+
 -- Exercise 1.13
 doublenegexcluded : {A : Set} → ¬ (¬ (A ⨄ (¬ A)))
 doublenegexcluded f = f (inr (λ x → f (inl x)))
