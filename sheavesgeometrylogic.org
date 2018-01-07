@@ -55,9 +55,37 @@ as morphisms.
 Objects are presheaves $P\colon C^{op} \to \mathtt{Sets}$, and arrows natural transformations
 $\theta\colon P \to P'$.
 
+***** Yoneda embedding
+$y \colon C \to \Set^{C^{op}}$ is full and faithful.
+
 **** Comma category
 Objects are functions $h \colon X \to J$ for a fixed $J$ and arrows
-commuting triangles.
+commuting triangles. Each object determines a family of sets
+
+\[
+H_j = h^{-1}(j) = \left\{ x \mid x \in X, h(x) = j \right\}
+\]
+
+and each function determines a family $f_j \colon H_j \to H'_j$. If we take
+$J$ as a discrete category, each object of the comma category is a
+functor from it and each morphism is a natural transformation.
+
+That is, we can see the comma category inside a presheaf category
+with this assignment
+
+\[
+L\colon \Set/J \to \Set^{J}
+\]
+
+while in the other direction, each functor provides an object $\bigsqcup H_j$
+in the comma category; thus providing a complete equivalence of
+categories.
+
+/The comma category is equivalent to a presheaf category./
+
+It is *not* an isomorphism because the composition of both
+constructions may not be the identity (the disjoint union is only
+unique up to isomorphism).
 
 **** Sheaves over a topological space
 Category of sheaves over a topological space.
@@ -76,15 +104,32 @@ Finite sets and functions between them.
 
 **** Presheaves to finite sets
 
+*** Presheaves
+Many of these examples can be seen in a way as examples of presheaf
+categories.
+
 ** I.2. Pullbacks
 *** Pullback
-A *pullback* of $X \to B \gets Y$ is the universal object and projections making
-this diagram commute
+A *pullback* of $X \to B \gets Y$ is the universal object and
+projections making this diagram commute
 
 \[\begin{tikzcd}
 P\rar[dashed]{f'} \dar[dashed,swap]{g'} & Y \dar{g} \\
 X\rar{f} & B &.
 \end{tikzcd}\]
+
+**** In sets
+We have the set of pairs $\pair{x,y}$ such that $f(x)=g(y)$.
+
+**** In inclusions
+If we have that $g$ is an inclusion, $P$ is the inverse image $f^{-1}(Y)$,
+included in $X$.
+
+If both $f,g$ are inclusions, we have the intersection of two subsets.
+
+**** Indexed sets
+If $g\colon Y \to B$ is regarded as an indexed set $\left\{ G_b \right\}$ of inverse images
+of each $b \in B$, the pullback is $\left\{ G'_x \right\} = \left\{ G_{fx} \right\}$.
 
 *** Pullbacks always exist on a presheaf category
 The pullback of any two presheaves exists on a preseaf category.
@@ -101,9 +146,26 @@ of $XC$ and $YC$. In other words,
 
 Given any $f\colon C \to D$, we take $Pf\colon PC \to PD$ as the unique universal arrow
 making the two diagrams commute.
+# ???
+
+*** Kernel pair of a morphism
+Pullback of $f$ with itself induces an equivalence relation of the
+morphism with itself.
+
+*** Pullback along a monic is monic
+The pullback along a monic is always monic.
+
+**** Proof
+Diagram chasing using the fact that the first one is monic and then
+using the universal property of pullbacks to prove uniqueness.
+
+**** In Sets, the pullback of epi is epi
 
 *** All finite limits are constructed by terminal object and pullbacks
 A category with a terminal object and all pullbacks has all finite limits.
+
+In presheaves, all finite limits are constructed pointwise. 
+# Note that exponentials are NOT a finite limit.
 
 **** Proof
 All finite limits can be constructed from finite products and equalizers.
@@ -111,6 +173,7 @@ Binary products are pullbacks using the terminal object, which is also the
 product of no factors. Equalizers are created from pullbacks $X \to Y \times Y \gets Y$ 
 with the diagonal function.
 
+*** TODO Pullbacks in continuous G-sets
 ** I.3. Characteristic functions of subobjects
 *** Subobject classifier
 A *subobject classifier* is a monic $t\colon 1 \rightarrowtail \Omega$ such that for every monic $S \rightarrowtail X$
@@ -121,11 +184,23 @@ S\rar{1} \dar[swap]{i} & 1 \dar{t} \\
 X\rar[dashed]{\Phi} & \Omega
 \end{tikzcd}\]
 
-where the morphism $t$ is called /true/. 
+where the morphism $t$ is called /true/.
 
 *** Set of subobjects
-We call $\mathrm{Sub}_C(X)$ to the set of subobjects $S$ of $X$. It is partially ordered
-under inclusion.
+A subobject is an equivalence class of monics.
+
+We call $\mathrm{Sub}_C(X)$ to the set of subobjects $S$ of $X$. It is
+partially ordered under inclusion.
+
+**** Subobject functor
+A pullback
+
+\[\begin{tikzcd}
+S'\rar{} \dar[swap]{m'} & S \dar{m} \\
+Y\rar{f} & X
+\end{tikzcd}\]
+
+defines a functor $\mathrm{Sub}\ f\colon \mathrm{Sub}(X) \to \mathrm{Sub}(Y)$.
 
 *** Well-powered category
 A category is *well-powered* when $\mathrm{Sub}_C(X)$ is isomorphic to a small set
@@ -136,22 +211,70 @@ A category $C$ with finite limits and small hom-sets has a subobject classifier
 if and only if there is a natural isomorphism
 
 \[
-\theta \colon \mathrm{Sub}_C(-) \cong \mathrm{Hom}_C(X,\Omega),
+\theta \colon \mathrm{Sub}_C(-) \cong \mathrm{Hom}_C(-,\Omega),
 \]
 
 and then, $C$ is also well-powered.
 
-**** TODO Proof
+**** Proof
+***** Given a subobject classifier
+There exists a unique characteristic function for each equivalence
+class of monics; an this is a bijection (from the characteristic
+function, the monic can be recovered up to isomorphism).
 
+To show that this is natural, given any $f \colon Y \to X$, we have to
+prove that
+
+\[\begin{tikzcd}
+\mathrm{Sub}(X) \rar{\theta} \dar[swap]{f^{-1}} & \mathrm{hom}(X,\Omega) \dar{\circ f} \\
+\mathrm{Sub}(Y) \rar{\theta} & \mathrm{hom}(Y,\Omega)
+\end{tikzcd}\]
+
+and this can be proved by the pullback theorem, by which two pullback
+squares can be joint in a outer pullback square
+
+\[\begin{tikzcd}
+S'\rar{} \dar[swap]{} & S \dar{}\rar & 1\dar{\mathrm{true}} \\
+Y\rar{f} & X \rar{\phi} & \Omega
+\end{tikzcd}\]
+
+${\cal C}$ is well-powered because all hom-sets are small
+
+***** Given a natural bijection
+The identity corresponds to some subobject $t_0 \colon \Omega_0 \to \Omega$. By naturality,
+$S = \mathrm{Sub}(\phi)(\Omega_0)$ and every subobject is the pullback of some $\Omega_0$.
+
+Now, we show that $\Omega_0$ is in fact the terminal object. The following
+two squares are pullbacks because $t_0$ is monic
+
+\[\begin{tikzcd}
+X \rar[bend left]{\phi'} \rar[bend right]{\phi''} \dar[swap]{\mathrm{id}} & 
+\Omega_{0} \dar{t_{0}} \\
+X \rar[bend left]{t_{0}\phi'} \rar[bend right]{t_{0}\phi''} & \Omega
+\end{tikzcd}\]
+
+and by unicity, we have $t_0\phi' = t_0\phi''$ and $\phi' = \phi''$.
+
+*** TODO G-bundles
 ** I.4. Typical subobject classifiers
 *** Examples of subobject classifiers
 **** Classifier for Sets and Finite sets
 The classifier $1 \to 2$.
+
 **** Classifier for n-Sets
 The classifier is a n-tuple of $1 \to 2$ functions. There are $2^n$
 truth values.
+
 **** Classifier for BG-Sets
 The same classifier $1 \to 2$ works, $G$ acts trivially on both sets.
+
+**** Classifier for BM-Sets
+The same classifier for groups does not work, because complements need not
+to be closed under the action of a monoid.
+
+**** TODO Arrow category
+**** TODO Time sets
+**** TODO Subfunctors
 ** I.5. Colimits
 *** Colimits in functor categories
 Colimits in functor categories can be computed pointwise
@@ -375,3 +498,42 @@ is a natural numbers object.
 A topos ${\cal E}$ is *boolean* when the internal Heyting algebra $\Omega$ is an internal
 boolean algebra.
 
+* Sheaves in geometry and logic - Saunders MacLane, Moerdijk [0/27]
+** I. Categories of Functors [0/11]
+*** TODO Exercise I.1
+#+begin_statement
+Show that pullbacks of epis are epi for categories of each of
+the types (i)-(ix).
+#+end_statement
+
+*** TODO Exercise I.2
+#+begin_statement
+Prove that $\mathtt{FinSets}^{\mathbb{N}}$ has no subobject classifier.
+#+end_statement
+
+*** TODO Exercise I.3
+*** TODO Exercise I.4
+*** TODO Exercise I.5
+*** TODO Exercise I.6
+*** TODO Exercise I.7
+*** TODO Exercise I.8
+*** TODO Exercise I.9
+*** TODO Exercise I.10
+*** TODO Exercise I.11
+** IV. First Properties of Elementary Topoi [0/16]
+*** TODO Exercise I.1
+*** TODO Exercise I.2
+*** TODO Exercise I.3
+*** TODO Exercise I.4
+*** TODO Exercise I.5
+*** TODO Exercise I.6
+*** TODO Exercise I.7
+*** TODO Exercise I.8
+*** TODO Exercise I.9
+*** TODO Exercise I.10
+*** TODO Exercise I.11
+*** TODO Exercise I.12
+*** TODO Exercise I.13
+*** TODO Exercise I.14
+*** TODO Exercise I.15
+*** TODO Exercise I.16
