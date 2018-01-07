@@ -1776,16 +1776,73 @@ For any $f : A \to B$,
 \isequiv(f) \simeq \isEmbedding(f) \times \isSurjective(f).
 \]
 
-*** TODO 4.7. Closure properties of equivalences
+*** 4.7. Closure properties of equivalences
 **** 4.7.1. The 2-out-of-3 property
 If any two $f,g,g\circ f$ are equivalences, so is the third.
 
-***** TODO Proof
+***** Proof
+Given $g \circ f$ and $g$ equivalences, we show that $(g \circ f)^{-1} \circ g$ is a
+quasi-inverse to $f$ because
 
-**** TODO 4.7.2. Retracts
+ * on the one hand,
 
+   \[
+   ((g \circ f)^{-1} \circ g) \circ f \sim \id_{A}
+   \]
+
+ * on the other hand,
+
+   \[\begin{aligned}
+   f \circ (g \circ f)^{-1} \circ g &\sim
+   g^{-1} \circ g \circ f \circ (g \circ f)^{-1} \circ g \\
+   &\sim g^{-1} \circ g \\
+   &\sim \id.
+   \end{aligned}\]
+
+In a similar way, we can prove the other two pair of equivalences.
+
+**** 4.7.2. Retracts
+A function $g : A \to B$ is a *retract* of $f : X \to Y$ in
+
+\[\begin{tikzcd}
+A \rar{s}\dar{g} & X \rar{r}\dar{f} & A\dar{g} \\
+B \rar{s'}& Y \rar{r'}& B
+\end{tikzcd}\]
+
+if
+
+ * $R : s \circ r \sim \id$,
+ * $R' : s' \circ r' \sim \id$,
+ * $L : f \circ s \sim s' \circ g$,
+ * $K : g \circ r \sim r' \circ f$.
+ * a path $H(a)$ witnessing commutativity of
+
+   \[\begin{tikzcd}
+   grs(a) \dar[equal,swap]{g(Ra)}\rar[equal]{Ks(a)} & r'fs(a) \dar[equal]{r'(La)} \\
+   g(a)  \rar[equal]{R'(ga)^{-1}} & r's'g(a) \\
+   \end{tikzcd}\]
+
+**** TODO 4.7.3. Retract of equivalence is equivalence
+**** TODO 4.7.5. 
 *** TODO 4.8. The object classifier
 **** TODO 4.8.1. Fiber of a type family
+**** TODO 4.8.2. 
+**** 4.8.3. Object classifier
+Given any type $B$ there is an equivalence
+
+\[
+\chi :
+\left( \sum_{A:{\cal U}}(A \to B) \right) \simeq (B \to {\cal U}).
+\]
+
+***** TODO Proof
+We can define 
+
+ * $\chi((A,f),b) :\equiv \fib_f(b)$
+
+ * $\psi(P) :\equiv \left( \left(\sum_{b:B} P(b) \right), \pr_1 \right)$
+
+and now verify that this constitutes an equivalence.
 
 *** 4.9. Univalence implies function extensionality
 We do not assume function extensionality on this section.
@@ -1811,7 +1868,6 @@ an equivalence
 ***** TODO Proof
 
 **** TODO 4.9.3. 
-
 **** TODO 4.9.5. Weak function extensionality implies function extensionality
 The weak function extensionality principle implies the axiom
 of [[*2.9.3. Function extensionality axiom][function extensionality]].
@@ -1884,7 +1940,7 @@ In the case of higher inductive types, we give equalities by
 definition that use non-fundamental parts of the type theory,
 and so they are propositional instead of judgmental.
 
-We write them as $f(\loop) := \ell$ to indicate this fact.
+We write them as $f(\mathsf{loop}) := \ell$ to indicate this fact.
 
 **** 6.2.2. Notation for dependent paths
 We write dependent paths as
@@ -1898,7 +1954,7 @@ Given $a : A$ with $p : a = a$, there is a function $f : \mathbb{S}^1 \to A$ suc
 that
 
  * $f(\base) :\equiv a$,
- * $\ap_f(\loop) :\equiv p$.
+ * $\ap_f(\mathsf{loop}) :\equiv p$.
 
 ***** TODO Proof
 
@@ -2027,18 +2083,121 @@ If a type has [[*3.4.3. Decidable types][decidable]] equality, it is a set.
 
 ***** TODO Proof.
 
-**** 7.2.6. Natural numbers form a set
+**** TODO 7.2.6. Natural numbers form a set
 The type of natural numbers has decidable equality, and hence is a set.
 
 ***** TODO Proof
+Given $x,y : \mathbb{N}$, we proceed by induction in both arguments. In the first
+case, $\refl_0$ proves the equality; in the case of a successor and a zero,
+we can apply 
+
+*** 7.5. Connectedness
+**** 7.5.1. n-connected function
+A function $f : A \to B$ is *n-connected* if $\trunc{\fib_f(b)}_n$ is
+contractible for all $b : B$.
+
+\[
+\conn_n(f) :\equiv \prod_{b:B} \isContr(\trunc{\fib_f(b)}_n)
+\]
+
+A type $A$ is *n-connected* if the function $A \to 1$ is.
+
+**** TODO 7.5.2. Surjectivity is (-1)-connectedness
+A function is (-1)-connected iff it is [[*4.6.1. Surjections and embeddings][surjective]].
 
 * Part II
 ** II.8. Homotopy theory
+*** 8.0. Homotopy theory
+**** 8.0.1. Homotopy groups
+We define the *homotopy groups* of a pointed type $(A,a)$ as
+
+\[
+\pi_n(A,a) :\equiv \trunc{\Omega^n(A,a)}_{0}.
+\]
+
+*** 8.1. Fundamental group of the circle
+**** 8.1.1. Universal cover of the circle
+We define $\mathsf{code} : \mathbb{S}^1 \to {\cal U}$ by recursion as
+
+ * $\mathsf{code}(\mathsf{base}) :\equiv \mathbb{Z}$,
+ * $\mathsf{code}(\mathsf{loop}) :\equiv \ua(\succ)$.
+
+**** 8.1.2. Lemma of code transport
+We have that
+
+ * $\transport^{\mathsf{code}}(\mathsf{loop},x) = x + 1$,
+ * $\transport^{\mathsf{code}}(\mathsf{loop},x) = x -1$.
+
+***** TODO Proof
+
+**** 8.1.5. Encode
+We define the function $\mathsf{encode} : \prod_{x:\mathbb{S}^1}(\base = x) \to \mathsf{code}(x)$ by
+
+\[
+\mathsf{encode}\ p :\equiv \transport^{\mathsf{code}}(p,0).
+\]
+
+**** 8.1.6. Decode
+We can define a function $\mathsf{decode} : \prod_{x:\mathbb{S}^1} \mathsf{code}(x) \to (\base = x)$.
+
+***** TODO Definition
+**** 8.1.7. Encode-decode of a path
+For all $x : \mathbb{S}^1$ and $p : \base = x$,
+
+\[
+\mathsf{decode}(\mathsf{encode}(p)) = p.
+\]
+
+***** TODO Proof
+
+*** TODO 8.2. Connectedness of suspensions
 ** II.9. Category theory
 ** II.10. Set theory
 ** II.11. Real numbers
+*** 11.2. Dedekind reals
+**** 11.2.1. Dedekind cuts
+A *Dedekind cut* is a pair $(L,U)$ of mere predicates such that
+it is
+
+ 1) /inhabited:/ $\exists (q : \mathbb{Q}). L(q)$ and $\exists (r : \mathbb{Q}) . U(r)$;
+
+ 2) /rounded:/ for all $q,r \in \mathbb{Q}$,
+
+    * $L(q) \iff \exists (r : \mathbb{Q}). (q < r) \wedge L(r)$
+
+    * $U(r) \iff \exists(q:\mathbb{Q}).(q < r) \wedge U(q)$
+
+ 3) /disjoint:/ $\neg (Lq \wedge Uq)$ for all $q:\mathbb{Q}$,
+
+ 4) /located:/ $(q < r) \implies Lq \vee Ur$ for all $q,r : \mathbb{Q}$.
+
+We define $\mathsf{isCut}(L,U)$ as the mere proposition of the conjunction
+of these conditions. The set of *Dedekind reals* is defined as
+
+\[
+\mathbb{R}_d :\equiv
+\left\{ (L,U) : (\mathbb{Q} \to \Omega) \times (\mathbb{Q} \to \Omega)
+\mid \isCut(L,U) \right\}.
+\]
+
+**** TODO 11.2.1. Rational embedding
+
+**** TODO 11.2.3. Weak linearity
+
+**** TODO 11.2.3. Apartness
+Two Dedekind reals $x,y : \mathbb{R}_d$ are *apart* when
+
+\[
+(x \# y) :\equiv (x < y) \vee (y < x).
+\]
+
+**** 11.2.4. Invertibility
+A real is invertible iff it is apart from 0.
+
+***** TODO Proof
+
 * Exercises
-** 1. Exercises: Type theory [5/9]
+** 1. Exercises: Type theory [5/11]
 *** DONE Exercise 1.1
 #+begin_statement
 Given functions $f : A \to B$ and $g : B \to C$, define their composite
@@ -2060,9 +2219,25 @@ h \circ (g \circ f) &:\equiv \lambda x. h((g \circ f)(x)) \\
 &\equiv \lambda x. (\lambda y. h(g(y)))(f(x)) \\
 &\equiv (h \circ g) \circ f.
 \end{aligned}\]
+
 *** TODO Exercise 1.2
 *** TODO Exercise 1.3
 *** TODO Exercise 1.4
+#+begin_statement
+Assuming as given only the iterator for natural numbers
+
+\[
+\mathsf{iter} : \prod_{C:{\cal U}} C \to (C \to C) \to \mathbb{N} \to C.
+\]
+
+with the defining equations
+
+ * $\mathsf{iter}(C,c_0,c_s,0) :\equiv c_{0}$,
+ * $\mathsf{iter}(C,c_0,c_s,\succ(n)) :\equiv c_s(\mathsf{iter}(C,c_0,c_s,n))$,
+
+....
+#+end_statement
+
 *** TODO Exercise 1.5
 *** DONE Exercise 1.10
 #+begin_statement
