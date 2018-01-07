@@ -1,0 +1,356 @@
+#+TITLE: Informática Gráfica
+
+* Tema 1. Introducción
+** 1. Introducción
+** 2. Proceso de visualización
+** 3. Librería OpenGL
+** 4. Programación del cauce gráfico
+** 5. Apéndice: puntos, vectores y marcos
+* Tema 2. Modelado de objetos
+** 1. Modelos geométricos
+** 2. Modelos de fronteras
+** 3. Transformaciones geométricas
+*** 3.1. Transformación geométrica
+Todas las mallas deben acabar apareciendo en *coordenadas del mundo*.
+Se usan transformaciones geométricas matriciales para mostrar los
+objetos.
+
+Se consideran matrices 4x4 donde el último vector indica si es un punto
+y las coordenadas de ese punto. Se transforma sobre un marco de coordenadas
+$R$ desde $p = R(x,y,z,w)^t$ a $p' = R(x',y',z',w')^t$; viene así determinada
+por tres funciones lineales
+
+\[\begin{aligned}
+x' &= f_x(x,y,z,w) \\
+y' &= f_y(x,y,z,w) \\
+z' &= f_z(x,y,z,w) \\
+w' &= w
+\end{aligned}\]
+
+que dependen del marco de referencia.
+
+*** 3.2. Transformaciones usuales en IG
+Todas ellas son afines y coherentes, $T(p-q) = Tp - Tq$.
+
+**** Traslación
+Para puntos $\mathrm{Tra}[d](p) = p + d$ y para vectores $\mathrm{Tra}[d](v) = v$.
+Queda como
+
+\[\begin{aligned}
+x' &= f_x(x,y,z,w) &= x + d_xw \\
+y' &= f_y(x,y,z,w) &= y + d_yw \\
+z' &= f_z(x,y,z,w) &= z + d_zw \\
+w' &= w
+\end{aligned}\]
+
+y puede escribirse como =MAT_Traslacion(dx,dy,dz)=.
+
+**** Escalado
+
+**** Cizalla
+
+**** Rotación
+
+**** Composición
+
+**** Representación matricial
+*** 3.3. Matrices y marcos de coordenadas
+Si las coordenadas del marco $B$ en $A$ vienen dadas por $a,b,c,d$,
+la matriz de cambio de $B$ a $A$ viene dada por
+
+\[M_{A,B} = \begin{pmatrix}
+a_x & b_x & c_x & d_x \\
+a_y & b_y & c_y & d_y \\
+a_z & b_z & c_z & d_z \\
+0 & 0 & 0 & 1 \\
+\end{pmatrix}\]
+
+y se calculan las coordenadas como $Mc_{A} = c_B$.
+
+*** 3.4. Representación de matrices en memoria
+Se usa el tipo =Matriz4f=.
+
+*** 3.5. Transformaciones en OpenGL
+OpenGL almacena
+
+ * *matriz de modelado* (N), pasa de coordenadas de objeto a coordenadas
+   del mundo; posiciona un objeto en la escena;
+
+ * *matriz de vista* (V), pasa de coordenadas del mundo a coordenadas de
+   ojo, relativas a la cámara;
+
+ * *modelview* (M), compone modelado y vista $M = VN$.
+
+La modelview puede especificarse por composición
+
+#+BEGIN_SRC c++
+glMatrixMode(GL_MODELVIEW);
+glLoadIdentity();
+gluLookAt(..);     // Vista
+glMultMatrix(..);  // Modelado
+#+END_SRC
+
+La gestión directa de matrices es obsoleta a partir de OpenGL3.1.
+
+*** 3.6. Gestión de matriz de modelado en GLSL
+** 4. Modelos jerárquicos, representación y visualización
+* Tema 3. Visualización
+** 1. Cauce gráfico y definición de la cámara
+*** 1.1. El cauce gráfico del algoritmo Z-buffer
+El algoritmo Z-buffer elimina partes ocultas (EPO) en 3D y se
+implementa en hardware. Tiene 4 pasos.
+
+ * Transformación de coordenadas de vértices, proyección a la
+   pantalla.
+ * Recortado de polígonos fuera de zona visible.
+ * Rasterización y EPO, cálculo de píxeles donde proyectar.
+ * Iluminación y texturación.
+
+**** Sistemas de coordenadas
+
+ * (OC) Coordenadas de *objeto*, propias de cada objeto fuera de escena.
+ * (WC) Coordenadas de *mundo*, colocando los objetos en la escena.
+ * (EC) Coordenadas de *cámara* u *ojo*, relativas a la cámara virtual.
+ * (CC) Coordenadas de *recortado*, distancias normalizadas relativas al
+   rectángulo de la pantalla.
+ * (NDC) Coordenadas *normalizadas de dispositivo*, de recortado dentro de
+   la zona visible.
+ * (DC) Coordenadas de *dispositivo*, en pixels.
+
+**** Cambios de coordenadas
+
+ * (N) La matriz de *modelado* pasa objeto a mundo.
+ * (V) La matriz de *vista* pasa mundo a cámara.
+ * (P) La matriz de *proyección* pasa de cámara a recortado.
+ * (D) La matriz de *viewport* pasa normalizadas (NDC) a dispositivo (DC).
+
+*** 1.2. Transformación de vista
+La matriz de vista se define con
+
+ * $o_c$, posición de observador (PRP),
+ * $n$, normal al plano de proyección (VPN),
+ * $a$, punto de atención (VRP), alternativa a especificar $n$,
+ * $u$, dirección que señala el "arriba" de la imagen (VUP).
+
+**** Construir del marco de referencia
+A partir de los parámetros se pueden construir tres vectores
+perpendiculares formando el *marco del observador*,
+
+\[\begin{aligned}
+n &= o - a \\
+z_c &= \frac{n}{\|n\|} \\
+x_c &= \frac{n \times u}{\|n \times u\|} \\
+y_c &= z_c \times u_c
+\end{aligned}\]
+
+y este marco se representa en coordenadas de mundo $W$. =gluLookAt=
+toma $o,a,u$ como parámetros.
+
+**** Cálculo de matriz de vista dado un marco
+Dado $p$ en coordenadas del mundo podemos tomar los productos escalares
+de $p-o_c$ con los ejes $x_c,y_c,z_c$. La matriz de vista será entonces
+
+\[V = \begin{pmatrix}
+a_x & a_y & a_z & 0 \\
+b_x & b_y & b_z & 0 \\
+c_x & c_y & c_z & 0 \\
+0 & 0 & 0 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & -o_{x} \\
+0 & 1 & 0 & -o_{y} \\
+0 & 0 & 1 & -o_{z} \\
+0 & 0 & 0 & 1 \\
+\end{pmatrix}\]
+
+donde $a = x_c, b = y_c, c = z_c$ son los tres ejes.
+
+**** Cálculo de matriz de vista con ángulos de Euler
+Los ángulos de Euler pueden construirse a partir de las coordenadas
+del marco
+
+\[
+V = \mathrm{Rot}[\gamma,z] \cdot \mathrm{Rot}[\beta,y] \cdot \mathrm{Rot}[\alpha,x] \cdot \mathrm{Tra}[-o_c]
+\]
+
+*** 1.3. Transformación de proyección
+Se proyecta sobre un *viewplane* de dos formas
+
+ * *perspectiva*, con líneas proyectoras hacia un foco; hay un factor de
+   escala que decrece afínmente con la distancia $s = 1/(ad_z + b)$;
+ * *ortográfica*, con líneas proyectoras paralelos, es una proyecció
+   afín simple.
+
+**** El view-frustum
+Región de la escena visible en el viewport. La transformación de
+proyección debe transformarlo en un cubo de lado 2 centrado en el
+origen, esta no es lineal pero puede serlo en cuatro dimensiones.
+
+ * Es un ortoedro en proyección ortográfica.
+ * Es una pirámide truncada en proyección perspectiva.
+
+**** Parámetros del view-frustum
+Se interpretan en coordenadas de vista, y se usan para transformar
+de vista a recortado (matriz P)
+
+ * $n,f$, near y far, son los límites en Z del view-frustum, se exigen
+   positivos, determinan planos de recorte trasero y delantero;
+
+ * $l,r,b,t$, bottom y top, límites en X e Y, que se transformarán en
+   [-1,1];
+
+ * $(r-l)/(t-b)$ debe ser la relación de aspecto del viewport.
+
+**** TODO Matriz de proyección perspectiva
+**** TODO Matriz de proyección ortográfica
+**** Matrices en OpenGL
+#+BEGIN_SRC c++
+glFrustum(l,r,b,t,n,f); // perspectiva
+glOrtho(l,r,b,t,n,f);   // ortográfica
+
+gluPerspective(fovy,a,n,f) // perspectiva (alternativa)
+#+END_SRC
+
+donde para =gluPerspective= se asume $r = -l$ y $t = -b$ y se tiene
+
+ * =fovy= es la apertura del campo de visión, grados de 0 a 180;
+ * =a= es la relación de aspecto $r/b$;
+ * =n,f= son near y far.
+
+** 2. Métodos de iluminación
+** 3. Modelo de iluminación local básico
+* Tema 4. Interacción y animación
+** 1. Introducción
+Buscamos un sistema gráfico interactivo que responda al usuario
+interactivamente. Habrá retroalimentación, técnicas y funciones de
+entrada que lean de dispositivos lógicos, cambiando su estado y
+generando eventos.
+
+*** Leer de dispositivos
+Existen tres modos
+
+ - modo de muestreo :: variables con el estado actual, la CPU debe
+      muestrear a frecuencia suficiente.
+ - modo de petición :: se hace una petición y se espera a que ocurra
+      el evento determinado, pueden perderse eventos y tiempo
+      esperando.
+ - modo cola de eventos :: se añade a una cola FIFO cada evento y se
+      va procesando luego.
+
+** 2. Eventos en GLUT
+GLUT gestiona los eventos con cola de eventos; cada evento va asociado
+a un *callback*, una función que lo trata y toma parámetros de él.
+
+*** Funciones de registro de callback
+#+BEGIN_SRC c++
+glutDisplayFunc(); // es necesario redibujar la imagen.
+glutMouseFunc(); // pulsar/levantar de botones del ratón.
+glutMotionFunc(); // movimiento del ratón con un botón pulsado.
+glutPassiveMotionFunc(); // movimiento del ratón sin botón pulsado.
+glutReshapeFunc(); // cambio de tamaño de la ventana.
+glutKeyFunc(); // pulsar o levantar de tecla.
+glutIdleFunc(); // ausencia de eventos externos.
+glutTimerFunc(); // ha transcurrido un intervalo de tiempo.
+#+END_SRC
+
+*** Eventos de botones de ratón
+Declaramos un callback 
+
+#+BEGIN_SRC c++
+void FGE_BotonRaton(GLint boton, GLint estado, GLint x, GLint y);
+#+END_SRC
+
+donde =boton= toma tres constantes (=GLUT_LEFT_BUTTON=,
+=GLUT_RIGHT_BUTTON=, =GLUT_MIDDLE_BUTTON=) según el botón pulsado y
+dos estados (=GLUT_UP=, =GLUT_DOWN=) según se haya pulsado o levantado
+la =x,y= indica la posición del ratón en cada momento.
+
+**** Ejemplo de callback de botones de ratón
+#+BEGIN_SRC c++
+int xClickIzq, yClickIzq; // posición del último click del botón izquierdo
+[...]
+
+void FGE_BotonRaton(int boton,int estado,int x,int y) {
+  if (boton == GLUT_LEFT_BUTTON && estado == GLUT_DOWN) { 
+    xClickIzq = x; 
+    yClickIzq = y; 
+  }
+  else if
+  [...]
+}
+#+END_SRC
+*** Eventos de movimiento de ratón
+**** Ejemplo de callback de movimiento de ratón
+** 3. Posicionamiento
+La posición que introduce un usuario está en /coordenadas de dispositivo/
+y es necesario pasarla a coordenadas de mundo.
+
+*** Posicionamiento 2D
+Las coordenadas de dispositivo $x,y$ se convierten a mundo $x',y'$ con una
+transformación inversa
+
+\[\begin{aligned}
+x' &= X_{min} + x (X_{max} + X_{min}) / \mathrm{ancho}; \\
+y' &= Y_{max} - y (Y_{max} + Y_{min}) / \mathrm{alto}; \\
+\end{aligned}\]
+
+donde los parámetros son los que determinan el ancho y alto del
+dispositivo y mínimos y máximos del mundo.
+
+#+BEGIN_SRC c++
+glOrtho(Xmin,Xmax, Ymin,Ymax, Zmin,Zmax);
+glViewport(x0, y0, ancho, alto);
+#+END_SRC
+
+*** Posicionamiento 3D
+Se restringe a un plano no perpendicular al de proyección y se traza
+una recta desde el centro de proyección por el punto introducido, que
+cortará al plano dado.
+
+** 4. Control de cámaras
+Dos usos de la cámara
+
+ - visualización de objetos en modo *orbital* centrando el objeto;
+ - exploración de escenario en primera persona, desplazando VRP y
+   rotando VPN y VUP en torno al marco de coordenadas de la cámara.
+
+El *marco de coordenadas de vista* está determinado por tres versores
+ortonormales $x_c, y_c, z_c$ y un origen $o_c$. La *matriz de vista* se obtiene
+directamente desde ellas
+
+# ???
+
+\[V = \begin{pmatrix}
+x_c(0) & y_c(0) & z_c(0) & -o_c \cdot x_c \\
+x_c(1) & y_c(1) & z_c(1) & -o_c \cdot y_c \\
+x_c(2) & y_c(2) & z_c(2) & -o_c \cdot z_c \\
+0 & 0 & 0 & 1 \\
+\end{pmatrix}
+\]
+
+y transforma coordenadas de mundo en coordenadas de cámara.
+
+*** Cámaras en modo primera persona
+*** Cámaras orbitales
+** 5. Selección
+*** TODO Selección de OpenGL
+*** 4.5.2. Selección con frame buffer invisible
+Se puede usar de dos formas, la segunda más simple
+
+ * crear un *frame-buffer object* (FBO);
+ * *doble buffer* un back buffer y un front buffer.
+
+**** Visualización con identificadores
+Codificamos los identificadores como colores en lugar de usar los
+colores de los objetos. Cambiamos el color actual de OpenGL y desactivamos
+la iluminación, las texturas, usar sombreado plano y triángulos planos.
+
+Este es el *modo identificadores* de visualización.
+
+**** Transformación de identificadores a colores
+Los identificadores deben ser =unsigned char= con una variante de
+=glColor= que los acepta en lugar de valores flotantes. Puede
+reconstruirse el unsigned de nuevo desde los tres colores.
+
+** 6. Animación
+* Tema 5. Realismo en rasterización, ray-tracing
