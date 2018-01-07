@@ -5307,50 +5307,6 @@ it is a set, $\mathtt{isSet}(A)$.
 
  * $A \vee B \mapsto \neg (\neg P \wedge \neg Q)$
  * $\exists_{x:A}B(x) \mapsto \neg \prod_{x:A} \neg B(x)$
-* Informática gráfica
-** Detalles
-[[curena@ugr.es]]
-[[lsi.ugr.es/curena]]
-[[http://lsi.ugr.es/doce/ig/17-18]]
-
-1 punto por trabajo aparte
-Defensa de prácticas con 1 semana antelación
-
-** Tema 1
-*** Sección 2. Proceso de visualización
-Modelo de escena
-
- * geometría
- * texturas
- * fuentes de luz
- * materiales
-
-** Ejercicios
-*** Ejercicio 12
-**** apartado a
-4by
-
-vértices = (n+1)*(m+1) = nm + n + m + 1
-caras = 2nm
-
-floats = 3*vertices = 3nm + 3n + 3m + 3
-ints = 3*caras = 6nm
-
-tamaño = 4*ints + 4*floats = 24nm + 12nm + 12n + 12m + 12 = 36nm + 12n + 12m + 12
-
-**** apartado b
-592908
-
-**** apartado c
-1/2
-
-*** Ejercicio 13
-verticestira = 2n+2
-totalvert = verticestira * m
-tamaño = 4*totalvert = 3*4m(2n+2) = 24nm + 24m
-
-* Desarrollo y sistemas de información
-** 2. Diseño conceptual
 * Profunctor Optics - Bartosz Milewski
 #+BEGIN_SRC haskell
 type Lens s t a b  = forall p. Strong p => p a b -> p s t
@@ -5406,7 +5362,6 @@ The Yoneda embedding
 #+BEGIN_SRC haskell
 forall x. (a -> x) -> (b -> x) ~ (b -> a)
 #+END_SRC
-
 * Monad transformers - Snoyman
 Concurrency with IO a and IO b.
 
@@ -5608,6 +5563,23 @@ naturals := fix (compose (cons 0) (map succ))
 #+BEGIN_SRC haskell
 
 #+END_SRC
+* Seemengly impossible functional programs - Escardó
+#+BEGIN_SRC haskell :results output
+data Bit = I | O deriving (Eq)
+type Nats = Integer
+type Cantor = Nats -> Bit
+
+(#) :: Bit -> Cantor -> Cantor
+x # a = \i -> if i == 0 then x else a(i-1)
+
+forsome :: (Cantor -> Bit) -> Bit
+find :: (Cantor -> Bit) -> Bit
+forsome = undefined
+find = undefined
+
+main :: IO ()
+main = putStrLn "hello!"
+#+END_SRC
 
 * The formation of swarms as a consesus problem - Ulrich Krause
 Estructuras complejas globales emergiendo de interacciones locales.
@@ -5676,8 +5648,743 @@ option.
 *** Helly's theorem
 ** Models of intensity of interaction
 Cucker-Smale model of bird flocking.
+* Semantics for type theory
+# Notes on paper.
 
-* Local variables
-# Local Variables:
-# eval: (text-scale-increase 1)
-# End:
+** Formal languages and semantics
+Traditional definition of formal languages. An alphabet and rules to
+inductively construct words. We call $L$ the set of valid strings.
+
+*** Example: boolean algebra
+ * symbols $\Sigma = \left\{ p_1,\dots,p_n, \wedge,\neg,\implies,(,),\top,\bot,\dots \right\}$ 
+   atomic propositions and logical symbols.
+ * valid strings are defined inductively as
+   * singletons $p_i$, $\top$ or $\bot$
+   * connectors: if $a, b$ are valid, so are $a \wedge b, a \vee b, \neg a, \dots$
+
+*** Semantics
+The semantics assigns to each string a number $0$ or $1$,
+
+\[
+s \colon L \to \left\{ 0,1 \right\}
+\]
+
+and this evaluation will depend on the evaluation of atomic propositions.
+If we call $\Omega = \left\{ p_1,\dots,p_n \right\}$, it depends on a valuation $v \colon \Omega \to \left\{ 0,1 \right\}$.
+Connectives are interpreted naturally.
+
+*** Observation
+Sometimes $s_v(a) = s_v(b)$ regardless of $v$; in particular, $s_v(a) = 1$ regardless
+of $v$ for some formulae (tautologies and absurds).
+
+\[
+s_v(A \wedge B) = s_v(B \wedge A)
+\]
+
+** Simply typed lambda calculus
+*** Definition
+Taking a inductively defined set of types
+
+ * given type $I$
+ * function types $\alpha \to \beta$
+
+The set $\Sigma$ of symbols has countably many variables of each type and the symbols of
+lambda calculus $(,),\lambda, O,+,r$. We call a pair $<s,\alpha>$ a typed string; the set of
+valid strings is our set of valid strings; we write $s : \alpha$ instead of $<s,\alpha> \in L$.
+
+We have
+
+ * $0 : I$
+ * $^+ \colon I \to I$
+ * $r \colon I \to (I \to I) \to I \to I$
+
+and the usual typing rules for application and abstraction
+
+ * if $s : \alpha, l : \alpha \to \beta$ then $sl : \beta$,
+ * if $s : \beta$ and $x$ var of type $\beta$, $\lambda x.s \colon \alpha \to \beta$.
+
+*** Semantics
+We associate a set to each type, with $M(I) := \mathbb{N}$ and $M(\alpha \to \beta) := M(\beta)^{M(\alpha)}$;
+and to each constant a correspondant element on the set, for example,
+$M(r)$ is the unique function defined by induction.
+
+Based on this, we construct an interpretation for each lambda term with
+$M(s) \in M(\alpha)$. We give first an interpretation of variables $v = (v_{\alpha})_{\alpha \in Tp}$.
+Application is interpreted as application of functions and abstraction
+is interpreted as the interpretation of the body of the lambda under
+a valuation that takes the bounded variable to the argument.
+
+We can define a set of free variables of a string. Note that an
+interpretation $M_{v}(x)$ with a valuation $v$ only depends on the
+values of $v$ for the elements of $FV(x)$.
+
+*** Observations
+We have alpha-equivalence, beta-reduction and eta-reduction
+inside the interpretation.
+
+** Semantics of MLTT
+*** Set-theoretical semantics
+It is more difficult to write a complete formalization of mltt.
+
+We want to interpret $x_1:A_1,\dots,x_n:A_n \vdash A\ \mathrm{type}$ after interpreting
+
+$A_1,\dots,A_n$ as sets. The interpretation will be a tuple
+\[
+a = \left\langle a_1,\dots,a_n \right\rangle
+\]
+where $a_i \in M(A_i)$, this is called the *realization of the context*.
+
+To create an element $x_1:A_1,\dots,x_n:A_n \vdash t : A$ we should get
+$M_v(t) \in M_v(A)$. We want an interpretation such that for every
+definitional equality $A \equiv B$, we have the same sets $M_v(A) = M_v(B)$.
+
+\[
+M(s = t) = \left\{ \ast \right\} \mbox{ if } M(s)=M(t) \mbox{, and } \varnothing \mbox{ otherwise}
+\]
+
+But these semantics satisfy UIP.
+*** Topological semantics
+We interpret each type as a topological space; and each function type
+as the set of continuous functions. We use simplicial sets in MLTT.
+
+UIP does not hold under this interpretation.
+* Informática gráfica
+** Detalles
+[[curena@ugr.es]]
+[[lsi.ugr.es/curena]]
+[[http://lsi.ugr.es/doce/ig/17-18]]
+
+1 punto por trabajo aparte
+Defensa de prácticas con 1 semana antelación
+
+** Tema 1
+*** Sección 2. Proceso de visualización
+Modelo de escena
+
+ * geometría
+ * texturas
+ * fuentes de luz
+ * materiales
+
+** Ejercicios
+*** Ejercicio 12
+**** apartado a
+4by
+
+vértices = (n+1)*(m+1) = nm + n + m + 1
+caras = 2nm
+
+floats = 3*vertices = 3nm + 3n + 3m + 3
+ints = 3*caras = 6nm
+
+tamaño = 4*ints + 4*floats = 24nm + 12nm + 12n + 12m + 12 = 36nm + 12n + 12m + 12
+
+**** apartado b
+592908
+
+**** apartado c
+1/2
+
+*** Ejercicio 13
+verticestira = 2n+2
+totalvert = verticestira * m
+tamaño = 4*totalvert = 3*4m(2n+2) = 24nm + 24m
+
+* Desarrollo y sistemas de información
+** 1. Sistemas de información
+*** Definición
+**** Sistema
+Conjunto de elementos ordenadamente relacionados contribuyendo a
+una determinada función
+
+**** Datos
+Representación simbólica de variables cuantitativas o cualitativas.
+
+**** Información
+Conjunto organizado de datos procesados, formando un mensaje que
+cambia el estado de conocimiento del sistema que lo procesa.
+
+**** Sistema de información
+Un sistema de información es
+
+ * un sistema automatizado o manual para recopilar, procesar y
+   transmitir datos representando información.
+
+ * la infraestructura para la recopilación, procesamiento y transmisión
+   de información.
+
+*** Sistemas de información empresarial: gestión de recursos
+La *gestión de recursos* de una empresa es una utilidad de sistemas de
+información. Sirven para
+
+ * *comunicación*
+   * intranets/extranets
+   * value added networks (VANs)
+
+ * *resolución de problemas*
+   * decision support systems (DSSs)
+   * knowledge-based systems (KBSs)
+
+debido a la complejidad de los sistemas actuales y al ahorro económico
+que proporcionan.
+
+Gestionan recursos físicos y conceptuales.
+
+*** Sistemas de información empresarial: funciones de un gerente
+Las funciones de un gerente son
+
+ - funciones de Fayol :: planificar, organizar, apoyar, dirigir y
+      controlar.
+ - papeles de Mintzberg :: interpersonales, información y toma de
+      decisiones.
+
+a distintos niveles gerenciales
+
+ - planificación estratégica :: ejecutivos,
+ - control gerencial :: directores de producto, jefes de sección,
+ - control operativo :: jefes de proyecto, jefes de departamento,
+
+a distintos niveles varía el origen y nivel de detalle de la información
+requerida.
+
+*** TODO Sistemas de información empresarial: CBIS
+
+** 2. Diseño conceptual de sistemas de información
+*** Modelo Entidad-Relación
+El *modelo entidad-relación* es el más extendido para el diseño
+conceptual; debe reflejar fielmente las necesidades de información y
+ofrecer un diseño independiente. Representa y manipula información
+de forma general y sistemática.
+
+ - Datos :: tratamiento de un recurso conceptual.
+ - Convenciones :: actuación sistemática y rigurosa.
+ - Redundancia mínima :: modelado único de cualquier objeto.
+
+*** Elementos del modelo
+# Pasar a folio los diagramas
+Los elementos del modelo son
+
+ - entidades :: objetos delimitados y distinguibles de los demás;
+ - conjuntos de entidades :: grupo de entidades con las mismas
+      cualidades; también llamados *tipos*;
+ - atributos :: propiedades caracterizando un conjunto de entidades.
+
+**** Atributos
+Sobre los atributos, se consideran 
+
+ - dominio :: valores permitidos para un atributo,
+ - identificadores :: atributos que identifican unívocamente a
+      una entidad (se señalan rellenando el círculo),
+ - atributo compuesto :: formado por varios (se señala como un
+      círculo con atributos a su vez).
+
+**** Entidades fuertes y débiles
+Decimos que B *depende existencialmente* de A si cada B tiene
+un A asociado y es imposible identificar a un b sin identificar
+su a. La B es una entidad débil respecto de A.
+
+# TODO: Cardinalidad en entidades débiles!
+
+**** Asociaciones
+Relaciones semánticas entre dos o más conjuntos de entidades.
+Pueden tener *cardinalidad*
+
+ * n:m - muchos a muchos
+ * m:1 - uno a muchos
+ * 1:m - muchos a uno
+ * 1:1 - uno a uno,
+
+y *participación*
+
+ * 0 si es parcial u opcional,
+ * 1 si es total.
+
+Se leen fijando un objeto de la relación. Las relaciones pueden
+tener atributos en algunos casos.
+
+**** Especialización
+A es una especialización de B si está completamente incluído en él.
+Todo a es un b.
+
+ * *(p) Obligatoriedad parcial:* si hay entidades que no pertenezcan a
+   ninguna especialidad.
+ * *(t) Obligatoriedad total:* si toda entidad tiene que pertenecer a
+   algún conjunto especializado.
+ * *(e) Exclusividad*: si sólo se pertenece a una especialización.
+ * *(s) Solapada*: si puede pertenecerse a varias especializaciones.
+
+**** Agregación
+Entidad genérica de la que no se especifica estructura interna.
+
+*** Heurísticas de modelado
+
+ 1. El grado de las relaciones suele ser binario. La cardinalidad
+    n-aria hay que analizarla por partes.
+
+ 2. La aparición de ciclos es normal, pero pueden estar dando lugar
+    a información redundante.
+
+ 3. No se debe abusar de las agregaciones. Quizá un conjunto nuevo
+    solucione la agregación.
+
+*** Refinamiento
+El refinamiento transforma diagramas E/R.
+
+**** TODO Primitivas descendentes
+Parten de versión general y llegan a versión específica. No todos
+los esquemas son producibles descendentemente, sólo los basados en
+conexiones en serie y paralelo.
+
+# TODO: Tipos de primitivas
+**** TODO Primitivas ascendentes
+Van de una visión específica a la versión conectada. Todos los
+esquemas son producibles ascendentemente.
+
+# TODO: Tipos de primitivas
+**** TODO Diseño centrífugo
+Varía el orden de aplicación en los refinamientos.
+
+**** Diseño mixto
+Se produce un armazón y se modela cada parte con primitivas descendentes,
+luego se conecta con primitivas ascendentes. Permite más flexibilidad.
+
+** Seminario 4: Modelado de datos
+*** Esquemas de navegación
+
+ - I :: inserción,
+ - D :: borrado,
+ - U :: actualización,
+ - R :: consulta.
+
+Las flechas marcan los atributos de entrada. Los atributos que aparecen
+sin flecha son de salida. El sentido en el que se obtienen lo marcan las
+flechas.
+
+**** Errores
+Un esquema de navegación sólo puede tener una consulta de inserción,
+borrado o actualización; la única excepción son las entidades débiles.
+
+** 4. Normalización
+*** Repaso de formas normales
+Se definen
+
+ * 1NF: los dominios de atributo tienen valores indivisibles.
+ * 2NF: todo atributo no-primo depende completamente de cualquier
+   clave candidata.
+ * 3NF: todo atributo no-primo depende de forma no transitiva de cada
+   clave candidata de R.
+ * BCNF: cada dependencia no trivial (subconjunto) tiene a la derecha
+   una clave candidata.
+
+Se resuelven
+
+ * 1NF: partiendo los atributos.
+ * 2NF: partiendo en dos tablas distintas.
+ * 3NF: partiendo en dos tablas distintas por la transitividad.
+ * BCNF: rediseñando en tablas distintas.
+
+**** Pledge
+Every [non-key](FNBC) attribute must provide a fact about the key (1NF), the
+whole key (2NF) and nothing but the key (3NF). For each candidate key.
+
+**** Non-solvable problems
+Beeri and Bernstein showed in 1979 that, for example, a set of
+functional dependencies {AB → C, C → B} cannot be represented by a
+BCNF schema.
+
+*** 4.1. Normalización
+**** Dependencias
+***** Dependencia funcional
+Sean relaciones R(A₁,A₂ ⋯ Aₙ), α ⊂ R, β ⊂ R entre atributos.
+Decimos que α → β ssi ∀ t,s ∈ r: t[α] = s[α] → t[β] = s[β].
+
+Los valores para el subconjunto α determinan de forma única
+los valores para el subconjunto β.
+
+***** Dependencia funcional completa
+Una dependencia funcional es completa, α →→ β cuando se tiene
+que ningún subconjunto de atributos γ ⊂ α tiene una dependencia
+γ → β. Este α es minimal en ese sentido.
+
+***** Atributo primo
+Forma parte de una clave candidata
+
+**** Axiomas de Armstrong sobre dependencias
+1. Reflexividad. β ⊂ α nos da α → β.
+2. Ampliación. α → β nos da αγ → βγ.
+3. Transitividad. α → β y β → γ nos dan α → γ.
+4. Unión. α → β y α → γ nos dan α → βγ.
+5. Descomposición. α → βγ nos da α → β y α → γ.
+6. Pseudotransitividad. α → β y βγ → δ nos dan αγ → δ.
+
+***** Cierre de un conjunto de dependencias
+F+ se obtiene como clausura de las dependencias de F aplicando
+axiomas de Armstrong. Llamamos α+ a todos los atributos que se
+obtienen como dependencias desde α.
+
+***** Recubrimiento minimal o canónico
+Es el mínimo F' tal que (F')+ = F+.
+
+**** Obtención del recubrimiento minimal
+
+1. *Partimos con la regla de descomposición* todas las partes derechas
+   compuestas: A→BC parte en A→B y A→C.
+
+2. *Simplificamos los atributos raros* de la izquierda, aquellos que
+   dependen de los que le acompañan: si AB → C y sabemos A → B,
+   podemos dejar A → C.
+
+3. *Eliminamos dependencias redundantes* que puedan obtenerse de
+   otras.
+
+La ventaja de trabajar con recubrimiento minimal es que, al no
+tener dependencias redundantes, podemos comprobar directamente si
+cualquiera de ellas se ha perdido al aplicar Teorema de Heath.
+
+**** 1FN
+El dominio de cada atributo es atómico y cada valor del atributo
+sólo contiene un valor para ese dominio.
+
+**** 2FN
+La 2FN es
+
+ * estar en 1FN,
+ * todos los atributos no primos dependen de forma completa de las
+   claves candidatas.
+
+
+***** Descomposición sin pérdidas
+Una relación (R,r) se descompone *sin pérdidas* en (R1,r1) y (R2,r2)
+cuando R1 ∪ R2 = R y además r1 join r2 = r.
+
+***** Teorema de Heath
+Si tenemos grupos α, β, γ con β → γ, podemos separar la relación
+sin pérdidas en
+
+ * R1(α,β)
+ * R2(β,γ)
+
+**** 3FN
+La 3FN es
+
+ * estar en 2FN,
+ * no tener dependencias transitivas problemáticas, a través de
+   atributos no primos.
+
+***** Dependencia transitiva
+CK → β, para β formado por algún atributo no primo, es transitiva
+cuando ∃α ⊂ R, (α → R) ∉ F+, tal que
+
+(CK → α) ∈ F;  y además,  (α → β) ∈ F
+
+**** FNBC
+La definición original de 3FN tiene deficiencias si hay varias claves
+candidatas. La FNBC considera estos casos, es
+
+ * estar en 3FN,
+ * ∀ α→β ∈ F se cumple que
+   * α es clave candidata y β⊄α, o
+   * β ⊂ α.
+
+Es decir, todo determinante es una clave candidata.
+
+**** Cálculo de llaves candidatas
+1. Eliminación de atributos independientes: de ellos no se deduce
+   ningún otro, tendrán que estar en la clave candidata en cualquier
+   caso.
+
+2. Construcción de atributos equivalentes: para cada pareja de
+   equivalentes se usa sólo uno de ellos.
+
+3. Clave sin determinantes determinados: se selecciona un candidato a
+   clave candidata sin determinantes no determinados.
+
+4. Si hay más claves sin determinantes determinados se necesitará
+   cubrir todas las claves posibles, añadiendo a cada paso n nuevo
+   determinante que sea determinado.
+
+5. Añadimos atributos independientes a las claves obtenidas
+
+6. Replicamos las claves con las equivalencias del paso 2.
+
+**** Proceso de normalización
+1) Localizar las claves candidatas.
+
+   1) Descomponer dependencias a la derecha.
+   2) Eliminar atributos raros a la izquierda.
+   3) Eliminar dependencias redundantes.
+   4) Localizar claves candidatas
+
+2) Comprobar 2FN, usar Teorema de Heath.
+
+3) Comprobar 3FN, eliminar transitividades problemáticas.
+
+*** 4.2. Diseño físico
+*** Ejercicios
+**** Ejercicio 1
+#+begin_statement
+Normalizar,
+
+A → BC,  BC → A, BCD → E, E → C.
+#+end_statement
+
+Las dependencias están ya descompuestas a la derecha.
+
+Eliminamos atributos raros a izquierda, BC → E no tiene
+atributos raros; para BCD → E podemos comprobar que ni
+BC genera D, ni BD genera C ni CD genera B.
+
+Eliminamos dependencias redundantes, la A → BC no lo es
+porque no se sigue de las demás ninguna dependencia de A.
+La BC → A tampoco lo es, así como la BCD → E ni E → C.
+**** Ejercicio 2
+#+begin_statement
+Normalizar R(A,B,C,D) con
+
+AB → D,  C → D,  AB → C,  C → B.
+#+end_statement
+
+***** Recubrimiento minimal
+Descomponemos a derecha, ya hecho. simplificamos atributos
+raros, ya hecho. Eliminamos dependencias redundantes, como
+la AB → D; nos queda
+
+C → D,  AB → C,  C → B.
+
+***** Clave candidata
+Localizamos claves candidatas
+
+| Izquierda | Ambos | Derecha |
+|-----------+-------+---------|
+| A         | BC    | D       |
+
+tenemos A+={A}, luego añadimos otra, AB+={ABCD} es clave
+candidata.
+
+***** 2FN
+Los atributos C, D deberían depender de forma completa.
+Tenemos que no dependen de A sola ni de B sola, luego lo
+hacen de forma completa.
+
+***** 3FN
+Tenemos una transitividad AB → C y C → D. Queremos que todo
+determinante sea una clave candidata, así que partimos
+
+R1(_A,B_,C) y R2(_C_,D)
+
+donde R1 tiene AB → C y C → B; mientras que R2 tiene C → D.
+
+***** FNBC
+Tenemos un determinante en R1 que no es clave candidata.
+Solucionamos partiendo
+
+R2(_C_,D),
+R3(_A,C_),
+R4(_C_,B),
+
+el problema aquí es que se pierde el hecho de que AB → C.
+
+**** Ejercicio 3
+#+begin_statement
+Normalizar R(A,O,I,V,N,D) con,
+
+V → D,  I → A,  IV → N,  A → O.
+#+end_statement
+
+***** Clave candidata
+Las dependencias están descompuestas a la derecha.
+Eliminamos atributos raros a izquierda, nótese que en IV → N, tenemos
+I⁺={IAO} y V⁺={VD}, luego no hay atributos raros.
+No hay ninguna dependencia redundante, ya que cada
+dependencia genera un atributo distinto.
+
+Localizamos claves candidatas,
+
+| Izquierda | Ambos | Derecha |
+|-----------+-------+---------|
+| VI        | A     | NDO     |
+
+Tenemos que VI forman parte de cualquier clave candidata.
+VI⁺={VIANDO}, luego es clave candidata.
+
+***** Segunda forma normal
+Comprobamos ahora que esté en segunda forma normal.
+
+ * Los atributos AOD no primo no dependen de forma completa de las
+   claves candidatas. Descomponemos
+
+   R(V,I,N)
+   R(I,A,O)
+   R(V,D)
+
+   tal que cada una está en forma normal. 
+
+***** Tercera forma normal
+La única transitividad está en I → A y A → O. Descomponemos
+como
+
+ R($V,$I,N)
+ R($V,D)
+ R($I,A)
+ R($A,O)
+
+y todas estas tablas están en FNBC; ya que sólo la primera tiene
+una clave candidata compuesta y el único atributo depende de la
+clave de forma completa.
+**** Ejercicio 4 (es el 2!?)
+#+begin_statement
+Normalizar R(A,B,C,D)
+
+AB → C,  AB → D,  C → D,  C → B.
+#+end_statement
+
+***** Recubrimiento minimal
+Partimos a la derecha, ya hecho. Simplificamos atributos raros
+
+**** Ejercicio 5
+#+begin_statement
+Normalizar
+
+S → ID,  I → B,  IS → Q,  B → O
+#+end_statement
+
+***** Recubrimiento minimal
+Partimos a la derecha S → I, S → D. Simplificamos atributos raros, con
+S → Q, nos queda
+
+ S→I, S→D, I→B, S→Q, B→O.
+
+***** Clave candidata
+
+| Izq | Amb | Der |
+|-----+-----+-----|
+| S   | IB  | DQO |
+
+Y tenemos que S+={SIDBQO}, luego es clave candidata.
+
+***** 2FN
+Deberían depender todos de forma completa de S y lo hacen
+porque está formada por un sólo atributo.
+
+***** 3FN
+Tenemos una transitividad S→I, I→B, B→O; la quitamos como
+
+R1(_S_,I,D,Q)
+R2(_I_,B)
+R3(_B_,O)
+
+***** FNBC
+Todas las relaciones con una única llave candidata en 3FN están en
+FNBC.  Todo determinante es clave candidata.
+
+**** Ejercicio 6
+Sea el esquema R(A,B,C,D,E) con dependencias
+
+ A→C, B→C, C→D, DE→C, CE→A.
+
+***** Recubrimiento minimal
+Empezamos trabajando con un recubrimiento minimal de las
+dependencias, simplificamos a derecha y eliminamos atributos
+raros. Eliminamos dependencias redundantes. Ya hecho.
+
+***** Clave candidata
+
+| Izq   | Ambos | Der |
+|-------+-------+-----|
+| BE    | ACD   |     |
+
+Tenemos {BE}+={BECAD}, luego es clave candidata.
+
+R(_B,E_,A,C,D)
+
+***** 2FN
+Todos deberían depender de forma completa de BE, pero no lo hacen;
+tenemos B→C, B→D, luego partimos
+
+R1(_B,E_,A)
+R2(_B_,C,D)
+
+***** 3FN
+No queremos ahora dependencias transitivas completas, luego
+
+R1(_B,E_,A)
+R2(_B_,C)
+R3(_C_,D)
+
+hemos perdido que CE→A (??).
+
+***** FNBC
+???
+
+**** Ejercicio 7
+#+begin_statement
+Sea el esquema R(A,B,C,D,E) con dependencias
+
+AB → C,  C → E,  E → C,  C → D,  AB → E.
+#+end_statement
+
+***** Recubrimiento minimal
+Descomponemos a derecha, quitamos atributos raros y eliminamos
+redundancia.
+
+Quitamos AB → E.
+
+***** Clave candidata
+Quitamos independientes, que no hay. Reducimos equivalentes,
+donde tenemos C→E y E→C. Nos queda
+
+AB→C, C→D
+
+| Izq | Amb | Der |
+|-----+-----+-----|
+| AB  | C   | D   |
+
+Como {AB}+={ABCDE}, ya tenemos clave candidata única.
+
+***** 2FN
+Dependencia completa se tiene siempre.
+
+***** 3FN
+Transitividades que se pueden quitar están C→E y C→D
+
+R1(_A,B_,C)
+R2(_C_,D,*E*)
+
+Perdemos que E→C.
+
+***** FNBC
+En R2 tenemos dos llaves candidatas, queremos que todo determinante
+sea clave candidata.
+
+R1(A,B,C) con clave A,B
+R2(C,D,E) con clave C o con clave E.
+
+**** Ejercicio 8
+#+begin_statement
+Dado
+
+A→B, A→C, A→B, B→C, B→A, B→D, D→C
+#+end_statement
+
+***** Claves candidatas
+
+| Izq | Med | Der |
+|-----+-----+-----|
+|     | ABD | C   |
+
+A+={A,B,C,D}
+B+={B,A,C,D}
+D+={C}
+
+La A y la B son claves candidatas. Hay dependencias transitivas
+pasando por la D.
+
+***** 3FN
+No queremos transitividad a través de no primos, así que
+
+R(A,B) candidatas A y B
+R(A,D) clave A
+R(D,C) clave D
+
+***** FNBC
+Todo determinante debe ser clave candidata. Lo es.
