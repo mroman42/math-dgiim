@@ -8,6 +8,11 @@
 #+OPTIONS: toc:nil
 #+TODO: TODO WIP | CHECK
 
+* Macros                                                             :ignore:
+#+latex_header: \usepackage{mathtools}
+#+latex_header: \newcommand\Set{\mathsf{Set}}
+#+latex_header: \DeclarePairedDelimiter\pair{\langle}{\rangle}
+
 * 0. Categorical preliminaries
 ** Adjoints
 Adjoints functors are natural isomorphisms of the form 
