@@ -403,3 +403,26 @@ reconstruirse el unsigned de nuevo desde los tres colores.
 
 ** 6. Animación
 * Tema 5. Realismo en rasterización, ray-tracing
+* Ejercicios
+*** Ejercicio 12
+**** apartado a
+4by
+
+vértices = (n+1)*(m+1) = nm + n + m + 1
+caras = 2nm
+
+floats = 3*vertices = 3nm + 3n + 3m + 3
+ints = 3*caras = 6nm
+
+tamaño = 4*ints + 4*floats = 24nm + 12nm + 12n + 12m + 12 = 36nm + 12n + 12m + 12
+
+**** apartado b
+592908
+
+**** apartado c
+1/2
+
+*** Ejercicio 13
+verticestira = 2n+2
+totalvert = verticestira * m
+tamaño = 4*totalvert = 3*4m(2n+2) = 24nm + 24m
