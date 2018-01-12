@@ -1,10 +1,59 @@
 #+TITLE: Informática Gráfica
 
+ - [[curena@ugr.es]]
+ - [[lsi.ugr.es/curena]]
+ - [[http://lsi.ugr.es/doce/ig/17-18]]
+
+1 punto por trabajo aparte.
+Defensa de prácticas con 1 semana antelación.
+
 * Tema 1. Introducción
 ** 1. Introducción
 ** 2. Proceso de visualización
 ** 3. Librería OpenGL
 ** 4. Programación del cauce gráfico
+*** 4.1. Cauce programable
+En la GPU se ejecutan dos etapas y entre ambas la rasterización y
+recortado de polígonos.
+
+ * *Transformación* de coordenadas de vértice a ventana; realizado por
+   el /vertex shader/ que se ejecuta al llamar a =glVertex=.
+ * *Sombreado*, cálculo del color de pixel; realizado por el
+   /fragment shader/.
+
+Hay dos opciones para seleccionar shaders
+
+ * *cauce de funcionalidad fija*, predefinidos hasta OpenGL 3.0;
+ * *cauce programable*, escrito en GLSL, más flexible y eficiente,
+   compilado en tiempo de ejecución.
+
+El cauce gráfico fluye entonces como:
+
+ 1) CPU, aplicación.
+ 2) Implementación de OpenGL.
+ 3) Vertex shader para cada vértice.
+ 4) Rasterización.
+ 5) Fragment shader para cada pixel.
+ 6) Framebuffer.
+
+*** 4.2. Shaders básicos
+Un *program* es un /vertex shader/ con un /fragment shader/. Se
+almacenan en =char*=, se compilan con OpenGL y se enlazan.
+
+**** TODO Programar un vertex shader
+**** TODO Programar un fragment shader
+*** 4.3. Creación y ejecución de programas
+Un *program* tiene un =GLuint= identificador.
+
+ * =glCreateShader=
+ * =glShaderSource=
+ * =glCompileShader=
+ * =glCreateProgram=
+ * =glAttachShader=
+ * =glLinkProgram=
+ * =glUseProgram=
+
+*** 4.4. Funciones auxiliares
 ** 5. Apéndice: puntos, vectores y marcos
 * Tema 2. Modelado de objetos
 ** 1. Modelos geométricos

@@ -5748,48 +5748,6 @@ We interpret each type as a topological space; and each function type
 as the set of continuous functions. We use simplicial sets in MLTT.
 
 UIP does not hold under this interpretation.
-* Informática gráfica
-** Detalles
-[[curena@ugr.es]]
-[[lsi.ugr.es/curena]]
-[[http://lsi.ugr.es/doce/ig/17-18]]
-
-1 punto por trabajo aparte
-Defensa de prácticas con 1 semana antelación
-
-** Tema 1
-*** Sección 2. Proceso de visualización
-Modelo de escena
-
- * geometría
- * texturas
- * fuentes de luz
- * materiales
-
-** Ejercicios
-*** Ejercicio 12
-**** apartado a
-4by
-
-vértices = (n+1)*(m+1) = nm + n + m + 1
-caras = 2nm
-
-floats = 3*vertices = 3nm + 3n + 3m + 3
-ints = 3*caras = 6nm
-
-tamaño = 4*ints + 4*floats = 24nm + 12nm + 12n + 12m + 12 = 36nm + 12n + 12m + 12
-
-**** apartado b
-592908
-
-**** apartado c
-1/2
-
-*** Ejercicio 13
-verticestira = 2n+2
-totalvert = verticestira * m
-tamaño = 4*totalvert = 3*4m(2n+2) = 24nm + 24m
-
 * Desarrollo y sistemas de información
 ** 1. Sistemas de información
 *** Definición
