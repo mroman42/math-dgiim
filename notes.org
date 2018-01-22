@@ -6,7 +6,7 @@
 #+SETUPFILE: essay.setup
 #+SETUPFILE: math-en.setup
 #+SETUPFILE: html.setup
-#+OPTIONS: broken-links:mark num:nil
+#+OPTIONS: broken-links:mark num:nil toc:nil
 
 * Papers & articles
 ** TODO Dependent types at work - Ana Bove, Peter Dybjer
@@ -5923,6 +5923,46 @@ Un esquema de navegación sólo puede tener una consulta de inserción,
 borrado o actualización; la única excepción son las entidades débiles.
 
 ** 4. Normalización
+*** Algoritmos
+**** Simplificación de conjunto de dependencias funcionales
+Dado un conjunto de dependencias funcionales, lo simplifica a uno
+equivalente. Usos:
+
+ * facilitar la normalización posterior,
+ * facilitar el cálculo de claves candidatas.
+
+***** Algoritmo
+1. Simplificar partes *derechas* A→BC como A→B y A→C.
+2. Simplificar partes izquierdas eliminando *atributos raros*, esto
+   es, si AB→C y A→B, tenemos directamente A→C.
+3. *Eliminar* las dependencias que se deducen de otras.
+
+**** Cálculo de claves candidatas
+Obtener las claves candidatas de una relación. Se resume en tener cuidado
+con independientes y equivalentes y luego simplemente formar claves con la
+izquierda y con ambas.
+
+***** Algoritmo
+Clasificamos en
+
+ * atributos independientes de las relaciones,
+ * parejas de atributos equivalentes
+ * atributos solo a izquierda,
+ * atributos en ambos lados,
+ * atributos solo a derecha.
+
+Y ejecutamos
+
+1. Elimina atributos *independientes* del algoritmo, formarán
+   siempre parte de la clave.
+2. Elimina *equivalencias*, puede considerar uno y olvidar el otro,
+   podría formar parte de la clave cualquiera de los dos.
+3. Comprueba si con los de izquierda se forma clave.
+4. Comprueba en caso de que no haya funcionado añadiendo atributos
+   de ambos lados.
+5. Incorpora independientes.
+6. Incorpora equivalentes.
+
 *** Repaso de formas normales
 Se definen
 
@@ -6013,7 +6053,7 @@ La 2FN es
 
 ***** Descomposición sin pérdidas
 Una relación (R,r) se descompone *sin pérdidas* en (R1,r1) y (R2,r2)
-cuando R1 ∪ R2 = R y además r1 join r2 = r.
+cuando R1 ∪ R2 = R y además (r1 join r2) = r.
 
 ***** Teorema de Heath
 Si tenemos grupos α, β, γ con β → γ, podemos separar la relación
@@ -6079,6 +6119,149 @@ Es decir, todo determinante es una clave candidata.
 
 *** 4.2. Diseño físico
 *** Ejercicios
+**** Soluciones normalización
+***** Ejercicio 1
+Simplificando dependencias queda
+
+| Tabla        | ABCDE        |
+| Claves       | AD, DBC, DBE |
+|--------------+--------------|
+| Dependencias | A → B        |
+|              | A → C        |
+|              | BC → A       |
+|              | BCD → E      |
+|              | E → C        |
+
+No existiendo atributos primos, está en 3FN. Normalizamos
+a FNBC como
+
+| Tabla        | ABC    | BDE     | EC    |
+| Claves       | A, BC  | BDE     | E     |
+|--------------+--------+---------+-------|
+| Dependencias | A → B  |         | E → C |
+|              | A → C  |         |       |
+|              | BC → A |         |       |
+
+se ha perdido la dependencia BCD→E.
+
+***** Ejercicio 2
+Simplificando dependencias queda
+
+| Tabla        | ABCD   |
+| Claves       | AB, AC |
+|--------------+--------|
+| Dependencias | C → D  |
+|              | AB → C |
+|              | C → B  |
+
+La tabla no está en 2FN por C→D. Partimos como sigue para llegar a 3FN
+
+| Tabla        | ABC    | CD    |
+| Claves       | AB, AC | C     |
+|--------------+--------+-------|
+| Dependencias | C → B  | C → D |
+|              | AB → C |       |
+
+
+Y partimos de nuevo para llegar a FNBC
+
+| Tabla        | AC | CB    | CD    |
+| Claves       | AC |       | C     |
+|--------------+----+-------+-------|
+| Dependencias |    | C → B | C → D |
+|              |    |       |       |
+|              |    |       |       |
+
+Hemos perdido la dependencia AB→C.
+
+***** Ejercicio 3
+Simplificando dependencias queda
+
+| Tabla        | AOIVND |
+| Claves       | VI     |
+|--------------+--------|
+| Dependencias | V → D  |
+|              | I → A  |
+|              | IV → N |
+|              | A → O  |
+
+No estamos en 2FN por V→D y I→A, partimos en
+
+| Tabla        | IVN    | IA    | AO    | VD    |
+| Claves       | VI     | I     | A     | V     |
+|--------------+--------+-------+-------+-------|
+| Dependencias | IV → N | I → A | A → O | V → D |
+
+Que está en FNBC.
+
+***** Ejercicio 5
+Simplificando dependencias queda
+
+| Tabla        | SIDBQO |
+| Claves       | S      |
+|--------------+--------|
+| Dependencias | S → I  |
+|              | S → D  |
+|              | I → B  |
+|              | S → Q  |
+|              | B → O  |
+
+Estamos en 2FN porque todas dependen completamente por transitividad
+de S, pero no estamos en 3FN. Corregimos partiendo en
+
+| Tabla        | SIDQ  | IB    | BO    |
+| Claves       | S     | I     | B     |
+|--------------+-------+-------+-------|
+| Dependencias | S → I | I → B | B → O |
+|              | S → D |       |       |
+|              | S → Q |       |       |
+
+Que están en FNBC.
+
+***** TODO Ejercicio 6
+Simplificando dependencias queda
+
+| Tabla        | ABCDE  |
+| Claves       | BE     |
+|--------------+--------|
+| Dependencias | A → C  |
+|              | B → C  |
+|              | C → D  |
+|              | DE → C |
+|              | CE → A |
+
+No está en 2FN porque B→C, partimos ?? para tener
+
+| Tabla        | ABCDE  | BCD   |
+| Claves       | BE     | B     |
+|--------------+--------+-------|
+| Dependencias | A → C  | B → C |
+|              |        | C → D |
+|              | DE → C |       |
+|              | CE → A |       |
+
+***** Ejercicio 7
+Simplificando dependencias
+
+| Tabla        | ABCDE  |
+| Claves       | AB     |
+|--------------+--------|
+| Dependencias | AB → C |
+|              | C → E  |
+|              | E → C  |
+|              | C → D  |
+
+Estamos en 2FN porque todos dependen de AB de forma completa; pero no
+estamos en 3FN. Partimos para llegar a 3FN.
+
+| Tabla        | ABC    | CE    | CD    |
+| Claves       | AB     | C, E  | C     |
+|--------------+--------+-------+-------|
+| Dependencias | AB → C | E → C | C → D |
+|              |        | C → E |       |
+
+Que están en FNBC.
+
 **** Ejercicio 1
 #+begin_statement
 Normalizar,
