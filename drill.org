@@ -67,17 +67,17 @@ A session should be 10-15 mins long.
 * Category theory
 ** Universality and Yoneda
 *** Universal arrow                                                 :drill:
-SCHEDULED: <2018-01-16 Tue>
+SCHEDULED: <2018-05-20 Sun>
 :PROPERTIES:
 :ID:       f5c0c0db-7fd6-486d-9eab-d0f87b6f8d54
-:DRILL_LAST_INTERVAL: 38.5514
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 123.6729
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.428
-:DRILL_EASE: 3.1
+:DRILL_AVERAGE_QUALITY: 4.499
+:DRILL_EASE: 3.2
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:37]
+:DRILL_LAST_REVIEWED: [2018-01-16 Tue 14:49]
 :END:
 Definition of *universal arrow* from $c$ to $S$.
 
@@ -91,17 +91,17 @@ c \rar[swap]{u}\urar{f} & Sr \uar[swap, dashed]{S \widetilde f}
 \end{tikzcd}\]
 
 *** Yoneda Lemma                                                    :drill:
-SCHEDULED: <2018-01-18 Thu>
+SCHEDULED: <2018-04-16 Mon>
 :PROPERTIES:
 :ID:       dbee06db-00f9-4f92-9e8f-ab855a4a5fc6
-:DRILL_LAST_INTERVAL: 30.8887
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 83.4613
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-18 Mon 16:54]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.66
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:42]
 :END:
 Statement of the first Yoneda Lemma.
 
@@ -116,17 +116,17 @@ sending any natural transformation $\alpha \colon \mathrm{hom}_{D}(r,-) \xrighta
 to its image on the identity, $\alpha_r(\mathsf{id}_r)$.
 
 *** Yoneda functor                                                  :drill:
-SCHEDULED: <2018-01-16 Tue>
+SCHEDULED: <2018-04-08 Sun>
 :PROPERTIES:
 :ID:       0d249757-6f4e-4635-a141-605ae14c0aaf
-:DRILL_LAST_INTERVAL: 28.8322
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 75.1367
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.667
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-18 Mon 16:51]
+:DRILL_AVERAGE_QUALITY: 4.25
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:19]
 :END:
 Definition of the *Yoneda functor*.
 
@@ -174,17 +174,17 @@ Given an adjunction $F \vdash G$, what signature does the *counit* have?
 **** Answer
 The counit is $\epsilon : FG \to \mathrm{id}$.
 *** Monad of an adjunction                                          :drill:
-SCHEDULED: <2018-01-14 Sun>
+SCHEDULED: <2018-01-26 Fri>
 :PROPERTIES:
 :ID:       be30eb00-9dbd-4d91-8d58-a5e3c9cf9bff
-:DRILL_LAST_INTERVAL: 4.14
+:DRILL_LAST_INTERVAL: 4.285
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 5
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.2
-:DRILL_EASE: 2.9
+:DRILL_TOTAL_REPEATS: 7
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 3.0
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-10 Wed 11:36]
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:14]
 :END:
 Given an adjunction $F \vdash G$, what monad does it give rise to?
 
@@ -264,17 +264,17 @@ Having all equalizers and
 
 ** Monoidal and enriched categories
 *** Preadditive category                                            :drill:
-SCHEDULED: <2018-01-12 Fri>
+SCHEDULED: <2018-04-26 Thu>
 :PROPERTIES:
 :ID:       01815e4d-7bf6-473c-a818-f5a4f3568967
-:DRILL_LAST_INTERVAL: 34.7992
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 8
+:DRILL_LAST_INTERVAL: 104.3976
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 9
 :DRILL_FAILURE_COUNT: 2
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 3.0
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-08 Fri 00:38]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-01-12 Fri 16:25]
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Preadditive_category][preadditive category]]
 
@@ -285,24 +285,20 @@ Every $hom(a,b)$ is an *abelian group* and composition is *bilinear*
 f \circ (g+h) = f \circ g+f \circ h \qquad (f+g)\circ h = f\circ h+g \circ h
 \]
 
-*** Monoidal category                                               :drill:
-SCHEDULED: <2018-01-21 Sun>
+*** Monoidal category: isomorphisms                                 :drill:
+SCHEDULED: <2018-03-22 Thu>
 :PROPERTIES:
 :ID:       b388bb90-8069-4b36-b655-acdea2c12f12
-:DRILL_LAST_INTERVAL: 24.12
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 58.9252
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2017-12-28 Thu 23:04]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:40]
 :END:
-Definition of a monoidal category. Give
-
- * bifunctor,
- * isomorphisms,
- * diagrams.
+Isomorphisms defining a monoidal category.
 
 **** Answer
 A *monoidal category* ${\cal B}$ is a category with a bifunctor $\otimes \colon {\cal B} \times {\cal B} \to {\cal B}$
@@ -314,7 +310,18 @@ and three natural isomorphisms
 
  * $\rho \colon a \otimes e \cong a$
 
-such that the pentagonal diagram commutes
+*** Monoidal category: diagrams                                     :drill:
+Diagrams of a monoidal category, where
+
+ * $\alpha \colon a \otimes (b \otimes c) \cong (a \otimes b) \otimes c$
+
+ * $\lambda \colon e \otimes a \cong a$
+
+ * $\rho \colon a \otimes e \cong a$
+
+**** Diagrams
+A monoidal category has isomorphisms such that the pentagonal diagram
+commutes
 
 \begin{tikzcd}
 a \otimes (b \otimes (c \otimes d)) \dar{1 \otimes \alpha} \rar{\alpha}& 
@@ -334,17 +341,17 @@ a \otimes c &\\
 
 ** Categorical logic
 *** Cartesian closed category                                       :drill:
-SCHEDULED: <2018-01-12 Fri>
+SCHEDULED: <2018-03-28 Wed>
 :PROPERTIES:
 :ID:       1c544faf-0c54-4fc1-b2f2-839d6fdd8354
-:DRILL_LAST_INTERVAL: 27.8572
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 75.2144
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_AVERAGE_QUALITY: 4.5
 :DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-15 Fri 22:03]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-01-12 Fri 16:25]
 :END:
 Define a *cartesian closed category* using three adjoints.
 
@@ -367,17 +374,17 @@ Any category ${\cal C}$ is cartesian closed if and only if there exist
 \end{prooftree}
 
 *** Elementary topos                                                :drill:
-SCHEDULED: <2018-01-15 Mon>
+SCHEDULED: <2018-04-12 Thu>
 :PROPERTIES:
 :ID:       5e288a7b-486a-4d12-91b2-45834c6a0b47
-:DRILL_LAST_INTERVAL: 30.8887
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 86.4884
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.75
 :DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-15 Fri 22:06]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-01-16 Tue 14:50]
 :END:
 Define *elementary topos* with three properties.
 
@@ -387,17 +394,17 @@ Define *elementary topos* with three properties.
  3. has a *subobject classifier*.
 
 *** Pullback functor in objects                                     :drill:
-SCHEDULED: <2018-01-15 Mon>
+SCHEDULED: <2018-04-23 Mon>
 :PROPERTIES:
 :ID:       fed94983-29d8-4580-97ba-0e0d06a7da46
-:DRILL_LAST_INTERVAL: 30.8887
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 89.5155
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.8
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-15 Fri 22:07]
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:15]
 :END:
 Given $f : B \to A$, define the pullback functor $f^{\ast} : {\cal C}/A \to {\cal C}/B$
 in objects.
@@ -412,17 +419,17 @@ B\rar{f} & A
 \end{tikzcd}\]
 
 *** Pullback functor in morphisms                                   :drill:
-SCHEDULED: <2018-01-15 Mon>
+SCHEDULED: <2018-04-23 Mon>
 :PROPERTIES:
 :ID:       5bb637fe-4ec1-4cc1-9e8d-b973b81ebaff
-:DRILL_LAST_INTERVAL: 30.8887
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 89.5155
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.8
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-15 Fri 22:06]
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:16]
 :END:
 Given $f : B \to A$, define the pullback functor $f^{\ast} : {\cal C}/A \to {\cal C}/B$
 on the morphism $h : C \to D$ defined between $c : C \to A$ and $d : D \to A$.
@@ -439,17 +446,17 @@ C \ar{dl}{h}\ar[bend left=60]{ddl}{c} \\
 \end{tikzcd}\]
 * Type theory
 *** Canonicity                                                      :drill:
-SCHEDULED: <2018-01-12 Fri>
+SCHEDULED: <2018-01-23 Tue>
 :PROPERTIES:
 :ID:       767fa380-22e3-4907-810a-a22a137c7808
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.0911
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-08 Mon 10:52]
+:DRILL_LAST_REVIEWED: [2018-01-12 Fri 16:24]
 :END:
 Definition of *canonicity*.
 
@@ -511,17 +518,17 @@ For a family of *mere propositions* $P : A \to {\cal U}$, we write
 and call this a subtype of $A$.
 
 *** Axiom of choice                                                 :drill:
-SCHEDULED: <2018-01-19 Fri>
+SCHEDULED: <2018-04-08 Sun>
 :PROPERTIES:
 :ID:       f8e99cbf-4821-4cb3-b622-dfd84d4d4215
-:DRILL_LAST_INTERVAL: 27.3904
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 75.4058
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.66
+:DRILL_AVERAGE_QUALITY: 3.857
+:DRILL_EASE: 2.76
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-23 Sat 20:17]
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:37]
 :END:
 *Axiom of choice* in type theory.
 
@@ -619,17 +626,17 @@ Definition of *contractible type*.
 $A$ is contractible if there exists a center of contraction $a$.
 
 *** Mere propositions and contractibility                           :drill:
-SCHEDULED: <2018-01-15 Mon>
+SCHEDULED: <2018-04-29 Sun>
 :PROPERTIES:
 :ID:       8be8a4a1-667a-4a64-b96a-f07d9d46ca61
-:DRILL_LAST_INTERVAL: 34.4349
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 103.2703
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.4
-:DRILL_EASE: 2.9
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 3.0
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-12 Tue 21:35]
+:DRILL_LAST_REVIEWED: [2018-01-16 Tue 14:49]
 :END:
 Define *mere proposition* in terms of contractibility.
 
@@ -679,17 +686,17 @@ Definition of *fiber* of $f : A \to B$ over $b : B$ in HoTT.
 
 ** Other
 *** UIP is not derivable                                            :drill:
-SCHEDULED: <2018-01-20 Sat>
+SCHEDULED: <2018-04-23 Mon>
 :PROPERTIES:
 :ID:       59132f0b-aa24-454c-9397-622348e5b16d
-:DRILL_LAST_INTERVAL: 30.8887
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 89.5155
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.8
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-20 Wed 16:38]
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:19]
 :END:
 Uniqueness of Identity Proofs is not derivable in MTLL. Why?
 
@@ -698,7 +705,7 @@ In the groupoid model by Hoffmann, elements of the identity type
 different from reflexivity can be built.
 
 * Topology
-** Covering space                                                    :drill:
+*** Covering space                                                  :drill:
 SCHEDULED: <2018-04-08 Sun>
 :PROPERTIES:
 :ID:       915fad6c-c2b3-479f-b16d-b24f97abbd13
@@ -713,12 +720,12 @@ SCHEDULED: <2018-04-08 Sun>
 :END:
 Definition of *covering space*.
 
-*** Definition
+**** Definition
 A *continuous surjective* $p : E \to B$ such that every $b \in B$ has a
 neighborhood $V$ such that $p^{-1}(V)$ is an open partition $\{V_n\}$ of
 *slices*, every one of them isomorphic to $V_b$.
 
-** Topological retraction                                            :drill:
+*** Topological retraction                                          :drill:
 SCHEDULED: <2018-04-08 Sun>
 :PROPERTIES:
 :ID:       36cc4b72-f8d6-45ab-8377-7aa2dfb4420b
@@ -733,9 +740,33 @@ SCHEDULED: <2018-04-08 Sun>
 :END:
 Definition of topological *retraction*.
 
-*** Definition
+**** Definition
 An inclusion $i : A \subseteq X$ with a continuous map $r : X \to A$ 
 such that $r \circ i = \mathsf{id}$.
+
+*** Compact space (by open covers)                                  :drill:
+SCHEDULED: <2018-01-26 Fri>
+:PROPERTIES:
+:ID:       9944a022-526f-42bc-92b9-16b8b5519958
+:DRILL_LAST_INTERVAL: 3.86
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:43]
+:END:
+Definition of compact space by open covers.
+
+**** Definition
+$X$ is compact if any open cover ${\cal O}$,
+
+\[
+\bigcup_{O \in {\cal O}} O = X
+\]
+
+has a finite subcover ${\cal O}' \subset {\cal O}$.
 
 ** Examples
 *** Are the open and closed intervals homeomorphic?                 :drill:
@@ -760,6 +791,49 @@ by homeomorphisms.
 **** Answer 2
 We can take a point on both intervals and see that only one of them
 has to be connected.
+
+* Statistics
+** Normal distribution                                               :drill:
+SCHEDULED: <2018-01-26 Fri>
+:PROPERTIES:
+:ID:       9d9e5534-15b0-4c90-a482-97100e0507bb
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:36]
+:END:
+Probability density function of the normal distribution.
+
+*** Function
+
+\[
+f(x \mid \mu,\sigma^2) = \frac{1}{\sqrt{2\sigma^2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\]
+
+** Bayes' theorem                                                    :drill:
+SCHEDULED: <2018-01-26 Fri>
+:PROPERTIES:
+:ID:       b716bff8-b809-4e11-94e3-1ddd6ad697e4
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:36]
+:END:
+Statement of Bayes' theorem.
+
+*** Statement
+
+\[
+P(A\mid B) = \frac{P(B \mid A)P(A)}{P(B)}
+\]
 
 * Algebra
 ** Exponentiation of versors                                         :drill:
@@ -840,7 +914,80 @@ Diagramatically,
 & 0                   & 0                 & 0                &
 \end{tikzcd} \]
 
-* First-order logic
+* Analysis
+** Measure theory
+*** Measurable space                                                :drill:
+SCHEDULED: <2018-01-26 Fri>
+:PROPERTIES:
+:ID:       87ac46cb-8da5-4d58-ab9c-75c766932e94
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:37]
+:END:
+Definition of *measurable space*.
+
+**** Definition
+A measurable space $(X,\Sigma)$ is given by a set $X$ and a /σ-algebra/
+on the set, that is, a set of subsets with
+
+ * the empty set,
+ * all complements,
+ * all countable unions,
+ * all countable intersections.
+
+*** Measure                                                         :drill:
+SCHEDULED: <2018-01-26 Fri>
+:PROPERTIES:
+:ID:       385a9a40-8890-4928-b5c5-2c938dec604e
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:43]
+:END:
+Definition of *measure*.
+
+**** Definition
+A *measure* over a σ-algebra $\Sigma$ is a function $\mu \colon \Sigma \to \mathbb{R} \cup \left\{ \infty \right\}$,
+
+ * non-negative, $\mu(E) \geq 0$,
+ * null, $\mu(\varnothing) = 0$,
+ * σ-additive, $\mu\left( \bigcup^{\infty}_{k=1} E_k \right) = \sum_{k=1}^{\infty}\mu(E_k)$ if we have $E_i \cap E_j = \varnothing$.
+
+*** Fatou's lemma                                                   :drill:
+SCHEDULED: <2018-01-26 Fri>
+:PROPERTIES:
+:ID:       6af0cfe7-d340-4be8-b036-c14f636fd988
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:42]
+:END:
+Given a measure space $\Sigma$ and functions $f_n \colon X \to [0,+\infty]$; that are
+$\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$, what does the Fatou's lemma states?
+
+**** Statement
+In a measure space, given $\left\{ f_n \right\}$ a sequence of $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$ non-negative
+functions $f_n \colon X \to [0,+\infty]$; taking $f(x) = \liminf_{n\to \infty} f_n(x)$; we have that
+$f$ is $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$ and
+
+\[
+\int_X f\ d\mu \leq \liminf_{n\to\infty} \int_X f_n\ d\mu.
+\]
+
+* Logic
 ** Definition of validity                                            :drill:
 SCHEDULED: <2018-04-04 Wed>
 :PROPERTIES:
@@ -968,35 +1115,35 @@ SCHEDULED: <2018-02-03 Sat>
 The [split] tactic [introduces a conjunction].
 
 *** Coq Tactic                                                      :drill:
-SCHEDULED: <2018-01-21 Sun>
+SCHEDULED: <2018-04-14 Sat>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       3ee44b74-7bfb-46fd-bdf6-9095a0c7ddd0
-:DRILL_LAST_INTERVAL: 29.3533
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 80.8096
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.143
-:DRILL_EASE: 2.66
+:DRILL_AVERAGE_QUALITY: 3.375
+:DRILL_EASE: 2.76
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-23 Sat 20:16]
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:19]
 :END:
 
 The [absurd] tactic [eliminates falsehood].
 
 *** Coq Tactic                                                      :drill:
-SCHEDULED: <2018-01-20 Sat>
+SCHEDULED: <2018-01-26 Fri>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       ef5486ca-801f-49cb-826b-db3e15806159
-:DRILL_LAST_INTERVAL: 33.2704
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 7
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.715
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2017-12-18 Mon 16:55]
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 9
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 3.668
+:DRILL_EASE: 2.9
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:36]
 :END:
 
 The [replace] tactic [substitutes all ocurrences of a term using a path].
