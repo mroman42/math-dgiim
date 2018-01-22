@@ -1,7 +1,8 @@
 #+TITLE: Informática Gráfica
+#+OPTIONS: num:nil links:nil
 
- - [[curena@ugr.es]]
- - [[lsi.ugr.es/curena]]
+ - curena@ugr.es
+ - [[http://lsi.ugr.es/curena]]
  - [[http://lsi.ugr.es/doce/ig/17-18]]
 
 1 punto por trabajo aparte.
@@ -56,10 +57,107 @@ Un *program* tiene un =GLuint= identificador.
 *** 4.4. Funciones auxiliares
 ** 5. Apéndice: puntos, vectores y marcos
 * Tema 2. Modelado de objetos
-** 1. Modelos geométricos
-** 2. Modelos de fronteras
-** 3. Transformaciones geométricas
-*** 3.1. Transformación geométrica
+** 2.1. Modelos geométricos
+*** 2.1.1. Introducción
+El modelo geométrico más general son los conjuntos pero no permiten
+una representación computacional clara. Se usan
+
+ * *voxels*, cuadrículas de volúmenes,
+ * *fronteras*, polígonos planos.
+
+** 2.2. Modelos de fronteras
+*** 2.2.1. Elementos y adyacencia
+Los modelos de fronteras usan mallas de polígonos, normalmente
+mallas de triángulos. Se consideran adyacencias entre vértices,
+aristas y caras bajo un *marco de referencia local de la malla*.
+
+La malla tiene como atributos
+
+ * normales de las caras,
+ * normales de los vértices,
+ * colores de caras, 
+ * colores de vértices, que luego interpolarán las caras;
+ * coordenadas de textura,
+ * vectores bitangentes.
+
+*** 2.2.2. Lista de triángulos
+La estructura más simple es la *lista de triángulos aislados*, una
+entrada para cada tres vértices, $9n$ floats; consume mucha memoria
+innecesaria. =Objeto3D=, =MallaTA=
+
+**** Visualización
+Puede hacerse
+
+ * con =glBegin/glEnd= llamando a =glVertex3fv=,
+ * con =glDrawArrays=, usando $3n$ tuplas de coordenadas.
+
+*** 2.2.3. Mallas como tiras de triángulos
+Cada triángulo es adyacente al anterior y tenemos $3(n+2)$ floats.
+En algunos casos hay que usar varias o repetir vértices. La complejidad
+de representarlas luego es mayor. =MallaTT=
+
+*** 2.2.4. Mallas indexadas
+Usar dos tablas
+
+ * *tabla vértices*, con entrada por vértice,
+ * *tabla triángulos*, llamando a tabla vértices.
+
+Mucho más efiicente =MallaInd=, $3n$.
+
+*** 2.2.5. Representación con aristas aladas
+Las aristas tienen dos caras adyacentes, hay una tabla de vértices y
+otrade aristas, donde la segunda guarda
+
+ * vértice inicial,
+ * vértice final,
+ * triángulo a la izquierda,
+ * triángulo a la derecha,
+ * arista anterior en el triángulo izquierda,
+ * arista siguiente en el triángulo izquierda,
+ * arista anterior en el triángulo derecha,
+ * arista siguiente en el triángulo derecha.
+
+Podemos así resolver adyacencias, pueden usarse también
+
+ * tabla de aristas de vértice,
+ * tabla de aristas de triángulo.
+
+*** 2.2.6. Representación con atributos
+A los vértices se les puede asignar
+
+ * colores,
+ * normales,
+ * coordenadas de textura,
+ * otros atributos.
+
+Pueden asociarse con =glVertex= o usando =glDrawArrays= con
+=glDrawElements=. A las caras no se pueden asignar atributos
+directamente, pero se pueden cambiar al enviar la cara.
+
+*** 2.2.7. Visualización de mallas en modo diferido
+Se envía todo una sóla vez a la GPU. Puede hacerse con
+
+ * display lists (obsoletas),
+ * vertex buffer objects (VBO).
+
+El VBO se crea tomando un identificador, generando luego el VBO,
+asignándolo al dentificador y haciendo la transferencia a GPU,
+puede desactivarse luego.
+
+#+BEGIN_SRC c++
+GLuint id_vbo;
+glGenBuffers(1, &id_vbo);
+glBindBuffer(tipo, id_vbo);
+glBufferData(tipo, tamanio, puntero, GL_STATIC_DRAW);
+glBindBuffer(tipo, 0);
+#+END_SRC
+
+La malla se puede visualizar muchas veces entonces sin enviar datos a
+GPU usando =glBindBuffer= y =glDrawElements=. Colores y normales se
+pueden almacenar en los mismos VBOs.
+
+** 2.3. Transformaciones geométricas
+*** 2.3.1. Transformación geométrica
 Todas las mallas deben acabar apareciendo en *coordenadas del mundo*.
 Se usan transformaciones geométricas matriciales para mostrar los
 objetos.
@@ -78,7 +176,7 @@ w' &= w
 
 que dependen del marco de referencia.
 
-*** 3.2. Transformaciones usuales en IG
+*** 2.3.2. Transformaciones usuales en IG
 Todas ellas son afines y coherentes, $T(p-q) = Tp - Tq$.
 
 **** Traslación
@@ -103,7 +201,7 @@ y puede escribirse como =MAT_Traslacion(dx,dy,dz)=.
 **** Composición
 
 **** Representación matricial
-*** 3.3. Matrices y marcos de coordenadas
+*** 2.3.3. Matrices y marcos de coordenadas
 Si las coordenadas del marco $B$ en $A$ vienen dadas por $a,b,c,d$,
 la matriz de cambio de $B$ a $A$ viene dada por
 
@@ -116,10 +214,10 @@ a_z & b_z & c_z & d_z \\
 
 y se calculan las coordenadas como $Mc_{A} = c_B$.
 
-*** 3.4. Representación de matrices en memoria
+*** 2.3.4. Representación de matrices en memoria
 Se usa el tipo =Matriz4f=.
 
-*** 3.5. Transformaciones en OpenGL
+*** 2.3.5. Transformaciones en OpenGL
 OpenGL almacena
 
  * *matriz de modelado* (N), pasa de coordenadas de objeto a coordenadas
@@ -141,11 +239,11 @@ glMultMatrix(..);  // Modelado
 
 La gestión directa de matrices es obsoleta a partir de OpenGL3.1.
 
-*** 3.6. Gestión de matriz de modelado en GLSL
-** 4. Modelos jerárquicos, representación y visualización
+*** 2.3.6. Gestión de matriz de modelado en GLSL
+** 2.4. Modelos jerárquicos, representación y visualización
 * Tema 3. Visualización
-** 1. Cauce gráfico y definición de la cámara
-*** 1.1. El cauce gráfico del algoritmo Z-buffer
+** 3.1. Cauce gráfico y definición de la cámara
+*** 3.1.1. El cauce gráfico del algoritmo Z-buffer
 El algoritmo Z-buffer elimina partes ocultas (EPO) en 3D y se
 implementa en hardware. Tiene 4 pasos.
 
@@ -173,7 +271,7 @@ implementa en hardware. Tiene 4 pasos.
  * (P) La matriz de *proyección* pasa de cámara a recortado.
  * (D) La matriz de *viewport* pasa normalizadas (NDC) a dispositivo (DC).
 
-*** 1.2. Transformación de vista
+*** 3.1.2. Transformación de vista
 La matriz de vista se define con
 
  * $o_c$, posición de observador (PRP),
@@ -222,7 +320,7 @@ del marco
 V = \mathrm{Rot}[\gamma,z] \cdot \mathrm{Rot}[\beta,y] \cdot \mathrm{Rot}[\alpha,x] \cdot \mathrm{Tra}[-o_c]
 \]
 
-*** 1.3. Transformación de proyección
+*** 3.1.3. Transformación de proyección
 Se proyecta sobre un *viewplane* de dos formas
 
  * *perspectiva*, con líneas proyectoras hacia un foco; hay un factor de
@@ -266,10 +364,325 @@ donde para =gluPerspective= se asume $r = -l$ y $t = -b$ y se tiene
  * =a= es la relación de aspecto $r/b$;
  * =n,f= son near y far.
 
-** 2. Métodos de iluminación
-** 3. Modelo de iluminación local básico
+** 3.2. Modelos de iluminación
+*** 3.2.1. Radiación visible
+La *radiancia* $L(\lambda,p,v)$ determina el tono y brillo de un punto. 
+Los colores pueden medirse en RGB usando mezcla aditiva, la
+traducción dependerá del dispositivo.
+
+*** 3.2.2. Emisión y reflexión de la radiación
+La radiancia es suma de emitida y reflejada, para cada radiancia
+incidente desde cada punto, se refleja una fracción en cada dirección
+$v$,
+
+\[
+L(\lambda, p,v) = L_{em}(\lambda, p,v) + \sum_i L_{in}(\lambda,p,u_i)f_r(\lambda,p,v,u_i)
+\]
+
+*** 3.2.3. Simplificaciones en modelos computacionales
+Se asume para calcular
+
+ * fuentes puntuales no extensas,
+ * la única iluminación indirecta es constante,
+ * objetos opacos,
+ * no hay sombras arrojadas,
+ * no hay dispersión,
+ * sólo funciona en RGB.
+
+** 3.3. Modelo de iluminación local (MIL) básico
+*** 3.3.1. Elementos del modelo: normales y colores
+La iluminación depende de la orientación caracterizada por el *vector
+normal*.
+
+*** 3.3.2. Fuentes de luz, materiales y reflexión
+ * Posicionales, con vector unitario
+
+   \[
+   l_i = \frac{q_i-p}{\|q_i-p\|}
+   \]
+
+ * Direccionales, a distancia infinita, dirección constante.
+
+*** 3.3.3. Componentes del modelo
+ * Radiancia emitida $L_{em}(p)$, emisividad del material.
+
+ * Reflectividad difusa $f_{ra}(p,v,l_i) = M_A(p)$.
+
+ * Componente difusa dependiendo de la posición, independiente de la
+   dirección; $f_{rd}(p,v,l_i) = M_D(p) \max(0,n_p \cdot l_i)$.
+
+ * Material difuso $M_A(p)$.
+
+ * Componente pseudo-especular, el reflejo de la luz en objetos
+   brillantes. *Modelo de Phong*,
+
+   \[
+   f_{rs}(p,v,l_i) = M_S(p) d_i [\max(0,r_i \cdot v)]^{e}
+   \]
+
+   con $r_i$ reflejado, $e$ exponente de brillo, $d_i$ midiendo si
+   está de cara a la superficie.
+
+*** 3.3.4. Modelo completo
+\[
+L(p,v) = M_E(p) + A_G(p) + \sum_{i=0}^{n-1}S_iC_i
+\]
+
+donde
+
+\[
+C_i = M_A(p) + M_D(p) \max(0,n\cdot l_i) + M_S(p) d_i (\max(0,r_i \cdot v))^e
+\]
+
+** 3.4. Iluminación en OpenGL
+*** 3.4.1. Iluminación vs asignación de colores
+Obsoleta y eliminada a partir de OpenGL3.1. Cuando está activada se
+usa el MIL para calcular el color.
+
+#+BEGIN_SRC c++
+glEnable(GL_LIGHTING);
+glDisable(GL_LIGHTING);
+#+END_SRC
+
+Los parámetros del MIL son
+
+ * $M_E$, emisividad,
+ * $M_A,M_{D},M_S$, reflexividad difusa, ambiente y pseudoespecular,
+ * $A_G$, luz ambiente,
+ * $e$, exponente,
+ * $S_{iA},S_{iD},S_{iS}$, luminosidad de cada fuente de luz,
+ * $q_i,l_i$, posición y dirección de cada fuente de luz.
+
+El modelo de funcionalidad fija es parecido al MIL visto.
+
+*** 3.4.2. Definición de fuentes de luz
+Hay luces =GL_LIGHTi= para =i = 0..8=. Pueden especificarse en varios
+marcos de coordenadas con transformaciones.
+
+#+BEGIN_SRC c++
+// Activación
+glEnable(GL_LIGHTi);
+glDisable(GL_LIGHTi);
+
+// Configuración de colores
+glLightfv(GL_LIGHTi, GL_AMBIENT, caf);
+glLightfv(GL_LIGHTi, GL_DIFFUSE, caf);
+glLightfv(GL_LIGHTi, GL_SPECULAR, caf);
+
+// Posición/dirección
+glLightfv(GL_LIGHTi, GL_POSITION, tupla);
+glLightfv(GL_LIGHTi, GL_DIRECTION, dirf);
+#+END_SRC
+
+*** 3.4.3. Representación de fuentes de luz
+Clase =FuenteLuz=, se guardan en =ColeccionFL=.
+
+*** 3.4.4. Vector hacia observador
+El observador puede ser local o en el infinito.
+
+#+BEGIN_SRC c++
+glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_FALSE); // Ortogonal
+glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE); // Perspectiva
+#+END_SRC
+
+*** 3.4.5. Normales de vértices
+Se pueden especificar con =glNormal= y normalizarse con
+=glEnable(GL_NORMALIZE)=.
+
+*** 3.4.6. Atributos materiales
+El término ambiente, emisividad y colores se controlan.
+
+#+BEGIN_SRC c++
+glLightModelf(GL_LIGHT_MODEL_AMBIENT, color);
+glMaterialf(GL_FRONT_AND_BACK, GL_EMISSION, color);
+glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, color);
+glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color);
+glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, color);
+glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, color);
+#+END_SRC
+
+*** 3.4.7. Representación de materiales
+Clase =Material=.
+
+** 3.5. Métodos de sombreado para Z-Buffer
+*** 3.5.1. Evaluación del MIL con Z-Buffer
+El MIL puede evaluarse
+
+ * *sombreado plano* (flat shading): una vez por polígono.
+ * *sombreado de vértices* (smooth shading, Gouround): una vez por vértice.
+ * *sombreado de pixel* (pixel shading): una vez por pixel.
+
+*** 3.5.2. Sombreado plano
+Eficiente, discontinuidades y poco realista. Crea bandas Mach
+
+*** 3.5.3. Sombreado en vértices
+Eficiente pero más realista, puede tener bandas Mach. Puede perder
+zonas brillantes.
+
+*** 3.5.4. Sombreado en pixeles
+Costoso, más calidad y realismo.
+
+*** 3.5.5. OpenGL: método de sombreado
+Sólo plano y vértices
+
+#+BEGIN_SRC c++
+glShadeModel(GL_FLAT);
+glShadeModel(GL_SMOOTH);
+#+END_SRC
+
+** 3.6. Visualización de texturas
+*** 3.6.1. Detalles a pequeña escala
+Rugosidades variando la normal y la reflectividad. Pueden usarse
+polígonos de detalle, pero las *texturas* son más eficientes, llevan
+texels a un cuadrado del espacio. Pueden ser procedurales.
+
+*** 3.6.2. Coordenadas de textura
+Aplican la textura al objeto.
+
+*** 3.6.3. Asignación explícita de coordenadas de textura
+Se asignan al modelar el objeto en escena.
+
+*** 3.6.4. Asignación procedural de coordenadas de textura
+Un subprograma =CoordText(p)= que las calcula en cada punto.
+
+ * Asignación a vértices, interpolando luego.
+ * Asignación a puntos.
+
+Se suelen usar:
+
+ * funciones lineales,
+ * coordenadas paramétricas,
+ * coordenadas polares,
+ * coordenadas cilíndricas.
+
+En los casos de una superficie paramétrica, podemos usar las coordenadas
+como coordenadas de textura. Las esféricas y cilíndricas pueden proporcionar
+mejores resultados en algunos casos.
+
+*** 3.6.5. Consulta de texels
+El texel (i,j) tiene centro en un punto $(c_i,d_j)$ y puede
+consultarse
+
+ * el texel más cercano a ese punto,
+ * una interpolación bilineal entre los cuatro texels.
+
+La interpolación es más suave.
+
+** 3.7. Texturas en OpenGL
+*** 3.7.1. Activación y desactivación
+#+BEGIN_SRC c++
+glEnable(GL_TEXTURE_2D);
+glDisable(GL_TEXTURE_2D);
+#+END_SRC
+
+Cuando se activan, el color de textura sustituye a reflexividades del
+material y al color.
+
+*** 3.7.2. Carga de texturas
+OpenGL gestiona varias texturas por identificadores, en cada momento
+habrá una sola activa. Las texturas se guardan en RAM.
+
+#+BEGIN_SRC c++
+// Genera
+GLuint idTex;
+glGenTextures(1, &idTex);
+
+// Asocia, con potencias o mipmaps
+glTexImage2D(GL_TEXTURE_2D, 0,GL_RGB,ancho,alto,borde = 0, GL_RGB,GL_UNSIGNED_BYTE, texels);
+gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, ancho,alto, GL_RGB, GL_UNSIGNED_BYTE, texels);
+
+// Activa
+glBindTexture(GL_TEXTURE_2D, idTex);
+#+END_SRC
+
+*** 3.7.3. Configuración de texturas
+Determinan la apariencia de textura
+
+ * color de texels,
+ * selección de texels (cercano o interpolación),
+ * selección fuera de rango (replicado o truncamiento),
+ * coordenadas explícitas o procedurales.
+
+**** Texturas, reflectividades e iluminación
+#+BEGIN_SRC c++
+glLightModeli(GL_LIGHT_MODEL_COLOR_CONTROL, GL_SINGLE_COLOR); // Color en lugar de reflectividades
+glLightModeli(GL_LIGHT_MODEL_COLOR_CONTROL, GL_SEPARATE_SPECULAR_COLOR); // Especular aparte
+#+END_SRC
+
+**** Selección de texels
+#+BEGIN_SRC c++
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST); // Más cercano
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);  // Interpolación
+#+END_SRC
+
+**** Tipo de generación procedural
+Dos tipos de generación,
+
+#+BEGIN_SRC c++
+glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR); // Coordenadas de objeto
+glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR); // Coordenadas de ojo
+#+END_SRC
+
+**** Especificación de coeficientes de generación procedural
+Los coeficientes de las funciones lineales de generación
+
+#+BEGIN_SRC c++
+glTexGenfv(GL_S, GL_OBJECT_PLANE, coefsS);
+glTexGenfv(GL_T, GL_OBJECT_PLANE, coefsT);
+#+END_SRC
+
+*** 3.7.4. Asignación explícita de texturas y VBOs
+Puede hacerse con =glBegin/glEnd= usando =glTexCoord2f=. Pueden
+crearse VBOs con coordenadas de textura.
+
+*** 3.7.5. Representación de texturas
+Clase =Textura=.
+
+** 3.8. Materiales en grafo de escena
+*** 3.8.1. Modelo de aspecto
+Los materiales dan un modelo de aspecto que puede insertarse en el
+grafo de escena afectando a todas las entradas por debajo. Para esto
+es cómodo tener una =PilaMateriales=.
+
+*** 3.8.2. Implementación de materiales en el grafo
+Añadimos materiales a =EntradaNGE= y visualizamos con =visualizarGL=.
+
+** 3.9. Visualización con cauce gráfico programable
+*** 3.9.1. Introducción
+La única forma de evaluar el MIL es usar vertex+fragment shader en el
+cauce gráfico con GLSL.
+
+**** Parámetros del vertex shader
+Hay parámetros de entrada al vertex shader, que se enviarán con
+=glVertexAttrib= y =glVertexAttribPointer=
+
+ * *uniform*, mismo valor para todos los vértices,
+ * *vértice*, potencialmente distintos para cada vértice.
+
+Los parámetros de salida se entregan interpolados al fragment shader.
+Pueden declararse explícitamente y están predefinidos algunos.
+
+*** 3.9.2. Sombreado de pixeles (fragment shader)
+El shader tiene
+
+ * parámetros *uniform*, iguales en todos los pixeles =glUniform=,
+ * parámetros *in*, interpolados a partir de los *out* del vertexShader.
+
+El factor geométrico de la pseudo-especular puede calcularse usando
+Blinn-Phong y puede escribirse una completa evaluación del MIL.
+
+*** 3.9.3. Atributos vértice genéricos
+Es necesario usar atributos de vértice para los parámetros de entrada.
+Tienen,
+
+ * localización, identificador en la aplicación,
+ * nombre, identificador en el fuente del vertexshader.
+
+Se puede asociar localización a los nombres con =glBindAttribLocation=
+y se pueden enviar tablas de atributos genéricos.
+
 * Tema 4. Interacción y animación
-** 1. Introducción
+** 4.1. Introducción
 Buscamos un sistema gráfico interactivo que responda al usuario
 interactivamente. Habrá retroalimentación, técnicas y funciones de
 entrada que lean de dispositivos lógicos, cambiando su estado y
@@ -286,7 +699,7 @@ Existen tres modos
  - modo cola de eventos :: se añade a una cola FIFO cada evento y se
       va procesando luego.
 
-** 2. Eventos en GLUT
+** 4.2. Eventos en GLUT
 GLUT gestiona los eventos con cola de eventos; cada evento va asociado
 a un *callback*, una función que lo trata y toma parámetros de él.
 
@@ -330,7 +743,7 @@ void FGE_BotonRaton(int boton,int estado,int x,int y) {
 #+END_SRC
 *** Eventos de movimiento de ratón
 **** Ejemplo de callback de movimiento de ratón
-** 3. Posicionamiento
+** 4.3. Posicionamiento
 La posición que introduce un usuario está en /coordenadas de dispositivo/
 y es necesario pasarla a coordenadas de mundo.
 
@@ -356,18 +769,16 @@ Se restringe a un plano no perpendicular al de proyección y se traza
 una recta desde el centro de proyección por el punto introducido, que
 cortará al plano dado.
 
-** 4. Control de cámaras
+** 4.4. Control de cámaras
 Dos usos de la cámara
 
  - visualización de objetos en modo *orbital* centrando el objeto;
- - exploración de escenario en primera persona, desplazando VRP y
+ - exploración de escenario en *primera persona*, desplazando VRP y
    rotando VPN y VUP en torno al marco de coordenadas de la cámara.
 
 El *marco de coordenadas de vista* está determinado por tres versores
 ortonormales $x_c, y_c, z_c$ y un origen $o_c$. La *matriz de vista* se obtiene
 directamente desde ellas
-
-# ???
 
 \[V = \begin{pmatrix}
 x_c(0) & y_c(0) & z_c(0) & -o_c \cdot x_c \\
@@ -379,11 +790,48 @@ x_c(2) & y_c(2) & z_c(2) & -o_c \cdot z_c \\
 
 y transforma coordenadas de mundo en coordenadas de cámara.
 
-*** Cámaras en modo primera persona
-*** Cámaras orbitales
-** 5. Selección
-*** TODO Selección de OpenGL
-*** 4.5.2. Selección con frame buffer invisible
+*** 4.4.1. Cámaras en modo primera persona
+
+ * *Rotaciones*: se rotan VPN y VUP en torno a PRP (origen). VPN rota
+   en horizontal o vertical y VUP permite rotar en torno a un centro.
+   La rotación se hace con los ejes del marco.
+
+ * *Traslaciones*: se desplaza PRP en la dirección de traslación.
+   La traslación se hace con los ejes del marco.
+
+*** 4.4.2. Cámaras orbitales
+Las coordenadas esféricas, el punto de atención y la distancia a él
+fijan la cámara. El marco de vista puede obtenerse desde estos
+parámetros.
+
+** 4.5. Selección
+Se pueden dar identificadores de selección a
+
+ * triángulos,
+ * mallas,
+ * grupos de objetos,
+ * nodos del grafo de escena.
+
+Puede seleccionarse pixel en pantalla y buscar identificadores
+proyectados en ese pixel. La búsqueda puede hacerse por
+
+ * *ray-casting*, por intersección de rectas,
+ * *clipping*, recortando dentro de un view-frustum pequeño,
+ * *rasterización*, visualiza con identificadores.
+
+En OpenGL hay un modo selección y puede usarse un framebuffer distinto
+para rasterizar con identificadores.
+
+*** 4.5.1. Selección de OpenGL [Obsoleto]
+#+BEGIN_SRC c++
+glRenderMode(GL_SELECT);
+glRenderMode(GL_RENDER);
+#+END_SRC
+
+Hay una pila de nombres que se almacenan en un buffer de
+selección. Durante la rasterización, OpenGL registra nombres.
+
+*** 4.5.2. Selección con frame-buffer invisible
 Se puede usar de dos formas, la segunda más simple
 
  * crear un *frame-buffer object* (FBO);
@@ -401,8 +849,79 @@ Los identificadores deben ser =unsigned char= con una variante de
 =glColor= que los acepta en lugar de valores flotantes. Puede
 reconstruirse el unsigned de nuevo desde los tres colores.
 
-** 6. Animación
+** 4.6. Animación
+#+BEGIN_SRC c++
+glutPostRedisplay(); // Regenera la imagen
+glutSwapBuffers();   // Intercambia buffer dibujado
+glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH); // Activación de buffer
+#+END_SRC
+
+La modificación en escena se puede hacer con
+
+ * *keyframes*, configuraciones sobre las que se interpola,
+ * *simulación física*, usando mecánica clásica,
+ * *esqueletos*, que simplifican la animación,
+ * *animación procedural*, objetos descritos por procedimientos.
+
 * Tema 5. Realismo en rasterización, ray-tracing
+** 5.1. Técnicas realistas de rasterización
+*** 5.1.1. Mipmaps
+La resolución de las texturas debe adaptarse a la imagen. Puede
+solucionarse con *antialiasing* o con *mipmaps*, una serie de texturas
+$\left\{ M_i \right\}$ donde cada una se obtiene promediando grupos de
+$4$ pixels de la anterior, con resoluciones $2^{n-i} \times 2^{n-i}$.
+
+El $i$ de textura que se usa crece con el logaritmo de la distancia.
+
+*** 5.1.2. Perturbación de la normal
+Las rugosidades a pequeña escala causarían un rendering muy lento; se
+usa una textura que modifica la normal a pequeña escala (*bump-maps*).
+
+ * La textura la da un campo de alturas, que puede ser generado
+   procedural o dado como tonos de gris.
+
+ * Sobre ese campo de alturas se calculan derivadas parciales o
+   diferencias finitas $d_u,d_{v}$.
+
+ * A las derivadas en un punto se les llama tangente y bitangente y
+   definen un plano tangente perpendicular a la normal. Pueden
+   obtenerse interpolando en algunos casos.
+
+*** 5.1.3. Sombras arrojadas
+Las sombras arrojadas plantean un problema similar a visibilidad. 
+
+ * Lo soluciona el Algoritmo de Weiler-Atherton-Greenberg, para
+   eliminación de partes ocultas.
+
+ * Más eficiente es usar Z-buffer.
+
+*** 5.1.4. Superficies transparentes
+La refracción la calcula la ley de Snell, $n_i\sin(\theta_i) = n_j\sin(\theta_j)$.
+
+ * El Z-buffer sólo puede tener en cuenta los rayos que van hacia el
+   observador, pero puede adaptarse a superficies transparentes cuando
+   no hay refracción. Los colores en superficies transparentes dependen
+   del orden de los polígonos.
+
+ * La reflexión especular no puede reproducirse con los métodos
+   vistos.  Pueden usarse mapas de entorno tipo caja; y en espejos
+   planos puede sintetizarse directamente una cámara simétrica.
+
+** 5.2. Ray-tracing
+*** 5.2.1. El algoritmo de Ray-tracing
+Ray-tracing reúne todos los efectos anteriores y es más sencillo y realista
+que el Z-buffer. Cada pixel crea un rayo primario.
+
+*** 5.2.2. Evaluación del MIL
+
+ * Las sombras se calculan siguiendo el rayo hasta la fuente.
+ * Las superficies especulares o con refracción crean rayos
+   secundarios.
+
+*** 5.2.3. Esquema del algoritmo
+La función es recursiva, devuelve un color y tendrá algún parámetro
+para evitar la recursividad infinita.
+
 * Ejercicios
 *** Ejercicio 12
 **** apartado a
@@ -426,3 +945,21 @@ tamaño = 4*ints + 4*floats = 24nm + 12nm + 12n + 12m + 12 = 36nm + 12n + 12m + 
 verticestira = 2n+2
 totalvert = verticestira * m
 tamaño = 4*totalvert = 3*4m(2n+2) = 24nm + 24m
+*** Ejercicio 39
+La matriz de vista simplemente centraría en la cámara
+
+\[
+\mathrm{gluLookAt}((c_x,c_y,c_z), (c_x,c_y,c_z-1), (0,1,0))
+\]
+
+mientras que la de proyección describe el cuadro ortogonal
+
+\[
+\mathrm{glOrtho}\left(-\frac{s}{2},\frac{s}{2},-\frac{s}{2},\frac{s}{2},-\frac{s}{2},\frac{s}{2}\right).
+\]
+*** TODO Ejercicio 40
+*** TODO Ejercicio 41
+*** TODO Ejercicio 42
+*** TODO Ejercicio 43
+*** Ejercicio 46
+# Tabla de coordenadas de textura
