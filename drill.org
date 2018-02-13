@@ -174,17 +174,17 @@ Given an adjunction $F \vdash G$, what signature does the *counit* have?
 **** Answer
 The counit is $\epsilon : FG \to \mathrm{id}$.
 *** Monad of an adjunction                                          :drill:
-SCHEDULED: <2018-01-26 Fri>
+SCHEDULED: <2018-02-11 Sun>
 :PROPERTIES:
 :ID:       be30eb00-9dbd-4d91-8d58-a5e3c9cf9bff
-:DRILL_LAST_INTERVAL: 4.285
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 13.3006
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 3.0
+:DRILL_AVERAGE_QUALITY: 4.125
+:DRILL_EASE: 3.1
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:14]
+:DRILL_LAST_REVIEWED: [2018-01-29 Mon 23:35]
 :END:
 Given an adjunction $F \vdash G$, what monad does it give rise to?
 
@@ -192,17 +192,17 @@ Given an adjunction $F \vdash G$, what monad does it give rise to?
 The monad $T := G \circ F$.
 ** Limits
 *** Set is small-complete                                           :drill:
-SCHEDULED: <2018-01-26 Fri>
+SCHEDULED: <2018-05-06 Sun>
 :PROPERTIES:
 :ID:       b60b88db-63fd-40a4-aaa5-d591be15e290
-:DRILL_LAST_INTERVAL: 30.8887
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 89.5155
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.8
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-26 Tue 22:27]
+:DRILL_LAST_REVIEWED: [2018-02-05 Mon 22:48]
 :END:
 A category is *small-complete* when all small diagrams have limits in it.
 Why is Set small-complete? How can we construct small limits in it?
@@ -219,17 +219,17 @@ Crucially,
 \]
 
 *** Creation of limits                                              :drill:
-SCHEDULED: <2018-01-24 Wed>
+SCHEDULED: <2018-04-03 Tue>
 :PROPERTIES:
 :ID:       a2541164-f873-495c-8cdd-a7ea1f8a389d
-:DRILL_LAST_INTERVAL: 26.9152
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 67.5302
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.333
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2017-12-28 Thu 23:05]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-01-24 Wed 23:37]
 :END:
 When does a functor $V \colon A \to X$ *create limits* for $F \colon J \to A$?
 
@@ -238,17 +238,17 @@ For any limiting cone $\tau\colon x \xrightarrow{.} VF$ exists $\sigma\colon a\t
 and this $\sigma$ is a limiting cone.
 
 *** Limits from products and equalizers                             :drill:
-SCHEDULED: <2018-01-25 Thu>
+SCHEDULED: <2018-04-19 Thu>
 :PROPERTIES:
 :ID:       c4ec22a4-89bb-47a8-839c-25faa68f3766
-:DRILL_LAST_INTERVAL: 27.8572
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 72.5959
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.667
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-28 Thu 23:05]
+:DRILL_AVERAGE_QUALITY: 4.25
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-02-05 Mon 22:48]
 :END:
 Conditions on products and equalizers to 
 
@@ -260,7 +260,6 @@ Having all equalizers and
 
  1) all finite products;
  2) all small products.
-
 
 ** Monoidal and enriched categories
 *** Preadditive category                                            :drill:
@@ -310,19 +309,24 @@ and three natural isomorphisms
 
  * $\rho \colon a \otimes e \cong a$
 
-*** Monoidal category: diagrams                                     :drill:
-Diagrams of a monoidal category, where
+*** Monoidal category: associativity diagram                        :drill:
+SCHEDULED: <2018-03-06 Tue>
+:PROPERTIES:
+:ID:       72cb82e6-5bcf-4229-ae84-54bc0cb43c26
+:DRILL_LAST_INTERVAL: 25.88
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:53]
+:END:
+Diagram of a monoidal category for
 
  * $\alpha \colon a \otimes (b \otimes c) \cong (a \otimes b) \otimes c$
 
- * $\lambda \colon e \otimes a \cong a$
-
- * $\rho \colon a \otimes e \cong a$
-
-**** Diagrams
-A monoidal category has isomorphisms such that the pentagonal diagram
-commutes
-
+**** Diagram
 \begin{tikzcd}
 a \otimes (b \otimes (c \otimes d)) \dar{1 \otimes \alpha} \rar{\alpha}& 
 (a \otimes b) \otimes (c \otimes d) \rar{\alpha}& 
@@ -331,8 +335,26 @@ a \otimes ((b \otimes c) \otimes d) \ar[rr, "\alpha"] & &
 (a \otimes (b \otimes c)) \otimes d
 \end{tikzcd}
 
-and the following triangular diagram commutes
+*** Monoidal category: units diagram                                :drill:
+SCHEDULED: <2018-02-13 Tue>
+:PROPERTIES:
+:ID:       8c876951-43d8-4c15-b5bb-b5d659d70e1f
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:15]
+:END:
+Diagrams of a monoidal category for
 
+ * $\lambda \colon e \otimes a \cong a$
+
+ * $\rho \colon a \otimes e \cong a$
+
+**** Diagram
 \[\begin{tikzcd}[row sep=tiny]
 & a \otimes (e \otimes c) \ar[dd, "\alpha"]\dlar[swap]{1 \otimes \lambda}\\ 
 a \otimes c &\\
@@ -446,17 +468,17 @@ C \ar{dl}{h}\ar[bend left=60]{ddl}{c} \\
 \end{tikzcd}\]
 * Type theory
 *** Canonicity                                                      :drill:
-SCHEDULED: <2018-01-23 Tue>
+SCHEDULED: <2018-02-23 Fri>
 :PROPERTIES:
 :ID:       767fa380-22e3-4907-810a-a22a137c7808
-:DRILL_LAST_INTERVAL: 11.0911
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-12 Fri 16:24]
+:DRILL_LAST_REVIEWED: [2018-01-23 Tue 22:04]
 :END:
 Definition of *canonicity*.
 
@@ -492,17 +514,17 @@ Definition of *sets* in type theory.
 \]
 
 *** Subtypes                                                        :drill:
-SCHEDULED: <2018-02-03 Sat>
+SCHEDULED: <2018-06-05 Tue>
 :PROPERTIES:
 :ID:       64ba6bc2-b0cc-4863-809e-baf0200c59d3
-:DRILL_LAST_INTERVAL: 38.5449
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 119.6434
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.167
-:DRILL_EASE: 3.0
+:DRILL_AVERAGE_QUALITY: 4.286
+:DRILL_EASE: 3.1
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-26 Tue 22:27]
+:DRILL_LAST_REVIEWED: [2018-02-05 Mon 22:50]
 :END:
 Definition of *subtype* in HoTT.
 
@@ -684,6 +706,29 @@ Definition of *fiber* of $f : A \to B$ over $b : B$ in HoTT.
 \fib_f(b) :\equiv \sum_{a:A}(f(a) = b).
 \]
 
+** 11. Reals
+*** Notions of constructive compactness                             :drill:
+SCHEDULED: <2018-02-19 Mon>
+:PROPERTIES:
+:ID:       4245c70a-41e5-4c32-8c1b-0fecf44d5f7d
+:DRILL_LAST_INTERVAL: 10.352
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:13]
+:END:
+Give the three constructive notions of compactness.
+
+**** Three notions
+ * *Metrically compact:* Cauchy complete and totally bounded.
+ * *Bolzano-Weierstrass:* every sequence has a convergent subsequence.
+ * *Heine-Borel:* every open cover has a finite subcover.
+
+These are equivalent in classical mathematics.
+
 ** Other
 *** UIP is not derivable                                            :drill:
 SCHEDULED: <2018-04-23 Mon>
@@ -745,19 +790,19 @@ An inclusion $i : A \subseteq X$ with a continuous map $r : X \to A$
 such that $r \circ i = \mathsf{id}$.
 
 *** Compact space (by open covers)                                  :drill:
-SCHEDULED: <2018-01-26 Fri>
+SCHEDULED: <2018-03-03 Sat>
 :PROPERTIES:
 :ID:       9944a022-526f-42bc-92b9-16b8b5519958
-:DRILL_LAST_INTERVAL: 3.86
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 24.0088
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:43]
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-02-07 Wed 22:16]
 :END:
-Definition of compact space by open covers.
+Give the classical definition of compact space by open covers.
 
 **** Definition
 $X$ is compact if any open cover ${\cal O}$,
@@ -794,17 +839,17 @@ has to be connected.
 
 * Statistics
 ** Normal distribution                                               :drill:
-SCHEDULED: <2018-01-26 Fri>
+SCHEDULED: <2018-02-21 Wed>
 :PROPERTIES:
 :ID:       9d9e5534-15b0-4c90-a482-97100e0507bb
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_LAST_INTERVAL: 11.8823
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.25
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:36]
+:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:13]
 :END:
 Probability density function of the normal distribution.
 
@@ -815,19 +860,19 @@ f(x \mid \mu,\sigma^2) = \frac{1}{\sqrt{2\sigma^2\pi}}e^{-\frac{(x-\mu)^2}{2\sig
 \]
 
 ** Bayes' theorem                                                    :drill:
-SCHEDULED: <2018-01-26 Fri>
+SCHEDULED: <2018-03-12 Mon>
 :PROPERTIES:
 :ID:       b716bff8-b809-4e11-94e3-1ddd6ad697e4
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:36]
+:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:15]
 :END:
-Statement of Bayes' theorem.
+Probability of $P(A \mid B)$.
 
 *** Statement
 
@@ -915,11 +960,11 @@ Diagramatically,
 \end{tikzcd} \]
 
 * Analysis
-** Measure theory
-*** Measurable space                                                :drill:
-SCHEDULED: <2018-01-26 Fri>
+** Basic
+*** Lipschitz continuous                                            :drill:
+SCHEDULED: <2018-02-12 Mon>
 :PROPERTIES:
-:ID:       87ac46cb-8da5-4d58-ab9c-75c766932e94
+:ID:       921ecf4c-ac54-4c0f-a35e-6644cbe4cb02
 :DRILL_LAST_INTERVAL: 4.14
 :DRILL_REPEATS_SINCE_FAIL: 2
 :DRILL_TOTAL_REPEATS: 1
@@ -927,7 +972,50 @@ SCHEDULED: <2018-01-26 Fri>
 :DRILL_AVERAGE_QUALITY: 5.0
 :DRILL_EASE: 2.6
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:37]
+:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:54]
+:END:
+A function $f$ between metric spaces is Lipschitz continuous when...
+
+**** Definition
+\[
+d(f(x),f(y)) \leq k\, d(x,y)
+\]
+
+*** Locally Lipschitz continuous                                    :drill:
+SCHEDULED: <2018-02-12 Mon>
+:PROPERTIES:
+:ID:       4e9b39cc-4e82-442d-883d-97f8105ae90b
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:54]
+:END:
+A function $f \colon D \to \mathbb{R}^k$ is locally Lipschitz continuous when...
+
+**** Definition
+for each $x \in D$ there exists a open $x \in U \subset D$ such that
+
+\[
+\|f(x)-f(y)\| \leq k\|x-y\|
+\]
+
+** Measure theory
+*** Measurable space                                                :drill:
+SCHEDULED: <2018-03-05 Mon>
+:PROPERTIES:
+:ID:       87ac46cb-8da5-4d58-ab9c-75c766932e94
+:DRILL_LAST_INTERVAL: 25.4305
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:56]
 :END:
 Definition of *measurable space*.
 
@@ -941,19 +1029,19 @@ on the set, that is, a set of subsets with
  * all countable intersections.
 
 *** Measure                                                         :drill:
-SCHEDULED: <2018-01-26 Fri>
+SCHEDULED: <2018-02-12 Mon>
 :PROPERTIES:
 :ID:       385a9a40-8890-4928-b5c5-2c938dec604e
 :DRILL_LAST_INTERVAL: 4.14
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:43]
+:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:57]
 :END:
-Definition of *measure*.
+Definition of *measure* $\mu$.
 
 **** Definition
 A *measure* over a σ-algebra $\Sigma$ is a function $\mu \colon \Sigma \to \mathbb{R} \cup \left\{ \infty \right\}$,
@@ -963,25 +1051,23 @@ A *measure* over a σ-algebra $\Sigma$ is a function $\mu \colon \Sigma \to \mat
  * σ-additive, $\mu\left( \bigcup^{\infty}_{k=1} E_k \right) = \sum_{k=1}^{\infty}\mu(E_k)$ if we have $E_i \cap E_j = \varnothing$.
 
 *** Fatou's lemma                                                   :drill:
-SCHEDULED: <2018-01-26 Fri>
+SCHEDULED: <2018-02-12 Mon>
 :PROPERTIES:
 :ID:       6af0cfe7-d340-4be8-b036-c14f636fd988
 :DRILL_LAST_INTERVAL: 4.0
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:42]
+:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:56]
 :END:
 Given a measure space $\Sigma$ and functions $f_n \colon X \to [0,+\infty]$; that are
 $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$, what does the Fatou's lemma states?
 
 **** Statement
-In a measure space, given $\left\{ f_n \right\}$ a sequence of $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$ non-negative
-functions $f_n \colon X \to [0,+\infty]$; taking $f(x) = \liminf_{n\to \infty} f_n(x)$; we have that
-$f$ is $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$ and
+Taking $f(x) = \liminf_{n\to \infty} f_n(x)$; we have that $f$ is $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$ and
 
 \[
 \int_X f\ d\mu \leq \liminf_{n\to\infty} \int_X f_n\ d\mu.
@@ -1098,18 +1184,18 @@ SCHEDULED: <2018-04-08 Sun>
 The [exact] tactic [solves a goal by providing an inhabitant].
 
 *** Coq Tactic                                                      :drill:
-SCHEDULED: <2018-02-03 Sat>
+SCHEDULED: <2018-06-05 Tue>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       5be5f1f6-d8ff-4e79-8032-11a14c6d193d
-:DRILL_LAST_INTERVAL: 38.5449
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 119.6434
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.167
-:DRILL_EASE: 3.0
+:DRILL_AVERAGE_QUALITY: 4.286
+:DRILL_EASE: 3.1
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-26 Tue 22:27]
+:DRILL_LAST_REVIEWED: [2018-02-05 Mon 22:50]
 :END:
 
 The [split] tactic [introduces a conjunction].
@@ -1132,18 +1218,18 @@ SCHEDULED: <2018-04-14 Sat>
 The [absurd] tactic [eliminates falsehood].
 
 *** Coq Tactic                                                      :drill:
-SCHEDULED: <2018-01-26 Fri>
+SCHEDULED: <2018-02-10 Sat>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       ef5486ca-801f-49cb-826b-db3e15806159
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 9
+:DRILL_LAST_INTERVAL: 12.4159
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 10
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 3.668
-:DRILL_EASE: 2.9
+:DRILL_AVERAGE_QUALITY: 3.801
+:DRILL_EASE: 3.0
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-22 Mon 23:36]
+:DRILL_LAST_REVIEWED: [2018-01-29 Mon 23:35]
 :END:
 
 The [replace] tactic [substitutes all ocurrences of a term using a path].
@@ -1190,18 +1276,18 @@ The [set] tactic [defines a term that can be used later].
 **** Syntax
 set ({var} := {def}).
 *** Coq Tactic                                                      :drill:
-SCHEDULED: <2018-01-31 Wed>
+SCHEDULED: <2018-05-24 Thu>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       fbca0b6d-d8cd-4669-9f32-a2050dcf5824
-:DRILL_LAST_INTERVAL: 35.9874
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 107.9262
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.333
-:DRILL_EASE: 2.9
+:DRILL_AVERAGE_QUALITY: 4.428
+:DRILL_EASE: 3.0
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2017-12-26 Tue 22:26]
+:DRILL_LAST_REVIEWED: [2018-02-05 Mon 22:49]
 :END:
 
 The [f_equal] tactic [proves {f x = f' x'} with {f = f'} and {x = x'}].
@@ -1222,3 +1308,100 @@ SCHEDULED: <2018-04-08 Sun>
 :END:
 
 The [ring] tactic [solves equations on a ring structure].
+* Algoritms
+** Data structures
+*** Binary search tree                                              :drill:
+SCHEDULED: <2018-03-11 Sun>
+:PROPERTIES:
+:ID:       df4a8afe-3bf6-4ff8-997c-6598e693ba8b
+:DRILL_LAST_INTERVAL: 29.8462
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:14]
+:END:
+Definition of Binary search tree (BST).
+
+**** Definition
+
+    8
+   / \
+  3   10
+ /    / \
+1    9   12
+
+**** Complexity of searching in average and worst case
+Searching is O(n) in the worst case (linear tree), but O(log n) in
+average.
+
+*** Red-black tree                                                  :drill:
+SCHEDULED: <2018-02-14 Wed>
+:PROPERTIES:
+:ID:       83f6dfb9-a29a-400b-9ced-dff41732dae4
+:DRILL_LAST_INTERVAL: 8.7892
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-02-05 Mon 22:49]
+:END:
+Balancing properties of a red-black tree.
+
+**** Properties
+
+ * It is a binary search tree.
+ * Both children of a red node are black.
+ * Every path to a leaf contains the same number of red and blacks.
+
+These enforce that the path to the farthest leaf is no more than twice
+the path to the nearest leaf.
+
+**** Complexity
+Has O(log n) in worst case for searching, inserting and deleting.
+** Array sorting
+*** Quicksort                                                       :drill:
+SCHEDULED: <2018-02-13 Tue>
+:PROPERTIES:
+:ID:       ead02bcf-2b4c-412b-97da-485b069eb45a
+:DRILL_LAST_INTERVAL: 4.435
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.25
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:15]
+:END:
+Complexity of quicksort.
+
+**** Complexity
+O(n^2) in the worst case, O(n log n) on average.
+
+*** Mergesort                                                       :drill:
+SCHEDULED: <2018-03-12 Mon>
+:PROPERTIES:
+:ID:       f8a18a27-422d-4fee-84a6-81b51a79fa4b
+:DRILL_LAST_INTERVAL: 30.8887
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:14]
+:END:
+Complexity of mergesort.
+
+**** Complexity
+O(n log n) in all cases.
+
+*** Heapsort
+Complexity of heapsort.
+
+**** Complexity
+O(n log n) in all cases.
