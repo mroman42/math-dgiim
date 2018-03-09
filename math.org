@@ -9620,6 +9620,1469 @@ Computing on the field of rationals.
 *** TODO 4. Composites
 
 * Notes
+** Metaheurísticas
+*** Detalles de la asignatura
+Transparencias en la página de la asignatura
+http://sci2s.ugr.es/graduateCourses/Metaheuristicas
+
+ * Práctica 1: búsqueda local (2 pts).
+ * Práctica 2: búsqueda en poblaciones (2.5 pts).
+ * Práctica 3: búsqueda basada en trayectorias (3.5 pts).
+ * Práctica opcional: sustituye examen de teoría.
+   * Estudiar metaheurísticas de reciente creación.
+   * Seleccionar un problema a resolver y analizarlo con metaheurísticas.
+   * Documento explicando la técnica.
+   * Exposición en clase.
+
+Mínima puntuación de 1 en ambas partes (teoría y prácticas) de la
+asignatura.
+
+*** Tema 1. Introducción a las metaheurísticas
+Conjunto de técnicas para resolver problemas de optimización.
+
+**** 1.1. Resolución de problemas mediante algoritmos de búsqueda
+Tenemos una *función objetivo* a minimizar, un conjunto de
+restricciones de las variables del problema, y un conjunto de búsqueda
+donde tomarán valores las variables.
+
+***** Ejemplo: viajante de comercio
+
+**** 1.2. Algoritmos aproximados
+
+**** 1.3. Metaheurísticas
+Familia de algoritmos aproximados de propósito general. Suelen
+ser algoritmos aproximados probabilísticos y normalmente sin
+base teórica establecida.
+
+ * Bioinspirados.
+ * Basados en trayectorias.
+
+*** Tema 2. Modelos de búsqueda. Entornos, trayectorias y poblaciones
+*** Tema 3. Metaheurísticas basadas en poblaciones
+*** Tema 4. Algoritmos meméticos
+*** Tema 5. Metaheurísticas basadas en trayectorias
+*** Tema 6. Metaheurísticas basadas en adaptación social
+*** Tema 7. Aspectos avanzados en metaheurísticas
+*** Tema 8. Metaheurísticas paralelas
+
+** Ecuaciones diferenciales II
+*** Notas previas
+**** Prehaces y dominios
+Conociendo el concepto de prehaz, parece que tiene sentido escribir
+siempre o casi siempre las funciones con su dominio, $f|_D$.
+
+**** TODO Teorema de la función inversa
+**** TODO Resolución de ecuaciones lineales
+*** Apuntes de Andrés
+# Estas notas salen de los apuntes de Andrés Herrera para la misma
+# asignatura el año anterior.
+**** 1. Introducción
+***** 1.1. Notación
+****** Ecuación diferencial ordinaria (EDO)
+****** Solución de una EDO
+****** Problema de valores iniciales o de Cauchy (PVI)
+***** 1.2. Unicidad de solución y soluciones maximales
+****** Propiedad de unicidad local
+****** Propiedad de unicidad en intervalo
+****** Propiedad de unicidad global
+****** Local en cualquier condición ssi global en cualquier condición
+La demostración usa que el conjunto donde coinciden debe ser abierto por
+propiedad local y cerrado por ser ambas funciones continuas.
+****** Prolongación
+****** Maximalidad
+****** Toda solución es prolongable a una maximal
+Por Lema de Zorn.
+****** Unicidad global ssi única solución maximal
+***** 1.3. Ecuación integral de Volterra
+****** Ecuación de Volterra (EIV)
+\[
+x(t) = x_0 + \int_{t_0}^t f(s,x(s)) \;ds 
+\]
+****** Equivalencia con PVI
+**** 2. Existencia y unicidad de solución
+***** 2.1. Variables separadas
+****** EDO de variables separadas
+****** Propiedades de EDO de variables separadas
+***** 2.2. Unicidad en el futuro y en el pasado. Teorema de Peano
+****** Unicidad en el futuro y en el pasado
+****** Teorema de Unicidad de Peano
+Sea un PVI con $d=1$.
+
+ 1) Cuando para cada $t \geq t_0$, la función $f(t,x)$ es decreciente en $x$,
+    se verifica unicidad en el futuro.
+
+ 2) Cuando para cada $t \leq t_0$, la función $f(t,x)$ es creciente en $x$,
+    se verifica unicidad en el pasado.
+
+******* Demostración
+En el caso de $f(t,x)$ decreciente, con dos soluciones $\varphi_1\colon I_1 \to \mathbb{R}$
+y $\varphi_2 \colon I_2 \to \mathbb{R}$, definimos $h(t) = (\varphi_1(t)-\varphi_2(t))^2$ con derivada
+
+\[\begin{aligned}
+h'(t) &= 
+2(\varphi_1(t)-\varphi_2(t))(\varphi_1'(t)-\varphi_2'(t)) \\&=
+2(\varphi_1(t)-\varphi_2(t))(f(t,\varphi_1(t))-f(t,\varphi_2'(t))) \leq 0,
+\end{aligned}\]
+
+que la hace decreciente. Pero $h(t) \geq 0$ en general y $h(t_0) = 0$, 
+por lo que debe ser constantemente $0$. El segundo caso es análogo.
+
+****** Ecuación dual en el tiempo
+****** Propiedad de la ecuación dual
+***** 2.3. Teorema de Picard-Lindelöf
+****** Teorema de Picard-Lindelöf
+Para $f$ continua y localmente lipschitziana respecto de la segunda
+variable, el PVI tiene solución y unicidad global.
+
+******* TODO Demostración
+****** Función localmente lipschitziana
+******* Continuamente diferenciables y Lipschitzianas
+******* Globalmente Lipschitziana
+****** Operador integral de Volterra
+\[
+V(y)(t) = x_0 + \int_{t^0}^t f(s,y(s))\;ds
+\]
+******* Soluciones con el operador integral
+****** Demostración de Picard-Lindelöf
+***** 2.4. Solución general
+***** 2.5. Teorema de Cauchy-Peano
+Todo PVI tiene solución.
+**** 3. EDOs autónomas escalares
+****** EDO autónoma escalar (AE)
+****** Órbita de una AE
+**** 4. Prolongación y acotación de soluciones
+***** 4.3. Acotación de soluciones. Funciones guía
+**** 5. Continuidad y diferenciabilidad de una solución
+***** 5.1. Preliminares
+****** Entornos tubulares
+\[
+T_{\rho}(J,\varphi) =
+\left\{
+ (t,x) \in J \times \mathbb{R}^d \mid
+ \|x-\varphi(t)\| \leq \rho
+\right\}
+\]
+***** 5.3. Dependencia continua respecto a parámetros
+***** 5.5. Linealización de ecuaciones y aproximación
+**** 6. Estabilidad en el sentido de Lyapunov
+***** 6.1. Estabilidad de EDOs lineales
+***** 6.2. Primer método de Lyapunov
+***** 6.3. Segundo método de Lyapunov
+***** 6.4. Sistemas gradientes
+\[
+x' + \nabla G(x) = 0.
+\]
+**** 7. Generalización de la teoría cualitativa
+***** 7.1. Teorema de Arzelá-Ascoli
+*** Tema 1. Existencia y unicidad. Ecuación de Volterra
+**** 1.1. Definiciones
+Una *ecuación diferencial ordinaria* (EDO) $x' = f(t,x)$ viene
+dada por un dominio (abierto conexo) $D \subseteq \mathbb{R} \times \mathbb{R}^d$ y una $f \colon D \to \mathbb{R}^d$.
+Llamamos
+
+ * $t$, a la variable independiente o temporal;
+ * $x$, a la incógnita o variable dependiente;
+ * $f$, al campo de vectores;
+ * $D$, al dominio de la ecuación.
+
+Una solución $\varphi \colon I \to \mathbb{R}$ de una EDO cumple
+
+ * $(t,\varphi(t)) \in D$, se queda en el dominio;
+ * $\varphi \in {\cal C}^1(I,\mathbb{R}^d)$, es derivable;
+ * $\varphi'(t) = f(t,\varphi(t))$, es solución.
+
+Un *problema de valores iniciales* (PVI) está dado como
+una EDO con una condición inicial,
+
+\[\left.\begin{aligned}
+x' &= f(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+
+donde $(t_0,x_0) \in D$. Y una solución debe cumplir además la
+condición inicial y tener $t_0 \in I$.
+
+**** 1.2. Unicidad y soluciones maximales
+***** Concatenación de soluciones
+Sean $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi_2 \colon I_2 \to \mathbb{R}^d$ soluciones de $x' = f(t,x)$.
+Si existe $\tau \in I_1 \cap I_2$ tal que $\varphi_1(\tau) = \varphi_2(\tau)$, entonces
+
+\[\psi = \left\{\begin{aligned}
+\varphi_1(t) &\ \text{ si } t \leq \tau \\
+\varphi_2(t) &\ \text{ si } t > \tau \\
+\end{aligned}\right.\]
+
+es una solución.
+
+****** Proof
+Cumple
+
+ * que se queda en el dominio trivialmente;
+ * que es derivable en cada trozo por serlo las soluciones y
+   derivable en el punto por coincidir sus dos derivadas laterales;
+ * que coinciden porque ambas deben ser soluciones y en
+   particular soluciones en el punto $\tau$, lo que hace a $\psi$ solución.
+
+***** Unicidad
+Dado un problema de valores iniciales,
+
+\[\left.\begin{aligned}
+x' &= f(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+
+definimos
+
+ * *unicidad local*, cuando para todo par de soluciones
+   $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi_2 \colon I_2 \to \mathbb{R}^d$ existe un intervalo $t_0 \in J$ abierto
+   donde $\varphi_1, \varphi_2$ son iguales;
+
+ * *unicidad en un intervalo* $I$, cuando todo par de soluciones
+   $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi_2 \colon I_2 \to \mathbb{R}^d$ son iguales en $J \cap I_1 \cap I_2$;
+
+ * *unicidad global*, unicidad en todo $\mathbb{R}$.
+
+***** Unicidad global desde unicidad local
+Si para todo $(t_{0},x_0) \in D$, el problema de valores iniciales
+
+\[\left.\begin{aligned}
+x' &= f|_D(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+
+cumple unicidad local, entonces para todo $(t_{0},x_0) \in D$ se
+cumple la unicidad global.
+
+****** Proof
+Sean $\varphi_1|_{I_1}$ y $\varphi_2|_{I_2}$ soluciones. Como $I_1 \cap I_2$ es conexo, basta
+probar $H = \left\{ t \in I_1 \cap I_2 \mid \varphi_1(t) = \varphi_2(t) \right\}$ abierto y cerrado.
+Es cerrado porque es núcleo de una continua. Es abierto respecto
+a $I_1 \cap I_2$ porque dado $t_0 \in H \cap I_1 \cap I_2$, tomamos el problema con
+el valor $x_0 = \varphi_1(t_0) = \varphi_2(t_0)$ y existirá un intervalo $t_0 \in J \subset H$
+por unicidad local.
+
+***** Unicidad global da solución maximal
+Si el problema de valores iniciales
+
+\[\left.\begin{aligned}
+x' &= f|_{D}(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\} \mathit{(P)}
+\]
+
+verifica unicidad global, tiene una única solución maximal.
+
+****** Proof
+Sea $\Sigma(P)$ el conjunto de soluciones, tomamos
+
+\[
+J = \bigcup_{\varphi|_I \in \Sigma(P)} I
+\]
+
+y definimos $\psi|_{J}(t)$ como el valor de una solución cualquiera en $t$,
+que por unicidad global deberá ser siempre igual. Esta función es
+solución se queda en el dominio, es derivable y es solución
+trivialmente; es maximal por definición y cualquier otra maximal
+debería estar en el mismo intervalo y por unicidad global, ser
+exactamente la misma.
+
+***** Condiciones para la unicidad local en variables separadas
+Dadas $a|_{J_1}$ y $g|_{J_{2}}$ continuas con $t_0 \in J_1$ y $x_0 \in J_2$, intervalos.
+
+\[\left.\begin{aligned}
+x' &= a(t)g(x) \\
+x(t_0) &= x_0
+\end{aligned}\right\} \mathit{(P)}
+\]
+
+Tenemos que
+
+ 1) el problema tiene soluciones;
+
+ 2) si $g(x_0) \neq 0$, hay unicidad local;
+
+ 3) si $g(x_0) = 0$, $a(t_0) \neq 0$, existe $G|_{J_2}$ derivable con $G(x_0) = 0$ 
+    y además $G'(x) = \frac{1}{g(x)}$ para todo $x$ en un semientorno de $x_0$; entonces
+    no hay unicidad local.
+
+****** Proof
+Consideraremos los dos casos, $g(x_0) = 0$ y $g(x_0) \neq 0$.
+
+ * Cuando $g(x_0) \neq 0$, tenemos un intervalo en el que el signo se
+   conserva. Sea $A$ la antiderivada de $a$ con $A(t_0)=0$ y $G$ la
+   antiderivada de $1/g(x)$ con $G(x_0)=0$. Cualquier solución $x$
+   debe cumplir
+
+   \[
+   G(x(t)) =
+   \int_{x(t_0)}^{x(t)} \frac{du}{g(u)} =
+   \int_{t_0}^{t} \frac{x'(s)}{g(x(s))} \; ds =
+   \int_{t_0}^{t} a(s) \; ds.
+   \]
+
+   Aplicamos Teorema de la Función Inversa para obtener $G^{-1}$ 
+   derivable y definir $\varphi = G^{-1} \circ A$. Puede definirse localmente 
+   dentro del dominio por continuidad, es derivable, es solución
+
+   \[
+   \varphi'(t) = 
+   a(t) \cdot \left( G^{-1} \right)' \left( A(t) \right) =
+   a(t) \cdot g \left( G^{-1} \left( A(t) \right)  \right) =
+   a(t) \cdot g(\varphi(t)).
+   \]
+
+   y además $\varphi(t_0) = G^{-1}(A(t_0)) = x_0$.
+
+ * Cuando $g(x_0) = 0$, tenemos la solución trivial $\varphi(t) = x_0$. Además,
+   asumiendo que tenemos $G$ en con derivada dada en un semientorno
+   superior, usamos que $A$ es continua para definir en algún intervalo
+   la siguiente solución.
+   
+   \[\varphi(t) = \left\{\begin{aligned}
+   x_0 &\ \text{ si } t \leq t_0 \\
+   G^{-1}(A(t)) &\ \text{ si } t > t_0 \\
+   \end{aligned}\right.\]
+
+   La solución es trivialmente continua en $t_0$. Es derivable porque
+   ambas derivadas laterales son $0$. Esta solución es distinta de
+   $x_0$ usando $a(t_0) \neq 0$ (?).
+
+**** 1.3. Teorema de unicidad de Peano
+Sea un PVI con $d=1$, es decir $f \colon \mathbb{R}\times \mathbb{R} \to \mathbb{R}$.
+
+ 1) Cuando para cada $t \geq t_0$, la función $f(t,x)$ es decreciente en $x$,
+    se verifica unicidad en el futuro.
+
+ 2) Cuando para cada $t \leq t_0$, la función $f(t,x)$ es creciente en $x$,
+    se verifica unicidad en el pasado.
+
+***** Demostración
+En el caso de $f(t,x)$ decreciente, con dos soluciones $\varphi_1\colon I_1 \to \mathbb{R}$
+y $\varphi_2 \colon I_2 \to \mathbb{R}$, definimos $h(t) = (\varphi_1(t)-\varphi_2(t))^2$ con derivada
+
+\[\begin{aligned}
+h'(t) &= 
+2(\varphi_1(t)-\varphi_2(t))(\varphi_1'(t)-\varphi_2'(t)) \\&=
+2(\varphi_1(t)-\varphi_2(t))(f(t,\varphi_1(t))-f(t,\varphi_2'(t))) \leq 0,
+\end{aligned}\]
+
+que la hace decreciente. Pero $h(t) \geq 0$ en general y $h(t_0) = 0$, 
+por lo que debe ser constantemente $0$. El segundo caso es análogo.
+
+**** TODO 1.4. Problema dual en el tiempo
+**** 1.5. Ecuación integral de Volterra
+***** Operador integral de Volterra
+Dada una Ecuación de Volterra, fijamos el operador de Volterra,
+que tiene las soluciones como puntos fijos
+
+\[
+V(y)(t) = x_0 + \int_{t_0}^t f(s,y(s))\;ds.
+\]
+
+Lo consideramos $V \colon E \to E$ donde 
+
+\[
+E = \overline{B}(x_0,b) \subset {\cal C}([t_0-a,t_0+a];\mathbb{R}^d)
+\]
+
+es un espacio métrico completo con la norma infinito.
+***** Ecuación integral asociada
+Cada PVI
+
+\[\left.\begin{aligned}
+x' &= f(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+
+tiene asociada la ecuación integral de Volterra
+
+\[
+x(t) = x_0 + \int_{t_0}^t f(s,x(s))\;ds.
+\]
+
+La ecuación de Volterra es útil porque sus soluciones pueden
+verse como puntos fijos de un espacio de soluciones.
+
+***** Solución de la ecuación de Volterra
+Una función $\varphi \colon I \to \mathbb{R}$ es solución de la ecuación si
+
+ 1. $t_0 \in I$;
+ 2. $(t,\varphi(t)) \in D$, en el dominio;
+ 3. $\varphi$, es continua en $I$;
+ 4. $\varphi(t) = x_0 + \int^t_{t_0} f(s,\varphi(s))\; ds$, cumple la ecuación.
+
+***** Lema de soluciones de Volterra
+Sea $\varphi \colon I \to \mathbb{R}^d$ para $I$ intervalo abierto. Equivalen
+
+ 1. $\varphi$ es solución de un PVI;
+ 2. $\varphi$ es solución de la ecuación de Volterra asociada.
+ 
+****** Demostración 
+1 a 2. Tenemos trivialmente las dos primeras condiciones. La
+continudad surge de la derivabilidad y por regla de Barrow,
+$\varphi(t) = \varphi(t_0) + \int_{t_0}^t f(s,\varphi(s))\;ds$.
+
+2 a 1. Tenemos trivialmente las dos primeras condiciones y el
+punto de evaluación. Por Teorema Fundamental del Cálculo, $\varphi$
+es derivable con precisamente la derivada que la hace solución.
+
+**** 1.6. Algunos resultados útiles de análisis
+***** TODO Lema del primer instante
+***** Teoremas del valor medio
+****** Versión real
+Dada $f \colon \mathbb{R} \to \mathbb{R}$ con $f \in {\cal C}^1$, para $a,b \in \mathbb{R}$ se tiene que
+existe $c \in [a,b]$ tal que 
+
+\[
+f(a) - f(b) = f'(c)(a-b).
+\]
+
+****** Versión multiargumento
+Dada $f \colon \mathbb{R}^n \to \mathbb{R}$ con $f \in {\cal C}^1$, para $p,q \in \mathbb{R}^n$, se tiene que
+existe $c \in [p,q]$ tal que
+
+\[
+f(b)-f(a) = \left\langle \grad f(c), q-p \right\rangle.
+\]
+
+******* Demostración
+Parametrizamos para obtener una función escalar
+
+\[
+h(t) = f((1-t)a + tb)
+\]
+
+para la que se tiene que existe $h(1)-h(0) = h'(d)$. Derivando
+obtenemos, llamando $c = (1-d)a + db$,
+
+\[
+f(b) - f(a) = \left\langle \grad f(d) , b - a \right\rangle.
+\]
+
+*** Tema 2. Lispchitzianidad. Picard-Lindelöf
+**** 2.1. Funciones globalmente lipschitzianas
+***** Lipschiztianidad global                                :definición:
+Sea $\Omega \subseteq \mathbb{R}^n$, $f \colon \Omega \to \mathbb{R}^m$ es *globalmente lipschitziana* si
+
+\[
+\exists L \geq 0:\quad \forall x,y \in \Omega: \|f(x)-f(y)\| \leq L\|x-y\|.
+\]
+
+Para una norma vectorial $\|\cdot\|$.
+
+****** TODO Ejemplos
+La norma y las funciones lineales.
+
+***** Lipschiztianidad global, anticaracterización
+Sea $\Omega \subset \mathbb{R}^n$, $f \colon \Omega \to \mathbb{R}^m$ no es globalmente lipschitziana si y sólo si
+existen sucesiones $x_n \neq y_{n}$ tales que
+
+\[
+\frac{\|f(x_n) - f(y_n)\|}{\|x_n-y_n\|} \to +\infty.
+\]
+
+****** Proof
+Si existen las sucesiones, claramente no hay acotación. Si no hay
+acotación posible, para cada $n$ existirán $x_n \neq y_n$ tales que el
+cociente sea mayor que $n$; teniéndose la divergencia.
+
+***** Lipschiztianidad global en el caso escalar
+Sea $I \subseteq \mathbb{R}$ intervalo. Para $f \in {\cal C}^1(I)$ equivalen
+
+ 1) $f$ globalmente lipschitziana.
+ 2) $\exists L \geq 0: \forall t \in I: |f'(t)| \leq L$.
+
+****** Proof
+Cuando $f$ es globalmente lipschitziana basta tomar $y \to x$. Cuando
+tenemos una cota, usamos regla de Barrow
+
+\[ |f(x)-f(y)| = 
+\left|\int_x^y f'(t) \;dt\right| = 
+L|x-y|.
+\]
+
+***** Lipschiztianidad global en el caso escalar a trozos
+Sea $I \subseteq \mathbb{R}$ intervalo. Para $f \in {\cal C}^1_T(I)$ equivalen
+
+ 1) $f$ globalmente lipschitziana.
+ 2) $\exists L \geq 0:\forall t \in I: |f'(t)| \leq L$
+
+****** Funciones de clase uno a trozos
+Tenemos $f \in {\cal C}^1_T(I)$ cuando existe un recubrimiento finito de $I$ por
+intervalos cerrados $\left\{ I_i \right\}$ tales que $f|_{I_i} \in {\cal C}^1(I_i)$.
+
+****** Proof
+Repetimos la demostración anterior con la única diferencia
+de que ahora la regla de Barrow deberá aplicarse teniendo
+en cuenta las propiedades de la integral. Podemos tomar un
+recubrimiento finito de intervalos disjuntos de $[x,y]$.
+
+\[ |f(x)-f(y)| =
+\left|\int_x^y f'(t) \;dt\right| = 
+\sum_{i=0}^n\left|\int_{I_i} f'(t) \;dt\right| = L\left| \sum_{i=0}^n \mu(I_i) \right| = L|x-y|.
+\]
+
+***** Lipschiztianidad global en el caso vectorial
+Sea $\Omega$ abierto convexo. Si $f$ tiene jacobiano acotado, $\exists L \geq 0: \forall x \in \Omega: \vertiii{f'(x)} \leq L$,
+entonces $f$ es globalmente lipschiztiana.
+
+****** TODO Proof
+
+**** 2.2. Funciones localmente lipschitzianas
+***** Función localmente lipschitziana                       :definición:
+Una $f \colon D \to \mathbb{R}^d$ es localmente lipschitziana (LL) si existe un
+entorno para cada punto $x \in U \subset D$ donde $f$ es lipschitziana.
+
+***** Lipschitziana respecto de una variable                 :definición:
+Una $f \colon D \to \mathbb{R}^d$ es lipschitziana respecto de la variable $x$
+si para cada $(x,y),(x',y) \in D$ se tiene
+
+\[ \| f(x,y)-f(x',y)\| \leq M\|x-x'\|.
+\]
+
+***** Localmente lipschitziana respecto de una variable      :definición:
+Una $f \colon D \to \mathbb{R}^d$ es localmente lipschitziana respecto de la
+variable $x$ si existe un entorno para cada punto
+$(x,y) \in U \subset D$.
+
+**** 2.3. Teorema de Picard-Lindelöf
+***** Lema de función contractiva                                  :lema:
+Si $f$ es lipschitziana respecto de la segunda variable en $R_{a,b}(t_0,x_0)$
+con constante de Lipschitz $L \geq 0$, se tiene
+
+\[
+\| V(\varphi) - V(\psi)\|_{\infty} \leq aL\| \varphi - \psi \|_{\infty}.
+\]
+
+En particular, $V$ es contractiva cuando $aL \leq 1$.
+
+****** Demostración
+Para cualquier $t \in [t_0-a,t_0+a]$ tenemos
+
+\[\begin{aligned} |(V(\varphi) - V(\psi) ) (t)| &=
+\left| \int_{t_0}^t f(s,\varphi(s))-f(s,\psi(s)) \;ds \right| \\&\leq
+\int_{t_0}^t \left |f(s,\varphi(s))-f(s,\psi(s)) \right| \;ds  \\&\leq
+\int_{t_0}^t \left L |\varphi(s)-\psi(s)| \;ds  \\&\leq
+\int_{t_0}^t \left L \|\varphi-\psi\|_{\infty} \;ds  \\&\leq
+aL \|\varphi-\psi\|_{\infty}
+\end{aligned}\]
+
+así que, en particular, $\| V(\varphi) - V(\psi)\|_{\infty} \leq aL\| \varphi - \psi \|_{\infty}$.
+
+***** Teorema de Picard-Lindelöf                                :teorema:
+Sea $D \subset \mathbb{R} \times \mathbb{R}$ un dominio y $f \colon D \to \mathbb{R}^d$ continua y localmente lipschitziana
+respecto de la segunda variable. Dado $(t_0,x_0) \in D$, el PVI tiene solución y
+verifica la propiedad de unicidad global.
+
+****** TODO Demostración de existencia
+Tenemos $(t_0,x_0) \in R_{\overline{a},b}(t_0,x_0) \subset U \subset D$ donde $f$ es lipschitziana en la
+segunda variable con constante de Lipschitz $L \geq 0$. Por Teorema de
+Weierstrass, existe $M = \max \left\{ \|f(t,x)\| \mid (t,x) \in R_{\overline{a},b}(t_0,x_0) \right\}$.
+Tomamos $0 < a < \overline{a}$ con $aM < b$ y $aL < 1$ y consideramos
+
+\[
+E = 
+\left\Big\{ \varphi \in {\cal C}([t_0-a,t_0+a], \mathbb{R}^d) \;\middle|\; 
+\| \varphi(t)-x_0 \| \leq b, \forall t \in [t_0-a,t_0+a]
+\right\Big\}
+\]
+
+espacio métrico completo con la norma infinito. Tenemos que $V(E) \subset E$
+y que $V$ es contractiva, por lo que por Teorema del punto fijo de Banach
+se tiene la solución.
+ñ
+****** TODO Demostración de unicidad global
+***** Iterantes de Picard
+*** Tema 3. Ascoli-Arzelá y Cauchy-Peano
+**** Ascoli-Arzelá
+Para $f_n \colon I \to \mathbb{R}^d$ una sucesión de funciones desde un intervalo abierto,
+uniformemente acotada y equicontinua, existe $f \colon I \to \mathbb{R}$ tal que $f_n$
+converge puntualmente a $f$.
+
+***** TODO Demostración
+
+**** Cauchy-Peano
+El problema de valores iniciales siempre tiene solución.
+
+***** TODO Demostración
+
+*** Tema 4. Prolongación y acotación de soluciones
+*** Tema 5. Dependencia continua y diferenciable
+*** Tema 6. Estabilidad
+*** Ejercicios
+**** Relación de ejercicios I
+***** Ejercicio 1
+#+begin_statement
+Calcula una solución maximal del PVI
+
+\[\left.\begin{aligned}
+x' &= x^2 \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+#+end_statement
+
+Calculamos usando [[*Condiciones para la unicidad local en variables separadas][variables separadas]].
+
+ * En el caso $x_0 = 0$, tenemos la solución constante $0$ en $\mathbb{R}$.
+   Es trivialmente maximal por estar definida en todo $\mathbb{R}$.
+
+ * En el caso $x_0 \neq 0$, calculamos
+   
+   \[
+   A(t) = \int_{t_0}^tds = t - t_0, \qquad
+   G(t) = \int_{x_0}^x \frac{1}{z^2} \;dz = \frac{-1}{x} + \frac{1}{x_0},
+   \]
+   
+   e igualando obtenemos
+
+   \[
+   x(t) = \frac{1}{\frac{1}{x_0} + t_0 - t}
+   \]
+  
+   que sólo da problemas de definición en $t = 1/x_0 + t_0$. Cuando
+   $x_0 > 0$, tenemos $t_0 \in (-\infty, 1/x_0 + t_0)$; y cuando $x_0 < 0$, tenemos
+   que $t_0 \in (1/x_0 + t_0, +\infty)$. Elegimos el intervalo adecuado en cada
+   caso. Tenemos maximalidad porque la función explota en
+   \[
+   \lim_{t \to (1/x_0 + t_0)} \varphi(t) = +\infty.
+   \]
+
+** Modelos matemáticos II
+http://www.ugr.es/~jjmnieto/docencia.html
+
+*** Notas previas
+Teorema de Lax-Milgram
+[[https://en.wikipedia.org/wiki/Calculus_of_variations][Problemas variacionales]]
+Análisis de Fourier
+Ecuación de difusión del calor
+Delta de Dirac
+
+**** Teorema de Riesz
+Sea $H$ un espacio de Hilbert. Para todo $f \in H^{\ast}$ existe un
+único $v \in H$ tal que $f(x) = \langle x,v \rangle$ para todo $x \in H$.
+Además, $\|f\| = \|v\|$.
+
+**** Teorema de Lax-Milgram
+Sea $H$ un espacio de Hilbert y sea $a \colon H \times H \to \mathbb{R}$ una
+forma bilineal tal que
+ 
+ 1. es /continua/, existe $C$ tal que $| a(x,y) | \leq C\|x\|\|y\|$;
+ 2. y es /coerciva/, existe $\alpha$ tal que $|a(x,x)| \geq \alpha\|x\|^{2}$.
+
+Entonces, para todo $f \in H^{\ast}$ existe un único $y_0\in H$ tal que
+$a(x,y_0) = f(x)$ para cualquier $x \in H$.
+
+*** Apuntes
+**** Fundamentos del cálculo variacional
+**** Lineales
+***** Forma autoadjunta de una ecuación lineal
+Una ecuación lineal de orden 2 para $[x_0,x_1]$ es de la forma
+
+\[
+y''(x) + a(x)y'(x) + b(x)y(x) = c(x).
+\]
+
+Si multiplicamos por $P(x) = e^{\int_{x_0}^x a(s) \; ds}$, obtenemos la ecuación
+
+\[
+P(x)y''(x) + P(x)a(x)y'(x) + P(x)b(x)y(x) = P(x)c(x)
+\]
+
+que puede escribirse uniendo los dos primeros sumandos como
+
+\[
+\left( P(x)y'(x) \right)' + Q(x)y(x) = R(x)
+\]
+
+lo que llamamos su *forma autoadjunta*.
+
+***** Forma variacional
+El funcional
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} \frac{P(y')^2}{2} - Q\frac{y^2}{2} + Ry \;dx
+\]
+
+tiene como ecuación de Euler-Lagrange asociada a la forma
+autoadjunta de una ecuación lineal
+
+\[
+(Py')' + (-Qy + R) = 0.
+\]
+
+***** De problema de contorno a coordenadas homogéneas
+Sea un problema de contorno y condiciones de contorno Dirichlet no
+homogéneas.
+
+\[\left\{\begin{array}{l}
+(Py')' + Qy = R \\
+y(x_0) = y_0 \\
+y(x_1) = y_1
+\end{array}\]
+
+Podemos obtener un problema de contorno con coordenadas homogéneas.
+
+****** Construcción
+Proponemos un cambio de variables $z(x) = y(x) - (Ax + B)$ y buscamos
+$A$, $B$ y $\widetilde R$ tales que
+
+\[\left\{\begin{array}{l}
+(Pz')' + Qz = {\widetilde R} \\
+z(x_0) = 0 \\
+z(x_1) = 0
+\end{array}\]
+
+Lo que nos da resolviendo el sistema lineal dado por las condiciones
+de contorno
+
+\[
+B = \frac{y_1x_0-y_0x_1}{x_0-x_1}
+\]
+
+\[
+A = \frac{y_1-y_0}{x_1-x_0}
+\]
+
+Luego el cambio de variable correcto es
+
+\[
+z(x) = y(x) + \left( \frac{y_1(x-x_0) + y_0(x-x_1)}{x_0-x_1} \right).
+\]
+
+Que nos lleva al sustituir en la ecuación inicial a tener
+${\widetilde R} = R - P' \cdot A - Q \cdot (Ax + B)$.
+
+*** Ejercicios
+# Escribir nombre y apellidos, curso, asignatura, año, firma.
+
+**** Ejercicio 1
+#+begin_statement
+Encontrar una función $\phi \in {\cal C}^{\infty}_{0}[x_0,x_1]$ tal que $\phi(x) > 0$ únicamente en
+$(x_2-\varepsilon,x_2+\varepsilon) \subset [x_0,x_1]$ y $\phi(x) = 0$ en otro caso, para un $x_2$ dado.
+#+end_statement
+
+Sin pérdida de generalidad, tratamos sólo el caso $(-1,1)$,
+recuperando el resto de casos restringiendo la función y usando
+homotecias y traslaciones, que son funciones suaves.  Buscaremos
+una función tal que todas sus derivadas se aproximen a
+cero en los extremos para concatenarla con la función constantemente
+cero.  Tomamos por tanto,
+\[
+f(x) = \left\{
+\begin{array}{cl}
+\exp({\frac{-1}{(1-x)(1+x)}}) & \mbox{ si } -1 < x < 1, \\
+0 & \mbox{ en otro caso.} 
+\end{array}\right.
+\]
+
+Comprobaremos que es ${\cal C}^{\infty}$ trabajando en $-1 < x < 1$.
+Si llamamos $y = 1/(1-x^2)$, la función es de la forma $P(x)y^ne^{-y}$
+con $n \in \mathbb{N}_0$ y $P$ polinomio. Sabiendo que $y' = 2xy^2$, la derivada de una
+función así vuelve a ser de la misma forma para otro polinomio $Q$.
+\[
+\dv{}{x} \left( P(x)\frac{y^n}{e^y} \right) = 
+P'(x) \frac{y^n}{e^y} + 
+P(x) \left( 2xy^2n \frac{y^{n-1}}{e^y} + 2xy^2\frac{y^n}{e^y} \right) =
+\frac{y^{n+2}}{e^y}Q(x)
+\]
+
+Finalmente, por regla de L'Hôpital, cualquier función de esta forma
+tiene, para $z = -1^+ \text{ ó }1^-$,
+\[\lim_{x \to z}
+\left( P(x) y^n e^{-y} \right) =
+P(z) \lim_{y \to +\infty}
+\left(\frac{y^n}{e^y} \right) = 0.
+\]
+
+Así, nuestra $f$ es continua y derivable por coincidir en $-1$ y $1$ las
+derivadas laterales, y cada una de sus derivadas vuelve a serlo por
+el mismo razonamiento.
+
+**** Ejercicio 2
+#+attr_latex: :options [Teorema 4]
+#+begin_statement
+Dado un funcional ${\cal F} \colon D \to \mathbb{R}$ donde
+\[
+D = \left\{ y \in {\cal C}^1[x_0,x_1] \mid y(x_0) = y_0, y(x_1) = y_1 \right\},
+\]
+para $x_0 < x_1, y_0 < y_1 \in \mathbb{R}$, de la forma
+\[
+{\cal F}(y) = \int_{x_0}^{x_1} F(x,y(x),y'(x)) \; dx
+\]
+para una $F : [x_0,x_1] \times \Omega \to \mathbb{R}$ con $\Omega$ dominio de $\mathbb{R}^2$, continua
+y derivable respecto $x$ e $y$; tenemos que cualquier $\overline{y} \in {\cal D} \cap {\cal C}^2[x_0,x_1]$
+que minimice el funcional cumple la Ecuación de Euler-Lagrange.
+\[
+\pdv{F}{y} \left( x,\overline{y}(x), \overline{y}'(x) \right) -
+\dv{}{x}\left( \pdv{F}{p} (x, \overline{y}(x), \overline{y}'(x)) \right) = 0.
+\]
+
+En estas condiciones, si además $\pdv{F}{y} = 0$, entonces tenemos
+que $F_p(x,\overline{y}'(x)) = \mathrm{cte.}$
+#+end_statement
+#+begin_proof
+Por la Ecuación de Euler-Lagrange se tiene
+\[-\dv{}{x}\left( \pdv{F}{p} (x, \overline{y}(x), \overline{y}'(x)) \right) = 0,
+\]
+y por ser derivable con derivada nula es constante.
+#+end_proof
+
+#+attr_latex: :options [Teorema 5]
+#+begin_statement
+En las mismas condiciones anteriores, si se tiene $\pdv{F}{x} = 0$, entonces
+se cumple
+\[
+F(\overline{y}(x),\overline{y}'(x)) - y'(x) F_p(\overline{y}(x),\overline{y}'(x)) = \mathrm{cte.}
+\]
+#+end_statement
+#+begin_proof
+Derivamos usando linealidad y regla de la cadena, siendo la última
+igualdad la ecuación de Euler-Lagrange.
+\[\begin{aligned}
+\dv{}{x} &\Big(F\big(\oy,\oy'\big) -
+\oy' \pdv{F}{p} \big(\oy,\oy'\big) \Big) \\&=
+\oy' \cdot \pdv{F}{y} (\oy, \oy') +
+\oy'' \cdot \pdv{F}{p} (\oy, \oy')
+-\oy'' \cdot \pdv{F}{p} (\oy, \oy') - 
+\oy' \cdot \dv{}{x} \pdv{F}{p} (\oy, \oy') \\&=
+\oy' \left( \pdv{F}{y} (\oy, \oy') - 
+\dv{}{x} \pdv{F}{p} (\oy, \oy') \right) \\&= 0.
+\end{aligned}\]
+De nuevo, por tener derivada nula, debe ser constante.
+#+end_proof
+
+**** Ejercicio en clase: superficies mínimas de revolución
+#+begin_statement
+Encontrar funciones $y \colon [x_0,x_1]\to \mathbb{R}$ que minimicen la superficie de
+revolución de la gráfica fijado $y(x_1) = y_1 > 0$ and $y(x_0) = y_0$.
+#+end_statement
+
+El área bajo la gráfica se mide como
+
+\[
+A(y) = \int_{x_0}^{x_1} 2\pi y(x) \sqrt{1 + y'(x)^2} \;dx
+\]
+
+Por Euler-Lagrange tenemos $F - y' F_p = \mathrm{cte}$. Es decir,
+
+\[
+\frac{2 \pi y(x)}{\sqrt{1 + y'(x)^2}} = \mathrm{cte}.
+\]
+
+Asi que resolvemos la ecuación diferencial $y = C \sqrt{1 + y'^2}$.
+Es una ecuación de Lagrange que se resuelve llamando $p(x) = y'(x)$,
+y derivando respecto de $x$
+
+\[
+p = C \left( \frac{pp'}{\sqrt{1 + p^2}} \right)
+\]
+
+Llegando a la ecuación diferencial siguiente para una constante $D$
+excepto en el caso $C=0$, que daría $y' = 0$ como solución; o el caso
+$p = 0$, (???) que llevaría a lo mismo.
+
+\[
+p' = D\sqrt{1 + p^2}
+\]
+
+Resolvemos por variables separadas
+
+\[
+\int \frac{D}{\sqrt{1+p^2}} \;dp = D\log|\sqrt{1 + p^2} + p| = x + E
+\]
+
+Despejamos, quitando el caso $D = 0$,
+
+**** Ejercicio 3
+#+begin_statement
+Hemos probado que cada problema de contorno con condiciones de
+Dirichlet no homogéneas es equivalente a otro con condiciones de
+Dirichlet homogéneas.  Enunciar y demostrar un resultado análogo para
+condiciones tipo Neumann no homogéneas.
+#+end_statement
+
+Dado un problema con condiciones de contorno tipo Neumann
+\[\left\{\begin{array}{l}
+(Py')' + Qy = R, \\
+y'(x_0) = y'_0, \\
+y'(x_1) = y'_1,
+\end{array}\]
+construiremos un problema equivalente tomando un cambio de variable
+de la forma $z(x) = y(x) - (Ax^2 + Bx)$. Buscamos que las condiciones
+sean homogéneas,
+\[\left\{\begin{array}{l}
+z'(x_0) = y'_0 - (2Ax_0 + B) = 0, \\
+z'(x_1) = y'_1 - (2Ax_1 + B) = 0, \\
+\end{array}\]
+por lo que obtenemos $A = (y'_1 - y'_0)/(2(x_1 - x_0))$ y
+$B = (y'_0x_1-x_0y'_1)/(x_1-x_0)$. Si además buscamos $(Pz')' + Qz = {\widetilde R}$.
+\[\begin{aligned}
+{\widetilde R} &= (Pz')' + Qz \\
+               &= (Py')' - (P(2Ax + B))' + Qy - Q(Ax^2 + Bx) \\
+               &= R - (P(2Ax + B))' - Q(Ax^2 + Bx) \\
+               &= R - P'(2Ax + B) - 2AP - Q(Ax^2 + Bx).
+\end{aligned}\]
+Así, hemos llegado a que el problema original es equivalente a otro
+de la forma siguiente, con la $\widetilde R$ dada anteriormente.
+\[\left\{\begin{array}{l}
+(Pz')' + Qz = {\widetilde R}, \\
+z'(x_0) = 0, \\
+z'(x_1) = 0.
+\end{array}\]
+
+**** Ejercicio 4
+#+begin_statement
+Demostrar que la ecuación general de la viga, $Mu^{iv}(x) + Nu''(x) = f(x)$ 
+es la que verifica un máximo del funcional siguiente.
+\[
+{\cal F}(u) = \int_0^L  \left(
+\frac{M}{2}(u''(x))^2 -
+\frac{N}{2}(u'(x))^2 -
+f(x)u(x) 
+\right)\;dx
+\]
+#+end_statement
+
+Empezamos llamando
+\[
+F(x,y,p,q) = \frac{M}{2}q^2 - \frac{N}{2}p^2 - f(x)y.
+\]
+Si $\overline{u}$ fuera un mínimo, consideramos $g(s) = {\cal F}(\overline{u} + s\phi)$ tomando
+$|s| < \varepsilon$ suficientemente pequeño para que se cumpla $\overline{u} + s\phi \in \Omega$
+y $\phi \in D_0 = \left\{ \phi \in {\cal C}^1[0,L] \mid \phi(0)=\phi(L), \phi'(0)=\phi'(L) \right\}$. La condición
+de minimalidad nos da $g'(0) = 0$. Usando regla de derivación bajo una
+integral y regla de la cadena en varias variables.
+\[\begin{aligned}
+g'(s) &= \dv{}{s} \left( \int_0^L 
+F(x;\overline{u}(x) + s\phi(x), \overline{u}'(x) + s\phi'(x), \overline{u}''(x) + s\phi''(x))
+\;dx\right) \\&=
+\int_0^L  \dv{}{s}
+F(x;\overline{u}(x) + s\phi(x), \overline{u}'(x) + s\phi'(x), \overline{u}''(x) + s\phi''(x))
+\;dx \\&=
+\left( \int_0^L F_y(...)\phi(x) \;dx \right) +
+\left( \int_0^L F_p(...)\phi'(x) \;dx \right) +
+\left( \int_0^L F_q(...)\phi''(x) \;dx \right)
+\end{aligned}\]
+Usando integración por partes y las condiciones sobre $\phi$ para
+anular los términos.
+\[\begin{aligned}
+g'(s) &= 
+ \int_0^L F_y(...)\phi(x)\;dx -
+ \int_0^L \dv{}{x}F_p(...)\phi(x)\;dx +
+ \int_0^L \dv[2]{}{x}F_q(...)\phi(x)\;dx \\&=
+\int_0^L \left( F_y(...) - \dv{}{x}F_p(...) + \dv[2]{}{x}F_{q}(...) \right)\phi(x)\;dx.
+\end{aligned}\]
+Podemos evaluar en $s = 0$ y aplicar el lema que afirma que si la
+ecuación anterior es cero para cualquier $\phi$, entonces el otro factor
+es cero. Tenemos así que
+\[
+F_y(x,\overline{u},\overline{u}',\overline{u}'') - 
+\dv{}{x}F_p(x,\overline{u},\overline{u}',\overline{u}'') + 
+\dv[2]{}{x}F_{q}(x,\overline{u},\overline{u}',\overline{u}'') = 0.
+\]
+Calculando obtenemos $F_y(...) = -f(x)$, $F_p(...) = -Nu'(x)$, $F_q(...) = Mu''(x)$,
+por lo que la ecuación final es precisamente
+\[
+Mu^{iv}(x) + Nu''(x) - f(x) = 0.
+\]
+
+** Modelos avanzados de computación
+Serafín Morales
+smc@decsai.ugr.es
+decsai.ugr.es
+
+*** Presentación
+L ⊂ NL ⊂ P ⊂ NP ⊂ PSPACE
+
+*** Tema 1: Máquinas de Turing. Funciones y lenguajes calculables
+**** Definición de máquina de Turing
+**** Lenguajes recursivos y recursivamente enumerables
+**** Máquinas que recuerdan símbolos del alfabeto
+**** Escribiendo máquinas de Turing
+Se permiten cualesquiera formalismos matemáticos para describir una
+máquina. Se pueden agrupar varias transiciones usando el símbolo *.
+
+*** Tema 2: Otros modelos de cálculo. Tesis de Church-Turing
+*** Tema 3: Clases de complejidad
+*** Tema 4: NP-Completitud
+*** Tema 5: Complejidad de problemas de optimización aproximados
+*** Tema 6: Complejidad en espacio. Jerarquía polinómica
+*** Tema 7: Complejidad en modelos de computación paralela
+*** Relaciones
+**** Relación 1
+# El formato puede ser en pdf o en el formato del simulador.
+
+***** Ejercicio 1
+****** Apartado a
+#+BEGIN_SRC turing
+; Acepta las palabras con el mismo número de ceros que de unos.
+; Usa un alfabeto 0, 1, %.
+
+; En el estado inicial, lee el primer 0 o el primer 1.
+; Si la entrada está vacía, termina directamente.
+0 0 _ r b1
+0 1 _ r b0
+0 % _ r 0
+0 _ _ * accept
+
+; En el estado b0 busca un 0.
+; En el estado b1 busca un 1.
+b0 0 % * f
+b0 _ _ r reject
+b0 * * r b0
+
+b1 1 % * f
+b1 _ _ r reject
+b1 * * r b1
+
+; En el estado f vuelve hasta el principio de la cadena.
+f _ _ r 0
+f * * l f 
+
+; Estados de aceptación o rechazo.
+accept * : r accept2
+accept2 * ) * halt-accept
+
+reject _ : r reject2
+reject * _ l reject
+reject2 * ( * halt-reject
+#+END_SRC
+****** Apartado b
+#+BEGIN_SRC turing
+; Acepta las palabras de la forma A^nB^nC^n.
+; Nótese que acepta la cadena vacía.
+
+; Busca la primera A
+0 % _ r 0
+0 A _ r 1
+0 _ _ * accept
+0 * * * reject
+
+; Busca la primera B
+1 A * r 1
+1 % * r 1
+1 B % r 2
+1 _ * * reject
+
+; Busca la primera C
+2 B * r 2
+2 % * r 2
+2 C % * f
+2 _ * * reject
+
+; En el estado f vuelve hasta el principio de la cadena.
+f _ _ r 0
+f * * l f 
+
+; Estados de aceptación o rechazo.
+accept * : r accept2
+accept2 * ) * halt-accept
+
+reject _ : r reject2
+reject * _ l reject
+reject2 * ( * halt-reject
+#+END_SRC
+****** Apartado c
+#+BEGIN_SRC turing
+; Acepta palíndromos
+
+; Busca una letra
+0 0 _ r a0
+0 1 _ r a1
+0 _ _ * accept
+0 * * * reject
+
+a0 _ _ l b0
+a0 * * r a0
+
+a1 _ _ l b1
+a1 * * r a1
+
+b0 0 _ l f
+b0 _ * * accept
+b0 * * * reject
+
+b1 1 _ l f
+b1 _ * * accept
+b1 * * r reject
+
+; En el estado f vuelve hasta el principio de la cadena.
+f _ _ r 0
+f * * l f 
+
+; Estados de aceptación o rechazo.
+accept * : r accept2
+accept2 * ) * halt-accept
+
+reject _ : r reject2
+reject * _ l reject
+reject2 * ( * halt-reject
+#+END_SRC
+****** Apartado d
+#+BEGIN_SRC turing
+; Acepta las palabras con el mismo número de ceros que de unos.
+; Usa un alfabeto 0, 1, %.
+
+; En el estado inicial, lee el primer 0 o el primer 1.
+; Si la entrada está vacía, termina directamente.
+0 0 _ r bc0
+0 1 _ r bc1
+0 % _ r 0
+0 c _ r aif
+0 _ _ * accept
+
+bc0 c * r b0
+bc0 * * r bc0
+bc1 c * r b1
+bc1 * * r bc1
+
+; En el estado b0 busca un 0.
+; En el estado b1 busca un 1.
+b0 0 % * f
+b0 % * r b0
+b0 * * r reject
+
+b1 1 % * f
+b1 % * r b1
+b1 * * r reject
+
+; En este último estado se comprueba que no quede nada detrás de la c
+aif % _ r aif
+aif _ * r accept
+aif * * * reject
+
+; En el estado f vuelve hasta el principio de la cadena.
+f _ _ r 0
+f * * l f 
+
+; Estados de aceptación o rechazo.
+accept * : r accept2
+accept2 * ) * halt-accept
+
+reject _ : r reject2
+reject * _ l reject
+reject2 * ( * halt-reject
+#+END_SRC
+***** Ejercicio 2
+***** Ejercicio 3
+#+BEGIN_SRC text
+; Mueve una cadena de 0s y 1s a la derecha
+
+;; Estado inicial
+0 _ * l leer
+0 * * r 0
+
+;; Lee una posición
+leer 0 * r escribir0
+leer 1 * r escribir1
+leer _ * r final
+
+;; Escribe un 0 o un 1 según lo que hubiera leído
+escribir0 * 0 l mover
+escribir1 * 1 l mover
+
+;; Estado auxiliar para moverse dos posiciones a la izquierda
+mover * * l leer
+
+;; Estado final
+final * _ * halt-accept
+#+END_SRC
+
+***** Ejercicio 4
+#+begin_statement
+Escribir una subrutina que comience en una posición con un cero y se
+mueva a la derecha de todos los ceros hasta que alcance un uno o un
+blanco. Se suponen que en la cinta solo hay caracteres del conjunto
+{0, 1, #}. Si se comienza con un carácter que es distinto de cero, la
+subrutina de la MT debe de pararse. Utilizar dicha rutina para
+escribir una MT que acepte todas las cadenas de ceros y unos, que no
+tengan dos unos consecutivos.
+#+end_statement
+
+Siendo =q= el estado que llama al estado inicial =i= de la subrutina.
+
+#+BEGIN_SRC text
+-- Estado i inicial, que comprueba que empieza en 0.
+d(i;0) = (j,0,R)
+d(i,1) = (reject)
+d(i,#) = (reject)
+
+-- Mueve a la derecha mientras haya ceros.
+d(j,0) = (j,0,R)
+d(j;1) = (q,1,S)
+d(j;#) = (q,#,S)
+#+END_SRC
+
+La MT que acepta cadenas sin dos unos consecutivos es la siguiente.
+
+#+BEGIN_SRC text
+d(u;0) = (u,0,R)
+d(u;#) = (u,#,R) -- (accept)
+d(u;1) = (i,1,R)
+#+END_SRC
+
+***** Ejercicio 5
+#+attr_latex: :options [Ejercicio 5]
+#+begin_statement
+Diseñar una MT con dos cintas que dada una sucesión de ceros de
+longitud n en la primera cinta, calcula en la segunda cinta n en
+binario.
+#+end_statement
+
+Una máquina $T = \left( \left\{ i,s,r, \mathrm{accept} \right\} , \left\{ 0,1,\_ \right\} , d, i,\_, \left\{ \mathrm{accept} \right\} \right)$.
+Tiene un estado inicial =i= que lee los ceros de la primera cinta,
+luego pasa a una subrutina de sumar 1 en el estado =s=, llevándose
+uno en cada suma. Finalmente el estado =r= vuelve a colocar el
+cabezal de la segunda cinta al principio.
+
+#+begin_src text
+d(i;_,*) = (accept)
+d(i;0,*) = (s;0,*,R,S)
+
+d(s;*,0) = (r;*,1,S,S)
+d(s;*,_) = (r;*,1,S,S)
+d(s;*,1) = (s;*,0,S,R)
+
+d(r;*,_) = (i;*,_,S,R)
+d(r;*,0) = (r;*,0,S,L)
+d(r;*,1) = (r;*,1,S,L)
+#+end_src
+
+***** Ejercicio 6
+#+attr_latex: :options [Ejercicio 6]
+#+begin_statement
+Escribir una MT con múltiples cintas que sume dos números en
+binario. Se supone que aparecen en la cinta de entrada separados por
+un sı́mbolo especial c.
+#+end_statement
+
+#+BEGIN_SRC text
+-- Estado inicial, busca la C.
+d(m;0,*) = (m;0,*,R,S)
+d(m;1,*) = (m;1,*,R,S)
+d(m;C,*) = (c;C,*,R,S)
+
+-- Copia en la cinta de abajo.
+d(c;0,*) = (c;0,0,R,R)
+d(c;1,*) = (c;1,1,R,R)
+d(c;_,*) = (r1;_,*,S,S)
+
+-- Regresa en ambas cintas.
+d(r1;0,*) = (r1;_,*,L,L)
+d(r1;1,*) = (r1;_,*,L,L)
+d(r1;C,*) = (r2;_,*,L,S)
+
+-- Regresa sólo en la superior.
+d(r2;0,*) = (r2;0,*,L,S)
+d(r2;1,*) = (r2;1,*,L,S)
+d(r2;_,*) = (s;_,*,R,R)
+
+-- Suma sin llevadas
+d(s;0,0) = (s;*,0,R,R)
+d(s;1,0) = (s;*,1,R,R)
+d(s;0,1) = (s;*,1,R,R)
+d(s;_,0) = (s;*,0,R,R)
+d(s;0,_) = (s;*,0,R,R)
+d(s;1,_) = (s;*,1,R,R)
+d(s;_,1) = (s;*,1,R,R)
+d(s;1,1) = (sl;*,0,R,R)
+d(s;_,_) = (accept)
+
+-- Suma con llevadas
+d(sl;0,0) = (s,*,1,R,R)
+d(sl;1,0) = (sl,*,0,R,R)
+d(sl;0,1) = (sl,*,0,R,R)
+d(sl;_,0) = (s,*,1,R,R)
+d(sl;0,_) = (s,*,1,R,R)
+d(sl;1,_) = (sl,*,0,R,R)
+d(sl;_,1) = (sl,*,0,R,R)
+d(sl;1,1) = (sl,*,1,R,R)
+d(sl;_,_) = (s,*,1,R,R)
+#+END_SRC
+
+***** Ejercicio 7
+#+begin_statement
+Describir una MT que dada una palabra ucw donde u y w son dos palabras
+sobre el alfabeto {0, 1} y c es un sı́mbolo adicional, calcule u
+repetido tantas veces como indique la palabra w interpretándola como
+un entero escrito en binario.
+#+end_statement
+
+Usamos dos cintas. Movemos hasta el símbolo c, luego decrementamos
+uno y copiamos en la cinta de abajo; repetimos hasta llegar a 0 en 
+el número.
+
+#+BEGIN_SRC text
+-- Estado inicial, busca la C en la cinta superior
+d(i;0,*) = (i;0,*,R,S)
+d(i;1,*) = (i;1,*,R,S)
+d(i;C,*) = (m;C,*,R,S)
+
+-- Estado en el que busca el primer uno para decrementarlo.
+-- Si no lo encuentra, ha terminado.
+d(m;0,*) = (m;0,*,R,S)
+d(m;1,*) = (c;0,*,L,S)
+d(m;_,*) = (accept)
+
+-- Estado en el que resta escribiendo los unos anteriores.
+d(e;0,*) = (e;1,*,L,S)
+d(e;C,*) = (r;e,*,L,S)
+
+-- Estado en el que regresa al principio de la cinta superior.
+d(r;0,*) = (r;0,*,L,S)
+d(r;1,*) = (r;1,*,L,S)
+d(r;_,*) = (c;_,*,R,S)
+
+-- Estado para copiar la palabra. Termina volviendo al estado
+-- en el que decrementa un 1.
+d(c;0,*) = (c;0,0,R,R)
+d(c;1,*) = (c;1,1,R,R)
+d(c;C,*) = (m;C,*,R,S)
+#+END_SRC
+
+***** Ejercicio 9
+#+begin_statement
+Describir MTND que acepten los siguientes lenguajes
+
+ a) Conjunto de palabras que contienen una subcadena de longitud 100
+    que se repite aunque no necesariamente de forma consecutiva.
+
+ b) El conjunto de las cadenas $w_1 \circ w_2 \circ \dots \circ w_{n}$ donde $w_i \in \left\{ 0,1 \right\}^{\ast}$ y 
+    para algún $j$, $w_j$ coincide con la representación en binario de $j$.
+ 
+ c) El conjunto de las cadenas $w_1 \circ w_2 \circ \dots \circ w_{n}$ donde $w_i \in \left\{ 0,1 \right\}^{\ast}$ y 
+    para al menos dos valores de $j$, $w_j$ coincide con la representación
+    en binario de $j$.
+
+ d) Palabras que contienen a un palíndromo de longitud mayor o igual
+    a 5 como subcadena.
+#+end_statement
+
+a) Al principio, a cada paso, la máquina puede elegir avanzar una
+   casilla o marcarla en una segunda multipista y pasar a un estado en
+   el que
+
+   - avanza 100 casillas usando 100 estados dedicados a esto; luego
+     puede elegir a cada paso entre avanzar o entrar a un estado
+     en el que marca la casilla y entonces simplemente tiene que
+     comprobar que haya 100 caracteres iguales empezando desde ambas
+     marcas.
+     
+   Comprobar que hay 100 caracteres iguales empezando de ambas marcas
+   puede hacerse memorizando (en el estado) a cada paso un número del
+   0 al 100 y el caracter después de la primera marca. Se mueve la
+   primera marca a la derecha, busca la segunda marca y comprueba que
+   sea el mismo; acaba moviendo la segunda marca a la derecha y
+   volviendo a buscar el primer caracter.
+
+b) Usamos una máquina con dos cintas y empezamos escribiendo un 1 en
+   la segunda. En cada paso, la máquina puede elegir entre 
+
+   - empezar una subrutina que incremente el valor binario de la
+     segunda cinta en 1 y luego mueva la primera cinta hasta el
+     próximo símbolo $\circ$, o
+
+   - empezar una subrutina que comprueba que el número de la segunda
+     cinta sea igual que el de la primera hasta el próximo símbolo
+     $\circ$; aceptando si lo es.
+ 
+c) Usamos la misma máquina del apartado anterior, pero en este caso,
+   en lugar de aceptar, vuelve el cabezal de ambas cintas al principio
+   de la comprobación, ejecuta la rutina que incrementa y pasa al siguiente
+   bloque y pasa a un estado inicial en una réplica exacta de todos los
+   estados de la máquina.
+
+d) A cada paso, la máquina puede elegir entre moverse a la derecha o
+   pasar a un estado en el que
+   
+     - deja una marca (asumiendo multipista), pasa primero por cinco
+       estados numerados en los que sólo puede moverse a la derecha,
+       para llegar a un estado en el que puede elegir si marcar una
+       casilla y comprobar palíndromo entre las dos marcas o avanzar
+       una casilla.
+
+   Comprobar un palíndromo entre dos marcas es algo que podemos hacer
+   yendo a la primera marca y empezando el caso de palíndromos del
+   ejercicio 1 como subrutina.
+
+***** Ejercicio 10
+Acepta todas las cadenas que no empiecen por 1.
+
+** Curvas y superficies
+*** Datos de la asignatura
+César Rosales - crosales@ugr.es
+Lunes, Martes y Miércoles de 12 a 14.
+http://www.ugr.es/~crosales/cys1718.html
+
+*** Tema 1. Curvas
+**** 1.1. Curvas regulares y longitud de haz
+Una *curva* es $\alpha \colon I \to \mathbb{R}^n$, con $\alpha \in {\cal C}^{\infty}$ para $I$ intervalo abierto.
+Llamamos *traza* a su imagen. Consideramos *curvas regulares* cuya
+velocidad $\alpha'$ es no nula. Toda curva regular tiene rectas tangentes
+en todo punto:
+\[
+\alpha(t) + L(\alpha'(t)) =
+\left\{ \alpha(t) + \lambda \alpha'(t) \mid
+\lambda \in \mathbb{R} \right\}.
+\]
+
+***** Ejemplos de curvas regulares
+*** Tema 2. Superficies
+
+*** Tema 3. Curvatura de superficies
+
+*** Tema 4. Geodésicas
+
+*** Ejercicios
+**** Tema 1. Curvas
+***** Ejercicio 20-Feb A
+#+begin_statement
+Probar que no existe un plano afín conteniendo a la traza de
+una hélice circular de eje vertical.
+#+end_statement
+
+Si un plano contiene a dos puntos, contiene a la recta entre ellos,
+luego en particular el plano contiene a todos los puntos de la
+forma $(\sin(t), \cos(t), k)$.
+
+En particular, contendría a un círculo $(\sin(t), \cos(t), 0)$, por
+tanto a tres de sus puntos y debería ser el plano que determinan
+esos tres puntos, $L(x,y,0)$; pero también a $(1,0,1)$, por ejemplo,
+lo que es imposible.
+
+***** Ejercicio 20-Feb B
+#+begin_statement
+Probar que las rectas afines a la hélice forman un ángulo constante
+con el eje z.
+#+end_statement
+
+** Ecuaciones diferenciales I
+*** 1. Métodos de integración
+**** 1.1. Método de variables separadas
+**** 1.2. Ecuaciones homogéneas
+\[
+x' = f\left(\frac{x}{t}\right)
+\]
+**** 1.3. Ecuaciones reducibles a homogéneas
+\[
+x' = f \left( \frac{a+bt+cx}{\alpha + \beta t + \gamma x} \right)
+\]
+
+según la posición de las rectas
+
+**** 1.4. Ecuaciones exactas
+\[
+M + Nx' = 0
+\]
+
+tal que existe $F \in {\cal C}^1(D)$ con $\frac{\partial F}{\partial t} = M$ y  $\frac{\partial F}{\partial x} = N$. Tienen
+solución trivial $F(t,x) = k$ para $k$ constante.
+
 ** Álgebra conmutativa y computacional
 # Exportaba con config.setup
 
