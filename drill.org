@@ -174,17 +174,17 @@ Given an adjunction $F \vdash G$, what signature does the *counit* have?
 **** Answer
 The counit is $\epsilon : FG \to \mathrm{id}$.
 *** Monad of an adjunction                                          :drill:
-SCHEDULED: <2018-02-11 Sun>
+SCHEDULED: <2018-03-29 Thu>
 :PROPERTIES:
 :ID:       be30eb00-9dbd-4d91-8d58-a5e3c9cf9bff
-:DRILL_LAST_INTERVAL: 13.3006
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 8
+:DRILL_LAST_INTERVAL: 42.7348
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 9
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 4.125
-:DRILL_EASE: 3.1
+:DRILL_AVERAGE_QUALITY: 4.222
+:DRILL_EASE: 3.2
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-29 Mon 23:35]
+:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:47]
 :END:
 Given an adjunction $F \vdash G$, what monad does it give rise to?
 
@@ -336,17 +336,17 @@ a \otimes ((b \otimes c) \otimes d) \ar[rr, "\alpha"] & &
 \end{tikzcd}
 
 *** Monoidal category: units diagram                                :drill:
-SCHEDULED: <2018-02-13 Tue>
+SCHEDULED: <2018-02-25 Sun>
 :PROPERTIES:
 :ID:       8c876951-43d8-4c15-b5bb-b5d659d70e1f
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.0911
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:15]
+:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:50]
 :END:
 Diagrams of a monoidal category for
 
@@ -960,19 +960,30 @@ Diagramatically,
 \end{tikzcd} \]
 
 * Analysis
+** Integrals
+*** Variable change                                                 :drill:
+Given $\varphi$ differentiable and $f$ integrable, state the
+integration by substitution rule.
+
+**** Definition
+
+\[
+\int_a^b f(\varphi(t))\varphi'(t) \; dt = \int_{\varphi(a)}^{\varphi(b)} f(x)\; dx
+\]
+
 ** Basic
 *** Lipschitz continuous                                            :drill:
-SCHEDULED: <2018-02-12 Mon>
+SCHEDULED: <2018-02-25 Sun>
 :PROPERTIES:
 :ID:       921ecf4c-ac54-4c0f-a35e-6644cbe4cb02
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.0911
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:54]
+:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:48]
 :END:
 A function $f$ between metric spaces is Lipschitz continuous when...
 
@@ -982,17 +993,17 @@ d(f(x),f(y)) \leq k\, d(x,y)
 \]
 
 *** Locally Lipschitz continuous                                    :drill:
-SCHEDULED: <2018-02-12 Mon>
+SCHEDULED: <2018-02-25 Sun>
 :PROPERTIES:
 :ID:       4e9b39cc-4e82-442d-883d-97f8105ae90b
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.0911
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:54]
+:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:49]
 :END:
 A function $f \colon D \to \mathbb{R}^k$ is locally Lipschitz continuous when...
 
@@ -1001,6 +1012,21 @@ for each $x \in D$ there exists a open $x \in U \subset D$ such that
 
 \[
 \|f(x)-f(y)\| \leq k\|x-y\|
+\]
+
+*** Hyperbolic sine                                                 :drill:
+Definition of hyperbolic sine
+
+**** Definition
+\[
+\sinh(x) = \frac{e^x-e^{-x}}{2}
+\]
+*** Hyperbolic cosine                                               :drill:
+Definition of hyperbolic cosine
+
+**** Definition
+\[
+\cosh(x) = \frac{e^x+e^{-x}}{2}
 \]
 
 ** Measure theory
@@ -1029,17 +1055,17 @@ on the set, that is, a set of subsets with
  * all countable intersections.
 
 *** Measure                                                         :drill:
-SCHEDULED: <2018-02-12 Mon>
+SCHEDULED: <2018-02-25 Sun>
 :PROPERTIES:
 :ID:       385a9a40-8890-4928-b5c5-2c938dec604e
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 11.0745
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.56
+:DRILL_AVERAGE_QUALITY: 3.8
+:DRILL_EASE: 2.66
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:57]
+:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:49]
 :END:
 Definition of *measure* $\mu$.
 
@@ -1051,17 +1077,17 @@ A *measure* over a σ-algebra $\Sigma$ is a function $\mu \colon \Sigma \to \mat
  * σ-additive, $\mu\left( \bigcup^{\infty}_{k=1} E_k \right) = \sum_{k=1}^{\infty}\mu(E_k)$ if we have $E_i \cap E_j = \varnothing$.
 
 *** Fatou's lemma                                                   :drill:
-SCHEDULED: <2018-02-12 Mon>
+SCHEDULED: <2018-02-24 Sat>
 :PROPERTIES:
 :ID:       6af0cfe7-d340-4be8-b036-c14f636fd988
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 10.352
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:56]
+:DRILL_AVERAGE_QUALITY: 3.4
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:49]
 :END:
 Given a measure space $\Sigma$ and functions $f_n \colon X \to [0,+\infty]$; that are
 $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$, what does the Fatou's lemma states?
@@ -1070,8 +1096,10 @@ $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$, what does the Fatou's lemma st
 Taking $f(x) = \liminf_{n\to \infty} f_n(x)$; we have that $f$ is $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$ and
 
 \[
-\int_X f\ d\mu \leq \liminf_{n\to\infty} \int_X f_n\ d\mu.
+\int_X \liminf_{n \to \infty }f_n\ d\mu \leq \liminf_{n\to\infty} \int_X f_n\ d\mu.
 \]
+
+** Differential equations
 
 * Logic
 ** Definition of validity                                            :drill:
@@ -1218,18 +1246,18 @@ SCHEDULED: <2018-04-14 Sat>
 The [absurd] tactic [eliminates falsehood].
 
 *** Coq Tactic                                                      :drill:
-SCHEDULED: <2018-02-10 Sat>
+SCHEDULED: <2018-03-25 Sun>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       ef5486ca-801f-49cb-826b-db3e15806159
-:DRILL_LAST_INTERVAL: 12.4159
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 10
+:DRILL_LAST_INTERVAL: 38.539
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 11
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 3.801
-:DRILL_EASE: 3.0
+:DRILL_AVERAGE_QUALITY: 3.91
+:DRILL_EASE: 3.1
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-29 Mon 23:35]
+:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:47]
 :END:
 
 The [replace] tactic [substitutes all ocurrences of a term using a path].
@@ -1338,17 +1366,17 @@ Searching is O(n) in the worst case (linear tree), but O(log n) in
 average.
 
 *** Red-black tree                                                  :drill:
-SCHEDULED: <2018-02-14 Wed>
+SCHEDULED: <2018-03-05 Mon>
 :PROPERTIES:
 :ID:       83f6dfb9-a29a-400b-9ced-dff41732dae4
-:DRILL_LAST_INTERVAL: 8.7892
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 18.8265
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.22
+:DRILL_EASE: 2.08
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-02-05 Mon 22:49]
+:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:50]
 :END:
 Balancing properties of a red-black tree.
 
@@ -1365,17 +1393,17 @@ the path to the nearest leaf.
 Has O(log n) in worst case for searching, inserting and deleting.
 ** Array sorting
 *** Quicksort                                                       :drill:
-SCHEDULED: <2018-02-13 Tue>
+SCHEDULED: <2018-02-27 Tue>
 :PROPERTIES:
 :ID:       ead02bcf-2b4c-412b-97da-485b069eb45a
-:DRILL_LAST_INTERVAL: 4.435
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 12.8526
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.25
-:DRILL_EASE: 2.8
+:DRILL_AVERAGE_QUALITY: 4.4
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:15]
+:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:50]
 :END:
 Complexity of quicksort.
 
@@ -1405,3 +1433,18 @@ Complexity of heapsort.
 
 **** Complexity
 O(n log n) in all cases.
+* Ecuaciones diferenciales
+** TODO Derivadas
+*** Tangente
+*** Arcsin
+*** Arccos
+*** Arctan
+*** Arcsec
+*** Regla de la cadena
+** TODO Integrales
+*** Cocientes de polinomios cuadráticos
+*** Integración por partes
+*** Integral del seno cuadrado
+*** Integral del coseno cuadrado
+*** Integral de seno a potencia arbitraria
+*** Integral de coseno a potencia arbitraria
