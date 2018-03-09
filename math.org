@@ -9673,9 +9673,42 @@ siempre o casi siempre las funciones con su dominio, $f|_D$.
 
 **** TODO Teorema de la función inversa
 **** TODO Resolución de ecuaciones lineales
+**** Jacobiana
+La aplicación lineal jacobiana en un punto, $J_F(p)$, cumple que
+
+\[
+\lim_{\|x-p\| \to 0} \frac{\|F(x)-F(p) -J_F(p)(x-p)\|}{\|x-p\|} = 0.
+\]
+
+En el caso de espacios finitos tenemos la matriz jacobiana
+
+\[\begin{pmatrix}
+\pdv{y_1}{x_1} & \dots & \pdv{y_1}{x_n} \\
+\vdots & \ddots & \vdots \\
+\pdv{y_m}{x_1} & \dots & \pdv{y_m}{x_n} \\
+\end{pmatrix}
+\]
+
+En ocasiones notaremos simplemente a la jacobiana como $f'$.
+
+**** Hessiana
+La hessiana existe cuando lo hacen todas las segundas derivadas
+parciales de una función $f \colon \mathbb{R}^n \to \mathbb{R}$.
+
+\[\begin{pmatrix}
+\pdv[2]{f}{x_1} & \dots & \pdv{f}{x_1}{x_n} \\
+\vdots & \ddots & \vdots \\
+\pdv{f}{x_n}{x_1} & \dots & \pdv[2]{f}{x_n} \\
+\end{pmatrix}
+\]
+
+Por el [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][teorema de Schwarz-Clairaut]], es simétrica.
+
+**** TODO Wronskiana
 *** Apuntes de Andrés
 # Estas notas salen de los apuntes de Andrés Herrera para la misma
 # asignatura el año anterior.
+
 **** 1. Introducción
 ***** 1.1. Notación
 ****** Ecuación diferencial ordinaria (EDO)
@@ -10064,19 +10097,8 @@ f(b) - f(a) = \left\langle \grad f(d) , b - a \right\rangle.
 \]
 
 *** Tema 2. Lispchitzianidad. Picard-Lindelöf
-**** 2.1. Funciones globalmente lipschitzianas
-***** Lipschiztianidad global                                :definición:
-Sea $\Omega \subseteq \mathbb{R}^n$, $f \colon \Omega \to \mathbb{R}^m$ es *globalmente lipschitziana* si
-
-\[
-\exists L \geq 0:\quad \forall x,y \in \Omega: \|f(x)-f(y)\| \leq L\|x-y\|.
-\]
-
-Para una norma vectorial $\|\cdot\|$.
-
-****** TODO Ejemplos
-La norma y las funciones lineales.
-
+**** 2.1. Lipschitzianidad global
+***** Lipschiztianidad global
 ***** Lipschiztianidad global, anticaracterización
 Sea $\Omega \subset \mathbb{R}^n$, $f \colon \Omega \to \mathbb{R}^m$ no es globalmente lipschitziana si y sólo si
 existen sucesiones $x_n \neq y_{n}$ tales que
@@ -10132,70 +10154,52 @@ entonces $f$ es globalmente lipschiztiana.
 
 ****** TODO Proof
 
-**** 2.2. Funciones localmente lipschitzianas
-***** Función localmente lipschitziana                       :definición:
-Una $f \colon D \to \mathbb{R}^d$ es localmente lipschitziana (LL) si existe un
-entorno para cada punto $x \in U \subset D$ donde $f$ es lipschitziana.
+**** 2.2. Lipschiztianidad local
+***** Lipschiztianidad local
+Sea $\Omega \subseteq \mathbb{R}^{n}$, $f \colon \Omega \to \mathbb{R}^m$ es *localmente lipschitziana* (LL) si 
+para cada punto existe un entorno $p \in U \subset \Omega$ tal que $f|_U$ es
+globalmente lipschitziana.
 
-***** Lipschitziana respecto de una variable                 :definición:
-Una $f \colon D \to \mathbb{R}^d$ es lipschitziana respecto de la variable $x$
-si para cada $(x,y),(x',y) \in D$ se tiene
+/Nota: ¡la constante de Lipschitz puede cambiar entre entornos!/
 
-\[ \| f(x,y)-f(x',y)\| \leq M\|x-x'\|.
+***** Lipschiztianidad local, anticaracterización
+Sea $\Omega \subseteq \mathbb{R}^n$, para $f \colon \Omega \to \mathbb{R}^m$ equivalen
+
+ 1. $f$ no localmente lipschiztiana,
+
+ 2. existen $x_n,y_n \in \Omega$ con $x_n\to p$ y $y_n \to p$ tales que
+    
+    \[
+    \frac{\|f(x_n)-f(y_n)}{x_n-y_n} \to +\infty.
+    \]
+
+****** TODO Proofs
+
+***** Lipschitzianidad local en continuas derivables
+Para $\Omega$ abierto, toda $f \in {\cal C}^1(\Omega)$ es localmente lipschitziana.
+
+****** TODO Proof
+
+**** 2.3. Lipschiztianidad respecto de una variable
+***** Lipschitzianidad global respecto de una variable
+Sea $\Omega \subseteq \mathbb{R}^d\times \mathbb{R}^n$; $f$ es *globalmente lipschitziana respecto* de $x \in \mathbb{R}^d$
+cuando existe $L \geq 0$ tal que
+
+\[
+\| f(x,y) - f(x',y) \| \leq L \| x - x' \|.
 \]
 
-***** Localmente lipschitziana respecto de una variable      :definición:
-Una $f \colon D \to \mathbb{R}^d$ es localmente lipschitziana respecto de la
-variable $x$ si existe un entorno para cada punto
-$(x,y) \in U \subset D$.
+Dicho de otra forma, las secciones $f(-,y)$ son lipschitzianas con una
+constante de lipschitz común.
+
+***** Lipschitzianidad local respecto de una variable
+Sea $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$; $f$ es *localmente lipschitziana respecto* de $x \in \mathbb{R}^d$
+si para cada punto existe un entorno $(p,q) \in U \subset \Omega$ tal que $f|_U$ es
+globalmente lipschitziana respecto de $x \in \mathbb{R}^d$.
 
 **** 2.3. Teorema de Picard-Lindelöf
-***** Lema de función contractiva                                  :lema:
-Si $f$ es lipschitziana respecto de la segunda variable en $R_{a,b}(t_0,x_0)$
-con constante de Lipschitz $L \geq 0$, se tiene
-
-\[
-\| V(\varphi) - V(\psi)\|_{\infty} \leq aL\| \varphi - \psi \|_{\infty}.
-\]
-
-En particular, $V$ es contractiva cuando $aL \leq 1$.
-
-****** Demostración
-Para cualquier $t \in [t_0-a,t_0+a]$ tenemos
-
-\[\begin{aligned} |(V(\varphi) - V(\psi) ) (t)| &=
-\left| \int_{t_0}^t f(s,\varphi(s))-f(s,\psi(s)) \;ds \right| \\&\leq
-\int_{t_0}^t \left |f(s,\varphi(s))-f(s,\psi(s)) \right| \;ds  \\&\leq
-\int_{t_0}^t \left L |\varphi(s)-\psi(s)| \;ds  \\&\leq
-\int_{t_0}^t \left L \|\varphi-\psi\|_{\infty} \;ds  \\&\leq
-aL \|\varphi-\psi\|_{\infty}
-\end{aligned}\]
-
-así que, en particular, $\| V(\varphi) - V(\psi)\|_{\infty} \leq aL\| \varphi - \psi \|_{\infty}$.
-
-***** Teorema de Picard-Lindelöf                                :teorema:
-Sea $D \subset \mathbb{R} \times \mathbb{R}$ un dominio y $f \colon D \to \mathbb{R}^d$ continua y localmente lipschitziana
-respecto de la segunda variable. Dado $(t_0,x_0) \in D$, el PVI tiene solución y
-verifica la propiedad de unicidad global.
-
-****** TODO Demostración de existencia
-Tenemos $(t_0,x_0) \in R_{\overline{a},b}(t_0,x_0) \subset U \subset D$ donde $f$ es lipschitziana en la
-segunda variable con constante de Lipschitz $L \geq 0$. Por Teorema de
-Weierstrass, existe $M = \max \left\{ \|f(t,x)\| \mid (t,x) \in R_{\overline{a},b}(t_0,x_0) \right\}$.
-Tomamos $0 < a < \overline{a}$ con $aM < b$ y $aL < 1$ y consideramos
-
-\[
-E = 
-\left\Big\{ \varphi \in {\cal C}([t_0-a,t_0+a], \mathbb{R}^d) \;\middle|\; 
-\| \varphi(t)-x_0 \| \leq b, \forall t \in [t_0-a,t_0+a]
-\right\Big\}
-\]
-
-espacio métrico completo con la norma infinito. Tenemos que $V(E) \subset E$
-y que $V$ es contractiva, por lo que por Teorema del punto fijo de Banach
-se tiene la solución.
-ñ
-****** TODO Demostración de unicidad global
+***** Lema de función contractiva
+***** Teorema de Picard-Lindelöf
 ***** Iterantes de Picard
 *** Tema 3. Ascoli-Arzelá y Cauchy-Peano
 **** Ascoli-Arzelá
