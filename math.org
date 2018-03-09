@@ -1,11 +1,12 @@
 #+TITLE: Math
 #+DESCRIPTION: My math notes and exercises
 #+TODO: TODO WIP | CHECK DONE WONTFIX
-#+OPTIONS: toc:nil todo:nil
+#+SETUPFILE: setup/ejerciciomodelos.setup
 
 ** Header                                                           :ignore:
 #+latex_header: \setcounter{secnumdepth}{0}
 #+latex_header: \setlength{\parindent}{0pt}
+#+latex_header: \usepackage{physics}
 #+latex_header: \usepackage{amsthm}
 #+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{stmaryrd}
@@ -18,6 +19,7 @@
 #+latex_header: \DeclareMathOperator{\coker}{Coker}
 #+latex_header: \DeclareMathOperator{\spec}{Spec}
 #+latex_header: \DeclarePairedDelimiter\bbk{\llbracket}{\rrbracket}
+#+latex_header: \newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
 
 #+latex_header: \newcommand\id{\mathrm{id}}
 #+latex_header: \newcommand\Id{\mathrm{Id}}
@@ -82,6 +84,8 @@
 #+latex_header: \newcommand\model{\mathfrak{M}}
 #+latex_header: \newcommand\entail{\models}
 #+latex_header: \newcommand\seq{\Rightarrow}
+*** Analysis                                                       :ignore:
+#+latex_header: \newcommand\oy{\overline{y}}
 * Books
 ** Categories for the working mathematician - MacLane
 # Exports using config.setup, essay.setup
