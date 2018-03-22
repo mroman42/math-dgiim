@@ -916,7 +916,134 @@ Entonces, para todo $f \in H^{\ast}$ existe un único $y_0\in H$ tal que
 $a(x,y_0) = f(x)$ para cualquier $x \in H$.
 
 *** Apuntes
-**** Fundamentos del cálculo variacional
+**** 1. Motivación y fundamentos del cálculo variacional
+**** 2. Cálculo de variaciones
+***** 2.1. Teorema 1. Lema fundamental del cálculo de variaciones
+:PROPERTIES:
+:ID:       652bdddb-0853-4a9a-8060-28a730928816
+:END:
+Para $f \colon [a,b] \to \mathbb{R}$ continua equivalen
+
+ 1. $f(x) = 0$ para todo $x \in (a,b)$;
+ 2. $\int_a^b f(x)\phi(x)\,dx = 0$ para toda $\phi \in {\cal C}_0^1(a,b)$.
+
+****** Proof
+Si tuviéramos en algún punto $f(x_0) > 0$; por conservación del
+signo, tenemos un entorno de $x_0$ contenido en $(a,b)$ donde la
+función es estrictamente positiva, sea $(x_0-\varepsilon,x_0+\varepsilon)$. Tomamos
+
+\[\phi(x) = \left\{\begin{array}{lr}
+e^{\frac{1}{(x-x_0-\varepsilon)(x-x_0+\varepsilon)}}, & 
+\mbox{ si } x \in (x_0-\varepsilon, x_0 + \varepsilon), \\
+0, & \mbox{ en otro caso.}
+\end{array}\right.\]
+
+Esta función es no analítica pero continua con derivadas continuas.
+Por contradicción, $f = 0$.
+
+***** 2.2. Ecuación de Euler-Lagrange
+****** Teorema 2. Ecuación de Euler-Lagrange
+:PROPERTIES:
+:ID:       a197ab8c-e2fa-4327-a265-1ece45f66c23
+:END:
+Dada una $F(x,y,p) \colon [x_0,x_1] \times \Omega \to \mathbb{R}$, con $\Omega \subseteq \mathbb{R}^2$ dominio, dos veces
+derivable en $p$ y en $y$, consideramos el funcional 
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,
+\]
+
+definido ${\cal F} \colon {\cal D} \to \mathbb{R}$ sobre
+
+\[
+{\cal D} = \left\{ \begin{array}{c} 
+y \in {\cal C}^1(x_0,x_1), \\
+y(x_0) = y_0, \\
+y(x_1) = y_1, \\
+\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
+\end{array}\right\}
+\]
+
+Cualquier $\overline{y} \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ minimal de ${\cal F}$ verifica
+
+\[
+F_y(x,\oy(x),\oy'(x)) - \dv{}{x}\Big( F_p(x,\oy(x),\oy'(x) \Big) = 0,
+\]
+
+o, de forma simplificada,
+
+\[
+F_y - \dv{}{x}F_p = 0.
+\]
+
+Llamamos *extremales* a las soluciones candidatas a mínimo de esta
+ecuación.
+
+******* Proof
+:PROPERTIES:
+:ID:       d1ff00ca-9b61-4a83-9016-35f8fca5866a
+:END:
+Dado $y \in {\cal D}$, para cualquier $\phi \in {\cal C}^1_0(x_0,x_1)$ sabemos por compacidad
+de $(x_0,x_1)$ que $\phi$ está acotado y podemos tomar un $s$ suficientemente
+pequeño para que $y + s\phi \in {\cal D}$, cumpliendo condiciones de contorno.
+
+Definimos $g(s) = {\cal F}[\oy + s\phi]$ y usando que $\oy$ es mínimo y su
+derivabilidad,
+
+\[\begin{aligned}
+0 = g'(0) &= 
+\dv{}{s} \int_{x_0}^{x_1}F(x,\oy + s\phi(x), \oy'(x)+s\phi'(x))\,dx \\&=
+\int_{x_0}^{x_1} \dv{}{s} F(x,\oy + s\phi(x), \oy'(x)+s\phi'(x))\,dx \\&=
+\int_{x_0}^{x_1} F_y(\dots)\phi(x) + F_p(\dots)\phi'(x) \,dx \\&=
+\int_{x_0}^{x_1} F_y(\dots)\phi(x) \,dx + \int_{x_0}^{x_1}F_p(\dots)\phi'(x) \,dx \\&=
+\int_{x_0}^{x_1} F_y(\dots)\phi(x) \,dx + \cancel{\left[ \phi(x) F_p(\dots) \right]^{x_1}_{x_0}} - \int_{x_0}^{x_1} \dv{}{x}F_p(\dots)\phi(x) \,dx
+\end{aligned}\]
+
+Habiendo usado la integrabilidad de $F$ y $\dv{}{s}F$, la regla de la cadena
+multivariable, el hecho de que $\phi$ se anula en $x_0,x_1$ e integración por
+partes. Aquí aplicamos el [[id:652bdddb-0853-4a9a-8060-28a730928816][lema fundamental]].
+
+****** Teorema 3. Condiciones para conjuntos sin condiciones de contorno
+Dado un funcional similar al [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][anterior]], pero en este caso sobre un
+dominio sin condiciones de contorno
+
+\[{\cal D}^o = \left\{ \begin{array}{c} 
+y \in {\cal C}^1(x_0,x_1), \\
+\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
+\end{array}\right\}\]
+
+Cualquier $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal de ${\cal F}$ verifica
+
+\[
+F_y - \dv{}{x}F_p = 0,
+\]
+
+y además cumple las condiciones de contorno
+
+\[
+F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
+\]
+
+******* Proof
+La [[id:d1ff00ca-9b61-4a83-9016-35f8fca5866a][demostración]] de Euler-Lagrange puede repetirse para cualquier
+$\phi \in {\cal C}^1(x_0,x_1)$ para obtener
+
+\[
+0 = 
+\int_{x_0}^{x_1} F_y(\dots)\phi(x) \,dx + 
+\left[ \phi(x) F_p(\dots) \right]^{x_1}_{x_0} - 
+\int_{x_0}^{x_1} \dv{}{x}F_p(\dots)\phi(x) \,dx.
+\]
+
+Como esto se cumple en particular para $\phi \in {\cal C}^1_0(x_0,x_1)$, estamos en
+las condiciones del teorema anterior y se tiene la ecuación de
+Euler-Lagrange. Pero entonces
+
+\[\left[ \phi(x) F_p(\dots) \right]^{x_1}_{x_0} = 0\]
+
+y tomando en particular funciones cumpliendo $\phi(x_j) = \delta_{ij}$ para
+$i,j = 0,1$ tenemos las condiciones de contorno buscadas.
+
 **** Lineales
 ***** Forma autoadjunta de una ecuación lineal
 Una ecuación lineal de orden 2 para $[x_0,x_1]$ es de la forma
