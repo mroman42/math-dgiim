@@ -1359,6 +1359,93 @@ Mu^{iv}(x) + Nu''(x) - f(x) = 0.
 \]
 
 *** Cards
+**** 2. Cálculo de variaciones
+***** 2.2. Función de Euler-Lagrange                              :drill:
+:PROPERTIES:
+:ID:       cd2cc1ba-0d03-4f95-871f-a4b27229bf39
+:END:
+Dar el dominio de la $F$ para la que se tiene Euler-Lagrange y sus
+condiciones de derivabilidad.
+
+****** Características
+Una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, dos veces
+derivable en $p$ y en $y$.
+
+***** 2.2. Dominio del funcional en Euler-Lagrange                :drill:
+¿Cuál es el dominio del funcional de Euler-Lagrange \({\cal F} \colon {\cal D} \to \mathbb{R}\)?
+
+****** Dominio
+
+\[{\cal D} = \left\{ \begin{array}{c} 
+y \in {\cal C}^1(x_0,x_1) \\
+y(x_0) = y_0 \\
+y(x_1) = y_1 \\
+\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega
+\end{array}\right\}\]
+
+***** 2.2. Funcional a minimizar en Euler-Lagrange                :drill:
+Dada una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, ¿qué
+funcional queremos minimizar en Euler-Lagrange?
+
+****** Funcional
+
+$${\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,$$
+
+para $y \in {\cal D}$.
+
+***** 2.3. Dominio sin condiciones de contorno                    :drill:
+Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
+define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
+de contorno.
+
+****** Dominio
+
+\[{\cal D}^o = \left\{ \begin{array}{c} 
+y \in {\cal C}^1(x_0,x_1), \\
+\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
+\end{array}\right\}\]
+
+
+**** 5. Funcionales dependientes de funciones de varias variables
+***** Ecuación de ondas                                           :drill:
+SCHEDULED: <2018-03-24 Sat>
+:PROPERTIES:
+:ID:       ec3964d3-0e49-45e8-b444-79d168c4fd70
+:DRILL_LAST_INTERVAL: 3.86
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-03-20 Tue 23:33]
+:END:
+Enunciar la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]], para parámetros $\alpha$ y $\sigma$ constantes,
+una fuerza $f$ y altura dada por $u$.
+
+****** Enunciado
+Desde la ecuación de Euler-Lagrange para varias variables.
+
+\[
+0 = f - \alpha u - \partial^2_{tt}u + \sigma\Delta_x u
+\].
+
+También puede enunciarse como:
+
+\[
+\partial_{tt}^2 u = f - \alpha u + \sigma \Delta_x u.
+\]
+
+***** TODO Fórmula de D'Alembert
+Enunciar la fórmula de D'Alembert, que resuelve la ecuación de ondas
+unidimensional,
+
+\[\left\{ \begin{array}{lr}
+u_{tt} = c^2u_{xx}, & t > 0, x \in \mathbb{R}, \\
+u(0,x) = u_0(x) \in {\cal C}^2(\mathbb{R}), \\
+u_t(0,x) = v_0(x) \in {\cal C}^1(\mathbb{R}).
+\end{aligned}\right.\]
+
 ** Modelos avanzados de computación
 Serafín Morales
 smc@decsai.ugr.es
