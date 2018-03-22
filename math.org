@@ -22062,7 +22062,7 @@ Un estadístico $t$ es *suficiente* para un parámetro $\theta$ cuando una vez
 conocido no puede obtenerse más información de sobre $\theta$ de los datos;
 esto es:
 
- \[\Pr(\theta| t,x) = \Pr(\theta|t)\]
+\[\Pr(\theta| t,x) = \Pr(\theta|t)\]
 
 ****** Definición equivalente
 De forma equivalente, es *suficiente* si la distribución condicionada 
@@ -39406,7 +39406,8 @@ A *lattice* is a poset with finite limits and colimits.
 *** II. Simple typesa
 
 * Papers
-** TODO Dependent types at work - Ana Bove, Peter Dybjer
+** TODO First steps in Synthetic computability theory - Andrej Bauer
+** Dependent types at work - Ana Bove, Peter Dybjer
 *** 1. What are dependent types?
 *** 2. Simply Typed Functional Programming in Agda
 **** 2.1. Truth Values
@@ -39498,30 +39499,8 @@ A *lattice* is a poset with finite limits and colimits.
 
 **** 3.3. More Inductive Families
 *** TODO 4. Propositions as Types
-** TODO Monads for functional programming - Philip Wadler
-*** 1. Introduction
-*** 2. Evaluating monads
-**** 2.1. Variation zero: The basic evaluator
-**** 2.2. Variation one: Exceptions
-**** 2.3. Variation two: State
-**** 2.4. Variation three: Output
-**** 2.5. A monadic evaluator
-**** 2.6. Variation zero, revisited: The basic evaluator
-**** 2.7. Variation one, revisited: Exceptions
-**** 2.8. Variation two, revisited: State
-**** 2.9. Variation three, revisited: Output
-*** 3. Monad Laws
-    Son equivalentes =return,join= y =return,bind=. Y además, desde cualesquiera
-    de ellos, se define =map=.
-*** 4. State
-**** 4.1. Arrays
-**** 4.2. Array transformers
-**** 4.3. Array readers
-     Conmutative monads.
-**** 4.4. Conclusion
-*** TODO 5. Parsers
-** TODO P?=NP - Scott Aaronson
-** TODO Semantics for type theory
+** P?=NP - Scott Aaronson
+** Semantics for type theory
 # Notes on paper.
 
 *** Formal languages and semantics
@@ -39621,6 +39600,28 @@ We interpret each type as a topological space; and each function type
 as the set of continuous functions. We use simplicial sets in MLTT.
 
 UIP does not hold under this interpretation.
+** Monads for functional programming - Philip Wadler
+*** 1. Introduction
+*** 2. Evaluating monads
+**** 2.1. Variation zero: The basic evaluator
+**** 2.2. Variation one: Exceptions
+**** 2.3. Variation two: State
+**** 2.4. Variation three: Output
+**** 2.5. A monadic evaluator
+**** 2.6. Variation zero, revisited: The basic evaluator
+**** 2.7. Variation one, revisited: Exceptions
+**** 2.8. Variation two, revisited: State
+**** 2.9. Variation three, revisited: Output
+*** 3. Monad Laws
+    Son equivalentes =return,join= y =return,bind=. Y además, desde cualesquiera
+    de ellos, se define =map=.
+*** 4. State
+**** 4.1. Arrays
+**** 4.2. Array transformers
+**** 4.3. Array readers
+     Conmutative monads.
+**** 4.4. Conclusion
+*** TODO 5. Parsers
 ** Classification of Surfaces - Chen Hui George Tao
 *** 1. Introducción
 Vamos a demostrar que todas las superficies compactas son homeomorfas
@@ -47051,7 +47052,6 @@ Resources on spaced repetition
 
 A session should be 10-15 mins long.
 
-
 ** Category theory
 *** Universality and Yoneda
 **** Universal arrow                                               :drill:
@@ -47950,6 +47950,9 @@ Diagramatically,
 ** Analysis
 *** Integrals
 **** Variable change                                               :drill:
+:PROPERTIES:
+:ID:       d952ab85-d01d-42b8-8d72-735e6d8b9147
+:END:
 Given $\varphi$ differentiable and $f$ integrable, state the
 integration by substitution rule.
 
@@ -48003,6 +48006,9 @@ for each $x \in D$ there exists a open $x \in U \subset D$ such that
 \]
 
 **** Hyperbolic sine                                               :drill:
+:PROPERTIES:
+:ID:       ad50cfd5-ba16-4bb6-beb4-88764926513f
+:END:
 Definition of hyperbolic sine
 
 ***** Definition
@@ -48010,6 +48016,9 @@ Definition of hyperbolic sine
 \sinh(x) = \frac{e^x-e^{-x}}{2}
 \]
 **** Hyperbolic cosine                                             :drill:
+:PROPERTIES:
+:ID:       8abc2ece-687c-434c-a63d-52e8ada791bd
+:END:
 Definition of hyperbolic cosine
 
 ***** Definition
