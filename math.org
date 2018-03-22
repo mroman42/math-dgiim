@@ -723,20 +723,102 @@ Sea $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$; $f$ es *localmente lips
 si para cada punto existe un entorno $(p,q) \in U \subset \Omega$ tal que $f|_U$ es
 globalmente lipschitziana respecto de $x \in \mathbb{R}^d$.
 
-**** 2.3. Teorema de Picard-Lindelöf
-***** Lema de función contractiva
+**** 2.4. Teorema de Picard-Lindelöf
+***** Entornos y espacios para Picard-Lindelöf
+Dados $a,b \in \mathbb{R}^+$, definimos los siguientes entornos cerrados,
+que pueden verse como la evolución de una bola cerrada dada en
+un tiempo.
+
+\[
+R_{a,b}(t_0,x_0) = [t_0-a, t_0+a] \times {\overline B}(x_0,b).
+\]
+
+Definimos los siguientes espacios de funciones hacia los entornos,
+que serán precisamente las funciones cumpliendo $(t,\varphi(t)) \in R_{a,b}$.
+
+\[
+E_{a,b}(t_0,x_0) = 
+\left\{ \varphi \in {\cal C}([t_{0} - a, t_{0} + a], \mathbb{R}^{d}) 
+\mid \varphi(t) \in {\overline B}(x_0,b)
+\right\}.
+\]
+
+En este espacio tenemos el operador de Volterra $V : E \to {\cal C}([t_0-a,t_0+a];\mathbb{R}^d)$
+definido por
+
+\[
+V(\varphi) = \int_{t_0}^t f(s,\varphi(s))\,ds.
+\]
+
+***** Lema 1 de función contractiva
+:PROPERTIES:
+:ID:       552dd347-bd4b-41e0-9ba7-0ebf9e42a26a
+:END:
+
+Sea $M\geq 0$ tal que
+
+\[
+\|f(t,x)\| \leq M,\quad \forall (t,x) \in R_{a,b}.
+\]
+
+Para cualquier $\varphi \in E$ se tiene $\|V(\varphi)-x_0\|_{\infty} \leq Ma$.
+
+****** Proof
+Tenemos que
+\[
+\| V(\varphi)-x_0 \|_{\infty} \leq
+\left\| \int_{t_0}^t f(s,\varphi(s))\,ds \right\|_{\infty} \leq
+M\|t-t_0\|_{\infty} \leq Ma.
+\]
+
+Nótese que usamos que $(t,\varphi(s)) \in R_{a,b}$.
+
+***** Lema 2 de función contractiva
+Si $\varphi \colon [t_0-a,t_0+a] \to \mathbb{R}^d$ es solución de Volterra y tenemos un $Ma \leq b$,
+cumpliendo que $f(s,\varphi(s)) \geq M$, entonces $\varphi \in E$.
+
+****** Proof
+
+
 ***** Teorema de Picard-Lindelöf
+Si $f$ es localmente lipschiztiana respecto de $x$ en un entorno de $(t_0,x_0)$,
+el PVI tiene solución y es única localmente.
+
+Si además $f$ es localmente lipschiztiana respecto de $x$ en todo el dominio,
+es la única solución maximal.
+
+****** TODO Proof
+
+***** Teorema del punto fijo de Banach
+Sea $(E,d)$ un espacio métrico completo con $F \colon E \to E$ con un $\alpha$ cumpliendo
+$d(F(x),F(y)) \leq \alpha d(x,y)$ para todo $x,y \in E$. Entonces,
+ 
+  1. $\exists! x^{\ast}\in E: F(x^{\ast}) = x^{\ast}$;
+  2. y si $x_0 \in E$, entonces $\left\{ F \circ \overset{n}{\dots} \circ F (x_0) \right\}_{n \in \mathbb{N}} \longrightarrow x^{\ast}$.
+
+Es decir, toda función contractiva en un espacio métrico completo tiene
+un punto fijo y todas sus aplicaciones sucesivas convergen a él.
+
 ***** Iterantes de Picard
-*** Tema 3. Ascoli-Arzelá y Cauchy-Peano
+Surgen como una aplicación repetida del operador de Volterra una vez que
+sabemos que es contractivo.
+
+***** Contraejemplo de Müller
+*** Tema 3. Teorema de Cauchy-Peano
+**** 3.1. Acotación uniforme y equicontinuidad
+***** Sucesión uniformemente acotada
+Una sucesión de funciones $f_n \colon I \subseteq \mathbb{R} \to \mathbb{R}^{d}$ es *uniformemente acotada* si
+existe una cota $\|f_n(t)\|\leq M$ para cualquier $n \in \mathbb{N}$ y cualquier $t \in I$.
+
+***** Anticaracterización de uniformemente acotadas
+**** Cauchy-Peano
+El problema de valores iniciales siempre tiene solución.
+
+***** TODO Demostración
 **** Ascoli-Arzelá
 Para $f_n \colon I \to \mathbb{R}^d$ una sucesión de funciones desde un intervalo abierto,
 uniformemente acotada y equicontinua, existe $f \colon I \to \mathbb{R}$ tal que $f_n$
 converge puntualmente a $f$.
-
-***** TODO Demostración
-
-**** Cauchy-Peano
-El problema de valores iniciales siempre tiene solución.
 
 ***** TODO Demostración
 
@@ -782,6 +864,32 @@ Calculamos usando [[*Condiciones para la unicidad local en variables separadas][
    \lim_{t \to (1/x_0 + t_0)} \varphi(t) = +\infty.
    \]
 *** Cards
+**** Globalmente lipschitziana respecto de x                       :drill:
+SCHEDULED: <2018-03-22 Thu>
+:PROPERTIES:
+:ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-18 Sun 22:49]
+:END:
+Una $f(x,y)$ definida en $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$ es [[id:c50d9301-e9db-40a1-b25f-b726327f37bb][globalmente lipschitziana respecto]]
+de $x \in \mathbb{R}^d$ cuando
+
+***** Definición
+Cuando existe $L \geq 0$ tal que
+
+\[
+\| f(x,y) - f(x',y) \| \leq L \| x - x' \|.
+\]
+
+Dicho de otra forma, las secciones $f(-,y)$ son lipschitzianas con una
+constante de lipschitz común.
+
 ** Modelos matemáticos II
 http://www.ugr.es/~jjmnieto/docencia.html
 
