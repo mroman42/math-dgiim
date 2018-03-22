@@ -1122,6 +1122,230 @@ z(x) = y(x) + \left( \frac{y_1(x-x_0) + y_0(x-x_1)}{x_0-x_1} \right).
 Que nos lleva al sustituir en la ecuación inicial a tener
 ${\widetilde R} = R - P' \cdot A - Q \cdot (Ax + B)$.
 
+**** 5. Funcionales dependientes de funciones de varias variables
+
+****** Ecuación de Euler-Lagrange dependiente de varias variables
+Consideramos un funcional
+
+\[
+{\cal F}[u] = \int_{\Omega} F \left( t,x,y,u,\pdv{u}{t},\pdv{u}{x},\pdv{u}{y} \right) \,dtdxdy,
+\]
+
+actuando sobre funciones $u(x,y,t)$ con unas ciertas condiciones de
+frontera, en el conjunto ${\cal D} = \left\{ u \in {\cal C}^1(\overline{\Omega}) \middle| u(x) = \gamma(x) \forall (x,y) \in \partial \Omega \right\}$.
+Supuesto ${\cal F}$ derivable ${\cal C}^1(\Omega)$, los extremales cumplen la siguiente
+condición de Euler-Lagrange
+
+\[
+F_u - \pdv{}{t} F_r - \pdv{}{x} F_p - \pdv{}{y}F_q = 0.
+\]
+
+
+***** 5.1. La membrana vibrante
+Consideramos una membrana sujeta por el borde, llamando $u(t,x,y)$ al
+a la *altura* de un punto de la membrana, que estará en $\Omega \subseteq \mathbb{R}^2$.
+Llamamos $\varphi(x,y) \in {\cal C}^1(\Omega)$ a la *posición de reposo o equilibrio* de la
+que parte, que usualmente se toma constante cero.
+
+\[\begin{aligned}
+{\cal F}[u] =
+C(\varphi) &+ \frac{1}{2} \int_0^{\infty}\int_{\Omega} m \abs{\pdv{u}{t}}^2 \,d(x,y)dt 
+\\& - \int_0^{\infty}\int_{\Omega} \sigma 
+  \sqrt{1 + \abs{\nabla u}^2} + f(x)u - \frac{\alpha}{2}(u - \varphi)^2\,dxdt
+\\& + \int_0^{\infty} \int_{\partial\Omega} g_1(x)u - \frac{\alpha_1}{2}(u - \varphi)^2\,dSdt
+\end{aligned}\]
+
+Normalmente sólo aparecerá este funcional simplificado.
+
+****** Simplificación 1: equilibrio nulo.
+Asumimos la posición de equilibrio $\varphi(x) = 0$ horizontal.
+
+****** Simplificación 2: deformaciones pequeñas (Taylor).
+Utilizamos el desarrollo de Taylor
+
+\[
+\sqrt{1 + s^2} = 1 + \frac{s^2}{2} - \frac{s^4}{8} + {\cal O}(s^6).
+\]
+
+para simplificar el término $\sqrt{1 + \abs{\nabla u}^2}$ despreciando ${\cal O}(\abs{\nabla u}^4)$
+para aproximar
+
+\[
+\int_{\Omega}\sigma \sqrt{1 + \abs{\nabla u}^2 \,dx} \sim C + \frac{1}{2}\int_{\Omega} \sigma \abs{\nabla u}^2\,dx.
+\]
+
+****** Simplificación 3: caso estacionario.
+La $u$ es independiente del tiempo.
+
+****** Modelo simplificado: asumiendo S1, S2, S3.
+Si asumimos todas las simplificaciones posibles llegamos a
+
+\[
+\alpha u - \sigma \Delta_x u = f.
+\]
+
+******* Laplaciana en variables espaciales
+La *laplaciana* es la suma de todas las segundas derivadas
+sin mezclar:
+
+\[
+\Delta f = \sum_{i=1}^n{\pdv[2]{f}{x_i}}.
+\]
+
+En nuestro caso nos interesa sólo la laplaciana respecto de
+las variables no temporales.
+
+\[
+\Delta_xu := \pdv[2]{u}{x} + \pdv[2]{u}{y}.
+\]
+
+******* Proof
+La $F$ asociada está en los apuntes. La ecuación se obtiene
+usando la definición de la laplaciana $\Delta u$.
+
+****** Ecuación de Poisson
+# Duda: sigma será constante no nula ¿no?
+Si simplificamos tomando $\sigma = \mathrm{cte}$  y $\alpha = 0$, tenemos la
+*Ecuación de Poisson*.
+
+\[
+-\Delta_x u = f/\sigma.
+\]
+
+****** Modos de vibración
+****** Problema de Dirichlet
+****** Ecuación de ondas
+:PROPERTIES:
+:ID:       6412aa5f-6f69-4458-9832-134ab22707b3
+:END:
+La ecuación de ondas no supone que estemos en el caso estacionario
+y por tanto $u$ puede depender de $t$. Suponiendo $\alpha$ y $\sigma$ constantes tenemos
+que
+
+\[
+{\cal F}[u] = \int_0^{\infty}\int_{\Omega}
+\left(\frac{(\partial_t u)^2}{2} - \frac{\sigma}{2}\abs{\nabla u}^2 + fu - \alpha\frac{u^2}{2}\right)
+\,dxdt.
+\]
+
+Nuestra $F$ es por tanto
+
+\[
+F = \frac{1}{2}
+\left( r^2 - \sigma(p^2+q^2) + 2fu - \alpha u^2 \right).
+\]
+
+La condición de Euler-Lagrange que se obtiene se llama *Ecuación de ondas*.
+
+\[
+\partial^2_{tt}u = f(x) - \alpha u  + \sigma \Delta_x u.
+\]
+
+***** 5.2. Resolución: separación de variables y necesidad del desarrollo en serie
+****** Ejemplo: ecuación de ondas en el caso unidimensional
+Tomamos como ejemplo la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]], en un caso unidimensional
+$\Omega = [0,L] \subseteq \mathbb{R}$ con $\sigma = c^2$ y $\alpha = f = 0$.
+
+\[
+{\cal F}[u] = 
+\frac{1}{2}\int_0^{\infty}\int_{0}^L
+\left( \left( \pdv{u}{t} \right)^2 - c^2 \left( \pdv{u}{x} \right)^2 \right)\,dxdt.
+\]
+
+Desde aquí, la condición de Euler-Lagrange nos da una simplificación de
+la *ecuación de ondas*.
+
+\[
+u_{tt} = c^2 u_{xx}
+\]
+
+A esta ecuación le ponemos las siguientes condiciones, donde para compensar
+el hecho de que no podemos fijar condición en $T = \infty$, fijamos la derivada
+inicial.
+
+\[\left\{\begin{array}{lr}
+u(0,x) = u_0(x) \in {\cal C}^2, & x \in [0,L], \\
+(\partial_t u)(0,x) = v_0(x) \in {\cal C}^1, & x \in [0,L], \\
+u(t,0) = u(t,L) = 0, & t \geq 0.
+\end{array}
+\right\}\]
+
+****** Separación de variables
+Buscamos ahora una solución de la forma $u(t,x) = T(t)W(x)$, que
+si es solución debe cumplir
+
+\[
+T''(t)W(x) = c^2T(t)W''(x),
+\]
+
+por lo que, se tienen las dos funciones siguientes independientes
+de la otra variable y constantes $T''(t)/T(t) = c^2W''(x)/W(x) = -\lambda$.
+
+****** Desarrollo de Fourier en series de senos y cosenos
+
+***** 5.3. Problemas de Sturm-Liouville
+
+***** 5.4. Fundamentos del análisis funcional
+
+***** 5.5. Series trigonométricas de Fourier
+
+***** 5.6. Solución de la ecuación de ondas
+****** 5.6.2. Soluciones de la ecuación de ondas en R, fórmula de D'Alembert
+Resolveremos la *ecuación de ondas* unidimensional,
+
+\[\left\{ \begin{array}{lr}
+u_{tt} = c^2u_{xx}, & t > 0, x \in \mathbb{R}, \\
+u(0,x) = u_0(x) \in {\cal C}^2(\mathbb{R}), \\
+u_t(0,x) = v_0(x) \in {\cal C}^1(\mathbb{R}),
+\end{aligned}\right.\]
+
+con la Fórmula de D'Alembert.
+
+\[
+u(t,x) = \frac{u_0(x+ct) - u_0(x-ct)}{2} + \frac{1}{2c}\int_{x-ct}^{x+ct}v_0(y)\,dy.
+\]
+
+******* Resolución
+Tomamos $\xi = x + ct$, $\eta = x - ct$, por lo que $x = \frac{\xi + \eta}{2}$ y $t = \frac{\xi - \eta}{2c}$.
+Definimos $U(\xi,\eta) = u \left( \frac{\xi + \eta}{2} , \frac{\xi - \eta}{2} \right)$, luego $u(x,t) = U(x + ct, x -ct)$.
+Calculamos, evaluando $u$ en $(x,t)$ y $U$ en $(\xi,\eta)$,
+
+\[ \left\{\begin{array}{l}
+u_{tt} = c^2U_{\xi\xi} - c^2U_{\xi\eta} - c^2U_{\eta\xi} + c^2U_{\eta\eta} \\
+u_{xx} = U_{\xi\xi} + U_{\xi\eta} + U_{\eta\xi} + U_{\eta\eta}
+\right.\end{array}\]
+
+Por lo que $0 = u_{tt} - c^2u_{xx} = -4U_{\xi\eta}$. El que esta derivada sea nula
+implica que $U_{\xi},U_{\eta}$ dependen de una sola de las variables, e integrando
+y pasando constantes tendremos que $U$ es de la forma
+
+\[
+U(\xi,\eta) = g(\xi) + h(\eta).
+\]
+
+Deshaciendo el cambio de variables, tenemos las condiciones iniciales
+
+\[\left\{\begin{array}{l}
+u_0(x) = g(x) + h(x), \\
+v_0(x) = c(g'(x) - h'(x)).
+\end{array}\right.\]
+
+Resolviendo e integrando,
+
+\[\left\{\begin{aligned}
+g(x) = K_1 + \frac{u_0(x)}{2} + \frac{1}{2c}\int_0^x v(y)}\,dy\\
+h(x) = K_2 + \frac{u_0(x)}{2} - \frac{1}{2c}\int_0^x v(y)}\,dy
+\end{aligned}\right.\]
+
+y para que se cumpla la condición, $K_1 + K_2 = 0$. Sustituyendo obtenemos
+la fórmula de d'Alembert.
+
+\[
+u(t,x) = \frac{u_0(x+ct) - u_0(x-ct)}{2} + \frac{1}{2c}\int_{x-ct}^{x+ct}v_0(y)\,dy.
+\]
+
+******* Comentario: cono de luz
+***** 5.7. Solución de la ecuación de Dirichlet
 *** Ejercicios
 # Escribir nombre y apellidos, curso, asignatura, año, firma.
 
