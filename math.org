@@ -1,16 +1,16 @@
 #+TITLE: Math
 #+DESCRIPTION: My math notes and exercises
 #+TODO: TODO WIP | CHECK DONE WONTFIX
-#+SETUPFILE: setup/ejerciciomodelos.setup
+#+SETUPFILE: setup/ejerciciocomputacion.setup
 
-# TODO: Per-header configuration.
+# TODO: Per-header configuration. 
 
 ** Header                                                           :ignore:
 #+latex_header: \setcounter{secnumdepth}{0}
 #+latex_header: \setlength{\parindent}{0pt}
 #+latex_header: \usepackage{physics}
 #+latex_header: \usepackage{amsthm}
-#+latex_header: \usepackage{amsmath
+#+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{amssymb}
 #+latex_header: \usepackage{stmaryrd}
 #+latex_header: \usepackage{mathtools}
@@ -19,6 +19,7 @@
 #+latex_header: \usepackage{tikz}
 #+latex_header: \usepackage{tikz-cd}
 #+latex_header: \usepackage{bussproofs} \EnableBpAbbreviations{}
+#+latex_header: \usepackage[makeroom]{cancel}
 
 #+latex_header: \DeclareMathOperator{\im}{Im}
 #+latex_header: \DeclareMathOperator{\coker}{Coker}
@@ -35,6 +36,9 @@
 #+latex_header: \newcommand\todot{\xrightarrow{.}}
 #+latex_header: \usepackage{mathtools}
 #+latex_header: \DeclarePairedDelimiter\pair{\langle}{\rangle}
+
+#+latex_header: \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+#+latex_header: \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
 
 *** Macros on HoTT                                                 :ignore:
 #+latex_header: \newcommand\ap{\mathsf{ap}}
@@ -701,6 +705,9 @@ Para $\Omega$ abierto, toda $f \in {\cal C}^1(\Omega)$ es localmente lipschitzia
 
 **** 2.3. Lipschiztianidad respecto de una variable
 ***** Lipschitzianidad global respecto de una variable
+:PROPERTIES:
+:ID:       c50d9301-e9db-40a1-b25f-b726327f37bb
+:END:
 Sea $\Omega \subseteq \mathbb{R}^d\times \mathbb{R}^n$; $f$ es *globalmente lipschitziana respecto* de $x \in \mathbb{R}^d$
 cuando existe $L \geq 0$ tal que
 
