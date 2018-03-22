@@ -2242,8 +2242,247 @@ de la parada.
 ***** Ejercicio 6
 # dejando máquinas en paralelo
 
+#+begin_statement
+Describir de manera informal MTs con varias cintas que enumeren
+(produzcan como salida una lista que contenga todas sus palabras)
+los siguientes lenguajes (se supone que los números se escriben
+en binario):
+
+ 1. El conjunto de los cuadrados perfectos.
+ 2. El conjunto de todos los naturales primos.
+ 3. El conjunto de todos los números naturales $n$ tales que la
+    MT cuya descripción es la palabra $w_n$ acepta la palabra $w_n$
+    como entrada ($w_n$ es la palabra sobre $\{0,1\}$ cuyo número asociado
+    es $n$.
+#+end_statement
+
+*Apartado 1.* La máquina escribirá en la segunda cinta un 1 y en la
+tercera un 0. Para conseguir cada cuadrado, sumará la segunda cinta con la
+tercera dejando el resultado en la tercera e incrementará dos veces el
+contenido de la segunda cinta. Finalmente, escribirá el contenido de la tercera
+en la primera. Nótese que usamos crucialmente que
+\[
+1 + 3 + \dots + (2n - 1) = n^2.
+\]
+
+*Apartado 2.* Conocemos una máquina que comprueba si un entero dado
+es primo comprobando que no sea divisible por ningún número mayor que
+1 y menor que él. La comprobación de divisibilidad $a \mid b$ podríamos
+hacerla escribiendo $0$ en una cinta y a cada paso sumando $a$ de nuevo
+a esa cinta y comprobando si el contenido de esa cinta es igual que $b$
+(en cuyo caso sería divisible) o mayor que $b$ (en cuyo caso no lo sería).
+
+Podemos ir comprobando si cada número es primo en otras cintas y, en
+caso de que lo sea, escribirlo en la primera.
+
+*Apartado 3.* Podemos simular una máquina de Turing arbitraria con
+entrada arbitraria con la máquina de Turing universal. Lo que
+haremos será simular todas las máquinas de Turing $w_{n}$ sobre entrada
+$w_n$ en paralelo. Para poder simular varias en paralelo cambiaremos de
+máquina entre ellas guardando el estado de las máquinas en una
+cinta para pasar a simular otra máquina.
+
+En paralelo, ejecutaremos el primer paso de $w_1$ sobre $w_{1}$. Después, 
+ejecutaremos el primer paso de $w_2$, el segundo paso de $w_1$ y guardamos
+el estado en la cinta. Después ejecutamos el primer paso de $w_3$, el
+segundo de $w_2$ y el tercero de $w_1$. Así sucesivamente, nos aseguramos
+que el n-ésimo paso de cualquier máquina se ejecutará eventualmente
+para cualquier $n$.
+
+Si el n-ésimo paso se ejecuta eventualmente, cualquier máquina que
+pare lo hará eventualmente en la simulación; y podremos escribir su
+número natural asociado en la cinta. Nótese que la salida así obtenida
+no proporciona necesariamente los números del lenguaje en orden (habrá
+máquinas que tarden menos en terminar en la simulación en paralelo que
+otras con un número asociado menor).
+
+***** Ejercicio 7
+#+begin_statement
+Sean $L_1,\dots,L_k$ con $k \geq 2$ un conjunto de lenguajes sobre el alfabeto
+$A$ tales que:
+
+  1. Para cada $i \neq j$, tenemos que $L_i \cap L_j = \varnothing$.
+  2. $\bigcup_{i=1}^k L_i = A^{\ast}$.
+  3. $\forall i \in \left\{ 1,\dots,k \right\}$, el lenguaje $L_i$ es r.e.
+
+Demostrar que $\forall i \in \left\{ 1,\dots,k \right\}$, el lenguaje $L_i$ es recursivo.
+#+end_statement
+
+Sabemos que $L_i$ es r.e., veremos que $\overline{L_i}$ es también r.e.; probando
+así que $L_i$ es recursivo. Usando las dos primeras condiciones, tenemos
+que
+\[
+\overline{L_i} = \bigcup_{j = 1, j \neq i}^{k} L_j.
+\]
+Como $\overline{L_i}$ es una unión finita de lenguajes r.e., será r.e.; para
+comprobar esto, podríamos usar una máquina que simule las máquinas
+que reconocen a cada uno de los lenguajes $L_j$ en paralelo, aceptando
+en cuanto una de ellas acepte. Si una palabra pertenece a la unión,
+pertenecerá forzosamente a uno de los lenguajes y una de las máquinas
+de la simulación parará aceptándola.
+
 ***** Ejercicio 8
 # usando reducción entre L y L' y luego razonando al complementario.
+#+begin_statement
+Sea $L$ r.e., pero no recursivo. Considérese el lenguaje
+\[
+L' = \left\{ 0w \mid w \in L \right\} \cup \left\{ 1w \mid w \not\in L \right\}.
+\]
+¿Puede asegurarse que $L'$ o su complementario son recursivos, r.e. o no r.e.?
+#+end_statement
+
+El complementario de $L'$ es
+\[
+\overline{L'} = 
+\left\{ 0w \mid w \not\in L \right\} 
+\cup 
+\left\{ 1w \mid w \in L \right\}
+\cup \left\{ \varepsilon \right\}.
+\]
+
+Tenemos que $\overline{L}$ puede reducirse al lenguaje $L'$ con una máquina de
+Turing que toma una palabra $w$ y la desplaza a la derecha para
+escribir $1w$. $L'$ no podría ser por tanto r.e., porque entonces
+lo sería también $\overline{L}$ y $L$ sería recursivo.
+
+Además, $\overline{L}$ puede reducirse al lenguaje $\overline{L'}$ con una máquina de
+Turing que toma una palabra $w$ y la desplaza a la derecha para
+escribir $0w$. $\overline{L'}$ no podría ser por tanto r.e., porque entonces
+lo sería también $\overline{L}$ y $L$ sería recursivo.
+
+En particular, $L'$ y $\overline{L'}$ no pueden ser recursivos al no ser
+r.e.
+
+***** TODO Ejercicio 9                                        :important:
+#+begin_statement
+Estudiar si las clases de lenguajes recursivos y r.e. son cerradas para
+las siguientes operaciones.
+
+ 1. Unión.
+ 2. Intersección
+ 3. Concatenación
+ 4. Clausura.
+ 5. Homomorfismo.
+ 6. Homomorfismo inverso.
+#+end_statement
+
+1. La unión de r.e. es r.e.
+   La unión de recursivos es recursiva.
+2. La intersección de r.e. es r.e.
+   La intersección de recursivos es recursivo.
+
+***** Ejercicio 10
+Rice.
+
+***** Ejercicio 12
+#+begin_statement
+Demostrar que es indecidible (no recursivo) saber si una MT
+termina escribiendo un $1$ cuando comienza con una cinta completamente
+en blanco.
+#+end_statement
+
+Vamos a reducir el problema $L_U$ a esta propiedad. Dado $(M,w)$,
+construimos $M'$ como una máquina que empieza escribiendo la
+entrada $w$ en la cinta, ejecuta $M$ sobre ella, y cada vez que
+llega en $M$ a un estado de aceptación, escribe un $1$ y para.
+Cada vez que llega a un estado de rechazo, escribe un $0$ y para.
+
+Entonces, si $M'$ escribe un $1$ y para, es porque $(M,w) \in L_U$; 
+si $M'$ no escribe un $1$ y para, es porque $(M,w) \notin L_U$.
+
+***** Ejercicio 13
+#+begin_statement
+Determinar si los siguientes lenguajes son recursivos, r.e. o
+no r.e.:
+
+  1. Determinar si el lenguaje de una MT contiene, al menos, dos
+     palabras distintas.
+
+  2. Determinar si el lenguaje de una MT es finito o infinito.
+
+  3. Determinar si el lenguaje de una MT es independiente del
+     contexto.
+#+end_statement
+
+1. Es semidecidible, porque podemos probar pares
+   de palabras de forma no determinista y parar cuando acepte
+   ambas y sean distintas.
+
+   Por Teorema de Rice, existe una máquina de Turing que acepta
+   un lenguaje con al menos dos palabras distintas (la que acepta
+   todos); y una que acepta un lenguaje sin dos palabras distintas
+   (la que rechaza siempre); así que esta es una propiedad no trivial
+   de los lenguajes r.e. y es indecidible.
+
+2. Reduciremos el complemento del lenguaje universal al lenguaje
+   de las MT que reconocen un lenguaje finito.
+
+   Dado un $(M,w)$, construimos $M'$ que para cada entrada $n$
+   leída como un número natural, ejecuta $n$ pasos de $M$ sobre
+   $w$ y acepta si no ha parado o ha rechazado y rechaza si $M$ para.
+   Si $M'$ reconoce un lenguaje finito, entonces existe algún $n_0$
+   para el que rechaza, y $(M,w)$ para en $n_0$ pasos. Si $M'$
+   reconoce un lenguaje no finito, entonces no puede darse el
+   caso de que $M$ pare sobre entrada $w$.
+
+   Así, el lenguaje de las MT que reconocen un lenguaje finito no
+   es r.e.
+
+   Ahora reduciremos el complemento del lenguaje universal al
+   lenguaje de las MT que reconocen un lenguaje infinito.
+
+   Dado un $(M,w)$, construimos una $M'$ que para cada entrada $n$
+   la lee como un número natural y ejecuta $n$ pasos de $M$ sobre
+   $w$, aceptando si ha aceptado ya. Si $M'$ reconoce un lenguaje
+   infinito, es porque eventualmente $M$ para. Si $M'$ no reconoce
+   un lenguaje infinito, es porque $M$ no para nunca.
+
+   Así, el lenguaje de las MT que reconocen un lenguaje infinito
+   no es r.e.
+
+3. Reduciremos el complemento del lenguaje universal al lenguaje
+   de las MT que reconocen un lenguaje independiente del contexto.
+   Dado $(M,w)$ construimos $M'$ que para cada entrada $a^nb^nc^n$, 
+   ejecuta $n$ pasos de $M$ sobre $w$ y acepta si no ha parado o ha
+   rechazado. Rechaza si ha parado o si el input no es de la
+   forma de la entrada.
+
+   Si $M'$ reconoce un lenguaje libre de contexto, es porque
+   reconoce un lenguaje finito y por tanto la máquina para en
+   algún punto. Si $M'$ reconoce un lenguaje que no es libre de
+   contexto, debe ser infinito, luego debe ser porque $M$ no
+   para sobre $w$ o lo rechaza.
+
+   Existe una máquina de Turing que acepta un lenguaje libre de
+   contexto y otra que acepta un lenguaje no libre de contexto.
+   Por ejemplo, existen máquinas de Turing que aceptan $\left\{ a^nb^nc^n \right\}$,
+   que no es libre de contexto. Por Teorema de Rice, saber si
+   una máquina de Turing acepta un lenguaje libre de contexto es
+   indecidible. No es decidible.
+
+***** Ejercicio 14
+#+begin_statement
+Sea $L$ el lenguaje formado por pares de códigos de MT más un entero
+$(M_1,M_2,k)$ tales que $L(M_1) \cap L(M_2)$ contiene, al menos, $k$ palabras.
+Demostrar que $L$ es r.e. pero no recursivo.
+#+end_statement
+
+Probaremos que el lenguaje es recursivamente enumerable.
+Dada una entrada $(M_1,M_2,k)$, de forma no determinista probaremos
+tuplas de la forma $(w_1,\dots,w_k)$; cada una de ellas pudiendo estar
+codificada por un solo natural, $n = 2^{w_1}\dots p_k^{w_k}$. Aceptaremos si todas
+las $(w_1,\dots,w_k)$ sean aceptadas por $M_1$ y por $M_2$. Así, el lenguaje
+es recursivamente enumerable
+
+Para probar que no es recursivo, vamos a reducir el problema de
+determinar si una máquina acepta alguna palabra (que no es recursivo)
+a este problema. Lo que hacemos es tomar $M_2$ como una máquina que
+simplemente acepta siempre y $k=1$. Comprobamos si $L(M_1) \cap L(M_2) = L(M_1)$
+contiene alguna palabra. Por tanto, $L$ tampoco es recursivo.
+
+****** Nota
+Explícitamente, lo que queremos es una biyección computable
+$\mathbb{N} \to \mathbb{N}^2$.
 
 ** Curvas y superficies
 *** Datos de la asignatura
