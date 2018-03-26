@@ -916,6 +916,35 @@ Entonces, para todo $f \in H^{\ast}$ existe un único $y_0\in H$ tal que
 $a(x,y_0) = f(x)$ para cualquier $x \in H$.
 
 *** Apuntes
+**** 0. Preliminares
+***** Identidades trigonométricas
+Las identidades trigonométricas
+
+\[\left\{\begin{array}{l}
+\sin(x)^2 + \cos(x)^2 = 1 \\
+\sin(a+b) = \sin(a)\cos(b) + \cos(a)\sin(b) \\
+\cos(a+b) = \cos(a)\cos(b) - \sin(a)\sin(b)
+\end{array}\right\}\]
+
+son [[id:893398fe-a78e-45a4-b0dd-d4e36bc98d78][suficientes]] para caracterizar al seno y al coseno.
+
+***** Fórmula de DeMoivre
+Sabemos que
+
+\[
+\left( \cos x + i \sin x \right)^n = \cos(nx) + i\sin(nx)
+\]
+
+puede ser expresada usando que
+
+\[
+\e^{i\theta} = \cos \theta + i \sin \theta
+\]
+
+***** Método de variación de constantes
+***** Ecuación diferencial de Euler
+***** Teorema de Fubini
+***** Teorema de Tonelli
 **** 1. Motivación y fundamentos del cálculo variacional
 **** 2. Cálculo de variaciones
 ***** 2.1. Teorema 1. Lema fundamental del cálculo de variaciones
@@ -1044,6 +1073,95 @@ Euler-Lagrange. Pero entonces
 y tomando en particular funciones cumpliendo $\phi(x_j) = \delta_{ij}$ para
 $i,j = 0,1$ tenemos las condiciones de contorno buscadas.
 
+****** TODO Teorema 3. Condiciones en conjuntos con una sola condición de contorno
+****** Teorema 4. Euler-Lagrange para F independiente de y
+En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si además $F_y = 0$, entonces
+la condición que nos da Euler-Lagrange puede ser escrita como
+
+\[
+F_p(x,\oy'(x)) = \mathrm{cte.}
+\]
+
+******* Proof
+Trivialmente integrando en la ecuación de Euler-Lagrange.
+
+****** Teorema 5. Euler-Lagrange para F independiente de x
+Para un funcional de la forma siguiente con $F$ dos veces derivable
+respecto a $y$ y a $p$,
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} F(y(x),y'(x))\,dx,
+\]
+
+cualquier minimal $\oy \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ verifica 
+
+\[
+F(\oy(x),\oy'(x)) - \oy'(x)F_p(\oy(x),\oy'(x)) = \mathrm{cte.}
+\]
+
+o, de forma simplificada,
+
+\[
+F - y'F_p = \mathrm{cte.}
+\] 
+
+******* Proof
+Tenemos que, aplicando [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]]
+
+\[
+\dv{}{x}\left( F - y'F_p \right) = y'\left(F_y - \dv{}{x}F_p\right) = 0.
+\]
+
+***** 2.3. Ejemplos
+***** 2.4. Convexidad: condición suficiente de existencia
+****** Convexidad
+Un subconjunto $\Omega \subseteq V$ de un espacio vectorial es *convexo* cuando
+contiene al segmento entre cualesquiera dos puntos,
+
+\[
+\forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad tx + (1-t)y \in \Omega.
+\]
+
+Y una función $f \colon \Omega \to \mathbb{R}$ es *convexa* cuando cumple la desigualdad
+de Jensen,
+
+\[\forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad
+f(tx + (1-t)y) \leq tf(x) + (1-t)f(y).
+\]
+
+****** Teorema 6. Existencia de mínimo con convexidad
+En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si ${\cal D}$ es convexo, ${\cal F}$ es convexo,
+y $\oy \in {\cal D} \cap {\cal C}^2$ es una extremal, entonces $\oy$ es un mínimo global de $\sigma$.
+
+******* TODO Proof
+
+****** Teorema 7. Los mínimos locales son globales con convexidad
+Dado un funcional ${\cal F} \colon {\cal D} \to \mathbb{R}$ convexo en un subconjunto convexo de un
+espacio vectorial ${\cal D}$; si ${\cal F}$ alcanza un mínimo (resp. estricto) local
+en $\oy \in {\cal D}$, entonces $\oy$ es un mínimo (resp. estricto) global.
+
+******* TODO Proof
+
+****** Teorema 8. Condición de convexidad
+Para $F(x,y,p) \colon [x_0,x_1] \times \Omega \to \mathbb{R}$ en las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]]
+con $\Omega$ convexo y $F$ convexa; el funcional
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx
+\]
+
+es convexo.
+
+******* TODO No es condición necesaria
+******* Proof
+Usando linealidad y acotación de la integral tenemos
+
+\[\begin{aligned}
+{\cal F}[\lambda y + (1-\lambda) z] &=
+\int_{x_0}^{x_1} F\Big(x,\lambda y + (1-\lambda)z, \lambda y' + (1-\lambda)z'\Big)\,dx \\&\leq
+\lambda \int_{x_0}^{x_1} F\Big(x,y,y'\Big)\,dx + (1 - \lambda)\int_{x_0}^{x_1} F\Big(x,z,z'\Big)\,dx.
+\end{aligned}\]
+**** 3. Cálculo de extremales: problemas de contorno
 **** Lineales
 ***** Forma autoadjunta de una ecuación lineal
 Una ecuación lineal de orden 2 para $[x_0,x_1]$ es de la forma
@@ -1123,7 +1241,6 @@ Que nos lleva al sustituir en la ecuación inicial a tener
 ${\widetilde R} = R - P' \cdot A - Q \cdot (Ax + B)$.
 
 **** 5. Funcionales dependientes de funciones de varias variables
-
 ****** Ecuación de Euler-Lagrange dependiente de varias variables
 Consideramos un funcional
 
@@ -1140,8 +1257,8 @@ condición de Euler-Lagrange
 F_u - \pdv{}{t} F_r - \pdv{}{x} F_p - \pdv{}{y}F_q = 0.
 \]
 
-
 ***** 5.1. La membrana vibrante
+****** Marco del problema
 Consideramos una membrana sujeta por el borde, llamando $u(t,x,y)$ al
 a la *altura* de un punto de la membrana, que estará en $\Omega \subseteq \mathbb{R}^2$.
 Llamamos $\varphi(x,y) \in {\cal C}^1(\Omega)$ a la *posición de reposo o equilibrio* de la
@@ -1289,6 +1406,40 @@ de la otra variable y constantes $T''(t)/T(t) = c^2W''(x)/W(x) = -\lambda$.
 
 ***** 5.5. Series trigonométricas de Fourier
 
+****** Base ortonormal
+El conjunto de las funciones trigonométricas T-periódicas
+
+\[
+y_0(x) = \frac{1}{\sqrt{T}}, \quad 
+y_{2n}(x) = \sqrt{\frac{2}{T}}\cos \left( \frac{2n\pi x}{T} \right), \quad
+y_{2n-1}(x) = \sqrt{\frac{2}{T}}\sen \left( \frac{2n\pi x}{T} \right)
+\]
+
+es un sistema ortonormal completo o base Hilbertiana.
+
+******* Desarrollo de una función
+Es habitual escribir el desarrollo de una función como
+
+\[
+y(x) = \frac{a_0}{2} + 
+\sum^{\infty}_{n=1} a_n\cos \left( \frac{2n\pi x}{T} \right) + 
+\sum^{\infty}_{n=1} b_n\sin \left( \frac{2n\pi x}{T} \right).
+\]
+
+# TODO: Comprobar que este es efectivamente el desarrollo y calcular
+# el valor de los coeficientes a_n para comprobar que cuadran con los
+# dados en los apuntes.
+
+# TODO: Comprobar que es un sistema ortonormal usando identidades
+# trigonométricas.
+
+****** Teorema de Riesz-Fischer
+El conjunto de funciones trigonométricas $\left\{ y_n \right\}^{\infty}_{n =0}$ forma un sistema
+ortonormal completo y toda función en $L^2(0,T)$ puede ser descrita
+de forma única a través de su serie de Fourier.
+
+******* TODO Proof
+
 ***** 5.6. Solución de la ecuación de ondas
 ****** 5.6.2. Soluciones de la ecuación de ondas en R, fórmula de D'Alembert
 Resolveremos la *ecuación de ondas* unidimensional,
@@ -1346,9 +1497,402 @@ u(t,x) = \frac{u_0(x+ct) - u_0(x-ct)}{2} + \frac{1}{2c}\int_{x-ct}^{x+ct}v_0(y)\
 
 ******* Comentario: cono de luz
 ***** 5.7. Solución de la ecuación de Dirichlet
-*** Ejercicios
-# Escribir nombre y apellidos, curso, asignatura, año, firma.
+**** 6. Formulación débil
+***** 6.1. Derivada generalizada y débil
+****** Fórmula de Green
+Dadas $u,v \in {\cal C}^1(\overline{\Omega})$, para $\Omega \subset \mathbb{R}^N$, si llamamos $n_i(x)$ a la
+componente del vector $n(x)$ normal a $\partial\Omega$ en $x$, tenemos la
+siguiente generalización de la regla de la cadena.
 
+\[\int_{\Omega} u(x) (\partial_xv(x)) \,dx = 
+-\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx +
+\int_{\partial\Omega} u(x)v(x)n_i(x)\,dS.
+\]
+
+Cuando $v \in {\cal C}^1_0(\Omega)$, es decir, es de soporte compacto, nos
+queda la Fórmula de Green
+
+\[
+\int_{\Omega} u(x) (\partial_xv(x)) \,dx = 
+-\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx.
+\]
+
+******* Clave 1: derivadas caracterizadas
+:PROPERTIES:
+:ID:       893398fe-a78e-45a4-b0dd-d4e36bc98d78
+:END:
+Dados $u \in {\cal C}^1(\overline{\Omega})$ y $g \in {\cal C}^0(\overline{\Omega})$, si para cualquier $v \in {\cal C}^1_0(\Omega)$
+
+\[
+\int_{\Omega} g(x)v(x)\,dx = - \int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx,
+\]
+
+entonces $\partial_{x_i}u = g$.
+
+******** Proof
+Consecuencia directa del [[id:652bdddb-0853-4a9a-8060-28a730928816][lema fundamental]].
+
+******* Clave 2: operador lineal de Green
+:PROPERTIES:
+:ID:       c34bbc56-aa81-404b-a6ea-0670000f306b
+:END:
+Para $u \in L_{loc}^1(\Omega)$ integrable sobre compactos, se define un
+operador lineal $L \colon {\cal C}^1_0(\Omega) \to \mathbb{R}$ como
+
+\[
+L_u[v] = - \int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx.
+\]
+
+Que caracteriza propiedades de la derivada sin necesitar
+derivabilidad.
+
+****** Derivada generalizada o distribucional
+Para $u \in L_{loc}^1(\Omega)$, definimos la *derivada generalizada* respecto de
+$x_i$ como el operador $L_u \colon {\cal C}^{\infty}_0(\Omega) \to \mathbb{R}$ notado usualmente como
+
+\[
+\left\langle \partial_xu, v \right\rangle =
+-\left\langle u, \partial_x v \right\rangle =
+-\int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx.
+\]
+
+****** Derivada débil
+Una $u \in L_{loc}^1(\Omega)$ tiene *derivada débil* respecto de $x_i$ cuando existe
+$g \in L_{loc}^1(\Omega)$ tal que
+
+\[
+\int_{\Omega}g(x)v(x)\,dx = - \int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx
+\qquad \forall v \in {\cal C}^{\infty}_0(\Omega).
+\]
+
+Es decir, cuando $\left\langle \partial_{x_i}u,v \right\rangle = \left\langle g,v \right\rangle$. Solemos decir que $\partial_{x_i}u = g$ en
+sentido débil.
+
+****** Función Heaviside y Delta de Dirac
+La *función de Heaviside* $H(x) = \max\left\{ 0,x/|x| \right\}$ está definida
+c.p.d. Su derivada generalizada puede calcularse sabiendo $v \in {\cal C}^{\infty}_0(\mathbb{R})$
+como
+
+\[\left\langle H',v \right\rangle = 
+-\int_{\mathbb{R}} H(x)v'(x)\,dx =
+-[v(x)]^{\infty}_0 = v(0).\]
+
+Es decir, su derivada débil es la *Delta de Dirac*, $\delta_0(v) = v(0)$.
+
+***** 6.1.1. Espacios de Sobolev
+Para $\Omega \subseteq \mathbb{R}^N$ dominio, $m \in \mathbb{N}$ y $p \in [1,\infty]$, se define el *espacio de Sobolev*
+
+\[
+W^{m,p}(\Omega) = \left\{ u \in L^p(\Omega) \;\middle|\;
+\pdv[\alpha]{u}{x} \in L^p(\Omega),\, \forall 0 \leq \alpha \leq N \right\}.
+\]
+
+***** 6.2. Repaso de análisis funcional
+****** Teorema fundamental del cálculo
+Dada $f \in L_{loc}^1(a,b)$ y un $c \in (a,b)$, definimos la *primitiva* de $f$
+que se anula en $c$ como
+
+\[
+F(x) = \int_c^x f(s)\,ds.
+\]
+
+Sabemos que $F$ es continua y tiene derivada débil en $(a,b)$ que
+es igual a $f$ c.p.d.
+
+******* Proof
+Por definición, partiendo la integral,
+
+\[
+\left\langle F',\phi \right\rangle =
+\int_a^c\int_x^c f(s)\phi'(x)\,dsdx -
+\int_c^b\int_c^x f(s)\phi'(x)\,dsdx.
+\]
+
+Aplicamos Teorema de Fubini independientemente en las dos
+variabes, sabiendo que $f\phi' \in L_{loc}^1$,
+
+\[
+\left\langle F',\phi \right\rangle =
+\int_a^c f(s) \int_a^s \phi'(x)\,dxds -
+\int_c^b f(s) \int_s^b \phi'(x)\,dxds.
+\]
+
+Usamos Barrow dos veces en la integral interna para tener,
+sabiendo que $\phi(a)=\phi(b)=0$,
+
+\[
+\left\langle F',\phi \right\rangle =
+\int_a^c f(s)\phi(s)\,ds -
+\int_c^b f(s)(-\phi(s))\,ds = \left\langle f,\varphi \right\rangle.
+\]
+
+En un caso más general del [[id:893398fe-a78e-45a4-b0dd-d4e36bc98d78][comentado anteriormente]], esto
+nos da que $f = F'$ c.p.d.
+
+# Tenemos que no son continuas, sólo integrables. Cómo se generaliza a
+# este caso no queda del todo claro, porque usábamos crucialmente antes
+# la conservación del signo de funciones continuas.
+
+****** Desigualdad de Poincaré
+Para $\Omega$ dominio acotado y $u \in H_0^1(\Omega)$ existe una constante $C$
+dependiente solo de $\Omega$ tal que
+
+\[
+\int_{\Omega} u^2\,dx \leq C \int_{\Omega} |\nabla u|^2\,dx.
+\]
+
+*** Cards
+**** 2. Cálculo de variaciones
+***** 2.2. Ecuación de Euler-Lagragne
+****** 2.2. Función para Euler-Lagrange                          :drill:
+SCHEDULED: <2018-03-26 Mon>
+:PROPERTIES:
+:ID:       cd2cc1ba-0d03-4f95-871f-a4b27229bf39
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:04]
+:END:
+Dar el dominio de la $F$ para la que se tiene Euler-Lagrange y sus
+condiciones de derivabilidad.
+
+******* Características
+Una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, dos veces
+derivable en $p$ y en $y$.
+
+****** 2.2. Dominio del funcional en Euler-Lagrange              :drill:
+SCHEDULED: <2018-03-26 Mon>
+:PROPERTIES:
+:ID:       7c4a6835-9dea-4a2a-a944-4ed5540545ee
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:06]
+:END:
+¿Cuál es el dominio del funcional de Euler-Lagrange \({\cal F} \colon {\cal D} \to \mathbb{R}\)?
+
+******* Dominio
+
+\[{\cal D} = \left\{ \begin{array}{c} 
+y \in {\cal C}^1(x_0,x_1) \\
+y(x_0) = y_0 \\
+y(x_1) = y_1 \\
+\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega
+\end{array}\right\}\]
+
+****** 2.2. Funcional a minimizar en Euler-Lagrange              :drill:
+SCHEDULED: <2018-03-26 Mon>
+:PROPERTIES:
+:ID:       6957180c-8bdf-4dea-9ee3-1df1d964c86c
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:03]
+:END:
+Dada una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, ¿qué
+funcional queremos minimizar en Euler-Lagrange?
+
+******* Funcional
+
+$${\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,$$
+
+para $y \in {\cal D}$.
+
+****** 2.2. Dominio sin condiciones de contorno                  :drill:
+SCHEDULED: <2018-03-26 Mon>
+:PROPERTIES:
+:ID:       636e7cb1-9d12-4a39-aa2c-45cfbb581967
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:04]
+:END:
+Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
+define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
+de contorno.
+
+******* Dominio
+
+\[{\cal D}^o = \left\{ \begin{array}{c} 
+y \in {\cal C}^1(x_0,x_1), \\
+\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
+\end{array}\right\}\]
+
+****** 2.2. Condiciones de contorno para problemas sin ellas     :drill:
+SCHEDULED: <2018-03-26 Mon>
+:PROPERTIES:
+:ID:       742721a0-1edb-47c7-aabc-bb203354d4bc
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:05]
+:END:
+Dado un funcional sobre ${\cal D}^o$, cualquier $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal
+de ${\cal F}$ verifica Euler-Lagrange y ¿qué condiciones de contorno?
+
+******* Condiciones de contorno
+
+\[
+F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
+\]
+
+****** 2.2. Euler-Lagrange para F independiente de y             :drill:
+SCHEDULED: <2018-03-28 Wed>
+:PROPERTIES:
+:ID:       b5ac284c-b322-4cf6-996f-c70db55e891b
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:54]
+:END:
+Reescribe Euler-Lagrange sabiendo $F_y = 0$.
+
+******* Euler-Lagrange
+
+\[
+F_p(x,\oy'(x)) = \mathrm{cte.}
+\]
+
+****** 2.2. Euler-Lagrange para F independiente de x             :drill:
+SCHEDULED: <2018-03-28 Wed>
+:PROPERTIES:
+:ID:       22e8b4d8-c306-4927-9a7f-159725999cbd
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:54]
+:END:
+Reescribe Euler-Lagrange sabiendo $F_x = 0$.
+
+******* Euler-Lagrange
+
+\[
+F - y'F_p = \mathrm{cte.}
+\]
+
+
+***** 2.4. Convexidad: condición suficiente de existencia
+
+**** 5. Funcionales dependientes de funciones de varias variables
+***** Ecuación de ondas                                           :drill:
+SCHEDULED: <2018-04-02 Mon>
+:PROPERTIES:
+:ID:       ec3964d3-0e49-45e8-b444-79d168c4fd70
+:DRILL_LAST_INTERVAL: 8.9166
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:49]
+:END:
+Enunciar la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]], para parámetros $\alpha$ y $\sigma$ constantes,
+una fuerza $f$ y altura dada por $u$.
+
+****** Enunciado
+Desde la ecuación de Euler-Lagrange para varias variables.
+
+\[
+0 = f - \alpha u - \partial^2_{tt}u + \sigma\Delta_x u
+\].
+
+También puede enunciarse como:
+
+\[
+\partial_{tt}^2 u = f - \alpha u + \sigma \Delta_x u.
+\]
+
+***** TODO Fórmula de D'Alembert
+Enunciar la fórmula de D'Alembert, que resuelve la ecuación de ondas
+unidimensional,
+
+\[\left\{ \begin{array}{lr}
+u_{tt} = c^2u_{xx}, & t > 0, x \in \mathbb{R}, \\
+u(0,x) = u_0(x) \in {\cal C}^2(\mathbb{R}), \\
+u_t(0,x) = v_0(x) \in {\cal C}^1(\mathbb{R}).
+\end{aligned}\right.\]
+**** 6. Formulación débil
+***** Fórmula de Green                                            :drill:
+SCHEDULED: <2018-03-28 Wed>
+:PROPERTIES:
+:ID:       2f8ab0e2-d672-4822-8957-da14137f3350
+:DRILL_LAST_INTERVAL: 3.916
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:53]
+:END:
+Enunciar la fórmula de Green para $u \in {\cal C}^1(\overline{\Omega})$ y $v \in {\cal C}^1_0(\overline{\Omega})$.
+
+****** Enunciado
+
+\[
+\int_{\Omega} u(x) (\partial_xv(x)) \,dx = 
+-\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx.
+\]
+
+***** Teorema fundamental del cálculo                             :drill:
+SCHEDULED: <2018-03-28 Wed>
+:PROPERTIES:
+:ID:       48323a75-8295-4d00-af02-7a57721d5269
+:DRILL_LAST_INTERVAL: 3.916
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:53]
+:END:
+Enunciar el teorema fundamental del cálculo en su versión débil
+para una $f \in L_{loc}^1(a,b)$ y un $c \in (a,b)$.
+
+****** Enunciado
+La función
+
+\[
+\int_c^x f(s)\,ds
+\]
+
+ * es continua
+ * y tiene derivada débil en $(a,b)$ igual a $f$ c.p.d.
+
+*** Ejercicios
+**** Ejemplos de los apuntes
+*** Entregas
+# Escribir nombre y apellidos, curso, asignatura, año, firma.
 **** Ejercicio 1
 #+begin_statement
 Encontrar una función $\phi \in {\cal C}^{\infty}_{0}[x_0,x_1]$ tal que $\phi(x) > 0$ únicamente en
@@ -1581,95 +2125,6 @@ por lo que la ecuación final es precisamente
 \[
 Mu^{iv}(x) + Nu''(x) - f(x) = 0.
 \]
-
-*** Cards
-**** 2. Cálculo de variaciones
-***** 2.2. Función de Euler-Lagrange                              :drill:
-:PROPERTIES:
-:ID:       cd2cc1ba-0d03-4f95-871f-a4b27229bf39
-:END:
-Dar el dominio de la $F$ para la que se tiene Euler-Lagrange y sus
-condiciones de derivabilidad.
-
-****** Características
-Una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, dos veces
-derivable en $p$ y en $y$.
-
-***** 2.2. Dominio del funcional en Euler-Lagrange                :drill:
-¿Cuál es el dominio del funcional de Euler-Lagrange \({\cal F} \colon {\cal D} \to \mathbb{R}\)?
-
-****** Dominio
-
-\[{\cal D} = \left\{ \begin{array}{c} 
-y \in {\cal C}^1(x_0,x_1) \\
-y(x_0) = y_0 \\
-y(x_1) = y_1 \\
-\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega
-\end{array}\right\}\]
-
-***** 2.2. Funcional a minimizar en Euler-Lagrange                :drill:
-Dada una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, ¿qué
-funcional queremos minimizar en Euler-Lagrange?
-
-****** Funcional
-
-$${\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,$$
-
-para $y \in {\cal D}$.
-
-***** 2.3. Dominio sin condiciones de contorno                    :drill:
-Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
-define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
-de contorno.
-
-****** Dominio
-
-\[{\cal D}^o = \left\{ \begin{array}{c} 
-y \in {\cal C}^1(x_0,x_1), \\
-\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
-\end{array}\right\}\]
-
-
-**** 5. Funcionales dependientes de funciones de varias variables
-***** Ecuación de ondas                                           :drill:
-SCHEDULED: <2018-03-24 Sat>
-:PROPERTIES:
-:ID:       ec3964d3-0e49-45e8-b444-79d168c4fd70
-:DRILL_LAST_INTERVAL: 3.86
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-03-20 Tue 23:33]
-:END:
-Enunciar la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]], para parámetros $\alpha$ y $\sigma$ constantes,
-una fuerza $f$ y altura dada por $u$.
-
-****** Enunciado
-Desde la ecuación de Euler-Lagrange para varias variables.
-
-\[
-0 = f - \alpha u - \partial^2_{tt}u + \sigma\Delta_x u
-\].
-
-También puede enunciarse como:
-
-\[
-\partial_{tt}^2 u = f - \alpha u + \sigma \Delta_x u.
-\]
-
-***** TODO Fórmula de D'Alembert
-Enunciar la fórmula de D'Alembert, que resuelve la ecuación de ondas
-unidimensional,
-
-\[\left\{ \begin{array}{lr}
-u_{tt} = c^2u_{xx}, & t > 0, x \in \mathbb{R}, \\
-u(0,x) = u_0(x) \in {\cal C}^2(\mathbb{R}), \\
-u_t(0,x) = v_0(x) \in {\cal C}^1(\mathbb{R}).
-\end{aligned}\right.\]
-
 ** Modelos avanzados de computación
 Serafín Morales
 smc@decsai.ugr.es
@@ -2489,20 +2944,310 @@ $\mathbb{N} \to \mathbb{N}^2$.
 César Rosales - crosales@ugr.es
 Lunes, Martes y Miércoles de 12 a 14.
 http://www.ugr.es/~crosales/cys1718.html
+*** Preliminares
+**** 1. Geometría afín euclídea
+***** Producto escalar
+***** Orientación
+Una base $B = \left\{ u_1,\dots,u_n \right\}$ es *positiva* si la matriz de cambio de 
+base de $B$ a $B_u$ es positiva. Es decir,
+
+\[\mathrm{det}(u_1 & \dots & u_n) > 0.
+\]
+
+***** Bases ortonormales
+Para $B= \left\{ u_1,\dots,u_n \right\}$ base ortonormal,
+
+\[\left| v \right|^2 = \sum_{i=1}^n \left\langle v,u_i \right\rangle^2.
+\]
+
+En general,
+
+\[
+\left\langle u,v \right\rangle = \sum_{i=1}^n \left\langle u,u_i \right\rangle \left\langle v,u_i \right\rangle.
+\]
+
+***** Movimientos rígidos
+:PROPERTIES:
+:ID:       92d75a96-b872-4ea6-ae5a-b83d975e2b37
+:END:
+Todo movimiento rígido es de la forma
+
+\[
+\phi(p) = \vec{\phi}(p) + b,
+\]
+
+para $\vec{\phi}$ una isometría lineal.
+
+****** Isometrías lineales
+Una aplicación $\vec\phi$ es isometría lineal si $\left\langle \vec{\phi}(u),\vec{\phi}(v) \right\rangle = \left\langle u,v \right\rangle$, para
+cualesquiera $u$ y $v$.
+
+Esto equivale a $|\vec{\phi}(u)| = u$ para cualquier $u$.
+
+****** Matriz asociada, movimientos directos o inversos
+La matriz asociada a una isometría lineal es ortogonal, $A^{-1} = A^t$,
+luego su determinante es $|A| = \pm 1$. La isometría es *directa* si
+es positivo, e *inversa* si es negativo.
+
+***** Movimientos rígidos de R2
+
+|----------------------+----------------+--------------+----------|
+| Tipo de movimiento   | Isometría      | Puntos fijos | Carácter |
+|----------------------+----------------+--------------+----------|
+| Identidad            | Identidad      | Plano        | directo  |
+| Traslación           | Identidad      | ninguno      | directo  |
+| Giro                 | Giro           | Punto        | directo  |
+| Reflexión            | Simetría axial | Recta        | inverso  |
+| Reflexión deslizante | Simetría axial | ninguno      | inverso  |
+|----------------------+----------------+--------------+----------|
+
+***** Movimientos rígidos de R3
+
+|-----------------------+--------------------+--------------+----------|
+| Tipo de movimiento    | Isometría          | Puntos fijos | Carácter |
+|-----------------------+--------------------+--------------+----------|
+| Identidad             | identidad          | Espacio      | directo  |
+| Traslación            | identidad          | ninguno      | directo  |
+| Rotación              | Rotación           | Recta        | directo  |
+| Movimiento helicoidal | Rotación           | ninguno      | directo  |
+| Reflexión             | Simetría especular | Plano        | inverso  |
+| Relfexión deslizante  | Simetría especular | ninguno      | inverso  |
+| Rotación y reflexión  | Giro y simetría    | Punto        | inverso  |
+|-----------------------+--------------------+--------------+----------|
+
+**** 2. Producto vectorial en R3
+***** Producto vectorial
+Llamamos *producto vectorial* $u \times v$ al único vector tal que
+
+\[
+\forall w:\quad \mathrm{det}(u,v,w) = \left\langle u\times v,w \right\rangle.
+\]
+
+***** Propiedades del producto vectorial
+Tenemos
+
+ 1. que $\times$ es bilineal antisimétrica,
+ 2. $\left\langle u \times v, u \right\rangle = \left\langle u \times v,v \right\rangle = 0$,
+ 3. $|u \times v|^2 = \mathrm{det}(u,v,u \times v) = |u|^2|v|^2 - \left\langle u,v \right\rangle^2$,
+ 4. $u \times v = 0$ si y sólo si son linealmente independientes,
+ 5. para $\left\{ u,v \right\}$ independientes, $\left\{ u,v,u \times v \right\}$ es base positiva,
+ 6. para $\left\{ u,v \right\}$ ortonormales, $\left\{ u,v,u \times v \right\}$ es base positiva ortonormal.
+
+****** Proof 1
+Desde las propiedades del determinante.
+
+****** Proof 2
+Por definición y por las propiedades del determinante.
+
+****** Proof 3
+Se comprueba calculando explícitamente $|u \times v|^2$.
+
+****** TODO Proof 4
+
+****** TODO Proof 5
+
+**** 3. Distancia con signo asociada a un hiperplano
+**** 4. Reglas de derivación para funciones de una variable
+Para $\alpha , \beta \colon I \to \mathbb{R}^{n}$ curvas ${\cal C}^{\infty}$, dado un $\lambda \colon I \to \mathbb{R}$ diferenciable, se tiene
+
+ 1. $\left\langle \alpha(t),\beta(t) \right\rangle' = \left\langle \alpha'(t),\beta(t)  \right\rangle + \left\langle \alpha(t)\beta'(t) \right\rangle$,
+
+ 2. $(|\alpha(t)|^2)' = 2 \left\langle \alpha'(t),\alpha(t) \right\rangle$
+
+ 3. $|\alpha(t)|' = \pair{\alpha'(t), \frac{\alpha(t)}{|\alpha(t)|}}$ cuando $\alpha(t) \neq 0$ para cada $t \in I$
+
+ 4. $(\lambda(t)\alpha(t))' = \lambda'(t)\alpha(t) + \lambda(t)\alpha'(t)$
+
+ 5. $(\alpha(t) \times \beta(t))' = \alpha'(t) \times \beta(t) + \alpha(t) \times \beta'(t)$ cuando $n = 3$
+
+**** 5. Diferenciabilidad de funciones de varias variables
+***** Diferenciabilidad de una función real de varias variables
+Una $f \colon O \subset \mathbb{R}^n \to \mathbb{R}$ es infinitamente diferenciable $f \in {\cal C}^{\infty}$ si
+tiene derivadas parciales continuas de todos los órdenes. En tal
+caso tenemos el *gradiente*,
+
+\[
+(\nabla f)(p) = \left( \pdv{f}{x_1}(p), \dots, \pdv{f}{x_n}(p) \right) = 
+(f_{x_1}(p), \dots,f_{x_n}(p))
+\]
+
+que puede verse como una función $\mathbb{R}^n \to \mathbb{R}$.
+
+***** Diferenciabilidad de una función de varias variables
+La diferencial de $f \colon \mathbb{R}^n \to \mathbb{R}^m$ es la aplicación lineal $(df)_p\colon \mathbb{R}^n \to \mathbb{R}^m$
+que mejor aproxima a $f$ cerca de $p$, es decir
+
+\[
+\lim_{h \to 0} \frac{\abs{f(p+h) - f(p) - (df)_p(h)}}{\abs{h}} = 0,
+\]
+
+esta viene dada por el Jacobiano, que generaliza al gradiente componente
+a componente
+
+\[
+(\operatorname{Jac} f)_p = \left( \pdv{f}{x_1} (p), \dots \pdv{f}{x_n} (p) \right);
+\]
+
+dicho de otra forma, las filas del jacobiano son los gradientes $(\nabla f_i)(p)$.
+
+**** 6. Difeomorfismos entre abiertos. Teorema de la función inversa
+***** Difeomorfismo
+Una aplicación entre abiertos $\phi \colon O \to O'$ es *difeomorfismo* cuando es
+biyectiva, diferenciable y con inversa diferenciable $\phi^{-1} \colon O' \to O$.
+
+***** Difeomorfismo local
+Una aplicación entre abiertos $\phi \colon O \to O'$ es *difeomorfismo local* en
+un punto $p \in O$ si existen entornos $p \in U \subset O$ y $\phi(p) \in U' \subset O'$ tales
+que $\phi|_U \colon U \to U'$ es difeomorfismo.
+
+***** Difeomorfismos locales y globales
+Un difeomorfismo global es un difeomorfismo local en todo punto trivialmente,
+pero no todo difeomorfismo local en todo punto es difeomorfismo global.
+
+****** Contraejemplo
+:PROPERTIES:
+:ID:       1395d142-5681-4763-bd06-a7f307c486a5
+:END:
+No todo difeomorfismo local en todo punto es un difeomorfismo global.
+Podríamos tener el jacobiano con determinante no nula en cada punto y
+que la función no fuera siquiera inyectiva. Por ejemplo,
+
+\[
+f(x,y) = (e^x \sin(y), e^x \cos(y))
+\]
+
+[[https://math.stackexchange.com/questions/39142/a-local-diffeomorphism-of-euclidean-space-that-is-not-a-diffeomorphism][Ejemplo en SE.]]
+
+***** Difeomorfismo local biyectivo es difeomorfismo
+Una aplicación entre abiertos $\phi\colon O \to O'$ diferenciable es difeomorfismo
+ssi es difeomorfismo local biyectivo.
+
+****** Proof
+En un sentido es trivial. En el otro, tendríamos una función biyectiva,
+que sería diferenciable por serlo localmente. Su inversa es localmente
+diferenciable también, por lo que sería diferenciable.
+
+***** Difeomorfismo local es abierta
+Una aplicación entre abiertos $\phi\colon O \to O'$ que es difeomorfismo es abierta.
+
+****** Proof
+Dado un abierto $U \subset O$, lo enviará a $\phi(U)$. Todos los puntos ahí tendrán
+una preimagen y esta tendrá un entorno, en particular un entorno contenido
+en $U$, tal que $\phi$ sea difeomorfismo entre él y un entorno del punto. Este
+entorno estará contenido en $O'$, lo que lo hará abierto.
+
+***** Difeomorfismo tiene derivada isomorfismo
+:PROPERTIES:
+:ID:       6a2928b0-e787-4240-b76c-1856d14421bb
+:END:
+Si una aplicación entre abiertos $\phi \colon O \to O'$ es difeomorfismo, se tiene
+para cada $p \in O$ que $(d\phi)_p \colon \mathbb{R}^n\to \mathbb{R}^n$ es isomorfismo lineal y que
+$(d\phi)^{-1}_p = (d\phi^{-1})_{\phi(p)}$.
+
+****** TODO Proof
+Calculamos la derivada de la inversa.
+
+***** Teorema de la función inversa
+:PROPERTIES:
+:ID:       16bd6b42-7b91-4fcf-8979-faabc0acd594
+:END:
+Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
+se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
+
+****** TODO Proof
+
+***** Corolarios al teorema de la función inversa
+Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable cumple
+
+ 1) que es difeomorfismo local si y sólo si $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ es
+    isomorfismo lineal para cada $p \in O$;
+
+ 2) que es difeomorfismo si y sólo si $\phi$ es biyectiva y $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$
+    es isomorfismo lineal para cada $p \in O$.
+
+****** Proof 1
+Si es un isomorfismo lineal para cada $p \in O$, por el [[id:16bd6b42-7b91-4fcf-8979-faabc0acd594][teorema]] de la
+función inversa es difeomorfismo local en cada punto.
+
+Si es un difeomorfismo local, en cada entorno es un difeomorfismo y
+entonces en ese entorno [[id:6a2928b0-e787-4240-b76c-1856d14421bb][la derivada es un isomorfismo]] lineal. Si un
+isomorfismo lineal lo es en un entorno, lo es globalmente.
+
+****** TODO Proof 2
 
 *** Tema 1. Curvas
-**** 1.1. Curvas regulares y longitud de haz
+**** 1. Curvas regulares y longitud de arco
+***** 1.1. Definiciones
+****** Curva, traza y curva regular
+:PROPERTIES:
+:ID:       7fbe4138-469a-4d17-a2d8-a04434cf8489
+:END:
 Una *curva* es $\alpha \colon I \to \mathbb{R}^n$, con $\alpha \in {\cal C}^{\infty}$ para $I$ intervalo abierto.
 Llamamos *traza* a su imagen. Consideramos *curvas regulares* cuya
 velocidad $\alpha'$ es no nula. Toda curva regular tiene rectas tangentes
 en todo punto:
+
 \[
 \alpha(t) + L(\alpha'(t)) =
 \left\{ \alpha(t) + \lambda \alpha'(t) \mid
 \lambda \in \mathbb{R} \right\}.
 \]
 
-***** Ejemplos de curvas regulares
+****** Embebimiento
+Decimos que $\alpha \colon I \to \mathbb{R}^n$ es un *embebimiento* si $\alpha \colon I \to \alpha(I)$ es un
+homeomorfismo.
+
+****** TODO Ejemplos de curvas regulares
+
+***** 1.3. Longitud de un arco de curva
+****** 1.11. Longitud
+Definimos la longitud de una función continua $\alpha \colon [a,b] \to \mathbb{R}^n$ como
+
+\[
+L_a^b(\alpha) = \sup\left\{
+\sum_{k=0}^m |\alpha(t_k+1) - \alpha(t_{k})| \;\middle|\;  
+\left\{ k_0,\dots,k_{m+1} \right\} \mbox{ partición de } [a,b] 
+\right\}
+\]
+
+******* Las rectas tienen longitud mínima
+Por definición, usando la partición trivial $\left\{ a,b \right\}$.
+
+****** 1.12. Longitud de funciones diferenciables
+Para $\alpha \colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, tenemos
+
+\[
+L_a^b(\alpha) = \int_a^b |\alpha'(t)|\,dt < \infty.
+\]
+
+******* TODO Proof
+
+****** 1.14. Preservación de la longitud
+Para $\alpha \colon I \to \mathbb{R}^n$ curva con $[a,b] \subseteq I$, tenemos
+
+ 1. que si $\phi \colon \mathbb{R}^n \to \mathbb{R}^n$ es un movimiento rígido, $L_a^b(\phi \circ \alpha) = L_a^b(\alpha)$;
+
+ 2. que si $\phi \colon J \to I$ es un difeomorfismo y $\beta = \alpha \circ \phi$, entonces
+    $L_c^d(\beta) = L_a^b(\alpha)$, para $[c,d] = \phi^{-1}[a,b]$.
+
+Es decir, la longitud se preserva por [[id:92d75a96-b872-4ea6-ae5a-b83d975e2b37][movimientos rígidos]] y
+reparametrizaciones.
+
+***** 1.4. Curvas parametrizadas por el arco
+****** Curva parametrizada por el arco
+:PROPERTIES:
+:ID:       cb6ea57b-b063-4959-9a36-44a2662b6fce
+:END:
+Una [[id:7fbe4138-469a-4d17-a2d8-a04434cf8489][curva]] $\alpha \colon I \to \mathbb{R}^n$ se dice *parametrizada por el arco* si
+$|\alpha'(t)| = 1$ para todo $t \in I$. Las parametrizadas por el arco son
+regulares.
+
+****** Reparametrización por el arco de curvas regulares
+Dada una $\alpha \colon I \to \mathbb{R}^n$ regular, existe $\phi \colon J \to I$ difeomorfismo tal
+que $\beta = \alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
+
+******* TODO Proof
+
 *** Tema 2. Superficies
 
 *** Tema 3. Curvatura de superficies
@@ -2532,6 +3277,114 @@ Probar que las rectas afines a la hélice forman un ángulo constante
 con el eje z.
 #+end_statement
 
+*** Cards
+**** Preliminares
+***** Definición de base positiva                                 :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:ID:       e15a4412-930d-4f6a-aa20-d64196a6f4e2
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 12:04]
+:END:
+Fijada la orientación de la base usual, ¿cuándo es una base
+$B = \left\{ u_1,\dots,u_n \right\}$ positiva?
+
+****** Definición
+Cuando la matriz de cambio de base de $B$ a $B_u$ es positiva. Es
+decir,
+
+\[\mathrm{det}(u_1 & \dots & u_n) > 0.
+\]
+
+***** Movimientos rígidos de R2                                   :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide2cloze
+:ID:       16a826aa-c93d-4e46-afb4-05682a832bb1
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 12:03]
+:END:
+|----------------------+------------------+--------------+-----------|
+| Tipo de movimiento   | Isometría        | Puntos fijos | Carácter  |
+|----------------------+------------------+--------------+-----------|
+| Identidad            | Identidad        | Todo R2      | directo   |
+| Traslación           | Identidad        | [ninguno]    | directo   |
+| Giro                 | Giro             | [Centro]     | directo   |
+| Reflexión            | [Simetría axial] | [Eje]        | [inverso] |
+| Reflexión deslizante | Simetría axial   | [ninguno]    | inverso   |
+|----------------------+------------------+--------------+-----------|
+
+***** Movimientos rígidos de R3                                   :drill:
+***** Norma del producto vectorial                                :drill:
+Da la fórmula de $\left| u \times v \right|^2$ 
+
+ * en función de $|u|,|v|,\left\langle u,v \right\rangle$,
+
+ * y en función de $\mathrm{det}(u,v,-)$.
+
+****** Fórmula
+
+\[ |u \times v|^2 = 
+\mathrm{det}(u,v,u \times v) = 
+\left| u \right|^2|v|^2 - \left\langle u,v \right\rangle^2 
+\]
+
+***** Difeomorfismo local que no es global                        :drill:
+¿Cómo podemos construir un difeomorfismo local en cada punto que no
+sea difeomorfismo global?
+
+****** Construirlo
+Podríamos tener una función con Jacobiano con determinante no nulo
+en cada punto pero que no fuera siquiera inyectiva.
+
+\[
+f(x,y) = (e^x \sin(y), e^x \cos(y))
+\]
+
+Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]].
+
+***** Teorema de la función inversa                               :drill:
+Enuncia el teorema de la función inversa para una aplicación entre
+abiertos $\phi \colon O \to O'$ diferenciable.
+
+/Hint/: hay que dar una condición sobre $(d\phi)_p$.
+
+****** Enunciado
+Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
+se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
+
+**** Tema 1. Curvas
+***** Embebimiento                                                :drill:
+¿Cuándo es $\alpha \colon I \to \mathbb{R}^n$ un embebimiento?
+
+****** Definición
+Cuando $\alpha \colon I \to \alpha(I)$ es un homeomorfismo.
+
+***** Ejemplo de curva inyectiva no embebimiento                  :drill:
+Dar un ejemplo de curva inyectiva que no sea embebimiento.
+
+****** Ejemplo
+La curva
+
+\[
+\alpha(t) = \left( \frac{3t}{1+t^3}, \frac{3t^2}{1+t^3} \right)
+\]
+
+es inyectiva, pero al tender a infinito se acerca tanto como queramos
+al $(0,0)$, por el que ya había pasado antes, lo que hace que no podamos
+tener un homeomorfismo.
 ** Ecuaciones diferenciales I
 *** 1. Métodos de integración
 **** 1.1. Método de variables separadas
@@ -47324,17 +48177,17 @@ a \otimes ((b \otimes c) \otimes d) \ar[rr, "\alpha"] & &
 \end{tikzcd}
 
 **** Monoidal category: units diagram                              :drill:
-SCHEDULED: <2018-02-25 Sun>
+SCHEDULED: <2018-04-24 Tue>
 :PROPERTIES:
 :ID:       8c876951-43d8-4c15-b5bb-b5d659d70e1f
-:DRILL_LAST_INTERVAL: 11.0911
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 29.8462
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.667
 :DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:50]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-25 Sun 23:11]
 :END:
 Diagrams of a monoidal category for
 
@@ -47456,17 +48309,17 @@ C \ar{dl}{h}\ar[bend left=60]{ddl}{c} \\
 \end{tikzcd}\]
 ** Type theory
 **** Canonicity                                                    :drill:
-SCHEDULED: <2018-02-23 Fri>
+SCHEDULED: <2018-06-21 Thu>
 :PROPERTIES:
 :ID:       767fa380-22e3-4907-810a-a22a137c7808
-:DRILL_LAST_INTERVAL: 30.8887
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 88.0019
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.8
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-01-23 Tue 22:04]
+:DRILL_LAST_REVIEWED: [2018-03-25 Sun 23:07]
 :END:
 Definition of *canonicity*.
 
@@ -47827,17 +48680,17 @@ has to be connected.
 
 ** Statistics
 *** Normal distribution                                             :drill:
-SCHEDULED: <2018-02-21 Wed>
+SCHEDULED: <2018-04-27 Fri>
 :PROPERTIES:
 :ID:       9d9e5534-15b0-4c90-a482-97100e0507bb
-:DRILL_LAST_INTERVAL: 11.8823
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 32.6882
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.25
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-09 Fri 23:13]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.66
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-03-25 Sun 23:07]
 :END:
 Probability density function of the normal distribution.
 
@@ -47947,6 +48800,10 @@ Diagramatically,
 & 0                   & 0                 & 0                &
 \end{tikzcd} \]
 
+*** TODO Difference between direct sum and direct product in abelian groups :drill:
+:PROPERTIES:
+:ID:       b3903d4f-4550-414a-8b1f-9a6fdc37048c
+:END:
 ** Analysis
 *** Integrals
 **** Variable change                                               :drill:
@@ -47984,17 +48841,17 @@ d(f(x),f(y)) \leq k\, d(x,y)
 \]
 
 **** Locally Lipschitz continuous                                  :drill:
-SCHEDULED: <2018-02-25 Sun>
+SCHEDULED: <2018-04-24 Tue>
 :PROPERTIES:
 :ID:       4e9b39cc-4e82-442d-883d-97f8105ae90b
-:DRILL_LAST_INTERVAL: 11.0911
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 30.3674
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:49]
+:DRILL_LAST_REVIEWED: [2018-03-25 Sun 23:12]
 :END:
 A function $f \colon D \to \mathbb{R}^k$ is locally Lipschitz continuous when...
 
@@ -48074,17 +48931,17 @@ A *measure* over a σ-algebra $\Sigma$ is a function $\mu \colon \Sigma \to \mat
  * σ-additive, $\mu\left( \bigcup^{\infty}_{k=1} E_k \right) = \sum_{k=1}^{\infty}\mu(E_k)$ if we have $E_i \cap E_j = \varnothing$.
 
 **** Fatou's lemma                                                 :drill:
-SCHEDULED: <2018-02-24 Sat>
+SCHEDULED: <2018-04-20 Fri>
 :PROPERTIES:
 :ID:       6af0cfe7-d340-4be8-b036-c14f636fd988
-:DRILL_LAST_INTERVAL: 10.352
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 26.3251
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.4
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:49]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-03-25 Sun 23:10]
 :END:
 Given a measure space $\Sigma$ and functions $f_n \colon X \to [0,+\infty]$; that are
 $\Sigma,{\cal B}_{\mathbb{R}}\text{-measurable}$, what does the Fatou's lemma states?
