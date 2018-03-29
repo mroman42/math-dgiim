@@ -143,51 +143,6 @@
 #+latex_header: \newcommand\todot{\xrightarrow{.}}
 
 * Notes
-** Metaheurísticas
-*** Detalles de la asignatura
-Transparencias en la página de la asignatura
-http://sci2s.ugr.es/graduateCourses/Metaheuristicas
-
- * Práctica 1: búsqueda local (2 pts).
- * Práctica 2: búsqueda en poblaciones (2.5 pts).
- * Práctica 3: búsqueda basada en trayectorias (3.5 pts).
- * Práctica opcional: sustituye examen de teoría.
-   * Estudiar metaheurísticas de reciente creación.
-   * Seleccionar un problema a resolver y analizarlo con metaheurísticas.
-   * Documento explicando la técnica.
-   * Exposición en clase.
-
-Mínima puntuación de 1 en ambas partes (teoría y prácticas) de la
-asignatura.
-
-*** Tema 1. Introducción a las metaheurísticas
-Conjunto de técnicas para resolver problemas de optimización.
-
-**** 1.1. Resolución de problemas mediante algoritmos de búsqueda
-Tenemos una *función objetivo* a minimizar, un conjunto de
-restricciones de las variables del problema, y un conjunto de búsqueda
-donde tomarán valores las variables.
-
-***** Ejemplo: viajante de comercio
-
-**** 1.2. Algoritmos aproximados
-
-**** 1.3. Metaheurísticas
-Familia de algoritmos aproximados de propósito general. Suelen
-ser algoritmos aproximados probabilísticos y normalmente sin
-base teórica establecida.
-
- * Bioinspirados.
- * Basados en trayectorias.
-
-*** Tema 2. Modelos de búsqueda. Entornos, trayectorias y poblaciones
-*** Tema 3. Metaheurísticas basadas en poblaciones
-*** Tema 4. Algoritmos meméticos
-*** Tema 5. Metaheurísticas basadas en trayectorias
-*** Tema 6. Metaheurísticas basadas en adaptación social
-*** Tema 7. Aspectos avanzados en metaheurísticas
-*** Tema 8. Metaheurísticas paralelas
-
 ** Ecuaciones diferenciales II
 *** Notas previas
 **** Prehaces y dominios
@@ -779,7 +734,6 @@ cumpliendo que $f(s,\varphi(s)) \geq M$, entonces $\varphi \in E$.
 
 ****** Proof
 
-
 ***** Teorema de Picard-Lindelöf
 Si $f$ es localmente lipschiztiana respecto de $x$ en un entorno de $(t_0,x_0)$,
 el PVI tiene solución y es única localmente.
@@ -865,17 +819,17 @@ Calculamos usando [[*Condiciones para la unicidad local en variables separadas][
    \]
 *** Cards
 **** Globalmente lipschitziana respecto de x                       :drill:
-SCHEDULED: <2018-03-22 Thu>
+SCHEDULED: <2018-04-05 Thu>
 :PROPERTIES:
 :ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.3459
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-18 Sun 22:49]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:21]
 :END:
 Una $f(x,y)$ definida en $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$ es [[id:c50d9301-e9db-40a1-b25f-b726327f37bb][globalmente lipschitziana respecto]]
 de $x \in \mathbb{R}^d$ cuando
@@ -889,7 +843,6 @@ Cuando existe $L \geq 0$ tal que
 
 Dicho de otra forma, las secciones $f(-,y)$ son lipschitzianas con una
 constante de lipschitz común.
-
 ** Modelos matemáticos II
 http://www.ugr.es/~jjmnieto/docencia.html
 
@@ -1645,17 +1598,17 @@ dependiente solo de $\Omega$ tal que
 **** 2. Cálculo de variaciones
 ***** 2.2. Ecuación de Euler-Lagragne
 ****** 2.2. Función para Euler-Lagrange                          :drill:
-SCHEDULED: <2018-03-26 Mon>
+SCHEDULED: <2018-03-30 Fri>
 :PROPERTIES:
 :ID:       cd2cc1ba-0d03-4f95-871f-a4b27229bf39
-:DRILL_LAST_INTERVAL: 4.14
+:DRILL_LAST_INTERVAL: 4.141
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:04]
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:09]
 :END:
 Dar el dominio de la $F$ para la que se tiene Euler-Lagrange y sus
 condiciones de derivabilidad.
@@ -1665,19 +1618,20 @@ Una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \
 derivable en $p$ y en $y$.
 
 ****** 2.2. Dominio del funcional en Euler-Lagrange              :drill:
-SCHEDULED: <2018-03-26 Mon>
+SCHEDULED: <2018-04-06 Fri>
 :PROPERTIES:
 :ID:       7c4a6835-9dea-4a2a-a944-4ed5540545ee
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 10.528
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:06]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:06]
 :END:
 ¿Cuál es el dominio del funcional de Euler-Lagrange \({\cal F} \colon {\cal D} \to \mathbb{R}\)?
+Nótese que depende del $\Omega \subseteq \mathbb{R}^2$ que estemos considerando.
 
 ******* Dominio
 
@@ -1689,17 +1643,17 @@ y(x_1) = y_1 \\
 \end{array}\right\}\]
 
 ****** 2.2. Funcional a minimizar en Euler-Lagrange              :drill:
-SCHEDULED: <2018-03-26 Mon>
+SCHEDULED: <2018-04-06 Fri>
 :PROPERTIES:
 :ID:       6957180c-8bdf-4dea-9ee3-1df1d964c86c
-:DRILL_LAST_INTERVAL: 4.14
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.7143
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.5
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:03]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:06]
 :END:
 Dada una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, ¿qué
 funcional queremos minimizar en Euler-Lagrange?
@@ -1711,17 +1665,17 @@ $${\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,$$
 para $y \in {\cal D}$.
 
 ****** 2.2. Dominio sin condiciones de contorno                  :drill:
-SCHEDULED: <2018-03-26 Mon>
+SCHEDULED: <2018-04-05 Thu>
 :PROPERTIES:
 :ID:       636e7cb1-9d12-4a39-aa2c-45cfbb581967
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.176
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:04]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:08]
 :END:
 Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
 define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
@@ -1735,17 +1689,17 @@ y \in {\cal C}^1(x_0,x_1), \\
 \end{array}\right\}\]
 
 ****** 2.2. Condiciones de contorno para problemas sin ellas     :drill:
-SCHEDULED: <2018-03-26 Mon>
+SCHEDULED: <2018-03-30 Fri>
 :PROPERTIES:
 :ID:       742721a0-1edb-47c7-aabc-bb203354d4bc
-:DRILL_LAST_INTERVAL: 4.14
+:DRILL_LAST_INTERVAL: 4.07
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-22 Thu 12:05]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:09]
 :END:
 Dado un funcional sobre ${\cal D}^o$, cualquier $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal
 de ${\cal F}$ verifica Euler-Lagrange y ¿qué condiciones de contorno?
@@ -2125,6 +2079,866 @@ por lo que la ecuación final es precisamente
 \[
 Mu^{iv}(x) + Nu''(x) - f(x) = 0.
 \]
+** Curvas y superficies
+*** Datos de la asignatura
+César Rosales - crosales@ugr.es
+Lunes, Martes y Miércoles de 12 a 14.
+http://www.ugr.es/~crosales/cys1718.html
+*** Preliminares
+**** 1. Geometría afín euclídea
+***** Producto escalar
+***** Orientación
+Una base $B = \left\{ u_1,\dots,u_n \right\}$ es *positiva* si la matriz de cambio de 
+base de $B$ a $B_u$ es positiva. Es decir,
+
+\[\mathrm{det}(u_1 & \dots & u_n) > 0.
+\]
+
+***** Bases ortonormales
+Para $B= \left\{ u_1,\dots,u_n \right\}$ base ortonormal,
+
+\[\left| v \right|^2 = \sum_{i=1}^n \left\langle v,u_i \right\rangle^2.
+\]
+
+En general,
+
+\[
+\left\langle u,v \right\rangle = \sum_{i=1}^n \left\langle u,u_i \right\rangle \left\langle v,u_i \right\rangle.
+\]
+
+***** Movimientos rígidos
+:PROPERTIES:
+:ID:       92d75a96-b872-4ea6-ae5a-b83d975e2b37
+:END:
+Todo movimiento rígido es de la forma
+
+\[
+\phi(p) = \vec{\phi}(p) + b,
+\]
+
+para $\vec{\phi}$ una isometría lineal.
+
+****** Isometrías lineales
+Una aplicación $\vec\phi$ es isometría lineal si $\left\langle \vec{\phi}(u),\vec{\phi}(v) \right\rangle = \left\langle u,v \right\rangle$, para
+cualesquiera $u$ y $v$.
+
+Esto equivale a $|\vec{\phi}(u)| = u$ para cualquier $u$.
+
+****** Matriz asociada, movimientos directos o inversos
+La matriz asociada a una isometría lineal es ortogonal, $A^{-1} = A^t$,
+luego su determinante es $|A| = \pm 1$. La isometría es *directa* si
+es positivo, e *inversa* si es negativo.
+
+***** Movimientos rígidos de R2
+
+|----------------------+----------------+--------------+----------|
+| Tipo de movimiento   | Isometría      | Puntos fijos | Carácter |
+|----------------------+----------------+--------------+----------|
+| Identidad            | Identidad      | Plano        | directo  |
+| Traslación           | Identidad      | ninguno      | directo  |
+| Giro                 | Giro           | Punto        | directo  |
+| Reflexión            | Simetría axial | Recta        | inverso  |
+| Reflexión deslizante | Simetría axial | ninguno      | inverso  |
+|----------------------+----------------+--------------+----------|
+
+***** Movimientos rígidos de R3
+
+|-----------------------+--------------------+--------------+----------|
+| Tipo de movimiento    | Isometría          | Puntos fijos | Carácter |
+|-----------------------+--------------------+--------------+----------|
+| Identidad             | identidad          | Espacio      | directo  |
+| Traslación            | identidad          | ninguno      | directo  |
+| Rotación              | Rotación           | Recta        | directo  |
+| Movimiento helicoidal | Rotación           | ninguno      | directo  |
+| Reflexión             | Simetría especular | Plano        | inverso  |
+| Relfexión deslizante  | Simetría especular | ninguno      | inverso  |
+| Rotación y reflexión  | Giro y simetría    | Punto        | inverso  |
+|-----------------------+--------------------+--------------+----------|
+
+**** 2. Producto vectorial en R3
+***** Producto vectorial
+Llamamos *producto vectorial* $u \times v$ al único vector tal que
+
+\[
+\forall w:\quad \mathrm{det}(u,v,w) = \left\langle u\times v,w \right\rangle.
+\]
+
+***** Propiedades del producto vectorial
+Tenemos
+
+ 1. que $\times$ es bilineal antisimétrica,
+ 2. $\left\langle u \times v, u \right\rangle = \left\langle u \times v,v \right\rangle = 0$,
+ 3. $|u \times v|^2 = \mathrm{det}(u,v,u \times v) = |u|^2|v|^2 - \left\langle u,v \right\rangle^2$,
+ 4. $u \times v = 0$ si y sólo si son linealmente independientes,
+ 5. para $\left\{ u,v \right\}$ independientes, $\left\{ u,v,u \times v \right\}$ es base positiva,
+ 6. para $\left\{ u,v \right\}$ ortonormales, $\left\{ u,v,u \times v \right\}$ es base positiva ortonormal.
+
+****** Proof 1
+Desde las propiedades del determinante.
+
+****** Proof 2
+Por definición y por las propiedades del determinante.
+
+****** Proof 3
+Se comprueba calculando explícitamente $|u \times v|^2$.
+
+****** TODO Proof 4
+
+****** TODO Proof 5
+
+**** 3. Distancia con signo asociada a un hiperplano
+**** 4. Reglas de derivación para funciones de una variable
+Para $\alpha , \beta \colon I \to \mathbb{R}^{n}$ curvas ${\cal C}^{\infty}$, dado un $\lambda \colon I \to \mathbb{R}$ diferenciable, se tiene
+
+ 1. $\left\langle \alpha(t),\beta(t) \right\rangle' = \left\langle \alpha'(t),\beta(t)  \right\rangle + \left\langle \alpha(t)\beta'(t) \right\rangle$,
+
+ 2. $(|\alpha(t)|^2)' = 2 \left\langle \alpha'(t),\alpha(t) \right\rangle$
+
+ 3. $|\alpha(t)|' = \pair{\alpha'(t), \frac{\alpha(t)}{|\alpha(t)|}}$ cuando $\alpha(t) \neq 0$ para cada $t \in I$
+
+ 4. $(\lambda(t)\alpha(t))' = \lambda'(t)\alpha(t) + \lambda(t)\alpha'(t)$
+
+ 5. $(\alpha(t) \times \beta(t))' = \alpha'(t) \times \beta(t) + \alpha(t) \times \beta'(t)$ cuando $n = 3$
+
+**** 5. Diferenciabilidad de funciones de varias variables
+***** Diferenciabilidad de una función real de varias variables
+Una $f \colon O \subset \mathbb{R}^n \to \mathbb{R}$ es infinitamente diferenciable $f \in {\cal C}^{\infty}$ si
+tiene derivadas parciales continuas de todos los órdenes. En tal
+caso tenemos el *gradiente*,
+
+\[
+(\nabla f)(p) = \left( \pdv{f}{x_1}(p), \dots, \pdv{f}{x_n}(p) \right) = 
+(f_{x_1}(p), \dots,f_{x_n}(p))
+\]
+
+que puede verse como una función $\mathbb{R}^n \to \mathbb{R}$.
+
+***** Diferenciabilidad de una función de varias variables
+La diferencial de $f \colon \mathbb{R}^n \to \mathbb{R}^m$ es la aplicación lineal $(df)_p\colon \mathbb{R}^n \to \mathbb{R}^m$
+que mejor aproxima a $f$ cerca de $p$, es decir
+
+\[
+\lim_{h \to 0} \frac{\abs{f(p+h) - f(p) - (df)_p(h)}}{\abs{h}} = 0,
+\]
+
+esta viene dada por el Jacobiano, que generaliza al gradiente componente
+a componente
+
+\[
+(\operatorname{Jac} f)_p = \left( \pdv{f}{x_1} (p), \dots \pdv{f}{x_n} (p) \right);
+\]
+
+dicho de otra forma, las filas del jacobiano son los gradientes $(\nabla f_i)(p)$.
+
+**** 6. Difeomorfismos entre abiertos. Teorema de la función inversa
+***** Difeomorfismo
+Una aplicación entre abiertos $\phi \colon O \to O'$ es *difeomorfismo* cuando es
+biyectiva, diferenciable y con inversa diferenciable $\phi^{-1} \colon O' \to O$.
+
+***** Difeomorfismo local
+Una aplicación entre abiertos $\phi \colon O \to O'$ es *difeomorfismo local* en
+un punto $p \in O$ si existen entornos $p \in U \subset O$ y $\phi(p) \in U' \subset O'$ tales
+que $\phi|_U \colon U \to U'$ es difeomorfismo.
+
+***** Difeomorfismos locales y globales
+Un difeomorfismo global es un difeomorfismo local en todo punto trivialmente,
+pero no todo difeomorfismo local en todo punto es difeomorfismo global.
+
+****** Contraejemplo
+:PROPERTIES:
+:ID:       1395d142-5681-4763-bd06-a7f307c486a5
+:END:
+No todo difeomorfismo local en todo punto es un difeomorfismo global.
+Podríamos tener el jacobiano con determinante no nula en cada punto y
+que la función no fuera siquiera inyectiva. Por ejemplo,
+
+\[
+f(x,y) = (e^x \sin(y), e^x \cos(y))
+\]
+
+[[https://math.stackexchange.com/questions/39142/a-local-diffeomorphism-of-euclidean-space-that-is-not-a-diffeomorphism][Ejemplo en SE.]]
+
+***** Difeomorfismo local biyectivo es difeomorfismo
+Una aplicación entre abiertos $\phi\colon O \to O'$ diferenciable es difeomorfismo
+ssi es difeomorfismo local biyectivo.
+
+****** Proof
+En un sentido es trivial. En el otro, tendríamos una función biyectiva,
+que sería diferenciable por serlo localmente. Su inversa es localmente
+diferenciable también, por lo que sería diferenciable.
+
+***** Difeomorfismo local es abierta
+Una aplicación entre abiertos $\phi\colon O \to O'$ que es difeomorfismo es abierta.
+
+****** Proof
+Dado un abierto $U \subset O$, lo enviará a $\phi(U)$. Todos los puntos ahí tendrán
+una preimagen y esta tendrá un entorno, en particular un entorno contenido
+en $U$, tal que $\phi$ sea difeomorfismo entre él y un entorno del punto. Este
+entorno estará contenido en $O'$, lo que lo hará abierto.
+
+***** Difeomorfismo tiene derivada isomorfismo
+:PROPERTIES:
+:ID:       6a2928b0-e787-4240-b76c-1856d14421bb
+:END:
+Si una aplicación entre abiertos $\phi \colon O \to O'$ es difeomorfismo, se tiene
+para cada $p \in O$ que $(d\phi)_p \colon \mathbb{R}^n\to \mathbb{R}^n$ es isomorfismo lineal y que
+$(d\phi)^{-1}_p = (d\phi^{-1})_{\phi(p)}$.
+
+****** TODO Proof
+Calculamos la derivada de la inversa.
+
+***** Teorema de la función inversa
+:PROPERTIES:
+:ID:       16bd6b42-7b91-4fcf-8979-faabc0acd594
+:END:
+Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
+se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
+
+****** TODO Proof
+
+***** Corolarios al teorema de la función inversa
+Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable cumple
+
+ 1) que es difeomorfismo local si y sólo si $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ es
+    isomorfismo lineal para cada $p \in O$;
+
+ 2) que es difeomorfismo si y sólo si $\phi$ es biyectiva y $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$
+    es isomorfismo lineal para cada $p \in O$.
+
+****** Proof 1
+Si es un isomorfismo lineal para cada $p \in O$, por el [[id:16bd6b42-7b91-4fcf-8979-faabc0acd594][teorema]] de la
+función inversa es difeomorfismo local en cada punto.
+
+Si es un difeomorfismo local, en cada entorno es un difeomorfismo y
+entonces en ese entorno [[id:6a2928b0-e787-4240-b76c-1856d14421bb][la derivada es un isomorfismo]] lineal. Si un
+isomorfismo lineal lo es en un entorno, lo es globalmente.
+
+****** TODO Proof 2
+
+*** Tema 1. Curvas
+**** 1. Curvas regulares y longitud de arco
+***** 1.1. Definiciones
+****** Curva, traza y curva regular
+:PROPERTIES:
+:ID:       7fbe4138-469a-4d17-a2d8-a04434cf8489
+:END:
+Una *curva* es $\alpha \colon I \to \mathbb{R}^n$, con $\alpha \in {\cal C}^{\infty}$ para $I$ intervalo abierto.
+Llamamos *traza* a su imagen. Consideramos *curvas regulares* cuya
+velocidad $\alpha'$ es no nula. Toda curva regular tiene rectas tangentes
+en todo punto:
+
+\[
+\alpha(t) + L(\alpha'(t)) =
+\left\{ \alpha(t) + \lambda \alpha'(t) \mid
+\lambda \in \mathbb{R} \right\}.
+\]
+
+****** Embebimiento
+Decimos que $\alpha \colon I \to \mathbb{R}^n$ es un *embebimiento* si $\alpha \colon I \to \alpha(I)$ es un
+homeomorfismo.
+
+****** TODO Ejemplos de curvas regulares
+
+***** 1.3. Longitud de un arco de curva
+****** 1.11. Longitud
+Definimos la longitud de una función continua $\alpha \colon [a,b] \to \mathbb{R}^n$ como
+
+\[
+L_a^b(\alpha) = \sup\left\{
+\sum_{k=0}^m |\alpha(t_k+1) - \alpha(t_{k})| \;\middle|\;  
+\left\{ k_0,\dots,k_{m+1} \right\} \mbox{ partición de } [a,b] 
+\right\}
+\]
+
+******* Las rectas tienen longitud mínima
+Por definición, usando la partición trivial $\left\{ a,b \right\}$.
+
+****** 1.12. Longitud de funciones diferenciables
+Para $\alpha \colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, tenemos
+
+\[
+L_a^b(\alpha) = \int_a^b |\alpha'(t)|\,dt < \infty.
+\]
+
+******* TODO Proof
+
+****** 1.14. Preservación de la longitud
+Para $\alpha \colon I \to \mathbb{R}^n$ curva con $[a,b] \subseteq I$, tenemos
+
+ 1. que si $\phi \colon \mathbb{R}^n \to \mathbb{R}^n$ es un movimiento rígido, $L_a^b(\phi \circ \alpha) = L_a^b(\alpha)$;
+
+ 2. que si $\phi \colon J \to I$ es un difeomorfismo y $\beta = \alpha \circ \phi$, entonces
+    $L_c^d(\beta) = L_a^b(\alpha)$, para $[c,d] = \phi^{-1}[a,b]$.
+
+Es decir, la longitud se preserva por [[id:92d75a96-b872-4ea6-ae5a-b83d975e2b37][movimientos rígidos]] y
+reparametrizaciones.
+
+***** 1.4. Curvas parametrizadas por el arco
+****** Curva parametrizada por el arco
+:PROPERTIES:
+:ID:       cb6ea57b-b063-4959-9a36-44a2662b6fce
+:END:
+Una [[id:7fbe4138-469a-4d17-a2d8-a04434cf8489][curva]] $\alpha \colon I \to \mathbb{R}^n$ se dice *parametrizada por el arco* si
+$|\alpha'(t)| = 1$ para todo $t \in I$. Las parametrizadas por el arco son
+regulares.
+
+****** Lema de reparametrización
+:PROPERTIES:
+:ID:       1e330295-fe16-4262-a88b-af5a84c66fb8
+:END:
+Dada una $\alpha \colon I \to \mathbb{R}^n$ regular, existe $\phi \colon J \to I$ difeomorfismo 
+creciente de intervalos abiertos tal que $\beta = \alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
+
+******* Proof
+Para un $a \in I$ fijo, definimos $\psi \colon I \to \mathbb{R}$ por
+
+\[
+\psi(t) = L_a^t(\alpha) = \int_a^t |\alpha'(s)|\,ds.
+\]
+
+Siendo $\alpha \in {\cal C}^{\infty}$, aplicamos el Teorema fundamental del cálculo
+para tener $\psi'(t) = |\alpha'(t)|$. Por regularidad $\alpha'(t)\neq 0$, luego $\psi \in {\cal C}^{\infty}$
+y es estrictamente creciente e inyectiva. Así, $J = \psi(I)$ es un
+intervalo y $\psi \colon I \to J$ es biyectiva. 
+
+Ahora $\psi$ es difeomorfismo por ser biyectiva y tenerse $\psi'(t) \neq 0$,
+lo que nos da $\phi = \psi^{-1}$ diferenciable con la regla de derivación
+de la inversa.
+
+Tenemos que $\phi$ es el difeomorfismo creciente buscado por tenerse
+
+\[
+\phi'(s) = \frac{1}{|\alpha'(\phi(s))|} > 0
+\]
+
+que implica
+
+\[\abs{\beta'(s)} = 
+\abs{(\alpha \circ \phi)'(s)} = 
+\abs{\frac{\alpha'(\phi(s))}{ |\alpha'(\phi(s))|}} = 
+1.\]
+
+**** 2. Geometría de curvas regulares en el plano
+***** 2.1. Diedro de Frenet y curvatura de curvas p.p.a.
+****** Diedro de Frenet
+:PROPERTIES:
+:ID:       b0a55e94-4a63-4257-a7b5-9641d848d4e5
+:END:
+La base ortonormal positiva $\left\{ T(s),N(s) \right\}$ dada por
+
+ * el vector tangente a $\alpha$ en $s$, $T(s) = \alpha'(s)$;
+ * el vector normal a $\alpha$ en $s$, $N(s) = J(T(s))$, donde $J(x,y) = (-y,x)$;
+
+se llama *diedro orientado de Frenet*.
+
+****** Definición de curvatura
+Para $\alpha \colon I \to \mathbb{R}^2$ curva p.p.a., se define la curvatura $k \colon I \to \mathbb{R}$ como
+
+\[
+k(s) = \left\langle T'(s),N(s) \right\rangle = \left\langle \alpha''(s),J(\alpha'(s)) \right\rangle.
+\]
+
+Nótese que $k \in {\cal C}^{\infty}$.
+
+****** Ecuaciones de Frenet
+Las coordenadas de $T'(s),N'(s)$ en el [[id:b0a55e94-4a63-4257-a7b5-9641d848d4e5][diedro de Frenet]] nos dan la
+curvatura
+
+ * $T'(s) = k(s)N(s)$,
+ * $N'(s) = -k(s)T(s)$.
+
+******* TODO Proof
+
+****** Expresión alternativa de la curvatura
+
+\[
+k(s) = \mathrm{det}(\alpha'(s),\alpha''(s))
+\]
+
+***** 2.2. Diedro de Frenet y curvatura de curvas regulares
+****** TODO Definiciones para curvas regulares
+****** Ecuaciones para curvas regulares en el espacio
+Para $\alpha \colon I \to \mathbb{R}^2$ curva regular se tiene el siguiente diedro de Frenet
+y la siguiente curvatura
+
+\[
+T_{\alpha}(t) = \frac{\alpha'(t)}{|\alpha'(t)|},\quad
+N_{\alpha}(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|},\quad
+k_{\alpha}(t) = \frac{\mathrm{det}(\alpha'(t),\alpha''(t))}{|\alpha'(t)|^3}.
+\]
+
+y además se cumplen las siguientes ecuaciones de Frenet
+
+ * $T'_{\alpha}(t) = |\alpha'(t)|k_{\alpha}(t)N_{\alpha}(t)$,
+ * $N'_{\alpha}(t) = -|\alpha'(t)|k_{\alpha}(t)T_{\alpha}(t)$,
+
+y como consecuencia, la curvatura orientada se escribe como
+
+\[
+k_{\alpha}(t) = \frac{\left\langle T_{\alpha}'(t),N_{\alpha}(t) \right\rangle}{\alpha'(t)}.
+\]
+
+******* TODO Proof
+
+****** TODO Propiedades de la curvatura
+
+ 1. *Carácter local*
+ 2. *Invariante a movimientos rígidos directos*
+ 3. *Invariante a reparametrizaciones*
+
+**** 3. Geometría de curvas regulares en el espacio
+***** 3.1. Triedro de Frenet, curvatura y torsión de curvas p.p.a.
+****** Curvatura de una curva p.p.a.
+Definimos la *curvatura* de una curva p.p.a. $\alpha \colon I \to \mathbb{R}^3$ como
+
+\[
+k(s) = |T'(s)| = |\alpha''(s)|.
+\]
+
+En este caso, y a diferencia de $\mathbb{R}^2$, la curvatura es siempre
+no negativa. Además es diferenciable en todos los puntos en
+los que es positiva.
+
+****** Vector normal a la curva p.p.a. en un punto
+El *normal* a $\alpha \colon I \to \mathbb{R}^3$ p.p.a. en $s$ se define cuando $k(s) > 0$
+como
+
+\[
+N(s) = \frac{T'(s)}{\abs{T'(s)}} = \frac{T'(s)}{k(s)} = \frac{\alpha''(s)}{|\alpha''(s)|}.
+\]
+
+****** Vector binormal a la curva p.p.a. en un punto
+El *binormal* a $\alpha \colon I \to \mathbb{R}^3$ p.p.a. en $s$ se define cuando $k(s) > 0$
+como
+
+\[
+B(s) = T(s) \times N(s).
+\]
+
+****** Triedro de Frenet de una curva p.p.a. en un punto
+Llamamos *triedro de Frenet* a la base ortonormal positiva
+dada por $\left\{ T(s),N(s),B(s) \right\}$.
+
+****** Torsión de una curva p.p.a.
+Para $\alpha \colon I \to \mathbb{R}^3$ curva p.p.a. con $k > 0$, definimos
+
+\[
+\tau(s) = \left\langle B'(s), N(s) \right\rangle.
+\]
+
+****** TODO Ejemplo: hélices
+***** 3.2. Triedro de Frenet, curvatura y torsión de curvas regulares
+****** Definiciones para curvas regulares en el espacio
+Para $\alpha \colon I \to \mathbb{R}^3$ consideramos un difeomorfismo creciente $\phi \colon J \to I$
+reparametrización a $\beta = \alpha \circ \phi$ curva p.p.a. y definimos las
+características de la curva según ella.
+
+ * $T_{\alpha}(t) = T_{\beta}(\phi^{-1}(t))$,
+ * $N_{\alpha}(t) = N_{\beta}(\phi^{-1}(t))$,
+ * $B_{\alpha}(t) = B_{\beta}(\phi^{-1}(t))$,
+ * $k_{\alpha}(t) = k_{\beta}(\phi^{-1}(t))$,
+ * $\tau_{\alpha}(t) = \tau_{\beta}(\phi^{-1}(t))$.
+
+Nótese que esa reparametrización [[id:1e330295-fe16-4262-a88b-af5a84c66fb8][existe]] siempre.
+
+****** Ecuaciones para curvas regulares en el espacio
+:PROPERTIES:
+:ID:       6efcd992-f089-4c91-ac08-446846840c0b
+:END:
+Para $\alpha \colon I \to \mathbb{R}^3$ curva regular se tiene el siguiente triedro de
+Frenet
+
+\[
+T_{\alpha}(t) = \frac{\alpha'(t)}{|\alpha'(t)|},\quad
+N'_{\alpha}(t) = B_{\alpha}(t) \times T_{\alpha}(t),\quad
+B_{\alpha}(t) = \frac{\alpha'(t) \times \alpha''(t)}{|\alpha'(t) \times \alpha''(t)|}
+\]
+
+y la siguiente cruvatura y torsión
+
+\[
+k_{\alpha}(t) = \frac{|\alpha'(t) \times \alpha''(t)|}{|\alpha'(t)|^3},\quad
+\tau_{\alpha}(t) = - \frac{\mathrm{det}(\alpha'(t),\alpha''(t),\alpha'''(t))}{|\alpha'(t)\times \alpha''(t)|^2}
+\]
+
+y además se cumplen las siguientes ecuaciones de Frenet
+
+ * $T'_{\alpha}(t) = |\alpha'(t)|k_{\alpha}(t)N_{\alpha}(t)$,
+ * $N'_{\alpha}(t) = -|\alpha'(t)|k_{\alpha}(t)T_{\alpha}(t) - |\alpha'(t)|\tau_{\alpha}(t)B_{\alpha}(t)$,
+ * $B'_{\alpha}(t) = |\alpha'(t)|\tau_{\alpha}(t)N_{\alpha}(t)$.
+
+******* TODO Proof
+
+****** Curvas de curvatura o torsión nulas
+Si $\alpha \colon I \to \mathbb{R}^3$ es regular
+
+ 1. y $k_{\alpha}=0$, la curva está contenida en una recta afín;
+ 2. y si $k_{\alpha} > 0$ y $\tau_{\alpha} = 0$, entonces la curva está contenida en un 
+    plano afín.
+   
+******* Proof 1
+Por ser la [[id:6efcd992-f089-4c91-ac08-446846840c0b][curvatura]] nula tenemos $|\alpha'(t) \times \alpha''(t)|$ y entonces
+$\alpha''(t) = \lambda(t)\alpha'(t)$ para escalares
+
+\[
+\lambda(t) = \frac{\pair{\alpha'(t),\alpha''(t)}}{|\alpha'(t)|^2}.
+\]
+
+Dada una ecuación diferencial de la forma $x'(t) = \lambda(t)x(t)$, las
+soluciones son de la forma 
+
+\[
+x(t) = x_0 \exp \left( \int_{t_0}^t \lambda(s)\,ds \right);
+\]
+
+así que si aplicamos esto componente a componente tenemos un
+vector $v$ tal que
+
+\[
+\alpha'(t) = v \exp \left( \int_{t_0}^t \lambda(s)\,ds \right),
+\]
+
+que además es no nulo porque $\alpha'$ es regular.  Integrando en cada
+componente tenemos que $\alpha(t) = p + f(t)v \subseteq p + L(v)$ para algún 
+$p$ fijo y $f(t)$ escalar.
+
+******* Proof 2
+Tenemos $B'_{\alpha}(t) = 0$ por [[id:6efcd992-f089-4c91-ac08-446846840c0b][Frenet]], luego $B(t) = B_0$. Fijamos un punto
+en la curva $p_0 = \alpha(t_0)$ y tomamos el plano $P = \left\{ p \in \mathbb{R}^3 \mid \left\langle p-p_0, B_0 \right\rangle \right\} = 0$.
+
+Finalmente comprobamos que $f(t) = \pair{\alpha(t) - p_0,B_0}$ es constante
+derivando
+
+\[
+f'(t) = \pair{\alpha'(t),B_0} = |\alpha'(t)| \pair{T(t),B(t)} = 0,
+\]
+
+y que es trivialmente nula en $f(t_0) = 0$.
+
+**** 4. Teorema fundamental de curvas en el plano y en el espacio
+****** 4.2. Teorema fundamental de curvas en el espacio
+Para $I \subseteq \mathbb{R}$ intervalo abierto y $k,\tau\in {\cal C}^{\infty}(I)$ con $k > 0$; 
+
+ 1. existe $\alpha \colon I \to \mathbb{R}^3$ p.p.a. con $k_{\alpha} = k$ y $\tau_{\alpha} = \tau$;
+
+ 2. para cualquier otra $\beta \colon I \to \mathbb{R}^3$ con $k_{\beta} = k$ y $\tau_{\beta} = \tau$, existe un
+    movimiento rígido directo $\phi \colon \mathbb{R}^3 \to \mathbb{R}^3$ con $\beta = \phi \circ \alpha$.
+
+Es decir, dada una curvatura positiva y una torsión, existe una
+curva p.p.a. que las realiza, única salvo movimientos rígidos directos.
+
+****** 4.5. Curvas en el espacio de curvatura y torsión constantes
+Si $\alpha \colon I \to \mathbb{R}^3$ tiene curvatura positiva constante $k_0 > 0$ y torsión
+constante $\tau_0$, entonces 
+
+ * si $\tau_0 = 0$, está en una circunferencia $\alpha(I) \subseteq C$,
+ * si $\tau_0 \neq 0$, está en una hélice circular $\alpha(I) \subseteq H$.
+
+******* Proof
+****** 4.7. Teorema fundamental de curvas en el plano
+Para $I \subseteq \mathbb{R}$ intervalo abierto y $k \in {\cal C}^{\infty}(I)$, 
+
+ 1. existe $\alpha \colon I \to \mathbb{R}^2$ p.p.a. con $k_{\alpha}=k$;
+
+ 2. para cualquier otra $\beta \colon I \to \mathbb{R}^2$ con $k_{\beta}=k$ y $\tau_{\beta}=\tau$, existe un
+    movimiento rígido directo $\phi \colon\mathbb{R}^2\to\mathbb{R}^2$ con $\beta = \phi \circ \alpha$.
+
+Es decir, dada una curvatura cualquiera, existe una curva p.p.a.
+que la realiza, salvo movimientos rígidos directos.
+
+******** TODO Demostración
+
+******** Demostración explícita de existencia
+Tomamos $\theta$ una primitiva de $k$ y
+
+\[
+\alpha = \left( \int_{s_0}^s \cos \theta(t)\,dt , \int_{s_0}^s \sin \theta(t)\,dt \right).
+\]
+
+Tenemos que $\alpha$ es claramente p.p.a. y su curvatura es
+
+\[
+k_{\alpha}(s) = 
+\pair{ T_{\alpha}'(s) , N_{\alpha}(s) } =
+k(s)(\sin^2 \theta(s) + \cos^2 \theta(s)) =
+k(s).
+\]
+
+*** Tema 2. Superficies
+*** Tema 3. Curvatura de superficies
+*** Tema 4. Geodésicas
+*** Ejercicios
+**** Ejercicios de clase
+***** Ejercicio 20-Feb A
+#+begin_statement
+Probar que no existe un plano afín conteniendo a la traza de
+una hélice circular de eje vertical.
+#+end_statement
+
+Si un plano contiene a dos puntos, contiene a la recta entre ellos,
+luego en particular el plano contiene a todos los puntos de la
+forma $(\sin(t), \cos(t), k)$.
+
+En particular, contendría a un círculo $(\sin(t), \cos(t), 0)$, por
+tanto a tres de sus puntos y debería ser el plano que determinan
+esos tres puntos, $L(x,y,0)$; pero también a $(1,0,1)$, por ejemplo,
+lo que es imposible.
+
+***** Ejercicio 20-Feb B
+#+begin_statement
+Probar que las rectas afines a la hélice forman un ángulo constante
+con el eje z.
+#+end_statement
+
+**** Relación tema 1
+*** Cards
+**** Preliminares
+***** Definición de base positiva                                 :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:ID:       e15a4412-930d-4f6a-aa20-d64196a6f4e2
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 12:04]
+:END:
+Fijada la orientación de la base usual, ¿cuándo es una base
+$B = \left\{ u_1,\dots,u_n \right\}$ positiva?
+
+****** Definición
+Cuando la matriz de cambio de base de $B$ a $B_u$ es positiva. Es
+decir,
+
+\[\mathrm{det}(u_1 & \dots & u_n) > 0.
+\]
+
+***** Movimientos rígidos de R2                                   :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide2cloze
+:ID:       16a826aa-c93d-4e46-afb4-05682a832bb1
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 12:03]
+:END:
+|----------------------+------------------+--------------+-----------|
+| Tipo de movimiento   | Isometría        | Puntos fijos | Carácter  |
+|----------------------+------------------+--------------+-----------|
+| Identidad            | Identidad        | Todo R2      | directo   |
+| Traslación           | Identidad        | [ninguno]    | directo   |
+| Giro                 | Giro             | [Centro]     | directo   |
+| Reflexión            | [Simetría axial] | [Eje]        | [inverso] |
+| Reflexión deslizante | Simetría axial   | [ninguno]    | inverso   |
+|----------------------+------------------+--------------+-----------|
+
+***** Movimientos rígidos de R3                                   :drill:
+:PROPERTIES:
+:ID:       e3a04df3-1d89-49c7-a0e1-77559f0989f1
+:END:
+***** Norma del producto vectorial                                :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:ID:       1fd12884-9b75-47ec-ac19-dcb6e51931da
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:55]
+:END:
+Da la fórmula de $\left| u \times v \right|^2$ 
+
+ * en función de $|u|,|v|,\left\langle u,v \right\rangle$,
+
+ * y en función de $\mathrm{det}(u,v,-)$.
+
+****** Fórmula
+
+\[ |u \times v|^2 = 
+\mathrm{det}(u,v,u \times v) = 
+\left| u \right|^2|v|^2 - \left\langle u,v \right\rangle^2 
+\]
+
+***** Difeomorfismo local que no es global                        :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:ID:       2125fe6e-2af6-4d4d-a641-7e1e9759f42e
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:59]
+:END:
+¿Cómo podemos construir un difeomorfismo local en cada punto que no
+sea difeomorfismo global?
+
+****** Construirlo
+Podríamos tener una función con Jacobiano con determinante no nulo
+en cada punto pero que no fuera siquiera inyectiva.
+
+\[
+f(x,y) = (e^x \sin(y), e^x \cos(y))
+\]
+
+Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]].
+
+***** Teorema de la función inversa                               :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:ID:       63d019ff-edf9-4e64-aed4-9a0823572061
+:DRILL_LAST_INTERVAL: 3.93
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:56]
+:END:
+Enuncia el teorema de la función inversa para una aplicación entre
+abiertos $\phi \colon O \to O'$ diferenciable.
+
+/Hint/: hay que dar una condición sobre $(d\phi)_p$.
+
+****** Enunciado
+Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
+se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
+
+**** Tema 1. Curvas
+***** 1. Curvas regulares y longitud de arco
+****** Embebimiento                                              :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:ID:       47cb18d3-b024-48e7-9b40-9fd5efa6c87a
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:52]
+:END:
+¿Cuándo es $\alpha \colon I \to \mathbb{R}^n$ un embebimiento?
+
+******* Definición
+Cuando $\alpha \colon I \to \alpha(I)$ es un homeomorfismo.
+
+****** Ejemplo de curva inyectiva no embebimiento                :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:ID:       52adbafb-00f1-4b63-b08a-1e89cf23b94b
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:56]
+:END:
+Dar un ejemplo de curva inyectiva que no sea embebimiento.
+
+******* Ejemplo
+La curva siguiente, en un intervalo bien escogido
+
+\[
+\alpha(t) = \left( \frac{3t}{1+t^3}, \frac{3t^2}{1+t^3} \right)
+\]
+
+es inyectiva, pero al tender a infinito se acerca tanto como queramos
+al $(0,0)$, por el que ya había pasado antes, lo que hace que no podamos
+tener un homeomorfismo.
+
+****** Lema de reparametrización                                 :drill:
+Enuncia el lema de reparametrización para $\alpha \colon I \to \mathbb{R}^n$.
+
+******* Lema
+Dada una $\alpha \colon I \to \mathbb{R}^n$ regular, existe $\phi \colon J \to I$ difeomorfismo 
+creciente de intervalos abiertos tal que $\beta = \alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
+
+****** Cálculo de una reparametrización                          :drill:
+Dada una $\alpha \colon I \to \mathbb{R}^n$ buscar la reparametrización $\phi \colon J \to I$ que
+hace que $\beta = \alpha \circ \phi$ sea una curva p.p.a.
+
+******* Reparametrización
+Calculamos la integral
+
+\[
+\psi(t) = L_a^t(\alpha) = \int_a^t |\alpha'(s)|\,ds;
+\]
+
+y la inversa $\phi = \psi^{-1}$ es la reparametrización buscada.
+
+***** 2. Geometría de curvas regulares en el plano
+****** Diedro de Frenet de una curva regular                     :drill:
+Dar el diedro de Frenet de una curva regular $\alpha(t) \colon I \to \mathbb{R}^2$.
+
+******* Diedro
+
+\[
+T_{\alpha}(t) = \frac{\alpha'(t)}{|\alpha'(t)|},\quad
+N_{\alpha}(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|}
+\]
+
+****** Curvatura de una curva regular en el plano                :drill:
+Dar dos fórmulas de la curvatura de una curva regular en
+el plano, $\alpha(t)\colon I \to \mathbb{R}^2$.
+
+******* Curvatura
+
+\[
+k_{\alpha}(t) = \frac{\mathrm{det}(\alpha'(t),\alpha''(t))}{|\alpha'(t)|}
+= \frac{\left\langle T'(t),N(t) \right\rangle}{|\alpha'(t)|}
+\]
+
+****** Ecuaciones de Frenet en el plano                          :drill:
+Enunciar las ecuaciones de Frenet para una curva regular en el plano.
+
+******* Ecuaciones de Frenet
+Son las coordenadas de los derivados del tangente y del
+normal en el diedro de Frenet.
+
+\[\left\{\begin{array}{l}
+T'_{\alpha}(t) = |\alpha'(t)| k_{\alpha}(t) N_{\alpha}(t) \\
+N'_{\alpha}(t) = -|\alpha'(t)| k_{\alpha}(t) T_{\alpha}(t) 
+\end{array} \right.\]
+
+***** 3. Geometría de curvas regulares en el espacio
+***** 4. Teorema fundamental de curvas en el plano y en el espacio
+****** Teorema fundamental de curvas en el plano y en el espacio :drill:
+SCHEDULED: <2018-03-30 Fri>
+:PROPERTIES:
+:ID:       bb2b3785-52de-4496-b89e-f0d9862b0019
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:56]
+:END:
+Enuncia con palabras el teorema fundamental de curvas.
+
+******* Enunciado
+Dada una curvatura positiva y una torsión en un intervalo, existe una
+curva parametrizada por el arco que las realiza, única salvo
+movimientos rígidos directos.
 ** Modelos avanzados de computación
 Serafín Morales
 smc@decsai.ugr.es
@@ -2938,453 +3752,51 @@ contiene alguna palabra. Por tanto, $L$ tampoco es recursivo.
 ****** Nota
 Explícitamente, lo que queremos es una biyección computable
 $\mathbb{N} \to \mathbb{N}^2$.
+** Metaheurísticas
+*** Detalles de la asignatura
+Transparencias en la página de la asignatura
+http://sci2s.ugr.es/graduateCourses/Metaheuristicas
+
+ * Práctica 1: búsqueda local (2 pts).
+ * Práctica 2: búsqueda en poblaciones (2.5 pts).
+ * Práctica 3: búsqueda basada en trayectorias (3.5 pts).
+ * Práctica opcional: sustituye examen de teoría.
+   * Estudiar metaheurísticas de reciente creación.
+   * Seleccionar un problema a resolver y analizarlo con metaheurísticas.
+   * Documento explicando la técnica.
+   * Exposición en clase.
+
+Mínima puntuación de 1 en ambas partes (teoría y prácticas) de la
+asignatura.
+
+*** Tema 1. Introducción a las metaheurísticas
+Conjunto de técnicas para resolver problemas de optimización.
+
+**** 1.1. Resolución de problemas mediante algoritmos de búsqueda
+Tenemos una *función objetivo* a minimizar, un conjunto de
+restricciones de las variables del problema, y un conjunto de búsqueda
+donde tomarán valores las variables.
+
+***** Ejemplo: viajante de comercio
+
+**** 1.2. Algoritmos aproximados
+
+**** 1.3. Metaheurísticas
+Familia de algoritmos aproximados de propósito general. Suelen
+ser algoritmos aproximados probabilísticos y normalmente sin
+base teórica establecida.
+
+ * Bioinspirados.
+ * Basados en trayectorias.
+
+*** Tema 2. Modelos de búsqueda. Entornos, trayectorias y poblaciones
+*** Tema 3. Metaheurísticas basadas en poblaciones
+*** Tema 4. Algoritmos meméticos
+*** Tema 5. Metaheurísticas basadas en trayectorias
+*** Tema 6. Metaheurísticas basadas en adaptación social
+*** Tema 7. Aspectos avanzados en metaheurísticas
+*** Tema 8. Metaheurísticas paralelas
 
-** Curvas y superficies
-*** Datos de la asignatura
-César Rosales - crosales@ugr.es
-Lunes, Martes y Miércoles de 12 a 14.
-http://www.ugr.es/~crosales/cys1718.html
-*** Preliminares
-**** 1. Geometría afín euclídea
-***** Producto escalar
-***** Orientación
-Una base $B = \left\{ u_1,\dots,u_n \right\}$ es *positiva* si la matriz de cambio de 
-base de $B$ a $B_u$ es positiva. Es decir,
-
-\[\mathrm{det}(u_1 & \dots & u_n) > 0.
-\]
-
-***** Bases ortonormales
-Para $B= \left\{ u_1,\dots,u_n \right\}$ base ortonormal,
-
-\[\left| v \right|^2 = \sum_{i=1}^n \left\langle v,u_i \right\rangle^2.
-\]
-
-En general,
-
-\[
-\left\langle u,v \right\rangle = \sum_{i=1}^n \left\langle u,u_i \right\rangle \left\langle v,u_i \right\rangle.
-\]
-
-***** Movimientos rígidos
-:PROPERTIES:
-:ID:       92d75a96-b872-4ea6-ae5a-b83d975e2b37
-:END:
-Todo movimiento rígido es de la forma
-
-\[
-\phi(p) = \vec{\phi}(p) + b,
-\]
-
-para $\vec{\phi}$ una isometría lineal.
-
-****** Isometrías lineales
-Una aplicación $\vec\phi$ es isometría lineal si $\left\langle \vec{\phi}(u),\vec{\phi}(v) \right\rangle = \left\langle u,v \right\rangle$, para
-cualesquiera $u$ y $v$.
-
-Esto equivale a $|\vec{\phi}(u)| = u$ para cualquier $u$.
-
-****** Matriz asociada, movimientos directos o inversos
-La matriz asociada a una isometría lineal es ortogonal, $A^{-1} = A^t$,
-luego su determinante es $|A| = \pm 1$. La isometría es *directa* si
-es positivo, e *inversa* si es negativo.
-
-***** Movimientos rígidos de R2
-
-|----------------------+----------------+--------------+----------|
-| Tipo de movimiento   | Isometría      | Puntos fijos | Carácter |
-|----------------------+----------------+--------------+----------|
-| Identidad            | Identidad      | Plano        | directo  |
-| Traslación           | Identidad      | ninguno      | directo  |
-| Giro                 | Giro           | Punto        | directo  |
-| Reflexión            | Simetría axial | Recta        | inverso  |
-| Reflexión deslizante | Simetría axial | ninguno      | inverso  |
-|----------------------+----------------+--------------+----------|
-
-***** Movimientos rígidos de R3
-
-|-----------------------+--------------------+--------------+----------|
-| Tipo de movimiento    | Isometría          | Puntos fijos | Carácter |
-|-----------------------+--------------------+--------------+----------|
-| Identidad             | identidad          | Espacio      | directo  |
-| Traslación            | identidad          | ninguno      | directo  |
-| Rotación              | Rotación           | Recta        | directo  |
-| Movimiento helicoidal | Rotación           | ninguno      | directo  |
-| Reflexión             | Simetría especular | Plano        | inverso  |
-| Relfexión deslizante  | Simetría especular | ninguno      | inverso  |
-| Rotación y reflexión  | Giro y simetría    | Punto        | inverso  |
-|-----------------------+--------------------+--------------+----------|
-
-**** 2. Producto vectorial en R3
-***** Producto vectorial
-Llamamos *producto vectorial* $u \times v$ al único vector tal que
-
-\[
-\forall w:\quad \mathrm{det}(u,v,w) = \left\langle u\times v,w \right\rangle.
-\]
-
-***** Propiedades del producto vectorial
-Tenemos
-
- 1. que $\times$ es bilineal antisimétrica,
- 2. $\left\langle u \times v, u \right\rangle = \left\langle u \times v,v \right\rangle = 0$,
- 3. $|u \times v|^2 = \mathrm{det}(u,v,u \times v) = |u|^2|v|^2 - \left\langle u,v \right\rangle^2$,
- 4. $u \times v = 0$ si y sólo si son linealmente independientes,
- 5. para $\left\{ u,v \right\}$ independientes, $\left\{ u,v,u \times v \right\}$ es base positiva,
- 6. para $\left\{ u,v \right\}$ ortonormales, $\left\{ u,v,u \times v \right\}$ es base positiva ortonormal.
-
-****** Proof 1
-Desde las propiedades del determinante.
-
-****** Proof 2
-Por definición y por las propiedades del determinante.
-
-****** Proof 3
-Se comprueba calculando explícitamente $|u \times v|^2$.
-
-****** TODO Proof 4
-
-****** TODO Proof 5
-
-**** 3. Distancia con signo asociada a un hiperplano
-**** 4. Reglas de derivación para funciones de una variable
-Para $\alpha , \beta \colon I \to \mathbb{R}^{n}$ curvas ${\cal C}^{\infty}$, dado un $\lambda \colon I \to \mathbb{R}$ diferenciable, se tiene
-
- 1. $\left\langle \alpha(t),\beta(t) \right\rangle' = \left\langle \alpha'(t),\beta(t)  \right\rangle + \left\langle \alpha(t)\beta'(t) \right\rangle$,
-
- 2. $(|\alpha(t)|^2)' = 2 \left\langle \alpha'(t),\alpha(t) \right\rangle$
-
- 3. $|\alpha(t)|' = \pair{\alpha'(t), \frac{\alpha(t)}{|\alpha(t)|}}$ cuando $\alpha(t) \neq 0$ para cada $t \in I$
-
- 4. $(\lambda(t)\alpha(t))' = \lambda'(t)\alpha(t) + \lambda(t)\alpha'(t)$
-
- 5. $(\alpha(t) \times \beta(t))' = \alpha'(t) \times \beta(t) + \alpha(t) \times \beta'(t)$ cuando $n = 3$
-
-**** 5. Diferenciabilidad de funciones de varias variables
-***** Diferenciabilidad de una función real de varias variables
-Una $f \colon O \subset \mathbb{R}^n \to \mathbb{R}$ es infinitamente diferenciable $f \in {\cal C}^{\infty}$ si
-tiene derivadas parciales continuas de todos los órdenes. En tal
-caso tenemos el *gradiente*,
-
-\[
-(\nabla f)(p) = \left( \pdv{f}{x_1}(p), \dots, \pdv{f}{x_n}(p) \right) = 
-(f_{x_1}(p), \dots,f_{x_n}(p))
-\]
-
-que puede verse como una función $\mathbb{R}^n \to \mathbb{R}$.
-
-***** Diferenciabilidad de una función de varias variables
-La diferencial de $f \colon \mathbb{R}^n \to \mathbb{R}^m$ es la aplicación lineal $(df)_p\colon \mathbb{R}^n \to \mathbb{R}^m$
-que mejor aproxima a $f$ cerca de $p$, es decir
-
-\[
-\lim_{h \to 0} \frac{\abs{f(p+h) - f(p) - (df)_p(h)}}{\abs{h}} = 0,
-\]
-
-esta viene dada por el Jacobiano, que generaliza al gradiente componente
-a componente
-
-\[
-(\operatorname{Jac} f)_p = \left( \pdv{f}{x_1} (p), \dots \pdv{f}{x_n} (p) \right);
-\]
-
-dicho de otra forma, las filas del jacobiano son los gradientes $(\nabla f_i)(p)$.
-
-**** 6. Difeomorfismos entre abiertos. Teorema de la función inversa
-***** Difeomorfismo
-Una aplicación entre abiertos $\phi \colon O \to O'$ es *difeomorfismo* cuando es
-biyectiva, diferenciable y con inversa diferenciable $\phi^{-1} \colon O' \to O$.
-
-***** Difeomorfismo local
-Una aplicación entre abiertos $\phi \colon O \to O'$ es *difeomorfismo local* en
-un punto $p \in O$ si existen entornos $p \in U \subset O$ y $\phi(p) \in U' \subset O'$ tales
-que $\phi|_U \colon U \to U'$ es difeomorfismo.
-
-***** Difeomorfismos locales y globales
-Un difeomorfismo global es un difeomorfismo local en todo punto trivialmente,
-pero no todo difeomorfismo local en todo punto es difeomorfismo global.
-
-****** Contraejemplo
-:PROPERTIES:
-:ID:       1395d142-5681-4763-bd06-a7f307c486a5
-:END:
-No todo difeomorfismo local en todo punto es un difeomorfismo global.
-Podríamos tener el jacobiano con determinante no nula en cada punto y
-que la función no fuera siquiera inyectiva. Por ejemplo,
-
-\[
-f(x,y) = (e^x \sin(y), e^x \cos(y))
-\]
-
-[[https://math.stackexchange.com/questions/39142/a-local-diffeomorphism-of-euclidean-space-that-is-not-a-diffeomorphism][Ejemplo en SE.]]
-
-***** Difeomorfismo local biyectivo es difeomorfismo
-Una aplicación entre abiertos $\phi\colon O \to O'$ diferenciable es difeomorfismo
-ssi es difeomorfismo local biyectivo.
-
-****** Proof
-En un sentido es trivial. En el otro, tendríamos una función biyectiva,
-que sería diferenciable por serlo localmente. Su inversa es localmente
-diferenciable también, por lo que sería diferenciable.
-
-***** Difeomorfismo local es abierta
-Una aplicación entre abiertos $\phi\colon O \to O'$ que es difeomorfismo es abierta.
-
-****** Proof
-Dado un abierto $U \subset O$, lo enviará a $\phi(U)$. Todos los puntos ahí tendrán
-una preimagen y esta tendrá un entorno, en particular un entorno contenido
-en $U$, tal que $\phi$ sea difeomorfismo entre él y un entorno del punto. Este
-entorno estará contenido en $O'$, lo que lo hará abierto.
-
-***** Difeomorfismo tiene derivada isomorfismo
-:PROPERTIES:
-:ID:       6a2928b0-e787-4240-b76c-1856d14421bb
-:END:
-Si una aplicación entre abiertos $\phi \colon O \to O'$ es difeomorfismo, se tiene
-para cada $p \in O$ que $(d\phi)_p \colon \mathbb{R}^n\to \mathbb{R}^n$ es isomorfismo lineal y que
-$(d\phi)^{-1}_p = (d\phi^{-1})_{\phi(p)}$.
-
-****** TODO Proof
-Calculamos la derivada de la inversa.
-
-***** Teorema de la función inversa
-:PROPERTIES:
-:ID:       16bd6b42-7b91-4fcf-8979-faabc0acd594
-:END:
-Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
-se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
-
-****** TODO Proof
-
-***** Corolarios al teorema de la función inversa
-Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable cumple
-
- 1) que es difeomorfismo local si y sólo si $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ es
-    isomorfismo lineal para cada $p \in O$;
-
- 2) que es difeomorfismo si y sólo si $\phi$ es biyectiva y $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$
-    es isomorfismo lineal para cada $p \in O$.
-
-****** Proof 1
-Si es un isomorfismo lineal para cada $p \in O$, por el [[id:16bd6b42-7b91-4fcf-8979-faabc0acd594][teorema]] de la
-función inversa es difeomorfismo local en cada punto.
-
-Si es un difeomorfismo local, en cada entorno es un difeomorfismo y
-entonces en ese entorno [[id:6a2928b0-e787-4240-b76c-1856d14421bb][la derivada es un isomorfismo]] lineal. Si un
-isomorfismo lineal lo es en un entorno, lo es globalmente.
-
-****** TODO Proof 2
-
-*** Tema 1. Curvas
-**** 1. Curvas regulares y longitud de arco
-***** 1.1. Definiciones
-****** Curva, traza y curva regular
-:PROPERTIES:
-:ID:       7fbe4138-469a-4d17-a2d8-a04434cf8489
-:END:
-Una *curva* es $\alpha \colon I \to \mathbb{R}^n$, con $\alpha \in {\cal C}^{\infty}$ para $I$ intervalo abierto.
-Llamamos *traza* a su imagen. Consideramos *curvas regulares* cuya
-velocidad $\alpha'$ es no nula. Toda curva regular tiene rectas tangentes
-en todo punto:
-
-\[
-\alpha(t) + L(\alpha'(t)) =
-\left\{ \alpha(t) + \lambda \alpha'(t) \mid
-\lambda \in \mathbb{R} \right\}.
-\]
-
-****** Embebimiento
-Decimos que $\alpha \colon I \to \mathbb{R}^n$ es un *embebimiento* si $\alpha \colon I \to \alpha(I)$ es un
-homeomorfismo.
-
-****** TODO Ejemplos de curvas regulares
-
-***** 1.3. Longitud de un arco de curva
-****** 1.11. Longitud
-Definimos la longitud de una función continua $\alpha \colon [a,b] \to \mathbb{R}^n$ como
-
-\[
-L_a^b(\alpha) = \sup\left\{
-\sum_{k=0}^m |\alpha(t_k+1) - \alpha(t_{k})| \;\middle|\;  
-\left\{ k_0,\dots,k_{m+1} \right\} \mbox{ partición de } [a,b] 
-\right\}
-\]
-
-******* Las rectas tienen longitud mínima
-Por definición, usando la partición trivial $\left\{ a,b \right\}$.
-
-****** 1.12. Longitud de funciones diferenciables
-Para $\alpha \colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, tenemos
-
-\[
-L_a^b(\alpha) = \int_a^b |\alpha'(t)|\,dt < \infty.
-\]
-
-******* TODO Proof
-
-****** 1.14. Preservación de la longitud
-Para $\alpha \colon I \to \mathbb{R}^n$ curva con $[a,b] \subseteq I$, tenemos
-
- 1. que si $\phi \colon \mathbb{R}^n \to \mathbb{R}^n$ es un movimiento rígido, $L_a^b(\phi \circ \alpha) = L_a^b(\alpha)$;
-
- 2. que si $\phi \colon J \to I$ es un difeomorfismo y $\beta = \alpha \circ \phi$, entonces
-    $L_c^d(\beta) = L_a^b(\alpha)$, para $[c,d] = \phi^{-1}[a,b]$.
-
-Es decir, la longitud se preserva por [[id:92d75a96-b872-4ea6-ae5a-b83d975e2b37][movimientos rígidos]] y
-reparametrizaciones.
-
-***** 1.4. Curvas parametrizadas por el arco
-****** Curva parametrizada por el arco
-:PROPERTIES:
-:ID:       cb6ea57b-b063-4959-9a36-44a2662b6fce
-:END:
-Una [[id:7fbe4138-469a-4d17-a2d8-a04434cf8489][curva]] $\alpha \colon I \to \mathbb{R}^n$ se dice *parametrizada por el arco* si
-$|\alpha'(t)| = 1$ para todo $t \in I$. Las parametrizadas por el arco son
-regulares.
-
-****** Reparametrización por el arco de curvas regulares
-Dada una $\alpha \colon I \to \mathbb{R}^n$ regular, existe $\phi \colon J \to I$ difeomorfismo tal
-que $\beta = \alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
-
-******* TODO Proof
-
-*** Tema 2. Superficies
-
-*** Tema 3. Curvatura de superficies
-
-*** Tema 4. Geodésicas
-
-*** Ejercicios
-**** Tema 1. Curvas
-***** Ejercicio 20-Feb A
-#+begin_statement
-Probar que no existe un plano afín conteniendo a la traza de
-una hélice circular de eje vertical.
-#+end_statement
-
-Si un plano contiene a dos puntos, contiene a la recta entre ellos,
-luego en particular el plano contiene a todos los puntos de la
-forma $(\sin(t), \cos(t), k)$.
-
-En particular, contendría a un círculo $(\sin(t), \cos(t), 0)$, por
-tanto a tres de sus puntos y debería ser el plano que determinan
-esos tres puntos, $L(x,y,0)$; pero también a $(1,0,1)$, por ejemplo,
-lo que es imposible.
-
-***** Ejercicio 20-Feb B
-#+begin_statement
-Probar que las rectas afines a la hélice forman un ángulo constante
-con el eje z.
-#+end_statement
-
-*** Cards
-**** Preliminares
-***** Definición de base positiva                                 :drill:
-SCHEDULED: <2018-03-30 Fri>
-:PROPERTIES:
-:ID:       e15a4412-930d-4f6a-aa20-d64196a6f4e2
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 12:04]
-:END:
-Fijada la orientación de la base usual, ¿cuándo es una base
-$B = \left\{ u_1,\dots,u_n \right\}$ positiva?
-
-****** Definición
-Cuando la matriz de cambio de base de $B$ a $B_u$ es positiva. Es
-decir,
-
-\[\mathrm{det}(u_1 & \dots & u_n) > 0.
-\]
-
-***** Movimientos rígidos de R2                                   :drill:
-SCHEDULED: <2018-03-30 Fri>
-:PROPERTIES:
-:DRILL_CARD_TYPE: hide2cloze
-:ID:       16a826aa-c93d-4e46-afb4-05682a832bb1
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 12:03]
-:END:
-|----------------------+------------------+--------------+-----------|
-| Tipo de movimiento   | Isometría        | Puntos fijos | Carácter  |
-|----------------------+------------------+--------------+-----------|
-| Identidad            | Identidad        | Todo R2      | directo   |
-| Traslación           | Identidad        | [ninguno]    | directo   |
-| Giro                 | Giro             | [Centro]     | directo   |
-| Reflexión            | [Simetría axial] | [Eje]        | [inverso] |
-| Reflexión deslizante | Simetría axial   | [ninguno]    | inverso   |
-|----------------------+------------------+--------------+-----------|
-
-***** Movimientos rígidos de R3                                   :drill:
-***** Norma del producto vectorial                                :drill:
-Da la fórmula de $\left| u \times v \right|^2$ 
-
- * en función de $|u|,|v|,\left\langle u,v \right\rangle$,
-
- * y en función de $\mathrm{det}(u,v,-)$.
-
-****** Fórmula
-
-\[ |u \times v|^2 = 
-\mathrm{det}(u,v,u \times v) = 
-\left| u \right|^2|v|^2 - \left\langle u,v \right\rangle^2 
-\]
-
-***** Difeomorfismo local que no es global                        :drill:
-¿Cómo podemos construir un difeomorfismo local en cada punto que no
-sea difeomorfismo global?
-
-****** Construirlo
-Podríamos tener una función con Jacobiano con determinante no nulo
-en cada punto pero que no fuera siquiera inyectiva.
-
-\[
-f(x,y) = (e^x \sin(y), e^x \cos(y))
-\]
-
-Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]].
-
-***** Teorema de la función inversa                               :drill:
-Enuncia el teorema de la función inversa para una aplicación entre
-abiertos $\phi \colon O \to O'$ diferenciable.
-
-/Hint/: hay que dar una condición sobre $(d\phi)_p$.
-
-****** Enunciado
-Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
-se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
-
-**** Tema 1. Curvas
-***** Embebimiento                                                :drill:
-¿Cuándo es $\alpha \colon I \to \mathbb{R}^n$ un embebimiento?
-
-****** Definición
-Cuando $\alpha \colon I \to \alpha(I)$ es un homeomorfismo.
-
-***** Ejemplo de curva inyectiva no embebimiento                  :drill:
-Dar un ejemplo de curva inyectiva que no sea embebimiento.
-
-****** Ejemplo
-La curva
-
-\[
-\alpha(t) = \left( \frac{3t}{1+t^3}, \frac{3t^2}{1+t^3} \right)
-\]
-
-es inyectiva, pero al tender a infinito se acerca tanto como queramos
-al $(0,0)$, por el que ya había pasado antes, lo que hace que no podamos
-tener un homeomorfismo.
 ** Ecuaciones diferenciales I
 *** 1. Métodos de integración
 **** 1.1. Método de variables separadas
@@ -40891,6 +41303,25 @@ Computing on the field of rationals.
 *** TODO 4. Composites
 
 * Talks
+** HoTT-est seminars
+*** Carlo Angiuli - Computational semantics of cartesian cubical type theory
+Link to the video: [[https://zoom.us/recording/play/XP5xo5yzDYuJ-tFYIvNTIEVG5jPVFl0_Rz5PsUZZPrjyZa83b_CIHnuLhdfKwkjP][video]]
+
+Canonicity only holds for closed terms. 
+
+Computational semantics are given by a model in which closed terms are
+programs.
+
+**** Operational semantics
+Syntax of untyped preterms (modulo alpha-equivalence). Raw syntax of
+the theory.
+
+Each closed term reduces to a value. The meanings of non values are
+determined by the values to which they reduce.
+
+The meanings of open terms are determined by thei rbehavior as maps
+from closed to closed terms.
+
 ** Course on HoTT - Robert Harper
 *** Lecture 1: Intuitionistic Type Theory
 **** Intuitionistic Type Theory (TT),
