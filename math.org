@@ -1,7 +1,7 @@
 #+TITLE: Math
 #+DESCRIPTION: My math notes and exercises
 #+TODO: TODO WIP | CHECK DONE WONTFIX
-#+SETUPFILE: setup/ejerciciocomputacion.setup
+#+SETUPFILE: setup/ejerciciocurvas.setup
 
 # TODO: Per-header configuration. 
 
@@ -1115,6 +1115,279 @@ Usando linealidad y acotación de la integral tenemos
 \lambda \int_{x_0}^{x_1} F\Big(x,y,y'\Big)\,dx + (1 - \lambda)\int_{x_0}^{x_1} F\Big(x,z,z'\Big)\,dx.
 \end{aligned}\]
 **** 3. Cálculo de extremales: problemas de contorno
+**** 4. Problemas variacionales con ligaduras, extremos condicionados
+***** 4.1. Problemas variacionales dependientes de varias funciones
+****** Funcional a minimizar, dependiente de varias funciones
+:PROPERTIES:
+:ID:       cf95308e-1cfe-4d08-af55-b2fb3956f471
+:END:
+Queremos minimizar un funcional de la forma
+
+\[
+{\cal F}(y) = \int_{x_0}^{x_1} F(x,y_1(x),\dots,y_n(x),y'_1(x), \dots, y'_n(x))\,dx.
+\]
+
+para $F \colon [x_0,x_1] \times \Omega \to \mathbb{R}$ continua, siendo $\Omega \subseteq \mathbb{R}^{2n}$ dominio.
+Minimizaremos sobre el conjunto
+
+\[
+{\cal D} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega
+\end{array}\right\}
+\]
+
+****** Teorema 12. Condición necesaria de mínimo para funcioanles de varias funciones
+Para un funcional de la forma [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]], si $\oy \in {\cal D} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ es mínimo
+del ${\cal F}$ se cumplen las siguientes ecuaciones de Euler-Lagrange en cada variable.
+
+\[
+F_{y_i} - \dv{}{x}\Big( F_{p_i} \Big) = 0, \quad i = 1,\dots,n.
+\]
+
+******* TODO Proof
+
+****** Ligaduras algebraicas
+Al añadir ligaduras algebraicas o diferenciales obtendremos un nuevo
+conjunto ${\cal D}$ de la forma siguiente.
+
+\[
+{\cal D} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
+\varphi_1(x,y_1,\dots,y_n) = 0\\
+\vdots\\
+\varphi_m(x,y_1,\dots,y_n) = 0\\
+\end{array}\right\}
+\]
+
+****** Método de sustitución
+Las ligaduras permiten en ocasiones eliminar alguna de las incógnitas
+del problema, escribiéndolas en función de las otras.
+
+****** Teorema 13. Ligaduras algebraicas
+Para $\oy \in {\cal D}_{\varphi} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ mínimo de un funcional ${\cal F}$ de la forma [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]]
+existen multiplicadores de Euler-Lagrange $\lambda_j(x)$ tales que para
+
+\[
+F^{\ast} = F - \sum_{j=1}^m \lambda_j(x) \varphi_j(x,y_1,\dots,y_n)
+\]
+
+se tienen $(\oy,\lambda_1,\dots,\lambda_n)$ extremales de ${\cal F}^{\ast}[y,\lambda] = \int_{x_0}^{x_1} F^{\ast}\,dx$ sobre un conjunto
+sin restricciones. En estos puntos se cumplen las ecuaciones de Euler-Lagrange
+siguientes.
+
+\[\left\{\begin{array}{l}
+F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; \\
+\varphi_j = 0, \quad j = 1,\dots,m.
+\end{array}\]
+
+******* TODO Proof
+# Demostración en el libro de Elsgoltz.
+
+****** Corolario: ligaduras algebro-diferenciales
+Podemos generalizar las condiciones para que aparezcan las derivadas
+de la función en las ligaduras.
+
+\[
+{\cal D}'_{\varphi} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
+\varphi_1(x,y_1,\dots,y_n,y'_1,\dots,y'_n) = 0\\
+\vdots\\
+\varphi_m(x,y_1,\dots,y_n,y'_1,\dots,y'_n) = 0\\
+\end{array}\right\}
+\]
+
+En este caso, un mínimo $\oy \in {\cal D}'_{\varphi} \cap {\cal C}^2[x_0,x_1]^n$ de ${\cal F}$ cumple que podemos
+definir 
+
+\[
+F^{\ast} = F - \sum_{j=1}^m \lambda_j(x)\varphi_j(x,y_1,\dots,y_n,y'_1,\dots,y'_n)
+\]
+
+y que existan $(\oy,\lambda_1,\dots,\lambda_n)$ extremales de ${\cal F}^{\ast}[y,\lambda] = \int_{x_0}^{x_1} F^{\ast}\,dx$. En
+estos puntos se cumplen las ecuaciones de Euler-Lagrange siguientes.
+
+\[\left\{\begin{array}{l}
+F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; \\
+\varphi_j = 0, \quad j = 1,\dots,m.
+\end{array}\]
+
+******* TODO Proof
+
+****** Teorema 14: Corolario: ligaduras integrales
+:PROPERTIES:
+:ID:       e37d89ff-11da-493c-ab46-2000fe221da9
+:END:
+Podemos considerar restricciones integrales.
+
+\[
+{\cal D}_{G} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
+\int_{x_0}^{x_1} G_1(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_1 \\
+\vdots\\
+\int_{x_0}^{x_1} G_m(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_m
+\end{array}\right\}
+\]
+
+En este caso, un mínimo $\oy \in {\cal D}_G \cap ({\cal C}^2[x_0,x_1])^n$ de ${\cal F}$ sobre
+${\cal D}_G$ cumplirá, para
+
+\[
+F^{\ast} = F - \sum_{j=1}^m \lambda_j G_j,
+\]
+
+con $\lambda_j$ *constantes*, que
+
+\[
+F^{\ast}_{y_i} - \dv{}{x} \Big( F^{\ast}_{p_i} \Big) = 0, \qquad i=1,\dots,n.
+\]
+
+******* TODO Proof
+# En los apuntes, usando el teorema 13.
+
+****** Ejemplo: Problema de Dido
+Queremos maximizar el área que encierra una curva cerrada de longitud
+finita.
+
+******* Planteamiento
+Consideramos $\Gamma$ la traza de $\alpha \colon [0,1] \to \mathbb{R}^2$ en sentido antihorario llamando 
+$\alpha(t) = (x(t),y(t))$, y cumpliendo que $\alpha(0) = \alpha(1)$. El área que
+encierra $\alpha$ es
+
+\[
+A(x,y) = \frac{1}{2}\int^1_0 x(t)y'(t) - x'(t)y(t)\,dt.
+\]
+
+Y queremos minimizar este funcional sobre el siguiente conjunto.
+
+\[
+{\cal D}_{G} = \left\{\begin{array}{c}
+x,y \in {\cal C}^1[x_0,x_1] \\
+x_0=x_1 \\
+y_0=y_1 \\
+\int_0^1 \sqrt{(x'(t))^2 + (y'(t))^2} \,dt = L
+\end{array}\right\}
+\]
+
+Tenemos por tanto $n = 2$ incógnitas y $m = 1$ ligaduras integrales.
+Tenemos definidas las funciones
+
+ * $F(t,x,y,p,q) = \frac{1}{2}(xq - yp)$
+
+ * $G(x,y,p,q) = \sqrt{p^2 + q^2}$
+
+******* Lagrangiana
+Teniendo la lagrangiana
+
+\[
+F^{\ast} = F - \lambda G = \frac{1}{2}(xq-yp) - \lambda \sqrt{p^2 + q^2}
+\]
+
+podemos aplicar el [[id:e37d89ff-11da-493c-ab46-2000fe221da9][Teorema 14]] sobre ligaduras integrales para tener
+las siguientes ecuaciones asociadas.
+
+\[\pdv{F^{\ast}}{x} - \dv{}{t}\pdv{F^{\ast}}{p} = 0\]
+
+\[
+\pdv{F^{\ast}}{y} - \dv{}{t}\pdv{F^{\ast}}{p} = 0
+\]
+
+Desde ellas podemos obtener dos constantes
+
+\[
+y + \lambda \frac{x'}{\sqrt{x'^2 + y'^2}} = y_0, \qquad
+x + \lambda \frac{y'}{\sqrt{x'^2 + y'^2}} = x_0;
+\]
+
+que dan como solución una circunferencia de centro $(x_0,y_0)$ y radio $|\lambda|$.
+
+****** Ejemplo: Catenaria
+Queremos hallar la forma de una cuerda de longitud $L > 1$ colgando de
+dos postes a altura $h$ separados a $1$ unidad de distancia. 
+
+******* Planteamiento
+Minimizaremos
+
+\[
+{\cal F}[y] = \int_0^1 y(x) \sqrt{1 + (y'(x))^2}\,dx
+\]
+
+sujeto a
+
+\[
+{\cal D}_{G} = \left\{\begin{array}{c}
+y \in {\cal C}^1[0,1] \\
+y(0) = y(1) = h,\\
+\int_0^1 \sqrt{1 + (y'(x))^2} \,dx = L
+\end{array}\right\}
+\]
+
+Tenemos por tanto $n = 1$ incógnitas y $m = 1$ ligaduras integrales.
+Tenemos definidas las funciones
+
+ * $F(x,y,p) = y\sqrt{1 + p^2}$,
+
+ * $G(x,y,p) = \sqrt{1 + p^2}$.
+
+******* Lagrangiana
+Tenemos la lagrangiana
+
+\[
+F^{\ast} = (y - \lambda)\sqrt{1 + p^2}
+\]
+
+que al no depender de $x$ directamente, simplifica su condición de
+Euler-Lagrange a $F - y'F_p = \mathrm{cte.} = C$. Resolviendo obtenemos
+
+\[
+y = \lambda + C\sqrt{1+y'^2}.
+\]
+
+Esta es una ecuación diferencial que hemos tratado anteriormente
+con solución
+
+\[
+y(x) = \lambda + C \cosh \left( \frac{x-k}{C} \right).
+\]
+
+******* Determinación de las constantes
+Imponiendo la ligadura $y(0) = y(1)$ obtenemos $k = 1/2$. Imponiendo
+la ligadura integral tenemos
+
+\[
+L = \int_0^1 \sqrt{1 + \sinh(\dots)^2}\,dx = \int_0^1 \cosh(\dots)\,dx = 2C \sinh\frac{1}{2C}
+\]
+
+que determina $C$ de forma única cuando $L > 1$.
+
+******* Dato extra
+Si además imponemos $y(0) = h$, entonces
+
+\[
+\lambda = h - C_0 \cosh \left( \frac{1}{2C_0} \right)
+\] 
+
+y podemos demostrar que
+
+\[
+\lambda = h - \frac{1}{2}\sqrt{4C_0^2 + L}.
+\]
+
 **** Lineales
 ***** Forma autoadjunta de una ecuación lineal
 Una ecuación lineal de orden 2 para $[x_0,x_1]$ es de la forma
@@ -1595,20 +1868,37 @@ dependiente solo de $\Omega$ tal que
 \]
 
 *** Cards
+**** 0. Preliminares
+***** Ecuación de Euler: forma                                    :drill:
+¿Cuál es la forma de una ecuación de Euler?
+
+****** Forma
+
+\[
+a_nx^ny^{(n)}(x) + \dots + a_0y(x) = 0
+\]
+
+***** Ecuación de Euler: técnica de resolución                    :drill:
+¿Cómo se resuelve una ecuación de Euler?
+
+****** Técnica de resolución
+Se puede aplicar sustitución $x = e^u$ para reducirla a
+una lineal con coeficientes constantes.
+
 **** 2. Cálculo de variaciones
 ***** 2.2. Ecuación de Euler-Lagragne
 ****** 2.2. Función para Euler-Lagrange                          :drill:
-SCHEDULED: <2018-03-30 Fri>
+SCHEDULED: <2018-04-03 Tue>
 :PROPERTIES:
 :ID:       cd2cc1ba-0d03-4f95-871f-a4b27229bf39
-:DRILL_LAST_INTERVAL: 4.141
+:DRILL_LAST_INTERVAL: 4.199
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.7
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.4
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:09]
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:35]
 :END:
 Dar el dominio de la $F$ para la que se tiene Euler-Lagrange y sus
 condiciones de derivabilidad.
@@ -1689,17 +1979,17 @@ y \in {\cal C}^1(x_0,x_1), \\
 \end{array}\right\}\]
 
 ****** 2.2. Condiciones de contorno para problemas sin ellas     :drill:
-SCHEDULED: <2018-03-30 Fri>
+SCHEDULED: <2018-04-09 Mon>
 :PROPERTIES:
 :ID:       742721a0-1edb-47c7-aabc-bb203354d4bc
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 10.3541
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.25
 :DRILL_EASE: 2.6
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:09]
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:32]
 :END:
 Dado un funcional sobre ${\cal D}^o$, cualquier $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal
 de ${\cal F}$ verifica Euler-Lagrange y ¿qué condiciones de contorno?
@@ -1711,17 +2001,17 @@ F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
 \]
 
 ****** 2.2. Euler-Lagrange para F independiente de y             :drill:
-SCHEDULED: <2018-03-28 Wed>
+SCHEDULED: <2018-04-03 Tue>
 :PROPERTIES:
 :ID:       b5ac284c-b322-4cf6-996f-c70db55e891b
-:DRILL_LAST_INTERVAL: 4.0
+:DRILL_LAST_INTERVAL: 4.056
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:54]
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:36]
 :END:
 Reescribe Euler-Lagrange sabiendo $F_y = 0$.
 
@@ -1732,17 +2022,17 @@ F_p(x,\oy'(x)) = \mathrm{cte.}
 \]
 
 ****** 2.2. Euler-Lagrange para F independiente de x             :drill:
-SCHEDULED: <2018-03-28 Wed>
+SCHEDULED: <2018-04-03 Tue>
 :PROPERTIES:
 :ID:       22e8b4d8-c306-4927-9a7f-159725999cbd
-:DRILL_LAST_INTERVAL: 4.0
+:DRILL_LAST_INTERVAL: 4.056
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
 :DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:54]
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:36]
 :END:
 Reescribe Euler-Lagrange sabiendo $F_x = 0$.
 
@@ -1796,17 +2086,17 @@ u_t(0,x) = v_0(x) \in {\cal C}^1(\mathbb{R}).
 \end{aligned}\right.\]
 **** 6. Formulación débil
 ***** Fórmula de Green                                            :drill:
-SCHEDULED: <2018-03-28 Wed>
+SCHEDULED: <2018-04-08 Sun>
 :PROPERTIES:
 :ID:       2f8ab0e2-d672-4822-8957-da14137f3350
-:DRILL_LAST_INTERVAL: 3.916
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.2418
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:53]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:23]
 :END:
 Enunciar la fórmula de Green para $u \in {\cal C}^1(\overline{\Omega})$ y $v \in {\cal C}^1_0(\overline{\Omega})$.
 
@@ -1818,17 +2108,17 @@ Enunciar la fórmula de Green para $u \in {\cal C}^1(\overline{\Omega})$ y $v \i
 \]
 
 ***** Teorema fundamental del cálculo                             :drill:
-SCHEDULED: <2018-03-28 Wed>
+SCHEDULED: <2018-04-03 Tue>
 :PROPERTIES:
 :ID:       48323a75-8295-4d00-af02-7a57721d5269
-:DRILL_LAST_INTERVAL: 3.916
+:DRILL_LAST_INTERVAL: 3.985
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:53]
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.667
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:34]
 :END:
 Enunciar el teorema fundamental del cálculo en su versión débil
 para una $f \in L_{loc}^1(a,b)$ y un $c \in (a,b)$.
@@ -2354,13 +2644,47 @@ L_a^b(\alpha) = \sup\left\{
 Por definición, usando la partición trivial $\left\{ a,b \right\}$.
 
 ****** 1.12. Longitud de funciones diferenciables
-Para $\alpha \colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, tenemos
+Para $\alpha \colon [a,b] \subseteq I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, tenemos
 
 \[
 L_a^b(\alpha) = \int_a^b |\alpha'(t)|\,dt < \infty.
 \]
 
-******* TODO Proof
+Así, las curvas tienen en intervalos compactos tienen
+longitud finita.
+
+******* Proof
+******** Acotación
+Por ser $\alpha'$ continua, está acotada en el compacto $[a,b]$ y la
+integral entera es finita. Para cualquier parición se tiene,
+usando Teorema fundamental del cálculo, una cota uniforme
+
+\[\begin{aligned}
+L(\alpha,P) &= \sum_{k=0}^{m-1} |\alpha(t_{k+1}) - \alpha(t_k)| \\
+&= \sum_{k=0}^{m-1} \abs{\int_{t_k}^{t_{k+1}} \alpha'(s)\,ds} \\
+&\leq \sum_{k=0}^{m-1} \int_{t_k}^{t_{k+1}} \abs{\alpha'(s)}\,ds \\
+&= \int_{a}^{b} \abs{\alpha'(s)}\,ds.
+\end{aligned}\]
+
+******** TODO Igualdad
+Lo que nos queda por demostrar es que se tiene la igualdad,
+viendo que para cualquier $\varepsilon > 0$, hay una partición $P$ tal
+que
+
+\[
+\int_a^b |\alpha'(t)|\,dt - L(\alpha,P) < \varepsilon.
+\]
+
+Para cualquier partición $P = \left\{ t_0<t_1<\dots<t_m \right\}$, podemos
+aplicar el Teorema del Valor Medio a las componentes $\alpha(t) = (x_1(t),\dots,x_n(t))$
+para tener $c_{ik} \in [t_k,t_{k+1}]$ tales que
+
+\[
+x_i(t_{k+1}) - x_i(t_k) = x'_i(c_{ik})(t_{k+1}-t_k), \quad \forall i = 1,\dots,n.
+\]
+
+Definimos $f(s_1,\dots,s_n) = \sqrt{x_1'(s_1)^2 + \dots + x_n'(s_n)^2}$
+
 
 ****** 1.14. Preservación de la longitud
 Para $\alpha \colon I \to \mathbb{R}^n$ curva con $[a,b] \subseteq I$, tenemos
@@ -2456,7 +2780,16 @@ k(s) = \mathrm{det}(\alpha'(s),\alpha''(s))
 \]
 
 ***** 2.2. Diedro de Frenet y curvatura de curvas regulares
-****** TODO Definiciones para curvas regulares
+****** Definiciones para curvas regulares
+Para $\alpha \colon I \to \mathbb{R}^2$ regular consideramos una reparametrización
+a p.p.a. $\beta = \alpha \circ \phi$ y definimos
+
+ * $T_{\alpha}(t) = T_{\beta}(\phi^{-1}(t))$,
+ * $N_{\alpha}(t) = N_{\beta}(\phi^{-1}(t))$,
+ * $k_{\alpha}(t) = k_{\beta}(\phi^{-1}(t))$.
+
+Nótese que una reparametrización así [[id:1e330295-fe16-4262-a88b-af5a84c66fb8][existe]] siempre.
+
 ****** Ecuaciones para curvas regulares en el espacio
 Para $\alpha \colon I \to \mathbb{R}^2$ curva regular se tiene el siguiente diedro de Frenet
 y la siguiente curvatura
@@ -2478,14 +2811,27 @@ y como consecuencia, la curvatura orientada se escribe como
 k_{\alpha}(t) = \frac{\left\langle T_{\alpha}'(t),N_{\alpha}(t) \right\rangle}{\alpha'(t)}.
 \]
 
+Como corolario hemos demostrado además que $T_{\alpha},N_{\alpha},k_{\alpha}$ no
+dependen de la reparametrización elegida.
+
 ******* TODO Proof
 
-****** TODO Propiedades de la curvatura
+****** Propiedades de la curvatura
+La curvatura cumple
 
- 1. *Carácter local*
- 2. *Invariante a movimientos rígidos directos*
- 3. *Invariante a reparametrizaciones*
+ 1. *Carácter local*, para $\alpha \colon I \to \mathbb{R}^2$ y $\beta \colon J \to \mathbb{R}^2$, si se tiene que
+    $\alpha = \beta$ en un intervalo $(t_0-\varepsilon,t_0+\varepsilon)\subseteq I \cap J$, entonces $k_{\alpha}(t_0) = k_{\beta}(t_0)$.
+    
+ 2. *Invariante a movimientos rígidos directos*, para $\alpha \colon I \to \mathbb{R}^2$
+    regular y $\phi \colon \mathbb{R}^2 \to \mathbb{R}^2$ movimiento rígido, $\phi \circ \alpha$ es regular
+    y $k_{\phi \circ \alpha} = k_{\alpha}$ si $\phi$ es directo o $k_{\phi \circ \alpha} = -k_{\alpha}$ si $\phi$ es inverso.
 
+ 3. *Invariante a reparametrizaciones*, para $\alpha \colon I \to \mathbb{R}^2$
+    regular y $\phi \colon J \to I$ difeomorfismo, $\alpha \circ \phi$ es regular 
+    y $k_{\alpha\circ\phi} = k_{\alpha} \circ \phi$ si $\phi$ es creciente o $k_{\alpha \circ \phi} = - k_{\alpha} \circ \phi$ si
+    $\phi$ es decreciente.
+
+******* TODO Proof
 **** 3. Geometría de curvas regulares en el espacio
 ***** 3.1. Triedro de Frenet, curvatura y torsión de curvas p.p.a.
 ****** Curvatura de una curva p.p.a.
@@ -2529,7 +2875,7 @@ Para $\alpha \colon I \to \mathbb{R}^3$ curva p.p.a. con $k > 0$, definimos
 ****** TODO Ejemplo: hélices
 ***** 3.2. Triedro de Frenet, curvatura y torsión de curvas regulares
 ****** Definiciones para curvas regulares en el espacio
-Para $\alpha \colon I \to \mathbb{R}^3$ consideramos un difeomorfismo creciente $\phi \colon J \to I$
+Para $\alpha \colon I \to \mathbb{R}^3$ regular consideramos un difeomorfismo creciente $\phi \colon J \to I$
 reparametrización a $\beta = \alpha \circ \phi$ curva p.p.a. y definimos las
 características de la curva según ella.
 
@@ -2640,7 +2986,7 @@ Para $I \subseteq \mathbb{R}$ intervalo abierto y $k \in {\cal C}^{\infty}(I)$,
 
  1. existe $\alpha \colon I \to \mathbb{R}^2$ p.p.a. con $k_{\alpha}=k$;
 
- 2. para cualquier otra $\beta \colon I \to \mathbb{R}^2$ con $k_{\beta}=k$ y $\tau_{\beta}=\tau$, existe un
+ 2. para cualquier otra $\beta \colon I \to \mathbb{R}^2$ p.p.a. con $k_{\beta}=k$ y $\tau_{\beta}=\tau$, existe un
     movimiento rígido directo $\phi \colon\mathbb{R}^2\to\mathbb{R}^2$ con $\beta = \phi \circ \alpha$.
 
 Es decir, dada una curvatura cualquiera, existe una curva p.p.a.
@@ -2691,20 +3037,70 @@ con el eje z.
 #+end_statement
 
 **** Relación tema 1
+
+***** TODO Ejercicio 3
+***** TODO Ejercicio 5
+***** TODO Ejercicio 12
+***** TODO Ejercicio 15
+***** Ejercicio 22
+#+begin_statement
+Sean $\alpha,\beta \colon I \to \mathbb{R}^3$ dos curvas p.p.a. tales que $k_{\beta}(s) = k_{\alpha}(s) > 0$ y $\tau_{\beta}(s) = -\tau_{\alpha}(s)$
+para cada $s \in I$. Probar que existe un movimiento rígido inverso $\phi \colon \mathbb{R}^3 \to \mathbb{R}^3$ tal
+que $\beta = \phi \circ \alpha$.
+#+end_statement
+
+Aplicamos simetría respecto de un plano a una de ellas, comprobamos que
+se mantiene la curvatura y que cambia la torsión usando propiedades de
+los determinantes. Aplicamos el Teorema fundamental.
+
+***** Ejercicio 23
+#+begin_statement
+Sea $\alpha \colon \mathbb{R} \to \mathbb{R}^2$ una curva plana p.p.a. Utilizar el teorema fundamental de
+curvas en $\mathbb{R}^2$ para probar que, si la curvatura de $\alpha$ es una función par, entonces
+la traza de $\alpha$ es simétrica con respecto a la recta afín normal $R$ de $\alpha$ en $s=0$.
+#+end_statement
+
+Tomamos la reparametrización $\beta(t) = \alpha(-t)$, que nos da una curva plana $\beta \colon \mathbb{R}\to\mathbb{R}^2$ 
+que además es p.p.a., por tenerse $|\beta'(t)| = |-\alpha'(t)| = |\alpha'(t)| = 1$. Sabiendo que la
+curvatura cambia de signo con reparametrizaciones decrecientes y que es una
+función par, $k_{\beta}(t) = -k_{\alpha}(-t) = -k_{\alpha}(t)$.
+
+Entonces, eligiendo un movimiento rígido inverso cualquiera, $\psi \colon \mathbb{R}^2 \to \mathbb{R}^2$, sabemos 
+que $k_{\psi \circ \alpha}(t) = -k_{\alpha}(t) = k_{\beta}(t)$ y podemos aplicar el teorema fundamental de curvas
+en el plano para obtener un movimiento rígido directo $\psi'$ tal que
+$\psi' \circ \psi \circ \alpha = \beta$. En otras palabras, existe un movimiento rígido inverso $\phi$ tal
+que $\phi\circ \alpha = \beta$, porque la composición de un movimiento rígido inverso con un
+movimiento rígido directo cualquiera es un movimiento rígido inverso.
+
+Ahora, si llamamos $\alpha(0) = p_0$, tenemos que $\phi(p_0) = p_0$, y al tener un punto
+fijo sólo puede ser una simetría. Además, aplicando la regla de la cadena
+en varias variables y siendo $\vec{\phi}$ la parte lineal de $\phi$, tenemos
+\[\begin{aligned}
+T_{\alpha}(0) &= \alpha'(0) = -\beta'(0) = -(\phi \circ \alpha)'(0) = - \mathrm{Jac}_{\phi}(\alpha(0)) (\alpha'(0))
+\\&= -\vec{\phi}(\alpha'(0)) = -\vec{\phi}(T_{\alpha}(0))
+\end{aligned}\]
+
+por lo que el eje de simetría es perpendicular a $T_{\alpha}(0)$, no nulo por
+regularidad, y es por tanto paralelo a $N_{\alpha}(0)$. El movimiento $\phi$ es una
+simetría de eje paralelo a $N_{\alpha}(0)$ pasando por $p_0$.
+
+Finalmente, si $q \in \alpha(\mathbb{R})$ entonces existe $s \in \mathbb{R}$ tal que $\alpha(s) = q$ y
+tenemos que $\phi(q) = \phi(\alpha(s)) = \alpha(-s) \in \alpha(\mathbb{R})$.
+
 *** Cards
 **** Preliminares
 ***** Definición de base positiva                                 :drill:
-SCHEDULED: <2018-03-30 Fri>
+SCHEDULED: <2018-04-03 Tue>
 :PROPERTIES:
 :ID:       e15a4412-930d-4f6a-aa20-d64196a6f4e2
-:DRILL_LAST_INTERVAL: 4.07
+:DRILL_LAST_INTERVAL: 4.141
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 12:04]
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:06]
 :END:
 Fijada la orientación de la base usual, ¿cuándo es una base
 $B = \left\{ u_1,\dots,u_n \right\}$ positiva?
@@ -2717,18 +3113,18 @@ decir,
 \]
 
 ***** Movimientos rígidos de R2                                   :drill:
-SCHEDULED: <2018-03-30 Fri>
+SCHEDULED: <2018-04-10 Tue>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide2cloze
 :ID:       16a826aa-c93d-4e46-afb4-05682a832bb1
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.5372
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 12:03]
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:57]
 :END:
 |----------------------+------------------+--------------+-----------|
 | Tipo de movimiento   | Isometría        | Puntos fijos | Carácter  |
@@ -2745,17 +3141,17 @@ SCHEDULED: <2018-03-30 Fri>
 :ID:       e3a04df3-1d89-49c7-a0e1-77559f0989f1
 :END:
 ***** Norma del producto vectorial                                :drill:
-SCHEDULED: <2018-03-30 Fri>
+SCHEDULED: <2018-04-09 Mon>
 :PROPERTIES:
 :ID:       1fd12884-9b75-47ec-ac19-dcb6e51931da
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.0
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:55]
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:59]
 :END:
 Da la fórmula de $\left| u \times v \right|^2$ 
 
@@ -2771,17 +3167,17 @@ Da la fórmula de $\left| u \times v \right|^2$
 \]
 
 ***** Difeomorfismo local que no es global                        :drill:
-SCHEDULED: <2018-03-30 Fri>
+SCHEDULED: <2018-04-09 Mon>
 :PROPERTIES:
 :ID:       2125fe6e-2af6-4d4d-a641-7e1e9759f42e
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.3541
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.5
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:59]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:56]
 :END:
 ¿Cómo podemos construir un difeomorfismo local en cada punto que no
 sea difeomorfismo global?
@@ -2797,17 +3193,17 @@ f(x,y) = (e^x \sin(y), e^x \cos(y))
 Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]].
 
 ***** Teorema de la función inversa                               :drill:
-SCHEDULED: <2018-03-30 Fri>
+SCHEDULED: <2018-04-08 Sun>
 :PROPERTIES:
 :ID:       63d019ff-edf9-4e64-aed4-9a0823572061
-:DRILL_LAST_INTERVAL: 3.93
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.2748
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:56]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:58]
 :END:
 Enuncia el teorema de la función inversa para una aplicación entre
 abiertos $\phi \colon O \to O'$ diferenciable.
@@ -2821,17 +3217,17 @@ se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es
 **** Tema 1. Curvas
 ***** 1. Curvas regulares y longitud de arco
 ****** Embebimiento                                              :drill:
-SCHEDULED: <2018-03-30 Fri>
+SCHEDULED: <2018-04-10 Tue>
 :PROPERTIES:
 :ID:       47cb18d3-b024-48e7-9b40-9fd5efa6c87a
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.5372
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:52]
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:57]
 :END:
 ¿Cuándo es $\alpha \colon I \to \mathbb{R}^n$ un embebimiento?
 
@@ -2839,17 +3235,17 @@ SCHEDULED: <2018-03-30 Fri>
 Cuando $\alpha \colon I \to \alpha(I)$ es un homeomorfismo.
 
 ****** Ejemplo de curva inyectiva no embebimiento                :drill:
-SCHEDULED: <2018-03-30 Fri>
+SCHEDULED: <2018-04-10 Tue>
 :PROPERTIES:
 :ID:       52adbafb-00f1-4b63-b08a-1e89cf23b94b
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.5372
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:56]
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:51]
 :END:
 Dar un ejemplo de curva inyectiva que no sea embebimiento.
 
@@ -2863,8 +3259,41 @@ La curva siguiente, en un intervalo bien escogido
 es inyectiva, pero al tender a infinito se acerca tanto como queramos
 al $(0,0)$, por el que ya había pasado antes, lo que hace que no podamos
 tener un homeomorfismo.
+****** Cálculo de la longitud de una curva                       :drill:
+SCHEDULED: <2018-04-03 Tue>
+:PROPERTIES:
+:ID:       3fb16a48-0357-42f8-98c2-c74d4562bc49
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:03]
+:END:
+Para $\alpha \colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, calcula la longitud entre
+$[a,b]$ como una integral.
+
+******* Longitud
+
+\[
+L_a^b(\alpha) = \int_a^b |\alpha'(t)|\,dt < \infty.
+\]
 
 ****** Lema de reparametrización                                 :drill:
+SCHEDULED: <2018-04-03 Tue>
+:PROPERTIES:
+:ID:       ff49f39c-0657-4411-86da-a586b9673753
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:01]
+:END:
 Enuncia el lema de reparametrización para $\alpha \colon I \to \mathbb{R}^n$.
 
 ******* Lema
@@ -2872,6 +3301,18 @@ Dada una $\alpha \colon I \to \mathbb{R}^n$ regular, existe $\phi \colon J \to I
 creciente de intervalos abiertos tal que $\beta = \alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
 
 ****** Cálculo de una reparametrización                          :drill:
+SCHEDULED: <2018-04-03 Tue>
+:PROPERTIES:
+:ID:       5b34db3c-8a95-4c74-9965-b87e184b414a
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:05]
+:END:
 Dada una $\alpha \colon I \to \mathbb{R}^n$ buscar la reparametrización $\phi \colon J \to I$ que
 hace que $\beta = \alpha \circ \phi$ sea una curva p.p.a.
 
@@ -2886,6 +3327,18 @@ y la inversa $\phi = \psi^{-1}$ es la reparametrización buscada.
 
 ***** 2. Geometría de curvas regulares en el plano
 ****** Diedro de Frenet de una curva regular                     :drill:
+SCHEDULED: <2018-04-03 Tue>
+:PROPERTIES:
+:ID:       dc77cdaa-f13a-4306-960e-f63531e65620
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:06]
+:END:
 Dar el diedro de Frenet de una curva regular $\alpha(t) \colon I \to \mathbb{R}^2$.
 
 ******* Diedro
@@ -2896,6 +3349,18 @@ N_{\alpha}(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|}
 \]
 
 ****** Curvatura de una curva regular en el plano                :drill:
+SCHEDULED: <2018-04-03 Tue>
+:PROPERTIES:
+:ID:       054cec15-5c54-4d1f-84f7-56cb9df2ede5
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:07]
+:END:
 Dar dos fórmulas de la curvatura de una curva regular en
 el plano, $\alpha(t)\colon I \to \mathbb{R}^2$.
 
@@ -2907,6 +3372,18 @@ k_{\alpha}(t) = \frac{\mathrm{det}(\alpha'(t),\alpha''(t))}{|\alpha'(t)|}
 \]
 
 ****** Ecuaciones de Frenet en el plano                          :drill:
+SCHEDULED: <2018-04-03 Tue>
+:PROPERTIES:
+:ID:       cca9ded0-aa24-4138-bbb8-c057e5d1015b
+:DRILL_LAST_INTERVAL: 4.07
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:07]
+:END:
 Enunciar las ecuaciones de Frenet para una curva regular en el plano.
 
 ******* Ecuaciones de Frenet
@@ -2920,18 +3397,18 @@ N'_{\alpha}(t) = -|\alpha'(t)| k_{\alpha}(t) T_{\alpha}(t)
 
 ***** 3. Geometría de curvas regulares en el espacio
 ***** 4. Teorema fundamental de curvas en el plano y en el espacio
-****** Teorema fundamental de curvas en el plano y en el espacio :drill:
-SCHEDULED: <2018-03-30 Fri>
+****** Teorema fundamental de curvas en el espacio               :drill:
+SCHEDULED: <2018-04-09 Mon>
 :PROPERTIES:
 :ID:       bb2b3785-52de-4496-b89e-f0d9862b0019
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.0
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 22:56]
+:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:51]
 :END:
 Enuncia con palabras el teorema fundamental de curvas.
 
