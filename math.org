@@ -1,7 +1,7 @@
 #+TITLE: Math
 #+DESCRIPTION: My math notes and exercises
 #+TODO: TODO WIP | CHECK DONE WONTFIX
-#+SETUPFILE: setup/ejerciciocurvas.setup
+#+SETUPFILE: setup/ejerciciomodelos.setup
 
 # TODO: Per-header configuration. 
 
@@ -144,7 +144,7 @@
 
 * Notes
 ** Ecuaciones diferenciales II
-*** Notas previas
+*** Prerrequisitos
 **** Prehaces y dominios
 Conociendo el concepto de prehaz, parece que tiene sentido escribir
 siempre o casi siempre las funciones con su dominio, $f|_D$.
@@ -182,7 +182,36 @@ parciales de una función $f \colon \mathbb{R}^n \to \mathbb{R}$.
 
 Por el [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][teorema de Schwarz-Clairaut]], es simétrica.
 
-**** TODO Wronskiana
+**** Wronskiana
+La *wronskiana* no nula implica independencia lineal. Nótese sin
+embargo que puede anularse incluso cuando son independientes.
+(Contraejemplo de [[id:8e9ccec0-c9de-4d00-a08e-3de44d448ca5][Peano]])
+
+\[
+W(f_1,\dots,f_n)(x) = \begin{vmatrix}
+f_1(x) & \dots & f_n(x) \\
+\vdots & \ddots & \vdots \\
+f_1^{n-1)}(x) & \dots & f_n^{n-1)}(x) \\
+\end{vmatrix}
+\]
+
+Puede usarse la [[https://en.wikipedia.org/wiki/Abel%2527s_identity][identidad de Abel]] para calcular la wronskiana incluso
+cuando no se conocen las soluciones.
+
+**** Nociones de continuidad y convergencia
+***** Continuidad uniforme
+$f \colon I \to \mathbb{R}^d$ es *uniformemente continua* si 
+
+\[
+\forall \varepsilon \colon \exists \delta \colon |t-s|<\delta \implies \|f(t)-f(s)\| \leq \varepsilon.
+\]
+
+***** Convergencia puntual
+$f_n \overset{c.p.}\longrightarrow f$ si $\forall t \in I\colon \{\| f_n(t) - f(t)\|\}_{n \in \mathbb{N}} \to 0$.
+
+***** Convergencia uniforme
+$f_n \overset{c.u.}\longrightarrow f$ si $\forall \varepsilon > 0\colon \exists n_0\colon \forall n > n_0\colon \forall t \in I\colon \|f_n(t)-f(t)\| < \varepsilon$.
+
 *** Apuntes de Andrés
 # Estas notas salen de los apuntes de Andrés Herrera para la misma
 # asignatura el año anterior.
@@ -287,6 +316,9 @@ x' + \nabla G(x) = 0.
 ***** 7.1. Teorema de Arzelá-Ascoli
 *** Tema 1. Existencia y unicidad. Ecuación de Volterra
 **** 1.1. Definiciones
+:PROPERTIES:
+:ID:       ba5ec2ba-b54a-455b-9b6c-9fca85940234
+:END:
 Una *ecuación diferencial ordinaria* (EDO) $x' = f(t,x)$ viene
 dada por un dominio (abierto conexo) $D \subseteq \mathbb{R} \times \mathbb{R}^d$ y una $f \colon D \to \mathbb{R}^d$.
 Llamamos
@@ -316,6 +348,9 @@ condición inicial y tener $t_0 \in I$.
 
 **** 1.2. Unicidad y soluciones maximales
 ***** Concatenación de soluciones
+:PROPERTIES:
+:ID:       078ac783-76bf-4445-ad46-3f91ea9d1ef6
+:END:
 Sean $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi_2 \colon I_2 \to \mathbb{R}^d$ soluciones de $x' = f(t,x)$.
 Si existe $\tau \in I_1 \cap I_2$ tal que $\varphi_1(\tau) = \varphi_2(\tau)$, entonces
 
@@ -356,6 +391,9 @@ definimos
  * *unicidad global*, unicidad en todo $\mathbb{R}$.
 
 ***** Unicidad global desde unicidad local
+:PROPERTIES:
+:ID:       0b968d38-72b0-41e4-bdbd-a19fd33ecd59
+:END:
 Si para todo $(t_{0},x_0) \in D$, el problema de valores iniciales
 
 \[\left.\begin{aligned}
@@ -462,13 +500,13 @@ Consideraremos los dos casos, $g(x_0) = 0$ y $g(x_0) \neq 0$.
    $x_0$ usando $a(t_0) \neq 0$ (?).
 
 **** 1.3. Teorema de unicidad de Peano
-Sea un PVI con $d=1$, es decir $f \colon \mathbb{R}\times \mathbb{R} \to \mathbb{R}$.
+:PROPERTIES:
+:ID:       cc790c02-b622-4fc1-8bb1-ac3c05e73009
+:END:
+Para un PVI con $d=1$, es decir $f \colon \mathbb{R}\times \mathbb{R} \to \mathbb{R}$,
 
- 1) Cuando para cada $t \geq t_0$, la función $f(t,x)$ es decreciente en $x$,
-    se verifica unicidad en el futuro.
-
- 2) Cuando para cada $t \leq t_0$, la función $f(t,x)$ es creciente en $x$,
-    se verifica unicidad en el pasado.
+ 1) si $\forall t \geq t_0$, $f(t,-)$ es decreciente, hay unicidad en el futuro;
+ 2) si $\forall t \leq t_0$, $f(t,-)$ es creciente, hay unicidad en el pasado.
 
 ***** Demostración
 En el caso de $f(t,x)$ decreciente, con dos soluciones $\varphi_1\colon I_1 \to \mathbb{R}$
@@ -477,7 +515,7 @@ y $\varphi_2 \colon I_2 \to \mathbb{R}$, definimos $h(t) = (\varphi_1(t)-\varphi
 \[\begin{aligned}
 h'(t) &= 
 2(\varphi_1(t)-\varphi_2(t))(\varphi_1'(t)-\varphi_2'(t)) \\&=
-2(\varphi_1(t)-\varphi_2(t))(f(t,\varphi_1(t))-f(t,\varphi_2'(t))) \leq 0,
+2(\varphi_1(t)-\varphi_2(t))(f(t,\varphi_1(t))-f(t,\varphi_2(t))) \leq 0,
 \end{aligned}\]
 
 que la hace decreciente. Pero $h(t) \geq 0$ en general y $h(t_0) = 0$, 
@@ -500,6 +538,7 @@ E = \overline{B}(x_0,b) \subset {\cal C}([t_0-a,t_0+a];\mathbb{R}^d)
 \]
 
 es un espacio métrico completo con la norma infinito.
+
 ***** Ecuación integral asociada
 Cada PVI
 
@@ -532,7 +571,7 @@ Sea $\varphi \colon I \to \mathbb{R}^d$ para $I$ intervalo abierto. Equivalen
  1. $\varphi$ es solución de un PVI;
  2. $\varphi$ es solución de la ecuación de Volterra asociada.
  
-****** Demostración 
+****** Demostración
 1 a 2. Tenemos trivialmente las dos primeras condiciones. La
 continudad surge de la derivabilidad y por regla de Barrow,
 $\varphi(t) = \varphi(t_0) + \int_{t_0}^t f(s,\varphi(s))\;ds$.
@@ -542,9 +581,18 @@ punto de evaluación. Por Teorema Fundamental del Cálculo, $\varphi$
 es derivable con precisamente la derivada que la hace solución.
 
 **** 1.6. Algunos resultados útiles de análisis
-***** TODO Lema del primer instante
-***** Teoremas del valor medio
-****** Versión real
+***** Lema del primer instante
+:PROPERTIES:
+:ID:       a439476b-8c77-4994-a736-9062ee91e7d0
+:END:
+Para $f \in {\cal C}(I,\mathbb{R})$ con $f(t_0) > 0$, se da una de las alternativas.
+
+ * $\forall t \geq t_0\colon f(t) > 0$.
+
+ * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
+
+****** TODO Proof
+***** Teorema del valor medio real
 Dada $f \colon \mathbb{R} \to \mathbb{R}$ con $f \in {\cal C}^1$, para $a,b \in \mathbb{R}$ se tiene que
 existe $c \in [a,b]$ tal que 
 
@@ -552,15 +600,14 @@ existe $c \in [a,b]$ tal que
 f(a) - f(b) = f'(c)(a-b).
 \]
 
-****** Versión multiargumento
-Dada $f \colon \mathbb{R}^n \to \mathbb{R}$ con $f \in {\cal C}^1$, para $p,q \in \mathbb{R}^n$, se tiene que
-existe $c \in [p,q]$ tal que
+***** Teorema del valor medio multivariable
+Dada $f \in {\cal C}^1(\mathbb{R}^n)$, para $a,b \in \mathbb{R}^n$, se tiene que existe $c \in [a,b]$ tal que
 
 \[
-f(b)-f(a) = \left\langle \grad f(c), q-p \right\rangle.
+f(b)-f(a) = \left\langle \grad f(c), b-a \right\rangle.
 \]
 
-******* Demostración
+****** Proof
 Parametrizamos para obtener una función escalar
 
 \[
@@ -575,7 +622,7 @@ f(b) - f(a) = \left\langle \grad f(d) , b - a \right\rangle.
 \]
 
 *** Tema 2. Lispchitzianidad. Picard-Lindelöf
-**** 2.1. Lipschitzianidad global
+**** 2.1. Lipschitzianidad
 ***** Lipschiztianidad global
 ***** Lipschiztianidad global, anticaracterización
 Sea $\Omega \subset \mathbb{R}^n$, $f \colon \Omega \to \mathbb{R}^m$ no es globalmente lipschitziana si y sólo si
@@ -632,7 +679,6 @@ entonces $f$ es globalmente lipschiztiana.
 
 ****** TODO Proof
 
-**** 2.2. Lipschiztianidad local
 ***** Lipschiztianidad local
 Sea $\Omega \subseteq \mathbb{R}^{n}$, $f \colon \Omega \to \mathbb{R}^m$ es *localmente lipschitziana* (LL) si 
 para cada punto existe un entorno $p \in U \subset \Omega$ tal que $f|_U$ es
@@ -648,7 +694,7 @@ Sea $\Omega \subseteq \mathbb{R}^n$, para $f \colon \Omega \to \mathbb{R}^m$ equ
  2. existen $x_n,y_n \in \Omega$ con $x_n\to p$ y $y_n \to p$ tales que
     
     \[
-    \frac{\|f(x_n)-f(y_n)}{x_n-y_n} \to +\infty.
+    \frac{\norm{f(x_n)-f(y_n)}}{\abs{x_n-y_n}} \to +\infty.
     \]
 
 ****** TODO Proofs
@@ -658,7 +704,6 @@ Para $\Omega$ abierto, toda $f \in {\cal C}^1(\Omega)$ es localmente lipschitzia
 
 ****** TODO Proof
 
-**** 2.3. Lipschiztianidad respecto de una variable
 ***** Lipschitzianidad global respecto de una variable
 :PROPERTIES:
 :ID:       c50d9301-e9db-40a1-b25f-b726327f37bb
@@ -678,8 +723,23 @@ Sea $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$; $f$ es *localmente lips
 si para cada punto existe un entorno $(p,q) \in U \subset \Omega$ tal que $f|_U$ es
 globalmente lipschitziana respecto de $x \in \mathbb{R}^d$.
 
-**** 2.4. Teorema de Picard-Lindelöf
+**** 2.2. Lemas hacia Picard-Lindelöf
+***** Teorema del punto fijo de Banach
+Sea $(E,d)$ un espacio métrico completo con $F \colon E \to E$ con un $\alpha$ cumpliendo
+$d(F(x),F(y)) \leq \alpha d(x,y)$ para todo $x,y \in E$. Entonces,
+ 
+  1. $\exists! x^{\ast}\in E: F(x^{\ast}) = x^{\ast}$;
+  2. y si $x_0 \in E$, entonces $\left\{ F \circ \overset{n}{\dots} \circ F (x_0) \right\}_{n \in \mathbb{N}} \longrightarrow x^{\ast}$.
+
+Es decir, toda función contractiva en un espacio métrico completo tiene
+un punto fijo y todas sus aplicaciones sucesivas convergen a él.
+
+****** TODO Proof
+
 ***** Entornos y espacios para Picard-Lindelöf
+:PROPERTIES:
+:ID:       44351076-d98f-4552-a229-a41405beb6b1
+:END:
 Dados $a,b \in \mathbb{R}^+$, definimos los siguientes entornos cerrados,
 que pueden verse como la evolución de una bola cerrada dada en
 un tiempo.
@@ -705,6 +765,9 @@ definido por
 V(\varphi) = \int_{t_0}^t f(s,\varphi(s))\,ds.
 \]
 
+Es un espacio completo por ser un cerrado del espacio métrico de
+funciones continuas acotadas.
+
 ***** Lema 1 de función contractiva
 :PROPERTIES:
 :ID:       552dd347-bd4b-41e0-9ba7-0ebf9e42a26a
@@ -713,7 +776,7 @@ V(\varphi) = \int_{t_0}^t f(s,\varphi(s))\,ds.
 Sea $M\geq 0$ tal que
 
 \[
-\|f(t,x)\| \leq M,\quad \forall (t,x) \in R_{a,b}.
+\forall (t,x) \in R_{a,b}\colon \|f(t,x)\| \leq M,
 \]
 
 Para cualquier $\varphi \in E$ se tiene $\|V(\varphi)-x_0\|_{\infty} \leq Ma$.
@@ -728,55 +791,655 @@ M\|t-t_0\|_{\infty} \leq Ma.
 
 Nótese que usamos que $(t,\varphi(s)) \in R_{a,b}$.
 
-***** Lema 2 de función contractiva
-Si $\varphi \colon [t_0-a,t_0+a] \to \mathbb{R}^d$ es solución de Volterra y tenemos un $Ma \leq b$,
-cumpliendo que $f(s,\varphi(s)) \geq M$, entonces $\varphi \in E$.
+***** Corolario 1 de función contractiva
+:PROPERTIES:
+:ID:       2b8c94be-2d60-45a0-aedf-715aa71fe67b
+:END:
+Sea $M \geq 0$ tal que
+
+\[
+\forall (t,x) \in R_{a,b}\colon \|f(t,x)\| \leq M.
+\]
+
+Si $aM \leq b$, entonces $V(E_{a,b}) \subset E_{a,b}$.
 
 ****** Proof
+Aplicando el [[id:552dd347-bd4b-41e0-9ba7-0ebf9e42a26a][lema anterior]] para $\varphi \in E_{a,b}$ tenemos que $\|V(\varphi) - x_0\|_{\infty} \leq Ma \leq b$,
+luego $V(\varphi) \in \overline{B}(x_0,b)$ y por [[id:44351076-d98f-4552-a229-a41405beb6b1][definición]] se tiene $V(\varphi) \in E_{a,b}$.
 
-***** Teorema de Picard-Lindelöf
+***** Lema 2 de función contractiva
+:PROPERTIES:
+:ID:       b3c86eea-1732-4df4-8f69-32b80a9510c0
+:END:
+Sea $M \geq 0$ tal que
+
+\[
+\forall (t,x) \in R_{a,b}\colon \|f(t,x)\| \leq M.
+\]
+
+Si $aM \leq b$, y $\varphi \colon [t_0-a,t_0+a] \to \mathbb{R}^d$ es solución de Volterra,
+entonces $\varphi \in E_{a,b}$.
+
+****** Proof
+Afirmamos que $\|\varphi-x_0\|_{\infty} \leq b$. Si no fuera cierto, por el [[id:a439476b-8c77-4994-a736-9062ee91e7d0][Lema del primer instante]]
+tendríamos un $b<\|\varphi(\tau) - x_0\|$ tal que $\forall t \in [t_0,\tau)\colon \|\varphi(t)-x_0\| \leq b$.
+Aplicado en la dirección contraria lo tendríamos para $(\tau,t_0]$.
+
+Pero entonces, $\forall t \in [t_0,\tau)\colon (t,\varphi(t)) \in {\cal R}_{a,b}$ y
+
+\[\begin{aligned}
+b < \|\varphi(\tau)-x_0\| &\leq
+\left\| \int_{t_0}^t f(s,\varphi(s))\,ds \right\| \leq
+\int_{t_0}^t \left\| f(s,\varphi(s)) \right\|\,ds \\&\leq
+M|t-t_0| \leq
+Ma \leq b.
+\end{aligned}\]
+
+Llegando a contradicción.
+
+***** Lema 3 de función contractiva
+:PROPERTIES:
+:ID:       65fb9d51-29a8-4528-a9dc-eca1b77bf8e0
+:END:
+Sea $L \geq 0$ tal que
+
+\[
+\forall (t,x),(t,y) \in {\cal R}_{a,b}\colon \|f(t,x)-f(t,y)\| \leq L\|x-y\|.
+\]
+
+Si $\varphi,\psi \in E_{a,b}$, entonces $\|V(\varphi)-V(\psi)\|_{\infty} \leq aL\|\varphi-\psi\|_{\infty}$.
+
+****** Proof
+Para $t \in [t_0-a,t_0+a]$,
+
+\[\begin{aligned}
+\| V(\varphi)(t) - V(\psi)(t) \| &=
+\left\| \int_{t_0}^t \left( f(s,\varphi(s)) - f(s,\psi(s)) \right)\,ds \right\| \\&\leq
+\int_{t_0}^t \left\|  f(s,\varphi(s)) - f(s,\psi(s)) \right\|\,ds \\&\leq
+\int_{t_0}^t L\left\| \varphi(s)-\psi(s) \right\|\,ds \\&\leq
+La\|\varphi-\psi\|_{\infty}.
+\end{aligned}\]
+
+***** Proposición 1 de función contractiva
+Sean $M,L \geq 0$ tales que
+
+\[
+\forall (t,x) \in R_{a,b}\colon \|f(t,x)\| \leq M,
+\]
+
+y que
+
+\[
+\forall (t,x),(t,y) \in {\cal R}_{a,b}\colon \|f(t,x)-f(t,y)\| \leq L\|x-y\|.
+\]
+
+Si $aM\leq b$ y $aL \leq 1$, entonces existe una única $\varphi\colon [t_0-a,t_0+a] \to \mathbb{R}^d$
+solución de Volterra.
+
+****** Proof
+Usando $M$ en el [[id:2b8c94be-2d60-45a0-aedf-715aa71fe67b][Corolario 1]] tenemos $V(E_{a,b}) \subset E_{a,b}$, y usando $L$ 
+en el [[id:65fb9d51-29a8-4528-a9dc-eca1b77bf8e0][Lema 3]],
+
+\[
+\| V(\varphi) - V(\psi) \|_{\infty} \leq aL\|\varphi-\psi\|_{\infty} \leq \|\varphi - \psi\|_{\infty}.
+\]
+
+Por el Teorema del punto fijo de Banach, $\exists \varphi \in E\colon V(\varphi) = \varphi$, solución
+de Volterra. Si hubiera otra solución $\psi$ en mismo intervalo usamos el
+[[id:b3c86eea-1732-4df4-8f69-32b80a9510c0][Lema 2]] para tener $\psi \in E$ y por Teorema de Banach, $\varphi = \psi$.
+
+# TODO: ¿Cómo sabemos que E es completo?
+
+**** 2.3. Norma de Bielecki
+***** Norma de Bielecki
+En el espacio $E_{a,b}(t_0,x_0)$, dada una constante $R > 0$, consideramos
+
+\[
+\| \varphi \|_{B} = \max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\|.
+\]
+
+Sabiendo que existe por Teorema de Weierstrass.
+
+****** TODO Proof
+***** Equivalencia con la norma infinito
+La norma de Bielecki es equivalente a la norma infinito.
+
+****** Proof
+Tenemos las dos cotas dadas por $0 \leq |t - t_0| \leq a$.
+
+\[
+\max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\| \leq
+\max_{t \in [t_0-a,t_0+a]} \|\varphi(t)\| 
+\]
+
+y
+
+\[
+\max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\| \geq
+e^{-R|a|} \max_{t \in [t_0-a,t_0+a]} \|\varphi(t)\|.
+\]
+
+***** Lema 4 de función contractiva
+:PROPERTIES:
+:ID:       376ef232-7050-4306-abe7-b88843d13fcb
+:END:
+Sea $L \geq 0$ tal que
+
+\[
+\forall (t,x),(t,y) \in {\cal R}_{a,b}\colon \|f(t,x)-f(t,y)\| \leq L\|x-y\|.
+\]
+
+Si $\varphi , \psi \in E_{a,b}$ entonces $\|V(\varphi) - V(\psi)\|_B \leq \frac{L}{R} \| \varphi - \psi \|_{B}$.
+
+****** Proof
+# Comprobar, ¿no hay que partir en caso negativo y positivo?
+
+Nótese primero que $\|V(\varphi)(t_0) - V(\psi)(t_0)\| = 0$. Fijado un $t \neq t_0$
+usamos la cota de $L$ y la definición de la norma de Bielecki para tener
+
+\[\begin{aligned}
+\norm{V(\varphi)(t) - V(\psi)(t)} &=
+\norm{\int_{t_0}^t f(s,\varphi(s)) - f(s,\psi(s))\,ds} \\&\leq
+\int_{t_0}^t \norm{f(s,\varphi(s)) - f(s,\psi(s))}\,ds \\&\leq
+L \int_{t_0}^t \norm{\varphi(s) - \psi(s)}\,ds \\&=
+L \int_{t_0}^t \norm{\varphi(s) - \psi(s)} e^{-R\abs{s-t_0}}e^{R\abs{s-t_0}}\,ds \\&\leq
+L \norm{\varphi - \psi}_{B} \int_{t_0}^t e^{R\abs{s-t_0}}\,ds \\&\leq
+\frac{L}{R} \norm{\varphi - \psi}_{B} \left(e^{R\abs{t-t_0}} - 1\right) \\&\leq
+\frac{L}{R} \norm{\varphi - \psi}_{B} e^{R\abs{t-t_0}}
+\end{aligned}\]
+
+ya que $e^{R|t-t_0|} > 0$. Dividiendo y uniendo ambos casos,
+$\|V(\varphi) - V(\psi)\|_{\infty} \leq \frac{L}{R} \norm{\varphi - \psi}_{B} e^{R\abs{t-t_0}}$.
+
+***** Proposición 2 de función contractiva
+:PROPERTIES:
+:ID:       51ed4957-d6c4-448f-bfe0-8a8d2afe218b
+:END:
+Sean $M,L \geq 0$ tales que
+
+\[
+\forall (t,x) \in R_{a,b}\colon \|f(t,x)\| \leq M,
+\]
+
+y que
+
+\[
+\forall (t,x),(t,y) \in {\cal R}_{a,b}\colon \|f(t,x)-f(t,y)\| \leq L\|x-y\|.
+\]
+
+Si $aM\leq b$, entonces existe una única $\varphi\colon [t_0-a,t_0+a] \to \mathbb{R}^d$
+solución de Volterra.
+
+****** Proof
+Si tomamos un $R > L$ podemos aplicar el [[id:376ef232-7050-4306-abe7-b88843d13fcb][lema anterior]] para obtener
+que $V$ es contractiva con la norma de Bielecki, luego por Teorema
+de Banach, existe un único punto fijo de $V$.
+
+**** 2.4. Picard-Lindelöf
+***** Teorema de Picard-Lindelöf (versión local)
+:PROPERTIES:
+:ID:       1bf1287f-59b3-4a74-9bfc-4c7de6004d50
+:END:
 Si $f$ es localmente lipschiztiana respecto de $x$ en un entorno de $(t_0,x_0)$,
 el PVI tiene solución y es única localmente.
 
-Si además $f$ es localmente lipschiztiana respecto de $x$ en todo el dominio,
-es la única solución maximal.
+****** Proof
+Para algún $(t_0,x_0) \in {\cal U} \subset D$,
 
-****** TODO Proof
+\[
+\forall (t,x),(t,y) \in {\cal U}\colon  \|f(t,x)-f(t,y)\| \leq L\|x-y\|.
+\]
 
-***** Teorema del punto fijo de Banach
-Sea $(E,d)$ un espacio métrico completo con $F \colon E \to E$ con un $\alpha$ cumpliendo
-$d(F(x),F(y)) \leq \alpha d(x,y)$ para todo $x,y \in E$. Entonces,
- 
-  1. $\exists! x^{\ast}\in E: F(x^{\ast}) = x^{\ast}$;
-  2. y si $x_0 \in E$, entonces $\left\{ F \circ \overset{n}{\dots} \circ F (x_0) \right\}_{n \in \mathbb{N}} \longrightarrow x^{\ast}$.
+Tomamos ${\cal R}_{\overline{a},b}(t_0,x_0) \subset {\cal U}$ y $f|_{{\cal R}_{\overline{a},b}}$ será globalmente lipschitz luego continua
+y podemos aplicar Teorema de Weierstrass para tener
 
-Es decir, toda función contractiva en un espacio métrico completo tiene
-un punto fijo y todas sus aplicaciones sucesivas convergen a él.
+\[
+M = \max_{(t,x) \in {\cal R}_{a,b}} \|f(t,x)\|.
+\]
+
+Recortamos $a = \min\left\{\overline{a}, b/M, 1/L \right\}$ para aplicar la [[id:51ed4957-d6c4-448f-bfe0-8a8d2afe218b][proposición]] 
+anterior, sabiendo ${\cal R}_{a,b} \subseteq {\cal R}_{\overline{a},b}$. Por Banach tenemos $\varphi \colon [t_0-a,t_0+a] \to \mathbb{R}^d$
+solución de Volterra, que nos da $\varphi \colon (t_0-a,t_0+a) \to \mathbb{R}^d$
+solución del PVI, con $\varphi \in E_{a,b}$.
+
+Sea ahora $\psi \colon I \to \mathbb{R}^d$ otra solución; por continuidad
+existe un $\delta < a$ tal que para $|t - t_0| < \delta$ se tiene $\|\psi(t) - x_0\| \leq b$.
+Tendríamos dos soluciones $\psi,\varphi$ en $E_{\delta,b}(t_0,x_0)$, donde $\delta M < b$, 
+luego coincidirían en $[t_0-\delta,t_0+\delta]$.
+
+***** Teorema de Picard-Lindelöf (versión global)
+Si $f$ es localmente lipschiztiana respecto de $x$ en todo el dominio,
+el PVI tiene solución y es la única solución maximal.
+
+****** Proof
+Cualquier $(t_0,x_0)$ tiene un entorno (el dominio) donde aplicar la
+[[id:1bf1287f-59b3-4a74-9bfc-4c7de6004d50][versión local]]. La unicidad local bajo cualquier condición inicial
+[[id:0b968d38-72b0-41e4-bdbd-a19fd33ecd59][nos da]] la unicidad global bajo cualquier condición inicial.
 
 ***** Iterantes de Picard
 Surgen como una aplicación repetida del operador de Volterra una vez que
 sabemos que es contractivo.
 
 ***** Contraejemplo de Müller
-*** Tema 3. Teorema de Cauchy-Peano
+Sea el PVI
+
+\[\left\{\begin{array}{l}
+x' = f(t,x) \\
+x(0) = 0
+\end{array}\right.\]
+
+para $f \colon \mathbb{R} \times \mathbb{R} \to \mathbb{R}$ definida como
+
+\[ f(t,x) = \left\{
+\begin{array}{ll}
+  0 & \mbox{ si } t \leq 0, \\
+  2t & \mbox{ si } t > 0 \mbox{ y } x < 0, \\
+  2t - \frac{4x}{t} & \mbox{ si } t > 0 \mbox{ y } 0 \leq x < t^2, \\
+  -2t & \mbox{ si } t > 0 \mbox{ y } x > t^2. \\
+\end{array}\right.\]
+
+****** Unicidad
+Sabemos que la solución al PVI es única por tenerse unicidad
+tanto en el futuro como en el pasado por [[id:cc790c02-b622-4fc1-8bb1-ac3c05e73009][
+Teorema de Unicidad de Peano]].
+
+La única solución puede encontrarse buscando solución
+a
+\[
+x' = 2t - \frac{4x}{t}.
+\]
+Que es una ecuación lineal escalar que se resolverá como
+$x = t^2/3 + A/t^4$ y a la que imponemos condiciones para
+obtener $x = t^2/3$ solución cuando $t > 0$ y $x = 0$ cuando $t \leq 0$.
+
+****** Sucesión de iterantes de Picard
+La sucesión de iterantes de Picard lleva a $0,t^2,-t^2,t^2,\dots$.
+Tiene parciales convergentes pero ninguna a la solución.
+
+*** Tema 3. Teorema de Cauchy-Peano y Teorema de Arzelá-Ascoli
 **** 3.1. Acotación uniforme y equicontinuidad
 ***** Sucesión uniformemente acotada
-Una sucesión de funciones $f_n \colon I \subseteq \mathbb{R} \to \mathbb{R}^{d}$ es *uniformemente acotada* si
-existe una cota $\|f_n(t)\|\leq M$ para cualquier $n \in \mathbb{N}$ y cualquier $t \in I$.
+$f_n \colon I \to \mathbb{R}^{d}$ es *uniformemente acotada* si existe $\|f_n(t)\|\leq M$
+para todo $n \in \mathbb{N}$ y $t \in I$.
 
-***** Anticaracterización de uniformemente acotadas
-**** Cauchy-Peano
-El problema de valores iniciales siempre tiene solución.
+****** No uniformemente acotada
+$f_n \colon I \to \mathbb{R}^d$ no es *uniformemente acotada* si existe $\left\{ \| f_{m_n}(t_n) \| \right\}_{n \in \mathbb{N}} \to \infty$.
+Por definición.
 
-***** TODO Demostración
-**** Ascoli-Arzelá
-Para $f_n \colon I \to \mathbb{R}^d$ una sucesión de funciones desde un intervalo abierto,
-uniformemente acotada y equicontinua, existe $f \colon I \to \mathbb{R}$ tal que $f_n$
-converge puntualmente a $f$.
+***** Sucesión equicontinua
+$f_n \colon I \to \mathbb{R}^d$ es *equicontinua* si 
 
-***** TODO Demostración
+\[
+\forall \varepsilon\colon \exists \delta\colon |t-s|<\delta \implies \|f_n(t) - f_n(s)\| \leq \varepsilon.
+\]
+
+****** No equicontinua
+Una $f_n \colon I \to \mathbb{R}^d$ uniformemente continua no será equicontinua si
+
+\[
+\exists (t_n,s_n)\colon \left\{ t_n-s_n \right\} \to 0, \quad \|f_{m_n}(t_n)-f_{m_n}(s_n)\| \not\to 0.
+\]
+
+******* Proof
+******* TODO Variación
+***** Uniformemente acotada y derivada continua es equicontinua
+Si $f'_n$ es uniformemente acotada, $f_n \in {\cal C}^1(I,\mathbb{R}^d)$ es *equicontinua*.
+
+****** Proof
+Usamos teorema fundammental del cálculo, que necesita $f'_n$ continua
+
+\[
+\|f_n(t)-f_n(s)\| = \left\| \int_s^t f'(z)\,dz \right\| \leq M|t-s|.
+\]
+
+***** Convergencia puntual de equicontinuas es uniformemente continua
+:PROPERTIES:
+:ID:       09edde13-8c3f-49d5-9571-76483e3c2cd3
+:END:
+Si $f_n \overset{c.p.}\longrightarrow f$ y $f_n$ equicontinua, $f$ es uniformemente continua.
+
+****** Proof
+Tenemos para $|t-s| < \delta$, $\norm{f_n(t) - f_n(s)} < \varepsilon$, tomando límite en $n$,
+
+\[\norm{f(t) - f(s)} \leq \varepsilon.\]
+
+***** Convergencia uniforme de continuas es continua
+Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n$ son continuas, $f$ es continua.
+
+****** TODO Proof
+$\varepsilon/3$
+
+***** Convergencia de sucesiones desde la convergencia uniforme
+Si $f_n \overset{c.u.}\longrightarrow f$ y $t_n \to t_{\ast}$ con $f$ continua en $t_{\ast}$, entonces $f_n(t_n) \to f(t_{\ast})$.
+
+****** TODO Proof
+***** Convergencia de sucesiones desde la convergencia uniforme de continuas
+Si $f_n \overset{c.u.}\longrightarrow f$  y $t_n \to t_{\ast}$ con $f_n$ continuas, entonces $f_n(t_n) \to f(t_{\ast})$.
+
+****** TODO Proof
+***** Ejemplos y contraejemplos
+****** TODO Función continua no uniformemente continua
+****** TODO Sucesión equicontinua
+****** TODO Suecsión que converge puntualmente no uniformemente
+****** Sucesión de uniformemente continuas no equicontinua
+$f_n(t) = nt$ tiene cada función uniformemente continua (de hecho es lipschitz)
+pero no es equicontinua porque
+
+\[
+\left\{ f\left(\frac{1}{n}\right) - f(0) \right\} \to 1.
+\]
+
+****** TODO Derivada acotada uniformemente y equicontinua
+**** 3.2. Teorema de Ascoli-Arzelá
+***** Teorema de Ascoli-Arzelá
+:PROPERTIES:
+:ID:       da2e68f3-95f5-4aa2-b265-234ab61750c5
+:END:
+Para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua, existe una
+parcial $f_{\sigma(n)} \overset{c.p.}\longrightarrow f$; además, $f$ es uniformemente continua.
+
+****** Demostración
+Tomamos $D = \mathbb{Q} \cap I = \left\{ t_k \mid k \in \mathbb{N} \right\}$. Escribiremos la prueba en
+tres pasos.
+
+******* Paso 1. Convergencia en un numerable densos
+Para cada $k \in \mathbb{N}$, $f_n(t_k)$ es acotada y por Bolzano-Weierstrass
+inductivamente en $k$ tenemos $\sigma_k$ tal que $f_{\sigma_1\circ\dots\circ\sigma_k(n)}(t_k)$ converge.
+Definimos en $D$,
+
+\[
+f(t) = \lim_{n \to \infty} f_{\sigma_1\circ \dots\circ \sigma_k(n)}(t).\]
+
+Ahora llamamos $\sigma(n) = \sigma_1\circ\dots\circ\sigma_n (n)$ y vemos que es creciente
+por tenerse $\sigma_{n+1}(n+1) > n+1 > n$, luego $\sigma(n+1) > \sigma(n)$.
+Comprobamos que $f_{\sigma(n)} \overset{c.p. \text{ en } D}\longrightarrow f$ porque para $t_k$, a partir de $k$,
+la serie es una parcial de la que define $f$.
+
+******* Paso 2. Extensión al intervalo
+Por convergencia, $\forall p,q \geq n_0\colon \| f_{\sigma(p)}(t_k) - f_{\sigma(q)}(t_k) \| < \varepsilon/3$.
+Por equicontinuidad, $\exists \delta > 0\colon |s'-s|<\delta \implies \|f_n(s')-f_n(s)\| \leq \varepsilon/3$.
+Por densidad, $\exists t_k\colon |t_k - t| < \delta$. Uniendo todo con desigualdad triangular,
+
+\[
+\| f_{\sigma(p)(t)} - f_{\sigma(q)}(t)} \| < \epsilon.
+\]
+
+Y así, $f_{\sigma(n)}(t)$ es de Cauchy.
+
+******* Paso 3. Continuidad uniforme
+[[id:09edde13-8c3f-49d5-9571-76483e3c2cd3][Sabemos que]] la convergencia puntual de equicontinuas es uniformemente
+continua.
+
+***** Corolario a Ascoli-Arzelá
+En $I$ compacto, para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua,
+existe una parcial tal que $f_{\sigma(n)} \overset{c.u.}\longrightarrow f$; además, $f$ es uniformemente continua.
+
+****** Demostración
+Aplicamos [[id:da2e68f3-95f5-4aa2-b265-234ab61750c5][Teorema de Ascoli-Arzelá]] para obtener la $f$ uniformemente continua
+y convergencia puntual hacia ella.
+
+Por equicontinuidad, $\exists \delta_1\colon |t-s| < \delta_1 \implies \|f_n(t)-f_n(s)\| \leq \varepsilon/3$.
+Por continuidad uniforme de $f$, $\exists \delta_2\colon |t-s| < \delta_2 \implies \|f(t) - f(s)\| \leq \varepsilon/3$.
+Tomamos $\delta = \min \left\{ \delta_1,\delta_2 \right\}$.
+
+Por compacidad,
+
+\[
+I = \bigcup_{t \in I} (t-\delta,t+\delta) = \bigcup_{i = 0}^k (t_k-\delta,t_k+\delta)
+\]
+
+Por convergencia puntual de cada $t_j$, $\exists n_j\colon \|f_{\sigma(n)}(t_j) - f(t_j)\| \leq \varepsilon/3$; y
+tomamos $n_0 = \max\{n_1,\dots,n_k\}$. Finalmente, para $n \geq n_0$,
+
+\[
+\|f_{\sigma(n)}(t) - f(t)\| \leq 
+\|f_{\sigma(n)}(t) - f_{\sigma(n)}(t_k)\| + 
+\|f_{\sigma(n)}(t_k) - f(t_k)\| + 
+\|f(t_k) - f(t)\| \leq \varepsilon.
+\]
+
+**** 3.3. Convergencia e integración
+***** Convergencia uniforme en integrales
+Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n$ continua en $[a,b]$, $\int_a^b f_n \to \int_a^b f$.
+
+****** Proof
+
+\[
+\norm{\int_a^b (f_n(s) - f(s))\,ds} \leq
+\norm{f_n-f}_{\infty}(b-a) \to 0 
+\]
+
+***** Convergencia puntual desde acotada
+Si $f_n \overset{c.p.}\longrightarrow f$ y $f_n$ uniformemente acotada, $\int_a^b f_n \to \int_a^b f$.
+
+****** TODO Proof
+Por el Teorema de convergencia dominada de Lebesgue.
+
+**** 3.4. Teorema de Cauchy-Peano
+***** Teorema de aproximación de Weierstrass
+****** Convolución
+La convolución de dos funciones $f,g \colon \mathbb{R} \to \mathbb{R}$ es la función
+
+\[
+(f \ast g)(x) := \int_{\mathbb{R}}f(x-t)g(t)\,dt,
+\]
+
+que no tiene por qué estar bien definida.
+
+****** Propiedades de la convolución
+La convolución es
+
+ * conmutativa, $f \ast g = g \ast f$,
+ * asociativa, $f \ast (g \ast h) = (f \ast g) \ast h$
+ 
+******* Proof
+# Estaría bien una demostración que fuera usando conjuntos de integración.
+# Asociatividad por Fubini.
+
+****** Identidades aproximadas
+Una *identidad aproximada* es una sucesión de funciones $g_n$ tales que
+
+ * $\int_{\mathbb{R}} g_n = 1$,
+
+ * $\int_{\mathbb{R}}\abs{g_n} < M$ acotadas uniformemente,
+
+ * $\forall \delta,\varepsilon > 0\colon \exists n_0 \colon \forall n \geq n_0\colon \forall x \geq \delta\colon |g_n(x)| < \varepsilon$,
+
+ * $g_n(x) = 0$ para $|x|>1$.
+
+****** Aproximación por identidades
+Para $f$ continua y nula fuera de $[0,1]$ y para $g_n$ identidad aproximada
+se tiene $g_n\ast f \overset{c.u.}\longrightarrow f$.
+
+******* Proof
+Fijado un $\varepsilon > 0$ probaremos $\abs{(f \ast g_n)(x) - f(x)} < \varepsilon$. Al ser $f$ continua
+en el compacto $[0,1]$, es uniformemente continua y existe $\delta$ tal que para
+cualquier $x \in \mathbb{R}$ y $t \in (x-\delta,x+\delta)$ se tiene
+\[
+\abs{f(x) - f(x-t)} < \frac{\varepsilon}{2M},
+\]
+donde $M$ es la constante que acota las integrales en valor absoluto de $g_n$.
+Por otro lado, por Teorema de Weierstrass, existe una acotación $\abs{f(x)} \leq C$,
+y podemos usar la propiedad de la identidad aproximada $g_n$ para
+tener que existe un $N$ tal que para todo $n \geq N$ y $|t| > \delta$ se tiene $\abs{g_n(t)} < \frac{\varepsilon}{8C}$.
+Ahora, podemos usar lo que acabamos de probar y las propiedades de
+la identidad aproximada para tener
+\[\begin{aligned}
+\abs{(f \ast g_n)(x) - f(x)} &= 
+\abs{\int_{-\delta}^{\delta} f(x-t)g_n(t)\,dt - f(x)\int_{-\delta}^{\delta} g_n(t)\,dt} \\&=
+\abs{\int_{-\delta}^{\delta} \Big(f(x-t) - f(x)\Big)g_n(t)\,dt} \\&\leq
+\int_{-\delta}^{\delta} \abs{f(x-t)-f(x)}\abs{g_n(t)}\,dt +
+\int_{|t| > \delta} \Big(\abs{f(x-t)}+\abs{f(x)}\Big)\abs{g_n(t)}\,dt \\&\leq
+\frac{\varepsilon}{2M}\int_{-\delta}^{\delta} \abs{g_n(t)}\,dt +
+2C\int_{|t| > \delta} \abs{g_n(t)}\,dt \\&\leq
+\frac{\varepsilon}{2} + 2C\frac{2\varepsilon}{8C} < \varepsilon.
+\end{aligned}\]
+
+****** Convolución de polinomios
+Sea $f \colon [0,1] \to \mathbb{R}$ continua y con $f(0)=f(1)=0$, y sea $P$ un polinomio
+restringido a $[-1,1]$; entonces $f \ast P$ es una función polinomial.
+
+******* Proof
+Nótese que al ser $P$ un polinomio, $P(x-t)f(t)$ puede escribirse
+como una suma de términos de la forma $a_ix^jt^kf(t)$ por lo que podemos
+escribir.
+\[
+\int_{\mathbb{R}}P(x-t)f(t)\,dt =
+\sum a_ix^j \left(\int_{\mathbb{R}} t^kf(t)\,dt\right).
+\]
+
+****** TODO Polinomios de ??
+La familia de polinomios $Q_n(x) = C_n(1-x^2)^n$ restringidos a $[-1,1]$
+y con 
+\[
+C_n = ?,
+\]
+entonces $Q_n$ es una identidad aproximada.
+
+# TODO: Integración por partes
+******* TODO Proof
+
+****** TODO Teorema de aproximación de Weierstrass
+***** Lema de aproximación por localmente lipschitzianas
+Sea $f \colon D = \mathring{D} \to \mathbb{R}^d$ continua y $M \geq 0$ tal que
+
+ \[\forall (t,x) \in {\cal R}_{a,b}\colon \|f(t,x)\| \leq M,\]
+
+entonces $f_n_{|_{R_{a,b}}} \overset{c.u.}\longrightarrow f_{|_{R_{a,b}}}$ localmente lipschitzianas y 
+uniformemente acotadas por $\| f_n_{|_{R_{a,b}}}(t,x) \| \leq M$.
+
+****** TODO Proof
+Por teorema de Stone-Weierstrass.
+
+# Convolución, polinomios de Bessel o Bernstein
+
+# http://www.mast.queensu.ca/~speicher/Section14.pdf <- Por bernstein
+# https://math.stackexchange.com/questions/437145/lipschitz-continuous-polynomials <- polinomios son lipschitz
+# http://lsec.cc.ac.cn/~xuzq/lecture%201.pdf <- Por convolución
+
+***** Lema de soluciones de Volterra
+Si $\|f_{|_{R_{a,b}(t_0,x_0)}}(t,x)\| \leq M$ y $Ma \leq b$, entonces existe una $\varphi \colon [t_0-a,t_0+a] \to \mathbb{R}^d$ que
+es solución de la ecuación de Volterra asociada.
+
+****** TODO Proof
+# En los apuntes
+
+***** Teorema de Cauchy-Peano
+:PROPERTIES:
+:ID:       076910d4-3fd8-4447-9712-20c4e6cd2251
+:END:
+Para $D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d$ y $f \colon D \to \mathbb{R}^{d}$ continua con $(t_0,x_0) \in D$,
+el PVI siguiente tiene solución
+
+\[\left\{\begin{array}{c}
+x' = f(t,x) \\
+x(t_0) = x_0
+\end{array}\right.\]
+
+****** TODO Demostración
+Tomamos $R_{a,b}(t_0,x_0) \subseteq D$ y por Weiestrass, $\|f_{|_{R_{a,b}}}(t,x)\| \leq M$.
+
+Picard-Lindelof
 
 *** Tema 4. Prolongación y acotación de soluciones
+**** Prolongación
+Consideramos para este tema
+ 
+ * $D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d$, abierto,
+ * $f \colon D \to \mathbb{R}^{d}$, continua,
+ * $\varphi \colon (\alpha,\omega)\to\mathbb{R}^d$ solución maximal de $x' = f(t,x)$.
+  
+Estudiaremos resultados para $\omega$ que se traducirán directamente para $\alpha$.
+
+***** Lema 1. El límite toca el borde
+:PROPERTIES:
+:ID:       304d100c-6e59-4ed7-b623-4714c361a3dc
+:END:
+Si $\omega < \infty$ y $\exists \lim_{t \to \omega} \varphi(t) = \xi \in \mathbb{R}^d$, entonces $(\omega,t) \in \partial D$.
+
+****** Proof
+Sabemos $\varphi$ [[id:ba5ec2ba-b54a-455b-9b6c-9fca85940234][solución]], luego $\forall t \in (\alpha,\omega): (t,\varphi(t)) \in D$, y tomando límite
+obtendríamos $(\omega,\xi)\in \overline{D}$. Si se tuviera $(\omega,\xi)\in D$, entonces tomaríamos
+el PVI con $x(\omega) = \xi$, y por [[id:076910d4-3fd8-4447-9712-20c4e6cd2251][Cauchy-Peano]] tendría una solución en entorno
+
+\[
+\psi \colon (\omega-a,\omega+a) \to \mathbb{R}^d.
+\]
+
+Pero entonces podríamos crear una solución mayor $\widetilde \varphi$ [[id:078ac783-76bf-4445-ad46-3f91ea9d1ef6][concatenando]] ambas,
+lo que contraviene maximalidad.
+
+***** Lema 2. El límite de una sucesión toca el borde
+Si $\omega < \infty$ y tenemos $t_n \in (\alpha,\omega)$ con $t_n \to \omega$ y $\varphi(t_n)\to \xi \in \mathbb{R}^d$, entonces
+$(\omega,\xi)\in \partial D$.
+
+****** Proof
+Sabemos $\varphi$ [[id:ba5ec2ba-b54a-455b-9b6c-9fca85940234][solución]], luego $\forall t \in (\alpha,\omega)\colon (t,\varphi(t)) \in D$, y tomando límite
+obtendríamos $(\omega,\xi) \in \overline{D}$. Si se tuviera $(\omega,\xi) \in D$ abierto, entonces fijamos
+$\varepsilon > 0$ y existe $R_{\overline{a},b}(\omega,\xi)\subseteq D$ con $b < \varepsilon$ por ser [[id:44351076-d98f-4552-a229-a41405beb6b1][base de entornos]].
+
+Tomamos además un máximo por Teorema de Weierstrass
+
+\[
+M = \max_{(t,x) \in R_{\overline{a},b}(\omega,\xi)} \| f(t,x) \|,
+\]
+
+y tomamos $a < \overline{a}$ tal que $aM \leq b/2$.
+
+Usando convergencia, podemos encontrar $N \in \mathbb{N}$ tal que
+
+\[
+\forall n > N\colon\quad t_n \in (\omega-a,\omega), \quad\mbox{ y }\quad 
+\|\varphi(t_n) - \xi \| \leq b/2.
+\]
+
+Si no fuera verdad que $\forall t \in [t_N,\omega]\colon \varphi(t) \in B(\xi,b)$, por el
+[[id:a439476b-8c77-4994-a736-9062ee91e7d0][Lema del primer instante]] se llegaría a
+
+\[
+\exists \tau \in (t_N,\omega)\colon \|\varphi(t) - \xi\| < b,\qquad \|\varphi(\tau)-\xi\| = b,
+\]
+
+pero entonces, 
+
+\[\begin{aligned}
+b &\leq 
+\|\varphi(\tau)-\varphi(t_n)\| + \| \varphi(t_n) - \xi \| \\&<
+\left\| \int_{t_N}^{\tau} \varphi'(s)\,ds \right\| + \frac{b}{2} \\&=
+\left\| \int_{t_n}^{\tau}f(s,\varphi(s))\,ds \right\| + \frac{b}{2} \\&\leq
+M(\tau - t_n) + \frac{b}{2} \\&<
+Ma + b/2 \leq b.
+\end{aligned}\]
+
+Llegando a contradicción. Así, tenemos el límite $\lim_{t \to \omega} \varphi(t) = \xi \in \mathbb{R}^d$,
+y podemos aplicar el [[id:304d100c-6e59-4ed7-b623-4714c361a3dc][Lema anterior]] para tener $(\omega,\xi) \notin D$.
+
+***** Teorema de alternativas de no prolongación
+:PROPERTIES:
+:ID:       435b13ac-d20b-469c-bb0a-4915735b6c62
+:END:
+Si $\omega < \infty$ se verifica una de las siguientes alternativas.
+
+ * $\lim_{t \to \omega}\| \varphi(t)\| = \infty$, explota en tiempo finito;
+
+ * $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D$, tiende a tocar la frontera.
+
+****** TODO Proof
+***** Corolario 1
+Si $\omega < \infty$ y $D = \mathbb{R} \times \mathbb{R}^{d}$, entonces $\lim_{t \to \infty} \|\varphi(t)\| = \infty$.
+
+****** Proof
+Al ser $\partial D = \varnothing$, el [[id:435b13ac-d20b-469c-bb0a-4915735b6c62][teorema anterior]] sólo da la primera alternativa.
+
+***** Corolario 2
+Si $\omega < b < \infty$ y $D = (a,b) \times \mathbb{R}^d$, entonces $(\omega,\xi) \notin D$ y $\lim_{t \to \omega} \|\varphi(t)\| = \infty$.
+
+****** Proof
+***** Corolario 3
+Si $\omega < \infty$ y $D = \mathbb{R} \times B$ para $B$ acotado, entonces
+$\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D = \mathbb{R} \times \partial B$.
+
+****** Proof
 *** Tema 5. Dependencia continua y diferenciable
 *** Tema 6. Estabilidad
 *** Ejercicios
@@ -818,23 +1481,324 @@ Calculamos usando [[*Condiciones para la unicidad local en variables separadas][
    \lim_{t \to (1/x_0 + t_0)} \varphi(t) = +\infty.
    \]
 *** Cards
-**** Globalmente lipschitziana respecto de x                       :drill:
-SCHEDULED: <2018-04-05 Thu>
+**** Tema 0. Preliminares
+***** Técnicas de integración
+****** Ecuaciones homogéneas: forma                              :drill:
+SCHEDULED: <2018-04-10 Tue>
 :PROPERTIES:
-:ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
-:DRILL_LAST_INTERVAL: 10.3459
-:DRILL_REPEATS_SINCE_FAIL: 3
+:ID:       87915c2b-ff33-4e9d-98c0-07e66a01ac68
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:32]
+:END:
+Forma de una ecuación homogénea.
+
+******* Forma
+\[
+x' = f \left( \frac{x}{t} \right)
+\]
+
+****** Ecuaciones homogéneas: resolución                         :drill:
+SCHEDULED: <2018-04-11 Wed>
+:PROPERTIES:
+:ID:       e558b5d7-7d81-4d91-9486-40352296fda2
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
 :DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-07 Sat 23:24]
+:END:
+Cómo resolver
+
+\[
+x' = f \left( \frac{x}{t} \right).
+\]
+
+******* Resolución
+Aplicamos el cambio de variable $u = x/t$, que nos
+lleva a 
+
+\[u' = \frac{1}{t}(f(u) - u).\]
+
+****** Ecuación lineal escalar                                   :drill:
+SCHEDULED: <2018-04-10 Tue>
+:PROPERTIES:
+:ID:       ead2dfed-95a4-41ad-b65e-d09cf22fbd8d
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:40]
+:END:
+Cómo resolver, para $a,b \in {\cal C}(I,\mathbb{R})$;
+
+\[
+x' = a(t)x + b(t)
+\]
+
+******* Resolución
+Una parte resuelve la homogénea, la otra es una solución
+particular
+
+\[
+x = Ae^{(\int a)} + \left( \int_{t_0}^t b(z) e^{-(\int^{z} a)}\,dz \right) e^{(\int a)}
+\]
+
+****** Ecuación de Bernoulli                                     :drill:
+SCHEDULED: <2018-04-10 Tue>
+:PROPERTIES:
+:ID:       c7712582-1d68-4dd0-9ebf-9b9a2afcd463
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:34]
+:END:
+Cómo resolver
+
+\[
+x' + ax + bx^n = 0.
+\]
+
+******* Resolución
+Retiramos el caso trivial $x = 0$ y tomamos el cambio de
+variable $u = x^{1-n}$, que la transforma en lineal
+
+\[
+u' + (1-n)au + (1-n)b = 0.
+\]
+
+****** Ecuación de Ricatti                                       :drill:
+SCHEDULED: <2018-04-12 Thu>
+:PROPERTIES:
+:ID:       1113da24-b90d-4ab0-94d8-e65ae4710470
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 1.667
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:07]
+:END:
+Cómo resolver
+
+\[
+x' + ax + bx^2 = f(x).
+\]
+
+******* Resolución
+Conociendo una solución de la ecuación tomamos el cambio
+
+\[
+u = \frac{1}{x - \varphi}
+\]
+
+suele ser una elección algo de la forma $\varphi = -1/x$.
+
+****** Ecuación exacta                                           :drill:
+SCHEDULED: <2018-04-12 Thu>
+:PROPERTIES:
+:ID:       69ceda6b-32b1-4bc2-b8fd-71bc68c66072
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 1.667
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 22:45]
+:END:
+Dar la forma de una ecuación exacta, ¿cuál es la solución trivial?
+
+******* Resolución
+Una solución exacta es de la forma
+
+\[
+M + Nx' = 0
+\]
+
+donde son de la forma $M = \pdv{F}{t}$ y $N = \pdv{F}{x}$. 
+Tiene solución trivial en $F = \mathrm{cte.}$
+
+**** Tema 1. Existencia y unicidad. Ecuación de Volterra
+***** Teorema del valor medio multivariable                       :drill:
+SCHEDULED: <2018-04-10 Tue>
+:PROPERTIES:
+:ID:       deccb6c2-471e-4d1a-baff-b96dc400f410
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:46]
+:END:
+Para $f \in {\cal C}^1(\mathbb{R}^n)$ y $a,b \in \mathbb{R}^n$, enunciar el teorema del valor medio.
+
+****** Enunciado
+Existe $c \in [a,b]$ tal que
+
+\[
+f(b)-f(a) = \left\langle \grad f(c), b-a \right\rangle.
+\]
+
+***** Lema del primer instante                                    :drill:
+SCHEDULED: <2018-04-10 Tue>
+:PROPERTIES:
+:ID:       b544c2e9-8d67-4c68-8587-26873148e533
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:41]
+:END:
+Para $f \in {\cal C}(I,\mathbb{R})$ con $f(t_0) > 0$, enunciar el lema del primer
+instante.
+
+****** Enunciado
+Se da una de las alternativas.
+
+ * $\forall t \geq t_0\colon f(t) > 0$.
+
+ * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
+
+***** Operador integral de Volterra                               :drill:
+SCHEDULED: <2018-04-10 Tue>
+:PROPERTIES:
+:ID:       d632fc17-20f9-4797-929d-05f51c4cd2ea
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:47]
+:END:
+Define el operador integral de Volterra y su dominio
+
+****** Definición
+
+\[
+V(y)(t) = x_0 + \int_{t_0}^t f(s,y(s))\;ds.
+\]
+
+Está en el dominio ${\cal C}([t_0-a,t_0+a];\mathbb{R}^d)$.
+Puede probarse que es $V \colon E \to E$ donde $E = \overline{B_0}(x_0,b)$.
+
+***** Lema de soluciones de Volterra                              :drill:
+SCHEDULED: <2018-04-10 Tue>
+:PROPERTIES:
+:ID:       08e0071f-e949-4b6e-bcfd-4310e101e85d
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:21]
+:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:37]
+:END:
+¿Cuándo podemos aplicar el lema de soluciones de Volterra?
+
+****** Demostración
+Necesitamos $\varphi \colon I \to \mathbb{R}^d$ en $I$ intervalo abierto. Equivalen
+
+ 1. $\varphi$ es solución de un PVI;
+ 2. $\varphi$ es solución de la ecuación de Volterra asociada.
+
+***** Teorema de Unicidad de Peano: enunciado                     :drill:
+:PROPERTIES:
+:ID:       d6ac89c9-f053-4b0d-a8e0-c0233c137e87
+:END:
+Enuncia el teorema de Unicidad de Peano.
+
+****** Enunciado
+Para un PVI con $d=1$, es decir $f \colon \mathbb{R}\times \mathbb{R} \to \mathbb{R}$,
+
+ 1) si $\forall t \geq t_0$, $f(t,-)$ es decreciente, hay unicidad en el futuro;
+ 2) si $\forall t \leq t_0$, $f(t,-)$ es creciente, hay unicidad en el pasado.
+
+***** Teorema de Unicidad de Peano: demostración                  :drill:
+SCHEDULED: <2018-04-11 Wed>
+:PROPERTIES:
+:ID:       efae3e4f-a565-4023-bb0c-e1c762db3e1f
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-07 Sat 23:24]
+:END:
+¿Cuál es la idea para demostrar el teorema de unicidad de Peano?
+Supongamos $f(t,x)$ decreciente y dos soluciones $\varphi_1\colon I_1 \to \mathbb{R}$
+y $\varphi_2 \colon I_2 \to \mathbb{R}$. Queremos ver unicidad en el futuro.
+
+****** Idea
+Definimos $h(t) = (\varphi_1(t)-\varphi_2(t))^2$ y calculamos su derivada para
+ver que es decreciente.
+
+**** Tema 2. Lispchitzianidad. Picard-Lindelöf
+****** Norma de Bielecki                                         :drill:
+SCHEDULED: <2018-04-11 Wed>
+:PROPERTIES:
+:ID:       7748c216-94a7-4d91-a824-6fd195ffe10f
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-07 Sat 23:20]
+:END:
+Define la norma de Bielecki.
+
+******* Definición
+En el espacio $E_{a,b}(t_0,x_0)$, dada una constante $R > 0$, consideramos
+
+\[
+\| \varphi \|_{B} = \max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\|.
+\]
+
+****** Globalmente lipschitziana respecto de x                   :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
+:DRILL_LAST_INTERVAL: 26.6407
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-05 Thu 23:08]
 :END:
 Una $f(x,y)$ definida en $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$ es [[id:c50d9301-e9db-40a1-b25f-b726327f37bb][globalmente lipschitziana respecto]]
 de $x \in \mathbb{R}^d$ cuando
 
-***** Definición
+******* Definición
 Cuando existe $L \geq 0$ tal que
 
 \[
@@ -868,9 +1832,29 @@ forma bilineal tal que
 Entonces, para todo $f \in H^{\ast}$ existe un único $y_0\in H$ tal que
 $a(x,y_0) = f(x)$ para cualquier $x \in H$.
 
-*** Apuntes
-**** 0. Preliminares
-***** Identidades trigonométricas
+**** Tipos de ecuación diferencial ordinaria
+Nombres de las ecuaciones
+
+ * Son *ordinarias* aquellas que no involucran derivadas parciales.
+
+ * Son *autónomas* aquellas que no dependen de $x$ directamente.
+
+ * Son *lineales* si la derivada mayor depende linealmente de las demás.
+   $a_0(x) y(x) + \dots + a_n(x) y^{(n)}(x) + b(x) = 0$. Dentro de las lineales, las
+   lineales con coeficientes constantes se resuelven fácilmente.
+
+Tipos explícitos de ecuación
+
+ * Lineal de primer orden, homogénea: $y' + P(x)y = 0$.
+
+ * Lineal de primer orden, no homogénea: $y' + P(x)y = Q(x)$.
+
+ * [[https://en.wikipedia.org/wiki/Cauchy%25E2%2580%2593Euler_equation][Ecuación de Euler]]: $a_nx^ny^{(n)}(x) + \dots + a_0y(x) = 0$.
+
+ * [[https://en.wikipedia.org/wiki/Bernoulli_differential_equation][Ecuación de Bernoulli]]: $y' + P(x)y = Q(x)y^n$
+
+*** 0. Preliminares
+**** Identidades trigonométricas
 Las identidades trigonométricas
 
 \[\left\{\begin{array}{l}
@@ -881,7 +1865,7 @@ Las identidades trigonométricas
 
 son [[id:893398fe-a78e-45a4-b0dd-d4e36bc98d78][suficientes]] para caracterizar al seno y al coseno.
 
-***** Fórmula de DeMoivre
+**** Fórmula de DeMoivre
 Sabemos que
 
 \[
@@ -894,13 +1878,14 @@ puede ser expresada usando que
 \e^{i\theta} = \cos \theta + i \sin \theta
 \]
 
-***** Método de variación de constantes
-***** Ecuación diferencial de Euler
-***** Teorema de Fubini
-***** Teorema de Tonelli
-**** 1. Motivación y fundamentos del cálculo variacional
-**** 2. Cálculo de variaciones
-***** 2.1. Teorema 1. Lema fundamental del cálculo de variaciones
+**** Método de variación de constantes
+**** Método de coeficientes indeterminados
+**** Ecuación diferencial de Euler
+**** Teorema de Fubini
+**** Teorema de Tonelli
+*** 1. Motivación y fundamentos del cálculo variacional
+*** 2. Cálculo de variaciones
+**** 2.1. Teorema 1. Lema fundamental del cálculo de variaciones
 :PROPERTIES:
 :ID:       652bdddb-0853-4a9a-8060-28a730928816
 :END:
@@ -909,7 +1894,7 @@ Para $f \colon [a,b] \to \mathbb{R}$ continua equivalen
  1. $f(x) = 0$ para todo $x \in (a,b)$;
  2. $\int_a^b f(x)\phi(x)\,dx = 0$ para toda $\phi \in {\cal C}_0^1(a,b)$.
 
-****** Proof
+***** Proof
 Si tuviéramos en algún punto $f(x_0) > 0$; por conservación del
 signo, tenemos un entorno de $x_0$ contenido en $(a,b)$ donde la
 función es estrictamente positiva, sea $(x_0-\varepsilon,x_0+\varepsilon)$. Tomamos
@@ -923,8 +1908,8 @@ e^{\frac{1}{(x-x_0-\varepsilon)(x-x_0+\varepsilon)}}, &
 Esta función es no analítica pero continua con derivadas continuas.
 Por contradicción, $f = 0$.
 
-***** 2.2. Ecuación de Euler-Lagrange
-****** Teorema 2. Ecuación de Euler-Lagrange
+**** 2.2. Ecuación de Euler-Lagrange
+***** Teorema 2. Ecuación de Euler-Lagrange
 :PROPERTIES:
 :ID:       a197ab8c-e2fa-4327-a265-1ece45f66c23
 :END:
@@ -961,7 +1946,7 @@ F_y - \dv{}{x}F_p = 0.
 Llamamos *extremales* a las soluciones candidatas a mínimo de esta
 ecuación.
 
-******* Proof
+****** Proof
 :PROPERTIES:
 :ID:       d1ff00ca-9b61-4a83-9016-35f8fca5866a
 :END:
@@ -985,7 +1970,7 @@ Habiendo usado la integrabilidad de $F$ y $\dv{}{s}F$, la regla de la cadena
 multivariable, el hecho de que $\phi$ se anula en $x_0,x_1$ e integración por
 partes. Aquí aplicamos el [[id:652bdddb-0853-4a9a-8060-28a730928816][lema fundamental]].
 
-****** Teorema 3. Condiciones para conjuntos sin condiciones de contorno
+***** Teorema 3. Condiciones para conjuntos sin condiciones de contorno
 Dado un funcional similar al [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][anterior]], pero en este caso sobre un
 dominio sin condiciones de contorno
 
@@ -1006,7 +1991,7 @@ y además cumple las condiciones de contorno
 F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
 \]
 
-******* Proof
+****** Proof
 La [[id:d1ff00ca-9b61-4a83-9016-35f8fca5866a][demostración]] de Euler-Lagrange puede repetirse para cualquier
 $\phi \in {\cal C}^1(x_0,x_1)$ para obtener
 
@@ -1026,8 +2011,8 @@ Euler-Lagrange. Pero entonces
 y tomando en particular funciones cumpliendo $\phi(x_j) = \delta_{ij}$ para
 $i,j = 0,1$ tenemos las condiciones de contorno buscadas.
 
-****** TODO Teorema 3. Condiciones en conjuntos con una sola condición de contorno
-****** Teorema 4. Euler-Lagrange para F independiente de y
+***** TODO Teorema 3. Condiciones en conjuntos con una sola condición de contorno
+***** Teorema 4. Euler-Lagrange para F independiente de y
 En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si además $F_y = 0$, entonces
 la condición que nos da Euler-Lagrange puede ser escrita como
 
@@ -1035,10 +2020,10 @@ la condición que nos da Euler-Lagrange puede ser escrita como
 F_p(x,\oy'(x)) = \mathrm{cte.}
 \]
 
-******* Proof
+****** Proof
 Trivialmente integrando en la ecuación de Euler-Lagrange.
 
-****** Teorema 5. Euler-Lagrange para F independiente de x
+***** Teorema 5. Euler-Lagrange para F independiente de x
 Para un funcional de la forma siguiente con $F$ dos veces derivable
 respecto a $y$ y a $p$,
 
@@ -1058,16 +2043,16 @@ o, de forma simplificada,
 F - y'F_p = \mathrm{cte.}
 \] 
 
-******* Proof
+****** Proof
 Tenemos que, aplicando [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]]
 
 \[
 \dv{}{x}\left( F - y'F_p \right) = y'\left(F_y - \dv{}{x}F_p\right) = 0.
 \]
 
-***** 2.3. Ejemplos
-***** 2.4. Convexidad: condición suficiente de existencia
-****** Convexidad
+**** 2.3. Ejemplos
+**** 2.4. Convexidad: condición suficiente de existencia
+***** Convexidad
 Un subconjunto $\Omega \subseteq V$ de un espacio vectorial es *convexo* cuando
 contiene al segmento entre cualesquiera dos puntos,
 
@@ -1082,20 +2067,20 @@ de Jensen,
 f(tx + (1-t)y) \leq tf(x) + (1-t)f(y).
 \]
 
-****** Teorema 6. Existencia de mínimo con convexidad
+***** Teorema 6. Existencia de mínimo con convexidad
 En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si ${\cal D}$ es convexo, ${\cal F}$ es convexo,
 y $\oy \in {\cal D} \cap {\cal C}^2$ es una extremal, entonces $\oy$ es un mínimo global de $\sigma$.
 
-******* TODO Proof
+****** TODO Proof
 
-****** Teorema 7. Los mínimos locales son globales con convexidad
+***** Teorema 7. Los mínimos locales son globales con convexidad
 Dado un funcional ${\cal F} \colon {\cal D} \to \mathbb{R}$ convexo en un subconjunto convexo de un
 espacio vectorial ${\cal D}$; si ${\cal F}$ alcanza un mínimo (resp. estricto) local
 en $\oy \in {\cal D}$, entonces $\oy$ es un mínimo (resp. estricto) global.
 
-******* TODO Proof
+****** TODO Proof
 
-****** Teorema 8. Condición de convexidad
+***** Teorema 8. Condición de convexidad
 Para $F(x,y,p) \colon [x_0,x_1] \times \Omega \to \mathbb{R}$ en las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]]
 con $\Omega$ convexo y $F$ convexa; el funcional
 
@@ -1105,8 +2090,8 @@ con $\Omega$ convexo y $F$ convexa; el funcional
 
 es convexo.
 
-******* TODO No es condición necesaria
-******* Proof
+****** TODO No es condición necesaria
+****** Proof
 Usando linealidad y acotación de la integral tenemos
 
 \[\begin{aligned}
@@ -1114,10 +2099,12 @@ Usando linealidad y acotación de la integral tenemos
 \int_{x_0}^{x_1} F\Big(x,\lambda y + (1-\lambda)z, \lambda y' + (1-\lambda)z'\Big)\,dx \\&\leq
 \lambda \int_{x_0}^{x_1} F\Big(x,y,y'\Big)\,dx + (1 - \lambda)\int_{x_0}^{x_1} F\Big(x,z,z'\Big)\,dx.
 \end{aligned}\]
-**** 3. Cálculo de extremales: problemas de contorno
-**** 4. Problemas variacionales con ligaduras, extremos condicionados
-***** 4.1. Problemas variacionales dependientes de varias funciones
-****** Funcional a minimizar, dependiente de varias funciones
+*** 3. Cálculo de extremales: problemas de contorno
+**** TODO Euler-Lagrange con segunda derivada
+**** TODO Problema de la viga
+*** 4. Problemas variacionales con ligaduras, extremos condicionados
+**** 4.1. Problemas variacionales dependientes de varias funciones
+***** Funcional a minimizar, dependiente de varias funciones
 :PROPERTIES:
 :ID:       cf95308e-1cfe-4d08-af55-b2fb3956f471
 :END:
@@ -1140,7 +2127,7 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
-****** Teorema 12. Condición necesaria de mínimo para funcioanles de varias funciones
+***** Teorema 12. Condición necesaria de mínimo para funcioanles de varias funciones
 Para un funcional de la forma [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]], si $\oy \in {\cal D} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ es mínimo
 del ${\cal F}$ se cumplen las siguientes ecuaciones de Euler-Lagrange en cada variable.
 
@@ -1148,9 +2135,9 @@ del ${\cal F}$ se cumplen las siguientes ecuaciones de Euler-Lagrange en cada va
 F_{y_i} - \dv{}{x}\Big( F_{p_i} \Big) = 0, \quad i = 1,\dots,n.
 \]
 
-******* TODO Proof
+****** TODO Proof
 
-****** Ligaduras algebraicas
+***** Ligaduras algebraicas
 Al añadir ligaduras algebraicas o diferenciales obtendremos un nuevo
 conjunto ${\cal D}$ de la forma siguiente.
 
@@ -1167,11 +2154,11 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
-****** Método de sustitución
+***** Método de sustitución
 Las ligaduras permiten en ocasiones eliminar alguna de las incógnitas
 del problema, escribiéndolas en función de las otras.
 
-****** Teorema 13. Ligaduras algebraicas
+***** Teorema 13. Ligaduras algebraicas
 Para $\oy \in {\cal D}_{\varphi} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ mínimo de un funcional ${\cal F}$ de la forma [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]]
 existen multiplicadores de Euler-Lagrange $\lambda_j(x)$ tales que para
 
@@ -1188,10 +2175,10 @@ F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; 
 \varphi_j = 0, \quad j = 1,\dots,m.
 \end{array}\]
 
-******* TODO Proof
+****** TODO Proof
 # Demostración en el libro de Elsgoltz.
 
-****** Corolario: ligaduras algebro-diferenciales
+***** Corolario: ligaduras algebro-diferenciales
 Podemos generalizar las condiciones para que aparezcan las derivadas
 de la función en las ligaduras.
 
@@ -1223,9 +2210,9 @@ F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; 
 \varphi_j = 0, \quad j = 1,\dots,m.
 \end{array}\]
 
-******* TODO Proof
+****** TODO Proof
 
-****** Teorema 14: Corolario: ligaduras integrales
+***** Teorema 14: Corolario: ligaduras integrales
 :PROPERTIES:
 :ID:       e37d89ff-11da-493c-ab46-2000fe221da9
 :END:
@@ -1257,14 +2244,14 @@ con $\lambda_j$ *constantes*, que
 F^{\ast}_{y_i} - \dv{}{x} \Big( F^{\ast}_{p_i} \Big) = 0, \qquad i=1,\dots,n.
 \]
 
-******* TODO Proof
+****** TODO Proof
 # En los apuntes, usando el teorema 13.
 
-****** Ejemplo: Problema de Dido
+***** Ejemplo: Problema de Dido
 Queremos maximizar el área que encierra una curva cerrada de longitud
 finita.
 
-******* Planteamiento
+****** Planteamiento
 Consideramos $\Gamma$ la traza de $\alpha \colon [0,1] \to \mathbb{R}^2$ en sentido antihorario llamando 
 $\alpha(t) = (x(t),y(t))$, y cumpliendo que $\alpha(0) = \alpha(1)$. El área que
 encierra $\alpha$ es
@@ -1291,7 +2278,7 @@ Tenemos definidas las funciones
 
  * $G(x,y,p,q) = \sqrt{p^2 + q^2}$
 
-******* Lagrangiana
+****** Lagrangiana
 Teniendo la lagrangiana
 
 \[
@@ -1316,11 +2303,11 @@ x + \lambda \frac{y'}{\sqrt{x'^2 + y'^2}} = x_0;
 
 que dan como solución una circunferencia de centro $(x_0,y_0)$ y radio $|\lambda|$.
 
-****** Ejemplo: Catenaria
+***** Ejemplo: Catenaria
 Queremos hallar la forma de una cuerda de longitud $L > 1$ colgando de
 dos postes a altura $h$ separados a $1$ unidad de distancia. 
 
-******* Planteamiento
+****** Planteamiento
 Minimizaremos
 
 \[
@@ -1344,7 +2331,7 @@ Tenemos definidas las funciones
 
  * $G(x,y,p) = \sqrt{1 + p^2}$.
 
-******* Lagrangiana
+****** Lagrangiana
 Tenemos la lagrangiana
 
 \[
@@ -1365,7 +2352,7 @@ con solución
 y(x) = \lambda + C \cosh \left( \frac{x-k}{C} \right).
 \]
 
-******* Determinación de las constantes
+****** Determinación de las constantes
 Imponiendo la ligadura $y(0) = y(1)$ obtenemos $k = 1/2$. Imponiendo
 la ligadura integral tenemos
 
@@ -1375,7 +2362,7 @@ L = \int_0^1 \sqrt{1 + \sinh(\dots)^2}\,dx = \int_0^1 \cosh(\dots)\,dx = 2C \sin
 
 que determina $C$ de forma única cuando $L > 1$.
 
-******* Dato extra
+****** Dato extra
 Si además imponemos $y(0) = h$, entonces
 
 \[
@@ -1388,8 +2375,8 @@ y podemos demostrar que
 \lambda = h - \frac{1}{2}\sqrt{4C_0^2 + L}.
 \]
 
-**** Lineales
-***** Forma autoadjunta de una ecuación lineal
+*** Lineales
+**** Forma autoadjunta de una ecuación lineal
 Una ecuación lineal de orden 2 para $[x_0,x_1]$ es de la forma
 
 \[
@@ -1410,7 +2397,7 @@ que puede escribirse uniendo los dos primeros sumandos como
 
 lo que llamamos su *forma autoadjunta*.
 
-***** Forma variacional
+**** Forma variacional
 El funcional
 
 \[
@@ -1424,7 +2411,7 @@ autoadjunta de una ecuación lineal
 (Py')' + (-Qy + R) = 0.
 \]
 
-***** De problema de contorno a coordenadas homogéneas
+**** De problema de contorno a coordenadas homogéneas
 Sea un problema de contorno y condiciones de contorno Dirichlet no
 homogéneas.
 
@@ -1436,7 +2423,7 @@ y(x_1) = y_1
 
 Podemos obtener un problema de contorno con coordenadas homogéneas.
 
-****** Construcción
+***** Construcción
 Proponemos un cambio de variables $z(x) = y(x) - (Ax + B)$ y buscamos
 $A$, $B$ y $\widetilde R$ tales que
 
@@ -1466,8 +2453,8 @@ z(x) = y(x) + \left( \frac{y_1(x-x_0) + y_0(x-x_1)}{x_0-x_1} \right).
 Que nos lleva al sustituir en la ecuación inicial a tener
 ${\widetilde R} = R - P' \cdot A - Q \cdot (Ax + B)$.
 
-**** 5. Funcionales dependientes de funciones de varias variables
-****** Ecuación de Euler-Lagrange dependiente de varias variables
+*** 5. Funcionales dependientes de funciones de varias variables
+***** Ecuación de Euler-Lagrange dependiente de varias variables
 Consideramos un funcional
 
 \[
@@ -1483,8 +2470,8 @@ condición de Euler-Lagrange
 F_u - \pdv{}{t} F_r - \pdv{}{x} F_p - \pdv{}{y}F_q = 0.
 \]
 
-***** 5.1. La membrana vibrante
-****** Marco del problema
+**** 5.1. La membrana vibrante
+***** Marco del problema
 Consideramos una membrana sujeta por el borde, llamando $u(t,x,y)$ al
 a la *altura* de un punto de la membrana, que estará en $\Omega \subseteq \mathbb{R}^2$.
 Llamamos $\varphi(x,y) \in {\cal C}^1(\Omega)$ a la *posición de reposo o equilibrio* de la
@@ -1500,10 +2487,10 @@ C(\varphi) &+ \frac{1}{2} \int_0^{\infty}\int_{\Omega} m \abs{\pdv{u}{t}}^2 \,d(
 
 Normalmente sólo aparecerá este funcional simplificado.
 
-****** Simplificación 1: equilibrio nulo.
+***** Simplificación 1: equilibrio nulo.
 Asumimos la posición de equilibrio $\varphi(x) = 0$ horizontal.
 
-****** Simplificación 2: deformaciones pequeñas (Taylor).
+***** Simplificación 2: deformaciones pequeñas (Taylor).
 Utilizamos el desarrollo de Taylor
 
 \[
@@ -1517,17 +2504,17 @@ para aproximar
 \int_{\Omega}\sigma \sqrt{1 + \abs{\nabla u}^2 \,dx} \sim C + \frac{1}{2}\int_{\Omega} \sigma \abs{\nabla u}^2\,dx.
 \]
 
-****** Simplificación 3: caso estacionario.
+***** Simplificación 3: caso estacionario.
 La $u$ es independiente del tiempo.
 
-****** Modelo simplificado: asumiendo S1, S2, S3.
+***** Modelo simplificado: asumiendo S1, S2, S3.
 Si asumimos todas las simplificaciones posibles llegamos a
 
 \[
 \alpha u - \sigma \Delta_x u = f.
 \]
 
-******* Laplaciana en variables espaciales
+****** Laplaciana en variables espaciales
 La *laplaciana* es la suma de todas las segundas derivadas
 sin mezclar:
 
@@ -1542,11 +2529,11 @@ las variables no temporales.
 \Delta_xu := \pdv[2]{u}{x} + \pdv[2]{u}{y}.
 \]
 
-******* Proof
+****** Proof
 La $F$ asociada está en los apuntes. La ecuación se obtiene
 usando la definición de la laplaciana $\Delta u$.
 
-****** Ecuación de Poisson
+***** Ecuación de Poisson
 # Duda: sigma será constante no nula ¿no?
 Si simplificamos tomando $\sigma = \mathrm{cte}$  y $\alpha = 0$, tenemos la
 *Ecuación de Poisson*.
@@ -1555,9 +2542,37 @@ Si simplificamos tomando $\sigma = \mathrm{cte}$  y $\alpha = 0$, tenemos la
 -\Delta_x u = f/\sigma.
 \]
 
-****** Modos de vibración
-****** Problema de Dirichlet
-****** Ecuación de ondas
+***** Modos de vibración
+***** Problema de Dirichlet
+:PROPERTIES:
+:ID:       8e9ccec0-c9de-4d00-a08e-3de44d448ca5
+:END:
+
+Cuando en la ecuación de ondas tomamos simplificaciones, $\alpha = f = 0$
+y además $\sigma = \mathrm{cte.}$ el funcional ${\cal F}$ es el funcional de Dirichlet
+
+\[
+{\cal F}[u] = \int_{\Omega} \abs{\nabla u}^2\,dx.
+\]
+
+Considerando el dominio de funciones de clase 1 fijadas en frontera
+
+\[
+{\cal D} = \left\{ u \in {\cal C}^1(\Omega) \mid
+u|_{\partial\Omega} = \gamma|_{\partial\Omega} = \varphi|_{\partial\Omega} \right\}.
+\]
+
+Tenemos el sistema de ecuaciones
+
+\[\left\{\begin{array}{ll}
+\Delta u(x) = 0 &\mbox{ si } x \in \Omega\\
+u(x) = \gamma(x) &\mbox{ si } x \in \partial\Omega
+\end{array}\right.\]
+
+y podemos comprobar por convexidad que la solución es única.
+
+****** TODO Solución única
+***** Ecuación de ondas
 :PROPERTIES:
 :ID:       6412aa5f-6f69-4458-9832-134ab22707b3
 :END:
@@ -1584,8 +2599,11 @@ La condición de Euler-Lagrange que se obtiene se llama *Ecuación de ondas*.
 \partial^2_{tt}u = f(x) - \alpha u  + \sigma \Delta_x u.
 \]
 
-***** 5.2. Resolución: separación de variables y necesidad del desarrollo en serie
-****** Ejemplo: ecuación de ondas en el caso unidimensional
+**** 5.2. Resolución: separación de variables y necesidad del desarrollo en serie
+***** Ejemplo: ecuación de ondas en el caso unidimensional
+:PROPERTIES:
+:ID:       e3c0e5df-d8b2-495c-9993-bd2b93d4782e
+:END:
 Tomamos como ejemplo la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]], en un caso unidimensional
 $\Omega = [0,L] \subseteq \mathbb{R}$ con $\sigma = c^2$ y $\alpha = f = 0$.
 
@@ -1613,7 +2631,7 @@ u(t,0) = u(t,L) = 0, & t \geq 0.
 \end{array}
 \right\}\]
 
-****** Separación de variables
+***** Separación de variables y principio de superposición
 Buscamos ahora una solución de la forma $u(t,x) = T(t)W(x)$, que
 si es solución debe cumplir
 
@@ -1624,16 +2642,245 @@ T''(t)W(x) = c^2T(t)W''(x),
 por lo que, se tienen las dos funciones siguientes independientes
 de la otra variable y constantes $T''(t)/T(t) = c^2W''(x)/W(x) = -\lambda$.
 
-****** Desarrollo de Fourier en series de senos y cosenos
+Si existieran deberían de cumplir
 
-***** 5.3. Problemas de Sturm-Liouville
+ * $T'(t) + \lambda T(t) = 0$,
 
-***** 5.4. Fundamentos del análisis funcional
+ * $W'(t) + \frac{\lambda}{c^2} W(t) = 0$,
 
-***** 5.5. Series trigonométricas de Fourier
+donde además $W(0) = W(L) = 0$ si $T$ no es nula. El problema de resolver
+una ecuación de este tipo es un problema de [[id:1e2009c1-db10-4490-af5c-db57a46dab0f][Sturm-Liouville]] que hemos
+[[id:e15aa2f8-76b4-4aa6-82bb-c0b424bda884][tratado ya]] y con soluciones $\lambda_n = (nc\pi/L)^2$ y $W_n(x) = \sin(n\pi x/L)$.
 
-****** Base ortonormal
-El conjunto de las funciones trigonométricas T-periódicas
+Ahora, al resolver para $T$ obtendríamos
+
+\[
+T_n(t) = A_n \cos(\frac{nc\pi t}{L}) + B_n \sin(\frac{nc\pi t}{L})
+\]
+
+dándonos finalmente
+
+\[
+u_n(t,x) = 
+\sin(\frac{n\pi x}{L}) 
+\left( A_n\cos(\frac{nc\pi t}{L}) + B_n\sin(\frac{nc\pi t}{L}) \right).
+\]
+
+El problema es que al imponer las condiciones de contorno que teníamos
+llegamos a un punto en el que no está claro cómo seguir.
+
+  * $u_n(0,x) = A_n\sin(\frac{n\pi x}{L}) = u_0(x)$,
+
+  * $\partial_t u_n(0,x) = B_n \frac{nc\pi}{L}\sin(\frac{n \pi x}{L}) = v_0(x)$.
+
+***** Desarrollo de Fourier en series de senos y cosenos
+Para solucionar esto usaremos que la suma de dos soluciones cualesquiera
+de [[id:e3c0e5df-d8b2-495c-9993-bd2b93d4782e][nuestro problema]] vuelve a ser solución, y que toda función con cierta
+regularidad y con $u_0(0) = u_0(L) = 0$ será una serie de la forma
+
+\[
+u_0(x) = \sum_{n=1}^{\infty} a_n\sin(\frac{n\pi x}{L}).
+\]
+
+**** 5.3. Problemas de Sturm-Liouville
+***** Problema de Sturm-Liouville
+:PROPERTIES:
+:ID:       1e2009c1-db10-4490-af5c-db57a46dab0f
+:END:
+Un *problema de Sturm-Liouville* consiste en encontrar los
+$\lambda \in \mathbb{R}$ tales que el Problema de Contorno autoadjunto
+homogéneo siguiente tiene soluciones no nulas.
+
+\[\left.\begin{array}{c}
+\forall x \in [x_0,x_1]\colon\qquad (Py')' + (Q + \lambda S) y = 0 \\
+a_0y(x_0) + b_0y'(x_0) = 0,\\
+a_1y(x_1) + b_1y'(x_1) = 0.
+\end{array}\right\}\]
+
+Donde $Q,S$ son continuas, $P \in {\cal C}^1$ es positiva $P > 0$,
+y $S > 0$; además, las condiciones de contorno no son
+triviales, teniéndose $|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$.
+
+****** Caso periódico
+# El caso periódico es distinto, se trata en la Nota 18.
+
+
+***** Problema de contorno asociado
+***** TODO Valores propios y funciones propias
+Si encontramos un $\lambda$ con soluciones no nulas, tenemos un
+espacio de soluciones de dimensión uno. Llamamos *valores propios*
+a estos valores y *funciones propias* a las asociadas.
+
+***** Teorema 15. Teoría de Sturm-Liouville
+Los valores propios de un problema de Sturm-Liouville forman una
+sucesión creciente y divergente $\lambda_1< \lambda_2< \dots\to \infty$. Sus funciones
+propias normalizadas $\|y_n\|_{L^2_S} = 1$ son únicas salvo signo y verifican
+
+ * $y_n$ tiene $n-1$ ceros en $(x_0,x_1)$,
+
+ * son ortogonales, para $n \neq m$
+
+   \[
+   \pair{y_n,y_m} = \int_{x_0}^{x_1} y_n(x)y_m(x) S(x)\,dx = 0;
+   \]
+
+ * cualquier función $y \in L^2_S(x_0,x_1)$ puede ser desarrollada en serie
+   de funciones propias
+
+   \[
+   y(x) = \sum_{n=1}^{\infty}\pair{y,y_n}y_n.
+   \]
+
+****** Proof
+Fuera de los objetivos del curso.
+
+**** 5.3.2. Caracterización variacional de valores y funciones propias
+***** Cálculo variacional en Sturm-Liouville
+:PROPERTIES:
+:ID:       99594c9a-d729-4e87-b886-c4ee6899d0d7
+:END:
+Dado el funcional
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} \Big( P(x)(y'(x))^2 - Q(x)y(x)^2 \Big)\,dx
+\]
+
+con condiciones de contorno Dirichlet homogéneas $y(x_0) = y(x_1) = 0$
+y una con ligadura integral de tipo isoperimétrica que representa
+la exigencia de que $y$ esté normalizado,
+
+\[{\cal D}_1 = \left\{\begin{array}{c}
+y \in {\cal C}^0(x_0,x_1) \\
+y(x_0) = y(x_1) = 0 \\
+\|y\|^2_{L^2_S} = \int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
+\end{array}\right\}
+\]
+
+podemos aplicar el [[id:e37d89ff-11da-493c-ab46-2000fe221da9][Teorema 14]] para obtener que un mínimo debe cumplir
+
+\[\left\{\begin{array}{c}
+(Py')' + (Q + \lambda S)y = 0, \\
+y(x_0) = y(x_1) = 0, \\
+\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
+\end{array}\right.\]
+
+***** Teorema 16: problemas variacionales con Sturm-Liouville
+En las condiciones de un problema de Sturm-Liouville, las funciones
+propias $y_n$ se obtienen al minimizar el ${\cal F}$ [[id:99594c9a-d729-4e87-b886-c4ee6899d0d7][anterior]] sobre
+
+\[
+{\cal D}_n = \left\{\begin{array}{c}
+y \in {\cal C}^1(x_0,x_1) \\
+y(x_0) = y(x_1) = 0, \\
+\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1 \\
+\int_{x_0}^{x_1} y(x)y_1(x)S(x)\,dx = 0 \\
+\vdots\\
+\int_{x_0}^{x_1} y(x)y_{n-1}(x)S(x)\,dx = 0
+\end{array}\right\}
+\]
+
+teniéndose además que ${\cal F}[y_n] = \lambda_n$.
+
+**** 5.4. Fundamentos del análisis funcional
+***** Espacio considerado
+Consideramos el espacio de Hilbert $L^2(I)$ con producto escalar
+
+\[
+\pair{u,v} = \int_I u(x)v(x)\,dx.
+\]
+
+***** Base hilbertiana
+Un *sistema ortonormal* es una sucesión $\left\{ y_n \right\}_{n \in \mathbb{N}}$ tales que
+
+\[
+\pair{y_n,y_m} = \delta_{n,m}.
+\]
+
+Se le llama *base hilbertiana* si genera un subespacio denso.
+
+\[
+\overline{L(y_1,y_2,\dots)} = L^2(I).
+\]
+
+***** Teorema 17. Proyección ortogonal y mejor aproximación
+Dado un espacio de Hilbert $H$ y un sistema ortonormal $\left\{ y_n \right\}$,
+si llamamos $Y_n = L(y_1,\dots,y_{N})$, tenemos la *proyección ortogonal*
+de $v$ sobre $Y_N$ dada por
+
+\[
+P_N(v) = \sum_{i=1}^N \pair{v,y_n}y_n.
+\]
+
+La proyección se caracteriza por
+
+ * $v - P_N(v)$ es ortogonal a $Y_n$,
+ * $\| v - P_N(v)\|_{H} \leq \|v - y\|_H$ para todo $y \in Y_n$.
+
+Si además el sistema es base hilbertiana se tiene
+
+\[
+\lim_{N \to \infty} \|v - P_N(v)\|_H = 0.
+\]
+
+Llamamos *serie de Fourier* de $v$ relativa al sistema ortonormal
+a la que define el límite anterior
+
+\[
+\sum_{i=1}^{\infty} \pair{v,y_n} y_n = v.
+\]
+
+***** Teorema 18. Desigualdad de Bessel e Igualdad de Bessel
+Para un espacio de Hilbert $H$ y un sistema ortonormal $\left\{ y_n \right\}$ se
+tiene la *Desigualdad de Bessel*: para cualquier $v \in H$,
+
+\[
+\sum_{i=0}^{\infty} |\pair{v,y_n}^2| \leq \|v\|^2_H.
+\]
+
+El sistema es completo (la base es Hilbertiana) si y sólo si
+se tiene la *identidad de Bessel*: para cualquier $v \in H$,
+
+\[
+\sum_{i=0}^{\infty} |\pair{v,y_n}^2| = \|v\|^2_H.
+\]
+
+***** TODO Nota 19. Caracterizaciones de base hilbertiana
+
+***** Teorema 19. Series de Fourier
+Dado un espacio de Hilbert $L^2_S(x_0,x_1)$, un sistema ortonormal
+completo $\left\{ y_n(x) \right\}$, una función $y \in L^2_S(x_0,x_1)$ y su serie de Fourier
+$P_N(x)$, se cumplen.
+
+ 1. para $y$ continua y $P_N(y)$ uniformemente convergente, la suma
+    de la serie es continua;
+
+ 2. si $P_N(y)$ es uniformemente convergente entonces la integral
+    conmuta con la suma
+
+    \[
+    \int_{x_0}^{x_1}\sum_{n=1}^{\infty} c_ny_n(x)\,dx =
+    \sum_{n=1}^{\infty} c_n\int_{x_0}^{x_1} y_n(x)\,dx.
+    \]
+
+    Nótese que si $(x_0,x_1)$ es infinito, hay que pedir integrabilidad
+    de $y_n$.
+
+ 3. Si las $y_n(x)$ son derivables, $P_N(x)$ converge puntualmente y $P'_N(x)$
+    converge uniformemente, entonces $y$ es derivable y la derivada
+    conmuta con la suma.
+
+    \[
+    y'(x) = \sum_{n=1}^{\infty}c_ny'_n(x).
+    \]
+
+***** TODO Test de Cauchy de convergencia uniforme
+***** TODO Test de Weierstrass de convergencia uniforme
+**** 5.5. Series trigonométricas de Fourier
+***** Teorema 20. de Riesz-Fischer
+:PROPERTIES:
+:ID:       a1f0e87e-9bd8-468d-ad43-7e7fb16c1b67
+:END:
+El conjunto de funciones trigonométricas $\left\{ y_n \right\}^{\infty}_{n =0}$ dado por
 
 \[
 y_0(x) = \frac{1}{\sqrt{T}}, \quad 
@@ -1641,9 +2888,10 @@ y_{2n}(x) = \sqrt{\frac{2}{T}}\cos \left( \frac{2n\pi x}{T} \right), \quad
 y_{2n-1}(x) = \sqrt{\frac{2}{T}}\sen \left( \frac{2n\pi x}{T} \right)
 \]
 
-es un sistema ortonormal completo o base Hilbertiana.
+forma un sistema ortonormal completo y toda función en $L^2(0,T)$ puede ser
+descrita de forma única a través de su serie de Fourier. 
 
-******* Desarrollo de una función
+****** Desarrollo de una función
 Es habitual escribir el desarrollo de una función como
 
 \[
@@ -1659,15 +2907,57 @@ y(x) = \frac{a_0}{2} +
 # TODO: Comprobar que es un sistema ortonormal usando identidades
 # trigonométricas.
 
-****** Teorema de Riesz-Fischer
-El conjunto de funciones trigonométricas $\left\{ y_n \right\}^{\infty}_{n =0}$ forma un sistema
-ortonormal completo y toda función en $L^2(0,T)$ puede ser descrita
-de forma única a través de su serie de Fourier.
+****** TODO Proof
 
-******* TODO Proof
+***** Convergencia puntual y uniforme de la serie de Fourier
+Por el Teorema de [[id:a1f0e87e-9bd8-468d-ad43-7e7fb16c1b67][Riesz-Fischer]], sabemos que la convergencia de una serie
+de Fourier es casi por doquier.
 
-***** 5.6. Solución de la ecuación de ondas
-****** 5.6.2. Soluciones de la ecuación de ondas en R, fórmula de D'Alembert
+****** Condición necesaria para convergencia puntual: periodicidad
+Todas las $y_n$ son periódicas, así que para tener convergencia puntual
+habrá que tener periodicidad en la función aproximada.
+
+****** Convergencia puntual a trozos
+Para una función continua a trozos $y(x)$, la serie converge en todo punto
+de continuidad y en los puntos de discontinuidad $a_i$ se tiene
+
+\[
+\lim_{N\to\infty} P_N(a_i) = \frac{f(a_i^+) - f(a_i^-)}{2}.
+\] 
+
+En los puntos de discontinuidad se produce el *fenómeno de Gibbs*.
+
+****** Convergencia uniforme
+Para $y \in {\cal C}$ con $y(0) = y(L)$ y $y'$ continua a trozos, la serie de Fourier
+converge uniformemente.
+
+******* TODO Ejemplo de convergencia uniforme
+
+***** Teorema 21. Convergencia de derivadas superiores
+Para $y \in {\cal C}^k[0,T]$ periódicamente $y^{n)}(0) = y^{n)}(T)$ y la derivada $k+1$
+es continua a trozos, entonces
+
+\[
+\sum_{n \geq 1} n^k(|a_n| + |b_n|),
+\]
+
+converge uniformemente para $a_n$ y $b_n$ coeficientes de Fourier.
+
+***** Convergencia en media
+La convergencia en media la da la igualdad de Bessel
+
+\[
+\frac{2}{T}\int_0^T y(x)^2\,dx = \frac{a_0^2}{2} + \sum_{n=1}^{\infty}a^2_n + b^2_n.
+\]
+
+***** TODO Cambio de intervalo
+***** TODO Teorema 22. Serie de Fourier en el intervalo (-T,T)
+***** TODO Extensiones par e impar
+***** TODO Teorema 23. Serie de cosenos/senos
+**** 5.6. Solución de la ecuación de ondas
+***** TODO Teorema 24. Solución de la ecuación de ondas
+***** TODO 5.6.1. Unicidad y método de la energía
+***** 5.6.2. Soluciones de la ecuación de ondas en R, fórmula de D'Alembert
 Resolveremos la *ecuación de ondas* unidimensional,
 
 \[\left\{ \begin{array}{lr}
@@ -1682,7 +2972,7 @@ con la Fórmula de D'Alembert.
 u(t,x) = \frac{u_0(x+ct) - u_0(x-ct)}{2} + \frac{1}{2c}\int_{x-ct}^{x+ct}v_0(y)\,dy.
 \]
 
-******* Resolución
+****** Resolución
 Tomamos $\xi = x + ct$, $\eta = x - ct$, por lo que $x = \frac{\xi + \eta}{2}$ y $t = \frac{\xi - \eta}{2c}$.
 Definimos $U(\xi,\eta) = u \left( \frac{\xi + \eta}{2} , \frac{\xi - \eta}{2} \right)$, luego $u(x,t) = U(x + ct, x -ct)$.
 Calculamos, evaluando $u$ en $(x,t)$ y $U$ en $(\xi,\eta)$,
@@ -1721,11 +3011,35 @@ la fórmula de d'Alembert.
 u(t,x) = \frac{u_0(x+ct) - u_0(x-ct)}{2} + \frac{1}{2c}\int_{x-ct}^{x+ct}v_0(y)\,dy.
 \]
 
-******* Comentario: cono de luz
-***** 5.7. Solución de la ecuación de Dirichlet
-**** 6. Formulación débil
-***** 6.1. Derivada generalizada y débil
-****** Fórmula de Green
+****** Comentario: cono de luz
+**** 5.7. Solución de la ecuación de Dirichlet
+***** Laplaciano en polares
+Aplicando el cambio de variable $U(\rho,\theta) = u(\rho\cos(\theta), \rho\sin(\theta))$, tenemos
+el laplaciano en polares
+
+\[
+\left( U_{\rho\rho} + \frac{U_{\theta\theta}}{\rho^2} + \frac{U_{\rho}}{\rho} \right)(\rho,\theta) =
+(\Delta_x u)(\rho\cos(\theta),\rho\sin(\theta)).
+\]
+
+***** Ecuación de Dirichlet en el disco
+Viendo la [[id:8e9ccec0-c9de-4d00-a08e-3de44d448ca5][ecuación de Dirichlet]] en el disco $D$ tenemos $\mathbb{S}^1 = \partial D$
+y definimos $\overline{\gamma}(\theta) = \gamma(\cos(\theta),\sin(\theta))$. El problema de Dirichlet queda
+como
+
+\[\left\{\begin{array}{ll}
+U_{\rho\rho} + \frac{U_{\theta\theta}}{\rho^2} + \frac{U_{\rho}}{\rho} = 0, &
+\forall(\rho,\theta) \in (0,1] \times [0,2\pi],\\
+U(1,\theta) = \overline{\gamma}(\theta), & \theta \in [0,2\pi], \\
+U(\rho,0) = U(\rho,2\pi), & \rho \in (0,1], \\
+\end{array}\right.\]
+
+La resolución se hace por separación de variables $U(\rho,\theta) = v(p)w(\theta)$.
+
+***** Ecuación de Dirichlet en el rectángulo
+*** 6. Formulación débil
+**** 6.1. Derivada generalizada y débil
+***** Fórmula de Green
 Dadas $u,v \in {\cal C}^1(\overline{\Omega})$, para $\Omega \subset \mathbb{R}^N$, si llamamos $n_i(x)$ a la
 componente del vector $n(x)$ normal a $\partial\Omega$ en $x$, tenemos la
 siguiente generalización de la regla de la cadena.
@@ -1743,7 +3057,7 @@ queda la Fórmula de Green
 -\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx.
 \]
 
-******* Clave 1: derivadas caracterizadas
+****** Clave 1: derivadas caracterizadas
 :PROPERTIES:
 :ID:       893398fe-a78e-45a4-b0dd-d4e36bc98d78
 :END:
@@ -1755,10 +3069,10 @@ Dados $u \in {\cal C}^1(\overline{\Omega})$ y $g \in {\cal C}^0(\overline{\Omega
 
 entonces $\partial_{x_i}u = g$.
 
-******** Proof
+******* Proof
 Consecuencia directa del [[id:652bdddb-0853-4a9a-8060-28a730928816][lema fundamental]].
 
-******* Clave 2: operador lineal de Green
+****** Clave 2: operador lineal de Green
 :PROPERTIES:
 :ID:       c34bbc56-aa81-404b-a6ea-0670000f306b
 :END:
@@ -1772,7 +3086,7 @@ L_u[v] = - \int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx.
 Que caracteriza propiedades de la derivada sin necesitar
 derivabilidad.
 
-****** Derivada generalizada o distribucional
+***** Derivada generalizada o distribucional
 Para $u \in L_{loc}^1(\Omega)$, definimos la *derivada generalizada* respecto de
 $x_i$ como el operador $L_u \colon {\cal C}^{\infty}_0(\Omega) \to \mathbb{R}$ notado usualmente como
 
@@ -1782,7 +3096,7 @@ $x_i$ como el operador $L_u \colon {\cal C}^{\infty}_0(\Omega) \to \mathbb{R}$ n
 -\int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx.
 \]
 
-****** Derivada débil
+***** Derivada débil
 Una $u \in L_{loc}^1(\Omega)$ tiene *derivada débil* respecto de $x_i$ cuando existe
 $g \in L_{loc}^1(\Omega)$ tal que
 
@@ -1794,7 +3108,7 @@ $g \in L_{loc}^1(\Omega)$ tal que
 Es decir, cuando $\left\langle \partial_{x_i}u,v \right\rangle = \left\langle g,v \right\rangle$. Solemos decir que $\partial_{x_i}u = g$ en
 sentido débil.
 
-****** Función Heaviside y Delta de Dirac
+***** Función Heaviside y Delta de Dirac
 La *función de Heaviside* $H(x) = \max\left\{ 0,x/|x| \right\}$ está definida
 c.p.d. Su derivada generalizada puede calcularse sabiendo $v \in {\cal C}^{\infty}_0(\mathbb{R})$
 como
@@ -1805,7 +3119,7 @@ como
 
 Es decir, su derivada débil es la *Delta de Dirac*, $\delta_0(v) = v(0)$.
 
-***** 6.1.1. Espacios de Sobolev
+**** 6.1.1. Espacios de Sobolev
 Para $\Omega \subseteq \mathbb{R}^N$ dominio, $m \in \mathbb{N}$ y $p \in [1,\infty]$, se define el *espacio de Sobolev*
 
 \[
@@ -1813,8 +3127,8 @@ W^{m,p}(\Omega) = \left\{ u \in L^p(\Omega) \;\middle|\;
 \pdv[\alpha]{u}{x} \in L^p(\Omega),\, \forall 0 \leq \alpha \leq N \right\}.
 \]
 
-***** 6.2. Repaso de análisis funcional
-****** Teorema fundamental del cálculo
+**** 6.2. Repaso de análisis funcional
+***** Teorema fundamental del cálculo
 Dada $f \in L_{loc}^1(a,b)$ y un $c \in (a,b)$, definimos la *primitiva* de $f$
 que se anula en $c$ como
 
@@ -1825,7 +3139,7 @@ F(x) = \int_c^x f(s)\,ds.
 Sabemos que $F$ es continua y tiene derivada débil en $(a,b)$ que
 es igual a $f$ c.p.d.
 
-******* Proof
+****** Proof
 Por definición, partiendo la integral,
 
 \[
@@ -1859,7 +3173,7 @@ nos da que $f = F'$ c.p.d.
 # este caso no queda del todo claro, porque usábamos crucialmente antes
 # la conservación del signo de funciones continuas.
 
-****** Desigualdad de Poincaré
+***** Desigualdad de Poincaré
 Para $\Omega$ dominio acotado y $u \in H_0^1(\Omega)$ existe una constante $C$
 dependiente solo de $\Omega$ tal que
 
@@ -1870,6 +3184,18 @@ dependiente solo de $\Omega$ tal que
 *** Cards
 **** 0. Preliminares
 ***** Ecuación de Euler: forma                                    :drill:
+SCHEDULED: <2018-04-14 Sat>
+:PROPERTIES:
+:ID:       f0666ce0-0a4c-430a-a3c9-ffefb2cfa7fc
+:DRILL_LAST_INTERVAL: 10.3185
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-04 Wed 22:37]
+:END:
 ¿Cuál es la forma de una ecuación de Euler?
 
 ****** Forma
@@ -1877,28 +3203,101 @@ dependiente solo de $\Omega$ tal que
 \[
 a_nx^ny^{(n)}(x) + \dots + a_0y(x) = 0
 \]
-
 ***** Ecuación de Euler: técnica de resolución                    :drill:
+SCHEDULED: <2018-04-14 Sat>
+:PROPERTIES:
+:ID:       424477df-15bc-4a11-8221-7d50c41ef4ac
+:DRILL_LAST_INTERVAL: 10.1887
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-04 Wed 22:40]
+:END:
 ¿Cómo se resuelve una ecuación de Euler?
 
 ****** Técnica de resolución
-Se puede aplicar sustitución $x = e^u$ para reducirla a
-una lineal con coeficientes constantes.
+Se puede aplicar sustitución $x = e^s$, $z(s) = y(x)$ para reducirla a
+una lineal con coeficientes constantes, teniendo cuidado con los
+coeficientes, que cambian.
+***** Integral del seno al cuadrado                               :drill:
+SCHEDULED: <2018-04-14 Sat>
+:PROPERTIES:
+:ID:       a5c02ef6-79c6-4b32-943b-dd064732749e
+:DRILL_LAST_INTERVAL: 10.3185
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-04 Wed 22:39]
+:END:
+Encontrar y comprobar primitivas de
+
+\[
+\int \sin^2(x)\,dx
+\]
+
+****** Primitiva
+
+\[
+\frac{1}{2}(x - \sin(x)\cos(x))
+\]
+
+Puede obtenerse usando
+
+\[
+\sin^2x = \frac{1-\cos(2x)}{2}.
+\]
 
 **** 2. Cálculo de variaciones
+***** 2.1. Lema fundamental del cálculo de variaciones            :drill:
+SCHEDULED: <2018-04-18 Wed>
+:PROPERTIES:
+:ID:       5184345f-67cf-402b-8732-6baf557e13b6
+:DRILL_LAST_INTERVAL: 10.1736
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:18]
+:END:
+Enuncia el lema fundamental del cálculo de variaciones para una
+$f \colon [a,b] \to \mathbb{R}$. ¿Cuál es la idea de la demostración?
+
+****** Enunciado
+Para $f \colon [a,b] \to \mathbb{R}$ *continua* equivalen
+
+ 1. $f(x) = 0$ para todo $x \in (a,b)$;
+ 2. $\int_a^b f(x)\phi(x)\,dx = 0$ para toda $\phi \in {\cal C}_0^\infty(a,b)$.
+
+****** Idea de demostración
+La función siguiente ese infinitamente diferenciable pero
+nos permite aprovechar que un punto de $f$ no fuera cero
+para integrar por conservación de signo sólo esa zona.
+
+\[
+\phi(x) = e^{\frac{1}{(x-x_0-\varepsilon)(x-x_0+\varepsilon)}}
+\]
+
 ***** 2.2. Ecuación de Euler-Lagragne
 ****** 2.2. Función para Euler-Lagrange                          :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-16 Mon>
 :PROPERTIES:
 :ID:       cd2cc1ba-0d03-4f95-871f-a4b27229bf39
-:DRILL_LAST_INTERVAL: 4.199
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 11.9042
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.4
-:DRILL_EASE: 2.8
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:35]
+:DRILL_LAST_REVIEWED: [2018-04-04 Wed 22:37]
 :END:
 Dar el dominio de la $F$ para la que se tiene Euler-Lagrange y sus
 condiciones de derivabilidad.
@@ -1908,17 +3307,17 @@ Una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \
 derivable en $p$ y en $y$.
 
 ****** 2.2. Dominio del funcional en Euler-Lagrange              :drill:
-SCHEDULED: <2018-04-06 Fri>
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       7c4a6835-9dea-4a2a-a944-4ed5540545ee
-:DRILL_LAST_INTERVAL: 10.528
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 26.7727
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:06]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:10]
 :END:
 ¿Cuál es el dominio del funcional de Euler-Lagrange \({\cal F} \colon {\cal D} \to \mathbb{R}\)?
 Nótese que depende del $\Omega \subseteq \mathbb{R}^2$ que estemos considerando.
@@ -1933,17 +3332,17 @@ y(x_1) = y_1 \\
 \end{array}\right\}\]
 
 ****** 2.2. Funcional a minimizar en Euler-Lagrange              :drill:
-SCHEDULED: <2018-04-06 Fri>
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       6957180c-8bdf-4dea-9ee3-1df1d964c86c
-:DRILL_LAST_INTERVAL: 10.7143
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 27.375
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:06]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:11]
 :END:
 Dada una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, ¿qué
 funcional queremos minimizar en Euler-Lagrange?
@@ -1955,17 +3354,17 @@ $${\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,$$
 para $y \in {\cal D}$.
 
 ****** 2.2. Dominio sin condiciones de contorno                  :drill:
-SCHEDULED: <2018-04-05 Thu>
+SCHEDULED: <2018-04-12 Thu>
 :PROPERTIES:
 :ID:       636e7cb1-9d12-4a39-aa2c-45cfbb581967
-:DRILL_LAST_INTERVAL: 10.176
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
+:DRILL_LAST_INTERVAL: 4.101
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-26 Mon 23:08]
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:21]
 :END:
 Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
 define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
@@ -2001,17 +3400,17 @@ F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
 \]
 
 ****** 2.2. Euler-Lagrange para F independiente de y             :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-14 Sat>
 :PROPERTIES:
 :ID:       b5ac284c-b322-4cf6-996f-c70db55e891b
-:DRILL_LAST_INTERVAL: 4.056
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 10.4483
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.6
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:36]
+:DRILL_LAST_REVIEWED: [2018-04-04 Wed 22:37]
 :END:
 Reescribe Euler-Lagrange sabiendo $F_y = 0$.
 
@@ -2022,17 +3421,17 @@ F_p(x,\oy'(x)) = \mathrm{cte.}
 \]
 
 ****** 2.2. Euler-Lagrange para F independiente de x             :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-14 Sat>
 :PROPERTIES:
 :ID:       22e8b4d8-c306-4927-9a7f-159725999cbd
-:DRILL_LAST_INTERVAL: 4.056
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 10.1887
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:36]
+:DRILL_AVERAGE_QUALITY: 2.6
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-04 Wed 22:38]
 :END:
 Reescribe Euler-Lagrange sabiendo $F_x = 0$.
 
@@ -2042,22 +3441,79 @@ Reescribe Euler-Lagrange sabiendo $F_x = 0$.
 F - y'F_p = \mathrm{cte.}
 \]
 
-
 ***** 2.4. Convexidad: condición suficiente de existencia
+
+**** 3. Cálculo de extremales: problemas de contorno
+***** Problema de la viga: ecuación                               :drill:
+Cuál es la ecuación diferencial del problema de la viga.
+
+****** Ecuación diferencial
+
+\[
+Mu''''(x) + Nu''(x) = f(x)
+\]
+
+para algunas constantes $M,N$ y alguna expresión $f$. Se complementa
+con cuatro condiciones de contorno, según sujeción.
+
+***** Problema de la viga: forma variacional                      :drill:
+Cuál es la forma variacional del problema de la viga.
+
+****** Funcional
+Minimizar el funcional
+
+\[
+\int_0^L \left(\frac{M}{2}(u''(x))^2 - \frac{N}{2}(u'(x))^2 - f(x)u(x) \right)\,dx.
+\]
+
+con cuatro condiciones de contorno para la $u$.
+
+***** Problema de la viga                                         :drill:
+Enunciar ecuación y forma variacional en el problema de la viga.
+
+****** Ecuación
+
+\[
+Mu''''(x) + Nu''(x) = f(x)
+\]
+
+****** Forma variacional
+
+\[
+\int_0^L \left(\frac{M}{2}(u''(x))^2 - \frac{N}{2}(u'(x))^2 - f(x)u(x) \right)\,dx.
+\]
+
+***** Problema de la viga: obtención de la ecuación               :drill:
+¿Cómo se obtiene la ecuación en el problema de la viga? Describe
+el $F$ y la ecuación de Euler-Lagrange para segunda derivada que se
+usa.
+
+****** Función
+\[
+F(x,y,p,q) = \frac{M}{2}q^2 - \frac{N}{2}p^2 - f(x)y.
+\]
+
+****** Euler-Lagrange en segunda derivada
+
+\[
+F_y - 
+\dv{}{x}F_p + 
+\dv[2]{}{x}F_{q} = 0.
+\]
 
 **** 5. Funcionales dependientes de funciones de varias variables
 ***** Ecuación de ondas                                           :drill:
-SCHEDULED: <2018-04-02 Mon>
+SCHEDULED: <2018-04-12 Thu>
 :PROPERTIES:
 :ID:       ec3964d3-0e49-45e8-b444-79d168c4fd70
-:DRILL_LAST_INTERVAL: 8.9166
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-03-24 Sat 00:49]
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.167
+:DRILL_EASE: 2.42
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:22]
 :END:
 Enunciar la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]], para parámetros $\alpha$ y $\sigma$ constantes,
 una fuerza $f$ y altura dada por $u$.
@@ -2072,7 +3528,7 @@ Desde la ecuación de Euler-Lagrange para varias variables.
 También puede enunciarse como:
 
 \[
-\partial_{tt}^2 u = f - \alpha u + \sigma \Delta_x u.
+u_{tt} = f - \alpha u + \sigma \Delta_x u.
 \]
 
 ***** TODO Fórmula de D'Alembert
@@ -2084,41 +3540,71 @@ u_{tt} = c^2u_{xx}, & t > 0, x \in \mathbb{R}, \\
 u(0,x) = u_0(x) \in {\cal C}^2(\mathbb{R}), \\
 u_t(0,x) = v_0(x) \in {\cal C}^1(\mathbb{R}).
 \end{aligned}\right.\]
-**** 6. Formulación débil
-***** Fórmula de Green                                            :drill:
-SCHEDULED: <2018-04-08 Sun>
+***** Teorema 21. Convergencia de derivadas superiores :drill:
+SCHEDULED: <2018-04-12 Thu>
 :PROPERTIES:
-:ID:       2f8ab0e2-d672-4822-8957-da14137f3350
-:DRILL_LAST_INTERVAL: 9.2418
-:DRILL_REPEATS_SINCE_FAIL: 3
+:ID:       9b8e23d3-1c2c-4c20-8fd4-8c788e0fef90
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
 :DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:23]
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:22]
 :END:
-Enunciar la fórmula de Green para $u \in {\cal C}^1(\overline{\Omega})$ y $v \in {\cal C}^1_0(\overline{\Omega})$.
+Enunciar el Teorema 21 sobre convergencia de derivadas superiores
+en series de Fourier.
 
 ****** Enunciado
+Para $y \in {\cal C}^k[0,T]$ con derivadas periódicas $y^{n)}(0) = y^{n)}(T)$ y la 
+derivada $k+1$ continua a trozos, se tiene que
 
 \[
-\int_{\Omega} u(x) (\partial_xv(x)) \,dx = 
+\sum_{n \geq 1} n^k(|a_n| + |b_n|),
+\]
+
+converge uniformemente, donde $a_n$ y $b_n$ son coeficientes de Fourier.
+
+**** 6. Formulación débil
+***** Fórmula de Green                                            :drill:
+SCHEDULED: <2018-04-12 Thu>
+:PROPERTIES:
+:ID:       2f8ab0e2-d672-4822-8957-da14137f3350
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.25
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:21]
+:END:
+Enunciar la fórmula de Green para $u \in {\cal C}^1(\overline{\Omega})$ y $v \in {\cal C}^1_0(\overline{\Omega})$; es decir,
+para el caso de frontera nula.
+
+****** Enunciado
+La fórmula de Green es un análogo a la integración por partes para
+varias variables. Normalmente tiene un término más, pero cuando
+$v$ se anula en la frontera,
+
+\[
+\int_{\Omega} u(x) (\partial_{x_i}v(x)) \,dx = 
 -\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx.
 \]
 
 ***** Teorema fundamental del cálculo                             :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-18 Wed>
 :PROPERTIES:
 :ID:       48323a75-8295-4d00-af02-7a57721d5269
-:DRILL_LAST_INTERVAL: 3.985
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.667
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:34]
+:DRILL_LAST_INTERVAL: 10.4305
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.167
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:13]
 :END:
 Enunciar el teorema fundamental del cálculo en su versión débil
 para una $f \in L_{loc}^1(a,b)$ y un $c \in (a,b)$.
@@ -2233,7 +3719,7 @@ igualdad la ecuación de Euler-Lagrange.
 De nuevo, por tener derivada nula, debe ser constante.
 #+end_proof
 
-**** Ejercicio en clase: superficies mínimas de revolución
+**** Ejercicio 3: sólo en clase
 #+begin_statement
 Encontrar funciones $y \colon [x_0,x_1]\to \mathbb{R}$ que minimicen la superficie de
 revolución de la gráfica fijado $y(x_1) = y_1 > 0$ and $y(x_0) = y_0$.
@@ -2275,7 +3761,7 @@ Resolvemos por variables separadas
 
 Despejamos, quitando el caso $D = 0$,
 
-**** Ejercicio 3
+**** Ejercicio 4
 #+begin_statement
 Hemos probado que cada problema de contorno con condiciones de
 Dirichlet no homogéneas es equivalente a otro con condiciones de
@@ -2312,7 +3798,7 @@ z'(x_0) = 0, \\
 z'(x_1) = 0.
 \end{array}\]
 
-**** Ejercicio 4
+**** Ejercicio 5
 #+begin_statement
 Demostrar que la ecuación general de la viga, $Mu^{iv}(x) + Nu''(x) = f(x)$ 
 necesariamente la verifica un mínimo del funcional siguiente.
@@ -2352,7 +3838,7 @@ g'(s) &=
  \int_0^L F_y(...)\phi(x)\;dx -
  \int_0^L \dv{}{x}F_p(...)\phi(x)\;dx +
  \int_0^L \dv[2]{}{x}F_q(...)\phi(x)\;dx \\&=
-\int_0^L \left( F_y(...) - \dv{}{x}F_p(...) + \dv[2]{}{x}F_{q}(...) \right)\phi(x)\;dx = 0.
+\int_0^L \left( F_y(...) - \dv{}{x}F_p(...) + \dv[2]{}{x}F_{q}(...) \right)\phi(x)\;dx
 \end{aligned}\]
 Podemos evaluar en $s = 0$ y aplicar la construcción del Teorema 1
 para encontrar una $\phi \in D_0$ anulándose en los extremos y con derivada
@@ -2369,11 +3855,150 @@ por lo que la ecuación final es precisamente
 \[
 Mu^{iv}(x) + Nu''(x) - f(x) = 0.
 \]
+
+**** Ejercicio 6
+:PROPERTIES:
+:ID:       e15aa2f8-76b4-4aa6-82bb-c0b424bda884
+:END:
+#+begin_statement
+Calcular los valores y vectores propios del problema de Sturm-Liouville
+en $L^2(x_0,x_1)$: $y'' + \lambda y = 0$, con $y(x_0) = 0 = y(x_1)$.
+#+end_statement
+
+Tratamos por casos el problema según el signo de $\lambda$.
+En el caso $\lambda < 0$, el polinomio característico $\mu^2 + \lambda = 0$ tiene
+soluciones $\mu = \pm \sqrt{-\lambda}$, que dan lugar a soluciones de la
+ecuación de la forma
+
+\[
+y = Ae^{\sqrt{-\lambda} x} + Be^{-\sqrt{-\lambda}x};
+\]
+
+que al exigir $y(x_0) = y(x_1) = 0$ nos llevan a un sistema
+\[\begin{pmatrix}
+e^{\sqrt{-\lambda} x_0} & e^{-\sqrt{-\lambda} x_0} \\
+e^{\sqrt{-\lambda} x_1} & e^{-\sqrt{-\lambda} x_1} 
+\end{pmatrix}
+\begin{pmatrix} A \\ B \end{pmatrix} =
+\begin{pmatrix} 0 \\ 0 \end{pmatrix}\]
+
+donde, al tener la matriz determinante $e^{\sqrt{-\lambda}(x_0-x_1)} - e^{\sqrt{-\lambda}(x_1-x_0)} = 0$,
+sabemos que si $x_0 \neq x_1$ sólo tendrá la solución trivial.
+En el caso $\lambda = 0$ tendríamos soluciones de la forma $y = Ax + B$,
+y al imponer las condiciones, llegaríamos a la solución trivial.
+
+En el caso $\lambda > 0$, tendríamos soluciones del polinomio $\mu = i\sqrt{\lambda}$ que
+darían lugar a soluciones de la ecuación de la forma
+\[
+y = A \cos(\sqrt{\lambda}x) + B \sin(\sqrt{\lambda} x)
+\]
+
+que al exigir $y(x_0) = y(x_1) = 0$ nos llevan a un sistema
+\[\begin{pmatrix}
+\cos(\sqrt{\lambda}x_0) & \sin(\sqrt{\lambda}x_0) \\
+\cos(\sqrt{\lambda}x_1) & \sin(\sqrt{\lambda}x_1) \\
+\end{pmatrix}\begin{pmatrix} A \\ B \end{pmatrix} =
+\begin{pmatrix} 0 \\ 0 \end{pmatrix}\]
+
+donde, para que la matriz tenga determinante nulo y existan soluciones
+no triviales, debe tenerse
+\[
+\cos(\sqrt{\lambda} x_0)\sin(\sqrt{\lambda} x_1) - 
+\sin(\sqrt{\lambda} x_0)\cos(\sqrt{\lambda} x_1) = 0
+\]
+
+que equivale a $\tan(\sqrt{\lambda} x_1) = \tan(\sqrt{\lambda} x_0)$ o $\cos(\sqrt{\lambda}x_0) = \cos(\sqrt{\lambda}x_1) = 0$.
+En ambos casos se debe tener $\sqrt{\lambda}(x_1-x_0) = n\pi$ para algún $n \in \mathbb{N}$ y por tanto
+$\lambda_n = \left( n\pi/(x_1-x_0) \right)^2$.
+
+Resolviendo el sistema lineal para este valor de $\lambda$ llegamos a
+$A = -C_n\sin(n\pi x_0/(x_1-x_0))$ y $B = C_n\cos(n\pi x_0/(x_1-x_0))$
+para algún $C_n$. Esto se traduce en soluciones
+\[\begin{aligned}
+y &= 
+-C_n\sin(n\pi\frac{x_0}{x_1-x_0})\cos(n\pi\frac{x}{x_1-x_0}) +
+C_n\cos(n\pi\frac{x_0}{x_1-x_0})\sin(n\pi\frac{x}{x_1-x_0}) \\&=
+C_n\sin(n\pi\frac{x-x_0}{x_1-x_0}).
+\end{aligned}\]
+
+Finalmente, para obtener las funciones propias normalizadas,
+integramos
+\[
+\int_{x_0}^{x_1} C_n^2\sin^2\left(n\pi\frac{x-x_0}{x_1-x_0}\right)\,dx =
+C^2_n\frac{(x_1-x_0)}{n\pi}\int_{0}^{n\pi} \sin^2\left(s\right)\,ds =
+\frac{1}{2}C^2_n(x_1-x_0) = 1,
+\]
+
+y tenemos $C_n = \sqrt{\frac{2}{x_1-x_0}}$. Es decir los valores propios son $\lambda_n = (n\pi/(x_1-x_0))^2$
+y las funciones propias normalizadas son
+\[
+y_n = \sqrt{\frac{2}{x_1-x_0}} \sin(n\pi\frac{x-x_0}{x_1-x_0}).
+\]
+
+Nótese que este resultado particulariza al obtenido en clase para $L^2(0,L)$ en el caso $x_0 = 0$
+y $x_1 = L$; y que además puede ser obtenido desde él aplicándolo en el caso
+$L = x_1-x_0$ a la función $\widetilde y(x) = y(x+x_0)$, que cumple $\widetilde{y}(0) = 0 = \widetilde y(L)$.
+
+**** Ejercicio 7
+#+begin_statement
+Calcula $B_n$ para que la función $y_n(x) = B_n\sin(n\pi \log(x))$ cumpla
+
+\[
+\int_1^e \frac{y^2_n(x)}{x} \,dx = 1
+\]
+#+end_statement
+
+Aplicando un cambio de variables tenemos
+
+\[
+B^2_n\int_1^e \sin^2 \left( n\pi \log(x) \right) \frac{1}{x}\,dx = 
+\frac{B^2_n}{n\pi}\int_0^{n\pi} \sin^2 \left(  s \right) \,ds = 
+\frac{B^2_n}{2} = 1.
+\]
+
+Luego $B_n = \sqrt{2}$.
+
+\medskip
+
+/(Nótese que este ejercicio lo realizamos en clase en un caso más general)/
+
+**** Ejercicio 8
+#+begin_statement
+Resolver la ecuación de ondas en $[0,\infty) \times [0,L]$  con condiciones
+\[\left\{\begin{array}{c}
+u(t,0) = u(t,L) = 0 \\
+u(0,x) = u_0(x),\\ 
+u_t(0,x) = v_0(x).
+\end{array}\right\}\]
+en el caso $c = 1$, $L = \pi$, $u_0(x) = \sin(175x)$ y $v_0=\sin(3x)$.
+#+end_statement
+
+Notamos que la serie de Fourier de $u_0$ tiene coeficiente $b_{175}=1$ pero
+$b_m = 0$ en cualquier $m \neq 175$. Mientras que la serie de $v_0$ tiene $a_3 = 1$
+y $a_m = 0$ en otro caso.
+
+La solución es por tanto,
+
+\[\begin{aligned}
+u(t,x) &= \sum_{n \geq 1} \sin(nx)
+\left(
+\frac{a_n}{n} \sin(nt) + b_n \cos(nt)
+\right) \\&=
+\sin(175x)\cos(175t) + \frac{1}{3}\sin(3x)\sin(3t).
+\end{aligned}\]
+
+**** TODO Ejercicio 9
+# Comprobar enunciado, ¿lo ha mandado al final?
+#+begin_statement
+Para $y \in L^2(0,L)$, si tenemos que $y \in {\cal C}^k[0,L]$
+#+end_statement
+
 ** Curvas y superficies
 *** Datos de la asignatura
 César Rosales - crosales@ugr.es
 Lunes, Martes y Miércoles de 12 a 14.
 http://www.ugr.es/~crosales/cys1718.html
+
 *** Preliminares
 **** 1. Geometría afín euclídea
 ***** Producto escalar
@@ -3037,9 +4662,9 @@ con el eje z.
 #+end_statement
 
 **** Relación tema 1
-
 ***** TODO Ejercicio 3
 ***** TODO Ejercicio 5
+***** TODO Ejercicio 11
 ***** TODO Ejercicio 12
 ***** TODO Ejercicio 15
 ***** Ejercicio 22
@@ -3065,7 +4690,7 @@ que además es p.p.a., por tenerse $|\beta'(t)| = |-\alpha'(t)| = |\alpha'(t)| =
 curvatura cambia de signo con reparametrizaciones decrecientes y que es una
 función par, $k_{\beta}(t) = -k_{\alpha}(-t) = -k_{\alpha}(t)$.
 
-Entonces, eligiendo un movimiento rígido inverso cualquiera, $\psi \colon \mathbb{R}^2 \to \mathbb{R}^2$, sabemos 
+Por otro lado, eligiendo un movimiento rígido inverso cualquiera, $\psi \colon \mathbb{R}^2 \to \mathbb{R}^2$, sabemos 
 que $k_{\psi \circ \alpha}(t) = -k_{\alpha}(t) = k_{\beta}(t)$ y podemos aplicar el teorema fundamental de curvas
 en el plano para obtener un movimiento rígido directo $\psi'$ tal que
 $\psi' \circ \psi \circ \alpha = \beta$. En otras palabras, existe un movimiento rígido inverso $\phi$ tal
@@ -3080,7 +4705,7 @@ T_{\alpha}(0) &= \alpha'(0) = -\beta'(0) = -(\phi \circ \alpha)'(0) = - \mathrm{
 \\&= -\vec{\phi}(\alpha'(0)) = -\vec{\phi}(T_{\alpha}(0))
 \end{aligned}\]
 
-por lo que el eje de simetría es perpendicular a $T_{\alpha}(0)$, no nulo por
+por lo que el eje de simetría es perpendicular a $T_{\alpha}(0)$, que es no nulo por
 regularidad, y es por tanto paralelo a $N_{\alpha}(0)$. El movimiento $\phi$ es una
 simetría de eje paralelo a $N_{\alpha}(0)$ pasando por $p_0$.
 
@@ -4150,6 +5775,8 @@ no r.e.:
      contexto.
 #+end_statement
 
+# Corregido en el folio. ¡Tener cuidado con reducciones!
+
 1. Es semidecidible, porque podemos probar pares
    de palabras de forma no determinista y parar cuando acepte
    ambas y sean distintas.
@@ -4218,7 +5845,7 @@ Dada una entrada $(M_1,M_2,k)$, de forma no determinista probaremos
 tuplas de la forma $(w_1,\dots,w_k)$; cada una de ellas pudiendo estar
 codificada por un solo natural, $n = 2^{w_1}\dots p_k^{w_k}$. Aceptaremos si todas
 las $(w_1,\dots,w_k)$ sean aceptadas por $M_1$ y por $M_2$. Así, el lenguaje
-es recursivamente enumerable
+es recursivamente enumerable.
 
 Para probar que no es recursivo, vamos a reducir el problema de
 determinar si una máquina acepta alguna palabra (que no es recursivo)
@@ -41780,7 +43407,7 @@ Computing on the field of rationals.
 *** TODO 4. Composites
 
 * Talks
-** HoTT-est seminars
+** HoTT-EST seminars
 *** Carlo Angiuli - Computational semantics of cartesian cubical type theory
 Link to the video: [[https://zoom.us/recording/play/XP5xo5yzDYuJ-tFYIvNTIEVG5jPVFl0_Rz5PsUZZPrjyZa83b_CIHnuLhdfKwkjP][video]]
 
