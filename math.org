@@ -1,11 +1,14 @@
 #+TITLE: Math
 #+DESCRIPTION: My math notes and exercises
 #+TODO: TODO WIP | CHECK DONE WONTFIX
-#+SETUPFILE: setup/ejerciciomodelos.setup
-
-# TODO: Per-header configuration. 
+#+SETUPFILE: setup/ejerciciocomputacion.setup
 
 ** Header                                                           :ignore:
+#+latex_header: \usepackage{libertine}
+#+latex_header: \usepackage[scale=0.85]{FiraMono}
+#+latex_header: \usepackage{unicode-math}
+
+#+latex_header: \usepackage[utf8x]{inputenc} 
 #+latex_header: \setcounter{secnumdepth}{0}
 #+latex_header: \setlength{\parindent}{0pt}
 #+latex_header: \usepackage{physics}
@@ -95,6 +98,8 @@
 #+latex_header: \newcommand\seq{\Rightarrow}
 *** Analysis                                                       :ignore:
 #+latex_header: \newcommand\oy{\overline{y}}
+#+latex_header: %\newcommand\bV{\overset{\bullet}{V}}
+#+latex_header: \newcommand\bV{\dot{V}}
 *** Type theory macros                                             :ignore:
 #+latex_header: \newcommand\ap{\mathsf{ap}}
 #+latex_header: \newcommand\apd{\mathsf{apd}}
