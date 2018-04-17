@@ -217,6 +217,159 @@ $f_n \overset{c.p.}\longrightarrow f$ si $\forall t \in I\colon \{\| f_n(t) - f(
 ***** Convergencia uniforme
 $f_n \overset{c.u.}\longrightarrow f$ si $\forall \varepsilon > 0\colon \exists n_0\colon \forall n > n_0\colon \forall t \in I\colon \|f_n(t)-f(t)\| < \varepsilon$.
 
+**** CARDS                                                      :noexport:
+***** Ecuaciones homogéneas: forma                                :drill:
+SCHEDULED: <2018-04-21 Sat>
+:PROPERTIES:
+:ID:       87915c2b-ff33-4e9d-98c0-07e66a01ac68
+:DRILL_LAST_INTERVAL: 10.4328
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:40]
+:END:
+Forma de una ecuación homogénea.
+
+****** Forma
+\[
+x' = f \left( \frac{x}{t} \right)
+\]
+
+***** Ecuaciones homogéneas: resolución                           :drill:
+SCHEDULED: <2018-04-15 Sun>
+:PROPERTIES:
+:ID:       e558b5d7-7d81-4d91-9486-40352296fda2
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 2.75
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:47]
+:END:
+Cómo resolver
+
+\[
+x' = f \left( \frac{x}{t} \right).
+\]
+
+****** Resolución
+Aplicamos el cambio de variable $u = x/t$, que nos
+lleva a 
+
+\[u' = \frac{1}{t}(f(u) - u).\]
+
+***** Ecuación lineal escalar                                     :drill:
+SCHEDULED: <2018-04-21 Sat>
+:PROPERTIES:
+:ID:       ead2dfed-95a4-41ad-b65e-d09cf22fbd8d
+:DRILL_LAST_INTERVAL: 9.6261
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:44]
+:END:
+Cómo resolver, para $a,b \in {\cal C}(I,\mathbb{R})$;
+
+\[
+x' = a(t)x + b(t)
+\]
+
+****** Resolución
+Una parte resuelve la homogénea, la otra es una solución
+particular
+
+\[
+x = Ae^{(\int a)} + \left( \int_{t_0}^t b(z) e^{-(\int^{z} a)}\,dz \right) e^{(\int a)}
+\]
+
+***** Ecuación de Bernoulli                                       :drill:
+SCHEDULED: <2018-04-21 Sat>
+:PROPERTIES:
+:ID:       c7712582-1d68-4dd0-9ebf-9b9a2afcd463
+:DRILL_LAST_INTERVAL: 10.3032
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:39]
+:END:
+Cómo resolver
+
+\[
+x' + ax + bx^n = 0.
+\]
+
+****** Resolución
+Retiramos el caso trivial $x = 0$ y tomamos el cambio de
+variable $u = x^{1-n}$, que la transforma en lineal
+
+\[
+u' + (1-n)au + (1-n)b = 0.
+\]
+
+***** Ecuación de Ricatti                                         :drill:
+SCHEDULED: <2018-04-17 Tue>
+:PROPERTIES:
+:ID:       1113da24-b90d-4ab0-94d8-e65ae4710470
+:DRILL_LAST_INTERVAL: 4.101
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 2.2
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-13 Fri 23:33]
+:END:
+Cómo resolver
+
+\[
+x' + ax + bx^2 = f(x).
+\]
+
+****** Resolución
+Conociendo una solución de la ecuación tomamos el cambio
+
+\[
+u = \frac{1}{x - \varphi}
+\]
+
+suele ser una elección algo de la forma $\varphi = -1/x$.
+
+***** Ecuación exacta                                             :drill:
+SCHEDULED: <2018-04-17 Tue>
+:PROPERTIES:
+:ID:       69ceda6b-32b1-4bc2-b8fd-71bc68c66072
+:DRILL_LAST_INTERVAL: 3.999
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 4
+:DRILL_AVERAGE_QUALITY: 1.333
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-13 Fri 23:33]
+:END:
+Dar la forma de una ecuación exacta, ¿cuál es la solución trivial?
+
+****** Resolución
+Una solución exacta es de la forma
+
+\[
+M + Nx' = 0
+\]
+
+donde son de la forma $M = \pdv{F}{t}$ y $N = \pdv{F}{x}$. 
+Tiene solución trivial en $F = \mathrm{cte.}$
+
 *** Apuntes de Andrés
 # Estas notas salen de los apuntes de Andrés Herrera para la misma
 # asignatura el año anterior.
@@ -527,6 +680,7 @@ que la hace decreciente. Pero $h(t) \geq 0$ en general y $h(t_0) = 0$,
 por lo que debe ser constantemente $0$. El segundo caso es análogo.
 
 **** TODO 1.4. Problema dual en el tiempo
+
 **** 1.5. Ecuación integral de Volterra
 ***** Operador integral de Volterra
 Dada una Ecuación de Volterra, fijamos el operador de Volterra,
