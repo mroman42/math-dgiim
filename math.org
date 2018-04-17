@@ -2633,16 +2633,19 @@ Tenemos que, aplicando [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange
 \]
 
 **** 2.3. Ejemplos
+***** Oscilador armónico
+***** Longitud mínima
+***** Longitud mínima usando un caso particular
+***** TODO Superficie minimal de revolución
 **** 2.4. Convexidad: condición suficiente de existencia
 ***** Convexidad
-Un subconjunto $\Omega \subseteq V$ de un espacio vectorial es *convexo* cuando
-contiene al segmento entre cualesquiera dos puntos,
+Un subconjunto de espacio vectorial $\Omega \subseteq V$ es *convexo* cuando
 
 \[
 \forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad tx + (1-t)y \in \Omega.
 \]
 
-Y una función $f \colon \Omega \to \mathbb{R}$ es *convexa* cuando cumple la desigualdad
+Una función $f \colon \Omega \to \mathbb{R}$ es *convexa* cuando cumple la desigualdad
 de Jensen,
 
 \[\forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad
@@ -2650,29 +2653,43 @@ f(tx + (1-t)y) \leq tf(x) + (1-t)f(y).
 \]
 
 ***** Teorema 6. Existencia de mínimo con convexidad
-En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si ${\cal D}$ es convexo, ${\cal F}$ es convexo,
-y $\oy \in {\cal D} \cap {\cal C}^2$ es una extremal, entonces $\oy$ es un mínimo global de $\sigma$.
+En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si ${\cal D}$ y ${\cal F}$ convexos,
+una $\oy \in {\cal D} \cap {\cal C}^2$ extremal es mínimo global.
 
-****** TODO Proof
-
-***** Teorema 7. Los mínimos locales son globales con convexidad
-Dado un funcional ${\cal F} \colon {\cal D} \to \mathbb{R}$ convexo en un subconjunto convexo de un
-espacio vectorial ${\cal D}$; si ${\cal F}$ alcanza un mínimo (resp. estricto) local
-en $\oy \in {\cal D}$, entonces $\oy$ es un mínimo (resp. estricto) global.
-
-****** TODO Proof
-
-***** Teorema 8. Condición de convexidad
-Para $F(x,y,p) \colon [x_0,x_1] \times \Omega \to \mathbb{R}$ en las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]]
-con $\Omega$ convexo y $F$ convexa; el funcional
+****** Proof
+Dado $z \in {\cal D}$, llamamos $\phi =z-y$ y tenemos
 
 \[
-{\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx
+{\cal F}[\oy - t\phi] \leq t{\cal F}[z] + (1-t){\cal F}[\oy].
 \]
 
-es convexo.
+Tomando límites y usando que es extremal,
+
+\[
+0 = \dv{t} \left( {\cal F}[\oy + t\phi] \right) =
+\lim_{t \to 0}\frac{{\cal F}[\oy-t\phi] - {\cal F}[\oy]}{t} \leq
+{\cal F}[z] - {\cal F}[y].
+\]
+
+***** Teorema 7. Los mínimos locales son globales con convexidad
+Si ${\cal F}$ y ${\cal D}$ convexos, un mínimo local (estricto) es mínimo global (estricto).
+
+****** Proof
+Sea $\oy$ mínimo local, $\forall \|z - \oy\| \leq \varepsilon\colon {\cal F}[\oy] \leq {\cal F}[z]$. Para $v \in {\cal D}$ tomamos $t_0 = \frac{\varepsilon}{\| v - \oy\|}$
+
+\[
+{\cal F}[\oy] \leq
+{\cal F}[t_0v + (1 - t_0)\oy] \leq t_0{\cal F}[v] + (1-t_0){\cal F}[\oy],
+\]
+
+teniendo $t_0 {\cal F}[\oy] \leq t_0{\cal F}[v]$.
+
+***** Teorema 8. Condición de convexidad
+En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si $F$ convexo en $\Omega$, ${\cal F}$ convexo.
 
 ****** TODO No es condición necesaria
+Tenemos $F = y^2(1-p)$ no convexa, pero su ${\cal F}$ es convexo.
+
 ****** Proof
 Usando linealidad y acotación de la integral tenemos
 
@@ -2681,6 +2698,7 @@ Usando linealidad y acotación de la integral tenemos
 \int_{x_0}^{x_1} F\Big(x,\lambda y + (1-\lambda)z, \lambda y' + (1-\lambda)z'\Big)\,dx \\&\leq
 \lambda \int_{x_0}^{x_1} F\Big(x,y,y'\Big)\,dx + (1 - \lambda)\int_{x_0}^{x_1} F\Big(x,z,z'\Big)\,dx.
 \end{aligned}\]
+
 *** 3. Cálculo de extremales: problemas de contorno
 **** TODO Euler-Lagrange con segunda derivada
 **** TODO Problema de la viga
@@ -2957,84 +2975,6 @@ y podemos demostrar que
 \lambda = h - \frac{1}{2}\sqrt{4C_0^2 + L}.
 \]
 
-*** Lineales
-**** Forma autoadjunta de una ecuación lineal
-Una ecuación lineal de orden 2 para $[x_0,x_1]$ es de la forma
-
-\[
-y''(x) + a(x)y'(x) + b(x)y(x) = c(x).
-\]
-
-Si multiplicamos por $P(x) = e^{\int_{x_0}^x a(s) \; ds}$, obtenemos la ecuación
-
-\[
-P(x)y''(x) + P(x)a(x)y'(x) + P(x)b(x)y(x) = P(x)c(x)
-\]
-
-que puede escribirse uniendo los dos primeros sumandos como
-
-\[
-\left( P(x)y'(x) \right)' + Q(x)y(x) = R(x)
-\]
-
-lo que llamamos su *forma autoadjunta*.
-
-**** Forma variacional
-El funcional
-
-\[
-{\cal F}[y] = \int_{x_0}^{x_1} \frac{P(y')^2}{2} - Q\frac{y^2}{2} + Ry \;dx
-\]
-
-tiene como ecuación de Euler-Lagrange asociada a la forma
-autoadjunta de una ecuación lineal
-
-\[
-(Py')' + (-Qy + R) = 0.
-\]
-
-**** De problema de contorno a coordenadas homogéneas
-Sea un problema de contorno y condiciones de contorno Dirichlet no
-homogéneas.
-
-\[\left\{\begin{array}{l}
-(Py')' + Qy = R \\
-y(x_0) = y_0 \\
-y(x_1) = y_1
-\end{array}\]
-
-Podemos obtener un problema de contorno con coordenadas homogéneas.
-
-***** Construcción
-Proponemos un cambio de variables $z(x) = y(x) - (Ax + B)$ y buscamos
-$A$, $B$ y $\widetilde R$ tales que
-
-\[\left\{\begin{array}{l}
-(Pz')' + Qz = {\widetilde R} \\
-z(x_0) = 0 \\
-z(x_1) = 0
-\end{array}\]
-
-Lo que nos da resolviendo el sistema lineal dado por las condiciones
-de contorno
-
-\[
-B = \frac{y_1x_0-y_0x_1}{x_0-x_1}
-\]
-
-\[
-A = \frac{y_1-y_0}{x_1-x_0}
-\]
-
-Luego el cambio de variable correcto es
-
-\[
-z(x) = y(x) + \left( \frac{y_1(x-x_0) + y_0(x-x_1)}{x_0-x_1} \right).
-\]
-
-Que nos lleva al sustituir en la ecuación inicial a tener
-${\widetilde R} = R - P' \cdot A - Q \cdot (Ax + B)$.
-
 *** 5. Funcionales dependientes de funciones de varias variables
 ***** Ecuación de Euler-Lagrange dependiente de varias variables
 Consideramos un funcional
@@ -3286,8 +3226,6 @@ triviales, teniéndose $|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$.
 ****** Caso periódico
 # El caso periódico es distinto, se trata en la Nota 18.
 
-
-***** Problema de contorno asociado
 ***** TODO Valores propios y funciones propias
 Si encontramos un $\lambda$ con soluciones no nulas, tenemos un
 espacio de soluciones de dimensión uno. Llamamos *valores propios*
@@ -3332,7 +3270,7 @@ y una con ligadura integral de tipo isoperimétrica que representa
 la exigencia de que $y$ esté normalizado,
 
 \[{\cal D}_1 = \left\{\begin{array}{c}
-y \in {\cal C}^0(x_0,x_1) \\
+y \in {\cal C}^1(x_0,x_1) \\
 y(x_0) = y(x_1) = 0 \\
 \|y\|^2_{L^2_S} = \int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
 \end{array}\right\}
@@ -3626,8 +3564,8 @@ Dadas $u,v \in {\cal C}^1(\overline{\Omega})$, para $\Omega \subset \mathbb{R}^N
 componente del vector $n(x)$ normal a $\partial\Omega$ en $x$, tenemos la
 siguiente generalización de la regla de la cadena.
 
-\[\int_{\Omega} u(x) (\partial_xv(x)) \,dx = 
--\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx +
+\[\int_{\Omega} u(x) v_{x_i}(x) \,dx = 
+-\int_{\Omega} u_{x_i}(x)v(x)\,dx +
 \int_{\partial\Omega} u(x)v(x)n_i(x)\,dS.
 \]
 
@@ -3635,8 +3573,8 @@ Cuando $v \in {\cal C}^1_0(\Omega)$, es decir, es de soporte compacto, nos
 queda la Fórmula de Green
 
 \[
-\int_{\Omega} u(x) (\partial_xv(x)) \,dx = 
--\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx.
+\int_{\Omega} u(x) v_{x_i}(x) \,dx = 
+-\int_{\Omega} u_{x_i}(x)v(x)\,dx.
 \]
 
 ****** Clave 1: derivadas caracterizadas
@@ -3646,10 +3584,10 @@ queda la Fórmula de Green
 Dados $u \in {\cal C}^1(\overline{\Omega})$ y $g \in {\cal C}^0(\overline{\Omega})$, si para cualquier $v \in {\cal C}^1_0(\Omega)$
 
 \[
-\int_{\Omega} g(x)v(x)\,dx = - \int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx,
+\int_{\Omega} g(x)v(x)\,dx = - \int_{\Omega} u(x)v_{x_i}(x)\,dx,
 \]
 
-entonces $\partial_{x_i}u = g$.
+entonces $u_{x_i} = g$.
 
 ******* Proof
 Consecuencia directa del [[id:652bdddb-0853-4a9a-8060-28a730928816][lema fundamental]].
@@ -3658,7 +3596,7 @@ Consecuencia directa del [[id:652bdddb-0853-4a9a-8060-28a730928816][lema fundame
 :PROPERTIES:
 :ID:       c34bbc56-aa81-404b-a6ea-0670000f306b
 :END:
-Para $u \in L_{loc}^1(\Omega)$ integrable sobre compactos, se define un
+Para $u \in L_{loc}^1(\Omega)$ (integrable sobre compactos), se define un
 operador lineal $L \colon {\cal C}^1_0(\Omega) \to \mathbb{R}$ como
 
 \[
@@ -3702,11 +3640,37 @@ como
 Es decir, su derivada débil es la *Delta de Dirac*, $\delta_0(v) = v(0)$.
 
 **** 6.1.1. Espacios de Sobolev
+***** Espacio de Sobolev
 Para $\Omega \subseteq \mathbb{R}^N$ dominio, $m \in \mathbb{N}$ y $p \in [1,\infty]$, se define el *espacio de Sobolev*
 
 \[
 W^{m,p}(\Omega) = \left\{ u \in L^p(\Omega) \;\middle|\;
-\pdv[\alpha]{u}{x} \in L^p(\Omega),\, \forall 0 \leq \alpha \leq N \right\}.
+\pdv[\abs{\alpha}]{u}{x} \in L^p(\Omega),\, \forall 0 \leq \alpha \leq m \right\}.
+\]
+
+***** Norma para espacios de Sobolev
+El espacio $W^{m,p}(\Omega)$ con la norma
+
+\[
+\|u\|_{W^{m,p}(\Omega)} = 
+\left( \|u\|^{p}_p +
+\sum_{0 \leq \alpha \leq m} \norm{\pdv[\abs{\alpha}]{u}{x}}^p_p \right)^{1/p}
+\]
+
+es un espacio de Banach. En el caso $p=2$ notamos como $H^m(\Omega) = W^{m,2}(\Omega)$
+y es un espacio de Hilbert.
+
+***** Espacios de Sobolev útiles
+
+\[
+H^1(\Omega) = \left\{ u \in L^2(\Omega) \mid \pdv{u}{x_i} \in L^2(\Omega), \forall i = 1,\dots,N \right\}
+\]
+
+teniendo el producto escalar
+
+\[
+\pair{u,v}_{H^1(\Omega)} = 
+\int_{\Omega} (uv + \nabla u \cdot \nabla v)\,dx.
 \]
 
 **** 6.2. Repaso de análisis funcional
@@ -3763,78 +3727,83 @@ dependiente solo de $\Omega$ tal que
 \int_{\Omega} u^2\,dx \leq C \int_{\Omega} |\nabla u|^2\,dx.
 \]
 
+**** CARDS
+***** Fórmula de Green                                            :drill:
+SCHEDULED: <2018-04-24 Tue>
+:PROPERTIES:
+:ID:       2f8ab0e2-d672-4822-8957-da14137f3350
+:DRILL_LAST_INTERVAL: 9.7486
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.4
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-14 Sat 23:11]
+:END:
+Enunciar la fórmula de Green para $u \in {\cal C}^1(\overline{\Omega})$ y $v \in {\cal C}^1_0(\overline{\Omega})$; es decir,
+para el caso de frontera nula.
+
+****** Enunciado
+La fórmula de Green es un análogo a la integración por partes para
+varias variables. Normalmente tiene un término más, pero cuando
+$v$ se anula en la frontera,
+
+\[
+\int_{\Omega} u(x) (\partial_{x_i}v(x)) \,dx = 
+-\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx.
+\]
+
+***** Teorema fundamental del cálculo                             :drill:
+SCHEDULED: <2018-04-18 Wed>
+:PROPERTIES:
+:ID:       48323a75-8295-4d00-af02-7a57721d5269
+:DRILL_LAST_INTERVAL: 10.4305
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.167
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:13]
+:END:
+Enunciar el teorema fundamental del cálculo en su versión débil
+para una $f \in L_{loc}^1(a,b)$ y un $c \in (a,b)$.
+
+****** Enunciado
+La función
+
+\[
+\int_c^x f(s)\,ds
+\]
+
+ * es continua
+ * y tiene derivada débil en $(a,b)$ igual a $f$ c.p.d.
+
+***** Espacios de Sobolev                                         :drill:
+SCHEDULED: <2018-04-19 Thu>
+:PROPERTIES:
+:ID:       e5522b23-1312-4980-b0ac-2d736e86d2e7
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:22]
+:END:
+Para $\Omega \subseteq \mathbb{R}^N$ dominio, $m \in \mathbb{N}$ y $p \in [1,\infty]$, define el *espacio de Sobolev*
+
+****** Espacio de Sobolev
+Las funciones $p$ integrables con hasta la $m$ derivada $p$ integrable.
+
+\[
+W^{m,p}(\Omega) = \left\{ u \in L^p(\Omega) \;\middle|\;
+\pdv[\abs{\alpha}]{u}{x} \in L^p(\Omega),\, \forall 0 \leq \alpha \leq m \right\}.
+\]
+
 *** Cards
-**** 0. Preliminares
-***** Ecuación de Euler: forma                                    :drill:
-SCHEDULED: <2018-04-14 Sat>
-:PROPERTIES:
-:ID:       f0666ce0-0a4c-430a-a3c9-ffefb2cfa7fc
-:DRILL_LAST_INTERVAL: 10.3185
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-04 Wed 22:37]
-:END:
-¿Cuál es la forma de una ecuación de Euler?
-
-****** Forma
-
-\[
-a_nx^ny^{(n)}(x) + \dots + a_0y(x) = 0
-\]
-***** Ecuación de Euler: técnica de resolución                    :drill:
-SCHEDULED: <2018-04-14 Sat>
-:PROPERTIES:
-:ID:       424477df-15bc-4a11-8221-7d50c41ef4ac
-:DRILL_LAST_INTERVAL: 10.1887
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-04 Wed 22:40]
-:END:
-¿Cómo se resuelve una ecuación de Euler?
-
-****** Técnica de resolución
-Se puede aplicar sustitución $x = e^s$, $z(s) = y(x)$ para reducirla a
-una lineal con coeficientes constantes, teniendo cuidado con los
-coeficientes, que cambian.
-***** Integral del seno al cuadrado                               :drill:
-SCHEDULED: <2018-04-14 Sat>
-:PROPERTIES:
-:ID:       a5c02ef6-79c6-4b32-943b-dd064732749e
-:DRILL_LAST_INTERVAL: 10.3185
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-04 Wed 22:39]
-:END:
-Encontrar y comprobar primitivas de
-
-\[
-\int \sin^2(x)\,dx
-\]
-
-****** Primitiva
-
-\[
-\frac{1}{2}(x - \sin(x)\cos(x))
-\]
-
-Puede obtenerse usando
-
-\[
-\sin^2x = \frac{1-\cos(2x)}{2}.
-\]
-
 **** 2. Cálculo de variaciones
 ***** 2.1. Lema fundamental del cálculo de variaciones            :drill:
 SCHEDULED: <2018-04-18 Wed>
@@ -3936,17 +3905,17 @@ $${\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,$$
 para $y \in {\cal D}$.
 
 ****** 2.2. Dominio sin condiciones de contorno                  :drill:
-SCHEDULED: <2018-04-12 Thu>
+SCHEDULED: <2018-04-18 Wed>
 :PROPERTIES:
 :ID:       636e7cb1-9d12-4a39-aa2c-45cfbb581967
-:DRILL_LAST_INTERVAL: 4.101
+:DRILL_LAST_INTERVAL: 4.153
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.75
-:DRILL_EASE: 2.7
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:21]
+:DRILL_LAST_REVIEWED: [2018-04-14 Sat 23:31]
 :END:
 Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
 define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
