@@ -780,6 +780,139 @@ obtenemos, llamando $c = (1-d)a + db$,
 f(b) - f(a) = \left\langle \grad f(d) , b - a \right\rangle.
 \]
 
+**** CARDS
+***** Teorema del valor medio multivariable                       :drill:
+SCHEDULED: <2018-04-15 Sun>
+:PROPERTIES:
+:ID:       deccb6c2-471e-4d1a-baff-b96dc400f410
+:DRILL_LAST_INTERVAL: 4.101
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:46]
+:END:
+Para $f \in {\cal C}^1(\mathbb{R}^n)$ y $a,b \in \mathbb{R}^n$, enunciar el teorema del valor medio.
+
+****** Enunciado
+Existe $c \in [a,b]$ tal que
+
+\[
+f(b)-f(a) = \left\langle \grad f(c), b-a \right\rangle.
+\]
+
+***** Lema del primer instante                                    :drill:
+SCHEDULED: <2018-04-21 Sat>
+:PROPERTIES:
+:ID:       b544c2e9-8d67-4c68-8587-26873148e533
+:DRILL_LAST_INTERVAL: 10.128
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:45]
+:END:
+Para $f \in {\cal C}(I,\mathbb{R})$ con $f(t_0) > 0$, enunciar el lema del primer
+instante.
+
+****** Enunciado
+Se da una de las alternativas.
+
+ * $\forall t \geq t_0\colon f(t) > 0$.
+
+ * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
+
+***** Operador integral de Volterra                               :drill:
+SCHEDULED: <2018-04-21 Sat>
+:PROPERTIES:
+:ID:       d632fc17-20f9-4797-929d-05f51c4cd2ea
+:DRILL_LAST_INTERVAL: 9.872
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:41]
+:END:
+Define el operador integral de Volterra y su dominio
+
+****** Definición
+
+\[
+V(y)(t) = x_0 + \int_{t_0}^t f(s,y(s))\;ds.
+\]
+
+Está en el dominio ${\cal C}([t_0-a,t_0+a];\mathbb{R}^d)$.
+Puede probarse que es $V \colon E \to E$ donde $E = \overline{B_0}(x_0,b)$.
+
+***** Lema de soluciones de Volterra                              :drill:
+SCHEDULED: <2018-04-21 Sat>
+:PROPERTIES:
+:ID:       08e0071f-e949-4b6e-bcfd-4310e101e85d
+:DRILL_LAST_INTERVAL: 9.871
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:40]
+:END:
+¿Cuándo podemos aplicar el lema de soluciones de Volterra?
+
+****** Demostración
+Necesitamos $\varphi \colon I \to \mathbb{R}^d$ en $I$ intervalo abierto. Equivalen
+
+ 1. $\varphi$ es solución de un PVI;
+ 2. $\varphi$ es solución de la ecuación de Volterra asociada.
+
+***** Teorema de Unicidad de Peano: enunciado                     :drill:
+SCHEDULED: <2018-04-17 Tue>
+:PROPERTIES:
+:ID:       d6ac89c9-f053-4b0d-a8e0-c0233c137e87
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-13 Fri 23:32]
+:END:
+Enuncia el teorema de Unicidad de Peano.
+
+****** Enunciado
+Para un PVI con $d=1$, es decir $f \colon \mathbb{R}\times \mathbb{R} \to \mathbb{R}$,
+
+ 1) si $\forall t \geq t_0$, $f(t,-)$ es decreciente, hay unicidad en el futuro;
+ 2) si $\forall t \leq t_0$, $f(t,-)$ es creciente, hay unicidad en el pasado.
+
+***** Teorema de Unicidad de Peano: demostración                  :drill:
+SCHEDULED: <2018-04-21 Sat>
+:PROPERTIES:
+:ID:       efae3e4f-a565-4023-bb0c-e1c762db3e1f
+:DRILL_LAST_INTERVAL: 10.128
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:44]
+:END:
+¿Cuál es la idea para demostrar el teorema de unicidad de Peano?
+Supongamos $f(t,x)$ decreciente y dos soluciones $\varphi_1\colon I_1 \to \mathbb{R}$
+y $\varphi_2 \colon I_2 \to \mathbb{R}$. Queremos ver unicidad en el futuro.
+
+****** Idea
+Definimos $h(t) = (\varphi_1(t)-\varphi_2(t))^2$ y calculamos su derivada para
+ver que es decreciente.
+
 *** Tema 2. Lispchitzianidad. Picard-Lindelöf
 **** 2.1. Lipschitzianidad
 ***** Lipschiztianidad global
@@ -838,6 +971,20 @@ entonces $f$ es globalmente lipschiztiana.
 
 ****** TODO Proof
 
+***** Lipschitzianidad global respecto de una variable
+:PROPERTIES:
+:ID:       c50d9301-e9db-40a1-b25f-b726327f37bb
+:END:
+Sea $\Omega \subseteq \mathbb{R}^d\times \mathbb{R}^n$; $f$ es *globalmente lipschitziana respecto* de $x \in \mathbb{R}^d$
+cuando existe $L \geq 0$ tal que
+
+\[
+\| f(x,y) - f(x',y) \| \leq L \| x - x' \|.
+\]
+
+Dicho de otra forma, las secciones $f(-,y)$ son lipschitzianas con una
+constante de lipschitz común.
+
 ***** Lipschiztianidad local
 Sea $\Omega \subseteq \mathbb{R}^{n}$, $f \colon \Omega \to \mathbb{R}^m$ es *localmente lipschitziana* (LL) si 
 para cada punto existe un entorno $p \in U \subset \Omega$ tal que $f|_U$ es
@@ -862,20 +1009,6 @@ Sea $\Omega \subseteq \mathbb{R}^n$, para $f \colon \Omega \to \mathbb{R}^m$ equ
 Para $\Omega$ abierto, toda $f \in {\cal C}^1(\Omega)$ es localmente lipschitziana.
 
 ****** TODO Proof
-
-***** Lipschitzianidad global respecto de una variable
-:PROPERTIES:
-:ID:       c50d9301-e9db-40a1-b25f-b726327f37bb
-:END:
-Sea $\Omega \subseteq \mathbb{R}^d\times \mathbb{R}^n$; $f$ es *globalmente lipschitziana respecto* de $x \in \mathbb{R}^d$
-cuando existe $L \geq 0$ tal que
-
-\[
-\| f(x,y) - f(x',y) \| \leq L \| x - x' \|.
-\]
-
-Dicho de otra forma, las secciones $f(-,y)$ son lipschitzianas con una
-constante de lipschitz común.
 
 ***** Lipschitzianidad local respecto de una variable
 Sea $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$; $f$ es *localmente lipschitziana respecto* de $x \in \mathbb{R}^d$
