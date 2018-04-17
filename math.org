@@ -1348,6 +1348,56 @@ obtener $x = t^2/3$ solución cuando $t > 0$ y $x = 0$ cuando $t \leq 0$.
 La sucesión de iterantes de Picard lleva a $0,t^2,-t^2,t^2,\dots$.
 Tiene parciales convergentes pero ninguna a la solución.
 
+**** CARDS
+***** Norma de Bielecki                                           :drill:
+SCHEDULED: <2018-04-21 Sat>
+:PROPERTIES:
+:ID:       7748c216-94a7-4d91-a824-6fd195ffe10f
+:DRILL_LAST_INTERVAL: 9.871
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:39]
+:END:
+Define la norma de Bielecki.
+
+****** Definición
+En el espacio $E_{a,b}(t_0,x_0)$, dada una constante $R > 0$, consideramos
+
+\[
+\| \varphi \|_{B} = \max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\|.
+\]
+
+***** Globalmente lipschitziana respecto de x                     :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
+:DRILL_LAST_INTERVAL: 26.6407
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-05 Thu 23:08]
+:END:
+Una $f(x,y)$ definida en $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$ es [[id:c50d9301-e9db-40a1-b25f-b726327f37bb][globalmente lipschitziana respecto]]
+de $x \in \mathbb{R}^d$ cuando
+
+****** Definición
+Existe $L \geq 0$ tal que
+
+\[
+\| f(x,y) - f(x',y) \| \leq L \| x - x' \|.
+\]
+
+****** De otra forma
+Las secciones $f(-,y)$ son lipschitzianas con una constante de
+lipschitz común.
+
 *** Tema 3. Teorema de Cauchy-Peano y Teorema de Arzelá-Ascoli
 **** 3.1. Acotación uniforme y equicontinuidad
 ***** Sucesión uniformemente acotada
@@ -1508,90 +1558,155 @@ Si $f_n \overset{c.p.}\longrightarrow f$ y $f_n$ uniformemente acotada, $\int_a^
 Por el Teorema de convergencia dominada de Lebesgue.
 
 **** 3.4. Teorema de Cauchy-Peano
-***** Teorema de aproximación de Weierstrass
-****** Convolución
-La convolución de dos funciones $f,g \colon \mathbb{R} \to \mathbb{R}$ es la función
+***** Teorema de Stone-Weierstrass                                :extra:
+****** Álgebras de Banach separando puntos y que no se desvanecen
+Una familia de funciones reales ${\cal A}$ sobre un conjunto $X$ se dice
+*álgebra* si es cerrada para la suma y producto de funciones y
+para el producto por escalares. 
+
+Si consideramos el conjunto de funciones $X \to \mathbb{R}$ como un
+espacio métrico con la norma del supremo, la convergencia es la
+convergencia uniforme. En el caso en el que todas las funciones
+de ${\cal A}$ están acotadas, podemos comprobar que la clausura bajo esta
+norma de ${\cal A}$ es de nuevo un *álgebra*; de hecho, tenemos que para
+$\lambda \in \mathbb{R}$ y $p_n,q_n \in {\cal A}$ con $p_n \overset{c.u.}\longrightarrow p$ y $q_n \overset{c.u.}\longrightarrow q$,
+
+ * $p_n + q_n \overset{c.u.}\longrightarrow p + q$, ya que
+   \[
+   \norm{(p_n + q_n) - (p + q)}_{\infty} \leq
+   \norm{p_n - p}_{\infty} + \norm{q_n - q}_{\infty} \longrightarrow 0;
+   \]
+
+ * $p_nq_n \overset{c.u.}\longrightarrow pq$ usando que todas ellas estarán acotadas y
+   que $\norm{p}_{\infty} \leq \sup \left\{ \norm{p_n}_{\infty} \right\}$, que existe por la convergencia,
+   \[
+   \norm{p_nq_n - pq}_{\infty} \leq
+   \norm{p_n - p}_{\infty}\norm{q_n}_{\infty} + 
+   \sup \left\{ \|p_n\|_{\infty} \right\} \norm{q_n-q}_{\infty} \longrightarrow 0;
+   \]
+
+ * y $\lambda p_n \overset{c.u.}\longrightarrow \lambda p$, ya que
+   \[
+   \norm{\lambda p_n}_{\infty} \leq \abs{\lambda}\norm{p_{\infty}} \longrightarrow 0.
+   \]
+
+Decimos que el álgebra *separa puntos* si para cada par $x,y \in X$
+existe $p \in {\cal A}$ tal que $p(x) \neq p(y)$. Decimos que no se *desvanece*
+en ningún punto si para cada $x \in X$ hay una $p \in {\cal A}$ tal que $p(x) \neq 0$.
+Cuando un álgebra separa puntos y no se devanece, dados dos reales
+$\lambda,\mu \in \mathbb{R}$ y dos puntos $x,y \in X$ existe una $p \in {\cal A}$ que separa
+los puntos y dos $q_x,q_y \in {\cal A}$, con $q_x(x) \neq 0$ y $q_y(y) \neq 0$; entonces
+podemos definir
 
 \[
-(f \ast g)(x) := \int_{\mathbb{R}}f(x-t)g(t)\,dt,
+a = pq_x - p(y)q_x, \quad
+b = pq_y - p(x)q_y, 
 \]
 
-que no tiene por qué estar bien definida.
+que cumplen $a(x) \neq 0$ y $b(y) \neq 0$, $b(x) = a(y) = 0$,; así, existe
+siempre una función $r$ que vale exactamente $\lambda$ en $x$ y $\mu$ en $y$,
+definida como
 
-****** Propiedades de la convolución
-La convolución es
-
- * conmutativa, $f \ast g = g \ast f$,
- * asociativa, $f \ast (g \ast h) = (f \ast g) \ast h$
- 
-******* Proof
-# Estaría bien una demostración que fuera usando conjuntos de integración.
-# Asociatividad por Fubini.
-
-****** Identidades aproximadas
-Una *identidad aproximada* es una sucesión de funciones $g_n$ tales que
-
- * $\int_{\mathbb{R}} g_n = 1$,
-
- * $\int_{\mathbb{R}}\abs{g_n} < M$ acotadas uniformemente,
-
- * $\forall \delta,\varepsilon > 0\colon \exists n_0 \colon \forall n \geq n_0\colon \forall x \geq \delta\colon |g_n(x)| < \varepsilon$,
-
- * $g_n(x) = 0$ para $|x|>1$.
-
-****** Aproximación por identidades
-Para $f$ continua y nula fuera de $[0,1]$ y para $g_n$ identidad aproximada
-se tiene $g_n\ast f \overset{c.u.}\longrightarrow f$.
-
-******* Proof
-Fijado un $\varepsilon > 0$ probaremos $\abs{(f \ast g_n)(x) - f(x)} < \varepsilon$. Al ser $f$ continua
-en el compacto $[0,1]$, es uniformemente continua y existe $\delta$ tal que para
-cualquier $x \in \mathbb{R}$ y $t \in (x-\delta,x+\delta)$ se tiene
 \[
-\abs{f(x) - f(x-t)} < \frac{\varepsilon}{2M},
+r = \frac{\lambda b}{b(x)} + \frac{\mu a}{a(y)}.
 \]
-donde $M$ es la constante que acota las integrales en valor absoluto de $g_n$.
-Por otro lado, por Teorema de Weierstrass, existe una acotación $\abs{f(x)} \leq C$,
-y podemos usar la propiedad de la identidad aproximada $g_n$ para
-tener que existe un $N$ tal que para todo $n \geq N$ y $|t| > \delta$ se tiene $\abs{g_n(t)} < \frac{\varepsilon}{8C}$.
-Ahora, podemos usar lo que acabamos de probar y las propiedades de
-la identidad aproximada para tener
+
+****** Teorema de Stone-Weierstrass
+Sea ${\cal A}$ un álgebra de funciones continuas sobre un espacio
+compacto $K$ que separa puntos y no se desvanece en ninguno.
+La clausura bajo la norma del supremo es entonces ${\cal C}(K,\mathbb{R})$,
+el conjunto de todas las funciones continuas reales sobre $K$.
+
+******* Proof
+******** Paso 1. Aproximación de la raíz cuadrada
+Nuestro primer paso será aproximar uniformemente la raíz cuadrada
+por una sucesión de polinomios. La serie de Taylor de la raíz
+cuadrada en $t = 1$,
+\[
+\sum_{n\geq 0} \lambda_n(t-1)^n =
+\sum_{n\geq 0} \frac{(t - 1)^n}{n!} \prod_{k=1}^n \left( \frac{3}{2} - k \right),
+\]
+
+tiene coeficientes $\lambda_n$ tales que
+\[
+\abs{\frac{\lambda_{n+1}}{\lambda_n}} = 
+\abs{\frac{1/2 - n}{n+1}} \to 1,
+\qquad
+n \left( 1 - \abs{\frac{\lambda_{n+1}}{\lambda_n}} \right) \to 3/2 > 1;
+\]
+
+por lo que sabemos por criterio de Raabe que $\sum_{n \geq 1} \lambda_n$ es absolutamente
+convergente y la suma converge para $t \in [0,1]$. Podemos definir
+\[
+\psi(t) = \sum_{n=0}^{\infty}\lambda_n(t-1)^n, \quad\mbox{ para } t \in [0,1];
+\]
+
+a la que convergen uniformemente las parciales por tenerse
+\[
+\abs{\psi(t) - \sum_{n=0}^{m} \lambda_n(t-1)^n} \leq
+\sum_{n=m+1}^{\infty} \abs{\lambda_n},
+\quad\mbox{ para } t \in [0,1].
+\]
+
+Si ahora consideramos sus derivadas, usando convergencia uniforme para
+intercambiar derivada y suma infinita, tenemos la ecuación diferencial
 \[\begin{aligned}
-\abs{(f \ast g_n)(x) - f(x)} &= 
-\abs{\int_{-\delta}^{\delta} f(x-t)g_n(t)\,dt - f(x)\int_{-\delta}^{\delta} g_n(t)\,dt} \\&=
-\abs{\int_{-\delta}^{\delta} \Big(f(x-t) - f(x)\Big)g_n(t)\,dt} \\&\leq
-\int_{-\delta}^{\delta} \abs{f(x-t)-f(x)}\abs{g_n(t)}\,dt +
-\int_{|t| > \delta} \Big(\abs{f(x-t)}+\abs{f(x)}\Big)\abs{g_n(t)}\,dt \\&\leq
-\frac{\varepsilon}{2M}\int_{-\delta}^{\delta} \abs{g_n(t)}\,dt +
-2C\int_{|t| > \delta} \abs{g_n(t)}\,dt \\&\leq
-\frac{\varepsilon}{2} + 2C\frac{2\varepsilon}{8C} < \varepsilon.
+\psi'(t) &=
+\sum_{n=0}^\infty n\lambda_n(t-1)^{n-1} =
+\sum_{n=1}^\infty \left(\frac{1}{2} - (n-1)\right)\lambda_{n-1}(t-1)^{n-1} \\&=
+\frac{1}{2}\psi(t) - (t-1)\psi'(t),
 \end{aligned}\]
 
-****** Convolución de polinomios
-Sea $f \colon [0,1] \to \mathbb{R}$ continua y con $f(0)=f(1)=0$, y sea $P$ un polinomio
-restringido a $[-1,1]$; entonces $f \ast P$ es una función polinomial.
+con $\psi(1) = 1$, que se resuelve como $\psi(t) = \sqrt{t}$.
 
-******* Proof
-Nótese que al ser $P$ un polinomio, $P(x-t)f(t)$ puede escribirse
-como una suma de términos de la forma $a_ix^jt^kf(t)$ por lo que podemos
-escribir.
+******** Paso 2. Estructura de retículo
+Dada $p \in \overline{{\cal A}}$, veamos que $\abs{p} \in {\overline{\cal A}}$. Al ser $K$ compacto, $p$ está acotado.
+Dado un $\varepsilon > 0$, como $p(t)/\norm{p}_{\infty} \leq 1$ usamos la aproximación por polinomios
+de la raíz cuadrada para existir algún $n$ tal que
 \[
-\int_{\mathbb{R}}P(x-t)f(t)\,dt =
-\sum a_ix^j \left(\int_{\mathbb{R}} t^kf(t)\,dt\right).
+\abs{\sqrt{\left(\frac{p(x)}{\norm{p}_{\infty}}\right)^2} -
+\sum_{i=1}^n \lambda_i \left(\frac{p(x)}{\norm{p}_{\infty}}-1\right)^i} < \varepsilon;
+\quad
+\mbox{ para } x \in K.
 \]
 
-****** TODO Polinomios de ??
-La familia de polinomios $Q_n(x) = C_n(1-x^2)^n$ restringidos a $[-1,1]$
-y con 
+Y desde aquí deducimos que $\abs{p}/\norm{p}_{\infty} \in \overline{{\cal A}}$ por poder aproximarse uniformemente
+por sumas de funciones en el álgebra, luego $\abs{p} \in \overline{\cal A}$.
+
+El ser cerrada para el valor absoluto hace que la clausura
+sea un retículo con el orden parcial inducido punto a punto
+desde los reales. En otras palabras, dados $p,q\in \overline{{\cal A}}$,
 \[
-C_n = ?,
+\min(p,q) = \frac{p + q}{2} - \frac{\abs{p-q}}{2},\quad\text{y}\quad
+\max(p,q) = \frac{p + q}{2} + \frac{\abs{p-q}}{2},
 \]
-entonces $Q_n$ es una identidad aproximada.
 
-# TODO: Integración por partes
-******* TODO Proof
+pertenecen a $\overline{\cal A}$.
 
-****** TODO Teorema de aproximación de Weierstrass
+******** Paso 3. Aproximación
+Dada $f \in {\cal C}(K,\mathbb{R})$, un punto $y \in K$, y un $\varepsilon > 0$, probaremos que
+existe una $r_y \in {\overline{\cal A}}$ tal que $r_y(y) = f(y)$ y $\forall x \neq y \in K\colon r_{y}(x) > f(x) - \varepsilon$.
+Por ser ${\cal A}$ separable y no desvanecerse, tenemos para cada $z \in K$ una
+función $s_z \in {\cal A}$ tal que $s_{z}(y) = f(y)$ y además, $s_{z}(z) = f(z)$.
+
+Por continuidad de $s_z$, existe un abierto $z \in J_z$ tal que
+\[
+\forall x \in J_z\colon\quad s_z(x) > f(x) - \varepsilon.
+\]
+
+Como $K = \bigcup_{z \in K} J_z$ es compacto, existen $z_1,\dots,z_n$ tales que
+$K = J_{z_1} \cup \dots \cup J_{z_n}$; y podemos tomar $r_y = \max(s_{z_1},\dots,s_{z_n})$.
+
+De nuevo, por continuidad de $r_y$, existe un abierto $y \in H_y$
+tal que
+\[
+\forall x \in H_y\colon\quad r_y(x) < f(x) + \varepsilon;
+\]
+
+de nuevo por compacidad, existen $y_1,\dots,y_n$ con $K = H_{y_1} \cup \dots \cup H_{y_m}$;
+y de nuevo podemos tomar $h = \min(r_{y_1},\dots,r_{y_m}) \in \overline{{\cal A}}$; que cumple
+que $f(x) - \varepsilon < h(x) < f(x) + \varepsilon$, y por tanto $\norm{f - h}_{\infty} < \varepsilon$.
+
 ***** Lema de aproximación por localmente lipschitzianas
 Sea $f \colon D = \mathring{D} \to \mathbb{R}^d$ continua y $M \geq 0$ tal que
 
@@ -1633,8 +1748,71 @@ Tomamos $R_{a,b}(t_0,x_0) \subseteq D$ y por Weiestrass, $\|f_{|_{R_{a,b}}}(t,x)
 
 Picard-Lindelof
 
+**** CARDS                                                      :noexport:
+***** Teorema de Ascoli-Arzelá                                    :drill:
+SCHEDULED: <2018-04-15 Sun>
+:PROPERTIES:
+:ID:       a2f54cc4-d74f-4e72-be6a-bba39aab74a7
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:47]
+:END:
+Enuncia el Teorema de Ascoli-Arzelá.
+
+****** Enunciado
+Para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua, existe una
+parcial $f_{\sigma(n)} \overset{c.p.}\longrightarrow f$; además, $f$ es uniformemente continua.
+
+***** Corolario a Ascoli-Arzelá                                   :drill:
+SCHEDULED: <2018-04-15 Sun>
+:PROPERTIES:
+:ID:       cda99124-7715-4d0b-8892-d901da3817a7
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:46]
+:END:
+¿Qué dice Ascoli-Arzelá cuando se aplica sobre un compacto?
+
+****** Corolario
+En $I$ compacto, para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua,
+existe una parcial tal que $f_{\sigma(n)} \overset{c.u.}\longrightarrow f$; además, $f$ es uniformemente continua.
+
+***** Teorema de Cauchy-Peano                                     :drill:
+SCHEDULED: <2018-04-15 Sun>
+:PROPERTIES:
+:ID:       dd272b8d-7028-46f1-93f3-f77b1f4ceb5e
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:45]
+:END:
+Enuncia el Teorema de Cauchy-Peano.
+
+****** Enunciado
+Para $D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d$ y $f \colon D \to \mathbb{R}^{d}$ continua con $(t_0,x_0) \in D$,
+el PVI siguiente tiene solución
+
+\[\left\{\begin{array}{c}
+x' = f(t,x) \\
+x(t_0) = x_0
+\end{array}\right.\]
+
 *** Tema 4. Prolongación y acotación de soluciones
-**** Prolongación
+**** 4.1. Prolongación de soluciones
 Consideramos para este tema
  
  * $D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d$, abierto,
