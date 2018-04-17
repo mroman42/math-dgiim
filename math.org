@@ -5006,7 +5006,7 @@ curvatura
 k(s) = \mathrm{det}(\alpha'(s),\alpha''(s))
 \]
 
-***** 2.2. Diedro de Frenet y curvatura de curvas regulares
+***** 1.2.2. Diedro de Frenet y curvatura de curvas regulares
 ****** Definiciones para curvas regulares
 Para $\alpha \colon I \to \mathbb{R}^2$ regular consideramos una reparametrización
 a p.p.a. $\beta = \alpha \circ \phi$ y definimos
@@ -5059,8 +5059,8 @@ La curvatura cumple
     $\phi$ es decreciente.
 
 ******* TODO Proof
-**** 3. Geometría de curvas regulares en el espacio
-***** 3.1. Triedro de Frenet, curvatura y torsión de curvas p.p.a.
+**** 1.3. Geometría de curvas regulares en el espacio
+***** 1.3.1. Triedro de Frenet, curvatura y torsión de curvas p.p.a.
 ****** Curvatura de una curva p.p.a.
 Definimos la *curvatura* de una curva p.p.a. $\alpha \colon I \to \mathbb{R}^3$ como
 
@@ -5100,7 +5100,7 @@ Para $\alpha \colon I \to \mathbb{R}^3$ curva p.p.a. con $k > 0$, definimos
 \]
 
 ****** TODO Ejemplo: hélices
-***** 3.2. Triedro de Frenet, curvatura y torsión de curvas regulares
+***** 1.3.2. Triedro de Frenet, curvatura y torsión de curvas regulares
 ****** Definiciones para curvas regulares en el espacio
 Para $\alpha \colon I \to \mathbb{R}^3$ regular consideramos un difeomorfismo creciente $\phi \colon J \to I$
 reparametrización a $\beta = \alpha \circ \phi$ curva p.p.a. y definimos las
@@ -5188,7 +5188,8 @@ f'(t) = \pair{\alpha'(t),B_0} = |\alpha'(t)| \pair{T(t),B(t)} = 0,
 
 y que es trivialmente nula en $f(t_0) = 0$.
 
-**** 4. Teorema fundamental de curvas en el plano y en el espacio
+**** 1.4. Teorema fundamental de curvas en el plano y en el espacio
+***** 1.4.1. Teorema fundamental de curvas
 ****** 4.2. Teorema fundamental de curvas en el espacio
 Para $I \subseteq \mathbb{R}$ intervalo abierto y $k,\tau\in {\cal C}^{\infty}(I)$ con $k > 0$; 
 
@@ -5238,6 +5239,96 @@ k(s).
 \]
 
 *** Tema 2. Superficies
+**** 2.1. Definición de superficie y ejemplos
+***** 2.1.0. Definición de superficie
+****** Superficie
+Un $\varnothing \neq S \subseteq \mathbb{R}^3$ es *superficie* si para cada $p \in S$ tiene un entorno
+abierto $V_p \subseteq S$ (*entorno coordenado*) y una *parametrización* desde
+$X \colon U \to S$ para un abierto $U \subset \mathbb{R}^2$ tal que
+
+ 1. $X \colon U \to \mathbb{R}^3$ es diferenciable,
+ 2. $(dX)_q\colon \mathbb{R}^2 \to \mathbb{R}^2$ es inyectiva para cada $q \in U$,
+ 3. $X(U) = V$ con $X \colon U \to V$ homeomorfismo.
+
+****** TODO Notas sobre la definición de superficie
+****** Construcciones en superficies
+Para $S$ superficie,
+
+ * $S'$ abierto no vacío de $S$ es superficie;
+
+ * para $\phi \colon O \to O'$ difeomorfismo entre abiertos con $S \subseteq O$, 
+   $S' := \phi(S)$ es una superficie.
+
+******* TODO Proof
+
+***** TODO 2.1.1. Grafos diferenciables
+***** 2.1.2. Superficies en forma implícita
+
+****** Teorema de la función implícita
+Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Dados $a \in \mathbb{R}$ y $p = (x_0,y_0,z_0)$ con $f(p) = a$
+y $f_z(p) \neq 0$; existen
+
+ * $(x_0,y_0) \in U \subseteq \mathbb{R}^2$ entorno abierto,
+
+ * $z_0 \in I \subseteq \mathbb{R}$ intervalo abierto,
+
+ * $\varphi \in {\cal C}^{\infty}(U)$ con $\varphi(U) \subseteq I$,
+
+tales que
+
+ 1. $U \times I \subseteq O$,
+
+ 2. $\varphi(x_0,y_0) = z_0$,
+
+ 3. $f^{-1}(a) \cap U \times I = G^z(\varphi)$.
+
+******* Proof                                                   :extra:
+# Se asume.
+
+****** Valores singulares y valores regulares
+Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Un $a \in \mathbb{R}$ es *valor singular* si
+es la imagen de un punto crítico, $f(p) = a$ y $(\nabla f)(p) = 0$. En otro
+caso, es un *valor regular*. $VS(f)$ es el conjunto de valores
+singulares y $VR(f)$ el conjuto de valores regulares.
+
+****** TODO Teorema de Sard
+
+****** Superficie implícita de un valor regular
+Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Si $a \in VR(f)$, entonces $f^{-1}(a)$
+es vacío o una superficie de $\mathbb{R}^3$.
+
+******* Proof
+
+***** 2.1.3. Superficies de revolución
+****** Creando una superficie de revolución
+Sea $P$ el plano de ecuación $y = 0$ y $P^+$ su semiplano abierto $x > 0$.
+Sea $\alpha \colon I \to \mathbb{R}^3$ regular y embebida con $\alpha(I) \subseteq P^+$. Definimos
+
+\[
+S_{\alpha} =
+\left\{ \phi_{\theta}(\alpha(t))
+\mid t \in I, \theta \in \mathbb{R}
+\right\}.
+\]
+
+Y $X \colon I \times \mathbb{R} \to \mathbb{R}^3$ dada por
+
+\[
+X(t,\theta) = \varphi_{\theta}(\alpha(t)) = (x(t)\cos(\theta), x(t)\sin(\theta), z(t)),
+\]
+
+para $\alpha(t) = (x(t),0,z(t))$.
+
+Aquí $S_{\alpha}$ es superficie de revolución respecto del eje Z y
+si llamamos $U_1 = I \times (0,2\pi)$ y $U_2 = I \times (-\pi,\pi)$ tenemos
+un atlas con entornos coordenados $V_1 = S_{\alpha} - \alpha(I)$ y
+$V_2 = S_{\alpha} - \phi_{\pi}(\alpha(I))$.
+
+******* TODO Proof
+
+****** Paralelos y meridianos
+
+**** 2.2. Cambio de parámetros
 *** Tema 3. Curvatura de superficies
 *** Tema 4. Geodésicas
 *** Ejercicios
@@ -5317,17 +5408,17 @@ tenemos que $\phi(q) = \phi(\alpha(s)) = \alpha(-s) \in \alpha(\mathbb{R})$.
 *** Cards
 **** Preliminares
 ***** Definición de base positiva                                 :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-21 Sat>
 :PROPERTIES:
 :ID:       e15a4412-930d-4f6a-aa20-d64196a6f4e2
-:DRILL_LAST_INTERVAL: 4.141
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 10.7997
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.7
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:06]
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 21:59]
 :END:
 Fijada la orientación de la base usual, ¿cuándo es una base
 $B = \left\{ u_1,\dots,u_n \right\}$ positiva?
@@ -5340,18 +5431,18 @@ decir,
 \]
 
 ***** Movimientos rígidos de R2                                   :drill:
-SCHEDULED: <2018-04-10 Tue>
+SCHEDULED: <2018-05-09 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide2cloze
 :ID:       16a826aa-c93d-4e46-afb4-05682a832bb1
-:DRILL_LAST_INTERVAL: 10.5372
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 28.7139
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:57]
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:10]
 :END:
 |----------------------+------------------+--------------+-----------|
 | Tipo de movimiento   | Isometría        | Puntos fijos | Carácter  |
@@ -5368,17 +5459,17 @@ SCHEDULED: <2018-04-10 Tue>
 :ID:       e3a04df3-1d89-49c7-a0e1-77559f0989f1
 :END:
 ***** Norma del producto vectorial                                :drill:
-SCHEDULED: <2018-04-09 Mon>
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       1fd12884-9b75-47ec-ac19-dcb6e51931da
-:DRILL_LAST_INTERVAL: 10.0
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 25.0
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:59]
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:09]
 :END:
 Da la fórmula de $\left| u \times v \right|^2$ 
 
@@ -5394,17 +5485,17 @@ Da la fórmula de $\left| u \times v \right|^2$
 \]
 
 ***** Difeomorfismo local que no es global                        :drill:
-SCHEDULED: <2018-04-09 Mon>
+SCHEDULED: <2018-05-07 Mon>
 :PROPERTIES:
 :ID:       2125fe6e-2af6-4d4d-a641-7e1e9759f42e
-:DRILL_LAST_INTERVAL: 10.3541
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 27.1381
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:56]
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:13]
 :END:
 ¿Cómo podemos construir un difeomorfismo local en cada punto que no
 sea difeomorfismo global?
@@ -5417,20 +5508,20 @@ en cada punto pero que no fuera siquiera inyectiva.
 f(x,y) = (e^x \sin(y), e^x \cos(y))
 \]
 
-Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]].
+Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]]. Se tiene isomorfismo por $\det Df(x,y)=e^{2x}$.
 
 ***** Teorema de la función inversa                               :drill:
-SCHEDULED: <2018-04-08 Sun>
+SCHEDULED: <2018-05-02 Wed>
 :PROPERTIES:
 :ID:       63d019ff-edf9-4e64-aed4-9a0823572061
-:DRILL_LAST_INTERVAL: 9.2748
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 22.0926
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:58]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:08]
 :END:
 Enuncia el teorema de la función inversa para una aplicación entre
 abiertos $\phi \colon O \to O'$ diferenciable.
@@ -5444,17 +5535,17 @@ se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es
 **** Tema 1. Curvas
 ***** 1. Curvas regulares y longitud de arco
 ****** Embebimiento                                              :drill:
-SCHEDULED: <2018-04-10 Tue>
+SCHEDULED: <2018-04-27 Fri>
 :PROPERTIES:
 :ID:       47cb18d3-b024-48e7-9b40-9fd5efa6c87a
-:DRILL_LAST_INTERVAL: 10.5372
+:DRILL_LAST_INTERVAL: 11.7738
 :DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.4
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:57]
+:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:13]
 :END:
 ¿Cuándo es $\alpha \colon I \to \mathbb{R}^n$ un embebimiento?
 
@@ -5462,17 +5553,17 @@ SCHEDULED: <2018-04-10 Tue>
 Cuando $\alpha \colon I \to \alpha(I)$ es un homeomorfismo.
 
 ****** Ejemplo de curva inyectiva no embebimiento                :drill:
-SCHEDULED: <2018-04-10 Tue>
+SCHEDULED: <2018-04-27 Fri>
 :PROPERTIES:
 :ID:       52adbafb-00f1-4b63-b08a-1e89cf23b94b
-:DRILL_LAST_INTERVAL: 10.5372
+:DRILL_LAST_INTERVAL: 11.7738
 :DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:51]
+:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:13]
 :END:
 Dar un ejemplo de curva inyectiva que no sea embebimiento.
 
@@ -5487,17 +5578,17 @@ es inyectiva, pero al tender a infinito se acerca tanto como queramos
 al $(0,0)$, por el que ya había pasado antes, lo que hace que no podamos
 tener un homeomorfismo.
 ****** Cálculo de la longitud de una curva                       :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-20 Fri>
 :PROPERTIES:
 :ID:       3fb16a48-0357-42f8-98c2-c74d4562bc49
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.3541
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.5
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:03]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:04]
 :END:
 Para $\alpha \colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, calcula la longitud entre
 $[a,b]$ como una integral.
@@ -5509,36 +5600,41 @@ L_a^b(\alpha) = \int_a^b |\alpha'(t)|\,dt < \infty.
 \]
 
 ****** Lema de reparametrización                                 :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-20 Fri>
 :PROPERTIES:
 :ID:       ff49f39c-0657-4411-86da-a586b9673753
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.872
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:01]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:08]
 :END:
-Enuncia el lema de reparametrización para $\alpha \colon I \to \mathbb{R}^n$.
+Enuncia el lema de reparametrización para $\alpha \colon I \to \mathbb{R}^n$ regular.
 
 ******* Lema
-Dada una $\alpha \colon I \to \mathbb{R}^n$ regular, existe $\phi \colon J \to I$ difeomorfismo 
-creciente de intervalos abiertos tal que $\beta = \alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
+Existe $\phi \colon J \to I$
+
+ * difeomorfismo,
+ * creciente,
+ * de intervalos abiertos,
+
+tal que $\beta = \alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
 
 ****** Cálculo de una reparametrización                          :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-20 Fri>
 :PROPERTIES:
 :ID:       5b34db3c-8a95-4c74-9965-b87e184b414a
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.872
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:05]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:06]
 :END:
 Dada una $\alpha \colon I \to \mathbb{R}^n$ buscar la reparametrización $\phi \colon J \to I$ que
 hace que $\beta = \alpha \circ \phi$ sea una curva p.p.a.
@@ -5554,17 +5650,17 @@ y la inversa $\phi = \psi^{-1}$ es la reparametrización buscada.
 
 ***** 2. Geometría de curvas regulares en el plano
 ****** Diedro de Frenet de una curva regular                     :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-20 Fri>
 :PROPERTIES:
 :ID:       dc77cdaa-f13a-4306-960e-f63531e65620
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 10.4843
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.6
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:06]
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:03]
 :END:
 Dar el diedro de Frenet de una curva regular $\alpha(t) \colon I \to \mathbb{R}^2$.
 
@@ -5576,17 +5672,17 @@ N_{\alpha}(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|}
 \]
 
 ****** Curvatura de una curva regular en el plano                :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-19 Thu>
 :PROPERTIES:
 :ID:       054cec15-5c54-4d1f-84f7-56cb9df2ede5
-:DRILL_LAST_INTERVAL: 4.07
+:DRILL_LAST_INTERVAL: 4.05
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.6
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:07]
+:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:14]
 :END:
 Dar dos fórmulas de la curvatura de una curva regular en
 el plano, $\alpha(t)\colon I \to \mathbb{R}^2$.
@@ -5599,17 +5695,17 @@ k_{\alpha}(t) = \frac{\mathrm{det}(\alpha'(t),\alpha''(t))}{|\alpha'(t)|}
 \]
 
 ****** Ecuaciones de Frenet en el plano                          :drill:
-SCHEDULED: <2018-04-03 Tue>
+SCHEDULED: <2018-04-26 Thu>
 :PROPERTIES:
 :ID:       cca9ded0-aa24-4138-bbb8-c057e5d1015b
-:DRILL_LAST_INTERVAL: 4.07
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.6
+:DRILL_LAST_INTERVAL: 10.6954
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.2
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 18:07]
+:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:13]
 :END:
 Enunciar las ecuaciones de Frenet para una curva regular en el plano.
 
@@ -5625,17 +5721,17 @@ N'_{\alpha}(t) = -|\alpha'(t)| k_{\alpha}(t) T_{\alpha}(t)
 ***** 3. Geometría de curvas regulares en el espacio
 ***** 4. Teorema fundamental de curvas en el plano y en el espacio
 ****** Teorema fundamental de curvas en el espacio               :drill:
-SCHEDULED: <2018-04-09 Mon>
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       bb2b3785-52de-4496-b89e-f0d9862b0019
-:DRILL_LAST_INTERVAL: 10.0
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 25.0
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-03-30 Fri 17:51]
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:09]
 :END:
 Enuncia con palabras el teorema fundamental de curvas.
 
@@ -6458,6 +6554,211 @@ contiene alguna palabra. Por tanto, $L$ tampoco es recursivo.
 ****** Nota
 Explícitamente, lo que queremos es una biyección computable
 $\mathbb{N} \to \mathbb{N}^2$.
+***** Ejercicio 20
+****** Apartado b
+Decidible, sólo consultando las cinco primeras letras.
+Simulamos sólo los 6 primeros pasos.
+***** TODO Ejercicio 21 (Interesante para practicar reducción)
+**** Relación 3
+***** Ejercicio 7
+#+begin_statement
+Construir un programa con variables que dada una cadena $u \in \left\{ 0,1 \right\}^{\ast}$
+calcule la cadena $w$ formada por los símbolos que ocupan las posiciones
+impares de $u$ y en el mismo orden que aparecen en $u$.
+#+end_statement
+
+#+BEGIN_SRC text
+[A]   IF X ENDS 0 GOTO I₀
+      IF X ENDS 1 GOTO I₁
+      HALT
+[I₀]  X ← X-
+      Y ← 0Y
+      GOTO B
+[I₁]  X ← X-
+      Y ← 1Y
+      GOTO B
+[B]   IF X ≠ ε GOTO P
+      HALT
+[P]   X ← X-
+      GOTO A
+#+END_SRC
+
+***** Ejercicio 8
+#+begin_statement
+Construir un programa con variables sobre $\left\{ a,b \right\}$ que dadas dos cadenas
+$u_1,u_2 \in \left\{ a,b \right\}^{\ast}$ calcule la cadena $u$ cuyo número verifica $Z(u) = Z(u_1) + Z(u_2)$
+(es decir, hacer la suma de números representados por cadenas de
+caracteres sobre $\left\{ a,b \right\}$).
+#+end_statement
+
+Suponemos que tenemos dos variables de entrada X1 y X2 y que la salida
+se produce en la variable Y.
+
+#+BEGIN_SRC text
+$macro RESTAUNO{X}
+  [B]   IF X ENDS a GOTO Aa
+        IF X ENDS b GOTO Ab
+        HALT
+  [Aa]  X ← X-
+        IF X ≠ ε GOTO Ra
+        HALT
+  [Ra]  Y ← bY
+        GOTO B
+  [Ab]  X ← X-
+        Y ← aY
+        GOTO C
+  [C]   IF X ENDS a GOTO Da
+        IF X ENDS b GOTO Db
+        HALT
+  [Da]  X ← X-
+        Y ← aY
+        GOTO C
+  [Db]  X ← X-
+        Y ← bY
+$endmacro
+$macro SUMAUNO{X}
+  [B]   IF X ENDS a GOTO Aa
+        IF X ENDS b GOTO Ab
+        Y ← aY
+        HALT
+  [Aa]  X ← X-
+        Y ← bY
+        GOTO C
+  [Ab]  X ← X-
+        Y ← aY
+        GOTO B
+  [C]   IF X ENDS a GOTO Da
+        IF X ENDS b GOTO Db
+        HALT
+  [Da]  X ← X-
+        Y ← aY
+        GOTO C
+  [Db]  X ← X-
+        Y ← bY
+$endmacro
+
+[A]   IF X1 ≠ ε GOTO B1
+      IF X2 ≠ ε GOTO B2
+      HALT
+[B1]  RESTAUNO{X1}
+      SUMAUNO{Y}
+      GOTO A
+[B2]  RESTAUNO{X2}
+      SUMAUNO{Y}
+      GOTO A
+#+END_SRC
+
+***** Ejercicio 9
+#+begin_statement
+Considerar un lenguaje Post Turing para programas con varias cintas. Hay un
+número finito de cintas y en cada momento una de ellas está activa, inicialmente
+la primera. Hay dos instrucciones UP y DOWN que se mueven a la cinta superior
+e inferior respectivamente. Demostrar que todo cálculo realizado por un programa
+Post Turing con varias cintas puede realizarse con un programa Post Turing con
+una sola cinta.
+#+end_statement
+
+Supongamos un programa $P$ para $n$ cintas y un alfabeto $A$. Consideramos
+el lenguaje Post Turing con alfabeto $A^n$ y construimos un programa
+que será equivalente.
+
+Empezamos terminando $P$ con la instrucción =HALT=, lo que no cambia
+su significado (si un programa Post Turing lee una instrucción vacía
+para de todas formas). Por otro lado, además de las etiquetas que ya
+existieran, añadimos una etiqueta nueva en cada instrucción posterior
+a una ocurrencia de =UP= o =DOWN=; esto, de nuevo, no altera el
+comportamiento del programa.
+
+Ahora concatenamos $n$ veces el mismo programa $P$ usando un subíndice
+$i = 1,\dots,n$ para identificar cada una de las $n$ instancias de
+cada etiqueta. Cada =UP= en la instancia $i$ del programa se
+sustituirá por un =GOTO= a la etiqueta después del =UP= correspondiente
+en la instancia $i+1$ del programa. Cada =DOWN= en la instancia $i$
+del programa se sustituirá por un =GOTO= a la etiqueta después del =DOWN=
+correspondiente en la instancia $i-1$ del programa. Podemos convenir
+que si se ejecuta =DOWN= en la cinta inferior o =UP= en la cinta superior,
+simplemente se salta a la siguiente instrucción. De esta forma,
+la instancia del programa en la que estamos en cada momento marcará
+la cinta en la que estamos trabajando.
+
+Las instrucciones =PRINT a= en la instancia $i$ serán sustituidas por la
+siguiente macro, que lo que hace es considerar todas las letras posibles
+de $A^n$ y cambiar el elemento en el índice $i$ en ellas por una =a=.
+
+#+BEGIN_SRC text
+                 IF (....,x,...) GOTO L(....,x,...)
+                 IF (....,x,...) GOTO L(....,x,...)
+                 ...
+                 IF (....,y,...) GOTO L(....,y,...)
+                 IF (....,y,...) GOTO L(....,y,...)
+                 ...
+[L(....,x,...)]  PRINT (....,a,...)
+[L(....,x,...)]  PRINT (....,a,...)
+...              ...
+[L(....,y,...)]  PRINT (....,a,...)
+[L(....,y,...)]  PRINT (....,a,...)
+...              ...
+#+END_SRC
+
+Las instrucciones =IF a GOTO A= en la instancia $i$ serán sustituidas por
+la siguiente macro, donde diferenciamos en el caso de que la tupla tenga en
+el índice $i$ una =a=. Llamamos =A(i)= a la etiqueta =A= en la instancia $i$.
+
+#+BEGIN_SRC text
+# Para cada tupla que contenga una a en la posición i
+      IF (....,a,...) GOTO A(i)
+      IF (....,a,...) GOTO A(i)
+      ...
+#+END_SRC
+
+De esta forma, estamos siempre leyendo y escribiendo sobre una de las
+componentes de las tuplas que forman el alfabeto. Sólo las instrucciones
+=UP= y =DOWN= cambian la instancia del programa en la que estamos trabajando
+y, con ella, la componente del $A^n$ en la que estamos trabajando. El programa
+es por tanto equivalente al programa con cinta múltiple.
+
+**** Relación 5
+***** TODO Ejercicio 4
+#+begin_statement
+Demostrar que $NP \neq ESPACIO(n)$.
+#+end_statement
+
+Hay una reducción polinómica $\pi_1 \propto \pi_2$ teniendo
+que $\pi_1 \notin ESPACIO(n)$ y $\pi_2 \in ESPACIO(n)$.
+
+**** Práctica 3
+***** Ejercicio 1
+#+begin_statement
+a) Un grafo dirigido se dice que es acíclico si no tiene ciclos.
+   Demostrar que todo grafo dirigido acíclico tiene una fuente
+   (un nodo al que no llegan arcos).
+
+b) Demostrar que un grafo dirigido con n nodos es acíclico si
+   y sólo si se pueden numerar los nodos del 1 al n de manera 
+   que siempre los arcos van desde números más pequeños a
+   números más grandes.
+
+c) Describir un algoritmo polinómico para determinar cuándo
+   un grafo es acíclico.
+#+end_statement
+
+***** Ejercicio 2
+#+begin_statement
+a) Demostrar que un grafo es /bipartito/ (se puede dividir
+   en dos partes, que no son necesariamente iguales, de manera
+   que todas las aristas van de una parte a otra) si y sólo si
+   todos sus ciclos son de longitud par.
+
+b) Describir un algoritmo polinómico para comprobar si un 
+   grafo es bipartito.
+#+end_statement
+
+***** Ejercicio 3
+#+begin_statement
+Demostrar que P es cerrada para la unión y la intersección.
+#+end_statement
+
+***** Ejercicio 5
 ** Metaheurísticas
 *** Detalles de la asignatura
 Transparencias en la página de la asignatura
@@ -6502,7 +6803,6 @@ base teórica establecida.
 *** Tema 6. Metaheurísticas basadas en adaptación social
 *** Tema 7. Aspectos avanzados en metaheurísticas
 *** Tema 8. Metaheurísticas paralelas
-
 ** Ecuaciones diferenciales I
 *** 1. Métodos de integración
 **** 1.1. Método de variables separadas
@@ -34474,6 +34774,94 @@ The conversation here between Sterling and Bauer is very interesting.
 **** Mikrokosmos resources
 ***** [[http://www.madore.org/~david/computers/callcc.html][A page about call/cc]]
 ***** [[http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=3FF1F113BC01E491476F4F1930F838FE?doi=10.1.1.44.1497&rep=rep1&type=pdf][An untyped lambda calculus with IO]]
+** Notas sueltas y borradores
+*** Teorema de aproximación de Weierstrass                          :extra:
+# La generalización de Stone es mucho más elegante, simple y general.
+
+**** Convolución
+La convolución de dos funciones $f,g \colon \mathbb{R} \to \mathbb{R}$ es la función
+
+\[
+(f \ast g)(x) := \int_{\mathbb{R}}f(x-t)g(t)\,dt,
+\]
+
+que no tiene por qué estar bien definida.
+
+**** Propiedades de la convolución
+La convolución es
+
+ * conmutativa, $f \ast g = g \ast f$,
+ * asociativa, $f \ast (g \ast h) = (f \ast g) \ast h$
+ 
+***** Proof
+# Estaría bien una demostración que fuera usando conjuntos de integración.
+# Asociatividad por Fubini.
+
+**** Identidades aproximadas
+Una *identidad aproximada* es una sucesión de funciones $g_n$ tales que
+
+ * $\int_{\mathbb{R}} g_n = 1$,
+
+ * $\int_{\mathbb{R}}\abs{g_n} < M$ acotadas por una constante uniforme,
+
+ * $\forall \delta,\varepsilon > 0\colon \exists n_0 \colon \forall n \geq n_0\colon \forall x \geq \delta\colon |g_n(x)| < \varepsilon$,
+
+ * $g_n(x) = 0$ para $|x|>1$.
+
+**** Aproximación por identidades
+Para $f$ continua y nula fuera de $[0,1]$ y para $g_n$ identidad aproximada
+se tiene $g_n\ast f \overset{c.u.}\longrightarrow f$.
+
+***** Proof
+Fijado un $\varepsilon > 0$ probaremos $\abs{(f \ast g_n)(x) - f(x)} < \varepsilon$. Al ser $f$ continua
+en el compacto $[0,1]$, es uniformemente continua y existe $\delta$ tal que para
+cualquier $x \in \mathbb{R}$ y $t \in (x-\delta,x+\delta)$ se tiene
+\[
+\abs{f(x) - f(x-t)} < \frac{\varepsilon}{2M},
+\]
+donde $M$ es la constante que acota las integrales en valor absoluto de $g_n$.
+Por otro lado, por Teorema de Weierstrass, existe una acotación $\abs{f(x)} \leq C$,
+y podemos usar la propiedad de la identidad aproximada $g_n$ para
+tener que existe un $N$ tal que para todo $n \geq N$ y $|t| > \delta$ se tiene $\abs{g_n(t)} < \frac{\varepsilon}{8C}$.
+Ahora, podemos usar lo que acabamos de probar y las propiedades de
+la identidad aproximada para tener
+\[\begin{aligned}
+\abs{(f \ast g_n)(x) - f(x)} &= 
+\abs{\int_{-\delta}^{\delta} f(x-t)g_n(t)\,dt - f(x)\int_{-\delta}^{\delta} g_n(t)\,dt} \\&=
+\abs{\int_{-\delta}^{\delta} \Big(f(x-t) - f(x)\Big)g_n(t)\,dt} \\&\leq
+\int_{-\delta}^{\delta} \abs{f(x-t)-f(x)}\abs{g_n(t)}\,dt +
+\int_{|t| > \delta} \Big(\abs{f(x-t)}+\abs{f(x)}\Big)\abs{g_n(t)}\,dt \\&\leq
+\frac{\varepsilon}{2M}\int_{-\delta}^{\delta} \abs{g_n(t)}\,dt +
+2C\int_{|t| > \delta} \abs{g_n(t)}\,dt \\&\leq
+\frac{\varepsilon}{2} + 2C\frac{2\varepsilon}{8C} < \varepsilon.
+\end{aligned}\]
+
+**** Convolución de polinomios
+Sea $f \colon [0,1] \to \mathbb{R}$ continua y con $f(0)=f(1)=0$, y sea $P$ un polinomio
+restringido a $[-1,1]$; entonces $f \ast P$ es una función polinomial.
+
+***** Proof
+Nótese que al ser $P$ un polinomio, $P(x-t)f(t)$ puede escribirse
+como una suma de términos de la forma $a_ix^jt^kf(t)$ por lo que podemos
+escribir.
+\[
+\int_{\mathbb{R}}P(x-t)f(t)\,dt =
+\sum a_ix^j \left(\int_{\mathbb{R}} t^kf(t)\,dt\right).
+\]
+
+**** Polinomios para aproximación
+La familia de polinomios $Q_n(x) = C_n(1-x^2)^n$ restringidos a $[-1,1]$
+y con 
+\[
+C_n = \sum_{k=0}^n (-1)^k\frac{2}{2k+1}{n \choose k},
+\]
+entonces $Q_n$ es una identidad aproximada.
+
+# TODO: Integración por partes
+***** TODO Proof
+
+**** TODO Teorema de aproximación de Weierstrass
+**** TODO Teorema de aproximación en localmente compactos
 * Books
 ** Categories for the working mathematician - MacLane
 # Exports using config.setup, essay.setup
@@ -52443,4 +52831,6 @@ O(n log n) in all cases.
 * Local variables                                                    :ignore:
 # Local Variables:
 # eval: (rainbow-delimiters-mode -1)
+# org-latex-inputenc-alist: (("utf8" . "utf8x"))
+# eval: (setq org-latex-default-packages-alist (cons '("mathletters" "ucs" nil) org-latex-default-packages-alist))
 # End:
