@@ -2308,16 +2308,181 @@ e^{i\theta} = \cos \theta + i \sin \theta
 **** Ecuación diferencial de Euler
 **** Teorema de Fubini
 **** Teorema de Tonelli
+**** Teorema de Riesz
+Sea $H$ un espacio de Hilbert. Para todo $f \in H^{\ast}$ existe un
+único $v \in H$ tal que $f(x) = \langle x,v \rangle$ para todo $x \in H$.
+Además, $\|f\| = \|v\|$.
+
+**** Teorema de Lax-Milgram
+Sea $H$ un espacio de Hilbert y sea $a \colon H \times H \to \mathbb{R}$ una
+forma bilineal tal que
+ 
+ 1. es /continua/, existe $C$ tal que $| a(x,y) | \leq C\|x\|\|y\|$;
+ 2. y es /coerciva/, existe $\alpha$ tal que $|a(x,x)| \geq \alpha\|x\|^{2}$.
+
+Entonces, para todo $f \in H^{\ast}$ existe un único $y_0\in H$ tal que
+$a(x,y_0) = f(x)$ para cualquier $x \in H$.
+
+**** Tipos de ecuación diferencial ordinaria
+Nombres de las ecuaciones
+
+ * Son *ordinarias* aquellas que no involucran derivadas parciales.
+
+ * Son *autónomas* aquellas que no dependen de $x$ directamente.
+
+ * Son *lineales* si la derivada mayor depende linealmente de las demás.
+   $a_0(x) y(x) + \dots + a_n(x) y^{(n)}(x) + b(x) = 0$. Dentro de las lineales, las
+   lineales con coeficientes constantes se resuelven fácilmente.
+
+Tipos explícitos de ecuación
+
+ * Lineal de primer orden, homogénea: $y' + P(x)y = 0$.
+
+ * Lineal de primer orden, no homogénea: $y' + P(x)y = Q(x)$.
+
+ * [[https://en.wikipedia.org/wiki/Cauchy%25E2%2580%2593Euler_equation][Ecuación de Euler]]: $a_nx^ny^{(n)}(x) + \dots + a_0y(x) = 0$.
+
+ * [[https://en.wikipedia.org/wiki/Bernoulli_differential_equation][Ecuación de Bernoulli]]: $y' + P(x)y = Q(x)y^n$
+
+**** WIP Lineales
+***** Forma autoadjunta de una ecuación lineal
+Una ecuación lineal de orden 2 para $[x_0,x_1]$ es de la forma
+
+\[
+y''(x) + a(x)y'(x) + b(x)y(x) = c(x).
+\]
+
+Si multiplicamos por $P(x) = e^{\int_{x_0}^x a(s) \; ds}$, obtenemos la ecuación
+
+\[
+P(x)y''(x) + P(x)a(x)y'(x) + P(x)b(x)y(x) = P(x)c(x)
+\]
+
+que puede escribirse uniendo los dos primeros sumandos como
+
+\[
+\left( P(x)y'(x) \right)' + Q(x)y(x) = R(x)
+\]
+
+lo que llamamos su *forma autoadjunta*.
+
+***** Forma variacional
+El funcional
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} \frac{P(y')^2}{2} - Q\frac{y^2}{2} + Ry \;dx
+\]
+
+tiene como ecuación de Euler-Lagrange asociada a la forma
+autoadjunta de una ecuación lineal
+
+\[
+(Py')' + (-Qy + R) = 0.
+\]
+
+***** De problema de contorno a coordenadas homogéneas
+Sea un problema de contorno y condiciones de contorno Dirichlet no
+homogéneas.
+
+\[\left\{\begin{array}{l}
+(Py')' + Qy = R \\
+y(x_0) = y_0 \\
+y(x_1) = y_1
+\end{array}\]
+
+Podemos obtener un problema de contorno con coordenadas homogéneas.
+
+****** Construcción
+Proponemos un cambio de variables $z(x) = y(x) - (Ax + B)$ y buscamos
+$A$, $B$ y $\widetilde R$ tales que
+
+\[\left\{\begin{array}{l}
+(Pz')' + Qz = {\widetilde R} \\
+z(x_0) = 0 \\
+z(x_1) = 0
+\end{array}\]
+
+Lo que nos da resolviendo el sistema lineal dado por las condiciones
+de contorno
+
+\[
+B = \frac{y_1x_0-y_0x_1}{x_0-x_1}
+\]
+
+\[
+A = \frac{y_1-y_0}{x_1-x_0}
+\]
+
+Luego el cambio de variable correcto es
+
+\[
+z(x) = y(x) + \left( \frac{y_1(x-x_0) + y_0(x-x_1)}{x_0-x_1} \right).
+\]
+
+Que nos lleva al sustituir en la ecuación inicial a tener
+${\widetilde R} = R - P' \cdot A - Q \cdot (Ax + B)$.
+
+**** CARDS
+***** Ecuación de Euler: forma                                    :drill:
+SCHEDULED: <2018-04-14 Sat>
+:PROPERTIES:
+:DRILL_CARD_TYPE: twosided
+:END:
+
+Forma y técnica de resolución de una Ecuación de Euler.
+
+****** Forma
+
+\[
+a_nx^ny^{(n)}(x) + \dots + a_0y(x) = 0
+\]
+
+****** Técnica de resolución
+Se puede aplicar sustitución $x = e^s$, $z(s) = y(x)$ para reducirla a
+una lineal con coeficientes constantes, teniendo cuidado con los
+coeficientes, que cambian.
+
+***** Integral del seno al cuadrado                               :drill:
+SCHEDULED: <2018-05-11 Fri>
+:PROPERTIES:
+:ID:       a5c02ef6-79c6-4b32-943b-dd064732749e
+:DRILL_LAST_INTERVAL: 27.0448
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-14 Sat 23:29]
+:END:
+Encontrar y comprobar primitivas de
+
+\[
+\int \sin^2(x)\,dx
+\]
+
+****** Primitiva
+
+\[
+\frac{1}{2}(x - \sin(x)\cos(x))
+\]
+
+Puede obtenerse usando
+
+\[
+\sin^2x = \frac{1-\cos(2x)}{2}.
+\]
+
 *** 1. Motivación y fundamentos del cálculo variacional
 *** 2. Cálculo de variaciones
 **** 2.1. Teorema 1. Lema fundamental del cálculo de variaciones
 :PROPERTIES:
 :ID:       652bdddb-0853-4a9a-8060-28a730928816
 :END:
-Para $f \colon [a,b] \to \mathbb{R}$ continua equivalen
+Para $f \colon {\cal C}([a,b], \mathbb{R})$ equivalen
 
- 1. $f(x) = 0$ para todo $x \in (a,b)$;
- 2. $\int_a^b f(x)\phi(x)\,dx = 0$ para toda $\phi \in {\cal C}_0^1(a,b)$.
+ 1. $f \equiv 0$,
+ 2. $\forall \phi \in {\cal C}^1_0(a,b)\colon \int_a^b f\phi = 0$.
 
 ***** Proof
 Si tuviéramos en algún punto $f(x_0) > 0$; por conservación del
@@ -2359,12 +2524,6 @@ y(x_1) = y_1, \\
 Cualquier $\overline{y} \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ minimal de ${\cal F}$ verifica
 
 \[
-F_y(x,\oy(x),\oy'(x)) - \dv{}{x}\Big( F_p(x,\oy(x),\oy'(x) \Big) = 0,
-\]
-
-o, de forma simplificada,
-
-\[
 F_y - \dv{}{x}F_p = 0.
 \]
 
@@ -2396,21 +2555,17 @@ multivariable, el hecho de que $\phi$ se anula en $x_0,x_1$ e integración por
 partes. Aquí aplicamos el [[id:652bdddb-0853-4a9a-8060-28a730928816][lema fundamental]].
 
 ***** Teorema 3. Condiciones para conjuntos sin condiciones de contorno
-Dado un funcional similar al [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][anterior]], pero en este caso sobre un
-dominio sin condiciones de contorno
+:PROPERTIES:
+:ID:       094690c8-7f15-424a-89aa-126400e3d0c6
+:END:
+En
 
 \[{\cal D}^o = \left\{ \begin{array}{c} 
 y \in {\cal C}^1(x_0,x_1), \\
 \forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
 \end{array}\right\}\]
 
-Cualquier $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal de ${\cal F}$ verifica
-
-\[
-F_y - \dv{}{x}F_p = 0,
-\]
-
-y además cumple las condiciones de contorno
+un $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal de ${\cal F}$ verifica [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]] con
 
 \[
 F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
@@ -2436,33 +2591,35 @@ Euler-Lagrange. Pero entonces
 y tomando en particular funciones cumpliendo $\phi(x_j) = \delta_{ij}$ para
 $i,j = 0,1$ tenemos las condiciones de contorno buscadas.
 
-***** TODO Teorema 3. Condiciones en conjuntos con una sola condición de contorno
-***** Teorema 4. Euler-Lagrange para F independiente de y
-En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si además $F_y = 0$, entonces
-la condición que nos da Euler-Lagrange puede ser escrita como
+***** Teorema 3. Condiciones en conjuntos con una sola condición de contorno
+En
+
+\[{\cal D}_1 = \left\{ \begin{array}{c} 
+y \in {\cal C}^1(x_0,x_1), \\
+y(x_0) = y_0,\\
+\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
+\end{array}\right\}\]
+
+un $\oy \in {\cal D}_1 \cap {\cal C}^2(x_0,x_1)$ minimal de ${\cal F}$ verifica [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]] con
 
 \[
-F_p(x,\oy'(x)) = \mathrm{cte.}
+0 = F_p(x_1,\oy(x_1),\oy'(x_1).
+\]
+
+***** Teorema 4. Euler-Lagrange para F independiente de y
+En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si además $F_y = 0$,
+un minimal $\oy \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ verifica 
+
+\[
+F_p = \mathrm{cte.}
 \]
 
 ****** Proof
 Trivialmente integrando en la ecuación de Euler-Lagrange.
 
 ***** Teorema 5. Euler-Lagrange para F independiente de x
-Para un funcional de la forma siguiente con $F$ dos veces derivable
-respecto a $y$ y a $p$,
-
-\[
-{\cal F}[y] = \int_{x_0}^{x_1} F(y(x),y'(x))\,dx,
-\]
-
-cualquier minimal $\oy \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ verifica 
-
-\[
-F(\oy(x),\oy'(x)) - \oy'(x)F_p(\oy(x),\oy'(x)) = \mathrm{cte.}
-\]
-
-o, de forma simplificada,
+En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si además $F_ x= 0$,
+un  minimal $\oy \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ verifica 
 
 \[
 F - y'F_p = \mathrm{cte.}
