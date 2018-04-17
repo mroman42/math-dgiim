@@ -1884,11 +1884,11 @@ Ma + b/2 \leq b.
 Llegando a contradicción. Así, tenemos el límite $\lim_{t \to \omega} \varphi(t) = \xi \in \mathbb{R}^d$,
 y podemos aplicar el [[id:304d100c-6e59-4ed7-b623-4714c361a3dc][Lema anterior]] para tener $(\omega,\xi) \notin D$.
 
-***** Teorema de alternativas de no prolongación
+***** Alternativas de comportamiento en el extremo superior
 :PROPERTIES:
 :ID:       435b13ac-d20b-469c-bb0a-4915735b6c62
 :END:
-Si $\omega < \infty$ se verifica una de las siguientes alternativas.
+Si $\omega < +\infty$ se verifica una de las siguientes alternativas.
 
  * $\lim_{t \to \omega}\| \varphi(t)\| = \infty$, explota en tiempo finito;
 
@@ -1910,11 +1910,327 @@ Si $\omega < \infty$ y $D = \mathbb{R} \times B$ para $B$ acotado, entonces
 $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D = \mathbb{R} \times \partial B$.
 
 ****** Proof
+
+**** 4.2. Crecimimento a lo sumo lineal
+***** Lema de Gronwall (versión débil)
+:PROPERTIES:
+:ID:       23749801-6cfb-4efe-a808-aef93e33bc9a
+:END:
+Sea $y \in {\cal C}([t_0,\omega),\mathbb{R})$ con $C \in \mathbb{R}$ y $R \in \mathbb{R}^+$ tales que
+
+\[
+\forall t \in [t_0,\omega)\colon
+y(t) \leq
+C + R \int_{t_0}^t y(s)\,ds.
+\]
+
+Entonces
+
+\[
+\forall t \in [t_0,\omega)\colon y(t) \leq C e^{R(t-t_0)}.
+\]
+
+****** Proof
+Caso $R = 0$ trivial. Si $R > 0$, tenemos por Teorema fundamental del
+cálculo
+
+\[
+Y'(t) = C + RY(t)
+\]
+
+para $Y(t) = \int_{t_0}^t y(s)\,ds$. Calculamos
+
+\[
+\dv{}{t} \left( e^{-R(t-t_0)}Y(t) \right) = 
+-Re^{-R(t-t_0)}Y(t) + e^{-R(t-t_0)}Y'(t) \leq
+Ce^{-R(t-t_0)},
+\]
+
+e integramos a ambos lados usando $Y(t_0) = 0$ y $R > 0$,
+
+\[
+e^{-R(t-t_0)}Y(t) \leq \int_{t_0}^t Ce^{-R(t-t_0)} = \frac{C}{-R}(e^{-R(t-t_0)} - 1)
+\]
+
+\[
+Y(t) \leq \frac{C}{R}(e^{R(t-t_0)} - 1)
+\]
+
+Y aplicamos en la desigualdad original,
+
+\[
+y(t) \leq C + R\frac{C}{-R} \left( 1 - e^{R(t-t_0)} \right) = Ce^{R(t-t_0)}.
+\]
+
+***** TODO Lema de Gronwall                                       :extra:
+***** Crecimiento a lo sumo lineal
+$f \colon (a,+\infty) \times \mathbb{R}^d = D \to \mathbb{R}^{d}$ tiene *crecimiento a lo sumo lineal*
+si existen $m,n \in {\cal C}((a,+\infty), \mathbb{R}^+_0)$ tales que
+
+\[
+\forall (t,x) \in D \colon \norm{f(t,x)} \leq m(t)\norm{x} + n(t).
+\]
+
+****** TODO Ejemplos
+******* Lineales
+******* Autónomas
+***** Teorema de crecimiento a lo sumo lineal
+Si $f \colon (a, +\infty)\times\mathbb{R}^d = D\to \mathbb{R}^d$ tiene crecimiento a lo sumo lineal,
+$\omega = +\infty$.
+
+****** Proof
+Si $\omega < +\infty$, la [[id:435b13ac-d20b-469c-bb0a-4915735b6c62][alternativa de comportamiento]] sería tocar la frontera
+pero en este caso por la forma de $D$ no es posible. Debe tenerse
+$\lim_{t \to \omega} \|\varphi(t)\| = +\infty$. Aplicamos Weierstrass para tener $M = \max_{t_0 \leq t \leq \omega} m(t)$
+y $N = \max_{t_0 \leq t \leq \omega} n(t)$. Ahora
+
+\[\begin{aligned}
+y(t) &= \norm{\varphi(t)} =
+\norm{x_0 + \int_{t_0}^tf(s,\varphi(s))\,ds} \\&\leq
+\norm{x_0} + \int_{t_0}^t\norm{f(s,\varphi(s))}\,ds \\&\leq
+\norm{x_0}  + N(\omega-t_0) + M\int_{t_0}^ty(s)\,ds.
+\end{aligned}\]
+
+Y por [[id:23749801-6cfb-4efe-a808-aef93e33bc9a][Lema de Gronwall]], acotamos por una constante
+
+\[
+y(t) \leq \left( \|x_0\| + N(\omega-t_0) \right) e^{M(t-t_0)}.
+\]
+
+***** TODO Teorema de crecimiento a lo sumo lineal (hipótesis debilitada)
+****** TODO Proof
+**** 4.3. Acotación de soluciones. Funciones guía
+***** Acotada en el futuro y acotada en el pasado
+Decimos $\varphi$ *acotada en el futuro* si $\omega =+\infty$ y $\exists M\colon\forall t \geq t_0\colon \|\varphi(t)\| \leq M$.
+Decimos $\varphi$ *acotada en el pasado* si $\omega = +\infty$ $\exists M\colon\forall t \leq t_0\colon \|\varphi(t)\| \leq M$.
+Decimos $\varphi$ *acotada* si lo está en el futuro y en el pasado.
+
+***** TODO Acotación constante real
+***** Funciones coercivas
+:PROPERTIES:
+:ID:       37022c48-c27d-4e11-aa9d-85c998a4b917
+:END:
+Decimos $V \in {\cal C}(\mathbb{R}^d, \mathbb{R})$ *coerciva* si todo conjunto de subnivel $\Omega_r$
+es compacto.
+
+****** Conjuntos de nivel y conjuntos de subnivel
+El *conjunto de nivel* $r$ es $S_r = V^{-1}(r)$.
+El *conjunto de subnivel* $r$ es $\Omega_r = V^{-1}([-\infty,r])$.
+
+****** Caracterización por límite
+Ser coerciva equivale a tenerse $\lim_{\|x\| \to +\infty}V(x) = +\infty$.
+
+******* Proof
+Sea $V$ coerciva, dado $K$, $V^{-1}(]-\infty,K])$ es compacto, luego
+acotado y para $\|x\|$ suficientemente grande, será $V(x) > K$.
+
+Si tenemos el límite, $V^{-1}(]-\infty,K])$ es cerrado por continuidad
+y está acotado porque si no lo estuviera podríamos tomar una
+sucesión que divergiera pero con sus imágenes acotadas por $K$.
+
+****** Mínimo global
+Nótese que una coerciva tiene mínimo global por Weierstrass sobre
+un compacto para alguna cota.
+
+***** Ejemplos de funciones coercivas
+Para $V,W\colon \mathbb{R}^d \to \mathbb{R}$ y $V_1,\dots,V_d \colon \mathbb{R} \to \mathbb{R}$ continuas se tiene
+
+ * $V(x_1,\dots,x_d) = V_1(x_1) + \dots + V_d(x_d)$ coerciva ssi lo son las $V_i$;
+
+ * $V(x) \geq W(x)$ coerciva si lo es $W$;
+
+ * $V$ cuadrática es coerciva ssi $\mathrm{Hess}(V)$ es definida o semidefinida positiva;
+
+ * $V$ coerciva si $V \in {\cal C}^1(\mathbb{R}^d)$ es convexa con único punto crítico.
+
+***** Derivada a lo largo de un campo
+La *derivada* de $V \in {\cal C}^1(\mathbb{R}^d,\mathbb{R})$ a lo largo de $f$ se define
+
+\[
+\overset{\bullet}{V}(t,x) = \left\langle \nabla V(x),f(t,x) \right\rangle.
+\]
+
+Nótese en particular $\dv{}{t} \left[ V(\varphi(t)) \right]_{|_t} = \overset{\bullet}{V}(t,\varphi(t))$.
+
+***** Proposición de acotación por coercivas
+# Duda: Aquí no entiendo por qué pedimos la hipótesis de la D de esa forma.
+Sea $V \in {\cal C}^1(\mathbb{R}^d, \mathbb{R})$ coerciva y tal que
+
+\[\exists r \in \mathbb{R}\colon
+\forall x \in S_r\colon
+\forall t \geq t_0\colon
+\qquad
+\bV(t,x) < 0.\]
+
+Si $x_0 \in \Omega_r$ y $D = (a,+\infty) \times \mathbb{R}^d$, entonces $\forall t \geq t_0\colon \varphi(t) \in \Omega_r$,
+y está acotada en el futuro.
+
+****** Proof
+Partimos en casos según $V(x_0) < r$ ó $V(x_0) = r$.
+
+******* Caso 1
+Sea $V(x_0) < r$. Definimos $y = V \circ \varphi \in {\cal C}^1$ y tenemos $y'(t) = \bV(\varphi(t))$.
+Si no se tuviera $y(t) < r$, por [[id:a439476b-8c77-4994-a736-9062ee91e7d0][Lema del primer instante]] se tendría
+$y(\tau) = r$ y $\forall t \in [t_0,\tau[\colon y(t) < r$ para algún $\tau > t_0$.
+
+Ahí tendríamos $y'(\tau) \geq 0$ pero $\bV(\varphi(\tau)) < 0$, llegando a contradicción.
+Sabemos así que $\varphi([t_0,\omega[) \subset \Omega_r$, que es compacto por ser $V$ [[id:37022c48-c27d-4e11-aa9d-85c998a4b917][coerciva]],
+luego está acotada.
+
+******* TODO Caso 2
+Sea $V(x_0) = r$, 
+
+***** Acotación mediante funciones guía: teorema
+:PROPERTIES:
+:ID:       b1ed10c4-862c-4722-b481-6f83bf18c479
+:END:
+Si existe $V \in {\cal C}^1(\mathbb{R}^d, \mathbb{R})$ coerciva tal que $\forall (t,x) \in D\colon \bV(t,x)\leq 0$,
+las soluciones maximales están acotadas en el futuro.
+
+Si existe $V \in {\cal C}^1(\mathbb{R}^d, \mathbb{R})$ coerciva tal que $\forall (t,x) \in D\colon \bV(t,x)\geq 0$,
+las soluciones maximales están acotadas en el pasado.
+
+****** Proof
+Definimos $y = V \circ \varphi \in {\cal C}^1$, decreciente por $y'(t) \leq \bV(t,\varphi(t)) \leq 0$.
+Luego $\varphi([t_0,\omega[) \subset \Omega_{V(x_0)}$, compacto y por tanto acotado, por ser $V$ [[id:37022c48-c27d-4e11-aa9d-85c998a4b917][coerciva]].
+
+***** Acotación mediante funciones guía: corolario
+Si existe $V \in {\cal C}^1(\mathbb{R}^d,\mathbb{R})$ coerciva tal que $\forall (t,x) \in D\colon \overset{\bullet}{V}(t,x) = 0$,
+las soluciones maximales están acotadas en $\varphi(t) \in \Omega_{V(x_0)}$.
+
+****** Proof
+Aplicando los dos casos del [[id:b1ed10c4-862c-4722-b481-6f83bf18c479][teorema]] anterior.
+
+***** Acotación mediante funciones guía: debilitación
+Podemos aplicar dos debilitaciones a las hipótesis del teorema
+de [[id:b1ed10c4-862c-4722-b481-6f83bf18c479][acotación mediante funciones guía]],
+
+ * sólo necesitamos $\bV(t,x)\leq 0$ en $(t_0,+\infty) \times \left(\mathbb{R}^d \setminus B(p,r)\right)$ para
+   algunos $p \in \mathbb{R}^d$ y $r > 0$;
+ * podemos prescinidir de $V$ coerciva y pedir sólo que las
+   componentes conexas de los $\Omega_r$ sean acotadas.
+
+****** TODO Proof
+**** CARDS
+***** Alternativas de comportamiento en el extremo superior       :drill:
+SCHEDULED: <2018-04-24 Tue>
+:PROPERTIES:
+:ID:       44d857b1-d184-4611-a6b5-6df45fac65b0
+:DRILL_LAST_INTERVAL: 10.0
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-14 Sat 23:06]
+:END:
+¿Cuáles son las dos alternativas de comportamiento
+cuando $\omega < +\infty$?
+
+****** Alternativas
+
+ * $\lim_{t \to \omega}\| \varphi(t)\| = \infty$, explota en tiempo finito;
+
+ * $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D$, tiende a tocar la frontera.
+
+***** Definición de coerciva                                      :drill:
+SCHEDULED: <2018-04-24 Tue>
+:PROPERTIES:
+:ID:       6e44a52f-a72d-4288-85b7-3c7daa3ca1d4
+:DRILL_LAST_INTERVAL: 9.7486
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-14 Sat 23:09]
+:END:
+Definición de función coerciva.
+
+****** Definición
+Todo conjunto de subnivel $\Omega_r$ es compacto.
+
+****** Caracterización
+ $\lim_{\|x\| \to +\infty}V(x) = +\infty$
+
+***** Lema de Gronwall                                            :drill:
+SCHEDULED: <2018-04-24 Tue>
+:PROPERTIES:
+:ID:       c6e5ae82-baf7-4eea-a47e-5d9f5dbb1ec3
+:DRILL_LAST_INTERVAL: 10.2546
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-14 Sat 23:08]
+:END:
+Enunciar el Lema de Gronwall, que acota una función cuando podemos
+acotar su integral.
+
+****** Enunciado
+Sea $y \in {\cal C}([t_0,\omega),\mathbb{R})$ con $C \in \mathbb{R}$ y $R \in \mathbb{R}^+$ tales que
+
+\[
+\forall t \in [t_0,\omega)\colon
+y(t) \leq
+C + R \int_{t_0}^t y(s)\,ds.
+\]
+
+Entonces
+
+\[
+\forall t \in [t_0,\omega)\colon y(t) \leq C e^{R(t-t_0)}.
+\]
+
 *** Tema 5. Dependencia continua y diferenciable
+**** 5.1. Entornos tubulares
+***** Entorno tubular de una solución
+Para $J \subset \mathbb{R}$ intervalo, $\varphi \colon {\cal C}(J, \mathbb{R})$ y $\rho > 0$,
+
+\[
+T_{\rho}(J,\varphi) = \left\{ (t,x) \in J \times \mathbb{R}^d 
+\;\middle|\;
+\norm{x - \varphi(t)} \leq \rho \right\}.
+\]
+
+***** TODO Lema. Homomorfismo del entorno tubular
+
+**** 5.1. Convergencia uniforme en compactos
+***** Convergencia uniforme en compactos
+Una sucesión $f_n \colon I_n \to \mathbb{R}^d$ *converge uniformemente en compactos* a $f \colon I \to \mathbb{R}$
+si para todo $K \subset I$ compacto hay una cola de $f_n$ definida en $K$ y convergiendo
+uniformemente a $f$ ahí.
+
+**** 5.2. Continuidad de la solución general
+***** Desigualdad fundamental
+Sean $\varphi_i \colon I_i \to \mathbb{R}^{d}$ dos soluciones de una EDO tales que
+
+\[
+\forall t \in I_1\cap I_2 \colon\qquad
+\norm{f(t,\varphi_1(t)) - f(t,\varphi_2(t))} \leq
+L\norm{\varphi_1(t) - \varphi_2(t)},
+\]
+
+entonces para $t_0 \in I_1 \cap I_2$ se tiene
+
+\[
+\forall t \in I_1\cap I_2 \colon\qquad
+\norm{\varphi_1(t) -\varphi_2(t)} \leq
+\norm{\varphi_1(t_0) - \varphi_2(t_0)} e^{L\abs{t-t_0}}.
+\]
+
+****** TODO Proof
+Volterra y Gronwall.
 *** Tema 6. Estabilidad
 *** Ejercicios
-**** Relación de ejercicios I
-***** Ejercicio 1
+# La mayoría en papel
+
+**** Relación 1
+***** DONE Ejercicio 1
 #+begin_statement
 Calcula una solución maximal del PVI
 
@@ -1950,378 +2266,17 @@ Calculamos usando [[*Condiciones para la unicidad local en variables separadas][
    \[
    \lim_{t \to (1/x_0 + t_0)} \varphi(t) = +\infty.
    \]
-*** Cards
-**** Tema 0. Preliminares
-***** Técnicas de integración
-****** Ecuaciones homogéneas: forma                              :drill:
-SCHEDULED: <2018-04-10 Tue>
-:PROPERTIES:
-:ID:       87915c2b-ff33-4e9d-98c0-07e66a01ac68
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:32]
-:END:
-Forma de una ecuación homogénea.
-
-******* Forma
-\[
-x' = f \left( \frac{x}{t} \right)
-\]
-
-****** Ecuaciones homogéneas: resolución                         :drill:
-SCHEDULED: <2018-04-11 Wed>
-:PROPERTIES:
-:ID:       e558b5d7-7d81-4d91-9486-40352296fda2
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-07 Sat 23:24]
-:END:
-Cómo resolver
-
-\[
-x' = f \left( \frac{x}{t} \right).
-\]
-
-******* Resolución
-Aplicamos el cambio de variable $u = x/t$, que nos
-lleva a 
-
-\[u' = \frac{1}{t}(f(u) - u).\]
-
-****** Ecuación lineal escalar                                   :drill:
-SCHEDULED: <2018-04-10 Tue>
-:PROPERTIES:
-:ID:       ead2dfed-95a4-41ad-b65e-d09cf22fbd8d
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:40]
-:END:
-Cómo resolver, para $a,b \in {\cal C}(I,\mathbb{R})$;
-
-\[
-x' = a(t)x + b(t)
-\]
-
-******* Resolución
-Una parte resuelve la homogénea, la otra es una solución
-particular
-
-\[
-x = Ae^{(\int a)} + \left( \int_{t_0}^t b(z) e^{-(\int^{z} a)}\,dz \right) e^{(\int a)}
-\]
-
-****** Ecuación de Bernoulli                                     :drill:
-SCHEDULED: <2018-04-10 Tue>
-:PROPERTIES:
-:ID:       c7712582-1d68-4dd0-9ebf-9b9a2afcd463
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:34]
-:END:
-Cómo resolver
-
-\[
-x' + ax + bx^n = 0.
-\]
-
-******* Resolución
-Retiramos el caso trivial $x = 0$ y tomamos el cambio de
-variable $u = x^{1-n}$, que la transforma en lineal
-
-\[
-u' + (1-n)au + (1-n)b = 0.
-\]
-
-****** Ecuación de Ricatti                                       :drill:
-SCHEDULED: <2018-04-12 Thu>
-:PROPERTIES:
-:ID:       1113da24-b90d-4ab0-94d8-e65ae4710470
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 1.667
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:07]
-:END:
-Cómo resolver
-
-\[
-x' + ax + bx^2 = f(x).
-\]
-
-******* Resolución
-Conociendo una solución de la ecuación tomamos el cambio
-
-\[
-u = \frac{1}{x - \varphi}
-\]
-
-suele ser una elección algo de la forma $\varphi = -1/x$.
-
-****** Ecuación exacta                                           :drill:
-SCHEDULED: <2018-04-12 Thu>
-:PROPERTIES:
-:ID:       69ceda6b-32b1-4bc2-b8fd-71bc68c66072
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 1.667
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-08 Sun 22:45]
-:END:
-Dar la forma de una ecuación exacta, ¿cuál es la solución trivial?
-
-******* Resolución
-Una solución exacta es de la forma
-
-\[
-M + Nx' = 0
-\]
-
-donde son de la forma $M = \pdv{F}{t}$ y $N = \pdv{F}{x}$. 
-Tiene solución trivial en $F = \mathrm{cte.}$
-
-**** Tema 1. Existencia y unicidad. Ecuación de Volterra
-***** Teorema del valor medio multivariable                       :drill:
-SCHEDULED: <2018-04-10 Tue>
-:PROPERTIES:
-:ID:       deccb6c2-471e-4d1a-baff-b96dc400f410
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:46]
-:END:
-Para $f \in {\cal C}^1(\mathbb{R}^n)$ y $a,b \in \mathbb{R}^n$, enunciar el teorema del valor medio.
-
-****** Enunciado
-Existe $c \in [a,b]$ tal que
-
-\[
-f(b)-f(a) = \left\langle \grad f(c), b-a \right\rangle.
-\]
-
-***** Lema del primer instante                                    :drill:
-SCHEDULED: <2018-04-10 Tue>
-:PROPERTIES:
-:ID:       b544c2e9-8d67-4c68-8587-26873148e533
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:41]
-:END:
-Para $f \in {\cal C}(I,\mathbb{R})$ con $f(t_0) > 0$, enunciar el lema del primer
-instante.
-
-****** Enunciado
-Se da una de las alternativas.
-
- * $\forall t \geq t_0\colon f(t) > 0$.
-
- * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
-
-***** Operador integral de Volterra                               :drill:
-SCHEDULED: <2018-04-10 Tue>
-:PROPERTIES:
-:ID:       d632fc17-20f9-4797-929d-05f51c4cd2ea
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:47]
-:END:
-Define el operador integral de Volterra y su dominio
-
-****** Definición
-
-\[
-V(y)(t) = x_0 + \int_{t_0}^t f(s,y(s))\;ds.
-\]
-
-Está en el dominio ${\cal C}([t_0-a,t_0+a];\mathbb{R}^d)$.
-Puede probarse que es $V \colon E \to E$ donde $E = \overline{B_0}(x_0,b)$.
-
-***** Lema de soluciones de Volterra                              :drill:
-SCHEDULED: <2018-04-10 Tue>
-:PROPERTIES:
-:ID:       08e0071f-e949-4b6e-bcfd-4310e101e85d
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-06 Fri 22:37]
-:END:
-¿Cuándo podemos aplicar el lema de soluciones de Volterra?
-
-****** Demostración
-Necesitamos $\varphi \colon I \to \mathbb{R}^d$ en $I$ intervalo abierto. Equivalen
-
- 1. $\varphi$ es solución de un PVI;
- 2. $\varphi$ es solución de la ecuación de Volterra asociada.
-
-***** Teorema de Unicidad de Peano: enunciado                     :drill:
-:PROPERTIES:
-:ID:       d6ac89c9-f053-4b0d-a8e0-c0233c137e87
-:END:
-Enuncia el teorema de Unicidad de Peano.
-
-****** Enunciado
-Para un PVI con $d=1$, es decir $f \colon \mathbb{R}\times \mathbb{R} \to \mathbb{R}$,
-
- 1) si $\forall t \geq t_0$, $f(t,-)$ es decreciente, hay unicidad en el futuro;
- 2) si $\forall t \leq t_0$, $f(t,-)$ es creciente, hay unicidad en el pasado.
-
-***** Teorema de Unicidad de Peano: demostración                  :drill:
-SCHEDULED: <2018-04-11 Wed>
-:PROPERTIES:
-:ID:       efae3e4f-a565-4023-bb0c-e1c762db3e1f
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-07 Sat 23:24]
-:END:
-¿Cuál es la idea para demostrar el teorema de unicidad de Peano?
-Supongamos $f(t,x)$ decreciente y dos soluciones $\varphi_1\colon I_1 \to \mathbb{R}$
-y $\varphi_2 \colon I_2 \to \mathbb{R}$. Queremos ver unicidad en el futuro.
-
-****** Idea
-Definimos $h(t) = (\varphi_1(t)-\varphi_2(t))^2$ y calculamos su derivada para
-ver que es decreciente.
-
-**** Tema 2. Lispchitzianidad. Picard-Lindelöf
-****** Norma de Bielecki                                         :drill:
-SCHEDULED: <2018-04-11 Wed>
-:PROPERTIES:
-:ID:       7748c216-94a7-4d91-a824-6fd195ffe10f
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-07 Sat 23:20]
-:END:
-Define la norma de Bielecki.
-
-******* Definición
-En el espacio $E_{a,b}(t_0,x_0)$, dada una constante $R > 0$, consideramos
-
-\[
-\| \varphi \|_{B} = \max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\|.
-\]
-
-****** Globalmente lipschitziana respecto de x                   :drill:
-SCHEDULED: <2018-05-02 Wed>
-:PROPERTIES:
-:ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
-:DRILL_LAST_INTERVAL: 26.6407
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.333
-:DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-05 Thu 23:08]
-:END:
-Una $f(x,y)$ definida en $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$ es [[id:c50d9301-e9db-40a1-b25f-b726327f37bb][globalmente lipschitziana respecto]]
-de $x \in \mathbb{R}^d$ cuando
-
-******* Definición
-Cuando existe $L \geq 0$ tal que
-
-\[
-\| f(x,y) - f(x',y) \| \leq L \| x - x' \|.
-\]
-
-Dicho de otra forma, las secciones $f(-,y)$ son lipschitzianas con una
-constante de lipschitz común.
+***** DONE Ejercicio 2
+***** DONE Ejercicio 3
+***** DONE Ejercicio 4
+***** DONE Ejercicio 6
+***** DONE Ejercicio 7
+**** Relación 6
+***** TODO Ejercicio 1.a
+***** TODO Ejercicio 1.b
+***** TODO Ejercicio 2
 ** Modelos matemáticos II
 http://www.ugr.es/~jjmnieto/docencia.html
-
-*** Notas previas
-Teorema de Lax-Milgram
-[[https://en.wikipedia.org/wiki/Calculus_of_variations][Problemas variacionales]]
-Análisis de Fourier
-Ecuación de difusión del calor
-Delta de Dirac
-
-**** Teorema de Riesz
-Sea $H$ un espacio de Hilbert. Para todo $f \in H^{\ast}$ existe un
-único $v \in H$ tal que $f(x) = \langle x,v \rangle$ para todo $x \in H$.
-Además, $\|f\| = \|v\|$.
-
-**** Teorema de Lax-Milgram
-Sea $H$ un espacio de Hilbert y sea $a \colon H \times H \to \mathbb{R}$ una
-forma bilineal tal que
- 
- 1. es /continua/, existe $C$ tal que $| a(x,y) | \leq C\|x\|\|y\|$;
- 2. y es /coerciva/, existe $\alpha$ tal que $|a(x,x)| \geq \alpha\|x\|^{2}$.
-
-Entonces, para todo $f \in H^{\ast}$ existe un único $y_0\in H$ tal que
-$a(x,y_0) = f(x)$ para cualquier $x \in H$.
-
-**** Tipos de ecuación diferencial ordinaria
-Nombres de las ecuaciones
-
- * Son *ordinarias* aquellas que no involucran derivadas parciales.
-
- * Son *autónomas* aquellas que no dependen de $x$ directamente.
-
- * Son *lineales* si la derivada mayor depende linealmente de las demás.
-   $a_0(x) y(x) + \dots + a_n(x) y^{(n)}(x) + b(x) = 0$. Dentro de las lineales, las
-   lineales con coeficientes constantes se resuelven fácilmente.
-
-Tipos explícitos de ecuación
-
- * Lineal de primer orden, homogénea: $y' + P(x)y = 0$.
-
- * Lineal de primer orden, no homogénea: $y' + P(x)y = Q(x)$.
-
- * [[https://en.wikipedia.org/wiki/Cauchy%25E2%2580%2593Euler_equation][Ecuación de Euler]]: $a_nx^ny^{(n)}(x) + \dots + a_0y(x) = 0$.
-
- * [[https://en.wikipedia.org/wiki/Bernoulli_differential_equation][Ecuación de Bernoulli]]: $y' + P(x)y = Q(x)y^n$
 
 *** 0. Preliminares
 **** Identidades trigonométricas
@@ -2345,7 +2300,7 @@ Sabemos que
 puede ser expresada usando que
 
 \[
-\e^{i\theta} = \cos \theta + i \sin \theta
+e^{i\theta} = \cos \theta + i \sin \theta
 \]
 
 **** Método de variación de constantes
