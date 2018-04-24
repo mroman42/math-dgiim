@@ -4025,6 +4025,27 @@ También puede enunciarse como:
 \[
 u_{tt} = f - \alpha u + \sigma \Delta_x u.
 \]
+***** Definición de laplaciana y definición de gradiente          :drill:
+Da la definición de laplaciana y distínguela de la definición
+de gradiente.
+
+****** Laplaciana
+La *laplaciana* es la suma de todas las segundas derivadas
+sin mezclar:
+
+\[
+\Delta f = \sum_{i=1}^n{\pdv[2]{f}{x_i}}.
+\]
+
+****** Gradiente
+El *gradiente* es el vector de las primeras derivadas, una
+particularización del jacobiano.
+
+\[
+(\nabla f)(p) = \left( \pdv{f}{x_1}(p), \dots, \pdv{f}{x_n}(p) \right) = 
+(f_{x_1}(p), \dots,f_{x_n}(p)).
+\]
+
 ***** Sturm-Liouville                                             :drill:
 SCHEDULED: <2018-04-23 Mon>
 :PROPERTIES:
@@ -4328,9 +4349,23 @@ Buscar $u \in H^1_0$ tal que el razonamiento que lleva a Euler-Lagrange
 sea cierto para todo $\phi \in H_0^1$.
 
 \[
-\int_{\Omega} \left(  \right)
+\int_{\Omega} \left(
+\sigma\nabla u \cdot \nabla \phi + \alpha u \phi
+\right)\,dx - 
+\int_{\Omega} \left(
+f \phi
+\right)\,dx = 0
 \]
 
+Podemos observar una parte cuadrática $\alpha(u,\phi)$ en el primer sumando
+y una parte lineal $\tf(\phi)$ en el segundo. Es decir,
+
+\[
+a(u,\phi) - \tf(\phi) = 0.
+\]
+
+Si consideramos $J(u) = \frac{1}{2}a(u,u) - \tf(u)$, minimizar este operador
+es de nuevo el problema variacional.
 
 ***** Teorema 30. Teorema de Lax-Milgram
 Sea $a \colon H \times H \to \mathbb{R}$ bilineal continua sobre un espacio de Hilbert.
@@ -4359,6 +4394,9 @@ Además, si $a$ es simétrica, $u_\tf$ es la única solución de
 \end{aligned}\right.\]
 
 donde $J(u) = \frac{1}{2} a(u,u) - \tf(u)$ es un operador cuadrático.
+
+****** TODO Demostración
+
 
 **** CARDS
 ***** Fórmula de Green                                            :drill:
@@ -4855,6 +4893,9 @@ Tenemos entonces el mismo razonamiento para cualquier componente y
 en sentido débil.
 
 ** Curvas y superficies
+# En estos apuntes, las cartas de org-drill no están separadas del
+# resto de apuntes. Están marcadas con :drill:
+
 *** Datos de la asignatura
 César Rosales - crosales@ugr.es
 Lunes, Martes y Miércoles de 12 a 14.
@@ -5497,302 +5538,7 @@ k(s)(\sin^2 \theta(s) + \cos^2 \theta(s)) =
 k(s).
 \]
 
-*** Tema 2. Superficies
-**** 2.1. Definición de superficie y ejemplos
-***** 2.1.0. Definición de superficie
-****** Superficie
-Un $\varnothing \neq S \subseteq \mathbb{R}^3$ es *superficie* si para cada $p \in S$ tiene un entorno
-abierto $V_p \subseteq S$ (*entorno coordenado*) y una *parametrización* desde
-$X \colon U \to S$ para un abierto $U \subset \mathbb{R}^2$ tal que
-
- 1. $X \colon U \to \mathbb{R}^3$ es diferenciable,
- 2. $(dX)_q\colon \mathbb{R}^2 \to \mathbb{R}^3$ es inyectiva para cada $q \in U$,
- 3. $X(U) = V$ con $X \colon U \to V$ homeomorfismo.
-
-****** TODO Notas sobre la definición de superficie
-****** Construcciones en superficies
-Para $S$ superficie,
-
- * $S'$ abierto no vacío de $S$ es superficie;
-
- * para $\phi \colon O \to O'$ difeomorfismo entre abiertos con $S \subseteq O$, 
-   $S' := \phi(S)$ es una superficie.
-
-******* TODO Proof
-
-***** TODO 2.1.1. Grafos diferenciables
-***** 2.1.2. Superficies en forma implícita
-
-****** Teorema de la función implícita
-Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Dados $a \in \mathbb{R}$ y $p = (x_0,y_0,z_0)$ con $f(p) = a$
-y $f_z(p) \neq 0$; existen
-
- * $(x_0,y_0) \in U \subseteq \mathbb{R}^2$ entorno abierto,
-
- * $z_0 \in I \subseteq \mathbb{R}$ intervalo abierto,
-
- * $\varphi \in {\cal C}^{\infty}(U)$ con $\varphi(U) \subseteq I$,
-
-tales que
-
- 1. $U \times I \subseteq O$,
-
- 2. $\varphi(x_0,y_0) = z_0$,
-
- 3. $f^{-1}(a) \cap U \times I = G^z(\varphi)$.
-
-******* Proof                                                   :extra:
-# Se asume.
-
-****** Valores singulares y valores regulares
-Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Un $a \in \mathbb{R}$ es *valor singular* si
-es la imagen de un punto crítico, $f(p) = a$ y $(\nabla f)(p) = 0$. En otro
-caso, es un *valor regular*. $VS(f)$ es el conjunto de valores
-singulares y $VR(f)$ el conjuto de valores regulares.
-
-****** TODO Teorema de Sard
-
-****** Superficie implícita de un valor regular
-Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Si $a \in VR(f)$, entonces $f^{-1}(a)$
-es vacío o una superficie de $\mathbb{R}^3$.
-
-******* Proof
-
-***** 2.1.3. Superficies de revolución
-****** Creando una superficie de revolución
-Sea $P$ el plano de ecuación $y = 0$ y $P^+$ su semiplano abierto $x > 0$.
-Sea $\alpha \colon I \to \mathbb{R}^3$ regular y embebida con $\alpha(I) \subseteq P^+$. Definimos
-
-\[
-S_{\alpha} =
-\left\{ \phi_{\theta}(\alpha(t))
-\mid t \in I, \theta \in \mathbb{R}
-\right\}.
-\]
-
-Y $X \colon I \times \mathbb{R} \to \mathbb{R}^3$ dada por
-
-\[
-X(t,\theta) = \varphi_{\theta}(\alpha(t)) = (x(t)\cos(\theta), x(t)\sin(\theta), z(t)),
-\]
-
-para $\alpha(t) = (x(t),0,z(t))$.
-
-Aquí $S_{\alpha}$ es superficie de revolución respecto del eje Z y
-si llamamos $U_1 = I \times (0,2\pi)$ y $U_2 = I \times (-\pi,\pi)$ tenemos
-un atlas con entornos coordenados $V_1 = S_{\alpha} - \alpha(I)$ y
-$V_2 = S_{\alpha} - \phi_{\pi}(\alpha(I))$.
-
-******* TODO Proof
-
-****** Paralelos y meridianos
-
-**** 2.2. Cambio de parámetros
-*** Tema 3. Curvatura de superficies
-*** Tema 4. Geodésicas
-*** Ejercicios
-**** Ejercicios de clase
-***** Ejercicio 20-Feb A
-#+begin_statement
-Probar que no existe un plano afín conteniendo a la traza de
-una hélice circular de eje vertical.
-#+end_statement
-
-Si un plano contiene a dos puntos, contiene a la recta entre ellos,
-luego en particular el plano contiene a todos los puntos de la
-forma $(\sin(t), \cos(t), k)$.
-
-En particular, contendría a un círculo $(\sin(t), \cos(t), 0)$, por
-tanto a tres de sus puntos y debería ser el plano que determinan
-esos tres puntos, $L(x,y,0)$; pero también a $(1,0,1)$, por ejemplo,
-lo que es imposible.
-
-***** Ejercicio 20-Feb B
-#+begin_statement
-Probar que las rectas afines a la hélice forman un ángulo constante
-con el eje z.
-#+end_statement
-
-**** Relación Tema 1
-***** TODO Ejercicio 3
-***** TODO Ejercicio 5
-***** TODO Ejercicio 11
-***** TODO Ejercicio 12
-***** TODO Ejercicio 15
-***** Ejercicio 22
-#+begin_statement
-Sean $\alpha,\beta \colon I \to \mathbb{R}^3$ dos curvas p.p.a. tales que $k_{\beta}(s) = k_{\alpha}(s) > 0$ y $\tau_{\beta}(s) = -\tau_{\alpha}(s)$
-para cada $s \in I$. Probar que existe un movimiento rígido inverso $\phi \colon \mathbb{R}^3 \to \mathbb{R}^3$ tal
-que $\beta = \phi \circ \alpha$.
-#+end_statement
-
-Aplicamos simetría respecto de un plano a una de ellas, comprobamos que
-se mantiene la curvatura y que cambia la torsión usando propiedades de
-los determinantes. Aplicamos el Teorema fundamental.
-
-***** Ejercicio 23
-#+begin_statement
-Sea $\alpha \colon \mathbb{R} \to \mathbb{R}^2$ una curva plana p.p.a. Utilizar el teorema fundamental de
-curvas en $\mathbb{R}^2$ para probar que, si la curvatura de $\alpha$ es una función par, entonces
-la traza de $\alpha$ es simétrica con respecto a la recta afín normal $R$ de $\alpha$ en $s=0$.
-#+end_statement
-
-Tomamos la reparametrización $\beta(t) = \alpha(-t)$, que nos da una curva plana $\beta \colon \mathbb{R}\to\mathbb{R}^2$ 
-que además es p.p.a., por tenerse $|\beta'(t)| = |-\alpha'(t)| = |\alpha'(t)| = 1$. Sabiendo que la
-curvatura cambia de signo con reparametrizaciones decrecientes y que es una
-función par, $k_{\beta}(t) = -k_{\alpha}(-t) = -k_{\alpha}(t)$.
-
-Por otro lado, eligiendo un movimiento rígido inverso cualquiera, $\psi \colon \mathbb{R}^2 \to \mathbb{R}^2$, sabemos 
-que $k_{\psi \circ \alpha}(t) = -k_{\alpha}(t) = k_{\beta}(t)$ y podemos aplicar el teorema fundamental de curvas
-en el plano para obtener un movimiento rígido directo $\psi'$ tal que
-$\psi' \circ \psi \circ \alpha = \beta$. En otras palabras, existe un movimiento rígido inverso $\phi$ tal
-que $\phi\circ \alpha = \beta$, porque la composición de un movimiento rígido inverso con un
-movimiento rígido directo cualquiera es un movimiento rígido inverso.
-
-Ahora, si llamamos $\alpha(0) = p_0$, tenemos que $\phi(p_0) = p_0$, y al tener un punto
-fijo sólo puede ser una simetría. Además, aplicando la regla de la cadena
-en varias variables y siendo $\vec{\phi}$ la parte lineal de $\phi$, tenemos
-\[\begin{aligned}
-T_{\alpha}(0) &= \alpha'(0) = -\beta'(0) = -(\phi \circ \alpha)'(0) = - \mathrm{Jac}_{\phi}(\alpha(0)) (\alpha'(0))
-\\&= -\vec{\phi}(\alpha'(0)) = -\vec{\phi}(T_{\alpha}(0))
-\end{aligned}\]
-
-por lo que el eje de simetría es perpendicular a $T_{\alpha}(0)$, que es no nulo por
-regularidad, y es por tanto paralelo a $N_{\alpha}(0)$. El movimiento $\phi$ es una
-simetría de eje paralelo a $N_{\alpha}(0)$ pasando por $p_0$.
-
-Finalmente, si $q \in \alpha(\mathbb{R})$ entonces existe $s \in \mathbb{R}$ tal que $\alpha(s) = q$ y
-tenemos que $\phi(q) = \phi(\alpha(s)) = \alpha(-s) \in \alpha(\mathbb{R})$.
-
-**** Relación Tema 2
-*** Cards
-**** Preliminares
-***** Definición de base positiva                                 :drill:
-SCHEDULED: <2018-04-21 Sat>
-:PROPERTIES:
-:ID:       e15a4412-930d-4f6a-aa20-d64196a6f4e2
-:DRILL_LAST_INTERVAL: 10.7997
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 21:59]
-:END:
-Fijada la orientación de la base usual, ¿cuándo es una base
-$B = \left\{ u_1,\dots,u_n \right\}$ positiva?
-
-****** Definición
-Cuando la matriz de cambio de base de $B$ a $B_u$ es positiva. Es
-decir,
-
-\[\mathrm{det}(u_1 & \dots & u_n) > 0.
-\]
-
-***** Movimientos rígidos de R2                                   :drill:
-SCHEDULED: <2018-05-09 Wed>
-:PROPERTIES:
-:DRILL_CARD_TYPE: hide2cloze
-:ID:       16a826aa-c93d-4e46-afb4-05682a832bb1
-:DRILL_LAST_INTERVAL: 28.7139
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:10]
-:END:
-|----------------------+------------------+--------------+-----------|
-| Tipo de movimiento   | Isometría        | Puntos fijos | Carácter  |
-|----------------------+------------------+--------------+-----------|
-| Identidad            | Identidad        | Todo R2      | directo   |
-| Traslación           | Identidad        | [ninguno]    | directo   |
-| Giro                 | Giro             | [Centro]     | directo   |
-| Reflexión            | [Simetría axial] | [Eje]        | [inverso] |
-| Reflexión deslizante | Simetría axial   | [ninguno]    | inverso   |
-|----------------------+------------------+--------------+-----------|
-
-***** Movimientos rígidos de R3                                   :drill:
-:PROPERTIES:
-:ID:       e3a04df3-1d89-49c7-a0e1-77559f0989f1
-:END:
-***** Norma del producto vectorial                                :drill:
-SCHEDULED: <2018-05-05 Sat>
-:PROPERTIES:
-:ID:       1fd12884-9b75-47ec-ac19-dcb6e51931da
-:DRILL_LAST_INTERVAL: 25.0
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:09]
-:END:
-Da la fórmula de $\left| u \times v \right|^2$ 
-
- * en función de $|u|,|v|,\left\langle u,v \right\rangle$,
-
- * y en función de $\mathrm{det}(u,v,-)$.
-
-****** Fórmula
-
-\[ |u \times v|^2 = 
-\mathrm{det}(u,v,u \times v) = 
-\left| u \right|^2|v|^2 - \left\langle u,v \right\rangle^2 
-\]
-
-***** Difeomorfismo local que no es global                        :drill:
-SCHEDULED: <2018-05-07 Mon>
-:PROPERTIES:
-:ID:       2125fe6e-2af6-4d4d-a641-7e1e9759f42e
-:DRILL_LAST_INTERVAL: 27.1381
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.667
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:13]
-:END:
-¿Cómo podemos construir un difeomorfismo local en cada punto que no
-sea difeomorfismo global?
-
-****** Construirlo
-Podríamos tener una función con Jacobiano con determinante no nulo
-en cada punto pero que no fuera siquiera inyectiva.
-
-\[
-f(x,y) = (e^x \sin(y), e^x \cos(y))
-\]
-
-Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]]. Se tiene isomorfismo por $\det Df(x,y)=e^{2x}$.
-
-***** Teorema de la función inversa                               :drill:
-SCHEDULED: <2018-05-02 Wed>
-:PROPERTIES:
-:ID:       63d019ff-edf9-4e64-aed4-9a0823572061
-:DRILL_LAST_INTERVAL: 22.0926
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.333
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:08]
-:END:
-Enuncia el teorema de la función inversa para una aplicación entre
-abiertos $\phi \colon O \to O'$ diferenciable.
-
-/Hint/: hay que dar una condición sobre $(d\phi)_p$.
-
-****** Enunciado
-Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
-se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
-
-**** Tema 1. Curvas
+**** CARDS
 ***** 1. Curvas regulares y longitud de arco
 ****** Embebimiento                                              :drill:
 SCHEDULED: <2018-04-27 Fri>
@@ -5999,6 +5745,465 @@ Enuncia con palabras el teorema fundamental de curvas.
 Dada una curvatura positiva y una torsión en un intervalo, existe una
 curva parametrizada por el arco que las realiza, única salvo
 movimientos rígidos directos.
+*** Tema 2. Superficies
+**** 2.1. Definición de superficie y ejemplos
+***** 2.1.0. Definición de superficie
+****** Superficie
+:PROPERTIES:
+:ID:       061e98dc-b077-4e5d-a7fd-f114f6908ed5
+:END:
+Un $\varnothing \neq S \subseteq \mathbb{R}^3$ es *superficie* si para cada $p \in S$ tiene un entorno
+abierto $V_p \subseteq S$ (*entorno coordenado*) y una *parametrización* desde
+$X \colon U \to S$ para un abierto $U \subset \mathbb{R}^2$ tal que
+
+ 1. $X \colon U \to \mathbb{R}^3$ es diferenciable,
+ 2. $(dX)_q\colon \mathbb{R}^2 \to \mathbb{R}^3$ es inyectiva para cada $q \in U$,
+ 3. $X(U) = V$ con $X \colon U \to V$ homeomorfismo.
+
+****** TODO Notas sobre la definición de superficie
+****** Construcciones en superficies
+Para $S$ superficie,
+
+ * $S'$ abierto no vacío de $S$ es superficie;
+
+ * para $\phi \colon O \to O'$ difeomorfismo entre abiertos con $S \subseteq O$, 
+   $S' := \phi(S)$ es una superficie.
+
+******* TODO Proof
+
+***** TODO 2.1.1. Grafos diferenciables
+***** 2.1.2. Superficies en forma implícita
+
+****** Teorema de la función implícita
+Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Dados $a \in \mathbb{R}$ y $p = (x_0,y_0,z_0)$ con $f(p) = a$
+y $f_z(p) \neq 0$; existen
+
+ * $(x_0,y_0) \in U \subseteq \mathbb{R}^2$ entorno abierto,
+
+ * $z_0 \in I \subseteq \mathbb{R}$ intervalo abierto,
+
+ * $\varphi \in {\cal C}^{\infty}(U)$ con $\varphi(U) \subseteq I$,
+
+tales que
+
+ 1. $U \times I \subseteq O$,
+
+ 2. $\varphi(x_0,y_0) = z_0$,
+
+ 3. $f^{-1}(a) \cap U \times I = G^z(\varphi)$.
+
+******* Proof                                                   :extra:
+# Se asume.
+
+****** Valores singulares y valores regulares
+Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Un $a \in \mathbb{R}$ es *valor singular* si
+es la imagen de un punto crítico, $f(p) = a$ y $(\nabla f)(p) = 0$. En otro
+caso, es un *valor regular*. $VS(f)$ es el conjunto de valores
+singulares y $VR(f)$ el conjuto de valores regulares.
+
+****** TODO Teorema de Sard
+
+****** Superficie implícita de un valor regular
+Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Si $a \in VR(f)$, entonces $f^{-1}(a)$
+es vacío o una superficie de $\mathbb{R}^3$.
+
+******* Proof
+
+***** 2.1.3. Superficies de revolución
+****** Creando una superficie de revolución
+Sea $P$ el plano de ecuación $y = 0$ y $P^+$ su semiplano abierto $x > 0$.
+Sea $\alpha \colon I \to \mathbb{R}^3$ regular y embebida con $\alpha(I) \subseteq P^+$. Definimos
+
+\[
+S_{\alpha} =
+\left\{ \phi_{\theta}(\alpha(t))
+\mid t \in I, \theta \in \mathbb{R}
+\right\}.
+\]
+
+Y $X \colon I \times \mathbb{R} \to \mathbb{R}^3$ dada por
+
+\[
+X(t,\theta) = \varphi_{\theta}(\alpha(t)) = (x(t)\cos(\theta), x(t)\sin(\theta), z(t)),
+\]
+
+para $\alpha(t) = (x(t),0,z(t))$.
+
+Aquí $S_{\alpha}$ es superficie de revolución respecto del eje Z y
+si llamamos $U_1 = I \times (0,2\pi)$ y $U_2 = I \times (-\pi,\pi)$ tenemos
+un atlas con entornos coordenados $V_1 = S_{\alpha} - \alpha(I)$ y
+$V_2 = S_{\alpha} - \phi_{\pi}(\alpha(I))$.
+
+******* TODO Proof
+
+****** Paralelos y meridianos
+
+**** 2.2. Cambio de parámetros
+***** 2.2.1. Lema técnico para el cambio de parámetros
+$S$ superficie, $X \colon U \to S$ parametrización local y $p \in U$. Existen
+
+ * $q \in U_q \subset U$, $X(q) \in V_q \subset S$ entornos abiertos,
+
+ * $\pi \colon \mathbb{R}^3 \to \mathbb{R}^2$, proyección en alguna variable,
+
+ * $(\pi \circ X)(q) \in D_q \subset \mathbb{R}^2$ entorno abierto,
+
+ * $\varphi \in {\cal C}^{\infty}(D_q)$.
+
+Cumpliendo que
+
+ * $(\pi \circ X)_{|U_q} \colon U_q \to D_q$ es difeomorfismo de abiertos de $\mathbb{R}^2$,
+
+ * $V_q = G(\varphi)$ grafo sobre la variable,
+
+ * $\pi_{|V_q} \colon V_q \to D_q$ biyectiva.
+
+****** Proof
+******* Primer punto
+La Jacobiana de $X(u,v) = (x(u,v),y(u,v),z(u,v)$ tiene rango 2 por
+definición de [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][parametrización]]. Tendremos un menor no nulo de la
+forma siguiente, que determina la elección de la coordenada a proyectar.
+
+\[\begin{vmatrix}
+x_u(q) & x_v(q) \\
+y_u(q) & y_v(q)
+\end{vmatrix} \neq 0\]
+
+Ahora, la Jacobiana de $(\pi \circ X)$ es esta, y $d(\pi \circ X)$ es isomorfismo.
+Por [[id:16bd6b42-7b91-4fcf-8979-faabc0acd594][Teorema de la función inversa]], es difeomorfismo local, luego
+tenemos entornos donde $(\pi \circ X)_{|U_q}\colon U_q \to D_q$ es un difeomorfismo.
+
+******* Segundo punto
+$V_q = X(U_q)$ es abierto de $S$ porque $U_q \subset U$ es abierto, $X \colon U \to X(U)$
+es homeomorfismo y $X(U)$ es un [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][entorno coordenado]] y por tanto abierto.
+Llamamos $Y = X \circ (\pi \circ X)^{-1} = (\alpha,\beta,\varphi)$, diferenciables por $Y \in {\cal C}^{\infty}(D_q)$ por
+regla de la cadena clásica. Como $\pi \circ Y = \id$, debe tenerse $Y_{|D_q}(u,v) = (u,v,\varphi(u,v))$,
+luego $V_q = G^z(\varphi)$.
+
+******* Tercer punto
+$\pi(V_q) = (\pi \circ X)(U_{q}) = D_q$ y es biyectiva porque tiene como
+inversa a la $Y$, lo que se deduce de que $V_q = G^z(\varphi)$.
+
+***** 2.2.2. Corolario: una superficie es localmente un grafo
+Para $p \in S$ superficie, existe un $p \in V \subset S$ entorno que es
+el grafo de una función diferenciable. Esto puede usarse para
+probar que ciertos conjuntos no son superficies.
+
+***** 2.2.4. Cambio de parámetros
+$S$ superficie, $X \colon U \to S$ e $Y \colon U' \to S$ parametrizaciones locales
+con $W = X(U) \cap Y(U) \neq \varnothing$. Entonces el cambio de parámetros
+$h = X^{-1} \circ Y \colon Y^{-1}(W) \to X^{-1}(W)$ es un difeomorfismo.
+
+#  ¿Un difeomorfismo es siempre entre abiertos de R^n?
+
+****** TODO Proof
+**** 2.3. El plano tangente
+***** TODO 2.3.1. Diferencial invariante a cambios de parámetros
+***** TODO 2.3.2. Espacio tangente
+***** TODO 2.3.4. El espacio tangente es un plano tangente
+***** TODO 2.3.6. Plano afín tangente y recta afín normal
+***** TODO 2.3.14. Primera forma fundamental
+**** 2.4. Superficies y cálculo diferencial
+***** 2.4.1. Aplicaciones diferenciables
+Dados $S,S'$ superficies, $O \subset \mathbb{R}^n, O' \subset \mathbb{R}^m$ abiertos. Definimos
+*diferenciabilidad* en los siguientes casos
+
+ * $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$ si $f \circ X \in {\cal C}^{\infty}(U,\mathbb{R}^m)$ para cualquier parametrización.
+
+ * $f \in {\cal C}^{\infty}(S,O')$ si $i \circ f \in {\cal C}^{\infty}(S, \mathbb{R}^m)$, donde $i$ es la inclusión.
+
+ * $f \in {\cal C}^{\infty}(S,S')$ si $i \circ f \in {\cal C}^{\infty}(S,\mathbb{R}^3)$, donde $i$ es la inclusión.
+
+ * $f \in {\cal C}^{\infty}(O,S')$ si $i \circ f \in {\cal C}^{\infty}(O,\mathbb{R}^3)$, donde $i$ es la inclusión.
+
+****** Card                                                      :drill:
+Definir diferenciabilidad en los cuatro casos
+
+ * $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$ 
+
+ * $f \in {\cal C}^{\infty}(S,O')$ 
+
+ * $f \in {\cal C}^{\infty}(S,S')$ 
+
+ * $f \in {\cal C}^{\infty}(O,S')$ 
+
+******* Definición
+
+ * $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$ si $f \circ X \in {\cal C}^{\infty}(U,\mathbb{R}^m)$ para cualquier parametrización.
+
+ * $f \in {\cal C}^{\infty}(S,O')$ si $i \circ f \in {\cal C}^{\infty}(S, \mathbb{R}^m)$, donde $i$ es la inclusión.
+
+ * $f \in {\cal C}^{\infty}(S,S')$ si $i \circ f \in {\cal C}^{\infty}(S,\mathbb{R}^3)$, donde $i$ es la inclusión.
+
+ * $f \in {\cal C}^{\infty}(O,S')$ si $i \circ f \in {\cal C}^{\infty}(O,\mathbb{R}^3)$, donde $i$ es la inclusión.
+
+***** 2.4.2. Diferenciabilidad de parametrizaciones
+Para $X$ parametrización local, $X \in {\cal C}^{\infty}(U,S)$ y $X^{-1} \in {\cal C}^{\infty}(XU,U)$.
+
+****** TODO Proof
+****** Cards                                                     :drill:
+Diferenciabilidad de las parametrizaciones locales y sus inversas.
+
+******* Diferenciabilidad
+Para $X$ parametrización local, $X \in {\cal C}^{\infty}(U,S)$ y $X^{-1} \in {\cal C}^{\infty}(XU,U)$.
+Nótese que sabíamos por definición $X \in {\cal C}^{\infty}(U,\mathbb{R}^3)$.
+
+***** 2.4.3. Caracterización de diferenciable por atlas
+Equivalen
+
+ * $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$,
+
+ * existe un atlas tal que $f \circ X_i \colon U_i \to \mathbb{R}^m$ es siempre diferenciable.
+
+****** TODO Proof
+****** Card                                                      :drill:
+Da una caracterización de $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$ usando atlas.
+
+******* Caracterización 
+Existe un atlas tal que $f \circ X_i \colon U_i \to \mathbb{R}^m$ es siempre
+diferenciable.
+
+***** 2.4.4. Propiedades de aplicaciones diferenciables
+
+ 1) Toda diferenciable es continua.
+
+ 2) $f+g$, $\varphi f$, $\lambda f$, $\pair{f,g}$, $\varphi/\psi$ son diferenciables con $\psi(p) \neq 0$.
+
+ 3) para $S \subset O$, se tiene $f \in {\cal C}^{\infty}(O,\mathbb{R}^m) \implies f_{|S} \in {\cal C}^{\infty}(S,\mathbb{R}^m)$
+
+ 4) para $S = \bigcup S_i$, se tiene $f \in {\cal C}^{\infty}(S_i,\mathbb{R}^m) \iff f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$
+
+ 5) regla de la cadena $f \in {\cal C}^{\infty}(S,S'), g\in {\cal C}^{\infty}(S',S'') \implies f \circ g\in {\cal C}^{\infty}(S,S'')$.
+
+****** TODO Proof
+***** 2.4.6. Diferencial de una aplicación diferenciable
+La diferencial de $f \colon S \to S'$ en $p \in S$ es la aplicación $(df)_p \colon T_pS \to T_{f(p)}S'$
+dada por
+
+\[
+(df)_p(v) := (f \circ \alpha)'(0)
+\]
+
+donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) = p$ y $\alpha'(0) = v$.
+
+****** TODO Proof
+****** Card                                                      :drill:
+Define la diferencial de $f \colon S \to S'$ en $p \in S$.
+
+******* Definición
+La aplicación $(df)_p \colon T_pS \to T_{f(p)}S'$ dada por
+
+\[
+(df)_p(v) := (f \circ \alpha)'(0)
+\]
+
+donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) = p$ y $\alpha'(0) = v$.
+
+*** Tema 3. Curvatura de superficies
+*** Tema 4. Geodésicas
+*** Ejercicios
+**** Ejercicios de clase
+***** Ejercicio 20-Feb A
+#+begin_statement
+Probar que no existe un plano afín conteniendo a la traza de
+una hélice circular de eje vertical.
+#+end_statement
+
+Si un plano contiene a dos puntos, contiene a la recta entre ellos,
+luego en particular el plano contiene a todos los puntos de la
+forma $(\sin(t), \cos(t), k)$.
+
+En particular, contendría a un círculo $(\sin(t), \cos(t), 0)$, por
+tanto a tres de sus puntos y debería ser el plano que determinan
+esos tres puntos, $L(x,y,0)$; pero también a $(1,0,1)$, por ejemplo,
+lo que es imposible.
+
+***** Ejercicio 20-Feb B
+#+begin_statement
+Probar que las rectas afines a la hélice forman un ángulo constante
+con el eje z.
+#+end_statement
+
+**** Relación Tema 1
+***** TODO Ejercicio 3
+***** TODO Ejercicio 5
+***** TODO Ejercicio 11
+***** TODO Ejercicio 12
+***** TODO Ejercicio 15
+***** Ejercicio 22
+#+begin_statement
+Sean $\alpha,\beta \colon I \to \mathbb{R}^3$ dos curvas p.p.a. tales que $k_{\beta}(s) = k_{\alpha}(s) > 0$ y $\tau_{\beta}(s) = -\tau_{\alpha}(s)$
+para cada $s \in I$. Probar que existe un movimiento rígido inverso $\phi \colon \mathbb{R}^3 \to \mathbb{R}^3$ tal
+que $\beta = \phi \circ \alpha$.
+#+end_statement
+
+Aplicamos simetría respecto de un plano a una de ellas, comprobamos que
+se mantiene la curvatura y que cambia la torsión usando propiedades de
+los determinantes. Aplicamos el Teorema fundamental.
+
+***** Ejercicio 23
+#+begin_statement
+Sea $\alpha \colon \mathbb{R} \to \mathbb{R}^2$ una curva plana p.p.a. Utilizar el teorema fundamental de
+curvas en $\mathbb{R}^2$ para probar que, si la curvatura de $\alpha$ es una función par, entonces
+la traza de $\alpha$ es simétrica con respecto a la recta afín normal $R$ de $\alpha$ en $s=0$.
+#+end_statement
+
+Tomamos la reparametrización $\beta(t) = \alpha(-t)$, que nos da una curva plana $\beta \colon \mathbb{R}\to\mathbb{R}^2$ 
+que además es p.p.a., por tenerse $|\beta'(t)| = |-\alpha'(t)| = |\alpha'(t)| = 1$. Sabiendo que la
+curvatura cambia de signo con reparametrizaciones decrecientes y que es una
+función par, $k_{\beta}(t) = -k_{\alpha}(-t) = -k_{\alpha}(t)$.
+
+Por otro lado, eligiendo un movimiento rígido inverso cualquiera, $\psi \colon \mathbb{R}^2 \to \mathbb{R}^2$, sabemos 
+que $k_{\psi \circ \alpha}(t) = -k_{\alpha}(t) = k_{\beta}(t)$ y podemos aplicar el teorema fundamental de curvas
+en el plano para obtener un movimiento rígido directo $\psi'$ tal que
+$\psi' \circ \psi \circ \alpha = \beta$. En otras palabras, existe un movimiento rígido inverso $\phi$ tal
+que $\phi\circ \alpha = \beta$, porque la composición de un movimiento rígido inverso con un
+movimiento rígido directo cualquiera es un movimiento rígido inverso.
+
+Ahora, si llamamos $\alpha(0) = p_0$, tenemos que $\phi(p_0) = p_0$, y al tener un punto
+fijo sólo puede ser una simetría. Además, aplicando la regla de la cadena
+en varias variables y siendo $\vec{\phi}$ la parte lineal de $\phi$, tenemos
+\[\begin{aligned}
+T_{\alpha}(0) &= \alpha'(0) = -\beta'(0) = -(\phi \circ \alpha)'(0) = - \mathrm{Jac}_{\phi}(\alpha(0)) (\alpha'(0))
+\\&= -\vec{\phi}(\alpha'(0)) = -\vec{\phi}(T_{\alpha}(0))
+\end{aligned}\]
+
+por lo que el eje de simetría es perpendicular a $T_{\alpha}(0)$, que es no nulo por
+regularidad, y es por tanto paralelo a $N_{\alpha}(0)$. El movimiento $\phi$ es una
+simetría de eje paralelo a $N_{\alpha}(0)$ pasando por $p_0$.
+
+Finalmente, si $q \in \alpha(\mathbb{R})$ entonces existe $s \in \mathbb{R}$ tal que $\alpha(s) = q$ y
+tenemos que $\phi(q) = \phi(\alpha(s)) = \alpha(-s) \in \alpha(\mathbb{R})$.
+
+**** Relación Tema 2
+*** Cards
+**** Preliminares
+***** Definición de base positiva                                 :drill:
+SCHEDULED: <2018-04-21 Sat>
+:PROPERTIES:
+:ID:       e15a4412-930d-4f6a-aa20-d64196a6f4e2
+:DRILL_LAST_INTERVAL: 10.7997
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 21:59]
+:END:
+Fijada la orientación de la base usual, ¿cuándo es una base
+$B = \left\{ u_1,\dots,u_n \right\}$ positiva?
+
+****** Definición
+Cuando la matriz de cambio de base de $B$ a $B_u$ es positiva. Es
+decir,
+
+\[\mathrm{det}(u_1 & \dots & u_n) > 0.
+\]
+
+***** Movimientos rígidos de R2                                   :drill:
+SCHEDULED: <2018-05-09 Wed>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide2cloze
+:ID:       16a826aa-c93d-4e46-afb4-05682a832bb1
+:DRILL_LAST_INTERVAL: 28.7139
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:10]
+:END:
+|----------------------+------------------+--------------+-----------|
+| Tipo de movimiento   | Isometría        | Puntos fijos | Carácter  |
+|----------------------+------------------+--------------+-----------|
+| Identidad            | Identidad        | Todo R2      | directo   |
+| Traslación           | Identidad        | [ninguno]    | directo   |
+| Giro                 | Giro             | [Centro]     | directo   |
+| Reflexión            | [Simetría axial] | [Eje]        | [inverso] |
+| Reflexión deslizante | Simetría axial   | [ninguno]    | inverso   |
+|----------------------+------------------+--------------+-----------|
+
+***** Movimientos rígidos de R3                                   :drill:
+:PROPERTIES:
+:ID:       e3a04df3-1d89-49c7-a0e1-77559f0989f1
+:END:
+***** Norma del producto vectorial                                :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       1fd12884-9b75-47ec-ac19-dcb6e51931da
+:DRILL_LAST_INTERVAL: 25.0
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:09]
+:END:
+Da la fórmula de $\left| u \times v \right|^2$ 
+
+ * en función de $|u|,|v|,\left\langle u,v \right\rangle$,
+
+ * y en función de $\mathrm{det}(u,v,-)$.
+
+****** Fórmula
+
+\[ |u \times v|^2 = 
+\mathrm{det}(u,v,u \times v) = 
+\left| u \right|^2|v|^2 - \left\langle u,v \right\rangle^2 
+\]
+
+***** Difeomorfismo local que no es global                        :drill:
+SCHEDULED: <2018-05-07 Mon>
+:PROPERTIES:
+:ID:       2125fe6e-2af6-4d4d-a641-7e1e9759f42e
+:DRILL_LAST_INTERVAL: 27.1381
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:13]
+:END:
+¿Cómo podemos construir un difeomorfismo local en cada punto que no
+sea difeomorfismo global?
+
+****** Construirlo
+Podríamos tener una función con Jacobiano con determinante no nulo
+en cada punto pero que no fuera siquiera inyectiva.
+
+\[
+f(x,y) = (e^x \sin(y), e^x \cos(y))
+\]
+
+Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]]. Se tiene isomorfismo por $\det Df(x,y)=e^{2x}$.
+
+***** Teorema de la función inversa                               :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       63d019ff-edf9-4e64-aed4-9a0823572061
+:DRILL_LAST_INTERVAL: 22.0926
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:08]
+:END:
+Enuncia el teorema de la función inversa para una aplicación entre
+abiertos $\phi \colon O \to O'$ diferenciable.
+
+/Hint/: hay que dar una condición sobre $(d\phi)_p$.
+
+****** Enunciado
+Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
+se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
+
+
 ** Modelos avanzados de computación
 Serafín Morales
 smc@decsai.ugr.es
@@ -35197,6 +35402,14 @@ The conversation here between Sterling and Bauer is very interesting.
 **** Mikrokosmos resources
 ***** [[http://www.madore.org/~david/computers/callcc.html][A page about call/cc]]
 ***** [[http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=3FF1F113BC01E491476F4F1930F838FE?doi=10.1.1.44.1497&rep=rep1&type=pdf][An untyped lambda calculus with IO]]
+** Miscellany
+*** CARDS
+**** Partitions of a set                                           :drill:
+Number of partitions of a set of $n$ elements.
+***** Answer
+In combinatorial mathematics, *Bell numbers* count the partitions of a set.
+https://en.wikipedia.org/wiki/Bell_number
+
 ** Notas sueltas y borradores
 *** Teorema de aproximación de Weierstrass                          :extra:
 # La generalización de Stone es mucho más elegante, simple y general.
