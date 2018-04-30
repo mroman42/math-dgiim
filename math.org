@@ -275,7 +275,57 @@ En el caso de espacios finitos tenemos la matriz jacobiana
 \end{pmatrix}
 \]
 
-En ocasiones notaremos simplemente a la jacobiana como $f'$.
+En ocasiones notaremos simplemente a la jacobiana como $F'$.
+
+***** Card: Jacobiana                                             :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       4183447e-4b69-4117-a3bd-9181de1bd672
+:DRILL_LAST_INTERVAL: 4.4224
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:38]
+:END:
+¿Qué propiedad define a la Jabobiana $\mathrm{Jac}(F)_p$ ó $F'(p)$?
+
+****** Propiedad
+Es la aplicación lineal cumpliendo
+
+\[
+\lim_{\|x-p\| \to 0} \frac{\|F(x)-F(p) - \mathrm{Jac}(F)_p(x-p)\|}{\|x-p\|} = 0.
+\]
+
+que existe cuando $F$ es diferenciable.
+
+***** Card: construcción de la Jacobiana                          :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       05dc6c9b-cb76-4ee7-85b5-a24f224aad1b
+:DRILL_LAST_INTERVAL: 4.2902
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:37]
+:END:
+¿Cómo construir la jacobiana en espacios finitos?
+
+****** Construcción
+
+\[\begin{pmatrix}
+\displaystyle\pdv{f_1}{x_1} & \dots & 
+\displaystyle\pdv{f_1}{x_n} \\
+\vdots & \ddots & \vdots \\
+\displaystyle\pdv{f_m}{x_1} & \dots & 
+\displaystyle\pdv{f_m}{x_n} \\
+\end{pmatrix}
+\]
 
 **** Hessiana
 :PROPERTIES:
@@ -292,6 +342,51 @@ parciales de una función $f \colon \mathbb{R}^n \to \mathbb{R}$.
 \]
 
 Por el [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][teorema de Schwarz-Clairaut]], es simétrica.
+
+***** Card: definición                                            :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       8d680bfb-66f0-4872-91bf-3011a3a19ec1
+:DRILL_LAST_INTERVAL: 4.1375
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:38]
+:END:
+¿Qué es la Hessiana?¿cuándo existe?
+
+****** Hessiana
+
+\[\begin{pmatrix}
+\pdv[2]{f}{x_1} & \dots & \pdv{f}{x_1}{x_n} \\
+\vdots & \ddots & \vdots \\
+\pdv{f}{x_n}{x_1} & \dots & \pdv[2]{f}{x_n} \\
+\end{pmatrix}
+\]
+
+existe cuando lo hacen todas las segundas derivadas parciales.
+
+***** Card: simetría                                              :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       570c9701-1fb1-4c5c-b381-8bde318e961f
+:DRILL_LAST_INTERVAL: 4.0418
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:37]
+:END:
+¿Cuándo es simétrica la Hessiana?¿por qué?
+
+****** Respuesta
+Cuando las derivadas parciales cruzadas segundas son además
+continuas, por el [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][teorema de Schwarz-Clairaut]], es simétrica.
 
 **** Wronskiana
 La *wronskiana* no nula implica independencia lineal. Nótese sin
@@ -323,7 +418,7 @@ $f_n \overset{c.p.}\longrightarrow f$ si $\forall t \in I\colon \{\| f_n(t) - f(
 ***** Convergencia uniforme
 $f_n \overset{c.u.}\longrightarrow f$ si $\forall \varepsilon > 0\colon \exists n_0\colon \forall n > n_0\colon \forall t \in I\colon \|f_n(t)-f(t)\| < \varepsilon$.
 
-**** CARDS                                                      :noexport:
+**** Cards: tipos de ecuaciones                                 :noexport:
 ***** Ecuaciones homogéneas: forma                                :drill:
 SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
@@ -345,19 +440,19 @@ x' = f \left( \frac{x}{t} \right)
 \]
 
 ***** Ecuaciones homogéneas: resolución                           :drill:
-SCHEDULED: <2018-04-29 Sun>
+SCHEDULED: <2018-06-05 Tue>
 :PROPERTIES:
 :ID:       e558b5d7-7d81-4d91-9486-40352296fda2
-:DRILL_LAST_INTERVAL: 10.3842
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 36.1003
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.2
+:DRILL_AVERAGE_QUALITY: 3.333
 :DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:51]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:50]
 :END:
-Cómo resolver
+Cómo resolver una ecuación homogénea
 
 \[
 x' = f \left( \frac{x}{t} \right).
@@ -424,17 +519,17 @@ u' + (1-n)au + (1-n)b = 0.
 \]
 
 ***** Ecuación de Ricatti                                         :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-28 Mon>
 :PROPERTIES:
 :ID:       1113da24-b90d-4ab0-94d8-e65ae4710470
-:DRILL_LAST_INTERVAL: 10.515
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 27.8033
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 2.714
 :DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:52]
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:44]
 :END:
 Cómo resolver
 
@@ -785,17 +880,17 @@ f(b) - f(a) = \left\langle \grad f(d) , b - a \right\rangle.
 
 **** CARDS
 ***** Teorema del valor medio multivariable                       :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-27 Sun>
 :PROPERTIES:
 :ID:       deccb6c2-471e-4d1a-baff-b96dc400f410
-:DRILL_LAST_INTERVAL: 10.515
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 27.1624
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.2
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:52]
+:DRILL_AVERAGE_QUALITY: 3.167
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:45]
 :END:
 Para $f \in {\cal C}^1(\mathbb{R}^n)$ y $a,b \in \mathbb{R}^n$, enunciar el teorema del valor medio.
 
@@ -875,17 +970,17 @@ Necesitamos $\varphi \colon I \to \mathbb{R}^d$ en $I$ intervalo abierto. Equiva
  2. $\varphi$ es solución de la ecuación de Volterra asociada.
 
 ***** Teorema de Unicidad de Peano: enunciado                     :drill:
-SCHEDULED: <2018-04-29 Sun>
+SCHEDULED: <2018-06-06 Wed>
 :PROPERTIES:
 :ID:       d6ac89c9-f053-4b0d-a8e0-c0233c137e87
-:DRILL_LAST_INTERVAL: 10.3842
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 36.713
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.4
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:54]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:53]
 :END:
 Enuncia el teorema de Unicidad de Peano.
 
@@ -1796,17 +1891,17 @@ tomamos $n_0 = \max\{n_1,\dots,n_k\}$. Finalmente, para $n \geq n_0$,
 \]
 
 ****** Corolario a Ascoli-Arzelá                                 :drill:
-SCHEDULED: <2018-04-29 Sun>
+SCHEDULED: <2018-05-29 Tue>
 :PROPERTIES:
 :ID:       cda99124-7715-4d0b-8892-d901da3817a7
-:DRILL_LAST_INTERVAL: 10.3842
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 28.8384
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.667
 :DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:51]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:43]
 :END:
 ¿Qué dice Ascoli-Arzelá cuando se aplica sobre un compacto?
 
@@ -2087,17 +2182,17 @@ solución de Volterra en intervalo $[t_0-a,t_0+a]$, solución al PVI
 en $(t_0-a,t_0+a)$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-29 Sun>
+SCHEDULED: <2018-05-26 Sat>
 :PROPERTIES:
 :ID:       dd272b8d-7028-46f1-93f3-f77b1f4ceb5e
-:DRILL_LAST_INTERVAL: 10.3842
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 26.0876
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:50]
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:39]
 :END:
 Enuncia el Teorema de Cauchy-Peano.
 
@@ -2599,9 +2694,9 @@ donde $f,g \in {\cal C}(\mathbb{R})$ son localmente lipschitzianas.  Equivale a
 x'_1 = x_2 \\
 x'_2 = -\frac{c}{m}x_2 - \frac{1}{m}g(x_1)
 \end{aligned}\right.\]
-*** Tema 5. Dependencia continua y diferenciable
+*** Tema 5. Continuidad y diferenciabilidad de la solución
 **** 5.1. Entornos tubulares
-***** Entorno tubular de una solución
+***** Entorno tubular
 Para $J \subset \mathbb{R}$ intervalo, $\varphi \colon {\cal C}(J, \mathbb{R})$ y $\rho > 0$,
 
 \[
@@ -2610,16 +2705,207 @@ T_{\rho}(J,\varphi) = \left\{ (t,x) \in J \times \mathbb{R}^d
 \norm{x - \varphi(t)} \leq \rho \right\}.
 \]
 
-***** TODO Lema. Homomorfismo del entorno tubular
+****** Entornos para Picard-Lindelöf
+Los [[id:44351076-d98f-4552-a229-a41405beb6b1][entornos]] de Picard-Lindelöf, son entornos tubulares sobre
+una función constante.
 
-**** 5.1. Convergencia uniforme en compactos
+\[
+{\cal R}_{a,b}(t_0,x_0) = T_b([t_0-a,t_0+a],x_0).
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       0645fdf9-3254-44f3-9354-a00edd4af6a9
+:DRILL_LAST_INTERVAL: 5.332
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:52]
+:END:
+Entorno tubular, $T_{\rho}(J,\varphi)$.
+
+******* Definición
+Para $J \subset \mathbb{R}$ intervalo, $\varphi \colon {\cal C}(J, \mathbb{R})$ y $\rho > 0$,
+
+\[
+T_{\rho}(J,\varphi) = \left\{ (t,x) \in J \times \mathbb{R}^d 
+\;\middle|\;
+\norm{x - \varphi(t)} \leq \rho \right\}.
+\]
+
+****** Card: abiertos o cerrados                                 :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       59fa2dbc-7796-4cd4-91db-cc295bcec020
+:DRILL_LAST_INTERVAL: 4.488
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:39]
+:END:
+¿Los entornos tubulares son abiertos o cerrados?
+
+******* Respuesta
+Cerrados
+
+\[
+T_{\rho}(J,\varphi) = \left\{ (t,x) \in J \times \mathbb{R}^d 
+\;\middle|\;
+\norm{x - \varphi(t)} \leq \rho \right\}.
+\]
+
+***** Lema 1. Homomorfismo del entorno tubular
+
+\[
+T_{\rho}(J,\varphi) \cong J \times \overline{B}(0,\rho).
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       b0afd4f3-2e7a-4222-8273-435a3ab7f163
+:DRILL_LAST_INTERVAL: 4.3325
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:44]
+:END:
+¿A qué espacio más sencillo es homeomorfo el
+entorno tubular $T_p(J,\varphi)$?
+
+******* Respuesta
+
+\[
+T_{\rho}(J,\varphi) \cong J \times \overline{B}(0,\rho)
+\]
+
+***** TODO Lema 2.
+***** TODO Lema 3.
+***** TODO Lema 4.
+**** 5.2. Convergencia uniforme en compactos
 ***** Convergencia uniforme en compactos
 Una sucesión $f_n \colon I_n \to \mathbb{R}^d$ *converge uniformemente en compactos* a $f \colon I \to \mathbb{R}$
-si para todo $K \subset I$ compacto hay una cola de $f_n$ definida en $K$ y convergiendo
-uniformemente a $f$ ahí.
+en intervalos. Si para todo $[a,b] \subset I$, a partir de un $n_0$,
 
-**** 5.2. Continuidad de la solución general
-***** Desigualdad fundamental
+\[
+[a,b] \subseteq I_n, \mbox{ y además }\quad
+f_n_{|[a,b]} \overset{c.u.}\longrightarrow f_{|[a,b]}.
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       8b8c5241-89f5-4f08-b039-7e62f401a15f
+:DRILL_LAST_INTERVAL: 3.7571
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:40]
+:END:
+Convergencia uniforme en compactos.
+
+******* Definición
+Tenemos $f_n_{|I_n} \overset{cuc}\longrightarrow f_{|I}$ si para todo $[a,b] \subset I$, a partir de un $n_0$,
+
+ * $[a,b] \subseteq I_n$,
+
+ * $f_n_{|[a,b]} \overset{cu}\longrightarrow f_{|[a,b]}$.
+
+****** Card: convergencia uniforme en compactos pero no uniforme :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       c69612d6-af02-41c5-82b5-abb4085409db
+:DRILL_LAST_INTERVAL: 4.6327
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:47]
+:END:
+Ejemplo de $f_n$ que convergen uniformemente en compactos pero
+no uniformemente.
+
+******* Ejemplo
+En $f_n \colon \mathbb{R} \to \mathbb{R}$, trivialmente no convergen uniformemente pero
+sí convergen en cualquier compacto.
+
+\[
+f_n(t) = \frac{1}{n}t
+\]
+
+****** Card: convergencia puntual no uniforme en compactos       :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       a23dd345-50e1-4c73-a77a-9aa9abf4a93a
+:DRILL_LAST_INTERVAL: 4.5939
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:46]
+:END:
+Ejemplo de $f_n$ que converge puntual pero no uniformemente en
+compactos.
+
+******* Ejemplo
+En $[0,1]$, las funciones $f_n = x^n$ convergen puntualmente a una
+función no continua.
+
+******* Ejemplo
+En $[0,1]$, podemos tomar
+
+\[
+f_n(t) = n \left( t + \frac{1}{n} \right)_+ - n(t)_+
+\]
+
+que crean un escalón entre $[1/n,0]$, haciendo que no haya convergencia
+uniforme en cualquier intervalo conteniendo a $0$.
+
+***** Lema 5. Continuidad del límite de convergencia uniforme en compactos
+Si $f_n \in {\cal C}(I_n)$ y $f_n \overset{cuc}\longrightarrow f$, entonces $f \in {\cal C}(I)$.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       c62d7140-be30-4f57-8c75-d10ff98b7c00
+:DRILL_LAST_INTERVAL: 4.3333
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:39]
+:END:
+Si $f_n \in {\cal C}(I_n)$, qué tipo de convergencia preserva la continuidad.
+
+******* Respuesta
+Basta $f_n \overset{cuc}\longrightarrow f$ para tener $f \in {\cal C}(I)$. También se cumple con la
+convergencia uniforme, que es más fuerte; pero no se cumple con
+la puntual.
+
+***** TODO Lema 6.
+**** 5.3. Continuidad de la solución general
+***** TODO Proposición 1.
+# Diapositivas
+***** Lema 7. Desigualdad fundamental
 Sean $\varphi_i \colon I_i \to \mathbb{R}^{d}$ dos soluciones de una EDO tales que
 
 \[
@@ -4819,47 +5105,6 @@ u(t,0) = u(t,L) = 0, & t \geq 0.
 \end{array}
 \right\}\]
 
-****** Separación de variables y principio de superposición
-Buscamos ahora una solución de la forma $u(t,x) = T(t)W(x)$, que
-si es solución debe cumplir
-
-\[
-T''(t)W(x) = c^2T(t)W''(x),
-\]
-
-por lo que, se tienen las dos funciones siguientes independientes
-de la otra variable y constantes $T''(t)/T(t) = c^2W''(x)/W(x) = -\lambda$.
-
-Si existieran deberían de cumplir
-
- * $T'(t) + \lambda T(t) = 0$,
-
- * $W'(t) + \frac{\lambda}{c^2} W(t) = 0$,
-
-donde además $W(0) = W(L) = 0$ si $T$ no es nula. El problema de resolver
-una ecuación de este tipo es un problema de [[id:1e2009c1-db10-4490-af5c-db57a46dab0f][Sturm-Liouville]] que hemos
-[[id:e15aa2f8-76b4-4aa6-82bb-c0b424bda884][tratado ya]] y con soluciones $\lambda_n = (nc\pi/L)^2$ y $W_n(x) = \sin(n\pi x/L)$.
-
-Ahora, al resolver para $T$ obtendríamos
-
-\[
-T_n(t) = A_n \cos(\frac{nc\pi t}{L}) + B_n \sin(\frac{nc\pi t}{L})
-\]
-
-dándonos finalmente
-
-\[
-u_n(t,x) = 
-\sin(\frac{n\pi x}{L}) 
-\left( A_n\cos(\frac{nc\pi t}{L}) + B_n\sin(\frac{nc\pi t}{L}) \right).
-\]
-
-El problema es que al imponer las condiciones de contorno que teníamos
-llegamos a un punto en el que no está claro cómo seguir.
-
-  * $u_n(0,x) = A_n\sin(\frac{n\pi x}{L}) = u_0(x)$,
-
-  * $\partial_t u_n(0,x) = B_n \frac{nc\pi}{L}\sin(\frac{n \pi x}{L}) = v_0(x)$.
 ****** Card                                                      :drill:
 SCHEDULED: <2018-05-04 Fri>
 :PROPERTIES:
@@ -4899,7 +5144,67 @@ u(t,0) = u(t,L) = 0, & t \geq 0.
 \end{array}
 \right\}\]
 
-***** TODO Desarrollo de Fourier en series de senos y cosenos
+***** Solución de la ecuación de ondas
+La única solución de la [[id:e3c0e5df-d8b2-495c-9993-bd2b93d4782e][ecuación de ondas simplificada]] es la serie
+
+\[
+\sum_{n \geq 1} \left( 
+a_n\cos\left(\frac{nc\pi t}{L}\right) +
+\frac{b_nL}{nc\pi} \sin \left( \frac{nc\pi t}{L} \right)
+\right)
+\sin \left( \frac{n\pi x}{L} \right)
+\]
+
+donde hemos desarrollado
+
+\[
+u_0(x) = \sum_{n \geq 1} a_n \sin \left( \frac{n\pi x}{L} \right),
+\qquad
+v_0(x) = \sum_{n \geq 1} b_n \sin \left( \frac{n\pi x}{L} \right).
+\]
+
+****** Proof: separación de variables y principio de superposición
+Buscamos una solución de la forma $u(t,x) = T(t)W(x)$, que
+si es solución debe cumplir
+
+\[
+T''(t)W(x) = c^2T(t)W''(x),
+\]
+
+por lo que, se tienen las dos funciones siguientes independientes
+de la otra variable y constantes $T''(t)/T(t) = c^2W''(x)/W(x) = -\lambda$.
+
+Si existieran deberían de cumplir
+
+ * $T'(t) + \lambda T(t) = 0$,
+
+ * $W'(t) + \frac{\lambda}{c^2} W(t) = 0$,
+
+donde además $W(0) = W(L) = 0$ si $T$ no es nula. El problema de resolver
+una ecuación de este tipo es un problema de [[id:1e2009c1-db10-4490-af5c-db57a46dab0f][Sturm-Liouville]] que hemos
+[[id:e15aa2f8-76b4-4aa6-82bb-c0b424bda884][tratado ya]] y con soluciones $\lambda_n = (nc\pi/L)^2$ y $W_n(x) = \sin(n\pi x/L)$.
+
+Ahora, al resolver la primera ecuación para $T$ obtendríamos
+
+\[
+T_n(t) = A_n \cos(\frac{nc\pi t}{L}) + B_n \sin(\frac{nc\pi t}{L})
+\]
+
+dándonos finalmente
+
+\[
+u_n(t,x) = 
+\sin(\frac{n\pi x}{L}) 
+\left( A_n\cos(\frac{nc\pi t}{L}) + B_n\sin(\frac{nc\pi t}{L}) \right).
+\]
+
+El problema es que al imponer las condiciones de contorno que teníamos
+llegamos a un punto en el que no está claro cómo seguir.
+
+  * $u_n(0,x) = A_n\sin(\frac{n\pi x}{L}) = u_0(x)$,
+
+  * $\partial_t u_n(0,x) = B_n \frac{nc\pi}{L}\sin(\frac{n \pi x}{L}) = v_0(x)$.
+
 Para solucionar esto usaremos que la suma de dos soluciones cualesquiera
 de [[id:e3c0e5df-d8b2-495c-9993-bd2b93d4782e][nuestro problema]] vuelve a ser solución, y que toda función con cierta
 regularidad y con $u_0(0) = u_0(L) = 0$ será una serie de la forma
@@ -4907,6 +5212,46 @@ regularidad y con $u_0(0) = u_0(L) = 0$ será una serie de la forma
 \[
 u_0(x) = \sum_{n=1}^{\infty} a_n\sin(\frac{n\pi x}{L}).
 \]
+
+Si ajustamos los coeficientes llegamos a la solución buscada.
+
+****** Card: procedimiento                                       :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       8be7d27b-0a8a-43b6-a7a1-3086967a27e5
+:DRILL_LAST_INTERVAL: 4.6831
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:47]
+:END:
+¿Cuál es el procedimiento de resolución de la ecuación de ondas
+simplificada? \[
+u_{tt} = c^2 u_{xx}.
+\]
+
+\[\left\{\begin{array}{lr}
+u(0,x) = u_0(x) \in {\cal C}^2, & x \in [0,L], \\
+(\partial_t u)(0,x) = v_0(x) \in {\cal C}^1, & x \in [0,L], \\
+u(t,0) = u(t,L) = 0, & t \geq 0.
+\end{array}
+\right\}\]
+
+******* Procedimiento
+
+1. Buscamos solución $u(t,x) = T(t)W(x)$.
+
+2. Llegamos a un Sturm-Liouville en $W$ que nos da
+   $\lambda_n = (nc\pi / L)^2$ y $W_n(x) = \sin(n\pi x/L)$. Resolvemos
+   para $T$.
+
+3. Desarrollamos en serie de senos $u_0$ y $v_0$.
+
+4. Por principio de superposición ajustamos coeficientes para
+   llegar a la solución.
 
 **** 5.3. Problemas de Sturm-Liouville
 ***** Problema de Sturm-Liouville
@@ -4926,8 +5271,6 @@ Donde $Q,S$ son continuas, $P \in {\cal C}^1$ es positiva $P > 0$,
 y $S > 0$; además, las condiciones de contorno no son
 triviales, teniéndose $|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$.
 
-****** TODO Caso periódico
-# El caso periódico es distinto, se trata en la Nota 18.
 ****** Card                                                      :drill:
 SCHEDULED: <2018-05-02 Wed>
 :PROPERTIES:
@@ -4961,11 +5304,6 @@ Donde $Q,S$ son continuas, $P \in {\cal C}^1$ es positiva $P > 0$,
 y $S > 0$; además, las condiciones de contorno no son
 triviales, teniéndose $|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$.
 
-***** TODO Valores propios y funciones propias
-Si encontramos un $\lambda$ con soluciones no nulas, tenemos un
-espacio de soluciones de dimensión uno. Llamamos *valores propios*
-a estos valores y *funciones propias* a las asociadas.
-
 ***** Teorema 15. Teoría de Sturm-Liouville
 Los valores propios de un problema de Sturm-Liouville forman una
 sucesión creciente y divergente $\lambda_1< \lambda_2< \dots\to \infty$. Sus funciones
@@ -4986,16 +5324,41 @@ propias normalizadas $\|y_n\|_{L^2_S} = 1$ son únicas salvo signo y verifican
    y(x) = \sum_{n=1}^{\infty}\pair{y,y_n}y_n.
    \]
 
-****** Proof
-Fuera de los objetivos del curso.
+En el caso de condiciones periódicas en el problema, un mismo valor
+propio puede tener dos funciones propias y la ortogonalidad no se
+tiene directamente.
 
+****** Proof                                                     :extra:
+# Fuera de los objetivos del curso.
 ****** Card: los valores propios                                 :drill:
-Los valores propios de un Sturm-Liouville $\lambda_i$...
-
-******* Propiedad
-Forman una sucesión creciente y divergente $\lambda_1< \lambda_2< \dots\to \infty$.
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       3458d9e8-3283-4f9c-908d-52ac8c553a42
+:DRILL_LAST_INTERVAL: 4.3796
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 20:10]
+:END:
+Los valores propios de un Sturm-Liouville $\lambda_i$ forman
+una sucesión [creciente y divergente $\lambda_1< \lambda_2< \dots\to \infty$].
 
 ****** Card: funciones propias                                   :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       ea61c9ca-13ef-4a74-8c5e-14ced1b5a060
+:DRILL_LAST_INTERVAL: 3.927
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 20:10]
+:END:
 Qué cuatro propiedades verifican las funciones propias $f_n$ de un
 Sturm-Liouville.
 
@@ -5011,7 +5374,107 @@ Cuando las *normalizamos*, $\|y_n\|_{L^2_S} = 1$, verifican
  * toda función $L^2_S(x_0,x_1)$ se desarrolla en serie de funciones
    propias.
 
-****** TODO Card                                                 :drill:
+****** Card: el caso periódico                                   :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       d398f6f5-55e9-4dfc-98ad-ef48ad0d3039
+:DRILL_LAST_INTERVAL: 4.1983
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:39]
+:END:
+¿Qué cambia en la teoría de Sturm-Liouville en el caso periódico?
+
+******* Respuesta
+Cada valor propio puede tener asociadas dos funciones y la
+ortogonalidad no se tiene directamente.
+
+***** Cálculo variacional en Sturm-Liouville
+:PROPERTIES:
+:ID:       99594c9a-d729-4e87-b886-c4ee6899d0d7
+:END:
+Dado el funcional
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} \Big( P(x)(y'(x))^2 - Q(x)y(x)^2 \Big)\,dx
+\]
+
+en
+
+\[{\cal D}_1 = \left\{\begin{array}{c}
+y \in {\cal C}^1(x_0,x_1) \\
+y(x_0) = y(x_1) = 0 \\
+\|y\|^2_{L^2_S} = \int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
+\end{array}\right\}
+\]
+
+podemos aplicar el [[id:e37d89ff-11da-493c-ab46-2000fe221da9][Teorema 14]] para obtener que un mínimo debe cumplir
+
+\[\left\{\begin{array}{c}
+(Py')' + (Q + \lambda S)y = 0, \\
+y(x_0) = y(x_1) = 0, \\
+\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
+\end{array}\right.\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       78956ad4-f53c-484e-b5c2-59b62ad5f391
+:DRILL_LAST_INTERVAL: 4.1015
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:45]
+:END:
+¿Qué funcional bajo qué condiciones nos da un problema de
+Sturm-Liouville?
+
+\[\left\{\begin{array}{c}
+(Py')' + (Q + \lambda S)y = 0, \\
+y(x_0) = y(x_1) = 0, \\
+\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
+\end{array}\right.\]
+
+******* Funcional
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} \Big( P(x)(y'(x))^2 - Q(x)y(x)^2 \Big)\,dx
+\]
+
+******* Condiciones
+
+\[{\cal D}_1 = \left\{\begin{array}{c}
+y \in {\cal C}^1(x_0,x_1) \\
+y(x_0) = y(x_1) = 0 \\
+\|y\|^2_{L^2_S} = \int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
+\end{array}\right\}
+\]
+
+***** Teorema 16: problemas variacionales con Sturm-Liouville
+En las condiciones de un problema de Sturm-Liouville, las funciones
+propias $y_n$ se obtienen al minimizar el ${\cal F}$ [[id:99594c9a-d729-4e87-b886-c4ee6899d0d7][anterior]] sobre
+
+\[
+{\cal D}_n = \left\{\begin{array}{c}
+y \in {\cal C}^1(x_0,x_1) \\
+y(x_0) = y(x_1) = 0, \\
+\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1 \\
+\int_{x_0}^{x_1} y(x)y_1(x)S(x)\,dx = 0 \\
+\vdots\\
+\int_{x_0}^{x_1} y(x)y_{n-1}(x)S(x)\,dx = 0
+\end{array}\right\}
+\]
+
+teniéndose además que ${\cal F}[y_n] = \lambda_n$.
+
+****** Card                                                      :drill:
 SCHEDULED: <2018-05-02 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: multisided
@@ -5026,7 +5489,7 @@ SCHEDULED: <2018-05-02 Wed>
 :DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:06]
 :END:
 
-Caracterización de valores propios de un Sturm-Liouville
+Sturm-Liouville y problemas variacionales
 
 ******* Funcional
 
@@ -5068,37 +5531,23 @@ y(x_0) = y(x_1) = 0, \\
 
 teniéndose además que ${\cal F}[y_n] = \lambda_n$.
 
-**** 5.3.2. Caracterización variacional de valores y funciones propias
-***** Cálculo variacional en Sturm-Liouville
+****** Card: enunciado                                           :drill:
+SCHEDULED: <2018-05-04 Fri>
 :PROPERTIES:
-:ID:       99594c9a-d729-4e87-b886-c4ee6899d0d7
+:ID:       35437f0b-383e-45ab-ba01-c030fbeb1d98
+:DRILL_LAST_INTERVAL: 4.4365
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:42]
 :END:
-Dado el funcional
+Enuncia el Teorema de caracterización variacional de funciones
+y valores propios de un Sturm-Liouville.
 
-\[
-{\cal F}[y] = \int_{x_0}^{x_1} \Big( P(x)(y'(x))^2 - Q(x)y(x)^2 \Big)\,dx
-\]
-
-con condiciones de contorno Dirichlet homogéneas $y(x_0) = y(x_1) = 0$
-y una con ligadura integral de tipo isoperimétrica que representa
-la exigencia de que $y$ esté normalizado,
-
-\[{\cal D}_1 = \left\{\begin{array}{c}
-y \in {\cal C}^1(x_0,x_1) \\
-y(x_0) = y(x_1) = 0 \\
-\|y\|^2_{L^2_S} = \int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
-\end{array}\right\}
-\]
-
-podemos aplicar el [[id:e37d89ff-11da-493c-ab46-2000fe221da9][Teorema 14]] para obtener que un mínimo debe cumplir
-
-\[\left\{\begin{array}{c}
-(Py')' + (Q + \lambda S)y = 0, \\
-y(x_0) = y(x_1) = 0, \\
-\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
-\end{array}\right.\]
-
-***** Teorema 16: problemas variacionales con Sturm-Liouville
+******* Enunciado
 En las condiciones de un problema de Sturm-Liouville, las funciones
 propias $y_n$ se obtienen al minimizar el ${\cal F}$ [[id:99594c9a-d729-4e87-b886-c4ee6899d0d7][anterior]] sobre
 
@@ -5115,7 +5564,14 @@ y(x_0) = y(x_1) = 0, \\
 
 teniéndose además que ${\cal F}[y_n] = \lambda_n$.
 
-**** 5.4. Fundamentos del análisis funcional
+******* Funcional
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} \Big( P(x)(y'(x))^2 - Q(x)y(x)^2 \Big)\,dx
+\]
+
+*** 5b. Series de Fourier
+**** 5.4. Fundamentos del análisis funcional                       :extra:
 ***** Espacio considerado
 Consideramos el espacio de Hilbert $L^2(I)$ con producto escalar
 
@@ -5223,9 +5679,36 @@ y_{2n-1}(x) = \sqrt{\frac{2}{T}}\sen \left( \frac{2n\pi x}{T} \right)
 \]
 
 forma un sistema ortonormal completo y toda función en $L^2(0,T)$ puede ser
-descrita de forma única a través de su serie de Fourier. 
+descrita de forma única a través de su serie de Fourier. Nótese que la
+convergencia es cpd en este espacio.
 
-****** Desarrollo de una función
+****** Proof                                                  :exercise:
+Se debe comprobar que es base normal y que son ortornormales en el
+espacio $L^2(0,T)$ integrando y usando identidades trigonométricas.
+
+****** Card                                                      :drill:
+:PROPERTIES:
+:ID:       5b0b3868-b27b-4e52-baa0-a215080509fa
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 2
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:41]
+:END:
+Dar la base ortonormal de $L^2(0,T)$ del Teorema de Riesz-Fischer.
+
+******* Base
+
+\[
+y_0(x) = \frac{1}{\sqrt{T}}, \quad 
+y_{2n}(x) = \sqrt{\frac{2}{T}}\cos \left( \frac{2n\pi x}{T} \right), \quad
+y_{2n-1}(x) = \sqrt{\frac{2}{T}}\sen \left( \frac{2n\pi x}{T} \right)
+\]
+
+***** Desarrollo de una función en Serie de Fourier
 Es habitual escribir el desarrollo de una función como
 
 \[
@@ -5241,73 +5724,149 @@ y(x) = \frac{a_0}{2} +
 # TODO: Comprobar que es un sistema ortonormal usando identidades
 # trigonométricas.
 
-****** TODO Proof
 
-***** Convergencia puntual y uniforme de la serie de Fourier
-Por el Teorema de [[id:a1f0e87e-9bd8-468d-ad43-7e7fb16c1b67][Riesz-Fischer]], sabemos que la convergencia de una serie
-de Fourier es casi por doquier.
+***** Convergencia puntual: condición necesaria
+Todas las $y_n$ son periódicas, así que para tener convergencia
+puntual habrá que tener periodicidad en la función aproximada.
 
-****** Condición necesaria para convergencia puntual: periodicidad
-Todas las $y_n$ son periódicas, así que para tener convergencia puntual
-habrá que tener periodicidad en la función aproximada.
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       31ad5eda-567d-4b54-b25f-e2e95e24a0b3
+:DRILL_LAST_INTERVAL: 4.2137
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:39]
+:END:
+Por Riesz-Fischer tenemos convergencia casi por doquier de la serie de
+Fourier.  ¿Cuál es la primera condición necesaria para tener
+convergencia en todo punto?
 
-****** Convergencia puntual a trozos
+******* Condición necesaria
+La periodicidad de la función aproximada.
+
+***** Convergencia puntual: a trozos
 Para una función continua a trozos $y(x)$, la serie converge en todo punto
-de continuidad y en los puntos de discontinuidad $a_i$ se tiene
+de continuidad y en los puntos de discontinuidad $a_i$ se tiene el
+*fenómeno de Gibbs*,
 
 \[
 \lim_{N\to\infty} P_N(a_i) = \frac{f(a_i^+) - f(a_i^-)}{2}.
 \] 
 
-En los puntos de discontinuidad se produce el *fenómeno de Gibbs*.
+****** Card                                                      :drill:
+:PROPERTIES:
+:ID:       e1a64429-139b-4b76-a77e-dbf1c41fcd9c
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 1.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 1
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:45]
+:END:
+Convergencia de la serie de Fourier de una función continua a trozos.
 
-****** Convergencia uniforme
-Para $y \in {\cal C}$ con $y(0) = y(L)$ y $y'$ continua a trozos, la serie de Fourier
-converge uniformemente.
+******* Convergencia
+Tenemos convergencia en todo punto de continuidad, y en los puntos
+de discontinuidad se produce el fenómeno de Gibbs con
 
-******* TODO Ejemplo de convergencia uniforme
+\[
+\lim_{N\to\infty} P_N(a_i) = \frac{f(a_i^+) - f(a_i^-)}{2}.
+\] 
+
+***** Convergencia uniforme
+Para $y \in {\cal C}$ con $y(0) = y(L)$ y $y'$ continua a trozos, la serie de
+Fourier converge uniformemente.
+
+****** Proof                                                     :extra:
+:PROPERTIES:
+:ID:       55291685-9a8a-4c19-9338-570d037dd93c
+:END:
+Usando criterio de Weierstrass.
+
+http://math.ucr.edu/~res/math153/fourier-uniform.pdf
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       f7a7e291-c6f6-40dd-9008-3c54fd86d012
+:DRILL_LAST_INTERVAL: 4.7647
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:43]
+:END:
+¿Cuándo converge uniformemente la serie de Fourier?
+
+******* Respuesta 
+Basta tener $y \in {\cal C}$, periódica $y(0) = y(L)$ y $y'$ continua a trozos.
+Es decir,
+
+ 1. continua,
+ 2. periódica,
+ 3. derivada continua a trozos.
+
+****** TODO Ejemplo de convergencia uniforme
 
 ***** Teorema 21. Convergencia de derivadas superiores
-Para $y \in {\cal C}^k[0,T]$ periódicamente $y^{n)}(0) = y^{n)}(T)$ y la derivada $k+1$
-es continua a trozos, entonces
+Si $y \in {\cal C}^k[0,T]$, tiene periodicidad $y^{n)}(0) = y^{n)}(T)$ para $n = 0,\dots,k$
+y la derivada $k+1$ es continua a trozos, entonces las derivadas hasta
+la $k$ convergen uniformemente.
+
+****** Proof
+En este caso, iterando el resultado, tendremos que
 
 \[
 \sum_{n \geq 1} n^k(|a_n| + |b_n|),
 \]
 
 converge uniformemente para $a_n$ y $b_n$ coeficientes de Fourier.
+Se aplicará un razonamiento similar al aplicado [[id:55291685-9a8a-4c19-9338-570d037dd93c][anteriormente]].
 
-****** TODO Card                                                 :leech:
+****** Card                                                      :drill:
 :PROPERTIES:
-:ID:       9b8e23d3-1c2c-4c20-8fd4-8c788e0fef90
+:ID:       3566f799-f086-4e6f-9b1c-6be4a775beae
 :DRILL_LAST_INTERVAL: 0.0
 :DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 18
-:DRILL_FAILURE_COUNT: 15
-:DRILL_AVERAGE_QUALITY: 0.867
-:DRILL_EASE: 2.32
-:DRILL_LAST_QUALITY: 0
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:27]
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 2
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:46]
 :END:
 Enunciar el Teorema 21 sobre convergencia de derivadas superiores
 en series de Fourier.
 
-******* TODO Enunciado
-Para $y \in {\cal C}^k[0,T]$ con derivadas periódicas $y^{n)}(0) = y^{n)}(T)$ y la 
-derivada $k+1$ continua a trozos sabemos que la derivada $k$ preserva la serie
-de Fourier.
-
-De hecho se tiene que 
-
-\[
-\sum_{n \geq 1} n^k(|a_n| + |b_n|),
-\]
-
-# ¿Convergencia uniforme de qué?
-converge uniformemente, donde $a_n$ y $b_n$ son coeficientes de Fourier.
+******* Enunciado
+Si $y \in {\cal C}^k[0,T]$, tiene periodicidad $y^{n)}(0) = y^{n)}(T)$ para $n = 0,\dots,k$
+y la derivada $k+1$ es continua a trozos, entonces las derivadas hasta
+la $k$ convergen uniformemente.
 
 ***** Convergencia en media
 La convergencia en media la da la igualdad de Bessel
+
+\[
+\frac{2}{T}\int_0^T y(x)^2\,dx = \frac{a_0^2}{2} + \sum_{n=1}^{\infty}a^2_n + b^2_n.
+\]
+
+****** Card                                                      :drill:
+:PROPERTIES:
+:ID:       7fd53585-d7a3-4da3-8087-77d8ff760eb6
+:END:
+Enuncia la igualdad de Bessel que da la convergencia en
+media de la serie de Fourier.
+
+******* Igualdad
 
 \[
 \frac{2}{T}\int_0^T y(x)^2\,dx = \frac{a_0^2}{2} + \sum_{n=1}^{\infty}a^2_n + b^2_n.
@@ -5401,7 +5960,7 @@ La resolución se hace por separación de variables $U(\rho,\theta) = v(p)w(\the
 
 ***** Ecuación de Dirichlet en el rectángulo
 **** CARDS
-***** TODO Fórmula de D'Alembert
+***** TODO Fórmula de D'Alembert                                  :leech:
 Enunciar la fórmula de D'Alembert, que resuelve la ecuación de ondas
 unidimensional,
 
@@ -8011,7 +8570,64 @@ máquina. Se pueden agrupar varias transiciones usando el símbolo *.
 
 *** Tema 2: Otros modelos de cálculo. Tesis de Church-Turing
 *** Tema 3: Clases de complejidad
+**** L: espacio logarítmico
+**** NL:
+**** P: polinómico
+**** NP: polinómico no determinista
+**** PESPACIO: espacio polinómico
+**** Funciones de complejidad propias
+**** Teorema de la jerarquía
+***** Corolario: P ≠ EXP
+**** Complementarios de clases
+***** Ejemplo: Primality is in NP ∩ coNP
+[[http://www.cmi.ac.in/~ramprasad/lecturenotes/comp_numb_theory/lecture17.pdf]]
+**** Definiciones alternativas
+# Verificador y certificado.
+**** PESPACIO = NPESPACIO
+**** NESPACIO(f(n)) = CoNESPACIO(f(n))
+**** Sistemas interactivos de demostración
+
 *** Tema 4: NP-Completitud
+**** Problema de decisión
+Un *problema de decisión* consta de $Y_{\Pi} \subseteq D_{\Pi}$, conjunto de
+ejemplos positivos contenido en el conjunto de instancias
+del problema.
+
+**** Reducción
+***** Reducción: en términos de lenguajes
+$L_1 \propto L_2$ si existe una máquina de Turing en espacio
+logarítmmico calculando $R \colon A^{\ast} \to B^{\ast}$ tal que
+
+\[
+x \in L_1 \iff R(x) \in L_2.
+\]
+
+***** Reducción: en términos de problemas
+$\Pi_1 \propto \Pi_2$ si existe una máquina de Turing determinista en espacio
+logarítmico calculando $f \colon D_{\Pi_1} \to D_{\Pi_2}$ tal que
+
+\[
+x \in Y_{\Pi_1} \iff f(x) \in Y_{\Pi_2}.
+\]
+
+***** Composición de reducciones
+Si $L_1 \propto L_2$ y $L_2 \propto L_3$, entonces $L_1 \propto L_3$.
+
+***** Equivalencia
+Si $L_1 \propto L_2$, y $L_2 \propto L_1$, se dicen *equivalentes*.
+
+**** Complitud
+***** Lenguaje completo para una clase
+Un $L \in C$ es *completo* para $C$ si $\forall L' \in C\colon L' \propto L$.
+
+***** Teorema de Cook-Levine
+El problema de la consistencia de cláusulas en lógica proposicional
+(SAT) es NP-completo.
+
+****** Proof
+SAT es claramente no-determinista probando asignaciones. Dado
+$L \in NP$, decidido por $M$.
+
 *** Tema 5: Complejidad de problemas de optimización aproximados
 *** Tema 6: Complejidad en espacio. Jerarquía polinómica
 *** Tema 7: Complejidad en modelos de computación paralela
@@ -46272,7 +46888,8 @@ A *lattice* is a poset with finite limits and colimits.
 *** II. Simple typesa
 
 * Papers
-** TODO First steps in Synthetic computability theory - Andrej Bauer
+** TODO The realizability approach to computable analysis and topology - Andrej Bauer
+** TODO First steps in synthetic computability theory - Andrej Bauer
 ** Dependent types at work - Ana Bove, Peter Dybjer
 *** 1. What are dependent types?
 *** 2. Simply Typed Functional Programming in Agda
