@@ -150,225 +150,7 @@
 
 * Notes
 ** Ecuaciones diferenciales II
-*** Prerrequisitos
-**** Prehaces y dominios
-Conociendo el concepto de prehaz, parece que tiene sentido escribir
-siempre o casi siempre las funciones con su dominio, $f|_D$.
-
-**** TODO Teorema de la función inversa
-**** TODO Resolución de ecuaciones lineales
-**** Jacobiana
-La aplicación lineal jacobiana en un punto, $J_F(p)$, cumple que
-
-\[
-\lim_{\|x-p\| \to 0} \frac{\|F(x)-F(p) -J_F(p)(x-p)\|}{\|x-p\|} = 0.
-\]
-
-En el caso de espacios finitos tenemos la matriz jacobiana
-
-\[\begin{pmatrix}
-\pdv{y_1}{x_1} & \dots & \pdv{y_1}{x_n} \\
-\vdots & \ddots & \vdots \\
-\pdv{y_m}{x_1} & \dots & \pdv{y_m}{x_n} \\
-\end{pmatrix}
-\]
-
-En ocasiones notaremos simplemente a la jacobiana como $f'$.
-
-**** Hessiana
-La hessiana existe cuando lo hacen todas las segundas derivadas
-parciales de una función $f \colon \mathbb{R}^n \to \mathbb{R}$.
-
-\[\begin{pmatrix}
-\pdv[2]{f}{x_1} & \dots & \pdv{f}{x_1}{x_n} \\
-\vdots & \ddots & \vdots \\
-\pdv{f}{x_n}{x_1} & \dots & \pdv[2]{f}{x_n} \\
-\end{pmatrix}
-\]
-
-Por el [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][teorema de Schwarz-Clairaut]], es simétrica.
-
-**** Wronskiana
-La *wronskiana* no nula implica independencia lineal. Nótese sin
-embargo que puede anularse incluso cuando son independientes.
-(Contraejemplo de [[id:8e9ccec0-c9de-4d00-a08e-3de44d448ca5][Peano]])
-
-\[
-W(f_1,\dots,f_n)(x) = \begin{vmatrix}
-f_1(x) & \dots & f_n(x) \\
-\vdots & \ddots & \vdots \\
-f_1^{n-1)}(x) & \dots & f_n^{n-1)}(x) \\
-\end{vmatrix}
-\]
-
-Puede usarse la [[https://en.wikipedia.org/wiki/Abel%2527s_identity][identidad de Abel]] para calcular la wronskiana incluso
-cuando no se conocen las soluciones.
-
-**** Nociones de continuidad y convergencia
-***** Continuidad uniforme
-$f \colon I \to \mathbb{R}^d$ es *uniformemente continua* si 
-
-\[
-\forall \varepsilon \colon \exists \delta \colon |t-s|<\delta \implies \|f(t)-f(s)\| \leq \varepsilon.
-\]
-
-***** Convergencia puntual
-$f_n \overset{c.p.}\longrightarrow f$ si $\forall t \in I\colon \{\| f_n(t) - f(t)\|\}_{n \in \mathbb{N}} \to 0$.
-
-***** Convergencia uniforme
-$f_n \overset{c.u.}\longrightarrow f$ si $\forall \varepsilon > 0\colon \exists n_0\colon \forall n > n_0\colon \forall t \in I\colon \|f_n(t)-f(t)\| < \varepsilon$.
-
-**** CARDS                                                      :noexport:
-***** Ecuaciones homogéneas: forma                                :drill:
-SCHEDULED: <2018-05-21 Mon>
-:PROPERTIES:
-:ID:       87915c2b-ff33-4e9d-98c0-07e66a01ac68
-:DRILL_LAST_INTERVAL: 27.0001
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.333
-:DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:09]
-:END:
-Forma de una ecuación homogénea.
-
-****** Forma
-\[
-x' = f \left( \frac{x}{t} \right)
-\]
-
-***** Ecuaciones homogéneas: resolución                           :drill:
-SCHEDULED: <2018-04-29 Sun>
-:PROPERTIES:
-:ID:       e558b5d7-7d81-4d91-9486-40352296fda2
-:DRILL_LAST_INTERVAL: 10.3842
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.2
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:51]
-:END:
-Cómo resolver
-
-\[
-x' = f \left( \frac{x}{t} \right).
-\]
-
-****** Resolución
-Aplicamos el cambio de variable $u = x/t$, que nos
-lleva a 
-
-\[u' = \frac{1}{t}(f(u) - u).\]
-
-***** Ecuación lineal escalar                                     :drill:
-:PROPERTIES:
-:ID:       ead2dfed-95a4-41ad-b65e-d09cf22fbd8d
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.333
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 1
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:09]
-:END:
-Cómo resolver, para $a,b \in {\cal C}(I,\mathbb{R})$;
-
-\[
-x' = a(t)x + b(t)
-\]
-
-****** Resolución
-Una parte resuelve la homogénea, la otra es una solución
-particular
-
-\[
-x = Ae^{(\int a)} + \left( \int_{t_0}^t b(z) e^{-(\int^{z} a)}\,dz \right) e^{(\int a)}
-\]
-
-***** Ecuación de Bernoulli                                       :drill:
-:PROPERTIES:
-:ID:       c7712582-1d68-4dd0-9ebf-9b9a2afcd463
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 0
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:11]
-:END:
-Cómo resolver
-
-\[
-x' + ax + bx^n = 0.
-\]
-
-****** Resolución
-Retiramos el caso trivial $x = 0$ y tomamos el cambio de
-variable $u = x^{1-n}$, que la transforma en lineal
-
-\[
-u' + (1-n)au + (1-n)b = 0.
-\]
-
-***** Ecuación de Ricatti                                         :drill:
-SCHEDULED: <2018-04-30 Mon>
-:PROPERTIES:
-:ID:       1113da24-b90d-4ab0-94d8-e65ae4710470
-:DRILL_LAST_INTERVAL: 10.515
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 6
-:DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:52]
-:END:
-Cómo resolver
-
-\[
-x' + ax + bx^2 = f(x).
-\]
-
-****** Resolución
-Conociendo una solución de la ecuación tomamos el cambio
-
-\[
-u = \frac{1}{x - \varphi}
-\]
-
-suele ser una elección algo de la forma $\varphi = -1/x$.
-
-***** Ecuación exacta                                             :drill:
-:PROPERTIES:
-:ID:       69ceda6b-32b1-4bc2-b8fd-71bc68c66072
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 9
-:DRILL_FAILURE_COUNT: 6
-:DRILL_AVERAGE_QUALITY: 1.555
-:DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 0
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:12]
-:END:
-Dar la forma de una ecuación exacta, ¿cuál es la solución trivial?
-
-****** Resolución
-Una solución exacta es de la forma
-
-\[
-M + Nx' = 0
-\]
-
-donde son de la forma $M = \pdv{F}{t}$ y $N = \pdv{F}{x}$. 
-Tiene solución trivial en $F = \mathrm{cte.}$
-
-*** Apuntes de Andrés
+*** Apuntes de Andrés                                            :noexport:
 # Estas notas salen de los apuntes de Andrés Herrera para la misma
 # asignatura el año anterior.
 
@@ -470,6 +252,229 @@ x' + \nabla G(x) = 0.
 \]
 **** 7. Generalización de la teoría cualitativa
 ***** 7.1. Teorema de Arzelá-Ascoli
+*** Prerrequisitos
+**** Prehaces y dominios
+Conociendo el concepto de prehaz, parece que tiene sentido escribir
+siempre o casi siempre las funciones con su dominio, $f|_D$.
+
+**** TODO Teorema de la función inversa
+**** TODO Resolución de ecuaciones lineales
+**** Jacobiana
+La aplicación lineal jacobiana en un punto, $J_F(p)$, cumple que
+
+\[
+\lim_{\|x-p\| \to 0} \frac{\|F(x)-F(p) -J_F(p)(x-p)\|}{\|x-p\|} = 0.
+\]
+
+En el caso de espacios finitos tenemos la matriz jacobiana
+
+\[\begin{pmatrix}
+\pdv{y_1}{x_1} & \dots & \pdv{y_1}{x_n} \\
+\vdots & \ddots & \vdots \\
+\pdv{y_m}{x_1} & \dots & \pdv{y_m}{x_n} \\
+\end{pmatrix}
+\]
+
+En ocasiones notaremos simplemente a la jacobiana como $f'$.
+
+**** Hessiana
+:PROPERTIES:
+:ID:       0cebe934-5d31-494d-bfd6-891d9c4c81ec
+:END:
+La hessiana existe cuando lo hacen todas las segundas derivadas
+parciales de una función $f \colon \mathbb{R}^n \to \mathbb{R}$.
+
+\[\begin{pmatrix}
+\pdv[2]{f}{x_1} & \dots & \pdv{f}{x_1}{x_n} \\
+\vdots & \ddots & \vdots \\
+\pdv{f}{x_n}{x_1} & \dots & \pdv[2]{f}{x_n} \\
+\end{pmatrix}
+\]
+
+Por el [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][teorema de Schwarz-Clairaut]], es simétrica.
+
+**** Wronskiana
+La *wronskiana* no nula implica independencia lineal. Nótese sin
+embargo que puede anularse incluso cuando son independientes.
+(Contraejemplo de [[id:8e9ccec0-c9de-4d00-a08e-3de44d448ca5][Peano]])
+
+\[
+W(f_1,\dots,f_n)(x) = \begin{vmatrix}
+f_1(x) & \dots & f_n(x) \\
+\vdots & \ddots & \vdots \\
+f_1^{n-1)}(x) & \dots & f_n^{n-1)}(x) \\
+\end{vmatrix}
+\]
+
+Puede usarse la [[https://en.wikipedia.org/wiki/Abel%2527s_identity][identidad de Abel]] para calcular la wronskiana incluso
+cuando no se conocen las soluciones.
+
+**** Nociones de continuidad y convergencia
+***** Continuidad uniforme
+$f \colon I \to \mathbb{R}^d$ es *uniformemente continua* si 
+
+\[
+\forall \varepsilon \colon \exists \delta \colon |t-s|<\delta \implies \|f(t)-f(s)\| \leq \varepsilon.
+\]
+
+***** Convergencia puntual
+$f_n \overset{c.p.}\longrightarrow f$ si $\forall t \in I\colon \{\| f_n(t) - f(t)\|\}_{n \in \mathbb{N}} \to 0$.
+
+***** Convergencia uniforme
+$f_n \overset{c.u.}\longrightarrow f$ si $\forall \varepsilon > 0\colon \exists n_0\colon \forall n > n_0\colon \forall t \in I\colon \|f_n(t)-f(t)\| < \varepsilon$.
+
+**** CARDS                                                      :noexport:
+***** Ecuaciones homogéneas: forma                                :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       87915c2b-ff33-4e9d-98c0-07e66a01ac68
+:DRILL_LAST_INTERVAL: 27.0001
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:09]
+:END:
+Forma de una ecuación homogénea.
+
+****** Forma
+\[
+x' = f \left( \frac{x}{t} \right)
+\]
+
+***** Ecuaciones homogéneas: resolución                           :drill:
+SCHEDULED: <2018-04-29 Sun>
+:PROPERTIES:
+:ID:       e558b5d7-7d81-4d91-9486-40352296fda2
+:DRILL_LAST_INTERVAL: 10.3842
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.2
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:51]
+:END:
+Cómo resolver
+
+\[
+x' = f \left( \frac{x}{t} \right).
+\]
+
+****** Resolución
+Aplicamos el cambio de variable $u = x/t$, que nos
+lleva a 
+
+\[u' = \frac{1}{t}(f(u) - u).\]
+
+***** Ecuación lineal escalar                                     :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       ead2dfed-95a4-41ad-b65e-d09cf22fbd8d
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.08
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:46]
+:END:
+Cómo resolver, para $a,b \in {\cal C}(I,\mathbb{R})$;
+
+\[
+x' = a(t)x + b(t)
+\]
+
+****** Resolución
+Una parte resuelve la homogénea, la otra es una solución
+particular
+
+\[
+x = Ae^{(\int a)} + \left( \int_{t_0}^t b(z) e^{-(\int^{z} a)}\,dz \right) e^{(\int a)}
+\]
+
+***** Ecuación de Bernoulli                                       :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       c7712582-1d68-4dd0-9ebf-9b9a2afcd463
+:DRILL_LAST_INTERVAL: 3.999
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:42]
+:END:
+Cómo resolver
+
+\[
+x' + ax + bx^n = 0.
+\]
+
+****** Resolución
+Retiramos el caso trivial $x = 0$ y tomamos el cambio de
+variable $u = x^{1-n}$, que la transforma en lineal
+
+\[
+u' + (1-n)au + (1-n)b = 0.
+\]
+
+***** Ecuación de Ricatti                                         :drill:
+SCHEDULED: <2018-04-30 Mon>
+:PROPERTIES:
+:ID:       1113da24-b90d-4ab0-94d8-e65ae4710470
+:DRILL_LAST_INTERVAL: 10.515
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:52]
+:END:
+Cómo resolver
+
+\[
+x' + ax + bx^2 = f(x).
+\]
+
+****** Resolución
+Conociendo una solución de la ecuación tomamos el cambio
+
+\[
+u = \frac{1}{x - \varphi}
+\]
+
+suele ser una elección algo de la forma $\varphi = -1/x$.
+
+***** Ecuación exacta                                             :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       69ceda6b-32b1-4bc2-b8fd-71bc68c66072
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 11
+:DRILL_FAILURE_COUNT: 7
+:DRILL_AVERAGE_QUALITY: 1.818
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:48]
+:END:
+Dar la forma de una ecuación exacta, ¿cuál es la solución trivial?
+
+****** Resolución
+Una solución exacta es de la forma
+
+\[
+M + Nx' = 0
+\]
+
+donde son de la forma $M = \pdv{F}{t}$ y $N = \pdv{F}{x}$. 
+Tiene solución trivial en $F = \mathrm{cte.}$
 *** Tema 1. Existencia y unicidad. Ecuación de Volterra
 **** 1.1. Definiciones
 :PROPERTIES:
