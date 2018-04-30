@@ -830,16 +830,17 @@ Se da una de las alternativas.
  * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
 
 ***** Operador integral de Volterra                               :drill:
+SCHEDULED: <2018-05-01 Tue>
 :PROPERTIES:
 :ID:       d632fc17-20f9-4797-929d-05f51c4cd2ea
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 3.9
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 1
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:10]
+:DRILL_AVERAGE_QUALITY: 2.6
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:43]
 :END:
 Define el operador integral de Volterra y su dominio
 
@@ -985,7 +986,7 @@ recubrimiento finito de intervalos disjuntos de $[x,y]$.
 :PROPERTIES:
 :ID:       0bd3f16f-5d05-4135-98b5-70d27b46afa9
 :END:
-Sea $\Omega \subset \mathbb{R}^n$ abierto convexo. Para $f \in {\cal C}^1(\Omega;\mathbb{R}^m)$ equivalen
+En $\Omega$ abierto convexo con $f \in {\cal C}^1(\Omega;\mathbb{R}^m)$ equivalen
 
  1) $f$ es globalmente lipschiztiana.
  2) $\exists L \geq 0: \forall x \in \Omega: \vertiii{f'(x)} \leq L$.
@@ -1009,11 +1010,33 @@ Podemos acotarla usando su derivada como
 L\norm{x-y}\abs{1-0}.
 \end{aligned}\]
 
+****** Card: caracterización de lipschitziana por el jacobiano   :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       4c53da16-5464-489d-8536-ddf06a659fd8
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 12:08]
+:END:
+Caracteriza lipschitzianidad global en un abierto convexo $\Omega$
+usando el jacobiano.
+
+******* Caracterización
+Si $f \in {\cal C}^1(\Omega;\mathbb{R}^m)$ equivalen
+
+ 1) $f$ es globalmente lipschiztiana.
+ 2) $\exists L \geq 0: \forall x \in \Omega: \vertiii{f'(x)} \leq L$.
+
 ***** Lipschitzianidad global respecto de una variable
 :PROPERTIES:
 :ID:       c50d9301-e9db-40a1-b25f-b726327f37bb
 :END:
-$f \colon \Omega \subset \mathbb{R}^d \times \mathbb{R}^n \to \mathbb{R}^m$ es *globalmente lipschitziana respecto* de $x \in \mathbb{R}^d$
+$f \colon \Omega \to \mathbb{R}^m$ es *globalmente lipschitziana respecto* de $x \in \mathbb{R}^d$
 cuando existe $L \geq 0$ tal que
 
 \[
@@ -1023,23 +1046,111 @@ cuando existe $L \geq 0$ tal que
 Dicho de otra forma, las secciones $f(-,y)$ son lipschitzianas con una
 constante de lipschitz común.
 
+****** Card: definición                                          :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
+:DRILL_LAST_INTERVAL: 26.6407
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-05 Thu 23:08]
+:END:
+Una $f(x,y)$ definida en $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$ es [[id:c50d9301-e9db-40a1-b25f-b726327f37bb][globalmente lipschitziana respecto]]
+de $x \in \mathbb{R}^d$ cuando
+
+******* Definición
+Existe $L \geq 0$ tal que
+
+\[
+\| f(x,y) - f(x',y) \| \leq L \| x - x' \|.
+\]
+
+******* De otra forma
+Las secciones $f(-,y)$ son lipschitzianas con una constante de
+lipschitz común.
+
 ***** Lipschiztianidad local
-$f \colon \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$ es *localmente lipschitziana* (LL) si 
-para cada punto existe un entorno $p \in U \subset \Omega$ donde $f|_U$ es
+$f \colon \Omega \to \mathbb{R}^m$ es *localmente lipschitziana* (LL) si 
+para cada punto hay un entorno $p \in U \subset \Omega$ con $f|_U$
 globalmente lipschitziana.
 
 /Nota: ¡la constante de Lipschitz puede cambiar entre entornos!/
+
+****** Card: localmente pero no globalmente lipschitz            :drill:
+SCHEDULED: <2018-05-08 Tue>
+:PROPERTIES:
+:ID:       9c7e258c-1ed7-45eb-bdc1-09c21a20bb94
+:DRILL_LAST_INTERVAL: 10.3842
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 15:59]
+:END:
+Dar un ejemplo de función localmente lipschitzana pero no globalmente
+lipschitziana.
+
+******* Ejemplo
+$x^2$ no tiene derivada acotada y podemos ir tomando sucesiones de
+diferencias por encima de cualquier cota. Sin embargo, es ${\cal C}^1$
+en cada entorno y ahí podemos acotar su derivada.
+
+****** Card: lipschitzianidad local                              :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       a57b3f38-2607-4a32-9ffd-d9a04d663100
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 15:59]
+:END:
+Definición de $f \colon \Omega \to \mathbb{R}^m$ *localmente lipschitziana*.
+
+******* Definición
+Para cada punto hay un entorno $p \in U \subset \Omega$ con $f|_U$
+globalmente lipschitziana.
+
+******* Nota
+La constante de Lipschitz puede cambiar entre entornos.
+
+****** Card: no localmente lipschitz                             :drill:
+SCHEDULED: <2018-05-08 Tue>
+:PROPERTIES:
+:ID:       3eee05c0-75d5-4fa4-80be-dd99318ab95c
+:DRILL_LAST_INTERVAL: 10.2546
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 15:59]
+:END:
+Dar un ejemplo de función no localmente lipschitz.
+
+******* Ejemplo
+$\sqrt{x}$ tiene una sucesión contraviniendo la [[id:8e7d4d06-7b9f-4bbd-8e34-1e385dfdc439][caracterización]] en $0$.
 
 ***** Lipschiztianidad local, anticaracterización
 :PROPERTIES:
 :ID:       8e7d4d06-7b9f-4bbd-8e34-1e385dfdc439
 :END:
-$f \colon \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$ es localmente lipschitziana si y sólo si no
+$f \colon \Omega \to \mathbb{R}^m$ es localmente lipschitziana si y sólo si no
 existen $x_n,y_n \in \Omega$ con $x_n\to p$ y $y_n \to p$ tales que
-    
-    \[
-    \frac{\norm{f(x_n)-f(y_n)}}{\norm{x_n-y_n}} \to +\infty.
-    \]
+
+\[
+\frac{\norm{f(x_n)-f(y_n)}}{\norm{x_n-y_n}} \to +\infty.
+\]
 
 ****** Proof
 Si es localmente lipschitziana, habrá un entorno de $p$ con el
@@ -1055,13 +1166,74 @@ Si no lo es, tomamos ${\cal U}_n = B(1/n,p) \cap \Omega$ y deben exisitr
 formando dos sucesiones que tienden a $p$ y con cociente
 divergente.
 
+****** Card: caracterización                                     :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       5810c568-e044-447b-b6d4-0e1879deed84
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 12:08]
+:END:
+Caracterización por sucesiones de $f \colon \Omega \to \mathbb{R}^m$ localmente
+lipschitziana.
+
+******* Caracterización
+Es LL si y sólo si no existen $x_n,y_n \in \Omega$ con $x_n\to p$ y $y_n \to p$
+tales que
+
+\[
+\frac{\norm{f(x_n)-f(y_n)}}{\norm{x_n-y_n}} \to +\infty.
+\]
+
+****** TODO Ejemplo: potencias localmente lipschitz              :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       e84886df-626a-4e09-846b-572dabb83c40
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:00]
+:END:
+¿Para $p>0$, qué debe cumplir $|x|^p$ para ser localmente lipschitz?
+# Repasar
+
+******* Debe cumplir
+$p \notin (0,1)$
+
 ***** Lipschitzianidad local para derivada continua
-Si $\Omega$ abierto y $f \in {\cal C}^1(\Omega,\mathbb{R}^m)$, $f$ es localmente lipschitziana.
+En $\Omega$ abierto, cualquier $f \in {\cal C}^1(\Omega,\mathbb{R}^m)$ es localmente lipschitziana.
 
 ****** Proof
-Cada punto tiene un entorno cerrado en el que podemos aplicar
+Cada punto tiene un entorno cerrado convexo en el que podemos aplicar
 Weierstrass para acotar $\vertiii{f'(x)}$ y aplicar la caracterización
-[[id:0bd3f16f-5d05-4135-98b5-70d27b46afa9][global]].
+[[id:0bd3f16f-5d05-4135-98b5-70d27b46afa9][global]] en un abierto dentro de él. 
+
+****** Card: derivada continua y localmente lipschitz            :drill: 
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       1d486c08-2683-48a2-8114-a6bd716eb758
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 12:07]
+:END:
+Cómo se relaciona la derivada continua con ser LL.
+
+******* Relación
+En $\Omega$ abierto, cualquier $f \in {\cal C}^1(\Omega,\mathbb{R}^m)$ es localmente lipschitziana.
 
 ***** Lipschitzianidad local respecto de una variable
 $f \colon \Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n \to \mathbb{R}^m$ es *localmente lipschitziana respecto* de $x \in \mathbb{R}^d$
@@ -1257,6 +1429,28 @@ En el espacio $E_{a,b}(t_0,x_0)$, dada una constante $R > 0$, consideramos
 Sabiendo que existe por Teorema de Weierstrass.
 
 ****** TODO Proof
+****** Card: definición                                          :drill:
+SCHEDULED: <2018-05-19 Sat>
+:PROPERTIES:
+:ID:       7748c216-94a7-4d91-a824-6fd195ffe10f
+:DRILL_LAST_INTERVAL: 24.9045
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.25
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:09]
+:END:
+Define la norma de Bielecki.
+
+******* Definición
+En el espacio $E_{a,b}(t_0,x_0)$, dada una constante $R > 0$, consideramos
+
+\[
+\| \varphi \|_{B} = \max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\|.
+\]
+
 ***** Equivalencia con la norma infinito
 La norma de Bielecki es equivalente a la norma infinito.
 
@@ -1412,104 +1606,6 @@ obtener $x = t^2/3$ solución cuando $t > 0$ y $x = 0$ cuando $t \leq 0$.
 La sucesión de iterantes de Picard lleva a $0,t^2,-t^2,t^2,\dots$.
 Tiene parciales convergentes pero ninguna a la solución.
 
-**** CARDS
-***** Ejemplo: localmente pero no globalmente lipschitz           :drill:
-SCHEDULED: <2018-04-28 Sat>
-:PROPERTIES:
-:ID:       9c7e258c-1ed7-45eb-bdc1-09c21a20bb94
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:13]
-:END:
-Dar un ejemplo de función localmente lipschitzana pero no globalmente
-lipschitziana.
-
-****** Ejemplo
-$x^2$ no tiene derivada acotada y podemos ir tomando sucesiones de
-diferencias por encima de cualquier cota. Sin embargo, es ${\cal C}^1$
-en cada entorno y ahí podemos acotar su derivada.
-
-***** Ejemplo: no localmente lipschitz                            :drill:
-SCHEDULED: <2018-04-28 Sat>
-:PROPERTIES:
-:ID:       3eee05c0-75d5-4fa4-80be-dd99318ab95c
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:13]
-:END:
-Dar un ejemplo de función no localmente lipschitz.
-
-****** Ejemplo
-$\sqrt{x}$ tiene una sucesión contraviniendo la [[id:8e7d4d06-7b9f-4bbd-8e34-1e385dfdc439][caracterización]] en $0$.
-
-***** TODO Ejemplo: potencias localmente lipschitz                :drill:
-:PROPERTIES:
-:ID:       e84886df-626a-4e09-846b-572dabb83c40
-:END:
-¿Para $p>0$, qué debe cumplir $|x|^p$ para ser localmente lipschitz?
-# Repasar
-****** Debe cumplir
-$p \in (0,1)$
-
-***** Norma de Bielecki                                           :drill:
-SCHEDULED: <2018-05-19 Sat>
-:PROPERTIES:
-:ID:       7748c216-94a7-4d91-a824-6fd195ffe10f
-:DRILL_LAST_INTERVAL: 24.9045
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.25
-:DRILL_EASE: 2.32
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:09]
-:END:
-Define la norma de Bielecki.
-
-****** Definición
-En el espacio $E_{a,b}(t_0,x_0)$, dada una constante $R > 0$, consideramos
-
-\[
-\| \varphi \|_{B} = \max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\|.
-\]
-
-***** Globalmente lipschitziana respecto de x                     :drill:
-SCHEDULED: <2018-05-02 Wed>
-:PROPERTIES:
-:ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
-:DRILL_LAST_INTERVAL: 26.6407
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.333
-:DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-05 Thu 23:08]
-:END:
-Una $f(x,y)$ definida en $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$ es [[id:c50d9301-e9db-40a1-b25f-b726327f37bb][globalmente lipschitziana respecto]]
-de $x \in \mathbb{R}^d$ cuando
-
-****** Definición
-Existe $L \geq 0$ tal que
-
-\[
-\| f(x,y) - f(x',y) \| \leq L \| x - x' \|.
-\]
-
-****** De otra forma
-Las secciones $f(-,y)$ son lipschitzianas con una constante de
-lipschitz común.
-
 *** Tema 3. Teorema de Cauchy-Peano y Teorema de Arzelá-Ascoli
 **** 3.1. Acotación uniforme y equicontinuidad
 ***** Sucesión uniformemente acotada
@@ -1539,7 +1635,10 @@ Una $f_n \colon I \to \mathbb{R}^d$ uniformemente continua no será equicontinua
 
 ******* Proof
 ******* TODO Variación
-***** Uniformemente acotada y derivada continua es equicontinua
+***** Derivada uniformemente acotada es equicontinua
+:PROPERTIES:
+:ID:       5b2c7b57-f17b-441f-a635-fddbb3e0c992
+:END:
 Si $f'_n$ es uniformemente acotada, $f_n \in {\cal C}^1(I,\mathbb{R}^d)$ es *equicontinua*.
 
 ****** Proof
@@ -1567,6 +1666,9 @@ Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n$ son continuas, $f$ es continua.
 $\varepsilon/3$
 
 ***** Convergencia de sucesiones desde la convergencia uniforme
+:PROPERTIES:
+:ID:       d2bb5e99-e7e9-4fa2-a8e2-38dcda39917e
+:END:
 Si $f_n \overset{c.u.}\longrightarrow f$ y $t_n \to t_{\ast}$ con $f$ continua en $t_{\ast}$, entonces $f_n(t_n) \to f(t_{\ast})$.
 
 ****** TODO Proof
@@ -1628,7 +1730,44 @@ Y así, $f_{\sigma(n)}(t)$ es de Cauchy y converge a un punto que usamos para
 definir $f(t)$. [[id:09edde13-8c3f-49d5-9571-76483e3c2cd3][Sabemos que]] la convergencia puntual de equicontinuas
 es uniformemente continua.
 
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-07 Mon>
+:PROPERTIES:
+:ID:       a2f54cc4-d74f-4e72-be6a-bba39aab74a7
+:DRILL_CARD_TYPE: multisided
+:DRILL_LAST_INTERVAL: 10.125
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:50]
+:END:
+Enuncia el Teorema de Ascoli-Arzelá.
+
+******* Enunciado
+Para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua, existe una
+parcial $f_{\sigma(n)} \overset{c.p.}\longrightarrow f$; además, $f$ es uniformemente continua.
+
+******* Idea de demostración
+:PROPERTIES:
+:ID:       80a088fa-84cb-44e7-9d9f-e6222a4a2eef
+:END:
+Tomamos $D = \mathbb{Q} \cap I = \left\{ t_k \mid k \in \mathbb{N} \right\}$. Bolzano-Weierstrass 
+inductivamente nos da una convergente en $D$.
+
+\[
+f(t_k) = \lim_{n \to \infty} f_{\sigma_1\circ \dots\circ \sigma_k(n)}(t_k).
+\]
+
+Extendemos a todo el intervalo usando *equicontinuidad*,
+*densidad* y *convergencia en D*.
+
 ***** Corolario a Ascoli-Arzelá
+:PROPERTIES:
+:ID:       859883bd-15a4-4efd-9d61-7d501b592918
+:END:
 En $I$ compacto, para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua,
 existe una parcial tal que $f_{\sigma(n)} \overset{c.u.}\longrightarrow f$; además, $f$ es uniformemente continua.
 
@@ -1656,6 +1795,25 @@ tomamos $n_0 = \max\{n_1,\dots,n_k\}$. Finalmente, para $n \geq n_0$,
 \|f(t_k) - f(t)\| \leq \varepsilon.
 \]
 
+****** Corolario a Ascoli-Arzelá                                 :drill:
+SCHEDULED: <2018-04-29 Sun>
+:PROPERTIES:
+:ID:       cda99124-7715-4d0b-8892-d901da3817a7
+:DRILL_LAST_INTERVAL: 10.3842
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:51]
+:END:
+¿Qué dice Ascoli-Arzelá cuando se aplica sobre un compacto?
+
+******* Corolario
+En $I$ compacto, para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua,
+existe una parcial tal que $f_{\sigma(n)} \overset{c.u.}\longrightarrow f$; además, $f$ es uniformemente continua.
+
 **** 3.3. Convergencia e integración
 ***** Convergencia uniforme en integrales
 Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n$ continua en $[a,b]$, $\int_a^b f_n \to \int_a^b f$.
@@ -1675,6 +1833,9 @@ Por el Teorema de convergencia dominada de Lebesgue.
 
 **** 3.4. Teorema de Cauchy-Peano
 ***** Teorema de Stone-Weierstrass                                :extra:
+:PROPERTIES:
+:ID:       a786fcd1-033d-477b-865e-a8a1f0aef252
+:END:
 ****** Álgebras de Banach separando puntos y que no se desvanecen
 Una familia de funciones reales ${\cal A}$ sobre un conjunto $X$ se dice
 *álgebra* si es cerrada para la suma y producto de funciones y
@@ -1824,15 +1985,52 @@ y de nuevo podemos tomar $h = \min(r_{y_1},\dots,r_{y_m}) \in \overline{{\cal A}
 que $f(x) - \varepsilon < h(x) < f(x) + \varepsilon$, y por tanto $\norm{f - h}_{\infty} < \varepsilon$.
 
 ***** Lema de aproximación por localmente lipschitzianas
+:PROPERTIES:
+:ID:       6fb8c0d7-7c28-4d3f-a6ae-c781ac55cb4e
+:END:
 Sea $f \colon D = \mathring{D} \to \mathbb{R}^d$ continua y $M \geq 0$ tal que
 
  \[\forall (t,x) \in {\cal R}_{a,b}\colon \|f(t,x)\| \leq M,\]
 
-entonces $f_n_{|_{R_{a,b}}} \overset{c.u.}\longrightarrow f_{|_{R_{a,b}}}$ localmente lipschitzianas y 
-uniformemente acotadas por $\| f_n_{|_{R_{a,b}}}(t,x) \| \leq M$.
+entonces existen $f_n_{|_{R_{a,b}}} \overset{c.u.}\longrightarrow f_{|_{R_{a,b}}}$ localmente lipschitzianas y uniformemente
+acotadas por
 
-****** TODO Proof
-Por teorema de Stone-Weierstrass.
+\[\forall (t,x) \in {\cal R}_{a,b}\colon 
+\| f_n_{|_{R_{a,b}}}(t,x) \| \leq M.
+\]
+
+****** Proof
+Aplicamos el Teorema de [[id:a786fcd1-033d-477b-865e-a8a1f0aef252][Stone-Weierstrass]] en el compacto ${\cal R}_{a,b}$, al
+álgebra de los polinomios en varias variables
+\[
+  {\cal A} =
+  \left\{ \sum_{(i_1,\dots,i_n) \in \mathbb{N}^{d+1}}
+    \left(\lambda_{i_1,\dots,i_n} \prod_{j=1}^n x_j^{i_j}\right)
+    \midd
+    \lambda_{i_1,\dots,i_n} \in \mathbb{R}
+  \right\},
+\]
+que es cerrada para la suma, el producto por escalares y el producto
+de funciones y que además contiene funciones que separan puntos (con las
+lineales basta) y funciones que no se desvanecen en cada uno de ellos.
+
+Podemos aproximar tanto como queramos las $d$ componentes de la
+función $f$ por polinomios y, por tanto, podemos aproximar la $f$ uniformemente
+por una función polinomial, así que tomamos funciones polinomiales $\set{p_n}$
+tales que $\norm{p_n - f}_\infty < 1/n$.
+Nótese que cumplen $\norm{p_n}_\infty \leq M + 1/n$, por lo que podemos definir la
+siguiente sucesión de funciones, que son localmente lipschitzianas por
+ser polinomiales y por tanto de clase ${\cal C}^1$,
+\[
+  f_n = \frac{M}{M+1/n}p_n;\quad\mbox{ cumpliendo }\quad
+  \norm{f_n}_\infty \leq M.
+\]
+Y tenemos finalmente la siguiente aproximación uniforme,
+\[
+  \norm{\frac{M}{M + 1/n} p_n - f}_\infty \leq
+  \norm{\frac{1/n}{M + 1/n}p_n}_\infty + \norm{p_n - f}_\infty \leq
+  \frac{1}{n} + \frac{1}{n} \to 0.\qedhere
+\]
 
 # Convolución, polinomios de Bessel o Bernstein
 
@@ -1840,12 +2038,30 @@ Por teorema de Stone-Weierstrass.
 # https://math.stackexchange.com/questions/437145/lipschitz-continuous-polynomials <- polinomios son lipschitz
 # http://lsec.cc.ac.cn/~xuzq/lecture%201.pdf <- Por convolución
 
-***** Lema de soluciones de Volterra
-Si $\|f_{|_{R_{a,b}(t_0,x_0)}}(t,x)\| \leq M$ y $Ma \leq b$, entonces existe una $\varphi \colon [t_0-a,t_0+a] \to \mathbb{R}^d$ que
+***** Proposición de soluciones de Volterra
+:PROPERTIES:
+:ID:       cccfae5e-60f8-4f15-ba11-c14af22e54d8
+:END:
+Si $\|f_{|{\cal R}_{a,b}}(t,x)\| \leq M$ y $Ma \leq b$, entonces existe una $\varphi \colon [t_0-a,t_0+a] \to \mathbb{R}^d$ que
 es solución de la ecuación de Volterra asociada.
 
-****** TODO Proof
-# En los apuntes
+****** Proof
+Tomamos $f_n$ del lema [[id:6fb8c0d7-7c28-4d3f-a6ae-c781ac55cb4e][de aproximación por localmente lipschitzianas]], que son
+lipschitzianas en ${\cal R}_{a,b}$ por ser compacto. Las Volterra asociadas tienen
+solución $\varphi_n$ en $E_{a,b}$ [[id:b3c86eea-1732-4df4-8f69-32b80a9510c0][por el Lema a Picard-Lindelöf]]. Las $\varphi_n$ están uniformemente
+acotadas allí por $\|x_0\| + b$ y las derivadas están uniformemente acotadas
+$\|\varphi_n(t)\| = \|f_n(t,x)\| \leq M$, [[id:5b2c7b57-f17b-441f-a635-fddbb3e0c992][por lo que es]] sucesión equicontinua.
+
+Aplicando el [[id:859883bd-15a4-4efd-9d61-7d501b592918][corolario a Ascoli-Arzelá]], tenemos $\varphi_{\sigma(n)} \overset{c.u.}\longrightarrow \varphi$ y podemos
+usar convergencia dominada de Lebesgue y que $f_{\sigma(n)}(s,\varphi_{\sigma(n)}(s)) \to f(s,\varphi(s))$
+[[id:d2bb5e99-e7e9-4fa2-a8e2-38dcda39917e][por ser convergencia uniforme]] para tener
+\[\begin{aligned}
+\varphi(t) &=
+\lim_{n \to \infty} \left(x_0 + \int_{t_0}^t f_n(s,\varphi_n(s))\,ds\right) \\&=
+x_0 + \int_{t_0}^t \lim_{n \to \infty} f_n(s,\varphi_n(s))\,ds =
+x_0 + \int_{t_0}^t f(s,\varphi(s))\,ds,
+\end{aligned}\]
+solución continua por ser límite uniforme de continuas.
 
 ***** Teorema de Cauchy-Peano
 :PROPERTIES:
@@ -1859,66 +2075,18 @@ x' = f(t,x) \\
 x(t_0) = x_0
 \end{array}\right.\]
 
-****** TODO Demostración
-Tomamos $R_{a,b}(t_0,x_0) \subseteq D$ y por Weiestrass, $\|f_{|_{R_{a,b}}}(t,x)\| \leq M$.
-
-Picard-Lindelof
-
-**** CARDS                                                      :noexport:
-***** Teorema de Ascoli-Arzelá                                    :drill:
-SCHEDULED: <2018-04-26 Thu>
-:PROPERTIES:
-:ID:       a2f54cc4-d74f-4e72-be6a-bba39aab74a7
-:DRILL_CARD_TYPE: multisided
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-22 Sun 22:17]
-:END:
-Enuncia el Teorema de Ascoli-Arzelá.
-
-****** Enunciado
-Para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua, existe una
-parcial $f_{\sigma(n)} \overset{c.p.}\longrightarrow f$; además, $f$ es uniformemente continua.
-
-****** Idea de demostración
-:PROPERTIES:
-:ID:       80a088fa-84cb-44e7-9d9f-e6222a4a2eef
-:END:
-Tomamos $D = \mathbb{Q} \cap I = \left\{ t_k \mid k \in \mathbb{N} \right\}$. Bolzano-Weierstrass 
-inductivamente nos da una convergente en $D$.
+****** Demostración
+Con $D$ abierto, existe ${\cal R}_{\overline{a},b} \subseteq D$. Por Weierstrass,
 
 \[
-f(t_k) = \lim_{n \to \infty} f_{\sigma_1\circ \dots\circ \sigma_k(n)}(t_k).
+\exists M\colon \forall (t,x) \in {\cal R}_{\overline{a},b}\colon \norm{f(t,x)} \leq M.
 \]
 
-Extendemos a todo el intervalo usando *equicontinuidad*,
-*densidad* y *convergencia en D*.
+Tomamos $a = \min \{b/M,\overline{a}\}$ y por la [[id:cccfae5e-60f8-4f15-ba11-c14af22e54d8][proposición anterior]] tenemos
+solución de Volterra en intervalo $[t_0-a,t_0+a]$, solución al PVI
+en $(t_0-a,t_0+a)$.
 
-***** Corolario a Ascoli-Arzelá                                   :drill:
-SCHEDULED: <2018-04-29 Sun>
-:PROPERTIES:
-:ID:       cda99124-7715-4d0b-8892-d901da3817a7
-:DRILL_LAST_INTERVAL: 10.3842
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:51]
-:END:
-¿Qué dice Ascoli-Arzelá cuando se aplica sobre un compacto?
-
-****** Corolario
-En $I$ compacto, para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua,
-existe una parcial tal que $f_{\sigma(n)} \overset{c.u.}\longrightarrow f$; además, $f$ es uniformemente continua.
-
-***** Teorema de Cauchy-Peano                                     :drill:
+****** Card                                                      :drill:
 SCHEDULED: <2018-04-29 Sun>
 :PROPERTIES:
 :ID:       dd272b8d-7028-46f1-93f3-f77b1f4ceb5e
@@ -1933,8 +2101,8 @@ SCHEDULED: <2018-04-29 Sun>
 :END:
 Enuncia el Teorema de Cauchy-Peano.
 
-****** Enunciado
-Para $D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d$ y $f \colon D \to \mathbb{R}^{d}$ continua con $(t_0,x_0) \in D$,
+******* Enunciado
+Para $f \colon D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d \to \mathbb{R}^{d}$ continua con $(t_0,x_0) \in D$,
 el PVI siguiente tiene solución
 
 \[\left\{\begin{array}{c}
@@ -1944,6 +2112,7 @@ x(t_0) = x_0
 
 *** Tema 4. Prolongación y acotación de soluciones
 **** 4.1. Prolongación de soluciones
+***** Contexto
 Consideramos para este tema
  
  * $D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d$, abierto,
@@ -1952,7 +2121,7 @@ Consideramos para este tema
   
 Estudiaremos resultados para $\omega$ que se traducirán directamente para $\alpha$.
 
-***** Lema 1. El límite toca el borde
+***** Lema 1. El límite no infinito toca el borde
 :PROPERTIES:
 :ID:       304d100c-6e59-4ed7-b623-4714c361a3dc
 :END:
@@ -2026,6 +2195,31 @@ Si $\omega < +\infty$ se verifica una de las siguientes alternativas.
  * $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D$, tiende a tocar la frontera.
 
 ****** TODO Proof
+
+****** Card: ¿Cuáles son las tres alternativas?                  :drill:
+SCHEDULED: <2018-05-19 Sat>
+:PROPERTIES:
+:ID:       44d857b1-d184-4611-a6b5-6df45fac65b0
+:DRILL_LAST_INTERVAL: 25.32
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:13]
+:END:
+¿Cuáles son las dos alternativas de comportamiento
+para el $\omega$ de una solución maximal?
+
+******* Alternativas
+
+ * $\omega = +\infty$
+
+ * $\lim_{t \to \omega}\| \varphi(t)\| = \infty$, explota en tiempo finito;
+
+ * $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D$, tiende a tocar la frontera.
+
 ***** Corolario 1
 Si $\omega < \infty$ y $D = \mathbb{R} \times \mathbb{R}^{d}$, entonces $\lim_{t \to \infty} \|\varphi(t)\| = \infty$.
 
@@ -2091,6 +2285,37 @@ Y aplicamos en la desigualdad original,
 
 \[
 y(t) \leq C + R\frac{C}{-R} \left( 1 - e^{R(t-t_0)} \right) = Ce^{R(t-t_0)}.
+\]
+
+****** Card: Enunciar el Lema de Gronwall                        :drill:
+SCHEDULED: <2018-05-23 Wed>
+:PROPERTIES:
+:ID:       c6e5ae82-baf7-4eea-a47e-5d9f5dbb1ec3
+:DRILL_LAST_INTERVAL: 25.9646
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:49]
+:END:
+Enunciar el Lema de Gronwall, que acota una función cuando podemos
+acotarla por su integral.
+
+******* Enunciado
+Sea $y \in {\cal C}([t_0,\omega),\mathbb{R})$ con $C \in \mathbb{R}$ y $R \in \mathbb{R}^+$ tales que
+
+\[
+\forall t \in [t_0,\omega)\colon
+y(t) \leq
+C + R \int_{t_0}^t y(s)\,ds.
+\]
+
+Entonces
+
+\[
+\forall t \in [t_0,\omega)\colon y(t) \leq C e^{R(t-t_0)}.
 \]
 
 ***** TODO Lema de Gronwall                                       :extra:
@@ -2163,6 +2388,27 @@ sucesión que divergiera pero con sus imágenes acotadas por $K$.
 Nótese que una coerciva tiene mínimo global por Weierstrass sobre
 un compacto para alguna cota.
 
+****** Card: función coerciva                                    :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       6e44a52f-a72d-4288-85b7-3c7daa3ca1d4
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.75
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:42]
+:END:
+Definición de función coerciva.
+
+******* Definición
+Todo conjunto de subnivel $\Omega_r$ es compacto.
+
+******* Caracterización
+ $\lim_{\|x\| \to +\infty}V(x) = +\infty$
+
 ***** Ejemplos de funciones coercivas
 Para $V,W\colon \mathbb{R}^d \to \mathbb{R}$ y $V_1,\dots,V_d \colon \mathbb{R} \to \mathbb{R}$ continuas se tiene
 
@@ -2184,6 +2430,18 @@ La *derivada* de $V \in {\cal C}^1(\mathbb{R}^d,\mathbb{R})$ a lo largo de $f$ s
 Nótese en particular $\dv{}{t} \left[ V(\varphi(t)) \right]_{|_t} = \overset{\bullet}{V}(t,\varphi(t))$.
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       170edc4f-ef66-4b1e-a3ef-3b1312feaeb5
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:50]
+:END:
 ¿Cómo se define la derivada a lo largo de un campo $f$?
 
 $\bV(t,x) = \dots$
@@ -2194,7 +2452,6 @@ Para $V \in {\cal C}^1(\mathbb{R}^d,\mathbb{R})$ se define
 \[
 \bV(t,x) = \left\langle \nabla V(x),f(t,x) \right\rangle.
 \]
-
 
 ***** Proposición de acotación por coercivas
 # Duda: Aquí no entiendo por qué pedimos la hipótesis de la D de esa forma.
@@ -2255,121 +2512,7 @@ de [[id:b1ed10c4-862c-4722-b481-6f83bf18c479][acotación mediante funciones guí
    componentes conexas de los $\Omega_r$ sean acotadas.
 
 ****** TODO Proof
-**** CARDS
-***** Alternativas de comportamiento en el extremo superior       :drill:
-SCHEDULED: <2018-05-19 Sat>
-:PROPERTIES:
-:ID:       44d857b1-d184-4611-a6b5-6df45fac65b0
-:DRILL_LAST_INTERVAL: 25.32
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.333
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:13]
-:END:
-¿Cuáles son las dos alternativas de comportamiento
-cuando $\omega < +\infty$?
-
-****** Alternativas
-
- * $\lim_{t \to \omega}\| \varphi(t)\| = \infty$, explota en tiempo finito;
-
- * $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D$, tiende a tocar la frontera.
-
-***** Definición de coerciva                                      :drill:
-:PROPERTIES:
-:ID:       6e44a52f-a72d-4288-85b7-3c7daa3ca1d4
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.333
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 0
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:13]
-:END:
-Definición de función coerciva.
-
-****** Definición
-Todo conjunto de subnivel $\Omega_r$ es compacto.
-
-****** Caracterización
- $\lim_{\|x\| \to +\infty}V(x) = +\infty$
-
-***** Lema de Gronwall                                            :drill:
-SCHEDULED: <2018-04-24 Tue>
-:PROPERTIES:
-:ID:       c6e5ae82-baf7-4eea-a47e-5d9f5dbb1ec3
-:DRILL_LAST_INTERVAL: 10.2546
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-14 Sat 23:08]
-:END:
-Enunciar el Lema de Gronwall, que acota una función cuando podemos
-acotar su integral.
-
-****** Enunciado
-Sea $y \in {\cal C}([t_0,\omega),\mathbb{R})$ con $C \in \mathbb{R}$ y $R \in \mathbb{R}^+$ tales que
-
-\[
-\forall t \in [t_0,\omega)\colon
-y(t) \leq
-C + R \int_{t_0}^t y(s)\,ds.
-\]
-
-Entonces
-
-\[
-\forall t \in [t_0,\omega)\colon y(t) \leq C e^{R(t-t_0)}.
-\]
-
-*** Tema 5. Dependencia continua y diferenciable
-**** 5.1. Entornos tubulares
-***** Entorno tubular de una solución
-Para $J \subset \mathbb{R}$ intervalo, $\varphi \colon {\cal C}(J, \mathbb{R})$ y $\rho > 0$,
-
-\[
-T_{\rho}(J,\varphi) = \left\{ (t,x) \in J \times \mathbb{R}^d 
-\;\middle|\;
-\norm{x - \varphi(t)} \leq \rho \right\}.
-\]
-
-***** TODO Lema. Homomorfismo del entorno tubular
-
-**** 5.1. Convergencia uniforme en compactos
-***** Convergencia uniforme en compactos
-Una sucesión $f_n \colon I_n \to \mathbb{R}^d$ *converge uniformemente en compactos* a $f \colon I \to \mathbb{R}$
-si para todo $K \subset I$ compacto hay una cola de $f_n$ definida en $K$ y convergiendo
-uniformemente a $f$ ahí.
-
-**** 5.2. Continuidad de la solución general
-***** Desigualdad fundamental
-Sean $\varphi_i \colon I_i \to \mathbb{R}^{d}$ dos soluciones de una EDO tales que
-
-\[
-\forall t \in I_1\cap I_2 \colon\qquad
-\norm{f(t,\varphi_1(t)) - f(t,\varphi_2(t))} \leq
-L\norm{\varphi_1(t) - \varphi_2(t)},
-\]
-
-entonces para $t_0 \in I_1 \cap I_2$ se tiene
-
-\[
-\forall t \in I_1\cap I_2 \colon\qquad
-\norm{\varphi_1(t) -\varphi_2(t)} \leq
-\norm{\varphi_1(t_0) - \varphi_2(t_0)} e^{L\abs{t-t_0}}.
-\]
-
-****** TODO Proof
-Volterra y Gronwall.
-*** Tema 6. Estabilidad
-*** Seminario 1. 
+*** Seminario 1. Ecuaciones autónomas
 *** Seminario 2. Ecuaciones diferenciales de segundo orden
 **** 1. Ecuaciones sin rozamiento
 ***** Definición
@@ -2456,8 +2599,46 @@ donde $f,g \in {\cal C}(\mathbb{R})$ son localmente lipschitzianas.  Equivale a
 x'_1 = x_2 \\
 x'_2 = -\frac{c}{m}x_2 - \frac{1}{m}g(x_1)
 \end{aligned}\right.\]
+*** Tema 5. Dependencia continua y diferenciable
+**** 5.1. Entornos tubulares
+***** Entorno tubular de una solución
+Para $J \subset \mathbb{R}$ intervalo, $\varphi \colon {\cal C}(J, \mathbb{R})$ y $\rho > 0$,
 
+\[
+T_{\rho}(J,\varphi) = \left\{ (t,x) \in J \times \mathbb{R}^d 
+\;\middle|\;
+\norm{x - \varphi(t)} \leq \rho \right\}.
+\]
 
+***** TODO Lema. Homomorfismo del entorno tubular
+
+**** 5.1. Convergencia uniforme en compactos
+***** Convergencia uniforme en compactos
+Una sucesión $f_n \colon I_n \to \mathbb{R}^d$ *converge uniformemente en compactos* a $f \colon I \to \mathbb{R}$
+si para todo $K \subset I$ compacto hay una cola de $f_n$ definida en $K$ y convergiendo
+uniformemente a $f$ ahí.
+
+**** 5.2. Continuidad de la solución general
+***** Desigualdad fundamental
+Sean $\varphi_i \colon I_i \to \mathbb{R}^{d}$ dos soluciones de una EDO tales que
+
+\[
+\forall t \in I_1\cap I_2 \colon\qquad
+\norm{f(t,\varphi_1(t)) - f(t,\varphi_2(t))} \leq
+L\norm{\varphi_1(t) - \varphi_2(t)},
+\]
+
+entonces para $t_0 \in I_1 \cap I_2$ se tiene
+
+\[
+\forall t \in I_1\cap I_2 \colon\qquad
+\norm{\varphi_1(t) -\varphi_2(t)} \leq
+\norm{\varphi_1(t_0) - \varphi_2(t_0)} e^{L\abs{t-t_0}}.
+\]
+
+****** TODO Proof
+Volterra y Gronwall.
+*** Tema 6. Estabilidad
 *** Ejercicios
 # La mayoría en papel
 
@@ -2675,30 +2856,29 @@ ${\widetilde R} = R - P' \cdot A - Q \cdot (Ax + B)$.
 
 **** CARDS
 ***** Ecuación de Euler: forma                                    :drill:
-SCHEDULED: <2018-04-23 Mon>
+SCHEDULED: <2018-05-02 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: twosided
 :ID:       d8bb9dc5-ce37-4775-a7d6-5faae2b8da03
 :DRILL_LAST_INTERVAL: 4.0
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.667
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:55]
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:07]
 :END:
 
 Forma y técnica de resolución de una Ecuación de Euler.
 
 ****** Forma
 
-\[
-a_nx^ny^{(n)}(x) + \dots + a_0y(x) = 0
+\[ a_nx^ny^{(n)}(x) + \dots + a_0y(x) = 0
 \]
 
 ****** Técnica de resolución
-Se puede aplicar sustitución $x = e^s$, $z(s) = y(x)$ para reducirla a
+Se puede aplicar sustitución $x =e^s$, $z(s) =y(x)$ para reducirla a
 una lineal con coeficientes constantes, teniendo cuidado con los
 coeficientes, que cambian.
 
@@ -2758,6 +2938,37 @@ e^{\frac{1}{(x-x_0-\varepsilon)(x-x_0+\varepsilon)}}, &
 Esta función es no analítica pero continua con derivadas continuas.
 Por contradicción, $f = 0$.
 
+***** Card: enunciado                                             :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:ID:       5184345f-67cf-402b-8732-6baf557e13b6
+:DRILL_LAST_INTERVAL: 26.3191
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:02]
+:END:
+Enuncia el lema fundamental del cálculo de variaciones para una
+$f \colon [a,b] \to \mathbb{R}$. ¿Cuál es la idea de la demostración?
+
+****** Enunciado
+Para $f \colon [a,b] \to \mathbb{R}$ *continua* equivalen
+
+ 1. $f(x) = 0$ para todo $x \in (a,b)$;
+ 2. $\int_a^b f(x)\phi(x)\,dx = 0$ para toda $\phi \in {\cal C}_0^\infty(a,b)$.
+
+****** Idea de demostración
+La función siguiente ese infinitamente diferenciable pero
+nos permite aprovechar que un punto de $f$ no fuera cero
+para integrar por conservación de signo sólo esa zona.
+
+\[
+\phi(x) = e^{\frac{1}{(x-x_0-\varepsilon)(x-x_0+\varepsilon)}}
+\]
+
 **** 2.2. Ecuación de Euler-Lagrange
 ***** Teorema 2. Ecuación de Euler-Lagrange
 :PROPERTIES:
@@ -2814,6 +3025,73 @@ Habiendo usado la integrabilidad de $F$ y $\dv{}{s}F$, la regla de la cadena
 multivariable, el hecho de que $\phi$ se anula en $x_0,x_1$ e integración por
 partes. Aquí aplicamos el [[id:652bdddb-0853-4a9a-8060-28a730928816][lema fundamental]].
 
+****** Card: Función para Euler-Lagrange                         :drill:
+SCHEDULED: <2018-05-24 Thu>
+:PROPERTIES:
+:ID:       cd2cc1ba-0d03-4f95-871f-a4b27229bf39
+:DRILL_LAST_INTERVAL: 34.9388
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 7
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.857
+:DRILL_EASE: 3.0
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:56]
+:END:
+Dar el dominio de la $F$ para la que se tiene Euler-Lagrange y sus
+condiciones de derivabilidad.
+
+******* Características
+Una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, dos veces
+derivable en $p$ y en $y$.
+
+****** Card: Dominio del funcional en Euler-Lagrange             :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       7c4a6835-9dea-4a2a-a944-4ed5540545ee
+:DRILL_LAST_INTERVAL: 26.7727
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:10]
+:END:
+¿Cuál es el dominio del funcional de Euler-Lagrange \({\cal F} \colon {\cal D} \to \mathbb{R}\)?
+Nótese que depende del $\Omega \subseteq \mathbb{R}^2$ que estemos considerando.
+
+******* Dominio
+
+\[{\cal D} = \left\{ \begin{array}{c} 
+y \in {\cal C}^1(x_0,x_1) \\
+y(x_0) = y_0 \\
+y(x_1) = y_1 \\
+\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega
+\end{array}\right\}\]
+
+****** Card: Funcional a minimizar en Euler-Lagrange             :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       6957180c-8bdf-4dea-9ee3-1df1d964c86c
+:DRILL_LAST_INTERVAL: 27.375
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:11]
+:END:
+Dada una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, ¿qué
+funcional queremos minimizar en Euler-Lagrange?
+
+******* Funcional
+
+$${\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,$$
+
+para $y \in {\cal D}$.
+
 ***** Teorema 3. Condiciones para conjuntos sin condiciones de contorno
 :PROPERTIES:
 :ID:       094690c8-7f15-424a-89aa-126400e3d0c6
@@ -2851,6 +3129,52 @@ Euler-Lagrange. Pero entonces
 y tomando en particular funciones cumpliendo $\phi(x_j) = \delta_{ij}$ para
 $i,j = 0,1$ tenemos las condiciones de contorno buscadas.
 
+****** Card: Dominio sin condiciones de contorno                 :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       636e7cb1-9d12-4a39-aa2c-45cfbb581967
+:DRILL_LAST_INTERVAL: 11.6284
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 7
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.715
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:02]
+:END:
+Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
+define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
+de contorno.
+
+******* Dominio
+
+\[{\cal D}^o = \left\{ \begin{array}{c} 
+y \in {\cal C}^1(x_0,x_1), \\
+\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
+\end{array}\right\}\]
+
+****** Card: Condiciones de contorno para problemas sin ellas    :drill:
+SCHEDULED: <2018-05-08 Tue>
+:PROPERTIES:
+:ID:       742721a0-1edb-47c7-aabc-bb203354d4bc
+:DRILL_LAST_INTERVAL: 27.1381
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.6
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:50]
+:END:
+Dado un funcional sobre ${\cal D}^o$, cualquier $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal
+de ${\cal F}$ verifica Euler-Lagrange y ¿qué condiciones de contorno?
+
+******* Condiciones de contorno
+
+\[
+F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
+\]
+
 ***** Teorema 3. Condiciones en conjuntos con una sola condición de contorno
 En
 
@@ -2877,235 +3201,7 @@ F_p = \mathrm{cte.}
 ****** Proof
 Trivialmente integrando en la ecuación de Euler-Lagrange.
 
-***** Teorema 5. Euler-Lagrange para F independiente de x
-En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si además $F_ x= 0$,
-un  minimal $\oy \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ verifica 
-
-\[
-F - y'F_p = \mathrm{cte.}
-\] 
-
-****** Proof
-Tenemos que, aplicando [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]]
-
-\[
-\dv{}{x}\left( F - y'F_p \right) = y'\left(F_y - \dv{}{x}F_p\right) = 0.
-\]
-
-**** 2.3. Ejemplos
-***** Oscilador armónico
-***** Longitud mínima
-***** Longitud mínima usando un caso particular
-***** TODO Superficie minimal de revolución
-**** 2.4. Convexidad: condición suficiente de existencia
-***** Convexidad
-Un subconjunto de espacio vectorial $\Omega \subseteq V$ es *convexo* cuando
-
-\[
-\forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad tx + (1-t)y \in \Omega.
-\]
-
-Una función $f \colon \Omega \to \mathbb{R}$ es *convexa* cuando cumple la desigualdad
-de Jensen,
-
-\[\forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad
-f(tx + (1-t)y) \leq tf(x) + (1-t)f(y).
-\]
-
-***** Teorema 6. Existencia de mínimo con convexidad
-En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si ${\cal D}$ y ${\cal F}$ convexos,
-una $\oy \in {\cal D} \cap {\cal C}^2$ extremal es mínimo global.
-
-****** Proof
-Dado $z \in {\cal D}$, llamamos $\phi =z-y$ y tenemos
-
-\[
-{\cal F}[\oy - t\phi] \leq t{\cal F}[z] + (1-t){\cal F}[\oy].
-\]
-
-Tomando límites y usando que es extremal,
-
-\[
-0 = \dv{t} \left( {\cal F}[\oy + t\phi] \right) =
-\lim_{t \to 0}\frac{{\cal F}[\oy-t\phi] - {\cal F}[\oy]}{t} \leq
-{\cal F}[z] - {\cal F}[y].
-\]
-
-***** Teorema 7. Los mínimos locales son globales con convexidad
-Si ${\cal F}$ y ${\cal D}$ convexos, un mínimo local (estricto) es mínimo global (estricto).
-
-****** Proof
-Sea $\oy$ mínimo local, $\forall \|z - \oy\| \leq \varepsilon\colon {\cal F}[\oy] \leq {\cal F}[z]$. Para $v \in {\cal D}$ tomamos $t_0 = \frac{\varepsilon}{\| v - \oy\|}$
-
-\[
-{\cal F}[\oy] \leq
-{\cal F}[t_0v + (1 - t_0)\oy] \leq t_0{\cal F}[v] + (1-t_0){\cal F}[\oy],
-\]
-
-teniendo $t_0 {\cal F}[\oy] \leq t_0{\cal F}[v]$.
-
-***** Teorema 8. Condición de convexidad
-En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si $F$ convexo en $\Omega$, ${\cal F}$ convexo.
-
-****** TODO No es condición necesaria
-Tenemos $F = y^2(1-p)$ no convexa, pero su ${\cal F}$ es convexo.
-
-****** Proof
-Usando linealidad y acotación de la integral tenemos
-
-\[\begin{aligned}
-{\cal F}[\lambda y + (1-\lambda) z] &=
-\int_{x_0}^{x_1} F\Big(x,\lambda y + (1-\lambda)z, \lambda y' + (1-\lambda)z'\Big)\,dx \\&\leq
-\lambda \int_{x_0}^{x_1} F\Big(x,y,y'\Big)\,dx + (1 - \lambda)\int_{x_0}^{x_1} F\Big(x,z,z'\Big)\,dx.
-\end{aligned}\]
-
-**** CARDS
-***** 2.1. Lema fundamental del cálculo de variaciones            :drill:
-SCHEDULED: <2018-05-15 Tue>
-:PROPERTIES:
-:ID:       5184345f-67cf-402b-8732-6baf557e13b6
-:DRILL_LAST_INTERVAL: 26.3191
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:02]
-:END:
-Enuncia el lema fundamental del cálculo de variaciones para una
-$f \colon [a,b] \to \mathbb{R}$. ¿Cuál es la idea de la demostración?
-
-****** Enunciado
-Para $f \colon [a,b] \to \mathbb{R}$ *continua* equivalen
-
- 1. $f(x) = 0$ para todo $x \in (a,b)$;
- 2. $\int_a^b f(x)\phi(x)\,dx = 0$ para toda $\phi \in {\cal C}_0^\infty(a,b)$.
-
-****** Idea de demostración
-La función siguiente ese infinitamente diferenciable pero
-nos permite aprovechar que un punto de $f$ no fuera cero
-para integrar por conservación de signo sólo esa zona.
-
-\[
-\phi(x) = e^{\frac{1}{(x-x_0-\varepsilon)(x-x_0+\varepsilon)}}
-\]
-
-***** 2.2. Ecuación de Euler-Lagragne
-****** 2.2. Función para Euler-Lagrange                          :drill:
-SCHEDULED: <2018-05-24 Thu>
-:PROPERTIES:
-:ID:       cd2cc1ba-0d03-4f95-871f-a4b27229bf39
-:DRILL_LAST_INTERVAL: 34.9388
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 7
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.857
-:DRILL_EASE: 3.0
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:56]
-:END:
-Dar el dominio de la $F$ para la que se tiene Euler-Lagrange y sus
-condiciones de derivabilidad.
-
-******* Características
-Una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, dos veces
-derivable en $p$ y en $y$.
-
-****** 2.2. Dominio del funcional en Euler-Lagrange              :drill:
-SCHEDULED: <2018-05-05 Sat>
-:PROPERTIES:
-:ID:       7c4a6835-9dea-4a2a-a944-4ed5540545ee
-:DRILL_LAST_INTERVAL: 26.7727
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:10]
-:END:
-¿Cuál es el dominio del funcional de Euler-Lagrange \({\cal F} \colon {\cal D} \to \mathbb{R}\)?
-Nótese que depende del $\Omega \subseteq \mathbb{R}^2$ que estemos considerando.
-
-******* Dominio
-
-\[{\cal D} = \left\{ \begin{array}{c} 
-y \in {\cal C}^1(x_0,x_1) \\
-y(x_0) = y_0 \\
-y(x_1) = y_1 \\
-\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega
-\end{array}\right\}\]
-
-****** 2.2. Funcional a minimizar en Euler-Lagrange              :drill:
-SCHEDULED: <2018-05-05 Sat>
-:PROPERTIES:
-:ID:       6957180c-8bdf-4dea-9ee3-1df1d964c86c
-:DRILL_LAST_INTERVAL: 27.375
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:11]
-:END:
-Dada una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, ¿qué
-funcional queremos minimizar en Euler-Lagrange?
-
-******* Funcional
-
-$${\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,$$
-
-para $y \in {\cal D}$.
-
-****** 2.2. Dominio sin condiciones de contorno                  :drill:
-SCHEDULED: <2018-05-01 Tue>
-:PROPERTIES:
-:ID:       636e7cb1-9d12-4a39-aa2c-45cfbb581967
-:DRILL_LAST_INTERVAL: 11.6284
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 7
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.715
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:02]
-:END:
-Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
-define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
-de contorno.
-
-******* Dominio
-
-\[{\cal D}^o = \left\{ \begin{array}{c} 
-y \in {\cal C}^1(x_0,x_1), \\
-\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
-\end{array}\right\}\]
-
-****** 2.2. Condiciones de contorno para problemas sin ellas     :drill:
-SCHEDULED: <2018-05-08 Tue>
-:PROPERTIES:
-:ID:       742721a0-1edb-47c7-aabc-bb203354d4bc
-:DRILL_LAST_INTERVAL: 27.1381
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 5
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.6
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:50]
-:END:
-Dado un funcional sobre ${\cal D}^o$, cualquier $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal
-de ${\cal F}$ verifica Euler-Lagrange y ¿qué condiciones de contorno?
-
-******* Condiciones de contorno
-
-\[
-F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
-\]
-
-****** 2.2. Euler-Lagrange para F independiente de y             :drill:
+****** Card: Euler-Lagrange para F independiente de y            :drill:
 SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       b5ac284c-b322-4cf6-996f-c70db55e891b
@@ -3126,18 +3222,33 @@ Reescribe Euler-Lagrange sabiendo $F_y = 0$.
 F_p(x,\oy'(x)) = \mathrm{cte.}
 \]
 
-****** 2.2. Euler-Lagrange para F independiente de x             :drill:
-SCHEDULED: <2018-04-29 Sun>
+***** Teorema 5. Euler-Lagrange para F independiente de x
+En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si además $F_ x= 0$,
+un minimal $\oy \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ verifica 
+
+\[
+F - y'F_p = \mathrm{cte.}
+\] 
+
+****** Proof
+Tenemos que, aplicando [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]]
+
+\[
+\dv{}{x}\left( F - y'F_p \right) = y'\left(F_y - \dv{}{x}F_p\right) = 0.
+\]
+
+****** Card: Euler-Lagrange para F independiente de x            :drill:
+SCHEDULED: <2018-05-23 Wed>
 :PROPERTIES:
 :ID:       22e8b4d8-c306-4927-9a7f-159725999cbd
-:DRILL_LAST_INTERVAL: 9.872
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 8
+:DRILL_LAST_INTERVAL: 23.746
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 9
 :DRILL_FAILURE_COUNT: 3
 :DRILL_AVERAGE_QUALITY: 2.5
 :DRILL_EASE: 2.32
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:59]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:00]
 :END:
 Reescribe Euler-Lagrange sabiendo $F_x = 0$.
 
@@ -3147,53 +3258,215 @@ Reescribe Euler-Lagrange sabiendo $F_x = 0$.
 F - y'F_p = \mathrm{cte.}
 \]
 
-***** 2.4. Convexidad: condición suficiente de existencia
+**** 2.3. Ejemplos
+***** Oscilador armónico
+***** Longitud mínima
+***** Longitud mínima usando un caso particular
+***** TODO Superficie minimal de revolución
+**** 2.4. Convexidad
+***** Convexidad
+Un subconjunto de espacio vectorial $\Omega \subseteq V$ es *convexo* cuando
+
+\[
+\forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad tx + (1-t)y \in \Omega.
+\]
+
+Una función $f \colon \Omega \to \mathbb{R}$ es *convexa* cuando cumple la desigualdad
+de Jensen,
+
+\[\forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad
+f(tx + (1-t)y) \leq tf(x) + (1-t)f(y).
+\]
+
+***** Teorema 6. Existencia de mínimo con convexidad
+:PROPERTIES:
+:ID:       89c9e4a0-cc09-4962-b3e5-8fc1cfbb0c4e
+:END:
+En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si ${\cal D}$ y ${\cal F}$ convexos,
+una $\oy \in {\cal D} \cap {\cal C}^2$ extremal es mínimo global.
+
+****** Proof
+Dado $z \in {\cal D}$, llamamos $\phi =z-y$ y tenemos
+
+\[
+{\cal F}[\oy - t\phi] \leq t{\cal F}[z] + (1-t){\cal F}[\oy].
+\]
+
+Tomando límites y usando que es extremal,
+
+\[
+0 = \dv{t} \left( {\cal F}[\oy + t\phi] \right) =
+\lim_{t \to 0}\frac{{\cal F}[\oy-t\phi] - {\cal F}[\oy]}{t} \leq
+{\cal F}[z] - {\cal F}[y].
+\]
+
+***** Teorema 7. Los mínimos locales son globales con convexidad
+:PROPERTIES:
+:ID:       c46055cc-5d8b-4772-8af3-48057d7e45a4
+:END:
+Si ${\cal F}$ y ${\cal D}$ convexos, un mínimo local (estricto) es mínimo global (estricto).
+
+****** Proof
+Sea $\oy$ mínimo local, $\forall \|z - \oy\| \leq \varepsilon\colon {\cal F}[\oy] \leq {\cal F}[z]$. Para $v \in {\cal D}$ tomamos $t_0 = \frac{\varepsilon}{\| v - \oy\|}$
+
+\[
+{\cal F}[\oy] \leq
+{\cal F}[t_0v + (1 - t_0)\oy] \leq t_0{\cal F}[v] + (1-t_0){\cal F}[\oy],
+\]
+
+teniendo $t_0 {\cal F}[\oy] \leq t_0{\cal F}[v]$.
+
+***** Teorema 8. Condición de convexidad
+:PROPERTIES:
+:ID:       4d623017-26e1-4e3e-82ec-325f4b6c0b38
+:END:
+En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si $F$ convexo en $\Omega$, ${\cal F}$ convexo.
+
+****** TODO No es condición necesaria
+Tenemos $F = y^2(1-p)$ no convexa, pero su ${\cal F}$ es convexo.
+
+****** Proof
+Usando linealidad y acotación de la integral tenemos
+
+\[\begin{aligned}
+{\cal F}[\lambda y + (1-\lambda) z] &=
+\int_{x_0}^{x_1} F\Big(x,\lambda y + (1-\lambda)z, \lambda y' + (1-\lambda)z'\Big)\,dx \\&\leq
+\lambda \int_{x_0}^{x_1} F\Big(x,y,y'\Big)\,dx + (1 - \lambda)\int_{x_0}^{x_1} F\Big(x,z,z'\Big)\,dx.
+\end{aligned}\]
 
 *** 3. Cálculo de extremales: problemas de contorno
 **** TODO Euler-Lagrange con segunda derivada
-**** TODO Problema de la viga
-**** CARDS
-***** TODO Euler-Lagrange con segunda derivada
-***** Problema de la viga: ecuación                               :drill:
-SCHEDULED: <2018-04-25 Wed>
 :PROPERTIES:
-:ID:       d370b290-0054-4558-ac81-0da896782fbe
-:DRILL_LAST_INTERVAL: 10.3842
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:ID:       1d1082d8-cb7a-4e0c-868c-5d734cd8949b
+:END:
+**** 3.1. Existencia y unicidad
+***** Problema de contorno
+Un *problema de contorno* consiste encontrar una solución
+de una EDO (o EDP) en un intervalo $[x_0,x_1]$ (o dominio $\Omega$)
+verificando condiciones en $x_0,x_1$ (o en $\partial\Omega$).
+
+***** TODO Ejemplos
+**** 3.2. Tipos de condiciones de contorno
+Tipos de condiciones de contorno
+
+ * Dirichlet:            $y(x_0) = y_0$, $y(x_1) = y_1$.
+
+ * Dirichlet homogéneas: $y(x_0) = 0$, $y(x_1) = 0$.
+
+ * Newmann:              $y'(x_0) = z_0$, $y'(x_1) = z_1$.
+
+ * Newmann homogéneas:   $y'(x_0) = 0$, $y'(x_1) = 0$.
+
+ * Periódicas:           $y(x_0) = y(x_1)$, $y'(x_0) = y'(x_1)$.
+
+***** Card                                                        :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       e11eb078-279d-4ef6-81e7-13404e6f5bfc
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_EASE: 2.6
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:16]
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:11]
+:END:
+Describir los cinco tipos de condiciones de contorno de
+un problema de contorno.
+
+****** Condiciones
+Tipos de condiciones de contorno
+
+ * Dirichlet:            $y(x_0) = y_0$, $y(x_1) = y_1$.
+
+ * Dirichlet homogéneas: $y(x_0) = 0$, $y(x_1) = 0$.
+
+ * Newmann:              $y'(x_0) = z_0$, $y'(x_1) = z_1$.
+
+ * Newmann homogéneas:   $y'(x_0) = 0$, $y'(x_1) = 0$.
+
+ * Periódicas:           $y(x_0) = y(x_1)$, $y'(x_0) = y'(x_1)$.
+**** 3.3. El problema de la viga
+***** Ecuación de la viga
+:PROPERTIES:
+:ID:       afb30645-46b6-4087-bf43-bf765d53719b
+:END:
+La deformación respecto equilibrio de una viga $u \colon [0,L] \to \mathbb{R}$
+para un *módulo de rigidez* $M>0$, una densidad $f(x)$ y
+una constante de la viga $N$ cumple
+
+\[
+Mu''''(x) + Nu''(x) = f(x).
+\]
+
+****** Tipos de sujección de una viga
+Existen los siguientes tipos de sujección:
+
+ * Empotramiento:   $u(0)=0$,  $u'(0) = 0$.
+ * Apoyo:           $u(0)=0$,  $u''(0) = 0$.
+ * Voladizo:        $u''(0) = 0$, $u'''(0) = 0$.
+
+****** Card: ecuación                                            :drill:
+SCHEDULED: <2018-05-24 Thu>
+:PROPERTIES:
+:ID:       d370b290-0054-4558-ac81-0da896782fbe
+:DRILL_LAST_INTERVAL: 26.8743
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:05]
 :END:
 Cuál es la ecuación diferencial del problema de la viga.
 
-****** Ecuación diferencial
+******* Ecuación diferencial
 
 \[
 Mu''''(x) + Nu''(x) = f(x)
 \]
 
 para algunas constantes $M,N$ y alguna expresión $f$. Se complementa
-con cuatro condiciones de contorno, según sujeción.
+con cuatro condiciones de contorno, según sujeción. Con otra notación,
 
-***** Problema de la viga: forma variacional                      :drill:
-SCHEDULED: <2018-04-25 Wed>
+\[
+Mu'''' + Nu'' = f
+\]
+
+***** Problema variacional de la viga
+La [[id:afb30645-46b6-4087-bf43-bf765d53719b][ecuación de la viga]] es condición necesaria de los extremales,
+en un conjunto con restricciones adecuadas, de
+
+\[
+{\cal F}[u] = \int_0^L \left( \frac{M}{2}(u''(x))^2 - \frac{N}{2}(u'(x))^2 - f(x)u(x) \right)\,dx.
+\]
+
+Aplicando [[id:1d1082d8-cb7a-4e0c-868c-5d734cd8949b][Euler-Lagrange en la segunda derivada]] sobre la función
+
+\[
+F(x,y,p,q) = \frac{M}{2}q^2 - \frac{N}{2}p^2 - f(x)y.
+\]
+
+se deduce la ecuación de la viga.
+
+****** Card: forma variacional                                   :drill:
+SCHEDULED: <2018-05-02 Wed>
 :PROPERTIES:
 :ID:       6d3c077e-63c9-4376-b35a-4b5158236b39
-:DRILL_LAST_INTERVAL: 10.3842
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.75
+:DRILL_LAST_INTERVAL: 4.101
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 8
+:DRILL_FAILURE_COUNT: 5
+:DRILL_AVERAGE_QUALITY: 2.375
 :DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:16]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:17]
 :END:
-Cuál es la forma variacional del problema de la viga.
+Da el funcional a minimizar en el problema de la viga.
 
-****** Funcional
+******* Funcional
 Minimizar el funcional
 
 \[
@@ -3202,56 +3475,29 @@ Minimizar el funcional
 
 con cuatro condiciones de contorno para la $u$.
 
-***** Problema de la viga                                         :drill:
-SCHEDULED: <2018-04-25 Wed>
-:PROPERTIES:
-:ID:       64796bcd-1e88-418d-8e91-35d6db42315a
-:DRILL_LAST_INTERVAL: 9.871
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:15]
-:END:
-Enunciar ecuación y forma variacional en el problema de la viga.
-
-****** Ecuación
-
-\[
-Mu''''(x) + Nu''(x) = f(x)
-\]
-
-****** Forma variacional
-
-\[
-\int_0^L \left(\frac{M}{2}(u''(x))^2 - \frac{N}{2}(u'(x))^2 - f(x)u(x) \right)\,dx.
-\]
-
-***** Problema de la viga: obtención de la ecuación               :drill:
-SCHEDULED: <2018-04-23 Mon>
+****** Card: obtención de la ecuación                            :drill:
+SCHEDULED: <2018-05-02 Wed>
 :PROPERTIES:
 :ID:       df2d59fc-26e4-43e7-b955-e1251a820cdb
 :DRILL_LAST_INTERVAL: 4.05
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 5
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_TOTAL_REPEATS: 7
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 2.714
 :DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:03]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:03]
 :END:
 ¿Cómo se obtiene la ecuación en el problema de la viga? Describe
 el $F$ y la versión de Euler-Lagrange para segunda derivada que
 habría que usar aquí.
 
-****** Función
+******* Función
 \[
 F(x,y,p,q) = \frac{M}{2}q^2 - \frac{N}{2}p^2 - f(x)y.
 \]
 
-****** Euler-Lagrange en segunda derivada
+******* Euler-Lagrange en segunda derivada
 
 \[
 F_y - 
@@ -3259,9 +3505,391 @@ F_y -
 \dv[2]{}{x}F_{q} = 0.
 \]
 
-*** 4. Problemas variacionales con ligaduras, extremos condicionados
+******* Ecuación final
+
+\[
+Mu''''(x) + Nu''(x) = f(x).
+\]
+
+**** 3.4. Forma autoadjunta de algunos problemas de contorno
+Cualquier EDO lineal de segundo orden
+
+\[
+y''(x) + a(x)y'(x) + b(x)y(x) = c(x)
+\]
+
+puede escribirse en *forma autoadjunta* o *forma de Sturm-Liouville*
+
+\[
+\Big( P(x)y' \Big)' + Q(x)y(x) = R(x),
+\]
+
+haciendo el cambio
+
+ * $P(x) = \exp \left( \int_{x_0}^xa(z)\,dz \right)$
+
+ * $Q(x) = P(x)b(x)$
+
+ * $R(x) = P(x)c(x)$
+
+****** Card: paso a forma autoadjunta                            :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       a1c6ef44-0fb4-43aa-9b09-10427e5ba538
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:13]
+:END:
+¿Cómo pasar una EDO lineal de segundo orden a forma autoadjunta?
+
+\[
+y''(x) + a(x)y'(x) + b(x)y(x) = c(x)
+\]
+
+******* Respuesta
+Puede escribirse en *forma autoadjunta* o *forma de Sturm-Liouville*
+
+\[
+\Big( P(x)y' \Big)' + Q(x)y(x) = R(x),
+\]
+
+haciendo el cambio
+
+ * $P(x) = \exp \left( \int_{x_0}^xa(z)\,dz \right)$
+
+ * $Q(x) = P(x)b(x)$
+
+ * $R(x) = P(x)c(x)$
+
+**** 3.5. Relación con cálculo de variaciones
+***** Paso a problema variacional
+Dada una EDO en forma autoadjunta
+
+\[
+\Big( P(x)y' \Big)' + Q(x)y(x) = R(x),
+\]
+
+existe un funcional que la tiene como Euler-Lagrange asociada
+
+\[
+{\cal F}[y] = 
+\int_{x_0}^{x_1} \left( 
+P(x)\frac{y'(x)^2}{2} - Q(x)\frac{y(x)^2}{2} + R(x)y(x)
+\right)\,dx,
+\]
+
+con
+
+\[
+F(x,y,p) = P\frac{p^2}{2} - Q\frac{y^2}{2} + Ry.
+\]
+
+****** Card: paso a forma variacional                            :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       a8c3472f-302b-42e0-be27-cdf7bcb96c3d
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:19]
+:END:
+¿Cómo pasar una EDO en forma autoadjunta a un problema
+variacional?
+
+\[
+\Big( P(x)y' \Big)' + Q(x)y(x) = R(x),
+\]
+
+******* Funcional
+Existe un funcional que la tiene como Euler-Lagrange asociada
+
+\[
+{\cal F}[y] = 
+\int_{x_0}^{x_1} \left( 
+P(x)\frac{y'(x)^2}{2} - Q(x)\frac{y(x)^2}{2} + R(x)y(x)
+\right)\,dx.
+\]
+
+con
+
+\[
+F(x,y,p) = P\frac{p^2}{2} - Q\frac{y^2}{2} + Ry.
+\]
+
+***** Teorema 9. Condición de unicidad para el problema variacional
+Si $P,Q,R \in {\cal C}[x_0,x_1]$ con $P > 0$, $Q < 0$, entonces ${\cal F}$ es convexo.
+Bajo *condiciones quasi-Dirichlet*,
+
+\[\left.\begin{array}{l}
+a_0y(x_0) + b_0y'(x_0) = c_0 \\
+a_1y(x_1) + b_1y'(x_1) = c_1
+\end{array}\right\}\quad
+\mbox{ con }|a_0| + |a_1| > 0 \mbox{ y con } a_0b_0 \geq 0, a_1b_1 \geq 0\]
+
+existe una única extremal solución del problema de contorno y
+mínimo de ${\cal F}$.
+
+****** Proof
+******* Convexidad
+La [[id:0cebe934-5d31-494d-bfd6-891d9c4c81ec][hessiana]] de $F(x,y,p) = \frac{P}{2}p^2 - \frac{Q}{2}y^2 + Ry$ en sus dos primeras
+variables es definida positiva, luego $F$ es convexa
+
+\[\mathrm{Hess}(F) = \begin{pmatrix}
+-Q & 0 \\
+0 & P
+\end{pmatrix}.\]
+
+Por [[id:4d623017-26e1-4e3e-82ec-325f4b6c0b38][Teorema 8]], ${\cal F}$ es convexa.
+
+******* TODO Extremal única y solución
+# Usando Fredholm
+
+****** Card: condiciones quasi-Dirichlet                         :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       49074f9d-fd25-49ae-a5f3-f04ed9d610c1
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:16]
+:END:
+Describe las condiciones de contorno quasi-Dirichlet que se usan
+para asegurar unicidad en un problema variacional obtenido desde
+una EDO autoadjunta
+
+\[
+{\cal F}[y] = 
+\int_{x_0}^{x_1} \left( 
+P(x)\frac{y'(x)^2}{2} - Q(x)\frac{y(x)^2}{2} + R(x)y(x)
+\right)\,dx,
+\]
+
+******* Condiciones quasi-Dirichlet
+
+\[\left.\begin{array}{l}
+a_0y(x_0) + b_0y'(x_0) = c_0 \\
+a_1y(x_1) + b_1y'(x_1) = c_1
+\end{array}\right\}\quad
+\mbox{ con }|a_0| + |a_1| > 0 \mbox{ y con } a_0b_0 \geq 0, a_1b_1 \geq 0\]
+
+****** Card: enunciar el Teorema 9                               :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       1506e11a-fd0e-41db-b339-bdce782014bb
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:18]
+:END:
+Enuncia el Teorema 9 sobre unicidad de extremales en un funcional
+
+\[
+{\cal F}[y] = 
+\int_{x_0}^{x_1} \left( 
+P(x)\frac{y'(x)^2}{2} - Q(x)\frac{y(x)^2}{2} + R(x)y(x)
+\right)\,dx,
+\]
+
+obtenido del PC de una EDO autoadjunta
+
+\[
+\Big( P(x)y' \Big)' + Q(x)y(x) = R(x),
+\]
+
+******* Enunciado
+Si $P,Q,R \in {\cal C}[x_0,x_1]$ con $P > 0$, $Q < 0$, entonces ${\cal F}$ es convexo.
+Bajo *condiciones quasi-Dirichlet*, existe una única extremal solución
+del problema de contorno y mínimo de ${\cal
+F}$.
+
+******* Condiciones quasi-Dirichlet
+
+\[\left.\begin{array}{l}
+a_0y(x_0) + b_0y'(x_0) = c_0 \\
+a_1y(x_1) + b_1y'(x_1) = c_1
+\end{array}\right\}\quad
+\mbox{ con }|a_0| + |a_1| > 0 \mbox{ y con } a_0b_0 \geq 0, a_1b_1 \geq 0\]
+
+***** Condiciones de contorno
+Tenemos condiciones Newmann homogéneas sin imponer nada en el problema
+variacional. Las condiciones Dirichlet sí deben ser añadidas.
+
+****** Proof
+En conjuntos [[id:094690c8-7f15-424a-89aa-126400e3d0c6][sin condiciones de contorno]] tendríamos
+
+\[\begin{aligned}
+0 = F_p(x_{0},y(x_0),y'(x_0)) = y'(x_0)P(x_0),\\
+0 = F_p(x_1,y(x_1),y'(x_1)) = y'(x_1)P(x_1),
+\end{aligned}\]
+
+y como $P > 0$, se tienen las condiciones.
+
+***** Teorema 10. Paso a Dirichlet homogéneas
+Dada una ecuación en forma autoadjunta con condiciones Dirichlet
+no homogéneas,
+
+\[\left.\begin{array}{l}
+\Big( P(x)y'(x) \Big)' + Q(x)y(x) = R(x),\ x \in [x_0,x_1] \\
+y(x_0) = y_0, \\
+y(x_1) = y_1.
+\end{array}\right\}\]
+
+podemos aplicar el cambio $z(x) = y(x) - (ax+b)$, con
+$a = (y_1-y_0)/(x_1-x_0)$, con $b = (y_0x_1-y_1x_0)/(x_1-x_0)$ y con
+${\tilde R} = R - aP' - (ax + b)Q$ para llegar a
+
+\[\left.\begin{array}{l}
+\Big( P(x)z'(x) \Big)' + Q(x)z(x) = {\tilde R}(x),\ x \in [x_0,x_1] \\
+z(x_0) = 0, \\
+z(x_1) = 0.
+\end{array}\right\}\]
+
+****** Proof
+Calculando se verifica la equivalencia. Nótese que hemos
+tomado la recta que anula la $y$ en justo esos puntos.
+
+***** Ejemplo 14. Paso a Newmann homogéneas
+Realizado en el [[id:de1af79c-3a0b-410e-8cca-d26c92021ec8][Ejercicio 4]].
+
+**** 3.6. Soluciones de un PC en forma autoadjunta
+***** Caso homogéneo
+Las soluciones de la *ecuación homogénea*
+
+\[
+\left( P(x)y'(x) \right)' + Q(x)y(x) = 0
+\]
+
+forman un espacio vectorial.
+
+***** Caso no homogéneo: definiciones
+Llamamos *ecuación completa* a
+
+\[
+\left( P(x)y'(x) \right)' + Q(x)y(x) = R(x).
+\]
+
+*Condiciones de contorno separadas*
+
+\[\left.\begin{array}{l}
+a_0y(x_0) + b_0y'(x_0) = 0 \\
+a_1y(x_1) + b_1y'(x_1) = 0
+\end{array}\right\}\quad\]
+
+y *condiciones de contorno periódicas*
+
+\[\left.\begin{array}{l}
+y(x_0) = y(x_1) \\
+y'(x_0) = y'(x_1)
+\end{array}\right\}\quad\]
+
+****** Card: condiciones de contorno                             :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       833872e8-5496-40d0-a969-d24dc2a5ad00
+:DRILL_LAST_INTERVAL: 3.3781
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:22]
+:END:
+Bajo qué tipos de condiciones de contorno se puede aplicar
+Alternativa de Fredholm a
+
+\[
+\left( P(x)y'(x) \right)' + Q(x)y(x) = R(x).
+\]
+
+******* Condiciones
+*Condiciones de contorno separadas homogéneas*
+
+\[\left.\begin{array}{l}
+a_0y(x_0) + b_0y'(x_0) = 0 \\
+a_1y(x_1) + b_1y'(x_1) = 0
+\end{array}\right\}\quad\]
+
+y *condiciones de contorno periódicas*
+
+\[\left.\begin{array}{l}
+y(x_0) = y(x_1) \\
+y'(x_0) = y'(x_1)
+\end{array}\right\}\quad\]
+
+***** Alternativa de Fredholm
+En un PC con condiciones de contorno separadas homogéneas o
+periódicas, necesariamente se verifica una de las siguientes
+alternativas
+
+ 1. El problema homogéneo sólo admite la solución trivial, y
+    entonces el completo sólo admite una solución única.
+
+ 2. El problema homogéneo admite varias soluciones $y_h$ y el
+    completo admitirá tantas como él si y sólo si para toda
+    solución,
+
+    \[
+    \int_{x_0}^{x_1}R(x)y_h(x)\,dx = 0.
+    \]
+
+****** TODO Proof
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-03 Thu>
+:PROPERTIES:
+:ID:       a683d1ef-c516-4d88-aa81-89961fd3780c
+:DRILL_LAST_INTERVAL: 4.3083
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:06]
+:END:
+
+Enuncia la Alternativa de Fredholm para
+
+\[
+\left( P(x)y'(x) \right)' + Q(x)y(x) = R(x).
+\]
+
+con condiciones separadas homogéneas o periódicas.
+
+******* Alternativa de Fredholm
+Se cumple una de dos alternativas
+
+ 1. El problema homogéneo sólo admite la solución trivial, y
+    entonces el completo sólo admite una solución única.
+
+ 2. El problema homogéneo admite varias soluciones $y_h$ y el
+    completo admitirá tantas como él si y sólo si para toda
+    solución,
+
+    \[
+    \int_{x_0}^{x_1}R(x)y_h(x)\,dx = 0.
+    \]
+
+*** 4. Ligaduras, extremos condicionados
 **** 4.1. Problemas variacionales dependientes de varias funciones
-***** Funcional a minimizar, dependiente de varias funciones
+***** Teorema 12. Euler-Lagrange para funcionales de varias funciones
 :PROPERTIES:
 :ID:       cf95308e-1cfe-4d08-af55-b2fb3956f471
 :END:
@@ -3284,7 +3912,6 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
-***** Teorema 12. Condición necesaria de mínimo para funcioanles de varias funciones
 Para un funcional de la forma [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]], si $\oy \in {\cal D} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ es mínimo
 del ${\cal F}$ se cumplen las siguientes ecuaciones de Euler-Lagrange en cada variable.
 
@@ -3293,10 +3920,32 @@ F_{y_i} - \dv{}{x}\Big( F_{p_i} \Big) = 0, \quad i = 1,\dots,n.
 \]
 
 ****** TODO Proof
+# Razonamiento similar al Teorema 2.
 
-***** Ligaduras algebraicas
-Al añadir ligaduras algebraicas o diferenciales obtendremos un nuevo
-conjunto ${\cal D}$ de la forma siguiente.
+****** Card: ecuaciones                                          :drill:
+SCHEDULED: <2018-05-03 Thu>
+:PROPERTIES:
+:ID:       c03c7dca-f9ba-4bc7-9dcd-2a1ea5dd1bcb
+:DRILL_LAST_INTERVAL: 3.919
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:20]
+:END:
+Ecuaciones de Euler-Lagrange para funcionales de varias variables.
+
+******* Ecuaciones
+
+\[
+F_{y_i} - \dv{}{x}\Big( F_{p_i} \Big) = 0, \quad \mbox{ para }i = 1,\dots,n.
+\]
+
+**** 4.2. Ligaduras algebraicas
+***** Dominio en ligaduras algebraicas
+Al añadir *ligaduras algebraicas* obtenemos
 
 \[
 {\cal D} = \left\{\begin{array}{c}
@@ -3311,13 +3960,42 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
-***** Método de sustitución
-Las ligaduras permiten en ocasiones eliminar alguna de las incógnitas
-del problema, escribiéndolas en función de las otras.
+En ocasiones eliminar alguna de las incógnitas escribiéndola en
+función de otras.
+
+****** Card: dominio en ligaduras algebraicas                    :drill:
+SCHEDULED: <2018-05-03 Thu>
+:PROPERTIES:
+:ID:       84993bca-f28f-4487-bd43-a16b443f2c51
+:DRILL_LAST_INTERVAL: 4.0703
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:20]
+:END:
+Describe un dominio con ligaduras algebraicas.
+
+******* Dominio
+
+\[
+{\cal D} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
+\varphi_1(x,y_1,\dots,y_n) = 0\\
+\vdots\\
+\varphi_m(x,y_1,\dots,y_n) = 0\\
+\end{array}\right\}
+\]
 
 ***** Teorema 13. Ligaduras algebraicas
-Para $\oy \in {\cal D}_{\varphi} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ mínimo de un funcional ${\cal F}$ de la forma [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]]
-existen multiplicadores de Euler-Lagrange $\lambda_j(x)$ tales que para
+Para $\oy \in {\cal D}_{\varphi} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ mínimo del ${\cal F}$ [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]], existen multiplicadores de
+Euler-Lagrange $\lambda_j(x)$ tales que para
 
 \[
 F^{\ast} = F - \sum_{j=1}^m \lambda_j(x) \varphi_j(x,y_1,\dots,y_n)
@@ -3332,12 +4010,64 @@ F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; 
 \varphi_j = 0, \quad j = 1,\dots,m.
 \end{array}\]
 
-****** TODO Proof
+****** TODO Proof                                                :extra:
 # Demostración en el libro de Elsgoltz.
 
-***** Corolario: ligaduras algebro-diferenciales
-Podemos generalizar las condiciones para que aparezcan las derivadas
-de la función en las ligaduras.
+****** Card: ligaduras algebraicas                               :drill:
+SCHEDULED: <2018-05-03 Thu>
+:PROPERTIES:
+:ID:       71146515-8346-4743-829e-487b2e4ef9d0
+:DRILL_LAST_INTERVAL: 4.4881
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:33]
+:END:
+Cómo buscar el mínimo de un funcional de varias variables ${\cal F}$
+
+\[
+{\cal F}(y) = \int_{x_0}^{x_1} F(x,y_1(x),\dots,y_n(x),y'_1(x), \dots, y'_n(x))\,dx.
+\]
+
+En un conjunto con ligaduras algebraicas
+
+\[
+{\cal D} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
+\varphi_1(x,y_1,\dots,y_n) = 0\\
+\vdots\\
+\varphi_m(x,y_1,\dots,y_n) = 0\\
+\end{array}\right\}
+\]
+
+******* Método
+Definimos
+
+\[
+F^{\ast} = F - \sum_{j=1}^m \lambda_j(x) \varphi_j(x,y_1,\dots,y_n)
+\]
+
+Buscamos $(\oy,\lambda_1,\dots,\lambda_n)$ extremales de ${\cal F}^{\ast}[y,\lambda] = \int_{x_0}^{x_1} F^{\ast}\,dx$ sobre
+un conjunto sin restricciones. En estos puntos tenemos las ecuaciones
+de Euler Lagrange
+
+\[\left\{\begin{array}{l}
+F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; \\
+\varphi_j = 0, \quad j = 1,\dots,m.
+\end{array}\]
+
+***** Dominio para ligaduras algebro-diferenciales
+:PROPERTIES:
+:ID:       9ccb23cb-039e-41a1-bb1c-9efdf0d44b90
+:END:
+Añadiendo *ligaduras algebro-diferenciales*, tenemos el dominio
 
 \[
 {\cal D}'_{\varphi} = \left\{\begin{array}{c}
@@ -3352,15 +4082,47 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
-En este caso, un mínimo $\oy \in {\cal D}'_{\varphi} \cap {\cal C}^2[x_0,x_1]^n$ de ${\cal F}$ cumple que podemos
-definir 
+****** Card: dominio en ligaduras algebro-diferenciales          :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       e8794a70-7d98-469e-907d-16b566f467ba
+:DRILL_LAST_INTERVAL: 4.7785
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:17]
+:END:
+Describe un dominio con ligaduras algebro-diferenciales.
+
+******* Dominio
+
+\[
+{\cal D}'_{\varphi} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
+\varphi_1(x,y_1,\dots,y_n,y'_1,\dots,y'_n) = 0\\
+\vdots\\
+\varphi_m(x,y_1,\dots,y_n,y'_1,\dots,y'_n) = 0\\
+\end{array}\right\}
+\]
+
+***** Corolario. Ligaduras algebro-diferenciales
+Para $\oy \in {\cal D}'_{\varphi} \cap {\cal C}^2[x_0,x_1]^n$ mínimo del ${\cal F}$ [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]], existen multiplicadores
+de Euler-Lagrange $\lambda_j(x)$ tales que para
 
 \[
 F^{\ast} = F - \sum_{j=1}^m \lambda_j(x)\varphi_j(x,y_1,\dots,y_n,y'_1,\dots,y'_n)
 \]
 
-y que existan $(\oy,\lambda_1,\dots,\lambda_n)$ extremales de ${\cal F}^{\ast}[y,\lambda] = \int_{x_0}^{x_1} F^{\ast}\,dx$. En
-estos puntos se cumplen las ecuaciones de Euler-Lagrange siguientes.
+se tienen $(\oy,\lambda_1,\dots,\lambda_n)$ extremales de ${\cal F}^{\ast}[y,\lambda] = \int_{x_0}^{x_1} F^{\ast}\,dx$ sobre un
+conjunto sin restricciones. En estos puntos se cumplen las ecuaciones
+de Euler-Lagrange siguientes.
 
 \[\left\{\begin{array}{l}
 F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; \\
@@ -3369,11 +4131,39 @@ F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; 
 
 ****** TODO Proof
 
-***** Teorema 14: Corolario: ligaduras integrales
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-03 Thu>
 :PROPERTIES:
-:ID:       e37d89ff-11da-493c-ab46-2000fe221da9
+:ID:       9165da91-53b4-4f99-a4bd-aedd91cab3c5
+:DRILL_LAST_INTERVAL: 4.0473
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:30]
 :END:
-Podemos considerar restricciones integrales.
+Cómo buscar el mínimo de un funcional sobre varias funciones ${\cal F}$
+sobre un conjunto con ligaduras algebro-diferenciales.
+
+******* Método
+Definimos
+
+\[
+F^{\ast} = F - \sum_{j=1}^m \lambda_j(x)\varphi_j(x,y_1,\dots,y_n,y'_1,\dots,y'_n)
+\]
+
+y le buscamos extremales sin restricciones con Euler-Lagrange
+
+\[\left\{\begin{array}{l}
+F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; \\
+\varphi_j = 0, \quad j = 1,\dots,m.
+\end{array}\]
+
+**** 4.3. Ligaduras integrales
+***** Dominio para ligaduras integrales
+Añadiendo *ligaduras integrales*, tenemos el dominio
 
 \[
 {\cal D}_{G} = \left\{\begin{array}{c}
@@ -3388,6 +4178,43 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
+****** Card: dominio en ligaduras integrales                     :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:ID:       d6f0bf2b-96a3-4aa7-97cf-a10986b4ca1b
+:DRILL_LAST_INTERVAL: 3.3569
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:33]
+:END:
+Describe un dominio con ligaduras integrales.
+
+******* Dominio
+
+\[
+{\cal D}_{G} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
+\int_{x_0}^{x_1} G_1(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_1 \\
+\vdots\\
+\int_{x_0}^{x_1} G_m(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_m
+\end{array}\right\}
+\]
+
+******* Detalle importante
+Aquí los $L_i$ no tienen por qué ser $0$.
+
+***** Teorema 14: Corolario: ligaduras integrales
+:PROPERTIES:
+:ID:       e37d89ff-11da-493c-ab46-2000fe221da9
+:END:
 En este caso, un mínimo $\oy \in {\cal D}_G \cap ({\cal C}^2[x_0,x_1])^n$ de ${\cal F}$ sobre
 ${\cal D}_G$ cumplirá, para
 
@@ -3395,7 +4222,7 @@ ${\cal D}_G$ cumplirá, para
 F^{\ast} = F - \sum_{j=1}^m \lambda_j G_j,
 \]
 
-con $\lambda_j$ *constantes*, que
+con $\lambda_j$ *constantes*, determinadas por las condiciones de contorono, que
 
 \[
 F^{\ast}_{y_i} - \dv{}{x} \Big( F^{\ast}_{p_i} \Big) = 0, \qquad i=1,\dots,n.
@@ -3404,6 +4231,13 @@ F^{\ast}_{y_i} - \dv{}{x} \Big( F^{\ast}_{p_i} \Big) = 0, \qquad i=1,\dots,n.
 ****** TODO Proof
 # En los apuntes, usando el teorema 13.
 
+****** Card                                                      :drill:
+:PROPERTIES:
+:ID:       2b3f9246-bbdd-45b3-9684-6ee284f3bbc4
+:END:
+
+***** TODO Principio de reciprocidad
+**** 4.4. Ejemplos
 ***** Ejemplo: Problema de Dido
 Queremos maximizar el área que encierra una curva cerrada de longitud
 finita.
@@ -3533,28 +4367,158 @@ y podemos demostrar que
 \]
 
 *** 5. Funcionales dependientes de funciones de varias variables
-***** Ecuación de Euler-Lagrange dependiente de varias variables
+**** 5.0. Ecuación de Euler-Lagrange dependiente de varias variables
+***** Ecuación de Euler-Lagrange con funciones de varias variables
 Consideramos un funcional
 
 \[
-{\cal F}[u] = \int_{\Omega} F \left( t,x,y,u,\pdv{u}{t},\pdv{u}{x},\pdv{u}{y} \right) \,dtdxdy,
+{\cal F}[u] = \int_{\Omega} F \left( x_1,x_2,u(x),u_{x_1}(x),u_{x_2}(x) \right) \,dx,
 \]
 
-actuando sobre funciones $u(x,y,t)$ con unas ciertas condiciones de
-frontera, en el conjunto ${\cal D} = \left\{ u \in {\cal C}^1(\overline{\Omega}) \middle| u(x) = \gamma(x) \forall (x,y) \in \partial \Omega \right\}$.
-Supuesto ${\cal F}$ derivable ${\cal C}^1(\Omega)$, los extremales cumplen la siguiente
-condición de Euler-Lagrange
+actuando en ${\cal D} = \left\{ u \in {\cal C}^1(\overline{\Omega}) \;\middle|\; \forall x \in \partial \Omega\colon u(x) = \gamma(x)  \right\}$. Los extremales
+en $u \in {\cal C}^2(\Omega)$ cumplen
 
 \[
-F_u - \pdv{}{t} F_r - \pdv{}{x} F_p - \pdv{}{y}F_q = 0.
+F_u - \dv{}{x_1} F_p - \dv{}{x_2}F_q = 0.
 \]
 
+****** Card: caso considerado                                    :drill:
+SCHEDULED: <2018-05-03 Thu>
+:PROPERTIES:
+:ID:       d3ca9936-b4c5-4eba-a576-293beefb4226
+:DRILL_LAST_INTERVAL: 3.9257
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:21]
+:END:
+Da la ecuación de Euler-Lagrange para un funcional
+
+\[
+{\cal F}[u] = \int_{\Omega} F \left( x_1,x_2,u(x),u_{x_1}(x),u_{x_2}(x) \right) \,dx,
+\]
+
+******* Ecuación
+
+\[
+F_u - \dv{}{x_1} F_p - \dv{}{x_2}F_q = 0.
+\]
+
+****** Card: caso con tres variables                             :drill:
+SCHEDULED: <2018-05-03 Thu>
+:PROPERTIES:
+:ID:       a66957ab-1847-466f-b93c-813e5cb671b3
+:DRILL_LAST_INTERVAL: 4.1475
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:08]
+:END:
+Da la ecuación de Euler-Lagrange para un funcional
+
+\[
+{\cal F}[u] = \int_{\Omega} F(t,x,y,u,u_t,u_x,u_y) \,dt\,dx\,dy
+\]
+
+******* Ecuación
+
+\[
+F_u - \dv{}{t}F_r - \dv{}{x}F_p - \dv{}{y}F_q
+\]
+
+***** Teoremas análogos
+Se tienen en estas condiciones
+
+ * el [[id:89c9e4a0-cc09-4962-b3e5-8fc1cfbb0c4e][Teorema 6]],
+ * el [[id:c46055cc-5d8b-4772-8af3-48057d7e45a4][Teorema 7]], y
+ * el [[id:4d623017-26e1-4e3e-82ec-325f4b6c0b38][Teorema 8]].
+
 **** 5.1. La membrana vibrante
+***** Laplaciana
+:PROPERTIES:
+:ID:       1ef43534-3455-4e69-bd5f-c9cb72a1eb85
+:END:
+La *laplaciana* es la suma de todas las segundas derivadas
+sin mezclar.
+
+\[
+\Delta f = \sum_{i=1}^n{\pdv[2]{f}{x_i}}.
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       a5ac910f-d07f-4938-afb0-2eba7a25e7c9
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:14]
+:END:
+Da la definición de laplaciana y distínguela de la definición
+de gradiente.
+
+******* Laplaciana
+La *laplaciana* es la suma de todas las segundas derivadas
+sin mezclar:
+
+\[
+\Delta f = \sum_{i=1}^n{\pdv[2]{f}{x_i}}.
+\]
+
+******* Gradiente
+El *gradiente* es el vector de las primeras derivadas, una
+particularización del jacobiano.
+
+\[
+(\nabla f)(p) = \left( \pdv{f}{x_1}(p), \dots, \pdv{f}{x_n}(p) \right) = 
+(f_{x_1}(p), \dots,f_{x_n}(p)).
+\]
+
+***** Divergencia
+La *divergencia* es la suma de todas las primeras derivadas
+
+\[
+\mathrm{div}(f) = \sum_{i=1}^n \pdv{f}{x_i}
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:ID:       9ceb6b3f-39fd-45f8-8d13-6d6c857f5ada
+:DRILL_LAST_INTERVAL: 4.9435
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:31]
+:END:
+Define la *divergencia* en cálculo vectorial, $\mathrm{div}(f)$.
+
+******* Divergencia
+
+\[
+\mathrm{div}(f) = \sum_{i=1}^n \pdv{f}{x_i}
+\]
+
 ***** Marco del problema
-Consideramos una membrana sujeta por el borde, llamando $u(t,x,y)$ al
-a la *altura* de un punto de la membrana, que estará en $\Omega \subseteq \mathbb{R}^2$.
-Llamamos $\varphi(x,y) \in {\cal C}^1(\Omega)$ a la *posición de reposo o equilibrio* de la
+Consideramos una membrana sujeta por el borde, llamando $u(t,x)$ al
+a la *altura* de un punto de la membrana, que estará en $\Omega \subseteq \mathbb{R}^N$.
+Llamamos $\varphi(x) \in {\cal C}^1(\Omega)$ a la *posición de reposo o equilibrio* de la
 que parte, que usualmente se toma constante cero.
+
+****** Modelo inicial
 
 \[\begin{aligned}
 {\cal F}[u] =
@@ -3566,10 +4530,10 @@ C(\varphi) &+ \frac{1}{2} \int_0^{\infty}\int_{\Omega} m \abs{\pdv{u}{t}}^2 \,d(
 
 Normalmente sólo aparecerá este funcional simplificado.
 
-***** Simplificación 1: equilibrio nulo.
+****** Simplificación 1: equilibrio nulo.
 Asumimos la posición de equilibrio $\varphi(x) = 0$ horizontal.
 
-***** Simplificación 2: deformaciones pequeñas (Taylor).
+****** Simplificación 2: deformaciones pequeñas (Taylor).
 Utilizamos el desarrollo de Taylor
 
 \[
@@ -3583,14 +4547,14 @@ para aproximar
 \int_{\Omega}\sigma \sqrt{1 + \abs{\nabla u}^2 \,dx} \sim C + \frac{1}{2}\int_{\Omega} \sigma \abs{\nabla u}^2\,dx.
 \]
 
-***** Simplificación 3: caso estacionario.
+****** Simplificación 3: caso estacionario.
 La $u$ es independiente del tiempo.
 
-***** Modelo simplificado: asumiendo S1, S2, S3.
+***** Modelo de la membrana simplificado
 :PROPERTIES:
 :ID:       f0ac6c21-d9c3-4298-b48e-8602ca0948a5
 :END:
-Si asumimos todas las simplificaciones posibles el funcional queda
+Si asumimos todas las simplificaciones posibles,
 
 \[
 {\cal F}[u] = \int_{\Omega} \left( 
@@ -3598,120 +4562,255 @@ Si asumimos todas las simplificaciones posibles el funcional queda
 \right)\,dx
 \]
 
-desde el que llegamos a
+sobre $u \in {\cal C}^1_0(\Omega)$. Si no asumimos borde nulo tendremos $u \in {\cal C}^1(\overline{\Omega})$
+con $u = \gamma = \varphi$ en $\partial\Omega$.
+
+****** Ecuación
+Desde el que llegamos a
 
 \[
-\sigma \Delta_x u = \alpha u  - f.
+-\mathrm{div}(\sigma\Delta_x u) = f - \alpha u.
 \]
 
-****** Laplaciana en variables espaciales
-La *laplaciana* es la suma de todas las segundas derivadas
-sin mezclar:
+# Comprobar, en los apuntes usa la divergencia y no parece que salga
+# el mismo resultado ni lo que sale haciendo Euler-Lagrange cuando 
+# la sigma no es constante.
+
+Suponiendo $\sigma$ constante llegamos a
 
 \[
-\Delta f = \sum_{i=1}^n{\pdv[2]{f}{x_i}}.
+-\sigma \Delta_{x} = f - \alpha u
 \]
 
-En nuestro caso nos interesa sólo la laplaciana respecto de
+******* Laplaciana en variables espaciales
+Nótese que en este caso nos interesa sólo la [[id:1ef43534-3455-4e69-bd5f-c9cb72a1eb85][laplaciana]] respecto de
 las variables no temporales.
 
 \[
-\Delta_xu := \pdv[2]{u}{x} + \pdv[2]{u}{y}.
+\Delta_xu := \sum_{i=1}^n \pdv[2]{u}{x_i}
 \]
+
+Nótese que $u$ no depende del tiempo por las simplificaciones.
 
 ****** Proof
 La $F$ asociada está en los apuntes. La ecuación se obtiene
 usando la definición de la laplaciana $\Delta u$.
+****** Card: modelo simplificado de la membrana                  :drill:
+SCHEDULED: <2018-05-03 Thu>
+:PROPERTIES:
+:ID:       41429f6b-f4a0-496b-9f2b-d3c27f11c3eb
+:DRILL_LAST_INTERVAL: 3.8665
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:28]
+:END:
+Enuncia el funcional del modelo simplificado de la membrana.
 
+******* Funcional
+
+\[
+{\cal F}[u] = \int_{\Omega} \left( 
+\frac{\sigma(x)}{2}\abs{\nabla u}^2 + \frac{\alpha}{2}u^2 - f(x)u
+\right)\,dx
+\]
+
+****** Card: ecuación de la membrana                             :drill:
+:PROPERTIES:
+:ID:       87e0aead-2a8b-4392-a283-3030da911c37
+:END:
 ***** Ecuación de Poisson
-# Duda: sigma será constante no nula ¿no?
-Si simplificamos tomando $\sigma = \mathrm{cte}$  y $\alpha = 0$, tenemos la
-*Ecuación de Poisson*.
+Tomando $\sigma = \mathrm{cte}$ (nula sería trivial) y $\alpha = 0$ en el modelo de la
+[[id:f0ac6c21-d9c3-4298-b48e-8602ca0948a5][membrana]] tenemos la *Ecuación de Poisson*.
 
 \[
 -\Delta_x u = f/\sigma.
 \]
 
-***** Modos de vibración
+****** Card: ecuación de Poisson                                 :drill:
+SCHEDULED: <2018-05-03 Thu>
+:PROPERTIES:
+:ID:       72b375cf-bcc8-4ca6-aeea-8e220904f72f
+:DRILL_LAST_INTERVAL: 4.0568
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:14]
+:END:
+Enuncia la Ecuación de Poisson.
+
+******* Ecuación
+
+\[
+-\Delta_x u = f/\sigma.
+\]
+
+****** Card: proviene de                                         :drill:
+SCHEDULED: <2018-05-03 Thu>
+:PROPERTIES:
+:ID:       2a969466-4703-47e1-974b-eb5ea28a3bd0
+:DRILL_LAST_INTERVAL: 4.3459
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:32]
+:END:
+¿De dónde proviene la ecuación de Poisson?
+
+\[
+-\Delta_x u = f/\sigma.
+\]
+
+******* Respuesta
+Del modelo simplificado de la membrana.
+
+\[
+{\cal F}[u] = \int_{\Omega} \left( 
+\frac{\sigma(x)}{2}\abs{\nabla u}^2 + \frac{\alpha}{2}u^2 - f(x)u
+\right)\,dx
+\]
+
+Tomando $\sigma$ constante tenemos Euler-Lagrange
+
+\[
+-\sigma \Delta_{x}u = f - \alpha u
+\]
+
+Tomando $\alpha = 0$ tenemos la Ecuación de Poisson.
+
+***** Modos de vibración                                          :extra:
 ***** Problema de Dirichlet
 :PROPERTIES:
 :ID:       8e9ccec0-c9de-4d00-a08e-3de44d448ca5
 :END:
-Cuando en la ecuación de ondas tomamos simplificaciones, $\alpha = f = 0$
-y además $\sigma = \mathrm{cte.}$ el funcional ${\cal F}$ es el funcional de Dirichlet
+Tomando $\alpha = f = 0$, $\sigma = \mathrm{cte.}$ en el modelo de la [[id:8e9ccec0-c9de-4d00-a08e-3de44d448ca5][membrana]], y no
+asumiendo borde fijo llamamos *funcional de Dirichlet* al
 
 \[
 {\cal F}[u] = \int_{\Omega} \abs{\nabla u}^2\,dx.
 \]
 
-Considerando el dominio de funciones de clase 1 fijadas en frontera
+que lleva a
 
-\[
-{\cal D} = \left\{ u \in {\cal C}^1(\Omega) \mid
-u|_{\partial\Omega} = \gamma|_{\partial\Omega} = \varphi|_{\partial\Omega} \right\}.
-\]
-
-Tenemos el sistema de ecuaciones
-
-\[\left\{\begin{array}{ll}
-\Delta u(x) = 0 &\mbox{ si } x \in \Omega\\
+s\[\left\{\begin{array}{ll}
+\Delta_x u(x) = 0 &\mbox{ si } x \in \Omega\\
 u(x) = \gamma(x) &\mbox{ si } x \in \partial\Omega
 \end{array}\right.\]
 
 y podemos comprobar por convexidad que la solución es única.
 
-****** TODO Solución única
+****** Proof
+Tenemos
+
+$F = \sum_i p_i^2$
+
+convexa, [[id:4d623017-26e1-4e3e-82ec-325f4b6c0b38][luego]] ${\cal F}$ convexa y los [[id:89c9e4a0-cc09-4962-b3e5-8fc1cfbb0c4e][extremales]] son mínimos globales.
+
+***** TODO Superficie minimal
 ***** Ecuación de ondas
 :PROPERTIES:
 :ID:       6412aa5f-6f69-4458-9832-134ab22707b3
 :END:
-La ecuación de ondas no supone que estemos en el caso estacionario
-y por tanto $u$ puede depender de $t$. Suponiendo $\alpha$ y $\sigma$ constantes tenemos
-que
+La *ecuación de ondas* no el caso estacionario. Tomando $\alpha$ y $\sigma$ constantes,
 
 \[
 {\cal F}[u] = \int_0^{\infty}\int_{\Omega}
 \left(\frac{(\partial_t u)^2}{2} - \frac{\sigma}{2}\abs{\nabla u}^2 + fu - \alpha\frac{u^2}{2}\right)
-\,dxdt.
+\,dx\,dt.
 \]
 
-Nuestra $F$ es por tanto
+Sobre
+
+\[{\cal D} = \left\{\begin{array}{lr}
+u \in {\cal C}^1([0,T] \times \Omega), &\\
+u(0,x) = \varphi(x),& x\in \Omega \\
+u(T,x) = \mathrm{dado},& x \in \Omega \\
+u(t,x) = \varphi(x), & t \geq 0, x \in \partial\Omega
+\end{array}\right\}\]
+
+Luego
 
 \[
 F = \frac{1}{2}
 \left( r^2 - \sigma(p^2+q^2) + 2fu - \alpha u^2 \right).
 \]
 
-La condición de Euler-Lagrange que se obtiene se llama *Ecuación de ondas*.
+Y la condición de Euler-Lagrange se llama *ecuación de ondas*.
 
 \[
 \partial^2_{tt}u = f(x) - \alpha u  + \sigma \Delta_x u.
 \]
 
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:DRILL_CARD_TYPE: multisided
+:ID:       d2737759-5b77-4e0f-8860-769f0dae8897
+:DRILL_LAST_INTERVAL: 4.7312
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:26]
+:END:
+Ecuación de ondas.
+
+******* Ecuación
+
+\[
+u_{tt} = f - \alpha u + \sigma \Delta_x u.
+\]
+
+******* Funcional
+
+\[
+{\cal F}[u] = \int_0^{\infty}\int_{\Omega}
+\left(\frac{u^2_t}{2} - \frac{\sigma}{2}\abs{\nabla u}^2 + fu - \alpha\frac{u^2}{2}\right)
+\,dx\,dt.
+\]
+
+******* Dominio del funcional
+
+\[{\cal D} = \left\{\begin{array}{lr}
+u \in {\cal C}^1([0,T] \times \Omega), &\\
+u(0,x) = \varphi(x),& x\in \Omega \\
+u(T,x) = \mathrm{dado},& x \in \Omega \\
+u(t,x) = \varphi(x), & t \geq 0, x \in \partial\Omega
+\end{array}\right\}\]
+
 **** 5.2. Resolución: separación de variables y necesidad del desarrollo en serie
-***** Ejemplo: ecuación de ondas en el caso unidimensional
+***** Ecuación de ondas unidimensional simplificada
 :PROPERTIES:
 :ID:       e3c0e5df-d8b2-495c-9993-bd2b93d4782e
 :END:
-Tomamos como ejemplo la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]], en un caso unidimensional
-$\Omega = [0,L] \subseteq \mathbb{R}$ con $\sigma = c^2$ y $\alpha = f = 0$.
+Tomamos como ejemplo la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]] unidimensional en tiempo
+no acotado con $\sigma = c^2$ y $\alpha = f = 0$.
 
 \[
 {\cal F}[u] = 
 \frac{1}{2}\int_0^{\infty}\int_{0}^L
-\left( \left( \pdv{u}{t} \right)^2 - c^2 \left( \pdv{u}{x} \right)^2 \right)\,dxdt.
+\left( u_t^2 - c^2 u_x^2 \right)\,dxdt.
 \]
 
-Desde aquí, la condición de Euler-Lagrange nos da una simplificación de
-la *ecuación de ondas*.
+Obteniendo
 
 \[
-u_{tt} = c^2 u_{xx}
+u_{tt} = c^2 u_{xx}.
 \]
 
-A esta ecuación le ponemos las siguientes condiciones, donde para compensar
-el hecho de que no podemos fijar condición en $T = \infty$, fijamos la derivada
-inicial.
+Para compensar el hecho de que no podemos fijar condición en $T = \infty$,
+fijamos la derivada inicial.
 
 \[\left\{\begin{array}{lr}
 u(0,x) = u_0(x) \in {\cal C}^2, & x \in [0,L], \\
@@ -3720,7 +4819,7 @@ u(t,0) = u(t,L) = 0, & t \geq 0.
 \end{array}
 \right\}\]
 
-***** Separación de variables y principio de superposición
+****** Separación de variables y principio de superposición
 Buscamos ahora una solución de la forma $u(t,x) = T(t)W(x)$, que
 si es solución debe cumplir
 
@@ -3761,8 +4860,46 @@ llegamos a un punto en el que no está claro cómo seguir.
   * $u_n(0,x) = A_n\sin(\frac{n\pi x}{L}) = u_0(x)$,
 
   * $\partial_t u_n(0,x) = B_n \frac{nc\pi}{L}\sin(\frac{n \pi x}{L}) = v_0(x)$.
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-04 Fri>
+:PROPERTIES:
+:DRILL_CARD_TYPE: multisided
+:ID:       5c25baff-dce3-4454-b5e5-baf0ac520cdc
+:DRILL_LAST_INTERVAL: 5.2052
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:35]
+:END:
+Ecuación de ondas unidimensional simplificada.
 
-***** Desarrollo de Fourier en series de senos y cosenos
+******* Funcional
+
+\[
+{\cal F}[u] = 
+\frac{1}{2}\int_0^{\infty}\int_{0}^L
+\left( u_t^2 - c^2 u_x^2 \right)\,dx\,dt.
+\]
+
+******* Ecuación
+
+\[
+u_{tt} = c^2 u_{xx}.
+\]
+
+******* Dominio del funcional
+
+\[{\cal D} = \left\{\begin{array}{lr}
+u(0,x) = u_0(x) \in {\cal C}^2, & x \in [0,L], \\
+u_t(0,x) = v_0(x) \in {\cal C}^1, & x \in [0,L], \\
+u(t,0) = u(t,L) = 0, & t \geq 0.
+\end{array}
+\right\}\]
+
+***** TODO Desarrollo de Fourier en series de senos y cosenos
 Para solucionar esto usaremos que la suma de dos soluciones cualesquiera
 de [[id:e3c0e5df-d8b2-495c-9993-bd2b93d4782e][nuestro problema]] vuelve a ser solución, y que toda función con cierta
 regularidad y con $u_0(0) = u_0(L) = 0$ será una serie de la forma
@@ -3776,9 +4913,8 @@ u_0(x) = \sum_{n=1}^{\infty} a_n\sin(\frac{n\pi x}{L}).
 :PROPERTIES:
 :ID:       1e2009c1-db10-4490-af5c-db57a46dab0f
 :END:
-Un *problema de Sturm-Liouville* consiste en encontrar los
-$\lambda \in \mathbb{R}$ tales que el Problema de Contorno autoadjunto
-homogéneo siguiente tiene soluciones no nulas.
+Un *problema de Sturm-Liouville* consiste en encontrar
+$\lambda \in \mathbb{R}$ donde el problema tiene soluciones no nulas.
 
 \[\left.\begin{array}{c}
 \forall x \in [x_0,x_1]\colon\qquad (Py')' + (Q + \lambda S) y = 0 \\
@@ -3790,8 +4926,40 @@ Donde $Q,S$ son continuas, $P \in {\cal C}^1$ es positiva $P > 0$,
 y $S > 0$; además, las condiciones de contorno no son
 triviales, teniéndose $|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$.
 
-****** Caso periódico
+****** TODO Caso periódico
 # El caso periódico es distinto, se trata en la Nota 18.
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:DRILL_CARD_TYPE: multisided
+:ID:       dac10bbc-2e51-40da-a9e4-4a7e80bb50cf
+:DRILL_LAST_INTERVAL: 3.3211
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:27]
+:END:
+¿Qué es un problema de Sturm-Liuville?
+
+******* Problema
+Encontrar $\lambda \in \mathbb{R}$ para los cuales la siguiente
+ecuación tiene soluciones no nulas.
+
+\[\left.\begin{array}{c}
+\forall x \in [x_0,x_1]\colon\qquad (Py')' + (Q + \lambda S) y = 0 \\
+a_0y(x_0) + b_0y'(x_0) = 0,\\
+a_1y(x_1) + b_1y'(x_1) = 0.
+\end{array}\right\}\]
+
+Se asumen además ciertas condiciones.
+
+******* Condiciones
+Donde $Q,S$ son continuas, $P \in {\cal C}^1$ es positiva $P > 0$,
+y $S > 0$; además, las condiciones de contorno no son
+triviales, teniéndose $|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$.
 
 ***** TODO Valores propios y funciones propias
 Si encontramos un $\lambda$ con soluciones no nulas, tenemos un
@@ -3820,6 +4988,85 @@ propias normalizadas $\|y_n\|_{L^2_S} = 1$ son únicas salvo signo y verifican
 
 ****** Proof
 Fuera de los objetivos del curso.
+
+****** Card: los valores propios                                 :drill:
+Los valores propios de un Sturm-Liouville $\lambda_i$...
+
+******* Propiedad
+Forman una sucesión creciente y divergente $\lambda_1< \lambda_2< \dots\to \infty$.
+
+****** Card: funciones propias                                   :drill:
+Qué cuatro propiedades verifican las funciones propias $f_n$ de un
+Sturm-Liouville.
+
+******* Propiedades
+Cuando las *normalizamos*, $\|y_n\|_{L^2_S} = 1$, verifican
+
+ * su normalizada es única salvo signo,
+
+ * la $y_n$ tiene $n-1$ ceros en $(x_0,x_1)$
+
+ * son ortogonales,
+
+ * toda función $L^2_S(x_0,x_1)$ se desarrolla en serie de funciones
+   propias.
+
+****** TODO Card                                                 :drill:
+SCHEDULED: <2018-05-02 Wed>
+:PROPERTIES:
+:DRILL_CARD_TYPE: multisided
+:ID:       b29a89a5-093b-41e9-84d3-c47685ee9ad9
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 8
+:DRILL_FAILURE_COUNT: 4
+:DRILL_AVERAGE_QUALITY: 2.25
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:06]
+:END:
+
+Caracterización de valores propios de un Sturm-Liouville
+
+******* Funcional
+
+\[
+{\cal F}[y] = \int_{x_0}^{x_1} \Big( P(x)(y'(x))^2 - Q(x)y(x)^2 \Big)\,dx
+\]
+
+sobr el dominio
+
+\[{\cal D}_1 = \left\{\begin{array}{c}
+y \in {\cal C}^0(x_0,x_1) \\
+y(x_0) = y(x_1) = 0 \\
+\|y\|^2_{L^2_S} = \int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
+\end{array}\right\}
+\]
+
+******* Problema asociado
+
+\[\left\{\begin{array}{c}
+(Py')' + (Q + \lambda S)y = 0, \\
+y(x_0) = y(x_1) = 0, \\
+\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
+\end{array}\right.\]
+
+******* Teorema de caracterización de valores propios
+Las funciones propias $y_n$ se obtienen al minimizar el ${\cal F}$ [[id:99594c9a-d729-4e87-b886-c4ee6899d0d7][anterior]]
+sobre
+
+\[
+{\cal D}_n = \left\{\begin{array}{c}
+y \in {\cal C}^1(x_0,x_1) \\
+y(x_0) = y(x_1) = 0, \\
+\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1 \\
+\int_{x_0}^{x_1} y(x)y_1(x)S(x)\,dx = 0 \\
+\vdots\\
+\int_{x_0}^{x_1} y(x)y_{n-1}(x)S(x)\,dx = 0
+\end{array}\right\}
+\]
+
+teniéndose además que ${\cal F}[y_n] = \lambda_n$.
 
 **** 5.3.2. Caracterización variacional de valores y funciones propias
 ***** Cálculo variacional en Sturm-Liouville
@@ -4030,6 +5277,35 @@ es continua a trozos, entonces
 
 converge uniformemente para $a_n$ y $b_n$ coeficientes de Fourier.
 
+****** TODO Card                                                 :leech:
+:PROPERTIES:
+:ID:       9b8e23d3-1c2c-4c20-8fd4-8c788e0fef90
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 18
+:DRILL_FAILURE_COUNT: 15
+:DRILL_AVERAGE_QUALITY: 0.867
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 0
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:27]
+:END:
+Enunciar el Teorema 21 sobre convergencia de derivadas superiores
+en series de Fourier.
+
+******* TODO Enunciado
+Para $y \in {\cal C}^k[0,T]$ con derivadas periódicas $y^{n)}(0) = y^{n)}(T)$ y la 
+derivada $k+1$ continua a trozos sabemos que la derivada $k$ preserva la serie
+de Fourier.
+
+De hecho se tiene que 
+
+\[
+\sum_{n \geq 1} n^k(|a_n| + |b_n|),
+\]
+
+# ¿Convergencia uniforme de qué?
+converge uniformemente, donde $a_n$ y $b_n$ son coeficientes de Fourier.
+
 ***** Convergencia en media
 La convergencia en media la da la igualdad de Bessel
 
@@ -4125,119 +5401,6 @@ La resolución se hace por separación de variables $U(\rho,\theta) = v(p)w(\the
 
 ***** Ecuación de Dirichlet en el rectángulo
 **** CARDS
-***** TODO Euler-Lagrange multivariable :drill:
-:PROPERTIES:
-:ID:       1376f285-9bb4-4fff-8ef3-5fa503944445
-:END:
-***** Ecuación de ondas                                           :drill:
-SCHEDULED: <2018-04-24 Tue>
-:PROPERTIES:
-:ID:       ec3964d3-0e49-45e8-b444-79d168c4fd70
-:DRILL_LAST_INTERVAL: 9.9225
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 7
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.429
-:DRILL_EASE: 2.52
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-14 Sat 23:11]
-:END:
-Enunciar la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]], para parámetros $\alpha$ y $\sigma$ constantes,
-una fuerza $f$ y altura dada por $u$.
-
-****** Enunciado
-Desde la ecuación de Euler-Lagrange para varias variables.
-
-\[
-0 = f - \alpha u - \partial^2_{tt}u + \sigma\Delta_x u
-\].
-
-También puede enunciarse como:
-
-\[
-u_{tt} = f - \alpha u + \sigma \Delta_x u.
-\]
-***** Definición de laplaciana y definición de gradiente          :drill:
-:PROPERTIES:
-:ID:       a5ac910f-d07f-4938-afb0-2eba7a25e7c9
-:END:
-Da la definición de laplaciana y distínguela de la definición
-de gradiente.
-
-****** Laplaciana
-La *laplaciana* es la suma de todas las segundas derivadas
-sin mezclar:
-
-\[
-\Delta f = \sum_{i=1}^n{\pdv[2]{f}{x_i}}.
-\]
-
-****** Gradiente
-El *gradiente* es el vector de las primeras derivadas, una
-particularización del jacobiano.
-
-\[
-(\nabla f)(p) = \left( \pdv{f}{x_1}(p), \dots, \pdv{f}{x_n}(p) \right) = 
-(f_{x_1}(p), \dots,f_{x_n}(p)).
-\]
-
-***** Sturm-Liouville                                             :drill:
-SCHEDULED: <2018-04-23 Mon>
-:PROPERTIES:
-:DRILL_CARD_TYPE: multisided
-:ID:       b29a89a5-093b-41e9-84d3-c47685ee9ad9
-:DRILL_LAST_INTERVAL: 3.9
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 5
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.4
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:04]
-:END:
-
-Caracterización de valores propios de un Sturm-Liouville
-
-****** Funcional
-
-\[
-{\cal F}[y] = \int_{x_0}^{x_1} \Big( P(x)(y'(x))^2 - Q(x)y(x)^2 \Big)\,dx
-\]
-
-sobr el dominio
-
-\[{\cal D}_1 = \left\{\begin{array}{c}
-y \in {\cal C}^0(x_0,x_1) \\
-y(x_0) = y(x_1) = 0 \\
-\|y\|^2_{L^2_S} = \int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
-\end{array}\right\}
-\]
-
-****** Problema asociado
-
-\[\left\{\begin{array}{c}
-(Py')' + (Q + \lambda S)y = 0, \\
-y(x_0) = y(x_1) = 0, \\
-\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1.
-\end{array}\right.\]
-
-****** Teorema de caracterización de valores propios
-Las funciones propias $y_n$ se obtienen al minimizar el ${\cal F}$ [[id:99594c9a-d729-4e87-b886-c4ee6899d0d7][anterior]]
-sobre
-
-\[
-{\cal D}_n = \left\{\begin{array}{c}
-y \in {\cal C}^1(x_0,x_1) \\
-y(x_0) = y(x_1) = 0, \\
-\int_{x_0}^{x_1} y^2(x)S(x)\,dx = 1 \\
-\int_{x_0}^{x_1} y(x)y_1(x)S(x)\,dx = 0 \\
-\vdots\\
-\int_{x_0}^{x_1} y(x)y_{n-1}(x)S(x)\,dx = 0
-\end{array}\right\}
-\]
-
-teniéndose además que ${\cal F}[y_n] = \lambda_n$.
-
 ***** TODO Fórmula de D'Alembert
 Enunciar la fórmula de D'Alembert, que resuelve la ecuación de ondas
 unidimensional,
@@ -4247,34 +5410,6 @@ u_{tt} = c^2u_{xx}, & t > 0, x \in \mathbb{R}, \\
 u(0,x) = u_0(x) \in {\cal C}^2(\mathbb{R}), \\
 u_t(0,x) = v_0(x) \in {\cal C}^1(\mathbb{R}).
 \end{aligned}\right.\]
-***** Teorema 21. Convergencia de derivadas superiores            :drill:
-SCHEDULED: <2018-04-29 Sun>
-:PROPERTIES:
-:ID:       9b8e23d3-1c2c-4c20-8fd4-8c788e0fef90
-:DRILL_LAST_INTERVAL: 9.8695
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.6
-:DRILL_EASE: 2.32
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:01]
-:END:
-Enunciar el Teorema 21 sobre convergencia de derivadas superiores
-en series de Fourier.
-
-****** Enunciado
-Para $y \in {\cal C}^k[0,T]$ con derivadas periódicas $y^{n)}(0) = y^{n)}(T)$ y la 
-derivada $k+1$ continua a trozos sabemos que la derivada $k$ preserva la serie
-de Fourier.
-
-De hecho se tiene que 
-
-\[
-\sum_{n \geq 1} n^k(|a_n| + |b_n|),
-\]
-
-converge uniformemente, donde $a_n$ y $b_n$ son coeficientes de Fourier.
 
 *** 6. Formulación débil
 **** 6.1. Derivada generalizada y débil
@@ -4535,17 +5670,17 @@ donde $J(u) = \frac{1}{2} a(u,u) - \tf(u)$ es un operador cuadrático.
 
 **** CARDS
 ***** Fórmula de Green                                            :drill:
-SCHEDULED: <2018-04-24 Tue>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       2f8ab0e2-d672-4822-8957-da14137f3350
-:DRILL_LAST_INTERVAL: 9.7486
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 23.8061
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.4
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-14 Sat 23:11]
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:04]
 :END:
 Enunciar la fórmula de Green para $u \in {\cal C}^1(\overline{\Omega})$ y $v \in {\cal C}^1_0(\overline{\Omega})$; es decir,
 para el caso de frontera nula.
@@ -4587,17 +5722,17 @@ La función
  * y tiene derivada débil en $(a,b)$ igual a $f$ c.p.d.
 
 ***** Espacios de Sobolev                                         :drill:
-SCHEDULED: <2018-04-29 Sun>
+SCHEDULED: <2018-05-24 Thu>
 :PROPERTIES:
 :ID:       e5522b23-1312-4980-b0ac-2d736e86d2e7
-:DRILL_LAST_INTERVAL: 10.2546
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 24.6246
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:59]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:29]
 :END:
 Para $\Omega \subseteq \mathbb{R}^N$ dominio, $m \in \mathbb{N}$ y $p \in [1,\infty]$,
 define el *espacio de Sobolev* $W^{m,p}$.
@@ -4778,6 +5913,9 @@ Resolvemos por variables separadas
 Despejamos, quitando el caso $D = 0$,
 
 **** Ejercicio 4
+:PROPERTIES:
+:ID:       de1af79c-3a0b-410e-8cca-d26c92021ec8
+:END:
 #+begin_statement
 Hemos probado que cada problema de contorno con condiciones de
 Dirichlet no homogéneas es equivalente a otro con condiciones de
@@ -4785,7 +5923,7 @@ Dirichlet homogéneas.  Enunciar y demostrar un resultado análogo para
 condiciones tipo Neumann no homogéneas.
 #+end_statement
 
-Dado un problema con condiciones de contorno tipo Neumann
+Dado un problema con condiciones de contorno tipo Newmann
 \[\left\{\begin{array}{l}
 (Py')' + Qy = R, \\
 y'(x_0) = y'_0, \\
@@ -5224,7 +6362,7 @@ Lista los movimientos rígidos de $\mathbb{R}^3$.
  2. Traslación.
  3. Rotación.
  4. Movimiento helicoidal.
- 5. Reflexión respecto un plano.e
+ 5. Reflexión respecto un plano.
  6. Reflexión deslizante.
  7. Rotación (del eje) y reflexión (de su plano tangente).
 
@@ -5906,35 +7044,35 @@ k(s).
 **** CARDS
 ***** 1. Curvas regulares y longitud de arco
 ****** Embebimiento                                              :drill:
-SCHEDULED: <2018-04-27 Fri>
+SCHEDULED: <2018-06-01 Fri>
 :PROPERTIES:
 :ID:       47cb18d3-b024-48e7-9b40-9fd5efa6c87a
-:DRILL_LAST_INTERVAL: 11.7738
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 34.5561
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.4
-:DRILL_EASE: 2.9
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 3.0
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:13]
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:40]
 :END:
-¿Cuándo es $\alpha \colon I \to \mathbb{R}^n$ un embebimiento?
+¿Cuándo es $\alpha\colon I \to \mathbb{R}^n$ un embebimiento?
 
 ******* Definición
 Cuando $\alpha \colon I \to \alpha(I)$ es un homeomorfismo.
 
 ****** Ejemplo de curva inyectiva no embebimiento                :drill:
-SCHEDULED: <2018-04-27 Fri>
+SCHEDULED: <2018-06-01 Fri>
 :PROPERTIES:
 :ID:       52adbafb-00f1-4b63-b08a-1e89cf23b94b
-:DRILL_LAST_INTERVAL: 11.7738
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 34.5561
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.9
+:DRILL_AVERAGE_QUALITY: 4.167
+:DRILL_EASE: 3.0
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-15 Sun 21:13]
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:40]
 :END:
 Dar un ejemplo de curva inyectiva que no sea embebimiento.
 
@@ -6126,6 +7264,9 @@ $X \colon U \to S$ para un abierto $U \subset \mathbb{R}^2$ tal que
 
 ****** TODO Notas sobre la definición de superficie
 ****** Construcciones en superficies
+:PROPERTIES:
+:ID:       798b32ea-aeca-4f78-9265-53ce523e0630
+:END:
 Para $S$ superficie,
 
  * $S'$ abierto no vacío de $S$ es superficie;
@@ -6252,6 +7393,9 @@ $\pi(V_q) = (\pi \circ X)(U_{q}) = D_q$ y es biyectiva porque tiene como
 inversa a la $Y$, lo que se deduce de que $V_q = G^z(\varphi)$.
 
 ***** 2.2.2. Corolario: una superficie es localmente un grafo
+:PROPERTIES:
+:ID:       e4c73e71-b439-499e-b722-d67eee8ac318
+:END:
 Para $p \in S$ superficie, existe un $p \in V \subset S$ entorno que es
 el grafo de una función diferenciable. Esto puede usarse para
 probar que ciertos conjuntos no son superficies.
@@ -6300,12 +7444,191 @@ es difeomorfismo, $Y_{|Y^{-1}(W)} = X \circ h$ , y por regla de la cadena clási
 
 porque $(dh)_{q'}$ es [[id:6a2928b0-e787-4240-b76c-1856d14421bb][isomorfismo por]] ser $h$ difeomorfismo.
 
-***** TODO 2.3.2. Espacio tangente
-***** TODO 2.3.4. El espacio tangente es un plano tangente
-***** TODO 2.3.6. Plano afín tangente y recta afín normal
+***** 2.3.2. Espacio tangente
+$v \in \mathbb{R}^n$ es *vector tangente* a $A$ en $p \in A \subset \mathbb{R}^n$ si existe $\alpha \colon (-\varepsilon,\varepsilon) \to A$
+con $\alpha(0) = p$ y $\alpha'(0) = v$. El *espacio tangente* $T_pA$ es el conjunto de los
+vectores tangentes a $A$ en $p$.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-04-30 Mon>
+:PROPERTIES:
+:ID:       f157e9c9-1f94-45c9-bc9a-fa82e35cf8c7
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:45]
+:END:
+Definición de *espacio tangente* $T_p(A)$.
+
+******* Definición
+El *espacio tangente* $T_pA$ es el conjunto de los $v \in \mathbb{R}^n$ tales que
+existe $\alpha \colon (-\varepsilon,\varepsilon) \to A$ con $\alpha(0) = p$ y $\alpha'(0) = v$.
+
+***** 2.3.3. Propiedades del espacio tangente
+
+1. $0 \in T_pA$.
+
+2. Monotonía, $A \subset B \implies T_pA \subset T_pB$.
+
+3. $O\subset \mathbb{R}^n$ abierto implica $T_pO = \mathbb{R}^n$.
+
+4. En general, $T_pA$ no es espacio vectorial. (Contraejemplo en la unión 
+   de dos rectas.
+
+****** Card: contraejemplo de espacio tangente no vectorial      :drill:
+SCHEDULED: <2018-04-30 Mon>
+:PROPERTIES:
+:ID:       3eac5216-6c28-4763-8cd7-856bdd12a1c6
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:45]
+:END:
+Da un ejemplo donde $T_pA$ no es espacio vectorial.
+
+******* Contraejemplo
+La unión de dos rectas es su propio espacio tangente pero
+no es espacio vectorial.
+
+***** 2.3.4. El espacio tangente es un plano tangente
+Para $X \colon U \to S$ parametrización con $X(q) = p$,
+
+\[
+(dX)_q(\mathbb{R}^2) = T_pS.
+\]
+
+En particular, $T_pS$ es plano vectorial con base $B_q = \left\{ X_u(q),X_v(q) \right\}$.
+
+****** Proof
+******* Primera inclusión
+Si $v \in (dX)_q(u)$, como $T_pU = \mathbb{R}^2$, $u \in T_pU$ gracias a una curva $\alpha$.
+Definimos $X \circ \alpha$ y comprobamos derivando que hace tangente a $v$.
+
+******* Segunda inclusión
+$V = X(U)$ es [[id:e4c73e71-b439-499e-b722-d67eee8ac318][locamente un grafo]] y hay un entorno $p \in V_p$ donde es grafo,
+$\pi \colon V_p \to D_p$ proyección con inversa $Y \colon D_p \to V$. Si $v \in T_pS$ gracias a $\alpha$,
+tenemos $\alpha(-\delta,\delta) \subset V_p$ para algún $\delta$ y llamamos $\beta_{|(-\delta,\delta)} = X^{-1}\circ \alpha$. Es
+diferenciable por tenerse
+
+\[
+\beta = X^{-1} \circ \alpha = (X^{-1} \circ Y) \circ (\pi \circ \alpha)
+\]
+
+diferenciable por ser composición de [[id:3b537594-9c48-4d88-b979-cb841d93f776][cambio de parámetros]] y funciones
+diferenciables. Finalmente comprobamos que 
+
+\[
+v = \alpha'(0) = (X \circ \beta)'(0) = (dX)_q(\beta'(0)).
+\]
+
+******** Esquema
+Para comprobar $\beta$ diferenciable,
+
+\[\begin{tikzcd}
+& \mathbb{R}\dar{\alpha}\ar[bend right,swap]{ddl}{\beta}\\
+& V_p\dar[bend left]{\pi}\dlar[swap]{X^{-1}} \\
+U & D_p\lar{h}\uar[bend left]{Y}
+\end{tikzcd}\]
+
+****** Card: espacio tangente cuando es parametrización          :drill:
+SCHEDULED: <2018-04-30 Mon>
+:PROPERTIES:
+:ID:       bcd93e24-5a7c-46bc-a8d6-39719007e6b1
+:DRILL_LAST_INTERVAL: 4.05
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:46]
+:END:
+Dada $X \colon U \to S$ parametrización, da el espacio tangente
+a $X(q) = p$.
+
+******* Espacio tangente
+
+\[
+T_pS = (dX)_q(\mathbb{R}^2)
+\]
+
+****** Card: base del plano tangente                             :drill:
+SCHEDULED: <2018-04-30 Mon>
+:PROPERTIES:
+:ID:       426e5b5a-7e3f-453e-b172-2526547e6ca4
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:45]
+:END:
+¿Cuál es la base del plano $T_pS$?
+
+******* Base
+$B_q = \left\{ X_u(q),X_v(q) \right\}$, donde $X(q) = p$.
+
+***** 2.3.6. Plano afín tangente y recta afín normal
+El *plano afín tangente* de $S$ en $p$ es $p + T_pS$. La *recta afín normal*
+de $S$ en $p$ es $p + (T_pS)^{\bot}$.
+
+***** TODO 2.3.7. Ejemplo: el plano tangente aproxima la superficie
+***** TODO 2.3.8. Ejemplo: el plano tangente es local
+***** TODO 2.3.9. Ejemplo: planos de superficies bajo difeomorfismos
+***** 2.3.11. Ejemplo: plano tangente de superficies implícitas
+Sea $S = f^{-1}(a) \neq \varnothing$ con $a \in \mathrm{VR}(f)$, $f \in {\cal C}^{\infty}(O)$. Entonces
+
+\[
+T_p(S) = (\nabla f)(p)^{\bot}
+\]
+
+****** Proof
+Si $v \in T_pS$ gracias a $\alpha$, $f(\alpha(t)) = a$ constante y
+
+\[
+\pair{\nabla f(a), v} = (f \circ \alpha)'(0) = 0.
+\]
+
+Luego $v \in (\nabla f)(p)^{\bot}$ y tenemos dos planos uno contenido en otro.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-04-30 Mon>
+:PROPERTIES:
+:ID:       db778307-cfe6-45e9-ae36-2becb553fe9a
+:DRILL_LAST_INTERVAL: 3.95
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:45]
+:END:
+Si $S = f^{-1}(a) \neq \varnothing$ es superficie implícita dada por un valor
+regular, ¿cuál es el plano $T_p(S)$?
+
+******* Plano
+
+\[
+T_p(S) = (\nabla f(p))^{\bot}
+\]
+
 ***** TODO 2.3.14. Primera forma fundamental
 **** 2.4. Superficies y cálculo diferencial
 ***** 2.4.1. Aplicaciones diferenciables
+:PROPERTIES:
+:ID:       230b03e1-ea5a-487e-9b27-f497edd8b400
+:END:
 Dados $S,S'$ superficies, $O \subset \mathbb{R}^n, O' \subset \mathbb{R}^m$ abiertos. Definimos
 *diferenciabilidad* en los siguientes casos
 
@@ -6351,9 +7674,18 @@ Definir diferenciabilidad en los cuatro casos
  * $f \in {\cal C}^{\infty}(O,S')$ si $i \circ f \in {\cal C}^{\infty}(O,\mathbb{R}^3)$, donde $i$ es la inclusión.
 
 ***** 2.4.2. Diferenciabilidad de parametrizaciones
-Para $X$ parametrización local, $X \in {\cal C}^{\infty}(U,S)$ y $X^{-1} \in {\cal C}^{\infty}(XU,U)$.
+Para $X\colon U \to S$ parametrización local, $X \in {\cal C}^{\infty}(U,XU)$ y $X^{-1} \in {\cal C}^{\infty}(XU,U)$.
 
-****** TODO Proof
+****** Proof
+$X \colon U \to V = XU$ es diferenciable por serlo $i \circ X$ por
+definición de [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][parametrización]].
+
+$X^{-1}$ es diferenciable [[id:be30c69b-44e3-428c-a5a9-9f055fff8b24][si]] lo es $j \circ X^{-1} \colon V \to \mathbb{R}^2$, donde
+$V$ es superficie [[id:798b32ea-aeca-4f78-9265-53ce523e0630][por ser abierto]] no vacío de $S$. Esta lo
+[[id:230b03e1-ea5a-487e-9b27-f497edd8b400][es]] si cada parametrización $Y \colon U' \to V$ hace $(j \circ X^{-1}) \circ Y$
+diferenciable, pero $j \circ (X^{-1} \circ Y)$ es una composición de
+inclusión y de [[id:3b537594-9c48-4d88-b979-cb841d93f776][cambio de parámetros]].
+
 ****** Cards                                                     :drill:
 SCHEDULED: <2018-04-30 Mon>
 :PROPERTIES:
@@ -6367,11 +7699,13 @@ SCHEDULED: <2018-04-30 Mon>
 :DRILL_LAST_QUALITY: 4
 :DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:51]
 :END:
-Diferenciabilidad de las parametrizaciones locales y sus inversas.
+Diferenciabilidad (no clásica) de las parametrizaciones locales y sus inversas.
 
 ******* Diferenciabilidad
 Para $X$ parametrización local, $X \in {\cal C}^{\infty}(U,S)$ y $X^{-1} \in {\cal C}^{\infty}(XU,U)$.
 Nótese que sabíamos por definición $X \in {\cal C}^{\infty}(U,\mathbb{R}^3)$.
+
+Esta diferenciabilidad lo es en el sentido no clásico.
 
 ***** 2.4.3. Caracterización de diferenciable por atlas
 Equivalen
@@ -6380,7 +7714,23 @@ Equivalen
 
  * existe un atlas tal que $f \circ X_i \colon U_i \to \mathbb{R}^m$ es siempre diferenciable.
 
-****** TODO Proof
+****** Proof
+******* Primera implicación
+Existe un atlas por [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][definición de superficie]] y allí $f \circ X_i$ es
+diferenciable por [[id:230b03e1-ea5a-487e-9b27-f497edd8b400][definición de diferenciabilidad]] de superficies.
+
+******* Segunda implicación
+Dada $Y \colon U' \to S$ parametrización con $q' \in U'$, en $Y(q') = p$ debe existir
+una parametrización local del atlas $X \colon U \to S$, con $p \in U$ y $f \circ X$ diferenciable.
+Tomamos $W = X(U) \cap Y(U')$ y tenemos
+
+\[
+(f \circ Y)_{|Y^{-1}(W)} = (f \circ X) \circ (X^{-1} \circ Y)
+\]
+
+diferenciable por regla de la cadena clásica por ser composición de
+difernciable y [[id:3b537594-9c48-4d88-b979-cb841d93f776][cambio de parámetros]].
+
 ****** Card                                                      :drill:
 SCHEDULED: <2018-04-30 Mon>
 :PROPERTIES:
@@ -6396,7 +7746,7 @@ SCHEDULED: <2018-04-30 Mon>
 :END:
 Da una caracterización de $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$ usando atlas.
 
-******* Caracterización 
+******* Caracterización
 Existe un atlas tal que $f \circ X_i \colon U_i \to \mathbb{R}^m$ es siempre
 diferenciable.
 
@@ -6447,6 +7797,49 @@ La aplicación $(df)_p \colon T_pS \to T_{f(p)}S'$ dada por
 \]
 
 donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) = p$ y $\alpha'(0) = v$.
+
+***** 2.4.15. Extremos locales 
+Para $f \colon S \to \mathbb{R}$ sobre superficie o abierto, consideramos
+
+ * *extremo local* a $p_0$ si hay un entorno abierto $p_0 \in V \subset S$
+   con $f(p) \geq f(p_0)$;
+
+ * *punto crítico* a $p_0$ si $f$ es diferenciable y $(df)_{p_0} = 0$.
+
+***** TODO 2.4.17. Puntos críticos en extremos locales
+
+**** 2.5. Superficies orientables
+***** 2.5.1. Campo de vectores
+Un *campo de vectores* es un $F \colon S \to \mathbb{R}^3$. Es
+
+ * *diferenciable* si $F \in {\cal C}^{\infty}(S,\mathbb{R}^3)$,
+ * *tangente* si $F(p) \in T_p(S)$,
+ * *normal* si $F(p) \in (T_p(S))^{\bot}$,
+ * *unitario* si $X(S) \subset \mathbb{S}^2$.
+
+***** 2.5.2. Orientación
+Una *orientación* es un campo normal, unitario y diferenciable.
+Una superficie es orientable si admite una orientación.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-01 Tue>
+:PROPERTIES:
+:ID:       5c3f56c5-cdb3-4d7c-b09a-4ba12c642c2f
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:39]
+:END:
+Superficie orientable.
+
+******* Definición
+Admite un campo de vectores normal, unitario y diferenciable.
+
+***** TODO 2.5.4. Una superficie orientable tiene dos orientaciones
 
 *** Tema 3. Curvatura de superficies
 *** Tema 4. Geodésicas
