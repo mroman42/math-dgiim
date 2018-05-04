@@ -387,7 +387,32 @@ SCHEDULED: <2018-05-04 Fri>
 ****** Respuesta
 Cuando las derivadas parciales cruzadas segundas son además
 continuas, por el [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][teorema de Schwarz-Clairaut]], es simétrica.
+**** Convexidad
+La función $e^x$ es convexa.
 
+***** Card                                                        :drill:
+:PROPERTIES:
+:ID:       9bc614ac-a897-41af-be8f-c1035ab6c847
+:END:
+La función $e^x$ es ¿cóncava o convexa?
+
+****** Respuesta
+Convexa.
+**** Hessiana y convexidad
+A continuous, twice differentiable function of several variables is
+convex on a convex set if and only if its Hessian matrix of second
+partial derivatives is positive semidefinite on the interior of the
+convex set.
+
+***** Card                                                        :drill:
+:PROPERTIES:
+:ID:       beace7dc-3d4d-4adf-932f-2a369b60d6a6
+:END:
+Caracterización de convexa de una función dos veces diferenciable de
+varias variables en un conjunto convexo.
+
+****** Caracterización
+Es convexa si y sólo si la Hessiana es semidefinida positiba.
 **** Wronskiana
 La *wronskiana* no nula implica independencia lineal. Nótese sin
 embargo que puede anularse incluso cuando son independientes.
@@ -403,7 +428,6 @@ f_1^{n-1)}(x) & \dots & f_n^{n-1)}(x) \\
 
 Puede usarse la [[https://en.wikipedia.org/wiki/Abel%2527s_identity][identidad de Abel]] para calcular la wronskiana incluso
 cuando no se conocen las soluciones.
-
 **** Nociones de continuidad y convergencia
 ***** Continuidad uniforme
 $f \colon I \to \mathbb{R}^d$ es *uniformemente continua* si 
@@ -465,17 +489,17 @@ lleva a
 \[u' = \frac{1}{t}(f(u) - u).\]
 
 ***** Ecuación lineal escalar                                     :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-09 Wed>
 :PROPERTIES:
 :ID:       ead2dfed-95a4-41ad-b65e-d09cf22fbd8d
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 7.8115
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.08
+:DRILL_AVERAGE_QUALITY: 2.6
+:DRILL_EASE: 1.94
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:46]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:35]
 :END:
 Cómo resolver, para $a,b \in {\cal C}(I,\mathbb{R})$;
 
@@ -492,17 +516,17 @@ x = Ae^{(\int a)} + \left( \int_{t_0}^t b(z) e^{-(\int^{z} a)}\,dz \right) e^{(\
 \]
 
 ***** Ecuación de Bernoulli                                       :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-10 Thu>
 :PROPERTIES:
 :ID:       c7712582-1d68-4dd0-9ebf-9b9a2afcd463
-:DRILL_LAST_INTERVAL: 3.999
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 9.0107
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.46
+:DRILL_EASE: 2.32
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:42]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:29]
 :END:
 Cómo resolver
 
@@ -547,17 +571,17 @@ u = \frac{1}{x - \varphi}
 suele ser una elección algo de la forma $\varphi = -1/x$.
 
 ***** Ecuación exacta                                             :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       69ceda6b-32b1-4bc2-b8fd-71bc68c66072
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 11
+:DRILL_LAST_INTERVAL: 12.0543
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 12
 :DRILL_FAILURE_COUNT: 7
-:DRILL_AVERAGE_QUALITY: 1.818
+:DRILL_AVERAGE_QUALITY: 2.0
 :DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:48]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:33]
 :END:
 Dar la forma de una ecuación exacta, ¿cuál es la solución trivial?
 
@@ -925,17 +949,17 @@ Se da una de las alternativas.
  * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
 
 ***** Operador integral de Volterra                               :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-09 Wed>
 :PROPERTIES:
 :ID:       d632fc17-20f9-4797-929d-05f51c4cd2ea
-:DRILL_LAST_INTERVAL: 3.9
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 8.4199
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.6
+:DRILL_AVERAGE_QUALITY: 2.833
 :DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:43]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:30]
 :END:
 Define el operador integral de Volterra y su dominio
 
@@ -1106,17 +1130,17 @@ L\norm{x-y}\abs{1-0}.
 \end{aligned}\]
 
 ****** Card: caracterización de lipschitziana por el jacobiano   :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-10 Thu>
 :PROPERTIES:
 :ID:       4c53da16-5464-489d-8536-ddf06a659fd8
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.1851
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 12:08]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:25]
 :END:
 Caracteriza lipschitzianidad global en un abierto convexo $\Omega$
 usando el jacobiano.
@@ -1262,17 +1286,17 @@ formando dos sucesiones que tienden a $p$ y con cociente
 divergente.
 
 ****** Card: caracterización                                     :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-09 Wed>
 :PROPERTIES:
 :ID:       5810c568-e044-447b-b6d4-0e1879deed84
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 8.3211
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 12:08]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:26]
 :END:
 Caracterización por sucesiones de $f \colon \Omega \to \mathbb{R}^m$ localmente
 lipschitziana.
@@ -1285,7 +1309,7 @@ tales que
 \frac{\norm{f(x_n)-f(y_n)}}{\norm{x_n-y_n}} \to +\infty.
 \]
 
-****** TODO Ejemplo: potencias localmente lipschitz              :drill:
+****** TODO Ejemplo: potencias localmente lipschitz              :leech:
 SCHEDULED: <2018-05-02 Wed>
 :PROPERTIES:
 :ID:       e84886df-626a-4e09-846b-572dabb83c40
@@ -1313,17 +1337,17 @@ Weierstrass para acotar $\vertiii{f'(x)}$ y aplicar la caracterización
 [[id:0bd3f16f-5d05-4135-98b5-70d27b46afa9][global]] en un abierto dentro de él. 
 
 ****** Card: derivada continua y localmente lipschitz            :drill: 
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :ID:       1d486c08-2683-48a2-8114-a6bd716eb758
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.9571
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 12:07]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:33]
 :END:
 Cómo se relaciona la derivada continua con ser LL.
 
@@ -2484,25 +2508,33 @@ Nótese que una coerciva tiene mínimo global por Weierstrass sobre
 un compacto para alguna cota.
 
 ****** Card: función coerciva                                    :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-12 Sat>
 :PROPERTIES:
 :ID:       6e44a52f-a72d-4288-85b7-3c7daa3ca1d4
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 10.8357
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.75
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:42]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:32]
 :END:
 Definición de función coerciva.
 
 ******* Definición
 Todo conjunto de subnivel $\Omega_r$ es compacto.
 
+****** Card: caracterización                                     :drill:
+:PROPERTIES:
+:ID:       37d1fd0f-a7af-4a52-8be0-626e6968b6c2
+:END:
+Caracteriza por límites una función coerciva
+
 ******* Caracterización
- $\lim_{\|x\| \to +\infty}V(x) = +\infty$
+Ser coerciva equivale a
+
+$\lim_{\|x\| \to +\infty}V(x) = +\infty$
 
 ***** Ejemplos de funciones coercivas
 Para $V,W\colon \mathbb{R}^d \to \mathbb{R}$ y $V_1,\dots,V_d \colon \mathbb{R} \to \mathbb{R}$ continuas se tiene
@@ -2525,17 +2557,17 @@ La *derivada* de $V \in {\cal C}^1(\mathbb{R}^d,\mathbb{R})$ a lo largo de $f$ s
 Nótese en particular $\dv{}{t} \left[ V(\varphi(t)) \right]_{|_t} = \overset{\bullet}{V}(t,\varphi(t))$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       170edc4f-ef66-4b1e-a3ef-3b1312feaeb5
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 12.1406
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:50]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:26]
 :END:
 ¿Cómo se define la derivada a lo largo de un campo $f$?
 
@@ -3142,18 +3174,18 @@ ${\widetilde R} = R - P' \cdot A - Q \cdot (Ax + B)$.
 
 **** CARDS
 ***** Ecuación de Euler: forma                                    :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :DRILL_CARD_TYPE: twosided
 :ID:       d8bb9dc5-ce37-4775-a7d6-5faae2b8da03
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 9.1564
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.667
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:07]
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:41]
 :END:
 
 Forma y técnica de resolución de una Ecuación de Euler.
@@ -3416,17 +3448,17 @@ y tomando en particular funciones cumpliendo $\phi(x_j) = \delta_{ij}$ para
 $i,j = 0,1$ tenemos las condiciones de contorno buscadas.
 
 ****** Card: Dominio sin condiciones de contorno                 :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-22 Tue>
 :PROPERTIES:
 :ID:       636e7cb1-9d12-4a39-aa2c-45cfbb581967
-:DRILL_LAST_INTERVAL: 11.6284
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 21.0285
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.715
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:02]
+:DRILL_AVERAGE_QUALITY: 3.626
+:DRILL_EASE: 2.66
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:41]
 :END:
 Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
 define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
@@ -3590,7 +3622,8 @@ Tomando límites y usando que es extremal,
 :PROPERTIES:
 :ID:       c46055cc-5d8b-4772-8af3-48057d7e45a4
 :END:
-Si ${\cal F}$ y ${\cal D}$ convexos, un mínimo local (estricto) es mínimo global (estricto).
+Si ${\cal F}$ y ${\cal D}$ convexos, un mínimo local (estricto) es mínimo
+global (estricto).
 
 ****** Proof
 Sea $\oy$ mínimo local, $\forall \|z - \oy\| \leq \varepsilon\colon {\cal F}[\oy] \leq {\cal F}[z]$. Para $v \in {\cal D}$ tomamos $t_0 = \frac{\varepsilon}{\| v - \oy\|}$
@@ -3606,7 +3639,7 @@ teniendo $t_0 {\cal F}[\oy] \leq t_0{\cal F}[v]$.
 :PROPERTIES:
 :ID:       4d623017-26e1-4e3e-82ec-325f4b6c0b38
 :END:
-En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si $F$ convexo en $\Omega$, ${\cal F}$ convexo.
+En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si $F$ convexo en $\Omega$ convexo, ${\cal F}$ convexo.
 
 ****** TODO No es condición necesaria
 Tenemos $F = y^2(1-p)$ no convexa, pero su ${\cal F}$ es convexo.
@@ -3646,17 +3679,17 @@ Tipos de condiciones de contorno
  * Periódicas:           $y(x_0) = y(x_1)$, $y'(x_0) = y'(x_1)$.
 
 ***** Card                                                        :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-14 Mon>
 :PROPERTIES:
 :ID:       e11eb078-279d-4ef6-81e7-13404e6f5bfc
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.4889
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:11]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:39]
 :END:
 Describir los cinco tipos de condiciones de contorno de
 un problema de contorno.
@@ -3738,17 +3771,17 @@ F(x,y,p,q) = \frac{M}{2}q^2 - \frac{N}{2}p^2 - f(x)y.
 se deduce la ecuación de la viga.
 
 ****** Card: forma variacional                                   :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-06 Sun>
 :PROPERTIES:
 :ID:       6d3c077e-63c9-4376-b35a-4b5158236b39
-:DRILL_LAST_INTERVAL: 4.101
+:DRILL_LAST_INTERVAL: 3.9517
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 8
-:DRILL_FAILURE_COUNT: 5
-:DRILL_AVERAGE_QUALITY: 2.375
+:DRILL_TOTAL_REPEATS: 10
+:DRILL_FAILURE_COUNT: 6
+:DRILL_AVERAGE_QUALITY: 2.5
 :DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:17]
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:46]
 :END:
 Da el funcional a minimizar en el problema de la viga.
 
@@ -3762,17 +3795,17 @@ Minimizar el funcional
 con cuatro condiciones de contorno para la $u$.
 
 ****** Card: obtención de la ecuación                            :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       df2d59fc-26e4-43e7-b955-e1251a820cdb
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 10.51
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 2.714
+:DRILL_AVERAGE_QUALITY: 2.875
 :DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:03]
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:42]
 :END:
 ¿Cómo se obtiene la ecuación en el problema de la viga? Describe
 el $F$ y la versión de Euler-Lagrange para segunda derivada que
@@ -3819,17 +3852,17 @@ haciendo el cambio
  * $R(x) = P(x)c(x)$
 
 ****** Card: paso a forma autoadjunta                            :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-12 Sat>
 :PROPERTIES:
 :ID:       a1c6ef44-0fb4-43aa-9b09-10427e5ba538
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.3237
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:13]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:39]
 :END:
 ¿Cómo pasar una EDO lineal de segundo orden a forma autoadjunta?
 
@@ -3876,17 +3909,17 @@ F(x,y,p) = P\frac{p^2}{2} - Q\frac{y^2}{2} + Ry.
 \]
 
 ****** Card: paso a forma variacional                            :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :ID:       a8c3472f-302b-42e0-be27-cdf7bcb96c3d
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 9.9168
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:19]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:40]
 :END:
 ¿Cómo pasar una EDO en forma autoadjunta a un problema
 variacional?
@@ -3940,17 +3973,17 @@ Por [[id:4d623017-26e1-4e3e-82ec-325f4b6c0b38][Teorema 8]], ${\cal F}$ es convex
 # Usando Fredholm
 
 ****** Card: condiciones quasi-Dirichlet                         :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       49074f9d-fd25-49ae-a5f3-f04ed9d610c1
-:DRILL_LAST_INTERVAL: 3.95
+:DRILL_LAST_INTERVAL: 2.5983
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
 :DRILL_AVERAGE_QUALITY: 2.0
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:16]
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:47]
 :END:
 Describe las condiciones de contorno quasi-Dirichlet que se usan
 para asegurar unicidad en un problema variacional obtenido desde
@@ -3972,17 +4005,17 @@ a_1y(x_1) + b_1y'(x_1) = c_1
 \mbox{ con }|a_0| + |a_1| > 0 \mbox{ y con } a_0b_0 \geq 0, a_1b_1 \geq 0\]
 
 ****** Card: enunciar el Teorema 9                               :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-06 Sun>
 :PROPERTIES:
 :ID:       1506e11a-fd0e-41db-b339-bdce782014bb
-:DRILL_LAST_INTERVAL: 3.95
+:DRILL_LAST_INTERVAL: 3.6449
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.36
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 2.4
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:18]
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:50]
 :END:
 Enuncia el Teorema 9 sobre unicidad de extremales en un funcional
 
@@ -4086,17 +4119,17 @@ y'(x_0) = y'(x_1)
 \end{array}\right\}\quad\]
 
 ****** Card: condiciones de contorno                             :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-06 Sun>
 :PROPERTIES:
 :ID:       833872e8-5496-40d0-a969-d24dc2a5ad00
-:DRILL_LAST_INTERVAL: 3.3781
+:DRILL_LAST_INTERVAL: 4.0087
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:22]
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:49]
 :END:
 Bajo qué tipos de condiciones de contorno se puede aplicar
 Alternativa de Fredholm a
@@ -4138,17 +4171,17 @@ alternativas
 
 ****** TODO Proof
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-03 Thu>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       a683d1ef-c516-4d88-aa81-89961fd3780c
-:DRILL_LAST_INTERVAL: 4.3083
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.1359
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:06]
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:40]
 :END:
 
 Enuncia la Alternativa de Fredholm para
@@ -4174,19 +4207,17 @@ Se cumple una de dos alternativas
     \]
 
 *** 4. Ligaduras, extremos condicionados
-**** 4.1. Problemas variacionales dependientes de varias funciones
-***** Teorema 12. Euler-Lagrange para funcionales de varias funciones
+**** 4.1. Teorema 12. Euler-Lagrange para funcionales de varias funciones
 :PROPERTIES:
 :ID:       cf95308e-1cfe-4d08-af55-b2fb3956f471
 :END:
-Queremos minimizar un funcional de la forma
+Para $F \colon [x_0,x_1] \times \Omega \to \mathbb{R}$ continua, $\Omega \subseteq \mathbb{R}^{2n}$ dominio, minimizar
 
 \[
 {\cal F}(y) = \int_{x_0}^{x_1} F(x,y_1(x),\dots,y_n(x),y'_1(x), \dots, y'_n(x))\,dx.
 \]
 
-para $F \colon [x_0,x_1] \times \Omega \to \mathbb{R}$ continua, siendo $\Omega \subseteq \mathbb{R}^{2n}$ dominio.
-Minimizaremos sobre el conjunto
+sobre
 
 \[
 {\cal D} = \left\{\begin{array}{c}
@@ -4198,73 +4229,64 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
-Para un funcional de la forma [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]], si $\oy \in {\cal D} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ es mínimo
-del ${\cal F}$ se cumplen las siguientes ecuaciones de Euler-Lagrange en cada variable.
+Si $\oy \in {\cal D} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ es extremal se tiene por Euler-Lagrange,
 
 \[
 F_{y_i} - \dv{}{x}\Big( F_{p_i} \Big) = 0, \quad i = 1,\dots,n.
 \]
 
-****** TODO Proof
-# Razonamiento similar al Teorema 2.
+***** Proof
+Seguimos un razonamiento similar al Teorema 2, tomando $g(s) = {\cal F}[y +s\phi]$
+con $\phi = (\phi_1,\dots,\phi_n)$. Llegamos a
 
-****** Card: ecuaciones                                          :drill:
-SCHEDULED: <2018-05-03 Thu>
+\[
+0 = \sum_{i=1}^n \int_{x_0}^{x_1} \left( F_{y_i} - \dv{}{x} F_{p_i} \right) \phi_i(x)\,dx
+\]
+
+y tomamos funciones test en cada componente para obtener las ecuaciones.
+
+***** Card: ecuaciones                                            :drill:
+SCHEDULED: <2018-05-14 Mon>
 :PROPERTIES:
 :ID:       c03c7dca-f9ba-4bc7-9dcd-2a1ea5dd1bcb
-:DRILL_LAST_INTERVAL: 3.919
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.3488
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:20]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:34]
 :END:
-Ecuaciones de Euler-Lagrange para funcionales de varias variables.
+Ecuaciones de Euler-Lagrange para funcionales dependientes de
+varias funciones.
 
-******* Ecuaciones
+****** Ecuaciones
 
 \[
 F_{y_i} - \dv{}{x}\Big( F_{p_i} \Big) = 0, \quad \mbox{ para }i = 1,\dots,n.
 \]
 
-**** 4.2. Ligaduras algebraicas
-***** Dominio en ligaduras algebraicas
-Al añadir *ligaduras algebraicas* obtenemos
-
-\[
-{\cal D} = \left\{\begin{array}{c}
-\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
-y_i \in {\cal C}^1[x_0,x_1] \\
-\vec{y}(x_0) = \vec{y}_0 \\
-\vec{y}(x_1) = \vec{y}_1 \\
-\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
-\varphi_1(x,y_1,\dots,y_n) = 0\\
-\vdots\\
-\varphi_m(x,y_1,\dots,y_n) = 0\\
-\end{array}\right\}
-\]
-
-En ocasiones eliminar alguna de las incógnitas escribiéndola en
-función de otras.
-
-****** Card: dominio en ligaduras algebraicas                    :drill:
-SCHEDULED: <2018-05-03 Thu>
+***** Card: dominio                                               :drill:
+SCHEDULED: <2018-05-07 Mon>
 :PROPERTIES:
-:ID:       84993bca-f28f-4487-bd43-a16b443f2c51
-:DRILL_LAST_INTERVAL: 4.0703
+:ID:       2303fc9e-f13d-4b4f-90e1-78e0bcc5fca3
+:DRILL_LAST_INTERVAL: 4.1868
 :DRILL_REPEATS_SINCE_FAIL: 2
 :DRILL_TOTAL_REPEATS: 1
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:20]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 20:18]
 :END:
-Describe un dominio con ligaduras algebraicas.
+Dominio de un funcional dependiente de varias funciones.
 
-******* Dominio
+\[
+{\cal F}(y) = \int_{x_0}^{x_1} F(x,y_1(x),\dots,y_n(x),y'_1(x), \dots, y'_n(x))\,dx.
+\]
+
+****** Dominio
 
 \[
 {\cal D} = \left\{\begin{array}{c}
@@ -4272,45 +4294,82 @@ Describe un dominio con ligaduras algebraicas.
 y_i \in {\cal C}^1[x_0,x_1] \\
 \vec{y}(x_0) = \vec{y}_0 \\
 \vec{y}(x_1) = \vec{y}_1 \\
-\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
-\varphi_1(x,y_1,\dots,y_n) = 0\\
-\vdots\\
-\varphi_m(x,y_1,\dots,y_n) = 0\\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega
 \end{array}\right\}
 \]
 
-***** Teorema 13. Ligaduras algebraicas
-Para $\oy \in {\cal D}_{\varphi} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ mínimo del ${\cal F}$ [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]], existen multiplicadores de
-Euler-Lagrange $\lambda_j(x)$ tales que para
+**** 4.2. Teorema 13. Ligaduras algebraico-diferenciales
+:PROPERTIES:
+:ID:       2e02f30e-7a39-472d-bbec-47c949e5b641
+:END:
+Sea ${\cal F}$ en [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][varias funciones]], con $m < n$, sobre
 
 \[
-F^{\ast} = F - \sum_{j=1}^m \lambda_j(x) \varphi_j(x,y_1,\dots,y_n)
+{\cal D}_{\varphi} = {\cal D} \cap \left\{\begin{array}{c}
+\varphi_1(x,y_1,\dots,y_n,y_1',\dots,y_n') = 0\\
+\vdots\\
+\varphi_m(x,y_1,\dots,y_n,y_1',\dots,y_n') = 0\\
+\end{array}\right\}
 \]
 
-se tienen $(\oy,\lambda_1,\dots,\lambda_n)$ extremales de ${\cal F}^{\ast}[y,\lambda] = \int_{x_0}^{x_1} F^{\ast}\,dx$ sobre un conjunto
-sin restricciones. En estos puntos se cumplen las ecuaciones de Euler-Lagrange
-siguientes.
+para $\oy \in {\cal D}_{\varphi} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ extremal, existen *multiplicadores* $\lambda_j(x)$,
+
+\[
+F^{\ast} = F - \sum_{j=1}^m \lambda_j(x) \varphi_j(x,y_1,\dots,y_n,y_1',\dots,y_n')
+\]
+
+con $(\oy,\lambda_1,\dots,\lambda_n)$ extremales de ${\cal F}^{\ast}[y,\lambda] = \int_{x_0}^{x_1} F^{\ast}\,dx$.  Por Euler-Lagrange,
 
 \[\left\{\begin{array}{l}
 F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; \\
 \varphi_j = 0, \quad j = 1,\dots,m.
 \end{array}\]
 
-****** TODO Proof                                                :extra:
+***** Proof                                                       :extra:
 # Demostración en el libro de Elsgoltz.
 
-****** Card: ligaduras algebraicas                               :drill:
-SCHEDULED: <2018-05-03 Thu>
+***** Card: dominio en ligaduras algebraicas                      :drill:
+SCHEDULED: <2018-05-11 Fri>
+:PROPERTIES:
+:ID:       84993bca-f28f-4487-bd43-a16b443f2c51
+:DRILL_LAST_INTERVAL: 7.7452
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:39]
+:END:
+Describe un dominio con ligaduras algebraicas.
+
+****** Dominio
+
+\[
+{\cal D} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
+\varphi_1(x,y_1,\dots,y_n) = 0\\
+\vdots\\
+\varphi_m(x,y_1,\dots,y_n) = 0\\
+\end{array}\right\}
+\]
+
+***** Card: ligaduras algebraicas                                 :drill:
+SCHEDULED: <2018-05-14 Mon>
 :PROPERTIES:
 :ID:       71146515-8346-4743-829e-487b2e4ef9d0
-:DRILL_LAST_INTERVAL: 4.4881
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 11.1429
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:33]
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:34]
 :END:
 Cómo buscar el mínimo de un funcional de varias variables ${\cal F}$
 
@@ -4333,7 +4392,7 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
-******* Método
+****** Método
 Definimos
 
 \[
@@ -4349,41 +4408,22 @@ F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; 
 \varphi_j = 0, \quad j = 1,\dots,m.
 \end{array}\]
 
-***** Dominio para ligaduras algebro-diferenciales
-:PROPERTIES:
-:ID:       9ccb23cb-039e-41a1-bb1c-9efdf0d44b90
-:END:
-Añadiendo *ligaduras algebro-diferenciales*, tenemos el dominio
-
-\[
-{\cal D}'_{\varphi} = \left\{\begin{array}{c}
-\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
-y_i \in {\cal C}^1[x_0,x_1] \\
-\vec{y}(x_0) = \vec{y}_0 \\
-\vec{y}(x_1) = \vec{y}_1 \\
-\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
-\varphi_1(x,y_1,\dots,y_n,y'_1,\dots,y'_n) = 0\\
-\vdots\\
-\varphi_m(x,y_1,\dots,y_n,y'_1,\dots,y'_n) = 0\\
-\end{array}\right\}
-\]
-
-****** Card: dominio en ligaduras algebro-diferenciales          :drill:
-SCHEDULED: <2018-05-04 Fri>
+***** Card: dominio en ligaduras algebro-diferenciales            :drill:
+SCHEDULED: <2018-05-14 Mon>
 :PROPERTIES:
 :ID:       e8794a70-7d98-469e-907d-16b566f467ba
-:DRILL_LAST_INTERVAL: 4.7785
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.8725
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:17]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:27]
 :END:
 Describe un dominio con ligaduras algebro-diferenciales.
 
-******* Dominio
+****** Dominio
 
 \[
 {\cal D}'_{\varphi} = \left\{\begin{array}{c}
@@ -4398,42 +4438,23 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
-***** Corolario. Ligaduras algebro-diferenciales
-Para $\oy \in {\cal D}'_{\varphi} \cap {\cal C}^2[x_0,x_1]^n$ mínimo del ${\cal F}$ [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][anterior]], existen multiplicadores
-de Euler-Lagrange $\lambda_j(x)$ tales que para
-
-\[
-F^{\ast} = F - \sum_{j=1}^m \lambda_j(x)\varphi_j(x,y_1,\dots,y_n,y'_1,\dots,y'_n)
-\]
-
-se tienen $(\oy,\lambda_1,\dots,\lambda_n)$ extremales de ${\cal F}^{\ast}[y,\lambda] = \int_{x_0}^{x_1} F^{\ast}\,dx$ sobre un
-conjunto sin restricciones. En estos puntos se cumplen las ecuaciones
-de Euler-Lagrange siguientes.
-
-\[\left\{\begin{array}{l}
-F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; \\
-\varphi_j = 0, \quad j = 1,\dots,m.
-\end{array}\]
-
-****** TODO Proof
-
-****** Card                                                      :drill:
-SCHEDULED: <2018-05-03 Thu>
+***** Card: completo                                              :drill:
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       9165da91-53b4-4f99-a4bd-aedd91cab3c5
-:DRILL_LAST_INTERVAL: 4.0473
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.3935
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:30]
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:41]
 :END:
 Cómo buscar el mínimo de un funcional sobre varias funciones ${\cal F}$
 sobre un conjunto con ligaduras algebro-diferenciales.
 
-******* Método
+****** Método
 Definimos
 
 \[
@@ -4447,82 +4468,104 @@ F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; 
 \varphi_j = 0, \quad j = 1,\dots,m.
 \end{array}\]
 
-**** 4.3. Ligaduras integrales
-***** Dominio para ligaduras integrales
-Añadiendo *ligaduras integrales*, tenemos el dominio
+**** 4.3. Teorema 14. Ligaduras integrales
+Sea ${\cal F}$ en [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][varias funciones]], con $m < n$ o $m \geq n$, sobre
 
 \[
-{\cal D}_{G} = \left\{\begin{array}{c}
-\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
-y_i \in {\cal C}^1[x_0,x_1] \\
-\vec{y}(x_0) = \vec{y}_0 \\
-\vec{y}(x_1) = \vec{y}_1 \\
-\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
-\int_{x_0}^{x_1} G_1(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_1 \\
+{\cal D}_{\varphi} = {\cal D} \cap \left\{\begin{array}{c}
+\int_{x_0}^{x_1} G_1(x,y_1,\dots,y_n,y_1',\dots,y_n') = L_1\\
 \vdots\\
-\int_{x_0}^{x_1} G_m(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_m
+\int_{x_0}^{x_1} G_m(x,y_1,\dots,y_n,y_1',\dots,y_n') = L_m\\
 \end{array}\right\}
 \]
 
-****** Card: dominio en ligaduras integrales                     :drill:
-SCHEDULED: <2018-05-02 Wed>
-:PROPERTIES:
-:ID:       d6f0bf2b-96a3-4aa7-97cf-a10986b4ca1b
-:DRILL_LAST_INTERVAL: 3.3569
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:33]
-:END:
-Describe un dominio con ligaduras integrales.
-
-******* Dominio
-
-\[
-{\cal D}_{G} = \left\{\begin{array}{c}
-\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
-y_i \in {\cal C}^1[x_0,x_1] \\
-\vec{y}(x_0) = \vec{y}_0 \\
-\vec{y}(x_1) = \vec{y}_1 \\
-\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
-\int_{x_0}^{x_1} G_1(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_1 \\
-\vdots\\
-\int_{x_0}^{x_1} G_m(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_m
-\end{array}\right\}
-\]
-
-******* Detalle importante
-Aquí los $L_i$ no tienen por qué ser $0$.
-
-***** Teorema 14: Corolario: ligaduras integrales
-:PROPERTIES:
-:ID:       e37d89ff-11da-493c-ab46-2000fe221da9
-:END:
-En este caso, un mínimo $\oy \in {\cal D}_G \cap ({\cal C}^2[x_0,x_1])^n$ de ${\cal F}$ sobre
-${\cal D}_G$ cumplirá, para
+para $\oy \in {\cal D}_{\varphi} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ extremal, hay *multiplicadores constantes* $\lambda_j$,
 
 \[
 F^{\ast} = F - \sum_{j=1}^m \lambda_j G_j,
 \]
 
-con $\lambda_j$ *constantes*, determinadas por las condiciones de contorono, que
+cumpliendo por Euler-Lagrange,
 
 \[
 F^{\ast}_{y_i} - \dv{}{x} \Big( F^{\ast}_{p_i} \Big) = 0, \qquad i=1,\dots,n.
 \]
 
-****** TODO Proof
-# En los apuntes, usando el teorema 13.
+***** Principio de reciprocidad
+La $F^{\ast}$ se mantiene cuando multiplicamos todo por $\mu \in \mathbb{R}$ y 
+cambiamos $F$ por alguna de las $G_j$.
 
-****** Card                                                      :drill:
+El *principio de reciprocidad* dice que equivale maximiar el área
+fijada una longitud y minimizar la longitud fijada un área.
+
+***** Proof
+Tomamos $\tilde{\cal F}[y,z_1,\dots,z_m] = {\cal F}[y]$ con restricciones que sirven para
+fijar las $z_j$ como primitivas, pero que son tipo algebraico-diferencial,
+
+\[
+{\cal D}_{\varphi}' = \left\{\begin{array}{c}
+\vec{y}(x) \in {\cal D} \\
+z_i \in {\cal C}^1[x_0,x_1] \\
+\vec{z}(x_0) = 0 \\
+\vec{z}(x_1) = \vec{L} \\
+G_1(x,y_1,\dots,y_n,y'_1,\dots,y'_n) - z_1'(x) = 0 \\
+\vdots\\
+G_m(x,y_1,\dots,y_n,y'_1,\dots,y'_n) - z_m'(x) = 0
+\end{array}\right\}
+\]
+
+y aplicando el teorema sobre [[id:2e02f30e-7a39-472d-bbec-47c949e5b641][ligaduras diferenciales]], tenemos
+
+\[
+\tilde{F}^{\ast} = \tilde{F} - \sum_{j=1}\lambda_j(x)(G_j - z_j')
+\]
+
+y llegamos a
+
+\[\left\{\begin{aligned}
+\tilde{F}^{\ast}_{y_i} - \dv{}{x} \left( \tilde{F}^{\ast}_{p_i} \right) = 0, \\
+\dv{}{x} \left( \lambda_j(x) \right) = 0,\\
+\int_{x_0}^{x_1}G_j\,dx = L_j
+\end{aligned}\right.\]
+
+que se corresponden a las ligaduras que marca el enunciado.
+
+***** Card: dominio en ligaduras integrales                       :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       d6f0bf2b-96a3-4aa7-97cf-a10986b4ca1b
+:DRILL_LAST_INTERVAL: 3.1205
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 2.25
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:49]
+:END:
+Describe un dominio con ligaduras integrales.
+
+****** Dominio
+
+\[
+{\cal D}_{G} = \left\{\begin{array}{c}
+\vec{y}(x) = (y_1(x),\dots,y_n(x)) \\
+y_i \in {\cal C}^1[x_0,x_1] \\
+\vec{y}(x_0) = \vec{y}_0 \\
+\vec{y}(x_1) = \vec{y}_1 \\
+\forall x \in [x_0,x_1]\colon (\vec{y}(x),\vec{y}'(x)) \in \Omega \\
+\int_{x_0}^{x_1} G_1(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_1 \\
+\vdots\\
+\int_{x_0}^{x_1} G_m(x,y_1,\dots,y_n,y'_1,\dots,y'_n)\, dx = L_m
+\end{array}\right\}
+\]
+
+****** Detalle importante
+Aquí los $L_i$ no tienen por qué ser $0$.
+***** TODO Card                                                   :drill:
 :PROPERTIES:
 :ID:       2b3f9246-bbdd-45b3-9684-6ee284f3bbc4
 :END:
-
-***** TODO Principio de reciprocidad
 **** 4.4. Ejemplos
 ***** Ejemplo: Problema de Dido
 Queremos maximizar el área que encierra una curva cerrada de longitud
@@ -4655,31 +4698,31 @@ y podemos demostrar que
 *** 5. Funcionales dependientes de funciones de varias variables
 **** 5.0. Ecuación de Euler-Lagrange dependiente de varias variables
 ***** Ecuación de Euler-Lagrange con funciones de varias variables
-Consideramos un funcional
+Para
 
 \[
 {\cal F}[u] = \int_{\Omega} F \left( x_1,x_2,u(x),u_{x_1}(x),u_{x_2}(x) \right) \,dx,
 \]
 
 actuando en ${\cal D} = \left\{ u \in {\cal C}^1(\overline{\Omega}) \;\middle|\; \forall x \in \partial \Omega\colon u(x) = \gamma(x)  \right\}$. Los extremales
-en $u \in {\cal C}^2(\Omega)$ cumplen
+$u \in {\cal C}^2(\Omega)$ cumplen
 
 \[
 F_u - \dv{}{x_1} F_p - \dv{}{x_2}F_q = 0.
 \]
 
 ****** Card: caso considerado                                    :drill:
-SCHEDULED: <2018-05-03 Thu>
+SCHEDULED: <2018-05-12 Sat>
 :PROPERTIES:
 :ID:       d3ca9936-b4c5-4eba-a576-293beefb4226
-:DRILL_LAST_INTERVAL: 3.9257
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 8.6038
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:21]
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:35]
 :END:
 Da la ecuación de Euler-Lagrange para un funcional
 
@@ -4694,17 +4737,17 @@ F_u - \dv{}{x_1} F_p - \dv{}{x_2}F_q = 0.
 \]
 
 ****** Card: caso con tres variables                             :drill:
-SCHEDULED: <2018-05-03 Thu>
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :ID:       a66957ab-1847-466f-b93c-813e5cb671b3
-:DRILL_LAST_INTERVAL: 4.1475
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.8402
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:08]
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:41]
 :END:
 Da la ecuación de Euler-Lagrange para un funcional
 
@@ -4718,7 +4761,7 @@ Da la ecuación de Euler-Lagrange para un funcional
 F_u - \dv{}{t}F_r - \dv{}{x}F_p - \dv{}{y}F_q
 \]
 
-***** Teoremas análogos
+***** Teoremas análogos de convexidad
 Se tienen en estas condiciones
 
  * el [[id:89c9e4a0-cc09-4962-b3e5-8fc1cfbb0c4e][Teorema 6]],
@@ -4738,17 +4781,17 @@ sin mezclar.
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :ID:       a5ac910f-d07f-4938-afb0-2eba7a25e7c9
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.7582
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:14]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:37]
 :END:
 Da la definición de laplaciana y distínguela de la definición
 de gradiente.
@@ -4778,17 +4821,17 @@ La *divergencia* es la suma de todas las primeras derivadas
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-17 Thu>
 :PROPERTIES:
 :ID:       9ceb6b3f-39fd-45f8-8d13-6d6c857f5ada
-:DRILL_LAST_INTERVAL: 4.9435
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.4512
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:31]
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:25]
 :END:
 Define la *divergencia* en cálculo vectorial, $\mathrm{div}(f)$.
 
@@ -4882,17 +4925,17 @@ Nótese que $u$ no depende del tiempo por las simplificaciones.
 La $F$ asociada está en los apuntes. La ecuación se obtiene
 usando la definición de la laplaciana $\Delta u$.
 ****** Card: modelo simplificado de la membrana                  :drill:
-SCHEDULED: <2018-05-03 Thu>
+SCHEDULED: <2018-05-07 Mon>
 :PROPERTIES:
 :ID:       41429f6b-f4a0-496b-9f2b-d3c27f11c3eb
-:DRILL_LAST_INTERVAL: 3.8665
+:DRILL_LAST_INTERVAL: 3.7493
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:28]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:42]
 :END:
 Enuncia el funcional del modelo simplificado de la membrana.
 
@@ -4917,17 +4960,17 @@ Tomando $\sigma = \mathrm{cte}$ (nula sería trivial) y $\alpha = 0$ en el model
 \]
 
 ****** Card: ecuación de Poisson                                 :drill:
-SCHEDULED: <2018-05-03 Thu>
+SCHEDULED: <2018-05-08 Tue>
 :PROPERTIES:
 :ID:       72b375cf-bcc8-4ca6-aeea-8e220904f72f
-:DRILL_LAST_INTERVAL: 4.0568
+:DRILL_LAST_INTERVAL: 4.5697
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:14]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:42]
 :END:
 Enuncia la Ecuación de Poisson.
 
@@ -4938,17 +4981,17 @@ Enuncia la Ecuación de Poisson.
 \]
 
 ****** Card: proviene de                                         :drill:
-SCHEDULED: <2018-05-03 Thu>
+SCHEDULED: <2018-05-16 Wed>
 :PROPERTIES:
 :ID:       2a969466-4703-47e1-974b-eb5ea28a3bd0
-:DRILL_LAST_INTERVAL: 4.3459
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.3381
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:32]
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:42]
 :END:
 ¿De dónde proviene la ecuación de Poisson?
 
@@ -4987,7 +5030,7 @@ asumiendo borde fijo llamamos *funcional de Dirichlet* al
 
 que lleva a
 
-s\[\left\{\begin{array}{ll}
+\[\left\{\begin{array}{ll}
 \Delta_x u(x) = 0 &\mbox{ si } x \in \Omega\\
 u(x) = \gamma(x) &\mbox{ si } x \in \partial\Omega
 \end{array}\right.\]
@@ -5037,18 +5080,18 @@ Y la condición de Euler-Lagrange se llama *ecuación de ondas*.
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :DRILL_CARD_TYPE: multisided
 :ID:       d2737759-5b77-4e0f-8860-769f0dae8897
-:DRILL_LAST_INTERVAL: 4.7312
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 11.1699
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.333
-:DRILL_EASE: 2.36
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:26]
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:27]
 :END:
 Ecuación de ondas.
 
@@ -5080,8 +5123,7 @@ u(t,x) = \varphi(x), & t \geq 0, x \in \partial\Omega
 :PROPERTIES:
 :ID:       e3c0e5df-d8b2-495c-9993-bd2b93d4782e
 :END:
-Tomamos como ejemplo la [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]] unidimensional en tiempo
-no acotado con $\sigma = c^2$ y $\alpha = f = 0$.
+Sea [[id:6412aa5f-6f69-4458-9832-134ab22707b3][ecuación de ondas]] unidimensional con $\sigma = c^2$ y $\alpha = f = 0$,
 
 \[
 {\cal F}[u] = 
@@ -5095,29 +5137,28 @@ Obteniendo
 u_{tt} = c^2 u_{xx}.
 \]
 
-Para compensar el hecho de que no podemos fijar condición en $T = \infty$,
-fijamos la derivada inicial.
+Compensando el no fijar condición en $T = \infty$, fijamos derivada inicial.
 
 \[\left\{\begin{array}{lr}
 u(0,x) = u_0(x) \in {\cal C}^2, & x \in [0,L], \\
-(\partial_t u)(0,x) = v_0(x) \in {\cal C}^1, & x \in [0,L], \\
+u_t(0,x) = v_0(x) \in {\cal C}^1, & x \in [0,L], \\
 u(t,0) = u(t,L) = 0, & t \geq 0.
 \end{array}
 \right\}\]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-08 Tue>
 :PROPERTIES:
 :DRILL_CARD_TYPE: multisided
 :ID:       5c25baff-dce3-4454-b5e5-baf0ac520cdc
-:DRILL_LAST_INTERVAL: 5.2052
+:DRILL_LAST_INTERVAL: 3.7623
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
 :DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:35]
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:31]
 :END:
 Ecuación de ondas unidimensional simplificada.
 
@@ -5258,8 +5299,8 @@ u(t,0) = u(t,L) = 0, & t \geq 0.
 :PROPERTIES:
 :ID:       1e2009c1-db10-4490-af5c-db57a46dab0f
 :END:
-Un *problema de Sturm-Liouville* consiste en encontrar
-$\lambda \in \mathbb{R}$ donde el problema tiene soluciones no nulas.
+Un *problema de Sturm-Liouville* consiste en encontrar las
+$\lambda \in \mathbb{R}$ donde el PC tiene soluciones no nulas.
 
 \[\left.\begin{array}{c}
 \forall x \in [x_0,x_1]\colon\qquad (Py')' + (Q + \lambda S) y = 0 \\
@@ -5267,23 +5308,23 @@ a_0y(x_0) + b_0y'(x_0) = 0,\\
 a_1y(x_1) + b_1y'(x_1) = 0.
 \end{array}\right\}\]
 
-Donde $Q,S$ son continuas, $P \in {\cal C}^1$ es positiva $P > 0$,
-y $S > 0$; además, las condiciones de contorno no son
-triviales, teniéndose $|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$.
+Con $Q,S \in {\cal C}^0$, $P \in {\cal C}^1$ positivas $P > 0$, y $S > 0$;
+y condiciones de contorno no triviales,
+$|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-09 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: multisided
 :ID:       dac10bbc-2e51-40da-a9e4-4a7e80bb50cf
-:DRILL_LAST_INTERVAL: 3.3211
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 7.3785
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.36
+:DRILL_AVERAGE_QUALITY: 2.667
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 23:27]
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:34]
 :END:
 ¿Qué es un problema de Sturm-Liuville?
 
@@ -5300,14 +5341,20 @@ a_1y(x_1) + b_1y'(x_1) = 0.
 Se asumen además ciertas condiciones.
 
 ******* Condiciones
-Donde $Q,S$ son continuas, $P \in {\cal C}^1$ es positiva $P > 0$,
-y $S > 0$; además, las condiciones de contorno no son
-triviales, teniéndose $|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$.
+
+ 1. $Q,S$ continuas, $P \in {\cal C}^1$,
+
+ 2. $P > 0$ y $S > 0$,
+
+ 3. las condiciones de contorno no son triviales, teniéndose
+    $|a_0| + |b_0| > 0$ y $|a_1|+|b_1|> 0$
 
 ***** Teorema 15. Teoría de Sturm-Liouville
 Los valores propios de un problema de Sturm-Liouville forman una
 sucesión creciente y divergente $\lambda_1< \lambda_2< \dots\to \infty$. Sus funciones
-propias normalizadas $\|y_n\|_{L^2_S} = 1$ son únicas salvo signo y verifican
+propias normalizadas $\|y_n\|_{L^2_S} = 1$ 
+
+ * son únicas salvo signo
 
  * $y_n$ tiene $n-1$ ceros en $(x_0,x_1)$,
 
@@ -5331,33 +5378,33 @@ tiene directamente.
 ****** Proof                                                     :extra:
 # Fuera de los objetivos del curso.
 ****** Card: los valores propios                                 :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-14 Mon>
 :PROPERTIES:
 :ID:       3458d9e8-3283-4f9c-908d-52ac8c553a42
-:DRILL_LAST_INTERVAL: 4.3796
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.233
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 20:10]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:29]
 :END:
 Los valores propios de un Sturm-Liouville $\lambda_i$ forman
 una sucesión [creciente y divergente $\lambda_1< \lambda_2< \dots\to \infty$].
 
 ****** Card: funciones propias                                   :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-17 Thu>
 :PROPERTIES:
 :ID:       ea61c9ca-13ef-4a74-8c5e-14ced1b5a060
-:DRILL_LAST_INTERVAL: 3.927
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 12.672
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 20:10]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:30]
 :END:
 Qué cuatro propiedades verifican las funciones propias $f_n$ de un
 Sturm-Liouville.
@@ -5375,17 +5422,17 @@ Cuando las *normalizamos*, $\|y_n\|_{L^2_S} = 1$, verifican
    propias.
 
 ****** Card: el caso periódico                                   :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :ID:       d398f6f5-55e9-4dfc-98ad-ef48ad0d3039
-:DRILL_LAST_INTERVAL: 4.1983
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.9527
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:39]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:28]
 :END:
 ¿Qué cambia en la teoría de Sturm-Liouville en el caso periódico?
 
@@ -5421,17 +5468,17 @@ y(x_0) = y(x_1) = 0, \\
 \end{array}\right.\]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-08 Tue>
 :PROPERTIES:
 :ID:       78956ad4-f53c-484e-b5c2-59b62ad5f391
-:DRILL_LAST_INTERVAL: 4.1015
+:DRILL_LAST_INTERVAL: 4.2673
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:45]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:32]
 :END:
 ¿Qué funcional bajo qué condiciones nos da un problema de
 Sturm-Liouville?
@@ -5475,18 +5522,18 @@ y(x_0) = y(x_1) = 0, \\
 teniéndose además que ${\cal F}[y_n] = \lambda_n$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-10 Thu>
 :PROPERTIES:
 :DRILL_CARD_TYPE: multisided
 :ID:       b29a89a5-093b-41e9-84d3-c47685ee9ad9
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 8
+:DRILL_LAST_INTERVAL: 8.2485
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 9
 :DRILL_FAILURE_COUNT: 4
-:DRILL_AVERAGE_QUALITY: 2.25
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-28 Sat 16:06]
+:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_EASE: 2.08
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:37]
 :END:
 
 Sturm-Liouville y problemas variacionales
@@ -5532,17 +5579,17 @@ y(x_0) = y(x_1) = 0, \\
 teniéndose además que ${\cal F}[y_n] = \lambda_n$.
 
 ****** Card: enunciado                                           :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-16 Wed>
 :PROPERTIES:
 :ID:       35437f0b-383e-45ab-ba01-c030fbeb1d98
-:DRILL_LAST_INTERVAL: 4.4365
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.5741
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:42]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:26]
 :END:
 Enuncia el Teorema de caracterización variacional de funciones
 y valores propios de un Sturm-Liouville.
@@ -5678,8 +5725,7 @@ y_{2n}(x) = \sqrt{\frac{2}{T}}\cos \left( \frac{2n\pi x}{T} \right), \quad
 y_{2n-1}(x) = \sqrt{\frac{2}{T}}\sen \left( \frac{2n\pi x}{T} \right)
 \]
 
-forma un sistema ortonormal completo y toda función en $L^2(0,T)$ puede ser
-descrita de forma única a través de su serie de Fourier. Nótese que la
+forma un sistema ortonormal completo de $L^2(0,T)$. Nótese que la
 convergencia es cpd en este espacio.
 
 ****** Proof                                                  :exercise:
@@ -5687,16 +5733,17 @@ Se debe comprobar que es base normal y que son ortornormales en el
 espacio $L^2(0,T)$ integrando y usando identidades trigonométricas.
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       5b0b3868-b27b-4e52-baa0-a215080509fa
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_LAST_INTERVAL: 3.8721
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 2.667
 :DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 2
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:41]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:44]
 :END:
 Dar la base ortonormal de $L^2(0,T)$ del Teorema de Riesz-Fischer.
 
@@ -5717,6 +5764,14 @@ y(x) = \frac{a_0}{2} +
 \sum^{\infty}_{n=1} b_n\sin \left( \frac{2n\pi x}{T} \right).
 \]
 
+donde
+
+ * \[a_0 = \frac{2}{T} \int_0^T y(x)\,dx \]
+
+ * \[a_n = \frac{2}{T} \int_0^T y(x) \cos \left( \frac{2n\pi x}{T} \right)\,dx \]
+
+ * \[b_n = \frac{2}{T} \int_0^T y(x) \sin \left( \frac{2n\pi x}{T} \right)\,dx \]
+
 # TODO: Comprobar que este es efectivamente el desarrollo y calcular
 # el valor de los coeficientes a_n para comprobar que cuadran con los
 # dados en los apuntes.
@@ -5724,23 +5779,22 @@ y(x) = \frac{a_0}{2} +
 # TODO: Comprobar que es un sistema ortonormal usando identidades
 # trigonométricas.
 
-
 ***** Convergencia puntual: condición necesaria
 Todas las $y_n$ son periódicas, así que para tener convergencia
 puntual habrá que tener periodicidad en la función aproximada.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :ID:       31ad5eda-567d-4b54-b25f-e2e95e24a0b3
-:DRILL_LAST_INTERVAL: 4.2137
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.2614
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:39]
+:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:25]
 :END:
 Por Riesz-Fischer tenemos convergencia casi por doquier de la serie de
 Fourier.  ¿Cuál es la primera condición necesaria para tener
@@ -5759,18 +5813,20 @@ de continuidad y en los puntos de discontinuidad $a_i$ se tiene el
 \] 
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       e1a64429-139b-4b76-a77e-dbf1c41fcd9c
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 3.761
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 1.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 1
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:45]
+:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:37]
 :END:
 Convergencia de la serie de Fourier de una función continua a trozos.
+¿Qué ocurre en los puntos de discontinuidad?
 
 ******* Convergencia
 Tenemos convergencia en todo punto de continuidad, y en los puntos
@@ -5833,16 +5889,17 @@ converge uniformemente para $a_n$ y $b_n$ coeficientes de Fourier.
 Se aplicará un razonamiento similar al aplicado [[id:55291685-9a8a-4c19-9338-570d037dd93c][anteriormente]].
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       3566f799-f086-4e6f-9b1c-6be4a775beae
-:DRILL_LAST_INTERVAL: 0.0
-:DRILL_REPEATS_SINCE_FAIL: 1
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 4.3088
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 2
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:46]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:37]
 :END:
 Enunciar el Teorema 21 sobre convergencia de derivadas superiores
 en series de Fourier.
@@ -5860,8 +5917,17 @@ La convergencia en media la da la igualdad de Bessel
 \]
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       7fd53585-d7a3-4da3-8087-77d8ff760eb6
+:DRILL_LAST_INTERVAL: 4.1063
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:45]
 :END:
 Enuncia la igualdad de Bessel que da la convergencia en
 media de la serie de Fourier.
@@ -5873,14 +5939,180 @@ media de la serie de Fourier.
 \]
 
 ***** TODO Cambio de intervalo
-***** TODO Teorema 22. Serie de Fourier en el intervalo (-T,T)
-***** TODO Extensiones par e impar
-***** TODO Teorema 23. Serie de cosenos/senos
+***** Teorema 22. Serie de Fourier en el intervalo (-T,T)
+:PROPERTIES:
+:ID:       b0018ca3-1e81-42e1-8938-727ad480fc40
+:END:
+Para $y \in L^2(-T,T)$ podemos desarrollar
+
+\[
+y(x) = \frac{a_0}{2} +
+\sum_{n=1}^{\infty} 
+a_n\cos \left( \frac{n\pi x}{T} \right) +
+b_n\sin \left( \frac{n\pi x}{T} \right)
+\]
+
+siendo
+
+ * \[a_0 = \frac{1}{T}\int_{-T}^T y(x) \,dx \]
+
+ * \[a_n = \frac{1}{T}\int_{-T}^T y(x)\cos \left( \frac{n\pi x}{T} \right) \,dx \]
+
+ * \[b_n = \frac{1}{T}\int_{-T}^T y(x)\sin \left( \frac{n\pi x}{T} \right) \,dx \]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       f254979e-2fbc-4b1d-928b-336f633977b4
+:DRILL_LAST_INTERVAL: 3.953
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 20:51]
+:END:
+Desarrollo en Serie de Fourier de $y \in L^2(-T,T)$.
+
+******* Desarrollo
+
+\[
+y(x) = \frac{a_0}{2} +
+\sum_{n=1}^{\infty} 
+a_n\cos \left( \frac{n\pi x}{T} \right) +
+b_n\sin \left( \frac{n\pi x}{T} \right)
+\]
+
+
+****** Card: coeficientes                                        :drill:
+SCHEDULED: <2018-05-06 Sun>
+:PROPERTIES:
+:ID:       da80a0c6-bbfb-4437-8438-29c5af8dd817
+:DRILL_LAST_INTERVAL: 4.0476
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 1.667
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:49]
+:END:
+Determina los coeficientes del desarrollo en Serie de Fourier
+en el intervalo $y \in L^2(-T,T)$.
+
+\[
+y(x) = \frac{a_0}{2} +
+\sum_{n=1}^{\infty} 
+a_n\cos \left( \frac{n\pi x}{T} \right) +
+b_n\sin \left( \frac{n\pi x}{T} \right)
+\]
+
+******* Coeficientes
+
+ * \[a_0 = \frac{1}{T}\int_{-T}^T y(x) \,dx \]
+
+ * \[a_n = \frac{1}{T}\int_{-T}^T y(x)\cos \left( \frac{n\pi x}{T} \right) \,dx \]
+
+ * \[b_n = \frac{1}{T}\int_{-T}^T y(x)\sin \left( \frac{n\pi x}{T} \right) \,dx \]
+
+***** Teorema 23. Serie de cosenos/senos
+Para $y \in {\cal C}^1(0,T)$, su serie de cosenos converge absoluta y
+uniformemente
+
+\[
+\frac{a_0}{2} + \sum_{n=1}^{\infty}a_n\cos \left( \frac{n\pi x}{T} \right)
+\]
+
+si además $y(0) = y(T)$, su serie de senos converge absoluta y
+uniformemente
+
+\[
+\sum_{n=1}^{\infty} b_n \sin \left( \frac{n\pi x}{T} \right).
+\]
+
+Los coeficientes en estos casos son
+
+ * \[a_0 = \frac{2}{T}\int_{0}^T y(x) \,dx \]
+
+ * \[a_n = \frac{2}{T}\int_{0}^T y(x)\cos \left( \frac{n\pi x}{T} \right) \,dx \]
+
+ * \[b_n = \frac{2}{T}\int_{0}^T y(x)\sin \left( \frac{n\pi x}{T} \right) \,dx \]
+
+
+****** Extensiones par e impar
+Definimos las extensiones par e impar de $y \in {\cal C}[0,T]$ al
+intervalo $[-T,T]$. Nótese que en el desarrollo de una función
+impar no aparecerán cosenos y en el desarrollo de una función
+par no aparecerán senos.
+
+La extensión par es siempre continua, pero la extensión
+impar requiere $y(0) = y(T) = 0$. Aplicando el desarrollo en
+[[id:b0018ca3-1e81-42e1-8938-727ad480fc40][serie de Fourier]] a estas extensiones es como obtenemos el
+desarrollo en senos y cosenos.
+
+****** 
 **** 5.6. Solución de la ecuación de ondas
-***** TODO Teorema 24. Solución de la ecuación de ondas
-***** TODO 5.6.1. Unicidad y método de la energía
+***** Teorema 24. Solución de la ecuación de ondas
+Para $u_0 \in {\cal C}^2(0,L)$ con $u_0'''$ continua a trozos y $v_0 \in {\cal C}^1(0,L)$ con $v_0''$
+continua a trozos, anulándose $u_0,u_0'',v_0$ en los extremos, el problema
+de la ecuación de ondas simplificada
+
+\[\left\{\begin{array}{lr}
+u_{tt} = c^2 u_{xx} & t \geq 0, x \in [0,L] \\
+u(0,x) = u_0(x) \in {\cal C}^2, & x \in [0,L], \\
+u_t(0,x) = v_0(x) \in {\cal C}^1, & x \in [0,L], \\
+u(t,0) = u(t,L) = 0, & t \geq 0.
+\end{array}
+\right\}\]
+
+Tiene candidato a solución
+
+\[
+\sum_{n \geq 1} 
+\left( b_n\cos \left( \frac{nc\pi t}{L} \right) +
+\frac{b'_nL}{nc\pi} \sin \left( \frac{n c \pi t}{L} \right) \right)
+\sin \left( \frac{n\pi x}{L} \right)
+\]
+
+donde tenemos los desarrollos en senos
+
+ * \[u_0(x) = \sum_{n \geq 1} b_n\sin \left( \frac{n \pi x}{L} \right),\quad b_n = \frac{2}{L}\int_0^L u_0(x) \sin \left( \frac{n \pi x}{L} \right),\] 
+
+ * \[v_0(x) = \sum_{n \geq 1} b_n'\sin \left( \frac{n \pi x}{L} \right),\quad b_n' = \frac{2}{L}\int_0^L v_0(x) \sin \left( \frac{n \pi x}{L} \right).\] 
+
+***** 5.6.1. Unicidad y método de la energía
+La unicidad de solución se demuestra comprobando que la *energía*
+es constante en soluciones y la diferencia de soluciones debe ser
+nula porque su energía lo es.
+
+\[
+E[u](t) = \frac{1}{2}\int_0^L \left( u_t^2 + c^2u_x^2 \right)\,dx = 0.
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-06 Sun>
+:PROPERTIES:
+:ID:       4f851785-c8d4-4153-a88c-f6460f3c860b
+:DRILL_LAST_INTERVAL: 4.0557
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 1.75
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:46]
+:END:
+Enuncia la energía en la ecuación de ondas.
+
+******* Energía
+
+\[
+E[u](t) = \frac{1}{2}\int_0^L \left( u_t^2 + c^2u_x^2 \right)\,dx.
+\]
+
 ***** 5.6.2. Soluciones de la ecuación de ondas en R, fórmula de D'Alembert
-Resolveremos la *ecuación de ondas* unidimensional,
+La *ecuación de ondas* unidimensional,
 
 \[\left\{ \begin{array}{lr}
 u_{tt} = c^2u_{xx}, & t > 0, x \in \mathbb{R}, \\
@@ -5888,7 +6120,7 @@ u(0,x) = u_0(x) \in {\cal C}^2(\mathbb{R}), \\
 u_t(0,x) = v_0(x) \in {\cal C}^1(\mathbb{R}),
 \end{aligned}\right.\]
 
-con la Fórmula de D'Alembert.
+se resuelve con la Fórmula de D'Alembert.
 
 \[
 u(t,x) = \frac{u_0(x+ct) - u_0(x-ct)}{2} + \frac{1}{2c}\int_{x-ct}^{x+ct}v_0(y)\,dy.
@@ -5959,35 +6191,15 @@ U(\rho,0) = U(\rho,2\pi), & \rho \in (0,1], \\
 La resolución se hace por separación de variables $U(\rho,\theta) = v(p)w(\theta)$.
 
 ***** Ecuación de Dirichlet en el rectángulo
-**** CARDS
-***** TODO Fórmula de D'Alembert                                  :leech:
-Enunciar la fórmula de D'Alembert, que resuelve la ecuación de ondas
-unidimensional,
-
-\[\left\{ \begin{array}{lr}
-u_{tt} = c^2u_{xx}, & t > 0, x \in \mathbb{R}, \\
-u(0,x) = u_0(x) \in {\cal C}^2(\mathbb{R}), \\
-u_t(0,x) = v_0(x) \in {\cal C}^1(\mathbb{R}).
-\end{aligned}\right.\]
-
 *** 6. Formulación débil
 **** 6.1. Derivada generalizada y débil
 ***** Fórmula de Green
-Dadas $u,v \in {\cal C}^1(\overline{\Omega})$, para $\Omega \subset \mathbb{R}^N$, si llamamos $n_i(x)$ a la
-componente del vector $n(x)$ normal a $\partial\Omega$ en $x$, tenemos la
-siguiente generalización de la regla de la cadena.
-
-\[\int_{\Omega} u(x) v_{x_i}(x) \,dx = 
--\int_{\Omega} u_{x_i}(x)v(x)\,dx +
-\int_{\partial\Omega} u(x)v(x)n_i(x)\,dS.
-\]
-
-Cuando $v \in {\cal C}^1_0(\Omega)$, es decir, es de soporte compacto, nos
-queda la Fórmula de Green
+Para $u \in {\cal C}^1(\overline{\Omega})$, $v \in {\cal C}^1_0(\overline{\Omega})$, la derivada la caracteriza la
+*Fórmula de Green*
 
 \[
-\int_{\Omega} u(x) v_{x_i}(x) \,dx = 
--\int_{\Omega} u_{x_i}(x)v(x)\,dx.
+\int_{\Omega} u_{x_i}(x) v(x) \,dx = 
+-\int_{\Omega} u(x)v_{x_i}(x)\,dx.
 \]
 
 ****** Clave 1: derivadas caracterizadas
@@ -6004,7 +6216,6 @@ entonces $u_{x_i} = g$.
 
 ******* Proof
 Consecuencia directa del [[id:652bdddb-0853-4a9a-8060-28a730928816][lema fundamental]].
-
 ****** Clave 2: operador lineal de Green
 :PROPERTIES:
 :ID:       c34bbc56-aa81-404b-a6ea-0670000f306b
@@ -6019,27 +6230,79 @@ L_u[v] = - \int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx.
 Que caracteriza propiedades de la derivada sin necesitar
 derivabilidad.
 
-***** Derivada generalizada o distribucional
-Para $u \in L_{loc}^1(\Omega)$, definimos la *derivada generalizada* respecto de
-$x_i$ como el operador $L_u \colon {\cal C}^{\infty}_0(\Omega) \to \mathbb{R}$ notado usualmente como
+****** Caso general                                              :extra:
+Dadas $u,v \in {\cal C}^1(\overline{\Omega})$, para $\Omega \subset \mathbb{R}^N$, si llamamos $n_i(x)$ a la
+componente del vector $n(x)$ normal a $\partial\Omega$ en $x$, tenemos la
+siguiente generalización de la regla de la cadena.
+
+\[\int_{\Omega} u(x) v_{x_i}(x) \,dx = 
+-\int_{\Omega} u_{x_i}(x)v(x)\,dx +
+\int_{\partial\Omega} u(x)v(x)n_i(x)\,dS.
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       2f8ab0e2-d672-4822-8957-da14137f3350
+:DRILL_LAST_INTERVAL: 23.8061
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:04]
+:END:
+Enunciar la fórmula de Green para $u \in {\cal C}^1(\overline{\Omega})$ y $v \in {\cal C}^1_0(\overline{\Omega})$; es decir,
+para el caso de frontera nula.
+
+******* Enunciado
+La fórmula de Green es un análogo a la integración por partes para
+varias variables. Normalmente tiene un término más, pero cuando
+$v$ se anula en la frontera,
 
 \[
-\left\langle \partial_xu, v \right\rangle =
--\left\langle u, \partial_x v \right\rangle =
--\int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx.
+\int_{\Omega} u(x) (\partial_{x_i}v(x)) \,dx = 
+-\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx.
+\]
+
+***** Derivada generalizada o distribucional
+Para $u \in L_{loc}^1(\Omega)$, la *derivada generalizada* $\pair{u_{x_i},-} \colon {\cal C}^{\infty}_0(\Omega) \to \mathbb{R}$
+se define
+
+\[
+\left\langle u_{x_i}, v \right\rangle =
+-\left\langle u, v_{x_i} \right\rangle =
+-\int_{\Omega} u(x)v_{x_i}(x)\,dx.
 \]
 
 ***** Derivada débil
-Una $u \in L_{loc}^1(\Omega)$ tiene *derivada débil* respecto de $x_i$ cuando existe
-$g \in L_{loc}^1(\Omega)$ tal que
+Para $u \in L_{loc}^1(\Omega)$, decimos $u_{x_i} = g \in L^1_{loc}(\Omega)$ en sentido *débil* si
 
 \[
-\int_{\Omega}g(x)v(x)\,dx = - \int_{\Omega} u(x)(\partial_{x_i}v(x))\,dx
-\qquad \forall v \in {\cal C}^{\infty}_0(\Omega).
+\forall v \in {\cal C}^{\infty}_0(\Omega)\colon\quad \pair{u_{x_i},v} = \pair{g,v}.
 \]
 
-Es decir, cuando $\left\langle \partial_{x_i}u,v \right\rangle = \left\langle g,v \right\rangle$. Solemos decir que $\partial_{x_i}u = g$ en
-sentido débil.
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-07 Mon>
+:PROPERTIES:
+:ID:       29496071-ee41-4f3e-94f0-15f048942995
+:DRILL_LAST_INTERVAL: 3.7919
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 23:22]
+:END:
+Decimos $u_{x_i} = g \in L^1_{loc}(\Omega)$ en sentido *débil* si
+
+******* Respuesta
+
+\[
+\forall v \in {\cal C}^{\infty}_0(\Omega)\colon\quad \pair{u_{x_i},v} = \pair{g,v}.
+\]
 
 ***** Función Heaviside y Delta de Dirac
 La *función de Heaviside* $H(x) = \max\left\{ 0,x/|x| \right\}$ está definida
@@ -6054,14 +6317,42 @@ Es decir, su derivada débil es la *Delta de Dirac*, $\delta_0(v) = v(0)$.
 
 **** 6.1.1. Espacios de Sobolev
 ***** Espacio de Sobolev
-Para $\Omega \subseteq \mathbb{R}^N$ dominio, $m \in \mathbb{N}$ y $p \in [1,\infty]$, se define el *espacio de Sobolev*
+Para $\Omega \subseteq \mathbb{R}^N$ dominio, $p \in [1,\infty]$, se define el *espacio de Sobolev*
 
 \[
 W^{m,p}(\Omega) = \left\{ u \in L^p(\Omega) \;\middle|\;
+\pdv[\abs{\alpha}]{u}{x} \in L^p(\Omega),\, \forall 0 \leq \alpha \leq m \in \mathbb{N} \right\}.
+\]
+
+/El espacio de las m-derivadas p-integrables./
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-24 Thu>
+:PROPERTIES:
+:ID:       e5522b23-1312-4980-b0ac-2d736e86d2e7
+:DRILL_LAST_INTERVAL: 24.6246
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:29]
+:END:
+Para $\Omega \subseteq \mathbb{R}^N$ dominio, define el *espacio de Sobolev* $W^{m,p}(\Omega)$.
+
+******* Espacio de Sobolev
+El espacio de las m-derivadas p-integrables.
+
+\[
+W^{m,p}(\Omega) = \left\{ u \;\middle|\;
 \pdv[\abs{\alpha}]{u}{x} \in L^p(\Omega),\, \forall 0 \leq \alpha \leq m \right\}.
 \]
 
-***** Norma para espacios de Sobolev
+***** Norma de espacios de Sobolev
+:PROPERTIES:
+:ID:       192a4ee0-0514-42cb-96e6-e4eb68c3ab41
+:END:
 El espacio $W^{m,p}(\Omega)$ con la norma
 
 \[
@@ -6071,15 +6362,35 @@ El espacio $W^{m,p}(\Omega)$ con la norma
 \]
 
 es un espacio de Banach. En el caso $p=2$ notamos como $H^m(\Omega) = W^{m,2}(\Omega)$
-y es un espacio de Hilbert.
-
-***** Espacios de Sobolev útiles
+y es un espacio de Hilbert. En particular
 
 \[
 H^1(\Omega) = \left\{ u \in L^2(\Omega) \mid \pdv{u}{x_i} \in L^2(\Omega), \forall i = 1,\dots,N \right\}
 \]
 
 teniendo el producto escalar
+
+\[
+\pair{u,v}_{H^1(\Omega)} = 
+\int_{\Omega} (uv + \nabla u \cdot \nabla v)\,dx.
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-07 Mon>
+:PROPERTIES:
+:ID:       99ab3e47-4a1e-4f57-bb0c-f498dd36cc38
+:DRILL_LAST_INTERVAL: 3.9731
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 23:24]
+:END:
+¿Cuál es el producto escalar en $H^1(\Omega)$?
+
+******* Respuesta
 
 \[
 \pair{u,v}_{H^1(\Omega)} = 
@@ -6097,6 +6408,29 @@ Para $\beta \in \mathbb{R}$ y $\overline{B} \subset \mathbb{R}^{N}$ una bola cen
 Integramos usando la fórmula de [[id:8b7c51f7-5499-4cd3-a1c6-cab635bd0015][integración en polares]] y
 llegaremos hasta una integral que es finita sólo cuando
 $\beta p + 1 - N < 1$.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-06 Sun>
+:PROPERTIES:
+:ID:       62ba0268-3776-4f16-9fdd-0dab96753381
+:DRILL_LAST_INTERVAL: 3.2153
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 23:25]
+:END:
+Estudia integrabilidad de $1/|x|^{\beta}$ en $\overline{B}$ y en $\mathbb{R}^N-\overline{B}$.
+
+******* Respuesta
+
+ * \[\frac{1}{\abs{x}^{\beta}} \in L^p(\overline{B}) \iff \beta p < N\]
+
+ * \[\frac{1}{\abs{x}^{\beta}} \in L^q(\mathbb{R}^n - \overline{B}) \iff \beta q > N\], 
+
+con $q < +\infty$.
 
 **** 6.2. Repaso de análisis funcional
 ***** Teorema fundamental del cálculo
@@ -6144,13 +6478,107 @@ nos da que $f = F'$ c.p.d.
 # este caso no queda del todo claro, porque usábamos crucialmente antes
 # la conservación del signo de funciones continuas.
 
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-16 Wed>
+:PROPERTIES:
+:ID:       48323a75-8295-4d00-af02-7a57721d5269
+:DRILL_LAST_INTERVAL: 27.3279
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 7
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.429
+:DRILL_EASE: 2.66
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:02]
+:END:
+Enunciar el teorema fundamental del cálculo en su versión débil
+para una $f \in L_{loc}^1(a,b)$ y un $c \in (a,b)$.
+
+******* Enunciado
+La función
+
+\[
+\int_c^x f(s)\,ds
+\]
+
+ * es continua
+ * y tiene derivada débil en $(a,b)$ igual a $f$ c.p.d.
+
 ***** Desigualdad de Poincaré
+:PROPERTIES:
+:ID:       9d2c746b-11e7-4055-9608-3d1e6b0cc136
+:END:
 Para $\Omega$ dominio acotado y $u \in H_0^1(\Omega)$ existe una constante $C$
 dependiente solo de $\Omega$ tal que
 
 \[
 \int_{\Omega} u^2\,dx \leq C \int_{\Omega} |\nabla u|^2\,dx.
 \]
+
+****** Proof
+:PROPERTIES:
+:ID:       7d0050e4-8d08-4e26-9aef-f6a4572748a9
+:END:
+En una variable, si minimizamos la integral de la derivada
+al cuadrado fijando el módulo al cuadrado, llegamos a una
+[[id:e15aa2f8-76b4-4aa6-82bb-c0b424bda884][Sturm-Liouville]] que hemos resuelto. Aplicamos esa minimización
+a cualquier funcional normalizado para tener la desigualdad
+con la cota
+
+\[
+C = \left(\frac{x_1-x_0}{n\pi}\right)^2.
+\]
+
+Todo esto lo prueba para funciones ${\cal C}_0^{\infty}$, pero podemos
+usar que $H_0^1 = \overline{{\cal C}_0^{\infty}}^{H^1}$ para tener una convergencia $\norm{u_n-u}^2_H \to 0$,
+que nos da, sabiendo la [[id:7d0050e4-8d08-4e26-9aef-f6a4572748a9][norma]] de este Hilbert
+
+\[
+\int_{x_0}^{x_1} \left( u'_n-u' \right)^2\,dx + \int_{x_0}^{x_1} \left( u_n -u \right)^2\,dx \to 0.
+\]
+
+luego $\norm{u_n' - u'}_{L^2} \to 0$ y $\norm{u_n - u}_{L^2} \to 0$, por lo que
+
+\[
+\int_{x_0}^{x_1} u_n^2\,dx \to \int_{x_0}^{x_1} u^2\,dx.
+\]
+
+\[
+\int_{x_0}^{x_1} u_n'^2\,dx \to \int_{x_0}^{x_1} u'^2\,dx.
+\]
+
+y tomando límites en el caso ${\cal C}_0^\infty$, se tiene lo buscado.sss
+
+****** Card                                                      :drill:
+Enuncia la desigualdad de Poincaré para $u \in H^1_0(\Omega)$.
+
+******* Enunciado
+
+\[
+\int_{\Omega} u^2\,dx \leq C \int_{\Omega} |\nabla u|^2\,dx.
+\]
+
+donde $C$ depende de $\Omega$.
+
+***** Norma equivalente en el Sobolev de Hilbert
+Para $\Omega$ acotado, 
+
+\[
+\vertiii{u} = \sqrt{ \int_{\Omega} \abs{\nabla u}^2\,dx }
+\]
+
+es una norma de $H_0^1(\Omega) \leq H^1(\Omega)$, equivalente a la heredada.
+
+****** Proof
+Por [[id:9d2c746b-11e7-4055-9608-3d1e6b0cc136][desigualdad de Poincaré]].
+
+***** Teorema de Riesz
+Para $H$ hilbert, toda lineal continua viene representada por un
+único elemento con su misma norma.
+
+***** Propiedades de los Hilbert
+ * Para $A \subset H$, se tiene $A^{\bot}^{\bot} = \overline{\pair{A}}$.
+ * Para $V \leq H$ denso, $V^{\bot} = \left\{ 0 \right\}$.
 
 **** 6.3. Teorema de Lax-Milgram
 ***** Ejemplo de la membrana
@@ -6197,23 +6625,110 @@ Si consideramos $J(u) = \frac{1}{2}a(u,u) - \tf(u)$, minimizar este operador
 es de nuevo el problema variacional.
 
 ***** Teorema 30. Teorema de Lax-Milgram
-Sea $a \colon H \times H \to \mathbb{R}$ bilineal continua sobre un espacio de Hilbert.
-Si $a$ es coerciva, $\exists \alpha \colon \forall v \in H\colon a(v,v) \geq \alpha \norm{v}^2_H$; entonces para
-$\tf \colon H \to \mathbb{R}$ lineal y continua, existe una única solución $u_{\tf}$ de
+$a \colon H \times H \to \mathbb{R}$ bilineal continua coerciva $\exists \alpha \colon \forall v \in H\colon  \alpha \norm{v}^2_H \leq a(v,v)$
+sobre un Hilbert. Sea $\tf \colon H \to \mathbb{R}$ lineal continua. Hay solución única de
+
+\[(\text{\textit{Formulación débil}})\left\{\begin{array}{l}
+\overline{u} \in H, \\
+\forall v \in H\colon\ a(\overline{u},v) = {\tilde f}(v).
+\end{aligned}\right.\]
+
+Y la solución cumple,
+
+\[
+\norm{u_{\tf}}_H \leq \frac{1}{\alpha}\norm{\tilde f}_{H'},
+\]
+
+por lo que $\tf\mapsto u_{\tf}$ es continua.
+
+Cuando $a$ simétrica, $u_\tf$ es la única solución de
+
+\[(\text{\textit{Problema variacional}})\left\{\begin{array}{l}
+\overline{u} \in H, \\
+\forall v \in H\colon\ J(\overline{u}) \leq J(v),
+\end{aligned}\right.\]
+
+donde $J(u) = \frac{1}{2} a(u,u) - \tf(u)$.
+
+****** Demostración: parte 1
+Fijado $u \in H$, por Riesz sobre $a(u,-) \colon H \to \mathbb{R}$, lineal continua,
+tenemos $Au$, lineal, con $\pair{Au,v} = a(u,v)$ para cualquier $v \in H$.
+Por Riesz y por continuidad de $a$ tenemos
+
+\[
+\|Au\|_H = \|a(u,-)\|_{H'} = \sup \frac{|a(u,v)|}{\|v\|_H} \leq
+\sup \frac{C\norm{u}\norm{v}}{\|v\|} \leq C \|u\|
+\]
+
+y $A$ es *continua*. Tenemos *inyectividad* de $A$ por coercividad
+
+\[
+\alpha \norm{v}^2_H \leq
+a(v,v) = \pair{Av,v} \leq
+\norm{Av}_H\norm{v}_H,\quad
+\|v\|_H \leq \frac{1}{\alpha}\|Av\|_H
+\]
+
+Tenemos $A(H)$ *denso* de nuevo por coercividad, porque si $v_0 \in A(H)^{\bot}$,
+$a(v_0,v_0) = 0$ y $A(H)^{\bot} = 0$; esto da densidad en un Hilbert.
+Tenemos $A(H)$ *cerrado* porque la inversa de $A$ en su imagen
+es continua por la desigualdad anterior, luego $H \cong A(H)$ y $H$ es completo.
+Así $H = A(H)^{\bot^{\bot}} = \overline{A(H)} = A(H)$ y es *sobreyectiva*.
+
+También por Riesz tenemos $\tilde{f} = \pair{f,v}$, el PD es $Au = f$, con solución
+única por biyectividad. La desigualdad se tiene por Riesz,
+
+\[
+\norm{u_f} =
+\norm{A^{-1}(f)}_H \leq
+\frac{1}{\alpha}\norm{f}_H =
+\frac{1}{\alpha}\norm{\tilde f}_{H'}.
+\]
+
+****** Demostración: parte 2
+Cuando $a$ es simétrica tenemos
+
+\[
+J(u+v) = J(u) + \left( a(u,v)-{\tilde{f}}(v) \right) + \frac{1}{2}a(v,v)
+\]
+
+y cuando $u_f$ es solución del PD, aplicamos coercividad para
+obtener el único mínimo global
+
+\[
+J(u_f+v) = J(u_f) + \frac{1}{2}a(v,v) \geq J(u_f) + \frac{\alpha}{2}\norm{v}_H > J(u_f).
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-05 Sat>
+:PROPERTIES:
+:ID:       54bc4de7-db60-426c-bcbb-08e80dbc2824
+:DRILL_LAST_INTERVAL: 4.3986
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 20:56]
+:END:
+Enuncia Lax-Milgram
+
+******* Enunciado
+Sea $a \colon H \times H \to \mathbb{R}$ bilineal continua coerciva sobre un Hilbert.
+Para cada $\tf \colon H \to \mathbb{R}$ lineal continua, existe una única solución $u_{\tf}$ de
 
 \[(\text{\textit{Formulación débil}})\left\{\begin{array}{l}
 \overline{u} \in H, \\
 a(\overline{u},v) = {\tilde f}(v).
 \end{aligned}\right.\]
 
-Además esta solución cumple,
+Que además cumple la siguiente desigualdad por la que la aplicación
+lineal $\tf \mapsto u_{\tf}$ es continua
 
 \[
-\norm{u_{\tf}}_H \leq \frac{1}{\alpha}\norm{\tilde f}_{H'},
+\norm{u_{\tf}}_H \leq \frac{1}{\alpha}\norm{\tilde f}_{H'}.
 \]
-
-por lo que la aplicación lineal que a cada $\tf$ asigna una solución es
-continua.
 
 Además, si $a$ es simétrica, $u_\tf$ es la única solución de
 
@@ -6222,88 +6737,7 @@ Además, si $a$ es simétrica, $u_\tf$ es la única solución de
 \forall v \in H\colon\ J(\overline{u}) \leq J(v),
 \end{aligned}\right.\]
 
-donde $J(u) = \frac{1}{2} a(u,u) - \tf(u)$ es un operador cuadrático.
-
-****** TODO Demostración
-
-
-**** CARDS
-***** Fórmula de Green                                            :drill:
-SCHEDULED: <2018-05-21 Mon>
-:PROPERTIES:
-:ID:       2f8ab0e2-d672-4822-8957-da14137f3350
-:DRILL_LAST_INTERVAL: 23.8061
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 6
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 22:04]
-:END:
-Enunciar la fórmula de Green para $u \in {\cal C}^1(\overline{\Omega})$ y $v \in {\cal C}^1_0(\overline{\Omega})$; es decir,
-para el caso de frontera nula.
-
-****** Enunciado
-La fórmula de Green es un análogo a la integración por partes para
-varias variables. Normalmente tiene un término más, pero cuando
-$v$ se anula en la frontera,
-
-\[
-\int_{\Omega} u(x) (\partial_{x_i}v(x)) \,dx = 
--\int_{\Omega} (\partial_{x_i}u(x))v(x)\,dx.
-\]
-
-***** Teorema fundamental del cálculo                             :drill:
-SCHEDULED: <2018-05-16 Wed>
-:PROPERTIES:
-:ID:       48323a75-8295-4d00-af02-7a57721d5269
-:DRILL_LAST_INTERVAL: 27.3279
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 7
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.429
-:DRILL_EASE: 2.66
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:02]
-:END:
-Enunciar el teorema fundamental del cálculo en su versión débil
-para una $f \in L_{loc}^1(a,b)$ y un $c \in (a,b)$.
-
-****** Enunciado
-La función
-
-\[
-\int_c^x f(s)\,ds
-\]
-
- * es continua
- * y tiene derivada débil en $(a,b)$ igual a $f$ c.p.d.
-
-***** Espacios de Sobolev                                         :drill:
-SCHEDULED: <2018-05-24 Thu>
-:PROPERTIES:
-:ID:       e5522b23-1312-4980-b0ac-2d736e86d2e7
-:DRILL_LAST_INTERVAL: 24.6246
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:29]
-:END:
-Para $\Omega \subseteq \mathbb{R}^N$ dominio, $m \in \mathbb{N}$ y $p \in [1,\infty]$,
-define el *espacio de Sobolev* $W^{m,p}$.
-
-****** Espacio de Sobolev
-Las funciones $p$ integrables con hasta la $m$ derivada $p$ integrable.
-
-\[
-W^{m,p}(\Omega) = \left\{ u \in L^p(\Omega) \;\middle|\;
-\pdv[\abs{\alpha}]{u}{x} \in L^p(\Omega),\, \forall 0 \leq \alpha \leq m \right\}.
-\]
-
+donde $J(u) = \frac{1}{2} a(u,u) - \tf(u)$.
 *** Ejercicios
 **** Ejemplos de los apuntes
 **** Resolver ondas
@@ -6723,6 +7157,28 @@ Tenemos entonces el mismo razonamiento para cualquier componente y
 \nabla \abs{x}^{\alpha} = \alpha x |x|^{\alpha-2}
 \]
 en sentido débil.
+
+***** Card                                                        :drill:
+SCHEDULED: <2018-05-07 Mon>
+:PROPERTIES:
+:ID:       7697631c-8f3b-4517-97fe-02cbf69ec0e4
+:DRILL_LAST_INTERVAL: 4.137
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-03 Thu 23:24]
+:END:
+Cuál es la derivada débil de $|x|^{\alpha}$ para $x \in \mathbb{R}^n$.
+
+****** Derivada
+
+\[
+\nabla |x|^{\alpha} = \alpha x|x|^{\alpha-2}
+\]
+
 ** Curvas y superficies
 # En estos apuntes las cartas de org-drill no están separadas del
 # resto de apuntes. Están marcadas con :drill:
@@ -6837,17 +7293,17 @@ SCHEDULED: <2018-05-09 Wed>
 |----------------------+------------------+--------------+-----------|
 
 ****** Card: lista de movimientos                                :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :ID:       836f3f1e-b3f5-4f41-80f1-58203b69513f
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.8393
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 13:25]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:07]
 :END:
 Lista los movimientos rígidos de $\mathbb{R}^2$.
 
@@ -6874,18 +7330,18 @@ Lista los movimientos rígidos de $\mathbb{R}^2$.
 |-----------------------+--------------------+--------------+----------|
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-12 Sat>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide2cloze
 :ID:       e3a04df3-1d89-49c7-a0e1-77559f0989f1
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.1525
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 13:28]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:02]
 :END:
 
 |-------------------------+----------------------+--------------+----------|
@@ -6901,17 +7357,17 @@ SCHEDULED: <2018-04-30 Mon>
 |-------------------------+----------------------+--------------+----------|
 
 ****** Card: lista de movimientos                                :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :ID:       0b376393-635e-4b49-a699-418212970a3f
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.6494
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 13:24]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:11]
 :END:
 Lista los movimientos rígidos de $\mathbb{R}^3$.
 
@@ -6991,17 +7447,17 @@ Decimos $f \in {\cal C}^{\infty}(O,\mathbb{R}^m)$ *diferenciable* si cada $f_i \
 [[id:d3a1f687-19f0-4129-90a1-04976ef88344][diferenciable]].
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       7c7a55ed-a5e9-43fd-8bb1-d3830db44c33
-:DRILL_LAST_INTERVAL: 4.0
+:DRILL_LAST_INTERVAL: 3.7937
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 13:29]
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:15]
 :END:
 ¿Cuándo es $f \in {\cal C}^{\infty}(O,\mathbb{R}^m)$, de varias variables, diferenciable?
 
@@ -7034,17 +7490,17 @@ Una aplicación entre abiertos $\phi \colon O \to O'$ es *difeomorfismo* cuando 
 diferenciable y biyectiva con inversa diferenciable $\phi^{-1} \colon O' \to O$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       5fc5ff28-bffc-441c-9161-f13889ed291a
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 12.0449
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 13:24]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:09]
 :END:
 Definición de *difeomorfismo*.
 
@@ -7058,17 +7514,17 @@ un punto $p \in O$ si existen entornos $p \in U \subset O$ y $\phi(p) \in U' \su
 que $\phi|_U \colon U \to U'$ es difeomorfismo.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :ID:       a226eca2-2050-4936-bf74-5ba70a400d57
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.2937
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 13:27]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:12]
 :END:
 Cuándo es $\phi \colon O \to O'$ *difeomorfismo local* en $p \in O$.
 
@@ -7103,17 +7559,17 @@ que sería diferenciable por serlo localmente. Su inversa es localmente
 diferenciable también en todo punto, por lo que sería diferenciable.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-10 Thu>
 :PROPERTIES:
 :ID:       0867560c-e572-4ef7-84e8-01ff5154571a
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 8.5168
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 13:27]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:03]
 :END:
 Caracterización de difeomorfismo por difeomorfismo local.
 
@@ -7149,17 +7605,17 @@ d(\phi^{-1} \circ \phi)_p = (d\phi^{-1})_{\phi(p)} \circ (d\phi)_p
 y $(d\phi)_p$ es isomorfismo.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-06 Sun>
 :PROPERTIES:
 :ID:       92ff4784-7391-448d-8248-0f984f6e1b98
-:DRILL_LAST_INTERVAL: 4.05
+:DRILL_LAST_INTERVAL: 5.0495
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 13:24]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:15]
 :END:
 Si $\phi$ es difeomorfismo, ¿qué sabemos de $(d\phi)_p$?
 
@@ -7646,17 +8102,17 @@ es inyectiva, pero al tender a infinito se acerca tanto como queramos
 al $(0,0)$, por el que ya había pasado antes, lo que hace que no podamos
 tener un homeomorfismo.
 ****** Cálculo de la longitud de una curva                       :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-12 Sat>
 :PROPERTIES:
 :ID:       3fb16a48-0357-42f8-98c2-c74d4562bc49
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 10.8372
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_AVERAGE_QUALITY: 3.6
 :DRILL_EASE: 2.6
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:49]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:14]
 :END:
 Para $\alpha\colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, calcula la longitud entre
 $[a,b]$ como una integral.
@@ -7740,17 +8196,17 @@ N_{\alpha}(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|}
 \]
 
 ****** Curvatura de una curva regular en el plano                :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-12 Sat>
 :PROPERTIES:
 :ID:       054cec15-5c54-4d1f-84f7-56cb9df2ede5
-:DRILL_LAST_INTERVAL: 4.101
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 9
+:DRILL_LAST_INTERVAL: 10.7281
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 10
 :DRILL_FAILURE_COUNT: 5
-:DRILL_AVERAGE_QUALITY: 2.111
-:DRILL_EASE: 2.66
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:52]
+:DRILL_AVERAGE_QUALITY: 2.2
+:DRILL_EASE: 2.52
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:15]
 :END:
 Dar dos fórmulas de la curvatura de una curva regular en
 el plano, $\alpha(t)\colon I \to\mathbb{R}^2$.
@@ -7762,17 +8218,17 @@ el plano, $\alpha(t)\colon I \to\mathbb{R}^2$.
 \]
 
 ****** Ecuaciones de Frenet en el plano                          :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       cca9ded0-aa24-4138-bbb8-c057e5d1015b
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 11.8189
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 2.857
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:51]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:03]
 :END:
 Enunciar las ecuaciones de Frenet para una curva regular en el plano.
 
@@ -8009,17 +8465,17 @@ con $\alpha(0) = p$ y $\alpha'(0) = v$. El *espacio tangente* $T_pA$ es el conju
 vectores tangentes a $A$ en $p$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       f157e9c9-1f94-45c9-bc9a-fa82e35cf8c7
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.6818
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:45]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:06]
 :END:
 Definición de *espacio tangente* $T_p(A)$.
 
@@ -8039,17 +8495,17 @@ existe $\alpha \colon (-\varepsilon,\varepsilon) \to A$ con $\alpha(0) = p$ y $\
    de dos rectas.
 
 ****** Card: contraejemplo de espacio tangente no vectorial      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :ID:       3eac5216-6c28-4763-8cd7-856bdd12a1c6
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.2068
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:45]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:11]
 :END:
 Da un ejemplo donde $T_pA$ no es espacio vectorial.
 
@@ -8098,17 +8554,17 @@ U & D_p\lar{h}\uar[bend left]{Y}
 \end{tikzcd}\]
 
 ****** Card: espacio tangente cuando es parametrización          :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       bcd93e24-5a7c-46bc-a8d6-39719007e6b1
-:DRILL_LAST_INTERVAL: 4.05
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 11.8112
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_AVERAGE_QUALITY: 3.667
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:46]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:05]
 :END:
 Dada $X \colon U \to S$ parametrización, da el espacio tangente
 a $X(q) = p$.
@@ -8120,17 +8576,17 @@ T_pS = (dX)_q(\mathbb{R}^2)
 \]
 
 ****** Card: base del plano tangente                             :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       426e5b5a-7e3f-453e-b172-2526547e6ca4
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.6893
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:45]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:06]
 :END:
 ¿Cuál es la base del plano $T_pS$?
 
@@ -8161,17 +8617,17 @@ Si $v \in T_pS$ gracias a $\alpha$, $f(\alpha(t)) = a$ constante y
 Luego $v \in (\nabla f)(p)^{\bot}$ y tenemos dos planos uno contenido en otro.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :ID:       db778307-cfe6-45e9-ae36-2becb553fe9a
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.8649
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 15:45]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:08]
 :END:
 Si $S = f^{-1}(a) \neq \varnothing$ es superficie implícita dada por un valor
 regular, ¿cuál es el plano $T_p(S)$?
@@ -8200,17 +8656,17 @@ Dados $S,S'$ superficies, $O \subset \mathbb{R}^n, O' \subset \mathbb{R}^m$ abie
  * $f \in {\cal C}^{\infty}(O,S')$ si $i \circ f \in {\cal C}^{\infty}(O,\mathbb{R}^3)$, donde $i$ es la inclusión.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-11 Fri>
 :PROPERTIES:
 :ID:       d5eeb9fd-2b74-47d4-8a94-11d8d4216455
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 10.2104
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:49]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:08]
 :END:
 Definir diferenciabilidad en los cuatro casos
 
@@ -8246,17 +8702,17 @@ diferenciable, pero $j \circ (X^{-1} \circ Y)$ es una composición de
 inclusión y de [[id:3b537594-9c48-4d88-b979-cb841d93f776][cambio de parámetros]].
 
 ****** Cards                                                     :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       4cf91a32-d1d8-43a8-929c-873dbe42351f
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 12.2918
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.333
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:51]
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:03]
 :END:
 Diferenciabilidad (no clásica) de las parametrizaciones locales y sus inversas.
 
@@ -8291,17 +8747,17 @@ diferenciable por regla de la cadena clásica por ser composición de
 difernciable y [[id:3b537594-9c48-4d88-b979-cb841d93f776][cambio de parámetros]].
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       688ed1e0-d2a2-4639-a681-1ce01f696780
-:DRILL_LAST_INTERVAL: 3.95
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.8224
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:48]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:09]
 :END:
 Da una caracterización de $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$ usando atlas.
 
@@ -8334,17 +8790,17 @@ donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) =
 
 ****** TODO Proof
 ****** Card                                                      :drill:
-SCHEDULED: <2018-04-30 Mon>
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       e8520435-9cb6-4b93-8d2f-bf62c5ae7a19
-:DRILL_LAST_INTERVAL: 4.0
+:DRILL_LAST_INTERVAL: 3.5094
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:47]
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:17]
 :END:
 Define la diferencial de $f \colon S \to S'$ en $p \in S$.
 
@@ -8381,17 +8837,17 @@ Una *orientación* es un campo normal, unitario y diferenciable.
 Una superficie es orientable si admite una orientación.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-01 Tue>
+SCHEDULED: <2018-05-05 Sat>
 :PROPERTIES:
 :ID:       5c3f56c5-cdb3-4d7c-b09a-4ba12c642c2f
-:DRILL_LAST_INTERVAL: 4.0
+:DRILL_LAST_INTERVAL: 3.9668
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:39]
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:16]
 :END:
 Superficie orientable.
 
@@ -55839,7 +56295,7 @@ SCHEDULED: <2018-04-08 Sun>
 :END:
 
 The [ring] tactic [solves equations on a ring structure].
-** Algoritms
+** Algorithms
 *** Data structures
 **** Binary search tree                                            :drill:
 SCHEDULED: <2018-03-11 Sun>
