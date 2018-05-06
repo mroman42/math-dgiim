@@ -1,6 +1,6 @@
 #+TITLE: Math
 #+DESCRIPTION: My math notes and exercises
-#+TODO: TODO WIP | CHECK DONE WONTFIX
+#+TODO: TODO WIP | CHECK DONE
 #+SETUPFILE: setup/ejerciciomodelos.setup
 
 ** Header                                                           :ignore:
@@ -3039,6 +3039,55 @@ e^{i\theta} = \cos \theta + i \sin \theta
 **** Ecuación diferencial de Euler
 **** Teorema de Fubini
 **** Teorema de Tonelli
+**** Norma en Lp                                                   :drill:
+SCHEDULED: <2018-05-08 Tue>
+:PROPERTIES:
+:ID:       ceb95e11-f3e9-4928-9690-7f625454045f
+:DRILL_LAST_INTERVAL: 2.5078
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:06]
+:END:
+Describe la norma en $L^p(S)$,
+
+\[
+\norm{f}_p
+\]
+
+***** Norma
+
+\[
+\norm{f}_p = \left(\int_S \abs{f^p} \,d\mu \right)^{1/p} < \infty
+\]
+
+**** Lp cuando 0 < p < 1                                           :drill:
+SCHEDULED: <2018-05-09 Wed>
+:PROPERTIES:
+:ID:       c6c30efb-81ce-4d04-8926-767c1685ca97
+:DRILL_LAST_INTERVAL: 4.2378
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:07]
+:END:
+¿Qué ocurre con $L^p$ cuando $0 < p < 1$? 
+
+***** Respuesta
+El operador
+
+\[
+N_p(f) = \int_S \abs{f}^p \,d\mu < \infty
+\]
+
+no es una norma, es sólo una quasinorma.
+
 **** Teorema de Riesz
 Sea $H$ un espacio de Hilbert. Para todo $f \in H^{\ast}$ existe un
 único $v \in H$ tal que $f(x) = \langle x,v \rangle$ para todo $x \in H$.
@@ -3292,14 +3341,14 @@ para integrar por conservación de signo sólo esa zona.
 :PROPERTIES:
 :ID:       a197ab8c-e2fa-4327-a265-1ece45f66c23
 :END:
-Dada una $F(x,y,p) \colon [x_0,x_1] \times \Omega \to \mathbb{R}$, con $\Omega \subseteq \mathbb{R}^2$ dominio, dos veces
-derivable en $p$ y en $y$, consideramos el funcional 
+Para $F(x,y,p) \colon [x_0,x_1] \times \Omega \to \mathbb{R}$, con $\Omega \subseteq \mathbb{R}^2$ dominio, dos veces
+derivable en $p$ y en $y$, consideramos
 
 \[
 {\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,
 \]
 
-definido ${\cal F} \colon {\cal D} \to \mathbb{R}$ sobre
+sobre
 
 \[
 {\cal D} = \left\{ \begin{array}{c} 
@@ -3310,14 +3359,12 @@ y(x_1) = y_1, \\
 \end{array}\right\}
 \]
 
-Cualquier $\overline{y} \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ minimal de ${\cal F}$ verifica
+Cualquier $\overline{y} \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ (*extremal*) mínimo de ${\cal F}$ sobre ${\cal D}$
+verifica
 
 \[
 F_y - \dv{}{x}F_p = 0.
 \]
-
-Llamamos *extremales* a las soluciones candidatas a mínimo de esta
-ecuación.
 
 ****** Proof
 :PROPERTIES:
@@ -3356,28 +3403,25 @@ SCHEDULED: <2018-05-24 Thu>
 :DRILL_LAST_QUALITY: 5
 :DRILL_LAST_REVIEWED: [2018-04-19 Thu 22:56]
 :END:
-Dar el dominio de la $F$ para la que se tiene Euler-Lagrange y sus
-condiciones de derivabilidad.
+Condiciones de derivabilidad de la $F$ para Euler-Lagrange.
 
 ******* Características
-Una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, dos veces
-derivable en $p$ y en $y$.
+Dos veces derivable en $p$ y en $y$.
 
-****** Card: Dominio del funcional en Euler-Lagrange             :drill:
-SCHEDULED: <2018-05-05 Sat>
+****** Card: Dominio de Euler-Lagrange                           :drill:
+SCHEDULED: <2018-07-10 Tue>
 :PROPERTIES:
 :ID:       7c4a6835-9dea-4a2a-a944-4ed5540545ee
-:DRILL_LAST_INTERVAL: 26.7727
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 66.2476
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_AVERAGE_QUALITY: 3.6
 :DRILL_EASE: 2.46
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:10]
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:07]
 :END:
-¿Cuál es el dominio del funcional de Euler-Lagrange \({\cal F} \colon {\cal D} \to \mathbb{R}\)?
-Nótese que depende del $\Omega \subseteq \mathbb{R}^2$ que estemos considerando.
+${\cal D}$ para Euler-Lagrange.
 
 ******* Dominio
 
@@ -3388,44 +3432,17 @@ y(x_1) = y_1 \\
 \forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega
 \end{array}\right\}\]
 
-****** Card: Funcional a minimizar en Euler-Lagrange             :drill:
-SCHEDULED: <2018-05-05 Sat>
-:PROPERTIES:
-:ID:       6957180c-8bdf-4dea-9ee3-1df1d964c86c
-:DRILL_LAST_INTERVAL: 27.375
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-08 Sun 23:11]
-:END:
-Dada una función \(F \colon [x_0,x_1] \times \Omega \to \mathbb{R}\), con \(\Omega \subseteq \mathbb{R}\) dominio, ¿qué
-funcional queremos minimizar en Euler-Lagrange?
-
-******* Funcional
-
-$${\cal F}[y] = \int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx,$$
-
-para $y \in {\cal D}$.
-
 ***** Teorema 3. Condiciones para conjuntos sin condiciones de contorno
 :PROPERTIES:
 :ID:       094690c8-7f15-424a-89aa-126400e3d0c6
 :END:
-En
-
-\[{\cal D}^o = \left\{ \begin{array}{c} 
-y \in {\cal C}^1(x_0,x_1), \\
-\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
-\end{array}\right\}\]
-
-un $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal de ${\cal F}$ verifica [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]] con
+Si no tenemos condiciones de contorno, el extremal cumple
 
 \[
 F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
 \]
+
+Cuando sólo una viene fijada, la otra puede fijarse también así
 
 ****** Proof
 La [[id:d1ff00ca-9b61-4a83-9016-35f8fca5866a][demostración]] de Euler-Lagrange puede repetirse para cualquier
@@ -3447,32 +3464,8 @@ Euler-Lagrange. Pero entonces
 y tomando en particular funciones cumpliendo $\phi(x_j) = \delta_{ij}$ para
 $i,j = 0,1$ tenemos las condiciones de contorno buscadas.
 
-****** Card: Dominio sin condiciones de contorno                 :drill:
-SCHEDULED: <2018-05-22 Tue>
-:PROPERTIES:
-:ID:       636e7cb1-9d12-4a39-aa2c-45cfbb581967
-:DRILL_LAST_INTERVAL: 21.0285
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 8
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.626
-:DRILL_EASE: 2.66
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:41]
-:END:
-Escribir el dominio ${\cal D}^o$ sin condiciones de contorno en el que se
-define el funcional ${\cal F} \colon {\cal D}^o \to \mathbb{R}$ para un problema sin condiciones
-de contorno.
-
-******* Dominio
-
-\[{\cal D}^o = \left\{ \begin{array}{c} 
-y \in {\cal C}^1(x_0,x_1), \\
-\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
-\end{array}\right\}\]
-
 ****** Card: Condiciones de contorno para problemas sin ellas    :drill:
-SCHEDULED: <2018-05-08 Tue>
+SCHEDULED: <2018-05-05 Tue>
 :PROPERTIES:
 :ID:       742721a0-1edb-47c7-aabc-bb203354d4bc
 :DRILL_LAST_INTERVAL: 27.1381
@@ -3484,8 +3477,7 @@ SCHEDULED: <2018-05-08 Tue>
 :DRILL_LAST_QUALITY: 5
 :DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:50]
 :END:
-Dado un funcional sobre ${\cal D}^o$, cualquier $\oy \in {\cal D}^o \cap {\cal C}^2(x_0,x_1)$ minimal
-de ${\cal F}$ verifica Euler-Lagrange y ¿qué condiciones de contorno?
+¿Qué condiciones de contorno verifica un extremal si no vienen dadas?
 
 ******* Condiciones de contorno
 
@@ -3493,24 +3485,11 @@ de ${\cal F}$ verifica Euler-Lagrange y ¿qué condiciones de contorno?
 F_p(x_0,\oy(x_0),\oy'(x_0)) = 0 = F_p(x_1,\oy(x_1),\oy'(x_1).
 \]
 
-***** Teorema 3. Condiciones en conjuntos con una sola condición de contorno
-En
-
-\[{\cal D}_1 = \left\{ \begin{array}{c} 
-y \in {\cal C}^1(x_0,x_1), \\
-y(x_0) = y_0,\\
-\forall x \in [x_0,x_1]: (y(x),y'(x)) \in \Omega.
-\end{array}\right\}\]
-
-un $\oy \in {\cal D}_1 \cap {\cal C}^2(x_0,x_1)$ minimal de ${\cal F}$ verifica [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]] con
-
-\[
-0 = F_p(x_1,\oy(x_1),\oy'(x_1).
-\]
+******* Extra
+Si viene dada solo una de ellas, puede fijarse la otra así.
 
 ***** Teorema 4. Euler-Lagrange para F independiente de y
-En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si además $F_y = 0$,
-un minimal $\oy \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ verifica 
+En [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si $F_y = 0$, el extremal cumple
 
 \[
 F_p = \mathrm{cte.}
@@ -3541,8 +3520,7 @@ F_p(x,\oy'(x)) = \mathrm{cte.}
 \]
 
 ***** Teorema 5. Euler-Lagrange para F independiente de x
-En las condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si además $F_ x= 0$,
-un minimal $\oy \in {\cal D} \cap {\cal C}^2(x_0,x_1)$ verifica 
+En [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si $F_ x= 0$, el extremal cumple
 
 \[
 F - y'F_p = \mathrm{cte.}
@@ -3556,7 +3534,7 @@ Tenemos que, aplicando [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange
 \]
 
 ****** Card: Euler-Lagrange para F independiente de x            :drill:
-SCHEDULED: <2018-05-23 Wed>
+SCHEDULED: <2018-05-05 Wed>
 :PROPERTIES:
 :ID:       22e8b4d8-c306-4927-9a7f-159725999cbd
 :DRILL_LAST_INTERVAL: 23.746
@@ -3580,19 +3558,45 @@ F - y'F_p = \mathrm{cte.}
 ***** Oscilador armónico
 ***** Longitud mínima
 ***** Longitud mínima usando un caso particular
-***** TODO Superficie minimal de revolución
+***** Superficie minimal de revolución
+****** Card                                                      :drill:
+:PROPERTIES:
+:ID:       3c7fbd05-0ff4-4169-b50b-a0cf2e328b71
+:END:
+Solución de 
+
+\[
+y(x) = c \sqrt{1 + y'(x)^2}
+\]
+
+******* Solución
+\[
+y(x) = c_0 \cosh \left( \frac{x-k}{c_0}  \right)
+\]
+
 **** 2.4. Convexidad
 ***** Convexidad
-Un subconjunto de espacio vectorial $\Omega \subseteq V$ es *convexo* cuando
+$\Omega \subseteq V$ es *convexo* cuando
 
 \[
 \forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad tx + (1-t)y \in \Omega.
 \]
 
-Una función $f \colon \Omega \to \mathbb{R}$ es *convexa* cuando cumple la desigualdad
-de Jensen,
+$f \colon \Omega \to \mathbb{R}$ es *convexa* cuando cumple la desigualdad de Jensen,
 
 \[\forall x,y \in \Omega: \forall 0 \leq t \leq 1:\quad
+f(tx + (1-t)y) \leq tf(x) + (1-t)f(y).
+\]
+
+****** Card                                                      :drill:
+:PROPERTIES:
+:ID:       a8a0d061-c728-48f3-a08b-93a1b1b625f8
+:END:
+Desigualdad de Jensen
+
+******* Desigualdad
+
+\[
 f(tx + (1-t)y) \leq tf(x) + (1-t)f(y).
 \]
 
@@ -3600,8 +3604,7 @@ f(tx + (1-t)y) \leq tf(x) + (1-t)f(y).
 :PROPERTIES:
 :ID:       89c9e4a0-cc09-4962-b3e5-8fc1cfbb0c4e
 :END:
-En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si ${\cal D}$ y ${\cal F}$ convexos,
-una $\oy \in {\cal D} \cap {\cal C}^2$ extremal es mínimo global.
+En [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si ${\cal D}$ y ${\cal F}$ convexos, extremal es mínimo global.
 
 ****** Proof
 Dado $z \in {\cal D}$, llamamos $\phi =z-y$ y tenemos
@@ -3622,8 +3625,8 @@ Tomando límites y usando que es extremal,
 :PROPERTIES:
 :ID:       c46055cc-5d8b-4772-8af3-48057d7e45a4
 :END:
-Si ${\cal F}$ y ${\cal D}$ convexos, un mínimo local (estricto) es mínimo
-global (estricto).
+En [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si ${\cal F}$ y ${\cal D}$ convexos, un mínimo local (estricto) 
+es mínimo global (estricto).
 
 ****** Proof
 Sea $\oy$ mínimo local, $\forall \|z - \oy\| \leq \varepsilon\colon {\cal F}[\oy] \leq {\cal F}[z]$. Para $v \in {\cal D}$ tomamos $t_0 = \frac{\varepsilon}{\| v - \oy\|}$
@@ -3639,7 +3642,7 @@ teniendo $t_0 {\cal F}[\oy] \leq t_0{\cal F}[v]$.
 :PROPERTIES:
 :ID:       4d623017-26e1-4e3e-82ec-325f4b6c0b38
 :END:
-En condiciones de [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si $F$ convexo en $\Omega$ convexo, ${\cal F}$ convexo.
+En [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange]], si $F$ convexo en $\Omega$ convexo, ${\cal F}$ convexo.
 
 ****** TODO No es condición necesaria
 Tenemos $F = y^2(1-p)$ no convexa, pero su ${\cal F}$ es convexo.
@@ -3678,42 +3681,13 @@ Tipos de condiciones de contorno
 
  * Periódicas:           $y(x_0) = y(x_1)$, $y'(x_0) = y'(x_1)$.
 
-***** Card                                                        :drill:
-SCHEDULED: <2018-05-14 Mon>
-:PROPERTIES:
-:ID:       e11eb078-279d-4ef6-81e7-13404e6f5bfc
-:DRILL_LAST_INTERVAL: 13.4889
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:39]
-:END:
-Describir los cinco tipos de condiciones de contorno de
-un problema de contorno.
-
-****** Condiciones
-Tipos de condiciones de contorno
-
- * Dirichlet:            $y(x_0) = y_0$, $y(x_1) = y_1$.
-
- * Dirichlet homogéneas: $y(x_0) = 0$, $y(x_1) = 0$.
-
- * Newmann:              $y'(x_0) = z_0$, $y'(x_1) = z_1$.
-
- * Newmann homogéneas:   $y'(x_0) = 0$, $y'(x_1) = 0$.
-
- * Periódicas:           $y(x_0) = y(x_1)$, $y'(x_0) = y'(x_1)$.
 **** 3.3. El problema de la viga
 ***** Ecuación de la viga
 :PROPERTIES:
 :ID:       afb30645-46b6-4087-bf43-bf765d53719b
 :END:
-La deformación respecto equilibrio de una viga $u \colon [0,L] \to \mathbb{R}$
-para un *módulo de rigidez* $M>0$, una densidad $f(x)$ y
-una constante de la viga $N$ cumple
+La *ecuación de la viga*, para $M > 0$, constante $N$ y
+densidad $f(x)$ es
 
 \[
 Mu''''(x) + Nu''(x) = f(x).
@@ -3747,28 +3721,21 @@ Cuál es la ecuación diferencial del problema de la viga.
 Mu''''(x) + Nu''(x) = f(x)
 \]
 
-para algunas constantes $M,N$ y alguna expresión $f$. Se complementa
-con cuatro condiciones de contorno, según sujeción. Con otra notación,
+constantes $M,N$ y función $f$. Se complementa con cuatro condiciones
+de contorno, según sujeción. Con otra notación,
 
 \[
 Mu'''' + Nu'' = f
 \]
 
 ***** Problema variacional de la viga
-La [[id:afb30645-46b6-4087-bf43-bf765d53719b][ecuación de la viga]] es condición necesaria de los extremales,
-en un conjunto con restricciones adecuadas, de
 
 \[
 {\cal F}[u] = \int_0^L \left( \frac{M}{2}(u''(x))^2 - \frac{N}{2}(u'(x))^2 - f(x)u(x) \right)\,dx.
 \]
 
-Aplicando [[id:1d1082d8-cb7a-4e0c-868c-5d734cd8949b][Euler-Lagrange en la segunda derivada]] sobre la función
-
-\[
-F(x,y,p,q) = \frac{M}{2}q^2 - \frac{N}{2}p^2 - f(x)y.
-\]
-
-se deduce la ecuación de la viga.
+Aplicando [[id:1d1082d8-cb7a-4e0c-868c-5d734cd8949b][Euler-Lagrange en la segunda derivada]] se llega a la
+[[id:afb30645-46b6-4087-bf43-bf765d53719b][ecuación de la viga]].
 
 ****** Card: forma variacional                                   :drill:
 SCHEDULED: <2018-05-06 Sun>
@@ -3786,10 +3753,9 @@ SCHEDULED: <2018-05-06 Sun>
 Da el funcional a minimizar en el problema de la viga.
 
 ******* Funcional
-Minimizar el funcional
 
 \[
-\int_0^L \left(\frac{M}{2}(u''(x))^2 - \frac{N}{2}(u'(x))^2 - f(x)u(x) \right)\,dx.
+{\cal F}[u] = \int_0^L \left(\frac{M}{2}(u''(x))^2 - \frac{N}{2}(u'(x))^2 - f(x)u(x) \right)\,dx,
 \]
 
 con cuatro condiciones de contorno para la $u$.
@@ -3807,9 +3773,8 @@ SCHEDULED: <2018-05-13 Sun>
 :DRILL_LAST_QUALITY: 4
 :DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:42]
 :END:
-¿Cómo se obtiene la ecuación en el problema de la viga? Describe
-el $F$ y la versión de Euler-Lagrange para segunda derivada que
-habría que usar aquí.
+En el problema de la viga, dar $F$ y Euler-Lagrange para segunda
+derivada.
 
 ******* Función
 \[
@@ -3967,23 +3932,35 @@ variables es definida positiva, luego $F$ es convexa
 0 & P
 \end{pmatrix}.\]
 
-Por [[id:4d623017-26e1-4e3e-82ec-325f4b6c0b38][Teorema 8]], ${\cal F}$ es convexa.
+Por [[id:4d623017-26e1-4e3e-82ec-325f4b6c0b38][Teorema 8]], ${\cal F}$ es convexa. Si existe extremal sería única.
 
-******* TODO Extremal única y solución
-# Usando Fredholm
+******* Extremal única y solución (caso Dirichlet)
+Por [[id:568bcd38-4589-424c-8f17-71f3c2df75d0][Alternativa de Fredholm]], hay extremal (solución de la ecuación
+completa) única, cuando sólo existe la solución trivial al sistema
+homogéneo
 
+\[
+\Big( P(x)y' \Big)' + Q(x)y(x) = 0.
+\]
+
+Si hubiera solución distinta de $0$, por unicidad del PVI asociado,
+debería tenerse $y'(x_0) = 0 > 0$, luego $y(x) > 0$ en algún entorno a
+la derecha de $x_0$. Como $y(x_1) = 0$, debe haber un máximo interno y
+un punto crítico donde llegaríamos a contradicción.
+
+******* Extremal única y solución (caso quasi-Dirichlet)        :extra:
 ****** Card: condiciones quasi-Dirichlet                         :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-09 Wed>
 :PROPERTIES:
 :ID:       49074f9d-fd25-49ae-a5f3-f04ed9d610c1
-:DRILL_LAST_INTERVAL: 2.5983
+:DRILL_LAST_INTERVAL: 4.0099
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.0
-:DRILL_EASE: 2.22
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 2.167
+:DRILL_EASE: 2.08
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:47]
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:07]
 :END:
 Describe las condiciones de contorno quasi-Dirichlet que se usan
 para asegurar unicidad en un problema variacional obtenido desde
@@ -4153,7 +4130,10 @@ y(x_0) = y(x_1) \\
 y'(x_0) = y'(x_1)
 \end{array}\right\}\quad\]
 
-***** Alternativa de Fredholm
+***** Teorema 11. Alternativa de Fredholm
+:PROPERTIES:
+:ID:       568bcd38-4589-424c-8f17-71f3c2df75d0
+:END:
 En un PC con condiciones de contorno separadas homogéneas o
 periódicas, necesariamente se verifica una de las siguientes
 alternativas
@@ -4169,7 +4149,19 @@ alternativas
     \int_{x_0}^{x_1}R(x)y_h(x)\,dx = 0.
     \]
 
-****** TODO Proof
+****** Proof                                                     :extra:
+Sea $\left\{ \phi_1,\phi_2 \right\}$ sistema fundamental de soluciones de la homogénea.
+Por fórmula de variación de constantes, cualquier solución de la
+completa es
+
+\[
+y = y_h + y_p = A\phi_1 + B\phi_2 + \int_{x_0}^x \frac{R(z)}{W(x_0)P(x_0)}
+\left( \phi_2(x)\phi_1(z) - \phi_2(z)\phi_1(x) \right)\,dz
+\]
+
+Usando la fórmula de variación de constantes y aplicando
+propiedades del Wronskiano.
+
 ****** Card                                                      :drill:
 SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
@@ -4229,7 +4221,7 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \end{array}\right\}
 \]
 
-Si $\oy \in {\cal D} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ es extremal se tiene por Euler-Lagrange,
+Para $\oy \in {\cal D} \cap \left( {\cal C}^2[x_0,x_1] \right)^n$ extremal se tiene Euler-Lagrange
 
 \[
 F_{y_i} - \dv{}{x}\Big( F_{p_i} \Big) = 0, \quad i = 1,\dots,n.
@@ -4267,7 +4259,7 @@ varias funciones.
 F_{y_i} - \dv{}{x}\Big( F_{p_i} \Big) = 0, \quad \mbox{ para }i = 1,\dots,n.
 \]
 
-***** Card: dominio                                               :drill:
+***** TODO Card: dominio                                          :drill:leech:
 SCHEDULED: <2018-05-07 Mon>
 :PROPERTIES:
 :ID:       2303fc9e-f13d-4b4f-90e1-78e0bcc5fca3
@@ -4302,7 +4294,7 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 :PROPERTIES:
 :ID:       2e02f30e-7a39-472d-bbec-47c949e5b641
 :END:
-Sea ${\cal F}$ en [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][varias funciones]], con $m < n$, sobre
+${\cal F}$ en [[id:cf95308e-1cfe-4d08-af55-b2fb3956f471][varias funciones]], con $m < n$, sobre
 
 \[
 {\cal D}_{\varphi} = {\cal D} \cap \left\{\begin{array}{c}
@@ -4531,17 +4523,17 @@ y llegamos a
 que se corresponden a las ligaduras que marca el enunciado.
 
 ***** Card: dominio en ligaduras integrales                       :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-14 Mon>
 :PROPERTIES:
 :ID:       d6f0bf2b-96a3-4aa7-97cf-a10986b4ca1b
-:DRILL_LAST_INTERVAL: 3.1205
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 8.7982
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.25
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:49]
+:DRILL_AVERAGE_QUALITY: 2.8
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:06]
 :END:
 Describe un dominio con ligaduras integrales.
 
@@ -4924,7 +4916,7 @@ Nótese que $u$ no depende del tiempo por las simplificaciones.
 ****** Proof
 La $F$ asociada está en los apuntes. La ecuación se obtiene
 usando la definición de la laplaciana $\Delta u$.
-****** Card: modelo simplificado de la membrana                  :drill:
+****** Card: modelo simplificado de la membrana                  :drill:leech:
 SCHEDULED: <2018-05-07 Mon>
 :PROPERTIES:
 :ID:       41429f6b-f4a0-496b-9f2b-d3c27f11c3eb
@@ -5257,26 +5249,28 @@ u_0(x) = \sum_{n=1}^{\infty} a_n\sin(\frac{n\pi x}{L}).
 Si ajustamos los coeficientes llegamos a la solución buscada.
 
 ****** Card: procedimiento                                       :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-16 Wed>
 :PROPERTIES:
 :ID:       8be7d27b-0a8a-43b6-a7a1-3086967a27e5
-:DRILL_LAST_INTERVAL: 4.6831
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.9762
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:47]
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 19:53]
 :END:
 ¿Cuál es el procedimiento de resolución de la ecuación de ondas
-simplificada? \[
+simplificada?
+
+\[
 u_{tt} = c^2 u_{xx}.
 \]
 
 \[\left\{\begin{array}{lr}
 u(0,x) = u_0(x) \in {\cal C}^2, & x \in [0,L], \\
-(\partial_t u)(0,x) = v_0(x) \in {\cal C}^1, & x \in [0,L], \\
+u_t(0,x) = v_0(x) \in {\cal C}^1, & x \in [0,L], \\
 u(t,0) = u(t,L) = 0, & t \geq 0.
 \end{array}
 \right\}\]
@@ -5733,17 +5727,17 @@ Se debe comprobar que es base normal y que son ortornormales en el
 espacio $L^2(0,T)$ integrando y usando identidades trigonométricas.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :ID:       5b0b3868-b27b-4e52-baa0-a215080509fa
-:DRILL_LAST_INTERVAL: 3.8721
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 9.6497
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.667
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:44]
+:DRILL_AVERAGE_QUALITY: 2.75
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:06]
 :END:
 Dar la base ortonormal de $L^2(0,T)$ del Teorema de Riesz-Fischer.
 
@@ -5756,12 +5750,13 @@ y_{2n-1}(x) = \sqrt{\frac{2}{T}}\sen \left( \frac{2n\pi x}{T} \right)
 \]
 
 ***** Desarrollo de una función en Serie de Fourier
-Es habitual escribir el desarrollo de una función como
+Es habitual escribir el desarrollo de una función $y \in L^2(0,T)$ como
 
 \[
 y(x) = \frac{a_0}{2} + 
-\sum^{\infty}_{n=1} a_n\cos \left( \frac{2n\pi x}{T} \right) + 
-\sum^{\infty}_{n=1} b_n\sin \left( \frac{2n\pi x}{T} \right).
+\sum^{\infty}_{n=1} 
+a_n\cos \left( \frac{2\pi nx}{T} \right) + 
+b_n\sin \left( \frac{2\pi nx}{T} \right).
 \]
 
 donde
@@ -5813,17 +5808,17 @@ de continuidad y en los puntos de discontinuidad $a_i$ se tiene el
 \] 
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :ID:       e1a64429-139b-4b76-a77e-dbf1c41fcd9c
-:DRILL_LAST_INTERVAL: 3.761
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 9.7463
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:37]
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 19:58]
 :END:
 Convergencia de la serie de Fourier de una función continua a trozos.
 ¿Qué ocurre en los puntos de discontinuidad?
@@ -5849,17 +5844,17 @@ Usando criterio de Weierstrass.
 http://math.ucr.edu/~res/math153/fourier-uniform.pdf
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-20 Sun>
 :PROPERTIES:
 :ID:       f7a7e291-c6f6-40dd-9008-3c54fd86d012
-:DRILL_LAST_INTERVAL: 4.7647
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 14.9009
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:43]
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 19:55]
 :END:
 ¿Cuándo converge uniformemente la serie de Fourier?
 
@@ -5889,17 +5884,17 @@ converge uniformemente para $a_n$ y $b_n$ coeficientes de Fourier.
 Se aplicará un razonamiento similar al aplicado [[id:55291685-9a8a-4c19-9338-570d037dd93c][anteriormente]].
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-16 Wed>
 :PROPERTIES:
 :ID:       3566f799-f086-4e6f-9b1c-6be4a775beae
-:DRILL_LAST_INTERVAL: 4.3088
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 10.9088
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:37]
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:02]
 :END:
 Enunciar el Teorema 21 sobre convergencia de derivadas superiores
 en series de Fourier.
@@ -5917,17 +5912,17 @@ La convergencia en media la da la igualdad de Bessel
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-10 Thu>
 :PROPERTIES:
 :ID:       7fd53585-d7a3-4da3-8087-77d8ff760eb6
-:DRILL_LAST_INTERVAL: 4.1063
+:DRILL_LAST_INTERVAL: 4.554
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
 :DRILL_AVERAGE_QUALITY: 2.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:45]
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:06]
 :END:
 Enuncia la igualdad de Bessel que da la convergencia en
 media de la serie de Fourier.
@@ -5961,19 +5956,20 @@ siendo
  * \[b_n = \frac{1}{T}\int_{-T}^T y(x)\sin \left( \frac{n\pi x}{T} \right) \,dx \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-16 Wed>
 :PROPERTIES:
 :ID:       f254979e-2fbc-4b1d-928b-336f633977b4
-:DRILL_LAST_INTERVAL: 3.953
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.8666
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 20:51]
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:02]
 :END:
 Desarrollo en Serie de Fourier de $y \in L^2(-T,T)$.
+(Coeficientes de ayuda).
 
 ******* Desarrollo
 
@@ -5984,6 +5980,13 @@ a_n\cos \left( \frac{n\pi x}{T} \right) +
 b_n\sin \left( \frac{n\pi x}{T} \right)
 \]
 
+******* Coeficientes
+
+ * \[a_0 = \frac{1}{T}\int_{-T}^T y(x) \,dx \]
+
+ * \[a_n = \frac{1}{T}\int_{-T}^T y(x)\cos \left( \frac{n\pi x}{T} \right) \,dx \]
+
+ * \[b_n = \frac{1}{T}\int_{-T}^T y(x)\sin \left( \frac{n\pi x}{T} \right) \,dx \]
 
 ****** Card: coeficientes                                        :drill:
 SCHEDULED: <2018-05-06 Sun>
@@ -6018,14 +6021,14 @@ b_n\sin \left( \frac{n\pi x}{T} \right)
 
 ***** Teorema 23. Serie de cosenos/senos
 Para $y \in {\cal C}^1(0,T)$, su serie de cosenos converge absoluta y
-uniformemente
+uniformemente (extensión par)
 
 \[
 \frac{a_0}{2} + \sum_{n=1}^{\infty}a_n\cos \left( \frac{n\pi x}{T} \right)
 \]
 
 si además $y(0) = y(T)$, su serie de senos converge absoluta y
-uniformemente
+uniformemente (extensión impar)
 
 \[
 \sum_{n=1}^{\infty} b_n \sin \left( \frac{n\pi x}{T} \right).
@@ -6051,7 +6054,6 @@ impar requiere $y(0) = y(T) = 0$. Aplicando el desarrollo en
 [[id:b0018ca3-1e81-42e1-8938-727ad480fc40][serie de Fourier]] a estas extensiones es como obtenemos el
 desarrollo en senos y cosenos.
 
-****** 
 **** 5.6. Solución de la ecuación de ondas
 ***** Teorema 24. Solución de la ecuación de ondas
 Para $u_0 \in {\cal C}^2(0,L)$ con $u_0'''$ continua a trozos y $v_0 \in {\cal C}^1(0,L)$ con $v_0''$
@@ -6069,7 +6071,7 @@ u(t,0) = u(t,L) = 0, & t \geq 0.
 Tiene candidato a solución
 
 \[
-\sum_{n \geq 1} 
+u(t,x) = \sum_{n \geq 1} 
 \left( b_n\cos \left( \frac{nc\pi t}{L} \right) +
 \frac{b'_nL}{nc\pi} \sin \left( \frac{n c \pi t}{L} \right) \right)
 \sin \left( \frac{n\pi x}{L} \right)
@@ -6080,6 +6082,8 @@ donde tenemos los desarrollos en senos
  * \[u_0(x) = \sum_{n \geq 1} b_n\sin \left( \frac{n \pi x}{L} \right),\quad b_n = \frac{2}{L}\int_0^L u_0(x) \sin \left( \frac{n \pi x}{L} \right),\] 
 
  * \[v_0(x) = \sum_{n \geq 1} b_n'\sin \left( \frac{n \pi x}{L} \right),\quad b_n' = \frac{2}{L}\int_0^L v_0(x) \sin \left( \frac{n \pi x}{L} \right).\] 
+
+Tenemos convergencia uniforme hasta la segunda derivada.
 
 ***** 5.6.1. Unicidad y método de la energía
 La unicidad de solución se demuestra comprobando que la *energía*
@@ -6550,6 +6554,18 @@ luego $\norm{u_n' - u'}_{L^2} \to 0$ y $\norm{u_n - u}_{L^2} \to 0$, por lo que
 y tomando límites en el caso ${\cal C}_0^\infty$, se tiene lo buscado.sss
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-09 Wed>
+:PROPERTIES:
+:ID:       132abd02-1210-4329-b150-e7bdbd5fe70b
+:DRILL_LAST_INTERVAL: 3.7669
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:06]
+:END:
 Enuncia la desigualdad de Poincaré para $u \in H^1_0(\Omega)$.
 
 ******* Enunciado
@@ -6623,6 +6639,13 @@ a(u,\phi) - \tf(\phi) = 0.
 
 Si consideramos $J(u) = \frac{1}{2}a(u,u) - \tf(u)$, minimizar este operador
 es de nuevo el problema variacional.
+
+***** TODO Tipos de solución
+
+ * Clásica.
+ * Distribucional. $L^1_{loc}(\Omega)$ $a(u,v) = \tf(v)$.
+ * Débil. $H_0^1(\Omega)$, $a(u,v) = \tf(v)$.
+ * Variacional. $H^1_0(\Omega)$ con $J(u) \leq J(v)$.
 
 ***** Teorema 30. Teorema de Lax-Milgram
 $a \colon H \times H \to \mathbb{R}$ bilineal continua coerciva $\exists \alpha \colon \forall v \in H\colon  \alpha \norm{v}^2_H \leq a(v,v)$
@@ -6700,37 +6723,38 @@ J(u_f+v) = J(u_f) + \frac{1}{2}a(v,v) \geq J(u_f) + \frac{\alpha}{2}\norm{v}_H >
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :ID:       54bc4de7-db60-426c-bcbb-08e80dbc2824
-:DRILL_LAST_INTERVAL: 4.3986
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 9.9271
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 20:56]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-05 Sat 19:58]
 :END:
 Enuncia Lax-Milgram
 
 ******* Enunciado
-Sea $a \colon H \times H \to \mathbb{R}$ bilineal continua coerciva sobre un Hilbert.
-Para cada $\tf \colon H \to \mathbb{R}$ lineal continua, existe una única solución $u_{\tf}$ de
+$a \colon H \times H \to \mathbb{R}$ bilineal continua coerciva $\exists \alpha \colon \forall v \in H\colon  \alpha \norm{v}^2_H \leq a(v,v)$
+sobre un Hilbert. Sea $\tf \colon H \to \mathbb{R}$ lineal continua. Hay solución única de
 
 \[(\text{\textit{Formulación débil}})\left\{\begin{array}{l}
 \overline{u} \in H, \\
-a(\overline{u},v) = {\tilde f}(v).
+\forall v \in H\colon\ a(\overline{u},v) = {\tilde f}(v).
 \end{aligned}\right.\]
 
-Que además cumple la siguiente desigualdad por la que la aplicación
-lineal $\tf \mapsto u_{\tf}$ es continua
+Y la solución cumple,
 
 \[
-\norm{u_{\tf}}_H \leq \frac{1}{\alpha}\norm{\tilde f}_{H'}.
+\norm{u_{\tf}}_H \leq \frac{1}{\alpha}\norm{\tilde f}_{H'},
 \]
 
-Además, si $a$ es simétrica, $u_\tf$ es la única solución de
+por lo que $\tf\mapsto u_{\tf}$ es continua.
+
+Cuando $a$ simétrica, $u_\tf$ es la única solución de
 
 \[(\text{\textit{Problema variacional}})\left\{\begin{array}{l}
 \overline{u} \in H, \\
@@ -6738,8 +6762,70 @@ Además, si $a$ es simétrica, $u_\tf$ es la única solución de
 \end{aligned}\right.\]
 
 donde $J(u) = \frac{1}{2} a(u,u) - \tf(u)$.
+
 *** Ejercicios
-**** Ejemplos de los apuntes
+**** Examen 25 mayo 2016 (López) [1/3]
+***** TODO Ejercicio 1
+***** CHECK [#A] Ejercicio 2
+La derivada clásica es derivada débil cuando todo es ${\cal C}^1$. Hay
+que comprobar los $L^p$ para $1 < p <\infty$ pero se hace fácil porque
+se puede acotar todo dentro de $\Omega$.
+
+***** TODO [#A] Ejercicio 3
+**** Examen 24 junio 2016 [3/3]
+***** DONE Ejercicio 1
+
+ 1. Derivada débil de una función con derivada clásica.  Acotamos a la
+    $f$ y trabajamos con eso.
+
+ 2. Poincaré sobre ella y sobre su derivada.
+
+ 3. Linealidad y continuidad por Cauchy-Schwartz.
+
+ 4. Lax-Milgram por lo anterior.
+
+ 5. Hay que realizar todo el Euler-Lagrange para obtener las condiciones
+    de contorno.
+
+***** DONE Ejercicio 2
+Nos fijamos que tenemos un Problema Sturm-Liouville implícito y podemos,
+o buscar los autovalores, o darnos cuenta de que 0 lo es y debe ser el
+primer autovalor.
+
+***** DONE Ejercicio 3
+Aplicamos resolución de la ecuación de ondas.
+
+***** Ejercicio 4 (Parte II)
+
+**** Examen 15 septiembre 2016 (López) [0/4]
+***** TODO Ejercicio 1
+***** TODO Ejercicio 2
+***** TODO Ejercicio 3
+***** TODO Ejercicio 4
+**** Examen 3 mayo 2017 [4/5]
+***** DONE Ejercicio 1
+***** DONE Ejercicio 2
+***** DONE Ejercicio 3
+***** TODO Ejercicio 4
+***** DONE Ejercicio 5
+**** Examen 31 mayo 2017 (Parte II)
+***** Ejercicio 1 (Parte II)
+***** Ejercicio 2 (Parte II)
+**** Examen 19 junio 2017 [2/2]
+***** DONE 2. Lax-Milgram
+***** DONE 3. Sturm-Liouville
+**** Examen 8 septiembre 2017 [3/4]
+***** DONE Ejercicio 1
+***** DONE Ejercicio 2
+
+ * El punto 2.3 es especialmente importante porque recuerda que no vale
+   con $L_{loc}$ para que la derivada débil y clásica sean iguales. Necesitamos
+   derivabilidad y continuidad respecto una variable.
+
+***** DONE Ejercicio 3
+***** TODO Ejercicio 4 (Parte  II)
+**** Ejemplos de los apuntes [1/1]
+***** DONE Problema de Dido
 **** Resolver ondas
 #+begin_statement
 Resolver la ecuación de ondas en $[0,\infty) \times [0,L]$  con condiciones
@@ -7085,6 +7171,18 @@ y_n = \sqrt{\frac{2}{x_1-x_0}} \sin(n\pi\frac{x-x_0}{x_1-x_0}).
 Nótese que este resultado particulariza al obtenido en clase para $L^2(0,L)$ en el caso $x_0 = 0$
 y $x_1 = L$; y que además puede ser obtenido desde él aplicándolo en el caso
 $L = x_1-x_0$ a la función $\widetilde y(x) = y(x+x_0)$, que cumple $\widetilde{y}(0) = 0 = \widetilde y(L)$.
+
+***** Card                                                        :drill:
+:PROPERTIES:
+:ID:       cb97f1a8-a3de-415d-9770-7b22e287d9f3
+:END:
+Valores propios de $y'' + \lambda y = 0$, con $y(x_0) = 0 = y(x_1)$.
+
+/Sturm-Liouville en funciones de cuadrado integrable/.
+
+****** Valores
+
+\[\lambda_n = \left( \frac{n\pi}{x_1-x_0} \right)^2\]
 
 **** Ejercicio 7
 #+begin_statement
@@ -7729,7 +7827,6 @@ x_i(t_{k+1}) - x_i(t_k) = x'_i(c_{ik})(t_{k+1}-t_k), \quad \forall i = 1,\dots,n
 \]
 
 Definimos $f(s_1,\dots,s_n) = \sqrt{x_1'(s_1)^2 + \dots + x_n'(s_n)^2}$
-
 
 ****** 1.14. Preservación de la longitud
 Para $\alpha \colon I \to \mathbb{R}^n$ curva con $[a,b] \subseteq I$, tenemos
@@ -38075,20 +38172,20 @@ Hindley-Milner does not allow for types on quantifiers.
 
 System F and the Girard-Reynolds isomorphism seem like great ideas.
 
-***** TODO [#C] Multiple lines on modules
+***** DONE [#C] Multiple lines on modules
 Multiple line notation should be allowed by joining multiple lines whenever
 they start with a <TAB> or a space.
-***** TODO Write tests
-***** TODO Should Multibimap be a package on its own?
+***** DONE Write tests
+***** DONE Should Multibimap be a package on its own?
 ***** Compile to categories
-***** Seminars about mikrokosmos
+***** CHECK Seminars about mikrokosmos
 ***** Dependent types
 http://math.andrej.com/2012/11/08/how-to-implement-dependent-type-theory-i/
 ***** Write a pygments lexer
 http://pygments.org/docs/lexerdevelopment/
 
 ***** Emacs theme
-***** Logo background should be a "cosmos" background
+***** DONE Logo background should be a "cosmos" background
 ***** DONE [#A] Module system
 The module system is being written.
 
@@ -38099,7 +38196,7 @@ Every module should have a list of DEPENDENCY directives.
 ***** DONE [#B] Jupyter kernel
 [[https://ipython.org/ipython-doc/3/development/kernels.html][Making kernels for IPython]]
 [[http://andrew.gibiansky.com/blog/ipython/ipython-kernels/]]
-***** WONTFIX Change notation
+***** DONE Change notation
 In order to avoid confusions with types
 
 #+BEGIN_SRC haskell
@@ -38107,22 +38204,22 @@ In order to avoid confusions with types
 qwer != asdf -- qwer ?= asdf
 #+END_SRC
 
-***** WONTFIX Use a .mikrokosmos config file
+***** DONE Use a .mikrokosmos config file
 Is it really necessary?
 
-***** WONTFIX Config files
+***** DONE Config files
 A simply typed mikroskosmos would be great for writing configuration files.
 
-***** WONTFIX compiling mikrokosmos
+***** TODO compiling mikrokosmos
 It could be compiled to C.
 
-***** WONTFIX Write a compiler
+***** TODO Write a compiler
 Maybe a compiler would work better than an interpreter.
 
-***** WONTFIX Optimizing mikrokosmos in Agda
+***** TODO Optimizing mikrokosmos in Agda
 It seems very difficult to write a mikrokosmos interpreter on Agda.
 
-***** WONTFIX [#C] The IO problem
+***** TODO [#C] The IO problem
 How to declare an imperative - Wadler
 
 ****** syscall proposal
@@ -38172,8 +38269,8 @@ over thw other would be reinterpreted as their concatenation.
 ***** TODO Adjoint functors post
 ***** TODO Church-Rosser post
 ***** TODO Wikipedia article Church-Rosser
-**** WONTFIX Ask for a type theory book on SO
-**** WONTFIX Ask for a category theory + lambda calculus book on SO
+**** Ask for a type theory book on SO
+**** Ask for a category theory + lambda calculus book on SO
 *** Resources
 **** Books on categories and types for the TFG
 ***** Books on category theory
