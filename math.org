@@ -278,17 +278,17 @@ En el caso de espacios finitos tenemos la matriz jacobiana
 En ocasiones notaremos simplemente a la jacobiana como $F'$.
 
 ***** Card: Jacobiana                                             :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-20 Sun>
 :PROPERTIES:
 :ID:       4183447e-4b69-4117-a3bd-9181de1bd672
-:DRILL_LAST_INTERVAL: 4.4224
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.8171
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:38]
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:42]
 :END:
 ¿Qué propiedad define a la Jabobiana $\mathrm{Jac}(F)_p$ ó $F'(p)$?
 
@@ -302,17 +302,17 @@ Es la aplicación lineal cumpliendo
 que existe cuando $F$ es diferenciable.
 
 ***** Card: construcción de la Jacobiana                          :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-19 Sat>
 :PROPERTIES:
 :ID:       05dc6c9b-cb76-4ee7-85b5-a24f224aad1b
-:DRILL_LAST_INTERVAL: 4.2902
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.6665
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:37]
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:43]
 :END:
 ¿Cómo construir la jacobiana en espacios finitos?
 
@@ -344,17 +344,17 @@ parciales de una función $f \colon \mathbb{R}^n \to \mathbb{R}$.
 Por el [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][teorema de Schwarz-Clairaut]], es simétrica.
 
 ***** Card: definición                                            :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-19 Sat>
 :PROPERTIES:
 :ID:       8d680bfb-66f0-4872-91bf-3011a3a19ec1
-:DRILL_LAST_INTERVAL: 4.1375
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.7555
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:38]
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:42]
 :END:
 ¿Qué es la Hessiana?¿cuándo existe?
 
@@ -370,17 +370,17 @@ SCHEDULED: <2018-05-04 Fri>
 existe cuando lo hacen todas las segundas derivadas parciales.
 
 ***** Card: simetría                                              :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-19 Sat>
 :PROPERTIES:
 :ID:       570c9701-1fb1-4c5c-b381-8bde318e961f
-:DRILL_LAST_INTERVAL: 4.0418
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.1959
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:37]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:38]
 :END:
 ¿Cuándo es simétrica la Hessiana?¿por qué?
 
@@ -391,8 +391,17 @@ continuas, por el [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][teorema d
 La función $e^x$ es convexa.
 
 ***** Card                                                        :drill:
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       9bc614ac-a897-41af-be8f-c1035ab6c847
+:DRILL_LAST_INTERVAL: 3.3262
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 12:00]
 :END:
 La función $e^x$ es ¿cóncava o convexa?
 
@@ -405,8 +414,17 @@ partial derivatives is positive semidefinite on the interior of the
 convex set.
 
 ***** Card                                                        :drill:
+SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       beace7dc-3d4d-4adf-932f-2a369b60d6a6
+:DRILL_LAST_INTERVAL: 3.148
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 12:00]
 :END:
 Caracterización de convexa de una función dos veces diferenciable de
 varias variables en un conjunto convexo.
@@ -489,17 +507,17 @@ lleva a
 \[u' = \frac{1}{t}(f(u) - u).\]
 
 ***** Ecuación lineal escalar                                     :drill:
-SCHEDULED: <2018-05-09 Wed>
+SCHEDULED: <2018-05-24 Thu>
 :PROPERTIES:
 :ID:       ead2dfed-95a4-41ad-b65e-d09cf22fbd8d
-:DRILL_LAST_INTERVAL: 7.8115
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 14.1731
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.6
-:DRILL_EASE: 1.94
+:DRILL_AVERAGE_QUALITY: 2.667
+:DRILL_EASE: 1.8
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:35]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:58]
 :END:
 Cómo resolver, para $a,b \in {\cal C}(I,\mathbb{R})$;
 
@@ -516,17 +534,17 @@ x = Ae^{(\int a)} + \left( \int_{t_0}^t b(z) e^{-(\int^{z} a)}\,dz \right) e^{(\
 \]
 
 ***** Ecuación de Bernoulli                                       :drill:
-SCHEDULED: <2018-05-10 Thu>
+SCHEDULED: <2018-06-06 Wed>
 :PROPERTIES:
 :ID:       c7712582-1d68-4dd0-9ebf-9b9a2afcd463
-:DRILL_LAST_INTERVAL: 9.0107
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 26.9526
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.32
+:DRILL_EASE: 2.18
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:29]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:59]
 :END:
 Cómo resolver
 
@@ -949,17 +967,17 @@ Se da una de las alternativas.
  * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
 
 ***** Operador integral de Volterra                               :drill:
-SCHEDULED: <2018-05-09 Wed>
+SCHEDULED: <2018-05-27 Sun>
 :PROPERTIES:
 :ID:       d632fc17-20f9-4797-929d-05f51c4cd2ea
-:DRILL_LAST_INTERVAL: 8.4199
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 17.0277
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.833
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:30]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:56]
 :END:
 Define el operador integral de Volterra y su dominio
 
@@ -1130,17 +1148,17 @@ L\norm{x-y}\abs{1-0}.
 \end{aligned}\]
 
 ****** Card: caracterización de lipschitziana por el jacobiano   :drill:
-SCHEDULED: <2018-05-10 Thu>
+SCHEDULED: <2018-06-01 Fri>
 :PROPERTIES:
 :ID:       4c53da16-5464-489d-8536-ddf06a659fd8
-:DRILL_LAST_INTERVAL: 9.1851
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 21.9536
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:25]
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:58]
 :END:
 Caracteriza lipschitzianidad global en un abierto convexo $\Omega$
 usando el jacobiano.
@@ -1166,17 +1184,17 @@ Dicho de otra forma, las secciones $f(-,y)$ son lipschitzianas con una
 constante de lipschitz común.
 
 ****** Card: definición                                          :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-14 Mon>
 :PROPERTIES:
 :ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
-:DRILL_LAST_INTERVAL: 26.6407
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_LAST_INTERVAL: 3.6432
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.8
 :DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-05 Thu 23:08]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:53]
 :END:
 Una $f(x,y)$ definida en $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$ es [[id:c50d9301-e9db-40a1-b25f-b726327f37bb][globalmente lipschitziana respecto]]
 de $x \in \mathbb{R}^d$ cuando
@@ -1200,17 +1218,17 @@ globalmente lipschitziana.
 /Nota: ¡la constante de Lipschitz puede cambiar entre entornos!/
 
 ****** Card: localmente pero no globalmente lipschitz            :drill:
-SCHEDULED: <2018-05-08 Tue>
+SCHEDULED: <2018-06-10 Sun>
 :PROPERTIES:
 :ID:       9c7e258c-1ed7-45eb-bdc1-09c21a20bb94
-:DRILL_LAST_INTERVAL: 10.3842
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 30.8467
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-28 Sat 15:59]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:55]
 :END:
 Dar un ejemplo de función localmente lipschitzana pero no globalmente
 lipschitziana.
@@ -1221,17 +1239,17 @@ diferencias por encima de cualquier cota. Sin embargo, es ${\cal C}^1$
 en cada entorno y ahí podemos acotar su derivada.
 
 ****** Card: lipschitzianidad local                              :drill:
-SCHEDULED: <2018-05-02 Wed>
+SCHEDULED: <2018-05-22 Tue>
 :PROPERTIES:
 :ID:       a57b3f38-2607-4a32-9ffd-d9a04d663100
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.3641
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-28 Sat 15:59]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:38]
 :END:
 Definición de $f \colon \Omega \to \mathbb{R}^m$ *localmente lipschitziana*.
 
@@ -1243,17 +1261,17 @@ globalmente lipschitziana.
 La constante de Lipschitz puede cambiar entre entornos.
 
 ****** Card: no localmente lipschitz                             :drill:
-SCHEDULED: <2018-05-08 Tue>
+SCHEDULED: <2018-06-07 Thu>
 :PROPERTIES:
 :ID:       3eee05c0-75d5-4fa4-80be-dd99318ab95c
-:DRILL_LAST_INTERVAL: 10.2546
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 28.1987
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-28 Sat 15:59]
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:55]
 :END:
 Dar un ejemplo de función no localmente lipschitz.
 
@@ -1286,17 +1304,17 @@ formando dos sucesiones que tienden a $p$ y con cociente
 divergente.
 
 ****** Card: caracterización                                     :drill:
-SCHEDULED: <2018-05-09 Wed>
+SCHEDULED: <2018-06-01 Fri>
 :PROPERTIES:
 :ID:       5810c568-e044-447b-b6d4-0e1879deed84
-:DRILL_LAST_INTERVAL: 8.3211
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 21.9362
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 11:26]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:56]
 :END:
 Caracterización por sucesiones de $f \colon \Omega \to \mathbb{R}^m$ localmente
 lipschitziana.
@@ -1850,18 +1868,18 @@ definir $f(t)$. [[id:09edde13-8c3f-49d5-9571-76483e3c2cd3][Sabemos que]] la conv
 es uniformemente continua.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-07 Mon>
+SCHEDULED: <2018-06-04 Mon>
 :PROPERTIES:
 :ID:       a2f54cc4-d74f-4e72-be6a-bba39aab74a7
 :DRILL_CARD_TYPE: multisided
-:DRILL_LAST_INTERVAL: 10.125
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 24.5615
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.32
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:50]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:55]
 :END:
 Enuncia el Teorema de Ascoli-Arzelá.
 
@@ -2526,8 +2544,17 @@ Definición de función coerciva.
 Todo conjunto de subnivel $\Omega_r$ es compacto.
 
 ****** Card: caracterización                                     :drill:
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :ID:       37d1fd0f-a7af-4a52-8be0-626e6968b6c2
+:DRILL_LAST_INTERVAL: 5.1874
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:59]
 :END:
 Caracteriza por límites una función coerciva
 
@@ -2746,17 +2773,17 @@ una función constante.
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-23 Wed>
 :PROPERTIES:
 :ID:       0645fdf9-3254-44f3-9354-a00edd4af6a9
-:DRILL_LAST_INTERVAL: 5.332
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.9519
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:52]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:43]
 :END:
 Entorno tubular, $T_{\rho}(J,\varphi)$.
 
@@ -2770,17 +2797,17 @@ T_{\rho}(J,\varphi) = \left\{ (t,x) \in J \times \mathbb{R}^d
 \]
 
 ****** Card: abiertos o cerrados                                 :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       59fa2dbc-7796-4cd4-91db-cc295bcec020
-:DRILL_LAST_INTERVAL: 4.488
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 12.048
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 23:39]
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:42]
 :END:
 ¿Los entornos tubulares son abiertos o cerrados?
 
@@ -2800,17 +2827,17 @@ T_{\rho}(J,\varphi) \cong J \times \overline{B}(0,\rho).
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-20 Sun>
 :PROPERTIES:
 :ID:       b0afd4f3-2e7a-4222-8273-435a3ab7f163
-:DRILL_LAST_INTERVAL: 4.3325
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.5213
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:44]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:38]
 :END:
 ¿A qué espacio más sencillo es homeomorfo el
 entorno tubular $T_p(J,\varphi)$?
@@ -2835,17 +2862,17 @@ f_n_{|[a,b]} \overset{c.u.}\longrightarrow f_{|[a,b]}.
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-18 Fri>
 :PROPERTIES:
 :ID:       8b8c5241-89f5-4f08-b039-7e62f401a15f
-:DRILL_LAST_INTERVAL: 3.7571
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.4308
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:40]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:40]
 :END:
 Convergencia uniforme en compactos.
 
@@ -2857,17 +2884,17 @@ Tenemos $f_n_{|I_n} \overset{cuc}\longrightarrow f_{|I}$ si para todo $[a,b] \su
  * $f_n_{|[a,b]} \overset{cu}\longrightarrow f_{|[a,b]}$.
 
 ****** Card: convergencia uniforme en compactos pero no uniforme :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       c69612d6-af02-41c5-82b5-abb4085409db
-:DRILL_LAST_INTERVAL: 4.6327
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.2862
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:47]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:53]
 :END:
 Ejemplo de $f_n$ que convergen uniformemente en compactos pero
 no uniformemente.
@@ -2881,17 +2908,17 @@ f_n(t) = \frac{1}{n}t
 \]
 
 ****** Card: convergencia puntual no uniforme en compactos       :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-22 Tue>
 :PROPERTIES:
 :ID:       a23dd345-50e1-4c73-a77a-9aa9abf4a93a
-:DRILL_LAST_INTERVAL: 4.5939
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.847
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:46]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:53]
 :END:
 Ejemplo de $f_n$ que converge puntual pero no uniformemente en
 compactos.
@@ -2914,17 +2941,17 @@ uniforme en cualquier intervalo conteniendo a $0$.
 Si $f_n \in {\cal C}(I_n)$ y $f_n \overset{cuc}\longrightarrow f$, entonces $f \in {\cal C}(I)$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-04 Fri>
+SCHEDULED: <2018-05-20 Sun>
 :PROPERTIES:
 :ID:       c62d7140-be30-4f57-8c75-d10ff98b7c00
-:DRILL_LAST_INTERVAL: 4.3333
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.7742
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:39]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:42]
 :END:
 Si $f_n \in {\cal C}(I_n)$, qué tipo de convergencia preserva la continuidad.
 
@@ -2956,6 +2983,66 @@ entonces para $t_0 \in I_1 \cap I_2$ se tiene
 
 ****** TODO Proof
 Volterra y Gronwall.
+**** 5.4. Diferenciabilidad de la solución general
+***** Teorema 3. Derivabilidad respecto condiciones iniciales
+Sea $f \colon D \to \mathbb{R}^d$ continua con
+
+\[
+\pdv{f}{x}\colon D \to {\cal M}_d
+\]
+
+continua y bien definida.
+
+ 1. Se tiene $X \in {\cal C}^1(\Omega)$.
+ 2. Existen y son continuas
+
+    \[\pdv[2]{X}{t}{t_0},\quad
+    \pdv[2]{X}{t}{x_0},\quad
+    \pdv[2]{X}{t_0}{t},\quad
+    \pdv[2]{X}{x_0}{t}.
+    \]
+
+****** Uso
+Debemos notar que las soluciones quedan determinadas por
+
+\[
+\pdv{X}{t} (t;t_0,x_0) = f(t,X(t;t_0,x_0)),\quad X(t_0,t_0,x_0) = x_0
+\]
+
+y desde ellas usando [[https://es.wikipedia.org/wiki/Teorema_de_Clairaut][Schwarz-Clairaut]] podemos obtener
+una *ecuación variacional* sobre la derivada parcial que
+queramos calcular.
+
+***** Niveles de diferenciabilidad
+***** Regla de Barrow multivariable
+Para $G \in {\cal C}^{1}(A,\mathbb{R}^m)$ con $[p,q] \subset A \subset \mathbb{R}^n$,
+
+\[
+G(p) - G(q) = \left( \int_0^1 G'(sp + (1-s)q)\,ds \right)(p-q).
+\]
+
+***** Teorema 4. Derivabilidad respecto condiciones iniciales y parámetros
+Sea $f \colon D \to \mathbb{R}^d$ continua con
+
+\[
+\pdv{f}{x}\colon D \times P \to {\cal M}_d,\qquad
+\pdv{f}{x}\colon D \times P \to {\cal M}_{d\times k},
+\]
+
+continuas y bien definidas.
+
+ 1. Se tiene $X \in {\cal C}^1(\Omega)$.
+ 2. Existen y son continuas
+
+    \[\pdv[2]{X}{t}{t_0},\quad
+    \pdv[2]{X}{t}{x_0},\quad
+    \pdv[2]{X}{t_0}{t},\quad
+    \pdv[2]{X}{x_0}{t},\quad
+    \pdv[2]{X}{t}{\lambda},\quad
+    \pdv[2]{X}{\lambda}{t}.
+    \]
+ 
+***** TODO Ejemplo de cálculo y diagonalización
 *** Tema 6. Estabilidad
 *** Ejercicios
 # La mayoría en papel
@@ -3040,17 +3127,17 @@ e^{i\theta} = \cos \theta + i \sin \theta
 **** Teorema de Fubini
 **** Teorema de Tonelli
 **** Norma en Lp                                                   :drill:
-SCHEDULED: <2018-05-08 Tue>
+SCHEDULED: <2018-05-16 Wed>
 :PROPERTIES:
 :ID:       ceb95e11-f3e9-4928-9690-7f625454045f
-:DRILL_LAST_INTERVAL: 2.5078
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 6.1941
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:06]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:51]
 :END:
 Describe la norma en $L^p(S)$,
 
@@ -3065,17 +3152,17 @@ Describe la norma en $L^p(S)$,
 \]
 
 **** Lp cuando 0 < p < 1                                           :drill:
-SCHEDULED: <2018-05-09 Wed>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       c6c30efb-81ce-4d04-8926-767c1685ca97
-:DRILL_LAST_INTERVAL: 4.2378
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.4661
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.5
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:07]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:51]
 :END:
 ¿Qué ocurre con $L^p$ cuando $0 < p < 1$? 
 
@@ -3465,17 +3552,17 @@ y tomando en particular funciones cumpliendo $\phi(x_j) = \delta_{ij}$ para
 $i,j = 0,1$ tenemos las condiciones de contorno buscadas.
 
 ****** Card: Condiciones de contorno para problemas sin ellas    :drill:
-SCHEDULED: <2018-05-05 Tue>
+SCHEDULED: <2018-07-30 Mon>
 :PROPERTIES:
 :ID:       742721a0-1edb-47c7-aabc-bb203354d4bc
-:DRILL_LAST_INTERVAL: 27.1381
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 81.1591
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.6
-:DRILL_EASE: 2.7
+:DRILL_AVERAGE_QUALITY: 3.833
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-11 Wed 22:50]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:44]
 :END:
 ¿Qué condiciones de contorno verifica un extremal si no vienen dadas?
 
@@ -3534,17 +3621,17 @@ Tenemos que, aplicando [[id:a197ab8c-e2fa-4327-a265-1ece45f66c23][Euler-Lagrange
 \]
 
 ****** Card: Euler-Lagrange para F independiente de x            :drill:
-SCHEDULED: <2018-05-05 Wed>
+SCHEDULED: <2018-07-13 Fri>
 :PROPERTIES:
 :ID:       22e8b4d8-c306-4927-9a7f-159725999cbd
-:DRILL_LAST_INTERVAL: 23.746
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 9
+:DRILL_LAST_INTERVAL: 63.7384
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 10
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 2.65
 :DRILL_EASE: 2.32
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-29 Sun 11:00]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:44]
 :END:
 Reescribe Euler-Lagrange sabiendo $F_x = 0$.
 
@@ -3738,17 +3825,17 @@ Aplicando [[id:1d1082d8-cb7a-4e0c-868c-5d734cd8949b][Euler-Lagrange en la segund
 [[id:afb30645-46b6-4087-bf43-bf765d53719b][ecuación de la viga]].
 
 ****** Card: forma variacional                                   :drill:
-SCHEDULED: <2018-05-06 Sun>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       6d3c077e-63c9-4376-b35a-4b5158236b39
-:DRILL_LAST_INTERVAL: 3.9517
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 10
+:DRILL_LAST_INTERVAL: 10.6214
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 11
 :DRILL_FAILURE_COUNT: 6
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 2.636
 :DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:46]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:46]
 :END:
 Da el funcional a minimizar en el problema de la viga.
 
@@ -3982,17 +4069,17 @@ a_1y(x_1) + b_1y'(x_1) = c_1
 \mbox{ con }|a_0| + |a_1| > 0 \mbox{ y con } a_0b_0 \geq 0, a_1b_1 \geq 0\]
 
 ****** Card: enunciar el Teorema 9                               :drill:
-SCHEDULED: <2018-05-06 Sun>
+SCHEDULED: <2018-05-19 Sat>
 :PROPERTIES:
 :ID:       1506e11a-fd0e-41db-b339-bdce782014bb
-:DRILL_LAST_INTERVAL: 3.6449
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 8.6763
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 2.4
-:DRILL_EASE: 2.22
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.08
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:50]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:48]
 :END:
 Enuncia el Teorema 9 sobre unicidad de extremales en un funcional
 
@@ -4096,17 +4183,17 @@ y'(x_0) = y'(x_1)
 \end{array}\right\}\quad\]
 
 ****** Card: condiciones de contorno                             :drill:
-SCHEDULED: <2018-05-06 Sun>
+SCHEDULED: <2018-05-20 Sun>
 :PROPERTIES:
 :ID:       833872e8-5496-40d0-a969-d24dc2a5ad00
-:DRILL_LAST_INTERVAL: 4.0087
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 9.5014
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.333
-:DRILL_EASE: 2.22
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.08
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:49]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:46]
 :END:
 Bajo qué tipos de condiciones de contorno se puede aplicar
 Alternativa de Fredholm a
@@ -4952,17 +5039,16 @@ Tomando $\sigma = \mathrm{cte}$ (nula sería trivial) y $\alpha = 0$ en el model
 \]
 
 ****** Card: ecuación de Poisson                                 :drill:
-SCHEDULED: <2018-05-08 Tue>
 :PROPERTIES:
 :ID:       72b375cf-bcc8-4ca6-aeea-8e220904f72f
-:DRILL_LAST_INTERVAL: 4.5697
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 2.25
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:42]
+:DRILL_LAST_QUALITY: 0
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:50]
 :END:
 Enuncia la Ecuación de Poisson.
 
@@ -5139,18 +5225,17 @@ u(t,0) = u(t,L) = 0, & t \geq 0.
 \right\}\]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-08 Tue>
 :PROPERTIES:
 :DRILL_CARD_TYPE: multisided
 :ID:       5c25baff-dce3-4454-b5e5-baf0ac520cdc
-:DRILL_LAST_INTERVAL: 3.7623
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 2.4
 :DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:31]
+:DRILL_LAST_QUALITY: 2
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:50]
 :END:
 Ecuación de ondas unidimensional simplificada.
 
@@ -5462,17 +5547,17 @@ y(x_0) = y(x_1) = 0, \\
 \end{array}\right.\]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-08 Tue>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       78956ad4-f53c-484e-b5c2-59b62ad5f391
-:DRILL_LAST_INTERVAL: 4.2673
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 10.552
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:32]
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:50]
 :END:
 ¿Qué funcional bajo qué condiciones nos da un problema de
 Sturm-Liouville?
@@ -5989,17 +6074,17 @@ b_n\sin \left( \frac{n\pi x}{T} \right)
  * \[b_n = \frac{1}{T}\int_{-T}^T y(x)\sin \left( \frac{n\pi x}{T} \right) \,dx \]
 
 ****** Card: coeficientes                                        :drill:
-SCHEDULED: <2018-05-06 Sun>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       da80a0c6-bbfb-4437-8438-29c5af8dd817
-:DRILL_LAST_INTERVAL: 4.0476
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 11.1614
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 1.667
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:49]
+:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:47]
 :END:
 Determina los coeficientes del desarrollo en Serie de Fourier
 en el intervalo $y \in L^2(-T,T)$.
@@ -6095,17 +6180,17 @@ E[u](t) = \frac{1}{2}\int_0^L \left( u_t^2 + c^2u_x^2 \right)\,dx = 0.
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-06 Sun>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       4f851785-c8d4-4153-a88c-f6460f3c860b
-:DRILL_LAST_INTERVAL: 4.0557
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 10.8825
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 1.75
+:DRILL_AVERAGE_QUALITY: 2.2
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-02 Wed 22:46]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:48]
 :END:
 Enuncia la energía en la ecuación de ondas.
 
@@ -6288,24 +6373,25 @@ Para $u \in L_{loc}^1(\Omega)$, decimos $u_{x_i} = g \in L^1_{loc}(\Omega)$ en s
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-07 Mon>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       29496071-ee41-4f3e-94f0-15f048942995
-:DRILL_LAST_INTERVAL: 3.7919
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.4095
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-03 Thu 23:22]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:50]
 :END:
 Decimos $u_{x_i} = g \in L^1_{loc}(\Omega)$ en sentido *débil* si
 
 ******* Respuesta
 
 \[
-\forall v \in {\cal C}^{\infty}_0(\Omega)\colon\quad \pair{u_{x_i},v} = \pair{g,v}.
+\forall v \in {\cal C}^{\infty}_0(\Omega)\colon\quad 
+\pair{u_{x_i},v} := -\pair{u,v_{x_i}} = \pair{g,v}.
 \]
 
 ***** Función Heaviside y Delta de Dirac
@@ -6380,17 +6466,17 @@ teniendo el producto escalar
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-07 Mon>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       99ab3e47-4a1e-4f57-bb0c-f498dd36cc38
-:DRILL_LAST_INTERVAL: 3.9731
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.8115
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-03 Thu 23:24]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:50]
 :END:
 ¿Cuál es el producto escalar en $H^1(\Omega)$?
 
@@ -6414,17 +6500,16 @@ llegaremos hasta una integral que es finita sólo cuando
 $\beta p + 1 - N < 1$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-06 Sun>
 :PROPERTIES:
 :ID:       62ba0268-3776-4f16-9fdd-0dab96753381
-:DRILL_LAST_INTERVAL: 3.2153
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-03 Thu 23:25]
+:DRILL_LAST_QUALITY: 2
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:45]
 :END:
 Estudia integrabilidad de $1/|x|^{\beta}$ en $\overline{B}$ y en $\mathbb{R}^N-\overline{B}$.
 
@@ -7257,17 +7342,17 @@ Tenemos entonces el mismo razonamiento para cualquier componente y
 en sentido débil.
 
 ***** Card                                                        :drill:
-SCHEDULED: <2018-05-07 Mon>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       7697631c-8f3b-4517-97fe-02cbf69ec0e4
-:DRILL_LAST_INTERVAL: 4.137
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.4115
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-03 Thu 23:24]
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:48]
 :END:
 Cuál es la derivada débil de $|x|^{\alpha}$ para $x \in \mathbb{R}^n$.
 
@@ -7276,11 +7361,7 @@ Cuál es la derivada débil de $|x|^{\alpha}$ para $x \in \mathbb{R}^n$.
 \[
 \nabla |x|^{\alpha} = \alpha x|x|^{\alpha-2}
 \]
-
 ** Curvas y superficies
-# En estos apuntes las cartas de org-drill no están separadas del
-# resto de apuntes. Están marcadas con :drill:
-
 *** Datos de la asignatura
 César Rosales - crosales@ugr.es
 Lunes, Martes y Miércoles de 12 a 14.
@@ -7367,18 +7448,18 @@ es positivo, e *inversa* si es negativo.
 |----------------------+----------------+--------------+----------|
 
 ****** Card: tabla de movimientos                                :drill:
-SCHEDULED: <2018-05-09 Wed>
+SCHEDULED: <2018-07-30 Mon>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide2cloze
 :ID:       16a826aa-c93d-4e46-afb4-05682a832bb1
-:DRILL_LAST_INTERVAL: 28.7139
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 82.1164
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.75
 :DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:10]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:36]
 :END:
 |----------------------+------------------+--------------+-----------|
 | Tipo de movimiento   | Isometría        | Puntos fijos | Carácter  |
@@ -7391,17 +7472,17 @@ SCHEDULED: <2018-05-09 Wed>
 |----------------------+------------------+--------------+-----------|
 
 ****** Card: lista de movimientos                                :drill:
-SCHEDULED: <2018-05-11 Fri>
+SCHEDULED: <2018-06-02 Sat>
 :PROPERTIES:
 :ID:       836f3f1e-b3f5-4f41-80f1-58203b69513f
-:DRILL_LAST_INTERVAL: 9.8393
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 22.4166
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:07]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:13]
 :END:
 Lista los movimientos rígidos de $\mathbb{R}^2$.
 
@@ -7410,8 +7491,8 @@ Lista los movimientos rígidos de $\mathbb{R}^2$.
  1. Identidad.
  2. Traslación.
  3. Giro o rotación.
- 4. Reflexión.
- 5. Reflexión deslizante.
+ 4. Simetría. (Reflexión)
+ 5. Simetría deslizante. (Reflexión deslizante)
 
 ***** Movimientos rígidos de R3
 
@@ -7455,17 +7536,17 @@ SCHEDULED: <2018-05-12 Sat>
 |-------------------------+----------------------+--------------+----------|
 
 ****** Card: lista de movimientos                                :drill:
-SCHEDULED: <2018-05-11 Fri>
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :ID:       0b376393-635e-4b49-a699-418212970a3f
-:DRILL_LAST_INTERVAL: 9.6494
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:11]
+:DRILL_LAST_INTERVAL: 3.7758
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:16]
 :END:
 Lista los movimientos rígidos de $\mathbb{R}^3$.
 
@@ -7490,7 +7571,7 @@ Llamamos *producto vectorial* $u \times v$ al único vector tal que
 ***** Propiedades del producto vectorial
 Tenemos
 
- 1. que $\times$ es bilineal antisimétrica,
+ 1. $\times$ bilineal antisimétrica,
  2. $\left\langle u \times v, u \right\rangle = \left\langle u \times v,v \right\rangle = 0$,
  3. $|u \times v|^2 = \mathrm{det}(u,v,u \times v) = |u|^2|v|^2 - \left\langle u,v \right\rangle^2$,
  4. $u \times v = 0$ si y sólo si son linealmente independientes,
@@ -7509,6 +7590,32 @@ Se comprueba calculando explícitamente $|u \times v|^2$.
 ****** TODO Proof 4
 
 ****** TODO Proof 5
+
+****** Card: norma del producto vectorial                        :drill:
+SCHEDULED: <2018-07-13 Fri>
+:PROPERTIES:
+:ID:       1fd12884-9b75-47ec-ac19-dcb6e51931da
+:DRILL_LAST_INTERVAL: 65.64
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:02]
+:END:
+Da la fórmula de $\left| u \times v \right|^2$ 
+
+ * en función de $|u|,|v|,\left\langle u,v \right\rangle$,
+
+ * y en función de $\mathrm{det}(u,v,-)$.
+
+******* Fórmula
+
+\[ |u \times v|^2 = 
+\mathrm{det}(u,v,u \times v) = 
+\left| u \right|^2|v|^2 - \left\langle u,v \right\rangle^2 
+\]
 
 **** 3. Distancia con signo asociada a un hiperplano
 **** 4. Reglas de derivación para funciones de una variable
@@ -7545,17 +7652,17 @@ Decimos $f \in {\cal C}^{\infty}(O,\mathbb{R}^m)$ *diferenciable* si cada $f_i \
 [[id:d3a1f687-19f0-4129-90a1-04976ef88344][diferenciable]].
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-19 Sat>
 :PROPERTIES:
 :ID:       7c7a55ed-a5e9-43fd-8bb1-d3830db44c33
-:DRILL_LAST_INTERVAL: 3.7937
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 11.4022
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.25
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:15]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:01]
 :END:
 ¿Cuándo es $f \in {\cal C}^{\infty}(O,\mathbb{R}^m)$, de varias variables, diferenciable?
 
@@ -7612,17 +7719,17 @@ un punto $p \in O$ si existen entornos $p \in U \subset O$ y $\phi(p) \in U' \su
 que $\phi|_U \colon U \to U'$ es difeomorfismo.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-11 Fri>
+SCHEDULED: <2018-06-05 Tue>
 :PROPERTIES:
 :ID:       a226eca2-2050-4936-bf74-5ba70a400d57
-:DRILL_LAST_INTERVAL: 10.2937
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 25.4232
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_AVERAGE_QUALITY: 3.667
 :DRILL_EASE: 2.36
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:12]
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:14]
 :END:
 Cuándo es $\phi \colon O \to O'$ *difeomorfismo local* en $p \in O$.
 
@@ -7648,6 +7755,32 @@ f(x,y) = (e^x \sin(y), e^x \cos(y))
 
 [[https://math.stackexchange.com/questions/39142/a-local-diffeomorphism-of-euclidean-space-that-is-not-a-diffeomorphism][Ejemplo en SE.]]
 
+****** Card: difeomorfismo local no global                       :drill:
+SCHEDULED: <2018-08-08 Wed>
+:PROPERTIES:
+:ID:       2125fe6e-2af6-4d4d-a641-7e1e9759f42e
+:DRILL_LAST_INTERVAL: 92.3211
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.75
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:03]
+:END:
+¿Cómo podemos construir un difeomorfismo local en cada punto que no
+sea difeomorfismo global?
+
+******* Construirlo
+Podríamos tener una función con Jacobiano con determinante no nulo
+en cada punto pero que no fuera siquiera inyectiva.
+
+\[
+f(x,y) = (e^x \sin(y), e^x \cos(y))
+\]
+
+Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]]. Se tiene isomorfismo por $\det Df(x,y)=e^{2x}$.
+
 ***** Difeomorfismo local biyectivo es difeomorfismo
 $\phi\colon O \to O'$ es difeomorfismo ssi es difeomorfismo local biyectivo.
 
@@ -7657,24 +7790,23 @@ que sería diferenciable por serlo localmente. Su inversa es localmente
 diferenciable también en todo punto, por lo que sería diferenciable.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-10 Thu>
+SCHEDULED: <2018-05-30 Wed>
 :PROPERTIES:
 :ID:       0867560c-e572-4ef7-84e8-01ff5154571a
-:DRILL_LAST_INTERVAL: 8.5168
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 19.8411
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_AVERAGE_QUALITY: 3.667
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:03]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:26]
 :END:
 Caracterización de difeomorfismo por difeomorfismo local.
 
 ******* Caracterización
 $\phi\colon O \to O'$ difeomorfismo ssi es difeomorfismo local en todo
 punto y biyectiva.
-
 ***** Difeomorfismo local es abierta
 Una aplicación entre abiertos $\phi\colon O \to O'$ que es difeomorfismo es abierta.
 
@@ -7703,23 +7835,22 @@ d(\phi^{-1} \circ \phi)_p = (d\phi^{-1})_{\phi(p)} \circ (d\phi)_p
 y $(d\phi)_p$ es isomorfismo.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-06 Sun>
+SCHEDULED: <2018-05-23 Wed>
 :PROPERTIES:
 :ID:       92ff4784-7391-448d-8248-0f984f6e1b98
-:DRILL_LAST_INTERVAL: 5.0495
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 14.8093
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.7
+:DRILL_AVERAGE_QUALITY: 4.25
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:15]
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:01]
 :END:
 Si $\phi$ es difeomorfismo, ¿qué sabemos de $(d\phi)_p$?
 
 ******* Sabemos que
 es un isomorfismo.
-
 ***** Teorema de la función inversa
 :PROPERTIES:
 :ID:       16bd6b42-7b91-4fcf-8979-faabc0acd594
@@ -7728,6 +7859,28 @@ Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para
 se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
 
 ****** TODO Proof
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-06-20 Wed>
+:PROPERTIES:
+:ID:       63d019ff-edf9-4e64-aed4-9a0823572061
+:DRILL_LAST_INTERVAL: 43.471
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.25
+:DRILL_EASE: 2.08
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:00]
+:END:
+Enuncia el teorema de la función inversa para una aplicación entre
+abiertos $\phi \colon O \to O'$ diferenciable.
+
+/Hint/: hay que dar una condición sobre $(d\phi)_p$.
+
+******* Enunciado
+Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
+se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
 
 ***** Corolarios al teorema de la función inversa
 Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable cumple
@@ -7755,10 +7908,10 @@ isomorfismo lineal lo es en un entorno, lo es globalmente.
 :PROPERTIES:
 :ID:       7fbe4138-469a-4d17-a2d8-a04434cf8489
 :END:
-Una *curva* es $\alpha \colon I \to \mathbb{R}^n$, con $\alpha \in {\cal C}^{\infty}$ para $I$ intervalo abierto.
+Una *curva* es $\alpha\colon I \to \mathbb{R}^n$, con $\alpha \in {\cal C}^{\infty}$ para $I$ intervalo abierto.
 Llamamos *traza* a su imagen. Consideramos *curvas regulares* cuya
 velocidad $\alpha'$ es no nula. Toda curva regular tiene rectas tangentes
-en todo punto:
+en todo punto,
 
 \[
 \alpha(t) + L(\alpha'(t)) =
@@ -7767,10 +7920,89 @@ en todo punto:
 \]
 
 ****** Embebimiento
-Decimos que $\alpha \colon I \to \mathbb{R}^n$ es un *embebimiento* si $\alpha \colon I \to \alpha(I)$ es un
-homeomorfismo.
+$\alpha\colon I \to \mathbb{R}^n$ es *embebimiento* si $\alpha \colon I \to \alpha(I)$ es homeomorfismo.
 
-****** TODO Ejemplos de curvas regulares
+******* Card                                                    :drill:
+SCHEDULED: <2018-06-01 Fri>
+:PROPERTIES:
+:ID:       47cb18d3-b024-48e7-9b40-9fd5efa6c87a
+:DRILL_LAST_INTERVAL: 34.5561
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 3.0
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:40]
+:END:
+¿Cuándo es $\alpha\colon I \to \mathbb{R}^n$ un embebimiento?
+
+******** Definición
+Cuando $\alpha \colon I \to \alpha(I)$ es un homeomorfismo.
+
+******* Contraejemplo                                           :drill:
+SCHEDULED: <2018-06-01 Fri>
+:PROPERTIES:
+:ID:       52adbafb-00f1-4b63-b08a-1e89cf23b94b
+:DRILL_LAST_INTERVAL: 34.5561
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 4.167
+:DRILL_EASE: 3.0
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:40]
+:END:
+Dar un ejemplo de curva inyectiva que no sea embebimiento.
+
+******** Ejemplo
+La curva siguiente, en un intervalo bien escogido
+
+\[
+\alpha(t) = \left( \frac{3t}{1+t^3}, \frac{3t^2}{1+t^3} \right)
+\]
+
+es inyectiva, pero al tender a infinito se acerca tanto como queramos
+al $(0,0)$, por el que ya había pasado antes, lo que hace que no podamos
+tener un homeomorfismo.
+
+****** Ejemplos de curvas regulares
+Se comprueba que son regulares.
+
+ * Rectas $\alpha(t) = p + tv$.
+
+ * Circunferencias $\alpha(t) = p + r(\cos(t),\sin(t))$.
+
+ * Grafos diferenciables $\alpha(t) = (t,\varphi(t))$.
+
+ * Hélices circulares de eje vertical $\alpha(t) = (x_0 + r\cos(t), y_0 + r\sin(t), qt)$.
+
+***** 1.1.2. Reparametrización de curvas
+****** Reparametrización
+Para $\alpha\colon I \to \mathbb{R}^n$ curva, $\phi\colon J \to I$ difeomorfismo (*cambio de parámetros*),
+$\beta =\alpha \circ \phi$ es una *reparametrización*.
+
+ * Tiene la misma traza.
+ * Conserva regularidad.
+
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-19 Sat>
+:PROPERTIES:
+:ID:       ff9c749b-25a9-4000-8716-25e18dbf6b9b
+:DRILL_LAST_INTERVAL: 8.1547
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:13]
+:END:
+¿Qué es una reparametrización de una curva $\alpha$?
+
+******** Respuesta
+Una curva $\alpha \circ \phi$ donde $\phi$ es un difeomorfismo de
+intervalos abiertos.
 
 ***** 1.1.3. Longitud de un arco de curva
 ****** 1.11. Longitud
@@ -7786,17 +8018,19 @@ L_a^b(\alpha) = \sup\left\{
 ******* Las rectas tienen longitud mínima
 Por definición, usando la partición trivial $\left\{ a,b \right\}$.
 
-****** 1.12. Longitud de funciones diferenciables
+******* TODO La longitud de una curva continua puede ser infinita
+# Ejercicio 4
+
+****** 1.12. Longitud en compactos
 Para $\alpha \colon [a,b] \subseteq I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, tenemos
 
 \[
 L_a^b(\alpha) = \int_a^b |\alpha'(t)|\,dt < \infty.
 \]
 
-Así, las curvas tienen en intervalos compactos tienen
-longitud finita.
+Así, las curvas tienen longitud finita en intervalos compactos.
 
-******* Proof
+******* TODO Proof
 ******** Acotación
 Por ser $\alpha'$ continua, está acotada en el compacto $[a,b]$ y la
 integral entera es finita. Para cualquier parición se tiene,
@@ -7827,33 +8061,61 @@ x_i(t_{k+1}) - x_i(t_k) = x'_i(c_{ik})(t_{k+1}-t_k), \quad \forall i = 1,\dots,n
 \]
 
 Definimos $f(s_1,\dots,s_n) = \sqrt{x_1'(s_1)^2 + \dots + x_n'(s_n)^2}$
+******* Cálculo de la longitud de una curva                     :drill:
+SCHEDULED: <2018-05-12 Sat>
+:PROPERTIES:
+:ID:       3fb16a48-0357-42f8-98c2-c74d4562bc49
+:DRILL_LAST_INTERVAL: 10.8372
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.6
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:14]
+:END:
+Para $\alpha\colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, calcula la longitud entre
+$[a,b]$ como una integral.
+
+******** Longitud
+
+\[
+L_a^b(\alpha) = \int_a^b |\alpha'(t)|\,dt < \infty.
+\]
 
 ****** 1.14. Preservación de la longitud
-Para $\alpha \colon I \to \mathbb{R}^n$ curva con $[a,b] \subseteq I$, tenemos
+Para $\alpha\colon I \to \mathbb{R}^n$ curva con $[a,b] \subseteq I$, tenemos
 
- 1. que si $\phi \colon \mathbb{R}^n \to \mathbb{R}^n$ es un movimiento rígido, $L_a^b(\phi \circ \alpha) = L_a^b(\alpha)$;
+ 1. que si $\phi\colon \mathbb{R}^n \to \mathbb{R}^n$ es un movimiento rígido, $L_a^b(\phi \circ \alpha) = L_a^b(\alpha)$;
 
- 2. que si $\phi \colon J \to I$ es un difeomorfismo y $\beta = \alpha \circ \phi$, entonces
+ 2. que si $\phi\colon J \to I$ es un difeomorfismo y $\beta = \alpha\circ\phi$, entonces
     $L_c^d(\beta) = L_a^b(\alpha)$, para $[c,d] = \phi^{-1}[a,b]$.
 
 Es decir, la longitud se preserva por [[id:92d75a96-b872-4ea6-ae5a-b83d975e2b37][movimientos rígidos]] y
 reparametrizaciones.
 
 ***** 1.1.4. Curvas parametrizadas por el arco
-****** Curva parametrizada por el arco
+****** Definición 1.16. Curva parametrizada por el arco
 :PROPERTIES:
 :ID:       cb6ea57b-b063-4959-9a36-44a2662b6fce
 :END:
-Una [[id:7fbe4138-469a-4d17-a2d8-a04434cf8489][curva]] $\alpha \colon I \to \mathbb{R}^n$ se dice *parametrizada por el arco* si
-$|\alpha'(t)| = 1$ para todo $t \in I$. Las parametrizadas por el arco son
-regulares.
+$\alpha\colon I \to \mathbb{R}^n$ [[id:7fbe4138-469a-4d17-a2d8-a04434cf8489][curva]] es *parametrizada por el arco* (p.p.a) si $|\alpha'(t)| = 1$.
+Las p.p.a. son regulares.
 
-****** Lema de reparametrización
+****** Proposición 1.17. Lema de reparametrización
 :PROPERTIES:
 :ID:       1e330295-fe16-4262-a88b-af5a84c66fb8
 :END:
-Dada una $\alpha \colon I \to \mathbb{R}^n$ regular, existe $\phi \colon J \to I$ difeomorfismo 
-creciente de intervalos abiertos tal que $\beta = \alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
+$\alpha\colon I \to \mathbb{R}^n$ regular, existe $\phi\colon J \to I$ difeomorfismo 
+creciente de intervalos abiertos tal que $\beta = \alpha\circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
+
+/La demostración da una construcción explícita./ Definimos
+
+\[
+\psi(t) = L_a^t(\alpha) = \int_a^t |\alpha'(s)|\,ds.
+\]
+
+y tomamos $\phi =\psi^{-1}$.
 
 ******* Proof
 Para un $a \in I$ fijo, definimos $\psi \colon I \to \mathbb{R}$ por
@@ -7868,7 +8130,7 @@ y es estrictamente creciente e inyectiva. Así, $J = \psi(I)$ es un
 intervalo y $\psi \colon I \to J$ es biyectiva. 
 
 Ahora $\psi$ es difeomorfismo por ser biyectiva y tenerse $\psi'(t) \neq 0$,
-lo que nos da $\phi = \psi^{-1}$ diferenciable con la regla de derivación
+lo que nos da $\phi =\psi^{-1}$ diferenciable con la regla de derivación
 de la inversa.
 
 Tenemos que $\phi$ es el difeomorfismo creciente buscado por tenerse
@@ -7884,21 +8146,69 @@ que implica
 \abs{\frac{\alpha'(\phi(s))}{ |\alpha'(\phi(s))|}} = 
 1.\]
 
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-20 Sun>
+:PROPERTIES:
+:ID:       ff49f39c-0657-4411-86da-a586b9673753
+:DRILL_LAST_INTERVAL: 23.5151
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:39]
+:END:
+Enuncia el lema de reparametrización para $\alpha\colon I \to \mathbb{R}^n$ regular.
+
+******** Lema
+Existe $\phi\colon J \to I$
+
+ * difeomorfismo,
+ * creciente,
+ * de intervalos abiertos,
+
+tal que $\alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
+
+******* Card: cálculo                                           :drill:
+SCHEDULED: <2018-05-20 Sun>
+:PROPERTIES:
+:ID:       5b34db3c-8a95-4c74-9965-b87e184b414a
+:DRILL_LAST_INTERVAL: 23.8113
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:41]
+:END:
+Dada una $\alpha\colon I \to \mathbb{R}^n$ buscar la reparametrización $\phi\colon J \to I$ que
+hace que $\beta = \alpha\circ \phi$ sea una curva p.p.a.
+
+******** Reparametrización
+Calculamos la integral
+
+\[
+\psi(t) = L_a^t(\alpha) =\int_a^t |\alpha'(s)|\,ds;
+\]
+
+y la inversa $\phi =\psi^{-1}$ es la reparametrización buscada.
+
 **** 1.2. Geometría de curvas regulares en el plano
 ***** 1.2.1. Diedro de Frenet y curvatura de curvas p.p.a.
 ****** Diedro de Frenet
 :PROPERTIES:
 :ID:       b0a55e94-4a63-4257-a7b5-9641d848d4e5
 :END:
-La base ortonormal positiva $\left\{ T(s),N(s) \right\}$ dada por
+Sea $\alpha$ p.p.a., el *diedro de Frenet* es $\left\{ T(s),N(s) \right\}$, base ortonormal
+positiva con
 
- * el vector tangente a $\alpha$ en $s$, $T(s) = \alpha'(s)$;
- * el vector normal a $\alpha$ en $s$, $N(s) = J(T(s))$, donde $J(x,y) = (-y,x)$;
-
-se llama *diedro orientado de Frenet*.
+ * el tangente $T(s) = \alpha'(s)$;
+ * y el normal $N(s) = J(T(s))$, donde $J(x,y) = (-y,x)$.
 
 ****** Definición de curvatura
-Para $\alpha \colon I \to \mathbb{R}^2$ curva p.p.a., se define la curvatura $k \colon I \to \mathbb{R}$ como
+Sea $\alpha$ p.p.a., se define la curvatura $k \colon I \to \mathbb{R}$ como
 
 \[
 k(s) = \left\langle T'(s),N(s) \right\rangle = \left\langle \alpha''(s),J(\alpha'(s)) \right\rangle.
@@ -7907,8 +8217,7 @@ k(s) = \left\langle T'(s),N(s) \right\rangle = \left\langle \alpha''(s),J(\alpha
 Nótese que $k \in {\cal C}^{\infty}$.
 
 ****** Ecuaciones de Frenet
-Las coordenadas de $T'(s),N'(s)$ en el [[id:b0a55e94-4a63-4257-a7b5-9641d848d4e5][diedro de Frenet]] nos dan la
-curvatura
+Sea $\alpha$ p.p.a., las coordenadas de $T'(s),N'(s)$ en el [[id:b0a55e94-4a63-4257-a7b5-9641d848d4e5][diedro de Frenet]] son
 
  * $T'(s) = k(s)N(s)$,
  * $N'(s) = -k(s)T(s)$.
@@ -7916,15 +8225,17 @@ curvatura
 ******* TODO Proof
 
 ****** Expresión alternativa de la curvatura
+Sea $\alpha$ p.p.a.,
 
 \[
-k(s) = \mathrm{det}(\alpha'(s),\alpha''(s))
+k(s) = \mathrm{det}(\alpha'(s),\alpha''(s)).
 \]
 
+******* TODO Proof
 ***** 1.2.2. Diedro de Frenet y curvatura de curvas regulares
 ****** Definiciones para curvas regulares
 Para $\alpha \colon I \to \mathbb{R}^2$ regular consideramos una reparametrización
-a p.p.a. $\beta = \alpha \circ \phi$ y definimos
+a p.p.a. $\beta = \alpha\circ\phi$ y definimos
 
  * $T_{\alpha}(t) = T_{\beta}(\phi^{-1}(t))$,
  * $N_{\alpha}(t) = N_{\beta}(\phi^{-1}(t))$,
@@ -7932,41 +8243,109 @@ a p.p.a. $\beta = \alpha \circ \phi$ y definimos
 
 Nótese que una reparametrización así [[id:1e330295-fe16-4262-a88b-af5a84c66fb8][existe]] siempre.
 
-****** Ecuaciones para curvas regulares en el espacio
+****** Ecuaciones para curvas regulares en el plano
 Para $\alpha \colon I \to \mathbb{R}^2$ curva regular se tiene el siguiente diedro de Frenet
 y la siguiente curvatura
 
 \[
-T_{\alpha}(t) = \frac{\alpha'(t)}{|\alpha'(t)|},\quad
-N_{\alpha}(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|},\quad
-k_{\alpha}(t) = \frac{\mathrm{det}(\alpha'(t),\alpha''(t))}{|\alpha'(t)|^3}.
+T(t) = \frac{\alpha'(t)}{|\alpha'(t)|},\quad
+N(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|},\quad
+k(t) = \frac{\mathrm{det}(\alpha'(t),\alpha''(t))}{|\alpha'(t)|^3}.
 \]
 
 y además se cumplen las siguientes ecuaciones de Frenet
 
- * $T'_{\alpha}(t) = |\alpha'(t)|k_{\alpha}(t)N_{\alpha}(t)$,
- * $N'_{\alpha}(t) = -|\alpha'(t)|k_{\alpha}(t)T_{\alpha}(t)$,
+ * $T'(t) = |\alpha'(t)|k(t)N(t)$,
+
+ * $N'(t) = -|\alpha'(t)|k(t)T(t)$,
 
 y como consecuencia, la curvatura orientada se escribe como
 
 \[
-k_{\alpha}(t) = \frac{\left\langle T_{\alpha}'(t),N_{\alpha}(t) \right\rangle}{\alpha'(t)}.
+k(t) = \frac{\left\langle T'(t),N(t) \right\rangle}{|\alpha'(t)|}.
 \]
 
 Como corolario hemos demostrado además que $T_{\alpha},N_{\alpha},k_{\alpha}$ no
 dependen de la reparametrización elegida.
 
 ******* TODO Proof
+******* Card: diedro                                            :drill:
+SCHEDULED: <2018-05-23 Wed>
+:PROPERTIES:
+:ID:       dc77cdaa-f13a-4306-960e-f63531e65620
+:DRILL_LAST_INTERVAL: 27.1334
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:42]
+:END:
+Dar el diedro de Frenet de una curva regular $\alpha(t) \colon I \to \mathbb{R}^2$.
+
+******** Diedro
+
+\[
+T_{\alpha}(t) = \frac{\alpha'(t)}{|\alpha'(t)|},\quad
+N_{\alpha}(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|}
+\]
+
+******* Card: curvatura                                         :drill:
+SCHEDULED: <2018-05-12 Sat>
+:PROPERTIES:
+:ID:       054cec15-5c54-4d1f-84f7-56cb9df2ede5
+:DRILL_LAST_INTERVAL: 10.7281
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 10
+:DRILL_FAILURE_COUNT: 5
+:DRILL_AVERAGE_QUALITY: 2.2
+:DRILL_EASE: 2.52
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:15]
+:END:
+Dar dos fórmulas de la curvatura de una curva regular en
+el plano, $\alpha(t)\colon I \to\mathbb{R}^2$.
+
+******** Curvatura
+
+\[k_{\alpha}(t) = \frac{\mathrm{det}(\alpha'(t),\alpha''(t))}{|\alpha'(t)|}
+= \frac{\left\langle T'(t),N(t) \right\rangle}{|\alpha'(t)|}
+\]
+
+******* Card: ecuaciones de Frenet                              :drill:
+SCHEDULED: <2018-05-13 Sun>
+:PROPERTIES:
+:ID:       cca9ded0-aa24-4138-bbb8-c057e5d1015b
+:DRILL_LAST_INTERVAL: 11.8189
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 8
+:DRILL_FAILURE_COUNT: 3
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.8
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:03]
+:END:
+Enunciar las ecuaciones de Frenet para una curva regular en el plano.
+
+******** Ecuaciones de Frenet
+Son las coordenadas de los derivados del tangente y del
+normal en el diedro de Frenet.
+
+\[\left\{\begin{array}{l}
+T'_{\alpha}(t) = |\alpha'(t)| k_{\alpha}(t) N_{\alpha}(t) \\
+N'_{\alpha}(t) = -|\alpha'(t)| k_{\alpha}(t) T_{\alpha}(t) 
+\end{array} \right.\]
 
 ****** Propiedades de la curvatura
-La curvatura cumple
+La curvatura es
 
- 1. *Carácter local*, para $\alpha \colon I \to \mathbb{R}^2$ y $\beta \colon J \to \mathbb{R}^2$, si se tiene que
-    $\alpha = \beta$ en un intervalo $(t_0-\varepsilon,t_0+\varepsilon)\subseteq I \cap J$, entonces $k_{\alpha}(t_0) = k_{\beta}(t_0)$.
+ 1. *Local*, para $\alpha \colon I \to \mathbb{R}^2$ y $\beta \colon J \to \mathbb{R}^2$, si $\alpha = \beta$ en
+    $(t_0-\varepsilon,t_0+\varepsilon)\subseteq I \cap J$, entonces $k_{\alpha}(t_0) = k_{\beta}(t_0)$.
     
- 2. *Invariante a movimientos rígidos directos*, para $\alpha \colon I \to \mathbb{R}^2$
-    regular y $\phi \colon \mathbb{R}^2 \to \mathbb{R}^2$ movimiento rígido, $\phi \circ \alpha$ es regular
-    y $k_{\phi \circ \alpha} = k_{\alpha}$ si $\phi$ es directo o $k_{\phi \circ \alpha} = -k_{\alpha}$ si $\phi$ es inverso.
+ 2. *Invariante a movimientos rígidos directos*, si $\alpha \colon I \to \mathbb{R}^2$
+    regular $\phi \circ \alpha$ regular con $k_{\phi \circ \alpha} = k_{\alpha}$ si $\phi$ es directo y
+    $k_{\phi \circ \alpha} = -k_{\alpha}$ si $\phi$ es inverso.
 
  3. *Invariante a reparametrizaciones*, para $\alpha \colon I \to \mathbb{R}^2$
     regular y $\phi \colon J \to I$ difeomorfismo, $\alpha \circ \phi$ es regular 
@@ -7977,7 +8356,7 @@ La curvatura cumple
 **** 1.3. Geometría de curvas regulares en el espacio
 ***** 1.3.1. Triedro de Frenet, curvatura y torsión de curvas p.p.a.
 ****** Curvatura de una curva p.p.a.
-Definimos la *curvatura* de una curva p.p.a. $\alpha \colon I \to \mathbb{R}^3$ como
+Sea $\alpha$ p.p.a., su *curvatura* es
 
 \[
 k(s) = |T'(s)| = |\alpha''(s)|.
@@ -8017,8 +8396,8 @@ Para $\alpha \colon I \to \mathbb{R}^3$ curva p.p.a. con $k > 0$, definimos
 ****** TODO Ejemplo: hélices
 ***** 1.3.2. Triedro de Frenet, curvatura y torsión de curvas regulares
 ****** Definiciones para curvas regulares en el espacio
-Para $\alpha \colon I \to \mathbb{R}^3$ regular consideramos un difeomorfismo creciente $\phi \colon J \to I$
-reparametrización a $\beta = \alpha \circ \phi$ curva p.p.a. y definimos las
+Para $\alpha \colon I \to \mathbb{R}^3$ regular consideramos un difeomorfismo *creciente* $\phi\colon J \to I$
+reparametrización a $\beta = \alpha\circ \phi$ curva p.p.a. y definimos las
 características de la curva según ella.
 
  * $T_{\alpha}(t) = T_{\beta}(\phi^{-1}(t))$,
@@ -8038,7 +8417,7 @@ Frenet
 
 \[
 T_{\alpha}(t) = \frac{\alpha'(t)}{|\alpha'(t)|},\quad
-N'_{\alpha}(t) = B_{\alpha}(t) \times T_{\alpha}(t),\quad
+N_{\alpha}(t) = B_{\alpha}(t) \times T_{\alpha}(t),\quad
 B_{\alpha}(t) = \frac{\alpha'(t) \times \alpha''(t)}{|\alpha'(t) \times \alpha''(t)|}
 \]
 
@@ -8056,6 +8435,92 @@ y además se cumplen las siguientes ecuaciones de Frenet
  * $B'_{\alpha}(t) = |\alpha'(t)|\tau_{\alpha}(t)N_{\alpha}(t)$.
 
 ******* TODO Proof
+******* Card: triedro                                           :drill:
+SCHEDULED: <2018-05-13 Sun>
+:PROPERTIES:
+:ID:       dfe88e2d-9b42-44ed-ae62-2bac55c7c108
+:DRILL_LAST_INTERVAL: 3.9117
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:36]
+:END:
+Triedro de Frenet de una curva regular en el espacio.
+
+******** Triedro
+
+\[
+T_{\alpha}(t) = \frac{\alpha'(t)}{|\alpha'(t)|},\quad
+N_{\alpha}(t) = B_{\alpha}(t) \times T_{\alpha}(t),\quad
+B_{\alpha}(t) = \frac{\alpha'(t) \times \alpha''(t)}{|\alpha'(t) \times \alpha''(t)|}
+\]
+
+******* Card: curvatura                                         :drill:
+SCHEDULED: <2018-05-12 Sat>
+:PROPERTIES:
+:ID:       920516ed-24b4-4506-ae4d-41d505077bae
+:DRILL_LAST_INTERVAL: 3.918
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 1.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 20:59]
+:END:
+Curvatura de una curva regular en el espacio.
+
+******** Curvatura
+
+\[
+k_{\alpha}(t) = \frac{|\alpha'(t) \times \alpha''(t)|}{|\alpha'(t)|^3}
+\]
+
+******* Card: torsión                                           :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:ID:       be660965-a5df-4345-b491-2e73601a8069
+:DRILL_LAST_INTERVAL: 3.7382
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 4
+:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:17]
+:END:
+Torsión de una curva regular en el espacio.
+
+******** Torsión
+
+\[
+\tau_{\alpha}(t) = - \frac{\mathrm{det}(\alpha'(t),\alpha''(t),\alpha'''(t))}{|\alpha'(t)\times \alpha''(t)|^2}
+\]
+
+******* Card: ecuaciones de Frenet                              :drill:
+SCHEDULED: <2018-05-13 Sun>
+:PROPERTIES:
+:ID:       afe3152a-639e-4a7f-9e69-74f74f00c3ce
+:DRILL_LAST_INTERVAL: 4.7128
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 20:58]
+:END:
+Ecuaciones de Frenet. Dar $T',N',B'$ de una curva regular en
+el espacio.
+
+******** Ecuaciones
+
+ * $T'_{\alpha}(t) = |\alpha'(t)|k_{\alpha}(t)N_{\alpha}(t)$,
+ * $N'_{\alpha}(t) = -|\alpha'(t)|k_{\alpha}(t)T_{\alpha}(t) - |\alpha'(t)|\tau_{\alpha}(t)B_{\alpha}(t)$,
+ * $B'_{\alpha}(t) = |\alpha'(t)|\tau_{\alpha}(t)N_{\alpha}(t)$.
 
 ****** Curvas de curvatura o torsión nulas
 Si $\alpha \colon I \to \mathbb{R}^3$ es regular
@@ -8116,6 +8581,25 @@ Para $I \subseteq \mathbb{R}$ intervalo abierto y $k,\tau\in {\cal C}^{\infty}(I
 Es decir, dada una curvatura positiva y una torsión, existe una
 curva p.p.a. que las realiza, única salvo movimientos rígidos directos.
 
+******* Card                                                    :drill:
+SCHEDULED: <2018-07-19 Thu>
+:PROPERTIES:
+:ID:       bb2b3785-52de-4496-b89e-f0d9862b0019
+:DRILL_LAST_INTERVAL: 72.2864
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.25
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:02]
+:END:
+Enuncia con palabras el teorema fundamental de curvas.
+
+******** Enunciado
+Dada una curvatura positiva y una torsión en un intervalo, existe una
+curva parametrizada por el arco que las realiza, única salvo
+movimientos rígidos directos.
 ****** 4.5. Curvas en el espacio de curvatura y torsión constantes
 Si $\alpha \colon I \to \mathbb{R}^3$ tiene curvatura positiva constante $k_0 > 0$ y torsión
 constante $\tau_0$, entonces 
@@ -8123,7 +8607,7 @@ constante $\tau_0$, entonces
  * si $\tau_0 = 0$, está en una circunferencia $\alpha(I) \subseteq C$,
  * si $\tau_0 \neq 0$, está en una hélice circular $\alpha(I) \subseteq H$.
 
-******* Proof
+******* TODO Proof
 ****** 4.7. Teorema fundamental de curvas en el plano
 Para $I \subseteq \mathbb{R}$ intervalo abierto y $k \in {\cal C}^{\infty}(I)$, 
 
@@ -8135,9 +8619,8 @@ Para $I \subseteq \mathbb{R}$ intervalo abierto y $k \in {\cal C}^{\infty}(I)$,
 Es decir, dada una curvatura cualquiera, existe una curva p.p.a.
 que la realiza, salvo movimientos rígidos directos.
 
-******** TODO Demostración
-
-******** Demostración explícita de existencia
+******* TODO Demostración
+******* Demostración explícita de existencia
 Tomamos $\theta$ una primitiva de $k$ y
 
 \[
@@ -8153,213 +8636,7 @@ k(s)(\sin^2 \theta(s) + \cos^2 \theta(s)) =
 k(s).
 \]
 
-**** CARDS
-***** 1. Curvas regulares y longitud de arco
-****** Embebimiento                                              :drill:
-SCHEDULED: <2018-06-01 Fri>
-:PROPERTIES:
-:ID:       47cb18d3-b024-48e7-9b40-9fd5efa6c87a
-:DRILL_LAST_INTERVAL: 34.5561
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 6
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 3.0
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:40]
-:END:
-¿Cuándo es $\alpha\colon I \to \mathbb{R}^n$ un embebimiento?
-
-******* Definición
-Cuando $\alpha \colon I \to \alpha(I)$ es un homeomorfismo.
-
-****** Ejemplo de curva inyectiva no embebimiento                :drill:
-SCHEDULED: <2018-06-01 Fri>
-:PROPERTIES:
-:ID:       52adbafb-00f1-4b63-b08a-1e89cf23b94b
-:DRILL_LAST_INTERVAL: 34.5561
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 6
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.167
-:DRILL_EASE: 3.0
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-27 Fri 10:40]
-:END:
-Dar un ejemplo de curva inyectiva que no sea embebimiento.
-
-******* Ejemplo
-La curva siguiente, en un intervalo bien escogido
-
-\[
-\alpha(t) = \left( \frac{3t}{1+t^3}, \frac{3t^2}{1+t^3} \right)
-\]
-
-es inyectiva, pero al tender a infinito se acerca tanto como queramos
-al $(0,0)$, por el que ya había pasado antes, lo que hace que no podamos
-tener un homeomorfismo.
-****** Cálculo de la longitud de una curva                       :drill:
-SCHEDULED: <2018-05-12 Sat>
-:PROPERTIES:
-:ID:       3fb16a48-0357-42f8-98c2-c74d4562bc49
-:DRILL_LAST_INTERVAL: 10.8372
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.6
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:14]
-:END:
-Para $\alpha\colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, calcula la longitud entre
-$[a,b]$ como una integral.
-
-******* Longitud
-
-\[
-L_a^b(\alpha) = \int_a^b |\alpha'(t)|\,dt < \infty.
-\]
-
-****** Lema de reparametrización                                 :drill:
-SCHEDULED: <2018-05-20 Sun>
-:PROPERTIES:
-:ID:       ff49f39c-0657-4411-86da-a586b9673753
-:DRILL_LAST_INTERVAL: 23.5151
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.333
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:39]
-:END:
-Enuncia el lema de reparametrización para $\alpha\colon I \to \mathbb{R}^n$ regular.
-
-******* Lema
-Existe $\phi\colon J \to I$
-
- * difeomorfismo,
- * creciente,
- * de intervalos abiertos,
-
-tal que $\alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
-
-****** Cálculo de una reparametrización                          :drill:
-SCHEDULED: <2018-05-20 Sun>
-:PROPERTIES:
-:ID:       5b34db3c-8a95-4c74-9965-b87e184b414a
-:DRILL_LAST_INTERVAL: 23.8113
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:41]
-:END:
-Dada una $\alpha\colon I \to \mathbb{R}^n$ buscar la reparametrización $\phi\colon J \to I$ que
-hace que $\beta = \alpha\circ \phi$ sea una curva p.p.a.
-
-******* Reparametrización
-Calculamos la integral
-
-\[
-\psi(t) = L_a^t(\alpha) =\int_a^t |\alpha'(s)|\,ds;
-\]
-
-y la inversa $\phi =\psi^{-1}$ es la reparametrización buscada.
-
-***** 2. Geometría de curvas regulares en el plano
-****** Diedro de Frenet de una curva regular                     :drill:
-SCHEDULED: <2018-05-23 Wed>
-:PROPERTIES:
-:ID:       dc77cdaa-f13a-4306-960e-f63531e65620
-:DRILL_LAST_INTERVAL: 27.1334
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.75
-:DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:42]
-:END:
-Dar el diedro de Frenet de una curva regular $\alpha(t) \colon I \to \mathbb{R}^2$.
-
-******* Diedro
-
-\[
-T_{\alpha}(t) = \frac{\alpha'(t)}{|\alpha'(t)|},\quad
-N_{\alpha}(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|}
-\]
-
-****** Curvatura de una curva regular en el plano                :drill:
-SCHEDULED: <2018-05-12 Sat>
-:PROPERTIES:
-:ID:       054cec15-5c54-4d1f-84f7-56cb9df2ede5
-:DRILL_LAST_INTERVAL: 10.7281
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 10
-:DRILL_FAILURE_COUNT: 5
-:DRILL_AVERAGE_QUALITY: 2.2
-:DRILL_EASE: 2.52
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:15]
-:END:
-Dar dos fórmulas de la curvatura de una curva regular en
-el plano, $\alpha(t)\colon I \to\mathbb{R}^2$.
-
-******* Curvatura
-
-\[k_{\alpha}(t) = \frac{\mathrm{det}(\alpha'(t),\alpha''(t))}{|\alpha'(t)|}
-= \frac{\left\langle T'(t),N(t) \right\rangle}{|\alpha'(t)|}
-\]
-
-****** Ecuaciones de Frenet en el plano                          :drill:
-SCHEDULED: <2018-05-13 Sun>
-:PROPERTIES:
-:ID:       cca9ded0-aa24-4138-bbb8-c057e5d1015b
-:DRILL_LAST_INTERVAL: 11.8189
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 8
-:DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:03]
-:END:
-Enunciar las ecuaciones de Frenet para una curva regular en el plano.
-
-******* Ecuaciones de Frenet
-Son las coordenadas de los derivados del tangente y del
-normal en el diedro de Frenet.
-
-\[\left\{\begin{array}{l}
-T'_{\alpha}(t) = |\alpha'(t)| k_{\alpha}(t) N_{\alpha}(t) \\
-N'_{\alpha}(t) = -|\alpha'(t)| k_{\alpha}(t) T_{\alpha}(t) 
-\end{array} \right.\]
-
-***** 3. Geometría de curvas regulares en el espacio
-***** 4. Teorema fundamental de curvas en el plano y en el espacio
-****** Teorema fundamental de curvas en el espacio               :drill:
-SCHEDULED: <2018-05-05 Sat>
-:PROPERTIES:
-:ID:       bb2b3785-52de-4496-b89e-f0d9862b0019
-:DRILL_LAST_INTERVAL: 25.0
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:09]
-:END:
-Enuncia con palabras el teorema fundamental de curvas.
-
-******* Enunciado
-Dada una curvatura positiva y una torsión en un intervalo, existe una
-curva parametrizada por el arco que las realiza, única salvo
-movimientos rígidos directos.
-*** Tema 2. Superficies
+*** Tema 2. Superficies ([[~/pdf/Rosales_Superficies.pdf][PDF]])
 **** 2.1. Definición de superficie y ejemplos
 ***** 2.1.0. Definición de superficie
 ****** Superficie
@@ -8372,36 +8649,250 @@ $X \colon U \to S$ para un abierto $U \subset \mathbb{R}^2$ tal que
 
  1. $X \colon U \to \mathbb{R}^3$ es diferenciable,
  2. $(dX)_q\colon \mathbb{R}^2 \to \mathbb{R}^3$ es inyectiva para cada $q \in U$,
- 3. $X(U) = V$ con $X \colon U \to V$ homeomorfismo.
+ 3. $X(U) = V$ con $X \colon U \to X(U)$ homeomorfismo.
 
-****** TODO Notas sobre la definición de superficie
-****** Construcciones en superficies
+******* Card: superficie                                        :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       ca91733a-9d55-4b63-997a-79aad4762897
+:DRILL_LAST_INTERVAL: 3.7011
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:43]
+:END:
+Definición de superficie $S$.
+
+******** Definición
+Cada $p \in S$ tiene entorno abierto $V_p \subseteq S$ con una parametrización
+$X \colon U \to S$ desde $U \subset \mathbb{R}^2$.
+
+******* Card: parametrización                                   :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       1b03debc-6865-4b76-af7a-ac8de199ff7a
+:DRILL_LAST_INTERVAL: 3.8974
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:29]
+:END:
+Qué significa $X \colon U \to S$ parametrización.
+
+******** Respuesta
+
+ 1. $X \colon U \to \mathbb{R}^3$ es *diferenciable*,
+
+ 2. $(dX)_q\colon \mathbb{R}^2 \to \mathbb{R}^3$ es *diferencial inyectiva* para cada $q \in U$,
+
+ 3. $X(U) = V$ con $X \colon U \to V$ *embebimiento*.
+
+****** Notas sobre la definición de superficie
+:PROPERTIES:
+:ID:       39a8bc2e-b4b9-4131-9fe4-7c1ed8fa3d87
+:END:
+
+ 1. Consideramos la topología inducida de $\mathbb{R}^3$, las superficies son
+    Hausdorff IIAN localmente euclídeos.
+
+ 2. La diferenciabilidad $X \in {\cal C}^{\infty}(U)$ nos da
+    $X(u,v) = (x(u,v),y(u,v),z(u,v))$ con derivadas parciales
+    como componentes.
+
+ 3. Equivalen
+   
+    1. $(dX)_q$ inyectiva,
+
+    2. $\left\{ X_u(q), X_v(q) \right\}$ linealmente independientes,
+
+    3. $\abs{X_u(q) \times X_v(q)}^2 > 0$,
+
+    4. $\mathrm{rango}(\mathrm{Jac}\ X(q)) = 2$.
+
+ 4. Llamamos *atlas* a $X_i$ parametrizaciones locales recubriendo $S$.
+
+******* Card: comprobar inyectividad de la diferencial          :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:ID:       136c1adf-f85e-45ac-bc4a-19150882eabc
+:DRILL_LAST_INTERVAL: 4.7811
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:27]
+:END:
+Dos formas de comprobar $dX_{q}$ inyectiva para $X \colon U \to \mathbb{R}^3$.
+
+******** Formas
+Equivalen
+   
+    1. $(dX)_q$ inyectiva,
+
+    2. $\left\{ X_u(q), X_v(q) \right\}$ linealmente independientes,
+
+    3. $\abs{X_u(q) \times X_v(q)}^2 > 0$,
+
+    4. $\mathrm{rango}(\mathrm{Jac}\ X(q)) = 2$.
+
+****** Abiertos de superficie, componentes conexas
 :PROPERTIES:
 :ID:       798b32ea-aeca-4f78-9265-53ce523e0630
 :END:
 Para $S$ superficie,
 
- * $S'$ abierto no vacío de $S$ es superficie;
+ * $S'$ abierto no vacío de $S$ es superficie; las componentes conexas
+   de una superficie son superficies.
 
  * para $\phi \colon O \to O'$ difeomorfismo entre abiertos con $S \subseteq O$, 
-   $S' := \phi(S)$ es una superficie.
+   $\phi(S)$ es una superficie.
 
-******* TODO Proof
+******* Proof 1
+Para cada punto, tomamos $p \in V$, y restringimos la parametrización
+que nos dé a $X^{-1}(V \cap S')$, que es abierto.
 
-***** TODO 2.1.1. Grafos diferenciables
+******* Card: componentes conexas                               :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       a29b9077-f8cf-4178-9979-c709f6c1ff8f
+:DRILL_LAST_INTERVAL: 3.9104
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:44]
+:END:
+¿Por qué las componentes conexas de una superficie son
+superficies?
+
+******** Respuesta
+Porque son abiertos de la superficie. Todo abierto de
+una superficie es superficie.
+
+****** Superficie bajo difeomorfismos
+:PROPERTIES:
+:ID:       2e12aed9-1de2-4dcf-a729-8068eae76532
+:END:
+Si $S \subset O$ superficie, $\phi \colon O \to O'$ difeomorfismo entre abiertos, entonces
+$\phi(S)$ es superficie.
+
+******* Proof
+Tomaremos $\phi \circ X$ eligiendo en los entornos abiertos adecuados y
+comprobaremos diferenciabilidad y homeomorfismo con regla de la
+cadena.
+
+****** Ejercicio 3. Superficie ssi cada punto tiene entorno superficie
+:PROPERTIES:
+:ID:       b0e77770-60d2-4de6-9cd9-10f4d1f35cf1
+:END:
+Si $S = \bigcup_{i \in I} S_i$; $S$ es superficie ssi $S_i$ es siempre superficie.
+
+******* Proof
+Un abierto de superficie es abierto, y las parametrizaciones son
+locales.
+
+****** Construcción de parametrizaciones globales
+:PROPERTIES:
+:ID:       11ae111c-e696-4a21-9f13-c7345aa83461
+:END:
+Sea $X \in {\cal C}^{\infty}(U,\mathbb{R}^3)$ no vacío con $(dX)_q$ inyectiva y $U \cong X(U)$.
+Entonces $X(U)$ superficie con esa parametrización global.
+
+******* Proof
+Cada punto tendría como entorno a $S$, con $X$ diferenciable
+con diferencial inyectiva y homeomorfismo. Sería parametrización
+global directamente.
+
+***** 2.1.1. Grafos diferenciables
+****** Grafos
+:PROPERTIES:
+:ID:       1f5dceca-fdfe-4278-b8f4-7d4ccec964f3
+:END:
+El *grafo* de $\varphi \in {\cal C}^{\infty}(U)$ abierto de $\mathbb{R}^2$ es superficie,
+
+\[
+G^z(\varphi) = \left\{ x,y,z \mid (x,y) \in U, z = \varphi(x,y) \right\}.
+\]
+
+Análogamente sobre los grafos $G^x(\varphi)$ y $G^y(\varphi)$.
+
+******* Consecuencias
+Los planos son grafos, el paraboloide elíptico, el
+paraboloide hiperbólico y el cilindro parabólico son
+grafos.
+
+******* Proof
+Construimos una [[id:11ae111c-e696-4a21-9f13-c7345aa83461][parametrización global]].
+Tenemos $X(u,v) = (u,v,\varphi(u,v))$ diferenciable con
+inversa $\pi(u,v,w) = (u,v)$ que la hace homeomorfismo
+y con $X_u(u,v) = (1,0,\varphi_u(u,v))$, $X_v(u,v) = (0,1,\varphi_v(u,v))$
+independientes.
+
+******* Card: paraboloide hiperbólico                           :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       702ca00b-5bde-424b-96c8-ac7f5a8687d5
+:DRILL_LAST_INTERVAL: 3.7222
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:30]
+:END:
+¿Por qué es el *paraboloide hiperbólico* una superficie?
+
+$\left\{ x,y,z \mid z = x^2-y^2 \right\}$
+
+******** Respuesta
+Es un grafo sobre $\mathbb{R}^2$.
+
+******* Card: por qué grafo es superficie                       :drill:
+SCHEDULED: <2018-05-13 Sun>
+:PROPERTIES:
+:ID:       3dbc7c1c-592b-45cd-b0dd-52b4f4395ffe
+:DRILL_LAST_INTERVAL: 3.0442
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:41]
+:END:
+¿Por qué un grafo con $\varphi \in {\cal C}^{\infty}(U)$ es una superficie?
+
+\[
+G^z(\varphi) = \left\{ x,y,z \mid (x,y) \in U, z = \varphi(x,y) \right\}.
+\]
+
+******** Respuesta
+Hay una parametrización global.
+
+$X(u,v) = (u,v,\varphi(u,v))$ diferenciable con
+inversa $\pi(u,v,w) = (u,v)$ luego embebimiento.
+Tiene $X_u(u,v) = (1,0,\varphi_u(u,v))$, $X_v(u,v) = (0,1,\varphi_v(u,v))$
+independientes que dan diferencial inyectiva.
+
 ***** 2.1.2. Superficies en forma implícita
-
 ****** Teorema de la función implícita
-Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Dados $a \in \mathbb{R}$ y $p = (x_0,y_0,z_0)$ con $f(p) = a$
-y $f_z(p) \neq 0$; existen
-
- * $(x_0,y_0) \in U \subseteq \mathbb{R}^2$ entorno abierto,
-
- * $z_0 \in I \subseteq \mathbb{R}$ intervalo abierto,
-
- * $\varphi \in {\cal C}^{\infty}(U)$ con $\varphi(U) \subseteq I$,
-
-tales que
+:PROPERTIES:
+:ID:       d513ba34-c5ce-4662-8e88-f6ab6779a7c2
+:END:
+Si $f \in {\cal C}^{\infty}(O \subseteq \mathbb{R}^3, \mathbb{R})$ en abierto con $f(x_0,y_0,z_0) = a$ y $f_z(x_0,y_0,z_0) \neq 0$;
+existen $(x_0,y_0) \in U \subseteq \mathbb{R}^2$ entorno abierto, $z_0 \in I \subseteq \mathbb{R}$ intervalo abierto
+y $\varphi \in {\cal C}^{\infty}(U)$ con $\varphi(U) \subseteq I$, tales que
 
  1. $U \times I \subseteq O$,
 
@@ -8412,33 +8903,155 @@ tales que
 ******* Proof                                                   :extra:
 # Se asume.
 
+******* Card: implícita                                         :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:ID:       b95d941e-d94a-403d-bc35-cf7a8b1e0fbd
+:DRILL_LAST_INTERVAL: 5.0152
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:38]
+:END:
+Consecuencia práctica del teorema de la función implícita
+sobre $\nabla f$.
+
+******** Respuesta
+Si $\nabla f(p) \neq 0$, la ecuación $\left\{ f(x,y,z) = f(p) \right\}$ es *localmente*
+un grafo diferenciable sobre un plano coordenado.
+
 ****** Valores singulares y valores regulares
 Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Un $a \in \mathbb{R}$ es *valor singular* si
-es la imagen de un punto crítico, $f(p) = a$ y $(\nabla f)(p) = 0$. En otro
+es la imagen de un punto crítico, $f(p) = a$ con $(\nabla f)(p) = 0$. En otro
 caso, es un *valor regular*. $VS(f)$ es el conjunto de valores
 singulares y $VR(f)$ el conjuto de valores regulares.
 
-****** TODO Teorema de Sard
+******* Card: singular                                          :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       c52b65a4-ad12-41e4-83a7-779f0f73f8c3
+:DRILL_LAST_INTERVAL: 3.8899
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:43]
+:END:
+Valor singular de $f \in {\cal C}^{\infty}(O,\mathbb{R})$.
 
-****** Superficie implícita de un valor regular
-Sea $O \subseteq \mathbb{R}^3$ abierto y $f \in {\cal C}^{\infty}(O)$. Si $a \in VR(f)$, entonces $f^{-1}(a)$
+******** Definición
+$a$ es valor singular si es imagen de punto crítico, $f(p) = a$
+con $\nabla f(p) = 0$.
+
+******* Card: regular                                           :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       58a580dd-5aa1-491c-9a7a-e9f04172e3a0
+:DRILL_LAST_INTERVAL: 3.7239
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:42]
+:END:
+Valor regular de $f \in {\cal C}^{\infty}(O,\mathbb{R})$.
+
+******** Definición
+$a$ es valor regular si no es singular, es decir, si no es
+imagen de un punto crítico. Para cada $\nabla f(p) = 0$ se tiene
+que $f(p) \neq a$.
+
+****** Teorema de Sard                                           :extra:
+$VS(f)$ tiene medida nula. $VR(f)$ es denso en $\mathbb{R}$.
+
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       034c652e-0f0d-4c3f-8c7b-d358ec404110
+:DRILL_LAST_INTERVAL: 3.482
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:16]
+:END:
+Enuncia el Teorema de Sard.
+
+******** Enunciado
+El conjunto de los valores singulares $VS(f)$ tiene medida
+nula. $VR(f)$ es denso en $\mathbb{R}$.
+
+Un $a \in \mathbb{R}$ es *valor singular* si es la imagen de un punto
+crítico, $f(p) = a$ con $(\nabla f)(p) = 0$. En otro caso, es un
+*valor regular*.
+
+****** Superficies implícitas
+$f \in {\cal C}^{\infty}(O \subset \mathbb{R}^3)$ en abierto. Si $a \in VR(f)$, entonces $f^{-1}(a)$
 es vacío o una superficie de $\mathbb{R}^3$.
 
+Además, admite un atlas formado por parametrizaciones locales
+de grafos.
+
+******* Recíproco falso: inversa de singular puede ser superficie
+$f(x,y,z) = z^2$ tiene $0 \in VS(f)$ pero $f^{-1}(0)$ es un plano.
+
 ******* Proof
+Si $p \in S \neq \varnothing$, como $\nabla f(p) \neq 0$ tomamos $f_z(p) \neq 0$ s.p.g. y por
+[[id:d513ba34-c5ce-4662-8e88-f6ab6779a7c2][Teorema de Función Implícita]] tenemos $p \in f^{-1}(a) \cap U \times I = G^z(\varphi)$,
+que es grafo [[id:1f5dceca-fdfe-4278-b8f4-7d4ccec964f3][luego superficie]] y como [[id:b0e77770-60d2-4de6-9cd9-10f4d1f35cf1][cada punto tiene entorno
+superficie]], es una superficie.
+
+****** Ejemplos
+Las esferas son superficies implícitas y pueden tener atlas con
+proyecciones estereográficas o con seis proyecciones. Los cilindros
+son superficies con un atlas de cuatro proyecciones.
 
 ***** 2.1.3. Superficies de revolución
-****** Creando una superficie de revolución
-Sea $P$ el plano de ecuación $y = 0$ y $P^+$ su semiplano abierto $x > 0$.
-Sea $\alpha \colon I \to \mathbb{R}^3$ regular y embebida con $\alpha(I) \subseteq P^+$. Definimos
+****** Subconjunto de revolución
+$A \subset \mathbb{R}^3$ es de *revolución* si $\mathrm{rot}_{\theta}(A) = A$ para $\theta \in \mathbb{R}$.
+Equivalentemente, $\mathrm{rot}_{\theta}(A) \subseteq A$.
+
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       40312210-08af-43e1-8a80-7f3db9927644
+:DRILL_LAST_INTERVAL: 4.079
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:42]
+:END:
+Conjunto de revolución $A \subset \mathbb{R}^3$.
+
+******** Definición
+$A \subset \mathbb{R}^3$ es de *revolución* si $\mathrm{rot}_{\theta}(A) = A$ para $\theta \in \mathbb{R}$.
+Equivalentemente, $\mathrm{rot}_{\theta}(A) \subseteq A$.
+
+******* TODO Proof
+****** Superficie de revolución
+Sea $\alpha \colon I \to \mathbb{R}^3$ regular y embebida en $\alpha(I) \subseteq P^+$, el semiplano
+abierto $x > 0$ de $y = 0$. Definimos
 
 \[
 S_{\alpha} =
 \left\{ \phi_{\theta}(\alpha(t))
 \mid t \in I, \theta \in \mathbb{R}
-\right\}.
+\right\},
 \]
 
-Y $X \colon I \times \mathbb{R} \to \mathbb{R}^3$ dada por
+y $X \colon I \times \mathbb{R} \to \mathbb{R}^3$ dada por
 
 \[
 X(t,\theta) = \varphi_{\theta}(\alpha(t)) = (x(t)\cos(\theta), x(t)\sin(\theta), z(t)),
@@ -8446,14 +9059,16 @@ X(t,\theta) = \varphi_{\theta}(\alpha(t)) = (x(t)\cos(\theta), x(t)\sin(\theta),
 
 para $\alpha(t) = (x(t),0,z(t))$.
 
-Aquí $S_{\alpha}$ es superficie de revolución respecto del eje Z y
-si llamamos $U_1 = I \times (0,2\pi)$ y $U_2 = I \times (-\pi,\pi)$ tenemos
-un atlas con entornos coordenados $V_1 = S_{\alpha} - \alpha(I)$ y
-$V_2 = S_{\alpha} - \phi_{\pi}(\alpha(I))$.
+Aquí $S_{\alpha}$ es *superficie de revolución* respecto del eje Z.
+Para $U_1 = I \times (0,2\pi)$ y $U_2 = I \times (-\pi,\pi)$ tenemos
+un atlas dado por $X_{|U_1}$ y $X_{|U_2}$.
 
 ******* TODO Proof
-
 ****** Paralelos y meridianos
+En superficie de revolución, un *paralelo* es la curva $X(t_0,\theta)$,
+un *meridiano* es la curva $X(t,\theta_0)$.
+
+****** TODO Revolución sobre grafos de funciones
 
 **** 2.2. Cambio de parámetros
 ***** 2.2.1. Lema técnico para el cambio de parámetros
@@ -8461,14 +9076,8 @@ $V_2 = S_{\alpha} - \phi_{\pi}(\alpha(I))$.
 :ID:       e55cb9c9-d19d-4a7a-8c3b-910e4f0ca5bf
 :END:
 $S$ superficie, $X \colon U \to S$ parametrización local y $q \in U$. Existen
-
- * $q \in U_q \subset U$, $X(q) \in V_q \subset S$ entornos abiertos,
-
- * $\pi \colon \mathbb{R}^3 \to \mathbb{R}^2$, proyección en alguna variable,
-
- * $(\pi \circ X)(q) \in D_q \subset \mathbb{R}^2$ entorno abierto,
-
- * $\varphi \in {\cal C}^{\infty}(D_q)$.
+$q \in U_q \subset U$, $X(q) \in V_q \subset S$ entornos abiertos, $\pi \colon \mathbb{R}^3 \to \mathbb{R}^2$, proyección
+en alguna variable, $(\pi \circ X)(q) \in D_q \subset \mathbb{R}^2$ entorno abierto y $\varphi \in {\cal C}^{\infty}(D_q)$.
 
 Cumpliendo que
 
@@ -8477,6 +9086,12 @@ Cumpliendo que
  * $V_q = G(\varphi)$ grafo sobre una variable,
 
  * $\pi_{|V_q} \colon V_q \to D_q$ biyectiva.
+
+
+\[\begin{tikzcd}
+& V_q\dar{\pi} \\
+U_q \urar{X} & D_q \uar[bend right=90,swap]{\mathrm{id} \times \varphi}
+\end{tikzcd}\]
 
 ****** Proof
 ******* Primer punto
@@ -8504,6 +9119,30 @@ luego $V_q = G^z(\varphi)$.
 $\pi(V_q) = (\pi \circ X)(U_{q}) = D_q$ y es biyectiva porque tiene como
 inversa a la $Y$, lo que se deduce de que $V_q = G^z(\varphi)$.
 
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       ab744492-3f4c-464e-bb8d-1801809037c2
+:DRILL_LAST_INTERVAL: 4.0383
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:39]
+:END:
+Describe el diagrama de la demostración del lema técnico para el
+cambio de parámetros.
+
+******* Respuesta
+Para $q \in U$ tenemos la construcción $q \in U_q \subset U$ siguiente
+
+\[\begin{tikzcd}
+& V_q\dar{\pi} \\
+U_q \urar{X} & D_q \uar[bend right=90,swap]{\mathrm{id} \times \varphi}
+\end{tikzcd}\]
+
 ***** 2.2.2. Corolario: una superficie es localmente un grafo
 :PROPERTIES:
 :ID:       e4c73e71-b439-499e-b722-d67eee8ac318
@@ -8511,6 +9150,14 @@ inversa a la $Y$, lo que se deduce de que $V_q = G^z(\varphi)$.
 Para $p \in S$ superficie, existe un $p \in V \subset S$ entorno que es
 el grafo de una función diferenciable. Esto puede usarse para
 probar que ciertos conjuntos no son superficies.
+
+****** Proof
+Para $p \in S$, aplicamos el lema técnico al $q = X^{-1}(p)$ y tenemos
+$X(U_q)$ grafo.
+
+****** Ejemplo de uso: el cono no es superficie
+El semicono circular no es una superficie porque no es localmente
+el grafo de una función diferenciable en el punto $(0,0,0)$.
 
 ***** 2.2.4. Cambio de parámetros
 :PROPERTIES:
@@ -8536,6 +9183,11 @@ $B'$ donde $h$ es diferenciable y la diferenciabilidad es local,
 tenemos $h$ diferenciable. Sabemos $h$ homeomorfismo por [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][definición]]
 de parametrización y un argumento similar nos da $h^{-1}$ diferenciable,
 luego $h$ es difeomorfismo por definición.
+
+\[\begin{tikzcd}
+& V_q \subset W \dar{\pi} & \\
+U_q \urar{X} & D_q & B' \ular[swap]{Y}
+\end{tikzcd}\]
 
 **** 2.3. El plano tangente
 ***** 2.3.1. Plano invariante a cambios de parámetros
@@ -8592,17 +9244,17 @@ existe $\alpha \colon (-\varepsilon,\varepsilon) \to A$ con $\alpha(0) = p$ y $\
    de dos rectas.
 
 ****** Card: contraejemplo de espacio tangente no vectorial      :drill:
-SCHEDULED: <2018-05-11 Fri>
+SCHEDULED: <2018-06-12 Tue>
 :PROPERTIES:
 :ID:       3eac5216-6c28-4763-8cd7-856bdd12a1c6
-:DRILL_LAST_INTERVAL: 10.2068
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 32.238
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.667
 :DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:11]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:14]
 :END:
 Da un ejemplo donde $T_pA$ no es espacio vectorial.
 
@@ -8611,6 +9263,9 @@ La unión de dos rectas es su propio espacio tangente pero
 no es espacio vectorial.
 
 ***** 2.3.4. El espacio tangente es un plano tangente
+:PROPERTIES:
+:ID:       477f9b05-a00e-4c40-84b6-9dd312b90b86
+:END:
 Para $X \colon U \to S$ parametrización con $X(q) = p$,
 
 \[
@@ -8694,10 +9349,78 @@ $B_q = \left\{ X_u(q),X_v(q) \right\}$, donde $X(q) = p$.
 El *plano afín tangente* de $S$ en $p$ es $p + T_pS$. La *recta afín normal*
 de $S$ en $p$ es $p + (T_pS)^{\bot}$.
 
-***** TODO 2.3.7. Ejemplo: el plano tangente aproxima la superficie
-***** TODO 2.3.8. Ejemplo: el plano tangente es local
-***** TODO 2.3.9. Ejemplo: planos de superficies bajo difeomorfismos
-***** 2.3.11. Ejemplo: plano tangente de superficies implícitas
+***** 2.3.7. Propiedades del plano tangente
+
+ 1. $dX_q \colon \mathbb{R}^2 \to T_pS$ es un isomorfismo lineal.
+
+ 2. El plano afín es el que mejor aproxima a $S$ cerca de $p$,
+
+    \[
+    \lim_{h \to 0} \frac{\abs{X(q+h) - X(q) - dX_q(h)}}{\abs{h}} = 0.
+    \]
+
+***** 2.3.8. El plano tangente es local
+Si $S' \subseteq S$ entonces $T_pS' T_pS$.
+
+****** Proof
+Por definición $T_pS' \subseteq T_pS$, siendo ambos planos se tiene igualdad.
+
+***** 2.3.9. Planos bajo difeomorfismos
+$\phi \colon O \to O'$ difeomorfismo y $S \subseteq O$ superficie,
+
+\[
+T_{\phi(p)}\phi(S) = (d\phi)_p(T_pS)
+\]
+
+****** Proof                                                     :extra:
+Tenemos para $p$ con parametrización $X$, que $\phi \circ X$ es
+[[id:2e12aed9-1de2-4dcf-a729-8068eae76532][parametrización de]] $\phi(S)$, luego
+
+\[
+d\phi_p(T_pS) = d(\phi \circ X)_q(\mathbb{R}^2) = T_{\phi(p)}\phi(S).
+\]
+
+****** TODO Proof: apuntes
+
+***** 2.3.10 Ejemplo: plano tangente de un grafo
+Para $S = G^z(\varphi)$ tenemos el plano
+
+\[
+p + T_pS = \left\{ 
+(x,y,z) \mid 
+z = \varphi(q) + \varphi_x(q)(x-x_0) + \varphi_y(q)(y-y_0) 
+\right\}.
+\]
+
+****** Proof
+Se comprueba usando $(dX)_q(\mathbb{R}^2) = T_pS$.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-14 Mon>
+:PROPERTIES:
+:ID:       f3e06ea3-900a-4b48-9714-b58d50465f0f
+:DRILL_LAST_INTERVAL: 4.2323
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:36]
+:END:
+Ecuación del plano tangente a una superficie grafo $S = G^z(\varphi)$
+en $p$ con $X^{-1}(p) = q = (x_0,y_0)$.
+
+******* Plano
+
+\[
+p + T_pS = \left\{ 
+(x,y,z) \mid 
+z = \varphi(q) + \varphi_x(q)(x-x_0) + \varphi_y(q)(y-y_0) 
+\right\}.
+\]
+
+***** 2.3.11. Ejemplo: plano tangente de una superficie implícita
 Sea $S = f^{-1}(a) \neq \varnothing$ con $a \in \mathrm{VR}(f)$, $f \in {\cal C}^{\infty}(O)$. Entonces
 
 \[
@@ -8714,17 +9437,17 @@ Si $v \in T_pS$ gracias a $\alpha$, $f(\alpha(t)) = a$ constante y
 Luego $v \in (\nabla f)(p)^{\bot}$ y tenemos dos planos uno contenido en otro.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-11 Fri>
+SCHEDULED: <2018-06-04 Mon>
 :PROPERTIES:
 :ID:       db778307-cfe6-45e9-ae36-2becb553fe9a
-:DRILL_LAST_INTERVAL: 9.8649
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 23.7027
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:08]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:14]
 :END:
 Si $S = f^{-1}(a) \neq \varnothing$ es superficie implícita dada por un valor
 regular, ¿cuál es el plano $T_p(S)$?
@@ -8735,7 +9458,10 @@ regular, ¿cuál es el plano $T_p(S)$?
 T_p(S) = (\nabla f(p))^{\bot}
 \]
 
-***** TODO 2.3.14. Primera forma fundamental
+***** 2.3.14. Primera forma fundamental
+La restricción a $T_pS$ de $\pair{-,-}$ se llama *primera forma fundamental*.
+Es una métrica definida positiva.
+
 **** 2.4. Superficies y cálculo diferencial
 ***** 2.4.1. Aplicaciones diferenciables
 :PROPERTIES:
@@ -8753,17 +9479,17 @@ Dados $S,S'$ superficies, $O \subset \mathbb{R}^n, O' \subset \mathbb{R}^m$ abie
  * $f \in {\cal C}^{\infty}(O,S')$ si $i \circ f \in {\cal C}^{\infty}(O,\mathbb{R}^3)$, donde $i$ es la inclusión.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-11 Fri>
+SCHEDULED: <2018-05-30 Wed>
 :PROPERTIES:
 :ID:       d5eeb9fd-2b74-47d4-8a94-11d8d4216455
-:DRILL_LAST_INTERVAL: 10.2104
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 18.6975
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:08]
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:15]
 :END:
 Definir diferenciabilidad en los cuatro casos
 
@@ -8819,12 +9545,22 @@ Nótese que sabíamos por definición $X \in {\cal C}^{\infty}(U,\mathbb{R}^3)$.
 
 Esta diferenciabilidad lo es en el sentido no clásico.
 
+***** Ejercicios 11 y 12. Inclusión e identidad diferenciables
+$i \colon S \to \mathbb{R}^3$ e identidad $\mathrm{Id}\colon S \to S$ son diferenciables. La inclusión
+$i \colon S' \to S$ para una subsuperficie es diferenciable.
+
+****** Proof
+La inclusión es diferenciable por definición de [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][parametrización]].
+La identidad lo es por serlo la inclusión. Nótese que en el caso
+de una subsuperficie, una parametrización de $S'$ es diferenciable
+también después de la inclusión, que no es siquiera relevante.
+
 ***** 2.4.3. Caracterización de diferenciable por atlas
 Equivalen
 
  * $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$,
 
- * existe un atlas tal que $f \circ X_i \colon U_i \to \mathbb{R}^m$ es siempre diferenciable.
+ * existe un [[id:39a8bc2e-b4b9-4131-9fe4-7c1ed8fa3d87][atlas]] tal que $f \circ X_i \colon U_i \to \mathbb{R}^m$ es siempre diferenciable.
 
 ****** Proof
 ******* Primera implicación
@@ -8874,7 +9610,38 @@ diferenciable.
 
  5) regla de la cadena $f \in {\cal C}^{\infty}(S,S'), g\in {\cal C}^{\infty}(S',S'') \implies f \circ g\in {\cal C}^{\infty}(S,S'')$.
 
-****** TODO Proof
+****** Proof 1
+Dado $p$ con parametrización $X \colon U \to V$, consideramos
+
+\[
+f_{|V} = (f \circ X) \circ X^{-1},
+\]
+
+composición de diferenciable (clásica) y homeomorfismo.
+Así $f$ es continua en $p$ arbitrario.
+
+****** Proof 2
+Se usan las propiedades de diferenciabilidad. Por ejemplo,
+
+\[
+(f + g) \circ X = f \circ X + g \circ X
+\]
+
+es suma de diferenciables (en sentido clásico).
+
+****** Proof 3
+Tenemos $f_{|S} = f \circ (i \circ X)$ composición de diferenciables luego
+diferenciable por regla de la cadena clásica.
+
+****** TODO Proof 4
+****** TODO Proof 5
+En el caso $S'$ superficie y $S=O$, $S''=O''$ abiertos 
+[...]
+
+\[
+(i \circ g\circ f)_{|B} = (i \circ g \circ I_{V'}\circ f)_{|B} = (i\circ g \circ Y) \circ (\pi \circ f)_{|B}
+\]
+
 ***** 2.4.6. Diferencial de una aplicación diferenciable
 La diferencial de $f \colon S \to S'$ en $p \in S$ es la aplicación $(df)_p \colon T_pS \to T_{f(p)}S'$
 dada por
@@ -8883,21 +9650,29 @@ dada por
 (df)_p(v) := (f \circ \alpha)'(0)
 \]
 
-donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) = p$ y $\alpha'(0) = v$.
+donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) = p$ y $\alpha'(0) = v$. Esto da una
+buena definición independiente de $\alpha$.
 
-****** TODO Proof
+****** Proof: dominios
+Tenemos $f \circ \alpha \colon (-\varepsilon,\varepsilon) \to S'$ curva con $f(\alpha(0)) = f(p)$, luego
+$(f \circ \alpha)'(0) \in T_{f(p)}S'$. Nótese que una curva $\alpha$ así existe para
+cualquier $v \in T_pS$ por definición.
+
+****** Proof: buena definición
+
+
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-16 Wed>
 :PROPERTIES:
 :ID:       e8520435-9cb6-4b93-8d2f-bf62c5ae7a19
-:DRILL_LAST_INTERVAL: 3.5094
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 7.5187
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.333
-:DRILL_EASE: 2.36
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:17]
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:00]
 :END:
 Define la diferencial de $f \colon S \to S'$ en $p \in S$.
 
@@ -8910,7 +9685,7 @@ La aplicación $(df)_p \colon T_pS \to T_{f(p)}S'$ dada por
 
 donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) = p$ y $\alpha'(0) = v$.
 
-***** 2.4.15. Extremos locales 
+***** 2.4.15. Extremos locales
 Para $f \colon S \to \mathbb{R}$ sobre superficie o abierto, consideramos
 
  * *extremo local* a $p_0$ si hay un entorno abierto $p_0 \in V \subset S$
@@ -8934,17 +9709,17 @@ Una *orientación* es un campo normal, unitario y diferenciable.
 Una superficie es orientable si admite una orientación.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-05 Sat>
+SCHEDULED: <2018-05-21 Mon>
 :PROPERTIES:
 :ID:       5c3f56c5-cdb3-4d7c-b09a-4ba12c642c2f
-:DRILL_LAST_INTERVAL: 3.9668
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 12.6592
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.6
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:16]
+:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:00]
 :END:
 Superficie orientable.
 
@@ -9030,81 +9805,16 @@ Finalmente, si $q \in \alpha(\mathbb{R})$ entonces existe $s \in \mathbb{R}$ tal
 tenemos que $\phi(q) = \phi(\alpha(s)) = \alpha(-s) \in \alpha(\mathbb{R})$.
 
 **** Relación Tema 2
-*** Cards
-***** Norma del producto vectorial                                :drill:
-SCHEDULED: <2018-05-05 Sat>
-:PROPERTIES:
-:ID:       1fd12884-9b75-47ec-ac19-dcb6e51931da
-:DRILL_LAST_INTERVAL: 25.0
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:09]
-:END:
-Da la fórmula de $\left| u \times v \right|^2$ 
+**** Ejercicios apuntes 2
+***** Ejercicio 1
+Si fuera homeomorfa a abierto del plano, sería abierto, cerrado y
+acotado del plano luego vacío.
 
- * en función de $|u|,|v|,\left\langle u,v \right\rangle$,
+***** Ejercicio 2
+Se comprueban las propiedades de una [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][parametrización]].
 
- * y en función de $\mathrm{det}(u,v,-)$.
-
-****** Fórmula
-
-\[ |u \times v|^2 = 
-\mathrm{det}(u,v,u \times v) = 
-\left| u \right|^2|v|^2 - \left\langle u,v \right\rangle^2 
-\]
-
-***** Difeomorfismo local que no es global                        :drill:
-SCHEDULED: <2018-05-07 Mon>
-:PROPERTIES:
-:ID:       2125fe6e-2af6-4d4d-a641-7e1e9759f42e
-:DRILL_LAST_INTERVAL: 27.1381
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.667
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:13]
-:END:
-¿Cómo podemos construir un difeomorfismo local en cada punto que no
-sea difeomorfismo global?
-
-****** Construirlo
-Podríamos tener una función con Jacobiano con determinante no nulo
-en cada punto pero que no fuera siquiera inyectiva.
-
-\[
-f(x,y) = (e^x \sin(y), e^x \cos(y))
-\]
-
-Desde [[id:1395d142-5681-4763-bd06-a7f307c486a5][aquí]]. Se tiene isomorfismo por $\det Df(x,y)=e^{2x}$.
-
-***** Teorema de la función inversa                               :drill:
-SCHEDULED: <2018-05-02 Wed>
-:PROPERTIES:
-:ID:       63d019ff-edf9-4e64-aed4-9a0823572061
-:DRILL_LAST_INTERVAL: 22.0926
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.333
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-10 Tue 22:08]
-:END:
-Enuncia el teorema de la función inversa para una aplicación entre
-abiertos $\phi \colon O \to O'$ diferenciable.
-
-/Hint/: hay que dar una condición sobre $(d\phi)_p$.
-
-****** Enunciado
-Una aplicación entre abiertos $\phi \colon O \to O'$ diferenciable tal que para $p \in O$
-se tiene $(d\phi)_p \colon \mathbb{R}^n \to \mathbb{R}^n$ isomorfismo lineal, es difeomorfismo local en $p$.
-
+***** TODO Ejercicio 8
+***** TODO Ejercicio 9
 ** Modelos avanzados de computación
 Serafín Morales
 smc@decsai.ugr.es
@@ -9123,6 +9833,21 @@ máquina. Se pueden agrupar varias transiciones usando el símbolo *.
 
 *** Tema 2: Otros modelos de cálculo. Tesis de Church-Turing
 *** Tema 3: Clases de complejidad
+**** Problemas de ejemplo
+***** Problema del flujo máximo (P)
+Usando *Ford-Fulkenson* con elección del camino mínimo, que
+está en P.
+
+***** Problema de colorear un grafo (NP)
+***** Problema de las parejas
+Se reduce al problema del flujo máximo.
+**** Complejidad
+Una máquina de Turing es *de complejidad* $f(n)$ si para cualquier
+entrada de longitud $n$, acepta o rechaza en menos de $f(n)$ pasos.
+
+Un lenguaje es de complejidad $f(n)$ si existe una máquina de Turing
+de complejidad $f(n)$ que lo acepta.
+
 **** L: espacio logarítmico
 **** NL:
 **** P: polinómico
@@ -9141,12 +9866,12 @@ máquina. Se pueden agrupar varias transiciones usando el símbolo *.
 **** Sistemas interactivos de demostración
 
 *** Tema 4: NP-Completitud
-**** Problema de decisión
+**** 4.1. Reducción
+***** Problema de decisión
 Un *problema de decisión* consta de $Y_{\Pi} \subseteq D_{\Pi}$, conjunto de
 ejemplos positivos contenido en el conjunto de instancias
 del problema.
 
-**** Reducción
 ***** Reducción: en términos de lenguajes
 $L_1 \propto L_2$ si existe una máquina de Turing en espacio
 logarítmmico calculando $R \colon A^{\ast} \to B^{\ast}$ tal que
@@ -9163,13 +9888,22 @@ logarítmico calculando $f \colon D_{\Pi_1} \to D_{\Pi_2}$ tal que
 x \in Y_{\Pi_1} \iff f(x) \in Y_{\Pi_2}.
 \]
 
-***** Composición de reducciones
-Si $L_1 \propto L_2$ y $L_2 \propto L_3$, entonces $L_1 \propto L_3$.
-
 ***** Equivalencia
 Si $L_1 \propto L_2$, y $L_2 \propto L_1$, se dicen *equivalentes*.
 
-**** Complitud
+***** Composición de reducciones
+Si $L_1 \propto L_2$ y $L_2 \propto L_3$, entonces $L_1 \propto L_3$.
+
+****** Proof
+La composición no es trivial. Si la primera máquina calcula
+una salida y la usa la segunda, el espacio intermedio no será
+logarítmico.
+
+Lo que hacemos es que cada vez que $M_2$ necesita una casilla
+de la entrada, se simula $M_1$ hasta esa casilla y se envía a
+$M_2$.
+
+**** 4.2. Complitud
 ***** Lenguaje completo para una clase
 Un $L \in C$ es *completo* para $C$ si $\forall L' \in C\colon L' \propto L$.
 
@@ -9181,6 +9915,72 @@ El problema de la consistencia de cláusulas en lógica proposicional
 SAT es claramente no-determinista probando asignaciones. Dado
 $L \in NP$, decidido por $M$.
 
+**** 4.3. Teorema de Cook
+SAT es NP-completo
+
+***** TODO Proof
+**** 4.4. Variantes de SAT
+***** Exactamente 3-SAT literales distintos
+SAT cuando toda cláusula tiene exactamente 3 literales distintos es
+NP-completo.
+
+***** 2-SAT es NL
+
+****** Cláusulas consistentes
+
+****** Cláusulas de Horn
+
+***** MAX2SAT es NP-completo
+
+****** Proof
+Reducimos 3-SAT a MAX2SAT.
+
+***** 3-SAT restringido es NP-completo
+***** NAESAT es completo
+
+**** 4.5. Problemas de grafos y conjuntos
+***** Isomorfismo de grafos
+Determinar si existe un isomorfismo entre dos grafos.
+
+Ni está en P ni es NP-completo. Se considera la clase GI-completo.
+
+***** ACTRI es NP-completo
+***** 3-SET
+Sea $|X| = 3q$ y un conjunto dado de tripletas. Encontrar tripletas
+entre las dadas que cubran el conjunto y sean disjuntas.
+
+***** Problema del clique máximo
+***** Cubrimiento por vértices (CV)
+Los $V_c$ cubren el grafo si toda arista tiene un extremo en ellos.
+Buscar un recubrimiento de tamaño menor o igual que $K$.
+
+***** Conjunto independiente (CI)
+***** Elementos del grafo
+***** Problema del circuito hamiltoniano (CH)
+***** Problema de la partición
+**** 4.6. Problemas numéricos
+**** 4.7. Otros problemas
+***** Problema de la mochila
+***** Conjunto mínimo de tests (CMT)
+**** 4.10. Clase CoNP
+***** Reducibilidad de Turing
+***** Problemas NP-difíciles
+***** Clase CoNP
+***** Clase FNP
+**** 4.8. Caracterización de problemas en NP
+***** Caracterización por verificador/certificado de NP
+***** Caracterización por relación de CoNP
+***** PRIMES is in NP
+***** Caracterización por relación de NP
+***** Caracterización de FNP
+***** Clase FP
+***** Clase FNPT
+***** FNP-completos
+***** NP = P ssi FNP = FP
+**** 4.9. Técnicas de reducción de problemas
+***** Reemplazamiento local
+***** Reemplazamiento local con refuerzo
+**** 4.11. Problemas de funciones FNP
 *** Tema 5: Complejidad de problemas de optimización aproximados
 *** Tema 6: Complejidad en espacio. Jerarquía polinómica
 *** Tema 7: Complejidad en modelos de computación paralela
@@ -10141,15 +10941,6 @@ y, con ella, la componente del $A^n$ en la que estamos trabajando. El programa
 es por tanto equivalente al programa con cinta múltiple.
 
 **** Relación 5
-***** TODO Ejercicio 4
-#+begin_statement
-Demostrar que $NP \neq ESPACIO(n)$.
-#+end_statement
-
-Hay una reducción polinómica $\pi_1 \propto \pi_2$ teniendo
-que $\pi_1 \notin ESPACIO(n)$ y $\pi_2 \in ESPACIO(n)$.
-
-**** Práctica 3
 ***** Ejercicio 1
 #+begin_statement
 a) Un grafo dirigido se dice que es acíclico si no tiene ciclos.
@@ -10305,6 +11096,13 @@ está acotado también por una suma de polinomios, que vuelve a ser
 un polinomio. Ejecutando ambos secuencialmente y aceptando si ambos
 aceptan (para la intersección) o si al menos uno de ellos acepta
 (para la unión), tenemos lo pedido.
+***** TODO Ejercicio 4
+#+begin_statement
+Demostrar que $NP \neq ESPACIO(n)$.
+#+end_statement
+
+Hay una reducción polinómica $\pi_1 \propto \pi_2$ teniendo
+que $\pi_1 \notin ESPACIO(n)$ y $\pi_2 \in ESPACIO(n)$.
 
 ***** Ejercicio 5
 #+begin_statement
@@ -10344,6 +11142,35 @@ izquierda.
 6. Para $q > 1$ tenemos $\lim_{n \to \infty} \log(n)^q / \log(n) = \infty$, luego no es cerrada
    a izquierda. Por otro lado, $\log(n^q) = q\log(n)$, luego es cerrada a
    derecha.
+**** Práctica 4
+***** Ejercicio 1.g
+Demostrar que el siguiente problema es NP-completo.
+
+*Cubrimiento exacto por conjuntos de 4 elementos*. Dado un conjunto finito $X$
+con $|X| = 4q$, siendo $q$ entero y una familia $C$ de subconjuntos de 4 elementos
+de $X$, ¿existe una subfamilia $C' \subseteq C$ tal que todo elemento de $X$ pertenece a
+uno y sólo uno de los subconjuntos de $C$?
+
+***** Ejercicio 1.h
+***** Ejercicio 1.k
+#+begin_statement
+Demostrar que el siguiente problema es NP-completo.
+
+*Partición de conjuntos*. Dada una familia $C$ de subconjuntos de un conjunto
+finito $S$ ¿existe una partición de $S$ en dos partes $S_1$ y $S_2$ tales que no hay un
+elemento $A \in C$que esté contenido en $S_1$ o esté contenido en $S_2$ (o equivalentemente
+todo $A \in C$ debe de tener intersección no vacía con $S_1$ y con $S_2$?
+#+end_statement
+
+
+
+***** Ejercicio 2
+**** Relación 6
+***** Ejercicio 1
+b. Reducir 3-SET a este problema.
+c. Detectar hamiltonianos se reduce directamente.
+d. Detectar hamiltonianos se reduce poniendo un ciclo en el primer argumento.
+e. Reducimos el problema de la partición a él.
 
 ** Metaheurísticas
 *** Detalles de la asignatura
@@ -10387,6 +11214,11 @@ base teórica establecida.
 *** Tema 4. Algoritmos meméticos
 *** Tema 5. Metaheurísticas basadas en trayectorias
 *** Tema 6. Metaheurísticas basadas en adaptación social
+**** Basados en adaptación social: particle swarm optimization
+¿Cómo se mueven las partículas por el espacio de búsqueda?
+
+**** Colonias de hormigas
+
 *** Tema 7. Aspectos avanzados en metaheurísticas
 **** 7.1. Intensificación y diversificación
 
@@ -10468,6 +11300,9 @@ eliminan.
 **** 7.3. Múltiples soluciones. Problemas multimodales
 **** 7.4. Comentarios finales
 *** Tema 8. Metaheurísticas paralelas
+*** Práctica alternativa
+El usar focos de luz es un ejemplo de Estimergia.
+
 ** Ecuaciones diferenciales I
 *** 1. Métodos de integración
 **** 1.1. Método de variables separadas
@@ -47441,8 +48276,48 @@ A *lattice* is a poset with finite limits and colimits.
 *** II. Simple typesa
 
 * Papers
+** TODO Realizability as the connection between computable and constructive mathematics - Andrej Bauer
 ** TODO The realizability approach to computable analysis and topology - Andrej Bauer
 ** TODO First steps in synthetic computability theory - Andrej Bauer
+
+*** 2.1. Type I computability
+In Type I computability, computations are performed by partial
+recursive functions on natural numbers.
+
+*** 2.2. Type II computability
+In Type II computability, computations are performed by computable
+partial functions on the Baire space $\mathbb{B} = \mathbb{N}^{\mathbb{N}}$.
+
+**** Card                                                          :drill:
+SCHEDULED: <2018-05-13 Sun>
+:PROPERTIES:
+:ID:       2bf3de9d-49f5-4393-bf32-24c4fabba4e0
+:DRILL_LAST_INTERVAL: 3.2671
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:52]
+:END:
+Difference beeween Type I computability and Type II computability.
+
+***** Description
+
+ - *Type I*
+   Computations are performed by partial recursive functions on natural
+   numbers.
+
+ - *Type II*
+   Computations are performed by Turing machines writing infinite outputs
+   on a write-only tape.  The usual domain is the Baire space $\mathbb{B}= \mathbb{N}^{\mathbb{N}}$.
+
+
+*** 5. Examples from computable mathematics
+Computable mathematics is the realizability interpretation of
+constructive mathematics.
+
 ** Dependent types at work - Ana Bove, Peter Dybjer
 *** 1. What are dependent types?
 *** 2. Simply Typed Functional Programming in Agda
@@ -53067,7 +53942,7 @@ naturals := fix (compose (cons 0) (map succ))
 #+BEGIN_SRC haskell
 
 #+END_SRC
-** Seemengly impossible functional programs - Escardó
+** Seemingly impossible functional programs - Escardó
 #+BEGIN_SRC haskell :results output
 data Bit = I | O deriving (Eq)
 type Nats = Integer
@@ -55763,9 +56638,11 @@ SCHEDULED: <2018-03-19 Mon>
 :DRILL_LAST_QUALITY: 3
 :DRILL_LAST_REVIEWED: [2018-03-15 Thu 23:20]
 :END:
-Give the three constructive notions of compactness.
+Give the three constructive notions of compactness for the
+reals in Homotopy Type theory.
 
 ***** Three notions
+
  * *Metrically compact:* Cauchy complete and totally bounded.
  * *Bolzano-Weierstrass:* every sequence has a convergent subsequence.
  * *Heine-Borel:* every open cover has a finite subcover.
@@ -55833,17 +56710,17 @@ An inclusion $i : A \subseteq X$ with a continuous map $r : X \to A$
 such that $r \circ i = \mathsf{id}$.
 
 **** Compact space (by open covers)                                :drill:
-SCHEDULED: <2018-03-03 Sat>
+SCHEDULED: <2018-07-13 Fri>
 :PROPERTIES:
 :ID:       9944a022-526f-42bc-92b9-16b8b5519958
-:DRILL_LAST_INTERVAL: 24.0088
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 65.0035
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_AVERAGE_QUALITY: 4.25
 :DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-07 Wed 22:16]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 15:15]
 :END:
 Give the classical definition of compact space by open covers.
 
@@ -56023,17 +56900,17 @@ integration by substitution rule.
 
 *** Basic
 **** Lipschitz continuous                                          :drill:
-SCHEDULED: <2018-02-25 Sun>
+SCHEDULED: <2018-06-06 Wed>
 :PROPERTIES:
 :ID:       921ecf4c-ac54-4c0f-a35e-6644cbe4cb02
-:DRILL_LAST_INTERVAL: 11.0911
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 27.9612
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.667
 :DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:48]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 15:13]
 :END:
 A function $f$ between metric spaces is Lipschitz continuous when...
 
@@ -56087,17 +56964,16 @@ Definition of hyperbolic cosine
 
 *** Measure theory
 **** Measurable space                                              :drill:
-SCHEDULED: <2018-03-05 Mon>
 :PROPERTIES:
 :ID:       87ac46cb-8da5-4d58-ab9c-75c766932e94
-:DRILL_LAST_INTERVAL: 25.4305
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-02-08 Thu 20:56]
+:DRILL_LAST_QUALITY: 2
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 15:16]
 :END:
 Definition of *measurable space*.
 
@@ -56111,17 +56987,16 @@ on the set, that is, a set of subsets with
  * all countable intersections.
 
 **** Measure                                                       :drill:
-SCHEDULED: <2018-02-25 Sun>
 :PROPERTIES:
 :ID:       385a9a40-8890-4928-b5c5-2c938dec604e
-:DRILL_LAST_INTERVAL: 11.0745
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.8
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.66
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:49]
+:DRILL_LAST_QUALITY: 2
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 15:15]
 :END:
 Definition of *measure* $\mu$.
 
@@ -56449,17 +57324,16 @@ the path to the nearest leaf.
 Has O(log n) in worst case for searching, inserting and deleting.
 *** Array sorting
 **** Quicksort                                                     :drill:
-SCHEDULED: <2018-02-27 Tue>
 :PROPERTIES:
 :ID:       ead02bcf-2b4c-412b-97da-485b069eb45a
-:DRILL_LAST_INTERVAL: 12.8526
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.4
+:DRILL_LAST_INTERVAL: 0.0
+:DRILL_REPEATS_SINCE_FAIL: 1
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.9
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-02-14 Wed 21:50]
+:DRILL_LAST_QUALITY: 2
+:DRILL_LAST_REVIEWED: [2018-05-09 Wed 15:15]
 :END:
 Complexity of quicksort.
 
