@@ -1,6 +1,6 @@
 #+TITLE: Math
 #+DESCRIPTION: My math notes and exercises
-#+TODO: TODO WIP | CHECK DONE
+#+TODO: TODO CHECK | DONE
 #+SETUPFILE: setup/ejerciciomodelos.setup
 
 ** Header                                                           :ignore:
@@ -3230,7 +3230,7 @@ el cambio de variables
 
  * $dx = r^{N-1}\,drd\theta$
 
-**** WIP Lineales
+**** TODO Lineales
 ***** Forma autoadjunta de una ecuación lineal
 Una ecuación lineal de orden 2 para $[x_0,x_1]$ es de la forma
 
@@ -7367,7 +7367,34 @@ César Rosales - crosales@ugr.es
 Lunes, Martes y Miércoles de 12 a 14.
 http://www.ugr.es/~crosales/cys1718.html
 
-*** Preliminares
+*** Preliminares ([[~/pdf/Rosales_Preliminares%20a%20curvas%20y%20superficies.pdf][PDF]])
+**** 0. Extra
+***** Biyección continua de compacto a Hausdorff es homeomorfismo
+Sea $f \colon A \to B$ biyección continua. Si $A$ es compacto y $B$ es Hausdorff,
+$f$ es homeomorfismo.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       d1143d39-749d-4560-8789-7ec31fa25f47
+:DRILL_LAST_INTERVAL: 3.0963
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-12 Sat 12:09]
+:END:
+Biyección continua de [compacto a Hausdorff||... a ...] es [homeomorfismo].
+
+****** Proof
+Tomamos $g = f^{-1}$; sea $U \subset A$ un cerrado. Por ser cerrado de un compacto,
+será compacto y $f(U)$ será compacto por continuidad. Por ser $B$ Hausdorff,
+un compacto suyo será cerrado. Así $g^{-1}(U) = f(U)$ es cerrado y tenemos
+continuidad.
+
 **** 1. Geometría afín euclídea
 ***** Producto escalar
 ***** Orientación
@@ -7495,6 +7522,7 @@ Lista los movimientos rígidos de $\mathbb{R}^2$.
  5. Simetría deslizante. (Reflexión deslizante)
 
 ***** Movimientos rígidos de R3
+Movimientos rígidos de $\mathbb{R}^3$.
 
 |-----------------------+--------------------+--------------+----------|
 | Tipo de movimiento    | Isometría          | Puntos fijos | Carácter |
@@ -7509,18 +7537,18 @@ Lista los movimientos rígidos de $\mathbb{R}^2$.
 |-----------------------+--------------------+--------------+----------|
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-12 Sat>
+SCHEDULED: <2018-06-08 Fri>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide2cloze
 :ID:       e3a04df3-1d89-49c7-a0e1-77559f0989f1
-:DRILL_LAST_INTERVAL: 11.1525
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 26.8497
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:02]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-12 Sat 12:39]
 :END:
 
 |-------------------------+----------------------+--------------+----------|
@@ -7901,7 +7929,7 @@ isomorfismo lineal lo es en un entorno, lo es globalmente.
 
 ****** TODO Proof 2
 
-*** Tema 1. Curvas
+*** Tema 1. Curvas ([[~/pdf/Rosales_Curvas.pdf][PDF]])
 **** 1.1. Curvas regulares y longitud de arco
 ***** 1.1.1. Definiciones
 ****** Curva, traza y curva regular
@@ -7909,14 +7937,54 @@ isomorfismo lineal lo es en un entorno, lo es globalmente.
 :ID:       7fbe4138-469a-4d17-a2d8-a04434cf8489
 :END:
 Una *curva* es $\alpha\colon I \to \mathbb{R}^n$, con $\alpha \in {\cal C}^{\infty}$ para $I$ intervalo abierto.
-Llamamos *traza* a su imagen. Consideramos *curvas regulares* cuya
-velocidad $\alpha'$ es no nula. Toda curva regular tiene rectas tangentes
-en todo punto,
+Llamamos *traza* a su imagen. Es *curva regular* si su velocidad $\alpha'$
+es no nula. Toda curva regular tiene rectas tangentes en todo punto,
 
 \[
 \alpha(t) + L(\alpha'(t)) =
 \left\{ \alpha(t) + \lambda \alpha'(t) \mid
 \lambda \in \mathbb{R} \right\}.
+\]
+
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-16 Wed>
+:PROPERTIES:
+:ID:       68445172-0dfd-4e02-a7ee-8306eb327ce9
+:DRILL_LAST_INTERVAL: 4.2879
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-12 Sat 16:48]
+:END:
+Definición de curva regular.
+
+******** Definición
+$\alpha \colon I \to \mathbb{R}^n$ con $\alpha \in {\cal C}^{\infty}$, $I$ intervalo abierto es curva.
+Es regular si $|\alpha'(t)| \neq 0$ para cualquier $t \in I$.
+
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:ID:       38f704fa-7ee0-4aac-89e8-93153ed48971
+:DRILL_LAST_INTERVAL: 3.385
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-12 Sat 16:47]
+:END:
+Sea $\alpha$ curva regular, da la ecuación de su recta tangente
+en un instante $t$.
+
+******** Respuesta
+
+\[
+\alpha(t) + L(\alpha'(t))
 \]
 
 ****** Embebimiento
@@ -7967,15 +8035,15 @@ al $(0,0)$, por el que ya había pasado antes, lo que hace que no podamos
 tener un homeomorfismo.
 
 ****** Ejemplos de curvas regulares
-Se comprueba que son regulares.
+Son regulares,
 
- * Rectas $\alpha(t) = p + tv$.
+ * rectas $\alpha(t) = p + tv$.
 
- * Circunferencias $\alpha(t) = p + r(\cos(t),\sin(t))$.
+ * circunferencias $\alpha(t) = p + r(\cos(t),\sin(t))$.
 
- * Grafos diferenciables $\alpha(t) = (t,\varphi(t))$.
+ * grafos diferenciables $\alpha(t) = (t,\varphi(t))$.
 
- * Hélices circulares de eje vertical $\alpha(t) = (x_0 + r\cos(t), y_0 + r\sin(t), qt)$.
+ * hélices circulares de eje vertical $\alpha(t) = (x_0 + r\cos(t), y_0 + r\sin(t), qt)$.
 
 ***** 1.1.2. Reparametrización de curvas
 ****** Reparametrización
@@ -8018,10 +8086,22 @@ L_a^b(\alpha) = \sup\left\{
 ******* Las rectas tienen longitud mínima
 Por definición, usando la partición trivial $\left\{ a,b \right\}$.
 
-******* TODO La longitud de una curva continua puede ser infinita
-# Ejercicio 4
+******* La longitud de una curva continua puede ser infinita
+La longitud de una curva /continua/ puede ser infinita, pero
+si es una curva ${\cal C}^1$, [[id:6c8461d6-7792-4a55-b2eb-9e3e719d1f21][tiene longitud finita]]. Un ejemplo de curva
+continua con longitud infinita es
+
+\[
+\alpha(t) = \left\{\begin{array}{ll}
+(t,\cos(\pi/t)), & \mbox{ si } t \neq 0, \\
+0, & \mbox{ si } t = 0.
+\end{array}\right.
+\]
 
 ****** 1.12. Longitud en compactos
+:PROPERTIES:
+:ID:       6c8461d6-7792-4a55-b2eb-9e3e719d1f21
+:END:
 Para $\alpha \colon [a,b] \subseteq I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, tenemos
 
 \[
@@ -8062,17 +8142,17 @@ x_i(t_{k+1}) - x_i(t_k) = x'_i(c_{ik})(t_{k+1}-t_k), \quad \forall i = 1,\dots,n
 
 Definimos $f(s_1,\dots,s_n) = \sqrt{x_1'(s_1)^2 + \dots + x_n'(s_n)^2}$
 ******* Cálculo de la longitud de una curva                     :drill:
-SCHEDULED: <2018-05-12 Sat>
+SCHEDULED: <2018-06-08 Fri>
 :PROPERTIES:
 :ID:       3fb16a48-0357-42f8-98c2-c74d4562bc49
-:DRILL_LAST_INTERVAL: 10.8372
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 27.4631
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.6
+:DRILL_AVERAGE_QUALITY: 3.667
 :DRILL_EASE: 2.6
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:14]
+:DRILL_LAST_REVIEWED: [2018-05-12 Sat 12:39]
 :END:
 Para $\alpha\colon I \to \mathbb{R}^n$ diferenciable ${\cal C}^1$, calcula la longitud entre
 $[a,b]$ como una integral.
@@ -8094,13 +8174,54 @@ Para $\alpha\colon I \to \mathbb{R}^n$ curva con $[a,b] \subseteq I$, tenemos
 Es decir, la longitud se preserva por [[id:92d75a96-b872-4ea6-ae5a-b83d975e2b37][movimientos rígidos]] y
 reparametrizaciones.
 
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-16 Wed>
+:PROPERTIES:
+:ID:       102ec980-bf93-4cac-be57-c3b34b2bdd68
+:DRILL_LAST_INTERVAL: 3.9507
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-12 Sat 16:48]
+:END:
+¿La composición de qué morfismos preserva la longitud de una
+curva?
+
+******** Clase de morfismos
+
+ * Movimientos rígidos, $L_a^b(\phi \circ \alpha) = L_a^b(\alpha)$.
+
+ * Reparametrizaciones, $L_c^d(\beta) = L_a^b(\alpha)$.
+
+******* TODO Proof
 ***** 1.1.4. Curvas parametrizadas por el arco
 ****** Definición 1.16. Curva parametrizada por el arco
 :PROPERTIES:
 :ID:       cb6ea57b-b063-4959-9a36-44a2662b6fce
 :END:
-$\alpha\colon I \to \mathbb{R}^n$ [[id:7fbe4138-469a-4d17-a2d8-a04434cf8489][curva]] es *parametrizada por el arco* (p.p.a) si $|\alpha'(t)| = 1$.
+ $\alpha\colon I \to \mathbb{R}^n$ [[id:7fbe4138-469a-4d17-a2d8-a04434cf8489][curva]] es *parametrizada por el arco* (p.p.a) si $|\alpha'(t)| = 1$.
 Las p.p.a. son regulares.
+
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-17 Thu>
+:PROPERTIES:
+:ID:       976be4e8-a312-4644-bb1b-5b699363607c
+:DRILL_LAST_INTERVAL: 4.7972
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-12 Sat 16:48]
+:END:
+Definición de curva p.p.a.
+
+******** Definición
+$\alpha\colon I \to \mathbb{R}^n$ [[id:7fbe4138-469a-4d17-a2d8-a04434cf8489][curva]] es *parametrizada por el arco* (p.p.a) si $|\alpha'(t)| = 1$.
 
 ****** Proposición 1.17. Lema de reparametrización
 :PROPERTIES:
@@ -8124,16 +8245,10 @@ Para un $a \in I$ fijo, definimos $\psi \colon I \to \mathbb{R}$ por
 \psi(t) = L_a^t(\alpha) = \int_a^t |\alpha'(s)|\,ds.
 \]
 
-Siendo $\alpha \in {\cal C}^{\infty}$, aplicamos el Teorema fundamental del cálculo
-para tener $\psi'(t) = |\alpha'(t)|$. Por regularidad $\alpha'(t)\neq 0$, luego $\psi \in {\cal C}^{\infty}$
-y es estrictamente creciente e inyectiva. Así, $J = \psi(I)$ es un
-intervalo y $\psi \colon I \to J$ es biyectiva. 
-
-Ahora $\psi$ es difeomorfismo por ser biyectiva y tenerse $\psi'(t) \neq 0$,
-lo que nos da $\phi =\psi^{-1}$ diferenciable con la regla de derivación
-de la inversa.
-
-Tenemos que $\phi$ es el difeomorfismo creciente buscado por tenerse
+Como $\alpha \in {\cal C}^{\infty}$, por Teorema fundamental del cálculo $\psi'(t) = |\alpha'(t)| > 0$
+por regularidad. Queda $\psi \in {\cal C}^{\infty}$ estrictamente creciente e inyectiva.
+Así, $J = \psi(I)$ intervalo y $\psi \colon I \to J$ biyectiva. Por Teorema de la
+función inversa, es difeomorfismo y llamamos $\phi =\psi^{-1}$. Ahora,
 
 \[
 \phi'(s) = \frac{1}{|\alpha'(\phi(s))|} > 0
@@ -8244,6 +8359,9 @@ a p.p.a. $\beta = \alpha\circ\phi$ y definimos
 Nótese que una reparametrización así [[id:1e330295-fe16-4262-a88b-af5a84c66fb8][existe]] siempre.
 
 ****** Ecuaciones para curvas regulares en el plano
+:PROPERTIES:
+:ID:       fc237c54-3cf6-446e-9c62-1e256a3684ff
+:END:
 Para $\alpha \colon I \to \mathbb{R}^2$ curva regular se tiene el siguiente diedro de Frenet
 y la siguiente curvatura
 
@@ -8268,7 +8386,16 @@ k(t) = \frac{\left\langle T'(t),N(t) \right\rangle}{|\alpha'(t)|}.
 Como corolario hemos demostrado además que $T_{\alpha},N_{\alpha},k_{\alpha}$ no
 dependen de la reparametrización elegida.
 
-******* TODO Proof
+******* Proof
+Reparametrizamos a curva p.p.a. $\beta = \alpha \circ \phi$ con un difeomorfismo
+creciente y usamos que
+
+\[
+\abs{\phi'(s)}\abs{\alpha'(\phi(s))} = 1
+\]
+
+para comprobar las igualdades.
+
 ******* Card: diedro                                            :drill:
 SCHEDULED: <2018-05-23 Wed>
 :PROPERTIES:
@@ -8292,17 +8419,17 @@ N_{\alpha}(t) = \frac{J(\alpha'(t))}{|\alpha'(t)|}
 \]
 
 ******* Card: curvatura                                         :drill:
-SCHEDULED: <2018-05-12 Sat>
+SCHEDULED: <2018-06-09 Sat>
 :PROPERTIES:
 :ID:       054cec15-5c54-4d1f-84f7-56cb9df2ede5
-:DRILL_LAST_INTERVAL: 10.7281
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 10
+:DRILL_LAST_INTERVAL: 28.3628
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 11
 :DRILL_FAILURE_COUNT: 5
-:DRILL_AVERAGE_QUALITY: 2.2
-:DRILL_EASE: 2.52
+:DRILL_AVERAGE_QUALITY: 2.273
+:DRILL_EASE: 2.38
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-01 Tue 12:15]
+:DRILL_LAST_REVIEWED: [2018-05-12 Sat 12:38]
 :END:
 Dar dos fórmulas de la curvatura de una curva regular en
 el plano, $\alpha(t)\colon I \to\mathbb{R}^2$.
@@ -8337,7 +8464,7 @@ T'_{\alpha}(t) = |\alpha'(t)| k_{\alpha}(t) N_{\alpha}(t) \\
 N'_{\alpha}(t) = -|\alpha'(t)| k_{\alpha}(t) T_{\alpha}(t) 
 \end{array} \right.\]
 
-****** Propiedades de la curvatura
+****** Propiedades de la curvatura en el plano
 La curvatura es
 
  1. *Local*, para $\alpha \colon I \to \mathbb{R}^2$ y $\beta \colon J \to \mathbb{R}^2$, si $\alpha = \beta$ en
@@ -8352,7 +8479,37 @@ La curvatura es
     y $k_{\alpha\circ\phi} = k_{\alpha} \circ \phi$ si $\phi$ es creciente o $k_{\alpha \circ \phi} = - k_{\alpha} \circ \phi$ si
     $\phi$ es decreciente.
 
-******* TODO Proof
+
+******* Proof 1
+Tenemos una [[id:fc237c54-3cf6-446e-9c62-1e256a3684ff][fórmula de la curvatura]] que sólo depende de las
+derivadas que son locales.
+
+******* Proof 2
+Tomamos $\phi = Ax + b$ para alguna $A \in {\cal O}(2)$, que tendrá $|A| = \pm 1$
+dependiendo de si es directa o inversa y calculamos.
+
+******* Proof 3
+Calculando la curvatura nos queda que depende del signo de $\phi'(t)^3$
+y la fórmula buscada.
+
+******* Card: curvatura en el plano bajo reparametrizaciones    :drill:
+¿Cómo varía la curvatura en el plano bajo reparametrizaciones?
+Calcular $k_{\alpha \circ \phi}$.
+
+******** Answer
+
+ 1. Compone con reparametrizaciones crecientes, $k_{\alpha \circ \phi} = k_{\alpha} \circ \phi$.
+ 2. Opuesta de componer con decrecientes, $k_{\alpha \circ \phi} = - k_{\alpha} \circ \phi$.
+
+******* Card: curvatura en el plano bajo movimientos rígidos    :drill:
+¿Cómo varía la curvatura en el plano bajo movimientos rígidos?
+Calcular $k_{\phi \circ \alpha}$.
+
+******** Answer
+
+ 1. Invariante a movimientos rígidos directos, $k_{\phi \circ \alpha} = k_{\alpha}$.
+ 2. Opuesta bajo movimientos rígidos inversos, $k_{\phi \circ \alpha} = -k_{\alpha}$.
+
 **** 1.3. Geometría de curvas regulares en el espacio
 ***** 1.3.1. Triedro de Frenet, curvatura y torsión de curvas p.p.a.
 ****** Curvatura de una curva p.p.a.
@@ -8459,17 +8616,17 @@ B_{\alpha}(t) = \frac{\alpha'(t) \times \alpha''(t)}{|\alpha'(t) \times \alpha''
 \]
 
 ******* Card: curvatura                                         :drill:
-SCHEDULED: <2018-05-12 Sat>
+SCHEDULED: <2018-05-15 Tue>
 :PROPERTIES:
 :ID:       920516ed-24b4-4506-ae4d-41d505077bae
-:DRILL_LAST_INTERVAL: 3.918
+:DRILL_LAST_INTERVAL: 3.001
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 1
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 2
 :DRILL_AVERAGE_QUALITY: 1.5
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-08 Tue 20:59]
+:DRILL_LAST_REVIEWED: [2018-05-12 Sat 12:40]
 :END:
 Curvatura de una curva regular en el espacio.
 
@@ -9464,6 +9621,7 @@ Es una métrica definida positiva.
 
 **** 2.4. Superficies y cálculo diferencial
 ***** 2.4.1. Aplicaciones diferenciables
+****** 2.4.1. Aplicaciones diferenciables
 :PROPERTIES:
 :ID:       230b03e1-ea5a-487e-9b27-f497edd8b400
 :END:
@@ -9478,7 +9636,7 @@ Dados $S,S'$ superficies, $O \subset \mathbb{R}^n, O' \subset \mathbb{R}^m$ abie
 
  * $f \in {\cal C}^{\infty}(O,S')$ si $i \circ f \in {\cal C}^{\infty}(O,\mathbb{R}^3)$, donde $i$ es la inclusión.
 
-****** Card                                                      :drill:
+******* Card                                                    :drill:
 SCHEDULED: <2018-05-30 Wed>
 :PROPERTIES:
 :ID:       d5eeb9fd-2b74-47d4-8a94-11d8d4216455
@@ -9501,7 +9659,7 @@ Definir diferenciabilidad en los cuatro casos
 
  * $f \in {\cal C}^{\infty}(O,S')$ 
 
-******* Definición
+******** Definición
 
  * $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$ si $f \circ X \in {\cal C}^{\infty}(U,\mathbb{R}^m)$ para cualquier parametrización.
 
@@ -9511,10 +9669,10 @@ Definir diferenciabilidad en los cuatro casos
 
  * $f \in {\cal C}^{\infty}(O,S')$ si $i \circ f \in {\cal C}^{\infty}(O,\mathbb{R}^3)$, donde $i$ es la inclusión.
 
-***** 2.4.2. Diferenciabilidad de parametrizaciones
+****** 2.4.2. Diferenciabilidad de parametrizaciones
 Para $X\colon U \to S$ parametrización local, $X \in {\cal C}^{\infty}(U,XU)$ y $X^{-1} \in {\cal C}^{\infty}(XU,U)$.
 
-****** Proof
+******* Proof
 $X \colon U \to V = XU$ es diferenciable por serlo $i \circ X$ por
 definición de [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][parametrización]].
 
@@ -9524,7 +9682,7 @@ $V$ es superficie [[id:798b32ea-aeca-4f78-9265-53ce523e0630][por ser abierto]] n
 diferenciable, pero $j \circ (X^{-1} \circ Y)$ es una composición de
 inclusión y de [[id:3b537594-9c48-4d88-b979-cb841d93f776][cambio de parámetros]].
 
-****** Cards                                                     :drill:
+******* Cards                                                   :drill:
 SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       4cf91a32-d1d8-43a8-929c-873dbe42351f
@@ -9539,35 +9697,35 @@ SCHEDULED: <2018-05-13 Sun>
 :END:
 Diferenciabilidad (no clásica) de las parametrizaciones locales y sus inversas.
 
-******* Diferenciabilidad
+******** Diferenciabilidad
 Para $X$ parametrización local, $X \in {\cal C}^{\infty}(U,S)$ y $X^{-1} \in {\cal C}^{\infty}(XU,U)$.
 Nótese que sabíamos por definición $X \in {\cal C}^{\infty}(U,\mathbb{R}^3)$.
 
 Esta diferenciabilidad lo es en el sentido no clásico.
 
-***** Ejercicios 11 y 12. Inclusión e identidad diferenciables
+****** Ejercicios 11 y 12. Inclusión e identidad diferenciables
 $i \colon S \to \mathbb{R}^3$ e identidad $\mathrm{Id}\colon S \to S$ son diferenciables. La inclusión
 $i \colon S' \to S$ para una subsuperficie es diferenciable.
 
-****** Proof
+******* Proof
 La inclusión es diferenciable por definición de [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][parametrización]].
 La identidad lo es por serlo la inclusión. Nótese que en el caso
 de una subsuperficie, una parametrización de $S'$ es diferenciable
 también después de la inclusión, que no es siquiera relevante.
 
-***** 2.4.3. Caracterización de diferenciable por atlas
+****** 2.4.3. Caracterización de diferenciable por atlas
 Equivalen
 
  * $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$,
 
  * existe un [[id:39a8bc2e-b4b9-4131-9fe4-7c1ed8fa3d87][atlas]] tal que $f \circ X_i \colon U_i \to \mathbb{R}^m$ es siempre diferenciable.
 
-****** Proof
-******* Primera implicación
+******* Proof
+******** Primera implicación
 Existe un atlas por [[id:061e98dc-b077-4e5d-a7fd-f114f6908ed5][definición de superficie]] y allí $f \circ X_i$ es
 diferenciable por [[id:230b03e1-ea5a-487e-9b27-f497edd8b400][definición de diferenciabilidad]] de superficies.
 
-******* Segunda implicación
+******** Segunda implicación
 Dada $Y \colon U' \to S$ parametrización con $q' \in U'$, en $Y(q') = p$ debe existir
 una parametrización local del atlas $X \colon U \to S$, con $p \in U$ y $f \circ X$ diferenciable.
 Tomamos $W = X(U) \cap Y(U')$ y tenemos
@@ -9579,7 +9737,7 @@ Tomamos $W = X(U) \cap Y(U')$ y tenemos
 diferenciable por regla de la cadena clásica por ser composición de
 difernciable y [[id:3b537594-9c48-4d88-b979-cb841d93f776][cambio de parámetros]].
 
-****** Card                                                      :drill:
+******* Card                                                    :drill:
 SCHEDULED: <2018-05-13 Sun>
 :PROPERTIES:
 :ID:       688ed1e0-d2a2-4639-a681-1ce01f696780
@@ -9594,11 +9752,11 @@ SCHEDULED: <2018-05-13 Sun>
 :END:
 Da una caracterización de $f \in {\cal C}^{\infty}(S,\mathbb{R}^m)$ usando atlas.
 
-******* Caracterización
+******** Caracterización
 Existe un atlas tal que $f \circ X_i \colon U_i \to \mathbb{R}^m$ es siempre
 diferenciable.
 
-***** 2.4.4. Propiedades de aplicaciones diferenciables
+****** 2.4.4. Propiedades de aplicaciones diferenciables
 
  1) Toda diferenciable es continua.
 
@@ -9610,7 +9768,7 @@ diferenciable.
 
  5) regla de la cadena $f \in {\cal C}^{\infty}(S,S'), g\in {\cal C}^{\infty}(S',S'') \implies f \circ g\in {\cal C}^{\infty}(S,S'')$.
 
-****** Proof 1
+******* Proof 1
 Dado $p$ con parametrización $X \colon U \to V$, consideramos
 
 \[
@@ -9620,7 +9778,7 @@ f_{|V} = (f \circ X) \circ X^{-1},
 composición de diferenciable (clásica) y homeomorfismo.
 Así $f$ es continua en $p$ arbitrario.
 
-****** Proof 2
+******* Proof 2
 Se usan las propiedades de diferenciabilidad. Por ejemplo,
 
 \[
@@ -9629,20 +9787,20 @@ Se usan las propiedades de diferenciabilidad. Por ejemplo,
 
 es suma de diferenciables (en sentido clásico).
 
-****** Proof 3
+******* Proof 3
 Tenemos $f_{|S} = f \circ (i \circ X)$ composición de diferenciables luego
 diferenciable por regla de la cadena clásica.
 
-****** TODO Proof 4
-****** TODO Proof 5
+******* TODO Proof 4
+******* TODO Proof 5
 En el caso $S'$ superficie y $S=O$, $S''=O''$ abiertos 
 [...]
 
 \[
 (i \circ g\circ f)_{|B} = (i \circ g \circ I_{V'}\circ f)_{|B} = (i\circ g \circ Y) \circ (\pi \circ f)_{|B}
 \]
-
-***** 2.4.6. Diferencial de una aplicación diferenciable
+***** 2.4.2. Diferencial de una aplicación diferenciable
+****** 2.4.6. Diferencial de una aplicación diferenciable
 La diferencial de $f \colon S \to S'$ en $p \in S$ es la aplicación $(df)_p \colon T_pS \to T_{f(p)}S'$
 dada por
 
@@ -9651,17 +9809,15 @@ dada por
 \]
 
 donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) = p$ y $\alpha'(0) = v$. Esto da una
-buena definición independiente de $\alpha$.
+aplicación lineal independiente de $\alpha$.
 
-****** Proof: dominios
+******* Proof: dominios
 Tenemos $f \circ \alpha \colon (-\varepsilon,\varepsilon) \to S'$ curva con $f(\alpha(0)) = f(p)$, luego
 $(f \circ \alpha)'(0) \in T_{f(p)}S'$. Nótese que una curva $\alpha$ así existe para
 cualquier $v \in T_pS$ por definición.
 
-****** Proof: buena definición
-
-
-****** Card                                                      :drill:
+******* TODO Proof: buena definición
+******* Card                                                    :drill:
 SCHEDULED: <2018-05-16 Wed>
 :PROPERTIES:
 :ID:       e8520435-9cb6-4b93-8d2f-bf62c5ae7a19
@@ -9676,7 +9832,7 @@ SCHEDULED: <2018-05-16 Wed>
 :END:
 Define la diferencial de $f \colon S \to S'$ en $p \in S$.
 
-******* Definición
+******** Definición
 La aplicación $(df)_p \colon T_pS \to T_{f(p)}S'$ dada por
 
 \[
@@ -9685,15 +9841,153 @@ La aplicación $(df)_p \colon T_pS \to T_{f(p)}S'$ dada por
 
 donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) = p$ y $\alpha'(0) = v$.
 
-***** 2.4.15. Extremos locales
+****** TODO 2.4.9. Diferencial de constante es nula
+****** TODO 2.4.10. Diferencial de inclusión es inclusión
+****** TODO 2.4.11. Diferencial de identidad es identidad
+****** TODO 2.4.12. Diferencial de inclusión de superficies es identidad
+****** 2.4.13. Propiedades de la diferencial
+La diferencial cumple
+
+ 1. Para $f,g \in {\cal C}^{\infty}(S,\mathbb{R}^m)$, $\varphi \in {\cal C}^{\infty}(S)$,
+
+    1. $d(f+g)_p(v) = df_p(v) + dg_p(v)$,
+
+    2. $d(\varphi f)_p(v) = (d\varphi_p(v)) f(p) + \varphi(p) (df_p(v))$,
+
+    3. $d\pair{f,g}_p(v) = \pair{(df)_p(v),g(p)} + \pair{f(p),(dg)_p(v)}$,
+
+    4. $d(f \times g)_p(v) = df_p(v) \times g(p) + f(p) \times dg_p(v)$
+
+ 2. Para $p \in S \subset O$ con $f \in {\cal C}^{\infty}(O,\mathbb{R}^m)$, se tiene $(df_{|S})_p = (df_p)_{|T_pS}$.
+
+ 3. Para $f \colon S \to S'$ con $V \subset S$, se tiene $(df_{|V})_p = df_p$.
+
+ 4. $d(g \circ f)_p = dg_{f(p)} \circ df_p$.
+
+******* TODO Proof
+
+******* Card: diferencial del producto vectorial                :drill:
+SCHEDULED: <2018-05-16 Wed>
+:PROPERTIES:
+:ID:       797e93ca-a758-4751-9ce4-a7d532280cc9
+:DRILL_LAST_INTERVAL: 5.2541
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 23:07]
+:END:
+Calcular $d(f \times g)_p(v)$.
+
+******** Resultado
+
+\[
+df_p(v) \times g(p) + f(p) \times dg_p(v)
+\]
+
+****** 2.4.14. Diferencial nula es aplicación constante
+Si $f \colon S \to S'$ cumple $df_p = 0$ para cada $p \in S$, entonces $f$ es constante.
+
+******* TODO Proof
+****** 2.4.15. Extremos locales
 Para $f \colon S \to \mathbb{R}$ sobre superficie o abierto, consideramos
 
- * *extremo local* a $p_0$ si hay un entorno abierto $p_0 \in V \subset S$
-   con $f(p) \geq f(p_0)$;
+ * *mínimo local* a $p_0$ si hay un entorno abierto $p_0 \in V \subset S$
+   con $f(p) \geq f(p_0)$; análogamente *máximo local*;
 
  * *punto crítico* a $p_0$ si $f$ es diferenciable y $(df)_{p_0} = 0$.
 
-***** TODO 2.4.17. Puntos críticos en extremos locales
+****** 2.4.17. Puntos críticos en extremos locales
+Si $f \in {\cal C}^{\infty}(S)$ alcanza en $p_0 \in S$ extremo local, entonces $\nabla f(p) = 0$,
+siendo punto crítico.
+
+******* TODO Proof
+
+***** 2.4.3. Difeomorfismos. Teorema de la función inversa
+****** Difeomorfismo
+$f \colon S \to S'$ entre superficies es *difeomorfismo* si es
+diferenciable, biyectiva y con inversa diferenciable.
+
+****** TODO Difeomorfismo es relación de equivalencia
+****** TODO Difeomorfismo sobre superficie produce difeomorfismos
+****** TODO Parametrizaciones son difeomorfismos
+Así las superficies son subconjuntos localmente difeomorfos a
+abiertos del plano.
+
+****** Difeomorfismo local
+$f \colon S \to S'$ es difeomorfismo local en $p \in S$ si hay entornos abiertos
+$p \in V \subset S$ y $f(p) \in V' \subset S'$ tales que $f_{|V}\colon V \to V'$ es difeomorfismo.
+Es un *difeomorfismo local* si lo es en cada punto.
+
+****** Difeomorfismo local es abierta
+Si $f \colon S \to S'$ es difeomorfismo local, es abierto.
+
+******* TODO Proof
+
+****** Difeomorfismo es difeomorfismo local biyectivo
+$f \colon S \to S'$ difeomorfismo ssi es difeomorfismo local biyectivo.
+
+******* TODO Proof
+
+****** Teorema de la función inversa
+$f \colon S \to S'$ diferenciable, si $(df)_p \colon T_pS \to T_{f(p)}S'$ es isomorfismo,
+$f$ es difeomorfismo local en $p$.
+
+******* TODO Proof
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:ID:       e2083ec1-dfff-4974-a684-a2611c6f5c70
+:DRILL_LAST_INTERVAL: 4.3357
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 16:15]
+:END:
+Enuncia el teorema de la función inversa entre superficies.
+
+******** Enunciado
+Para $f \colon S \to S'$ diferenciable, si $(df)_p \colon T_pS \to T_{f(p)}S'$ es
+isomorfismo, entonces $f$ es difeomorfismo local en $p$.
+
+******** Nota extra
+Nótese que si es difeomorfismo local, debe tener diferencial
+isomorfismo.
+
+****** TODO Corolarios al teorema de la función inversa
+****** Superficie contenida en superficie es abierto relativo
+Si $S' \subset S$, entonces $S'$ es abierto de $S$.
+
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:ID:       35427325-1210-4286-a7be-9d5ff9231027
+:DRILL_LAST_INTERVAL: 3.976
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 23:08]
+:END:
+Si tenemos $S' \subset S$, ¿qué información topológica nos da?
+
+******** Respuesta
+Sabemos $S'$ abierto relativo de $S$.
+
+******* TODO Proof
+****** Caracterización de parametrización
+Si $X \colon U \to \mathbb{R}^3$ con $X(U) \subset S$ es diferenciable, inyectiva, y con
+diferencial inyectiva $(dX)_q \colon \mathbb{R}^2 \to \mathbb{R}^3$, es una parametrización
+local de $S$.
+
+******* TODO Proof
 
 **** 2.5. Superficies orientables
 ***** 2.5.1. Campo de vectores
@@ -9707,6 +10001,25 @@ Un *campo de vectores* es un $F \colon S \to \mathbb{R}^3$. Es
 ***** 2.5.2. Orientación
 Una *orientación* es un campo normal, unitario y diferenciable.
 Una superficie es orientable si admite una orientación.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:ID:       564f702b-78ce-48bf-9a67-02e0a4b51a16
+:DRILL_LAST_INTERVAL: 4.2259
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 16:14]
+:END:
+Orientación de una superficie.
+
+******* Definición
+Un campo de vectores $F \colon S \to \mathbb{R}^3$ normal, unitario y
+diferenciable.
 
 ****** Card                                                      :drill:
 SCHEDULED: <2018-05-21 Mon>
@@ -9726,7 +10039,64 @@ Superficie orientable.
 ******* Definición
 Admite un campo de vectores normal, unitario y diferenciable.
 
-***** TODO 2.5.4. Una superficie orientable tiene dos orientaciones
+***** 2.5.4. Una superficie orientable tiene dos orientaciones
+Si $N_1,N_2 \colon S \to \mathbb{R}^3$ son dos orientaciones de $S$ conexa, $N_1 = \pm N_2$.
+Una superficie conexa y orientable tiene dos orientaciones.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-15 Tue>
+:PROPERTIES:
+:ID:       d172d5aa-810b-43b9-81d2-02a8a3071acb
+:DRILL_LAST_INTERVAL: 4.0949
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-11 Fri 16:14]
+:END:
+Tenemos dos orientaciones de una superficie conexa, 
+
+\[
+N_1,N_2 \colon S \to \mathbb{R}^3.
+\]
+
+¿qué sabemos?
+
+******* Respuesta
+Sabemos que son iguales o opuestas, $N_1 = \pm N_2$.
+
+****** TODO Proof
+Por conexión.
+
+***** TODO 2.5.5. Cinta de Möbius no es orientable                :extra:
+***** TODO 2.5.6. Orientabilidad es local
+***** TODO 2.5.7. Orientabilidad es invariante diferenciable
+***** 2.5.8. Orientabilidad de entornos coordenados
+Si $X \colon U \to S$ es parametrización, $X(U)$ es orientable con
+$N_X = n_X \circ X^{-1}$, donde
+
+\[
+n_X(q) = \frac{X_u(q) \times X_v(q)}{\abs{X_u(q) \times X_v(q)}}.
+\]
+
+****** Corolario: toda superficie es orientable localmente
+****** Corolario: parametrización global da orientabilidad
+****** TODO Corolario: los grafos son orientables
+***** 2.5.9. Orientabilidad de superficies implícitas
+Para $a \in VR(f)$, $f \in {\cal C}^{\infty}(O)$, si $S = f^{-1}(a) \neq \varnothing$, tenemos
+
+\[
+N(p) = \frac{\nabla f(p)}{\abs{\nabla f(p)}}
+\]
+
+orientación.
+
+****** Proof
+Es un campo unitario que sabemos que es normal por tenerse
+$T_pS = (\nabla f(p))^{\bot}$. La aplicación es diferenciable porque
+$f \in {\cal C}^{\infty}(O)$.
 
 *** Tema 3. Curvatura de superficies
 *** Tema 4. Geodésicas
@@ -9804,7 +10174,14 @@ simetría de eje paralelo a $N_{\alpha}(0)$ pasando por $p_0$.
 Finalmente, si $q \in \alpha(\mathbb{R})$ entonces existe $s \in \mathbb{R}$ tal que $\alpha(s) = q$ y
 tenemos que $\phi(q) = \phi(\alpha(s)) = \alpha(-s) \in \alpha(\mathbb{R})$.
 
-**** Relación Tema 2
+**** Relación Tema 2 ([[~/pdf/Rosales_Relaci%C3%B3n%20de%20ejercicios%202.pdf][PDF]])
+***** TODO Ejercicio 1
+***** TODO Ejercicio 2
+***** TODO Ejercicio 3
+***** DONE Ejercicio 5
+***** DONE Ejercicio 6
+***** DONE Ejercicio 7
+***** DONE Ejercicio 11
 **** Ejercicios apuntes 2
 ***** Ejercicio 1
 Si fuera homeomorfa a abierto del plano, sería abierto, cerrado y
@@ -41392,7 +41769,7 @@ g \rar[hook]{i}\drar[swap]{f} & G/[G,G]\dar[dashed]{\widetilde f} \\
   & h & .
 \end{tikzcd}\]
 
-******* WIP Rings to abelian groups
+******* TODO Rings to abelian groups
 A tensor Z-algebra over the abelian group.
 
 ******* Topological spaces to sets
@@ -48276,6 +48653,38 @@ A *lattice* is a poset with finite limits and colimits.
 *** II. Simple typesa
 
 * Papers
+** Intuitionistic mathematics and realizability in the physical world - Andrej Bauer ([[~/pdf/Bauer_2013_Intuitionistic%20mathematics%20and%20realizability%20in%20the%20physical%20world.pdf][PDF]])
+*** 1. Intuitionistic understanding of truth
+- BHK interpretation.
+- Double negation translation.
+
+*** 2. Synthetic differential geometry
+
+**** Non-standard analysis
+Difference with classical Robinson's non-standard analysis: synthetic
+differential geometry has nilpotent infinitesimals
+
+***** Card                                                        :drill:
+In which fundamental sense are Non-Standard Analysis and Synthetic
+Differential Geometry different?
+
+****** Answer
+ - Non-Standard Analysis is classical.
+ - Synthetic Differential Geometry has nilpotents.
+
+**** Principle of micro-affinity
+For any $f \colon \mathbb{R} \to \mathbb{R}$, there exists a unique $f'(x)$ such that
+
+\[
+f(x + dx) = f(x) + f'(x)dx
+\]
+
+for all *infinitesimals* ($dx$ such that $dx^2 = 0$).
+
+**** Law of cancellation
+If $a\,dx = b\, dx$ for all infinitesimals, then $a = b$.
+
+
 ** TODO Realizability as the connection between computable and constructive mathematics - Andrej Bauer
 ** TODO The realizability approach to computable analysis and topology - Andrej Bauer
 ** TODO First steps in synthetic computability theory - Andrej Bauer
@@ -56801,6 +57210,15 @@ P(A\mid B) = \frac{P(B \mid A)P(A)}{P(B)}
 \]
 
 ** Algebra
+*** Rank-nullity theorem                                            :drill:
+Given $V$ finite dimensional and $T \colon V\to W$ linear,
+
+**** Statement
+
+\[
+\mathrm{dim}(\mathrm{im}(T))+ \mathrm{dim}(\mathrm{ker}(T)) = \mathrm{dim}(V)
+\]
+
 *** Exponentiation of versors                                       :drill:
 SCHEDULED: <2018-04-05 Thu>
 :PROPERTIES:
