@@ -252,13 +252,40 @@ x' + \nabla G(x) = 0.
 \]
 **** 7. Generalización de la teoría cualitativa
 ***** 7.1. Teorema de Arzelá-Ascoli
+*** Temas de teoría
+
+ 1. Resultados del trabajo.
+ 2. Acotación con funciones guía.
+ 3. Lema de Gronwall.
+ 4. Unicidad de Peano.
+
 *** Prerrequisitos
 **** Prehaces y dominios
 Conociendo el concepto de prehaz, parece que tiene sentido escribir
 siempre o casi siempre las funciones con su dominio, $f|_D$.
 
 **** TODO Teorema de la función inversa
-**** TODO Resolución de ecuaciones lineales
+**** Resolución de ecuaciones lineales no homogéneas
+Dada una ecuación lineal $x' = xa(t) + b(t)$, la resolvemos con
+
+\[
+x = e^{A(t)} \left( k + \int_{t_0}^t b(s)e^{-A(s)}\,ds \right)
+\]
+
+donde $A$ es una primitiva de $a$. La constante $k$ ajustará
+la condición inicial
+
+***** Card                                                        :drill:
+Resolver la ecuación diferencial $x' = xa(t) + b(t)$.
+
+****** Answer
+
+\[
+x = e^{A(t)} \left( k + \int_{t_0}^t b(s)e^{-A(s)}\,ds \right)
+\]
+
+donde $A$ es una primitiva de $a$.
+
 **** Jacobiana
 La aplicación lineal jacobiana en un punto, $J_F(p)$, cumple que
 
@@ -626,7 +653,7 @@ Llamamos
  * $f$, al campo de vectores;
  * $D$, al dominio de la ecuación.
 
-Una solución $\varphi \colon I \to \mathbb{R}$ de una EDO cumple
+Dado $I$ intervalo abierto, una solución $\varphi \colon I \to \mathbb{R}$ de una EDO cumple
 
  * $(t,\varphi(t)) \in D$, se queda en el dominio;
  * $\varphi \in {\cal C}^1(I,\mathbb{R}^d)$, es derivable;
@@ -641,16 +668,22 @@ x(t_0) &= x_0
 \end{aligned}\right\}
 \]
 
-donde $(t_0,x_0) \in D$. Y una solución debe cumplir además la
-condición inicial y tener $t_0 \in I$.
+donde $(t_0,x_0) \in D$. Y una solución debe cumplir además
 
-**** 1.2. Unicidad y soluciones maximales
+ * $\varphi(t_0) = x_0$ con $t_0 \in I$.
+
+**** 1.2. Prolongación de soluciones
+***** Solución prolongable y maximal
+La solución de un PVI $\varphi \colon I \to \mathbb{R}^d$ es *prolongable* si existe
+$\phi \colon J \to \mathbb{R}^d$ solución tal que $I \subset J$ y al restringir, $\phi_{|I} = \varphi$.
+Una solución es *maximal* si no es prolongable.
+
 ***** Concatenación de soluciones
 :PROPERTIES:
 :ID:       078ac783-76bf-4445-ad46-3f91ea9d1ef6
 :END:
 Sean $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi_2 \colon I_2 \to \mathbb{R}^d$ soluciones de $x' = f(t,x)$.
-Si existe $\tau \in I_1 \cap I_2$ tal que $\varphi_1(\tau) = \varphi_2(\tau)$, entonces
+Si $\varphi_1(\tau) = \varphi_2(\tau)$, entonces
 
 \[\psi = \left\{\begin{aligned}
 \varphi_1(t) &\ \text{ si } t \leq \tau \\
@@ -668,6 +701,20 @@ Cumple
  * que coinciden porque ambas deben ser soluciones y en
    particular soluciones en el punto $\tau$, lo que hace a $\psi$ solución.
 
+***** Garantías de maximalidad
+Una solución $\varphi \colon (\alpha,\omega) \to \mathbb{R}^d$ es maximal cuando
+
+ * $(\alpha,\omega) = (-\infty,\infty)$, *dominio infinito*;
+
+ * $\omega < +\infty$ con $\lim_{t \to \omega} \|\varphi(t)\| = +\infty$, *explota en tiempo finito*;
+
+ * $\omega < +\infty$ con $\lim_{t \to \omega}\varphi(t) = \xi \in \mathbb{R}^d$, pero $(\omega,\xi) \notin D$, *toca la frontera*.
+
+ * $\omega < +\infty$ con $\not\exists \lim_{t \to \omega}\varphi(t)$, *ningún punto la prolonga*.
+
+Análogamente con casos para $\alpha > -\infty$.
+
+**** 1.3. Unicidad y soluciones maximales
 ***** Unicidad
 Dado un problema de valores iniciales,
 
@@ -677,18 +724,93 @@ x(t_0) &= x_0
 \end{aligned}\right\}
 \]
 
-definimos
+hay
 
- * *unicidad local*, cuando para todo par de soluciones
-   $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi_2 \colon I_2 \to \mathbb{R}^d$ existe un intervalo $t_0 \in J$ abierto
-   donde $\varphi_1, \varphi_2$ son iguales;
+ * *Unicidad local* si, para todo par de soluciones, existe un
+   intervalo abierto conteniendo al instante inicial donde son
+   iguales.
 
- * *unicidad en un intervalo* $I$, cuando todo par de soluciones
+ * *Unicidad en un intervalo* $J$, cuando todo par de soluciones
    $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi_2 \colon I_2 \to \mathbb{R}^d$ son iguales en $J \cap I_1 \cap I_2$;
+
+ * *unicidad en el futuro* es unicidad en $[t_0,+\infty)$,
+
+ * *unicidad en el pasado* es unicidad en $(-\infty,t_0]$,
 
  * *unicidad global*, unicidad en todo $\mathbb{R}$.
 
-***** Unicidad global desde unicidad local
+****** Card: unicidad local                                      :drill:
+Dado un problema de valores iniciales,
+
+\[\left.\begin{aligned}
+x' &= f(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+
+define *unicidad local*.
+
+******* Answer
+Para todo par de soluciones existe un intervalo abierto conteniendo al
+instante inicial donde son iguales.
+
+******* Otra formulación
+Para todo par de soluciones $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi_2 \colon I_2 \to \mathbb{R}^d$ existe
+un intervalo *abierto* conteniendo al instante inicial, $t_0 \in J = \mathring{J}$,
+donde $\varphi_1, \varphi_2$ son iguales.
+
+****** Card: unicidad en un intervalo                            :drill:
+Dado un problema de valores iniciales,
+
+\[\left.\begin{aligned}
+x' &= f(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+
+define *unicidad en un intervalo* $J$.
+
+******* Answer
+Todo par de soluciones coincide en los puntos de $J$ en los que están
+definidas ambas.
+
+******* Otra formulación
+Cuando todo par de soluciones $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi_2 \colon I_2 \to \mathbb{R}^d$ son iguales
+en $J \cap I_1 \cap I_2$.
+
+****** Card: unicidad en el futuro                               :drill:
+Dado un problema de valores iniciales,
+
+\[\left.\begin{aligned}
+x' &= f(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+
+define *unicidad en el futuro*.
+
+******* Answer
+Unicidad en el intervalo $[t_0,+\infty)$.
+
+****** Card: unicidad global                                     :drill:
+Dado un problema de valores iniciales,
+
+\[\left.\begin{aligned}
+x' &= f(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+
+define *unicidad global*.
+
+******* Answer
+Unicidad en el intervalo $\mathbb{R}^d$.
+
+******* Otra formulación
+Todo par de soluciones coincide en los puntos en los que están
+definidas ambas.
+
+***** Lema 1. Unicidad global desde unicidad local
 :PROPERTIES:
 :ID:       0b968d38-72b0-41e4-bdbd-a19fd33ecd59
 :END:
@@ -711,7 +833,7 @@ a $I_1 \cap I_2$ porque dado $t_0 \in H \cap I_1 \cap I_2$, tomamos el problema 
 el valor $x_0 = \varphi_1(t_0) = \varphi_2(t_0)$ y existirá un intervalo $t_0 \in J \subset H$
 por unicidad local.
 
-***** Unicidad global da solución maximal
+***** Lema 2. Unicidad global da única solución maximal
 Si el problema de valores iniciales
 
 \[\left.\begin{aligned}
@@ -721,22 +843,32 @@ x(t_0) &= x_0
 \]
 
 verifica unicidad global, tiene una única solución maximal.
+# Si no existen soluciones, la solución vacía es maximal, entiendo.
 
 ****** Proof
-Sea $\Sigma(P)$ el conjunto de soluciones, tomamos
+Sea $\Sigma(P)$ el conjunto de soluciones, tomamos el conjunto
+siguiente que es intervalo por unión de intervalos con
+un punto común $(t_0,x_0),
 
 \[
 J = \bigcup_{\varphi|_I \in \Sigma(P)} I
 \]
 
-y definimos $\psi|_{J}(t)$ como el valor de una solución cualquiera en $t$,
-que por unicidad global deberá ser siempre igual. Esta función es
-solución se queda en el dominio, es derivable y es solución
-trivialmente; es maximal por definición y cualquier otra maximal
-debería estar en el mismo intervalo y por unicidad global, ser
-exactamente la misma.
+y definimos $\psi|_{J}(t)$ como el valor de una solución cualquiera en
+$t$, que por unicidad global deberá ser siempre igual. Esta función es
+solución, se queda en el dominio, es derivable por ser localmente
+(usando que es abierto) una solución y es solución trivialmente; es
+maximal por definición y cualquier otra maximal debería estar en el
+mismo intervalo y por unicidad global, ser exactamente la misma.
 
-***** Condiciones para la unicidad local en variables separadas
+****** Card                                                      :drill:
+Si existen soluciones, ¿qué implica la unicidad global de solución
+respecto de las maximales?
+
+******* Answer
+Unicidad global implica que hay una única solución maximal.
+
+***** Unicidad local en ecuaciones de variables separadas
 Dadas $a|_{J_1}$ y $g|_{J_{2}}$ continuas con $t_0 \in J_1$ y $x_0 \in J_2$, intervalos.
 
 \[\left.\begin{aligned}
@@ -797,7 +929,18 @@ Consideraremos los dos casos, $g(x_0) = 0$ y $g(x_0) \neq 0$.
    ambas derivadas laterales son $0$. Esta solución es distinta de
    $x_0$ usando $a(t_0) \neq 0$ (?).
 
-**** 1.3. Teorema de unicidad de Peano
+****** Card                                                      :drill:
+¿Qué sabemos sobre existencia y unicidad en EDOs de variables separadas?
+
+******* Answer
+Para $x' = a(t)g(x)$.
+
+ 1) Existen soluciones.
+ 2) Si $g(x_0) \neq 0$ hay unicidad local.
+ 3) Si $g(x_0) = 0$, $a(t_0) \neq 0$, y existe $G(x_0) = 0$ con $G'(x) = 1/g(x)$,
+    no hay unicidad local.
+
+**** 1.4. Teorema de unicidad de Peano
 :PROPERTIES:
 :ID:       cc790c02-b622-4fc1-8bb1-ac3c05e73009
 :END:
@@ -806,7 +949,7 @@ Para un PVI con $d=1$, es decir $f \colon \mathbb{R}\times \mathbb{R} \to \mathb
  1) si $\forall t \geq t_0$, $f(t,-)$ es decreciente, hay unicidad en el futuro;
  2) si $\forall t \leq t_0$, $f(t,-)$ es creciente, hay unicidad en el pasado.
 
-***** Demostración
+***** Proof
 En el caso de $f(t,x)$ decreciente, con dos soluciones $\varphi_1\colon I_1 \to \mathbb{R}$
 y $\varphi_2 \colon I_2 \to \mathbb{R}$, definimos $h(t) = (\varphi_1(t)-\varphi_2(t))^2$ con derivada
 
@@ -819,199 +962,7 @@ h'(t) &=
 que la hace decreciente. Pero $h(t) \geq 0$ en general y $h(t_0) = 0$, 
 por lo que debe ser constantemente $0$. El segundo caso es análogo.
 
-**** TODO 1.4. Problema dual en el tiempo
-
-**** 1.5. Ecuación integral de Volterra
-***** Operador integral de Volterra
-Dada una Ecuación de Volterra, fijamos el operador de Volterra,
-que tiene las soluciones como puntos fijos
-
-\[
-V(y)(t) = x_0 + \int_{t_0}^t f(s,y(s))\;ds.
-\]
-
-Lo consideramos $V \colon E \to E$ donde 
-
-\[
-E = \overline{B}(x_0,b) \subset {\cal C}([t_0-a,t_0+a];\mathbb{R}^d)
-\]
-
-es un espacio métrico completo con la norma infinito.
-
-***** Ecuación integral asociada
-Cada PVI
-
-\[\left.\begin{aligned}
-x' &= f(t,x) \\
-x(t_0) &= x_0
-\end{aligned}\right\}
-\]
-
-tiene asociada la ecuación integral de Volterra
-
-\[
-x(t) = x_0 + \int_{t_0}^t f(s,x(s))\;ds.
-\]
-
-La ecuación de Volterra es útil porque sus soluciones pueden
-verse como puntos fijos de un espacio de soluciones.
-
-***** Solución de la ecuación de Volterra
-Una función $\varphi \colon I \to \mathbb{R}$ es solución de la ecuación si
-
- 1. $t_0 \in I$;
- 2. $(t,\varphi(t)) \in D$, en el dominio;
- 3. $\varphi$, es continua en $I$;
- 4. $\varphi(t) = x_0 + \int^t_{t_0} f(s,\varphi(s))\; ds$, cumple la ecuación.
-
-***** Lema de soluciones de Volterra
-Sea $\varphi \colon I \to \mathbb{R}^d$ para $I$ intervalo abierto. Equivalen
-
- 1. $\varphi$ es solución de un PVI;
- 2. $\varphi$ es solución de la ecuación de Volterra asociada.
- 
-****** Demostración
-1 a 2. Tenemos trivialmente las dos primeras condiciones. La
-continudad surge de la derivabilidad y por regla de Barrow,
-$\varphi(t) = \varphi(t_0) + \int_{t_0}^t f(s,\varphi(s))\;ds$.
-
-2 a 1. Tenemos trivialmente las dos primeras condiciones y el
-punto de evaluación. Por Teorema Fundamental del Cálculo, $\varphi$
-es derivable con precisamente la derivada que la hace solución.
-
-**** 1.6. Algunos resultados útiles de análisis
-***** Lema del primer instante
-:PROPERTIES:
-:ID:       a439476b-8c77-4994-a736-9062ee91e7d0
-:END:
-Para $f \in {\cal C}(I,\mathbb{R})$ con $f(t_0) > 0$, se da una de las alternativas.
-
- * $\forall t \geq t_0\colon f(t) > 0$.
-
- * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
-
-****** TODO Proof
-***** Teorema del valor medio real
-Dada $f \colon \mathbb{R} \to \mathbb{R}$ con $f \in {\cal C}^1$, para $a,b \in \mathbb{R}$ se tiene que
-existe $c \in [a,b]$ tal que 
-
-\[
-f(a) - f(b) = f'(c)(a-b).
-\]
-
-***** Teorema del valor medio multivariable
-Dada $f \in {\cal C}^1(\mathbb{R}^n)$, para $a,b \in \mathbb{R}^n$, se tiene que existe $c \in [a,b]$ tal que
-
-\[
-f(b)-f(a) = \left\langle \grad f(c), b-a \right\rangle.
-\]
-
-****** Proof
-Parametrizamos para obtener una función escalar
-
-\[
-h(t) = f((1-t)a + tb)
-\]
-
-para la que se tiene que existe $h(1)-h(0) = h'(d)$. Derivando
-obtenemos, llamando $c = (1-d)a + db$,
-
-\[
-f(b) - f(a) = \left\langle \grad f(d) , b - a \right\rangle.
-\]
-
-**** CARDS
-***** Teorema del valor medio multivariable                       :drill:
-SCHEDULED: <2018-05-27 Sun>
-:PROPERTIES:
-:ID:       deccb6c2-471e-4d1a-baff-b96dc400f410
-:DRILL_LAST_INTERVAL: 27.1624
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 6
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.167
-:DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:45]
-:END:
-Para $f \in {\cal C}^1(\mathbb{R}^n)$ y $a,b \in \mathbb{R}^n$, enunciar el teorema del valor medio.
-
-****** Enunciado
-Existe $c \in [a,b]$ tal que
-
-\[
-f(b)-f(a) = \left\langle \grad f(c), b-a \right\rangle.
-\]
-
-***** Lema del primer instante                                    :drill:
-SCHEDULED: <2018-05-20 Sun>
-:PROPERTIES:
-:ID:       b544c2e9-8d67-4c68-8587-26873148e533
-:DRILL_LAST_INTERVAL: 26.2113
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.333
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:12]
-:END:
-Para $f \in {\cal C}(I,\mathbb{R})$ con $f(t_0) > 0$, enunciar el lema del primer
-instante.
-
-****** Enunciado
-Se da una de las alternativas.
-
- * $\forall t \geq t_0\colon f(t) > 0$.
-
- * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
-
-***** Operador integral de Volterra                               :drill:
-SCHEDULED: <2018-05-27 Sun>
-:PROPERTIES:
-:ID:       d632fc17-20f9-4797-929d-05f51c4cd2ea
-:DRILL_LAST_INTERVAL: 17.0277
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 7
-:DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:56]
-:END:
-Define el operador integral de Volterra y su dominio
-
-****** Definición
-
-\[
-V(y)(t) = x_0 + \int_{t_0}^t f(s,y(s))\;ds.
-\]
-
-Está en el dominio ${\cal C}([t_0-a,t_0+a];\mathbb{R}^d)$.
-Puede probarse que es $V \colon E \to E$ donde $E = \overline{B_0}(x_0,b)$.
-
-***** TODO Lema de soluciones de Volterra (?)                   :nodrill:
-SCHEDULED: <2018-05-19 Sat>
-:PROPERTIES:
-:ID:       08e0071f-e949-4b6e-bcfd-4310e101e85d
-:DRILL_LAST_INTERVAL: 25.2204
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:11]
-:END:
-¿Cuándo podemos aplicar el lema de soluciones de Volterra?
-
-****** Demostración
-Necesitamos $\varphi \colon I \to \mathbb{R}^d$ en $I$ intervalo abierto. Equivalen
-
- 1. $\varphi$ es solución de un PVI;
- 2. $\varphi$ es solución de la ecuación de Volterra asociada.
-
-***** Teorema de Unicidad de Peano: enunciado                     :drill:
+***** Card: enunciado                                             :drill:
 SCHEDULED: <2018-06-06 Wed>
 :PROPERTIES:
 :ID:       d6ac89c9-f053-4b0d-a8e0-c0233c137e87
@@ -1032,7 +983,7 @@ Para un PVI con $d=1$, es decir $f \colon \mathbb{R}\times \mathbb{R} \to \mathb
  1) si $\forall t \geq t_0$, $f(t,-)$ es decreciente, hay unicidad en el futuro;
  2) si $\forall t \leq t_0$, $f(t,-)$ es creciente, hay unicidad en el pasado.
 
-***** Teorema de Unicidad de Peano: demostración                  :drill:
+***** Card: demostración                                          :drill:
 SCHEDULED: <2018-05-20 Sun>
 :PROPERTIES:
 :ID:       efae3e4f-a565-4023-bb0c-e1c762db3e1f
@@ -1053,7 +1004,257 @@ y $\varphi_2 \colon I_2 \to \mathbb{R}$. Queremos ver unicidad en el futuro.
 Definimos $h(t) = (\varphi_1(t)-\varphi_2(t))^2$ y calculamos su derivada para
 ver que es decreciente.
 
-*** Tema 2. Lispchitzianidad. Picard-Lindelöf
+**** 1.5. Problema dual en el tiempo
+El problema dual en el tiempo hace una simetría del problema respecto
+al eje temporal. Si $x(t)$ es solución de uno, $y(t) = x(-t)$ es la solución
+del otro, definida en los intervalos correspondientes.
+
+\[\left.\begin{aligned}
+x' &= f(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}\qquad
+\left.\begin{aligned}
+y' &= f(-t,y) \\
+y(-t_0) &= y_0
+\end{aligned}\right\}
+\]
+
+**** 1.6. Ecuación integral de Volterra
+***** Operador integral de Volterra
+Dada una Ecuación de Volterra, fijamos el operador de Volterra,
+que tiene las soluciones como puntos fijos
+
+\[
+V(y)(t) = x_0 + \int_{t_0}^t f(s,y(s))\;ds.
+\]
+
+Lo consideramos $V \colon E \to E$ donde 
+
+\[
+E = \overline{B}(x_0,b) \subset {\cal C}([t_0-a,t_0+a];\mathbb{R}^d)
+\]
+
+es un espacio métrico completo con la norma infinito.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-27 Sun>
+:PROPERTIES:
+:ID:       d632fc17-20f9-4797-929d-05f51c4cd2ea
+:DRILL_LAST_INTERVAL: 17.0277
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 7
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:56]
+:END:
+Define el operador integral de Volterra y su dominio
+
+******* Definición
+
+\[
+V(y)(t) = x_0 + \int_{t_0}^t f(s,y(s))\;ds.
+\]
+
+Está en el dominio ${\cal C}([t_0-a,t_0+a];\mathbb{R}^d)$.
+Puede probarse que es $V \colon E \to E$ donde $E = \overline{B_0}(x_0,b)$.
+
+***** Solución de la ecuación de Volterra
+:PROPERTIES:
+:ID:       b43c8fe5-6fdb-487e-a609-5620610d23a0
+:END:
+Para $I$ intervalo, $\varphi \colon I \to \mathbb{R}$ es solución de la ecuación si
+
+ 1. $t_0 \in I$;
+ 2. $(t,\varphi(t)) \in D$, en el dominio;
+ 3. $\varphi$, es continua en $I$;
+ 4. $\varphi(t) = x_0 + \int^t_{t_0} f(s,\varphi(s))\; ds$, cumple la ecuación.
+
+***** Lema de soluciones de Volterra
+Cada PVI
+
+\[\left.\begin{aligned}
+x' &= f(t,x) \\
+x(t_0) &= x_0
+\end{aligned}\right\}
+\]
+
+tiene asociada la ecuación integral de Volterra
+
+\[
+x(t) = x_0 + \int_{t_0}^t f(s,x(s))\;ds.
+\]
+
+Sea $\varphi \colon I \to \mathbb{R}^d$ para $I$ intervalo abierto. Equivalen
+
+ 1. $\varphi$ es [[id:ba5ec2ba-b54a-455b-9b6c-9fca85940234][solución de un PVI]];
+ 2. $\varphi$ es [[id:b43c8fe5-6fdb-487e-a609-5620610d23a0][solución de la ecuación de Volterra]] asociada.
+ 
+****** Demostración
+1 a 2. Tenemos trivialmente las dos primeras condiciones. La
+continudad surge de la derivabilidad y por regla de Barrow,
+$\varphi(t) = \varphi(t_0) + \int_{t_0}^t f(s,\varphi(s))\;ds$.
+
+2 a 1. Tenemos trivialmente las dos primeras condiciones y el
+punto de evaluación. Por Teorema Fundamental del Cálculo, $\varphi$
+es derivable con precisamente la derivada que la hace solución.
+
+**** 1.7. Algunos resultados útiles de análisis
+***** 1. Lema del primer instante
+:PROPERTIES:
+:ID:       a439476b-8c77-4994-a736-9062ee91e7d0
+:END:
+Para $f \in {\cal C}(I,\mathbb{R})$ con $f(t_0) > 0$, se da una de las alternativas.
+
+ * $\forall t \geq t_0\colon f(t) > 0$.
+
+ * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
+
+****** Proof
+Si no se cumple la primera condición, el conjunto
+$H = \left\{ t \in I \mid t > t_0, f(t) = 0 \right\}$ es no vacío por Bolzano,
+cerrado y acotado inferiormente. Su mínimo es el $\tau$ buscado.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-20 Sun>
+:PROPERTIES:
+:ID:       b544c2e9-8d67-4c68-8587-26873148e533
+:DRILL_LAST_INTERVAL: 26.2113
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:12]
+:END:
+Para $f \in {\cal C}(I,\mathbb{R})$ con $f(t_0) > 0$, enunciar el lema del primer
+instante.
+
+******* Enunciado
+Se da una de las alternativas.
+
+ * $\forall t \geq t_0\colon f(t) > 0$.
+
+ * $\exists \tau > t_0\colon \forall t \in [t_0,\tau)\colon  f(t) > 0,\ f(\tau) = 0$.
+
+***** 2. Teorema del valor medio real
+:PROPERTIES:
+:ID:       3efc40d6-3ca0-4a0d-ba1a-41e752bab364
+:END:
+Dada $f \colon \mathbb{R} \to \mathbb{R}$ con $f \in {\cal C}^1$, para $a,b \in \mathbb{R}$ se tiene que
+existe $c \in [a,b]$ tal que 
+
+\[
+f(a) - f(b) = f'(c)(a-b).
+\]
+
+***** 2. Teorema del valor medio en funciones reales de varias variables
+Dada $f \in {\cal C}^1(\mathbb{R}^n,\mathbb{R})$, para $a,b \in \mathbb{R}^n$, se tiene que existe $c \in [a,b]$ tal que
+
+\[
+f(b)-f(a) = \left\langle \grad f(c), b-a \right\rangle.
+\]
+
+****** Proof
+Parametrizamos para obtener una función escalar ${\cal C}^1$
+
+\[
+h(t) = f((1-t)a + tb)
+\]
+
+para la que se por [[id:3efc40d6-3ca0-4a0d-ba1a-41e752bab364][Teorema del valor medio real]] existe $h(1)-h(0) = h'(d)$.
+Derivando obtenemos, llamando $c = (1-d)a + db$,
+
+\[
+f(b) - f(a) = \left\langle \grad f(d) , b - a \right\rangle.
+\]
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-27 Sun>
+:PROPERTIES:
+:ID:       deccb6c2-471e-4d1a-baff-b96dc400f410
+:DRILL_LAST_INTERVAL: 27.1624
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.167
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-04-30 Mon 14:45]
+:END:
+Para $f \in {\cal C}^1(\mathbb{R}^n,\mathbb{R})$ y $a,b \in \mathbb{R}^n$, enunciar el teorema del valor medio
+para funciones *reales* de varias variables.
+
+******* Enunciado
+Existe $c \in [a,b]$ tal que
+
+\[
+f(b)-f(a) = \left\langle \grad f(c), b-a \right\rangle.
+\]
+
+***** 2. Teorema del valor medio multivariable (versión apuntes)
+Dadas $[x,y]\subseteq \Omega$,
+
+\[
+f(x) - f(y) = \left( \int_0^1 f'(sy + (1-s)x) \,ds \right) \cdot (y-x)
+\]
+
+****** Proof
+Para $g(s) = f(sy + (1-s)x)$ se tiene $g'(s) = f'(sy+(1-s)x) \cdot (y-x)$.
+Integrando y aplicando regla de Barrow se tiene la igualdad.
+
+****** Card                                                      :drill:
+Enuncia la versión del teorema del valor medio multivariable
+que se sigue de la regla de Barrow.
+
+******* Answer
+
+\[
+f(x) - f(y) = \left( \int_0^1 f'(sy + (1-s)x) \,ds \right) \cdot (y-x)
+\]
+
+O, de otra forma
+
+\[
+f(x) - f(y) = \left( \int_{[a,b]} f'(sy + (1-s)x) \,ds \right) \cdot (y-x)
+\]
+
+***** 3. Desigualdades integrales
+Se tiene para cualquier función continua,
+
+ * $\norm{\int_a^bf(s)\,ds} \leq \int_a^b\norm{f(s)}\,ds$
+
+ * si $\norm{f(s)} \leq M$. entonces $\norm{\int_{t_0}^tf(s)\,ds} \leq M \abs{t-t_0}$
+
+***** 4. Lema de Barbalat (versión débil)
+Si $\lim_{t \to +\infty} f(t) = L \in \mathbb{R}$, entonces $\exists t_n \to +\infty$ con $f'(t_n) \to 0$.
+
+****** Proof
+Por [[id:3efc40d6-3ca0-4a0d-ba1a-41e752bab364][teorema del valor medio]], existen $t_n \in (n,n+1)$ tales
+que $f'(t_n) = f(n+1) - f(n) \to 0$.
+
+****** Card                                                      :drill:
+Enuncia el Lema de Barbalat (versión débil).
+
+******* Answer
+Si $\lim_{t \to +\infty} f(t) = L \in \mathbb{R}$, entonces $\exists t_n \to +\infty$ con $f'(t_n) \to 0$.
+
+****** Card                                                      :drill:
+Demuestra el Lema de Barbalat. Si $\lim_{t \to +\infty} f(t) = L \in \mathbb{R}$,
+entonces $\exists t_n \to +\infty$ con $f'(t_n) \to 0$.
+
+******* Answer
+Por [[id:3efc40d6-3ca0-4a0d-ba1a-41e752bab364][teorema del valor medio]], existen $t_n \in (n,n+1)$ tales
+que $f'(t_n) = f(n+1) - f(n) \to 0$.
+
+***** 4. Lema de Barbalat (versión fuerte)
+Si $\lim_{t \to +\infty}f(t) = L \in \mathbb{R}$, y además $f'$ es uniformemente continua en
+$(\alpha,\infty)$, entonces $\lim_{t \to +\infty}f'(t) = 0$.
+
+****** TODO Proof                                                :extra:
+*** Tema 2. Lipschitzianidad. Picard-Lindelöf
 **** 2.1. Lipschitzianidad
 ***** Lipschiztianidad global
 $f \colon \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$ es *globalmente lipschitziana (GL)* si
@@ -1064,7 +1265,22 @@ $f \colon \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$ es *globalmente lipschit
 \norm{f(x)-f(y)} \leq L\|x-y\|.
 \]
 
+****** Card                                                      :drill:
+Definición globalmente lipschitziana.
+
+******* Definición
+Hay una constante de Lipschitz que acota la distancia
+entre dos imágenes por la distancia de los argumentos.
+
+\[
+\forall x,y \in \Omega\colon\quad
+\norm{f(x)-f(y)} \leq L\|x-y\|.
+\]
+
 ***** Lipschiztianidad global, caracterización
+:PROPERTIES:
+:ID:       d89ce0be-e6df-4af0-a129-12b79008efc2
+:END:
 $f \colon \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$ es globalmente lipschitziana si y sólo si no
 existen sucesiones $x_n \neq y_{n}$ tales que
 
@@ -1076,6 +1292,16 @@ existen sucesiones $x_n \neq y_{n}$ tales que
 Si existen las sucesiones, claramente no hay acotación. Si no hay
 acotación posible, para cada $n$ existirán $x_n \neq y_n$ tales que el
 cociente sea mayor que $n$; teniéndose la divergencia.
+
+****** Card                                                      :drill:
+Caracterización de lipschitzianidad global por sucesiones.
+
+******* Caracterización
+No existen sucesiones tales que
+
+\[
+\frac{\|f(x_n) - f(y_n)\|}{\|x_n-y_n\|} \to +\infty.
+\]
 
 ***** Lipschiztianidad global para derivada continua acotada
 :PROPERTIES:
@@ -1184,17 +1410,17 @@ Dicho de otra forma, las secciones $f(-,y)$ son lipschitzianas con una
 constante de lipschitz común.
 
 ****** Card: definición                                          :drill:
-SCHEDULED: <2018-05-14 Mon>
+SCHEDULED: <2018-05-26 Sat>
 :PROPERTIES:
 :ID:       ab5dfd96-99d3-499a-ac32-bbfb645bbd4e
-:DRILL_LAST_INTERVAL: 3.6432
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 8.7497
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.8
+:DRILL_AVERAGE_QUALITY: 3.833
 :DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:53]
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 11:40]
 :END:
 Una $f(x,y)$ definida en $\Omega \subseteq \mathbb{R}^d \times \mathbb{R}^n$ es [[id:c50d9301-e9db-40a1-b25f-b726327f37bb][globalmente lipschitziana respecto]]
 de $x \in \mathbb{R}^d$ cuando
@@ -1211,6 +1437,9 @@ Las secciones $f(-,y)$ son lipschitzianas con una constante de
 lipschitz común.
 
 ***** Lipschiztianidad local
+:PROPERTIES:
+:ID:       c9318e14-3e65-49d1-935a-f26e56c912cf
+:END:
 $f \colon \Omega \to \mathbb{R}^m$ es *localmente lipschitziana* (LL) si 
 para cada punto hay un entorno $p \in U \subset \Omega$ con $f|_U$
 globalmente lipschitziana.
@@ -1388,7 +1617,29 @@ respecto de $y$ y por la caracterización [[id:0bd3f16f-5d05-4135-98b5-70d27b46a
 de Lipschitz común.
 
 ***** Lipschitzianidad local es global en compactos
+Una función localmente lipschitziana en un compacto es globalmente
+lipschitziana.
+
+****** Proof
+Usamos la caracterización, si no fuera globalmente lipschitziana,
+[[id:d89ce0be-e6df-4af0-a129-12b79008efc2][existirían dos sucesiones]] donde el coeficiente crecería. Como
+estamos en un compacto, esas dos sucesiones deberían converger
+y deberían converger al mismo punto porque la función está
+acotada en compactos por Weierstrass y la única forma de crecer
+del cociente es que se acerquen.
+
+Ahora, en ese punto podemos aplicar la caracterización de
+[[id:c9318e14-3e65-49d1-935a-f26e56c912cf][lipschitzianidad local]].
+
 https://math.stackexchange.com/questions/154721/if-locally-lipschitz-implies-lipschitz-on-compacts
+
+****** Card                                                      :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       1b4ecf37-b2e0-42b6-bc5b-cab6e044a9ea
+:END:
+Una función [localmente lipschitziana] en un [compacto] es
+[globalmente lipschitziana].
 
 **** 2.2. Lemas hacia Picard-Lindelöf
 ***** Teorema del punto fijo de Banach
@@ -2547,17 +2798,17 @@ Definición de función coerciva.
 Todo conjunto de subnivel $\Omega_r$ es compacto.
 
 ****** Card: caracterización                                     :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-02 Sat>
 :PROPERTIES:
 :ID:       37d1fd0f-a7af-4a52-8be0-626e6968b6c2
-:DRILL_LAST_INTERVAL: 5.1874
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 15.8482
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-10 Thu 11:59]
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 11:41]
 :END:
 Caracteriza por límites una función coerciva
 
