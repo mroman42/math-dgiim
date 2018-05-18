@@ -276,6 +276,18 @@ donde $A$ es una primitiva de $a$. La constante $k$ ajustará
 la condición inicial
 
 ***** Card                                                        :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       5d987c6b-f319-4ee8-81ab-0371d66af4a6
+:DRILL_LAST_INTERVAL: 4.3154
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:23]
+:END:
 Resolver la ecuación diferencial $x' = xa(t) + b(t)$.
 
 ****** Answer
@@ -653,7 +665,7 @@ Llamamos
  * $f$, al campo de vectores;
  * $D$, al dominio de la ecuación.
 
-Dado $I$ intervalo abierto, una solución $\varphi \colon I \to \mathbb{R}$ de una EDO cumple
+Dado $I$ intervalo abierto, una solución $\varphi \colon I \to \mathbb{R}^d$ de una EDO cumple
 
  * $(t,\varphi(t)) \in D$, se queda en el dominio;
  * $\varphi \in {\cal C}^1(I,\mathbb{R}^d)$, es derivable;
@@ -740,6 +752,18 @@ hay
  * *unicidad global*, unicidad en todo $\mathbb{R}$.
 
 ****** Card: unicidad local                                      :drill:
+SCHEDULED: <2018-05-23 Wed>
+:PROPERTIES:
+:ID:       0261396e-1324-4bde-b01b-842f881f869e
+:DRILL_LAST_INTERVAL: 5.5175
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:27]
+:END:
 Dado un problema de valores iniciales,
 
 \[\left.\begin{aligned}
@@ -760,6 +784,18 @@ un intervalo *abierto* conteniendo al instante inicial, $t_0 \in J = \mathring{J
 donde $\varphi_1, \varphi_2$ son iguales.
 
 ****** Card: unicidad en un intervalo                            :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       5024dcc3-fc4e-493b-a3d2-43a3c573855d
+:DRILL_LAST_INTERVAL: 5.3095
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:26]
+:END:
 Dado un problema de valores iniciales,
 
 \[\left.\begin{aligned}
@@ -779,6 +815,18 @@ Cuando todo par de soluciones $\varphi_1 \colon I_1 \to \mathbb{R}^d$ y $\varphi
 en $J \cap I_1 \cap I_2$.
 
 ****** Card: unicidad en el futuro                               :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       8bf16932-05b4-4fb2-810c-cc8f17c70743
+:DRILL_LAST_INTERVAL: 4.5417
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:25]
+:END:
 Dado un problema de valores iniciales,
 
 \[\left.\begin{aligned}
@@ -793,6 +841,18 @@ define *unicidad en el futuro*.
 Unicidad en el intervalo $[t_0,+\infty)$.
 
 ****** Card: unicidad global                                     :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       ecc0e77c-4708-4b2c-aac6-f44115513990
+:DRILL_LAST_INTERVAL: 4.0847
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:22]
+:END:
 Dado un problema de valores iniciales,
 
 \[\left.\begin{aligned}
@@ -815,13 +875,6 @@ definidas ambas.
 :ID:       0b968d38-72b0-41e4-bdbd-a19fd33ecd59
 :END:
 Si para todo $(t_{0},x_0) \in D$, el problema de valores iniciales
-
-\[\left.\begin{aligned}
-x' &= f|_D(t,x) \\
-x(t_0) &= x_0
-\end{aligned}\right\}
-\]
-
 cumple unicidad local, entonces para todo $(t_{0},x_0) \in D$ se
 cumple la unicidad global.
 
@@ -834,15 +887,7 @@ el valor $x_0 = \varphi_1(t_0) = \varphi_2(t_0)$ y existirá un intervalo $t_0 \
 por unicidad local.
 
 ***** Lema 2. Unicidad global da única solución maximal
-Si el problema de valores iniciales
-
-\[\left.\begin{aligned}
-x' &= f|_{D}(t,x) \\
-x(t_0) &= x_0
-\end{aligned}\right\} \mathit{(P)}
-\]
-
-verifica unicidad global, tiene una única solución maximal.
+Si un PVI verifica unicidad global, tiene una única solución maximal.
 # Si no existen soluciones, la solución vacía es maximal, entiendo.
 
 ****** Proof
@@ -862,6 +907,18 @@ maximal por definición y cualquier otra maximal debería estar en el
 mismo intervalo y por unicidad global, ser exactamente la misma.
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       cc21bcb9-acde-4eec-aa64-945138de1035
+:DRILL_LAST_INTERVAL: 4.0232
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:33]
+:END:
 Si existen soluciones, ¿qué implica la unicidad global de solución
 respecto de las maximales?
 
@@ -930,6 +987,18 @@ Consideraremos los dos casos, $g(x_0) = 0$ y $g(x_0) \neq 0$.
    $x_0$ usando $a(t_0) \neq 0$ (?).
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       61153ecb-7cb0-4c5f-9ab3-1c9866b643b5
+:DRILL_LAST_INTERVAL: 3.9745
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:35]
+:END:
 ¿Qué sabemos sobre existencia y unicidad en EDOs de variables separadas?
 
 ******* Answer
@@ -1014,8 +1083,8 @@ x' &= f(t,x) \\
 x(t_0) &= x_0
 \end{aligned}\right\}\qquad
 \left.\begin{aligned}
-y' &= f(-t,y) \\
-y(-t_0) &= y_0
+y' &= -f(-t,y) \\
+y(-t_0) &= x_0
 \end{aligned}\right\}
 \]
 
@@ -1206,6 +1275,18 @@ Para $g(s) = f(sy + (1-s)x)$ se tiene $g'(s) = f'(sy+(1-s)x) \cdot (y-x)$.
 Integrando y aplicando regla de Barrow se tiene la igualdad.
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       1c375733-5f2b-460c-9595-83e32e399f0b
+:DRILL_LAST_INTERVAL: 4.8321
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:24]
+:END:
 Enuncia la versión del teorema del valor medio multivariable
 que se sigue de la regla de Barrow.
 
@@ -1236,12 +1317,36 @@ Por [[id:3efc40d6-3ca0-4a0d-ba1a-41e752bab364][teorema del valor medio]], existe
 que $f'(t_n) = f(n+1) - f(n) \to 0$.
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       d2b43cd1-b482-4954-828c-4e94ca50e0c1
+:DRILL_LAST_INTERVAL: 3.8747
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:19]
+:END:
 Enuncia el Lema de Barbalat (versión débil).
 
 ******* Answer
 Si $\lim_{t \to +\infty} f(t) = L \in \mathbb{R}$, entonces $\exists t_n \to +\infty$ con $f'(t_n) \to 0$.
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       4a364dd0-415d-4b04-b73d-4c89d55664bf
+:DRILL_LAST_INTERVAL: 4.6442
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:33]
+:END:
 Demuestra el Lema de Barbalat. Si $\lim_{t \to +\infty} f(t) = L \in \mathbb{R}$,
 entonces $\exists t_n \to +\infty$ con $f'(t_n) \to 0$.
 
@@ -1266,6 +1371,18 @@ $f \colon \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$ es *globalmente lipschit
 \]
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       e0db3e38-dc0f-42ff-9146-addb33fda380
+:DRILL_LAST_INTERVAL: 3.8438
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:21]
+:END:
 Definición globalmente lipschitziana.
 
 ******* Definición
@@ -1294,6 +1411,18 @@ acotación posible, para cada $n$ existirán $x_n \neq y_n$ tales que el
 cociente sea mayor que $n$; teniéndose la divergencia.
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       b77b3357-33e1-40bb-af13-6296280ddfa7
+:DRILL_LAST_INTERVAL: 4.6735
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:32]
+:END:
 Caracterización de lipschitzianidad global por sucesiones.
 
 ******* Caracterización
@@ -1634,9 +1763,18 @@ Ahora, en ese punto podemos aplicar la caracterización de
 https://math.stackexchange.com/questions/154721/if-locally-lipschitz-implies-lipschitz-on-compacts
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       1b4ecf37-b2e0-42b6-bc5b-cab6e044a9ea
+:DRILL_LAST_INTERVAL: 4.6038
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:34]
 :END:
 Una función [localmente lipschitziana] en un [compacto] es
 [globalmente lipschitziana].
@@ -1814,9 +1952,9 @@ En el espacio $E_{a,b}(t_0,x_0)$, dada una constante $R > 0$, consideramos
 \| \varphi \|_{B} = \max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\|.
 \]
 
-Sabiendo que existe por Teorema de Weierstrass.
+****** Bien definida
+Sabemos que existe por Teorema de Weierstrass.
 
-****** TODO Proof
 ****** Card: definición                                          :drill:
 SCHEDULED: <2018-05-19 Sat>
 :PROPERTIES:
@@ -1830,10 +1968,10 @@ SCHEDULED: <2018-05-19 Sat>
 :DRILL_LAST_QUALITY: 3
 :DRILL_LAST_REVIEWED: [2018-04-24 Tue 15:09]
 :END:
-Define la norma de Bielecki.
+Define la norma de Bielecki para una $R > 0$ dada.
 
 ******* Definición
-En el espacio $E_{a,b}(t_0,x_0)$, dada una constante $R > 0$, consideramos
+En $E_{a,b}(t_0,x_0)$, consideramos
 
 \[
 \| \varphi \|_{B} = \max_{t \in [t_0-a,t_0+a]} e^{-R|t-t_0|}\|\varphi(t)\|.
@@ -1946,6 +2084,9 @@ Tendríamos dos soluciones $\psi,\varphi$ en $E_{\delta,b}(t_0,x_0)$, donde $\de
 luego coincidirían en $[t_0-\delta,t_0+\delta]$.
 
 ***** Teorema de Picard-Lindelöf (versión global)
+:PROPERTIES:
+:ID:       bf38540e-3857-427e-9b27-e6c0bf0cfd73
+:END:
 Si $f$ es localmente lipschiztiana respecto de $x$ en todo el dominio,
 el PVI tiene solución y es la única solución maximal.
 
@@ -1957,6 +2098,10 @@ Cualquier $(t_0,x_0)$ tiene un entorno (el dominio) donde aplicar la
 ***** Iterantes de Picard
 Surgen como una aplicación repetida del operador de Volterra una vez que
 sabemos que es contractivo.
+
+\[
+V(\varphi)(t) = x_0 + \int_{t_0}^t f(s,\varphi(s))\,ds.
+\]
 
 ***** Contraejemplo de Müller
 Sea el PVI
@@ -2014,16 +2159,19 @@ $f_n \colon I \to \mathbb{R}^d$ es *equicontinua* si
 \forall \varepsilon\colon \exists \delta\colon |t-s|<\delta \implies \|f_n(t) - f_n(s)\| \leq \varepsilon.
 \]
 
-****** No equicontinua
+***** Caracterización de equicontinuidad
 Una $f_n \colon I \to \mathbb{R}^d$ uniformemente continua no será equicontinua si
+hay sucesiones $t_n$, $s_n$ tales que
 
 \[
-\exists (t_n,s_n)\colon \left\{ t_n-s_n \right\} \to 0, \quad \|f_{m_n}(t_n)-f_{m_n}(s_n)\| \not\to 0.
+\exists (t_n,s_n)\colon \abs{ t_n-s_n} \to 0, \quad \|f_{m_n}(t_n)-f_{m_n}(s_n)\| \not\to 0.
 \]
 
-******* Proof
-******* TODO Variación
-***** Derivada uniformemente acotada es equicontinua
+****** Proof
+Sale al negar la definición.
+
+****** TODO Variación
+***** Lema 1. Derivada uniformemente acotada es equicontinua
 :PROPERTIES:
 :ID:       5b2c7b57-f17b-441f-a635-fddbb3e0c992
 :END:
@@ -2033,50 +2181,248 @@ Si $f'_n$ es uniformemente acotada, $f_n \in {\cal C}^1(I,\mathbb{R}^d)$ es *equ
 Usamos teorema fundammental del cálculo, que necesita $f'_n$ continua
 
 \[
-\|f_n(t)-f_n(s)\| = \left\| \int_s^t f'(z)\,dz \right\| \leq M|t-s|.
+\|f_n(t)-f_n(s)\| = \left\| \int_s^t f'_n(z)\,dz \right\| \leq M|t-s|.
 \]
 
-***** Convergencia puntual de equicontinuas es uniformemente continua
+****** Card: enunciado                                           :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       91181bc4-99ca-4e68-99f3-f5c4467f3c16
+:DRILL_LAST_INTERVAL: 4.193
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:18]
+:END:
+Si $f'_n$ es [uniformemente acotada], $f_n \in$ [${\cal C}^1(I,\mathbb{R}^d)$] es [ *equicontinua* ].
+
+****** Card: idea de la demostración                             :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       40e3f231-b6d2-4980-9fa0-37d6a98dc700
+:DRILL_LAST_INTERVAL: 4.3639
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:18]
+:END:
+¿Cómo se demuestra?
+
+Si $f'_n$ es uniformemente acotada, $f_n \in$ ${\cal C}^1(I,\mathbb{R}^d)$ es *equicontinua*.
+
+******* Demostración
+Usamos teorema fundammental del cálculo, que necesita $f'_n$ continua
+
+\[
+\|f_n(t)-f_n(s)\| = \left\| \int_s^t f'_n(z)\,dz \right\| \leq M|t-s|.
+\]
+
+***** Lema 2. Convergencia puntual de equicontinuas es uniformemente continua
 :PROPERTIES:
 :ID:       09edde13-8c3f-49d5-9571-76483e3c2cd3
 :END:
-Si $f_n \overset{c.p.}\longrightarrow f$ y $f_n$ equicontinua, $f$ es uniformemente continua.
+Si $f_n \overset{c.p.}\longrightarrow f$ y $f_n \colon I \to \mathbb{R}^{d}$ equicontinua, $f$ es uniformemente continua.
 
 ****** Proof
 Tenemos para $|t-s| < \delta$, $\norm{f_n(t) - f_n(s)} < \varepsilon$, tomando límite en $n$,
 
 \[\norm{f(t) - f(s)} \leq \varepsilon.\]
 
-***** Convergencia uniforme de continuas es continua
-Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n$ son continuas, $f$ es continua.
+****** Card: enunciado                                           :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       7be1e96f-5d20-4380-993f-cd23084f427e
+:DRILL_LAST_INTERVAL: 3.5984
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:21]
+:END:
 
-****** TODO Proof
-$\varepsilon/3$
+Si [ $f_n \overset{c.p.}\longrightarrow f$ ] y $f_n\colon I \to \mathbb{R}^d$ [sucesión equicontinua], $f$ es [uniformemente continua].
 
-***** Convergencia de sucesiones desde la convergencia uniforme
+****** Card: idea de la demostración                             :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:ID:       7805ecf8-032a-4fbf-ac0e-2eeab3dd2f48
+:DRILL_LAST_INTERVAL: 4.0404
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:34]
+:END:
+¿Cómo se demuestra?
+
+Si $f_n \overset{c.p.}\longrightarrow f$ y $f_n$ equicontinua, $f$ es uniformemente continua.
+
+******* Demostración
+Tenemos para $|t-s| < \delta$, $\norm{f_n(t) - f_n(s)} < \varepsilon$, tomando límite en $n$,
+
+\[\norm{f(t) - f(s)} \leq \varepsilon.\]
+
+***** Lema 3. Convergencia uniforme de continuas es continua
+:PROPERTIES:
+:ID:       0828ef4f-b005-4cd4-a036-e6aa535b27f0
+:END:
+Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n \colon I \to \mathbb{R}^d$ son continuas, $f$ es continua.
+
+****** Proof
+
+\[
+\norm{f(t) - f(s)} \leq 
+\norm{f_n(t) - f(t)} + 
+\norm{f_n(t) - f_n(s)} + 
+\norm{f_n(s) - f(s)}
+\]
+
+Elegimos el $n$ que por convergencia uniforme dé $\norm{f_n - f}_{\infty} \leq \varepsilon/3$.
+Elegimos el $\delta$ que por continuidad de $f_n$ dé $\norm{f_n(t)-f_n(s)} \leq \varepsilon/3$.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       30c09570-1887-4a89-8c5e-e354d2fd18a9
+:DRILL_LAST_INTERVAL: 4.6441
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:22]
+:END:
+La convergencia uniforme de funciones continuas es [continua].
+
+***** Lema 4. Convergencia de sucesiones desde la convergencia uniforme
 :PROPERTIES:
 :ID:       d2bb5e99-e7e9-4fa2-a8e2-38dcda39917e
 :END:
-Si $f_n \overset{c.u.}\longrightarrow f$ y $t_n \to t_{\ast}$ con $f$ continua en $t_{\ast}$, entonces $f_n(t_n) \to f(t_{\ast})$.
+Sea $f_n \overset{c.u.}\longrightarrow f$ y $t_n \to t_{\ast}$. Si $f$ continua en $t_{\ast}$, entonces $f_n(t_n) \to f(t_{\ast})$.
 
-****** TODO Proof
-***** Convergencia de sucesiones desde la convergencia uniforme de continuas
-Si $f_n \overset{c.u.}\longrightarrow f$  y $t_n \to t_{\ast}$ con $f_n$ continuas, entonces $f_n(t_n) \to f(t_{\ast})$.
+****** Proof
 
-****** TODO Proof
+\[
+\norm{f_n(t_n) - f(t_{\ast})} \leq
+\norm{f_n(t_n) - f(t_n)} + \norm{f(t_n) - f(t)} \leq \varepsilon
+\]
+
+Podemos usar la continuidad de $f$ y la convergencia uniforme para obtener
+dos $n_0,n_1$ donde cada sumando está acotado. Tomamos el máximo de ambos.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       ab2c5732-be11-41e0-aeef-6a4cdb65bed2
+:DRILL_LAST_INTERVAL: 3.7087
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 21:33]
+:END:
+Sea [ $f_n \overset{c.u.}\longrightarrow f$ ] y $t_n \to t_{\ast}$. Si [ $f$ continua en $t_{\ast}$ ], entonces [ $f_n(t_n) \to f(t_{\ast})$ ].
+
+***** Corolario. Convergencia de sucesiones desde la convergencia uniforme de continuas
+Sea $f_n \overset{c.u.}\longrightarrow f$ y $t_n \to t_{\ast}$. Si $f_n$ continuas, entonces $f_n(t_n) \to f(t_{\ast})$.
+
+****** Proof
+La [[id:0828ef4f-b005-4cd4-a036-e6aa535b27f0][convergencia uniforme de continuas es continua]], en particular,
+continua en $t_{\ast}$. [[id:d2bb5e99-e7e9-4fa2-a8e2-38dcda39917e][Aplicamos el lema anterior]].
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-20 Sun>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       b3d5bdc9-f233-4873-ac2b-6dc5c066ff6a
+:DRILL_LAST_INTERVAL: 2.8968
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:22]
+:END:
+Sea [ $f_n \overset{c.u.}\longrightarrow f$ ] y $t_n \to t_{\ast}$. Si $f_n$ continuas, entonces [ $f_n(t_n) \to f(t_{\ast})$].
 ***** Ejemplos y contraejemplos
 ****** TODO Función continua no uniformemente continua
 ****** TODO Sucesión equicontinua
-****** TODO Suecsión que converge puntualmente no uniformemente
+****** TODO Sucesión que converge puntualmente no uniformemente
 ****** Sucesión de uniformemente continuas no equicontinua
 $f_n(t) = nt$ tiene cada función uniformemente continua (de hecho es lipschitz)
 pero no es equicontinua porque
 
 \[
-\left\{ f\left(\frac{1}{n}\right) - f(0) \right\} \to 1.
+\left\{ f_n\left(\frac{1}{n}\right) - f_n(0) \right\} \to 1.
 \]
 
-****** TODO Derivada acotada uniformemente y equicontinua
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       49a7eaad-0bac-4e3f-b2d6-74e16b58bedc
+:DRILL_LAST_INTERVAL: 4.5936
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:25]
+:END:
+¿Es equicontinua?
+
+\[f_n(t) = nt\]
+
+******** Answer                                                
+:PROPERTIES:
+:ID:       4aa943ea-e020-4f65-88d8-77aaedfe7bee
+:END:
+No. Se tiene
+
+\[
+\left\{ f_n\left(\frac{1}{n}\right) - f_n(0) \right\} \to 1.
+\]
+
+****** Derivada acotada uniformemente y equicontinua
+La sucesión $\sin(n + t)$ tiene sucesión de derivadas $\cos(n+t)$
+uniformemente acotada, luego es equicontinua.
+
+******* Card                                                    :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       fcd52f7f-edcf-4c14-a859-44bdf5ea1ba5
+:DRILL_LAST_INTERVAL: 5.0805
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:22]
+:END:
+Por qué es $\sin(n + t)$ equicontinua.
+
+******** Answer
+Tiene sucesión de derivadas $\cos(n+t)$ uniformemente acotada.
+
+****** TODO Buscar ejemplos en matemapli
 **** 3.2. Teorema de Ascoli-Arzelá
 ***** Teorema de Ascoli-Arzelá
 :PROPERTIES:
@@ -2086,7 +2432,7 @@ Para $f_n \colon I \to \mathbb{R}^d$ uniformemente acotada y equicontinua, exist
 parcial $f_{\sigma(n)} \overset{c.p.}\longrightarrow f$; además, $f$ es uniformemente continua.
 
 ****** Demostración
-******* Paso 1. Convergencia en un numerable densos
+******* Paso 1. Convergencia en un numerable denso
 Sea $D = \mathbb{Q} \cap I = \left\{ t_k \mid k \in \mathbb{N} \right\}$ numerable.
 
 Para cada $k \in \mathbb{N}$, $\left\{f_n(t_k)\right\}_{n\in\mathbb{N}$ es acotada (por [[id:23715dfb-0085-4d8e-9b93-26465cbbee91][uniformemente acotada]]), 
@@ -2183,7 +2529,7 @@ tomamos $n_0 = \max\{n_1,\dots,n_k\}$. Finalmente, para $n \geq n_0$,
 \|f(t_k) - f(t)\| \leq \varepsilon.
 \]
 
-****** Corolario a Ascoli-Arzelá                                 :drill:
+****** Card                                                      :drill:
 SCHEDULED: <2018-05-29 Tue>
 :PROPERTIES:
 :ID:       cda99124-7715-4d0b-8892-d901da3817a7
@@ -2204,7 +2550,7 @@ existe una parcial tal que $f_{\sigma(n)} \overset{c.u.}\longrightarrow f$; adem
 
 **** 3.3. Convergencia e integración
 ***** Convergencia uniforme en integrales
-Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n$ continua en $[a,b]$, $\int_a^b f_n \to \int_a^b f$.
+Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n$ continua en $[a,b]$, entonces $\int_a^b f_n \to \int_a^b f$.
 
 ****** Proof
 
@@ -2214,10 +2560,31 @@ Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n$ continua en $[a,b]$, $\int_a^b 
 \]
 
 ***** Convergencia puntual desde acotada
-Si $f_n \overset{c.p.}\longrightarrow f$ y $f_n$ uniformemente acotada, $\int_a^b f_n \to \int_a^b f$.
+Si $f_n \overset{c.p.}\longrightarrow f$ y $f_n$ continuas uniformemente acotadas, $\int_a^b f_n \to \int_a^b f$.
 
-****** TODO Proof
-Por el Teorema de convergencia dominada de Lebesgue.
+****** TODO Proof                                                :extra:
+Por el Teorema de convergencia dominada de Lebesgue. 
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-21 Mon>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       eac30143-b758-4577-a6e3-1d0347a4d8a9
+:DRILL_LAST_INTERVAL: 3.9667
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-17 Thu 23:30]
+:END:
+Si [ $f_n \overset{c.p.}\longrightarrow f$ ] y [ $f_n$ continuas uniformemente acotadas en $[a,b]$ ], entonces $\int_a^b f_n \to \int_a^b f$.
+
+******* Extra: caso particular
+Si $f_n \overset{c.u.}\longrightarrow f$ y $f_n$ continua en $[a,b]$, entonces $\int_a^b f_n \to \int_a^b f$.
+
+En particular podemos pedir continuidad a todas las $f_n$.
 
 **** 3.4. Teorema de Cauchy-Peano
 ***** Teorema de Stone-Weierstrass                                :extra:
@@ -2455,6 +2822,8 @@ solución continua por ser límite uniforme de continuas.
 :PROPERTIES:
 :ID:       076910d4-3fd8-4447-9712-20c4e6cd2251
 :END:
+Todo PVI con campo continuo sobre abierto tiene solución.
+
 Para $D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d$ y $f \colon D \to \mathbb{R}^{d}$ continua con $(t_0,x_0) \in D$,
 el PVI siguiente tiene solución
 
@@ -2490,9 +2859,6 @@ SCHEDULED: <2018-05-26 Sat>
 Enuncia el Teorema de Cauchy-Peano.
 
 ******* Enunciado
-Todo problema de valores iniciales con campo continuo
-tiene solución.
-
 Para $f \colon D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d \to \mathbb{R}^{d}$ continua con $(t_0,x_0) \in D$,
 el PVI siguiente tiene solución
 
@@ -2502,11 +2868,11 @@ x(t_0) = x_0
 \end{array}\right.\]
 
 *** Tema 4. Prolongación y acotación de soluciones
-**** 4.1. Prolongación de soluciones
+**** 4.1. Comportamiento de soluciones maximales
 ***** Contexto
 Consideramos para este tema
  
- * $D = \mathring{D} \subset \mathbb{R} \times \mathbb{R}^d$, abierto,
+ * $D \subset \mathbb{R} \times \mathbb{R}^d$, abierto,
  * $f \colon D \to \mathbb{R}^{d}$, continua,
  * $\varphi \colon (\alpha,\omega)\to\mathbb{R}^d$ solución maximal de $x' = f(t,x)$.
   
@@ -2516,7 +2882,7 @@ Estudiaremos resultados para $\omega$ que se traducirán directamente para $\alp
 :PROPERTIES:
 :ID:       304d100c-6e59-4ed7-b623-4714c361a3dc
 :END:
-Si $\omega < \infty$ y $\exists \lim_{t \to \omega} \varphi(t) = \xi \in \mathbb{R}^d$, entonces $(\omega,t) \in \partial D$.
+Si $\omega < \infty$ y $\exists \lim_{t \to \omega} \varphi(t) = \xi \in \mathbb{R}^d$, entonces $(\omega,\xi) \in \partial D$.
 
 ****** Proof
 Sabemos $\varphi$ [[id:ba5ec2ba-b54a-455b-9b6c-9fca85940234][solución]], luego $\forall t \in (\alpha,\omega): (t,\varphi(t)) \in D$, y tomando límite
@@ -2530,7 +2896,25 @@ el PVI con $x(\omega) = \xi$, y por [[id:076910d4-3fd8-4447-9712-20c4e6cd2251][C
 Pero entonces podríamos crear una solución mayor $\widetilde \varphi$ [[id:078ac783-76bf-4445-ad46-3f91ea9d1ef6][concatenando]] ambas,
 lo que contraviene maximalidad.
 
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       2de33c5f-62ce-4194-92a8-c6cd3f13b629
+:DRILL_LAST_INTERVAL: 4.1352
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:54]
+:END:
+Si $\omega < \infty$ y $\exists \lim_{t \to \omega} \varphi(t) = \xi \in \mathbb{R}^d$, entonces [ $(\omega,\xi) \in \partial D$ ].
+
 ***** Lema 2. El límite de una sucesión toca el borde
+:PROPERTIES:
+:ID:       36ad0e3b-9430-43b5-9dcd-45f042f63000
+:END:
 Si $\omega < \infty$ y tenemos $t_n \in (\alpha,\omega)$ con $t_n \to \omega$ y $\varphi(t_n)\to \xi \in \mathbb{R}^d$, entonces
 $(\omega,\xi)\in \partial D$.
 
@@ -2538,7 +2922,6 @@ $(\omega,\xi)\in \partial D$.
 Sabemos $\varphi$ [[id:ba5ec2ba-b54a-455b-9b6c-9fca85940234][solución]], luego $\forall t \in (\alpha,\omega)\colon (t,\varphi(t)) \in D$, y tomando límite
 obtendríamos $(\omega,\xi) \in \overline{D}$. Si se tuviera $(\omega,\xi) \in D$ abierto, entonces fijamos
 $\varepsilon > 0$ y existe $R_{\overline{a},b}(\omega,\xi)\subseteq D$ con $b < \varepsilon$ por ser [[id:44351076-d98f-4552-a229-a41405beb6b1][base de entornos]].
-
 Tomamos además un máximo por Teorema de Weierstrass
 
 \[
@@ -2575,6 +2958,23 @@ Ma + b/2 \leq b.
 Llegando a contradicción. Así, tenemos el límite $\lim_{t \to \omega} \varphi(t) = \xi \in \mathbb{R}^d$,
 y podemos aplicar el [[id:304d100c-6e59-4ed7-b623-4714c361a3dc][Lema anterior]] para tener $(\omega,\xi) \notin D$.
 
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       38226179-5572-4011-9c27-1bc2e7f2bb63
+:DRILL_LAST_INTERVAL: 3.5909
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:59]
+:END:
+Si $\omega < \infty$ y tenemos $t_n \in (\alpha,\omega)$ con $t_n \to \omega$ y $\varphi(t_n)\to \xi \in \mathbb{R}^d$, entonces
+[ $(\omega,\xi)\in \partial D$ ].
+
 ***** Alternativas de comportamiento en el extremo superior
 :PROPERTIES:
 :ID:       435b13ac-d20b-469c-bb0a-4915735b6c62
@@ -2585,7 +2985,14 @@ Si $\omega < +\infty$ se verifica una de las siguientes alternativas.
 
  * $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D$, tiende a tocar la frontera.
 
-****** TODO Proof
+****** Proof
+Supongamos que no se tiene la primera opción: debe existir un $R_0$
+y una sucesión de $\tau_{n}$ tal que $\abs{\tau_n - \omega} < 1/n$ pero sin embargo
+$\norm{\varphi(\tau_n)} \leq R_0$, rompiendo la convergencia.
+
+Como $\varphi(\tau_n)$ es acotada, por Bolzano-Weierstrass, $\varphi(\tau_{\sigma(n)}) \to \xi \in \mathbb{R}^d$.
+Pero ahora, $t_n = \tau_{\sigma(n)}$ cumple que $t_n \to \omega$ mientras que $\varphi(t_n) \to \xi$.
+Estamos en las condiciones del [[id:36ad0e3b-9430-43b5-9dcd-45f042f63000][lema anterior]].
 
 ****** Card: ¿Cuáles son las tres alternativas?                  :drill:
 SCHEDULED: <2018-05-19 Sat>
@@ -2605,27 +3012,49 @@ para el $\omega$ de una solución maximal?
 
 ******* Alternativas
 
- * $\omega = +\infty$
+ * $\omega = +\infty$, continúa indefinidamente;
 
  * $\lim_{t \to \omega}\| \varphi(t)\| = \infty$, explota en tiempo finito;
 
  * $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D$, tiende a tocar la frontera.
 
 ***** Corolario 1
-Si $\omega < \infty$ y $D = \mathbb{R} \times \mathbb{R}^{d}$, entonces $\lim_{t \to \infty} \|\varphi(t)\| = \infty$.
+Si $\omega < \infty$ y el dominio no tiene borde, $D = \mathbb{R} \times \mathbb{R}^{d}$,
+entonces $\lim_{t \to \infty} \|\varphi(t)\| = \infty$.
 
 ****** Proof
 Al ser $\partial D = \varnothing$, el [[id:435b13ac-d20b-469c-bb0a-4915735b6c62][teorema anterior]] sólo da la primera alternativa.
 
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-23 Wed>
+:PROPERTIES:
+:ID:       c5c0c521-3a1f-408e-a1c8-466aa6097c61
+:DRILL_LAST_INTERVAL: 5.0732
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:54]
+:END:
+Si $\omega < \infty$ y el dominio no tiene borde, $D = \mathbb{R} \times \mathbb{R}^{d}$,
+entonces [ $\lim_{t \to \infty} \|\varphi(t)\| = \infty$ ].
+
 ***** Corolario 2
-Si $\omega < b < \infty$ y $D = (a,b) \times \mathbb{R}^d$, entonces $(\omega,\xi) \notin D$ y $\lim_{t \to \omega} \|\varphi(t)\| = \infty$.
+Si $\omega < b < \infty$ y $D = (a,b) \times \mathbb{R}^d$, entonces $(\omega,\xi) \notin \partial D$ y $\lim_{t \to \omega} \|\varphi(t)\| = \infty$.
 
 ****** Proof
+No se extiende indefinidamente y no puede tocar la frontera porque
+$\omega < b$, debe explotar en tiempo finito.
+
 ***** Corolario 3
 Si $\omega < \infty$ y $D = \mathbb{R} \times B$ para $B$ acotado, entonces
 $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D = \mathbb{R} \times \partial B$.
 
 ****** Proof
+No se extiende indefinidamente y, como $B$ está acotado, no puede
+explotar en tiempo finito.
 
 **** 4.2. Crecimimento a lo sumo lineal
 ***** Lema de Gronwall (versión débil)
@@ -2635,7 +3064,7 @@ $\exists (t_n,\varphi(t_n)) \to (\omega,\xi) \in \partial D = \mathbb{R} \times 
 Sea $y \in {\cal C}([t_0,\omega),\mathbb{R})$ con $C \in \mathbb{R}$ y $R \in \mathbb{R}^+$ tales que
 
 \[
-\forall t \in [t_0,\omega)\colon
+\forall t \in [t_0,\omega)\colon\quad
 y(t) \leq
 C + R \int_{t_0}^t y(s)\,ds.
 \]
@@ -2643,7 +3072,8 @@ C + R \int_{t_0}^t y(s)\,ds.
 Entonces
 
 \[
-\forall t \in [t_0,\omega)\colon y(t) \leq C e^{R(t-t_0)}.
+\forall t \in [t_0,\omega)\colon\quad
+y(t) \leq C e^{R(t-t_0)}.
 \]
 
 ****** Proof
@@ -2709,25 +3139,72 @@ Entonces
 \forall t \in [t_0,\omega)\colon y(t) \leq C e^{R(t-t_0)}.
 \]
 
-***** TODO Lema de Gronwall                                       :extra:
+***** Lema de Gronwall (fuerte)                                   :extra:
 ***** Crecimiento a lo sumo lineal
 $f \colon (a,+\infty) \times \mathbb{R}^d = D \to \mathbb{R}^{d}$ tiene *crecimiento a lo sumo lineal*
-si existen $m,n \in {\cal C}((a,+\infty), \mathbb{R}^+_0)$ tales que
+si existen $m,n \in (a,+\infty) \to \mathbb{R}^+_0$ continuas tales que
 
 \[
 \forall (t,x) \in D \colon \norm{f(t,x)} \leq m(t)\norm{x} + n(t).
 \]
 
-****** TODO Ejemplos
+****** Ejemplos
+
+ * Las $f(t,x)$ globalmente lipschitzianas respecto $x$ son CSL.
+ * Las $f(t,x)$ acotadas son CSL.
+ * Las $f(t,x)$ lineales respecto de $x$ son CSL.
+
 ******* Lineales
 ******* Autónomas
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       d38e7263-005a-4230-97d1-d1ac4568b375
+:DRILL_LAST_INTERVAL: 4.1859
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:57]
+:END:
+¿Cuándo tiene $f\colon (a,+\infty)\times\mathbb{R}^d\to\mathbb{R}^{d}$ crecimiento a lo sumo
+lineal?
+
+******* Definición
+Existen $m,n \in (a,+\infty) \to \mathbb{R}^+_0$ *continuas* tales que
+
+\[
+\forall (t,x) \in D \colon \norm{f(t,x)} \leq m(t)\norm{x} + n(t).
+\]
+
 ***** Teorema de crecimiento a lo sumo lineal
-Si $f \colon (a, +\infty)\times\mathbb{R}^d = D\to \mathbb{R}^d$ tiene crecimiento a lo sumo lineal,
-$\omega = +\infty$.
+Si $f \colon (a, +\infty)\times\mathbb{R}^d \to \mathbb{R}^d$ tiene crecimiento a lo sumo lineal,
+entonces $\omega = +\infty$.
+
+****** Card                                                      :drill:
+SCHEDULED: <2018-05-23 Wed>
+:PROPERTIES:
+:ID:       76564c59-0fa4-421c-a3e7-efd830498553
+:DRILL_LAST_INTERVAL: 4.8459
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:55]
+:END:
+¿Qué dice el teorema de crecimiento a lo sumo lineal?
+
+******* Answer
+Que si un campo sin fronteras en el futuro $f \colon (a,+\infty) \times \mathbb{R}^d \to \mathbb{R}^d$
+tiene crecimiento a lo sumo lineal, entonces $\omega = +\infty$.
 
 ****** Proof
-Si $\omega < +\infty$, la [[id:435b13ac-d20b-469c-bb0a-4915735b6c62][alternativa de comportamiento]] sería tocar la frontera
-pero en este caso por la forma de $D$ no es posible. Debe tenerse
+Si $\omega < +\infty$, por [[id:435b13ac-d20b-469c-bb0a-4915735b6c62][alternativa de comportamiento]] y sabiendo que no
+puede tocar la frontera, debe explotar en tiempo finito.
 $\lim_{t \to \omega} \|\varphi(t)\| = +\infty$. Aplicamos Weierstrass para tener $M = \max_{t_0 \leq t \leq \omega} m(t)$
 y $N = \max_{t_0 \leq t \leq \omega} n(t)$. Ahora
 
@@ -2741,10 +3218,17 @@ y(t) &= \norm{\varphi(t)} =
 Y por [[id:23749801-6cfb-4efe-a808-aef93e33bc9a][Lema de Gronwall]], acotamos por una constante
 
 \[
-y(t) \leq \left( \|x_0\| + N(\omega-t_0) \right) e^{M(t-t_0)}.
+y(t) \leq \left( \|x_0\| + N(\omega-t_0) \right) e^{M(t-t_0)} \leq \|x_0\| + N(\omega-t_0).
 \]
 
-***** TODO Teorema de crecimiento a lo sumo lineal (hipótesis debilitada)
+Llegando a contradicción. con la hipótesis de que explota en tiempo
+finito.
+
+***** Teorema de crecimiento a lo sumo lineal (hipótesis debilitada)
+Si $f \colon D \to \mathbb{R}^d$ tiene crecimiento a lo sumo lineal en un $\Omega$
+cerrado $[t_0,+\infty) \times \Omega \subset D$ con $\varphi(t) \in \Omega$ para cualquier $t \in [t_0,\omega)$,
+entonces $\omega = +\infty$.
+
 ****** TODO Proof
 **** 4.3. Acotación de soluciones. Funciones guía
 ***** Acotada en el futuro y acotada en el pasado
@@ -2752,7 +3236,6 @@ Decimos $\varphi$ *acotada en el futuro* si $\omega =+\infty$ y $\exists M\colon
 Decimos $\varphi$ *acotada en el pasado* si $\omega = +\infty$ $\exists M\colon\forall t \leq t_0\colon \|\varphi(t)\| \leq M$.
 Decimos $\varphi$ *acotada* si lo está en el futuro y en el pasado.
 
-***** TODO Acotación constante real
 ***** Funciones coercivas
 :PROPERTIES:
 :ID:       37022c48-c27d-4e11-aa9d-85c998a4b917
@@ -2816,18 +3299,6 @@ Caracteriza por límites una función coerciva
 Ser coerciva equivale a
 
 $\lim_{\|x\| \to +\infty}V(x) = +\infty$
-
-***** Ejemplos de funciones coercivas
-Para $V,W\colon \mathbb{R}^d \to \mathbb{R}$ y $V_1,\dots,V_d \colon \mathbb{R} \to \mathbb{R}$ continuas se tiene
-
- * $V(x_1,\dots,x_d) = V_1(x_1) + \dots + V_d(x_d)$ coerciva ssi lo son las $V_i$;
-
- * $V(x) \geq W(x)$ coerciva si lo es $W$;
-
- * $V$ cuadrática es coerciva ssi $\mathrm{Hess}(V)$ es definida o semidefinida positiva;
-
- * $V$ coerciva si $V \in {\cal C}^1(\mathbb{R}^d)$ es convexa con único punto crítico.
-
 ***** Derivada a lo largo de un campo
 La *derivada* de $V \in {\cal C}^1(\mathbb{R}^d,\mathbb{R})$ a lo largo de $f$ se define
 
@@ -2860,9 +3331,10 @@ Para $V \in {\cal C}^1(\mathbb{R}^d,\mathbb{R})$ se define
 \[
 \bV(t,x) = \left\langle \nabla V(x),f(t,x) \right\rangle.
 \]
-
 ***** Proposición de acotación por coercivas
-# Duda: Aquí no entiendo por qué pedimos la hipótesis de la D de esa forma.
+:PROPERTIES:
+:ID:       82dab245-c6b0-4bd6-8746-98af9e2892c6
+:END:
 Sea $V \in {\cal C}^1(\mathbb{R}^d, \mathbb{R})$ coerciva y tal que
 
 \[\exists r \in \mathbb{R}\colon
@@ -2871,14 +3343,13 @@ Sea $V \in {\cal C}^1(\mathbb{R}^d, \mathbb{R})$ coerciva y tal que
 \qquad
 \bV(t,x) < 0.\]
 
-Si $x_0 \in \Omega_r$ y $D = (a,+\infty) \times \mathbb{R}^d$, entonces $\forall t \geq t_0\colon \varphi(t) \in \Omega_r$,
-y está acotada en el futuro.
+Si $x_0 \in \Omega_r$, entonces $\forall t \geq t_0\colon \varphi(t) \in \Omega_r$ y está acotada en el futuro.
 
 ****** Proof
 Partimos en casos según $V(x_0) < r$ ó $V(x_0) = r$.
 
 ******* Caso 1
-Sea $V(x_0) < r$. Definimos $y = V \circ \varphi \in {\cal C}^1$ y tenemos $y'(t) = \bV(\varphi(t))$.
+Sea $V(x_0) < r$. Definimos $y = V \circ \varphi \in {\cal C}^1$ y tenemos $y'(t) = \bV(t,\varphi(t))$.
 Si no se tuviera $y(t) < r$, por [[id:a439476b-8c77-4994-a736-9062ee91e7d0][Lema del primer instante]] se tendría
 $y(\tau) = r$ y $\forall t \in [t_0,\tau[\colon y(t) < r$ para algún $\tau > t_0$.
 
@@ -2886,30 +3357,51 @@ Ahí tendríamos $y'(\tau) \geq 0$ pero $\bV(\varphi(\tau)) < 0$, llegando a con
 Sabemos así que $\varphi([t_0,\omega[) \subset \Omega_r$, que es compacto por ser $V$ [[id:37022c48-c27d-4e11-aa9d-85c998a4b917][coerciva]],
 luego está acotada.
 
-******* TODO Caso 2
-Sea $V(x_0) = r$, 
-
-***** Acotación mediante funciones guía: teorema
+******* Caso 2
+Sea $V(x_0) = r$, tendríamos $y(t_0) = r$ y $y'(t_0) < 0$, luego para algún
+$\varepsilon$ tendremos $\forall t \in (t_0,t_0+\varepsilon)\colon y(t) < r$. Aplicamos el primer caso
+en algún punto de ese intervalo.
+***** Teorema. Acotación mediante funciones guía
 :PROPERTIES:
 :ID:       b1ed10c4-862c-4722-b481-6f83bf18c479
 :END:
+Si existe $V \in {\cal C}^1(\mathbb{R}^d, \mathbb{R})$ coerciva tal que $\forall (t,x) \in D\colon \bV(t,x)\leq 0$,
+las soluciones maximales de la EDO están acotadas en el futuro.
+
+Si existe $V \in {\cal C}^1(\mathbb{R}^d, \mathbb{R})$ coerciva tal que $\forall (t,x) \in D\colon \bV(t,x)\geq 0$,
+las soluciones maximales de la EDO están acotadas en el pasado.
+
+****** Proof
+Definimos $y = V \circ \varphi \in {\cal C}^1$, decreciente por $y'(t) = \bV(t,\varphi(t)) \leq 0$.
+Luego, por la [[id:82dab245-c6b0-4bd6-8746-98af9e2892c6][proposición anterior]], $\varphi([t_0,\omega[) \subset \Omega_{V(x_0)}$, compacto y
+por tanto acotado, por ser $V$ [[id:37022c48-c27d-4e11-aa9d-85c998a4b917][coerciva]].
+****** Card: enunciado                                           :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       fbcbd5af-72f0-45e7-aeea-916ae98bc48f
+:DRILL_LAST_INTERVAL: 4.3452
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:00]
+:END:
+Enunciado del teorema de acotación mediante funciones guía.
+
+******* Enunciado
 Si existe $V \in {\cal C}^1(\mathbb{R}^d, \mathbb{R})$ coerciva tal que $\forall (t,x) \in D\colon \bV(t,x)\leq 0$,
 las soluciones maximales están acotadas en el futuro.
 
 Si existe $V \in {\cal C}^1(\mathbb{R}^d, \mathbb{R})$ coerciva tal que $\forall (t,x) \in D\colon \bV(t,x)\geq 0$,
 las soluciones maximales están acotadas en el pasado.
-
-****** Proof
-Definimos $y = V \circ \varphi \in {\cal C}^1$, decreciente por $y'(t) \leq \bV(t,\varphi(t)) \leq 0$.
-Luego $\varphi([t_0,\omega[) \subset \Omega_{V(x_0)}$, compacto y por tanto acotado, por ser $V$ [[id:37022c48-c27d-4e11-aa9d-85c998a4b917][coerciva]].
-
 ***** Acotación mediante funciones guía: corolario
 Si existe $V \in {\cal C}^1(\mathbb{R}^d,\mathbb{R})$ coerciva tal que $\forall (t,x) \in D\colon \bV(t,x) = 0$,
 las soluciones maximales están acotadas, teniéndose $\varphi(t) \in \Omega_{V(x_0)}$.
 
 ****** Proof
 Aplicando los dos casos del [[id:b1ed10c4-862c-4722-b481-6f83bf18c479][teorema]] anterior.
-
 ***** Acotación mediante funciones guía: debilitación
 Podemos aplicar dos debilitaciones a las hipótesis del teorema
 de [[id:b1ed10c4-862c-4722-b481-6f83bf18c479][acotación mediante funciones guía]],
@@ -2920,8 +3412,238 @@ de [[id:b1ed10c4-862c-4722-b481-6f83bf18c479][acotación mediante funciones guí
    componentes conexas de los $\Omega_r$ sean acotadas.
 
 ****** TODO Proof
-*** Seminario 1. Ecuaciones autónomas
-*** Seminario 2. Ecuaciones diferenciales de segundo orden
+***** Elección de funciones guía
+Para $V,W\colon \mathbb{R}^d \to \mathbb{R}$ y $V_1,\dots,V_d \colon \mathbb{R} \to \mathbb{R}$ continuas se tiene
+
+ * $V(x_1,\dots,x_d) = V_1(x_1) + \dots + V_d(x_d)$ coerciva ssi lo son las $V_i$;
+
+ * $V(x) \geq W(x)$ coerciva si lo es $W$;
+
+ * $V$ cuadrática es coerciva ssi $\mathrm{Hess}(V)$ es definida o semidefinida positiva;
+
+ * $V$ coerciva si $V \in {\cal C}^1(\mathbb{R}^d)$ es convexa con único punto crítico.
+
+Suelen funcionar el cuadrado de la norma euclídea, variables separadas
+y, en el peor de los casos, una forma cuadrática definida positiva.
+
+****** Card: cuadráticas coercivas                               :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       c495ad82-f560-46dd-b9ab-677edf45aeee
+:DRILL_LAST_INTERVAL: 4.0243
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:59]
+:END:
+¿Cuando es una forma cuadrática $V$ coerciva?
+
+******* Answer
+Cuando la hessiana es definida o semidefinida positiva.
+
+****** Card: última condición                                    :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       4134c0bb-2847-4c1c-b3ce-55807475a84b
+:DRILL_LAST_INTERVAL: 4.031
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:54]
+:END:
+[ $V$ coerciva ] si  $V \in {\cal C}^1(\mathbb{R}^d)$ es [convexa] con
+[un único punto crítico].
+*** Seminario 1. Ecuaciones autónomas ([[~/pdf/alonso_seminario_i_de_ecuaciones_diferenciales.pdf][PDF]])
+**** Solución general
+Trabajamos en una ecuación autónoma real con un campo localmente
+lipschitziano definido en $(a,b)$. Llamamos $X(t;t_0,x_0)$ a la
+*solución general*, la única solución maximal del PVI en esas
+condiciones iniciales.
+
+***** Proof
+Sabemos que la solución maximal es única por [[id:bf38540e-3857-427e-9b27-e6c0bf0cfd73][Picard-Lindelöf]].
+**** Puntos de equilibrio
+Los ceros del campo, $Z_f = \left\{ p \in (a,b) \mid f(p) = 0 \right\}$, dan soluciones
+únicas triviales llamadas *puntos de equilibrio*.
+
+**** Propiedad 1. Soluciones no constantes son estrictamente monótonas
+En una autónoma escalar, las soluciones no constantes son estrictamente
+monótonas.
+
+***** Proof
+Si $\varphi(t) = X(t;t_0,x_0)$ no fuera monótona, se tendría algún
+$\varphi'(\tau)=0$, y en ese punto se tendría $\varphi(\tau) \in Z_f$ y se rompería
+la unicidad en el punto de equilibrio.
+
+***** Card                                                        :drill:
+SCHEDULED: <2018-05-23 Wed>
+:PROPERTIES:
+:ID:       c289aec0-a546-4295-a571-556977c38e06
+:DRILL_LAST_INTERVAL: 4.5881
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:55]
+:END:
+En una ecuación autónoma escalar, ¿por qué las soluciones no
+constantes son estrictamente monótonas?
+
+****** Answer
+Si no lo fuera, en algún punto se tendría derivada nula.
+Ese punto sería un punto de equilibrio y se rompería la
+unicidad con la solución constante en ese mismo punto.
+
+**** Propiedad 2. Si hay límite, es punto de equilibrio y está en infinito
+En una autónoma escalar, la solución maximal cumple que
+si $\lim_{t \to \omega} \varphi(t) = L \in (a,b)$, entonces $L \in Z_f$ y además $\omega = +\infty$.
+
+De otra forma, si $\lim_{t \to \omega(t_0,x_0)} X(t;t_0,x_0) = L \in (a,b)$, entonces
+$L \in Z_f$ y además $\omega(t_0,x_0) = +\infty$.
+
+***** Proof
+Aplicamos [[id:435b13ac-d20b-469c-bb0a-4915735b6c62][alternativas de comportamiento]] y descartamos que pueda
+explotar en tiempo finito (tiene límite finito) y que pueda tocar
+la frontera, que supondría $L \in \partial (a,b) = \left\{ a,b \right\}$. Así, $\omega = +\infty$.
+
+Siendo $\varphi(t) = X(t;t_0,x_0)$, por Barbalat tenemos una sucesión
+$f(L) \gets f(\varphi(t_n)) = \varphi'(t_n) \to 0$.
+
+***** Card                                                        :drill:
+SCHEDULED: <2018-05-22 Tue>
+:PROPERTIES:
+:ID:       707d89c3-fd94-45a3-8898-959fd2fbccd2
+:DRILL_LAST_INTERVAL: 4.1038
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:58]
+:END:
+Para una solución maximal de ecuación autónoma escalar,
+si $\lim_{t \to \omega} \varphi(t) = L \in (a,b)$, entonces $L \in Z_f$ y además $\omega = +\infty$.
+¿Por qué?
+
+****** Proof
+La única alternativa de comportamiento positble es es
+$\omega = +\infty$. Por Barbalat, $f(L) \gets f(\varphi(t_n)) = \varphi'(t_n) \to 0$.
+
+**** Propiedad 3. Si hay límite, es punto de equilibrio y está en infinito
+En una autónoma escalar, la solución maximal cumple que
+si $\lim_{t \to \alpha} \varphi(t) = L \in (a,b)$, entonces $L \in Z_f$ y además $\alpha = -\infty$.
+
+**** Propiedad 4. Los ceros son barreras superiores
+En una autónoma escalar, si $x_0 < p \in Z_f$, entonces la solución
+maximal empezando en $x_0$ queda acotada, $\varphi(t) < p$.
+
+***** Proof
+Si no se tuviera, por Bolzano tendríamos algún punto donde
+$\varphi(\tau) = p$, y ahí se rompería la unicidad.
+
+**** Propiedad 5. Los ceros son barreras inferiores
+En una autónoma escalar, si $x_0 > p \in Z_f$, entonces la solución
+maximal empezando en $x_0$ queda acotada, $\varphi(t) > p$.
+
+**** Propiedad 6,7. Sigmoides
+Sea $f(p) = f(q) = 0$ con $p < q$ y con $f(x) > 0$ en $(p,q)$.
+Se tiene para la solución empezando en $x_0 \in (p,q)$ que
+
+ * queda atrapada en $(p,q)$,
+ * es estrictamente creciente,
+ * se extiende a $+\infty$ con límite $q$,
+ * se exitende a $-\infty$ con límite $p$.
+
+Si en esta misma situación se tiene $f(x) < 0$, la solución
+
+ * queda atrapada en $(p,q)$,
+ * es estrictamente decreciente,
+ * se extiende a $+\infty$ con límite $p$,
+ * se exitende a $-\infty$ con límite $q$.
+ 
+**** Propiedad 8,9. Comportamiento en los bordes
+**** Órbitas
+La órbita de una ecuación escalar autónoma en el punto $x_0$ es la
+imagen de la única solución maximal de un PVI desde $x_0$.
+
+**** Propiedad 10. Órbitas posibles
+Se tiene ${\cal O}(x_0) \subset (a,b)$. Si $f(x_0) = 0$ entonces ${\cal O}(x_0) = \left\{ x_0 \right\}$
+y si $f(x_0) \neq 0$, entonces ${\cal O}(x_0)$ es un intervalo abierto.
+
+**** Propiedad 11. Órbitas coincidentes
+Cuando $f(x) \neq 0$ en $[x_0,x_1]$, tenemos órbitas coincidentes
+${\cal O}(x_0) = {\cal O}(x_1)$ y existe algún desfase $X(t;t_1,x_1) = X(t + \tau,t_0,x_0)$.
+
+***** Proof
+La coincidencia de órbitas es porque no hay cero entre ellas
+y el desfase se obtiene de la unicidad de solución.
+
+**** Diagrama de fases
+Algoritmo:
+
+ 1. Calcular puntos de equilibrio.
+ 2. Usar signo del campo para las direcciones del diagrama.
+ 3. Estudiar la infinitud de definición en algunos casos.
+
+**** Propiedad 12. ¿Tocan la frontera?
+Si $\lim_{x \to c} f(x) = L \neq 0$ para $c$ real en la frontera y $L \in \mathbb{R} \cup \left\{ \infty,-\infty \right\}$;
+entonces 
+
+ * si $\lim_{t \to \omega} \varphi(t) = c$, se tiene $\omega < +\infty$.
+ * si $\lim_{t \to \alpha}\varphi(t) = c$, se tiene $\alpha > -\infty$.
+
+***** Proof
+Si $\omega = +\infty$ y $\lim_{t \to \infty} \varphi(t) = c$, por Barbalat tendríamos
+$0 \gets \varphi'(t_n) = f(\varphi(t_n)) \to L$.
+
+**** Propiedad 13. ¿Explotan en tiemepo finito? Orden de infinitud
+Si $b = +\infty$, con $\lim_{t \to \omega} X(t;t_0,x_0) = +\infty$ y teniéndose
+
+\[
+\lim_{x \to {}+\infty} \frac{f(x)}{x^p} = L \in [0,+\infty]
+\]
+
+para $p \geq 1$.
+
+ * Si $p = 1$ y $L \in \mathbb{R}$, entonces $\omega = +\infty$.
+ * Si $p > 1$ y $L > 0$, entonces $\omega < +\infty$.
+
+**** Propiedad 14. Región de atracción
+Para un punto de equilibrio $p \in Z_f$, la región de atracción es
+
+\[
+{\cal R}(p) = \left\{ x_0 \in (a,b) \mid \lim_{t \to \omega} X(t;t_0,x_0) = p \right\}.
+\]
+
+Sabemos que
+
+ * $p \in {\cal R}(p)$,
+
+ * $x_0 \in {\cal R}(p)$ implica $\omega(0,x_0) =+\infty$,
+
+ * ${\cal R}(p)$ intervalo. 
+
+**** Propiedad 15. Atractores
+Un punto es *atractor* si está en el interior de su región de
+atracción. Es *atractor global* si su región de atracción es
+todo $(a,b)$.
+
+Si $f$ es derivable en $p \in Z_f$.
+
+ 1. $f'(p)<0$ nos da $p$ atractor.
+ 2. $f'(p) > 0$ nos da $p$ no atractor.
+
+*** Seminario 2. Ecuaciones diferenciales de segundo orden ([[alonso_seminario_ii_de_ecuaciones_diferenciales.pdf][PDF]])
 **** 1. Ecuaciones sin rozamiento
 ***** Definición
 Llamamos *ecuación sin rozamiento* a una de la forma
@@ -3116,17 +3838,17 @@ f_n_{|[a,b]} \overset{c.u.}\longrightarrow f_{|[a,b]}.
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-18 Fri>
+SCHEDULED: <2018-06-10 Sun>
 :PROPERTIES:
 :ID:       8b8c5241-89f5-4f08-b039-7e62f401a15f
-:DRILL_LAST_INTERVAL: 9.4308
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 23.1172
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_AVERAGE_QUALITY: 3.667
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-09 Wed 13:40]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 21:54]
 :END:
 Convergencia uniforme en compactos.
 
@@ -3382,17 +4104,17 @@ e^{i\theta} = \cos \theta + i \sin \theta
 **** Teorema de Fubini
 **** Teorema de Tonelli
 **** Norma en Lp                                                   :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-06-03 Sun>
 :PROPERTIES:
 :ID:       ceb95e11-f3e9-4928-9690-7f625454045f
-:DRILL_LAST_INTERVAL: 6.1941
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 16.2195
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:51]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:09]
 :END:
 Describe la norma en $L^p(S)$,
 
@@ -3648,17 +4370,17 @@ Esta función es no analítica pero continua con derivadas continuas.
 Por contradicción, $f = 0$.
 
 ***** Card: enunciado                                             :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-08-13 Mon>
 :PROPERTIES:
 :ID:       5184345f-67cf-402b-8732-6baf557e13b6
-:DRILL_LAST_INTERVAL: 26.3191
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 87.1379
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.56
+:DRILL_AVERAGE_QUALITY: 3.8
+:DRILL_EASE: 2.66
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:02]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:14]
 :END:
 Enuncia el lema fundamental del cálculo de variaciones para una
 $f \colon [a,b] \to \mathbb{R}$. ¿Cuál es la idea de la demostración?
@@ -3902,17 +4624,17 @@ F - y'F_p = \mathrm{cte.}
 ***** Longitud mínima usando un caso particular
 ***** Superficie minimal de revolución
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-17 Thu>
+SCHEDULED: <2018-05-31 Thu>
 :PROPERTIES:
 :ID:       3c7fbd05-0ff4-4169-b50b-a0cf2e328b71
-:DRILL_LAST_INTERVAL: 4.3436
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 12.9281
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-13 Sun 22:18]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:11]
 :END:
 Solución de 
 
@@ -3940,17 +4662,17 @@ f(tx + (1-t)y) \leq tf(x) + (1-t)f(y).
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-17 Thu>
+SCHEDULED: <2018-06-03 Sun>
 :PROPERTIES:
 :ID:       a8a0d061-c728-48f3-a08b-93a1b1b625f8
-:DRILL_LAST_INTERVAL: 4.3999
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 16.2127
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-13 Sun 22:20]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:13]
 :END:
 Desigualdad de Jensen
 
@@ -4598,17 +5320,17 @@ con $\phi = (\phi_1,\dots,\phi_n)$. Llegamos a
 y tomamos funciones test en cada componente para obtener las ecuaciones.
 
 ***** Card: ecuaciones                                            :drill:
-SCHEDULED: <2018-05-14 Mon>
+SCHEDULED: <2018-06-15 Fri>
 :PROPERTIES:
 :ID:       c03c7dca-f9ba-4bc7-9dcd-2a1ea5dd1bcb
-:DRILL_LAST_INTERVAL: 11.3488
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 27.7609
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:34]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:01]
 :END:
 Ecuaciones de Euler-Lagrange para funcionales dependientes de
 varias funciones.
@@ -4711,17 +5433,17 @@ y_i \in {\cal C}^1[x_0,x_1] \\
 \]
 
 ***** Card: ligaduras algebraicas                                 :drill:
-SCHEDULED: <2018-05-14 Mon>
+SCHEDULED: <2018-06-19 Tue>
 :PROPERTIES:
 :ID:       71146515-8346-4743-829e-487b2e4ef9d0
-:DRILL_LAST_INTERVAL: 11.1429
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 31.8129
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.25
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:34]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:02]
 :END:
 Cómo buscar el mínimo de un funcional de varias variables ${\cal F}$
 
@@ -4761,17 +5483,17 @@ F^{\ast}_{y_i} - \dv{}{x} \left( F^{\ast}_{p_i}\right) = 0,\quad i = 1,\dots,n; 
 \end{array}\]
 
 ***** Card: dominio en ligaduras algebro-diferenciales            :drill:
-SCHEDULED: <2018-05-14 Mon>
+SCHEDULED: <2018-06-12 Tue>
 :PROPERTIES:
 :ID:       e8794a70-7d98-469e-907d-16b566f467ba
-:DRILL_LAST_INTERVAL: 9.8725
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 25.1192
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:27]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:01]
 :END:
 Describe un dominio con ligaduras algebro-diferenciales.
 
@@ -4883,17 +5605,17 @@ y llegamos a
 que se corresponden a las ligaduras que marca el enunciado.
 
 ***** Card: dominio en ligaduras integrales                       :drill:
-SCHEDULED: <2018-05-14 Mon>
+SCHEDULED: <2018-06-02 Sat>
 :PROPERTIES:
 :ID:       d6f0bf2b-96a3-4aa7-97cf-a10986b4ca1b
-:DRILL_LAST_INTERVAL: 8.7982
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 15.3498
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.8
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:06]
+:DRILL_AVERAGE_QUALITY: 2.833
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:01]
 :END:
 Describe un dominio con ligaduras integrales.
 
@@ -5089,17 +5811,17 @@ F_u - \dv{}{x_1} F_p - \dv{}{x_2}F_q = 0.
 \]
 
 ****** Card: caso con tres variables                             :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-27 Wed>
 :PROPERTIES:
 :ID:       a66957ab-1847-466f-b93c-813e5cb671b3
-:DRILL_LAST_INTERVAL: 11.8402
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 40.3114
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:41]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:07]
 :END:
 Da la ecuación de Euler-Lagrange para un funcional
 
@@ -5173,17 +5895,17 @@ La *divergencia* es la suma de todas las primeras derivadas
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-17 Thu>
+SCHEDULED: <2018-06-17 Sun>
 :PROPERTIES:
 :ID:       9ceb6b3f-39fd-45f8-8d13-6d6c857f5ada
-:DRILL_LAST_INTERVAL: 13.4512
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 30.3428
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:25]
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:14]
 :END:
 Define la *divergencia* en cálculo vectorial, $\mathrm{div}(f)$.
 
@@ -5312,17 +6034,17 @@ Tomando $\sigma = \mathrm{cte}$ (nula sería trivial) y $\alpha = 0$ en el model
 \]
 
 ****** Card: ecuación de Poisson                                 :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-05-28 Mon>
 :PROPERTIES:
 :ID:       72b375cf-bcc8-4ca6-aeea-8e220904f72f
-:DRILL_LAST_INTERVAL: 4.1122
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 9.7942
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.8
-:DRILL_EASE: 2.46
+:DRILL_AVERAGE_QUALITY: 3.167
+:DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 17:38]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:10]
 :END:
 Enuncia la Ecuación de Poisson.
 
@@ -5333,17 +6055,17 @@ Enuncia la Ecuación de Poisson.
 \]
 
 ****** Card: proviene de                                         :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-06-18 Mon>
 :PROPERTIES:
 :ID:       2a969466-4703-47e1-974b-eb5ea28a3bd0
-:DRILL_LAST_INTERVAL: 13.3381
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 30.885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-03 Thu 12:42]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:10]
 :END:
 ¿De dónde proviene la ecuación de Poisson?
 
@@ -5432,18 +6154,18 @@ Y la condición de Euler-Lagrange se llama *ecuación de ondas*.
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-13 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: multisided
 :ID:       d2737759-5b77-4e0f-8860-769f0dae8897
-:DRILL_LAST_INTERVAL: 11.1699
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 26.1081
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.22
+:DRILL_AVERAGE_QUALITY: 2.6
+:DRILL_EASE: 2.08
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:27]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:04]
 :END:
 Ecuación de ondas.
 
@@ -5499,18 +6221,18 @@ u(t,0) = u(t,L) = 0, & t \geq 0.
 \right\}\]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-05-29 Tue>
 :PROPERTIES:
 :DRILL_CARD_TYPE: multisided
 :ID:       5c25baff-dce3-4454-b5e5-baf0ac520cdc
-:DRILL_LAST_INTERVAL: 3.7029
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 10.7985
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 2.667
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 17:38]
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:08]
 :END:
 Ecuación de ondas unidimensional simplificada.
 
@@ -5609,17 +6331,17 @@ u_0(x) = \sum_{n=1}^{\infty} a_n\sin(\frac{n\pi x}{L}).
 Si ajustamos los coeficientes llegamos a la solución buscada.
 
 ****** Card: procedimiento                                       :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-06-15 Fri>
 :PROPERTIES:
 :ID:       8be7d27b-0a8a-43b6-a7a1-3086967a27e5
-:DRILL_LAST_INTERVAL: 10.9762
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 28.0885
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-05 Sat 19:53]
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:10]
 :END:
 ¿Cuál es el procedimiento de resolución de la ecuación de ondas
 simplificada?
@@ -5732,33 +6454,33 @@ tiene directamente.
 ****** Proof                                                     :extra:
 # Fuera de los objetivos del curso.
 ****** Card: los valores propios                                 :drill:
-SCHEDULED: <2018-05-14 Mon>
+SCHEDULED: <2018-06-12 Tue>
 :PROPERTIES:
 :ID:       3458d9e8-3283-4f9c-908d-52ac8c553a42
-:DRILL_LAST_INTERVAL: 10.233
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 25.2284
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:29]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:00]
 :END:
 Los valores propios de un Sturm-Liouville $\lambda_i$ forman
 una sucesión [creciente y divergente $\lambda_1< \lambda_2< \dots\to \infty$].
 
 ****** Card: funciones propias                                   :drill:
-SCHEDULED: <2018-05-17 Thu>
+SCHEDULED: <2018-06-19 Tue>
 :PROPERTIES:
 :ID:       ea61c9ca-13ef-4a74-8c5e-14ced1b5a060
-:DRILL_LAST_INTERVAL: 12.672
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 32.4906
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.25
 :DRILL_EASE: 2.36
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:30]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:13]
 :END:
 Qué cuatro propiedades verifican las funciones propias $f_n$ de un
 Sturm-Liouville.
@@ -5776,17 +6498,17 @@ Cuando las *normalizamos*, $\|y_n\|_{L^2_S} = 1$, verifican
    propias.
 
 ****** Card: el caso periódico                                   :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-08 Fri>
 :PROPERTIES:
 :ID:       d398f6f5-55e9-4dfc-98ad-ef48ad0d3039
-:DRILL_LAST_INTERVAL: 10.9527
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 20.9843
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_AVERAGE_QUALITY: 3.667
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:28]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:04]
 :END:
 ¿Qué cambia en la teoría de Sturm-Liouville en el caso periódico?
 
@@ -5933,17 +6655,17 @@ y(x_0) = y(x_1) = 0, \\
 teniéndose además que ${\cal F}[y_n] = \lambda_n$.
 
 ****** Card: enunciado                                           :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-06-09 Sat>
 :PROPERTIES:
 :ID:       35437f0b-383e-45ab-ba01-c030fbeb1d98
-:DRILL_LAST_INTERVAL: 11.5741
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 22.1509
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:26]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:09]
 :END:
 Enuncia el Teorema de caracterización variacional de funciones
 y valores propios de un Sturm-Liouville.
@@ -6087,17 +6809,17 @@ Se debe comprobar que es base normal y que son ortornormales en el
 espacio $L^2(0,T)$ integrando y usando identidades trigonométricas.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-17 Sun>
 :PROPERTIES:
 :ID:       5b0b3868-b27b-4e52-baa0-a215080509fa
-:DRILL_LAST_INTERVAL: 9.6497
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 30.0495
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.75
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:06]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:06]
 :END:
 Dar la base ortonormal de $L^2(0,T)$ del Teorema de Riesz-Fischer.
 
@@ -6139,17 +6861,17 @@ Todas las $y_n$ son periódicas, así que para tener convergencia
 puntual habrá que tener periodicidad en la función aproximada.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-19 Tue>
 :PROPERTIES:
 :ID:       31ad5eda-567d-4b54-b25f-e2e95e24a0b3
-:DRILL_LAST_INTERVAL: 11.2614
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 31.9059
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-04 Fri 12:25]
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:07]
 :END:
 Por Riesz-Fischer tenemos convergencia casi por doquier de la serie de
 Fourier.  ¿Cuál es la primera condición necesaria para tener
@@ -6168,17 +6890,17 @@ de continuidad y en los puntos de discontinuidad $a_i$ se tiene el
 \] 
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-11 Mon>
 :PROPERTIES:
 :ID:       e1a64429-139b-4b76-a77e-dbf1c41fcd9c
-:DRILL_LAST_INTERVAL: 9.7463
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 24.0119
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-05 Sat 19:58]
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:03]
 :END:
 Convergencia de la serie de Fourier de una función continua a trozos.
 ¿Qué ocurre en los puntos de discontinuidad?
@@ -6244,17 +6966,17 @@ converge uniformemente para $a_n$ y $b_n$ coeficientes de Fourier.
 Se aplicará un razonamiento similar al aplicado [[id:55291685-9a8a-4c19-9338-570d037dd93c][anteriormente]].
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-06-14 Thu>
 :PROPERTIES:
 :ID:       3566f799-f086-4e6f-9b1c-6be4a775beae
-:DRILL_LAST_INTERVAL: 10.9088
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 27.0883
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:02]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:08]
 :END:
 Enunciar el Teorema 21 sobre convergencia de derivadas superiores
 en series de Fourier.
@@ -6272,17 +6994,17 @@ La convergencia en media la da la igualdad de Bessel
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-18 Fri>
+SCHEDULED: <2018-05-29 Tue>
 :PROPERTIES:
 :ID:       7fd53585-d7a3-4da3-8087-77d8ff760eb6
-:DRILL_LAST_INTERVAL: 4.6041
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 11.0866
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_AVERAGE_QUALITY: 2.714
 :DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-13 Sun 22:21]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:12]
 :END:
 Enuncia la igualdad de Bessel que da la convergencia en
 media de la serie de Fourier.
@@ -6316,17 +7038,17 @@ siendo
  * \[b_n = \frac{1}{T}\int_{-T}^T y(x)\sin \left( \frac{n\pi x}{T} \right) \,dx \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-05-22 Tue>
 :PROPERTIES:
 :ID:       f254979e-2fbc-4b1d-928b-336f633977b4
-:DRILL_LAST_INTERVAL: 10.8666
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_LAST_INTERVAL: 4.2772
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-05 Sat 20:02]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:15]
 :END:
 Desarrollo en Serie de Fourier de $y \in L^2(-T,T)$.
 (Coeficientes de ayuda).
@@ -6775,17 +7497,17 @@ llegaremos hasta una integral que es finita sólo cuando
 $\beta p + 1 - N < 1$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-17 Thu>
+SCHEDULED: <2018-06-03 Sun>
 :PROPERTIES:
 :ID:       62ba0268-3776-4f16-9fdd-0dab96753381
-:DRILL_LAST_INTERVAL: 4.6561
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 16.1237
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.333
-:DRILL_EASE: 2.46
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 17:38]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:11]
 :END:
 Estudia integrabilidad de $1/|x|^{\beta}$ en $\overline{B}$ y en $\mathbb{R}^N-\overline{B}$.
 
@@ -6844,17 +7566,17 @@ nos da que $f = F'$ c.p.d.
 # la conservación del signo de funciones continuas.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-08-15 Wed>
 :PROPERTIES:
 :ID:       48323a75-8295-4d00-af02-7a57721d5269
-:DRILL_LAST_INTERVAL: 27.3279
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 89.3989
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.429
-:DRILL_EASE: 2.66
+:DRILL_AVERAGE_QUALITY: 3.625
+:DRILL_EASE: 2.76
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-04-19 Thu 23:02]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:13]
 :END:
 Enunciar el teorema fundamental del cálculo en su versión débil
 para una $f \in L_{loc}^1(a,b)$ y un $c \in (a,b)$.
@@ -7084,22 +7806,22 @@ J(u_f+v) = J(u_f) + \frac{1}{2}a(v,v) \geq J(u_f) + \frac{\alpha}{2}\norm{v}_H >
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-19 Tue>
 :PROPERTIES:
 :ID:       54bc4de7-db60-426c-bcbb-08e80dbc2824
-:DRILL_LAST_INTERVAL: 9.9271
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 31.8409
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-05 Sat 19:58]
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:05]
 :END:
 Enuncia Lax-Milgram
 
 ******* Enunciado
-$a \colon H \times H \to \mathbb{R}$ bilineal continua coerciva $\exists \alpha \colon \forall v \in H\colon  \alpha \norm{v}^2_H \leq a(v,v)$
+$a \colon H \times H \to \mathbb{R}$ bilineal continua coerciva, $\exists \alpha \colon \forall v \in H\colon  \alpha \norm{v}^2_H \leq a(v,v)$,
 sobre un Hilbert. Sea $\tf \colon H \to \mathbb{R}$ lineal continua. Hay solución única de
 
 \[(\text{\textit{Formulación débil}})\left\{\begin{array}{l}
@@ -7534,17 +8256,17 @@ y $x_1 = L$; y que además puede ser obtenido desde él aplicándolo en el caso
 $L = x_1-x_0$ a la función $\widetilde y(x) = y(x+x_0)$, que cumple $\widetilde{y}(0) = 0 = \widetilde y(L)$.
 
 ***** Card                                                        :drill:
-SCHEDULED: <2018-05-18 Fri>
+SCHEDULED: <2018-05-29 Tue>
 :PROPERTIES:
 :ID:       cb97f1a8-a3de-415d-9770-7b22e287d9f3
-:DRILL_LAST_INTERVAL: 5.284
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.9845
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-13 Sun 22:21]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:13]
 :END:
 Valores propios de $y'' + \lambda y = 0$, con $y(x_0) = 0 = y(x_1)$.
 
@@ -7849,17 +8571,17 @@ SCHEDULED: <2018-06-08 Fri>
 |-------------------------+----------------------+--------------+----------|
 
 ****** Card: lista de movimientos                                :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-05-28 Mon>
 :PROPERTIES:
 :ID:       0b376393-635e-4b49-a699-418212970a3f
-:DRILL_LAST_INTERVAL: 3.7758
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 9.9122
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:16]
+:DRILL_AVERAGE_QUALITY: 3.4
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:16]
 :END:
 Lista los movimientos rígidos de $\mathbb{R}^3$.
 
@@ -8232,17 +8954,17 @@ es no nula. Toda curva regular tiene rectas tangentes en todo punto,
 \]
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-05-28 Mon>
 :PROPERTIES:
 :ID:       68445172-0dfd-4e02-a7ee-8306eb327ce9
-:DRILL_LAST_INTERVAL: 4.2879
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.0786
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 16:48]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:18]
 :END:
 Definición de curva regular.
 
@@ -8251,17 +8973,17 @@ $\alpha \colon I \to \mathbb{R}^n$ con $\alpha \in {\cal C}^{\infty}$, $I$ inter
 Es regular si $|\alpha'(t)| \neq 0$ para cualquier $t \in I$.
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-05-28 Mon>
 :PROPERTIES:
 :ID:       38f704fa-7ee0-4aac-89e8-93153ed48971
-:DRILL_LAST_INTERVAL: 3.385
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.1123
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 16:47]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:15]
 :END:
 Sea $\alpha$ curva regular, da la ecuación de su recta tangente
 en un instante $t$.
@@ -8460,17 +9182,17 @@ Es decir, la longitud se preserva por [[id:92d75a96-b872-4ea6-ae5a-b83d975e2b37]
 reparametrizaciones.
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-05-29 Tue>
 :PROPERTIES:
 :ID:       102ec980-bf93-4cac-be57-c3b34b2bdd68
-:DRILL_LAST_INTERVAL: 3.9507
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.8505
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 16:48]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:18]
 :END:
 ¿La composición de qué morfismos preserva la longitud de una
 curva?
@@ -8491,17 +9213,17 @@ curva?
 Las p.p.a. son regulares.
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-17 Thu>
+SCHEDULED: <2018-05-30 Wed>
 :PROPERTIES:
 :ID:       976be4e8-a312-4644-bb1b-5b699363607c
-:DRILL_LAST_INTERVAL: 4.7972
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 12.1706
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 16:48]
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:19]
 :END:
 Definición de curva p.p.a.
 
@@ -8790,17 +9512,17 @@ Calculando la curvatura nos queda que depende del signo de $\phi'(t)^3$
 y la fórmula buscada.
 
 ******* Card: curvatura en el plano bajo reparametrizaciones    :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-05-29 Tue>
 :PROPERTIES:
 :ID:       f42e0f4d-e16f-48fd-b03c-ad07c94bf795
-:DRILL_LAST_INTERVAL: 3.9545
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 10.6725
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 23:56]
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:19]
 :END:
 ¿Cómo varía la curvatura en el plano bajo reparametrizaciones?
 Calcular $k_{\alpha \circ \phi}$.
@@ -8811,17 +9533,17 @@ Calcular $k_{\alpha \circ \phi}$.
  2. Opuesta de componer con decrecientes, $k_{\alpha \circ \phi} = - k_{\alpha} \circ \phi$.
 
 ******* Card: curvatura en el plano bajo movimientos rígidos    :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-05-29 Tue>
 :PROPERTIES:
 :ID:       906e3710-34fb-4a1b-9307-b0080cc5ab7b
-:DRILL_LAST_INTERVAL: 3.9306
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.7796
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 23:55]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:18]
 :END:
 ¿Cómo varía la curvatura en el plano bajo movimientos rígidos?
 Calcular $k_{\phi \circ \alpha}$.
@@ -8902,17 +9624,17 @@ Para $\alpha \colon I \to \mathbb{R}^3$ curva p.p.a. con $k > 0$, definimos
 \]
 
 ******* Card: buena definición                                  :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-05-31 Thu>
 :PROPERTIES:
 :ID:       651ce58d-4284-4b21-a958-e42dac558cca
-:DRILL_LAST_INTERVAL: 4.0932
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.4834
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-12 Sat 23:55]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:17]
 :END:
 ¿Dónde están definidas la torsión, el normal y el binormal
 para una curva p.p.a. en el espacio?
@@ -9036,17 +9758,17 @@ k_{\alpha} = \frac{|\alpha' \times \alpha''|}{|\alpha'|^3}
 \]
 
 ******* Card: torsión                                           :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-05-28 Mon>
 :PROPERTIES:
 :ID:       be660965-a5df-4345-b491-2e73601a8069
-:DRILL_LAST_INTERVAL: 3.7382
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 9.5051
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 4
-:DRILL_AVERAGE_QUALITY: 2.0
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:17]
+:DRILL_AVERAGE_QUALITY: 2.429
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:16]
 :END:
 Torsión de una curva regular en el espacio.
 
@@ -9315,17 +10037,17 @@ Embebimineto diferenciable con diferencial inyectiva.
  4. Llamamos *atlas* a $X_i$ parametrizaciones locales recubriendo $S$.
 
 ******* Card: comprobar inyectividad de la diferencial          :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-01 Fri>
 :PROPERTIES:
 :ID:       136c1adf-f85e-45ac-bc4a-19150882eabc
-:DRILL_LAST_INTERVAL: 4.7811
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.7248
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-10 Thu 23:27]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:16]
 :END:
 Dos formas de comprobar $dX_{q}$ inyectiva para $X \colon U \to \mathbb{R}^3$.
 
@@ -9981,8 +10703,17 @@ T_{\phi(p)}\phi(S) = (d\phi)_p(T_pS)
 \]
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
 :PROPERTIES:
 :ID:       11cf5e7c-ff50-4c64-b6a0-a9b455bb3024
+:DRILL_LAST_INTERVAL: 4.2312
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:21]
 :END:
 Sea $\phi \colon O \to O'$ difeomorfismo, calcula en función de la 
 diferencial
@@ -10303,17 +11034,17 @@ $(f \circ \alpha)'(0) \in T_{f(p)}S'$. Nótese que una curva $\alpha$ así exist
 cualquier $v \in T_pS$ por definición.
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-06-05 Tue>
 :PROPERTIES:
 :ID:       e8520435-9cb6-4b93-8d2f-bf62c5ae7a19
-:DRILL_LAST_INTERVAL: 7.5187
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 18.4904
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:00]
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:17]
 :END:
 Define la diferencial de $f \colon S \to S'$ en $p \in S$.
 
@@ -10325,6 +11056,7 @@ La aplicación $(df)_p \colon T_pS \to T_{f(p)}S'$ dada por
 \]
 
 donde $\alpha \colon (-\varepsilon,\varepsilon) \to S$ es una curva $\alpha(0) = p$ y $\alpha'(0) = v$.
+Se puede demostrar que así está bien definida y no depende de $\alpha$.
 
 ****** 2.4.8. La diferencial está bien definida
 La [[id:51f883ea-541f-41ae-bfba-ebb99bc64622][diferencial]] no depende de la curva escogida.
@@ -10389,17 +11121,17 @@ La diferencial cumple
 ******* TODO Proof
 
 ******* Card: diferencial del producto vectorial                :drill:
-SCHEDULED: <2018-05-16 Wed>
+SCHEDULED: <2018-06-04 Mon>
 :PROPERTIES:
 :ID:       797e93ca-a758-4751-9ce4-a7d532280cc9
-:DRILL_LAST_INTERVAL: 5.2541
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 16.5827
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-11 Fri 23:07]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:18]
 :END:
 Calcular $d(f \times g)_p(v)$.
 
@@ -10511,17 +11243,17 @@ $f$ es difeomorfismo local en $p$.
 
 ******* TODO Proof
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-01 Fri>
 :PROPERTIES:
 :ID:       e2083ec1-dfff-4974-a684-a2611c6f5c70
-:DRILL_LAST_INTERVAL: 4.3357
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 13.8034
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-11 Fri 16:15]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:16]
 :END:
 Enuncia el teorema de la función inversa entre superficies.
 
@@ -10546,17 +11278,17 @@ Sea $f \colon S \to S'$ diferenciable
 Si $S' \subset S$, entonces $S'$ es abierto de $S$.
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-06-01 Fri>
 :PROPERTIES:
 :ID:       35427325-1210-4286-a7be-9d5ff9231027
-:DRILL_LAST_INTERVAL: 3.976
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.836
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-11 Fri 23:08]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:15]
 :END:
 Si tenemos $S' \subset S$, ¿qué información topológica nos da?
 
@@ -10603,17 +11335,17 @@ Una *orientación* es un campo normal, unitario y diferenciable.
 Una superficie es orientable si admite una orientación.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-15 Tue>
+SCHEDULED: <2018-05-29 Tue>
 :PROPERTIES:
 :ID:       564f702b-78ce-48bf-9a67-02e0a4b51a16
-:DRILL_LAST_INTERVAL: 4.2259
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.0718
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-11 Fri 16:14]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:15]
 :END:
 Orientación de una superficie.
 
@@ -10742,8 +11474,17 @@ por
 \]
 
 ****** Card                                                      :drill:
+SCHEDULED: <2018-05-22 Tue>
 :PROPERTIES:
 :ID:       f9d7f47e-ccbe-43f2-b654-db6b6e1ef7ea
+:DRILL_LAST_INTERVAL: 3.8634
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:20]
 :END:
 Define la segunda forma fundamental $\sigma_p(u,v)$.
 
