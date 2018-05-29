@@ -1,6 +1,6 @@
 #+Title: Math
 #+todo: TODO CHECK | DONE
-#+setupfile: setup/ejerciciomodelos.setup
+#+setupfile: setup/ejerciciocomputacion.setup
 
 ** Header                                                                                  :ignore:
 #+latex_header: \usepackage{libertine}
@@ -16,6 +16,7 @@
 #+latex_header: \usepackage{amssymb}
 #+latex_header: \usepackage{stmaryrd}
 #+latex_header: \usepackage{mathtools}
+#+latex_header: \usepackage{mathabx}
 #+latex_header: \usepackage{color}
 #+latex_header: \usepackage{bussproofs}\EnableBpAbbreviations{}
 #+latex_header: \usepackage{tikz}
@@ -8189,6 +8190,31 @@ que no se mueve la reacción.
 k_{eq} := \frac{k_2}{k_1} = \frac{[A]_{eq}[B]_{eq}}{[C]_{eq}}
 \]
 
+****** Card                                                                             :drill:
+SCHEDULED: <2018-05-30 Wed>
+:PROPERTIES:
+:ID:       0ff2edea-e9e8-4899-bc7a-5483b34ca087
+:DRILL_LAST_INTERVAL: 4.2068
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:10]
+:END:
+Aplica la ley de acción de masas sobre la fórmula.
+
+\[A+B \xrightleftharpoons[k_2]{k_1} C\]
+
+******* Answer
+
+  $a' = k_2c - k_1ab$,
+
+  $b' = k_2c - k_1ab$,
+
+  $c' = k_1ab - k_2c$.
+
 **** 7.2. Modelo de Michaelis-Menten
 ***** Modelo inicial de Michaelis-Menten
 El modelo de Michaelis-Merten queda determinado por
@@ -8219,17 +8245,17 @@ Llegamos a las ecuaciones
  * $p' = k_2c$
 
 ****** Card                                                                             :drill:
-SCHEDULED: <2018-05-26 Sat>
+SCHEDULED: <2018-05-30 Wed>
 :PROPERTIES:
 :ID:       521ee441-1af7-44a6-a91f-f16440121990
-:DRILL_LAST_INTERVAL: 2.3999
+:DRILL_LAST_INTERVAL: 4.002
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-24 Thu 23:56]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:06]
 :END:
 Reacciones del modelo de Michaelis-Merten.
 
@@ -8296,18 +8322,249 @@ hay solución única.
 
 ****** TODO Proof
 
-***** Positividad en Michaelis-Menten
+***** Positividad y acotación en Michaelis-Menten
+Puede comprobarse 
+
+ - *unicidad* con Picard-Lindelöf,
+ - *positividad* con lema de primer instante,
+ - *acotación* definiendo $h = u+\varepsilon v$, que tiene $h' \leq 0$,
+ - *comportamiento en infinito*, $u,v \to 0$ cuando $t \to \infty$ por Barbalat.
+
 *** 8. Dinámica de poblaciones y Ley de Fick
 **** 8.1. Modelo
-***** Modelo
-***** Ley de conservaación
 ***** Teorema de la divergencia de Gauss
+:PROPERTIES:
+:ID:       c87531f2-0004-425a-9b15-058eb2854731
+:END:
+Dada $F \colon \Omega \to \mathbb{R}^N$ con $\partial\Omega$ suficientemente regular, tenemos
+
+\[
+\int_{\Omega} \mathrm{div}(F)\,dx = \int_{\partial \Omega} F \cdot n \,dS,
+\]
+
+donde el operador de *divergencia* está definido como
+
+\[
+\mathrm{div}(F) = \pdv{F_1}{x_1} + \dots + \pdv{F_N}{x_N}.
+\]
+
+****** Card: divergencia                                                                :drill:
+SCHEDULED: <2018-05-30 Wed>
+:PROPERTIES:
+:ID:       42fe30e9-4824-4592-8874-d687ea2a6ac7
+:DRILL_LAST_INTERVAL: 3.9266
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:09]
+:END:
+Define el operador de divergencia
+
+\[
+\mathrm{div}(F) = \dots
+\]
+
+******* Answer
+
+\[
+\mathrm{div}(F) = \pdv{F_1}{x_1} + \dots + \pdv{F_N}{x_N}.
+\]
+
+****** Card: teorema                                                                    :drill:
+SCHEDULED: <2018-05-30 Wed>
+:PROPERTIES:
+:ID:       4fcc3170-b015-4315-a725-6cedd121e585
+:DRILL_LAST_INTERVAL: 3.9355
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:13]
+:END:
+Enuncia el teorema de la divergencia de Gauss.
+
+******* Answer
+Dada $F \colon \Omega \to \mathbb{R}^N$ con $\partial\Omega$ suficientemente regular, tenemos
+
+\[
+\int_{\Omega} \mathrm{div}(F)\,dx = \int_{\partial \Omega} F \cdot n \,dS,
+\]
+
+***** Modelo
+Dada una *densidad de población* $u$, consideramos que la población
+cambia por crecimiento y por movimiento
+
+\[
+\dv{}{t}\int_{\Omega} u(t,x)\,dx = 
+\int_{\Omega} f(u)\,dx + \int_{\partial \Omega} -J(t,x) \cdot n(x)\,dS,
+\]
+
+aplicando el [[id:c87531f2-0004-425a-9b15-058eb2854731][Teorema de la divergencia]], nos queda
+
+\[
+\dv{}{t}u + \mathrm{div}(J) = f.
+\]
+
+***** Primera Ley de Fick y segunda Ley de Fick
+Consideramos que la corriente en un punto fluye de las zonas más densas
+a las menos densas, *Ley de Fick*,
+
+\[
+J(x,t) = -D \nabla_x u.
+\]
+
+Desde aquí, en el caso $f = 0$, se obtiene la *ecuación del calor* o
+*segunda Ley de Fick*,
+
+\[
+\dv{}{t}u = D \Delta u.
+\]
+
+****** Proof
+Usamos crucialmente que la divergencia del gradiente es el laplaciano.
+
+\[
+\mathrm{div}(\nabla u) = \Delta u.
+\]
+
+***** Ley de conservación
 **** 8.2. Modelos de dinámica de poblaciones
 ***** Modelo de Malthus
+Tasa positiva constante de crecimiento fijada una población inicial $u(0) = u_0$.
+
+\[
+u'(t) = \alpha u(t)
+\]
+
+La solución sería exponencial $u(t) = u_0e^{\alpha t}$. Dependiendo
+del valor de $\alpha$, llegamos a *sobrepoblación* exponencial o a
+*extinción*.
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-05-31 Thu>
+:PROPERTIES:
+:ID:       3053bb75-f914-4410-856b-b1c77728f2b5
+:DRILL_LAST_INTERVAL: 5.3557
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:06]
+:END:
+Ecuación del modelo de Malthus.
+
+******* Answer
+
+\[
+u'(t) = \alpha u(t)
+\]
+
 ***** Modelo logístico de Verlhust
+Tasa cambiante según los recursos.  Tenemos una *capacidad máxima de carga*
+$u_{\infty}$ a partir de la cual vuelve a decrecer la población. Sólo tenemos una
+constante $\alpha$ que marca la *tasa intrínseca*.
+
+\[
+u'(t) = \alpha \left( 1 - \frac{u(t)}{u_{\infty}} \right)u(t)
+\]
+
+Tenemos una ecuación autónoma con equilibrio en $0$ y en $u_{\infty}$, siendo el
+segundo un atractor.
+
+****** Derivación del modelo                                                            :extra:
+Suponemos que $\alpha(t) = k_1c(t)$, donde $c$ es la cantidad de
+recursos y suponemos que la reproducción consume recursos, 
+$c'(t) = -k_2u'(t)$. Obtenemos $\alpha(t) = k_1(c_0+k_2u_0-k_2u(t))$,
+que nos lleva a llamar a toda la constante $\alpha = k_1(c_0 + k_2u_0)$ y
+llamar $u_{\infty} = k_2/(c_0 + k_2u_0)$ para obtener la fórmula.
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-05-30 Wed>
+:PROPERTIES:
+:ID:       c5c6cf39-5ee7-4fe8-97cd-7d3c6d339190
+:DRILL_LAST_INTERVAL: 3.8776
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:08]
+:END:
+Ecuación del modelo logístico de Verlhust.
+
+******* Answer
+
+\[
+u'(t) = \alpha \left( 1 - \frac{u(t)}{u_{\infty}} \right)u(t)
+\]
+
 ***** Efecto Alle fuerte
+Tasa cambiante y con un mínimo inferior $u_{min}$. 
+
+\[
+u(t) = \alpha \left( 1 - \frac{u}{u_{\infty}} \right) \left( \frac{u}{u_{min}} - 1 \right).
+\]
+
+De nuevo la resolución nos da una ecuación autónoma con equilibrios
+estables en $u_{\infty}$ y en $0$, pero equilibrio inestable en $u_{min}$.
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-05-30 Wed>
+:PROPERTIES:
+:ID:       f6ebc901-c8ae-4ee8-b3fc-6df77c73ffdf
+:DRILL_LAST_INTERVAL: 4.059
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:07]
+:END:
+Ecuación del modelo con efecto Alle fuerte.
+
+******* Answer 
+
+\[
+u(t) = \alpha \left( 1 - \frac{u}{u_{\infty}} \right) \left( \frac{u}{u_{min}} - 1 \right).
+\]
+
 ***** Efecto Alle débil
-***** Resolución de la ecuación logística
+Podemos debilitar el efecto Alle tomando una potencia y no dejando
+ningún punto de extinción
+
+\[
+u(t) = \alpha \left( 1 - \frac{u}{u_{\infty}} \right) \left( \frac{u}{u_{min}} \right)^k u.
+\]
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-05-31 Thu>
+:PROPERTIES:
+:ID:       fba88321-65e9-4bf7-b90e-608b10608f7e
+:DRILL_LAST_INTERVAL: 4.5603
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:08]
+:END:
+Ecuación del modelo con efecto Alle *débil*.
+
+******* Answer
+\[
+u(t) = \alpha \left( 1 - \frac{u}{u_{\infty}} \right) \left( \frac{u}{u_{min}} \right)^k u.
+\]
+
 **** 8.3. Transformada de Fourier
 ***** Clase de Schwartz
 La *clase de Schwartz* es el espacio de las funciones complejas
@@ -8323,17 +8580,17 @@ decrecimiento más rápido que cualquier polinomio en infinito.
 \]
 
 ****** Card                                                                             :drill:
-SCHEDULED: <2018-05-28 Mon>
+SCHEDULED: <2018-06-08 Fri>
 :PROPERTIES:
 :ID:       ee0ff838-94f3-4200-bfe8-8b104c8b3f04
-:DRILL_LAST_INTERVAL: 4.1458
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.494
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-24 Thu 23:55]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-28 Mon 22:53]
 :END:
 Clase de Schwartz.
 
@@ -8359,18 +8616,18 @@ de la transformada de Fourier.
 G(x) = e^{-\pi x^2}
 \]
 
-****** Card                                                                             :drill:
-SCHEDULED: <2018-05-28 Mon>
+****** Card: definición                                                                 :drill:
+SCHEDULED: <2018-06-11 Mon>
 :PROPERTIES:
 :ID:       b3bc2aba-9d48-4ece-bfd1-b326b55f2db0
-:DRILL_LAST_INTERVAL: 4.3847
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 14.0537
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-24 Thu 23:54]
+:DRILL_LAST_REVIEWED: [2018-05-28 Mon 22:50]
 :END:
 Función de Gauss.
 
@@ -8378,6 +8635,31 @@ Función de Gauss.
 
 \[
 G(x) = e^{-\pi x^2}
+\]
+
+****** Card: integral                                                                   :drill:
+SCHEDULED: <2018-05-29 Tue>
+:PROPERTIES:
+:ID:       89250ba0-0c07-4417-a4af-deb2c7a043e9
+:DRILL_LAST_INTERVAL: 4.4713
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-25 Fri 22:56]
+:END:
+Calcula la integral
+
+\[
+\int^{+\infty}_{-\infty} e^{-\pi x^2}\,dx = \dots
+\]
+
+******* Integral
+
+\[
+\int^{+\infty}_{-\infty} e^{-\pi x^2}\,dx = 1
 \]
 
 ***** Transformada de Fourier
@@ -8389,17 +8671,17 @@ la función $\hat{f} \in {\cal S}(\mathbb{R})$ siguiente
 \]
 
 ****** Card                                                                             :drill:
-SCHEDULED: <2018-05-28 Mon>
+SCHEDULED: <2018-06-09 Sat>
 :PROPERTIES:
 :ID:       122f1a79-d63b-4d44-8943-47b0cc09d663
-:DRILL_LAST_INTERVAL: 4.3527
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.5877
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-24 Thu 23:57]
+:DRILL_LAST_REVIEWED: [2018-05-28 Mon 22:51]
 :END:
 Calcula la transformada de Fourier de $f$.
 
@@ -8418,17 +8700,17 @@ la función $\check{g} \in {\cal S}(\mathbb{R})$ siguiente
 \]
 
 ****** Card                                                                             :drill:
-SCHEDULED: <2018-05-28 Mon>
+SCHEDULED: <2018-06-08 Fri>
 :PROPERTIES:
 :ID:       3a53e04d-fbe2-4208-aff0-fe746fea4d70
-:DRILL_LAST_INTERVAL: 4.0601
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.9909
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-24 Thu 23:54]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-28 Mon 22:50]
 :END:
 Calcula la transformada inversa de Fourier de $g$.
 
@@ -8439,7 +8721,6 @@ Calcula la transformada inversa de Fourier de $g$.
 \]
 
 ***** TODO Distribuciones temperadas
-**** 8.4. Fourier y convolución de funciones
 ***** Convolución de funciones
 Definimos la convolución de $f,g \in {\cal S}(\mathbb{R})$ como
 
@@ -8448,17 +8729,17 @@ Definimos la convolución de $f,g \in {\cal S}(\mathbb{R})$ como
 \]
 
 ****** Card                                                                             :drill:
-SCHEDULED: <2018-05-28 Mon>
+SCHEDULED: <2018-06-11 Mon>
 :PROPERTIES:
 :ID:       104c0f7b-d8c4-448a-8486-3af033bba368
-:DRILL_LAST_INTERVAL: 4.1909
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.9917
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-24 Thu 23:55]
+:DRILL_LAST_REVIEWED: [2018-05-28 Mon 22:51]
 :END:
 Define la convolución $(f \ast g)$
 
@@ -8468,7 +8749,7 @@ Define la convolución $(f \ast g)$
 (f \ast g)(x) = \int_{\mathbb{R}} f(x-y)g(y)\,dy.
 \]
 
-***** Teorema 31. Propiedades de la convolución
+***** Teorema 31. Propiedades de Fourier y la convolución
 Para $f,g \in {\cal S}(\mathbb{R})$ se tiene
 
  1. $F$ es una biyección sobre la clase de Swartz,
@@ -8492,9 +8773,9 @@ Para $f,g \in {\cal S}(\mathbb{R})$ se tiene
  4. Convierte dilataciones en homotecias y dilataciones. Dada $h_af(x) = f(ax)$,
     se tiene
     
-    * \[F[h_af](y) = \frac{1}{a}F[f] \left( \frac{y}{a} \right)\]
+    * \[F[h_af](y) = \frac{1}{\abs{a}}F[f] \left( \frac{y}{a} \right)\]
 
-    * \[F^{-1}[h_ag](x) = \frac{1}{a}F^{-1}[g] \left( \frac{x}{a} \right)\]
+    * \[F^{-1}[h_ag](x) = \frac{1}{\abs{a}}F^{-1}[g] \left( \frac{x}{a} \right)\]
 
  5. Convierte convoluciones en productos y productos en convoluciones,
 
@@ -8511,21 +8792,37 @@ Para $f,g \in {\cal S}(\mathbb{R})$ se tiene
     \[
     F[\delta_0] = 1,\quad\mbox{ y }\quad
     G_{\varepsilon} \overset{\varepsilon \to 0}\longrightarrow \delta_0.
-    \]
+    \] 
 
-****** TODO Proof
+****** Proof 1                                                                          :extra:
+****** TODO Proof 2
+****** Proof 3
+Integrando por partes.
+
+****** Proof 4
+Integración por sustitución.
+
+****** Proof 5
+Usando Fubini con las integrales y haciendo una cambio de variable
+para que una no dependa del valor de $z$.
+
+****** Proof 6                                                                          :extra:
+
+****** Proof 7
+Interpretando la transformada de Fourier en el sentido débil.
+
 ****** Card: transformada de derivada                                                   :drill:
-SCHEDULED: <2018-05-28 Mon>
+SCHEDULED: <2018-06-05 Tue>
 :PROPERTIES:
 :ID:       6e04de59-3992-46f7-b0a7-a9e9f54d4c95
-:DRILL_LAST_INTERVAL: 3.6937
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 8.4448
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-24 Thu 23:52]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-28 Mon 22:51]
 :END:
 Calcula la transformada de una derivada.
 
@@ -8539,14 +8836,266 @@ F[f'](y) = 2\pi iy F[f](y).
 \]
 
 **** 8.4. Resolución de la ecuación del calor
+Resolvemos la ecuación del calor
+
+\[\left.\begin{aligned}
+v_t &= Dv_{xx} \\
+v_t(0,x) &= f(x),
+\end{aligned}\right\}\]
+
+simplificamos primero tomando $u(t,x) = v(t,\sqrt{D} x)$ quedando
+
+\[\left.\begin{aligned}
+u_t &= u_{xx} \\
+u_t(0,x) &= f(\sqrt{D}x).
+\end{aligned}\right\}\]
+
 ***** Solución fundamental
+La versión fundamental de la ecuación, con Delta de Dirac
+
+\[\left.\begin{aligned}
+U_t &= U_{xx} \\
+U_t(0,x) &= \delta_0(x).
+\end{aligned}\right\}\]
+
+Tiene solución
+
+\[
+U = \frac{1}{\sqrt{4\pi t}}e^{-\frac{x^2}{4t}}.
+\]
+
+****** Resolución
+Tomamos Fourier en espacio
+
+\[
+\hat{u}(t,y) = \int_{-\infty}^{+\infty} e^{-2\pi i xy}u(t,x)\,dx
+\]
+
+y obtenemos una ecuación que tiene como solución a $h_{\sqrt{4\pi t}}G$; al
+volver a aplicar la transformada inversa de Fourier obtenemos
+la solución.
+
 ***** Solución general
+La ecuación del calor
+
+\[\left.\begin{aligned}
+v_t &= Dv_{xx} \\
+v_t(0,x) &= f(x),
+\end{aligned}\right\}\]
+
+tiene solución explícita
+
+\[
+v(t,x) = \frac{1}{\sqrt{4\pi Dt}} \int_{-\infty}^{+\infty} e^{-\frac{(x-y)^2}{4tD}} f(y)\,dy
+\]
+
+****** Proof
+Tomando $u(t,x) = v(t,\sqrt{D} x)$ queda
+
+\[\left.\begin{aligned}
+u_t &= u_{xx} \\
+u_t(0,x) &= f(\sqrt{D}x) = f_D(x).
+\end{aligned}\right\}\]
+
+pero como tenemos resuelta la versión fundamental
+
+\[\left.\begin{aligned}
+U_t &= U_{xx} \\
+U_t(0,x) &= \delta_0(x).
+\end{aligned}\right\}\]
+
+por
+
+\[
+U = \frac{1}{\sqrt{4\pi t}}e^{-\frac{x^2}{4t}}.
+\]
+
+tomamos convoluciones, aprovechando que la derivada entra y sale
+de las convoluciones para resolver la $u$ como
+
+\[
+u(t,x) = \frac{1}{\sqrt{4\pi t}}\int_{\mathbb{R}} e^{-\frac{(x-y)^2}{4t}}f_D(y)\,dy
+\]
+
+y finalmente aplicamos un cambio de variables para tener la solución
+explícita
+
+\[
+v(t,x) = \frac{1}{\sqrt{4\pi Dt}} \int_{-\infty}^{+\infty} e^{-\frac{(x-y)^2}{4tD}} f(y)\,dy.
+\]
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-05-30 Wed>
+:PROPERTIES:
+:ID:       b2aab25a-7757-4e23-91f4-eab49a0dc98c
+:DRILL_LAST_INTERVAL: 4.2708
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:16]
+:END:
+Solución explícita de la ecuación del calor.
+
+\[\left.\begin{aligned}
+v_t &= Dv_{xx} \\
+v_t(0,x) &= f(x),
+\end{aligned}\right\}\]
+
+******* Answer
+
+\[
+v(t,x) = \frac{1}{\sqrt{4\pi Dt}} \int_{-\infty}^{+\infty} e^{-\frac{(x-y)^2}{4tD}} f(y)\,dy
+\]
+
 ***** Comentarios sobre unicidad
+En general no tendríamos unicidad salvo que impusiéramos una
+condición sobre decaimiento en infinito. En general tenemos
+
+\[
+u(x,t) = \sum_{k=0}^{\infty} \frac{x^{2k}}{(2k)!} \dv[k]{}{t} e^{-\frac{1}{t^2}}.
+\]
+
 ***** Propiedades de las soluciones del calor
+
+ 1. *Conservación del signo y principio del máximo*. Si $f \geq 0$ y no es nula,
+    entonces $v > 0$. En general, si $f_1,f_2$ tienen soluciones $v_1,v_2$, no son
+    idénticas y $f_1 \geq f_2$, entonces $v_1 > v_2$.
+
+ 2. *Conservación de la masa*. La masa es constante en todos los
+    instantes de tiempo.
+
+    \[
+    \int v(t,x)\,dx = \int f(x)\,dx.
+    \]
+
+ 3. *Difusión final*. Existe $c_f$ tal que para cualquier $t > 0$,
+    
+    \[
+    \abs{v(t,x)} \leq \frac{c}{\sqrt{t}}.
+    \]
+
+ 4. *Soporte infinito*. Aunque el soporte de $f$ sea finito, el de $v$
+    es instantáneamente infinito, la difusión es instantánea a todos
+    los puntos.
+
+ 5. *Disipación de la energía*. La energía se va disipando, porque se
+    cumple
+
+    \[
+    \dv{}{t} \left( \frac{1}{2}\int_{\mathbb{R}} (v(t,x))^2\,dx \right) =
+    -D \int_{\mathbb{R}} \abs{v_x(t,x)}^2\,dx
+    \]
+
 **** 8.5. Ecuaciones de reacción-difusión
+
+\[
+\dv{}{t} \left( \int_{\Omega} u(t,x)\,dx \right) =
+\int_{\Omega} f(u)\,dx + \int_{\partial\Omega} (- J \cdot n)\,dx
+\]
+
 ***** FKPP
+Es una ecuación reacción-difusión en dimensión $n = 1$. Se obtiene
+tomando crecimiento logístico $f(u) = \alpha ( 1 - \frac{u}{u_{\infty}}) u$,
+
+\[
+u_t - D u_{xx} = \alpha u \left( 1 - \frac{u}{u_{\infty}} \right).
+\]
+
+Adimensionalizando,
+
+\[
+v_t = v_{yy} + (1-v)v.
+\]
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-06-01 Fri>
+:PROPERTIES:
+:ID:       f5e1e842-dfc2-48f6-af9f-c1b6fa6f7a57
+:DRILL_LAST_INTERVAL: 4.627
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-27 Sun 19:49]
+:END:
+Forma adimensionalizada de una FKPP.
+
+******* Answer
+
+\[
+v_t = v_{yy} + (1-v)v.
+\]
+
 ***** Biestable
-***** Soluciones de onda viajera
+Se obtiene introduciendo el efecto Alle,
+
+\[
+u_t - Du_{xx} = \alpha u \left( 1 - \frac{u}{u_{\infty}} \right) \left( \frac{u}{u_{min}} - 1 \right)
+\]
+
+adimensionalizando y llamando $\beta = u_{min}/u_{\infty}$, obtenemos
+
+\[
+v_{\tau} = v_{yy} + v(1-v)(v-\beta).
+\]
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-05-31 Thu>
+:PROPERTIES:
+:ID:       e40e461b-ca97-43f6-a141-d4ade2fc4077
+:DRILL_LAST_INTERVAL: 4.2979
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-27 Sun 19:49]
+:END:
+Forma adimensionalizada de una biestable.
+
+******* Answer
+
+\[
+v_{\tau} = v_{yy} + v(1-v)(v-\beta).
+\]
+
+**** 8.6. Ondas viajeras
+***** Ondas viajeras
+Las *ondas viajeras* son soluciones de reacción-difusión en el caso
+unidimensional de la forma $u(\tau,y) = \phi(y - c\tau)$. Cumplirán
+
+\[
+\phi'' + c\phi' + f(\phi) = 0
+\]
+
+con condiciones $\phi(-\infty) = 1$, $\phi(+\infty)=0$. Y multiplicando podemos
+comprobar que
+
+\[\mathrm{sgn}(c) = \mathrm{sgn}\left(\int_0^1f\right).\]
+
+Luego,
+
+ * en la FKPP, las ondas tienen $c$ positiva y avanzan;
+ * en la biestable, las ondas pueden retroceder.
+
+***** Ondas viajeras de la biestable
+Las ondas viajeras para $u(1-u)(u-\alpha)$ se buscan con una
+constante $A$ que cumpla $\phi' = A\phi(1-\phi)$. Derivando y aplicando
+en la ecuación de ondas viajeras, sabiendo que la solución queremos
+que sea decreciente, llegamos a $A = -1/\sqrt{2}$ y a $c = \sqrt{2}(1/2-\beta)$.
+Finalmente, puede resolverse con variables separadas para llegar a
+
+\[
+\phi(y) = \frac{1}{1 + ke^{(y-y_0)/\sqrt{2}}}.
+\]
+
+***** Ondas viajeras de la FKPP
 *** Ejercicios
 **** Examen 25 mayo 2016 (López) [1/3]
 ***** TODO Ejercicio 1
@@ -8592,17 +9141,17 @@ Aplicamos resolución de la ecuación de ondas.
 ***** DONE Ejercicio 3
 ***** TODO Ejercicio 4
 ***** DONE Ejercicio 5
-**** Examen 31 mayo 2017 [0/6]
-***** TODO Ejercicio 1.1 (Skellam)
-***** TODO Ejercicio 1.2 (Skellam)
-***** TODO Ejercicio 1.3 (Skellam)
-***** TODO Ejercicio 2.1 (Robertson)
-***** TODO Ejercicio 2.2 (Robertson)
-***** TODO Ejercicio 2.3 (Robertson)
+**** Examen 31 mayo 2017 [6/6]
+***** DONE Ejercicio 1.1 (Skellam)
+***** DONE Ejercicio 1.2 (Skellam)
+***** DONE Ejercicio 1.3 (Skellam)
+***** DONE Ejercicio 2.1 (Robertson)
+***** DONE Ejercicio 2.2 (Robertson)
+***** DONE Ejercicio 2.3 (Robertson)
 **** Examen 19 junio 2017 [2/2]
 ***** DONE 2. Lax-Milgram
 ***** DONE 3. Sturm-Liouville
-**** Examen 8 septiembre 2017 [3/4]
+**** Examen 8 septiembre 2017 [6/6]
 ***** DONE Ejercicio 1
 ***** DONE Ejercicio 2
 
@@ -8611,7 +9160,9 @@ Aplicamos resolución de la ecuación de ondas.
    derivabilidad y continuidad respecto una variable.
 
 ***** DONE Ejercicio 3
-***** TODO Ejercicio 4 (Parte  II)
+***** DONE Ejercicio 4.a
+***** DONE Ejercicio 4.b
+***** DONE Ejercicio 4.c
 **** Ejemplos de los apuntes [1/1]
 ***** DONE Problema de Dido
 **** Resolver ondas
@@ -8641,6 +9192,7 @@ u(t,x) &= \sum_{n \geq 1} \sin(nx)
 
 *** Entregas
 # Escribir nombre y apellidos, curso, asignatura, año, firma.
+
 **** Ejercicio 1
 #+begin_statement
 Encontrar una función $\phi \in {\cal C}^{\infty}_{0}[x_0,x_1]$ tal que $\phi(x) > 0$ únicamente en
@@ -9073,6 +9625,48 @@ Cuál es la derivada débil de $|x|^{\alpha}$ para $x \in \mathbb{R}^n$.
 \[
 \nabla |x|^{\alpha} = \alpha x|x|^{\alpha-2}
 \]
+
+**** Ejercicio 9
+#+begin_statement
+Prueba que
+
+ 1. $\widehat{f \ast g} = \widehat{f}\widehat{g}$,
+
+ 2. $\widecheck{f \ast g} =\widecheck{f}\widecheck{g}$,
+
+ 3. $\widehat{fg} = \widehat{f}\ast\widehat{g}$,
+
+ 4. $\widecheck{fg} = \widecheck{f}\ast\widecheck{g}$.
+#+end_statement
+
+1. Usando Fubini y un cambio de variable $x - z \mapsto x$.
+  \[\begin{aligned}
+  \widehat{f \ast g}(y) &=
+  \int (f \ast g)(x) e^{-2\pi ixy}\,dx =
+  \int \int f(x-z)g(z) e^{-2\pi ixy}\,dz\,dx \\&=
+  \int g(z) \int f(x-z) e^{-2\pi ixy}\,dx\,dz =
+  \int g(z) \int f(x) e^{-2\pi i(x+z)y}\,dx\,dz \\&=
+  \int g(z)e^{-2\pi izy} \int f(x) e^{-2\pi ixy}\,dx\,dz =
+  \widehat{f}(y)\widehat{g}(y).
+  \end{aligned}\]
+
+2. Repetimos el argumento, cambiando el signo de la exponencial.
+  \[\begin{aligned}
+  \widecheck{f \ast g}(y) &=
+  \int (f \ast g)(x) e^{2\pi ixy}\,dx =
+  \int \int f(x-z)g(z) e^{2\pi ixy}\,dz\,dx \\&=
+  \int g(z) \int f(x-z) e^{2\pi ixy}\,dx\,dz =
+  \int g(z) \int f(x) e^{2\pi i(x+z)y}\,dx\,dz \\&=
+  \int g(z)e^{2\pi izy} \int f(x) e^{2\pi ixy}\,dx\,dz =
+  \widecheck{f}(y)\widecheck{g}(y).
+  \end{aligned}\]
+
+3. Aplicamos (2) a $\hat{f}$ y $\hat{g}$ y usamos que la transformada de Fourier
+   es una biyección con su inversa.
+
+4. Aplicamos (1) a $\check{f}$ y $\check{g}$ y usamos que la transformada de Fourier
+   es una biyección con su inversa.
+
 ** Curvas y superficies
 *** Datos de la asignatura
 César Rosales - crosales@ugr.es
@@ -9086,18 +9680,18 @@ Sea $f \colon A \to B$ biyección continua. Si $A$ es compacto y $B$ es Hausdorf
 $f$ es homeomorfismo.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-24 Thu>
+SCHEDULED: <2018-06-27 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       d1143d39-749d-4560-8789-7ec31fa25f47
-:DRILL_LAST_INTERVAL: 9.2729
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 32.4358
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.333
-:DRILL_EASE: 2.46
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-15 Tue 23:15]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:26]
 :END:
 Biyección continua de [compacto] a [Hausdorff] es [homeomorfismo].
 
@@ -9117,17 +9711,17 @@ base de $B$ a $B_u$ es positiva. Es decir,
 \]
 
 ****** Card: definición de base positiva                         :drill:
-SCHEDULED: <2018-05-26 Sat>
+SCHEDULED: <2018-08-23 Thu>
 :PROPERTIES:
 :ID:       e15a4412-930d-4f6a-aa20-d64196a6f4e2
-:DRILL_LAST_INTERVAL: 30.2392
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 89.1296
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:43]
+:DRILL_AVERAGE_QUALITY: 4.167
+:DRILL_EASE: 2.9
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:31]
 :END:
 Fijada la orientación de la base usual, ¿cuándo es una base
 $B = \left\{ u_1,\dots,u_n \right\}$ positiva?
@@ -9392,17 +9986,17 @@ Decimos $f \in {\cal C}^{\infty}(O,\mathbb{R}^m)$ *diferenciable* si cada $f_i \
 [[id:d3a1f687-19f0-4129-90a1-04976ef88344][diferenciable]].
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-19 Sat>
+SCHEDULED: <2018-06-17 Sun>
 :PROPERTIES:
 :ID:       7c7a55ed-a5e9-43fd-8bb1-d3830db44c33
-:DRILL_LAST_INTERVAL: 11.4022
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 21.7992
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.25
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:01]
+:DRILL_AVERAGE_QUALITY: 3.2
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:16]
 :END:
 ¿Cuándo es $f \in {\cal C}^{\infty}(O,\mathbb{R}^m)$, de varias variables, diferenciable?
 
@@ -9575,17 +10169,17 @@ d(\phi^{-1} \circ \phi)_p = (d\phi^{-1})_{\phi(p)} \circ (d\phi)_p
 y $(d\phi)_p$ es isomorfismo.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-23 Wed>
+SCHEDULED: <2018-07-12 Thu>
 :PROPERTIES:
 :ID:       92ff4784-7391-448d-8248-0f984f6e1b98
-:DRILL_LAST_INTERVAL: 14.8093
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 47.0707
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.25
-:DRILL_EASE: 2.8
+:DRILL_AVERAGE_QUALITY: 4.4
+:DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:01]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:21]
 :END:
 Si $\phi$ es difeomorfismo, ¿qué sabemos de $(d\phi)_p$?
 
@@ -9766,17 +10360,17 @@ $\beta =\alpha \circ \phi$ es una *reparametrización*.
  * Conserva regularidad.
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-19 Sat>
+SCHEDULED: <2018-06-20 Wed>
 :PROPERTIES:
 :ID:       ff9c749b-25a9-4000-8716-25e18dbf6b9b
-:DRILL_LAST_INTERVAL: 8.1547
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 24.6143
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-11 Fri 11:13]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:17]
 :END:
 ¿Qué es una reparametrización de una curva $\alpha$?
 
@@ -9974,17 +10568,17 @@ que implica
 1.\]
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-20 Sun>
+SCHEDULED: <2018-07-16 Mon>
 :PROPERTIES:
 :ID:       ff49f39c-0657-4411-86da-a586b9673753
-:DRILL_LAST_INTERVAL: 23.5151
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 50.8001
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:39]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:19]
 :END:
 Enuncia el lema de reparametrización para $\alpha\colon I \to \mathbb{R}^n$ regular.
 
@@ -9998,26 +10592,26 @@ Existe $\phi\colon J \to I$
 tal que $\alpha \circ \phi$ es [[id:cb6ea57b-b063-4959-9a36-44a2662b6fce][p.p.a.]]
 
 ******* Card: cálculo                                           :drill:
-SCHEDULED: <2018-05-20 Sun>
+SCHEDULED: <2018-08-11 Sat>
 :PROPERTIES:
 :ID:       5b34db3c-8a95-4c74-9965-b87e184b414a
-:DRILL_LAST_INTERVAL: 23.8113
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 76.896
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:41]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:19]
 :END:
 Dada una $\alpha\colon I \to \mathbb{R}^n$ buscar la reparametrización $\phi\colon J \to I$ que
 hace que $\beta = \alpha\circ \phi$ sea una curva p.p.a.
 
 ******** Reparametrización
-Calculamos la integral
+Fijamos algún $t_0$ y calculamos la integral
 
 \[
-\psi(t) = L_a^t(\alpha) =\int_a^t |\alpha'(s)|\,ds;
+\psi(t) = L_{t_0}^t(\alpha) =\int_{t_0}^t |\alpha'(s)|\,ds;
 \]
 
 y la inversa $\phi =\psi^{-1}$ es la reparametrización buscada.
@@ -10121,17 +10715,17 @@ creciente y usamos que
 para comprobar las igualdades.
 
 ******* Card: diedro                                            :drill:
-SCHEDULED: <2018-05-23 Wed>
+SCHEDULED: <2018-08-05 Sun>
 :PROPERTIES:
 :ID:       dc77cdaa-f13a-4306-960e-f63531e65620
-:DRILL_LAST_INTERVAL: 27.1334
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 70.544
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.75
-:DRILL_EASE: 2.56
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-04-26 Thu 10:42]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.66
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:35]
 :END:
 Dar el diedro de Frenet de una curva regular $\alpha(t) \colon I \to \mathbb{R}^2$.
 
@@ -10419,17 +11013,17 @@ y además se cumplen las siguientes ecuaciones de Frenet
 
 ******* TODO Proof
 ******* Card: triedro                                           :drill:
-SCHEDULED: <2018-05-23 Wed>
+SCHEDULED: <2018-06-26 Tue>
 :PROPERTIES:
 :ID:       dfe88e2d-9b42-44ed-ae62-2bac55c7c108
-:DRILL_LAST_INTERVAL: 10.4609
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 31.3733
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.75
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-13 Sun 20:45]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:24]
 :END:
 Triedro de Frenet $T,N,B$ de una curva regular en el espacio.
 
@@ -10442,19 +11036,19 @@ B_{\alpha} = \frac{\alpha' \times \alpha''}{|\alpha' \times \alpha''|}
 \]
 
 ******* Card: curvatura                                         :drill:
-SCHEDULED: <2018-05-23 Wed>
+SCHEDULED: <2018-06-15 Fri>
 :PROPERTIES:
 :ID:       920516ed-24b4-4506-ae4d-41d505077bae
-:DRILL_LAST_INTERVAL: 7.6467
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 20.2059
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.2
+:DRILL_AVERAGE_QUALITY: 2.5
 :DRILL_EASE: 2.32
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-15 Tue 23:15]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:21]
 :END:
-Curvatura de una curva regular en el espacio.
+Curvatura de una curva regular en el *espacio*.
 
 ******** Curvatura
 
@@ -10486,26 +11080,26 @@ Torsión de una curva regular en el espacio.
 \]
 
 ******* Card: ecuaciones de Frenet                              :drill:
-SCHEDULED: <2018-05-26 Sat>
+SCHEDULED: <2018-07-06 Fri>
 :PROPERTIES:
 :ID:       afe3152a-639e-4a7f-9e69-74f74f00c3ce
-:DRILL_LAST_INTERVAL: 12.8786
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 40.9431
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.25
 :DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-13 Sun 20:45]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:33]
 :END:
 Ecuaciones de Frenet. Dar $T',N',B'$ de una curva regular en
 el espacio.
 
 ******** Ecuaciones
 
- * $T'_{\alpha} = |\alpha'|k_{\alpha}N_{\alpha}$,
- * $N'_{\alpha} = -|\alpha'|k_{\alpha}T_{\alpha} - |\alpha'|\tau_{\alpha}B_{\alpha}$,
- * $B'_{\alpha} = |\alpha'|\tau_{\alpha}N_{\alpha}$.
+ * $T' = |\alpha'|kN$,
+ * $N' = -|\alpha'|kT - |\alpha'|\tau B$,
+ * $B' = |\alpha'|\tau N$.
 
 ****** 3.9. Propiedades de la curvatura y torsión en el espacio
 La curvatura y la torsión son
@@ -10675,17 +11269,17 @@ $X \colon U \to S$ para un abierto $U \subset \mathbb{R}^2$ tal que
  3. $X(U) = V$ con $X \colon U \to X(U)$ homeomorfismo.
 
 ******* Card: superficie                                        :drill:
-SCHEDULED: <2018-05-23 Wed>
+SCHEDULED: <2018-06-17 Sun>
 :PROPERTIES:
 :ID:       ca91733a-9d55-4b63-997a-79aad4762897
-:DRILL_LAST_INTERVAL: 9.0547
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 22.2251
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_AVERAGE_QUALITY: 3.667
 :DRILL_EASE: 2.36
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 16:24]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:23]
 :END:
 Definición de superficie $S$.
 
@@ -10694,17 +11288,17 @@ Cada $p \in S$ tiene entorno abierto $V_p \subseteq S$ con una parametrización
 $X \colon U \to S$ desde $U \subset \mathbb{R}^2$.
 
 ******* Card: parametrización                                   :drill:
-SCHEDULED: <2018-05-24 Thu>
+SCHEDULED: <2018-05-30 Wed>
 :PROPERTIES:
 :ID:       1b03debc-6865-4b76-af7a-ac8de199ff7a
-:DRILL_LAST_INTERVAL: 9.5177
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 16:21]
+:DRILL_LAST_INTERVAL: 4.2268
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:35]
 :END:
 Qué significa $X \colon U \to S$ parametrización.
 
@@ -10713,7 +11307,7 @@ Embebimineto diferenciable con diferencial inyectiva.
 
  1. $X \colon U \to \mathbb{R}^3$ es *diferenciable*,
 
- 2. $(dX)_q\colon \mathbb{R}^2 \to \mathbb{R}^3$ es *diferencial inyectiva* para cada $q \in U$,
+ 2. $(dX)_q\colon \mathbb{R}^2 \to \mathbb{R}^3$ es inyectiva para cada $q \in U$, *diferencial inyectiva*,
 
  3. $X(U) = V$ con $X \colon U \to V$ *embebimiento*.
 
@@ -10779,17 +11373,17 @@ Para cada punto, tomamos $p \in V$, y restringimos la parametrización
 que nos dé a $X^{-1}(V \cap S')$, que es abierto.
 
 ******* Card: componentes conexas                               :drill:
-SCHEDULED: <2018-05-24 Thu>
+SCHEDULED: <2018-06-25 Mon>
 :PROPERTIES:
 :ID:       a29b9077-f8cf-4178-9979-c709f6c1ff8f
-:DRILL_LAST_INTERVAL: 10.2955
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 29.9261
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.333
-:DRILL_EASE: 2.46
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 16:20]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:26]
 :END:
 ¿Por qué las componentes conexas de una superficie son
 superficies?
@@ -10859,17 +11453,17 @@ y con $X_u(u,v) = (1,0,\varphi_u(u,v))$, $X_v(u,v) = (0,1,\varphi_v(u,v))$
 independientes.
 
 ******* Card: paraboloide hiperbólico                           :drill:
-SCHEDULED: <2018-05-24 Thu>
+SCHEDULED: <2018-06-22 Fri>
 :PROPERTIES:
 :ID:       702ca00b-5bde-424b-96c8-ac7f5a8687d5
-:DRILL_LAST_INTERVAL: 9.7745
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 27.0485
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 16:21]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:26]
 :END:
 ¿Por qué es el *paraboloide hiperbólico* una superficie?
 
@@ -10879,17 +11473,17 @@ $\left\{ x,y,z \mid z = x^2-y^2 \right\}$
 Es un grafo sobre $\mathbb{R}^2$.
 
 ******* Card: por qué grafo es superficie                       :drill:
-SCHEDULED: <2018-05-20 Sun>
+SCHEDULED: <2018-06-09 Sat>
 :PROPERTIES:
 :ID:       3dbc7c1c-592b-45cd-b0dd-52b4f4395ffe
-:DRILL_LAST_INTERVAL: 7.3361
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 14.4048
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-13 Sun 20:45]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:19]
 :END:
 ¿Por qué un grafo con $\varphi \in {\cal C}^{\infty}(U)$ es una superficie?
 
@@ -10950,17 +11544,17 @@ caso, es un *valor regular*. $VS(f)$ es el conjunto de valores
 singulares y $VR(f)$ el conjuto de valores regulares.
 
 ******* Card: singular                                          :drill:
-SCHEDULED: <2018-05-24 Thu>
+SCHEDULED: <2018-06-21 Thu>
 :PROPERTIES:
 :ID:       c52b65a4-ad12-41e4-83a7-779f0f73f8c3
-:DRILL_LAST_INTERVAL: 9.6404
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 26.1369
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 15:13]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:24]
 :END:
 Valor singular de $f \in {\cal C}^{\infty}(O,\mathbb{R})$.
 
@@ -10969,17 +11563,17 @@ $a$ es valor singular si es imagen de punto crítico, $f(p) = a$
 con $\nabla f(p) = 0$.
 
 ******* Card: regular                                           :drill:
-SCHEDULED: <2018-05-23 Wed>
+SCHEDULED: <2018-06-20 Wed>
 :PROPERTIES:
 :ID:       58a580dd-5aa1-491c-9a7a-e9f04172e3a0
-:DRILL_LAST_INTERVAL: 9.4031
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 24.8425
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 16:23]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:24]
 :END:
 Valor regular de $f \in {\cal C}^{\infty}(O,\mathbb{R})$.
 
@@ -10992,17 +11586,17 @@ que $f(p) \neq a$.
 $VS(f)$ tiene medida nula. $VR(f)$ es denso en $\mathbb{R}$.
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-22 Tue>
+SCHEDULED: <2018-06-13 Wed>
 :PROPERTIES:
 :ID:       034c652e-0f0d-4c3f-8c7b-d358ec404110
-:DRILL_LAST_INTERVAL: 7.9648
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 18.1525
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 15:12]
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:19]
 :END:
 Enuncia el Teorema de Sard.
 
@@ -11041,17 +11635,17 @@ $A \subset \mathbb{R}^3$ es de *revolución* si $\mathrm{rot}_{\theta}(A) = A$ p
 Equivalentemente, $\mathrm{rot}_{\theta}(A) \subseteq A$.
 
 ******* Card                                                    :drill:
-SCHEDULED: <2018-05-23 Wed>
+SCHEDULED: <2018-06-19 Tue>
 :PROPERTIES:
 :ID:       40312210-08af-43e1-8a80-7f3db9927644
-:DRILL_LAST_INTERVAL: 9.3599
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 24.4752
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 15:13]
+:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:21]
 :END:
 Conjunto de revolución $A \subset \mathbb{R}^3$.
 
@@ -11154,17 +11748,17 @@ $\pi(V_q) = (\pi \circ X)(U_{q}) = D_q$ y es biyectiva porque tiene como
 inversa a la $Y$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-26 Sat>
+SCHEDULED: <2018-06-17 Sun>
 :PROPERTIES:
 :ID:       ab744492-3f4c-464e-bb8d-1801809037c2
-:DRILL_LAST_INTERVAL: 12.3464
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 22.2662
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 16:23]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:34]
 :END:
 Describe el diagrama de la demostración del lema técnico para el
 cambio de parámetros.
@@ -11408,17 +12002,17 @@ T_{\phi(p)}\phi(S) = (d\phi)_p(T_pS)
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-22 Tue>
+SCHEDULED: <2018-06-06 Wed>
 :PROPERTIES:
 :ID:       11cf5e7c-ff50-4c64-b6a0-a9b455bb3024
-:DRILL_LAST_INTERVAL: 4.2312
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.5805
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:21]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:20]
 :END:
 Sea $\phi \colon O \to O'$ difeomorfismo, calcula en función de la 
 diferencial
@@ -11456,17 +12050,17 @@ z = \varphi(q) + \varphi_x(q)(x-x_0) + \varphi_y(q)(y-y_0)
 Se comprueba usando $(dX)_q(\mathbb{R}^2) = T_pS$.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-24 Thu>
+SCHEDULED: <2018-06-20 Wed>
 :PROPERTIES:
 :ID:       f3e06ea3-900a-4b48-9714-b58d50465f0f
-:DRILL_LAST_INTERVAL: 10.4389
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 25.4211
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-14 Mon 16:07]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:30]
 :END:
 Ecuación del plano tangente a una superficie grafo $S = G^z(\varphi)$
 en $p$ con $X^{-1}(p) = q = (x_0,y_0)$.
@@ -12059,17 +12653,17 @@ Un campo de vectores $F \colon S \to \mathbb{R}^3$ normal, unitario y
 diferenciable.
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-21 Mon>
+SCHEDULED: <2018-06-30 Sat>
 :PROPERTIES:
 :ID:       5c3f56c5-cdb3-4d7c-b09a-4ba12c642c2f
-:DRILL_LAST_INTERVAL: 12.6592
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 35.0266
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.7
+:DRILL_AVERAGE_QUALITY: 3.8
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-08 Tue 14:00]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:19]
 :END:
 Superficie orientable.
 
@@ -12179,17 +12773,17 @@ por
 \]
 
 ****** Card                                                      :drill:
-SCHEDULED: <2018-05-22 Tue>
+SCHEDULED: <2018-06-05 Tue>
 :PROPERTIES:
 :ID:       f9d7f47e-ccbe-43f2-b654-db6b6e1ef7ea
-:DRILL_LAST_INTERVAL: 3.8634
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.8684
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:20]
+:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:20]
 :END:
 Define la segunda forma fundamental $\sigma_p(u,v)$.
 
@@ -12245,6 +12839,56 @@ $p \in S$ es *umbilical* si $k_1(p) = k_2(p)$.
 
 ***** Ej.1. Caracterización de punto umbilical
 
+**** 3.2. Expresiones locales y diferenciabilidad de las curvaturas
+***** Card: coeficientes                                                                 :drill:
+Da los coeficientes de la primera forma fundamental y la segunda forma
+fundamental respecto de $B_q$
+
+\[
+M_q = \begin{pmatrix}
+E & F \\
+F & G
+\end{pmatrix}(q),\qquad
+\Sigma_q = \begin{pmatrix}
+e & f \\
+f & g
+\end{pmatrix}(q)
+\]
+
+****** Answer
+
+\[E = \abs{X_u}^2\]
+
+\[F = \pair{X_u,X_v}\]
+
+\[G = \abs{X_v}^2\]
+
+\[e = \frac{\mathrm{det}(X_u,X_v,X_{uu})}{\sqrt{EG-F^2}}\]
+
+\[
+f = \frac{\mathrm{det}(X_u,X_v,X_{uv})}{\sqrt{EG-F^2}}
+\]
+
+\[
+g = \frac{\mathrm{det}(X_u,X_v,X_{vv})}{\sqrt{EG-F^2}}
+\]
+
+***** Card: curvatura media y de Gauss en función de coeficientes                        :drill:
+Da la curvatura media y la curvatura de Gauss en función de los
+coeficientes de la primera y segunda formas normales, para poder
+calcularlas en un entorno coordenado.
+
+****** Answer
+
+\[
+K = \frac{eg - f^2}{EG-F^2}
+\]
+
+\[
+H = \frac{1}{2}\frac{eG-2fF+gE}{EG-F^2}
+\]
+
+***** TODO Card: curvatura media y de Gauss en una superficie grafo
 *** Tema 4. Geodésicas
 *** Ejercicios
 **** Ejercicios de clase
@@ -13739,7 +14383,7 @@ porque no coinciden en la componente $W$; y cubren todos los elementos porque
 la solución original cubría todos los de $W$). Así, hay solución a este problema
 si y sólo si la hay al ACTRI inicial.
 
-***** TODO Ejercicio 1.h
+***** Ejercicio 1.h
 #+begin_statement
 Demostrar que el siguiente problema es NP-completo.
 
@@ -13750,31 +14394,106 @@ $v \in V\setminus V'$ está conectado con al menos un vértice de $V$?
 
 Será NP porque podemos elegir de forma no determinista un subconjunto
 de vértices y para cada vértice, comprobar en tiempo polinómico si
-está unido a cualquiera de los vértices del subconjunto.
+está unido a alguno de los vértices del subconjunto.
 
+Para compbrobar que es NP-completo vamos a reducir ACTRI a él. Dado un
+conjunto de compatibilidades $M$ y un $q$, lo que hacemos es tomar un
+grafo que contenga un vértice por cada uno de los elementos de $M$
+(vértices *de compatibilidad*), y por cada uno de los elementos de
+$W,X,Y$ (vértices *de elemento*). Cada vértice de compatibilidad
+estará unido a todos los demás y además a los tres vértices de
+elemento que representen a los elementos que cubra. Este proceso
+puede hacerse en espacio logarítmico porque puede irse escribiendo
+el grafo conforme leemos las compatibilidades.
 
+Si hubiera una solución a ACTRI, el tomar los $q$ vértices
+representando las compatibilidades elegidas es claramente una solución
+al problema porque cubrirían todos los vértices de elemento por
+definición y además cubrirían todos los vértices de compatibilidad
+porque los hemos unido entre sí.
 
-***** TODO Ejercicio 1.k
+Si hubiera una solución del conjunto dominante de tamaño $q$,
+entonces, como cada vértice de compatibilidad cubre como máximo a tres
+vértices de elemento y un vértice de elemento solo cubre a uno, todos
+los vértices del conjunto dominante deberían ser de compatibilidad
+(para poder cubrir los $3q$ vértices de elemento).  Además, los
+vértices de compatibilidad deberían cubrir a elementos distintos
+porque si repitieran, cubrirían menos de $3q$ vértices en total.
+Así, el conjunto dominante debe estar dándonos una elección de
+compatibilidades disjuntas que resuelve el problema del ACTRI.
+
+***** Ejercicio 1.k
 #+begin_statement
 Demostrar que el siguiente problema es NP-completo.
 
 *Partición de conjuntos*. Dada una familia $C$ de subconjuntos de un conjunto
 finito $S$ ¿existe una partición de $S$ en dos partes $S_1$ y $S_2$ tales que no hay un
-elemento $A \in C$que esté contenido en $S_1$ o esté contenido en $S_2$ (o equivalentemente
+elemento $A \in C$ que esté contenido en $S_1$ o esté contenido en $S_2$ (o equivalentemente
 todo $A \in C$ debe de tener intersección no vacía con $S_1$ y con $S_2$?
 #+end_statement
 
-Intentar NAESAT.
+Será un problema NP porque podemos elegir la partición en dos subconjuntos
+de forma no determinista (marcando cada elemento de $S$ con un bit, por ejemplo),
+y luego comprobar en tiempo polinómico que cada elemento $A \in C$ tiene intersección
+no vacía con $S_1$ y con $S_2$ (tiene un elemento marcado $0$ y otro marcado $1$).
 
-***** TODO Ejercicio 2
+Para demostrar que es NP-completo, reduciremos NAESAT a este problema. Dado
+un conjunto de cláusulas de longitud $3$ sobre un alfabeto, tomamos $S$ como
+el conjunto de todos los literales del alfabeto y sus negaciones,
+\[
+S = \left\{ a,b,c,\dots,\neg a,\neg b,\neg c, \dots \right\},
+\]
+y tomamos la familia $C$ dada por las parejas de cada literal con su negación,
+$\left\{ a,\neg a \right\}$, y por los tres literales que forman cada cláusula: por ejemplo,
+$a \vee b \vee \neg c$ nos daría el conjunto $\left\{ a,b,\neg c \right\}$. Una solución a este problema
+nos daría dos conjuntos $S_1$ y $S_2$ representando los dos valores de verdad,
+y asegurándonos que cada elemento tiene un valor distinto del de su negación,
+y que cada cláusula tiene algún literal cierto y otro falso. De nuevo, la
+reescritura de la entrada puede hacerse en espacio logarítmico, ya que sólo
+tendrá que determinar el conjunto y reescribir el formato de las cláusulas.
+
+***** Ejercicio 2
+#+begin_statement
+Una Máquina de Turing no-determinística fuerte es una máquina que tiene tres
+posibles respuestas 'Sí', 'No' y 'Duda'. Una de estas máquinas decide $L$ si y
+solo si, para todo $x \in L$, todos los cálculos posibles terminan en 'Sí' o 'Duda'
+y al menos uno en 'Sí' y para todo $x \not\in L$, todos los cálculos posibles terminan en 
+'No' o 'Duda' y al menos uno en 'No'. Demostrar que $L$ es decidido por una Máquina
+de Turing no-determinística fuerte polinómica si y solo si $L$ está en $\mathrm{NP}\cap \mathrm{coNP}$.
+#+end_statement
+
+Supongamos $L$ aceptado por una máquina de Turing no-determinística
+fuerte.  El lenguaje estaría en $\mathrm{NP}$, porque podríamos construir una máquina
+no-determinística que funcionara igual que la no-determinística fuerte, pero
+devolviendo 'No' en los casos de 'Duda'; esta máquina aceptaría $L$, ya que
+para todo $x \in L$ existe algún cálculo devolviendo 'Sí' y para todo $x \notin L$
+no existe ninguno.  El lenguaje estaría en $\mathrm{coNP}$, porque podríamos construir
+una máquna no-determinística que funcionara igual que la no-determinística
+fuerte, pero devolviendo 'Sí' en los casos de 'No' y 'No' en el resto de
+casos; esta máquina aceptaría el complemento de $L$, ya que para todo
+$x \notin L$ existe algún cálculo devolviendo 'Sí' y para todo $x \in L$ no
+existiría ninguno.
+
+Supongamos ahora $L$ en $\mathrm{NP} \cap \mathrm{coNP}$, existirían máquinas no-determinísticas
+aceptando $L$ y aceptando su complemento. Construimos una máquina no-determinística
+fuerte que usaría ambas secuencialmente sobre la entrada tomando elecciones de
+forma no-determinista en ambas. Si la primera aceptara, devolveríamos 'Sí';
+si la segunda aceptara, devolveríamos 'No'; y si ninguna lo hiciera, devolveríamos
+'Duda'. Nótese que si $x \in L$, habrá algún caso en el que la primera aceptará, y
+la segunda no lo hará nunca; por el contrario, si $x \notin L$, habrá algún caso en el que
+la segunda aceptará, y la primera no lo hará nunca.
+
 **** Relación 6
 ***** Ejercicio 1
 
-b. Reducir 3-SET a este problema.
-c. Detectar hamiltonianos se reduce directamente.
-d. Detectar hamiltonianos se reduce poniendo un ciclo en el primer argumento.
-e. Reducimos el problema de la partición a él.
-
+ b. Reducir 3-SET a este problema.
+ c. Detectar hamiltonianos se reduce directamente.
+ d. Detectar hamiltonianos se reduce poniendo un ciclo en el primer argumento.
+ e. Reducimos el problema de la partición a él.
+**** TODO Práctica 5
+***** TODO Ejercicio 2
+***** TODO Ejercicio 3
+***** TODO Ejercicio 4
 ** Metaheurísticas
 *** Detalles de la asignatura
 Transparencias en la página de la asignatura
