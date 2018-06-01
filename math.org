@@ -8638,17 +8638,17 @@ G(x) = e^{-\pi x^2}
 \]
 
 ****** Card: integral                                                                   :drill:
-SCHEDULED: <2018-05-29 Tue>
+SCHEDULED: <2018-06-09 Sat>
 :PROPERTIES:
 :ID:       89250ba0-0c07-4417-a4af-deb2c7a043e9
-:DRILL_LAST_INTERVAL: 4.4713
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 11.2229
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-25 Fri 22:56]
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-29 Tue 17:59]
 :END:
 Calcula la integral
 
@@ -8951,8 +8951,9 @@ v(t,x) = \frac{1}{\sqrt{4\pi Dt}} \int_{-\infty}^{+\infty} e^{-\frac{(x-y)^2}{4t
 \]
 
 ***** Comentarios sobre unicidad
-En general no tendríamos unicidad salvo que impusiéramos una
-condición sobre decaimiento en infinito. En general tenemos
+En general no tendríamos unicidad salvo que impusiéramos una condición
+sobre decaimiento en infinito. Tenemos de hecho una familia de
+soluciones
 
 \[
 u(x,t) = \sum_{k=0}^{\infty} \frac{x^{2k}}{(2k)!} \dv[k]{}{t} e^{-\frac{1}{t^2}}.
@@ -8977,7 +8978,7 @@ u(x,t) = \sum_{k=0}^{\infty} \frac{x^{2k}}{(2k)!} \dv[k]{}{t} e^{-\frac{1}{t^2}}
     \abs{v(t,x)} \leq \frac{c}{\sqrt{t}}.
     \]
 
- 4. *Soporte infinito*. Aunque el soporte de $f$ sea finito, el de $v$
+ 4. *Soporte infinito*. Aunque el soporte de $f\neq 0$ sea finito, el de $v$
     es instantáneamente infinito, la difusión es instantánea a todos
     los puntos.
 
@@ -8986,7 +8987,7 @@ u(x,t) = \sum_{k=0}^{\infty} \frac{x^{2k}}{(2k)!} \dv[k]{}{t} e^{-\frac{1}{t^2}}
 
     \[
     \dv{}{t} \left( \frac{1}{2}\int_{\mathbb{R}} (v(t,x))^2\,dx \right) =
-    -D \int_{\mathbb{R}} \abs{v_x(t,x)}^2\,dx
+    -D \int_{\mathbb{R}} \abs{v_x(t,x)}^2\,dx.
     \]
 
 **** 8.5. Ecuaciones de reacción-difusión
@@ -8998,7 +8999,7 @@ u(x,t) = \sum_{k=0}^{\infty} \frac{x^{2k}}{(2k)!} \dv[k]{}{t} e^{-\frac{1}{t^2}}
 
 ***** FKPP
 Es una ecuación reacción-difusión en dimensión $n = 1$. Se obtiene
-tomando crecimiento logístico $f(u) = \alpha ( 1 - \frac{u}{u_{\infty}}) u$,
+tomando *crecimiento logístico* $f(u) = \alpha ( 1 - \frac{u}{u_{\infty}}) u$,
 
 \[
 u_t - D u_{xx} = \alpha u \left( 1 - \frac{u}{u_{\infty}} \right).
@@ -12749,11 +12750,29 @@ Es un campo unitario que sabemos que es normal por tenerse
 $T_pS = (\nabla f(p))^{\bot}$. La aplicación es diferenciable porque
 $f \in {\cal C}^{\infty}(O)$.
 
-*** Tema 3. Curvatura de superficies
+*** Tema 3. Curvatura de superficies ([[file:~/pdf/rosales_curvaturas.pdf][PDF]])
 **** 3.1. Aplicación de Gauss, endomorfismo de Weingarten y curvaturas
 ***** 1.1. Aplicación de Gauss
 La restricción de una [[id:18f9a9b7-8def-49c2-a185-a536b9bea052][orientación]] a la esfera $N \colon S \to \mathbb{S}^2$
-se llama *aplicación de Gauss*.
+se llama *aplicación de Gauss*. Una superficie conexa y
+orientable tiene exactamente dos aplicaciones de Gauss,
+$N$ y $-N$.
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-06-05 Tue>
+:PROPERTIES:
+:ID:       25fbcbe6-bd07-4c93-be6d-4676de47efe9
+:DRILL_LAST_INTERVAL: 4.5164
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:21]
+:END:
+Una superficie [conexa y orientable] tiene exactamente [dos] aplicaciones
+de Gauss.
 
 ***** 1.2. Endomorfismo de Weingarten
 La aplicación $A_p = -dN_p$ es un endomorfismo de $T_pS$ llamado 
@@ -12764,7 +12783,47 @@ Tenemos $dN_p \colon T_pS \to T_{N(p)}\mathbb{S}^2$. Como en la esfera una
 orientación viene determinada por direcciones que une el origen
 con el punto, $T_{N(p)}\mathbb{S}^2 = N(p)^{\bot} = T_p\mathbb{S}^2$.
 
-***** 1.2. Segunda forma fundamental
+****** Card: es un endomorfismo                                                         :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       85038fce-1ba9-40e5-bf9a-804cac2cf6b3
+:DRILL_LAST_INTERVAL: 4.0605
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:26]
+:END:
+¿Por qué el endomorfismo de Weingarten es un endomorfismo?
+
+******* Answer
+Tenemos $dN_p \colon T_pS \to T_{N(p)}\mathbb{S}^2$. Como en la esfera una
+orientación viene determinada por direcciones que une el origen
+con el punto, $T_{N(p)}\mathbb{S}^2 = N(p)^{\bot} = T_p\mathbb{S}^2$.
+
+El endomorfismo es $A_p = -dN_p$.
+
+****** Card: definición                                                                 :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       d7231d09-7b51-4da7-af79-37990a773acd
+:DRILL_LAST_INTERVAL: 4.215
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:26]
+:END:
+Definición del endomorfismo de Weingarten.
+
+******* Answer
+$A_p = -dN_p$, donde $N$ es una orientación de la superficie.
+
+***** 1.4. Segunda forma fundamental
 La *segunda forma fundamental* es $\sigma_p = II_p \colon T_pS \times T_pS \to \mathbb{R}$ dada
 por
 
@@ -12772,7 +12831,26 @@ por
 \sigma_p(u,v) = \pair{A_p(u),v} = -\pair{dN_p(u),v}.
 \]
 
-****** Card                                                      :drill:
+La forma $\sigma_p$ es una métrica sobre $T_pS$, esto es, una aplicación
+bilineal simétrica. En particular tenemos, para la base de una
+parametrización,
+
+ * $\pair{N(p),X_{vu}(q)} = \sigma_p(X_u(q),X_v(q))$,
+ * $\pair{N(p),X_{uv}(q)} = \sigma_p(X_v(q),X_u(q))$.
+
+****** Proof: simetría
+Bilineal por definición. Comprobamos simetría sobre la base dada por
+una parametrización $X$ y extendemos por bilinealidad.
+
+Por definición de orientación, $\pair{N \circ X, X_v} = 0$; derivando
+$\pair{(N \circ X)_u,X_v} + \pair{N \circ X,X_{vu}} = 0$; y evaluando en $q = X^{-1}(p)$,
+
+ * $\pair{N(p),X_{vu}(q)} = \sigma_p(X_u(q),X_v(q))$
+ * $\pair{N(p),X_{uv}(q)} = \sigma_p(X_v(q),X_u(q))$
+
+por Schwarz-Clairaut, tenemos la simetría.
+
+****** Card: definición                                                                 :drill:
 SCHEDULED: <2018-06-05 Tue>
 :PROPERTIES:
 :ID:       f9d7f47e-ccbe-43f2-b654-db6b6e1ef7ea
@@ -12794,101 +12872,752 @@ La aplicación $\sigma_p = II_p \colon T_pS \times T_pS \to \mathbb{R}$ definida
 \sigma_p(u,v) = \pair{A_p(u),v} = -\pair{dN_p(u),v}.
 \]
 
-***** 1.4. La segunda forma fundamental es una métrica
-La forma $\sigma_p$ es una métrica sobre $T_pS$. (bilineal simétrica)
+****** Card: fórmula                                                                    :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       1b7f1bd4-af26-4ddb-809b-bf8b039cf9ef
+:DRILL_LAST_INTERVAL: 4.0614
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 1.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:18]
+:END:
 
-****** Proof
-Bilineal por definición. Comprobamos simetría sobre una base dada por
-una parametrización $X$ y extendemos por bilinealidad.
-
-Por definición de orientación, $\pair{N \circ X, X_v} = 0$; derivando
-$\pair{(N \circ X)_u,X_v} + \pair{N \circ X,X_{vu}} = 0$; y evaluando en $q = X^{-1}(p)$,
-
- * $\pair{N(p),X_{vu}(q)} = \sigma_p(X_u(q),X_v(q))$
- * $\pair{N(p),X_{uv}(q)} = \sigma_p(X_v(q),X_u(q))$
-
-por Schwarz-Clairaut, tenemos la simetría.
+[ $\sigma_p(X_v(q),X_u(q))$ ] = [ $\pair{N(p),X_{uv}(q)}$ ]
 
 ***** 1.6. El endomorfismo de Weingarten es autoadjunto
-$A_p$ es autoadjunto. En el espacio euclídeo $(T_pS,I_p)$.
+$A_p$ es autoadjunto en el espacio euclídeo $(T_pS,I_p)$.
 
 En particular existe una base ortonormal de vectores propios y es
 diagonalizable con valores propios reales. Llamamos
+*curvaturas principales* a sus valores propios
 
 \[
 A_p = \begin{pmatrix}
 k_1(p) & 0 \\
 0 & k_2(p)
-\end{pmatrix}
+\end{pmatrix}.
 \]
 
 ****** Proof
+Usamos que $\sigma_p$ y el producto escalar son simétricos.
+
+****** Card: endomorfismo                                                               :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       15643ff5-968c-47a5-a5af-fcb5c8a4fdb6
+:DRILL_LAST_INTERVAL: 3.9749
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:23]
+:END:
+Por qué sabemos que $\pair{A_p(a),b} = \pair{a,A_p(b)}$.
+
+******* Answer
+El endomorfismo de Weingarten es autoadjunto. Se deduce del hecho de que
+$\sigma_p(u,v) = \pair{A_p(u),v}$ es simétrica y el producto escalar lo es.
+
+****** Card: curvaturas                                                                 :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       e9ce52f0-87c8-4e32-8ccf-0c05547db768
+:DRILL_LAST_INTERVAL: 3.7045
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:22]
+:END:
+Cómo se definen las curvaturas de una superficie en un punto.
+
+******* Answer
+Son los valores propios del endomorfismo de Weingarten.
+El endomorfismo de Weingarten es autoadjunto luego diagonalizable,
+tomamos
+
+\[
+A_p = \begin{pmatrix}
+k_1(p) & 0 \\
+0 & k_2(p)
+\end{pmatrix}.
+\]
+
+Recuérdese que $A_p = - dN_p$, donde $N$ es la orientación.
 
 ***** 1.7. Curvaturas de una superficie
 
- * La *curvatura de Gauss* es el cuadrado de la media geométrica
-   de las curvaturas $K(p) = k_1(p)k_2(p)$.
+ * Llamamos *curvaturas principales* a $k_1(p)$ y a $k_2(p)$, tomamos
+   por convención $k_1(p) \leq k_2(p)$.
 
- * La *curvatura media* es la media aritmética de las curvaturas.
+ * Llamamos *direcciones principales* a los vectores propios de $A_p$.
+
+ * La *curvatura de Gauss* es el cuadrado de la media geométrica
+   de las curvaturas, el determinante del endomorfismo de Weingarten,
+   $K(p) = k_1(p)k_2(p) = \mathrm{det}(A_p)$.
+
+ * La *curvatura media* es la media aritmética de las curvaturas,
+   la traza del endomorfismo de Weingarten
+   $H(p) = (k_1(p) + k_2(p))/2 = \mathrm{traza}(A_p)/2$.
+
+ * Una superficie es *llana* si $K(p)=0$ para cualquier $p \in S$.
+
+ * Una superficie es *minimal* si $H(p)=0$ para cualquier $p \in S$.
+
+****** Card: llana                                                                      :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       f20774c6-2bd4-4608-8aea-c1728c400366
+:DRILL_LAST_INTERVAL: 4.4679
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:27]
+:END:
+Superficie llana.
+
+******* Definition
+Tiene la curvatura de Gauss nula, $K(p)=0$ para cualquier $p \in S$.
+
+****** Card: minimal                                                                    :drill:
+SCHEDULED: <2018-06-05 Tue>
+:PROPERTIES:
+:ID:       70697a18-d8cc-4043-8a24-d2b1215e60c9
+:DRILL_LAST_INTERVAL: 5.3039
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:30]
+:END:
+Superficie minimal.
+
+******* Definition
+Tiene la curvatura media nula, $H(p)=0$ para cualquier $p \in S$.
+
+****** Card: definición de curvatura de Gauss                                           :drill:
+SCHEDULED: <2018-06-05 Tue>
+:PROPERTIES:
+:ID:       654716d6-a356-465c-9062-d2bef5e0ba8f
+:DRILL_LAST_INTERVAL: 5.3251
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:26]
+:END:
+Curvatura de Gauss.
+
+******* Definition
+Producto de las curvaturas principales. Dicho de otra forma, cuadrado
+de la media geométrica de las curvaturas principales
+
+$K(p) = k_1(p)k_2(p) = \mathrm{det}(A_p)$.
+
+****** Card: definición de curvatura media                                              :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       931c9037-0868-458e-b028-5157a3ded78e
+:DRILL_LAST_INTERVAL: 4.0219
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:31]
+:END:
+Curvatura media.
+
+******* Definition
+Media aritmética de las curvaturas principales
+
+$H(p) = (k_1(p) + k_2(p))/2 = \mathrm{traza}(A_p)/2$.
 
 ***** 1.8. Nota. Calcular las curvaturas principales desde Gauss y media
-# Desigualdad de las medias
+Siendo raíces del polinomio, podemos calcular las curvaturas
+principales como
+
+\[
+k_1 = H - \sqrt{H^2 - K},
+\qquad
+k_2 = H - \sqrt{H^2 - K}.
+\]
+
+Sabemos por desigualdad de las medias (considerando los casos negativos)
+que $K(p) \leq H(p)^2$.
+
+****** Card: cálculo                                                                    :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       c2b14d22-21b7-4090-b6d6-b569b7e58461
+:DRILL_LAST_INTERVAL: 4.0557
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:23]
+:END:
+Calcular curvaturas principales desde la curvatura de Gauss y
+curvatura media.
+
+******* Answer
+
+\[
+k_1 = H - \sqrt{H^2 - K},
+\qquad
+k_2 = H - \sqrt{H^2 - K}.
+\]
+
+****** Card: desigualdad                                                                :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       d90f6395-c496-421d-8dcd-98a8a152e390
+:DRILL_LAST_INTERVAL: 3.9789
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:31]
+:END:
+Por qué sabemos que $K(p) \leq H(p)^2$.
+
+******* Answer 
+Podemos aplicar la desigualdad de las medias a las curvaturas
+principales, teniendo en cuenta los casos negativos.
 
 ***** 1.9. Punto umbilical
 $p \in S$ es *umbilical* si $k_1(p) = k_2(p)$.
 
-***** Ej.1. Caracterización de punto umbilical
+****** Card: punto umbilical                                                            :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       566d963c-5455-43cc-be54-c1a747778a7b
+:DRILL_LAST_INTERVAL: 4.0435
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:30]
+:END:
+Punto umbilical.
 
+******* Answer
+Punto donde las curvaturas principales coinciden, $p \in S$ es
+*umbilical* si $k_1(p) = k_2(p)$.
+
+***** Ej.1. Caracterizaciones de punto umbilical
+Equivalen
+
+ - $p$ punto umbilical,
+
+ - $H(p)^2 = K(p)$, caso de igualdad en las medias,
+
+ - $A_p = H(p) \mathrm{Id}$,
+
+ - $\sigma_p = H(p) I_p$.
+
+****** Proof
+Ssi es umbilical, se da el caso de igualdad en la desigualdad de las
+medias.  Como podemos diagonalizar con dos valores propios iguales
+y la identidad conmuta, tenemos $A_p = PH(p) \mathrm{Id} P^{-1} = H(p) \mathrm{Id}$ y
+la última igualdad es equivalente. Nótese que si se da alguna de
+estas igualdades, la diagonalización es trivial.
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       f6b5acef-e53a-4ecc-ba46-d13e217e2a47
+:DRILL_LAST_INTERVAL: 4.1008
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:19]
+:END:
+Dar la caracterización y definición de punto umbilical.
+
+******* Answer
+
+ - $A_p = H(p) \mathrm{Id}$, curvaturas principales iguales.
+ - $H(p)^2 = K(p)$, caso de igualdad en las medias.
+
+***** Ej.2. Elementos geométricos de la orientación contraria
+Se puede comprobar que si se toma la orientación $-N$, el endomorfismo
+de Weingarten, la segunda forma fundamental, las curvaturas
+principales y la curvatura media se invierten; pero la curvatura de
+Gauss permanece igual.
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-06-05 Tue>
+:PROPERTIES:
+:ID:       9d2c3dcb-d8f4-44cb-ada5-07d243bfece2
+:DRILL_LAST_INTERVAL: 4.7374
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:18]
+:END:
+¿Qué elemento geométrico permanece con el mismo signo si tomamos la
+orientación opuesta en una superficie?
+
+******* Answer
+La curvatura de Gauss. La media y las curvaturas se invierten.
+
+***** Ej.3. Aplicación de Gauss en una superficie contenida
+Si $S' \subset S$ es superficie, probar que los elementos geométricos coinciden
+en los puntos $p \in S'$.
+
+****** Proof
+Sabemos que ${\widetilde A}_p \colon T_pS' \to T_pS'$ puede ser vista como un endomorfismo
+de $T_pS = T_pS'$.  Su valor es el mismo por el carácter local de la
+diferenciabilidad.
+
+***** 1.10. Ej.4. Clasificación de puntos de una superficie
+Un punto es 
+
+ - *Elíptico* si $K(p) > 0$. Equivale a $\sigma_{p}$ definida positiva o
+   negativa.
+
+ - *Hiperbólico* si $K(p)<0$. Equivale a $\sigma_{p}$ indefinida.
+
+ - *Parabólico* si $K(p) = 0$ con $H(p) \neq 0$. Nos da $\sigma_{p}$ semidefinida positiva o
+   negativa.
+
+ - *Plano* si $K(p) = 0$ con $H(p)=0$. Nos da $\sigma_{p}$ nula.
+
+Nótese que la clasificación es invariante a cambio de orientación.
+
+****** Card                                                                             :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       e286e2f1-3fdc-4f2b-ba92-0d5da844d623
+:DRILL_LAST_INTERVAL: 4.3714
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:22]
+:END:
+Clasifica los puntos de una superficie según sus curvaturas.
+
+******* Answer
+
+ - *Elíptico* si $K(p) > 0$.
+
+ - *Hiperbólico* si $K(p)<0$.
+
+ - *Parabólico* si $K(p) = 0$ con $H(p) \neq 0$.
+
+ - *Plano* si $K(p) = 0$ con $H(p)=0$.
+
+***** Ej.5. Puntos de superficies llanas y minimales
+
+ - Los puntos umbilicales son elípticos o planos.
+ - Una superficie llana tiene solo puntos parabólicos o planos.
+ - Una superficie minimal tiene solo puntos hiperbólicos o planos.
+
+****** Card: tipo de puntos umbilicales                                                 :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       ad298a68-119d-4ee0-9464-be4595ce0bbd
+:DRILL_LAST_INTERVAL: 4.1656
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:23]
+:END:
+¿Qué tipo de puntos puede ser un punto umbilical?
+
+******* Answer
+Puede ser sólo elíptico o plano.
+
+****** Card: puntos de una superficie llana                                             :drill:
+SCHEDULED: <2018-06-05 Tue>
+:PROPERTIES:
+:ID:       3be0d1e8-0383-4254-9636-686092c4e169
+:DRILL_LAST_INTERVAL: 4.6401
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:24]
+:END:
+¿Qué tipo de puntos puede tener una superficie llana?
+
+******* Answer
+Parabólicos y planos.
+
+****** Card: puntos de una superficie minimal                                           :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       26d13b01-746b-4d1a-a063-9b5fc8ae5059
+:DRILL_LAST_INTERVAL: 4.4459
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:19]
+:END:
+¿Qué tipo de puntos puede tener una superficie minimal?
+
+******* Answer
+Hiperbólicos o planos.
+
+***** TODO Ejemplo 1.12. Planos afines
+***** TODO Ejemplo 1.13. Esferas
+***** TODO Ejemplo 1.14. Cilindros circulares
+***** TODO Ejemplo 1.15. Punto hiperbólico en el paraboloide hiperbólico
+***** TODO Ej.6. Paraboloide elíptico
+***** 1.17. Movimientos rígidos y elementos geométricos
+***** 1.18. Curvatura de Gauss de una superficie cualquiera
+***** TODO Ej.7. Problemas de la curvatura media de una superficie cualquiera
+***** TODO Ej.8. Curvatura invariante a movimientos rígidos
 **** 3.2. Expresiones locales y diferenciabilidad de las curvaturas
-***** Card: coeficientes                                                                 :drill:
-Da los coeficientes de la primera forma fundamental y la segunda forma
-fundamental respecto de $B_q$
+***** 2.0. Matriz de la primera forma fundamental respecto de parametrización
+Para una parametrización local $X \colon U \to S$, consideramos la
+base $B_q = \left\{ X_u(q),X_v(q) \right\}$. La primera forma fundamental tiene matriz
+
+\[
+M_q = \begin{pmatrix}
+E & F \\
+F & G
+\end{pmatrix}(q).
+\]
+
+Los coeficientes de la primera forma fundamental son
+
+\[E = \abs{X_u}^2,
+\qquad
+F = \pair{X_u,X_v},
+\qquad
+G = \abs{X_v}^2.\]
+
+****** Card: coeficientes de la primera forma fundamental                               :drill:
+SCHEDULED: <2018-06-03 Sun>
+:PROPERTIES:
+:ID:       fbfd7142-995b-48a7-8f58-96a7c41e3f01
+:DRILL_LAST_INTERVAL: 3.4376
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:30]
+:END:
+Da los coeficientes de la primera forma fundamental respecto de la base 
+$\left\{X_u(q),X_v(q) \right\}$ dada por una parametrización.
 
 \[
 M_q = \begin{pmatrix}
 E & F \\
 F & G
 \end{pmatrix}(q),\qquad
-\Sigma_q = \begin{pmatrix}
-e & f \\
-f & g
-\end{pmatrix}(q)
 \]
 
-****** Answer
+******* Answer
 
-\[E = \abs{X_u}^2\]
+\[E = \abs{X_u}^2,\qquad F = \pair{X_u,X_v},\qquad G = \abs{X_v}^2\]
 
-\[F = \pair{X_u,X_v}\]
+***** 2.0. Matriz de la segunda forma fundamental repecto de parametrización
+Para una parametrización local $X \colon U \to S$, consideramos la
+base $B_q = \left\{ X_u(q),X_v(q) \right\}$. La segunda forma fundamental
+respecto de la aplicación de Gauss $N_X$ tiene matriz
 
-\[G = \abs{X_v}^2\]
+\[\Sigma_q = \begin{pmatrix}
+e & f \\ f & g
+\end{pmatrix}(q).\]
 
-\[e = \frac{\mathrm{det}(X_u,X_v,X_{uu})}{\sqrt{EG-F^2}}\]
+Los coeficientes de la segunda forma fundamental son
 
 \[
-f = \frac{\mathrm{det}(X_u,X_v,X_{uv})}{\sqrt{EG-F^2}}
+e = \frac{\mathrm{det}(X_u,X_v,X_{uu})}{\sqrt{EG-F^2}},\qquad
+f = \frac{\mathrm{det}(X_u,X_v,X_{uv})}{\sqrt{EG-F^2}},\qquad
+g = \frac{\mathrm{det}(X_u,X_v,X_{vv})}{\sqrt{EG-F^2}}.
 \]
+
+Nótese que son diferenciables.
+
+****** TODO Proof: cálculo
+****** TODO Proof: diferenciabilidad
+****** Card                                                                             :drill:
+Coeficientes de la segunda forma fundamental respecto de la base 
+$\left\{X_u(q),X_v(q) \right\}$ dada por una parametrización.
+
+******* Answer
 
 \[
-g = \frac{\mathrm{det}(X_u,X_v,X_{vv})}{\sqrt{EG-F^2}}
+e = \frac{\mathrm{det}(X_u,X_v,X_{uu})}{\sqrt{EG-F^2}},\qquad
+f = \frac{\mathrm{det}(X_u,X_v,X_{uv})}{\sqrt{EG-F^2}},\qquad
+g = \frac{\mathrm{det}(X_u,X_v,X_{vv})}{\sqrt{EG-F^2}}.
 \]
 
-***** Card: curvatura media y de Gauss en función de coeficientes                        :drill:
+***** 2.0. Curvatura media y de Gauss en función de coeficientes
+Para una parametrización local $X \colon U \to S$, consideramos la
+base $B_q = \left\{ X_u(q),X_v(q) \right\}$. Tenemos curvaturas respecto de la
+aplicación de Gauss $N_X$ dadas por
+
+\[
+K = \frac{eg - f^2}{EG-F^2},
+\qquad
+H = \frac{1}{2}\frac{eG-2fF+gE}{EG-F^2}.
+\]
+
+Ambas $K \circ X$ y $H \circ X$ son diferenciables.
+
+****** TODO Proof
+****** Card: curvatura media y de Gauss en función de coeficientes                      :drill:
+SCHEDULED: <2018-06-04 Mon>
+:PROPERTIES:
+:ID:       26690650-3be6-456a-8531-26880aefaad5
+:DRILL_LAST_INTERVAL: 4.0519
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-05-31 Thu 23:32]
+:END:
 Da la curvatura media y la curvatura de Gauss en función de los
 coeficientes de la primera y segunda formas normales, para poder
 calcularlas en un entorno coordenado.
 
-****** Answer
+******* Answer
 
 \[
-K = \frac{eg - f^2}{EG-F^2}
+K = \frac{eg - f^2}{EG-F^2},
+\qquad
+H = \frac{1}{2}\frac{eG-2fF+gE}{EG-F^2}.
 \]
+
+***** TODO 2.2. Ejemplo. Curvatura media y de Gauss en una superficie grafo
+****** TODO Card: curvatura media y de Gauss en una superficie grafo
+***** TODO 2.3. Nota. Grafos llanos
+***** TODO 2.4. Curvaturas diferenciables en superficies orientables
+***** TODO 2.5.
+***** TODO 2.6.
+***** 2.7. Curvatura de Gauss diferenciable
+Para cualquier $S$, tenemos $K \in {\cal C}^{\infty}(S)$.
+
+**** 3.3. Curvaturas y geometría local de superficies
+***** 3.1. Lema del grafo
+Para $S$ superficie con $p \in S$ existe $\phi \colon \mathbb{R}^3\to \mathbb{R}^3$ movimiento rígido tal
+que $S' = \phi(S)$ cumple
+
+ * $0 = \phi(p_0) \in S'$, envía el punto al origen,
+
+ * $T_0S' = \phi(T_{p_0}S) = \left\{ (u,v,w) \mid w =0 \right\}$, tangente al plano horizontal,
+
+ * Tenemos entorno $W'$ y disco $U'$ centrado en $0$ tales que hay un $\varphi \in {\cal C}^{\infty}(U')$
+   cumpliendo $\varphi(0)=0$, $\nabla \varphi (0)=0$, y además $W' = G^z(\varphi)$.
+
+****** Proof
+Tomamos el único movimiento rígido $\phi$ que mueve una base ortonormal de $T_{p_0}S$
+con un vector normal hacia la base usual de $\mathbb{R}^3$ en $0$. Aplicar un movimiento
+rígido a una superficie nos da una superficie con $0 \in S'$. Además,
 
 \[
-H = \frac{1}{2}\frac{eG-2fF+gE}{EG-F^2}
+T_0S' = T_{\phi(p_0) \phi(S)} = d\phi_{p_0}(T_{p_0}S) = \vec{\phi}_{p_0}(T_{p_0}S) = \left\{ (u,v,w)\mid w=0 \right\}.
 \]
 
-***** TODO Card: curvatura media y de Gauss en una superficie grafo
+Sea $\pi \colon S' \to \mathbb{R}^2$ proyección en el eje $z$, sabemos $d\pi_0 \colon T_0S' \to \mathbb{R}^2$
+isomorfismo y por [[id:16bd6b42-7b91-4fcf-8979-faabc0acd594][Teorema de la función inversa]] es difeomorfismo local
+en $0$ y tenemos entornos (podemos restringir a un disco) donde $\pi \colon W' \to U'$
+es difeomorfismo.
+
+Finalmente, $X = \pi^{-1} \colon U' \to W'$ es diferenciable y tomamos $X(x,y)=(x,y,\varphi(x,y))$
+para alguna $\varphi \in C^{\infty}(U)$, lo que nos da $\varphi(0) = 0$. Como además $X_x(0),X_y(0)$ forman
+una base del plano $T_0S'$, tenemos $\varphi_x(0)=\varphi_y=0$.
+
+***** 3.3. Posición local de una superficie respecto curvatura
+Para $S$ superficie con $p_0 \in S$, si llamamos $P = p_0 + T_{p_0}S$ y tomamos $P^+,P^{-}$
+como los semiplanos determinados por el normal.
+
+ - Si $K(p_0) > 0$, hay un entorno tal que $V -\{p_0\} \subset P^+$ ó $V -\{p_0\} \subset P^-$.
+
+ - Si $K(p_0) < 0$, para todo entorno, $V \cap P^+ \neq \varnothing$ y $V \cap P^- \neq \varnothing$.
+
+****** TODO Proof
+# Lema del grafo.
+# Matriz hessiana como curvatura en grafos.
+
+***** 3.5. La intersección de superficie y plano afín es una curva
+Para $S$ superficie con $p_0 \in S$ y $n$ ortonormal a $T_{p_0}S$, y para $P$ plano
+afín de $\mathbb{R}^3$ con $p_0 \in P$ y $n \in \vec{P}$; existen entorno $W$ de $p_0$ y una curva
+$\alpha \colon I \to S$ tales que $\alpha(0) = p_0$ y que $\alpha(I) = W \cap P$.
+
+****** TODO Proof
+# Lema del grafo
+
+***** TODO 3.6. La intersección de superficie y plano transverso es una curva
+***** TODO 3.7. Sección normal
+***** TODO 3.8. Interpretación de la segunda forma fundamental
+
+\[
+k_v(0) = \sigma_{p_0}(v,v)
+\]
+
+***** 3.9. Signo de la segunda forma fundamental
+Sabiendo $\sigma_{p_0}(v,v) = k_v(0)$,
+
+ - si $\sigma_{p_0}(v,v) > 0$, entonces $\alpha_v$ se dobla hacia $N_v(0)$;
+
+ - si $\sigma_{p_0}(v,v) < 0$, entonces $\alpha_v$ se dobla hacia $-N_v(0)$.
+
+****** TODO Proof
+
+***** TODO 3.10. Signo de la curvatura de Gauss
+***** TODO 3.10. Fórmula de Euler
+***** 3.11. Existencia de puntos elípticos
+Para $S$ compacta, existe $S' = \mathbb{S}^2(0,R)$ y un $p_0 \in S$ tales que
+
+ - $S$ y $S'$ son tangentes en $p_0 \in S \cap S'$, teniéndose $T_{p_0}S = T_{p_0}S'$.
+
+ - $K(p_0)\geq 1/R^2 = K'(p_0)$.
+
+Por lo tanto $K(p_0)>0$ y $p_0$ es un punto elíptico.
+
+****** TODO Proof
+
+***** 3.13. No hay superficies compactas orientables minimales
+No existen superficies compactas orientables y minimales.
+
+****** TODO Proof
+
+**** 3.4. Curvaturas y geometría global de superficies
+***** 4.1. Caracterización de superficies totalmente umbilicales
+Sea $S$ superficie conexa orientable y totalmente umbilical. Entonces,
+es un abierto de un plano o de una esfera.
+
+****** TODO Proof
+****** Card                                                                             :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+
+Una superficie [conexa, orientable y totalmente umbilical] es
+[un abierto de un plano o de una esfera].
+
+***** 4.3. Caracterización de superficies totalmente umbilicales completas
+Sea $S$ superficie conexa orientable cerrada y totalmente umbilical.
+Entonces, es un plano afín o una esfera. Si es compacta, debe ser
+una esfera.
+
+****** TODO Proof
+****** Card                                                                             :drill:
+Una superficie [conexa, orientable, cerrada y totalmente umbilical] es
+[un plano o una esfera].
+
+***** 4.4. Orientabilidad de superficies
+Una $S$ con curvatura de Gauss siempre positiva es orientable.
+
+****** TODO Proof
+
+****** Card                                                                             :drill:
+Qué podemos decir de una superficie con curvatura de Gauss siempre
+positiva.
+
+******* Answer
+Es orientable.  La curvatura y más concretamente el signo de las dos
+curvaturas principales, nos dan un criterio para elegir una
+orientación en cada entorno de forma que podemos crear una orientación
+global.
+
+***** 4.5. Teorema de Hilbert-Chern
+Si $S$ es orientable y existe $p_0 \in S$ donde ocurren /a la vez/,
+
+ - $k_1$ tiene un mínimo local en $p_0$,
+ - $k_2$ tiene un máximo local en $p_0$,
+ - $K(p_0)>0$;
+
+entonces $k_1(p_0)=k_2(p_0)$ y $p_0$ es umbilical.
+
+****** Proof (Montiel-Ros)                                                              :extra:
+***** 4.7. Teorema de Hilbert-Liebmann
+Una superficie compacta y conexa con curvatura de Gauss constante es
+una esfera.
+
+****** TODO Proof
+
+***** 4.9. Cerrada conexa y curvatura de Gauss constante da una esfera
+Una superficie cerrada y conexa con curvatura de Gauss constante es
+una esfera.
+
+****** Card: teorema de Hilbert-Liebmann                                                :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+Una superficie [compacta (o cerrada) y conexa con curvatura de Gauss constante]
+es [una esfera].
+
+***** 4.10. Ovaloide
+Un *ovaloide* es una superficie compacta, conexa y con curvatura de
+Gauss positiva.
+
+****** Card                                                                             :drill:
+Definición de ovaloide.
+
+******* Answer
+Superficie compacta, conexa y con curvatura de Gauss positiva.
+
+***** 4.10. Teorema de Jellet-Liebmann
+Un ovaloide con curvatura media constante es una esfera.
+
+****** TODO Proof
+
+****** Card                                                                             :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+[Un ovaloide] con [curvatura media constante] es [una esfera].
+
+***** 4.11. Teorema de Alexandrov
+Una superficie compacta y conexa con curvatura media constante es una
+esfera.
+
+****** TODO Proof
+
+***** TODO Ej.12. Curvatura media constante no nula
+
+
 *** Tema 4. Geodésicas
 *** Ejercicios
 **** Ejercicios de clase
@@ -14490,10 +15219,22 @@ la segunda aceptará, y la primera no lo hará nunca.
  c. Detectar hamiltonianos se reduce directamente.
  d. Detectar hamiltonianos se reduce poniendo un ciclo en el primer argumento.
  e. Reducimos el problema de la partición a él.
+**** Relación 7
 **** TODO Práctica 5
 ***** TODO Ejercicio 2
+Si existiera la aproximación, se resuelve un NP en tiempo polinómico.
+
+Asumimos P ≠ NP.
+
 ***** TODO Ejercicio 3
+El clique es simple porque saber si existe un clique de tamaño 3 es
+polinómico.
+
+Para cada k fijo, encontrar un clique de tamaño k es polinómico.
+
 ***** TODO Ejercicio 4
+Podemos usar el esquema de aproximación calculando el problema
+
 ** Metaheurísticas
 *** Detalles de la asignatura
 Transparencias en la página de la asignatura
