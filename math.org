@@ -10509,43 +10509,53 @@ O(n log n) in all cases.
 **** Integral de seno a potencia arbitraria
 **** Integral de coseno a potencia arbitraria
 * Papers
-** Intuitionistic mathematics and realizability in the physical world - Andrej Bauer ([[~/pdf/Bauer_2013_Intuitionistic%20mathematics%20and%20realizability%20in%20the%20physical%20world.pdf][PDF]])
+** Intuitionistic mathematics and realizability in the physical world - Andrej Bauer ([[~/pdf/bauer_intuitionistic_mathematics_and_realizability_in_the_physical_world.pdf][PDF]])
 *** 1. Intuitionistic understanding of truth
-- BHK interpretation.
-- Double negation translation.
-
 *** 2. Synthetic differential geometry
-**** Non-standard analysis
-Difference with classical Robinson's non-standard analysis: synthetic
-differential geometry has nilpotent infinitesimals
-
-***** Card                                                        :drill:
+**** Non-standard analysis                                                                :drill:
 :PROPERTIES:
 :ID:       88710dd8-2f57-4ec3-b686-fa5e9dbf4ffd
 :END:
 In which fundamental sense are Non-Standard Analysis and Synthetic
 Differential Geometry different?
 
-****** Answer
- - Non-Standard Analysis is classical.
- - Synthetic Differential Geometry has nilpotents.
+***** Answer
 
-**** Principle of micro-affinity
+- Non-Standard Analysis is classical.
+- Synthetic Differential Geometry has nilpotents.
+
+**** Principle of micro-affinity                                                          :drill:
+Principle of micro-affinity in synthetic differential geometry.
+
+***** Answer
+An infinitesimal change in the independent variable causes an affine
+(linear) change in the dependent variable.
+
 For any $f \colon \mathbb{R} \to \mathbb{R}$, there exists a unique $f'(x)$ such that
 
 \[
 f(x + dx) = f(x) + f'(x)dx
 \]
 
-for all *infinitesimals* ($dx$ such that $dx^2 = 0$).
+for all nilpotent *infinitesimals* ($dx$ such that $dx^2 = 0$).
 
 **** Law of cancellation
-If $a\,dx = b\, dx$ for all infinitesimals, then $a = b$.
+Law of cancellation in synthetic differential geometry.
+
+***** Answer
+If $a\,dx = b\, dx$ for all infinitesimals $dx$, then $a = b$.
+
+**** 4. Realizability in the real world
+***** Unbounded Turing computable binary trees (pag. 11)                                 :drill:
+Can an unbounded computable binary tree have no computable infinite
+paths?
+
+****** Answer
+Yes, Kleene constructed one.
 
 ** TODO Realizability as the connection between computable and constructive mathematics - Andrej Bauer
 ** TODO The realizability approach to computable analysis and topology - Andrej Bauer
 ** TODO First steps in synthetic computability theory - Andrej Bauer
-
 *** 2.1. Type I computability
 In Type I computability, computations are performed by partial
 recursive functions on natural numbers.
@@ -10578,7 +10588,6 @@ Difference beeween Type I computability and Type II computability.
  - *Type II*
    Computations are performed by Turing machines writing infinite outputs
    on a write-only tape.  The usual domain is the Baire space $\mathbb{B}= \mathbb{N}^{\mathbb{N}}$.
-
 
 *** 5. Examples from computable mathematics
 Computable mathematics is the realizability interpretation of
@@ -11213,10 +11222,35 @@ Computing on the field of rationals.
 **** How to extract an elementary set theory from a topos
 **** At least BIST
 *** TODO 4. Composites
-* Articles
-** Qiaochu Yuan - Gradient descent
-https://qchu.wordpress.com/2018/02/07/gradient-descent/
+** The point of pointless topology - Johnstone ([[~/pdf/johnstone_the_point_of_pointless_topology.pdf][PDF]])
+*** Frame                                                                          :drill:locales:
+*Frame*
 
+**** Answer
+A poset with 
+
+ * arbitrary joins (small coproducts) $\bigvee$,
+
+ * finite meets (finite products) $\wedge$,
+
+ * satisfying the /infinite distributive law/
+
+   \[
+   x \wedge \left( \bigvee_i y_i \right)  = \bigvee_i \left( x \wedge y_i \right)
+   \]
+
+*** Locales                                                                                :drill:
+How the category of locales is constructed.
+
+**** Answer
+The category of locales is the opposite category to the category of frames.
+
+\[
+\mathsf{Locale} = \mathsf{Frame}^{op}.
+\]
+
+* Articles
+** Qiaochu Yuan - [[https://qchu.wordpress.com/2018/02/07/gradient-descent/][Gradient descent]]
 *** Problem with gradient descent                                                          :drill:
 :PROPERTIES:
 :ID:       ccf30e30-56c9-407c-b2cb-c1b7d364c07c
@@ -11229,6 +11263,7 @@ optimizing over have units of length, and the loss function is
 dimensionless, then the derivatives you’re subtracting have units of
 inverse length.
 
+** TODO Locales
 * Notes
 ** Ecuaciones diferenciales II
 *** Temas de teoría
