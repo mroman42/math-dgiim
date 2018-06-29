@@ -3481,316 +3481,20 @@ $(-)$. Falta entonces demostrar su naturalidad.
 
 ** Categorical logic                                                                                :categories:logic:
 *** Sheaves in geometry and logic - MacLane, Moerdijk
-**** 0. Categorical preliminaries
-***** Adjoints
-Adjoints functors are natural isomorphisms of the form 
-
-\[
-\theta \colon \mathrm{Hom}(X,GA) \cong \mathrm{Hom}(FX,A)
-\]
-
-with the naturality condition given by the equation
-
-\[
-\theta(G\alpha \circ f \circ \beta) = \alpha \circ \theta(f) \circ F\beta
-\]
-
-**** I. Categories of functors
-***** I.1. The categories at issue
-****** Examples of topoi
-******* Sets
-Small sets with functions between them.
-
-******* n-Sets
-Given $n \in \mathbb{N}$, the $n\text{-tuples}$ of sets with $n\text{-tuples}$ of functions between them.
-
-******* G-Sets
-Representations of a fixed group $\mu\colon X\times G \to X$, with morphisms preserving
-the group action $f(x\cdot g) = f(x) \cdot g$.
-
-******* M-Sets
-Representations of a fixed monoid.
-
-******* 2-Sets
-Category of functions betweeen sets $\sigma\colon X \to X'$ and commutative squares
-between them.
-
-******* N-Sets
-Category of sequences $X_0 \to X_1 \to X_2 \to \dots$ of sets and commutative squares
-as morphisms.
-
-******* Preseaves
-Objects are presheaves $P\colon C^{op} \to \mathtt{Sets}$, and arrows natural transformations
-$\theta\colon P \to P'$.
-
-******** Yoneda embedding
-$y \colon C \to \Set^{C^{op}}$ is full and faithful.
-
-******* Comma category
-Objects are functions $h \colon X \to J$ for a fixed $J$ and arrows
-commuting triangles. Each object determines a family of sets
-
-\[
-H_j = h^{-1}(j) = \left\{ x \mid x \in X, h(x) = j \right\}
-\]
-
-and each function determines a family $f_j \colon H_j \to H'_j$. If we take
-$J$ as a discrete category, each object of the comma category is a
-functor from it and each morphism is a natural transformation.
-
-That is, we can see the comma category inside a presheaf category
-with this assignment
-
-\[
-L\colon \Set/J \to \Set^{J}
-\]
-
-while in the other direction, each functor provides an object $\bigsqcup H_j$
-in the comma category; thus providing a complete equivalence of
-categories.
-
-/The comma category is equivalent to a presheaf category./
-
-It is *not* an isomorphism because the composition of both
-constructions may not be the identity (the disjoint union is only
-unique up to isomorphism).
-
-******* Sheaves over a topological space
-Category of sheaves over a topological space.
-
-******* Continuous G-Sets
-Given $G$ a topological group, the continuous representations of the group
-are the objects with the continuous homomorphisms of actions.
-
-******* Simplicial sets
-A *simplicial object* is a family of objects $\left\{ S_n  \right\} \in C$ satisfiying the
-simplicial identities
-
-******** TODO Simplicial identities
-******* Finite sets
-Finite sets and functions between them.
-
-******* Presheaves to finite sets
-
-****** Presheaves
-Many of these examples can be seen in a way as examples of presheaf
-categories.
-
-***** I.2. Pullbacks
-****** Pullback
-A *pullback* of $X \to B \gets Y$ is the universal object and
-projections making this diagram commute
-
-\[\begin{tikzcd}
-P\rar[dashed]{f'} \dar[dashed,swap]{g'} & Y \dar{g} \\
-X\rar{f} & B &.
-\end{tikzcd}\]
-
-******* In sets
-We have the set of pairs $\pair{x,y}$ such that $f(x)=g(y)$.
-
-******* In inclusions
-If we have that $g$ is an inclusion, $P$ is the inverse image $f^{-1}(Y)$,
-included in $X$.
-
-If both $f,g$ are inclusions, we have the intersection of two subsets.
-
-******* Indexed sets
-If $g\colon Y \to B$ is regarded as an indexed set $\left\{ G_b \right\}$ of inverse images
-of each $b \in B$, the pullback is $\left\{ G'_x \right\} = \left\{ G_{fx} \right\}$.
-
-****** Pullbacks always exist on a presheaf category
-The pullback of any two presheaves exists on a preseaf category.
-
-******* Proof
-We know that the pullback of any two sets exists in $\mathtt{Set}$ as the
-fibered product. Given two preseaves $X,Y$, we can construct a new 
-pullback preseaf pointwise, taking $(X \times_B Y)C$ as the pullback 
-of $XC$ and $YC$. In other words,
-
-\[
-(X \times_B Y)(C) \cong X(C) \times_{B(C)} Y(C).
-\]
-
-Given any $f\colon C \to D$, we take $Pf\colon PC \to PD$ as the unique universal arrow
-making the two diagrams commute.
-# ???
-
-****** Kernel pair of a morphism
-Pullback of $f$ with itself induces an equivalence relation of the
-morphism with itself.
-
-****** Pullback along a monic is monic
-The pullback along a monic is always monic.
-
-******* Proof
-Diagram chasing using the fact that the first one is monic and then
-using the universal property of pullbacks to prove uniqueness.
-
-******* In Sets, the pullback of epi is epi
-
-****** All finite limits are constructed by terminal object and pullbacks
-A category with a terminal object and all pullbacks has all finite limits.
-
-In presheaves, all finite limits are constructed pointwise. 
-# Note that exponentials are NOT a finite limit.
-
-******* Proof
-All finite limits can be constructed from finite products and equalizers.
-Binary products are pullbacks using the terminal object, which is also the
-product of no factors. Equalizers are created from pullbacks $X \to Y \times Y \gets Y$ 
-with the diagonal function.
-
-****** TODO Pullbacks in continuous G-sets
-***** I.3. Characteristic functions of subobjects
-****** Subobject classifier
-A *subobject classifier* is a monic $t\colon 1 \rightarrowtail \Omega$ such that for every monic $S \rightarrowtail X$
-exists a unique $\Phi \colon X \to \Omega$ creating a pullback square
-
-\[\begin{tikzcd}
-S\rar{1} \dar[swap]{i} & 1 \dar{t} \\
-X\rar[dashed]{\Phi} & \Omega
-\end{tikzcd}\]
-
-where the morphism $t$ is called /true/.
-
-****** Set of subobjects
-A subobject is an equivalence class of monics.
-
-We call $\mathrm{Sub}_C(X)$ to the set of subobjects $S$ of $X$. It is
-partially ordered under inclusion.
-
-******* Subobject functor
-A pullback
-
-\[\begin{tikzcd}
-S'\rar{} \dar[swap]{m'} & S \dar{m} \\
-Y\rar{f} & X
-\end{tikzcd}\]
-
-defines a functor $\mathrm{Sub}\ f\colon \mathrm{Sub}(X) \to \mathrm{Sub}(Y)$.
-
-****** Well-powered category
-A category is *well-powered* when $\mathrm{Sub}_C(X)$ is isomorphic to a small set
-for any $X$.
-
-****** Existence of a subobject classifier in well-behaved categories
-A category $C$ with finite limits and small hom-sets has a subobject classifier
-if and only if there is a natural isomorphism
-
-\[
-\theta \colon \mathrm{Sub}_C(-) \cong \mathrm{Hom}_C(-,\Omega),
-\]
-
-and then, $C$ is also well-powered.
-
-******* Proof
-******** Given a subobject classifier
-There exists a unique characteristic function for each equivalence
-class of monics; an this is a bijection (from the characteristic
-function, the monic can be recovered up to isomorphism).
-
-To show that this is natural, given any $f \colon Y \to X$, we have to
-prove that
-
-\[\begin{tikzcd}
-\mathrm{Sub}(X) \rar{\theta} \dar[swap]{f^{-1}} & \mathrm{hom}(X,\Omega) \dar{\circ f} \\
-\mathrm{Sub}(Y) \rar{\theta} & \mathrm{hom}(Y,\Omega)
-\end{tikzcd}\]
-
-and this can be proved by the pullback theorem, by which two pullback
-squares can be joint in a outer pullback square
-
-\[\begin{tikzcd}
-S'\rar{} \dar[swap]{} & S \dar{}\rar & 1\dar{\mathrm{true}} \\
-Y\rar{f} & X \rar{\phi} & \Omega
-\end{tikzcd}\]
-
-${\cal C}$ is well-powered because all hom-sets are small
-
-******** Given a natural bijection
-The identity corresponds to some subobject $t_0 \colon \Omega_0 \to \Omega$. By naturality,
-$S = \mathrm{Sub}(\phi)(\Omega_0)$ and every subobject is the pullback of some $\Omega_0$.
-
-Now, we show that $\Omega_0$ is in fact the terminal object. The following
-two squares are pullbacks because $t_0$ is monic
-
-\[\begin{tikzcd}
-X \rar[bend left]{\phi'} \rar[bend right]{\phi''} \dar[swap]{\mathrm{id}} & 
-\Omega_{0} \dar{t_{0}} \\
-X \rar[bend left]{t_{0}\phi'} \rar[bend right]{t_{0}\phi''} & \Omega
-\end{tikzcd}\]
-
-and by unicity, we have $t_0\phi' = t_0\phi''$ and $\phi' = \phi''$.
-
-****** TODO G-bundles
-***** I.4. Typical subobject classifiers
-****** Examples of subobject classifiers
-******* Classifier for Sets and Finite sets
-The classifier $1 \to 2$.
-
-******* Classifier for n-Sets
-The classifier is a n-tuple of $1 \to 2$ functions. There are $2^n$
-truth values.
-
-******* Classifier for BG-Sets
-The same classifier $1 \to 2$ works, $G$ acts trivially on both sets.
-
-******* Classifier for BM-Sets
-The same classifier for groups does not work, because complements need not
-to be closed under the action of a monoid.
-
-******* TODO Arrow category
-******* TODO Time sets
-******* TODO Subfunctors
-***** I.5. Colimits
-****** Colimits in functor categories
-Colimits in functor categories can be computed pointwise
-\[
-(\varinjlim H)(C) = \varinjlim H(C).
-\]
-
-****** Every object is a colimit of representable objects
-In a functor category $\mathtt{Sets}^{C^{op}}$, every object $P$ is
-the colimit of a diagram of representable objects.
-
-****** TODO Theorem 2
-***** I.6. Exponentials
-****** In sets
-$(-)^{X}$ is the right adjoint of $- \times X$.
-
-****** The representable functors category is cartesian closed
-For any small category ${\cal C}$, the functor category $\mathtt{Sets}^{\mathcal{C}^{op}}$ is cartesian closed.
-
-******* TODO Proof
-
-***** I.7. Propositional calculus
-****** TODO Sets and boolean algebras, open subsets and heyting algebras
-****** Lattice
-A *lattice* is a partially ordered set, which, interpreted as a category,
-has all binary products and coproducts.
-
-That is, $x \leq y$ if and only if $x \to y$.
-
-A lattice with $0 \leq x \leq 1$ are the initial and terminal objects, and has all
-finite limits and colimits.
-
-****** TODO Equational definition of a lattice
-****** TODO Complements on a lattice
-****** TODO Boolean algebra
-****** TODO Complete lattice
-***** I.8. Heyting algebras
-****** Heyting algebra
-A Heyting algebra is a poset with all finite products and coproducts which is
-cartesian closed.
-
-****** TODO Properties of Heyting algebras
-
-***** I.9. Quantifiers as adjoints
-**** IV. First properties of Elementary topoi
-***** IV.1. Definition of a topos
-****** Elementary topos
-******* Definition
+:PROPERTIES:
+:INTERLEAVE_PDF: ~/pdf/mac_lane_moerdijk_sheaves_in_geometry_and_logic.pdf
+:END:
+**** Old notes
+***** IV. First properties of Elementary topoi
+****** IV.1. Definition of a topos
+******* Elementary definition of a topos                                                                  :drill:
+:PROPERTIES:
+:ID:       65fdbc81-0da5-4220-b88e-59f87d112024
+:END:
+Elementary definition of a topos
+
+******* Elementary topos
+******** Definition
 A *topos* ${\cal E}$ is a category with
 
   * an object $\Omega$, called the *subobject classifier*;
@@ -3798,15 +3502,17 @@ A *topos* ${\cal E}$ is a category with
   * two natural isomorphisms $\mathrm{Sub}_{{\cal E}}A \cong \mathrm{hom}_{{\cal E}}(A,\Omega)$ and
     $\mathrm{hom}_{{\cal E}}(B \times A,\Omega) \cong \mathrm{hom}_{{\cal E}}(A,{\cal P}B)$.
 
-******* Alternative definition
+******** Alternative definition
 A *topos* is a category with finite limits and a function on its
 objects ${\cal P}$ such that
+
 \[
 \mathrm{Sub}_{{\cal E}}(B \times A) \cong \mathrm{Hom}_{{\cal E}}(A,{\cal P}B)
 \]
+
 is an natural isomorphism in $A$.
 
-******* Definition: Elementary form
+******** Definition: Elementary form
 A *topos* is a category ${\cal E}$ such that
 
   1) pullbacks exist for every diagram of the form
@@ -3839,15 +3545,15 @@ A *topos* is a category ${\cal E}$ such that
 
 # Membership map is dinatural in B.
 
-****** Generalized elements
-******* Generalized and global elements
+******* Generalized elements
+******** Generalized and global elements
 An arrow $b \colon X \to B$ is a *generalized element* of $B$ defined over $X$. The generalized
 elements defined over the terminal object $1$ are the *global elements* of $B$.
 
-******* Predicate
+******** Predicate
 A morphism $\theta \colon B \to \Omega$ is called a *predicate*.
 
-******* Subobjects
+******** Subobjects
 A subobject of $A$ has the following three descriptions
 
   1) $m \colon S \to A$ monomorphism, as an equivalence class of monics;
@@ -3859,21 +3565,21 @@ A subobject of $A$ has the following three descriptions
 we call $S = \left\{ a \mid \phi \right\}$ the *extension* of $\phi$; $\phi = \mathrm{char}\ S$ the *characteristic function*
 of $S$ and $s = \lceil\phi\rceil$ the *name* of $\phi$.
 
-******* Kronecker delta
+******** Kronecker delta
 
-******* Monicity of the transpose of the Kronecker delta
+******** Monicity of the transpose of the Kronecker delta
 For all objects $B$ in a topos, $\left\{ \cdot \right\}$ is monic.
 
-******* Bimorphisms are isomorphisms in a topos
+******** Bimorphisms are isomorphisms in a topos
 In a topos, every monomorphism is an equalizer and every bimorphism
 is an isomorphism.
 
-****** Exponentials
-******* Every topos is cartesian closed
+******* Exponentials
+******** Every topos is cartesian closed
 Every topos has exponentials.
 
-***** IV.8. Lattice and Heyting algebra objects in a topos
-****** Internal lattice
+****** IV.8. Lattice and Heyting algebra objects in a topos
+******* Internal lattice
 An internal lattice in a category is an object $L$ with morphisms
 \[
 \bigwedge \colon L \times L \to L,
@@ -3896,11 +3602,11 @@ Such a lattice object has a zero and a one if there are arrows
 \]
 with the appropiate identities.
 
-****** Internal Heyting algebra
+******* Internal Heyting algebra
 Exists an implication $\Rightarrow \colon L \times L \to L$ satisfiying the diagrammatic version
 of the identities of the implication.
 
-****** Partial order on an internal lattice
+******* Partial order on an internal lattice
 We can define a subobject $\leq_L$ on the category as the following equalizer
 \[\begin{tikzcd}
 \leq_{L}\rar & 
@@ -3908,15 +3614,15 @@ L \times L \rar[shift left=.75ex]{\wedge}\rar[swap,shift right=.75ex]{\pi_1} &
 L.
 \end{tikzcd}\]
 
-******* Equivalent definition of internal Heyting algebra
+******** Equivalent definition of internal Heyting algebra
 
-****** External Heyting algebra
+******* External Heyting algebra
 Given $A$ in a topos ${\cal E}$, $\mathrm{Sub}\ A$ is a Heyting algebra. The structure
 is natural in $A$, in the sense that the pullback along any morphism
 $k\colon A \to B$ induces a map $k^{-1}$ of Heyting algebras.
 
-******* TODO Proof
-****** Internal Heyting algebra
+******** TODO Proof
+******* Internal Heyting algebra
 Given $A$ in a topos ${\cal E}$, ${\cal P}A$ is an internal Heyting algebra. Th structure
 is natural in $A$, in the sense that that the any morphism $k\colon A \to B$
 induces a map ${\cal P}k \colon {\cal P}A \to {\cal P}B$ of Heyting algebras.
@@ -3927,10 +3633,10 @@ algebra with the following isomorphism of Heyting algebras
 \mathrm{Sub}(A \times X) \cong \mathrm{Hom}(X,{\cal P}A).
 \]
 
-******* TODO Proof
-**** VI. Topoi and logic
-**** VI.1. The topos of sets
-***** Natural numbers object
+******** TODO Proof
+***** VI. Topoi and logic
+***** VI.1. The topos of sets
+****** Natural numbers object
 In an arbitrary topos ${\cal E}$, a *natural numbers object* is the object $\mathbb{N}$
 with arrows
 
@@ -3946,10 +3652,10 @@ e\[\begin{tikzcd}
 1\rar{x} & X\rar{f} & X &.\\
 \end{tikzcd}\]
 
-****** Recursion as a universal property
+******* Recursion as a universal property
 Definition by recursion assumes the existence of this universal object.
 
-***** Natural numbers by adjunction
+****** Natural numbers by adjunction
 Given ${\cal E}$ with a natural numbers object $\mathbb{N}$ and adjoints $g^{\ast} \dashv g_{\ast}$, the diagram
 
 \[\begin{tikzcd}
@@ -3960,51 +3666,480 @@ g^{\ast}(\mathbb{N})
 
 is a natural numbers object.
 
-****** TODO Proof
+******* TODO Proof
 
-***** Boolean topos
+****** Boolean topos
 A topos ${\cal E}$ is *boolean* when the internal Heyting algebra $\Omega$ is an internal
 boolean algebra.
 
-**** Ejercicios [0/27]
-***** I. Categories of Functors [0/11]
-****** TODO Exercise I.1
+***** Ejercicios [0/27]
+****** I. Categories of Functors [0/11]
+******* TODO Exercise I.1
 #+begin_statement
 Show that pullbacks of epis are epi for categories of each of
 the types (i)-(ix).
 #+end_statement
 
-****** TODO Exercise I.2
+******* TODO Exercise I.2
 #+begin_statement
 Prove that $\mathtt{FinSets}^{\mathbb{N}}$ has no subobject classifier.
 #+end_statement
 
-****** TODO Exercise I.3
-****** TODO Exercise I.4
-****** TODO Exercise I.5
-****** TODO Exercise I.6
-****** TODO Exercise I.7
-****** TODO Exercise I.8
-****** TODO Exercise I.9
-****** TODO Exercise I.10
-****** TODO Exercise I.11
-***** IV. First Properties of Elementary Topoi [0/16]
-****** TODO Exercise I.1
-****** TODO Exercise I.2
-****** TODO Exercise I.3
-****** TODO Exercise I.4
-****** TODO Exercise I.5
-****** TODO Exercise I.6
-****** TODO Exercise I.7
-****** TODO Exercise I.8
-****** TODO Exercise I.9
-****** TODO Exercise I.10
-****** TODO Exercise I.11
-****** TODO Exercise I.12
-****** TODO Exercise I.13
-****** TODO Exercise I.14
-****** TODO Exercise I.15
-****** TODO Exercise I.16
+******* TODO Exercise I.3
+******* TODO Exercise I.4
+******* TODO Exercise I.5
+******* TODO Exercise I.6
+******* TODO Exercise I.7
+******* TODO Exercise I.8
+******* TODO Exercise I.9
+******* TODO Exercise I.10
+******* TODO Exercise I.11
+****** IV. First Properties of Elementary Topoi [0/16]
+******* TODO Exercise I.1
+******* TODO Exercise I.2
+******* TODO Exercise I.3
+******* TODO Exercise I.4
+******* TODO Exercise I.5
+******* TODO Exercise I.6
+******* TODO Exercise I.7
+******* TODO Exercise I.8
+******* TODO Exercise I.9
+******* TODO Exercise I.10
+******* TODO Exercise I.11
+******* TODO Exercise I.12
+******* TODO Exercise I.13
+******* TODO Exercise I.14
+******* TODO Exercise I.15
+******* TODO Exercise I.16
+
+**** Notes for page 172
+:PROPERTIES:
+:interleave_page_note: 172
+:END:
+
+***** Elementary form                                                                                       :drill:
+:PROPERTIES:
+:ID:       25e51781-23db-44db-b36c-79904e44a812
+:END:
+Elementary definition of a topos.
+
+****** Answer
+A category with
+
+ * all pullbacks
+
+ * a terminal object
+
+ * a subobject classifier
+
+ * a powerset for every object.
+
+**** Notes for page 176
+:PROPERTIES:
+:interleave_page_note: 176
+:END:
+
+***** Topos                                                                                                 :drill:
+:PROPERTIES:
+:ID:       0af09c4d-0a39-4034-97c8-95bb2c2479cc
+:END:
+Definition from cartesian closed categories.
+
+****** Answer
+A topos is a cartesian closed category with equalizers and a subobject
+classifier.
+
+**** Notes for page 185
+:PROPERTIES:
+:interleave_page_note: 185
+:END:
+
+***** Topos, finite limits and finite colimits                                                              :drill:
+:PROPERTIES:
+:ID:       31d80b9e-40a7-403a-a4cd-b4f25462a68d
+:END:
+Has a topos finite limits, why? has finite colimits, why?
+
+****** Answer
+*A topos has all finite limits and finite colimits* 
+
+It has finite limits by definition (cartesian closed with equalizers).
+It has finite colimits; this is not trivial and must be proven using
+monads.
+
+**** Notes for page 187
+:PROPERTIES:
+:interleave_page_note: 187
+:END:
+
+***** Comparison functor                                                                                    :drill:
+:PROPERTIES:
+:ID:       170873b3-03ec-45ed-87c1-b30c9298aa3a
+:END:
+Construct the comparison functor $K$ over a $G \colon A \to C$ with a
+left adjoint $F \colon C \to A$.
+
+****** Answer
+We construct a monad $GF$ and the following construction where
+$C^T$ is the category of T-algebras over $GF$.
+
+\[\begin{tikzcd}
+A \rar{K}\dar[bend left]{G} & C^T\dar[bend left]{F^T} \\
+C \rar{1}\uar[bend left]{F} & C\uar[bend left]{G^T}
+\end{tikzcd}\]
+
+The comparison functor $K \colon A \to C^T$ is given by $(GA, G\epsilon_A \colon GFGA \to GA)$.
+
+***** Monadic functor                                                                                       :drill:
+:PROPERTIES:
+:ID:       a5ca3d08-dfeb-498a-b2a7-419f30c05272
+:END:
+When is $G \colon A \to C$ monadic?
+
+****** Answer
+Has a left adjoint $F \dashv G$ and the comparison functor $K \colon A \to C^T$
+given by $(GA, G\epsilon_A \colon GFGA \to GA)$ is an equivalence of categories.
+
+***** Property of monadic functors                                                                          :drill:
+:PROPERTIES:
+:ID:       5ba579f3-e5c2-40a0-87a1-e833366be045
+:END:
+How do monadic functors and limits relate?
+
+****** Answer
+A monadic functor creates all limits.
+
+**** Notes for page 189
+:PROPERTIES:
+:interleave_page_note: 189
+:END:
+
+***** Left adjoint of the powerset functor                                                                  :drill:
+:PROPERTIES:
+:ID:       8b55fb4c-ba74-4720-bece-fd229260205f
+:END:
+What is the left adjoint of the powerset functor $P \colon {\cal E}^{op} \to {\cal E}$?
+
+****** Answer
+$P^{op} \colon {\cal E} \to {\cal E}^{op}$, that is, the same functor
+but acting on the opposite category.
+
+**** Notes for page 190
+:PROPERTIES:
+:interleave_page_note: 190
+:END:
+
+***** Left adjoint of the powerset functor
+Why is the left adjoint of the powerset functor itself?
+
+****** Answer
+The product is commutative, so
+
+\[
+{\cal E}(A,PB) \cong
+{\cal E}(A \times B,\Omega) \cong
+{\cal E}(B \times A,\Omega) \cong
+{\cal E}(B,PA) =
+{\cal E}^{op}(PA,B).
+\]
+
+**** Notes for page 199
+:PROPERTIES:
+:interleave_page_note: 199
+:END:
+
+***** The slice of a topos                                                                                  :drill:
+:PROPERTIES:
+:ID:       df04a625-5b2f-4579-8b5e-6a90430849c0
+:END:
+Structure of the slice of a topos ${\cal E}/B$.
+
+****** Answer
+It is again a topos.
+
+**** Notes for page 33
+:PROPERTIES:
+:interleave_page_note: 33
+:END:
+
+***** Examples of topoi
+****** Sets
+Small sets with functions between them.
+
+****** n-Sets
+Given $n \in \mathbb{N}$, the $n\text{-tuples}$ of sets with $n\text{-tuples}$ of functions between them.
+
+****** G-Sets
+Representations of a fixed group $\mu\colon X\times G \to X$, with morphisms preserving
+the group action $f(x\cdot g) = f(x) \cdot g$.
+
+****** M-Sets
+Representations of a fixed monoid.
+
+****** 2-Sets
+Category of functions betweeen sets $\sigma\colon X \to X'$ and commutative squares
+between them.
+
+****** N-Sets
+Category of sequences $X_0 \to X_1 \to X_2 \to \dots$ of sets and commutative squares
+as morphisms.
+
+****** Preseaves
+Objects are presheaves $P\colon C^{op} \to \mathtt{Sets}$, and arrows natural transformations
+$\theta\colon P \to P'$.
+
+******* Yoneda embedding
+$y \colon C \to \Set^{C^{op}}$ is full and faithful.
+
+****** Comma category
+Objects are functions $h \colon X \to J$ for a fixed $J$ and arrows
+commuting triangles. Each object determines a family of sets
+
+\[
+H_j = h^{-1}(j) = \left\{ x \mid x \in X, h(x) = j \right\}
+\]
+
+and each function determines a family $f_j \colon H_j \to H'_j$. If we take
+$J$ as a discrete category, each object of the comma category is a
+functor from it and each morphism is a natural transformation.
+
+That is, we can see the comma category inside a presheaf category
+with this assignment
+
+\[
+L\colon \Set/J \to \Set^{J}
+\]
+
+while in the other direction, each functor provides an object $\bigsqcup H_j$
+in the comma category; thus providing a complete equivalence of
+categories.
+
+/The comma category is equivalent to a presheaf category./
+
+It is *not* an isomorphism because the composition of both
+constructions may not be the identity (the disjoint union is only
+unique up to isomorphism).
+
+****** Sheaves over a topological space
+Category of sheaves over a topological space.
+
+****** Continuous G-Sets
+Given $G$ a topological group, the continuous representations of the group
+are the objects with the continuous homomorphisms of actions.
+
+****** Simplicial sets
+A *simplicial object* is a family of objects $\left\{ S_n  \right\} \in C$ satisfiying the
+simplicial identities
+
+******* TODO Simplicial identities
+****** Finite sets
+Finite sets and functions between them.
+
+****** Presheaves to finite sets
+
+**** Notes for page 38
+:PROPERTIES:
+:interleave_page_note: 38
+:END:
+
+A *pullback* of $X \to B \gets Y$ is the universal object and
+projections making this diagram commute
+
+\[\begin{tikzcd}
+P\rar[dashed]{f'} \dar[dashed,swap]{g'} & Y \dar{g} \\
+X\rar{f} & B &.
+\end{tikzcd}\]
+
+In Sets, we have the set of pairs $\pair{x,y}$ such that $f(x)=g(y)$.
+
+If we have that $g$ is an inclusion, $P$ is the inverse image
+$f^{-1}(Y)$, included in $X$. If both $f,g$ are inclusions, we have
+the intersection of two subsets.
+
+**** Notes for page 39
+:PROPERTIES:
+:interleave_page_note: 39
+:END:
+
+***** Pullbacks
+The pullback of any two presheaves exists on a preseaf category.
+
+The pullback along a monic is always monic.
+
+A category with a terminal object and all pullbacks has all finite limits.
+
+In presheaves, all finite limits are constructed pointwise. 
+
+**** Notes for page 41
+:PROPERTIES:
+:interleave_page_note: 41
+:END:
+
+***** Subobject classifier
+A *subobject classifier* is a monic $t\colon 1 \rightarrowtail \Omega$ such that for every monic $S \rightarrowtail X$
+exists a unique $\Phi \colon X \to \Omega$ creating a pullback square
+
+\[\begin{tikzcd}
+S\rar{1} \dar[swap]{i} & 1 \dar{t} \\
+X\rar[dashed]{\Phi} & \Omega
+\end{tikzcd}\]
+
+where the morphism $t$ is called /true/.
+
+***** Well-powered category
+A category is *well-powered* when $\mathrm{Sub}_C(X)$ is isomorphic to a small set
+for any $X$.
+
+**** Notes for page 42
+:PROPERTIES:
+:interleave_page_note: 42
+:END:
+
+***** Proposition 1. Existence of a subobject classifier in well-behaved categories
+A category $C$ with finite limits and small hom-sets has a subobject classifier
+if and only if there is a natural isomorphism
+
+\[
+\theta \colon \mathrm{Sub}_C(-) \cong \mathrm{Hom}_C(-,\Omega),
+\]
+
+and then, $C$ is also well-powered.
+
+****** Proof
+******* Given a subobject classifier
+There exists a unique characteristic function for each equivalence
+class of monics; an this is a bijection (from the characteristic
+function, the monic can be recovered up to isomorphism).
+
+To show that this is natural, given any $f \colon Y \to X$, we have to
+prove that
+
+\[\begin{tikzcd}
+\mathrm{Sub}(X) \rar{\theta} \dar[swap]{f^{-1}} & \mathrm{hom}(X,\Omega) \dar{\circ f} \\
+\mathrm{Sub}(Y) \rar{\theta} & \mathrm{hom}(Y,\Omega)
+\end{tikzcd}\]
+
+and this can be proved by the pullback theorem, by which two pullback
+squares can be joint in a outer pullback square
+
+\[\begin{tikzcd}
+S'\rar{} \dar[swap]{} & S \dar{}\rar & 1\dar{\mathrm{true}} \\
+Y\rar{f} & X \rar{\phi} & \Omega
+\end{tikzcd}\]
+
+${\cal C}$ is well-powered because all hom-sets are small
+
+******* Given a natural bijection
+The identity corresponds to some subobject $t_0 \colon \Omega_0 \to \Omega$. By naturality,
+$S = \mathrm{Sub}(\phi)(\Omega_0)$ and every subobject is the pullback of some $\Omega_0$.
+
+Now, we show that $\Omega_0$ is in fact the terminal object. The following
+two squares are pullbacks because $t_0$ is monic
+
+\[\begin{tikzcd}
+X \rar[bend left]{\phi'} \rar[bend right]{\phi''} \dar[swap]{\mathrm{id}} & 
+\Omega_{0} \dar{t_{0}} \\
+X \rar[bend left]{t_{0}\phi'} \rar[bend right]{t_{0}\phi''} & \Omega
+\end{tikzcd}\]
+
+and by unicity, we have $t_0\phi' = t_0\phi''$ and $\phi' = \phi''$.
+
+**** Notes for page 44
+:PROPERTIES:
+:interleave_page_note: 44
+:END:
+
+***** Classifier for Sets and Finite sets
+The classifier $1 \to 2$.
+
+***** Classifier for n-Sets
+The classifier is a n-tuple of $1 \to 2$ functions. There are $2^n$
+truth values.
+
+***** Classifier for BG-Sets
+The same classifier $1 \to 2$ works, $G$ acts trivially on both sets.
+
+***** Classifier for BM-Sets
+The same classifier for groups does not work, because complements need not
+to be closed under the action of a monoid.
+
+**** Notes for page 50
+:PROPERTIES:
+:interleave_page_note: 50
+:END:
+
+***** Every object is a colimit of representable objects
+In a functor category $\mathtt{Sets}^{C^{op}}$, every object $P$ is
+the colimit of a diagram of representable objects.
+
+**** Notes for page 55
+:PROPERTIES:
+:interleave_page_note: 55
+:END:
+
+For any small category ${\cal C}$, the functor category $\mathtt{Sets}^{\mathcal{C}^{op}}$ is cartesian closed.
+
+**** Notes for page 58
+:PROPERTIES:
+:interleave_page_note: 58
+:END:
+
+***** Lattice
+A *lattice* is a partially ordered set, which, interpreted as a category,
+has all binary products and coproducts.
+
+That is, $x \leq y$ if and only if $x \to y$.
+
+A lattice with $0 \leq x \leq 1$ are the initial and terminal objects, and has all
+finite limits and colimits.
+
+**** Notes for page 59
+:PROPERTIES:
+:interleave_page_note: 59
+:END:
+
+***** Heyting algebra
+A Heyting algebra is a poset with all finite products and coproducts which is
+cartesian closed.
+
+**** Notes for page 75
+:PROPERTIES:
+:interleave_page_note: 75
+:END:
+
+***** Sheaf of sets                                                                                         :drill:
+:PROPERTIES:
+:ID:       9f420f7c-d5e9-4eea-9c8e-8505129e5f02
+:END:
+*Sheaf of sets*
+
+*********** Answer
+A functor $F \colon {\cal O}(X)^{op} \to \mathsf{Set}$ such that each open covering $U = \bigcup_i U_i$ yields
+an equalizer diagram
+
+\[\begin{tikzcd}
+FU \rar[dashed]{e} &
+\prod_i FU_i \rar[yshift=0.5ex]{p}\rar[yshift=-0.5ex,swap]{q} &
+\prod_{i,j} F(U_i \cap U_j)
+\end{tikzcd}\]
+
+where for $t \in FU$, we have $e(t) = (t_{|U_i})_{i\in I}$ and for a family $t_i \in FU_i$ we
+have $p(t_i)_{i \in I} = (t_{i|U_i \cap U_j})_{i,j \in I}$ and $q(t_i)_{i \in I} = (t_{j|U_i \cap U_j})_{i,j\in I}$.
+
+**** Notes for page 76
+:PROPERTIES:
+:interleave_page_note: 76
+:END:
+
+***** Morphism of sheaves                                                                                   :drill:
+:PROPERTIES:
+:ID:       84046292-d887-4b2e-a603-72ec55322c48
+:END:
+What is a morphism between sheaves $F \to G$.
+
+****** Answer
+A natural transformation between them; they are functors.
+
 *** Higher order categorical logic - Lambek, Scott
 **** 0. Introduction to category theory
 ***** 0.1. Categories and functors
@@ -4338,7 +4473,7 @@ if every term of type $\mathbb{N}$ is a numeral of the form $S(S(\dots(SZ)\dots)
 Canonicity can be lost when we add axioms. If we add LEM,
 $\mathrm{case}(\mathrm{lem}(P), 0, 1)$ is a non-canonical natural.
 
-*** Mikrokosmos - Mario Román
+*** Mikrokosmos - Mario Román                                                            :lambda_calculus:functional:
 **** Cálculo lambda sin tipos
 Una expresión lambda es
 
@@ -4536,7 +4671,7 @@ naturals := fix (compose (cons 0) (map succ))
 #+BEGIN_SRC haskell
 
 #+END_SRC
-*** Lecture notes on the lambda calculus - Salinger
+*** Lecture notes on the lambda calculus - Salinger                                                 :lambda_calculus:
 **** 1. Introduction
 **** 2. The untyped lambda calculus
 ***** 2.5. Formal definitions of \beta-reduction and \beta-equivalence
@@ -4817,7 +4952,7 @@ mathematical objects.
 
 ***** 3.3. More Inductive Families
 **** TODO 4. Propositions as Types
-*** The derivative of a regular type is its type of one-hole contexts - Connor McBride
+*** The derivative of a regular type is its type of one-hole contexts - Connor McBride                  :type_algebra:
 Presented by [[https://www.youtube.com/watch?v=K7tQsKxC2I8][Erik Hinton]].
 
 **** Types and fixed points
@@ -4959,7 +5094,7 @@ UIP does not hold under this interpretation.
 ***** How to extract an elementary set theory from a topos
 ***** At least BIST
 **** TODO 4. Composites
-*** Profunctor Optics - Bartosz Milewski
+*** Profunctor Optics - Bartosz Milewski                                                             :optics:haskell:
 #+BEGIN_SRC haskell
 type Lens s t a b  = forall p. Strong p => p a b -> p s t
 type Prism s t a b = forall p. Choice p => p a b -> p s t
@@ -5014,10 +5149,10 @@ The Yoneda embedding
 #+BEGIN_SRC haskell
 forall x. (a -> x) -> (b -> x) ~ (b -> a)
 #+END_SRC
-*** Monad transformers - Snoyman
+*** Monad transformers - Snoyman                                                                            :haskell:
 Concurrency with IO a and IO b.
 
-*** Seemingly impossible functional programs - Escardó
+*** Seemingly impossible functional programs - Escardó                                                     :topology:
 #+BEGIN_SRC haskell :results output
 data Bit = I | O deriving (Eq)
 type Nats = Integer
@@ -6128,8 +6263,11 @@ a nominal set...
 morphisms injections. A nominal set is a functor $\mathbb{N} \to \mathrm{Set}$.
 
 ** Constructivism                                                                               :constructivism:logic:
-*** [[~/pdf/bauer_intuitionistic_mathematics_and_realizability_in_the_physical_world.pdf][Intuitionistic mathematics and realizability in the physical world]] - Andrej Bauer
-**** 1. Intuitionistic understanding of truth
+*** Intuitionistic mathematics and realizability in the physical world - Andrej Bauer                         :drill:
+:PROPERTIES:
+:INTERLEAVE_PDF: ~/pdf/bauer_intuitionistic_mathematics_and_realizability_in_the_physical_world.pdf
+:ID:       6c678fe5-6875-41a1-a9f9-0e5343c31d35
+:END:
 **** 2. Synthetic differential geometry
 ***** Non-standard analysis                                                                                 :drill:
 :PROPERTIES:
@@ -13728,14 +13866,36 @@ presentación de un modelo.
 ******* Paso 6: Llevamos los complementarios juntos
 ******* Paso 7: Comprobamos que es una presentación modelo
 ** Locales                                                                                          :topology:locales:
-*** The point of pointless topology - Johnstone ([[~/pdf/johnstone_the_point_of_pointless_topology.pdf][PDF]])
-**** Frame                                                                                           :drill:locales:
+Some [[https://math.stackexchange.com/a/2825138/85067][reference texts on locales]] from SO, quick reviews:
+
+ * Picado, Pultr, Tozzi: Locales
+ * Johnstone: The point of pointless topology
+
+and standard textbooks:
+
+ * Johnstone: Stone spaces (1986) -- for a duality-theory oriented introduction to frames/locales.
+ * Vickers: Topology via logic (1996) -- for the relations with computer science and logic.
+ * Pultr, Picado: Frames and Locales - topology without points (2011) -- for the more classical, topology oriented approach.
+
+*** The point of pointless topology - Johnstone                                                       :paper:locales:
+:PROPERTIES:
+:INTERLEAVE_PDF: ~/pdf/johnstone_the_point_of_pointless_topology.pdf
+:END:
+
+**** Notes for page 3
+:PROPERTIES:
+:interleave_page_note: 3
+:END:
+
+Frames and locales.
+
+***** Frame                                                                                         :drill:locales:
 :PROPERTIES:
 :ID:       869b43f9-6d28-4f26-b139-0eb67e9649f8
 :END:
 *Frame*
 
-***** Answer
+****** Answer
 A poset with 
 
  * arbitrary joins (small coproducts) $\bigvee$,
@@ -13748,21 +13908,18 @@ A poset with
    x \wedge \left( \bigvee_i y_i \right)  = \bigvee_i \left( x \wedge y_i \right)
    \]
 
-**** Locales                                                                                                 :drill:
+***** Locales                                                                                       :drill:locales:
 :PROPERTIES:
 :ID:       563403ea-8ed2-439b-907f-04f9679da424
 :END:
 How the category of locales is constructed.
 
-***** Answer
+****** Answer
 The category of locales is the opposite category to the category of frames.
 
 \[
 \mathsf{Locale} = \mathsf{Frame}^{op}.
 \]
-
-*** TODO Locales
- - [[https://math.stackexchange.com/a/2825138/85067][References on locales]]
 
 ** Statistics                                                                                             :statistics:
 *** Normal distribution                                                                                       :drill:
@@ -18262,28 +18419,17 @@ Complexity of heapsort.
 ****** Complexity
 O(n log n) in all cases.
 *** Monads for functional programming - Philip Wadler                                          :paper:monads:haskell:
-**** 1. Introduction
-**** 2. Evaluating monads
-***** 2.1. Variation zero: The basic evaluator
-***** 2.2. Variation one: Exceptions
-***** 2.3. Variation two: State
-***** 2.4. Variation three: Output
-***** 2.5. A monadic evaluator
-***** 2.6. Variation zero, revisited: The basic evaluator
-***** 2.7. Variation one, revisited: Exceptions
-***** 2.8. Variation two, revisited: State
-***** 2.9. Variation three, revisited: Output
-**** 3. Monad Laws
-    Son equivalentes =return,join= y =return,bind=. Y además, desde cualesquiera
-    de ellos, se define =map=.
-**** 4. State
-***** 4.1. Arrays
-***** 4.2. Array transformers
-***** 4.3. Array readers
-     Conmutative monads.
-***** 4.4. Conclusion
-**** TODO 5. Parsers
-*** Qiaochu Yuan - [[https://qchu.wordpress.com/2018/02/07/gradient-descent/][Gradient descent]]           :analysis:
+:PROPERTIES:
+:INTERLEAVE_PDF: ~/pdf/wadler_monads_for_functional_programming.pdf
+:END:
+**** Notes for page 12
+:PROPERTIES:
+:interleave_page_note: 12
+:END:
+
+Monads can be defined in terms of unit, join and map. They can also be defined
+in terms of unit and bind.
+*** Qiaochu Yuan - [[https://qchu.wordpress.com/2018/02/07/gradient-descent/][Gradient descent]]                                                                        :analysis:
 **** Problem with gradient descent                                                                           :drill:
 :PROPERTIES:
 :ID:       ccf30e30-56c9-407c-b2cb-c1b7d364c07c
@@ -18296,7 +18442,7 @@ optimizing over have units of length, and the loss function is
 dimensionless, then the derivatives you’re subtracting have units of
 inverse length.
 
-** Computability and complexity
+** Computability and complexity                                                             :computability:complexity:
 *** P?=NP - Scott Aaronson                                                                         :complexity:paper:
 * Notes
 ** Ecuaciones diferenciales II
@@ -18365,17 +18511,17 @@ En el caso de espacios finitos tenemos la matriz jacobiana
 En ocasiones notaremos simplemente a la jacobiana como $F'$.
 
 ***** Card: Jacobiana                                                                                       :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-09-12 Wed>
 :PROPERTIES:
 :ID:       4183447e-4b69-4117-a3bd-9181de1bd672
-:DRILL_LAST_INTERVAL: 26.8095
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 75.4403
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-20 Sun 23:24]
+:DRILL_AVERAGE_QUALITY: 4.25
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:48]
 :END:
 ¿Qué propiedad define a la Jabobiana $\mathrm{Jac}(F)_p$ ó $F'(p)$?
 
@@ -18389,17 +18535,17 @@ Es la aplicación lineal cumpliendo
 que existe cuando $F$ es diferenciable.
 
 ***** Card: construcción de la Jacobiana                                                                    :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-09-09 Sun>
 :PROPERTIES:
 :ID:       05dc6c9b-cb76-4ee7-85b5-a24f224aad1b
-:DRILL_LAST_INTERVAL: 27.3499
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 72.0671
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.333
-:DRILL_EASE: 2.6
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-19 Sat 11:00]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:55]
 :END:
 ¿Cómo construir la jacobiana en espacios finitos?
 
@@ -18807,17 +18953,17 @@ hay
  * *unicidad global*, unicidad en todo $\mathbb{R}$.
 
 ****** Card: unicidad local                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-07-10 Tue>
 :PROPERTIES:
 :ID:       0261396e-1324-4bde-b01b-842f881f869e
-:DRILL_LAST_INTERVAL: 4.2511
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 10.5298
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.25
 :DRILL_EASE: 2.36
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 15:06]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:52]
 :END:
 Dado un problema de valores iniciales,
 
@@ -21482,17 +21628,17 @@ por tanto acotado, por ser $V$ [[id:37022c48-c27d-4e11-aa9d-85c998a4b917][coerci
 
 ****** TODO Proof (independiente)
 ****** Card: enunciado                                                                                     :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-07-11 Wed>
 :PROPERTIES:
 :ID:       fbcbd5af-72f0-45e7-aeea-916ae98bc48f
-:DRILL_LAST_INTERVAL: 3.7707
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 11.6797
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.667
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-11 Mon 22:08]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:54]
 :END:
 Enunciado del teorema de acotación mediante funciones guía.
 
@@ -21770,18 +21916,18 @@ x'_2 = -\frac{1}{m}g(x_1)
 Cuando $g$ es lipschitziana, existe solución única por
 Picard-Lindelöf.
 
-****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+****** Card                                                                                              :nodrill:
+SCHEDULED: <2018-07-09 Mon>
 :PROPERTIES:
 :ID:       9fb6c5d6-730d-4297-a0fe-212c2b8f2b76
-:DRILL_LAST_INTERVAL: 4.1402
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 10.0479
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_AVERAGE_QUALITY: 3.75
 :DRILL_EASE: 2.6
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 15:05]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:52]
 :END:
 Forma de una ecuación sin rozamiento.
 
@@ -21833,17 +21979,17 @@ las soluciones están acotadas en el futuro y la energía se
 va perdiendo.
 
 ****** Card: ejercicio                                                                                     :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-07-11 Wed>
 :PROPERTIES:
 :ID:       7969a4bb-c897-4560-bd1b-984118b0b9f9
-:DRILL_LAST_INTERVAL: 3.9307
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 11.909
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.333
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 15:06]
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:44]
 :END:
 Demuestra que las soluciones de
 
@@ -21875,18 +22021,18 @@ x'_2 = - g(x_1)
 
 donde $F$ es una primitiva de $f$.
 
-****** Card: ecuación                                                                                      :drill:
-SCHEDULED: <2018-06-16 Sat>
+****** Card: ecuación                                                                                    :nodrill:
+SCHEDULED: <2018-07-09 Mon>
 :PROPERTIES:
 :ID:       b30bc986-968e-4035-a702-5d5dd943c680
-:DRILL_LAST_INTERVAL: 4.3851
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 9.8018
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 15:04]
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:52]
 :END:
 Forma de la ecuación de Liénard.
 
@@ -22073,17 +22219,17 @@ T_{\rho}(J,\varphi) \cong J \times \overline{B}(0,\rho).
 \]
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-09-12 Wed>
 :PROPERTIES:
 :ID:       b0afd4f3-2e7a-4222-8273-435a3ab7f163
-:DRILL_LAST_INTERVAL: 26.2331
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 74.9219
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-20 Sun 23:26]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:53]
 :END:
 ¿A qué espacio más sencillo es homeomorfo el
 entorno tubular $T_p(J,\varphi)$?
@@ -22264,18 +22410,18 @@ entonces para $t_0 \in I_1 \cap I_2$ se tiene
 
 ****** TODO Proof
 Volterra y Gronwall.
-****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+****** Card                                                                                              :nodrill:
+SCHEDULED: <2018-07-10 Tue>
 :PROPERTIES:
 :ID:       d4e16b44-c476-4276-bccc-0a2d15a20555
-:DRILL_LAST_INTERVAL: 4.3556
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.8859
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 23:35]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:50]
 :END:
 Enunciar la *desigualdad fundamental*, que controla la diferencia entre
 dos soluciones a una ecuación diferencial. ¿Qué condición necesita?
@@ -22657,17 +22803,17 @@ un $\delta$ tal que si la partícula empieza a menos distancia de $\delta$ de la
 original, entonces la solución se mantiene en ese entorno tubular.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-07-10 Tue>
 :PROPERTIES:
 :ID:       fe0c06f5-3cd4-4b6b-b0f1-6d53475a34eb
-:DRILL_LAST_INTERVAL: 3.4445
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 11.3386
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-13 Wed 10:25]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:46]
 :END:
 Definición de solución estable $\varphi \colon (\alpha,+\infty) \to \mathbb{R}^d$.
 
@@ -22696,17 +22842,17 @@ tal que podemos crear $x_n \to \varphi(t_0)$ cumpliendo que
    encima del umbral en algún punto.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-07-09 Mon>
 :PROPERTIES:
 :ID:       660bb6be-01eb-44a3-9265-8621a73aca16
-:DRILL_LAST_INTERVAL: 3.7567
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.0376
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 23:34]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:50]
 :END:
 Definición de solución inestable $\varphi \colon (\alpha,+\infty) \to \mathbb{R}^d$.
 
@@ -22726,17 +22872,17 @@ $\mu > 0$ tal que $\norm{x_0-\varphi(t_0)} < \mu$ implica
  - $\lim_{t \to \infty} X(t;t_0,x_0) - \varphi(t) = 0$.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-07-08 Sun>
 :PROPERTIES:
 :ID:       c865d6ca-f89e-477d-92d6-0e46cbe041c6
-:DRILL_LAST_INTERVAL: 4.3064
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.2669
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 23:35]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:48]
 :END:
 Definición de solución atractor $\varphi \colon (\alpha,+\infty) \to \mathbb{R}^d$.
 
@@ -22752,17 +22898,17 @@ Existe $\mu > 0$ tal que $\norm{x_0-\varphi(t_0)} < \mu$ implica
 Una solución es *asintóticamente estable* si es un atractor estable.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-07-08 Sun>
 :PROPERTIES:
 :ID:       0953e8b1-7f90-4df8-b9b6-c060bd52acf9
-:DRILL_LAST_INTERVAL: 3.6588
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.3206
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 23:35]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:44]
 :END:
 Definición de asintóticamente estable.
 
@@ -22799,18 +22945,18 @@ Equivalen,
  3. las soluciones de la homogénea están acotadas en el futuro;
  4. la homogénea tiene una matriz fundamental acotada en el futuro.
 
-****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+****** Card                                                                                              :nodrill:
+SCHEDULED: <2018-07-09 Mon>
 :PROPERTIES:
 :ID:       33092476-ce17-4d97-8c10-71d893194990
-:DRILL_LAST_INTERVAL: 4.0401
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 10.0192
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 1.5
+:DRILL_AVERAGE_QUALITY: 2.333
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 18:42]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:51]
 :END:
 Estudiamos *estabilidad* en ecuaciones lineales. Para
 $A,b$ continuas en la ecuación $x' = A(t)x + b(t)$, ¿qué 4
@@ -23012,17 +23158,17 @@ Sea $\mu = \max\left\{ \mathrm{Re}(\lambda) \mid \lambda \in \sigma(A) \right\}$
 
  * si $\mu > 0$, todas las soluciones son /inestables/.
 ****** Card: teorema de estabilidad en el caso de parte real nula                                          :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-07-06 Fri>
 :PROPERTIES:
 :ID:       f5d44679-e729-4478-a90d-be61e7b713cd
-:DRILL_LAST_INTERVAL: 2.8492
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 7.0929
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.5
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-13 Wed 19:40]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:52]
 :END:
 Caso particular. ¿Qué dice el Teorema de estabilidad para ecuaciones lineales
 cuando $\mu = \max\left\{ \mathrm{Re}(\lambda) \mid \lambda \in \sigma(A) \right\} = 0$?
@@ -23496,17 +23642,17 @@ Entonces $p$ es un punto /inestable/ de la autónoma $x' = f(x)$.
 
 **** Matemapli
 ***** 19 de marzo                                                                                           :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-07-07 Sat>
 :PROPERTIES:
 :ID:       dc14004e-7a0a-422f-88f7-d97989f41784
-:DRILL_LAST_INTERVAL: 3.4978
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 7.6901
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 1.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-13 Wed 10:24]
+:DRILL_AVERAGE_QUALITY: 2.667
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:48]
 :END:
 La sucesión $f_n \colon \mathbb{R} \to \mathbb{R}$ dada por
 
@@ -23660,18 +23806,18 @@ entonces explota en tiempo finito (crecimiento supralineal).
 Si $\varphi$ es solución maximal y existe $f(t,x) \leq -m\abs{x}^p$ con $m,p>0$
 pero $x_0 < 0$; entonces explota en tiempo finito.
 
-****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+****** Card                                                                                              :nodrill:
+SCHEDULED: <2018-07-09 Mon>
 :PROPERTIES:
 :ID:       da96001f-dc6f-4219-b3b4-c05bd10b7273
-:DRILL_LAST_INTERVAL: 3.9774
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 10.1514
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_AVERAGE_QUALITY: 2.75
 :DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-12 Tue 15:04]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:46]
 :END:
 Qué es y qué nos da el crecimiento supralineal de una ecuación
 diferencial.
@@ -24826,7 +24972,7 @@ y(x_0) = y(x_1) \\
 y'(x_0) = y'(x_1)
 \end{array}\right\}\quad\]
 
-****** Card: condiciones de contorno                                                                       :drill:
+****** Card: condiciones de contorno                                                                       :nodrill:
 SCHEDULED: <2018-06-14 Thu>
 :PROPERTIES:
 :ID:       833872e8-5496-40d0-a969-d24dc2a5ad00
@@ -24969,17 +25115,17 @@ con $\phi = (\phi_1,\dots,\phi_n)$. Llegamos a
 y tomamos funciones test en cada componente para obtener las ecuaciones.
 
 ***** Card: ecuaciones                                                                                      :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-09-15 Sat>
 :PROPERTIES:
 :ID:       c03c7dca-f9ba-4bc7-9dcd-2a1ea5dd1bcb
-:DRILL_LAST_INTERVAL: 27.7609
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 78.2524
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
+:DRILL_AVERAGE_QUALITY: 4.25
+:DRILL_EASE: 2.56
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:01]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:56]
 :END:
 Ecuaciones de Euler-Lagrange para funcionales dependientes de
 varias funciones.
@@ -25981,17 +26127,17 @@ u_0(x) = \sum_{n=1}^{\infty} a_n\sin(\frac{n\pi x}{L}).
 Si ajustamos los coeficientes llegamos a la solución buscada.
 
 ****** Card: procedimiento                                                                                 :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-09-20 Thu>
 :PROPERTIES:
 :ID:       8be7d27b-0a8a-43b6-a7a1-3086967a27e5
-:DRILL_LAST_INTERVAL: 28.0885
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 82.9064
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.667
-:DRILL_EASE: 2.32
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.42
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:10]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:56]
 :END:
 ¿Cuál es el procedimiento de resolución de la ecuación de ondas
 simplificada?
@@ -26629,17 +26775,17 @@ converge uniformemente para $a_n$ y $b_n$ coeficientes de Fourier.
 Se aplicará un razonamiento similar al aplicado [[id:55291685-9a8a-4c19-9338-570d037dd93c][anteriormente]].
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-14 Thu>
+SCHEDULED: <2018-09-08 Sat>
 :PROPERTIES:
 :ID:       3566f799-f086-4e6f-9b1c-6be4a775beae
-:DRILL_LAST_INTERVAL: 27.0883
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 70.7902
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_AVERAGE_QUALITY: 3.6
 :DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-05-18 Fri 22:08]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:50]
 :END:
 Enunciar el Teorema 21 sobre convergencia de derivadas superiores
 en series de Fourier.
@@ -27300,17 +27446,17 @@ luego $\norm{u_n' - u'}_{L^2} \to 0$ y $\norm{u_n - u}_{L^2} \to 0$, por lo que
 y tomando límites en el caso ${\cal C}_0^\infty$, se tiene lo buscado.sss
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-14 Thu>
+SCHEDULED: <2018-08-18 Sat>
 :PROPERTIES:
 :ID:       132abd02-1210-4329-b150-e7bdbd5fe70b
-:DRILL_LAST_INTERVAL: 21.416
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 50.3547
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.333
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-24 Thu 23:51]
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:51]
 :END:
 Enuncia la desigualdad de Poincaré para $u \in H^1_0(\Omega)$.
 
@@ -27568,17 +27714,17 @@ k_{eq} := \frac{k_2}{k_1} = \frac{[A]_{eq}[B]_{eq}}{[C]_{eq}}
 \]
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-07-28 Sat>
 :PROPERTIES:
 :ID:       0ff2edea-e9e8-4899-bc7a-5483b34ca087
-:DRILL_LAST_INTERVAL: 11.0086
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 28.5434
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 22:11]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 10:23]
 :END:
 Aplica la ley de acción de masas sobre la fórmula.
 
@@ -27621,18 +27767,18 @@ Llegamos a las ecuaciones
  * $c' = k_1se - k_{-1}c - k_2c$
  * $p' = k_2c$
 
-****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-15 Fri>
+****** Card                                                                                              :nodrill:
+SCHEDULED: <2018-07-23 Mon>
 :PROPERTIES:
 :ID:       521ee441-1af7-44a6-a91f-f16440121990
-:DRILL_LAST_INTERVAL: 10.524
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 23.8294
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 22:12]
+:DRILL_AVERAGE_QUALITY: 3.4
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:43]
 :END:
 Reacciones del modelo de Michaelis-Merten.
 
@@ -27726,17 +27872,17 @@ donde el operador de *divergencia* está definido como
 \]
 
 ****** Card: divergencia                                                                                   :drill:
-SCHEDULED: <2018-06-14 Thu>
+SCHEDULED: <2018-07-26 Thu>
 :PROPERTIES:
 :ID:       42fe30e9-4824-4592-8874-d687ea2a6ac7
-:DRILL_LAST_INTERVAL: 10.0265
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 26.8781
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 22:12]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:52]
 :END:
 Define el operador de divergencia
 
@@ -27751,17 +27897,17 @@ Define el operador de divergencia
 \]
 
 ****** Card: teorema                                                                                       :drill:
-SCHEDULED: <2018-06-14 Thu>
+SCHEDULED: <2018-07-30 Mon>
 :PROPERTIES:
 :ID:       4fcc3170-b015-4315-a725-6cedd121e585
-:DRILL_LAST_INTERVAL: 9.9037
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 31.476
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 22:13]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:53]
 :END:
 Enuncia el teorema de la divergencia de Gauss.
 
@@ -27863,17 +28009,17 @@ que nos lleva a llamar a toda la constante $\alpha = k_1(c_0 + k_2u_0)$ y
 llamar $u_{\infty} = k_2/(c_0 + k_2u_0)$ para obtener la fórmula.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-14 Thu>
+SCHEDULED: <2018-07-26 Thu>
 :PROPERTIES:
 :ID:       c5c6cf39-5ee7-4fe8-97cd-7d3c6d339190
-:DRILL_LAST_INTERVAL: 9.6116
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 26.724
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 22:13]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:52]
 :END:
 Ecuación del modelo logístico de Verlhust.
 
@@ -27894,17 +28040,17 @@ De nuevo la resolución nos da una ecuación autónoma con equilibrios
 estables en $u_{\infty}$ y en $0$, pero equilibrio inestable en $u_{min}$.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-07-31 Tue>
 :PROPERTIES:
 :ID:       f6ebc901-c8ae-4ee8-b3fc-6df77c73ffdf
-:DRILL_LAST_INTERVAL: 12.0862
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 31.7039
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 22:13]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:51]
 :END:
 Ecuación del modelo con efecto Alle fuerte.
 
@@ -30145,17 +30291,17 @@ el plano, $\alpha(t)\colon I \to\mathbb{R}^2$.
 \]
 
 ******* Card: ecuaciones de Frenet                                                                        :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-10-01 Mon>
 :PROPERTIES:
 :ID:       cca9ded0-aa24-4138-bbb8-c057e5d1015b
-:DRILL_LAST_INTERVAL: 33.996
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 9
+:DRILL_LAST_INTERVAL: 94.4685
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 10
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 3.111
-:DRILL_EASE: 2.8
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-13 Sun 20:46]
+:DRILL_AVERAGE_QUALITY: 3.1
+:DRILL_EASE: 2.66
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:45]
 :END:
 Enunciar las ecuaciones de Frenet para una curva regular en el plano.
 
@@ -30420,18 +30566,18 @@ N_{\alpha} = B_{\alpha} \times T_{\alpha},\quad
 B_{\alpha} = \frac{\alpha' \times \alpha''}{|\alpha' \times \alpha''|}
 \]
 
-******* Card: curvatura                                                                                   :drill:
-SCHEDULED: <2018-06-15 Fri>
+******* Card: curvatura                                                                                 :nodrill:
+SCHEDULED: <2018-08-16 Thu>
 :PROPERTIES:
 :ID:       920516ed-24b4-4506-ae4d-41d505077bae
-:DRILL_LAST_INTERVAL: 20.2059
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 48.0707
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.5
-:DRILL_EASE: 2.32
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-05-26 Sat 22:21]
+:DRILL_AVERAGE_QUALITY: 2.571
+:DRILL_EASE: 2.18
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:43]
 :END:
 Curvatura de una curva regular en el *espacio*.
 
@@ -31578,17 +31724,17 @@ diferenciable, pero $j \circ (X^{-1} \circ Y)$ es una composición de
 inclusión y de [[id:3b537594-9c48-4d88-b979-cb841d93f776][cambio de parámetros]].
 
 ******* Cards                                                                                             :drill:
-SCHEDULED: <2018-06-14 Thu>
+SCHEDULED: <2018-09-22 Sat>
 :PROPERTIES:
 :ID:       4cf91a32-d1d8-43a8-929c-873dbe42351f
-:DRILL_LAST_INTERVAL: 31.7829
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 84.7624
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.75
-:DRILL_EASE: 2.6
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-05-13 Sun 20:46]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:51]
 :END:
 Diferenciabilidad (no clásica) de las parametrizaciones locales y sus inversas.
 
@@ -32264,18 +32410,18 @@ La aplicación $\sigma_p = II_p \colon T_pS \times T_pS \to \mathbb{R}$ definida
 \]
 
 ****** Card: fórmula                                                                                       :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-07-27 Fri>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       1b7f1bd4-af26-4ddb-809b-bf8b039cf9ef
-:DRILL_LAST_INTERVAL: 10.5844
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 27.8933
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.667
+:DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 14:56]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:55]
 :END:
 
 [ $\sigma_p(X_v(q),X_u(q))$ ] = [ $\pair{N(p),X_{uv}(q)}$ ]
@@ -32321,17 +32467,17 @@ k_1(p) & 0 \\
 Usamos que $\sigma_p$ y el producto escalar son simétricos.
 
 ****** Card: endomorfismo                                                                                  :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-08-02 Thu>
 :PROPERTIES:
 :ID:       15643ff5-968c-47a5-a5af-fcb5c8a4fdb6
-:DRILL_LAST_INTERVAL: 10.5225
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 33.548
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_AVERAGE_QUALITY: 4.333
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 14:55]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:56]
 :END:
 Por qué sabemos que $\pair{A_p(a),b} = \pair{a,A_p(b)}$.
 
@@ -32565,17 +32711,17 @@ la última igualdad es equivalente. Nótese que si se da alguna de
 estas igualdades, la diagonalización es trivial.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-07-28 Sat>
 :PROPERTIES:
 :ID:       f6b5acef-e53a-4ecc-ba46-d13e217e2a47
-:DRILL_LAST_INTERVAL: 10.9754
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 28.776
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 14:57]
+:DRILL_AVERAGE_QUALITY: 4.667
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:53]
 :END:
 Dar la caracterización y definición de punto umbilical.
 
@@ -32665,17 +32811,17 @@ Clasifica los puntos de una superficie según sus curvaturas.
  - Una superficie minimal tiene solo puntos hiperbólicos o planos.
 
 ****** Card: tipo de puntos umbilicales                                                                    :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-07-30 Mon>
 :PROPERTIES:
 :ID:       ad298a68-119d-4ee0-9464-be4595ce0bbd
-:DRILL_LAST_INTERVAL: 11.3634
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 30.5786
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.667
 :DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 14:56]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:56]
 :END:
 ¿Qué tipo de puntos puede ser un punto umbilical?
 
@@ -32701,17 +32847,17 @@ SCHEDULED: <2018-06-20 Wed>
 Parabólicos y planos.
 
 ****** Card: puntos de una superficie minimal                                                              :drill:
-SCHEDULED: <2018-06-16 Sat>
+SCHEDULED: <2018-08-08 Wed>
 :PROPERTIES:
 :ID:       26d13b01-746b-4d1a-a063-9b5fc8ae5059
-:DRILL_LAST_INTERVAL: 12.1631
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 40.2505
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.7
+:DRILL_EASE: 2.8
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-04 Mon 14:56]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:50]
 :END:
 ¿Qué tipo de puntos puede tener una superficie minimal?
 
@@ -32759,18 +32905,18 @@ F = \pair{X_u,X_v},
 \qquad
 G = \abs{X_v}^2.\]
 
-****** Card: coeficientes de la primera forma fundamental                                                  :drill:
-SCHEDULED: <2018-06-16 Sat>
+****** Card: coeficientes de la primera forma fundamental                                                :nodrill:
+SCHEDULED: <2018-07-16 Mon>
 :PROPERTIES:
 :ID:       fbfd7142-995b-48a7-8f58-96a7c41e3f01
-:DRILL_LAST_INTERVAL: 8.2618
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 16.6908
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.5
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-08 Fri 14:36]
+:DRILL_AVERAGE_QUALITY: 3.333
+:DRILL_EASE: 2.22
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 17:44]
 :END:
 Da los coeficientes de la primera forma fundamental respecto de la base 
 $\left\{X_u(q),X_v(q) \right\}$ dada por una parametrización.
@@ -33291,17 +33437,17 @@ Una superficie orientable, conexa, compacta y totalmente umbilical debe
 ser una esfera.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-14 Thu>
+SCHEDULED: <2018-07-08 Sun>
 :PROPERTIES:
 :ID:       fa02015c-e452-47cf-8f46-f1b195f491ec
-:DRILL_LAST_INTERVAL: 4.1604
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 8.7464
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-10 Sun 13:39]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:52]
 :END:
 Enuncia el Teorema de Hilbert-Liebmann.
 
@@ -33310,18 +33456,18 @@ Una superficie compacta y conexa con curvatura de Gauss constante es
 una esfera.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-07-11 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       15fa8856-164a-4f43-aa45-cf8999f2fc4d
-:DRILL_LAST_INTERVAL: 4.8101
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 12.163
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-10 Sun 13:35]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:54]
 :END:
 Una superficie [compacta y conexa] con curvatura de Gauss constante es
 una esfera.
@@ -33330,18 +33476,18 @@ una esfera.
 Una superficie cerrada y conexa con curvatura de Gauss constante *positiva* es
 una esfera.
 
-****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-15 Fri>
+****** Card                                                                                              :nodrill:
+SCHEDULED: <2018-07-11 Wed>
 :PROPERTIES:
 :ID:       e99468bd-c836-403e-8a9a-0d44f1a1475d
-:DRILL_LAST_INTERVAL: 4.8948
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 11.5349
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.0
-:DRILL_EASE: 2.36
+:DRILL_AVERAGE_QUALITY: 2.333
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-10 Sun 13:41]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:54]
 :END:
 Caso de Bonnet sobre Hilbert-Liebmann.
 
@@ -33393,17 +33539,17 @@ SCHEDULED: <2018-07-05 Thu>
 [Un ovaloide] con [curvatura *media* constante] es [una esfera].
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-14 Thu>
+SCHEDULED: <2018-07-10 Tue>
 :PROPERTIES:
 :ID:       09612ba7-c6bf-4013-b75e-e9f5d29ab715
-:DRILL_LAST_INTERVAL: 4.0141
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.5797
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-10 Sun 13:39]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:52]
 :END:
 Enunciar el teorema de Jellet-Liebmann
 
@@ -33417,17 +33563,17 @@ esfera.
 ****** TODO Proof
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-14 Thu>
+SCHEDULED: <2018-07-03 Tue>
 :PROPERTIES:
 :ID:       0d2139eb-35d3-43ff-8314-4389ae1a083f
-:DRILL_LAST_INTERVAL: 3.8987
+:DRILL_LAST_INTERVAL: 4.1207
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.667
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-10 Sun 13:37]
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 10:25]
 :END:
 Enunciar el Teorema de Alexandrov.
 
@@ -33436,17 +33582,17 @@ Una superficie compacta y conexa con curvatura media constante es una
 esfera.
 
 ****** Card                                                                                                :drill:
-SCHEDULED: <2018-06-15 Fri>
+SCHEDULED: <2018-07-12 Thu>
 :PROPERTIES:
 :ID:       faad79ab-e6e6-4ba0-9542-6bdf774dacf9
-:DRILL_LAST_INTERVAL: 5.4236
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 13.2191
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-10 Sun 13:40]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 09:55]
 :END:
 ¿En qué se diferencian el Teorema de Jellet-Liebmann y el teorema de
 Alexandrov?
