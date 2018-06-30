@@ -2775,7 +2775,227 @@ commutes. This arrow is often called the /diagonal arrow/ of $c$. If $C = \matht
 that $\delta_cx = \left\langle x,x \right\rangle$ for $x \in c$.
 #+end_statement
 
-*** Category theory foundations - Steve Awodey
+*** Category theory - Awodey
+:PROPERTIES:
+:INTERLEAVE_PDF: ~/pdf/awodey_category_theory.pdf
+:END:
+**** Preface
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: 4
+:END:
+**** 1. Categories
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: 11
+:END:
+***** 1.1. Introduction
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (11 . 0.29894089511445165)
+:END:
+
+1945 - Eilenberg, Mac Lane's "General theory of natural equivalences".
+1940s - Algebraic topology and abstract algebra.
+1950s - Grothendieck et al. in algebraic geometry.
+1960s - Lawvere et al. in logic.
+1970s - Computer science, linguistics, philosophy.
+
+**** 8. Categories of diagrams
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: 169
+:END:
+
+***** 8.1. Set-valued functor categories
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (169 . 0.4065596173556542)
+:END:
+
+***** 8.2. The Yoneda embedding
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (170 . 0.4543901605739665)
+:END:
+
+****** Definition 8.1. Yoneda embedding                                                             :drill:yoneda:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (171 . 0.17936453706867098)
+:ID:       75e75540-0bbc-4316-a943-67a3d0d514fb
+:DRILL_LAST_INTERVAL: 3.9254
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:42]
+:END:
+Define the Yoneda embedding. What does it mean to be an embedding?
+
+******* Definition
+The Yoneda embedding is defined by
+
+\[
+yC = \hom_{\mathbb{C}}(-,C) \colon \mathbb{C}^{op} \to \mathsf{Set}
+\]
+
+and, for each $f \colon C \to D$,
+
+\[
+yf = (f \circ -) \colon \mathrm{hom}(-,C) \to \mathrm{hom}(-,D).
+\]
+
+******* Embedding
+It is an /embedding/ because it is full, faithful and injective on
+objects.  This is a consequence of the Yoneda Lemma.
+
+****** Yoneda as a representation                                                                         :yoneda:
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (172 . 0.2750256235052955)
+:END:
+
+In this sense, the Yoneda embedding y represents the objects and
+arrows of C as certain “structured sets” and (all of) their
+"homomorphisms".
+
+***** 8.3. The Yoneda Lemma
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (172 . 0.3467714383327639)
+:END:
+
+****** Yoneda lemma                                                                                        :drill:
+SCHEDULED: <2018-07-03 Tue>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (172 . 0.3826443457464981)
+:ID:       2c7b9f5c-4064-4abe-be4f-953e7b83c626
+:DRILL_LAST_INTERVAL: 3.474
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:39]
+:END:
+
+Statement of the Yoneda lemma.
+
+******* Answer
+Let $\mathbb{C}$ be locally small, there is an isomorphism
+
+\[
+\mathrm{hom}(yC,F) \cong FC
+\]
+
+natural in each object $C \in \mathbb{C}$ and any functor $F \in \mathsf{Set}^{\mathbb{C}^{op}}$.
+
+******* Extra
+Note that these are homomorphisms between functors (natural transformations).
+We are not making the naturality conditions explicit.
+
+***** 8.4. Applications of the Yoneda Lemma
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (176 . 0.3467714383327639)
+:END:
+
+****** Embedding is full and faithful                                                                      :drill:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (176 . 0.4902630679877007)
+:ID:       8903d3bd-7725-42ab-a047-80170fc13440
+:DRILL_LAST_INTERVAL: 3.8708
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:40]
+:END:
+Why in any small category $\mathbb{C}$ an isomorphism $yA \cong yB$ implies $A \cong B$?
+
+******* Answer
+The Yoneda embedding is full and faithful.
+
+****** Exponential rule in cartesian closed categories                                                     :drill:
+SCHEDULED: <2018-07-05 Thu>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (176 . 0.5739665186197471)
+:ID:       3581b5dc-2d1e-4830-accf-991868186c52
+:DRILL_LAST_INTERVAL: 5.3678
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:41]
+:END:
+
+Prove that $(A^B)^C \cong A^{(B \times C)}$ in any cartesian category using the
+Yoneda lemma.
+
+******* Answer
+It is full and faithful, so we only have to show that $y((A^B)^C) \cong y(A^{(B \times C)})$.
+
+The following is a chain of natural isomorphisms given by adjunctions
+and commutativity.
+
+\[\begin{aligned}
+\mathrm{hom}(X,(A^B)^{C})
+&\cong \mathrm{hom}(X \times C,A^B) \\
+&\cong \mathrm{hom}((X \times C) \times B,A) \\
+&\cong \mathrm{hom}(X \times (C \times B),A) \\
+&\cong \mathrm{hom}(X, A^{B \times C}) \\
+\end{aligned}\]
+
+***** 8.5 Limits in categories of diagrams
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (177 . 0.5978817902289033)
+:END:
+
+****** Presheaf categories are complete                                                           :drill:presheaf:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (177 . 0.7413734198838401)
+:ID:       887fd9dc-cff2-473b-aef6-25ed2c15cb87
+:DRILL_LAST_INTERVAL: 3.677
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:43]
+:END:
+Existence of limits on presheaf categories.
+
+******* Answer
+For any small $\mathbb{C}$, the category $\mathsf{Sets}^{\mathbb{C}^{op}}$ is complete; it has all small limits.
+Moreover, the evaluation functor $\mathrm{ev}_C \colon \mathsf{Sets}^{\mathbb{C}^{op}} \to \mathsf{Sets}$ is preserves all limits.
+
+***** 8.8 Topoi
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (184 . 0.29894089511445165)
+:END:
+
+****** 8.17. Categories of diagrams are topoi                                                              :drill:
+SCHEDULED: <2018-07-05 Thu>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (185 . 0.37068670994192005)
+:ID:       122fd7e7-8879-47d0-98b7-e0242e3b6e45
+:DRILL_LAST_INTERVAL: 5.3361
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:41]
+:END:
+
+Relation between presheaf categories and topoi.
+
+******* Answer
+For any small $\mathbb{C}$, the category $\mathsf{Sets}^{\mathbb{C}^{op}}$ is a topos.
+*** Category theory foundations talk - Awodey
 Following this [[https://www.youtube.com/playlist?list=PLGCr8P_YncjVjwAxrifKgcQYtbZ3zuPlb][video series]].
 
 **** Category theory foundations 1.0
@@ -3514,6 +3734,18 @@ different category and ask $\circ_i$ and $S_n$ to be endomorphisms of
 the category.
 
 **** Operad axioms                                                                                           :drill:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:ID:       b74b26b5-d74c-46c5-8c2e-7a08d7d1201e
+:DRILL_LAST_INTERVAL: 4.1325
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 11:58]
+:END:
 Definition of operad. Axioms for defining an operad.
 
 ***** Answer
@@ -3529,12 +3761,36 @@ satisfying that
  2. arguments can be permuted,
  3. there exists a unit.
 **** Endomorphism operad                                                                                     :drill:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:ID:       f7950629-51ba-4655-a2ab-705532a9e002
+:DRILL_LAST_INTERVAL: 4.6732
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:19]
+:END:
 What is an example of an operad?
 
 ***** Answer
 The endomorphism operad over a vector space $V$, with ${\cal O}(n) = \mathrm{hom}(V^n,V)$.
 
 **** Algebra over an operad                                                                                  :drill:
+SCHEDULED: <2018-07-03 Tue>
+:PROPERTIES:
+:ID:       9d225db0-ce9b-44a2-ac3e-e16fcf194dbe
+:DRILL_LAST_INTERVAL: 4.3932
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:15]
+:END:
 Definition of algebra over an operad.
 
 ***** Answer
@@ -3543,6 +3799,18 @@ compatible with $\circ_i$ and $S_n$, compositions and permutations of arguments.
 
 *** What is an Operad? Part II - Math3ma ([[http://www.math3ma.com/mathema/2017/10/30/what-is-an-operad-part-2][link]])
 **** Associative operad                                                                                      :drill:
+SCHEDULED: <2018-07-03 Tue>
+:PROPERTIES:
+:ID:       9f18443b-0ce6-4a15-b3af-987d37d4affd
+:DRILL_LAST_INTERVAL: 4.3754
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:31]
+:END:
 Definition of the associative operad.
 
 ***** Answer
@@ -3551,7 +3819,19 @@ vector space generated by a tree with $n$ leaves. The associative operad is give
 by the only possible linear composition and the obvious identity.
 
 **** Algebra over the associative operad                                                                     :drill:
-What is an algebra over the associative operad?
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:ID:       6c04a468-3844-49d1-808c-4c82cc693453
+:DRILL_LAST_INTERVAL: 5.1672
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:25]
+:END:
+What name receives an algebra over the associative operad?
 
 ***** Answer
 It is determined by compatibility and the image of $\varphi(\mathsf{Y})$, the image of the only
@@ -3579,12 +3859,6 @@ a *commutative algebra*.
 **** Old notes
 ***** IV. First properties of Elementary topoi
 ****** IV.1. Definition of a topos
-******* Elementary definition of a topos                                                                  :drill:
-:PROPERTIES:
-:ID:       65fdbc81-0da5-4220-b88e-59f87d112024
-:END:
-Elementary definition of a topos
-
 ******* Elementary topos
 ******** Definition
 A *topos* ${\cal E}$ is a category with
@@ -3593,7 +3867,6 @@ A *topos* ${\cal E}$ is a category with
   * a function ${\cal P}$ on objects, called the *powerset*;
   * two natural isomorphisms $\mathrm{Sub}_{{\cal E}}A \cong \mathrm{hom}_{{\cal E}}(A,\Omega)$ and
     $\mathrm{hom}_{{\cal E}}(B \times A,\Omega) \cong \mathrm{hom}_{{\cal E}}(A,{\cal P}B)$.
-
 ******** Alternative definition
 A *topos* is a category with finite limits and a function on its
 objects ${\cal P}$ such that
@@ -3726,7 +3999,6 @@ algebra with the following isomorphism of Heyting algebras
 \]
 
 ******** TODO Proof
-***** VI. Topoi and logic
 ***** VI.1. The topos of sets
 ****** Natural numbers object
 In an arbitrary topos ${\cal E}$, a *natural numbers object* is the object $\mathbb{N}$
@@ -3763,191 +4035,6 @@ is a natural numbers object.
 ****** Boolean topos
 A topos ${\cal E}$ is *boolean* when the internal Heyting algebra $\Omega$ is an internal
 boolean algebra.
-
-***** Ejercicios [0/27]
-****** I. Categories of Functors [0/11]
-******* TODO Exercise I.1
-#+begin_statement
-Show that pullbacks of epis are epi for categories of each of
-the types (i)-(ix).
-#+end_statement
-
-******* TODO Exercise I.2
-#+begin_statement
-Prove that $\mathtt{FinSets}^{\mathbb{N}}$ has no subobject classifier.
-#+end_statement
-
-******* TODO Exercise I.3
-******* TODO Exercise I.4
-******* TODO Exercise I.5
-******* TODO Exercise I.6
-******* TODO Exercise I.7
-******* TODO Exercise I.8
-******* TODO Exercise I.9
-******* TODO Exercise I.10
-******* TODO Exercise I.11
-****** IV. First Properties of Elementary Topoi [0/16]
-******* TODO Exercise I.1
-******* TODO Exercise I.2
-******* TODO Exercise I.3
-******* TODO Exercise I.4
-******* TODO Exercise I.5
-******* TODO Exercise I.6
-******* TODO Exercise I.7
-******* TODO Exercise I.8
-******* TODO Exercise I.9
-******* TODO Exercise I.10
-******* TODO Exercise I.11
-******* TODO Exercise I.12
-******* TODO Exercise I.13
-******* TODO Exercise I.14
-******* TODO Exercise I.15
-******* TODO Exercise I.16
-
-**** Notes for page 172
-:PROPERTIES:
-:interleave_page_note: 172
-:END:
-
-***** Elementary form                                                                                       :drill:
-:PROPERTIES:
-:ID:       25e51781-23db-44db-b36c-79904e44a812
-:END:
-Elementary definition of a topos.
-
-****** Answer
-A category with
-
- * all pullbacks
-
- * a terminal object
-
- * a subobject classifier
-
- * a powerset for every object.
-
-**** Notes for page 176
-:PROPERTIES:
-:interleave_page_note: 176
-:END:
-
-***** Topos                                                                                                 :drill:
-:PROPERTIES:
-:ID:       0af09c4d-0a39-4034-97c8-95bb2c2479cc
-:END:
-Definition from cartesian closed categories.
-
-****** Answer
-A topos is a cartesian closed category with equalizers and a subobject
-classifier.
-
-**** Notes for page 185
-:PROPERTIES:
-:interleave_page_note: 185
-:END:
-
-***** Topos, finite limits and finite colimits                                                              :drill:
-:PROPERTIES:
-:ID:       31d80b9e-40a7-403a-a4cd-b4f25462a68d
-:END:
-Has a topos finite limits, why? has finite colimits, why?
-
-****** Answer
-*A topos has all finite limits and finite colimits* 
-
-It has finite limits by definition (cartesian closed with equalizers).
-It has finite colimits; this is not trivial and must be proven using
-monads.
-
-**** Notes for page 187
-:PROPERTIES:
-:interleave_page_note: 187
-:END:
-
-***** Comparison functor                                                                                    :drill:
-:PROPERTIES:
-:ID:       170873b3-03ec-45ed-87c1-b30c9298aa3a
-:END:
-Construct the comparison functor $K$ over a $G \colon A \to C$ with a
-left adjoint $F \colon C \to A$.
-
-****** Answer
-We construct a monad $GF$ and the following construction where
-$C^T$ is the category of T-algebras over $GF$.
-
-\[\begin{tikzcd}
-A \rar{K}\dar[bend left]{G} & C^T\dar[bend left]{F^T} \\
-C \rar{1}\uar[bend left]{F} & C\uar[bend left]{G^T}
-\end{tikzcd}\]
-
-The comparison functor $K \colon A \to C^T$ is given by $(GA, G\epsilon_A \colon GFGA \to GA)$.
-
-***** Monadic functor                                                                                       :drill:
-:PROPERTIES:
-:ID:       a5ca3d08-dfeb-498a-b2a7-419f30c05272
-:END:
-When is $G \colon A \to C$ monadic?
-
-****** Answer
-Has a left adjoint $F \dashv G$ and the comparison functor $K \colon A \to C^T$
-given by $(GA, G\epsilon_A \colon GFGA \to GA)$ is an equivalence of categories.
-
-***** Property of monadic functors                                                                          :drill:
-:PROPERTIES:
-:ID:       5ba579f3-e5c2-40a0-87a1-e833366be045
-:END:
-How do monadic functors and limits relate?
-
-****** Answer
-A monadic functor creates all limits.
-
-**** Notes for page 189
-:PROPERTIES:
-:interleave_page_note: 189
-:END:
-
-***** Left adjoint of the powerset functor                                                                  :drill:
-:PROPERTIES:
-:ID:       8b55fb4c-ba74-4720-bece-fd229260205f
-:END:
-What is the left adjoint of the powerset functor $P \colon {\cal E}^{op} \to {\cal E}$?
-
-****** Answer
-$P^{op} \colon {\cal E} \to {\cal E}^{op}$, that is, the same functor
-but acting on the opposite category.
-
-**** Notes for page 190
-:PROPERTIES:
-:interleave_page_note: 190
-:END:
-
-***** Left adjoint of the powerset functor
-Why is the left adjoint of the powerset functor itself?
-
-****** Answer
-The product is commutative, so
-
-\[
-{\cal E}(A,PB) \cong
-{\cal E}(A \times B,\Omega) \cong
-{\cal E}(B \times A,\Omega) \cong
-{\cal E}(B,PA) =
-{\cal E}^{op}(PA,B).
-\]
-
-**** Notes for page 199
-:PROPERTIES:
-:interleave_page_note: 199
-:END:
-
-***** The slice of a topos                                                                                  :drill:
-:PROPERTIES:
-:ID:       df04a625-5b2f-4579-8b5e-6a90430849c0
-:END:
-Structure of the slice of a topos ${\cal E}/B$.
-
-****** Answer
-It is again a topos.
 
 **** Notes for page 33
 :PROPERTIES:
@@ -4062,6 +4149,11 @@ A category with a terminal object and all pullbacks has all finite limits.
 
 In presheaves, all finite limits are constructed pointwise. 
 
+**** Pullback of group actions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (40 . 0.503994442514762)
+:END:
+
 **** Notes for page 41
 :PROPERTIES:
 :interleave_page_note: 41
@@ -4171,6 +4263,13 @@ the colimit of a diagram of representable objects.
 
 For any small category ${\cal C}$, the functor category $\mathtt{Sets}^{\mathcal{C}^{op}}$ is cartesian closed.
 
+**** Notes for page 57
+:PROPERTIES:
+:interleave_page_note: 57
+:END:
+
+Boolean algebras are algebraic correlates of classical propositional calculus.
+Heyting algebras are algebraic correlates of intuitionistic propositional calculus.
 **** Notes for page 58
 :PROPERTIES:
 :interleave_page_note: 58
@@ -4185,27 +4284,103 @@ That is, $x \leq y$ if and only if $x \to y$.
 A lattice with $0 \leq x \leq 1$ are the initial and terminal objects, and has all
 finite limits and colimits.
 
+***** Lattice                                                                            :drill:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:ID:       91ba55a2-38e0-431b-bfe5-56c721bc7836
+:DRILL_LAST_INTERVAL: 4.3514
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:44]
+:END:
+A lattice is a set with two binary operations ∨ : A × A → A, and ∧ : A × A → A,
+following which rules?
+
+****** Answer
+
+ * associativity:    x ∧ (y ∧ z) = (x ∧ y) ∧ z
+                     x ∨ (y ∨ z) = (x ∨ y) ∨ z
+
+ * commutativity:    x ∧ y = y ∧ x
+                     x ∨ y = y ∨ x
+
+ * absorption law:   x ∧ (y ∨ x) = x = (x ∧ y) ∨ x
+
 **** Notes for page 59
 :PROPERTIES:
 :interleave_page_note: 59
 :END:
 
-***** Heyting algebra
-A Heyting algebra is a poset with all finite products and coproducts which is
-cartesian closed.
+***** Heyting algebra                                                                    :drill:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:ID:       d2716609-a6b5-47aa-860f-7e516bccab3a
+:DRILL_LAST_INTERVAL: 3.6061
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:43]
+:END:
+Heyting algebra, definition.
 
+****** Answer
+A Heyting algebra is a bicartesian closed poset.
+
+In other words, it has all finite limits, all finite colimits and it
+is cartesian closed.
+
+**** Notes for page 64
+:PROPERTIES:
+:interleave_page_note: 64
+:END:
+***** Proposition 4.                                                                                        :drill:
+SCHEDULED: <2018-07-05 Thu>
+:PROPERTIES:
+:ID:       34b1e843-690f-48cf-b370-2217437aa465
+:DRILL_LAST_INTERVAL: 4.9606
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:42]
+:END:
+When is a Heyting algebra also a Boolean algebra?
+
+****** Answer
+A Heyting algebra is a Boolean algebra
+
+ * if and only if $\neg\neg x = x$ for all elements;
+ * if and only if $x \vee \neg x = 1$ for all elements.
 **** Notes for page 75
 :PROPERTIES:
 :interleave_page_note: 75
 :END:
 
-***** Sheaf of sets                                                                                         :drill:
+***** Sheaf of sets                                                                      :drill:
+SCHEDULED: <2018-07-03 Tue>
 :PROPERTIES:
 :ID:       9f420f7c-d5e9-4eea-9c8e-8505129e5f02
+:DRILL_LAST_INTERVAL: 3.8386
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:34]
 :END:
 *Sheaf of sets*
 
-*********** Answer
+****** Answer
 A functor $F \colon {\cal O}(X)^{op} \to \mathsf{Set}$ such that each open covering $U = \bigcup_i U_i$ yields
 an equalizer diagram
 
@@ -4224,23 +4399,306 @@ have $p(t_i)_{i \in I} = (t_{i|U_i \cap U_j})_{i,j \in I}$ and $q(t_i)_{i \in I}
 :END:
 
 ***** Morphism of sheaves                                                                                   :drill:
+SCHEDULED: <2018-07-04 Wed>
 :PROPERTIES:
 :ID:       84046292-d887-4b2e-a603-72ec55322c48
+:DRILL_LAST_INTERVAL: 4.3175
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 11:58]
 :END:
 What is a morphism between sheaves $F \to G$.
 
 ****** Answer
 A natural transformation between them; they are functors.
 
+**** Notes for page 170
+:PROPERTIES:
+:interleave_page_note: 170
+:END:
+
+The change of base functor preserves all topos structure.
+
+**** Notes for page 171
+:PROPERTIES:
+:interleave_page_note: 171
+:END:
+
+**** Notes for page 172
+:PROPERTIES:
+:interleave_page_note: 172
+:END:
+
+***** Elementary form                                                                                       :drill:
+SCHEDULED: <2018-07-03 Tue>
+:PROPERTIES:
+:ID:       25e51781-23db-44db-b36c-79904e44a812
+:DRILL_LAST_INTERVAL: 4.0675
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:34]
+:END:
+Elementary definition of a topos.
+
+****** Answer
+A category with
+
+ * all pullbacks
+
+ * a terminal object
+
+ * a subobject classifier
+
+ * a powerset for every object.
+
+**** Notes for page 175
+:PROPERTIES:
+:interleave_page_note: 175
+:END:
+
+**** Notes for page 176
+:PROPERTIES:
+:interleave_page_note: 176
+:END:
+
+***** TODO Every topos has exponentials                                                                   :theorem:
+
+***** Topos                                                                                                 :drill:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:ID:       0af09c4d-0a39-4034-97c8-95bb2c2479cc
+:DRILL_LAST_INTERVAL: 5.0251
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:23]
+:END:
+Definition from cartesian closed categories.
+
+****** Answer
+A topos is a cartesian closed category with equalizers and a subobject
+classifier.
+
+**** Notes for page 185
+:PROPERTIES:
+:interleave_page_note: 185
+:END:
+
+***** Topos, finite limits and finite colimits                                                              :drill:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:ID:       31d80b9e-40a7-403a-a4cd-b4f25462a68d
+:DRILL_LAST_INTERVAL: 5.2485
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:25]
+:END:
+Has a topos finite limits? why? has it finite colimits? why?
+
+****** Answer
+*A topos has all finite limits and finite colimits* 
+
+It has finite limits by definition (cartesian closed with equalizers).
+It has finite colimits; this is not trivial and must be proven using
+monads.
+
+**** Notes for page 187
+:PROPERTIES:
+:interleave_page_note: 187
+:END:
+
+***** Comparison functor                                                                                    :drill:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:ID:       170873b3-03ec-45ed-87c1-b30c9298aa3a
+:DRILL_LAST_INTERVAL: 4.9561
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:31]
+:END:
+Construct the comparison functor $K$ over a $G \colon A \to C$ with a
+left adjoint $F \colon C \to A$.
+
+****** Answer
+We construct a monad $GF$ and the following construction where
+$C^T$ is the category of T-algebras over $GF$.
+
+\[\begin{tikzcd}
+A \rar{K}\dar[bend left]{G} & C^T\dar[bend left]{F^T} \\
+C \rar{1}\uar[bend left]{F} & C\uar[bend left]{G^T}
+\end{tikzcd}\]
+
+The comparison functor $K \colon A \to C^T$ is given by $(GA, G\epsilon_A \colon GFGA \to GA)$.
+
+***** Monadic functor                                                                                       :drill:
+SCHEDULED: <2018-07-03 Tue>
+:PROPERTIES:
+:ID:       a5ca3d08-dfeb-498a-b2a7-419f30c05272
+:DRILL_LAST_INTERVAL: 4.0224
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:32]
+:END:
+When is $G \colon A \to C$ monadic?
+
+****** Answer
+Has a left adjoint $F \dashv G$ and the comparison functor $K \colon A \to C^T$
+given by $(GA, G\epsilon_A \colon GFGA \to GA)$ is an equivalence of categories.
+
+***** Property of monadic functors                                                                          :drill:
+SCHEDULED: <2018-07-05 Thu>
+:PROPERTIES:
+:ID:       5ba579f3-e5c2-40a0-87a1-e833366be045
+:DRILL_LAST_INTERVAL: 5.1775
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 2.667
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 11:59]
+:END:
+How do monadic functors and limits relate?
+
+****** Answer
+Monadic functors create all limits.
+
+**** Notes for page 189
+:PROPERTIES:
+:interleave_page_note: 189
+:END:
+
+***** Left adjoint of the powerset functor                                                                  :drill:
+SCHEDULED: <2018-07-05 Thu>
+:PROPERTIES:
+:ID:       8b55fb4c-ba74-4720-bece-fd229260205f
+:DRILL_LAST_INTERVAL: 5.6307
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:29]
+:END:
+What is the left adjoint of the powerset functor $P \colon {\cal E}^{op} \to {\cal E}$?
+
+****** Answer
+$P^{op} \colon {\cal E} \to {\cal E}^{op}$, that is, the same functor
+but acting on the opposite category.
+
+**** Notes for page 190
+:PROPERTIES:
+:interleave_page_note: 190
+:END:
+
+***** Left adjoint of the powerset functor
+Why is the left adjoint of the powerset functor itself?
+
+****** Answer
+The product is commutative, so
+
+\[
+{\cal E}(A,PB) \cong
+{\cal E}(A \times B,\Omega) \cong
+{\cal E}(B \times A,\Omega) \cong
+{\cal E}(B,PA) =
+{\cal E}^{op}(PA,B).
+\]
+
+**** Notes for page 199
+:PROPERTIES:
+:interleave_page_note: 199
+:END:
+
+***** The slice of a topos                                                                                  :drill:
+SCHEDULED: <2018-07-04 Wed>
+:PROPERTIES:
+:ID:       df04a625-5b2f-4579-8b5e-6a90430849c0
+:DRILL_LAST_INTERVAL: 4.5982
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:31]
+:END:
+Structure of the slice of a topos ${\cal E}/B$.
+
+****** Answer
+It is again a topos.
+
+**** Notes for page 207
+:PROPERTIES:
+:interleave_page_note: 207
+:END:
+
+***** Internal lattice
+An *internal lattice* in a category is an object $L$ with morphisms
+
+\[
+\wedge \colon L \times L \to L,
+\qquad
+\vee \colon L \times L \to L
+\]
+
+and commutative diagrams expressing the identities of a lattice
+
+  * associativity,
+  * commutativity,
+  * idempotent laws,
+  * absorption law.
+
+Such a lattice object has a zero and a one if there are arrows
+
+\[
+\top \colon 1 \to L,
+\qquad
+\bot \colon 1 \to L,
+\]
+
+with the appropiate identities.
+
+**** Notes for page 208
+:PROPERTIES:
+:interleave_page_note: 208
+:END:
+
+Heyting algebra objects from lattices. ([[id:d2716609-a6b5-47aa-860f-7e516bccab3a][Heyting algebra]])
+
 *** Higher order categorical logic - Lambek, Scott
-**** 0. Introduction to category theory
-***** 0.1. Categories and functors
-***** 0.2. Natural transformations
-***** 0.6. Triples
-***** 0.7. Examples of cartesian closed categories
-**** I. Cartesian closed categories and \lambda-calculus
-**** II. Type theory and toposes
-**** III. Representing numerical functions in various categories
+***** 0. Introduction to category theory
+****** 0.1. Categories and functors
+****** 0.2. Natural transformations
+****** 0.6. Triples
+****** 0.7. Examples of cartesian closed categories
+***** I. Cartesian closed categories and \lambda-calculus
+***** II. Type theory and toposes
+***** III. Representing numerical functions in various categories
 *** Introduction to categorical logic (2017) - Bauer, Awodey
 **** II. Type theories
 ***** II.1. Algebraic theories
@@ -4542,17 +5000,17 @@ A *lattice* is a poset with finite limits and colimits.
 ** Type theory                                                                                                 :types:
 *** Basic type theory
 **** Canonicity                                                                                              :drill:
-SCHEDULED: <2018-06-21 Thu>
+SCHEDULED: <2019-03-05 Tue>
 :PROPERTIES:
 :ID:       767fa380-22e3-4907-810a-a22a137c7808
-:DRILL_LAST_INTERVAL: 88.0019
-:DRILL_REPEATS_SINCE_FAIL: 5
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 247.7323
+:DRILL_REPEATS_SINCE_FAIL: 6
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.8
 :DRILL_EASE: 2.9
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-03-25 Sun 23:07]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 11:55]
 :END:
 Definition of *canonicity*.
 
@@ -6360,22 +6818,23 @@ morphisms injections. A nominal set is a functor $\mathbb{N} \to \mathrm{Set}$.
 :INTERLEAVE_PDF: ~/pdf/bauer_intuitionistic_mathematics_and_realizability_in_the_physical_world.pdf
 :ID:       6c678fe5-6875-41a1-a9f9-0e5343c31d35
 :END:
-**** 2. Synthetic differential geometry
-***** Non-standard analysis                                                                                 :drill:
+**** Notes for page 4
 :PROPERTIES:
-:ID:       88710dd8-2f57-4ec3-b686-fa5e9dbf4ffd
+:interleave_page_note: 4
 :END:
-In which fundamental sense are Non-Standard Analysis and Synthetic
-Differential Geometry different?
-
-****** Answer
-
-- Non-Standard Analysis is classical.
-- Synthetic Differential Geometry has nilpotents.
 
 ***** Principle of micro-affinity                                                                           :drill:
+SCHEDULED: <2018-07-03 Tue>
 :PROPERTIES:
 :ID:       4b085376-84d9-4589-aab5-31196a37346f
+:DRILL_LAST_INTERVAL: 3.7488
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:13]
 :END:
 Principle of micro-affinity in synthetic differential geometry.
 
@@ -6391,22 +6850,77 @@ f(x + dx) = f(x) + f'(x)dx
 
 for all nilpotent *infinitesimals* ($dx$ such that $dx^2 = 0$).
 
-***** Law of cancellation
+***** Non-standard analysis                                                                                 :drill:
+SCHEDULED: <2018-07-03 Tue>
+:PROPERTIES:
+:ID:       88710dd8-2f57-4ec3-b686-fa5e9dbf4ffd
+:DRILL_LAST_INTERVAL: 4.2705
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:21]
+:END:
+In which fundamental sense are Non-Standard Analysis and Synthetic
+Differential Geometry different?
+
+****** Answer
+
+- Non-Standard Analysis is classical.
+- Synthetic Differential Geometry has nilpotents.
+**** Notes for page 5
+:PROPERTIES:
+:interleave_page_note: 5
+:END:
+***** Law of cancellation                                                                                   :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:ID:       c90276ae-709a-4ace-a332-fd03ba1ddbaa
+:DRILL_LAST_INTERVAL: 5.5088
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 11:53]
+:END:
 Law of cancellation in synthetic differential geometry.
 
 ****** Answer
 If $a\,dx = b\, dx$ for all infinitesimals $dx$, then $a = b$.
 
-***** 4. Realizability in the real world
-****** Unbounded Turing computable binary trees (pag. 11)                                                  :drill:
+**** Notes for page 11
+:PROPERTIES:
+:interleave_page_note: 11
+:END:
+
+***** Unbounded Turing computable binary trees                                                              :drill:
+SCHEDULED: <2018-07-03 Tue>
 :PROPERTIES:
 :ID:       b1e4c220-e3a8-426d-a2a7-44794ab561ea
+:DRILL_LAST_INTERVAL: 3.9343
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:19]
 :END:
 Can an unbounded computable binary tree have no computable infinite
 paths?
 
-******* Answer
-Yes, Kleene constructed one.
+****** Answer
+Yes, Kleene constructed one. See [[id:7e1cbeaa-95c1-44f2-a514-83b0a33d695f][König's lemma and Kleene Tree by Andrej Bauer]].
+
+*** TODO König's lemma and Kleene Tree - Andrej Bauer
+:PROPERTIES:
+:INTERLEAVE_PDF: ~/pdf/bauer_könig's_lemma_and_kleene_tree.pdf
+:ID:       7e1cbeaa-95c1-44f2-a514-83b0a33d695f
+:END:
 
 *** TODO Realizability as the connection between computable and constructive mathematics - Andrej Bauer
 *** TODO The realizability approach to computable analysis and topology - Andrej Bauer
@@ -6710,9 +7224,39 @@ In the groupoid model by Hoffmann, elements of the identity type
 different from reflexivity can be built.
 
 *** Homotopy type theory book - Univalent Foundations
-**** Part I
-***** I.1. Type theory
-****** I.1.1. Type theory versus set theory
+:PROPERTIES:
+:INTERLEAVE_PDF: ~/pdf/the_univalent_foundations_program_homotopy_type_theory.pdf
+:END:
+
+**** Preface
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (5 . 0.083235)
+:END:
+
+**** Table of Contents
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (9 . 0.083235)
+:END:
+
+**** Introduction
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (15 . 0.318161)
+:END:
+
+**** I Foundations
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (34 . 0.083235)
+:END:
+
+***** 1 Type theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (37 . 0.083235)
+:END:
+
+****** 1.1 Type theory versus set theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (37 . 0.379617)
+:END:
 ******* Judgements and rules
 Set theory is not only about seta but also about the interplay between /sets/
 and /propositions/ of first-order logic, the system where sets are formulated.
@@ -6753,7 +7297,10 @@ A *context* is a collection of assumptions in which a judgment may depend on.
 Rules of type theory can be grouped into type formers, procedural ways
 to construct types. Usually, no axioms are necessary in type theory.
 
-****** I.1.2. Function types
+****** 1.2 Function types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (42 . 0.984877)
+:END:
 ******* Functions
 Given types $A,B$, $A \to B$ is the type of *maps* or *functions* between them.
 Functions are a primitive concept of type theory; given $f : A \to B$, it can
@@ -6800,7 +7347,10 @@ f \equiv (\lambda x. f(x)).
 partially aplied functions. For example, $f : A \to (B \to C)$ can be applied
 to two arguments as $(f\ a)\ b : C$.
 
-****** I.1.3. Universes and families
+****** 1.3 Universes and families
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (46 . 0.516406)
+:END:
 ******* Universes
 A *universe* is a type whose elements are types.
 
@@ -6824,7 +7374,10 @@ it is necessary.
 A *family of types*, is a collection of types varying over a type
 variable $A$. They are functions whose codomain is a universe, $f : A \to {\cal U}$.
 
-****** I.1.4. Dependent function types (\Pi-types)
+****** 1.4 Dependent function types (Π-types)
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (47 . 0.768555)
+:END:
 ******* Dependent function types
 Given $A : {\cal U}$ and $B : A \to {\cal U}$, we construct the type of *dependent functions*
 as $\prod_{(x:A)}B(x) : {\cal U}$.
@@ -6848,7 +7401,10 @@ elements of that type.
 The polymorphic identity function $\mathrm{id} : \prod_{(A:{\cal U})} A \to A}$ is defined as
 $\mathrm{id} =& \lambda (A:{\cal U}) . \lambda (x:A) . x$.
 
-****** I.1.5. Product types
+****** 1.5 Product types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (49 . 0.861916)
+:END:
 ******* Cartesian product
 Given $A,B : {\cal U}$, the *cartesian product type* $A \times B : {\cal U}$ contains pairs
 $(a,b) : A \times B$, where $a:A$ and $b:B$. A function on a product type is
@@ -6893,7 +7449,10 @@ and defining equation $\mathtt{ind}_{A \times B} (C,g,(a,b)) :\equiv g(a)(b)$.
 
 ******* TODO Induction principle on unit types
 
-****** I.1.6. Dependent type pairs (\Sigma-types)
+****** 1.6 Dependent pair types (Σ-types)
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (54 . 0.861155)
+:END:
 ******* TODO Type-theoretic axiom of choice
 ******* Example: Magmas
 We can define a *magma* as
@@ -6901,13 +7460,24 @@ We can define a *magma* as
 \[ \mathtt{magma} :\equiv
 \sum_{A : {\cal U}} A \to A \to A.
 \]
-****** I.1.7. Coproduct types
+
+****** 1.7 Coproduct types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (59 . 0.149731)
+:END:
 ******* TODO Coproduct type
 ******* TODO Empty type
-****** I.1.8. The type of booleans
+
+****** 1.8 The type of booleans
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (60 . 0.67055)
+:END:
 ******* TODO if-then-else
 ******* TODO Coproducts as dependent types
-****** I.1.9. The natural numbers
+****** 1.9 The natural numbers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (62 . 0.984877)
+:END:
 ******* TODO Natural numbers
 ******* Addition
 We define $\mathsf{add} : \mathbb{N} \to \mathbb{N} \to \mathbb{N}$ as
@@ -6916,7 +7486,10 @@ We define $\mathsf{add} : \mathbb{N} \to \mathbb{N} \to \mathbb{N}$ as
  * $\mathsf{add}(\succ(m),n) \equiv \succ(\mathsf{add}(m,n))$.
 
 ******* TODO Associativity
-****** I.1.10. Pattern matching and recursion
+****** 1.10 Pattern matching and recursion
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (66 . 0.793771)
+:END:
 We would like to define a function only writing its /defining equations/.
 An example of this is this =double= function
 
@@ -6940,14 +7513,13 @@ we need $\Phi_s$ to depend on $f$ only via $f(n)$ in order to be well-defined as
 f :\equiv \mathtt{rec}_{\mathbb{N}} (C,\Phi_0,\lambda n. \lambda r. \Phi'_{s}).
 \]
 
-****** I.1.11. Propositions as types
+****** 1.11 Propositions as types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (68 . 0.66391)
+:END:
 An element of the type corresponding to a proposition is a *witness* or 
 a *proof* of the truth of that proposition. From this perspective, proofs
 are mathematical objects per se.
-
-# Cite Wadler
-
-******* Falsity and negation
 
 ******* Constructive logic
 The natural interpretation of propositions-as-types is /constructive/,
@@ -6956,12 +7528,170 @@ meaning that certain tautologies on classical logic, such as the
 
 The logic is still compatible with the presence of the LEM as an axiom.
 
-****** I.1.12. Identity types
+****** 1.12 Identity types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (76 . 0.503446)
+:END:
 
-\[ \mathtt{refl} : \prod_{a:A} (a =_A a)
+\[ \mathsf{refl} : \prod_{a:A} (a =_A a) \]
+
+******* 1.12.1 Path induction
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (78 . 0.567577)
+:END:
+
+******* 1.12.2 Equivalence of path induction and based path induction
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (82 . 0.695977)
+:END:
+
+******* 1.12.3 Disequality
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (85 . 0.354787)
+:END:
+
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (85 . 0.684066)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (88 . 0.572359)
+:END:
+******* DONE Exercise 1.1
+#+begin_statement
+Given functions $f : A \to B$ and $g : B \to C$, define their composite
+$g \circ f : A \to C$. Show that we have $h \circ (g \circ f) \equiv (h \circ g) \circ f$.
+#+end_statement
+
+We define
+
+\[
+g \circ f :\equiv \lambda x.g(f(x))
 \]
 
-***** I.2. Homotopy type theory
+and thus
+
+\[\begin{aligned}
+h \circ (g \circ f) &:\equiv \lambda x. h((g \circ f)(x)) \\ 
+&\equiv \lambda x. h((\lambda y.g(f(y)))(x)) \\
+&\equiv \lambda x. h(g(f(x))) \\
+&\equiv \lambda x. (\lambda y. h(g(y)))(f(x)) \\
+&\equiv (h \circ g) \circ f.
+\end{aligned}\]
+
+******* TODO Exercise 1.2
+******* TODO Exercise 1.3
+******* TODO Exercise 1.4
+#+begin_statement
+Assuming as given only the iterator for natural numbers
+
+\[
+\mathsf{iter} : \prod_{C:{\cal U}} C \to (C \to C) \to \mathbb{N} \to C.
+\]
+
+with the defining equations
+
+ * $\mathsf{iter}(C,c_0,c_s,0) :\equiv c_{0}$,
+ * $\mathsf{iter}(C,c_0,c_s,\succ(n)) :\equiv c_s(\mathsf{iter}(C,c_0,c_s,n))$,
+
+....
+#+end_statement
+
+******* TODO Exercise 1.5
+******* DONE Exercise 1.10
+#+begin_statement
+Show that the Ackermann function $\mathsf{ack} : \mathbb{N} \to \mathbb{N} \to \mathbb{N}$ is definable using
+only $\mathsf{rec}_{\mathbb{N}}$ satisfying the following equations
+
+ * $\mathsf{ack}(0,n) \equiv \mathsf{succ}(n)$,
+
+ * $\mathsf{ack}( \mathsf{succ}(m),0) \equiv \mathsf{ack}(m,1)$,
+
+ * $\mathsf{ack}(\mathsf{succ}(m), \mathsf{succ}(n)) \equiv \mathsf{ack}(m, \mathsf{ack}(\succ(m),n)$.
+#+end_statement
+
+We can define
+
+\[
+\rec_{\mathbb{N}}\ \succ\ 
+(\lambda m. \lambda a_m. 
+\rec_{\mathbb{N}}\ (a_m\ 1)\ (\lambda n. \lambda a_{mn}. a_m\ a_{mn})
+)
+\]
+
+where we can take $a_{m}$ to mean the $\mathsf{ack}$ function partially applied to $m$,
+whereas we can take $a_{mn}$ to mean $\mathsf{ack}(m,n)$. With these definitions, we
+have the base and successor equalities judgmentally.
+
+******* DONE Exercise 1.11
+#+begin_statement
+Show that for any type $A$ we have $\neg\neg\neg A \to \neg A$.
+#+end_statement
+
+We write the function 
+
+\[
+\lambda f. \lambda a. f (\lambda h. h(a)) : \neg\neg\neg A \to \neg A
+\]
+
+where $f : \neg\neg\neg A$, $h : \neg A$ and $(\lambda h. h(a)) : \neg\neg A$.
+
+******* DONE Exercise 1.12
+#+begin_statement
+Using the propositions as types interpretation, derive the
+following tautologies
+
+ 1) if A, then (if B then A);
+ 2) if A, then not (not A);
+ 3) if (not A or not B), then not (A and B).
+#+end_statement
+
+We define the following terms
+
+ * $\lambda a.\lambda b.a : A \to (B \to A)$;
+ * $\lambda a.\lambda f.f(a) : A \to \neg\neg A$;
+ * $\lambda u. \rec(u, \lambda f.\lambda (a,b).f(a), \lambda g.\lambda (a,b). g(b))$;
+
+with the desired types.
+
+******* DONE Exercise 1.13
+#+begin_statement
+Using propositions-as-types, derive the double negation of the principle
+of excluded middle, i.e., prove /not (not (P or not P))/.
+#+end_statement
+
+We can define a function
+
+\[
+(\lambda f. f (\inr (\lambda p. f (\inl (p))))) 
+\]
+
+whose type is $\neg (\neg (P \vee \neg P))$ for any given $P$.
+
+******* TODO Exercise 1.15
+******* TODO Exercise 1.16
+#+begin_statement
+Show that addition of natural numbers is commutative,
+
+\[
+\prod_{i,j : \mathbb{N}} i + j = j + i.
+\]
+#+end_statement
+
+We proceed by induction on $i$. In the first case, we have to
+prove $\prod_{j : \mathbb{N}} 0 + j = j + 0$; and this can be done by induction
+on $j$. In fact,
+
+ * $\mathsf{commzero}(0) = \refl_0$,
+ * $\mathsf{commzero}(S(n)) = \ap_{\succ}(\mathsf{commzero}(n))$.
+
+***** 2 Homotopy type theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (91 . 0.083235)
+:END:
+
 In homotopy type theory, each type has the structure of an
 $\infty\text{-groupoid}$, arising from the induction principle for
 identity types.
@@ -6969,7 +7699,11 @@ identity types.
 Homotopy type theory provides a /synthetic/ description of the spaces,
 in contrast with the usual analytic approach of topology.
 
-****** 2.1. Types are higher groupoids
+****** 2.1 Types are higher groupoids
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (95 . 0.682291)
+:END:
+
 ******* 2.1.1. Path inverse
 Given $x,y : A$, there is a function called *inverse*
 
@@ -7041,7 +7775,11 @@ and the *n-fold iterated loop space* recursively as
 
  * $\Omega^{n+1}(A,a) :\equiv \Omega^n(\Omega(A,a))$.
 
-****** 2.2. Functions are functors
+****** 2.2 Functions are functors
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (106 . 0.600341)
+:END:
+
 ******* 2.2.1. Definition of ap
 Given $f: A \to B$, there is an operation
 
@@ -7057,7 +7795,7 @@ We write $\ap_f(p)$ as $f(p)$.
 ******** Proof
 Trivially defined by path induction.
 
-******* 2.2.2. Functioriality of ap
+******* 2.2.2. Functoriality of ap
 Given $f : A \to B$ and $g : B \to C$ and paths $p : x = y$ and
 $q : y = z$, we have
 
@@ -7069,7 +7807,10 @@ $q : y = z$, we have
 ******** Proof
 Trivial by path induction on $p$.
 
-****** 2.3. Type families are fibrations
+****** 2.3 Type families are fibrations
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (107 . 0.773135)
+:END:
 ******* 2.3.1. Transport
 Given $P : A \to {\cal U}$ and $p : x = y$, there exists a function
 
@@ -7128,7 +7869,10 @@ Double path induction.
 
 ******* TODO 2.3.10. Transport precomposition lemma
 ******* TODO 2.3.11. Naturality of transport
-****** 2.4. Homotopies and equivalences
+****** 2.4 Homotopies and equivalences
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (113 . 0.304028)
+:END:
 ******* 2.4.1. Homotopy
 A *homotopy* between $f, g : \prod_{x:A} P(x)$ is a dependent function
 of type
@@ -7230,9 +7974,15 @@ The transport $p : x = y$ for $P \colon A \to {\cal U}$,
 
 has a quasiinverse $\transport^P(p^{-1},-)$.
 
-****** 2.5. Higher groupoid structure of type formers
+****** 2.5 The higher groupoid structure of type formers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (117 . 0.979938)
+:END:
 
-****** 2.6. Cartesian product types
+****** 2.6 Cartesian product types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (119 . 0.680777)
+:END:
 ******* 2.6.2. Cartesian product equalities
 For any $x,y$, the function
 
@@ -7294,7 +8044,10 @@ f(\mathsf{pair}^{=}(p,q)) = \mathsf{pair}^{ =}(g(p),h(q)).
 We first apply induction over $x$, and then path induction over
 $p,q$. We get reflexivity in both sides.
 
-****** 2.7. Sigma types
+****** 2.7 Σ-types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (123 . 0.273722)
+:END:
 ******* 2.7.2. Sigma type equalities
 Given a type family $P : A \to {\cal U}$, there is an equivalence
 
@@ -7398,7 +8151,10 @@ p_{\ast}(u,z) =
 (p_{\ast}(u), \pair^{=}(p,\refl_{p_{\ast}(u)})_{\ast} (z)).
 \]
 
-****** 2.8. The unit type
+****** 2.8 The unit type
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (125 . 0.984877)
+:END:
 ******* Unit type equality
 Given $x,y:1$, we have $(x = y) \simeq 1$.
 
@@ -7412,7 +8168,10 @@ of $1$, and therefore both are equal to $\star$. Given an element $p : x = y$,
 we can apply path induction to get $p = \refl_{x}$ and induction over $x$ to
 get $\refl_{\star}$. As a consequence, $p$ goes to $\refl_{\star}$.
 
-****** 2.9. The function extensionality axiom
+****** 2.9 Π-types and the function extensionality axiom
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (126 . 0.733191)
+:END:
 ******* 2.9.2. happly
 There exists a function
 
@@ -7475,7 +8234,11 @@ Computation rule for function extensionality gives us the value
 of $\happly$.
 
 ******* TODO 2.9.7. Transport equivalence between families
-****** 2.10. Universes and the univalence axiom
+
+****** 2.10 Universes and the univalence axiom
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (129 . 0.774211)
+:END:
 ******* 2.10.1. idtoeqv
 Given any types $A,B : {\cal U}$, there is a function
 
@@ -7499,7 +8262,10 @@ such that
 \]
 
 ******* TODO 2.10.5. Transport and idtoeqv
-****** 2.11. Identity type
+****** 2.11 Identity type
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (131 . 0.796127)
+:END:
 ******* 2.11.1. Aplication of equivalences is an equivalence
 If $f : A \to B$ is an equivalence, so is
 
@@ -7537,7 +8303,10 @@ Given any $a : A$ with $p : x_1 = x_2$,
 By path induction on $p$, we get the composition rules for
 reflexivity.
 
-****** 2.12. Coproducts
+****** 2.12 Coproducts
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (134 . 0.228504)
+:END:
 ******* 2.12.1. Characterization of equalities for coproducts
 Given a coproduct type $A + B$, 
 
@@ -7602,7 +8371,10 @@ and we can proceed by induction on $x$; if $x \equiv \inr(b)$, then we arrive at
 a contradiction in $c$; in other case, $x \equiv \inl(a)$ so we can apply path
 induction on $c$.
 
-****** 2.13. Natural numbers
+****** 2.13 Natural numbers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (137 . 0.857941)
+:END:
 ******* 2.13.0. Codes for identities on natural numbers
 We define $\mathsf{code} \colon \mathbb{N} \to \mathbb{N} \to {\cal U}$ by double recursion as
 
@@ -7688,8 +8460,16 @@ $\encode(\succ(m),\succ(n)) : \code(m,n)$
 
 is well-typed.
 
-****** 2.14. Example: equality of structures
-******* 2.14.1. Semigroup structures
+****** 2.14 Example: equality of structures
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (139 . 0.984877)
+:END:
+
+******* 2.14.1 Lifting equivalences
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (140 . 0.879418)
+:END:
+******** 2.14.1. Semigroup structures
 The type of *semigroup structures* on $A$ is defined as
 
 \[
@@ -7702,7 +8482,7 @@ and a *semigroup* is defined in general as
 \mathsf{Semigroup} :\equiv \sum_{A : {\cal U}} \mathsf{SemigroupStr}(A).
 \]
 
-******* 2.14.1. Induced structures
+******** 2.14.1. Induced structures
 Given an equivalence $e : A \simeq B$, we can transport semigroup
 structures
 
@@ -7736,7 +8516,15 @@ m'(b_1,b_2) &=
 It can be proved that the transported $a'$ works by algebraic
 manipulation using this fact.
 
-****** 2.15. Universal properties
+******* 2.14.2 Equality of semigroups
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (142 . 0.612707)
+:END:
+
+****** 2.15 Universal properties
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (143 . 0.779086)
+:END:
 ******* 2.15.2. Universal property of the product
 There is an equivalence
 
@@ -7780,8 +8568,146 @@ Given $f : A \to C$ and $g : B \to C$, we define the *pullback* as
 A \times_C B :\equiv \sum_{(a:A)}\sum_{(b:B)}(f(a) = g(b)).
 \]
 
-***** I.3. Sets and logic
-****** 3.1. Sets and n-types
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (146 . 0.729471)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (149 . 0.525005)
+:END:
+******* TODO Exercise 2.1
+#+begin_statement
+Show that the three obvious proofs of Lemma 2.1.2 are pairwise equal.
+#+end_statement
+
+******* TODO Exercise 2.2
+******* TODO Exercise 2.3
+******* TODO Exercise 2.4
+******* TODO Exercise 2.5
+******* TODO Exercise 2.6
+******* TODO Exercise 2.7
+******* TODO Exercise 2.8
+******* TODO Exercise 2.9
+******* DONE Exercise 2.10
+#+begin_statement
+Prove that \Sigma-types are associative, in that for any $A : {\cal U}$ and
+families $B : A \to {\cal U}$ and $C : \left(\sum_{x:A} B(x)\right) \to {\cal U}$, we have
+
+\[
+\left( \sum_{x:A}\sum_{y:B(x)} C(x,y) \right)
+\simeq
+\left( \sum_{p : \sum_{x:A}B(x)} C(p) \right)
+\]
+#+end_statement
+
+We first define a function
+
+\[
+f : \left( \sum_{x:A}\sum_{y:B(x)} C(x,y) \right)
+\to
+\left( \sum_{p : \sum_{x:A}B(x)} C(p) \right)
+\]
+
+by induction on the argument, as
+
+\[
+f (x,y,c) :\equiv ((x,y),c).
+\]
+
+Now we have to prove that this is an equivalence with two homotopies,
+with an inverse defined by induction
+
+\[
+g((x,y),c) :\equiv (x,y,c).
+\]
+
+In fact, given any $(x,y,c)$, or any $((x,y),c)$ it is trivial to check
+that there exist two homotopies. Note how we use induction to get the
+constructors of the pair.
+******* TODO Exercise 2.11
+#+begin_statement
+A homotopy commutative square
+
+\[\begin{tikzcd}
+P\rar{h} \dar[swap]{k} & A \dar{f} \\
+B\rar{g} & C
+\end{tikzcd}\]
+
+consists of functions $f,g,h$ and $k$ as shown, together with a path $f \circ h = g \circ k$.
+Note that this is exactly an element of the pullback $(P \to A) \times_{(P \to C)} (P \to B)$
+as defined in (2.15.11). A commutative square is called a (homotopy)
+*pullback square* if for any $X$, the induced map
+
+\[
+(X \to P) \to (X \to A) \times_{(X \to C)} (X \to B)
+\]
+
+is an equivalence. Prove that the pullback $P :\equiv A \times_C B$ defined in (2.15.11)
+is the corner of a pullback square.
+#+end_statement
+
+******* TODO Exercise 2.12
+******* DONE Exercise 2.13
+#+begin_statement
+Show that $(2 \simeq 2) \simeq 2$.
+#+end_statement
+
+We have $(2 \simeq 2)$ with two possible elements determined by the function
+given by $2 \to 2$. If we take $\id : 2 \to 2$, that is a trivial equivalence,
+and if we take $\neg : 2 \to 2$ we have a different equivalence. 
+
+Now, given any function $f : 2 \to 2$, we can apply induction to both
+$f(1)$ and $f(0)$ and then, by function extensionality, assert that it
+has to be a constant function or some of the previous equivalences.
+We only have two possible equivalences then.
+
+We declare a function taking $\id$ to $\mathsf{true}$ and $\neg$ to $\mathsf{false}$, the inverse
+is trivially defined.
+
+******* DONE Exercise 2.14
+#+begin_statement
+Suppose we add to type theory the equality reflection rule which says
+that if there is an element $p : x = y$, then in fact $x \equiv y$. Prove that
+for any $p : x = x$ we have $p \equiv \refl$.
+#+end_statement
+
+Given any $p : x = y$, we have $x \equiv y$, and we can prove the (well-typed!)
+equality $p = \refl$ by path induction. Note that we have used the equality
+reflection rule to prove that 
+
+\[
+\prod_{x,y : A}\prod_{p : x=y} p = \refl_x
+\]
+
+is actually well-typed.
+
+******* TODO Exercise 2.15
+******* TODO Exercise 2.16
+#+begin_statement
+Suppose that rather than function extensionality (Axiom 2.9.3),
+we suppose only the existence of an element
+
+\[
+\mathsf{funext} : \prod_{A:{\cal U}} \prod_{B:A \to {\cal U}} \prod_{f,g : \prod_{x:A}B(x)} (f \sim g) \to (f = g).
+\]
+#+end_statement
+
+******* TODO Exercise 2.18
+#+begin_statement
+State and prove a version of Lemma 2.4.3 for dependent functions.
+#+end_statement
+
+***** 3 Sets and logic
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (153 . 0.083235)
+:END:
+
+****** 3.1 Sets and n-types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (153 . 0.661767)
+:END:
 ******* 3.1.1. Sets
 A type $A$ is a *set* if every two equalities $p,q : x =_A y$ are equal.
 
@@ -7847,7 +8773,11 @@ function $\mathrm{not}\colon 2 \to 2$ which is an equivalence; by univalence,
 there exists $\ua(\mathrm{not}) \colon 2 = 2$ which is not $\refl$. If it were
 $\refl$, then, by univalence, $0_2 = 1_2$.
 
-****** 3.2. Propositions as types?
+****** 3.2 Propositions as types?
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (156 . 0.601855)
+:END:
+
 ******* 3.2.2. Negation of double negation
 It is not true that $\neg(\neg A) \to A$ for each $A : {\cal U}$.
 
@@ -7889,7 +8819,11 @@ It is not true that $A + (\neg A)$ for each $A \colon {\cal U}$.
 An element of type $\prod_{A:{\cal U}} \neg\neg A \to A$ can be constructed from
 an element of type $\prod_{A:{\cal U}} A + (\neg A)$.
 
-****** 3.3. Mere propositions
+****** 3.3 Mere propositions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (158 . 0.984877)
+:END:
+
 ******* 3.3.1. Mere proposition
 A type $P$ is a *mere proposition* when
 
@@ -7941,7 +8875,11 @@ If we have $f,g : \isSet(A)$ we know that $f(x,y,p,q) = g(x,y,p,q)$
 because $x = y$ is a mere proposition from the fact that $A$ is a set.
 By function extensionality, $f = g$.
 
-****** 3.4. Classical vs. intuitionistic logic
+****** 3.4 Classical vs. intuitionistic logic
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (161 . 0.251814)
+:END:
+
 ******* 3.4.1. Law of excluded middle
 We define the *law of excluded middle* as
 
@@ -7975,7 +8913,10 @@ The law of excluded middle can be assumed as an axiom.
 The Law of excluded middle says that all mere propositions are
 decidable.
 
-****** 3.5. Subsets and propositional resizing
+****** 3.5 Subsets and propositional resizing
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (163 . 0.371394)
+:END:
 ******* 3.5.1. Uniqueness of dependent sum of mere propositions
 Given $P \colon A \to {\cal U}$ such that $P(a)$ is always a mere proposition;
 if $u,v \colon \sum_{x:A}P(x)$ are such that $\proj_1(u) = \proj_1(v)$, then
@@ -8028,11 +8969,19 @@ If propositional resizing is true, we can define
 \]
 
 which is independent of the universe.
-****** 3.6. Logic of mere propositions
+****** 3.6 The logic of mere propositions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (165 . 0.61291)
+:END:
 ******* TODO 3.6.1. Product of mere propositions is a mere proposition
 ******* TODO 3.6.2. Dependent functions to mere propositions are mere propositions
 ******* TODO 3.6.2. Sums of mere propositions are not mere propositions
-****** 3.7. Propositional truncation
+
+****** 3.7 Propositional truncation
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (166 . 0.643534)
+:END:
+
 ******* 3.7.0. Propositional truncation type
 For any $A$ there is a *truncation type* $\trunc{A}$, with constructors
 
@@ -8074,7 +9023,11 @@ We define
  * $A \setminus \left\{ x:A\mid P(x) \right\} :\equiv \left\{ x:A \mid \neg P(x) \right\}$.
 
 Note how the latter are not complements in the absence of LEM.
-****** 3.8. The axiom of choice
+
+****** 3.8 The axiom of choice
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (168 . 0.729181)
+:END:
 ******* 3.8.1. The axiom of choice
 Given a $X$ and type families $A : X \to {\cal U}$, $P : \prod_{x:X} (A(x) \to {\cal U})$
 such that $X$ and $A(x)$ are always sets and $P(x,a)$ is always a
@@ -8108,7 +9061,10 @@ for any $X$ and $Y(x)$ always sets.
 
 ******* TODO 3.8.5. Counterexample to the simpler version
 
-****** 3.9. The principle of unique choice
+****** 3.9 The principle of unique choice
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (171 . 0.234132)
+:END:
 ******* 3.9.1. Equivalence of mere propositions and truncations
 If $P$ is a mere proposition, $P \simeq \trunc{P}$.
 
@@ -8127,8 +9083,15 @@ Then $\prod_{x:A}P(x)$.
 
 ******** TODO Proof
 
-****** 3.10. When are propositions truncated?
-****** 3.11. Contractibility
+****** 3.10 When are propositions truncated?
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (172 . 0.437266)
+:END:
+
+****** 3.11 Contractibility
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (175 . 0.459436)
+:END:
 ******* 3.11.1. Contractible type
 A type $A$ is *contractible*, or *singleton* if there is a center of
 contraction $a : A$ such that $a = x$ for all $x : A$.
@@ -8169,8 +9132,89 @@ also a set, so $x=y$ must be contractible.
 If $x=y$ is contractible, it is inhabited, so $A$ is a mere
 proposition.
 
-***** I.4. Equivalences
-****** 4.1. Quasi-inverses
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (178 . 0.596795)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (179 . 0.721841)
+:END:
+******* DONE Exercise 3.1
+#+begin_statement
+Prove that if $A \simeq B$ and $A$ is a set, then so is $B$.
+#+end_statement
+
+The equivalence gives us a pair of functions $f : A \to B$ and $g : B \to A$
+with homotopies $\eta : g \circ f \sim \id$ and $\epsilon : f \circ g \sim \id$. By naturality of
+$\eta$ we have, for any two paths $p,q : x =_B y$, that
+
+\[\begin{tikzcd}
+fg(x)\rar[equal]{fg(p)} \dar[swap,equal]{\eta_x} & 
+fg(y)\dar[equal]{\eta_y} \\
+x \rar[equal]{p} &
+y
+\end{tikzcd}\]
+
+and
+
+\[\begin{tikzcd}
+fg(x)\rar[equal]{fg(q)} \dar[swap,equal]{\eta_x} & 
+fg(y)\dar[equal]{\eta_y} \\
+x \rar[equal]{q} &
+y
+\end{tikzcd}\]
+
+but $g(p) = g(q)$ because $A$ is a set, so $fg(p) = fg(q)$ and therefore, $p=q$.
+
+******* DONE Exercise 3.2
+#+begin_statement
+Prove that if $A$ and $B$ are sets, then so is $A + B$.
+#+end_statement
+
+Note that $A + B = \prod_{x:2} C(x)$ for some family $C$, and we know that the
+[[*3.1.6. Dependent product of sets is a set][dependent product of sets is a set]].
+
+******* TODO Exercise 3.3
+******* TODO Exercise 3.4
+#+begin_statement
+Show that $A$ is a mere proposition if and only if $A \to A$ is
+contractible.
+#+end_statement
+
+******* TODO Exercise 3.5
+#+begin_statement
+Show that $\isProp(A) \simeq (A \to \isContr(A))$.
+#+end_statement
+
+******* TODO Exercise 3.6
+#+begin_statement
+Show that if $A$ is a mere proposition, then so is $A + (\neg A)$. Thus,
+there is no need to insert a propositional truncation in 3.4.1.
+#+end_statement
+
+******* TODO Exercise 3.9
+#+begin_statement
+Show that if $\LEM$ holds, then the type $\Prop :\equiv \sum_{A:{\cal U}} \isProp(A)$
+is equivalent to $2$.
+#+end_statement
+
+******* TODO Exercise 3.21
+#+begin_statement
+Prove that $\isProp(P) \simeq (P \simeq \trunc{P})$.
+#+end_statement
+
+***** 4 Equivalences
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (183 . 0.083235)
+:END:
+
+****** 4.1 Quasi-inverses
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (184 . 0.216036)
+:END:
+
 ******* 4.1.1. Characterization of the quasi-inverse type
 If given $f : A \to B$, $\qinv{}(f)$ is inhabited,
 
@@ -8207,7 +9251,12 @@ There exists a function such that $\qinv(f)$ is not a mere
 proposition.
 
 ******** TODO Proof
-****** TODO 4.2. Half adjoint equivalences
+
+****** 4.2 Half adjoint equivalences
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (186 . 0.984877)
+:END:
+
 ******* 4.2.1. Half adjoint equivalence
 A function $f : A \to B$ is a *half adjoint equivalence* if
 
@@ -8333,7 +9382,10 @@ Given $f : A \to B$ we define
 
  * its *right inverses*, $\rinv(f) :\equiv \sum_{g \colon B \to A}(f \circ g \sim \id)$.
 
-****** TODO 4.3. Bi-invertible maps
+****** 4.3 Bi-invertible maps
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (192 . 0.224058)
+:END:
 ******* 4.3.1. Bi-invertible
 A function $f : A \to B$ is *bi-invertible* if it
 [[*4.2.7. Left and right inverses][has left and right inverses]]
@@ -8351,7 +9403,11 @@ The type $\biinv(f)$ is a mere proposition for any $f : A \to B$.
 Given $f : A \to B$, we have $\qinv(f) \simeq \ishae(f)$.
 
 ******** TODO Proof
-****** TODO 4.4. Contractible fibers
+
+****** 4.4 Contractible fibers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (192 . 0.979938)
+:END:
 ******* 4.4.1. Contractible maps
 A function $f : A \to B$ is *contractible* if $\fib_f(y)$ is contractible
 for every $y : B$; that is, we define
@@ -8373,7 +9429,11 @@ For any $f$, the type $\isContr(f)$ is a mere proposition.
 For any $f : A \to B$, we have $\isContr(f) \simeq \ishae(f)$.
 
 ******** TODO Proof
-****** 4.5. On the definition of equivalences
+****** 4.5 On the definition of equivalences
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (194 . 0.590656)
+:END:
+
 We have proved equivalent
 
 \[
@@ -8382,7 +9442,11 @@ We have proved equivalent
 
 so we choose $\isequiv{}(f) :\equiv \ishae(f)$.
 
-****** 4.6. Surjections and embeddings
+****** 4.6 Surjections and embeddings
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (195 . 0.172333)
+:END:
+
 ******* 4.6.0. Isomorphisms
 When two sets are equivalent, we say that they is an *isomorphism*
 or a *bijection*.
@@ -8433,7 +9497,11 @@ For any $f : A \to B$,
 \isequiv(f) \simeq \isEmbedding(f) \times \isSurjective(f).
 \]
 
-****** 4.7. Closure properties of equivalences
+****** 4.7 Closure properties of equivalences
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (196 . 0.792414)
+:END:
+
 ******* 4.7.1. The 2-out-of-3 property
 If any two $f,g,g\circ f$ are equivalences, so is the third.
 
@@ -8481,7 +9549,11 @@ if
 
 ******* TODO 4.7.3. Retract of equivalence is equivalence
 ******* TODO 4.7.5. 
-****** TODO 4.8. The object classifier
+
+****** 4.8 The object classifier
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (199 . 0.979938)
+:END:
 ******* TODO 4.8.1. Fiber of a type family
 ******* TODO 4.8.2. 
 ******* 4.8.3. Object classifier
@@ -8501,7 +9573,10 @@ We can define
 
 and now verify that this constitutes an equivalence.
 
-****** 4.9. Univalence implies function extensionality
+****** 4.9 Univalence implies function extensionality
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (202 . 0.553567)
+:END:
 We do not assume function extensionality on this section.
 
 ******* 4.9.1. Weak function extensionality principle
@@ -8531,8 +9606,25 @@ of [[*2.9.3. Function extensionality axiom][function extensionality]].
 
 ******** Proof
 
-***** I.5. Induction
-****** 5.1. Introduction to inductive types
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (205 . 0.335925)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (205 . 0.984877)
+:END:
+
+***** 5 Induction
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (209 . 0.083235)
+:END:
+
+****** 5.1 Introduction to inductive types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (209 . 0.463989)
+:END:
 ******* 5.1.1. Uniqueness of functions over the natural numbers
 Given $f,g : \prod_{n:\mathbb{N}} E(x)$ with
 
@@ -8559,8 +9651,20 @@ f(\succ(n)) = e_s(n,f(n)) = e_s(n,g(n)) = g(\succ(n)).
 \]
 
 ******* TODO 5.2. Uniqueness of inductive types
-****** TODO 5.3. W-types
-****** 5.4. Inductive types are initial algebras
+****** 5.2 Uniqueness of inductive types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (212 . 0.840835)
+:END:
+
+****** 5.3 W-types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (216 . 0.171897)
+:END:
+
+****** 5.4 Inductive types are initial algebras
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (219 . 0.996777)
+:END:
 ******* 5.4.1. N-algebra
 A $\mathbb{N}\text{-algebra}$ is a type with two elements
 
@@ -8589,9 +9693,51 @@ other algebras is contractible; that is
 
 ******* TODO 5.4.5. The naturals are an homotopy initial N-algebra
 ******* TODO 5.4.6. W-algebras
-****** TODO 5.5. Homotopy-inductive types
-***** I.6. Higher inductive types
-****** 6.2. Induction principles and dependent paths
+****** 5.5 Homotopy-inductive types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (223 . 0.673142)
+:END:
+
+****** 5.6 The general syntax of inductive definitions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (228 . 0.348776)
+:END:
+
+****** 5.7 Generalizations of inductive types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (233 . 0.839872)
+:END:
+
+****** 5.8 Identity types and identity systems
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (237 . 0.233446)
+:END:
+
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (242 . 0.701526)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (243 . 0.480867)
+:END:
+
+***** 6 Higher inductive types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (247 . 0.083235)
+:END:
+
+****** 6.1 Introduction
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (247 . 0.377078)
+:END:
+
+****** 6.2 Induction principles and dependent paths
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (249 . 0.979938)
+:END:
+
 ******* 6.2.1. Propositional equality by definition
 In the case of higher inductive types, we give equalities by
 definition that use non-fundamental parts of the type theory,
@@ -8615,7 +9761,10 @@ that
 
 ******** TODO Proof
 
-****** 6.3. The interval
+****** 6.3 The interval
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (255 . 0.575336)
+:END:
 ******* 6.3.0. The interval
 We denote $I$ to the type generated by
 
@@ -8641,8 +9790,15 @@ that path inverse is an inhabitant.
 
 ******* TODO 6.3.2. Extensionality from the interval type
 
-****** TODO 6.4. Circles and spheres
-****** 6.5. Suspensions
+****** 6.4 Circles and spheres
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (257 . 0.229024)
+:END:
+
+****** 6.5 Suspensions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (259 . 0.984877)
+:END:
 ******* 6.5.0. Suspension of a type
 The *suspension* of a type $A$ is a type $\Sigma A$ defined by the
 generators
@@ -8664,11 +9820,65 @@ The circle can be seen as the suspension of the booleans,
 
 ******** TODO Proof
 
-****** TODO 6.6. Cell complexes
+****** 6.6 Cell complexes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (263 . 0.984877)
+:END:
 
-****** TODO 6.7. Hubs and spokes
-***** I.7. Homotopy n-types
-****** 7.1. Definition of n-types
+****** 6.7 Hubs and spokes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (265 . 0.648892)
+:END:
+
+****** 6.8 Pushouts
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (267 . 0.457813)
+:END:
+
+****** 6.9 Truncations
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (271 . 0.620396)
+:END:
+
+****** 6.10 Quotients
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (275 . 0.1231)
+:END:
+
+****** 6.11 Algebra
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (280 . 0.984877)
+:END:
+
+****** 6.12 The flattening lemma
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (287 . 0.415721)
+:END:
+
+****** 6.13 The general syntax of higher inductive definitions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (293 . 0.998326)
+:END:
+
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (296 . 0.348989)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (297 . 0.789835)
+:END:
+
+***** 7 Homotopy n-types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (299 . 0.083235)
+:END:
+
+****** 7.1 Definition of n-types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (299 . 0.984877)
+:END:
 ******* 7.1.1. is-n-type
 We define $\istype{n} : {\cal U} \to {\cal U}$ as
 
@@ -8682,7 +9892,10 @@ We define $\istype{n} : {\cal U} \to {\cal U}$ as
 
 ******* TODO 7.1.4. Retraction of an n-type
 ******* TODO 7.1.5. Equivalence preserves n-types
-****** 7.2. Uniqueness of identity proofs and Hedberg's theorem
+****** 7.2 Uniqueness of identity proofs and Hedberg's theorem
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (304 . 0.230568)
+:END:
 ******* TODO 7.2.0. Uniqueness of identity proofs (UIP)
 
 ******* 7.2.1. Axiom K
@@ -8748,7 +9961,20 @@ Given $x,y : \mathbb{N}$, we proceed by induction in both arguments. In the firs
 case, $\refl_0$ proves the equality; in the case of a successor and a zero,
 we can apply 
 
-****** 7.5. Connectedness
+****** 7.3 Truncations
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (308 . 0.475366)
+:END:
+
+****** 7.4 Colimits of n-types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (315 . 0.536449)
+:END:
+
+****** 7.5 Connectedness
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (320 . 0.65016)
+:END:
 ******* 7.5.1. n-connected function
 A function $f : A \to B$ is *n-connected* if $\trunc{\fib_f(b)}_n$ is
 contractible for all $b : B$.
@@ -8761,44 +9987,93 @@ A type $A$ is *n-connected* if the function $A \to 1$ is.
 
 ******* TODO 7.5.2. Surjectivity is (-1)-connectedness
 A function is (-1)-connected iff it is [[*4.6.1. Surjections and embeddings][surjective]].
+****** 7.6 Orthogonal factorization
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (326 . 0.984877)
+:END:
 
-**** Part II
-***** II.8. Homotopy theory
-****** 8.0. Homotopy theory
-******* 8.0.1. Homotopy groups
+****** 7.7 Modalities
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (332 . 0.979938)
+:END:
+
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (338 . 0.477456)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (339 . 0.682024)
+:END:
+
+**** II Mathematics
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (345 . 0.083235)
+:END:
+
+***** 8 Homotopy theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (347 . 0.083235)
+:END:
+
 We define the *homotopy groups* of a pointed type $(A,a)$ as
 
 \[
 \pi_n(A,a) :\equiv \trunc{\Omega^n(A,a)}_{0}.
 \]
 
-****** 8.1. Fundamental group of the circle
-******* 8.1.1. Universal cover of the circle
+****** 8.1 π₁(S¹)
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (352 . 0.436728)
+:END:
+
+******* 8.1.1 Getting started
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (352 . 0.671895)
+:END:
 We define $\mathsf{code} : \mathbb{S}^1 \to {\cal U}$ by recursion as
 
  * $\mathsf{code}(\mathsf{base}) :\equiv \mathbb{Z}$,
  * $\mathsf{code}(\mathsf{loop}) :\equiv \ua(\succ)$.
 
-******* 8.1.2. Lemma of code transport
+******* 8.1.2 The classical proof
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (353 . 0.646195)
+:END:
 We have that
 
  * $\transport^{\mathsf{code}}(\mathsf{loop},x) = x + 1$,
  * $\transport^{\mathsf{code}}(\mathsf{loop},x) = x -1$.
 
-******** TODO Proof
+******* 8.1.3 The universal cover in type theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (354 . 0.480867)
+:END:
 
-******* 8.1.5. Encode
+******* 8.1.4 The encode-decode proof
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (356 . 0.704682)
+:END:
+
+******* 8.1.5 The homotopy-theoretic proof
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (359 . 0.827644)
+:END:
 We define the function $\mathsf{encode} : \prod_{x:\mathbb{S}^1}(\base = x) \to \mathsf{code}(x)$ by
 
 \[
 \mathsf{encode}\ p :\equiv \transport^{\mathsf{code}}(p,0).
 \]
 
-******* 8.1.6. Decode
+******* 8.1.6 The universal cover as an identity system
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (361 . 0.409399)
+:END:
 We can define a function $\mathsf{decode} : \prod_{x:\mathbb{S}^1} \mathsf{code}(x) \to (\base = x)$.
 
 ******** TODO Definition
-******* 8.1.7. Encode-decode of a path
+******* 8.1.7 Encode-decode of a path
 For all $x : \mathbb{S}^1$ and $p : \base = x$,
 
 \[
@@ -8806,13 +10081,231 @@ For all $x : \mathbb{S}^1$ and $p : \base = x$,
 \]
 
 ******** TODO Proof
+****** 8.2 Connectedness of suspensions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (363 . 0.380733)
+:END:
 
-****** TODO 8.2. Connectedness of suspensions
-***** II.9. Category theory
-***** II.10. Set theory
-***** II.11. Real numbers
-****** 11.2.1. Dedekind reals
-******* 11.2.1. Dedekind cuts
+****** 8.3 π_(k≤n) of an n-connected space and π_(k<n)(Sⁿ)
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (365 . 0.2169)
+:END:
+
+****** 8.4 Fiber sequences and the long exact sequence
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (365 . 0.842291)
+:END:
+
+****** 8.5 The Hopf fibration
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (371 . 0.459893)
+:END:
+
+******* 8.5.1 Fibrations over pushouts
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (372 . 0.66545)
+:END:
+
+******* 8.5.2 The Hopf construction
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (374 . 0.446319)
+:END:
+
+******* 8.5.3 The Hopf fibration
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (375 . 0.996941)
+:END:
+
+****** 8.6 The Freudenthal suspension theorem
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (378 . 0.839517)
+:END:
+
+****** 8.7 The van Kampen theorem
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (386 . 0.69401)
+:END:
+
+******* 8.7.1 Naive van Kampen
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (387 . 0.556292)
+:END:
+
+******* 8.7.2 The van Kampen theorem with a set of basepoints
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (393 . 0.233446)
+:END:
+
+****** 8.8 Whitehead's theorem and Whitehead's principle
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (397 . 0.828618)
+:END:
+
+****** 8.9 A general statement of the encode-decode method
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (402 . 0.451157)
+:END:
+
+****** 8.10 Additional Results
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (404 . 0.424413)
+:END:
+
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (405 . 0.501647)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (407 . 0.37052)
+:END:
+
+***** 9 Category theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (409 . 0.083235)
+:END:
+
+****** 9.1 Categories and precategories
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (410 . 0.745723)
+:END:
+
+****** 9.2 Functors and transformations
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (415 . 0.260174)
+:END:
+
+****** 9.3 Adjunctions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (419 . 0.682161)
+:END:
+
+****** 9.4 Equivalences
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (420 . 0.744738)
+:END:
+
+****** 9.5 The Yoneda lemma
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (427 . 0.984877)
+:END:
+
+****** 9.6 Strict categories
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (431 . 0.979938)
+:END:
+
+****** 9.7 †-categories
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (432 . 0.979938)
+:END:
+
+****** 9.8 The structure identity principle
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (434 . 0.399634)
+:END:
+
+****** 9.9 The Rezk completion
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (437 . 0.98337)
+:END:
+
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (447 . 0.083235)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (448 . 0.634425)
+:END:
+
+***** 10 Set theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (451 . 0.083235)
+:END:
+
+****** 10.1 The category of sets
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (452 . 0.193966)
+:END:
+
+******* 10.1.1 Limits and colimits
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (452 . 0.367507)
+:END:
+
+******* 10.1.2 Images
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (452 . 0.779886)
+:END:
+
+******* 10.1.3 Quotients
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (457 . 0.21413)
+:END:
+
+******* 10.1.4 Set is a ΠW-pretopos
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (459 . 0.980218)
+:END:
+
+******* 10.1.5 The axiom of choice implies excluded middle
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (461 . 0.295056)
+:END:
+
+****** 10.2 Cardinal numbers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (463 . 0.255527)
+:END:
+
+****** 10.3 Ordinal numbers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (466 . 0.992398)
+:END:
+
+****** 10.4 Classical well-orderings
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (474 . 1.009469)
+:END:
+
+****** 10.5 The cumulative hierarchy
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (478 . 0.680281)
+:END:
+
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (485 . 0.979938)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (486 . 0.727911)
+:END:
+
+***** 11 Real numbers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (491 . 0.083235)
+:END:
+
+****** 11.1 The field of rational numbers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (492 . 0.622338)
+:END:
+
+****** 11.2 Dedekind reals
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (493 . 0.485995)
+:END:
+
+******* 11.2.1 The algebraic structure of Dedekind reals
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (495 . 0.639703)
+:END:
+******** Dedekind cuts
 A *Dedekind cut* is a pair $(L,U)$ of mere predicates such that
 it is
 
@@ -8837,11 +10330,11 @@ of these conditions. The set of *Dedekind reals* is defined as
 \mid \isCut(L,U) \right\}. 
 \]
 
-******* 11.2.1. Rational embedding
+******** Rational embedding
 To each rational $q$, we associate $L_q(r) :\equiv (r < q)$ and
 $U_q(r) :\equiv (q < r)$.
 
-******* 11.2.1. Algebraic structure
+******** Algebraic structure
 We define addition as
 
 \[
@@ -8858,31 +10351,31 @@ L_x(a) \land U_x(b) \land L_y(c) \land U_y(d) \land \\
 
 This has structure of commutative ring.
 
-******* TODO 11.2.1. Order
-******* TODO 11.2.2. Order and cuts
-******* 11.2.3. Weak linearity
+******** TODO Order
+******** Weak linearity
 Linearity, $(x < y) \lor (y \leq x)$, is valid only if we assume LEM. We
 have *weak linearity* $(x < y) \to (x < z) \lor (z < y)$.
-
-******* 11.2.3. Apartness
+******** Apartness
 \[
 (x \apart y) :\equiv (x < y) \lor (y < x)
 \]
 
 we have $(x \apart y) \to \neg (x = y)$, but the converse is not true.
 
-******** TODO Apartness is cotransitive
-******* 11.2.4. Invertibility
+********* TODO Apartness is cotransitive
+******** Invertibility
 A real is invertible if and only if it is apart from 0.
 
-******* 11.2.6. Archimedean principle for Rd
+******** Archimedean principle for Rd
 If $x,y : \mathbb{R}$ such that $x < y$, then there merely exists $q : \mathbb{Q}$
 such that $x < q < y$.
 
-******* TODO 11.2.8. Dedekind reals form an ordered archimedean field
 
-****** 11.2.2. Dedekind reals are Cauchy complete
-******* Cauchy sequence
+******* 11.2.2 Dedekind reals are Cauchy complete
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (498 . 1.003216)
+:END:
+******** Cauchy sequence
 A sequence $x : \mathbb{N} \to \mathbb{Q}$ is *Cauchy* if
 
 \[
@@ -8893,7 +10386,7 @@ A sequence $x : \mathbb{N} \to \mathbb{Q}$ is *Cauchy* if
 note how we can get a modulus of convergence out of this explicit
 existential by Theorem of Choice.
 
-******* Cauchy approximation
+******** Cauchy approximation
 A *Cauchy approximation* is a map $x \colon \mathbb{Q}_+ \to \mathbb{R}_d$ such that
 
 \[
@@ -8907,16 +10400,52 @@ and its *limit* is $l : \mathbb{R}_d$ such that
 \forall (\epsilon, \theta : \mathbb{Q}_+), |x_{\epsilon}- l| < \epsilon + \theta
 \]
 
-******* Completeness for Cauchy approximations
+******** Completeness for Cauchy approximations
 Every Cauchy approximation has a limit.
 
-******** TODO Proof
+********* TODO Proof
 
-******* TODO Completeness for Cauchy sequences
-****** TODO 11.2.3. Dedekind reals are Dedekind complete
-****** 11.3.0. Cauchy reals
-****** 11.4. Comparison of Cauchy and Dedekind reals
-****** 11.5. Compactness of the interval
+******** TODO Completeness for Cauchy sequences
+
+******* 11.2.3 Dedekind reals are Dedekind complete
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (500 . 0.669742)
+:END:
+
+****** 11.3 Cauchy reals
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (502 . 0.252284)
+:END:
+
+******* 11.3.1 Construction of Cauchy reals
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (503 . 0.586389)
+:END:
+
+******* 11.3.2 Induction and recursion on Cauchy reals
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (505 . 0.984877)
+:END:
+
+******* 11.3.3 The algebraic structure of Cauchy reals
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (520 . 0.657569)
+:END:
+
+******* 11.3.4 Cauchy reals are Cauchy complete
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (526 . 0.164536)
+:END:
+
+****** 11.4 Comparison of Cauchy and Dedekind reals
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (526 . 0.979938)
+:END:
+
+****** 11.5 Compactness of the interval
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (528 . 0.490225)
+:END:
 ******* Notions of compactness
 
  * *Metrically compact:* Cauchy complete and totally bounded.
@@ -8924,7 +10453,6 @@ Every Cauchy approximation has a limit.
  * *Heine-Borel:* every open cover has a finite subcover.
 
 These are equivalent in classical mathematics.
-****** 11.5. Metrical compactness
 ******* 11.5.1. Metric space
 ******* 11.5.2. Cauchy approximation
 ******* 11.5.2. Complete metric space
@@ -8932,326 +10460,176 @@ These are equivalent in classical mathematics.
 ******* 11.5.3. Totally bounded space
 ******* 11.5.5. Uniform continuity
 ******* 11.5.6. Metrical compactness of the interval
-****** 11.5. Bolzano-Weierstrass and Heine-Borel compactness
-**** Exercises
-***** 1. Exercises: Type theory [5/11]
-****** DONE Exercise 1.1
-#+begin_statement
-Given functions $f : A \to B$ and $g : B \to C$, define their composite
-$g \circ f : A \to C$. Show that we have $h \circ (g \circ f) \equiv (h \circ g) \circ f$.
-#+end_statement
+****** 11.6 The surreal numbers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (537 . 0.300144)
+:END:
+
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (551 . 0.979938)
+:END:
+
+****** Exercises
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (553 . 0.282243)
+:END:
+
+**** Appendix
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (557 . 0.083235)
+:END:
+
+***** A Formal type theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (559 . 0.083235)
+:END:
+
+****** A.1 The first presentation
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (561 . 0.980218)
+:END:
+
+******* A.1.1 Type universes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (563 . 0.450923)
+:END:
+
+******* A.1.2 Dependent function types (Π-types)
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (563 . 0.964715)
+:END:
+
+******* A.1.3 Dependent pair types (Σ-types)
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (564 . 0.529346)
+:END:
+
+******* A.1.4 Coproduct types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (565 . 0.24388)
+:END:
+
+******* A.1.5 The finite types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (565 . 0.540825)
+:END:
+
+******* A.1.6 Natural numbers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (565 . 0.783442)
+:END:
+
+******* A.1.7 W-types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (566 . 0.293082)
+:END:
+
+******* A.1.8 Identity types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (566 . 0.685745)
+:END:
+
+****** A.2 The second presentation
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (566 . 0.987412)
+:END:
+
+******* A.2.1 Contexts
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (567 . 0.777581)
+:END:
+
+******* A.2.2 Structural rules
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (568 . 0.425459)
+:END:
+
+******* A.2.3 Type universes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (569 . 0.650701)
+:END:
+
+******* A.2.4 Dependent function types (Π-types)
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (569 . 0.984877)
+:END:
+
+******* A.2.5 Dependent pair types (Σ-types)
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (571 . 0.260262)
+:END:
+
+******* A.2.6 Coproduct types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (572 . 0.171897)
+:END:
+
+******* A.2.7 The empty type 0
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (572 . 0.859729)
+:END:
+
+******* A.2.8 The unit type 1
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (573 . 0.127758)
+:END:
+
+******* A.2.9 The natural number type
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (573 . 0.543736)
+:END:
+
+******* A.2.10 Identity types
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (574 . 0.25004)
+:END:
+
+******* A.2.11 Definitions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (574 . 0.737321)
+:END:
+
+****** A.3 Homotopy type theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (575 . 0.461918)
+:END:
+
+******* A.3.1 Function extensionality and univalence
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (575 . 0.653945)
+:END:
+
+******* A.3.2 The circle
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (576 . 0.266769)
+:END:
+
+****** A.4 Basic metatheory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (576 . 0.983344)
+:END:
+
+****** Notes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (579 . 0.277915)
+:END:
+
+**** Bibliography
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (581 . 0.083235)
+:END:
+
+**** Index of symbols
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (593 . 0.083235)
+:END:
+
+**** Index
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (601 . 0.305241)
+:END:
 
-We define
-
-\[
-g \circ f :\equiv \lambda x.g(f(x))
-\]
-
-and thus
-
-\[\begin{aligned}
-h \circ (g \circ f) &:\equiv \lambda x. h((g \circ f)(x)) \\ 
-&\equiv \lambda x. h((\lambda y.g(f(y)))(x)) \\
-&\equiv \lambda x. h(g(f(x))) \\
-&\equiv \lambda x. (\lambda y. h(g(y)))(f(x)) \\
-&\equiv (h \circ g) \circ f.
-\end{aligned}\]
-
-****** TODO Exercise 1.2
-****** TODO Exercise 1.3
-****** TODO Exercise 1.4
-#+begin_statement
-Assuming as given only the iterator for natural numbers
-
-\[
-\mathsf{iter} : \prod_{C:{\cal U}} C \to (C \to C) \to \mathbb{N} \to C.
-\]
-
-with the defining equations
-
- * $\mathsf{iter}(C,c_0,c_s,0) :\equiv c_{0}$,
- * $\mathsf{iter}(C,c_0,c_s,\succ(n)) :\equiv c_s(\mathsf{iter}(C,c_0,c_s,n))$,
-
-....
-#+end_statement
-
-****** TODO Exercise 1.5
-****** DONE Exercise 1.10
-#+begin_statement
-Show that the Ackermann function $\mathsf{ack} : \mathbb{N} \to \mathbb{N} \to \mathbb{N}$ is definable using
-only $\mathsf{rec}_{\mathbb{N}}$ satisfying the following equations
-
- * $\mathsf{ack}(0,n) \equiv \mathsf{succ}(n)$,
-
- * $\mathsf{ack}( \mathsf{succ}(m),0) \equiv \mathsf{ack}(m,1)$,
-
- * $\mathsf{ack}(\mathsf{succ}(m), \mathsf{succ}(n)) \equiv \mathsf{ack}(m, \mathsf{ack}(\succ(m),n)$.
-#+end_statement
-
-We can define
-
-\[
-\rec_{\mathbb{N}}\ \succ\ 
-(\lambda m. \lambda a_m. 
-\rec_{\mathbb{N}}\ (a_m\ 1)\ (\lambda n. \lambda a_{mn}. a_m\ a_{mn})
-)
-\]
-
-where we can take $a_{m}$ to mean the $\mathsf{ack}$ function partially applied to $m$,
-whereas we can take $a_{mn}$ to mean $\mathsf{ack}(m,n)$. With these definitions, we
-have the base and successor equalities judgmentally.
-
-****** DONE Exercise 1.11
-#+begin_statement
-Show that for any type $A$ we have $\neg\neg\neg A \to \neg A$.
-#+end_statement
-
-We write the function 
-
-\[
-\lambda f. \lambda a. f (\lambda h. h(a)) : \neg\neg\neg A \to \neg A
-\]
-
-where $f : \neg\neg\neg A$, $h : \neg A$ and $(\lambda h. h(a)) : \neg\neg A$.
-
-****** DONE Exercise 1.12
-#+begin_statement
-Using the propositions as types interpretation, derive the
-following tautologies
-
- 1) if A, then (if B then A);
- 2) if A, then not (not A);
- 3) if (not A or not B), then not (A and B).
-#+end_statement
-
-We define the following terms
-
- * $\lambda a.\lambda b.a : A \to (B \to A)$;
- * $\lambda a.\lambda f.f(a) : A \to \neg\neg A$;
- * $\lambda u. \rec(u, \lambda f.\lambda (a,b).f(a), \lambda g.\lambda (a,b). g(b))$;
-
-with the desired types.
-
-****** DONE Exercise 1.13
-#+begin_statement
-Using propositions-as-types, derive the double negation of the principle
-of excluded middle, i.e., prove /not (not (P or not P))/.
-#+end_statement
-
-We can define a function
-
-\[
-(\lambda f. f (\inr (\lambda p. f (\inl (p))))) 
-\]
-
-whose type is $\neg (\neg (P \vee \neg P))$ for any given $P$.
-
-****** TODO Exercise 1.15
-****** TODO Exercise 1.16
-#+begin_statement
-Show that addition of natural numbers is commutative,
-
-\[
-\prod_{i,j : \mathbb{N}} i + j = j + i.
-\]
-#+end_statement
-
-We proceed by induction on $i$. In the first case, we have to
-prove $\prod_{j : \mathbb{N}} 0 + j = j + 0$; and this can be done by induction
-on $j$. In fact,
-
- * $\mathsf{commzero}(0) = \refl_0$,
- * $\mathsf{commzero}(S(n)) = \ap_{\succ}(\mathsf{commzero}(n))$.
-
-***** 2. Exercises: Homotopy type theory [3/17]
-****** TODO Exercise 2.1
-#+begin_statement
-Show that the three obvious proofs of Lemma 2.1.2 are pairwise equal.
-#+end_statement
-
-****** TODO Exercise 2.2
-****** TODO Exercise 2.3
-****** TODO Exercise 2.4
-****** TODO Exercise 2.5
-****** TODO Exercise 2.6
-****** TODO Exercise 2.7
-****** TODO Exercise 2.8
-****** TODO Exercise 2.9
-****** DONE Exercise 2.10
-#+begin_statement
-Prove that \Sigma-types are associative, in that for any $A : {\cal U}$ and
-families $B : A \to {\cal U}$ and $C : \left(\sum_{x:A} B(x)\right) \to {\cal U}$, we have
-
-\[
-\left( \sum_{x:A}\sum_{y:B(x)} C(x,y) \right)
-\simeq
-\left( \sum_{p : \sum_{x:A}B(x)} C(p) \right)
-\]
-#+end_statement
-
-We first define a function
-
-\[
-f : \left( \sum_{x:A}\sum_{y:B(x)} C(x,y) \right)
-\to
-\left( \sum_{p : \sum_{x:A}B(x)} C(p) \right)
-\]
-
-by induction on the argument, as
-
-\[
-f (x,y,c) :\equiv ((x,y),c).
-\]
-
-Now we have to prove that this is an equivalence with two homotopies,
-with an inverse defined by induction
-
-\[
-g((x,y),c) :\equiv (x,y,c).
-\]
-
-In fact, given any $(x,y,c)$, or any $((x,y),c)$ it is trivial to check
-that there exist two homotopies. Note how we use induction to get the
-constructors of the pair.
-****** TODO Exercise 2.11
-#+begin_statement
-A homotopy commutative square
-
-\[\begin{tikzcd}
-P\rar{h} \dar[swap]{k} & A \dar{f} \\
-B\rar{g} & C
-\end{tikzcd}\]
-
-consists of functions $f,g,h$ and $k$ as shown, together with a path $f \circ h = g \circ k$.
-Note that this is exactly an element of the pullback $(P \to A) \times_{(P \to C)} (P \to B)$
-as defined in (2.15.11). A commutative square is called a (homotopy)
-*pullback square* if for any $X$, the induced map
-
-\[
-(X \to P) \to (X \to A) \times_{(X \to C)} (X \to B)
-\]
-
-is an equivalence. Prove that the pullback $P :\equiv A \times_C B$ defined in (2.15.11)
-is the corner of a pullback square.
-#+end_statement
-
-****** TODO Exercise 2.12
-****** DONE Exercise 2.13
-#+begin_statement
-Show that $(2 \simeq 2) \simeq 2$.
-#+end_statement
-
-We have $(2 \simeq 2)$ with two possible elements determined by the function
-given by $2 \to 2$. If we take $\id : 2 \to 2$, that is a trivial equivalence,
-and if we take $\neg : 2 \to 2$ we have a different equivalence. 
-
-Now, given any function $f : 2 \to 2$, we can apply induction to both
-$f(1)$ and $f(0)$ and then, by function extensionality, assert that it
-has to be a constant function or some of the previous equivalences.
-We only have two possible equivalences then.
-
-We declare a function taking $\id$ to $\mathsf{true}$ and $\neg$ to $\mathsf{false}$, the inverse
-is trivially defined.
-
-****** DONE Exercise 2.14
-#+begin_statement
-Suppose we add to type theory the equality reflection rule which says
-that if there is an element $p : x = y$, then in fact $x \equiv y$. Prove that
-for any $p : x = x$ we have $p \equiv \refl$.
-#+end_statement
-
-Given any $p : x = y$, we have $x \equiv y$, and we can prove the (well-typed!)
-equality $p = \refl$ by path induction. Note that we have used the equality
-reflection rule to prove that 
-
-\[
-\prod_{x,y : A}\prod_{p : x=y} p = \refl_x
-\]
-
-is actually well-typed.
-
-****** TODO Exercise 2.15
-****** TODO Exercise 2.16
-#+begin_statement
-Suppose that rather than function extensionality (Axiom 2.9.3),
-we suppose only the existence of an element
-
-\[
-\mathsf{funext} : \prod_{A:{\cal U}} \prod_{B:A \to {\cal U}} \prod_{f,g : \prod_{x:A}B(x)} (f \sim g) \to (f = g).
-\]
-#+end_statement
-
-****** TODO Exercise 2.18
-#+begin_statement
-State and prove a version of Lemma 2.4.3 for dependent functions.
-#+end_statement
-
-***** 3. Exercises: Sets and logic [2/8]
-****** DONE Exercise 3.1
-#+begin_statement
-Prove that if $A \simeq B$ and $A$ is a set, then so is $B$.
-#+end_statement
-
-The equivalence gives us a pair of functions $f : A \to B$ and $g : B \to A$
-with homotopies $\eta : g \circ f \sim \id$ and $\epsilon : f \circ g \sim \id$. By naturality of
-$\eta$ we have, for any two paths $p,q : x =_B y$, that
-
-\[\begin{tikzcd}
-fg(x)\rar[equal]{fg(p)} \dar[swap,equal]{\eta_x} & 
-fg(y)\dar[equal]{\eta_y} \\
-x \rar[equal]{p} &
-y
-\end{tikzcd}\]
-
-and
-
-\[\begin{tikzcd}
-fg(x)\rar[equal]{fg(q)} \dar[swap,equal]{\eta_x} & 
-fg(y)\dar[equal]{\eta_y} \\
-x \rar[equal]{q} &
-y
-\end{tikzcd}\]
-
-but $g(p) = g(q)$ because $A$ is a set, so $fg(p) = fg(q)$ and therefore, $p=q$.
-
-****** DONE Exercise 3.2
-#+begin_statement
-Prove that if $A$ and $B$ are sets, then so is $A + B$.
-#+end_statement
-
-Note that $A + B = \prod_{x:2} C(x)$ for some family $C$, and we know that the
-[[*3.1.6. Dependent product of sets is a set][dependent product of sets is a set]].
-
-****** TODO Exercise 3.3
-****** TODO Exercise 3.4
-#+begin_statement
-Show that $A$ is a mere proposition if and only if $A \to A$ is
-contractible.
-#+end_statement
-
-****** TODO Exercise 3.5
-#+begin_statement
-Show that $\isProp(A) \simeq (A \to \isContr(A))$.
-#+end_statement
-
-****** TODO Exercise 3.6
-#+begin_statement
-Show that if $A$ is a mere proposition, then so is $A + (\neg A)$. Thus,
-there is no need to insert a propositional truncation in 3.4.1.
-#+end_statement
-
-****** TODO Exercise 3.9
-#+begin_statement
-Show that if $\LEM$ holds, then the type $\Prop :\equiv \sum_{A:{\cal U}} \isProp(A)$
-is equivalent to $2$.
-#+end_statement
-
-****** TODO Exercise 3.21
-#+begin_statement
-Prove that $\isProp(P) \simeq (P \simeq \trunc{P})$.
-#+end_statement
-
-***** 4. Exercises: Equivalences [0/0]
 *** [[https://abooij.github.io/wiwikwlhott/][What I wish I knew when learning HoTT]] - Auke Booij
 *** HoTT-EST seminars
 **** Carlo Angiuli - Computational semantics of cartesian cubical type theory
@@ -13728,6 +15106,17 @@ by homeomorphisms.
 We can take a point on both intervals and see that only one of them
 has to be connected.
 
+**** The fundamental group of a topological group
+Why do we know that the fundamental group of a topological group is abelian?
+
+***** Answer
+By a Eckmann-Hilton argument.
+
+In categorical terms, we can use that the foundamental group functor from
+path-connected topological groups to groups, $\pi_1 \colon \mathsf{pcTop} \to \mathsf{Grp}$, respects
+products. A group object in $\mathsf{pcTop}$ is sent to a group object in $\mathsf{Grp}$, that
+is, an abelian group. ([[https://math.stackexchange.com/a/686923/85067][Math.SE]])
+
 *** Classification of Surfaces - Chen Hui George Tao
 **** 1. Introducción
 Vamos a demostrar que todas las superficies compactas son homeomorfas
@@ -13974,7 +15363,7 @@ and standard textbooks:
 :INTERLEAVE_PDF: ~/pdf/johnstone_the_point_of_pointless_topology.pdf
 :END:
 
-**** Notes for page 3
+**** Frames and locales
 :PROPERTIES:
 :interleave_page_note: 3
 :END:
@@ -13982,8 +15371,17 @@ and standard textbooks:
 Frames and locales.
 
 ***** Frame                                                                                         :drill:locales:
+SCHEDULED: <2018-07-03 Tue>
 :PROPERTIES:
 :ID:       869b43f9-6d28-4f26-b139-0eb67e9649f8
+:DRILL_LAST_INTERVAL: 3.6719
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:20]
 :END:
 *Frame*
 
@@ -14001,8 +15399,17 @@ A poset with
    \]
 
 ***** Locales                                                                                       :drill:locales:
+SCHEDULED: <2018-07-04 Wed>
 :PROPERTIES:
 :ID:       563403ea-8ed2-439b-907f-04f9679da424
+:DRILL_LAST_INTERVAL: 3.9336
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 11:56]
 :END:
 How the category of locales is constructed.
 
@@ -14067,8 +15474,17 @@ is zero when evaluated (interpreted as a n-th order polynomial)
 in the matrix, $p(A) = 0$.
 
 ***** Card                                                                                                  :drill:
+SCHEDULED: <2018-07-04 Wed>
 :PROPERTIES:
 :ID:       69035ffd-8039-4e89-ac2d-f0ae7712d8a1
+:DRILL_LAST_INTERVAL: 4.0564
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 11:52]
 :END:
 Given a characteristic polynomial, $p(\lambda) = \mathrm{det}(\lambda I_n - A)$,
 evaluate $p(A)$ symbolically.
@@ -14077,10 +15493,20 @@ evaluate $p(A)$ symbolically.
 $p(A) = 0$ is the Cayley-Hamilton theorem.
 
 **** Rank-nullity theorem                                                                                    :drill:
+SCHEDULED: <2018-07-03 Tue>
 :PROPERTIES:
 :ID:       b4ed18f9-2f91-4028-8379-6d79acbe6cc3
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:09]
 :END:
-Given $V$ finite dimensional and $T \colon V\to W$ linear,
+Given $V$ finite dimensional and $T \colon V\to W$ linear, state the
+rank-nullity theorem.
 
 ***** Statement
 
@@ -14171,8 +15597,17 @@ Diagramatically,
 :ID:       b3903d4f-4550-414a-8b1f-9a6fdc37048c
 :END:
 **** Norm inequality                                                                                         :drill:
+SCHEDULED: <2018-07-04 Wed>
 :PROPERTIES:
 :ID:       5a7545ad-d087-43f1-affa-07101400c452
+:DRILL_LAST_INTERVAL: 4.1209
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 11:59]
 :END:
 Prove that, for any $N$ norm in a vector space.
 
@@ -14181,7 +15616,7 @@ Prove that, for any $N$ norm in a vector space.
 \]
 
 ***** Answer
-Norm is [[https://en.wikipedia.org/wiki/Norm_(mathematics)][subadditive]]. It is trivial from the properties.
+Norm is [[https://en.wikipedia.org/wiki/Norm_(mathematics)][subadditive]] (triangle inequality). It is trivial from the properties.
 
 *** Algebra: chapter 0 - Aluffi
 **** III. Anillos y módulos
@@ -16943,8 +18378,17 @@ where we can compute the homology:
 *** Basic
 **** Integrals
 ***** Variable change                                                                                       :drill:
+SCHEDULED: <2018-07-05 Thu>
 :PROPERTIES:
 :ID:       d952ab85-d01d-42b8-8d72-735e6d8b9147
+:DRILL_LAST_INTERVAL: 4.5028
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-30 Sat 11:53]
 :END:
 Given $\varphi$ differentiable and $f$ integrable, state the
 integration by substitution rule.
@@ -16999,8 +18443,17 @@ for each $x \in D$ there exists a open $x \in U \subset D$ such that
 \]
 
 ***** Hyperbolic sine                                                                                       :drill:
+SCHEDULED: <2018-07-04 Wed>
 :PROPERTIES:
 :ID:       ad50cfd5-ba16-4bb6-beb4-88764926513f
+:DRILL_LAST_INTERVAL: 5.4797
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:23]
 :END:
 Definition of hyperbolic sine
 
@@ -17009,8 +18462,17 @@ Definition of hyperbolic sine
 \sinh(x) = \frac{e^x-e^{-x}}{2}
 \]
 ***** Hyperbolic cosine                                                                                     :drill:
+SCHEDULED: <2018-07-03 Tue>
 :PROPERTIES:
 :ID:       8abc2ece-687c-434c-a63d-52e8ada791bd
+:DRILL_LAST_INTERVAL: 3.9682
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:31]
 :END:
 Definition of hyperbolic cosine
 
@@ -18523,8 +19985,17 @@ Monads can be defined in terms of unit, join and map. They can also be defined
 in terms of unit and bind.
 *** Qiaochu Yuan - [[https://qchu.wordpress.com/2018/02/07/gradient-descent/][Gradient descent]]                                                                        :analysis:
 **** Problem with gradient descent                                                                           :drill:
+SCHEDULED: <2018-07-03 Tue>
 :PROPERTIES:
 :ID:       ccf30e30-56c9-407c-b2cb-c1b7d364c07c
+:DRILL_LAST_INTERVAL: 4.1408
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:27]
 :END:
 Problem with gradient descent and units.
 
