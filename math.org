@@ -14,6 +14,8 @@
 #+latex_header: \usepackage{amsthm}
 #+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{amssymb}
+#+latex_header: \usepackage{amsbsy}
+#+latex_header: \usepackage{bm}
 #+latex_header: \usepackage{stmaryrd}
 #+latex_header: \usepackage{mathtools}
 #+latex_header: \usepackage{mathabx}
@@ -361,17 +363,17 @@ Having all equalizers and
 
 **** Monoidal and enriched categories
 ***** Preadditive category                                                                                  :drill:
-SCHEDULED: <2018-07-02 Mon>
+SCHEDULED: <2018-07-16 Mon>
 :PROPERTIES:
 :ID:       01815e4d-7bf6-473c-a818-f5a4f3568967
-:DRILL_LAST_INTERVAL: 4.5907
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 11
+:DRILL_LAST_INTERVAL: 14.1346
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 12
 :DRILL_FAILURE_COUNT: 3
-:DRILL_AVERAGE_QUALITY: 3.818
-:DRILL_EASE: 3.0
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-27 Wed 13:07]
+:DRILL_AVERAGE_QUALITY: 3.916
+:DRILL_EASE: 3.1
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 10:03]
 :END:
 Definition of [[https://en.wikipedia.org/wiki/Preadditive_category][preadditive category]]
 
@@ -2774,7 +2776,6 @@ c & c \times c \rar[swap]{q}\lar{p} & c
 commutes. This arrow is often called the /diagonal arrow/ of $c$. If $C = \mathtt{Set}$, show
 that $\delta_cx = \left\langle x,x \right\rangle$ for $x \in c$.
 #+end_statement
-
 *** Category theory - Awodey
 :PROPERTIES:
 :INTERLEAVE_PDF: ~/pdf/awodey_category_theory.pdf
@@ -2861,18 +2862,18 @@ arrows of C as certain “structured sets” and (all of) their
 :END:
 
 ****** Yoneda lemma                                                                                        :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-11 Wed>
 :PROPERTIES:
 :INTERLEAVE_PAGE_NOTE: (172 . 0.3826443457464981)
 :ID:       2c7b9f5c-4064-4abe-be4f-953e7b83c626
-:DRILL_LAST_INTERVAL: 3.474
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 8.3693
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-30 Sat 18:39]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 22:58]
 :END:
 
 Statement of the Yoneda lemma.
@@ -3456,6 +3457,571 @@ interpretation of dependent type structure of a category.
 
 We have the same Kripke completeness theorem for the full system of Martin-Lof
 type theory.
+*** Categorical Quantum Mechanics - Vicary
+:PROPERTIES:
+:INTERLEAVE_PDF: ~/pdf/vicary_et_al_categorical_quantum_mechanics.pdf
+:END:
+**** Introduction
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (3 . 0.20950243172465396)
+:END:
+***** Chapters
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: 6
+:END:
+
+ - Chapter 0: notations and conventions; basic category theory.
+ - Chapter 1: monoidal categories; coherence.
+ - Chapter 2: scalars, superposition, adjoints, Born rule.
+ - Chapter 3: entanglement, compact categories.
+ - Chapter 4: cartesian categories and the no-cloning theorem.
+ - Chapter 5: Frobenius structures.
+ - Chapter 6: complementary Frobenius structures, Hopf algebras, quantum groups.
+ - Chapter 7: probabilistic combinations; quantum information.
+ - Chapter 8: higher catgeories.
+
+**** Chapter 0. Basics
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (10 . 0.20950243172465396)
+:END:
+
+***** 0.1 Category theory
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (10 . 0.5761316872427984)
+:END:
+
+****** 0.1.5 Graphical notation
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (17 . 0.11784511784511785)
+:END:
+
+Objects are lines, morphisms are boxes.
+
+#+BEGIN_SRC ditaa
+ A |   
+   |   
+ +-+-+ 
+ | f | 
+ +-+-+ 
+   |   
+ B |   
+#+END_SRC
+
+****** 0.1.7 Natural transformations
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (19 . 0.48447437336326227)
+:END:
+
+******* Group representation                                                                              :drill:
+SCHEDULED: <2018-07-07 Sat>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (20 . 0.17022072577628133)
+:ID:       c7036f69-c690-40c7-8935-f340f1afbf06
+:DRILL_LAST_INTERVAL: 4.8498
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:26]
+:END:
+Definition of *group representation* in terms of categories.
+
+******** Answer
+A functor $G \to \mathsf{Vect}$, where $G$ is a group seen as a category.
+
+******* Cartesian category                                                                                :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (20 . 0.8772914328469884)
+:ID:       f3ca4bb9-cdd3-4625-aee6-f8b1c7bd9c99
+:DRILL_LAST_INTERVAL: 3.996
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:24]
+:END:
+Definition of *cartesian category*.
+
+******** Answer
+A category with products and a terminal object.
+
+***** 0.2 Hilbert spaces                                                                           :hilbert_spaces:
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (22 . 0.24878413767302657)
+:END:
+
+****** 0.2.1 Vector spaces
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (22 . 0.4320987654320988)
+:END:
+
+******* Linear and antilinear maps
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (23 . 0.10475121586232698)
+:END:
+Antilinear map between complex vector spaces.
+
+******** Answer
+An antilinear map $f \colon V \to W$ satisifes
+
+ - $f(u + v) = f(u)+f(v)$ and
+ - $f(av)=a^{\ast}f(v)$,
+
+where the star denotes complex conjugation.
+
+****** 0.2.3 Hilbert spaces
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (24 . 0.7725402169846615)
+:END:
+
+******* Inner product                                                                                     :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (24 . 0.8641975308641976)
+:ID:       5d4200a4-d35f-4a6c-8c81-b776121e144a
+:DRILL_LAST_INTERVAL: 4.4233
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:29]
+:END:
+
+Properties of an inner product on a complex vector
+space $\left\langle -|- \right\rangle \colon V \times V \to \mathbb{C}$.
+
+******** Answer
+
+ - Conjugate symmetric, $\left\langle v|w \right\rangle = \left\langle w|v \right\rangle^{\ast}$.
+
+ - Linear in the second argument, $\left\langle v|aw \right\rangle = a \pair{v|w}$, and $\pair{u|v+w} = \pair{u|v}+\pair{u|w}$.
+
+ - Positive-definite, $\pair{v|v} \geq 0$, and $v = 0 \iff \pair{v|v} = 0$.
+
+******* Hilbert space                                                                                     :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (25 . 0.5892255892255892)
+:ID:       b42ce77e-38f2-4199-9b19-a725e2bd0ef2
+:DRILL_LAST_INTERVAL: 3.8141
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:08]
+:END:
+Definition of Hilbert space.
+
+******** Answer
+A vector space $H$ with an inner product that is /complete/: if $v_1,v_2,\dots$
+satisfy $\sum_{i=0}^{\infty} \norm{v_i} < \infty$, then there exists $v$ such that $\norm{v - \sum_{i=0}^n v_i}$
+tends to zero.
+
+******* Category of Hilbert spaces                                                                        :drill:
+SCHEDULED: <2018-07-07 Sat>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (26 . 0.11784511784511785)
+:ID:       046b9bb0-8969-49c1-9ba9-e5aea6c183f9
+:DRILL_LAST_INTERVAL: 4.5734
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:22]
+:END:
+Define $\mathsf{Hilb}$, the category of Hilbert spaces.
+
+******** Answer
+
+ * Objects are Hilbert spaces.
+ * Morphisms are bounded linear maps.
+ 
+******** Extra
+We call $\mathsf{FHilb}$ to the category of finite-dimensional Hilbert spaces. It
+can be seen that every finite-dimensional space is complete and every
+linear map between finite-dimensional spaces is bounded, therefore,
+$\mathsf{FHilb}$ is equivalent to $\mathsf{FVect}$.
+
+******* TODO Orthogonal basis, orthonormal basis        
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (26 . 0.41900486344930793)
+:END:
+
+****** 0.2.4 Adjoints
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (27 . 0.10475121586232698)
+:END:
+
+******* TODO Linear adjoint
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (27 . 0.17022072577628133)
+:END:
+
+******* TODO Bra, ket notation
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (27 . 0.6677890011223345)
+:END:
+
+****** 0.2.5 Tensor products
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (28 . 0.40591096146651706)
+:END:
+
+******* Tensor product                                                                                    :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (28 . 0.5630377852600075)
+:ID:       547dfdbf-9d97-4151-8172-c11b36204957
+:DRILL_LAST_INTERVAL: 3.9649
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:24]
+:END:
+Categorical definition of tensor product $U \otimes V$.
+
+******** Answer
+A vector space together with a bilinear $f \colon U \times V \to U \otimes V$ such that
+for every bilinear $g \colon U \times V \to W$ there exists a unique $h \colon U \otimes V \to W$
+such that $g = h \circ f$.
+
+\[\begin{tikzcd}
+U \times V \rar{f}\drar[swap]{g} & U \otimes V \dar[dashed]{h} \\
+& W
+\end{tikzcd}\]
+
+We usually write $f(u,v) = u \otimes v$.
+
+******* TODO Tensor product as a functor
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (28 . 0.7856341189674524)
+:END:
+
+******* TODO Kronecker product
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (29 . 0.30115974560419007)
+:END:
+
+***** 0.3 Quantum information                                                                             :quantum:
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (29 . 0.510662177328844)
+:END:
+
+****** 0.3.1 State spaces
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (29 . 0.615413393191171)
+:END:
+
+******* Qubit                                                                                             :drill:
+SCHEDULED: <2018-07-07 Sat>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (29 . 0.7332585110362888)
+:ID:       b49ca4e7-28b3-4734-bb99-0ee21b45db75
+:DRILL_LAST_INTERVAL: 4.887
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:30]
+:END:
+Qubit.
+
+******** Answer
+A qubit is a quantum system with state space $\mathbb{C}^2$.
+
+****** 0.3.2 Compound systems and entanglement
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (30 . 0.6285072951739619)
+:END:
+
+******* Bell basis                                                                                        :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (31 . 0.1964085297418631)
+:ID:       7cee5c9c-5bed-4446-ada2-7ae03dc6e6e7
+:DRILL_LAST_INTERVAL: 4.3135
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:31]
+:END:
+Define the Bell basis of maximally entangled states.
+
+******** Answer
+Basis for a pair of qubits with state $\mathbb{C}^2 \otimes \mathbb{C}^2$.
+
+$\ket{\mathrm{Bell}_0} = \frac{1}{\sqrt{2}} \left( \ket{00} + \ket{11} \right)$
+
+$\ket{\mathrm{Bell}_1} = \frac{1}{\sqrt{2}} \left( \ket{00} - \ket{11} \right)$
+
+$\ket{\mathrm{Bell}_2} = \frac{1}{\sqrt{2}} \left( \ket{01} + \ket{10} \right)$
+
+$\ket{\mathrm{Bell}_3} = \frac{1}{\sqrt{2}} \left( \ket{01} - \ket{10} \right)$
+
+****** 0.3.5 Quantum teleportation
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (34 . 0.35353535353535354)
+:END:
+  
+**** Chapter 1. Monoidal categories                                                                     :categories:
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (36 . 0.26187803965581746)
+:END:
+
+***** 1.1 Monoidal structure                                                                  :monoidal_categories:
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (36 . 0.4320987654320988)
+:END:
+
+****** 1.1.1 Introduction
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (36 . 0.4713804713804714)
+:END:
+
+******* Monoidal category                                                                                 :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (36 . 0.8772914328469884)
+:ID:       4b04f46a-0361-4064-8603-702d914c6b4d
+:DRILL_LAST_INTERVAL: 4.1021
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:23]
+:END:
+Definition of monoidal category.
+
+******** Answer
+A monoidal category is a category $\bm{C}$ with
+
+ * a /tensor product/ functor $\otimes \colon \bm{C} \times \bm{C} \to \bm{C}$,
+
+ * a /unit/ object $I \in \mathrm{Ob}(\bm{C})$,
+
+ * an /associator/ natural isomorphism $\alpha \colon (A \otimes B) \otimes C \to A \otimes (B \otimes C)$,
+
+ * a /left unitor/ natural isomorphism $\lambda \colon (I \otimes A) \to A$,
+
+ * a /right unitor/ natural isomorphism $\rho \colon (I \otimes A) \to A$,
+
+satisfying the triangle and pentagon equations.
+
+******* Coherence theorem                                                                                 :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (37 . 0.8249158249158249)
+:ID:       951ef93a-11a4-492d-a8e3-9db03c450876
+:DRILL_LAST_INTERVAL: 3.9265
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:30]
+:END:
+Statement of the coherence theorem for monoidal categories.
+
+******** Answer
+In a monoidal category where the triangle and pentagon equations hold,
+any well-typed equation built from $\alpha,\lambda,\rho$ and their inverses holds.
+
+******* Monoidal structure of Hilbert spaces
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (38 . 0.27497194163860833)
+:END:
+
+******* Monoidal structure of sets
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (38 . 0.6677890011223345)
+:END:
+
+******* Interchange law                                                                                   :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (39 . 0.6677890011223345)
+:ID:       a4930365-8e6c-492e-8302-a76264af7336
+:DRILL_LAST_INTERVAL: 4.4452
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:11]
+:END:
+State the interchange law in a monoidal category.
+
+******** Answer
+
+\[
+(g \circ f) \otimes (j \circ h) = (g \otimes j) \circ (f \otimes h)
+\]
+
+******** TODO Proof
+
+****** 1.1.2 Graphical calculus
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (40 . 0.10475121586232698)
+:END:
+
+******* TODO Correctness of graphical calculus
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (41 . 0.31425364758698093)
+:END:
+
+******* Planar isotopic diagrams                                                                          :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (41 . 0.3797231575009353)
+:ID:       5352ab2f-5079-48c3-80bb-6cc1a8ce8f29
+:DRILL_LAST_INTERVAL: 4.3203
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:10]
+:END:
+Definition of /planar isotopic/ diagrams for the graphical calculus of
+monoidal categories.
+
+******** Answer
+One can be deformed continuously into the other without introducing
+any intersections.
+
+****** 1.1.3 States and effects
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (42 . 0.49756827534605313)
+:END:
+
+******* State in a monoidal category                                                                      :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (42 . 0.615413393191171)
+:ID:       1001ab93-43e8-41ca-ae3d-1117147e87e1
+:DRILL_LAST_INTERVAL: 4.1854
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:26]
+:END:
+Definition of *state* in a monoidal category.
+
+******** Answer
+A morphism from the unit object $I \to A$.
+
+******* Monoidally well-pointed categories
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (42 . 0.8641975308641976)
+:END:
+
+****** 1.1.4 Product states and entangled states
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (43 . 0.40591096146651706)
+:END:
+
+******* Product state and entangled state
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (43 . 0.5630377852600075)
+:END:
+
+When is $c \colon I \to A \otimes B$ a *product state*? When is it an *entangled state*?
+
+******** Answer
+It is a *product state* if it can be written as $I \to I \otimes I \to A \otimes B$ for
+some $a \otimes b \colon I \otimes I \to A \otimes B$. It is *entangled* when it is not a product
+state.
+
+****** 1.1.5 Effects
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (44 . 0.4320987654320988)
+:END:
+
+******* Effect
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (44 . 0.48447437336326227)
+:END:
+Definition of *effect* in a monoidal category.
+
+******** Answer
+It is a /costate/, a morphism $A \to I$, to the unit object.
+
+***** 1.2 Braiding and symmetry
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (45 . 0.44519266741488966)
+:END:
+
+****** 1.2.1 Braided monoidal categories
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (45 . 0.5892255892255892)
+:END:
+
+******* Braided monoidal category
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (45 . 0.6285072951739619)
+:END:
+Braided monoidal category.
+
+******** Answer
+A monoidal category with a natural isomorphism $\sigma \colon A \otimes B \to B \otimes A$
+satisfying the /hexagon/ equation.
+
+**** Chapter 2. Linear structure
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (62 . 0.1964085297418631)
+:END:
+
+***** 2.1 Scalars
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (62 . 0.4320987654320988)
+:END:
+
+***** 2.2 Superposition
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (65 . 0.5237560793116349)
+:END:
+
+***** 2.3 Daggers
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (72 . 0.34044145155256267)
+:END:
+
+**** Chapter 3. Dual objects
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (83 . 0.1964085297418631)
+:END:
+
+**** Chapter 4. Monoids and comonoids
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (117 . 0.26187803965581746)
+:END:
 
 *** The Catsters
 **** Adjunctions
@@ -3698,7 +4264,6 @@ G\epsilon \circ \eta &= \overline{\epsilon} = 1
 El otro sentido de la demostración se tiene llegando primero a las
 cuatro ecuaciones, y usándolas para definir el isomorfismo
 $(-)$. Falta entonces demostrar su naturalidad.
-
 *** What is an Operad? Part I - Math3ma ([[http://www.math3ma.com/mathema/2017/10/23/what-is-an-operad-part-1][link]])
 An *operad* is a sequence ${\cal O}(1),{\cal O}(2),\dots$ together with compositions
 
@@ -3779,37 +4344,36 @@ What is an example of an operad?
 The endomorphism operad over a vector space $V$, with ${\cal O}(n) = \mathrm{hom}(V^n,V)$.
 
 **** Algebra over an operad                                                                                  :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-07 Sat>
 :PROPERTIES:
 :ID:       9d225db0-ce9b-44a2-ac3e-e16fcf194dbe
-:DRILL_LAST_INTERVAL: 4.3932
+:DRILL_LAST_INTERVAL: 4.1427
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:15]
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 23:05]
 :END:
 Definition of algebra over an operad.
 
 ***** Answer
 Given a vector space $V$, an *O-algebra* is an assignment $\varphi_n \colon {\cal O}(n) \to \mathrm{End}_{V}(n)$
 compatible with $\circ_i$ and $S_n$, compositions and permutations of arguments.
-
 *** What is an Operad? Part II - Math3ma ([[http://www.math3ma.com/mathema/2017/10/30/what-is-an-operad-part-2][link]])
 **** Associative operad                                                                                      :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-14 Sat>
 :PROPERTIES:
 :ID:       9f18443b-0ce6-4a15-b3af-987d37d4affd
-:DRILL_LAST_INTERVAL: 4.3754
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.8819
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:31]
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 23:01]
 :END:
 Definition of the associative operad.
 
@@ -3850,7 +4414,6 @@ a *commutative algebra*.
 **** TODO Associahedra operad
 **** TODO The little k-cubes operad
 **** TODO The simplex operad
-
 ** Categorical logic                                                                                :categories:logic:
 *** Sheaves in geometry and logic - MacLane, Moerdijk
 :PROPERTIES:
@@ -4366,17 +4929,17 @@ A Heyting algebra is a Boolean algebra
 :END:
 
 ***** Sheaf of sets                                                                      :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-07 Sat>
 :PROPERTIES:
 :ID:       9f420f7c-d5e9-4eea-9c8e-8505129e5f02
-:DRILL_LAST_INTERVAL: 3.8386
+:DRILL_LAST_INTERVAL: 4.0288
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
 :DRILL_AVERAGE_QUALITY: 3.0
 :DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:34]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 23:05]
 :END:
 *Sheaf of sets*
 
@@ -4434,19 +4997,19 @@ The change of base functor preserves all topos structure.
 :END:
 
 ***** Elementary form                                                                                       :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-14 Sat>
 :PROPERTIES:
 :ID:       25e51781-23db-44db-b36c-79904e44a812
-:DRILL_LAST_INTERVAL: 4.0675
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 10.785
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_AVERAGE_QUALITY: 3.333
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:34]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 22:57]
 :END:
-Elementary definition of a topos.
+Elementary definition of a topos using powersets.
 
 ****** Answer
 A category with
@@ -4458,6 +5021,10 @@ A category with
  * a subobject classifier
 
  * a powerset for every object.
+
+****** Extra: compare with the definition from cartesian closed categories
+A topos is a cartesian closed category with equalizers and a subobject
+classifier.
 
 **** Notes for page 175
 :PROPERTIES:
@@ -4550,19 +5117,19 @@ C \rar{1}\uar[bend left]{F} & C\uar[bend left]{G^T}
 The comparison functor $K \colon A \to C^T$ is given by $(GA, G\epsilon_A \colon GFGA \to GA)$.
 
 ***** Monadic functor                                                                                       :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-12 Thu>
 :PROPERTIES:
 :ID:       a5ca3d08-dfeb-498a-b2a7-419f30c05272
-:DRILL_LAST_INTERVAL: 4.0224
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 8.9311
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:32]
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 22:56]
 :END:
-When is $G \colon A \to C$ monadic?
+When is $G \colon A \to C$ *monadic*?
 
 ****** Answer
 Has a left adjoint $F \dashv G$ and the comparison functor $K \colon A \to C^T$
@@ -6824,17 +7391,17 @@ morphisms injections. A nominal set is a functor $\mathbb{N} \to \mathrm{Set}$.
 :END:
 
 ***** Principle of micro-affinity                                                                           :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-13 Fri>
 :PROPERTIES:
 :ID:       4b085376-84d9-4589-aab5-31196a37346f
-:DRILL_LAST_INTERVAL: 3.7488
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.3401
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.5
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:13]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 23:04]
 :END:
 Principle of micro-affinity in synthetic differential geometry.
 
@@ -6851,17 +7418,17 @@ f(x + dx) = f(x) + f'(x)dx
 for all nilpotent *infinitesimals* ($dx$ such that $dx^2 = 0$).
 
 ***** Non-standard analysis                                                                                 :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-15 Sun>
 :PROPERTIES:
 :ID:       88710dd8-2f57-4ec3-b686-fa5e9dbf4ffd
-:DRILL_LAST_INTERVAL: 4.2705
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 12.2047
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.5
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:21]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 22:54]
 :END:
 In which fundamental sense are Non-Standard Analysis and Synthetic
 Differential Geometry different?
@@ -6869,7 +7436,7 @@ Differential Geometry different?
 ****** Answer
 
 - Non-Standard Analysis is classical.
-- Synthetic Differential Geometry has nilpotents.
+- Synthetic Differential Geometry has nilpotent infinitesimals.
 **** Notes for page 5
 :PROPERTIES:
 :interleave_page_note: 5
@@ -6898,17 +7465,17 @@ If $a\,dx = b\, dx$ for all infinitesimals $dx$, then $a = b$.
 :END:
 
 ***** Unbounded Turing computable binary trees                                                              :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-15 Sun>
 :PROPERTIES:
 :ID:       b1e4c220-e3a8-426d-a2a7-44794ab561ea
-:DRILL_LAST_INTERVAL: 3.9343
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 11.623
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:19]
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 23:00]
 :END:
 Can an unbounded computable binary tree have no computable infinite
 paths?
@@ -7098,17 +7665,17 @@ Definition of *decidable type family*.
 \]
 
 ***** Contractible type                                                                                     :drill:
-SCHEDULED: <2018-07-01 Sun>
+SCHEDULED: <2018-07-14 Sat>
 :PROPERTIES:
 :ID:       24050684-5b1f-48bc-859b-5169e66d0198
-:DRILL_LAST_INTERVAL: 4.0884
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 12.2834
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.333
-:DRILL_EASE: 2.9
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-27 Wed 13:08]
+:DRILL_AVERAGE_QUALITY: 4.428
+:DRILL_EASE: 3.0
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 10:03]
 :END:
 Definition of *contractible type*.
 
@@ -15021,17 +15588,17 @@ usual type constructors into setoid constructors.
 ** Topology                                                                                                 :topology:
 *** Basic topology
 **** Covering space                                                                                          :drill:
-SCHEDULED: <2018-07-01 Sun>
+SCHEDULED: <2018-07-14 Sat>
 :PROPERTIES:
 :ID:       915fad6c-c2b3-479f-b16d-b24f97abbd13
-:DRILL_LAST_INTERVAL: 4.4901
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 6
+:DRILL_LAST_INTERVAL: 11.6703
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 7
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.333
+:DRILL_AVERAGE_QUALITY: 4.285
 :DRILL_EASE: 2.9
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-27 Wed 13:08]
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 10:04]
 :END:
 Definition of *covering space*.
 
@@ -15346,6 +15913,320 @@ presentación de un modelo.
 ******* Paso 5: Comprobamos que los complementarios están entrelazados
 ******* Paso 6: Llevamos los complementarios juntos
 ******* Paso 7: Comprobamos que es una presentación modelo
+*** Algebraic topology - Hatcher
+:PROPERTIES:
+:INTERLEAVE_PDF: ~/pdf/hatcher_algebraic_topology.pdf
+:END:
+
+**** Preface
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (6 . 0.11447260834014718)
+:END:
+Homotopy: chapters 1,4.
+Homology: chapters 2,3.
+
+**** Chapter 0. Some underlying geometric notions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: 10
+:END:
+
+***** Homotopy and Homotopy Type
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (10 . 0.5437448896156991)
+:END:
+
+****** Homotopy                                                                                            :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (12 . 0.08585445625511039)
+:ID:       0430fbce-28db-480f-be44-0d2648c91e13
+:DRILL_LAST_INTERVAL: 3.7741
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:22]
+:END:
+Homotopy.
+
+******* Answer
+A continuous $H \colon X \times I \to Y$ where $I$ is the interval.
+
+****** Homotopic maps                                                                                      :drill:
+SCHEDULED: <2018-07-07 Sat>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (12 . 0.12878168438266557)
+:ID:       1455591b-7706-427a-88f6-dc925d9ccfb4
+:DRILL_LAST_INTERVAL: 4.5199
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:25]
+:END:
+When are two maps $f, g \colon X \to Y$ *homotopic*? We write $f \simeq g$.
+
+******* Answer
+There is a homotopy $h \colon X \times I \to Y$ such that $h(-,0) = f$ and $h(-,1)=g$.
+        
+****** Retraction                                                                                          :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (12 . 0.20032706459525756)
+:ID:       8b68abf5-6ad3-493c-b919-03cc00cb63e0
+:DRILL_LAST_INTERVAL: 4.0378
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:15]
+:END:
+Topological retraction of $X$ onto $A$.
+
+******* Answer
+A continuous $r \colon X \to X$ such that $r(X)=A$ and $r^2 = r$.
+
+/Retractions are the topological analogs of projection operators./
+
+****** Homotopy equivalent                                                                                 :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (12 . 0.6868356500408831)
+:ID:       892c857e-1de8-4dd9-8372-c12a3c615f89
+:DRILL_LAST_INTERVAL: 3.7422
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:30]
+:END:
+Two spaces $X,Y$ have the same *homotopy type* when...
+
+******* Answer
+There are maps $f \colon X \to Y$ and $g \colon Y \to X$ such that $fg \simeq 1$ and $gf \simeq 1$.
+
+***** Cell Complexes
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (14 . 0.05723630417007359)
+:END:
+
+***** Operations on Spaces
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (17 . 0.21463614063777595)
+:END:
+
+****** Suspensions                                                                                         :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (17 . 0.8728536385936222)
+:ID:       ef6a38f2-95f9-4c3c-bcd6-bbd1ef4f3847
+:DRILL_LAST_INTERVAL: 3.946
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:13]
+:END:
+Suspension of a space $X$.
+
+******* Answer
+Quotient of $X \times I$ after collapsing $X \times \left\{ 0 \right\}$ and $X \times \left\{ 1 \right\}$ to a single
+point.
+
+****** Join
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (18 . 0.25756336876533115)
+:END:
+
+****** Wedge sum
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (19 . 0.17170891251022077)
+:END:
+
+****** Smash product 
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (19 . 0.4292722812755519)
+:END:
+
+**** Chapter 1. The Fundamental Group
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (30 . 0.35772690106295996)
+:END:
+
+***** 1.1 Basic Constructions
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (34 . 0.07154538021259199)
+:END:
+
+****** Paths and Homotopy
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (34 . 0.31479967293540473)
+:END:
+
+****** The Fundamental Group of the Circle
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (38 . 0.05723630417007359)
+:END:
+
+******* Covering space                                                                                    :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (38 . 0.6295993458708095)
+:ID:       491c372e-1503-4599-bbed-dea536d0fd62
+:DRILL_LAST_INTERVAL: 3.9179
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:21]
+:END:
+Covering space of $X$.
+
+******** Answer
+A space $Y$ and a continuous map $p \colon Y \to X$ such that for each $x \in X$,
+there exists a neighborhood $x \in U$ such that $p^{-1}(U)$ is a disjoint union
+of open sets, each of them homeomorphic to $U$ by $p$.
+
+******* Path lifting                                                                                      :drill:
+SCHEDULED: <2018-07-07 Sat>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (38 . 0.8585445625511038)
+:ID:       5fc4e49d-513e-4d87-aba7-5100d02e7bb8
+:DRILL_LAST_INTERVAL: 5.1448
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:13]
+:END:
+How to lift a path $f \colon I \to X$.
+
+******** Answer
+We need a covering space $p \colon Y \to X$.
+
+Given the starting point $x_0 \in X$ and fixing any $y_0 \in p^{-1}(x_0)$, there is
+a unique lift $g \colon I \to Y$ starting at $y_0$.
+
+Same goes for homotopies.
+
+******* TODO Proof of the fundamental group of the circle
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (39 . 0.05723630417007359)
+:END:
+
+******* TODO Fundamental Theorem of Algebra
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (40 . 0.4292722812755519)
+:END:
+
+******* TODO Brouwer fixed point theorem in dimension 2        
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (40 . 0.8871627146361406)
+:END:
+
+******* TODO Borsuk-Ulam theorem
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (41 . 0.7440719542109566)
+:END:
+
+******* Fundamental group of the product space
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (43 . 0.12878168438266557)
+:END:
+If $X$ and $Y$ are path-connected, then $\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$.
+
+******** TODO Proof
+******** Card                                                                                            :drill:
+SCHEDULED: <2018-07-07 Sat>
+:PROPERTIES:
+:ID:       e80528f7-88db-4879-bcdd-224298edfa3b
+:DRILL_LAST_INTERVAL: 4.7264
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:09]
+:END:
+When do we have $\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$?
+
+********* Answer
+When $X$ and $Y$ are path-connected. The fundamental group functor
+preserves products.
+
+****** Induced Homomorphisms
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (43 . 0.615290269828291)
+:END:
+
+******* The fundamental group is a functor
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (43 . 0.8156173344235487)
+:END:
+
+Given $\varphi \colon (X,x_0) \to (Y,y_0)$, we have an induced homomorphism
+$\varphi_{\ast} \colon \pi_1(X,x_0) \to \pi_1(Y,y_0)$ defined by $\varphi_{\ast}[f] = [\varphi f]$. Induced
+homormorphisms preserve composition and identities.     
+
+******* Fundamental group of higher spheres                                                               :drill:
+SCHEDULED: <2018-07-06 Fri>
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (44 . 0.21463614063777595)
+:ID:       c31985b7-6208-4ae1-bc71-8e1c50d3764e
+:DRILL_LAST_INTERVAL: 3.8046
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 20:09]
+:END:
+Compute $\pi_1(S^n)$ for $n > 1$.
+
+******** Answer
+ $\pi_1(S^n) = 0$ for $n > 1$.
+
+***** 1.2 Van Kampen's Theorem
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (49 . 0.25756336876533115)
+:END:
+
+****** Free products of groups
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (50 . 0.07865168539325842)
+:END:
+
+****** The Van Kampen Theorem
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (52 . 0.06554307116104868)
+:END:
+
+***** 1.3 Covering Spaces
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (65 . 0.07865168539325842)
+:END:
+
+**** Chapter 2. Homology
+:PROPERTIES:
+:INTERLEAVE_PAGE_NOTE: (106 . 0.11797752808988764)
+:END:
+
 ** Locales                                                                                          :topology:locales:
 Some [[https://math.stackexchange.com/a/2825138/85067][reference texts on locales]] from SO, quick reviews:
 
@@ -15371,17 +16252,17 @@ and standard textbooks:
 Frames and locales.
 
 ***** Frame                                                                                         :drill:locales:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-07 Sat>
 :PROPERTIES:
 :ID:       869b43f9-6d28-4f26-b139-0eb67e9649f8
-:DRILL_LAST_INTERVAL: 3.6719
+:DRILL_LAST_INTERVAL: 3.7942
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:20]
+:DRILL_TOTAL_REPEATS: 3
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 23:05]
 :END:
 *Frame*
 
@@ -15422,17 +16303,17 @@ The category of locales is the opposite category to the category of frames.
 
 ** Statistics                                                                                             :statistics:
 *** Normal distribution                                                                                       :drill:
-SCHEDULED: <2018-07-02 Mon>
+SCHEDULED: <2018-07-11 Wed>
 :PROPERTIES:
 :ID:       9d9e5534-15b0-4c90-a482-97100e0507bb
-:DRILL_LAST_INTERVAL: 5.2815
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 9.1821
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.572
-:DRILL_EASE: 2.52
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.38
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2018-06-27 Wed 13:07]
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 10:03]
 :END:
 Probability density function of the normal distribution.
 
@@ -15493,17 +16374,17 @@ evaluate $p(A)$ symbolically.
 $p(A) = 0$ is the Cayley-Hamilton theorem.
 
 **** Rank-nullity theorem                                                                                    :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-14 Sat>
 :PROPERTIES:
 :ID:       b4ed18f9-2f91-4028-8379-6d79acbe6cc3
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 10.7013
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:09]
+:DRILL_AVERAGE_QUALITY: 4.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 23:02]
 :END:
 Given $V$ finite dimensional and $T \colon V\to W$ linear, state the
 rank-nullity theorem.
@@ -18462,17 +19343,17 @@ Definition of hyperbolic sine
 \sinh(x) = \frac{e^x-e^{-x}}{2}
 \]
 ***** Hyperbolic cosine                                                                                     :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-13 Fri>
 :PROPERTIES:
 :ID:       8abc2ece-687c-434c-a63d-52e8ada791bd
-:DRILL_LAST_INTERVAL: 3.9682
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.5804
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_AVERAGE_QUALITY: 4.5
 :DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:31]
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 23:00]
 :END:
 Definition of hyperbolic cosine
 
@@ -18483,17 +19364,17 @@ Definition of hyperbolic cosine
 
 **** Measure theory
 ***** Measurable space                                                                                      :drill:
-SCHEDULED: <2018-07-01 Sun>
+SCHEDULED: <2018-07-13 Fri>
 :PROPERTIES:
 :ID:       87ac46cb-8da5-4d58-ab9c-75c766932e94
-:DRILL_LAST_INTERVAL: 4.3657
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 11.0735
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.428
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-27 Wed 13:24]
+:DRILL_AVERAGE_QUALITY: 3.374
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2018-07-02 Mon 10:04]
 :END:
 Definition of *measurable space*.
 
@@ -19985,17 +20866,17 @@ Monads can be defined in terms of unit, join and map. They can also be defined
 in terms of unit and bind.
 *** Qiaochu Yuan - [[https://qchu.wordpress.com/2018/02/07/gradient-descent/][Gradient descent]]                                                                        :analysis:
 **** Problem with gradient descent                                                                           :drill:
-SCHEDULED: <2018-07-03 Tue>
+SCHEDULED: <2018-07-13 Fri>
 :PROPERTIES:
 :ID:       ccf30e30-56c9-407c-b2cb-c1b7d364c07c
-:DRILL_LAST_INTERVAL: 4.1408
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 9.771
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 4.0
 :DRILL_EASE: 2.5
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2018-06-29 Fri 22:27]
+:DRILL_LAST_REVIEWED: [2018-07-03 Tue 23:00]
 :END:
 Problem with gradient descent and units.
 
@@ -20007,6 +20888,39 @@ inverse length.
 
 ** Computability and complexity                                                             :computability:complexity:
 *** P?=NP - Scott Aaronson                                                                         :complexity:paper:
+* Courses
+** Michaelmas
+*** [#A] [[https://courses.maths.ox.ac.uk/node/4651][Algebraic topology]] - Christopher Douglas
+ 1. A. Hatcher, Algebraic Topology (Cambridge University Press, 2001). Chapters 2 and 3.
+ 2. G. Bredon, Topology and Geometry (Springer, 1997). Chapters 4 and 5.
+ 3. J. Vick, Homology Theory, Graduate Texts in Mathematics 145 (Springer, 1973).
+
+*** [#C] [[https://courses.maths.ox.ac.uk/node/4552][Model theory]] - Ehud Hrushovski
+ 1. C.C. Chang and H. Jerome Keisler, Model Theory (Third Edition (Dover Books on Mathematics)Paperback)
+ 2. Tent and Ziegler, A Course in Model Theory, Cambridge University Press, April 2012
+
+*** [#A] [[https://www.cs.ox.ac.uk/teaching/courses/2017-2018/catsproofsprocs/][Categories, proofs and processes]] - Samson Abramsky
+ 1. Abramsky and Tzevelekos, "Introduction to Categories and Categorical Logic",
+
+ 2. Steve Awodey, Category Theory, 2nd ed., OUP (2010)
+ 3. B. C. Pierce, Basic Category Theory for Computer Science, MIT Press (1991)
+ 4. F. W. Lawvere and S. H. Schanuel, Conceptual Mathematics, Cambridge University Press (1997)
+ 5. S. Mac Lane, Categories for the Working Mathematician, 2nd ed., Springer (1998)
+ 6. M. Barr and C. Wells, Category Theory for Computer Science, 2nd ed., Prentice Hall (1995)
+ 7. J.-Y. Girard, Y. Lafont, and P. Taylor, Proofs and Types,
+ 
+*** [[https://courses.maths.ox.ac.uk/node/4188][Topology and groups]] - Marc Lackenby
+*** [[https://courses.maths.ox.ac.uk/node/4614][Homological algebra]] - Andre Henriques
+*** [#C] [[https://courses.maths.ox.ac.uk/node/12627][Computer aided formal verification]] - Alessandro Abate
+*** [[https://courses.maths.ox.ac.uk/node/12628][Foundations of computer science]] - Paul Goldberg
+** Hilary
+*** [#A] [[https://www.cs.ox.ac.uk/teaching/courses/2017-2018/cqm/][Categorical quantum mechanics]] - Jamie Vicary
+Notes.
+
+*** [[https://www.cs.ox.ac.uk/teaching/courses/2017-2018/lambda/][Lambda calculus and types]] - Dan Marsden
+Andrew Ker, lecture notes. Available in course materials
+section. Comprehensive notes on the entire course, including practice
+questions and class exercises.
 * Notes
 ** Ecuaciones diferenciales II
 *** Temas de teoría
